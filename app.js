@@ -14,12 +14,16 @@ function toggleTheme() {
 }
 
 // Immediately invoked function to set the theme on initial load
+// (function () {
+//   if (localStorage.getItem("theme") === "light-theme") {
+//     setTheme("light-theme");
+//   } else {
+//     setTheme("dark-theme");
+//   }
+// })();
+
 (function () {
-  if (localStorage.getItem("theme") === "dark-theme") {
-    setTheme("dark-theme");
-  } else {
-    setTheme("light-theme");
-  }
+  localStorage.setItem("theme", "dark-theme");
 })();
 
 //Sidebar

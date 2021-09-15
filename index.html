@@ -16,34 +16,19 @@
 </head>
 
 <body>
-
-  <!--Vertical Navigation Bar
-
-  <ul id="vertNav" style="text-align: right">
-    <li class="vert"><a href="#about" class="activeVert">About</a></li>
-    <li class="vert"><a href="#projects">Projekte</a></li>
-    <li class="vert"><a href="#skills">Skills</a></li>
-    <li class="vert"><a href="#contact">Kontakt</a></li>
-  </ul> -->
-
-  <!--Horizontal Navigation Bar
-
-  <ul id="horizNav" class="z2">
-    <li class="horiz"><a href="#about" class="activeHoriz">About</a></li>
-    <li class="horiz"><a href="#projects">Projekte</a></li>
-    <li class="horiz"><a href="#skills">Skills</a></li>
-    <li class="horiz"><a href="#contact">Kontakt</a></li>
-  </ul> -->
-
   <div class="background">
     <div class="background-inside"></div>
   </div>
 
-  <ul id="horizNav" class="z100 menu-bar">
-    <li class="horiz"><a href="#about" class="activeHoriz">About</a></li>
-    <li class="horiz"><a href="#projects">Projekte</a></li>
-    <li class="horiz"><a href="#skills">Skills</a></li>
-    <li class="horiz"><a href="#contact">Kontakt</a></li>
+  <ul class="z100 menu-bar">
+    <li class="menu"><a href="#about" class="active">About</a></li>
+    <li class="menu"><a href="#projects">Projekte</a></li>
+    <li class="menu"><a href="#skills">Skills</a></li>
+    <li class="menu"><a href="#contact">Kontakt</a></li>
+    <div class="toggle-btn" id="_1st-toggle-btn">
+      <input type="checkbox" onclick="toggleTheme()" checked>
+      <span></span>
+    </div>
   </ul>
 
   <!--Scroll Indicator
@@ -56,37 +41,7 @@
   
   <div>content...</div> -->
 
-  <!--Theme toggle button-->
-  <div id="main">
-    <button class="z100" id="themeBtn" onclick="toggleTheme()"><i class="fas fa-sun"></i>
-      <!--<i class="fas fa-moon"></i> <i class="fas fa-adjust"></i>--> Theme
-    </button>
-  </div>
-
-  <button class="z100" id="test">
-    See how M1<br class="small"> redefines speed
-  </button>
-
-  <!--Image
-  <svg id="hexagonImage" class="z100" viewBox="0 0 391 391" version="1.1" xmlns="http://www.w3.org/2000/svg" width="391" height="391">
-    <defs>
-      <pattern id="img" patternUnits="userSpaceOnUse" width="100" height="100">
-        <image href="Portrait-PB.jpg" x="-25" width="150" height="100" />
-      </pattern>
-    </defs>
-    <path stroke="none" fill="url(#img)"
-      d="M180.5
-        4.1602540378445a30 30 0 0 1 30 0l143.20508075689 
-        82.679491924311a30 30 0 0 1 15 25.980762113533l0 
-        165.35898384862a30 30 0 0 1 -15 25.980762113533l-143.20508075689 
-        82.679491924311a30 30 0 0 1 -30 0l-143.20508075689 
-        -82.679491924311a30 30 0 0 1 -15 -25.980762113533l2.633606093737e-13 
-        -165.35898384862a30 30 0 0 1 15 -25.980762113533
-        z">
-    </path>
-  </svg> -->
-
-  <div id="aboutMeContainer">
+  <div id="aboutMeWhole">
     <svg id="hexagonImage" class="z100" xmlns="http://www.w3.org/2000/svg" width="411" height="411">
       <defs>
         <clipPath id="image">
@@ -159,7 +114,7 @@
   <style>
     #sideContainer {
       position: absolute;
-      top: 46px;
+      top: 53px;
       right: 0px;
     }
   </style>
@@ -236,7 +191,7 @@
 
   <section class="lockContainer">
     <!--Rectangles-->
-    <div id="rectangle1" class="z-1">
+    <div id="aboutMeContainer" class="z-1">
       <h2 id="aboutMe" class="text_l">About Me</h2>
       <p id="aboutMe" class="text_l">Hallo, ich bin Jonathan, 15 Jahre alt und mache die Lehre als Informatiker -
         Applikationsentwickler. In meiner Freizeit spiele ich gerne Computer -und Konsolenspiele, höre sehr oft ein
@@ -247,7 +202,7 @@
       <button id="contactBtn" onclick="download_cv()"><i class="arrow down"></i>Contact Me</button>
     </div>
 
-    <div id="rectangle2" class="z10">
+    <div id="projectsContainer" class="z10">
       <h2 id="projects" class="text_l">Projects</h2>
       <p id="projects" class="text_l">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
         Projekt,
@@ -256,28 +211,21 @@
   </section>
 
   <section class="lockApple">
-    <div id="rectangleX" class="z10">
+    <div id="apple1" class="z10">
       <h2 id="projects" class="text_l">Projects</h2>
       <p id="projects" class="text_l">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
         Projekt,
         dass ich mache erweitert.</p>
     </div>
 
-    <div id="rectangleY" class="z10">
+    <div id="apple2" class="z10">
       <h2 id="projects" class="text_l">Projects</h2>
       <p id="projects" class="text_l">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
         Projekt,
         dass ich mache erweitert.</p>
     </div>
 
-    <div id="rectangleZ" class="z10">
-      <h2 id="projects" class="text_l">Projects</h2>
-      <p id="projects" class="text_l">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
-        Projekt,
-        dass ich mache erweitert.</p>
-    </div>
-
-    <div id="rectangleB" class="z10">
+    <div id="apple3" class="z10">
       <h2 id="projects" class="text_l">Projects</h2>
       <p id="projects" class="text_l">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
         Projekt,
@@ -462,18 +410,89 @@
     </ul>
   </div>
 
-  <div id="rectangle3" class="z10 lockContainer">
+  <div id="journeyContinuesContainer" class="z10 lockContainer">
     <h2 id="journeyContinues" class="text_l">Die Reise geht weiter!</h2>
     <p id="journeyContinues" class="text_l">Hier werden alle nachfolgenden Projekte aufgelistet, die ich noch auf dieser
       Reise zum Lehrabschluss bestreiten werde.</p>
 
-    <div id="rectangle4" class="z10 lockContainer">
+    <div id="skillsContainer" class="z10 lockContainer">
       <h2 id="skills" class="text_c">Skills</h2>
       <p id="skills" class="text_c">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem Projekt,
         dass ich mache erweitert.</p>
-    </div>
 
-    <div id="rectangle5" class="z-1 lockContainer">
+      <div class="centerItems">
+
+        <!--Hexagon Progressbar1-->
+        <div id="htmlContainer" class="z-1 lockContainer">
+          <div id="wrapper" class="center">
+            <svg class="hex-progress noselect" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
+              <path class="track" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+              <path class="fill" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z" stroke="url(#cl1)">
+              </path>
+              <text class="value" x="50%" y="61%">0%</text>
+              <text class="text" x="50%" y="150%">HTML</text>
+            </svg>
+          </div>
+
+          <svg width="0" height="0">
+            <defs>
+              <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+                <stop stop-color="#ff9f1a" />
+                <stop offset="100%" stop-color="#ff3838" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <!--Hexagon Progressbar2-->
+        <div id="cssContainer" class="z-1 lockContainer">
+          <div id="wrapper2" class="center2">
+            <svg class="hex-progress2 noselect2" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
+              <path class="track2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+              <path class="fill2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                stroke="url(#cl2)">
+              </path>
+              <text class="value2" x="50%" y="61%">0%</text>
+              <text class="text2" x="50%" y="150%">CSS</text>
+            </svg>
+          </div>
+
+          <svg width="0" height="0">
+            <defs>
+              <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+                <stop stop-color="#18dcff" />
+                <stop offset="100%" stop-color="#7d5fff" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <!--Hexagon Progressbar3-->
+        <div id="jsContainer" class="z-1 lockContainer">
+          <div id="wrapper3" class="center3">
+            <svg class="hex-progress3 noselect3" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
+              <path class="track3" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+              <path class="fill3" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                stroke="url(#cl3)">
+              </path>
+              <text class="value3" x="50%" y="61%">0%</text>
+              <text class="text3" x="50%" y="150%">JavaScript</text>
+            </svg>
+          </div>
+
+          <svg width="0" height="0">
+            <defs>
+              <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+                <stop stop-color="#fff200" />
+                <stop offset="100%" stop-color="#32ff7e" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+    <div id="contactContainer" class="z-1 lockContainer">
       <h2 id="contact" class="text_c">Kontakt</h2>
       <p id="contact" class="text_c">Gerne kannst du mich kontaktieren, unten stehen sämtliche Social-Media Plattformen
         auf denen ich aktiv bin, sowie auch meine Swisscom-Seite.
@@ -513,83 +532,22 @@
       </div>
     </div>
 
-    <!--Hexagon Progressbar1-->
-    <div id="wrapper" class="center">
-      <svg class="hex-progress noselect" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
-        <path class="track" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
-        <path class="fill" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z" stroke="url(#cl1)">
-        </path>
-        <text class="value" x="50%" y="61%">0%</text>
-        <text class="text" x="50%" y="150%">HTML</text>
-      </svg>
-    </div>
+    <div id="tri-rect-angles" class="z-1"></div>
 
-    <svg width="0" height="0">
-      <defs>
-        <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-          <stop stop-color="#ff9f1a" />
-          <stop offset="100%" stop-color="#ff3838" />
-        </linearGradient>
-      </defs>
-    </svg>
+    </section>
 
-    <!--Hexagon Progressbar2-->
-    <div id="wrapper2" class="center2">
-      <svg class="hex-progress2 noselect2" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
-        <path class="track2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
-        <path class="fill2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z" stroke="url(#cl2)">
-        </path>
-        <text class="value2" x="50%" y="61%">0%</text>
-        <text class="text2" x="50%" y="150%">CSS</text>
-      </svg>
-    </div>
+    <script>
+      function getPositionXY(element) {
 
-    <svg width="0" height="0">
-      <defs>
-        <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-          <stop stop-color="#18dcff" />
-          <stop offset="100%" stop-color="#7d5fff" />
-        </linearGradient>
-      </defs>
-    </svg>
+        var rect = element.getBoundingClientRect();
+        var position = 'X: ' + rect.x + ', ' + 'Y: ' + rect.y
+        return position;
 
-    <!--Hexagon Progressbar3-->
-    <div id="wrapper3" class="center3">
-      <svg class="hex-progress3 noselect3" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
-        <path class="track3" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
-        <path class="fill3" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z" stroke="url(#cl3)">
-        </path>
-        <text class="value3" x="50%" y="61%">0%</text>
-        <text class="text3" x="50%" y="150%">JavaScript</text>
-      </svg>
-    </div>
-
-    <svg width="0" height="0">
-      <defs>
-        <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-          <stop stop-color="#fff200" />
-          <stop offset="100%" stop-color="#32ff7e" />
-        </linearGradient>
-      </defs>
-    </svg>
-  </div>
-
-  <div id="tri-rect-angles" class="z-1"></div>
-
-  </section>
-
-  <script>
-    function getPositionXY(element) {
-
-      var rect = element.getBoundingClientRect();
-      var position = 'X: ' + rect.x + ', ' + 'Y: ' + rect.y
-      return position;
-
-    }
-    var hexa = document.getElementById('hexa');
-    var hexa_position = getPositionXY(hexa);
-    console.log(hexa_position);
-  </script>
+      }
+      var hexa = document.getElementById('hexa');
+      var hexa_position = getPositionXY(hexa);
+      console.log(hexa_position);
+    </script>
 </body>
 
 </html>
