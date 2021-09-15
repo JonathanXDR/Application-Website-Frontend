@@ -170,21 +170,32 @@ a:hover {
 }
 
 /*Apple Menu Bar*/
+
+/* .ulContainer {
+  background-color: blue;
+  width: 50%;
+  height: 58px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 25px;
+} */
+
 .menu-bar {
   width: 100%;
   border-radius: 0px;
   border-bottom: solid var(--colorMenuBorder);
   border-width: 1px;
-  height: 52px;
-  display: inline-flex;
+  height: 58px;
   position: fixed;
-  top: 0px;
   background-color: var(--colorMenuBackground);
-  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
-  padding: 0 10px;
+  gap: 10px;
   margin: 0;
+  padding: 0;
 }
 
 .menu-bar a {
@@ -251,7 +262,6 @@ a:hover {
   position: relative;
   width: 145px;
   height: 74px;
-  margin-right: 100px;
   border-radius: 40px;
   transform: scale(0.5);
   border: solid var(--colorMenuBorder);
@@ -327,53 +337,6 @@ input[type="checkbox"] {
   background-color: #fff;
   transform: translate(79px, 0px);
 }
-
-/* First toggle btn completed */
-
-/* input[type="checkbox"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
-  margin-left: 250px;
-}
-input[type="checkbox"]:focus {
-  outline: 0;
-}
-
-.toggle {
-  height: 32px;
-  width: 52px;
-  border-radius: 16px;
-  display: inline-block;
-  position: relative;
-  margin: 0;
-  border: 2px solid #474755;
-  background: linear-gradient(180deg, #2d2f39 0%, #1f2027 100%);
-  transition: all 0.2s ease;
-}
-
-.toggle:after {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: white;
-  box-shadow: 0 1px 2px rgba(44, 44, 44, 0.2);
-  transition: all 0.2s cubic-bezier(0.5, 0.1, 0.75, 1.35);
-}
-
-.toggle:checked {
-  border-color: #654fec;
-}
-
-.toggle:checked:after {
-  transform: translatex(20px);
-} */
 
 /*Sidebar*/
 .sidebar {
@@ -487,22 +450,18 @@ input[type="checkbox"]:focus {
 }
 
 .button {
-  font-size: 17px;
-  line-height: 1.1764805882;
-  font-weight: 400;
-  letter-spacing: -0.022em;
-  font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
-  min-width: 26px;
-  color: #1d1d1f;
-  background: none;
-  border: 2px solid #1d1d1f;
-  min-width: 97px;
-  padding: 10px 16px;
+  background-color: transparent;
+  border: solid white;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 100px;
+  padding: 9px 17px;
+  font-weight: 600;
+  white-space: normal;
   cursor: pointer;
   display: inline-block;
   text-align: center;
-  white-space: nowrap;
+  color: white;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -516,25 +475,18 @@ input[type="checkbox"]:focus {
 }
 
 /*About Me*/
-#aboutMeWhole {
-  margin-top: 0px;
-  margin-left: 0px;
-}
-
 #hexagonImage {
-  margin-top: 40px;
+  margin-top: 550px;
 }
 
 #aboutMeContainer {
-  width: 80.25%;
-  height: 195px;
+  width: 50%;
+  height: 200px;
   background: #ffcf2b;
-  position: absolute;
-  top: 446.5px;
-  left: 0px;
-  /*border-radius: 0px 15px 15px 0px;*/
-  border-bottom: solid var(--colorFont);
-  border-width: 5px;
+  position: relative;
+  bottom: 470px;
+  margin-left: 400px;
+  border-radius: 20px;
 }
 
 #projectsContainer {
@@ -588,17 +540,6 @@ input[type="checkbox"]:focus {
   margin-right: auto;
   /*box-shadow: 0 20px 50px rgb(0 0 0 / 80%);*/
   border-radius: 10px;
-}
-
-#rectangle6 {
-  width: 50%;
-  height: 200px;
-  background: linear-gradient(rgba(0, 0, 0, 0), #151b25, #151516),
-    linear-gradient(90deg, #172538, #18263a 50%);
-  position: relative;
-  top: -325px;
-  margin-left: 400px;
-  border-radius: 20px;
 }
 
 #htmlContainer {
