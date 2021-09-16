@@ -49,19 +49,16 @@ body {
 .text_r {
   color: var(--colorFont);
   text-align: right;
-  padding: 5px;
 }
 
 .text_l {
   color: var(--colorFont);
   text-align: left;
-  padding: 5px;
 }
 
 .text_c {
   color: var(--colorFont);
   text-align: center;
-  padding: 5px;
 }
 
 .z-1 {
@@ -102,7 +99,7 @@ a:hover {
 }
 
 #aboutMe {
-  width: 800px;
+  width: 95%;
   position: relative;
   top: 15px;
   left: 15px;
@@ -263,7 +260,7 @@ a:hover {
   width: 145px;
   height: 74px;
   border-radius: 40px;
-  transform: scale(0.5);
+  transform: scale(0.35);
   border: solid var(--colorMenuBorder);
   border-width: 3px;
 }
@@ -338,72 +335,12 @@ input[type="checkbox"] {
   transform: translate(79px, 0px);
 }
 
-/*Sidebar*/
-.sidebar {
-  height: 656px;
-  width: 0;
-  position: absolute;
-  top: -60px;
-  right: 0;
-  z-index: 1;
-  background-color: #333;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-
-.sidebar a {
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 16px;
-  color: white;
-  display: block;
-}
-
-.sidebar a:hover {
-  background-color: #111;
-  color: white;
-}
-
-#sidebarBtn {
-  font-size: 16px;
-  cursor: pointer;
-  background-color: black;
-  color: white;
-  padding: 12.5px 15px;
-  border: none;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  transition: 0.5s;
-  border-radius: 0px 0px 5px 5px;
-}
-
-#sidebarBtn:hover {
+.button:hover {
   background-color: white;
-  color: black;
+  color: transparent;
 }
 
-#cvBtn {
-  font-size: 16px;
-  cursor: pointer;
-  background-color: black;
-  color: white;
-  padding: 13.75px 20px 13.75px 25px;
-  border: none;
-  position: absolute;
-  bottom: -1px;
-  left: 20px;
-  transition: 0.5s;
-  border-radius: 5px 5px 0px 0px;
-}
-
-#cvBtn:hover {
-  background-color: white;
-  color: black;
-}
-
-#cvBtn:hover > .arrow {
+.button:hover > .arrow {
   position: relative;
   bottom: 3px;
   right: 10px;
@@ -414,29 +351,10 @@ input[type="checkbox"] {
   transition: 0.5s;
 }
 
-#contactBtn {
-  font-size: 16px;
-  cursor: pointer;
-  background-color: black;
-  color: white;
-  padding: 13.75px 20px 13.75px 25px;
-  border: none;
-  position: absolute;
-  bottom: -1px;
-  left: 200px;
-  transition: 0.5s;
-  border-radius: 5px 5px 0px 0px;
-}
-
-#contactBtn:hover {
-  background-color: white;
-  color: black;
-}
-
 .arrow {
   position: relative;
   bottom: 3px;
-  right: 10px;
+  right: 7px;
   border: solid white;
   border-width: 0 2px 2px 0;
   display: inline-block;
@@ -464,6 +382,20 @@ input[type="checkbox"] {
   color: white;
 }
 
+/* .testButton {
+  font-size: 17px;
+  line-height: 1.1764805882;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family: SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+  min-width: 26px;
+  color: #1d1d1f;
+  background: none;
+  border: 2px solid #1d1d1f;
+  min-width: 97px;
+  padding: 10px 16px;
+} */
+
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidebar {
@@ -476,7 +408,7 @@ input[type="checkbox"] {
 
 /*About Me*/
 #hexagonImage {
-  margin-top: 550px;
+  margin-top: 400px;
 }
 
 #aboutMeContainer {
@@ -485,6 +417,7 @@ input[type="checkbox"] {
   background: #ffcf2b;
   position: relative;
   bottom: 470px;
+  margin-top: 160px;
   margin-left: 400px;
   border-radius: 20px;
 }
