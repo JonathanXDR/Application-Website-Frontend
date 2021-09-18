@@ -183,7 +183,7 @@ a:hover {
   border-radius: 0px;
   border-bottom: solid var(--colorMenuBorder);
   border-width: 1px;
-  height: 58px;
+  height: 52px;
   position: fixed;
   background-color: var(--colorMenuBackground);
   backdrop-filter: blur(10px);
