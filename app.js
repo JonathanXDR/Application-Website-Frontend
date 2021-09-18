@@ -13,15 +13,6 @@ function toggleTheme() {
   }
 }
 
-// Immediately invoked function to set the theme on initial load
-(function () {
-  if (localStorage.getItem("theme") === "dark-theme") {
-    setTheme("dark-theme");
-  } else {
-    setTheme("light-theme");
-  }
-})();
-
 //Sidebar
 var status_sidebar = false;
 
@@ -65,7 +56,14 @@ var forEach = function (array, callback, scope) {
   }
 };
 window.onload = function () {
-  //var svgTimeline = document.getElementById("svgTimeline");
+  const themeButton = document.getElementById("themeId");
+  if (localStorage.getItem("theme") === "light-theme") {
+    setTheme("light-theme");
+    themeButton.checked = false;
+  } else {
+    setTheme("dark-theme");
+    themeButton.checked = true;
+  }
   //svgTimeline.style.height = 1000 + "px";
 
   var max = 2160;

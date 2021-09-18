@@ -4,25 +4,30 @@ html {
 
 * {
   font-family: helvetica;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .light-theme {
   --colorBackground: #ffffff;
   --colorContainer: #f3f3f3;
   --colorTransparent: rgba(255, 255, 255, 0.4);
+  --colorMenuBackground: rgba(255, 255, 255, 0.72);
+  --colorMenuBorder: rgba(0, 0, 0, 0.16);
   --colorFont: #000000;
   --blueGradient: #009ffd;
   --blueGradient2: #2a2a72;
-  --darkBlueGradient:
-  --darkBlueGradient2:
+  --darkBlueGradient: ;
+  /* --darkBlueGradient2:
   --darkBlueGradient3:
-  --darkBlueGradient4:
+  --darkBlueGradient4: */
 }
 
 .dark-theme {
   --colorBackground: #000000;
   --colorContainer: #151516;
   --colorTransparent: rgba(0, 0, 0, 0.4);
+  --colorMenuBackground: rgba(29, 29, 31, 0.72);
+  --colorMenuBorder: rgba(255, 255, 255, 0.24);
   --colorFont: #ffffff;
   --blueGradient: #009ffd;
   --blueGradient2: #2a2a72;
@@ -44,19 +49,16 @@ body {
 .text_r {
   color: var(--colorFont);
   text-align: right;
-  padding: 5px;
 }
 
 .text_l {
   color: var(--colorFont);
   text-align: left;
-  padding: 5px;
 }
 
 .text_c {
   color: var(--colorFont);
   text-align: center;
-  padding: 5px;
 }
 
 .z-1 {
@@ -83,13 +85,21 @@ body {
   z-index: 100;
 }
 
+.centerItems {
+  margin-top: 125px;
+  display: flex;
+  justify-content: space-between; /* horizontal zentrieren */
+  gap: 50px;
+  /* flex-wrap: wrap; */
+}
+
 a:link,
 a:hover {
   text-decoration: none !important;
 }
 
 #aboutMe {
-  width: 800px;
+  width: 95%;
   position: relative;
   top: 15px;
   left: 15px;
@@ -157,23 +167,36 @@ a:hover {
 }
 
 /*Apple Menu Bar*/
+
+/* .ulContainer {
+  background-color: blue;
+  width: 50%;
+  height: 58px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 25px;
+} */
+
 .menu-bar {
   width: 100%;
   border-radius: 0px;
-  height: fit-content;
-  display: inline-flex;
+  border-bottom: solid var(--colorMenuBorder);
+  border-width: 1px;
+  height: 58px;
   position: fixed;
-  top: 0px;
-  background-color: rgba(0, 0, 0, 0.4);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: var(--colorMenuBackground);
   backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
-  padding: 0 10px;
+  gap: 10px;
   margin: 0;
+  padding: 0;
 }
 
 .menu-bar a {
-  color: white;
+  color: var(--colorFont);
 }
 
 .menu-bar li {
@@ -200,12 +223,11 @@ a:hover {
 }
 
 .menu-bar li:hover > a {
-  color: black;
+  color: var(--colorBackground);
 }
 
 .menu-bar li:hover::before {
-  background-color: white;
-  box-shadow: 0px 3px 20px 0px black;
+  background-color: var(--colorFont);
   transform: scale(1.2);
 }
 
@@ -233,91 +255,92 @@ a:hover {
   width: 0%;
 } */
 
-#themeBtn {
-  font-size: 16px;
-  cursor: pointer;
-  background-color: black;
-  color: white;
-  padding: 14px 15px;
-  border: none;
-  position: fixed;
-  top: 0px;
-  right: 400px;
-  transition: 0.5s;
-  border-radius: 0px 0px 5px 5px;
+.toggle-btn {
+  position: relative;
+  width: 145px;
+  height: 74px;
+  border-radius: 40px;
+  transform: scale(0.35);
+  border: solid var(--colorMenuBorder);
+  border-width: 3px;
 }
 
-#themeBtn:hover {
-  background-color: white;
-  color: black;
-}
-
-/*Sidebar*/
-.sidebar {
-  height: 656px;
-  width: 0;
+input[type="checkbox"] {
+  width: 100%;
+  height: 100%;
   position: absolute;
-  top: -60px;
-  right: 0;
-  z-index: 1;
-  background-color: #333;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-
-.sidebar a {
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 16px;
-  color: white;
-  display: block;
-}
-
-.sidebar a:hover {
-  background-color: #111;
-  color: white;
-}
-
-#sidebarBtn {
-  font-size: 16px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: 0px;
   cursor: pointer;
-  background-color: black;
-  color: white;
-  padding: 12.5px 15px;
-  border: none;
+  opacity: 0;
+  z-index: 2;
+}
+
+/* First toggle btn */
+
+#_1st-toggle-btn span {
   position: absolute;
   top: 0px;
   right: 0px;
-  transition: 0.5s;
-  border-radius: 0px 0px 5px 5px;
+  bottom: 0px;
+  left: 0px;
+  overflow: hidden;
+  opacity: 1;
+  background-color: #fff;
+  border-radius: 40px;
+  transition: 0.2s ease background-color, 0.2s ease opacity;
 }
 
-#sidebarBtn:hover {
-  background-color: white;
-  color: black;
-}
-
-#cvBtn {
-  font-size: 16px;
-  cursor: pointer;
-  background-color: black;
-  color: white;
-  padding: 13.75px 20px 13.75px 25px;
-  border: none;
+#_1st-toggle-btn span:before,
+#_1st-toggle-btn span:after {
+  content: "";
   position: absolute;
-  bottom: -1px;
-  left: 20px;
-  transition: 0.5s;
-  border-radius: 5px 5px 0px 0px;
+  top: 8px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  transition: 0.5s ease transform, 0.2s ease background-color;
 }
 
-#cvBtn:hover {
+#_1st-toggle-btn span:before {
+  background-color: #fff;
+  transform: translate(-58px, 0px);
+  z-index: 1;
+}
+
+#_1st-toggle-btn span:after {
+  background-color: #000;
+  transform: translate(8px, 0px);
+  z-index: 0;
+}
+
+#_1st-toggle-btn input[type="checkbox"]:checked + span {
+  background-color: #000;
+}
+
+#_1st-toggle-btn input[type="checkbox"]:active + span {
+  opacity: 0.5;
+}
+
+#_1st-toggle-btn input[type="checkbox"]:checked + span:before {
+  background-color: #000;
+  transform: translate(56px, -19px);
+}
+
+#_1st-toggle-btn input[type="checkbox"]:checked + span:after {
+  background-color: #fff;
+  transform: translate(79px, 0px);
+}
+
+.button:hover {
   background-color: white;
-  color: black;
+  color: transparent;
 }
 
-#cvBtn:hover > .arrow {
+.button:hover > .arrow {
   position: relative;
   bottom: 3px;
   right: 10px;
@@ -328,29 +351,10 @@ a:hover {
   transition: 0.5s;
 }
 
-#contactBtn {
-  font-size: 16px;
-  cursor: pointer;
-  background-color: black;
-  color: white;
-  padding: 13.75px 20px 13.75px 25px;
-  border: none;
-  position: absolute;
-  bottom: -1px;
-  left: 200px;
-  transition: 0.5s;
-  border-radius: 5px 5px 0px 0px;
-}
-
-#contactBtn:hover {
-  background-color: white;
-  color: black;
-}
-
 .arrow {
   position: relative;
   bottom: 3px;
-  right: 10px;
+  right: 7px;
   border: solid white;
   border-width: 0 2px 2px 0;
   display: inline-block;
@@ -363,17 +367,34 @@ a:hover {
   -webkit-transform: rotate(45deg);
 }
 
-#test {
+.button {
   background-color: transparent;
+  border: solid white;
   border-width: 2px;
   border-style: solid;
   border-radius: 100px;
   padding: 9px 17px;
   font-weight: 600;
   white-space: normal;
-  position: absolute;
-  margin-top: 500px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  color: white;
 }
+
+/* .testButton {
+  font-size: 17px;
+  line-height: 1.1764805882;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family: SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+  min-width: 26px;
+  color: #1d1d1f;
+  background: none;
+  border: 2px solid #1d1d1f;
+  min-width: 97px;
+  padding: 10px 16px;
+} */
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
@@ -386,28 +407,22 @@ a:hover {
 }
 
 /*About Me*/
-#aboutMeContainer {
-  margin-top: 250px;
-  margin-left: 0px;
-}
-
 #hexagonImage {
-  margin-top: 40px;
+  margin-top: 400px;
 }
 
-#rectangle1 {
-  width: 80.25%;
-  height: 195px;
+#aboutMeContainer {
+  width: 50%;
+  height: 200px;
   background: #ffcf2b;
-  position: absolute;
-  top: 446.5px;
-  left: 0px;
-  /*border-radius: 0px 15px 15px 0px;*/
-  border-bottom: solid var(--colorFont);
-  border-width: 5px;
+  position: relative;
+  bottom: 470px;
+  margin-top: 160px;
+  margin-left: 400px;
+  border-radius: 20px;
 }
 
-#rectangle2 {
+#projectsContainer {
   width: 1000px;
   height: 200px;
   padding-top: 5px;
@@ -416,14 +431,14 @@ a:hover {
   backdrop-filter: blur(7.5px);*/
   background-color: var(--colorContainer);
   position: absolute;
-  top: 310px;
+  top: 750px;
   margin-left: auto;
   margin-right: auto;
   /*box-shadow: 0 20px 50px rgb(0 0 0 / 80%);*/
   border-radius: 0px;
 }
 
-#rectangle3 {
+#journeyContinuesContainer {
   width: 100%;
   height: 275px;
   position: absolute;
@@ -435,44 +450,62 @@ a:hover {
   box-shadow: 0px 0px 15px 15px var(--colorTransparent);
 }
 
-#rectangle4 {
+#skillsContainer {
   width: 80%;
-  height: 150px;
+  height: 200px;
   padding-top: 5px;
   background: var(--colorContainer);
   position: relative;
   top: 50px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 20px 50px rgb(0 0 0 / 80%);
   border-radius: 10px;
 }
 
-#rectangle5 {
+#contactContainer {
   width: 100%;
   height: 300px;
   padding-top: 5px;
   background: var(--colorContainer);
   position: relative;
-  top: 500px;
+  top: 750px;
   margin-left: auto;
   margin-right: auto;
   /*box-shadow: 0 20px 50px rgb(0 0 0 / 80%);*/
   border-radius: 10px;
 }
 
-#rectangle6 {
-  width: 50%;
-  height: 200px;
-  background: linear-gradient(rgba(0, 0, 0, 0), #151b25, #151516),
-    linear-gradient(90deg, #172538, #18263a 50%);
-  position: relative;
-  top: -325px;
-  margin-left: 400px;
-  border-radius: 20px;
+#htmlContainer {
+  width: 400px;
+  height: 500px;
+  background: var(--colorContainer);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center; /* horizontal zentrieren */
+  align-items: flex-start; /* vertikal ende */
 }
 
-#rectangleX {
+#cssContainer {
+  width: 400px;
+  height: 500px;
+  background: var(--colorContainer);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center; /* horizontal zentrieren */
+  align-items: flex-start; /* vertikal ende */
+}
+
+#jsContainer {
+  width: 400px;
+  height: 500px;
+  background: var(--colorContainer);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center; /* horizontal zentrieren */
+  align-items: flex-start; /* vertikal ende */
+}
+
+#apple1 {
   width: 73%;
   height: 700px;
   padding-top: 5px;
@@ -486,7 +519,7 @@ a:hover {
   border-radius: 30px;
 }
 
-#rectangleY {
+#apple2 {
   width: 73%;
   height: 700px;
   padding-top: 5px;
@@ -504,24 +537,11 @@ a:hover {
   border-radius: 30px;
 }
 
-#rectangleZ {
+#apple3 {
   width: 73%;
   height: 700px;
   padding-top: 5px;
   background: linear-gradient(to bottom, #4c102a 0%, #151516 100%);
-  position: relative;
-  top: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 20px 50px rgb(0 0 0 / 80%);
-  border-radius: 30px;
-}
-
-#rectangleB {
-  width: 73%;
-  height: 700px;
-  padding-top: 5px;
-  background-image: url("macos_bg__b9yaapi9sjv6_large.jpg");
   position: relative;
   top: 0px;
   margin-left: auto;
@@ -849,9 +869,6 @@ a:hover {
 .hex-progress {
   width: 175px;
   height: 350px;
-  position: absolute;
-  top: 350px;
-  left: 10%;
 }
 
 .hex-progress .track,
@@ -902,9 +919,6 @@ a:hover {
 .hex-progress2 {
   width: 175px;
   height: 350px;
-  position: absolute;
-  top: 350px;
-  left: 42.5%;
 }
 
 .hex-progress2 .track2,
@@ -955,9 +969,6 @@ a:hover {
 .hex-progress3 {
   width: 175px;
   height: 350px;
-  position: absolute;
-  top: 350px;
-  right: 10%;
 }
 
 .hex-progress3 .track3,
