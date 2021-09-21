@@ -16,6 +16,8 @@ html {
   --colorScrollbarTrack: #fafafa;
   --colorScrollbarTrackBorder: #1c1c1c;
   --colorFont: #000000;
+  --colorBtn: #1d1d1f;
+  --colorBtnReverse: #ffffff;
 }
 
 .dark-theme {
@@ -27,6 +29,8 @@ html {
   --colorScrollbarTrack: #0f0f0f;
   --colorScrollbarTrackBorder: #1c1c1c;
   --colorFont: #ffffff;
+  --colorBtn: #ffffff;
+  --colorBtnReverse: #1d1d1f;
 }
 
 :root {
@@ -230,9 +234,11 @@ a:hover {
 Not supports in Firefox and IE */
 
 /* total width */
-/* body::-webkit-scrollbar {
+/* Chrome: yes */
+/* Safari: no */
+body::-webkit-scrollbar {
   background-color: var(--colorScrollbarTrack);
-} */
+}
 
 /* background of the scrollbar except button or resizer */
 body::-webkit-scrollbar-track {
@@ -346,12 +352,42 @@ input[type="checkbox"] {
   transform: translate(79px, 0px);
 }
 
-.button:hover {
-  background-color: white;
-  color: transparent;
+.button {
+  font-size: 17px;
+  line-height: 1.1764805882;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+  color: var(--colorBtn);
+  background: none;
+  border: 2px solid var(--colorBtn);
+  min-width: 97px;
+  padding: 10px 16px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 980px;
 }
 
-.button:hover > .arrow {
+.button:hover {
+  color: var(--colorBtnReverse);
+  background: var(--colorBtn);
+}
+
+/* .arrow {
+  position: relative;
+  bottom: 3px;
+  right: 7px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transition: 0.5s;
+} */
+
+/* .button:hover > .arrow {
   position: relative;
   bottom: 3px;
   right: 10px;
@@ -362,36 +398,10 @@ input[type="checkbox"] {
   transition: 0.5s;
 }
 
-.arrow {
-  position: relative;
-  bottom: 3px;
-  right: 7px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 3px;
-  transition: 0.5s;
-}
-
 .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-}
-
-.button {
-  background-color: transparent;
-  border: solid white;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 100px;
-  padding: 9px 17px;
-  font-weight: 600;
-  white-space: normal;
-  cursor: pointer;
-  display: inline-block;
-  text-align: center;
-  color: white;
-}
+} */
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
