@@ -3,7 +3,8 @@ html {
 }
 
 * {
-  font-family: helvetica;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -355,7 +356,7 @@ input[type="checkbox"] {
 .button {
   font-size: 17px;
   line-height: 1.1764805882;
-  font-weight: 400;
+  font-weight: 550;
   letter-spacing: -0.022em;
   font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
     sans-serif;
@@ -469,13 +470,26 @@ input[type="checkbox"] {
   border-radius: 10px;
 }
 
+#referencesContainer {
+  width: 100%;
+  height: 300px;
+  padding-top: 5px;
+  background: var(--colorContainer);
+  position: absolute;
+  top: 2500px;
+  margin-left: auto;
+  margin-right: auto;
+  /*box-shadow: 0 20px 50px rgb(0 0 0 / 80%);*/
+  border-radius: 10px;
+}
+
 #contactContainer {
   width: 100%;
   height: 300px;
   padding-top: 5px;
   background: var(--colorContainer);
-  position: relative;
-  top: 750px;
+  position: absolute;
+  top: 3000px;
   margin-left: auto;
   margin-right: auto;
   /*box-shadow: 0 20px 50px rgb(0 0 0 / 80%);*/
@@ -751,12 +765,23 @@ input[type="checkbox"] {
   border-radius: 5px;
 }
 
-.direction-l .desc,
+.direction-l .desc {
+  -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15),
+    0 0 1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
+  border-radius: 5px 5px 5px 0px;
+}
 .direction-r .desc {
   position: relative;
   margin: 1em 1em 0 1em;
   padding: 1em;
   z-index: 5;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15),
+    0 0 1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
+  border-radius: 5px 5px 0px 5px;
 }
 
 @media (min-width: 768px) {
