@@ -14,29 +14,29 @@ function toggleTheme() {
 }
 
 //Sidebar
-var status_sidebar = false;
+// var status_sidebar = false;
 
-function toggle_sidebar() {
-  if (status_sidebar == false) {
-    openNav();
-  } else {
-    closeNav();
-  }
-}
+// function toggle_sidebar() {
+//   if (status_sidebar == false) {
+//     openNav();
+//   } else {
+//     closeNav();
+//   }
+// }
 
-function openNav() {
-  status_sidebar = true;
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginRight = "250px";
-  document.getElementById("openbtn").style.marginRight = "250px";
-}
+// function openNav() {
+//   status_sidebar = true;
+//   document.getElementById("mySidebar").style.width = "250px";
+//   document.getElementById("main").style.marginRight = "250px";
+//   document.getElementById("openbtn").style.marginRight = "250px";
+// }
 
-function closeNav() {
-  status_sidebar = false;
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginRight = "0";
-  document.getElementById("openbtn").style.marginRight = "0";
-}
+// function closeNav() {
+//   status_sidebar = false;
+//   document.getElementById("mySidebar").style.width = "0";
+//   document.getElementById("main").style.marginRight = "0";
+//   document.getElementById("openbtn").style.marginRight = "0";
+// }
 
 /*Scroll Indicator
 // When the user scrolls the page, execute myFunction
