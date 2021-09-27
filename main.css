@@ -95,6 +95,10 @@ h6 {
   z-index: 100;
 }
 
+.paddingBottom30 {
+  padding: 0 0 30px 0;
+}
+
 .centerItems {
   margin-top: 125px;
   display: flex;
@@ -112,26 +116,6 @@ a:hover {
   width: 450px;
   position: relative;
   left: 15px;
-}
-
-#journeyContinues {
-  position: relative;
-  left: 125px;
-  width: 500px;
-}
-
-#skills {
-  position: relative;
-  width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#contact {
-  position: relative;
-  width: 800px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 #contact_social_media {
@@ -472,16 +456,34 @@ input[type="checkbox"] {
   box-shadow: 0px 0px 15px 15px var(--colorTransparent);
 }
 
+#flexboxContainer {
+  width: 80%;
+  height: 175px;
+  /* background: green; */
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px 600px 50px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-end;
+}
+
 #skillsContainer {
   width: 80%;
   height: 200px;
-  padding-top: 5px;
   background: var(--colorContainer);
   position: relative;
-  top: 50px;
+  top: 0px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
 }
 
 #contactContainer {
@@ -494,7 +496,12 @@ input[type="checkbox"] {
   margin-left: auto;
   margin-right: auto;
   /*box-shadow: 0 20px 50px rgb(0 0 0 / 80%);*/
-  border-radius: 10px;
+  /* border-radius: 10px; */
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
 }
 
 #htmlContainer {
