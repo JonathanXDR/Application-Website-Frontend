@@ -54,21 +54,11 @@ h4,
 h5,
 h6 {
   margin: 0;
+  color: var(--colorFont);
 }
 
-.text_r {
+span {
   color: var(--colorFont);
-  text-align: right;
-}
-
-.text_l {
-  color: var(--colorFont);
-  text-align: left;
-}
-
-.text_c {
-  color: var(--colorFont);
-  text-align: center;
 }
 
 .z-1 {
@@ -112,15 +102,10 @@ a:hover {
   text-decoration: none !important;
 }
 
-#projects {
-  width: 450px;
-  position: relative;
-  left: 15px;
-}
-
 #contact_social_media {
   position: relative;
   align-items: center;
+  text-align: center;
   font-weight: 700;
   font-size: 13px;
   margin-top: 50px;
@@ -442,6 +427,12 @@ input[type="checkbox"] {
   margin-right: auto;
   /*box-shadow: 0 20px 50px rgb(0 0 0 / 80%);*/
   border-radius: 0px;
+  color: var(--colorFont);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-end;
 }
 
 #journeyContinuesContainer {
@@ -479,6 +470,7 @@ input[type="checkbox"] {
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
+  text-align: center;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -497,6 +489,7 @@ input[type="checkbox"] {
   margin-right: auto;
   /*box-shadow: 0 20px 50px rgb(0 0 0 / 80%);*/
   /* border-radius: 10px; */
+  text-align: center;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -691,6 +684,7 @@ input[type="checkbox"] {
 .flag {
   position: relative;
   display: inline;
+  color: black;
   background: white;
   font-weight: 600;
   z-index: 5;
