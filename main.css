@@ -213,6 +213,7 @@ a:hover {
   transform: scale(0.35);
   border: solid var(--colorMenuBorder);
   border-width: 3px;
+  box-sizing: content-box;
 }
 
 input[type="checkbox"] {
@@ -465,7 +466,7 @@ input[type="checkbox"] {
   padding-top: 5px;
   background: var(--colorContainer);
   position: absolute;
-  top: 2500px;
+  top: 4000px;
   margin-left: auto;
   margin-right: auto;
   /*box-shadow: 0 20px 50px rgb(0 0 0 / 80%);*/
