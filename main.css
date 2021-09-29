@@ -119,25 +119,6 @@ a:hover {
   margin-left: 50px;
 }
 
-.background {
-  background-image: url(macos-big-sur-5120x2880-mountains-apple-october-2020-event-5k-23121.jpg); /*--edit image--*/
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.background::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  content: "";
-}
-
 /*Apple Menu Bar*/
 
 /* .ulContainer {
@@ -341,6 +322,7 @@ input[type="checkbox"] {
   text-align: center;
   white-space: nowrap;
   border-radius: 980px;
+  transition: none;
 }
 
 .button:hover {
