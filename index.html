@@ -58,19 +58,19 @@
     </svg>
 
     <div id="aboutMeContainer">
-      <h2 id="aboutMe" class="text_l">About Me</h2>
-      <p id="aboutMe" class="text_l">Hallo, ich bin Jonathan, 15 Jahre alt und mache die Lehre als Informatiker -
+      <h2>About Me</h2>
+      <span>Hallo, ich bin Jonathan, 15 Jahre alt und mache die Lehre als Informatiker -
         Applikationsentwickler. In meiner Freizeit spiele ich gerne Computer -und Konsolenspiele, höre sehr oft ein
         wenig
-        Musik und gehe auch ab und zu mit Freunden nach draussen, um etwas zu unternehmen.</p>
-
-      <button class="button" id="cvBtn" onclick="download_cv()"><i class="arrow down"></i>Download CV</button>
-      <button class="button" id="contactBtn" onclick="download_cv()"><i class="arrow down"></i>Contact Me</button>
-
+        Musik und gehe auch ab und zu mit Freunden nach draussen, um etwas zu unternehmen.</span>
+      <div class="buttons">
+        <button class="button" id="cvBtn" onclick="download_cv()"><i class="arrow down"></i>Download CV</button>
+        <button class="button" id="contactBtn" onclick="download_cv()"><i class="arrow down"></i>Contact Me</button>
+      </div>
     </div>
   </div>
   <!--Waves
-  <svg id="wave1" class="z-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <svg id="wave1"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
     <path fill="#0099ff" fill-opacity="1"
       d="M0,32L26.7,64C53.3,96,107,160,160,192C213.3,224,267,224,320,192C373.3,160,427,96,480,80C533.3,64,587,96,640,133.3C693.3,171,747,213,800,213.3C853.3,213,907,171,960,154.7C1013.3,139,1067,149,1120,160C1173.3,171,1227,181,1280,160C1333.3,139,1387,85,1413,58.7L1440,32L1440,0L1413.3,0C1386.7,0,1333,0,1280,0C1226.7,0,1173,0,1120,0C1066.7,0,1013,0,960,0C906.7,0,853,0,800,0C746.7,0,693,0,640,0C586.7,0,533,0,480,0C426.7,0,373,0,320,0C266.7,0,213,0,160,0C106.7,0,53,0,27,0L0,0Z">
     </path>
@@ -83,7 +83,7 @@
     }
   </style>
 
-  <svg id="wave2" class="z-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <svg id="wave2"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
     <path fill="#0099ff" fill-opacity="1"
       d="M0,256L21.8,245.3C43.6,235,87,213,131,213.3C174.5,213,218,235,262,250.7C305.5,267,349,277,393,261.3C436.4,245,480,203,524,202.7C567.3,203,611,245,655,256C698.2,267,742,245,785,218.7C829.1,192,873,160,916,133.3C960,107,1004,85,1047,90.7C1090.9,96,1135,128,1178,154.7C1221.8,181,1265,203,1309,181.3C1352.7,160,1396,96,1418,64L1440,32L1440,0L1418.2,0C1396.4,0,1353,0,1309,0C1265.5,0,1222,0,1178,0C1134.5,0,1091,0,1047,0C1003.6,0,960,0,916,0C872.7,0,829,0,785,0C741.8,0,698,0,655,0C610.9,0,567,0,524,0C480,0,436,0,393,0C349.1,0,305,0,262,0C218.2,0,175,0,131,0C87.3,0,44,0,22,0L0,0Z">
     </path>
@@ -96,7 +96,7 @@
     }
   </style>
 
-  <svg id="wave3" class="z-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <svg id="wave3"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
     <path fill="#0099ff" fill-opacity="1"
       d="M0,128L21.8,144C43.6,160,87,192,131,186.7C174.5,181,218,139,262,117.3C305.5,96,349,96,393,106.7C436.4,117,480,139,524,170.7C567.3,203,611,245,655,250.7C698.2,256,742,224,785,197.3C829.1,171,873,149,916,165.3C960,181,1004,235,1047,224C1090.9,213,1135,139,1178,122.7C1221.8,107,1265,149,1309,144C1352.7,139,1396,85,1418,58.7L1440,32L1440,0L1418.2,0C1396.4,0,1353,0,1309,0C1265.5,0,1222,0,1178,0C1134.5,0,1091,0,1047,0C1003.6,0,960,0,916,0C872.7,0,829,0,785,0C741.8,0,698,0,655,0C610.9,0,567,0,524,0C480,0,436,0,393,0C349.1,0,305,0,262,0C218.2,0,175,0,131,0C87.3,0,44,0,22,0L0,0Z">
     </path>
@@ -112,9 +112,9 @@
 
 
   <!--Side Container-->
-  <svg id="sideContainer" class="z-1" width="740" height="1000" xmlns="http://www.w3.org/2000/svg">
+  <svg id="sideContainer" width="740" height="1000" xmlns="http://www.w3.org/2000/svg">
     <path fill="url(#blueGradient)"
-      d="M 30 0 C 0 0 0 0 0 30 L 0 120 C 0 150 0 150 25 167 L 425 433 C 450 450 450 450 450 480 L 450 645 C 450 675 450 675 474 693 L 726 882 C 750 900 750 900 750 870 L 750 30 C 750 0 750 0 720 0  Z" />
+      d="M 0 0 C 0 0 0 0 0 30 L 0 120 C 0 150 0 150 25 167 L 425 433 C 450 450 450 450 450 480 L 450 645 C 450 675 450 675 474 693 L 726 882 C 750 900 750 900 750 870 L 750 30 C 750 0 750 0 720 0  Z" />
     <linearGradient id="blueGradient" gradientTransform="rotate(315deg)">
       <stop offset="0%" stop-color="#009ffd" />
       <stop offset="74%" stop-color="#2a2a72" />
@@ -123,8 +123,9 @@
   <style>
     #sideContainer {
       position: absolute;
-      top: 53px;
+      top: 52px;
       right: 0px;
+      z-index: -1;
     }
   </style>
 
@@ -202,42 +203,41 @@
     <!--Rectangles-->
 
 
-    <div id="projectsContainer" class="z10">
-      <h2 id="projects" class="text_l">Projects</h2>
-      <p id="projects" class="text_l">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
+    <div id="projectsContainer">
+      <h2 class="paddingBottom30">Projects</h2>
+      <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
         Projekt,
-        dass ich mache erweitert.</p>
+        dass ich mache erweitert.</span>
     </div>
   </section>
 
   <section class="lockApple">
-    <div id="apple1" class="z10">
-      <h2 id="projects" class="text_l">Projects</h2>
-      <p id="projects" class="text_l">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
+    <div id="apple1">
+      <h2 id="projects">Projects</h2>
+      <span id="projects">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
         Projekt,
-        dass ich mache erweitert.</p>
+        dass ich mache erweitert.</span>
     </div>
 
-    <div id="apple2" class="z10">
-      <h2 id="projects" class="text_l">Projects</h2>
-      <p id="projects" class="text_l">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
+    <div id="apple2">
+      <h2 id="projects">Projects</h2>
+      <span id="projects">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
         Projekt,
-        dass ich mache erweitert.</p>
+        dass ich mache erweitert.</span>
     </div>
 
-    <div id="apple3" class="z10">
-      <h2 id="projects" class="text_l">Projects</h2>
-      <p id="projects" class="text_l">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
+    <div id="apple3">
+      <h2 id="projects">Projects</h2>
+      <span id="projects">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
         Projekt,
-        dass ich mache erweitert.</p>
+        dass ich mache erweitert.</span>
     </div>
   </section>
 
   <!--Timeline-->
   <div id="timeline">
     <svg id="svgTimeline" height="3000" width="1000" class="z100">
-      <polyline points="0,200 840,350 400,600 820,1110 400,1180 610,1550 400,1800 865,2350 400,2435"
-        style="fill:none;stroke:var(--colorFont);stroke-width:5" stroke-linecap="round" />
+      <polyline points="0,200 840,350 400,600 820,1110 400,1180 610,1550 400,1800 865,2350 400,2435"/>
       <!--400,1180 610,1550 400,1800 865,2350 400,2435-->
     </svg>
 
@@ -410,15 +410,17 @@
     </ul>
   </div>
 
-  <div id="journeyContinuesContainer" class="z10 lockContainer">
-    <h2 id="journeyContinues" class="text_l">Die Reise geht weiter!</h2>
-    <p id="journeyContinues" class="text_l">Hier werden alle nachfolgenden Projekte aufgelistet, die ich noch auf dieser
-      Reise zum Lehrabschluss bestreiten werde.</p>
+  <div id="journeyContinuesContainer" class="lockContainer">
+    <div id="flexboxContainer">
+      <h2 class="paddingBottom30">Die Reise geht weiter!</h2>
+      <span>Hier werden alle nachfolgenden Projekte aufgelistet, die ich noch auf dieser
+        Reise zum Lehrabschluss bestreiten werde.</span>
+    </div>
 
-    <div id="skillsContainer" class="z10 lockContainer">
-      <h2 id="skills" class="text_c">Skills</h2>
-      <p id="skills" class="text_c">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem Projekt,
-        dass ich mache erweitert.</p>
+    <div id="skillsContainer" class="lockContainer">
+      <h2 class="paddingBottom30">Skills</h2>
+      <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem Projekt,
+        dass ich mache erweitert.</span>
 
       <div class="centerItems">
 
@@ -491,6 +493,16 @@
         </div>
       </div>
     </div>
+
+    <div id="contactContainer" class="z-1 lockContainer">
+      <h2 class="paddingBottom30">Kontakt</h2>
+      <span>Gerne kannst du mich kontaktieren, unten stehen sämtliche Social-Media
+        Plattformen
+        auf denen ich aktiv bin, sowie auch meine Swisscom-Seite.
+        <br></br>
+        <br>Ich freue mich auf dich!</br>
+      </span>
+
   </div>
 
   <div id="referencesContainer" class="lockContainer">
@@ -510,15 +522,17 @@
       <br>Ich freue mich auf dich!</br>
     </p>
 
-    <!--Contact Social Media-->
-    <div id="contact_social_media" class="text_c">
-      <a href="https://www.instagram.com/jonathan_russ_" target="_blank">
-        <span>Instagram</span>
-      </a>
-      <a href="https://twitter.com/JonathanXD12_" target="_blank">
-        <span>Twitter</span>
-      </a>
-      <!--<a href="YouTube">
+<!--Contact Social Media-->
+      <div id="contact_social_media">
+        <a href="https://www.instagram.com/jonathan_russ_" target="_blank">
+          <span>Instagram</span>
+        </a>
+        <a href="https://twitter.com/JonathanXD12_" target="_blank">
+          <span>Twitter</span>
+        </a>
+        <!--<a href="YouTube">
+
+  
           <span>YouTube</span>
         </a>
         <a href="TikTok">

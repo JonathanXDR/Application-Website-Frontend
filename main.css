@@ -3,16 +3,18 @@ html {
 }
 
 * {
+  box-sizing: border-box;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
     Helvetica, Arial, "Lucida Grande", sans-serif;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .light-theme {
-  --colorBackground: #ffffff;
+  --colorBg: #ffffff;
   --colorContainer: #f3f3f3;
   --colorTransparent: rgba(255, 255, 255, 0.4);
-  --colorMenuBackground: rgba(255, 255, 255, 0.72);
+  --colorMenuBgMacbook: rgba(255, 255, 255, 0.72);
+  --colorMenuBgIpad: rgba(255, 255, 255, 0.72);
   --colorMenuBorder: rgba(0, 0, 0, 0.16);
   --colorScrollbarTrack: #fafafa;
   --colorScrollbarTrackBorder: #1c1c1c;
@@ -22,10 +24,11 @@ html {
 }
 
 .dark-theme {
-  --colorBackground: #000000;
+  --colorBg: #000000;
   --colorContainer: #151516;
   --colorTransparent: rgba(0, 0, 0, 0.4);
-  --colorMenuBackground: rgba(29, 29, 31, 0.72);
+  --colorMenuBgMacbook: rgba(29, 29, 31, 0.72);
+  --colorMenuBgIpad: rgba(0, 0, 0, 0.72);
   --colorMenuBorder: rgba(255, 255, 255, 0.24);
   --colorScrollbarTrack: #0f0f0f;
   --colorScrollbarTrackBorder: #1c1c1c;
@@ -42,24 +45,41 @@ html {
 }
 
 body {
-  background: var(--colorBackground);
+  background: var(--colorBg);
   margin: 0;
   font-family: monospace;
 }
 
-.text_r {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
   color: var(--colorFont);
-  text-align: right;
 }
 
-.text_l {
+span {
   color: var(--colorFont);
-  text-align: left;
 }
 
-.text_c {
-  color: var(--colorFont);
-  text-align: center;
+/* Animate Timeline */
+polyline {
+  fill: none;
+  stroke: var(--colorFont);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 5000;
+  stroke-dashoffset: 5000;
+  animation: draw 10s ease-in forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0; /* when animation finishes stroke-dashoffset: 0;*/
+  }
 }
 
 .z-1 {
@@ -86,6 +106,10 @@ body {
   z-index: 100;
 }
 
+.paddingBottom30 {
+  padding: 0 0 30px 0;
+}
+
 .centerItems {
   margin-top: 125px;
   display: flex;
@@ -99,42 +123,10 @@ a:hover {
   text-decoration: none !important;
 }
 
-#aboutMe {
-  width: 95%;
-  position: relative;
-  top: 15px;
-  left: 15px;
-}
-
-#projects {
-  width: 450px;
-  position: relative;
-  left: 15px;
-}
-
-#journeyContinues {
-  position: relative;
-  left: 125px;
-  width: 500px;
-}
-
-#skills {
-  position: relative;
-  width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#contact {
-  position: relative;
-  width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 #contact_social_media {
   position: relative;
   align-items: center;
+  text-align: center;
   font-weight: 700;
   font-size: 13px;
   margin-top: 50px;
@@ -146,25 +138,6 @@ a:hover {
 
 #contact_social_media span {
   margin-left: 50px;
-}
-
-.background {
-  background-image: url(macos-big-sur-5120x2880-mountains-apple-october-2020-event-5k-23121.jpg); /*--edit image--*/
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.background::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  content: "";
 }
 
 /*Apple Menu Bar*/
@@ -185,8 +158,9 @@ a:hover {
   border-bottom: 1px solid var(--colorMenuBorder);
   height: 52px;
   position: fixed;
-  background-color: var(--colorMenuBackground);
-  backdrop-filter: blur(10px);
+  background-color: var(--colorMenuBgIpad);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -223,7 +197,7 @@ a:hover {
 }
 
 .menu-bar li:hover > a {
-  color: var(--colorBackground);
+  color: var(--colorBg);
 }
 
 .menu-bar li:hover::before {
@@ -370,6 +344,7 @@ input[type="checkbox"] {
   text-align: center;
   white-space: nowrap;
   border-radius: 980px;
+  transition: none;
 }
 
 .button:hover {
@@ -428,6 +403,18 @@ input[type="checkbox"] {
   margin-top: 160px;
   margin-left: 400px;
   border-radius: 20px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: flex-end;
+}
+
+.buttons {
+  display: flex;
+  align-content: center;
+  gap: 10px;
+  /* padding: 15px 0 15px 0; */
 }
 
 #projectsContainer {
@@ -444,6 +431,12 @@ input[type="checkbox"] {
   margin-right: auto;
   /*box-shadow: 0 20px 50px rgb(0 0 0 / 80%);*/
   border-radius: 0px;
+  color: var(--colorFont);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-end;
 }
 
 #journeyContinuesContainer {
@@ -458,16 +451,35 @@ input[type="checkbox"] {
   box-shadow: 0px 0px 15px 15px var(--colorTransparent);
 }
 
+#flexboxContainer {
+  width: 80%;
+  height: 175px;
+  /* background: green; */
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px 600px 50px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-end;
+}
+
 #skillsContainer {
   width: 80%;
   height: 200px;
-  padding-top: 5px;
   background: var(--colorContainer);
   position: relative;
-  top: 50px;
+  top: 0px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
+  text-align: center;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
 }
 
 #referencesContainer {
@@ -493,7 +505,13 @@ input[type="checkbox"] {
   margin-left: auto;
   margin-right: auto;
   /*box-shadow: 0 20px 50px rgb(0 0 0 / 80%);*/
-  border-radius: 10px;
+  /* border-radius: 10px; */
+  text-align: center;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
 }
 
 #htmlContainer {
@@ -578,11 +596,11 @@ input[type="checkbox"] {
 
 /*Locked*/
 .lockTimeline {
-  display: block;
+  display: none;
 }
 
 .lockContainer {
-  display: block;
+  display: none;
 }
 
 .lockApple {
@@ -683,6 +701,7 @@ input[type="checkbox"] {
 .flag {
   position: relative;
   display: inline;
+  color: black;
   background: white;
   font-weight: 600;
   z-index: 5;
