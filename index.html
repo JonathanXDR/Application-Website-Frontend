@@ -111,9 +111,9 @@
 
 
   <!--Side Container-->
-  <svg id="sideContainer"  width="740" height="1000" xmlns="http://www.w3.org/2000/svg">
+  <svg id="sideContainer" width="740" height="1000" xmlns="http://www.w3.org/2000/svg">
     <path fill="url(#blueGradient)"
-      d="M 30 0 C 0 0 0 0 0 30 L 0 120 C 0 150 0 150 25 167 L 425 433 C 450 450 450 450 450 480 L 450 645 C 450 675 450 675 474 693 L 726 882 C 750 900 750 900 750 870 L 750 30 C 750 0 750 0 720 0  Z" />
+      d="M 0 0 C 0 0 0 0 0 30 L 0 120 C 0 150 0 150 25 167 L 425 433 C 450 450 450 450 450 480 L 450 645 C 450 675 450 675 474 693 L 726 882 C 750 900 750 900 750 870 L 750 30 C 750 0 750 0 720 0  Z" />
     <linearGradient id="blueGradient" gradientTransform="rotate(315deg)">
       <stop offset="0%" stop-color="#009ffd" />
       <stop offset="74%" stop-color="#2a2a72" />
@@ -122,7 +122,7 @@
   <style>
     #sideContainer {
       position: absolute;
-      top: 53px;
+      top: 52px;
       right: 0px;
       z-index: -1;
     }
@@ -236,8 +236,7 @@
   <!--Timeline-->
   <div id="timeline">
     <svg id="svgTimeline" height="3000" width="1000" class="z100">
-      <polyline points="0,200 840,350 400,600 820,1110 400,1180 610,1550 400,1800 865,2350 400,2435"
-        style="fill:none;stroke:var(--colorFont);stroke-width:5" stroke-linecap="round" />
+      <polyline points="0,200 840,350 400,600 820,1110 400,1180 610,1550 400,1800 865,2350 400,2435"/>
       <!--400,1180 610,1550 400,1800 865,2350 400,2435-->
     </svg>
 
@@ -411,9 +410,11 @@
   </div>
 
   <div id="journeyContinuesContainer" class="lockContainer">
-    <h2 class="paddingBottom30">Die Reise geht weiter!</h2>
-    <span>Hier werden alle nachfolgenden Projekte aufgelistet, die ich noch auf dieser
-      Reise zum Lehrabschluss bestreiten werde.</span>
+    <div id="flexboxContainer">
+      <h2 class="paddingBottom30">Die Reise geht weiter!</h2>
+      <span>Hier werden alle nachfolgenden Projekte aufgelistet, die ich noch auf dieser
+        Reise zum Lehrabschluss bestreiten werde.</span>
+    </div>
 
     <div id="skillsContainer" class="lockContainer">
       <h2 class="paddingBottom30">Skills</h2>
