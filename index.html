@@ -44,7 +44,7 @@
   
   <div>content...</div> -->
 
-  <div>
+  <section id="home">
     <svg id="hexagonImage" class="z100" xmlns="http://www.w3.org/2000/svg" width="411" height="411">
       <defs>
         <clipPath id="image">
@@ -68,7 +68,26 @@
         <button class="button" id="contactBtn" onclick="download_cv()"><i class="arrow down"></i>Contact Me</button>
       </div>
     </div>
-  </div>
+
+    <!--Side Container-->
+    <svg id="sideContainer" width="750" height="1000" xmlns="http://www.w3.org/2000/svg">
+      <path fill="var(--AppleLightCyan)"
+        d="M 0 0 L 0 120 C 0 150 0 150 25 167 L 425 433 C 450 450 450 450 450 480 L 450 645 C 450 675 450 675 474 693 C 750 900 750 900 750 900 C 750 0 750 0 750 0 Z" />
+      <!-- <linearGradient id="blueGradient" gradientTransform="rotate(315deg)">
+      <stop offset="0%" stop-color="#009ffd" />
+      <stop offset="74%" stop-color="#2a2a72" />
+    </linearGradient> -->
+    </svg>
+    <style>
+      #sideContainer {
+        position: absolute;
+        top: 52px;
+        right: 0px;
+        z-index: -1;
+      }
+    </style>
+  </section>
+
   <!--Waves
   <svg id="wave1"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
     <path fill="#0099ff" fill-opacity="1"
@@ -109,131 +128,24 @@
     }
   </style> -->
 
-
-
-  <!--Side Container-->
-  <svg id="sideContainer" width="750" height="1000" xmlns="http://www.w3.org/2000/svg">
-    <path fill="var(--AppleLightCyan)"
-      d="M 0 0 L 0 120 C 0 150 0 150 25 167 L 425 433 C 450 450 450 450 450 480 L 450 645 C 450 675 450 675 474 693 C 750 900 750 900 750 900 C 750 0 750 0 750 0 Z" />
-    <!-- <linearGradient id="blueGradient" gradientTransform="rotate(315deg)">
-      <stop offset="0%" stop-color="#009ffd" />
-      <stop offset="74%" stop-color="#2a2a72" />
-    </linearGradient> -->
-  </svg>
-  <style>
-    #sideContainer {
-      position: absolute;
-      top: 52px;
-      right: 0px;
-      z-index: -1;
-    }
-  </style>
-
-  <!--Hexagons-->
-  <div id="hexagon_half"></div>
-  <div id="hexagon_half2"></div>
-
-  <!--Triangles-->
-  <svg id="triangleLeft" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
-    <path fill="var(--AppleMusicRed)" d="M 0 0 L 0 480 L 296 258 C 312 246 312 234 296 222 Z" />
-    <linearGradient id="redGradient" gradientTransform="rotate(147deg)">
-      <stop offset="0%" stop-color="#990000" />
-      <stop offset="74%" stop-color="#ff0000" />
-    </linearGradient>
-  </svg>
-  <style>
-    #triangleLeft {
-      position: absolute;
-      top: 1000px;
-      left: 0px;
-    }
-  </style>
-
-  <svg id="triangleLeft2" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
-    <path fill="var(--AppleMusicRed)" d="M 0 0 L 0 480 L 296 258 C 312 246 312 234 296 222 Z" />
-  </svg>
-  <style>
-    #triangleLeft2 {
-      position: absolute;
-      top: 2200px;
-      left: 0px;
-    }
-  </style>
-
-  <svg id="triangleRight" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
-    <path fill="var(--AppleMusicRed)" d="M 320 0 L 320 480 L 24 258 C 8 246 8 234 24 222 Z" />
-  </svg>
-  <style>
-    #triangleRight {
-      position: absolute;
-      top: 1600px;
-      right: 0px;
-    }
-  </style>
-
-  <svg id="triangleRightHalf" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
-    <path fill="var(--AppleMusicRed)" d="M 320 0 L 320 240 L 30 240 C 10 240 8 234 24 222 Z" />
-  </svg>
-  <style>
-    #triangleRightHalf {
-      position: absolute;
-      top: 2800px;
-      right: 0px;
-    }
-  </style>
-
-  <section class="lockContainer">
+  <section id="projects">
     <div id="projectsContainer">
       <h2 class="paddingBottom30">Projects</h2>
       <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
         Projekt,
         dass ich mache erweitert.</span>
     </div>
-  </section>
 
-  <section class="lockApple">
-    <div id="apple1">
-      <h2 id="projects">Projects</h2>
-      <span id="projects">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
-        Projekt,
-        dass ich mache erweitert.</span>
-    </div>
-
-    <div id="apple2">
-      <h2 id="projects">Projects</h2>
-      <span id="projects">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
-        Projekt,
-        dass ich mache erweitert.</span>
-    </div>
-
-    <div id="apple3">
-      <h2 id="projects">Projects</h2>
-      <span id="projects">Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
-        Projekt,
-        dass ich mache erweitert.</span>
-    </div>
-  </section>
-
-  <!--Timeline-->
-  <div id="timeline">
+    <!--Timeline-->
+    <!-- <div id="timeline"> -->
     <svg id="svgTimeline" height="2235" width="100%" class="z100">
-      <path id="polylineTimeline" class="animate"
+      <path id="pathTimeline" class="animate"
         d="M0,200 840,350 400,600 820,1110 400,1180 610,1550 400,1800 865,2350 400,2435" />
       <!-- <polyline id="polylineTimeline" class="animate"
         points="0,200 840,350 400,600 820,1110 400,1180 610,1550 400,1800 865,2350 400,2435" /> -->
       <!--400,1180 610,1550 400,1800 865,2350 400,2435-->
     </svg>
 
-    <div id="triangle-right1"></div>
-
-    <section class="lockTimeline">
-
-      <div id="triangle-left1"></div>
-      <div id="triangle-right2"></div>
-
-      <div id="triangle-end"></div>
-
-    </section>
     <ul class="items">
 
       <!--Item 1-->
@@ -274,211 +186,283 @@
         </style>
       </li>
 
-      <section class="lockTimeline">
-
-        <!--Item 3-->
-        <li id="item3">
-          <div class="direction-r">
-            <div class="flag-wrapper">
-              <span class="hexa"></span>
-              <span class="flag">2. Projekt</span>
-              <span class="time-wrapper"><span class="time">July 2014</span></span>
-            </div>
-            <div class="desc">Lorem ipsum Nisi labore aute do aute culpa magna nulla voluptate exercitation deserunt
-              proident.</div>
+      <!--Item 3-->
+      <li id="item3">
+        <div class="direction-r">
+          <div class="flag-wrapper">
+            <span class="hexa"></span>
+            <span class="flag">2. Projekt</span>
+            <span class="time-wrapper"><span class="time">July 2014</span></span>
           </div>
-          <style>
-            #item3 {
-              margin-top: 315px;
-              margin-right: -190px;
-            }
-          </style>
-        </li>
+          <div class="desc">Lorem ipsum Nisi labore aute do aute culpa magna nulla voluptate exercitation deserunt
+            proident.</div>
+        </div>
+        <style>
+          #item3 {
+            margin-top: 315px;
+            margin-right: -190px;
+          }
+        </style>
+      </li>
 
-        <!--Item 4-->
-        <li id="item4">
-          <div class="direction-l">
-            <div class="flag-wrapper">
-              <span class="hexa"></span>
-              <span class="flag">3. Projekt</span>
-              <span class="time-wrapper"><span class="time">Dec 2014</span></span>
-            </div>
-            <div class="desc">Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor dolore aliquip enim
-              cupidatat laborum dolore.</div>
+      <!--Item 4-->
+      <li id="item4">
+        <div class="direction-l">
+          <div class="flag-wrapper">
+            <span class="hexa"></span>
+            <span class="flag">3. Projekt</span>
+            <span class="time-wrapper"><span class="time">Dec 2014</span></span>
           </div>
-          <style>
-            #item4 {
-              margin-top: -120px;
-              margin-left: -230px;
-            }
-          </style>
-        </li>
+          <div class="desc">Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor dolore aliquip enim
+            cupidatat laborum dolore.</div>
+        </div>
+        <style>
+          #item4 {
+            margin-top: -120px;
+            margin-left: -230px;
+          }
+        </style>
+      </li>
 
-        <!--Item 5-->
-        <li id="item5">
-          <div class="direction-r">
-            <div class="flag-wrapper">
-              <span class="hexa"></span>
-              <span class="flag">4. Projekt</span>
-              <span class="time-wrapper"><span class="time">July 2014</span></span>
-            </div>
-            <div class="desc">Lorem ipsum Minim labore Ut cupidatat quis qui deserunt proident fugiat pariatur cillum
-              cupidatat reprehenderit sit id dolor consectetur ut.</div>
+      <!--Item 5-->
+      <li id="item5">
+        <div class="direction-r">
+          <div class="flag-wrapper">
+            <span class="hexa"></span>
+            <span class="flag">4. Projekt</span>
+            <span class="time-wrapper"><span class="time">July 2014</span></span>
           </div>
-          <style>
-            #item5 {
-              margin-top: 175px;
-              margin-right: 25px;
-            }
-          </style>
-        </li>
+          <div class="desc">Lorem ipsum Minim labore Ut cupidatat quis qui deserunt proident fugiat pariatur cillum
+            cupidatat reprehenderit sit id dolor consectetur ut.</div>
+        </div>
+        <style>
+          #item5 {
+            margin-top: 175px;
+            margin-right: 25px;
+          }
+        </style>
+      </li>
 
-        <!--Item 6-->
-        <li id="item6">
-          <div class="direction-l">
-            <div class="flag-wrapper">
-              <span class="hexa"></span>
-              <span class="flag">5. Projekt</span>
-              <span class="time-wrapper"><span class="time">Dec 2014</span></span>
-            </div>
-            <div class="desc">Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor dolore aliquip enim
-              cupidatat laborum dolore.</div>
+      <!--Item 6-->
+      <li id="item6">
+        <div class="direction-l">
+          <div class="flag-wrapper">
+            <span class="hexa"></span>
+            <span class="flag">5. Projekt</span>
+            <span class="time-wrapper"><span class="time">Dec 2014</span></span>
           </div>
-          <style>
-            #item6 {
-              margin-top: 35px;
-              margin-left: -230px;
-            }
-          </style>
-        </li>
+          <div class="desc">Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor dolore aliquip enim
+            cupidatat laborum dolore.</div>
+        </div>
+        <style>
+          #item6 {
+            margin-top: 35px;
+            margin-left: -230px;
+          }
+        </style>
+      </li>
 
-        <!--Item 7-->
-        <li id="item7">
-          <div class="direction-r">
-            <div class="flag-wrapper">
-              <span class="hexa"></span>
-              <span class="flag">6. Projekt</span>
-              <span class="time-wrapper"><span class="time">Feb 2015</span></span>
-            </div>
-            <div class="desc">Lorem ipsum Nisi labore aute do aute culpa magna nulla voluptate exercitation deserunt
-              proident.</div>
+      <!--Item 7-->
+      <li id="item7">
+        <div class="direction-r">
+          <div class="flag-wrapper">
+            <span class="hexa"></span>
+            <span class="flag">6. Projekt</span>
+            <span class="time-wrapper"><span class="time">Feb 2015</span></span>
           </div>
-          <style>
-            #item7 {
-              margin-top: 360px;
-              margin-right: -230px;
-            }
-          </style>
-        </li>
+          <div class="desc">Lorem ipsum Nisi labore aute do aute culpa magna nulla voluptate exercitation deserunt
+            proident.</div>
+        </div>
+        <style>
+          #item7 {
+            margin-top: 360px;
+            margin-right: -230px;
+          }
+        </style>
+      </li>
 
-        <!--Item 8-->
-        <li id="item8">
-          <div class="direction-l">
-            <div class="flag-wrapper">
-              <span class="hexa"></span>
-              <span class="flag">7. Projekt</span>
-              <span class="time-wrapper"><span class="time">Dec 2014</span></span>
-            </div>
-            <div class="desc">Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor dolore aliquip enim
-              cupidatat laborum dolore.</div>
+      <!--Item 8-->
+      <li id="item8">
+        <div class="direction-l">
+          <div class="flag-wrapper">
+            <span class="hexa"></span>
+            <span class="flag">7. Projekt</span>
+            <span class="time-wrapper"><span class="time">Dec 2014</span></span>
           </div>
-          <style>
-            #item8 {
-              margin-top: -110px;
-              margin-left: -230px;
-            }
-          </style>
-        </li>
-      </section>
+          <div class="desc">Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor dolore aliquip enim
+            cupidatat laborum dolore.</div>
+        </div>
+        <style>
+          #item8 {
+            margin-top: -110px;
+            margin-left: -230px;
+          }
+        </style>
+      </li>
     </ul>
-  </div>
 
-  <div id="journeyContinuesContainer" class="lockContainer">
-    <div id="flexboxContainer">
-      <h2 class="paddingBottom30">Die Reise geht weiter!</h2>
-      <span>Hier werden alle nachfolgenden Projekte aufgelistet, die ich noch auf dieser
-        Reise zum Lehrabschluss bestreiten werde.</span>
+    <!--Triangles-->
+    <svg id="triangleLeft" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
+      <path fill="var(--AppleMusicRed)" d="M 0 0 L 0 480 L 296 258 C 312 246 312 234 296 222 Z" />
+      <linearGradient id="redGradient" gradientTransform="rotate(147deg)">
+        <stop offset="0%" stop-color="#990000" />
+        <stop offset="74%" stop-color="#ff0000" />
+      </linearGradient>
+    </svg>
+    <style>
+      #triangleLeft {
+        position: absolute;
+        top: 1000px;
+        left: 0px;
+      }
+    </style>
+
+    <svg id="triangleLeft2" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
+      <path fill="var(--AppleMusicRed)" d="M 0 0 L 0 480 L 296 258 C 312 246 312 234 296 222 Z" />
+    </svg>
+    <style>
+      #triangleLeft2 {
+        position: absolute;
+        top: 2200px;
+        left: 0px;
+      }
+    </style>
+
+    <svg id="triangleRight" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
+      <path fill="var(--AppleMusicRed)" d="M 320 0 L 320 480 L 24 258 C 8 246 8 234 24 222 Z" />
+    </svg>
+    <style>
+      #triangleRight {
+        position: absolute;
+        top: 1600px;
+        right: 0px;
+      }
+    </style>
+
+    <svg id="triangleRightHalf" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
+      <path fill="var(--AppleMusicRed)" d="M 320 0 L 320 240 L 30 240 C 10 240 8 234 24 222 Z" />
+    </svg>
+    <style>
+      #triangleRightHalf {
+        position: absolute;
+        top: 2800px;
+        right: 0px;
+      }
+    </style>
+  </section>
+
+  <section class="lockApple">
+    <div id="apple1">
+      <h2>Projects</h2>
+      <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
+        Projekt,
+        dass ich mache erweitert.</span>
     </div>
 
-    <div id="skillsContainer" class="lockContainer">
-      <h2 class="paddingBottom30">Skills</h2>
-      <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem Projekt,
+    <div id="apple2">
+      <h2>Projects</h2>
+      <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
+        Projekt,
         dass ich mache erweitert.</span>
+    </div>
 
-      <div class="centerItems">
+    <div id="apple3">
+      <h2>Projects</h2>
+      <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
+        Projekt,
+        dass ich mache erweitert.</span>
+    </div>
+  </section>
 
-        <!--Hexagon Progressbar1-->
-        <div id="htmlContainer" class="lockContainer">
-          <div id="wrapper" class="center">
-            <svg class="hex-progress noselect" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
-              <path class="track" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
-              <path class="fill" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z" stroke="url(#cl1)">
-              </path>
-              <text class="value" x="50%" y="61%">0%</text>
-              <text class="text" x="50%" y="150%">HTML</text>
+  <section id="skills">
+    <div id="journeyContinuesContainer" class="lockContainer">
+      <div id="flexboxContainer">
+        <h2 class="paddingBottom30">Die Reise geht weiter!</h2>
+        <span>Hier werden alle nachfolgenden Projekte aufgelistet, die ich noch auf dieser
+          Reise zum Lehrabschluss bestreiten werde.</span>
+      </div>
+
+      <div id="skillsContainer" class="lockContainer">
+        <h2 class="paddingBottom30">Skills</h2>
+        <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem Projekt,
+          dass ich mache erweitert.</span>
+
+        <div class="centerItems">
+
+          <!--Hexagon Progressbar1-->
+          <div id="htmlContainer" class="lockContainer">
+            <div id="wrapper" class="center">
+              <svg class="hex-progress noselect" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
+                <path class="track" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+                <path class="fill" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                  stroke="url(#cl1)">
+                </path>
+                <text class="value" x="50%" y="61%">0%</text>
+                <text class="text" x="50%" y="150%">HTML</text>
+              </svg>
+            </div>
+
+            <svg width="0" height="0">
+              <defs>
+                <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+                  <stop stop-color="#ff9f1a" />
+                  <stop offset="100%" stop-color="#ff3838" />
+                </linearGradient>
+              </defs>
             </svg>
           </div>
 
-          <svg width="0" height="0">
-            <defs>
-              <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-                <stop stop-color="#ff9f1a" />
-                <stop offset="100%" stop-color="#ff3838" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
+          <!--Hexagon Progressbar2-->
+          <div id="cssContainer" class="lockContainer">
+            <div id="wrapper2" class="center2">
+              <svg class="hex-progress2 noselect2" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
+                <path class="track2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+                <path class="fill2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                  stroke="url(#cl2)">
+                </path>
+                <text class="value2" x="50%" y="61%">0%</text>
+                <text class="text2" x="50%" y="150%">CSS</text>
+              </svg>
+            </div>
 
-        <!--Hexagon Progressbar2-->
-        <div id="cssContainer" class="lockContainer">
-          <div id="wrapper2" class="center2">
-            <svg class="hex-progress2 noselect2" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
-              <path class="track2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
-              <path class="fill2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                stroke="url(#cl2)">
-              </path>
-              <text class="value2" x="50%" y="61%">0%</text>
-              <text class="text2" x="50%" y="150%">CSS</text>
+            <svg width="0" height="0">
+              <defs>
+                <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+                  <stop stop-color="#18dcff" />
+                  <stop offset="100%" stop-color="#7d5fff" />
+                </linearGradient>
+              </defs>
             </svg>
           </div>
 
-          <svg width="0" height="0">
-            <defs>
-              <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-                <stop stop-color="#18dcff" />
-                <stop offset="100%" stop-color="#7d5fff" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
+          <!--Hexagon Progressbar3-->
+          <div id="jsContainer" class="lockContainer">
+            <div id="wrapper3" class="center3">
+              <svg class="hex-progress3 noselect3" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
+                <path class="track3" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+                <path class="fill3" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                  stroke="url(#cl3)">
+                </path>
+                <text class="value3" x="50%" y="61%">0%</text>
+                <text class="text3" x="50%" y="150%">JavaScript</text>
+              </svg>
+            </div>
 
-        <!--Hexagon Progressbar3-->
-        <div id="jsContainer" class="lockContainer">
-          <div id="wrapper3" class="center3">
-            <svg class="hex-progress3 noselect3" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
-              <path class="track3" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
-              <path class="fill3" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                stroke="url(#cl3)">
-              </path>
-              <text class="value3" x="50%" y="61%">0%</text>
-              <text class="text3" x="50%" y="150%">JavaScript</text>
+            <svg width="0" height="0">
+              <defs>
+                <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+                  <stop stop-color="#fff200" />
+                  <stop offset="100%" stop-color="#32ff7e" />
+                </linearGradient>
+              </defs>
             </svg>
           </div>
-
-          <svg width="0" height="0">
-            <defs>
-              <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-                <stop stop-color="#fff200" />
-                <stop offset="100%" stop-color="#32ff7e" />
-              </linearGradient>
-            </defs>
-          </svg>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div id="musicContainer" class="lockContainer">
+  <!-- <div id="musicContainer" class="lockContainer">
     <h2 class="paddingBottom30">Skills</h2>
     <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem Projekt,
       dass ich mache erweitert.</span>
@@ -535,25 +519,26 @@
 
     </div>
 
-  </div>
+  </div> -->
 
-  <div id="contactContainer" class="z-1 lockContainer">
-    <h2 class="paddingBottom30">Kontakt</h2>
-    <span>Gerne kannst du mich kontaktieren, unten stehen sämtliche Social-Media
-      Plattformen
-      auf denen ich aktiv bin, sowie auch meine Swisscom-Seite.
-      <br></br>
-      <br>Ich freue mich auf dich!</br>
-    </span>
-    <!--Contact Social Media-->
-    <div id="contact_social_media">
-      <a href="https://www.instagram.com/jonathan_russ_" target="_blank">
-        <span>Instagram</span>
-      </a>
-      <a href="https://twitter.com/JonathanXD12_" target="_blank">
-        <span>Twitter</span>
-      </a>
-      <!--<a href="YouTube">
+  <section id="contact">
+    <div id="contactContainer" class="z-1 lockContainer">
+      <h2 class="paddingBottom30">Kontakt</h2>
+      <span>Gerne kannst du mich kontaktieren, unten stehen sämtliche Social-Media
+        Plattformen
+        auf denen ich aktiv bin, sowie auch meine Swisscom-Seite.
+        <br></br>
+        <br>Ich freue mich auf dich!</br>
+      </span>
+      <!--Contact Social Media-->
+      <div id="contact_social_media">
+        <a href="https://www.instagram.com/jonathan_russ_" target="_blank">
+          <span>Instagram</span>
+        </a>
+        <a href="https://twitter.com/JonathanXD12_" target="_blank">
+          <span>Twitter</span>
+        </a>
+        <!--<a href="YouTube">
 
   
           <span>YouTube</span>
@@ -564,31 +549,32 @@
         <a href="Twitch">
           <span>Twitch</span>
         </a>-->
-      <a href="https://discordapp.com/users/494042822320717827" target="_blank">
-        <span>Discord</span>
-      </a>
-      <a href="https://www.reddit.com/user/JonathanXD12" target="_blank">
-        <span>Reddit</span>
-      </a>
-      <a href="https://github.com/JonathanXDR" target="_blank">
-        <span>GitHub</span>
-      </a>
-      <a href="https://intranet.swisscom.com/home/profile/i%3a0e.t%7cazuread%7ctaarujo6" target="_blank">
-        <span>Swisscom</span>
-      </a>
+        <a href="https://discordapp.com/users/494042822320717827" target="_blank">
+          <span>Discord</span>
+        </a>
+        <a href="https://www.reddit.com/user/JonathanXD12" target="_blank">
+          <span>Reddit</span>
+        </a>
+        <a href="https://github.com/JonathanXDR" target="_blank">
+          <span>GitHub</span>
+        </a>
+        <a href="https://intranet.swisscom.com/home/profile/i%3a0e.t%7cazuread%7ctaarujo6" target="_blank">
+          <span>Swisscom</span>
+        </a>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div id="referencesContainer" class="lockContainer">
-    <h2 class="paddingBottom30">Referenzen</h2>
-    <span>Gerne kannst du mich kontaktieren, unten stehen sämtliche Social-Media
-      Plattformen
-      auf denen ich aktiv bin, sowie auch meine Swisscom-Seite.
-      <br></br>
-      <br>Ich freue mich auf dich!</br>
-    </span>
-  </div>
-
+  <section id="references">
+    <div id="referencesContainer" class="lockContainer">
+      <h2 class="paddingBottom30">Referenzen</h2>
+      <span>Gerne kannst du mich kontaktieren, unten stehen sämtliche Social-Media
+        Plattformen
+        auf denen ich aktiv bin, sowie auch meine Swisscom-Seite.
+        <br></br>
+        <br>Ich freue mich auf dich!</br>
+      </span>
+    </div>
   </section>
 
   <script>
