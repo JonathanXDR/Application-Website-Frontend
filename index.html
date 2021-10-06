@@ -70,7 +70,7 @@
     </div>
 
     <!--Side Container-->
-    <svg id="sideContainer" width="750" height="1000" xmlns="http://www.w3.org/2000/svg">
+    <svg id="sideContainer" width="750" height="900" xmlns="http://www.w3.org/2000/svg">
       <path fill="var(--AppleLightCyan)"
         d="M 0 0 L 0 120 C 0 150 0 150 25 167 L 425 433 C 450 450 450 450 450 480 L 450 645 C 450 675 450 675 474 693 C 750 900 750 900 750 900 C 750 0 750 0 750 0 Z" />
       <!-- <linearGradient id="blueGradient" gradientTransform="rotate(315deg)">
@@ -137,8 +137,9 @@
     </div>
 
     <!--Timeline-->
-    <svg id="svgTimeline" class="z100" width="100%" height="3000px">
-      <polyline id="pathTimeline" class="animate" points="0,200 840,350 400,600 820,1110 400,1180 610,1550 400,1800 865,2350 400,2435"/>
+    <svg id="svgTimeline" class="z100" width="100%" height="2435">
+      <polyline id="pathTimeline" class="animate"
+        points="0,0 840,350 400,600 820,1110 400,1180 610,1550 400,1800 865,2350 400,2435" />
       <!--400,1180 610,1550 400,1800 865,2350 400,2435-->
     </svg>
 
@@ -378,84 +379,81 @@
         <span>Hier werden alle nachfolgenden Projekte aufgelistet, die ich noch auf dieser
           Reise zum Lehrabschluss bestreiten werde.</span>
       </div>
+    </div>
+    <div id="skillsContainer" class="lockContainer">
+      <h2 class="paddingBottom30">Skills</h2>
+      <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem Projekt,
+        dass ich mache erweitert.</span>
+    </div>
+    <div class="centerItems">
 
-      <div id="skillsContainer" class="lockContainer">
-        <h2 class="paddingBottom30">Skills</h2>
-        <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem Projekt,
-          dass ich mache erweitert.</span>
-
-        <div class="centerItems">
-
-          <!--Hexagon Progressbar1-->
-          <div id="htmlContainer" class="lockContainer">
-            <div id="wrapper" class="center">
-              <svg class="hex-progress noselect" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
-                <path class="track" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
-                <path class="fill" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                  stroke="url(#cl1)">
-                </path>
-                <text class="value" x="50%" y="61%">0%</text>
-                <text class="text" x="50%" y="150%">HTML</text>
-              </svg>
-            </div>
-
-            <svg width="0" height="0">
-              <defs>
-                <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-                  <stop stop-color="#ff9f1a" />
-                  <stop offset="100%" stop-color="#ff3838" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-
-          <!--Hexagon Progressbar2-->
-          <div id="cssContainer" class="lockContainer">
-            <div id="wrapper2" class="center2">
-              <svg class="hex-progress2 noselect2" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
-                <path class="track2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
-                <path class="fill2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                  stroke="url(#cl2)">
-                </path>
-                <text class="value2" x="50%" y="61%">0%</text>
-                <text class="text2" x="50%" y="150%">CSS</text>
-              </svg>
-            </div>
-
-            <svg width="0" height="0">
-              <defs>
-                <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-                  <stop stop-color="#18dcff" />
-                  <stop offset="100%" stop-color="#7d5fff" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-
-          <!--Hexagon Progressbar3-->
-          <div id="jsContainer" class="lockContainer">
-            <div id="wrapper3" class="center3">
-              <svg class="hex-progress3 noselect3" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
-                <path class="track3" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
-                <path class="fill3" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                  stroke="url(#cl3)">
-                </path>
-                <text class="value3" x="50%" y="61%">0%</text>
-                <text class="text3" x="50%" y="150%">JavaScript</text>
-              </svg>
-            </div>
-
-            <svg width="0" height="0">
-              <defs>
-                <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-                  <stop stop-color="#fff200" />
-                  <stop offset="100%" stop-color="#32ff7e" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
+      <!--Hexagon Progressbar1-->
+      <div id="htmlContainer" class="lockContainer">
+        <div id="wrapper" class="center">
+          <svg class="hex-progress noselect" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
+            <path class="track" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+            <path class="fill" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z" stroke="url(#cl1)">
+            </path>
+            <text class="value" x="50%" y="61%">0%</text>
+            <text class="text" x="50%" y="150%">HTML</text>
+          </svg>
         </div>
+
+        <svg width="0" height="0">
+          <defs>
+            <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#ff9f1a" />
+              <stop offset="100%" stop-color="#ff3838" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
+
+      <!--Hexagon Progressbar2-->
+      <div id="cssContainer" class="lockContainer">
+        <div id="wrapper2" class="center2">
+          <svg class="hex-progress2 noselect2" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
+            <path class="track2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+            <path class="fill2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z" stroke="url(#cl2)">
+            </path>
+            <text class="value2" x="50%" y="61%">0%</text>
+            <text class="text2" x="50%" y="150%">CSS</text>
+          </svg>
+        </div>
+
+        <svg width="0" height="0">
+          <defs>
+            <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#18dcff" />
+              <stop offset="100%" stop-color="#7d5fff" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <!--Hexagon Progressbar3-->
+      <div id="jsContainer" class="lockContainer">
+        <div id="wrapper3" class="center3">
+          <svg class="hex-progress3 noselect3" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
+            <path class="track3" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+            <path class="fill3" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z" stroke="url(#cl3)">
+            </path>
+            <text class="value3" x="50%" y="61%">0%</text>
+            <text class="text3" x="50%" y="150%">JavaScript</text>
+          </svg>
+        </div>
+
+        <svg width="0" height="0">
+          <defs>
+            <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#fff200" />
+              <stop offset="100%" stop-color="#32ff7e" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
     </div>
   </section>
 
