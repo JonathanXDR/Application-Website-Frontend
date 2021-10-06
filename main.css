@@ -407,7 +407,7 @@ input[type="checkbox"] {
   margin-top: 400px;
 } */
 
-#aboutMeContainer {
+#aboutContainer {
   width: 50%;
   height: 200px;
   background: var(--AppleLightYellow);
