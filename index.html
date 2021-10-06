@@ -83,7 +83,6 @@
         position: absolute;
         top: 52px;
         right: 0px;
-        z-index: -1;
       }
     </style>
   </section>
@@ -139,7 +138,7 @@
     <!--Timeline-->
     <svg id="svgTimeline" class="z100" width="100%" height="2435">
       <polyline id="pathTimeline" class="animate"
-        points="0,0 840,350 400,600 820,1110 400,1180 610,1550 400,1800 865,2350 400,2435" />
+        points="0,0 840,150 400,400 820,910 400,980 610,1350 400,1600 865,2150 400,2235" />
       <!--400,1180 610,1550 400,1800 865,2350 400,2435-->
     </svg>
 
@@ -158,8 +157,7 @@
         </div>
         <style>
           #item1 {
-            margin-top: 25px;
-            margin-right: -205px;
+            margin-right: -195px;
           }
         </style>
       </li>
@@ -179,7 +177,7 @@
         <style>
           #item2 {
             margin-top: 35px;
-            margin-left: -230px;
+            margin-left: -235px;
           }
         </style>
       </li>
@@ -198,7 +196,7 @@
         <style>
           #item3 {
             margin-top: 310px;
-            margin-right: -185px;
+            margin-right: -175px;
           }
         </style>
       </li>
@@ -217,7 +215,7 @@
         <style>
           #item4 {
             margin-top: -125px;
-            margin-left: -230px;
+            margin-left: -240px;
           }
         </style>
       </li>
@@ -236,7 +234,7 @@
         <style>
           #item5 {
             margin-top: 175px;
-            margin-right: 25px;
+            margin-right: 30px;
           }
         </style>
       </li>
@@ -255,7 +253,7 @@
         <style>
           #item6 {
             margin-top: 35px;
-            margin-left: -230px;
+            margin-left: -240px;
           }
         </style>
       </li>
@@ -274,7 +272,7 @@
         <style>
           #item7 {
             margin-top: 350px;
-            margin-right: -230px;
+            margin-right: -220px;
           }
         </style>
       </li>
@@ -293,60 +291,56 @@
         <style>
           #item8 {
             margin-top: -110px;
-            margin-left: -230px;
+            margin-left: -245px;
           }
         </style>
       </li>
     </ul>
 
     <!--Triangles-->
-    <svg id="triangleLeft" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
-      <path fill="var(--AppleMusicRed)" d="M 0 0 L 0 480 L 296 258 C 312 246 312 234 296 222 Z" />
-      <linearGradient id="redGradient" gradientTransform="rotate(147deg)">
-        <stop offset="0%" stop-color="#990000" />
-        <stop offset="74%" stop-color="#ff0000" />
-      </linearGradient>
-    </svg>
-    <style>
-      #triangleLeft {
-        position: absolute;
-        top: 1000px;
-        left: 0px;
-      }
-    </style>
+    <div class="triangles">
+      <svg id="triangleLeft" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--AppleMusicRed)" d="M 0 0 L 0 480 L 296 258 C 312 246 312 234 296 222 Z" />
+        <linearGradient id="redGradient" gradientTransform="rotate(147deg)">
+          <stop offset="0%" stop-color="#990000" />
+          <stop offset="74%" stop-color="#ff0000" />
+        </linearGradient>
+      </svg>
+      <style>
+        #triangleLeft {
+          margin-left: 0px;
+        }
+      </style>
 
-    <svg id="triangleLeft2" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
-      <path fill="var(--AppleMusicRed)" d="M 0 0 L 0 480 L 296 258 C 312 246 312 234 296 222 Z" />
-    </svg>
-    <style>
-      #triangleLeft2 {
-        position: absolute;
-        top: 2200px;
-        left: 0px;
-      }
-    </style>
+      <svg id="triangleLeft2" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--AppleMusicRed)" d="M 0 0 L 0 480 L 296 258 C 312 246 312 234 296 222 Z" />
+      </svg>
+      <style>
+        #triangleLeft2 {
+          margin-top: 1200px;
+          margin-left: 0px;
+        }
+      </style>
 
-    <svg id="triangleRight" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
-      <path fill="var(--AppleMusicRed)" d="M 320 0 L 320 480 L 24 258 C 8 246 8 234 24 222 Z" />
-    </svg>
-    <style>
-      #triangleRight {
-        position: absolute;
-        top: 1600px;
-        right: 0px;
-      }
-    </style>
+      <svg id="triangleRight" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--AppleMusicRed)" d="M 320 0 L 320 480 L 24 258 C 8 246 8 234 24 222 Z" />
+      </svg>
+      <style>
+        #triangleRight {
+          margin-top: 600px;
+          margin-right: 0px;
+        }
+      </style>
 
-    <svg id="triangleRightHalf" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
-      <path fill="var(--AppleMusicRed)" d="M 320 0 L 320 240 L 30 240 C 10 240 8 234 24 222 Z" />
-    </svg>
-    <style>
-      #triangleRightHalf {
-        position: absolute;
-        top: 2800px;
-        right: 0px;
-      }
-    </style>
+      <svg id="triangleRightHalf" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--AppleMusicRed)" d="M 320 0 L 320 240 L 30 240 C 10 240 8 234 24 222 Z" />
+      </svg>
+      <style>
+        #triangleRightHalf {
+          margin-right: 1800px;
+        }
+      </style>
+    </div>
   </section>
 
   <section class="lockApple">
