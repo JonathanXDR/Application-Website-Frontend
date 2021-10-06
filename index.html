@@ -22,13 +22,13 @@
 
   <ul class="z100 menu-bar">
     <!-- <div class="ulContainer"> -->
-    <li class="menu"><a href="#about" class="active">About</a></li>
+    <li class="menu"><a href="#about">About</a></li>
     <li class="menu"><a href="#projects">Projekte</a></li>
     <li class="menu"><a href="#skills">Skills</a></li>
     <li class="menu"><a href="#refernces">Referenzen</a></li>
     <li class="menu"><a href="#contact">Kontakt</a></li>
     <!-- </div> -->
-    <div class="toggle-btn" id="_1st-toggle-btn">
+    <div class="toggle-btn" id="toggleBtn">
       <input type="checkbox" onclick="toggleTheme()" id="themeId">
       <span></span>
     </div>
@@ -138,11 +138,8 @@
 
     <!--Timeline-->
     <!-- <div id="timeline"> -->
-    <svg id="svgTimeline" height="2235" width="100%" class="z100">
-      <path id="pathTimeline" class="animate"
-        d="M0,200 840,350 400,600 820,1110 400,1180 610,1550 400,1800 865,2350 400,2435" />
-      <!-- <polyline id="polylineTimeline" class="animate"
-        points="0,200 840,350 400,600 820,1110 400,1180 610,1550 400,1800 865,2350 400,2435" /> -->
+    <svg id="svgTimeline" class="z100">
+      <polyline id="pathTimeline" class="animate" preserveAspectRatio="none" points="0,200 840,350 400,600 820,1110 400,1180 610,1550 400,1800 865,2350 400,2435"/>
       <!--400,1180 610,1550 400,1800 865,2350 400,2435-->
     </svg>
 
@@ -161,7 +158,8 @@
         </div>
         <style>
           #item1 {
-            margin-right: -210px;
+            margin-top: 25px;
+            margin-right: -205px;
           }
         </style>
       </li>
@@ -199,8 +197,8 @@
         </div>
         <style>
           #item3 {
-            margin-top: 315px;
-            margin-right: -190px;
+            margin-top: 310px;
+            margin-right: -185px;
           }
         </style>
       </li>
@@ -218,7 +216,7 @@
         </div>
         <style>
           #item4 {
-            margin-top: -120px;
+            margin-top: -125px;
             margin-left: -230px;
           }
         </style>
