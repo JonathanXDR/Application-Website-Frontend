@@ -157,9 +157,11 @@ span {
 /* Sections */
 #home {
   display: none;
+  height: 1000px;
 }
 
 #projects {
+  max-height: 3000px;
 }
 
 #skills {
@@ -423,17 +425,12 @@ input[type="checkbox"] {
 }
 
 #projectsContainer {
-  width: 1000px;
   height: 200px;
   padding-top: 5px;
   /*background-color: rgba(0, 0, 0, .4);
   -webkit-backdrop-filter: blur(7.5px);
   backdrop-filter: blur(7.5px);*/
   background-color: var(--colorContainer);
-  position: absolute;
-  top: 750px;
-  margin-left: auto;
-  margin-right: auto;
   /*box-shadow: 0 20px 50px rgb(0 0 0 / 80%);*/
   border-radius: 0px;
   color: var(--colorFont);
@@ -442,6 +439,7 @@ input[type="checkbox"] {
   flex-direction: column;
   justify-content: flex-start;
   align-content: flex-end;
+  z-index: 1000;
 }
 
 #journeyContinuesContainer {
@@ -538,10 +536,6 @@ input[type="checkbox"] {
   height: 300px;
   padding-top: 5px;
   background: var(--colorContainer);
-  position: absolute;
-  top: 3000px;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
   padding: 30px;
   display: flex;
@@ -555,13 +549,10 @@ input[type="checkbox"] {
   width: 100%;
   height: 300px;
   padding-top: 5px;
-  background: var(--colorContainer);
-  position: absolute;
-  top: 4000px;
-  margin-left: auto;
-  margin-right: auto;
+  background: var(--colorFont);
   text-align: center;
   padding: 30px;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -643,23 +634,14 @@ input[type="checkbox"] {
   border-radius: 30px;
 }
 
-/*Timeline*/
-#timeline {
-  margin-top: 0px;
-  background-color: red;
-}
-
 #svgTimeline {
   display: block;
   background-color: blue;
-  width: 100%;
-  height: 3000px;
 }
 
 /* Animate Timeline */
 #pathTimeline {
-  width: 100%;
-  height: 100%;
+  /* margin: -500px; */
   fill: none;
   stroke: var(--colorFont);
   stroke-width: 5;
