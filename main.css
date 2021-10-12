@@ -977,7 +977,25 @@ input[type="checkbox"] {
 }
 
 .triangles {
-  margin-top: -2500px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 1200px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.trianglesLeft {
+  width: 308px;
+  margin-left: 0px;
+}
+
+.trianglesRight {
+  width: 308px;
+  margin-right: 0px;
+}
+
+#triangleLeft {
 }
 
 /*Hexagon Progressbar*/
