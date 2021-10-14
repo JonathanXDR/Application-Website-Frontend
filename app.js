@@ -22,16 +22,16 @@ function toggleTheme() {
 }
 
 // Change favicon according to theme
-const faviconTag = document.getElementById("faviconTag");
-const isDark = window.matchMedia("(prefers-color-scheme: dark)");
+// const faviconTag = document.getElementById("faviconTag");
+// const isDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-const changeFavicon = () => {
-  if (isDark.matches) faviconTag.href = ".favicon-dark.png";
-  else faviconTag.href = "favicon-light.png";
-};
+// const changeFavicon = () => {
+//   if (isDark.matches) faviconTag.href = ".favicon-dark.png";
+//   else faviconTag.href = "favicon-light.png";
+// };
 
-changeFavicon();
-setInterval(changeFavicon, 1000);
+// changeFavicon();
+// setInterval(changeFavicon, 1000);
 
 //Hexagon Progressbar1
 var forEach = function (array, callback, scope) {
