@@ -21,6 +21,18 @@ function toggleTheme() {
   }
 }
 
+// Vintage Mode
+let count = 0;
+
+function countToggles() {
+  count++;
+  console.log(count);
+
+  if (count === 10) {
+    document.getElementById("vintageModeContainer").style.display = "block";
+  }
+}
+
 // Change favicon according to theme
 // const faviconTag = document.getElementById("faviconTag");
 // const isDark = window.matchMedia("(prefers-color-scheme: dark)");

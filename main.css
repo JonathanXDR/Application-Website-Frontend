@@ -122,6 +122,10 @@ body {
   font-family: monospace;
 }
 
+#vintageModeContainer {
+  display: none;
+}
+
 #crt-lines {
   position: absolute;
   top: 0;
@@ -135,7 +139,6 @@ body {
   pointer-events: none;
   opacity: 0.4;
   animation: moveDownAnimation 150s linear infinite;
-  z-index: 100;
 }
 
 @keyframes moveDownAnimation {
@@ -162,7 +165,7 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 1;
 }
 
 #vignette {
@@ -177,7 +180,6 @@ body {
   mix-blend-mode: overlay;
   pointer-events: none;
   opacity: 0.6;
-  z-index: 100;
 }
 
 h1,

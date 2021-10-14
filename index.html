@@ -16,10 +16,11 @@
 </head>
 
 <body>
-
-  <div id="crt-lines"></div>
-  <div id="darken"></div>
-  <div id="vignette"></div>
+  <div id="vintageModeContainer">
+    <div id="crt-lines"></div>
+    <div id="darken"></div>
+    <div id="vignette"></div>
+  </div>
 
   <div class="background">
     <div class="background-inside"></div>
@@ -41,7 +42,7 @@
     <li class="menu"><a href="#contact">Kontakt</a></li>
     <!-- </div> -->
     <div class="toggle-btn" id="_1st-toggle-btn">
-      <input type="checkbox" onclick="toggleTheme()" id="themeId">
+      <input type="checkbox" onclick="toggleTheme();countToggles()" id="themeId">
       <span></span>
     </div>
   </ul>
