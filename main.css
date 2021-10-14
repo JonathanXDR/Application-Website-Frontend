@@ -10,6 +10,11 @@ html {
 }
 
 .light-theme {
+  /* Logos */
+  --mainLogo: url(logo-light.png);
+  --faviconLogo: url(favicon-dark.png);
+
+  --mainLogoBg: #efefef;
   --colorBg: #ffffff;
   --colorContainer: #f3f3f3;
   --colorTransparent: rgba(255, 255, 255, 0.4);
@@ -55,6 +60,11 @@ html {
 }
 
 .dark-theme {
+  /* Logos */
+  --mainLogo: url(logo-dark.png);
+  --faviconLogo: url(favicon-light.png);
+
+  --mainLogoBg: #232324;
   --colorBg: #000000;
   --colorContainer: #151516;
   --colorTransparent: rgba(0, 0, 0, 0.4);
@@ -184,6 +194,28 @@ a:hover {
   margin-left: 50px;
 }
 
+#logoFlex {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#logoPadding {
+  display: flex;
+  padding: 0px 15px;
+  background-color: var(--mainLogoBg);
+  /* border-bottom: 1px solid var(--colorMenuBorder); */
+}
+
+#logo {
+  width: 75px;
+  height: 53px;
+  content: var(--mainLogo);
+  background-color: var(--mainLogoBg);
+  object-fit: cover;
+}
+
 /*Apple Menu Bar*/
 
 /* .ulContainer {
@@ -251,8 +283,8 @@ a:hover {
 
 .toggle-btn {
   position: relative;
-  width: 145px;
-  height: 74px;
+  min-width: 145px;
+  min-height: 74px;
   border-radius: 40px;
   transform: scale(0.35);
   border: solid var(--colorMenuBorder);
