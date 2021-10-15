@@ -110,10 +110,11 @@ html {
 }
 
 :root {
-  --blue: #51c1e9;
-  --red: #f03a3a;
-  /*background-color: #990000;
-  background-image: linear-gradient(147deg, #990000 0%, #ff0000 74%); */
+  /* prettier-ignore */
+  --green-glow: 
+    0px 0px 2px hsl(120, 100%, 80%),
+    0px 0px 15px green,
+    0px 0px 60px green;
 }
 
 body {

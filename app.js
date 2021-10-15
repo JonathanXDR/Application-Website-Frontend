@@ -23,13 +23,20 @@ function toggleTheme() {
 
 // Vintage Mode
 let count = 0;
+const text = document.querySelectorAll("h1, h2, h3, h4, h5, h6, span, button");
 
 function countToggles() {
   count++;
   console.log(count);
 
-  if (count === 10) {
+  if (count >= 10) {
     document.getElementById("vintageModeContainer").style.display = "block";
+    text.style.fontFamily = "VT323, monospace";
+    text.style.color = "rgb(235, 235, 235)";
+    text.style.textShadow = "var(--green-glow)";
+    text.style.lineHeight = "1";
+    text.style.transform = "translateZ(100px)";
+    text.style.backfaceVisibility = "hidden";
   }
 }
 
