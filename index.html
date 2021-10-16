@@ -27,7 +27,7 @@
     <div class="background-inside"></div>
   </div>
 
-  <ul class="z100 menu-bar">
+  <ul class="menu-bar">
     <!-- Logo -->
     <div id="logoFlex">
       <div id="logoPadding">
@@ -59,7 +59,7 @@
   <div>content...</div> -->
 
   <section id="home">
-    <svg id="hexagonImage" class="z100" xmlns="http://www.w3.org/2000/svg" width="411" height="411">
+    <svg id="hexagonImage" xmlns="http://www.w3.org/2000/svg" width="411" height="411">
       <defs>
         <clipPath id="image">
           <path stroke="none"
@@ -67,7 +67,7 @@
           </path>
         </clipPath>
       </defs>
-      <image clip-path="url(#image)" height="100%" width="100%" x="0" y="10" href="Portrait-PB.jpg"
+      <image clip-path="url(#image)" height="100%" width="100%" x="0" y="10" href="img/Portrait-PB.jpg"
         preserveAspectRatio="xMidYMin slice"></image>
     </svg>
 
@@ -150,7 +150,7 @@
     </div>
 
     <!--Timeline-->
-    <svg id="svgTimeline" class="z100" width="100%" height="2435">
+    <svg id="svgTimeline" width="100%" height="2435">
       <polyline id="pathTimeline" class="animate"
         points="0,0 840,150 400,400 820,910 400,980 610,1350 400,1600 865,2150 400,2235" />
       <!--400,1180 610,1550 400,1800 865,2350 400,2435-->
@@ -518,8 +518,40 @@
 
   </div> -->
 
+  <section id="Mario" role="img" aria-labelledby="marioDesc" class="scene active"
+    style="visibility: inherit; opacity: 1;">
+    <span id="marioDesc" class="ariaLabel">Three boxes with a question mark, from the Super Mario Bros game, are
+      standing in the center of the screen ... try to find the coin in one of them by using the numbers 1, 2,
+      and 3 on your keyboard!</span>
+    <div class="container" style="visibility: hidden; opacity: 0;"><audio id="mario-start" class="bgm">
+        <source src="media/smw_princess_help.ogg" type="audio/ogg">
+      </audio><audio id="mario-stomp" class="bgm">
+        <source src="media/smw_stomp.ogg" type="audio/ogg">
+      </audio><audio id="mario-empty" class="bgm">
+        <source src="media/smw_stomp_no_damage.ogg" type="audio/ogg">
+      </audio><audio id="mario-appears" class="bgm">
+        <source src="media/smw_power-up_appears.ogg" type="audio/ogg">
+      </audio><audio id="mario-power-up" class="bgm">
+        <source src="media/smw_power-up.ogg" type="audio/ogg">
+      </audio><audio id="mario-exit" class="bgm">
+        <source src="media/smw_keyhole_exit.ogg" type="audio/ogg">
+      </audio>
+      <div class="mario-box b1">
+        <div class="in"></div>
+      </div>
+      <div class="mario-box b2">
+        <div class="in"></div>
+      </div>
+      <div class="mario-box b3">
+        <div class="in"></div>
+      </div>
+      <div class="mario"
+        style="visibility: hidden; opacity: 0; transform: translate(0%, 200%) matrix(0.8, 0, 0, 0.8, 0, 0);"></div>
+    </div>
+  </section>
+
   <section id="contact">
-    <div id="contactContainer" class="z-1 lockContainer">
+    <div id="contactContainer" class="lockContainer">
       <h2 class="paddingBottom30">Kontakt</h2>
       <span>Gerne kannst du mich kontaktieren, unten stehen sämtliche Social-Media
         Plattformen
