@@ -17,6 +17,25 @@
 </head>
 
 <body>
+  <!-- Preloader -->
+  <div class="loading">
+    <div class="loading-text">
+      <span class="loading-text-words">L</span>
+      <span class="loading-text-words">O</span>
+      <span class="loading-text-words">A</span>
+      <span class="loading-text-words">D</span>
+      <span class="loading-text-words">I</span>
+      <span class="loading-text-words">N</span>
+      <span class="loading-text-words">G</span>
+    </div>
+  </div>
+
+  <script>
+    $(window).on("load", function () {
+      $(".loading").fadeOut("slow");
+    });
+  </script>
+
   <div id="vintageModeContainer">
     <div id="crt-lines"></div>
     <div id="darken"></div>
@@ -459,66 +478,97 @@
     </div>
   </section>
 
-  <!-- <div id="musicContainer" class="lockContainer">
-    <h2 class="paddingBottom30">Skills</h2>
+  <section class="section section-stations">
+    <!-- <h2 class="paddingBottom30">Skills</h2>
     <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem Projekt,
-      dass ich mache erweitert.</span>
+      dass ich mache erweitert.</span> -->
+    <div class="musicContainer">
+      <div class="section-content">
+        <div class="stations-gallery-wrapper">
+          <div class="ac-gallery">
+            <div class="tabnav-wrapper">
+              <div class="tabnav with-paddles">
 
-    <div id="musicGallery">
-      <div class="galleryItem">
-        <img class="galleryItemImg"
-          src="https://is2-ssl.mzstatic.com/image/thumb/Features115/v4/06/56/a9/0656a9a6-1638-03ff-505c-711ba93ba41b/U0MtTVMtV1ctQWxhYmFuemFfeV9BZG9yYWNpb19uLUFEQU1fSUQ9MTQ0OTc0MTg0MC5wbmc.png/180x180SC.DN01.jpg?l=en-US"
-          alt="Alabanza y Adoración - Apple Christian">
+                <ul role="tablist" class="tabnav-items">
+                  <li role="presentation" class="tabnav-item">
+                    <a href="#stations-item-1" id="stations-item-1-tabnav-trigger"
+                      data-ac-gallery-trigger="stations-item-1" class="tabnav-link current show" role="tab" tabindex="0"
+                      aria-controls="stations-item-1" aria-selected="true">You Gotta Hear</a>
+                  </li>
+                  <li role="presentation" class="tabnav-item">
+                    <a href="#stations-item-2" id="stations-item-2-tabnav-trigger"
+                      data-ac-gallery-trigger="stations-item-2" class="tabnav-link show" role="tab" tabindex="0"
+                      aria-controls="stations-item-2" aria-selected="false">Halloween Albums</a>
+                  </li>
+                  <li role="presentation" class="tabnav-item">
+                    <a href="#stations-item-3" id="stations-item-3-tabnav-trigger"
+                      data-ac-gallery-trigger="stations-item-3" class="tabnav-link show" role="tab" tabindex="0"
+                      aria-controls="stations-item-3" aria-selected="false">Daily Top 100</a>
+                  </li>
 
-        <span>Text</span>
+                  <li role="presentation" class="tabnav-item">
+                    <a href="#stations-item-5" id="stations-item-5-tabnav-trigger"
+                      data-ac-gallery-trigger="stations-item-5" class="tabnav-link show" role="tab" tabindex="0"
+                      aria-controls="stations-item-5" aria-selected="false">New Music</a>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+
+            <div id="stations" class="gallery-container stations-gallery"
+              aria-label="Apple Music playlists and albums gallery">
+              <div id="stations-item-1"
+                class="gallery-item stations-gallery-item ac-gallery-currentitem ac-gallery-lastitem">
+                <div class="gallery slider-container music-slider-container slider-mounted">
+                  <div id="slider-a-gallery" class="slider slider-slider-a music-slider">
+                    <div class="ac-gallery-slidecontainer">
+                      <div class="ac-gallery-slideitemwrapper ac-gallery-currentitem"
+                        id="slider-a-gallery-0-slider-a-gallery-1-slider-a-gallery-2-slider-a-gallery-3">
+                        <div id="slider-a-gallery-0" class="gallery-item music-slide music-slide-0">
+
+                          <a class="music-slide-link"
+                            href="https://music.apple.com/us/playlist/dancexl/pl.6bf4415b83ce4f3789614ac4c3675740?itscg=10000&amp;itsct=mus-0-mus_fam-posn1_stm-apl-avl-200130&amp;Is=1">
+                            <div class="music-slide-img-wrapper" style="background-color:#efefef"
+                              data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
+                            </div>
+                            <div class="icon icon-thumbnailplay"></div>
+                            <img
+                              src="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                              alt="danceXL - Apple Music Dance" class="music-slide-img">
+                        </div>
+
+                        <div class="music-slide-description">
+                          <h3 class="music-slide-headline">danceXL</h3>
+                          <span class="music-slide-subhead">Apple Music Dance</span>
+                        </div>
+
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="stations" class="gallery-container stations-gallery"></div>
       </div>
-
-      <div class="galleryItem">
+      <!-- <div class="galleryItem">
         <img class="galleryItemImg"
           src="https://is2-ssl.mzstatic.com/image/thumb/Features115/v4/06/56/a9/0656a9a6-1638-03ff-505c-711ba93ba41b/U0MtTVMtV1ctQWxhYmFuemFfeV9BZG9yYWNpb19uLUFEQU1fSUQ9MTQ0OTc0MTg0MC5wbmc.png/180x180SC.DN01.jpg?l=en-US"
           alt="Alabanza y Adoración - Apple Christian">
 
         <span>Title</span>
         <span>Artist</span>
-      </div>
-
-      <div class="galleryItem">
-        <img class="galleryItemImg"
-          src="https://is2-ssl.mzstatic.com/image/thumb/Features115/v4/06/56/a9/0656a9a6-1638-03ff-505c-711ba93ba41b/U0MtTVMtV1ctQWxhYmFuemFfeV9BZG9yYWNpb19uLUFEQU1fSUQ9MTQ0OTc0MTg0MC5wbmc.png/180x180SC.DN01.jpg?l=en-US"
-          alt="Alabanza y Adoración - Apple Christian">
-
-        <span>Text</span>
-      </div>
-
-      <div class="galleryItem">
-        <img class="galleryItemImg"
-          src="https://is2-ssl.mzstatic.com/image/thumb/Features115/v4/06/56/a9/0656a9a6-1638-03ff-505c-711ba93ba41b/U0MtTVMtV1ctQWxhYmFuemFfeV9BZG9yYWNpb19uLUFEQU1fSUQ9MTQ0OTc0MTg0MC5wbmc.png/180x180SC.DN01.jpg?l=en-US"
-          alt="Alabanza y Adoración - Apple Christian">
-
-        <span>Text</span>
-      </div>
-
-      <div class="galleryItem">
-        <img class="galleryItemImg"
-          src="https://is2-ssl.mzstatic.com/image/thumb/Features115/v4/06/56/a9/0656a9a6-1638-03ff-505c-711ba93ba41b/U0MtTVMtV1ctQWxhYmFuemFfeV9BZG9yYWNpb19uLUFEQU1fSUQ9MTQ0OTc0MTg0MC5wbmc.png/180x180SC.DN01.jpg?l=en-US"
-          alt="Alabanza y Adoración - Apple Christian">
-
-        <span>Text</span>
-      </div>
-
-      <div class="galleryItem">
-        <img class="galleryItemImg"
-          src="https://is2-ssl.mzstatic.com/image/thumb/Features115/v4/06/56/a9/0656a9a6-1638-03ff-505c-711ba93ba41b/U0MtTVMtV1ctQWxhYmFuemFfeV9BZG9yYWNpb19uLUFEQU1fSUQ9MTQ0OTc0MTg0MC5wbmc.png/180x180SC.DN01.jpg?l=en-US"
-          alt="Alabanza y Adoración - Apple Christian">
-
-        <span>Text</span>
-      </div>
-
+      </div> -->
     </div>
+    </div>
+  </section>
 
-  </div> -->
-
-  <section id="Mario" role="img" aria-labelledby="marioDesc" class="scene active"
+  <!-- <section id="Mario" role="img" aria-labelledby="marioDesc" class="scene active"
     style="visibility: inherit; opacity: 1;">
     <span id="marioDesc" class="ariaLabel">Three boxes with a question mark, from the Super Mario Bros game, are
       standing in the center of the screen ... try to find the coin in one of them by using the numbers 1, 2,
@@ -548,7 +598,7 @@
       <div class="mario"
         style="visibility: hidden; opacity: 0; transform: translate(0%, 200%) matrix(0.8, 0, 0, 0.8, 0, 0);"></div>
     </div>
-  </section>
+  </section> -->
 
   <section id="contact">
     <div id="contactContainer" class="lockContainer">
