@@ -7,20 +7,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jonathan Russ</title>
   <link rel="stylesheet" href="main.css">
-  <link rel="icon" type="image/jpg" href="favicon.jpg" />
+  <link rel="icon" type="image/png" href="favicon-dark.png" id="faviconTag" />
   <script src="app.js"></script>
   <script src="https://kit.fontawesome.com/c2fa1517e5.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <div id="vintageModeContainer">
+    <div id="crt-lines"></div>
+    <div id="darken"></div>
+    <div id="vignette"></div>
+  </div>
+
   <div class="background">
     <div class="background-inside"></div>
   </div>
 
   <ul class="z100 menu-bar">
+    <!-- Logo -->
+    <div id="logoFlex">
+      <div id="logoPadding">
+        <img id="logo" alt="Logo von JR">
+      </div>
+    </div>
+
     <!-- <div class="ulContainer"> -->
     <li class="menu"><a href="#about">About</a></li>
     <li class="menu"><a href="#projects">Projekte</a></li>
@@ -29,7 +43,7 @@
     <li class="menu"><a href="#contact">Kontakt</a></li>
     <!-- </div> -->
     <div class="toggle-btn" id="toggleBtn">
-      <input type="checkbox" onclick="toggleTheme()" id="themeId">
+      <input type="checkbox" onclick="toggleTheme();countToggles()" id="themeId">
       <span></span>
     </div>
   </ul>
