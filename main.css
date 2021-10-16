@@ -225,11 +225,31 @@ span {
   padding: 0 0 30px 0;
 }
 
+/* Sections */
+#home {
+  display: flex;
+  align-items: center;
+  padding: 300px 0;
+}
+
+#projects {
+  background-color: rebeccapurple;
+}
+
+#skills {
+  /* display: none; */
+}
+
+#contact {
+  margin-top: 100px;
+}
+
 .centerItems {
-  margin-top: 125px;
   display: flex;
   justify-content: space-between; /* horizontal zentrieren */
   gap: 50px;
+  width: 80%;
+  margin: 50px auto 0 auto;
   /* flex-wrap: wrap; */
 }
 
@@ -374,7 +394,7 @@ input[type="checkbox"] {
 
 /* First toggle btn */
 
-#_1st-toggle-btn span {
+#toggleBtn span {
   position: absolute;
   top: 0px;
   right: 0px;
@@ -387,8 +407,8 @@ input[type="checkbox"] {
   transition: 0.2s ease background-color, 0.2s ease opacity;
 }
 
-#_1st-toggle-btn span:before,
-#_1st-toggle-btn span:after {
+#toggleBtn span:before,
+#toggleBtn span:after {
   content: "";
   position: absolute;
   top: 8px;
@@ -398,32 +418,32 @@ input[type="checkbox"] {
   transition: 0.5s ease transform, 0.2s ease background-color;
 }
 
-#_1st-toggle-btn span:before {
+#toggleBtn span:before {
   background-color: #fff;
   transform: translate(-58px, 0px);
   z-index: 1;
 }
 
-#_1st-toggle-btn span:after {
+#toggleBtn span:after {
   background-color: #000;
   transform: translate(8px, 0px);
   z-index: 0;
 }
 
-#_1st-toggle-btn input[type="checkbox"]:checked + span {
+#toggleBtn input[type="checkbox"]:checked + span {
   background-color: #000;
 }
 
-#_1st-toggle-btn input[type="checkbox"]:active + span {
+#toggleBtn input[type="checkbox"]:active + span {
   opacity: 0.5;
 }
 
-#_1st-toggle-btn input[type="checkbox"]:checked + span:before {
+#toggleBtn input[type="checkbox"]:checked + span:before {
   background-color: #000;
   transform: translate(56px, -19px);
 }
 
-#_1st-toggle-btn input[type="checkbox"]:checked + span:after {
+#toggleBtn input[type="checkbox"]:checked + span:after {
   background-color: #fff;
   transform: translate(79px, 0px);
 }
@@ -480,29 +500,15 @@ input[type="checkbox"] {
   -webkit-transform: rotate(45deg);
 } */
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidebar {
-    padding-top: 15px;
-  }
-  .sidebar a {
-    font-size: 18px;
-  }
-}
-
 /*About Me*/
-#hexagonImage {
+/* #hexagonImage {
   margin-top: 400px;
-}
+} */
 
-#aboutMeContainer {
+#aboutContainer {
   width: 50%;
   height: 200px;
   background: var(--AppleLightYellow);
-  position: relative;
-  bottom: 470px;
-  margin-top: 160px;
-  margin-left: 400px;
   border-radius: 20px;
   padding: 15px;
   display: flex;
@@ -519,17 +525,11 @@ input[type="checkbox"] {
 }
 
 #projectsContainer {
-  width: 1000px;
   height: 200px;
-  padding-top: 5px;
   /*background-color: rgba(0, 0, 0, .4);
   -webkit-backdrop-filter: blur(7.5px);
   backdrop-filter: blur(7.5px);*/
   background-color: var(--colorContainer);
-  position: absolute;
-  top: 750px;
-  margin-left: auto;
-  margin-right: auto;
   /*box-shadow: 0 20px 50px rgb(0 0 0 / 80%);*/
   border-radius: 0px;
   color: var(--colorFont);
@@ -538,49 +538,45 @@ input[type="checkbox"] {
   flex-direction: column;
   justify-content: flex-start;
   align-content: flex-end;
+  z-index: 1000;
 }
 
 #journeyContinuesContainer {
-  width: 100%;
   height: 275px;
-  position: absolute;
-  top: 1240px;
-  left: 0px;
   background-color: var(--colorTransparent);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   box-shadow: 0px 0px 15px 15px var(--colorTransparent);
+  z-index: 10;
+  position: initial;
 }
 
 #flexboxContainer {
   width: 80%;
   height: 175px;
-  /* background: green; */
-  position: relative;
   margin-left: auto;
   margin-right: auto;
-  padding: 30px 600px 50px 0px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-content: flex-end;
+  justify-content: center;
 }
 
 #skillsContainer {
+  position: sticky;
+  margin-top: -125px;
   width: 80%;
   height: 200px;
   background: var(--colorContainer);
-  position: relative;
-  top: 0px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
   text-align: center;
   padding: 30px;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-content: center;
+  align-content: center; */
+  z-index: 100;
 }
 
 /* #musicContainer {
@@ -634,10 +630,6 @@ input[type="checkbox"] {
   height: 300px;
   padding-top: 5px;
   background: var(--colorContainer);
-  position: absolute;
-  top: 3000px;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
   padding: 30px;
   display: flex;
@@ -652,12 +644,9 @@ input[type="checkbox"] {
   height: 300px;
   padding-top: 5px;
   background: var(--colorContainer);
-  position: absolute;
-  top: 4000px;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
   padding: 30px;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -739,27 +728,22 @@ input[type="checkbox"] {
   border-radius: 30px;
 }
 
-/*Timeline*/
-#timeline {
-  margin-top: -400px;
-  background-color: red;
-}
-
 #svgTimeline {
   display: block;
-  background-color: blue;
+  background-color: green;
 }
 
-/* Animate Timeline */
 #pathTimeline {
+  /* margin: -500px; */
   fill: none;
   stroke: var(--colorFont);
   stroke-width: 5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 5000;
+  /* Animate Timeline */
+  /* stroke-dasharray: 5000;
   stroke-dashoffset: 5000;
-  animation: draw 7.5s ease-in forwards;
+  animation: draw 7.5s ease-in forwards; */
   z-index: 100;
 }
 
@@ -820,8 +804,9 @@ input[type="checkbox"] {
 }
 
 .items {
-  position: relative;
-  bottom: 2715px;
+  position: absolute;
+  top: 1300px;
+  left: 240px;
   padding: 0;
   width: 100%;
   margin-top: 20px;
@@ -1087,6 +1072,35 @@ input[type="checkbox"] {
     float: right;
     text-align: left;
   }
+}
+
+.triangles {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 325px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.trianglesLeft,
+.trianglesRight {
+  width: 308px;
+  display: flex;
+  flex-direction: column;
+  gap: 1200px;
+}
+
+.trianglesLeftFlex {
+  margin-top: 1200px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.trianglesRightFlex {
+  margin-top: -1320px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /*Hexagon Progressbar*/
