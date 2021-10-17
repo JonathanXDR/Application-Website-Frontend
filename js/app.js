@@ -45,8 +45,8 @@ function countToggles() {
 // const isDark = window.matchMedia("(prefers-color-scheme: dark)");
 
 // const changeFavicon = () => {
-//   if (isDark.matches) faviconTag.href = ".favicon-dark.png";
-//   else faviconTag.href = "favicon-light.png";
+//   if (isDark.matches) faviconTag.href = "/img/favicon-dark.png";
+//   else faviconTag.href = "/img/favicon-light.png";
 // };
 
 // changeFavicon();
