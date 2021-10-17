@@ -7,8 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jonathan Russ</title>
   <link rel="stylesheet" href="main.css">
-  <link rel="icon" type="image/png" href="favicon-dark.png" id="faviconTag" />
   <script src="app.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="icon" type="image/png" href="favicon-dark.png" id="faviconTag" />
   <script src="https://kit.fontawesome.com/c2fa1517e5.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +32,11 @@
   </div>
 
   <script>
+    // window.addEventListener("load", function () {
+    //   loading.fadeOut("slow");
+    //   // spinnerWrapper.style.display = 'none';
+    // });
+
     $(window).on("load", function () {
       $(".loading").fadeOut("slow");
     });
