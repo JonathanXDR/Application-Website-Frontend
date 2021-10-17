@@ -837,7 +837,7 @@ input[type="checkbox"] {
   width: 100%; /* off */
   position: relative;
   overflow: hidden;
-  height: 3.17647em;
+  height: 54px;
   font-size: 17px;
   text-align: center;
   z-index: 1;
@@ -857,7 +857,6 @@ input[type="checkbox"] {
   white-space: nowrap;
   -webkit-overflow-scrolling: touch; /* off */
   -ms-overflow-style: none; /* off */
-  padding: 0 0 3.17647em;
 }
 
 .tabnav .tabnav-item:first-child {
@@ -990,8 +989,8 @@ a:-webkit-any-link {
 }
 
 .music-slider {
-  margin-left: auto; /* off */
-  margin-right: auto; /* off */
+  margin: 0 34px;
+  padding-left: calc((100% - 980px) / 2 - 34px);
   width: 980px; /* off */
   position: relative;
   display: -webkit-box; /* off */
