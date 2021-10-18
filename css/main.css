@@ -996,6 +996,7 @@ a:-webkit-any-link {
   display: -webkit-box; /* off */
   display: -ms-flexbox; /* off */
   display: flex;
+  gap: 20px;
 }
 
 /* element.style {
@@ -1043,7 +1044,6 @@ a:-webkit-any-link {
   -ms-flex: none; /* off */
   flex: none;
   width: 180px; /* off */
-  margin-right: 20px; /* off */
 }
 
 .stations-gallery-item.ac-gallery-currentitem .music-slide-link,
@@ -1443,7 +1443,8 @@ element.style {
   display: block;
   position: relative;
   margin: 4px 0 0 0;
-  z-index: 5;
+  z-index: 14;
+  line-height: 1em;
   vertical-align: middle;
   color: #fff;
 }

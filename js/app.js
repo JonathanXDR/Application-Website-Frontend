@@ -58,6 +58,7 @@ var forEach = function (array, callback, scope) {
     callback.call(scope, i, array[i]);
   }
 };
+
 window.onload = function () {
   const themeButton = document.getElementById("themeId");
   if (localStorage.getItem("theme") === "light-theme") {
@@ -84,3 +85,30 @@ window.onload = function () {
     }
   );
 };
+
+// Check if music cover is visible in viewport
+function isInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+
+  );
+}
+
+
+const box = document.querySelector('gallery-item, music-slide');
+const message = document.querySelector('#message');
+
+document.addEventListener('scroll', function () {
+  const messageText = isInViewport(box) ?
+      'The box is visible in the viewport' :
+      'The box is not visible in the viewport';
+
+  message.textContent = messageText;
+
+}, {
+  passive: true
+});
