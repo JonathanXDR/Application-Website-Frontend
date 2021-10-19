@@ -1,0 +1,238 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.right {
+  float: right;
+}
+
+/* ====== MIXINS ===== */
+.poster__heading,
+.poster__subheading {
+  text-align: center;
+}
+
+.poster__heading {
+  margin: 0 auto;
+}
+
+html {
+  font-family: "Open Sans";
+  font-size: 100%;
+}
+
+@media screen and (min-width: 31.25em) {
+  html {
+    font-size: 105%;
+  }
+}
+
+@media screen and (min-width: 50em) {
+  html {
+    font-size: 115%;
+  }
+}
+
+@media screen and (min-width: 75em) {
+  html {
+    font-size: 125%;
+  }
+}
+
+.btn--primary,
+.btn--comments {
+  display: inline;
+  text-decoration: none;
+  padding: 0.45em 1.25em;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 0.75rem;
+  border-radius: 25px;
+  color: white;
+  font-family: "Open Sans";
+  transition: all 250ms ease;
+}
+
+.btn--primary {
+  border: 1px solid white;
+}
+
+.btn--primary:hover {
+  background-color: white;
+  color: black;
+}
+
+.poster {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-image: url("http://codepen.vincebrown.me/assets/images/snow-mountains.jpg");
+}
+
+.poster__heading {
+  width: 95%;
+  color: white;
+  padding-top: 5.5rem;
+  font-weight: 600;
+  font-size: 2em;
+  transition: all 400ms ease;
+}
+
+@media screen and (min-width: 31.25em) {
+  .poster__heading {
+    font-size: 2.25em;
+  }
+}
+
+@media screen and (min-width: 50em) {
+  .poster__heading {
+    font-size: 2.75em;
+  }
+}
+
+.poster__subheading {
+  display: block;
+  font-size: 0.3em;
+  letter-spacing: 5px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #ff9639;
+  padding-top: 0.8em;
+  margin-bottom: 0.6em;
+}
+
+.btn--comments {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+  font-size: 0.6em;
+}
+
+.btn--comments:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.timeline-wrapper {
+  position: relative;
+  padding-bottom: 25em;
+  /* background: linear-gradient(rgba(0, 0, 0, 0), #151b25, #151516),
+    linear-gradient(90deg, #172538, #18263a 50%); */
+
+  background: linear-gradient(
+    to right top,
+    #071931 0%,
+    #33274f 50%,
+    #661e43 100%
+  );
+
+  /* background: linear-gradient(to bottom, #4c102a 0%, #151516 100%); */
+}
+
+.timeline-wrapper:after {
+  content: "";
+  display: block;
+  background-image: url("http://codepen.vincebrown.me/assets/images/white-mountains.jpg");
+  height: 500px;
+  width: 100%;
+  background-size: cover;
+  position: absolute;
+  background-position: 25% center;
+  z-index: -10;
+  bottom: 0;
+}
+
+.svg-timeline {
+  position: absolute;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+
+@media screen and (min-width: 50em) {
+  .svg-timeline {
+    display: block;
+  }
+}
+
+.timeline {
+  transition: all 250ms ease;
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 31.25em) {
+  .timeline {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 50em) {
+  .timeline {
+    width: 95%;
+  }
+}
+
+.timeline__item {
+  margin-bottom: 4em;
+  clear: both;
+}
+
+@media screen and (min-width: 50em) {
+  .timeline__item {
+    width: 40%;
+  }
+}
+
+.timeline__day {
+  font-weight: 600;
+  font-size: 0.9em;
+  color: white;
+  text-transform: uppercase;
+  padding-bottom: 0.75em;
+}
+
+.timeline__day span {
+  font-weight: 300;
+  color: orange;
+  text-transform: none;
+}
+
+.timeline__day-sum {
+  color: white;
+  font-weight: 300;
+  font-size: 0.8em;
+  display: block;
+  margin-bottom: 1.5em;
+  line-height: 1.5;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+/* start commented backslash hack \*/
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+
+/* close commented backslash hack */

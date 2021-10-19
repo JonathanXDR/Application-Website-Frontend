@@ -306,6 +306,10 @@ span {
 }
 
 /* Sections */
+section {
+  /* display: none; */
+}
+
 #home {
   display: flex;
   align-items: center;
@@ -314,6 +318,7 @@ span {
 
 #projects {
   /* background-color: rebeccapurple; */
+  display: none;
 }
 
 #skills {
@@ -651,6 +656,7 @@ input[type="checkbox"] {
   letter-spacing: -0.022em;
   font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
     sans-serif;
+  min-width: 26px;
   color: var(--colorBtn);
   background: none;
   border: 2px solid var(--colorBtn);
@@ -660,12 +666,15 @@ input[type="checkbox"] {
   display: inline-block;
   text-align: center;
   white-space: nowrap;
+  min-width: 28px;
+  padding: 8px 16px;
   border-radius: 980px;
   transition: none;
 }
 
-.button:hover {
-  color: var(--colorBtnReverse);
+.button:hover,
+.button:active {
+  color: var(--colorBtnReverse) !important;
   background: var(--colorBtn);
 }
 
@@ -1195,7 +1204,7 @@ element.style {
 
 #htmlContainer {
   width: 400px;
-  height: 500px;
+  height: 400px;
   background: var(--colorContainer);
   border-radius: 10px;
   display: flex;
@@ -1205,7 +1214,7 @@ element.style {
 
 #cssContainer {
   width: 400px;
-  height: 500px;
+  height: 400px;
   background: var(--colorContainer);
   border-radius: 10px;
   display: flex;
@@ -1215,7 +1224,7 @@ element.style {
 
 #jsContainer {
   width: 400px;
-  height: 500px;
+  height: 400px;
   background: var(--colorContainer);
   border-radius: 10px;
   display: flex;
@@ -1302,7 +1311,7 @@ element.style {
 }
 
 .lockApple {
-  display: none;
+  /* display: none; */
 }
 
 .hexa {
