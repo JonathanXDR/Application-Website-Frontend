@@ -1,82 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jonathan Russ</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/timeline.css" />
+    <link rel="stylesheet" href="../css/Homepage-Anon-a160db85.chunk.css" />
+    <script src="../js/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/img/favicon-dark.png"
+      id="faviconTag"
+    />
+    <script
+      src="https://kit.fontawesome.com/c2fa1517e5.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jonathan Russ</title>
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/timeline.css">
-  <script src="../js/app.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <link rel="icon" type="image/png" href="/img/favicon-dark.png" id="faviconTag" />
-  <script src="https://kit.fontawesome.com/c2fa1517e5.js" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-</head>
-
-<body>
-  <!-- Preloader -->
-  <div class="loading">
-    <div class="loading-text">
-      <span class="loading-text-words">L</span>
-      <span class="loading-text-words">O</span>
-      <span class="loading-text-words">A</span>
-      <span class="loading-text-words">D</span>
-      <span class="loading-text-words">I</span>
-      <span class="loading-text-words">N</span>
-      <span class="loading-text-words">G</span>
-    </div>
-  </div>
-
-  <script>
-    // window.addEventListener("load", function () {
-    //   loading.fadeOut("slow");
-    //   // spinnerWrapper.style.display = 'none';
-    // });
-
-    $(window).on("load", function () {
-      $(".loading").fadeOut("slow");
-    });
-  </script>
-
-  <div id="vintageModeContainer">
-    <div id="crt-lines"></div>
-    <div id="darken"></div>
-    <div id="vignette"></div>
-  </div>
-
-  <div class="background">
-    <div class="background-inside"></div>
-  </div>
-
-  <ul class="menu-bar">
-    <!-- Logo -->
-    <div id="logoFlex">
-      <a href="#about">
-        <div id="logoPadding">
-          <img id="logo" alt="Logo von JR">
-        </div>
-      </a>
+  <body>
+    <!-- Preloader -->
+    <div class="loading">
+      <div class="loading-text">
+        <span class="loading-text-words">L</span>
+        <span class="loading-text-words">O</span>
+        <span class="loading-text-words">A</span>
+        <span class="loading-text-words">D</span>
+        <span class="loading-text-words">I</span>
+        <span class="loading-text-words">N</span>
+        <span class="loading-text-words">G</span>
+      </div>
     </div>
 
-    <!-- <div class="ulContainer"> -->
-    <li class="menu"><a href="#about">About</a></li>
-    <li class="menu"><a href="#projects">Projekte</a></li>
-    <li class="menu"><a href="#skills">Skills</a></li>
-    <li class="menu"><a href="#refernces">Referenzen</a></li>
-    <li class="menu"><a href="#contact">Kontakt</a></li>
-    <!-- </div> -->
-    <div class="toggle-btn" id="toggleBtn">
-      <input type="checkbox" onclick="toggleTheme();countToggles()" id="themeId">
-      <span></span>
-    </div>
-  </ul>
+    <script>
+      // window.addEventListener("load", function () {
+      //   loading.fadeOut("slow");
+      //   // spinnerWrapper.style.display = 'none';
+      // });
 
-  <!-- Scroll Indicator
+      $(window).on("load", function () {
+        $(".loading").fadeOut("slow");
+      });
+    </script>
+
+    <div id="vintageModeContainer">
+      <div id="crt-lines"></div>
+      <div id="darken"></div>
+      <div id="vignette"></div>
+    </div>
+
+    <div class="background">
+      <div class="background-inside"></div>
+    </div>
+
+    <ul class="menu-bar">
+      <!-- Logo -->
+      <div id="logoFlex">
+        <a href="#about">
+          <div id="logoPadding">
+            <img id="logo" alt="Logo von JR" />
+          </div>
+        </a>
+      </div>
+
+      <!-- <div class="ulContainer"> -->
+      <li class="menu"><a href="#about">About</a></li>
+      <li class="menu"><a href="#projects">Projekte</a></li>
+      <li class="menu"><a href="#skills">Skills</a></li>
+      <li class="menu"><a href="#refernces">Referenzen</a></li>
+      <li class="menu"><a href="#contact">Kontakt</a></li>
+      <!-- </div> -->
+      <div class="toggle-btn" id="toggleBtn">
+        <input
+          type="checkbox"
+          onclick="toggleTheme();countToggles()"
+          id="themeId"
+        />
+        <span></span>
+      </div>
+    </ul>
+
+    <!-- Scroll Indicator
   <div class="header">
     <h2>Scroll Indicator</h2>
     <div class="progress-container">
@@ -86,50 +104,77 @@
   
   <div>content...</div> -->
 
-  <section id="home">
-    <svg id="hexagonImage" xmlns="http://www.w3.org/2000/svg" width="411" height="411">
-      <defs>
-        <clipPath id="image">
-          <path stroke="none"
-            d="M190.5 14.160254037844a30 30 0 0 1 30 0l143.20508075689 82.679491924311a30 30 0 0 1 15 25.980762113533l0 165.35898384862a30 30 0 0 1 -15 25.980762113533l-143.20508075689 82.679491924311a30 30 0 0 1 -30 0l-143.20508075689 -82.679491924311a30 30 0 0 1 -15 -25.980762113533l2.633606093737e-13 -165.35898384862a30 30 0 0 1 15 -25.980762113533">
-          </path>
-        </clipPath>
-      </defs>
-      <image clip-path="url(#image)" height="100%" width="100%" x="0" y="10" href="/img/Portrait-PB.jpg"
-        preserveAspectRatio="xMidYMin slice"></image>
-    </svg>
+    <section id="home">
+      <svg
+        id="hexagonImage"
+        xmlns="http://www.w3.org/2000/svg"
+        width="411"
+        height="411"
+      >
+        <defs>
+          <clipPath id="image">
+            <path
+              stroke="none"
+              d="M190.5 14.160254037844a30 30 0 0 1 30 0l143.20508075689 82.679491924311a30 30 0 0 1 15 25.980762113533l0 165.35898384862a30 30 0 0 1 -15 25.980762113533l-143.20508075689 82.679491924311a30 30 0 0 1 -30 0l-143.20508075689 -82.679491924311a30 30 0 0 1 -15 -25.980762113533l2.633606093737e-13 -165.35898384862a30 30 0 0 1 15 -25.980762113533"
+            ></path>
+          </clipPath>
+        </defs>
+        <image
+          clip-path="url(#image)"
+          height="100%"
+          width="100%"
+          x="0"
+          y="10"
+          href="/img/Portrait-PB.jpg"
+          preserveAspectRatio="xMidYMin slice"
+        ></image>
+      </svg>
 
-    <div id="aboutContainer">
-      <h2>About Me</h2>
-      <span>Hallo, ich bin Jonathan, 15 Jahre alt und mache die Lehre als Informatiker -
-        Applikationsentwickler. In meiner Freizeit spiele ich gerne Computer -und Konsolenspiele, höre sehr oft ein
-        wenig
-        Musik und gehe auch ab und zu mit Freunden nach draussen, um etwas zu unternehmen.</span>
-      <div class="buttons">
-        <button class="button" id="cvBtn" onclick="download_cv()"><i class="arrow down"></i>Download CV</button>
-        <button class="button" id="contactBtn" onclick="download_cv()"><i class="arrow down"></i>Contact Me</button>
+      <div id="aboutContainer">
+        <h2>About Me</h2>
+        <span
+          >Hallo, ich bin Jonathan, 15 Jahre alt und mache die Lehre als
+          Informatiker - Applikationsentwickler. In meiner Freizeit spiele ich
+          gerne Computer -und Konsolenspiele, höre sehr oft ein wenig Musik und
+          gehe auch ab und zu mit Freunden nach draussen, um etwas zu
+          unternehmen.</span
+        >
+        <div class="buttons">
+          <button class="button" id="cvBtn" onclick="download_cv()">
+            <i class="arrow down"></i>Download CV
+          </button>
+          <button class="button" id="contactBtn" onclick="download_cv()">
+            <i class="arrow down"></i>Contact Me
+          </button>
+        </div>
       </div>
-    </div>
 
-    <!--Side Container-->
-    <svg id="sideContainer" width="750" height="900" xmlns="http://www.w3.org/2000/svg">
-      <path fill="var(--AppleLightCyan)"
-        d="M 0 0 L 0 120 C 0 150 0 150 25 167 L 425 433 C 450 450 450 450 450 480 L 450 645 C 450 675 450 675 474 693 C 750 900 750 900 750 900 C 750 0 750 0 750 0 Z" />
-      <!-- <linearGradient id="blueGradient" gradientTransform="rotate(315deg)">
+      <!--Side Container-->
+      <svg
+        id="sideContainer"
+        width="750"
+        height="900"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="var(--AppleLightCyan)"
+          d="M 0 0 L 0 120 C 0 150 0 150 25 167 L 425 433 C 450 450 450 450 450 480 L 450 645 C 450 675 450 675 474 693 C 750 900 750 900 750 900 C 750 0 750 0 750 0 Z"
+        />
+        <!-- <linearGradient id="blueGradient" gradientTransform="rotate(315deg)">
       <stop offset="0%" stop-color="#009ffd" />
       <stop offset="74%" stop-color="#2a2a72" />
     </linearGradient> -->
-    </svg>
-    <style>
-      #sideContainer {
-        position: absolute;
-        top: 52px;
-        right: 0px;
-      }
-    </style>
-  </section>
+      </svg>
+      <style>
+        #sideContainer {
+          position: absolute;
+          top: 52px;
+          right: 0px;
+        }
+      </style>
+    </section>
 
-  <!--Waves
+    <!--Waves
   <svg id="wave1"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
     <path fill="#0099ff" fill-opacity="1"
       d="M0,32L26.7,64C53.3,96,107,160,160,192C213.3,224,267,224,320,192C373.3,160,427,96,480,80C533.3,64,587,96,640,133.3C693.3,171,747,213,800,213.3C853.3,213,907,171,960,154.7C1013.3,139,1067,149,1120,160C1173.3,171,1227,181,1280,160C1333.3,139,1387,85,1413,58.7L1440,32L1440,0L1413.3,0C1386.7,0,1333,0,1280,0C1226.7,0,1173,0,1120,0C1066.7,0,1013,0,960,0C906.7,0,853,0,800,0C746.7,0,693,0,640,0C586.7,0,533,0,480,0C426.7,0,373,0,320,0C266.7,0,213,0,160,0C106.7,0,53,0,27,0L0,0Z">
@@ -169,659 +214,1102 @@
     }
   </style> -->
 
-  <header>
-    <div class="poster">
-      <h1 class="poster__heading">Meine Projekte
-        <span class="poster__subheading">2021 - 2024</span>
-        <a href="#timeline" class="button">Projekte Entdecken</a>
-    </div>
-    </div>
-  </header>
-  <main class="timeline-wrapper">
-    <div class="svg-timeline">
-      <svg width="8px" height="1490.7px" viewBox="0 0 8 1490.7">
-        <line id="timeline" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-miterlimit="10" x1="4" y1="0" x2="4"
-          y2="1490.7" />
+    <section id="timeline">
+      <header>
+        <div class="poster">
+          <h1 class="poster__heading">
+            Meine Projekte
+            <span class="poster__subheading">2021 - 2024</span>
+            <a href="#timeline" class="button">Projekte Entdecken</a>
+          </h1>
+        </div>
+      </header>
+      <main class="timeline-wrapper">
+        <div class="svg-timeline">
+          <svg width="8px" height="1490.7px" viewBox="0 0 8 1490.7">
+            <line
+              id="timeline"
+              fill="none"
+              stroke="#FFFFFF"
+              stroke-width="8"
+              stroke-miterlimit="10"
+              x1="4"
+              y1="0"
+              x2="4"
+              y2="1490.7"
+            />
+          </svg>
+        </div>
+        <ol class="timeline clearfix">
+          <li class="timeline__item">
+            <h3 class="timeline__day">
+              First Steps<span>Helsinki, Finland</span>
+            </h3>
+            <span class="timeline__day-sum"
+              >Your adventure begins with a one-night stay in Helsinki,
+              Finland's capital.
+            </span>
+            <a href="#" class="btn--comments">19 Comments</a>
+          </li>
+          <li class="timeline__item right">
+            <h3 class="timeline__day dayTwo">
+              Competence Center NEX-CC<span>Embarkation Day in Murmansk</span>
+            </h3>
+            <span class="timeline__day-sum"
+              >From Helsinki, your charter flight will take you to Murmansk,
+              Russia, where you'll embark on your voyage to the North Pole and
+              get acquainted with 50 Years of Victory, the world's largest and
+              most powerful icebreaker.</span
+            >
+            <a href="#" class="btn--comments">35 Comments</a>
+          </li>
+          <li class="timeline__item">
+            <h3 class="timeline__day dayThree">
+              2. Projekt<span>Northbound in the Arctic Ocean</span>
+            </h3>
+            <span class="timeline__day-sum"
+              >Watching the ship crush through the Arctic ice pack is a sight
+              you'll never forget, made even more memorable by taking a
+              helicopter flight for a thrilling aerial view of the ship and
+              expansive Arctic Ocean.</span
+            >
+            <span class="timeline__day-sum"
+              >You can expect days, and hours,to present variable sailing
+              conditions this far north. The crossing from Murmansk to the North
+              Pole can take us anywhere from 5-8 days. This means you'll have
+              plenty of time to get to know your shipmates, stare out at the
+              horizon, grab some drinks at the bar or do some laps in our indoor
+              pool.</span
+            >
+            <a href="#" class="btn--comments">72 Comments</a>
+          </li>
+          <li class="timeline__item right">
+            <h3 class="timeline__day dayFour">
+              3. Projekt<span>90&deg; North</span>
+            </h3>
+            <span class="timeline__day-sum"
+              >All of the anticipation of the past few days reaches a climax as
+              you reach the North Pole! Many travelers find themselves overcome
+              with emotion, while others are in a festive mood. Take photos,
+              wave a flag, enjoy your moment! Later, everyone enjoys a champagne
+              toast and a BBQ on the ice. Add an exclamation to your success by
+              rising high in one of our hot air balloons to commemerate this
+              great moment.</span
+            >
+            <a href="#" class="btn--comments">132 Comments</a>
+          </li>
+          <li class="timeline__item">
+            <h3 class="timeline__day dayFive">
+              4. Projekt<span>Southbound in the Arctic Ocean</span>
+            </h3>
+            <span class="timeline__day-sum"
+              >Now you can sit back and relax, everything from here on out is a
+              bonus! Expect more great memories as you head south, you may get
+              lucky and spot a Polar Bear hunting a Seal.</span
+            >
+            <a href="#" class="btn--comments">2 Comments</a>
+          </li>
+          <li class="timeline__item right">
+            <h3 class="timeline__day daySix">
+              5. Projekt<span>Franz Josef Land</span>
+            </h3>
+            <span class="timeline__day-sum"
+              >Now you can sit back and relax, everything from here on out is a
+              bonus! Expect more great memories as you head south, you may get
+              lucky and spot a Polar Bear hunting a Seal.</span
+            >
+            <a href="#" class="btn--comments">12 Comments</a>
+          </li>
+          <li class="timeline__item">
+            <h3 class="timeline__day dayThree">
+              6. Projekt<span>Northbound in the Arctic Ocean</span>
+            </h3>
+            <span class="timeline__day-sum"
+              >Watching the ship crush through the Arctic ice pack is a sight
+              you'll never forget, made even more memorable by taking a
+              helicopter flight for a thrilling aerial view of the ship and
+              expansive Arctic Ocean.</span
+            >
+            <span class="timeline__day-sum"
+              >You can expect days, and hours,to present variable sailing
+              conditions this far north. The crossing from Murmansk to the North
+              Pole can take us anywhere from 5-8 days. This means you'll have
+              plenty of time to get to know your shipmates, stare out at the
+              horizon, grab some drinks at the bar or do some laps in our indoor
+              pool.</span
+            >
+            <a href="#" class="btn--comments">72 Comments</a>
+          </li>
+          <li class="timeline__item right">
+            <h3 class="timeline__day dayFour">
+              7. Projekt<span>90&deg; North</span>
+            </h3>
+            <span class="timeline__day-sum"
+              >All of the anticipation of the past few days reaches a climax as
+              you reach the North Pole! Many travelers find themselves overcome
+              with emotion, while others are in a festive mood. Take photos,
+              wave a flag, enjoy your moment! Later, everyone enjoys a champagne
+              toast and a BBQ on the ice. Add an exclamation to your success by
+              rising high in one of our hot air balloons to commemerate this
+              great moment.</span
+            >
+            <a href="#" class="btn--comments">132 Comments</a>
+          </li>
+          <li class="timeline__item">
+            <h3 class="timeline__day dayFive">
+              8. Projekt<span>Southbound in the Arctic Ocean</span>
+            </h3>
+            <span class="timeline__day-sum"
+              >Now you can sit back and relax, everything from here on out is a
+              bonus! Expect more great memories as you head south, you may get
+              lucky and spot a Polar Bear hunting a Seal.</span
+            >
+            <a href="#" class="btn--comments">2 Comments</a>
+          </li>
+        </ol>
+      </main>
+    </section>
+
+    <section id="projects">
+      <div id="projectsContainer">
+        <h2 class="paddingBottom30">Projects</h2>
+        <span
+          >Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit
+          jedem Projekt, dass ich mache erweitert.</span
+        >
+      </div>
+
+      <!--Timeline-->
+      <svg id="svgTimeline" width="100%" height="2435">
+        <polyline
+          id="pathTimeline"
+          class="animate"
+          points="0,0 840,150 400,400 820,910 400,980 610,1350 400,1600 865,2150 400,2235"
+        />
+        <!--400,1180 610,1550 400,1800 865,2350 400,2435-->
       </svg>
-    </div>
-    <ol class="timeline clearfix">
-      <li class="timeline__item">
-        <h3 class="timeline__day">First Steps<span>Helsinki, Finland</span></h3>
-        <span class="timeline__day-sum">Your adventure begins with a one-night stay in Helsinki, Finland's capital.
-        </span>
-        <a href="#" class="btn--comments">19 Comments</a>
-      </li>
-      <li class="timeline__item right">
-        <h3 class="timeline__day dayTwo">Competence Center NEX-CC<span>Embarkation Day in Murmansk</span></h3>
-        <span class="timeline__day-sum">From Helsinki, your charter flight will take you to Murmansk, Russia, where
-          you'll embark on your voyage to the North Pole and get acquainted with 50 Years of Victory, the
-          world's largest and most powerful icebreaker.</span>
-        <a href="#" class="btn--comments">35 Comments</a>
-      </li>
-      <li class="timeline__item">
-        <h3 class="timeline__day dayThree">2. Projekt<span>Northbound in the Arctic Ocean</span></h3>
-        <span class="timeline__day-sum">Watching the ship crush through the Arctic ice pack is a sight you'll never
-          forget, made even more memorable by taking a helicopter flight for a thrilling aerial view of the
-          ship and expansive Arctic Ocean.</span>
-        <span class="timeline__day-sum">You can expect days, and hours,to present variable sailing conditions this
-          far north. The crossing from Murmansk to the North Pole can take us anywhere from 5-8 days. This
-          means you'll have plenty of time to get to know your shipmates, stare out at the horizon, grab some
-          drinks at the bar or do some laps in our indoor pool.</span>
-        <a href="#" class="btn--comments">72 Comments</a>
-      </li>
-      <li class="timeline__item right">
-        <h3 class="timeline__day dayFour">3. Projekt<span>90&deg; North</span></h3>
-        <span class="timeline__day-sum">All of the anticipation of the past few days reaches a climax as you reach
-          the North Pole! Many travelers find themselves overcome with emotion, while others are in a festive
-          mood. Take photos, wave a flag, enjoy your moment! Later, everyone enjoys a champagne toast and a
-          BBQ on the ice. Add an exclamation to your success by rising high in one of our hot air balloons to
-          commemerate this great moment.</span>
-        <a href="#" class="btn--comments">132 Comments</a>
-      </li>
-      <li class="timeline__item">
-        <h3 class="timeline__day dayFive">4. Projekt<span>Southbound in the Arctic Ocean</span></h3>
-        <span class="timeline__day-sum">Now you can sit back and relax, everything from here on out is a bonus!
-          Expect more great memories as you head south, you may get lucky and spot a Polar Bear hunting a
-          Seal.</span>
-        <a href="#" class="btn--comments">2 Comments</a>
-      </li>
-      <li class="timeline__item right">
-        <h3 class="timeline__day daySix">5. Projekt<span>Franz Josef Land</span></h3>
-        <span class="timeline__day-sum">Now you can sit back and relax, everything from here on out is a bonus!
-          Expect more great memories as you head south, you may get lucky and spot a Polar Bear hunting a
-          Seal.</span>
-        <a href="#" class="btn--comments">12 Comments</a>
-      </li>
-      <li class="timeline__item">
-        <h3 class="timeline__day dayThree">6. Projekt<span>Northbound in the Arctic Ocean</span></h3>
-        <span class="timeline__day-sum">Watching the ship crush through the Arctic ice pack is a sight you'll never
-          forget, made even more memorable by taking a helicopter flight for a thrilling aerial view of the
-          ship and expansive Arctic Ocean.</span>
-        <span class="timeline__day-sum">You can expect days, and hours,to present variable sailing conditions this
-          far north. The crossing from Murmansk to the North Pole can take us anywhere from 5-8 days. This
-          means you'll have plenty of time to get to know your shipmates, stare out at the horizon, grab some
-          drinks at the bar or do some laps in our indoor pool.</span>
-        <a href="#" class="btn--comments">72 Comments</a>
-      </li>
-      <li class="timeline__item right">
-        <h3 class="timeline__day dayFour">7. Projekt<span>90&deg; North</span></h3>
-        <span class="timeline__day-sum">All of the anticipation of the past few days reaches a climax as you reach
-          the North Pole! Many travelers find themselves overcome with emotion, while others are in a festive
-          mood. Take photos, wave a flag, enjoy your moment! Later, everyone enjoys a champagne toast and a
-          BBQ on the ice. Add an exclamation to your success by rising high in one of our hot air balloons to
-          commemerate this great moment.</span>
-        <a href="#" class="btn--comments">132 Comments</a>
-      </li>
-      <li class="timeline__item">
-        <h3 class="timeline__day dayFive">8. Projekt<span>Southbound in the Arctic Ocean</span></h3>
-        <span class="timeline__day-sum">Now you can sit back and relax, everything from here on out is a bonus!
-          Expect more great memories as you head south, you may get lucky and spot a Polar Bear hunting a
-          Seal.</span>
-        <a href="#" class="btn--comments">2 Comments</a>
-      </li>
-    </ol>
-  </main>
 
-  <section id="projects">
-    <div id="projectsContainer">
-      <h2 class="paddingBottom30">Projects</h2>
-      <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
-        Projekt,
-        dass ich mache erweitert.</span>
-    </div>
-
-    <!--Timeline-->
-    <svg id="svgTimeline" width="100%" height="2435">
-      <polyline id="pathTimeline" class="animate"
-        points="0,0 840,150 400,400 820,910 400,980 610,1350 400,1600 865,2150 400,2235" />
-      <!--400,1180 610,1550 400,1800 865,2350 400,2435-->
-    </svg>
-
-    <ul class="items">
-
-      <!--Item 1-->
-      <li id="item1">
-        <div class="direction-r">
-          <div class="flag-wrapper">
-            <span class="hexa" id="hexa"></span>
-            <span class="flag">First Steps</span>
-            <span class="time-wrapper"><span class="time">August 2021</span></span>
+      <ul class="items">
+        <!--Item 1-->
+        <li id="item1">
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="hexa" id="hexa"></span>
+              <span class="flag">First Steps</span>
+              <span class="time-wrapper"
+                ><span class="time">August 2021</span></span
+              >
+            </div>
+            <div class="desc">
+              Lorem ipsum Minim labore Ut cupidatat quis qui deserunt proident
+              fugiat pariatur cillum cupidatat reprehenderit sit id dolor
+              consectetur ut.
+            </div>
           </div>
-          <div class="desc">Lorem ipsum Minim labore Ut cupidatat quis qui deserunt proident fugiat pariatur cillum
-            cupidatat reprehenderit sit id dolor consectetur ut.</div>
-        </div>
-        <style>
-          #item1 {
-            margin-right: -195px;
-          }
-        </style>
-      </li>
+          <style>
+            #item1 {
+              margin-right: -195px;
+            }
+          </style>
+        </li>
 
-      <!--Item 2-->
-      <li id="item2">
-        <div class="direction-l">
-          <div class="flag-wrapper">
-            <span class="hexa"></span>
-            <span class="flag">Competence Center NEX-CC</span>
-            <span class="time-wrapper"><span class="time">August 2021</span></span>
+        <!--Item 2-->
+        <li id="item2">
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="hexa"></span>
+              <span class="flag">Competence Center NEX-CC</span>
+              <span class="time-wrapper"
+                ><span class="time">August 2021</span></span
+              >
+            </div>
+            <div class="desc">
+              Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor
+              dolore aliquip enim cupidatat laborum dolore.
+            </div>
           </div>
-          <div class="desc">Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor dolore aliquip enim
-            cupidatat
-            laborum dolore.</div>
-        </div>
-        <style>
-          #item2 {
-            margin-top: 35px;
-            margin-left: -235px;
-          }
-        </style>
-      </li>
+          <style>
+            #item2 {
+              margin-top: 35px;
+              margin-left: -235px;
+            }
+          </style>
+        </li>
 
-      <!--Item 3-->
-      <li id="item3">
-        <div class="direction-r">
-          <div class="flag-wrapper">
-            <span class="hexa"></span>
-            <span class="flag">2. Projekt</span>
-            <span class="time-wrapper"><span class="time">July 2014</span></span>
+        <!--Item 3-->
+        <li id="item3">
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="hexa"></span>
+              <span class="flag">2. Projekt</span>
+              <span class="time-wrapper"
+                ><span class="time">July 2014</span></span
+              >
+            </div>
+            <div class="desc">
+              Lorem ipsum Nisi labore aute do aute culpa magna nulla voluptate
+              exercitation deserunt proident.
+            </div>
           </div>
-          <div class="desc">Lorem ipsum Nisi labore aute do aute culpa magna nulla voluptate exercitation deserunt
-            proident.</div>
-        </div>
-        <style>
-          #item3 {
-            margin-top: 315px;
-            margin-right: -175px;
-          }
-        </style>
-      </li>
+          <style>
+            #item3 {
+              margin-top: 315px;
+              margin-right: -175px;
+            }
+          </style>
+        </li>
 
-      <!--Item 4-->
-      <li id="item4">
-        <div class="direction-l">
-          <div class="flag-wrapper">
-            <span class="hexa"></span>
-            <span class="flag">3. Projekt</span>
-            <span class="time-wrapper"><span class="time">Dec 2014</span></span>
+        <!--Item 4-->
+        <li id="item4">
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="hexa"></span>
+              <span class="flag">3. Projekt</span>
+              <span class="time-wrapper"
+                ><span class="time">Dec 2014</span></span
+              >
+            </div>
+            <div class="desc">
+              Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor
+              dolore aliquip enim cupidatat laborum dolore.
+            </div>
           </div>
-          <div class="desc">Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor dolore aliquip enim
-            cupidatat laborum dolore.</div>
-        </div>
-        <style>
-          #item4 {
-            margin-top: -120px;
-            margin-left: -240px;
-          }
-        </style>
-      </li>
+          <style>
+            #item4 {
+              margin-top: -120px;
+              margin-left: -240px;
+            }
+          </style>
+        </li>
 
-      <!--Item 5-->
-      <li id="item5">
-        <div class="direction-r">
-          <div class="flag-wrapper">
-            <span class="hexa"></span>
-            <span class="flag">4. Projekt</span>
-            <span class="time-wrapper"><span class="time">July 2014</span></span>
+        <!--Item 5-->
+        <li id="item5">
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="hexa"></span>
+              <span class="flag">4. Projekt</span>
+              <span class="time-wrapper"
+                ><span class="time">July 2014</span></span
+              >
+            </div>
+            <div class="desc">
+              Lorem ipsum Minim labore Ut cupidatat quis qui deserunt proident
+              fugiat pariatur cillum cupidatat reprehenderit sit id dolor
+              consectetur ut.
+            </div>
           </div>
-          <div class="desc">Lorem ipsum Minim labore Ut cupidatat quis qui deserunt proident fugiat pariatur cillum
-            cupidatat reprehenderit sit id dolor consectetur ut.</div>
-        </div>
-        <style>
-          #item5 {
-            margin-top: 175px;
-            margin-right: 30px;
-          }
-        </style>
-      </li>
+          <style>
+            #item5 {
+              margin-top: 175px;
+              margin-right: 30px;
+            }
+          </style>
+        </li>
 
-      <!--Item 6-->
-      <li id="item6">
-        <div class="direction-l">
-          <div class="flag-wrapper">
-            <span class="hexa"></span>
-            <span class="flag">5. Projekt</span>
-            <span class="time-wrapper"><span class="time">Dec 2014</span></span>
+        <!--Item 6-->
+        <li id="item6">
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="hexa"></span>
+              <span class="flag">5. Projekt</span>
+              <span class="time-wrapper"
+                ><span class="time">Dec 2014</span></span
+              >
+            </div>
+            <div class="desc">
+              Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor
+              dolore aliquip enim cupidatat laborum dolore.
+            </div>
           </div>
-          <div class="desc">Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor dolore aliquip enim
-            cupidatat laborum dolore.</div>
-        </div>
-        <style>
-          #item6 {
-            margin-top: 35px;
-            margin-left: -240px;
-          }
-        </style>
-      </li>
+          <style>
+            #item6 {
+              margin-top: 35px;
+              margin-left: -240px;
+            }
+          </style>
+        </li>
 
-      <!--Item 7-->
-      <li id="item7">
-        <div class="direction-r">
-          <div class="flag-wrapper">
-            <span class="hexa"></span>
-            <span class="flag">6. Projekt</span>
-            <span class="time-wrapper"><span class="time">Feb 2015</span></span>
+        <!--Item 7-->
+        <li id="item7">
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="hexa"></span>
+              <span class="flag">6. Projekt</span>
+              <span class="time-wrapper"
+                ><span class="time">Feb 2015</span></span
+              >
+            </div>
+            <div class="desc">
+              Lorem ipsum Nisi labore aute do aute culpa magna nulla voluptate
+              exercitation deserunt proident.
+            </div>
           </div>
-          <div class="desc">Lorem ipsum Nisi labore aute do aute culpa magna nulla voluptate exercitation deserunt
-            proident.</div>
-        </div>
-        <style>
-          #item7 {
-            margin-top: 355px;
-            margin-right: -220px;
-          }
-        </style>
-      </li>
+          <style>
+            #item7 {
+              margin-top: 355px;
+              margin-right: -220px;
+            }
+          </style>
+        </li>
 
-      <!--Item 8-->
-      <li id="item8">
-        <div class="direction-l">
-          <div class="flag-wrapper">
-            <span class="hexa"></span>
-            <span class="flag">7. Projekt</span>
-            <span class="time-wrapper"><span class="time">Dec 2014</span></span>
+        <!--Item 8-->
+        <li id="item8">
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="hexa"></span>
+              <span class="flag">7. Projekt</span>
+              <span class="time-wrapper"
+                ><span class="time">Dec 2014</span></span
+              >
+            </div>
+            <div class="desc">
+              Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor
+              dolore aliquip enim cupidatat laborum dolore.
+            </div>
           </div>
-          <div class="desc">Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor dolore aliquip enim
-            cupidatat laborum dolore.</div>
+          <style>
+            #item8 {
+              margin-top: -105px;
+              margin-left: -245px;
+            }
+          </style>
+        </li>
+      </ul>
+
+      <div class="triangles">
+        <div class="trianglesLeftFlex">
+          <div class="trianglesLeft">
+            <div id="triangleLeft">
+              <svg width="308" height="480" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill="var(--AppleMusicRed)"
+                  d="M 0 0 L 0 480 L 296 258 C 312 246 312 234 296 222 Z"
+                />
+                <linearGradient
+                  id="redGradient"
+                  gradientTransform="rotate(147deg)"
+                >
+                  <stop offset="0%" stop-color="#990000" />
+                  <stop offset="74%" stop-color="#ff0000" />
+                </linearGradient>
+              </svg>
+            </div>
+
+            <div id="triangleLeft2">
+              <svg width="308" height="480" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill="var(--AppleMusicRed)"
+                  d="M 0 0 L 0 480 L 296 258 C 312 246 312 234 296 222 Z"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
-        <style>
-          #item8 {
-            margin-top: -105px;
-            margin-left: -245px;
-          }
-        </style>
-      </li>
-    </ul>
 
-    <div class="triangles">
+        <div class="trianglesRightFlex">
+          <div class="trianglesRight">
+            <div id="triangleRight">
+              <svg width="308" height="480" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill="var(--AppleMusicRed)"
+                  d="M 320 0 L 320 480 L 24 258 C 8 246 8 234 24 222 Z"
+                />
+              </svg>
+            </div>
 
-      <div class="trianglesLeftFlex">
-        <div class="trianglesLeft">
-          <div id="triangleLeft">
-            <svg width="308" height="480" xmlns="http://www.w3.org/2000/svg">
-              <path fill="var(--AppleMusicRed)" d="M 0 0 L 0 480 L 296 258 C 312 246 312 234 296 222 Z" />
-              <linearGradient id="redGradient" gradientTransform="rotate(147deg)">
-                <stop offset="0%" stop-color="#990000" />
-                <stop offset="74%" stop-color="#ff0000" />
+            <div id="triangleRightHalf">
+              <svg
+                width="306.67"
+                height="240"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="var(--AppleMusicRed)"
+                  d="M 320 0 L 320 240 L 30 240 C 10 240 8 234 24 222 Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lockApple">
+      <div id="apple1">
+        <h2>Projects</h2>
+        <span
+          >Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit
+          jedem Projekt, dass ich mache erweitert.</span
+        >
+      </div>
+
+      <div id="apple2">
+        <h2>Projects</h2>
+        <span
+          >Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit
+          jedem Projekt, dass ich mache erweitert.</span
+        >
+      </div>
+
+      <div id="apple3">
+        <h2>Projects</h2>
+        <span
+          >Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit
+          jedem Projekt, dass ich mache erweitert.</span
+        >
+      </div>
+    </section>
+
+    <section id="skills">
+      <div id="journeyContinuesContainer" class="lockContainer">
+        <div id="flexboxContainer">
+          <h2 class="paddingBottom30">Die Reise geht weiter!</h2>
+          <span
+            >Hier werden alle nachfolgenden Projekte aufgelistet, die ich noch
+            auf dieser Reise zum Lehrabschluss bestreiten werde.</span
+          >
+        </div>
+      </div>
+      <div id="skillsContainer" class="lockContainer">
+        <h2 class="paddingBottom30">Skills</h2>
+        <span
+          >Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit
+          jedem Projekt, dass ich mache erweitert.</span
+        >
+      </div>
+      <div class="centerItems">
+        <!--Hexagon Progressbar1-->
+        <div id="htmlContainer" class="lockContainer">
+          <div id="wrapper" class="center">
+            <svg
+              class="hex-progress noselect"
+              data-progress="50"
+              x="0px"
+              y="0px"
+              viewBox="0 0 776 628"
+            >
+              <path
+                class="track"
+                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+              ></path>
+              <path
+                class="fill"
+                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                stroke="url(#cl1)"
+              ></path>
+              <text class="value" x="50%" y="61%">0%</text>
+              <text class="text" x="50%" y="150%">HTML</text>
+            </svg>
+          </div>
+
+          <svg width="0" height="0">
+            <defs>
+              <linearGradient
+                id="cl1"
+                gradientUnits="objectBoundingBox"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
+              >
+                <stop stop-color="#ff9f1a" />
+                <stop offset="100%" stop-color="#ff3838" />
               </linearGradient>
-            </svg>
-          </div>
-
-          <div id="triangleLeft2">
-            <svg width="308" height="480" xmlns="http://www.w3.org/2000/svg">
-              <path fill="var(--AppleMusicRed)" d="M 0 0 L 0 480 L 296 258 C 312 246 312 234 296 222 Z" />
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      <div class="trianglesRightFlex">
-        <div class="trianglesRight">
-          <div id="triangleRight">
-            <svg width="308" height="480" xmlns="http://www.w3.org/2000/svg">
-              <path fill="var(--AppleMusicRed)" d="M 320 0 L 320 480 L 24 258 C 8 246 8 234 24 222 Z" />
-            </svg>
-          </div>
-
-          <div id="triangleRightHalf">
-            <svg width="306.67" height="240" xmlns="http://www.w3.org/2000/svg">
-              <path fill="var(--AppleMusicRed)" d="M 320 0 L 320 240 L 30 240 C 10 240 8 234 24 222 Z" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="lockApple">
-    <div id="apple1">
-      <h2>Projects</h2>
-      <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
-        Projekt,
-        dass ich mache erweitert.</span>
-    </div>
-
-    <div id="apple2">
-      <h2>Projects</h2>
-      <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
-        Projekt,
-        dass ich mache erweitert.</span>
-    </div>
-
-    <div id="apple3">
-      <h2>Projects</h2>
-      <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem
-        Projekt,
-        dass ich mache erweitert.</span>
-    </div>
-  </section>
-
-  <section id="skills">
-    <div id="journeyContinuesContainer" class="lockContainer">
-      <div id="flexboxContainer">
-        <h2 class="paddingBottom30">Die Reise geht weiter!</h2>
-        <span>Hier werden alle nachfolgenden Projekte aufgelistet, die ich noch auf dieser
-          Reise zum Lehrabschluss bestreiten werde.</span>
-      </div>
-    </div>
-    <div id="skillsContainer" class="lockContainer">
-      <h2 class="paddingBottom30">Skills</h2>
-      <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem Projekt,
-        dass ich mache erweitert.</span>
-    </div>
-    <div class="centerItems">
-
-      <!--Hexagon Progressbar1-->
-      <div id="htmlContainer" class="lockContainer">
-        <div id="wrapper" class="center">
-          <svg class="hex-progress noselect" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
-            <path class="track" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
-            <path class="fill" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z" stroke="url(#cl1)">
-            </path>
-            <text class="value" x="50%" y="61%">0%</text>
-            <text class="text" x="50%" y="150%">HTML</text>
+            </defs>
           </svg>
         </div>
 
-        <svg width="0" height="0">
-          <defs>
-            <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-              <stop stop-color="#ff9f1a" />
-              <stop offset="100%" stop-color="#ff3838" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
+        <!--Hexagon Progressbar2-->
+        <div id="cssContainer" class="lockContainer">
+          <div id="wrapper2" class="center2">
+            <svg
+              class="hex-progress2 noselect2"
+              data-progress="50"
+              x="0px"
+              y="0px"
+              viewBox="0 0 776 628"
+            >
+              <path
+                class="track2"
+                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+              ></path>
+              <path
+                class="fill2"
+                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                stroke="url(#cl2)"
+              ></path>
+              <text class="value2" x="50%" y="61%">0%</text>
+              <text class="text2" x="50%" y="150%">CSS</text>
+            </svg>
+          </div>
 
-      <!--Hexagon Progressbar2-->
-      <div id="cssContainer" class="lockContainer">
-        <div id="wrapper2" class="center2">
-          <svg class="hex-progress2 noselect2" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
-            <path class="track2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
-            <path class="fill2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z" stroke="url(#cl2)">
-            </path>
-            <text class="value2" x="50%" y="61%">0%</text>
-            <text class="text2" x="50%" y="150%">CSS</text>
+          <svg width="0" height="0">
+            <defs>
+              <linearGradient
+                id="cl2"
+                gradientUnits="objectBoundingBox"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
+              >
+                <stop stop-color="#18dcff" />
+                <stop offset="100%" stop-color="#7d5fff" />
+              </linearGradient>
+            </defs>
           </svg>
         </div>
 
-        <svg width="0" height="0">
-          <defs>
-            <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-              <stop stop-color="#18dcff" />
-              <stop offset="100%" stop-color="#7d5fff" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
+        <!--Hexagon Progressbar3-->
+        <div id="jsContainer" class="lockContainer">
+          <div id="wrapper3" class="center3">
+            <svg
+              class="hex-progress3 noselect3"
+              data-progress="50"
+              x="0px"
+              y="0px"
+              viewBox="0 0 776 628"
+            >
+              <path
+                class="track3"
+                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+              ></path>
+              <path
+                class="fill3"
+                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                stroke="url(#cl3)"
+              ></path>
+              <text class="value3" x="50%" y="61%">0%</text>
+              <text class="text3" x="50%" y="150%">JavaScript</text>
+            </svg>
+          </div>
 
-      <!--Hexagon Progressbar3-->
-      <div id="jsContainer" class="lockContainer">
-        <div id="wrapper3" class="center3">
-          <svg class="hex-progress3 noselect3" data-progress="50" x="0px" y="0px" viewBox="0 0 776 628">
-            <path class="track3" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
-            <path class="fill3" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z" stroke="url(#cl3)">
-            </path>
-            <text class="value3" x="50%" y="61%">0%</text>
-            <text class="text3" x="50%" y="150%">JavaScript</text>
+          <svg width="0" height="0">
+            <defs>
+              <linearGradient
+                id="cl3"
+                gradientUnits="objectBoundingBox"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
+              >
+                <stop stop-color="#fff200" />
+                <stop offset="100%" stop-color="#32ff7e" />
+              </linearGradient>
+            </defs>
           </svg>
         </div>
-
-        <svg width="0" height="0">
-          <defs>
-            <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-              <stop stop-color="#fff200" />
-              <stop offset="100%" stop-color="#32ff7e" />
-            </linearGradient>
-          </defs>
-        </svg>
       </div>
-    </div>
+    </section>
 
-    </div>
-  </section>
+    <section id="codeTyping">
+      <div class="HomepageAnonHeader_illuArea-2yLqQ">
+        <img
+          src="https://cpwebassets.codepen.io/assets/packs/illu-editor-24091b7edc92fba11a2595fe767e6c2b.png"
+          class="HomepageAnonHeaderHero_editorStatic-3YUXL"
+        />
+        <div class="HomepageAnonHeaderHero_editor-2Qsvh">
+          <div class="HomepageAnonHeaderHero_editorBg-2p6Cb"></div>
+          <div
+            class="
+              HomepageAnonHeaderHero_editorCode-_-pxQ
+              HomepageAnonHeaderHero_html-32lze
+            "
+          >
+            <header>
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 6.675l-1.8-.6c-.2-.1-.3-.3-.2-.4l.9-1.7c.6-1.2-.7-2.5-1.9-1.9l-1.7.9c-.1.1-.3 0-.4-.2l-.6-1.8c-.4-1.3-2.2-1.3-2.6 0l-.6 1.8c-.1.2-.3.3-.4.2l-1.7-.9c-1.2-.6-2.5.7-1.9 1.9l.9 1.7c.1.1 0 .3-.2.4l-1.8.6c-1.3.4-1.3 2.3 0 2.7l1.8.6c.2 0 .3.2.2.3l-.9 1.7c-.6 1.2.7 2.5 1.9 1.9l1.7-.9c.2-.1.4 0 .4.2l.6 1.8c.4 1.3 2.3 1.3 2.7 0l.6-1.8c.1-.2.3-.3.4-.2l1.7.9c1.2.6 2.5-.7 1.9-1.9l-1-1.7c-.1-.2 0-.4.2-.4l1.8-.6c1.3-.4 1.3-2.2 0-2.6zm-7 3.7c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4z"
+                  fill="#4C4F5A"
+                ></path>
+              </svg>
+              <h1>HTML</h1>
+              <svg
+                width="16"
+                height="8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.709 7.651l6.161-5.622c.241-.22.383-.517.383-.84 0-.323-.142-.62-.383-.84A1.361 1.361 0 0 0 13.95 0c-.354 0-.68.13-.921.349l-5.27 4.808L2.492.349A1.361 1.361 0 0 0 1.57 0C1.215 0 .89.13.648.336.38.569.253.879.253 1.189c0 .297.127.595.368.84 1.615 1.486 5.807 5.325 6.09 5.596l.03.026c.509.465 1.458.465 1.968 0z"
+                  fill="#4C4F5A"
+                ></path>
+              </svg>
+            </header>
+            <div class="HomepageAnonHeaderHero_codeContent-1TLqW">
+              <code
+                ><span class="HomepageAnonHeaderHero_cr--Mkc-">&lt;div</span>
+                <span class="HomepageAnonHeaderHero_cy-1OaMF">class</span
+                ><span>=</span
+                ><span class="HomepageAnonHeaderHero_cg-220SE">"rect"</span
+                ><span class="HomepageAnonHeaderHero_cr--Mkc-"
+                  >&gt;&lt;/div&gt;</span
+                ></code
+              >
+            </div>
+          </div>
+          <div
+            class="
+              HomepageAnonHeaderHero_editorCode-_-pxQ
+              HomepageAnonHeaderHero_css-2tL_z
+            "
+          >
+            <header>
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 6.675l-1.8-.6c-.2-.1-.3-.3-.2-.4l.9-1.7c.6-1.2-.7-2.5-1.9-1.9l-1.7.9c-.1.1-.3 0-.4-.2l-.6-1.8c-.4-1.3-2.2-1.3-2.6 0l-.6 1.8c-.1.2-.3.3-.4.2l-1.7-.9c-1.2-.6-2.5.7-1.9 1.9l.9 1.7c.1.1 0 .3-.2.4l-1.8.6c-1.3.4-1.3 2.3 0 2.7l1.8.6c.2 0 .3.2.2.3l-.9 1.7c-.6 1.2.7 2.5 1.9 1.9l1.7-.9c.2-.1.4 0 .4.2l.6 1.8c.4 1.3 2.3 1.3 2.7 0l.6-1.8c.1-.2.3-.3.4-.2l1.7.9c1.2.6 2.5-.7 1.9-1.9l-1-1.7c-.1-.2 0-.4.2-.4l1.8-.6c1.3-.4 1.3-2.2 0-2.6zm-7 3.7c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4z"
+                  fill="#4C4F5A"
+                ></path>
+              </svg>
+              <h1>CSS</h1>
+              <svg
+                width="16"
+                height="8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.709 7.651l6.161-5.622c.241-.22.383-.517.383-.84 0-.323-.142-.62-.383-.84A1.361 1.361 0 0 0 13.95 0c-.354 0-.68.13-.921.349l-5.27 4.808L2.492.349A1.361 1.361 0 0 0 1.57 0C1.215 0 .89.13.648.336.38.569.253.879.253 1.189c0 .297.127.595.368.84 1.615 1.486 5.807 5.325 6.09 5.596l.03.026c.509.465 1.458.465 1.968 0z"
+                  fill="#4C4F5A"
+                ></path>
+              </svg>
+            </header>
+            <div class="HomepageAnonHeaderHero_codeContent-1TLqW">
+              <code
+                ><span class="HomepageAnonHeaderHero_line1-2hbgI">
+                  <span class="HomepageAnonHeaderHero_cy-1OaMF">.rect</span>
+                  <span>{</span>
+                </span>
+                <br />
+                <span class="HomepageAnonHeaderHero_line2-A3_xZ"
+                  ><span class="HomepageAnonHeaderHero_cp-g5I-X"
+                    >background</span
+                  ><span>:</span>
+                  <span class="HomepageAnonHeaderHero_cy-1OaMF"
+                    >linear-gradient</span
+                  >(</span
+                >
+                <br />
+                <span class="HomepageAnonHeaderHero_line3-2wi52"
+                  ><span class="HomepageAnonHeaderHero_co-1wWDL">-119deg</span
+                  >,</span
+                >
+                <br />
+                <span class="HomepageAnonHeaderHero_line4-1uUtl">
+                  <span class="HomepageAnonHeaderHero_cy-1OaMF">$gray</span>
+                  <span class="HomepageAnonHeaderHero_co-1wWDL">0%</span>,
+                </span>
+                <br />
+                <span class="HomepageAnonHeaderHero_line5-3llzm">
+                  <span class="HomepageAnonHeaderHero_cy-1OaMF"
+                    >$dark-gray</span
+                  >
+                  <span class="HomepageAnonHeaderHero_co-1wWDL">100%</span>); }
+                </span></code
+              >
+            </div>
+          </div>
+          <div
+            class="
+              HomepageAnonHeaderHero_editorCode-_-pxQ
+              HomepageAnonHeaderHero_js-3XnY6
+            "
+          >
+            <header>
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 6.675l-1.8-.6c-.2-.1-.3-.3-.2-.4l.9-1.7c.6-1.2-.7-2.5-1.9-1.9l-1.7.9c-.1.1-.3 0-.4-.2l-.6-1.8c-.4-1.3-2.2-1.3-2.6 0l-.6 1.8c-.1.2-.3.3-.4.2l-1.7-.9c-1.2-.6-2.5.7-1.9 1.9l.9 1.7c.1.1 0 .3-.2.4l-1.8.6c-1.3.4-1.3 2.3 0 2.7l1.8.6c.2 0 .3.2.2.3l-.9 1.7c-.6 1.2.7 2.5 1.9 1.9l1.7-.9c.2-.1.4 0 .4.2l.6 1.8c.4 1.3 2.3 1.3 2.7 0l.6-1.8c.1-.2.3-.3.4-.2l1.7.9c1.2.6 2.5-.7 1.9-1.9l-1-1.7c-.1-.2 0-.4.2-.4l1.8-.6c1.3-.4 1.3-2.2 0-2.6zm-7 3.7c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4z"
+                  fill="#4C4F5A"
+                ></path>
+              </svg>
+              <h1>JS</h1>
+              <svg
+                width="16"
+                height="8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.709 7.651l6.161-5.622c.241-.22.383-.517.383-.84 0-.323-.142-.62-.383-.84A1.361 1.361 0 0 0 13.95 0c-.354 0-.68.13-.921.349l-5.27 4.808L2.492.349A1.361 1.361 0 0 0 1.57 0C1.215 0 .89.13.648.336.38.569.253.879.253 1.189c0 .297.127.595.368.84 1.615 1.486 5.807 5.325 6.09 5.596l.03.026c.509.465 1.458.465 1.968 0z"
+                  fill="#4C4F5A"
+                ></path>
+              </svg>
+            </header>
+            <div class="HomepageAnonHeaderHero_codeContent-1TLqW">
+              <code
+                ><span class="HomepageAnonHeaderHero_cy-1OaMF">var</span>
+                <span class="HomepageAnonHeaderHero_cb-4LMl9">colors</span
+                ><span> = [</span
+                ><span class="HomepageAnonHeaderHero_cg-220SE">"#74B087"</span
+                ><span>,</span
+                ><span class="HomepageAnonHeaderHero_cg-220SE">"#DE7300"</span
+                ><span>,</span
+                ><span class="HomepageAnonHeaderHero_cg-220SE">"#74B087"</span
+                ><span>];</span><br /><br /><span
+                  class="HomepageAnonHeaderHero_cc-3h1mi"
+                ></span
+                ><br /><span class="HomepageAnonHeaderHero_cy-1OaMF"
+                  >function</span
+                >
+                <span class="HomepageAnonHeaderHero_cb-4LMl9">animate</span
+                ><span>() {};</span></code
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section class="section section-stations">
-    <!-- <h2 class="paddingBottom30">Skills</h2>
+    <section class="section section-stations">
+      <!-- <h2 class="paddingBottom30">Skills</h2>
     <span>Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit jedem Projekt,
       dass ich mache erweitert.</span> -->
-    <div class="musicContainer">
-      <div class="stations-gallery-wrapper">
-        <div class="tabnav tabnav-wrapper">
-          <ul role="tablist" class="tabnav-items">
-            <li role="presentation" class="tabnav-item">
-              <a href="#stations-item-1" id="stations-item-1-tabnav-trigger" class="tabnav-link current show">Featured
-                Playlists</a>
-            </li>
+      <div class="musicContainer">
+        <div class="stations-gallery-wrapper">
+          <div class="tabnav tabnav-wrapper">
+            <ul role="tablist" class="tabnav-items">
+              <li role="presentation" class="tabnav-item">
+                <a
+                  href="#stations-item-1"
+                  id="stations-item-1-tabnav-trigger"
+                  class="tabnav-link current show"
+                  >Featured Playlists</a
+                >
+              </li>
 
-            <li role="presentation" class="tabnav-item">
-              <a href="#stations-item-2" id="stations-item-2-tabnav-trigger" class="tabnav-link show">Daily Top
-                100</a>
-            </li>
+              <li role="presentation" class="tabnav-item">
+                <a
+                  href="#stations-item-2"
+                  id="stations-item-2-tabnav-trigger"
+                  class="tabnav-link show"
+                  >Daily Top 100</a
+                >
+              </li>
 
-            <li role="presentation" class="tabnav-item">
-              <a href="#stations-item-3" id="stations-item-3-tabnav-trigger" class="tabnav-link show">New
-                Music</a>
-            </li>
-          </ul>
+              <li role="presentation" class="tabnav-item">
+                <a
+                  href="#stations-item-3"
+                  id="stations-item-3-tabnav-trigger"
+                  class="tabnav-link show"
+                  >New Music</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div
+            id="stations"
+            class="
+              gallery-container
+              stations-gallery
+              gallery-item
+              stations-gallery-item
+              ac-gallery-currentitem ac-gallery-lastitem
+              gallery
+              slider-container
+              music-slider-container
+              slider-mounted slider slider-slider-a
+              music-slider
+              ac-gallery-slidecontainer ac-gallery-slideitemwrapper
+            "
+          >
+            <div id="stations-item-1">
+              <!-- gallery-item 1 -->
+              <div
+                id="slider-a-gallery-0"
+                class="gallery-item music-slide music-slide-0"
+              >
+                <div
+                  class="music-slide-img-wrapper"
+                  style="background-color: #efefef"
+                  data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                ></div>
+
+                <!-- description -->
+                <div class="music-slide-description">
+                  <h3 class="music-slide-headline">danceXL</h3>
+                  <span class="music-slide-subhead">Apple Music Dance</span>
+                </div>
+              </div>
+
+              <!-- gallery-item 2 -->
+              <div
+                id="slider-a-gallery-1"
+                class="gallery-item music-slide music-slide-1"
+              >
+                <div
+                  class="music-slide-img-wrapper"
+                  style="background-color: #efefef"
+                  data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                ></div>
+
+                <!-- description -->
+                <div class="music-slide-description">
+                  <h3 class="music-slide-headline">danceXL</h3>
+                  <span class="music-slide-subhead">Apple Music Dance</span>
+                </div>
+              </div>
+
+              <!-- gallery-item 3 -->
+              <div
+                id="slider-a-gallery-3"
+                class="gallery-item music-slide music-slide-3"
+              >
+                <div
+                  class="music-slide-img-wrapper"
+                  style="background-color: #efefef"
+                  data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                ></div>
+
+                <!-- description -->
+                <div class="music-slide-description">
+                  <h3 class="music-slide-headline">danceXL</h3>
+                  <span class="music-slide-subhead">Apple Music Dance</span>
+                </div>
+              </div>
+
+              <!-- gallery-item 4 -->
+              <div
+                id="slider-a-gallery-4"
+                class="gallery-item music-slide music-slide-4"
+              >
+                <div
+                  class="music-slide-img-wrapper"
+                  style="background-color: #efefef"
+                  data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                ></div>
+
+                <!-- description -->
+                <div class="music-slide-description">
+                  <h3 class="music-slide-headline">danceXL</h3>
+                  <span class="music-slide-subhead">Apple Music Dance</span>
+                </div>
+              </div>
+
+              <!-- gallery-item 5 -->
+              <div
+                id="slider-a-gallery-5"
+                class="gallery-item music-slide music-slide-5"
+              >
+                <div
+                  class="music-slide-img-wrapper"
+                  style="background-color: #efefef"
+                  data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                ></div>
+
+                <!-- description -->
+                <div class="music-slide-description">
+                  <h3 class="music-slide-headline">danceXL</h3>
+                  <span class="music-slide-subhead">Apple Music Dance</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="stations-item-2">
+              <!-- gallery-item 1 -->
+              <div
+                id="slider-a-gallery-0"
+                class="gallery-item music-slide music-slide-0"
+              >
+                <div
+                  class="music-slide-img-wrapper"
+                  style="background-color: #efefef"
+                  data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                ></div>
+
+                <!-- description -->
+                <div class="music-slide-description">
+                  <h3 class="music-slide-headline">danceXL</h3>
+                  <span class="music-slide-subhead">Apple Music Dance</span>
+                </div>
+              </div>
+
+              <!-- gallery-item 2 -->
+              <div
+                id="slider-a-gallery-1"
+                class="gallery-item music-slide music-slide-1"
+              >
+                <div
+                  class="music-slide-img-wrapper"
+                  style="background-color: #efefef"
+                  data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                ></div>
+
+                <!-- description -->
+                <div class="music-slide-description">
+                  <h3 class="music-slide-headline">danceXL</h3>
+                  <span class="music-slide-subhead">Apple Music Dance</span>
+                </div>
+              </div>
+
+              <!-- gallery-item 3 -->
+              <div
+                id="slider-a-gallery-3"
+                class="gallery-item music-slide music-slide-3"
+              >
+                <div
+                  class="music-slide-img-wrapper"
+                  style="background-color: #efefef"
+                  data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                ></div>
+
+                <!-- description -->
+                <div class="music-slide-description">
+                  <h3 class="music-slide-headline">danceXL</h3>
+                  <span class="music-slide-subhead">Apple Music Dance</span>
+                </div>
+              </div>
+
+              <!-- gallery-item 4 -->
+              <div
+                id="slider-a-gallery-4"
+                class="gallery-item music-slide music-slide-4"
+              >
+                <div
+                  class="music-slide-img-wrapper"
+                  style="background-color: #efefef"
+                  data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                ></div>
+
+                <!-- description -->
+                <div class="music-slide-description">
+                  <h3 class="music-slide-headline">danceXL</h3>
+                  <span class="music-slide-subhead">Apple Music Dance</span>
+                </div>
+              </div>
+
+              <!-- gallery-item 5 -->
+              <div
+                id="slider-a-gallery-5"
+                class="gallery-item music-slide music-slide-5"
+              >
+                <div
+                  class="music-slide-img-wrapper"
+                  style="background-color: #efefef"
+                  data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                ></div>
+
+                <!-- description -->
+                <div class="music-slide-description">
+                  <h3 class="music-slide-headline">danceXL</h3>
+                  <span class="music-slide-subhead">Apple Music Dance</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="stations-item-3">
+              <!-- gallery-item 1 -->
+              <div
+                id="slider-a-gallery-0"
+                class="gallery-item music-slide music-slide-0"
+              >
+                <div
+                  class="music-slide-img-wrapper"
+                  style="background-color: #efefef"
+                  data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                ></div>
+
+                <!-- description -->
+                <div class="music-slide-description">
+                  <h3 class="music-slide-headline">danceXL</h3>
+                  <span class="music-slide-subhead">Apple Music Dance</span>
+                </div>
+              </div>
+
+              <!-- gallery-item 2 -->
+              <div
+                id="slider-a-gallery-1"
+                class="gallery-item music-slide music-slide-1"
+              >
+                <div
+                  class="music-slide-img-wrapper"
+                  style="background-color: #efefef"
+                  data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                ></div>
+
+                <!-- description -->
+                <div class="music-slide-description">
+                  <h3 class="music-slide-headline">danceXL</h3>
+                  <span class="music-slide-subhead">Apple Music Dance</span>
+                </div>
+              </div>
+
+              <!-- gallery-item 3 -->
+              <div
+                id="slider-a-gallery-3"
+                class="gallery-item music-slide music-slide-3"
+              >
+                <div
+                  class="music-slide-img-wrapper"
+                  style="background-color: #efefef"
+                  data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                ></div>
+
+                <!-- description -->
+                <div class="music-slide-description">
+                  <h3 class="music-slide-headline">danceXL</h3>
+                  <span class="music-slide-subhead">Apple Music Dance</span>
+                </div>
+              </div>
+
+              <!-- gallery-item 4 -->
+              <div
+                id="slider-a-gallery-4"
+                class="gallery-item music-slide music-slide-4"
+              >
+                <div
+                  class="music-slide-img-wrapper"
+                  style="background-color: #efefef"
+                  data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                ></div>
+
+                <!-- description -->
+                <div class="music-slide-description">
+                  <h3 class="music-slide-headline">danceXL</h3>
+                  <span class="music-slide-subhead">Apple Music Dance</span>
+                </div>
+              </div>
+
+              <!-- gallery-item 5 -->
+              <div
+                id="slider-a-gallery-5"
+                class="gallery-item music-slide music-slide-5"
+              >
+                <div
+                  class="music-slide-img-wrapper"
+                  style="background-color: #efefef"
+                  data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US"
+                ></div>
+
+                <!-- description -->
+                <div class="music-slide-description">
+                  <h3 class="music-slide-headline">danceXL</h3>
+                  <span class="music-slide-subhead">Apple Music Dance</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div id="stations"
-          class="gallery-container stations-gallery gallery-item stations-gallery-item ac-gallery-currentitem ac-gallery-lastitem gallery slider-container music-slider-container slider-mounted slider slider-slider-a music-slider ac-gallery-slidecontainer ac-gallery-slideitemwrapper">
-          <div id="stations-item-1">
-
-            <!-- gallery-item 1 -->
-            <div id="slider-a-gallery-0" class="gallery-item music-slide music-slide-0">
-              <div class="music-slide-img-wrapper" style="background-color:#efefef"
-                data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
-              </div>
-
-              <!-- description -->
-              <div class="music-slide-description">
-                <h3 class="music-slide-headline">danceXL</h3>
-                <span class="music-slide-subhead">Apple Music Dance</span>
-              </div>
-            </div>
-
-            <!-- gallery-item 2 -->
-            <div id="slider-a-gallery-1" class="gallery-item music-slide music-slide-1">
-              <div class="music-slide-img-wrapper" style="background-color:#efefef"
-                data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
-              </div>
-
-              <!-- description -->
-              <div class="music-slide-description">
-                <h3 class="music-slide-headline">danceXL</h3>
-                <span class="music-slide-subhead">Apple Music Dance</span>
-              </div>
-            </div>
-
-            <!-- gallery-item 3 -->
-            <div id="slider-a-gallery-3" class="gallery-item music-slide music-slide-3">
-              <div class="music-slide-img-wrapper" style="background-color:#efefef"
-                data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
-              </div>
-
-              <!-- description -->
-              <div class="music-slide-description">
-                <h3 class="music-slide-headline">danceXL</h3>
-                <span class="music-slide-subhead">Apple Music Dance</span>
-              </div>
-            </div>
-
-            <!-- gallery-item 4 -->
-            <div id="slider-a-gallery-4" class="gallery-item music-slide music-slide-4">
-              <div class="music-slide-img-wrapper" style="background-color:#efefef"
-                data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
-              </div>
-
-              <!-- description -->
-              <div class="music-slide-description">
-                <h3 class="music-slide-headline">danceXL</h3>
-                <span class="music-slide-subhead">Apple Music Dance</span>
-              </div>
-            </div>
-
-            <!-- gallery-item 5 -->
-            <div id="slider-a-gallery-5" class="gallery-item music-slide music-slide-5">
-              <div class="music-slide-img-wrapper" style="background-color:#efefef"
-                data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
-              </div>
-
-              <!-- description -->
-              <div class="music-slide-description">
-                <h3 class="music-slide-headline">danceXL</h3>
-                <span class="music-slide-subhead">Apple Music Dance</span>
-              </div>
-            </div>
-
-          </div>
-
-          <div id="stations-item-2">
-
-            <!-- gallery-item 1 -->
-            <div id="slider-a-gallery-0" class="gallery-item music-slide music-slide-0">
-              <div class="music-slide-img-wrapper" style="background-color:#efefef"
-                data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
-              </div>
-
-              <!-- description -->
-              <div class="music-slide-description">
-                <h3 class="music-slide-headline">danceXL</h3>
-                <span class="music-slide-subhead">Apple Music Dance</span>
-              </div>
-            </div>
-
-            <!-- gallery-item 2 -->
-            <div id="slider-a-gallery-1" class="gallery-item music-slide music-slide-1">
-              <div class="music-slide-img-wrapper" style="background-color:#efefef"
-                data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
-              </div>
-
-              <!-- description -->
-              <div class="music-slide-description">
-                <h3 class="music-slide-headline">danceXL</h3>
-                <span class="music-slide-subhead">Apple Music Dance</span>
-              </div>
-            </div>
-
-            <!-- gallery-item 3 -->
-            <div id="slider-a-gallery-3" class="gallery-item music-slide music-slide-3">
-              <div class="music-slide-img-wrapper" style="background-color:#efefef"
-                data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
-              </div>
-
-              <!-- description -->
-              <div class="music-slide-description">
-                <h3 class="music-slide-headline">danceXL</h3>
-                <span class="music-slide-subhead">Apple Music Dance</span>
-              </div>
-            </div>
-
-            <!-- gallery-item 4 -->
-            <div id="slider-a-gallery-4" class="gallery-item music-slide music-slide-4">
-              <div class="music-slide-img-wrapper" style="background-color:#efefef"
-                data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
-              </div>
-
-              <!-- description -->
-              <div class="music-slide-description">
-                <h3 class="music-slide-headline">danceXL</h3>
-                <span class="music-slide-subhead">Apple Music Dance</span>
-              </div>
-            </div>
-
-            <!-- gallery-item 5 -->
-            <div id="slider-a-gallery-5" class="gallery-item music-slide music-slide-5">
-              <div class="music-slide-img-wrapper" style="background-color:#efefef"
-                data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
-              </div>
-
-              <!-- description -->
-              <div class="music-slide-description">
-                <h3 class="music-slide-headline">danceXL</h3>
-                <span class="music-slide-subhead">Apple Music Dance</span>
-              </div>
-            </div>
-
-          </div>
-
-          <div id="stations-item-3">
-
-            <!-- gallery-item 1 -->
-            <div id="slider-a-gallery-0" class="gallery-item music-slide music-slide-0">
-              <div class="music-slide-img-wrapper" style="background-color:#efefef"
-                data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
-              </div>
-
-              <!-- description -->
-              <div class="music-slide-description">
-                <h3 class="music-slide-headline">danceXL</h3>
-                <span class="music-slide-subhead">Apple Music Dance</span>
-              </div>
-            </div>
-
-            <!-- gallery-item 2 -->
-            <div id="slider-a-gallery-1" class="gallery-item music-slide music-slide-1">
-              <div class="music-slide-img-wrapper" style="background-color:#efefef"
-                data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
-              </div>
-
-              <!-- description -->
-              <div class="music-slide-description">
-                <h3 class="music-slide-headline">danceXL</h3>
-                <span class="music-slide-subhead">Apple Music Dance</span>
-              </div>
-            </div>
-
-            <!-- gallery-item 3 -->
-            <div id="slider-a-gallery-3" class="gallery-item music-slide music-slide-3">
-              <div class="music-slide-img-wrapper" style="background-color:#efefef"
-                data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
-              </div>
-
-              <!-- description -->
-              <div class="music-slide-description">
-                <h3 class="music-slide-headline">danceXL</h3>
-                <span class="music-slide-subhead">Apple Music Dance</span>
-              </div>
-            </div>
-
-            <!-- gallery-item 4 -->
-            <div id="slider-a-gallery-4" class="gallery-item music-slide music-slide-4">
-              <div class="music-slide-img-wrapper" style="background-color:#efefef"
-                data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
-              </div>
-
-              <!-- description -->
-              <div class="music-slide-description">
-                <h3 class="music-slide-headline">danceXL</h3>
-                <span class="music-slide-subhead">Apple Music Dance</span>
-              </div>
-            </div>
-
-            <!-- gallery-item 5 -->
-            <div id="slider-a-gallery-5" class="gallery-item music-slide music-slide-5">
-              <div class="music-slide-img-wrapper" style="background-color:#efefef"
-                data-imgsrc-large="https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/6c/18/43/6c1843a3-ff09-6175-6b96-834f835a21a3/U0MtTVMtV1ctZGFuY2VYTC1BREFNX0lEPTEwMDQ3OTAyMDEucG5n.png/180x180SC.DN01.jpg?l=en-US">
-              </div>
-
-              <!-- description -->
-              <div class="music-slide-description">
-                <h3 class="music-slide-headline">danceXL</h3>
-                <span class="music-slide-subhead">Apple Music Dance</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
       </div>
-    </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- <section id="Mario" role="img" aria-labelledby="marioDesc" class="scene active"
+    <!-- <section id="Mario" role="img" aria-labelledby="marioDesc" class="scene active"
     style="visibility: inherit; opacity: 1;">
     <span id="marioDesc" class="ariaLabel">Three boxes with a question mark, from the Super Mario Bros game, are
       standing in the center of the screen ... try to find the coin in one of them by using the numbers 1, 2,
@@ -853,24 +1341,25 @@
     </div>
   </section> -->
 
-  <section id="contact">
-    <div id="contactContainer" class="lockContainer">
-      <h2 class="paddingBottom30">Kontakt</h2>
-      <span>Gerne kannst du mich kontaktieren, unten stehen sämtliche Social-Media
-        Plattformen
-        auf denen ich aktiv bin, sowie auch meine Swisscom-Seite.
-        <br></br>
-        <br>Ich freue mich auf dich!</br>
-      </span>
-      <!--Contact Social Media-->
-      <div id="contact_social_media">
-        <a href="https://www.instagram.com/jonathan_russ_" target="_blank">
-          <span>Instagram</span>
-        </a>
-        <a href="https://twitter.com/JonathanXD12_" target="_blank">
-          <span>Twitter</span>
-        </a>
-        <!--<a href="YouTube">
+    <section id="contact">
+      <div id="contactContainer" class="lockContainer">
+        <h2 class="paddingBottom30">Kontakt</h2>
+        <span
+          >Gerne kannst du mich kontaktieren, unten stehen sämtliche
+          Social-Media Plattformen auf denen ich aktiv bin, sowie auch meine
+          Swisscom-Seite.
+          <br />
+          <br />Ich freue mich auf dich!
+        </span>
+        <!--Contact Social Media-->
+        <div id="contact_social_media">
+          <a href="https://www.instagram.com/jonathan_russ_" target="_blank">
+            <span>Instagram</span>
+          </a>
+          <a href="https://twitter.com/JonathanXD12_" target="_blank">
+            <span>Twitter</span>
+          </a>
+          <!--<a href="YouTube">
 
   
           <span>YouTube</span>
@@ -881,46 +1370,50 @@
         <a href="Twitch">
           <span>Twitch</span>
         </a>-->
-        <a href="https://discordapp.com/users/494042822320717827" target="_blank">
-          <span>Discord</span>
-        </a>
-        <a href="https://www.reddit.com/user/JonathanXD12" target="_blank">
-          <span>Reddit</span>
-        </a>
-        <a href="https://github.com/JonathanXDR" target="_blank">
-          <span>GitHub</span>
-        </a>
-        <a href="https://intranet.swisscom.com/home/profile/i%3a0e.t%7cazuread%7ctaarujo6" target="_blank">
-          <span>Swisscom</span>
-        </a>
+          <a
+            href="https://discordapp.com/users/494042822320717827"
+            target="_blank"
+          >
+            <span>Discord</span>
+          </a>
+          <a href="https://www.reddit.com/user/JonathanXD12" target="_blank">
+            <span>Reddit</span>
+          </a>
+          <a href="https://github.com/JonathanXDR" target="_blank">
+            <span>GitHub</span>
+          </a>
+          <a
+            href="https://intranet.swisscom.com/home/profile/i%3a0e.t%7cazuread%7ctaarujo6"
+            target="_blank"
+          >
+            <span>Swisscom</span>
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="references">
-    <div id="referencesContainer" class="lockContainer">
-      <h2 class="paddingBottom30">Referenzen</h2>
-      <span>Gerne kannst du mich kontaktieren, unten stehen sämtliche Social-Media
-        Plattformen
-        auf denen ich aktiv bin, sowie auch meine Swisscom-Seite.
-        <br></br>
-        <br>Ich freue mich auf dich!</br>
-      </span>
-    </div>
-  </section>
+    <section id="references">
+      <div id="referencesContainer" class="lockContainer">
+        <h2 class="paddingBottom30">Referenzen</h2>
+        <span
+          >Gerne kannst du mich kontaktieren, unten stehen sämtliche
+          Social-Media Plattformen auf denen ich aktiv bin, sowie auch meine
+          Swisscom-Seite.
+          <br />
+          <br />Ich freue mich auf dich!
+        </span>
+      </div>
+    </section>
 
-  <script>
-    function getPositionXY(element) {
-
-      var rect = element.getBoundingClientRect();
-      var position = 'X: ' + rect.x + ', ' + 'Y: ' + rect.y
-      return position;
-
-    }
-    var hexa = document.getElementById('hexa');
-    var hexa_position = getPositionXY(hexa);
-    console.log(hexa_position);
-  </script>
-</body>
-
+    <script>
+      function getPositionXY(element) {
+        var rect = element.getBoundingClientRect();
+        var position = "X: " + rect.x + ", " + "Y: " + rect.y;
+        return position;
+      }
+      var hexa = document.getElementById("hexa");
+      var hexa_position = getPositionXY(hexa);
+      console.log(hexa_position);
+    </script>
+  </body>
 </html>

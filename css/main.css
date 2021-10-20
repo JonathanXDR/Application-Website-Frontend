@@ -297,7 +297,8 @@ h6 {
   color: var(--colorFont);
 }
 
-span {
+span,
+#text {
   color: var(--colorFont);
 }
 
@@ -306,14 +307,14 @@ span {
 }
 
 /* Sections */
-section {
-  /* display: none; */
-}
-
 #home {
   display: flex;
   align-items: center;
   padding: 300px 0;
+}
+
+#timeline {
+  display: none;
 }
 
 #projects {
@@ -323,6 +324,10 @@ section {
 
 #skills {
   /* display: none; */
+}
+
+#codeTyping {
+  display: none;
 }
 
 #Mario {
@@ -1311,7 +1316,7 @@ element.style {
 }
 
 .lockApple {
-  /* display: none; */
+  display: none;
 }
 
 .hexa {
