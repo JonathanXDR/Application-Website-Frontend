@@ -319,11 +319,15 @@ span,
 
 #projects {
   /* background-color: rebeccapurple; */
-  display: none;
+  /* display: none; */
 }
 
 #skills {
   /* display: none; */
+}
+
+#glichinTriangles {
+  display: none;
 }
 
 #codeTyping {
@@ -1454,7 +1458,7 @@ element.style {
 }
 
 .time-wrapper {
-  display: block;
+  /* display: block; */
   position: relative;
   margin: 4px 0 0 0;
   z-index: 14;
