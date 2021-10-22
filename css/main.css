@@ -1,9 +1,9 @@
 html {
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 * {
-  box-sizing: border-box;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
     Helvetica, Arial, "Lucida Grande", sans-serif;
   transition: background-color 0.5s ease, color 0.5s ease;
@@ -314,12 +314,12 @@ span,
 }
 
 #timeline {
-  display: none;
+  /* display: none; */
 }
 
 #projects {
   /* background-color: rebeccapurple; */
-  /* display: none; */
+  display: none;
 }
 
 #skills {
@@ -327,11 +327,11 @@ span,
 }
 
 #glichinTriangles {
-  display: none;
+  /* display: none; */
 }
 
 #codeTyping {
-  display: none;
+  /* display: none; */
 }
 
 #Mario {
@@ -715,9 +715,9 @@ input[type="checkbox"] {
 } */
 
 /*About Me*/
-/* #hexagonImage {
-  margin-top: 400px;
-} */
+#image {
+  z-index: 1;
+}
 
 #aboutContainer {
   width: 50%;
@@ -729,6 +729,7 @@ input[type="checkbox"] {
   flex-direction: column;
   justify-content: space-between;
   align-content: flex-end;
+  z-index: 1;
 }
 
 .buttons {
