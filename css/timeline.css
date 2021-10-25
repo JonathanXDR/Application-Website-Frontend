@@ -116,34 +116,11 @@
 }
 
 .timeline-wrapper {
-  position: relative;
-  padding-bottom: 25em;
+  /* padding-bottom: 25em; */
   /* background: linear-gradient(rgba(0, 0, 0, 0), #151b25, #151516),
     linear-gradient(90deg, #172538, #18263a 50%); */
 
-  /* background: linear-gradient(
-    to right top,
-    #071931 0%,
-    #33274f 50%,
-    #661e43 100%
-  ); */
-
-  background: url(/img/fakurian-design-NBYCFpah1tM-unsplash.jpg);
-
-  /* background: linear-gradient(to bottom, #4c102a 0%, #151516 100%); */
-}
-
-.timeline-wrapper:after {
-  content: "";
-  display: block;
-  background-image: url("http://codepen.vincebrown.me/assets/images/white-mountains.jpg");
-  height: 500px;
-  width: 100%;
-  background-size: cover;
-  position: absolute;
-  background-position: 25% center;
-  z-index: -10;
-  bottom: 0;
+  background: linear-gradient(#071931 0%, #33274f 50%, #661e43 100%);
 }
 
 .svg-timeline {

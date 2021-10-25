@@ -84,7 +84,7 @@
       <li class="menu"><a href="#skills">Skills</a></li>
       <li class="menu"><a href="#refernces">Referenzen</a></li>
       <li class="menu"><a href="#contact">Kontakt</a></li>
-      
+
       <!-- </div> -->
       <div class="toggle-btn" id="toggleBtn">
         <input
@@ -107,6 +107,16 @@
   <div>content...</div> -->
 
     <section id="home">
+      <h2 id="wordRotation">
+        Turn your living room into
+        <div class="mask">
+          <span data-show>a theater.</span>
+          <span>a gym.</span>
+          <span>a concert hall.</span>
+          <span>an arcade.</span>
+        </div>
+      </h2>
+
       <svg
         id="hexagonImage"
         xmlns="http://www.w3.org/2000/svg"
@@ -228,7 +238,7 @@
       </header>
       <main class="timeline-wrapper">
         <div class="svg-timeline">
-          <svg width="8px" height="2900px" viewBox="0 0 8 2900">
+          <svg width="8px" height="2500px" viewBox="0 0 8 2500">
             <line
               id="timeline"
               fill="none"
@@ -238,10 +248,11 @@
               x1="4"
               y1="0"
               x2="4"
-              y2="2900"
+              y2="2500"
             />
           </svg>
         </div>
+
         <ol class="timeline clearfix">
           <li class="timeline__item">
             <h3 class="timeline__day">
@@ -673,11 +684,13 @@
         </div>
       </div>
       <div id="skillsContainer" class="lockContainer">
-        <h2 class="paddingBottom30">Skills</h2>
-        <span
-          >Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit
-          jedem Projekt, dass ich mache erweitert.</span
-        >
+        <div id="skillsText">
+          <h2 class="paddingBottom30">Skills</h2>
+          <span
+            >Das sind meine Skills, die ich mitbringe. Diese werden natürlich
+            mit jedem Projekt, dass ich mache erweitert.</span
+          >
+        </div>
       </div>
       <div class="centerItems">
         <!--Hexagon Progressbar1-->
@@ -860,6 +873,7 @@
     </section>
 
     <section id="codeTyping">
+      <div id="codeTypingBg"></div>
       <div class="HomepageAnonHeader_illuArea-2yLqQ">
         <img
           src="https://cpwebassets.codepen.io/assets/packs/illu-editor-24091b7edc92fba11a2595fe767e6c2b.png"

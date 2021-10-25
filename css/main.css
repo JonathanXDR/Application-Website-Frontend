@@ -6,6 +6,9 @@ html {
 * {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
     Helvetica, Arial, "Lucida Grande", sans-serif;
+
+  /* font-family: Helvetica; */
+
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -16,14 +19,12 @@ html {
 
   --mainLogoBg: #efefef;
   --colorBg: #ffffff;
+  --colorFont: #1d1d1f;
   --colorContainer: #f3f3f3;
-  --colorTransparent: rgba(255, 255, 255, 0.4);
-  --colorMenuBgMacbook: rgba(255, 255, 255, 0.72);
+
   --colorMenuBgIpad: rgba(255, 255, 255, 0.72);
   --colorMenuBorder: rgba(0, 0, 0, 0.16);
-  --colorScrollbarTrack: #fafafa;
-  --colorScrollbarTrackBorder: #1c1c1c;
-  --colorFont: #000000;
+
   --colorBtn: #1d1d1f;
   --colorBtnReverse: #ffffff;
 
@@ -66,14 +67,12 @@ html {
 
   --mainLogoBg: #232324;
   --colorBg: #000000;
+  --colorFont: #f5f5f7;
   --colorContainer: #151516;
-  --colorTransparent: rgba(0, 0, 0, 0.4);
-  --colorMenuBgMacbook: rgba(29, 29, 31, 0.72);
+
   --colorMenuBgIpad: rgba(0, 0, 0, 0.72);
   --colorMenuBorder: rgba(255, 255, 255, 0.24);
-  --colorScrollbarTrack: #0f0f0f;
-  --colorScrollbarTrackBorder: #1c1c1c;
-  --colorFont: #ffffff;
+
   --colorBtn: #ffffff;
   --colorBtnReverse: #1d1d1f;
 
@@ -499,7 +498,7 @@ a:hover {
   display: flex;
   padding: 0px 15px;
   background-color: var(--mainLogoBg);
-  border-bottom: 1px solid var(--colorMenuBorder);
+  /* border-bottom: 1px solid var(--colorMenuBorder); */
 }
 
 #logo {
@@ -525,7 +524,7 @@ a:hover {
 .menu-bar {
   width: 100%;
   border-radius: 0px;
-  border-bottom: 1px solid var(--colorMenuBorder);
+  /* border-bottom: 1px solid var(--colorMenuBorder); */
   height: 52px;
   position: fixed;
   background-color: var(--colorMenuBgIpad);
@@ -715,6 +714,62 @@ input[type="checkbox"] {
 } */
 
 /*About Me*/
+#wordRotation {
+  width: 980px;
+  font-size: 100px;
+  font-family: Helvetica;
+  /* line-height: 1.06; */
+  letter-spacing: -0.02em;
+  color: var(--colorFont);
+}
+
+.mask {
+  height: 106px;
+  position: relative;
+  overflow: hidden;
+  margin-top: var(--offset);
+}
+
+.mask span {
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 100px;
+  padding-bottom: var(--offset);
+
+  background-size: 100% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-repeat: no-repeat;
+}
+
+.mask span[data-show] {
+  transform: translateY(-100%);
+  transition: 0.5s transform ease-in-out;
+}
+
+.mask span[data-up] {
+  transform: translateY(-200%);
+  transition: 0.5s transform ease-in-out;
+}
+
+.mask span:nth-child(1) {
+  background-image: linear-gradient(45deg, #0ecffe 50%, #07a6f1);
+}
+
+.mask span:nth-child(2) {
+  background-image: linear-gradient(45deg, #18e198 50%, #0ec15d);
+}
+
+.mask span:nth-child(3) {
+  background-image: linear-gradient(45deg, #8a7cfb 50%, #633e9c);
+}
+
+.mask span:nth-child(4) {
+  background-image: linear-gradient(45deg, #fa7671 50%, #f45f7f);
+}
+
 #image {
   z-index: 1;
 }
@@ -758,10 +813,10 @@ input[type="checkbox"] {
 
 #journeyContinuesContainer {
   height: 275px;
-  background-color: var(--colorTransparent);
+  background-color: var(--colorMenuBgIpad);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  box-shadow: 0px 0px 15px 15px var(--colorTransparent);
+  box-shadow: 0px 0px 15px 15px var(--colorMenuBgIpad);
   z-index: 10;
   position: initial;
 }
@@ -791,6 +846,13 @@ input[type="checkbox"] {
   flex-direction: column;
   justify-content: flex-start;
   align-content: center; */
+}
+
+#skillsText {
+  background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
 }
 
 /* .musicContainer {
