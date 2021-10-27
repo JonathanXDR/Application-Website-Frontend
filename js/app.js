@@ -40,6 +40,33 @@ function countToggles() {
   }
 }
 
+// Popup
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function () {
+  modal.style.display = "block";
+};
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
 // Change favicon according to theme
 // const faviconTag = document.getElementById("faviconTag");
 // const isDark = window.matchMedia("(prefers-color-scheme: dark)");
@@ -54,10 +81,12 @@ function countToggles() {
 
 // Word Rotation
 setInterval(function () {
-  const show = document.querySelector("span[data-show]");
+  const show = document.querySelector(".mask span[data-show]");
   const next =
-    show.nextElementSibling || document.querySelector("span:first-child");
-  const up = document.querySelector("span[data-up]");
+    show.nextElementSibling || document.querySelector(".mask span:first-child");
+
+  console.log("sdfsd", next);
+  const up = document.querySelector(".mask span[data-up]");
 
   if (up) {
     up.removeAttribute("data-up");
@@ -67,6 +96,7 @@ setInterval(function () {
   show.setAttribute("data-up", "");
 
   next.setAttribute("data-show", "");
+  console.log("Hello");
 }, 2000);
 
 //Hexagon Progressbar1

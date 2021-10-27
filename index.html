@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/timeline.css" />
     <link rel="stylesheet" href="/css/glichinTriangles.css" />
     <link rel="stylesheet" href="/css/Homepage-Anon-a160db85.chunk.css" />
+    <link rel="stylesheet" href="/css/languageSwitcher.css" />
     <script src="/js/app.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link
@@ -48,15 +49,75 @@
     </div>
 
     <script>
-      // window.addEventListener("load", function () {
-      //   loading.fadeOut("slow");
-      //   // spinnerWrapper.style.display = 'none';
-      // });
-
-      $(window).on("load", function () {
+          $(window).on("load", function () {
         $(".loading").fadeOut("slow");
       });
     </script>
+
+    <input type="checkbox" id="switch" />
+    <label for="switch">
+      <div class="toggle"></div>
+      <div class="names">
+        <p class="light">Light</p>
+        <p class="dark">Dark</p>
+      </div>
+    </label>
+
+    <!-- <input type="checkbox" id="switch" />
+    <div class="app">
+      <div class="body">
+        <div class="main-circle"></div>
+        <div class="phone">
+
+          <div class="menu">
+            <div class="time">4:20</div>
+            <div class="icons">
+              <div class="network"></div>
+              <div class="battery"></div>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="circle">
+              <div class="crescent"></div>
+            </div>
+            <p class="heading">Choose a style</p>
+            <p>
+              Pop or subtle. Day or night.<br />
+              Customize your interface
+            </p>
+            <label for="switch">
+              <div class="toggle"></div>
+              <div class="names">
+                <p class="light">Light</p>
+                <p class="dark">Dark</p>
+              </div>
+            </label>
+
+            <div class="mark"></div>
+          </div>
+
+          <div class="skip">
+            <p>Skip</p>
+            <div class="fab">
+              <div class="arrow"></div>
+            </div>
+          </div>
+
+          <div class="swipe"></div>
+        </div>
+      </div>
+      <div class="credit">
+        <p>
+          Inspired by
+          <a
+            href="https://dribbble.com/shots/6155384-Coded-Light-dark-toggle-switch"
+            target="_blank"
+            >Matthieu Souteyrand</a
+          >
+        </p>
+      </div>
+    </div> -->
 
     <div id="vintageModeContainer">
       <div id="crt-lines"></div>

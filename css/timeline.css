@@ -120,7 +120,9 @@
   /* background: linear-gradient(rgba(0, 0, 0, 0), #151b25, #151516),
     linear-gradient(90deg, #172538, #18263a 50%); */
 
-  background: linear-gradient(#071931 0%, #33274f 50%, #661e43 100%);
+  /* background: linear-gradient(#071931 0%, #33274f 50%, #661e43 100%); */
+  background: url("../img/WallpaperDog-17075855.jpg");
+  background-size: cover;
 }
 
 .svg-timeline {
