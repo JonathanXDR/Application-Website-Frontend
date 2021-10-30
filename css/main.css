@@ -1,14 +1,24 @@
-html {
-  scroll-behavior: smooth;
-  box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+
+@font-face {
+  font-family: Bebas;
+  src: url("../fonts/BebasKai-Regular.otf");
 }
 
 * {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
-    Helvetica, Arial, "Lucida Grande", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-  /* font-family: Helvetica; */
-
+html,
+body {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background-color: #000;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -116,12 +126,6 @@ html {
     0px 0px 2px hsl(120, 100%, 80%),
     0px 0px 15px green,
     0px 0px 60px green;
-}
-
-body {
-  background: var(--colorBg);
-  margin: 0;
-  font-family: monospace;
 }
 
 /* Preloader */
@@ -298,8 +302,7 @@ h6 {
   color: var(--colorFont);
 }
 
-span,
-#text {
+span {
   color: var(--colorFont);
 }
 
@@ -309,7 +312,7 @@ span,
 
 /* Sections */
 #home {
-  display: flex;
+  display: none;
   align-items: center;
   padding: 300px 0;
 }
@@ -454,7 +457,15 @@ span,
   margin-top: 100px;
 }
 
-.centerItems {
+.verticalCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.horizontalCenter {
   display: flex;
   justify-content: space-between; /* horizontal zentrieren */
   gap: 50px;
@@ -792,7 +803,7 @@ input[type="checkbox"] {
 .buttons {
   display: flex;
   align-content: center;
-  gap: 10px;
+  gap: 16px;
   /* padding: 15px 0 15px 0; */
 }
 
@@ -851,9 +862,9 @@ input[type="checkbox"] {
 }
 
 #skillsText {
-  background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%));
+  /* background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%));
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
   text-align: center;
 }
 
@@ -1283,7 +1294,6 @@ element.style {
   border-radius: 10px;
   display: flex;
   justify-content: center; /* horizontal zentrieren */
-  align-items: flex-start; /* vertikal ende */
 }
 
 #cssContainer {
@@ -1293,7 +1303,6 @@ element.style {
   border-radius: 10px;
   display: flex;
   justify-content: center; /* horizontal zentrieren */
-  align-items: flex-start; /* vertikal ende */
 }
 
 #jsContainer {
@@ -1303,7 +1312,6 @@ element.style {
   border-radius: 10px;
   display: flex;
   justify-content: center; /* horizontal zentrieren */
-  align-items: flex-start; /* vertikal ende */
 }
 
 #apple1 {
@@ -1730,7 +1738,7 @@ element.style {
 /*Hexagon Progressbar*/
 .hex-progress {
   width: 175px;
-  height: 350px;
+  height: 200px;
 }
 
 .hex-progress .track,
@@ -1763,6 +1771,13 @@ element.style {
   font-size: 150px;
 }
 
+.textStyling {
+  color: var(--colorFont);
+  font-weight: 600;
+  font-size: 25px;
+  text-anchor: middle;
+}
+
 .hex-progress .text {
   font-size: 120px;
 }
@@ -1780,7 +1795,7 @@ element.style {
 /*Hexagon Progressbar2*/
 .hex-progress2 {
   width: 175px;
-  height: 350px;
+  height: 200px;
 }
 
 .hex-progress2 .track2,
@@ -1830,7 +1845,7 @@ element.style {
 /*Hexagon Progressbar3*/
 .hex-progress3 {
   width: 175px;
-  height: 350px;
+  height: 200px;
 }
 
 .hex-progress3 .track3,
@@ -1875,4 +1890,250 @@ element.style {
   -ms-user-select: none;
   user-select: none;
   cursor: default;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+
+@font-face {
+  font-family: Bebas;
+  src: url("../fonts/BebasKai-Regular.otf");
+}
+
+a {
+  width: fit-content;
+  text-decoration: none;
+  color: #fff;
+}
+
+.button2 {
+  border: 1.5px solid #fff;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.button2:hover {
+  color: #000;
+  background: #fff;
+}
+
+.wrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 300px;
+}
+
+.parallax__group {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  transform-style: preserve-3d;
+}
+
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.sky {
+  background: url("../img/sky.png") no-repeat center;
+  background-size: cover;
+  transform: translateZ(-600px) scale(3);
+  z-index: 1;
+}
+
+.bushes {
+  background: url("../img/bushes.png") no-repeat center;
+  background-size: cover;
+  transform: translateZ(-525px) scale(2.75);
+  z-index: 2;
+}
+
+.water {
+  background: url("../img/water.png") no-repeat center;
+  background-size: cover;
+  transform: translateZ(-400px) scale(2.33333333);
+  z-index: 3;
+}
+
+.people1 {
+  background: url("../img/people1.png") no-repeat center;
+  background-size: cover;
+  transform: translateZ(-250px) scale(1.833333333);
+  z-index: 4;
+}
+
+.people2 {
+  background: url("../img/people2.png") no-repeat center;
+  background-size: cover;
+  transform: translateZ(-125px) scale(1.4167);
+  z-index: 5;
+}
+
+.people3 {
+  background: url("../img/people3.png") no-repeat center;
+  background-size: cover;
+  transform: translateZ(0) scale(1);
+  z-index: 6;
+}
+
+.hero-text {
+  background: linear-gradient(
+    rgba(105, 211, 252, 0.25) 0%,
+    rgba(255, 116, 161, 0.25) 86%,
+    rgba(1, 0, 0, 0.25) 100%
+  );
+  background-size: cover;
+  transform: translateZ(0) scale(1);
+  z-index: 7;
+}
+
+.hero-text h2 {
+  font-size: 1.25rem;
+  position: absolute;
+  left: 2.5rem;
+  top: 2.5rem;
+}
+
+.hero-text ul {
+  font-size: 0.75rem;
+  position: absolute;
+  right: 2.5rem;
+  top: 2.5rem;
+}
+
+.hero-text ul li {
+  margin-left: 2.5rem;
+  list-style-type: none;
+  float: left;
+  visibility: hidden;
+}
+
+.hero-text ul li:nth-of-type(3) {
+  visibility: visible;
+}
+
+.year-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 17rem;
+  height: 25rem;
+}
+
+.year-container h1 {
+  font-family: Bebas, sans-serif;
+  font-weight: 400;
+  position: absolute;
+  font-size: 12.5rem;
+}
+
+.year-container h1:nth-of-type(1) {
+  top: 10%;
+}
+
+.year-container h1:nth-of-type(2) {
+  left: 30%;
+  bottom: 0;
+}
+
+.year-container h1:nth-of-type(3) {
+  top: 0;
+  right: 30%;
+}
+
+.year-container h1:nth-of-type(4) {
+  right: 0;
+  bottom: 20%;
+}
+
+.social-container {
+  position: absolute;
+  left: 2.5rem;
+  bottom: 2.5rem;
+}
+
+.social-container i {
+  font-size: 1.25rem;
+  margin-right: 0.25rem;
+}
+
+.info-container {
+  background: #000;
+  transform: translateZ(0) scale(1);
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.info-container svg {
+  margin-left: 32px;
+  filter: saturate(0.9);
+}
+
+.text-container {
+  margin-right: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: flex-end;
+  gap: 20px;
+  /* background-color: red; */
+}
+
+.text-container p:nth-of-type(1) {
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+.text-container p:nth-of-type(2) {
+  font-size: 0.6rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 760px) {
+  .hero-text ul li {
+    visibility: visible;
+  }
+
+  .info-container {
+    display: grid;
+    grid-template-columns: 411px 1fr;
+    grid-column-gap: 4rem;
+    align-items: center;
+    text-align: left;
+  }
+
+  .info-container img {
+    justify-self: end;
+    width: 75%;
+  }
+
+  .text-container p:nth-of-type(1) {
+    font-size: 1rem;
+  }
+
+  .text-container p:nth-of-type(1) {
+    font-size: 0.86rem;
+  }
+}
+
+@media (min-width: 1126px) {
+  .sky,
+  .bushes,
+  .water,
+  .people1,
+  .people2,
+  .people3,
+  .hero-text {
+    background-size: contain;
+  }
 }

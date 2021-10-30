@@ -433,27 +433,11 @@
 }
 
 .HomepageAnonHeaderHero_editorCode-_-pxQ {
-  position: absolute;
   width: 300px;
   height: 140px;
   background: #1d1e22;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
   border-radius: 6px;
-}
-
-.HomepageAnonHeaderHero_editorCode-_-pxQ.HomepageAnonHeaderHero_html-32lze {
-  right: 20px;
-  top: -20px;
-}
-
-.HomepageAnonHeaderHero_editorCode-_-pxQ.HomepageAnonHeaderHero_css-2tL_z {
-  right: -30px;
-  top: 130px;
-}
-
-.HomepageAnonHeaderHero_editorCode-_-pxQ.HomepageAnonHeaderHero_js-3XnY6 {
-  right: 40px;
-  top: 280px;
 }
 
 .HomepageAnonHeaderHero_editorCode-_-pxQ header {
@@ -487,36 +471,16 @@
     width: 90%;
     height: 310px;
   }
-  .HomepageAnonHeaderHero_editorCode-_-pxQ.HomepageAnonHeaderHero_html-32lze {
-    top: 20px;
-    left: 2.5%;
-  }
   .HomepageAnonHeaderHero_editorCode-_-pxQ.HomepageAnonHeaderHero_css-2tL_z {
     top: 80px;
     right: 2.5%;
-  }
-  .HomepageAnonHeaderHero_editorCode-_-pxQ.HomepageAnonHeaderHero_js-3XnY6 {
-    top: 150px;
-    left: 50%;
-    margin-left: -250px;
-    z-index: 4;
   }
 }
 
 @media (max-width: 550px) {
-  .HomepageAnonHeaderHero_editorCode-_-pxQ.HomepageAnonHeaderHero_html-32lze {
-    top: 20px;
-    left: 2.5%;
-  }
   .HomepageAnonHeaderHero_editorCode-_-pxQ.HomepageAnonHeaderHero_css-2tL_z {
     top: 80px;
     right: 2.5%;
-  }
-  .HomepageAnonHeaderHero_editorCode-_-pxQ.HomepageAnonHeaderHero_js-3XnY6 {
-    top: 200px;
-    left: 7.5%;
-    margin-left: 0;
-    z-index: 4;
   }
 }
 
