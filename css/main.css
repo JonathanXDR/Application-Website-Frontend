@@ -14,6 +14,7 @@ html {
 
 .light-theme {
   /* Logos */
+  --languageDE: var(lightmode);
   --mainLogo: url(/img/logo-light.png);
   --faviconLogo: url(/img/favicon-dark.png);
 
@@ -62,6 +63,7 @@ html {
 
 .dark-theme {
   /* Logos */
+  --languageDE: var(darkmode);
   --mainLogo: url(/img/logo-dark.png);
   --faviconLogo: url(/img/favicon-light.png);
 
