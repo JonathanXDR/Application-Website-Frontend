@@ -27,7 +27,6 @@ const text = document.querySelectorAll("h1, h2, h3, h4, h5, h6, span, button");
 
 function countToggles() {
   count++;
-  console.log(count);
 
   if (count >= 10) {
     document.getElementById("vintageModeContainer").style.display = "block";
@@ -85,7 +84,6 @@ setInterval(function () {
   const next =
     show.nextElementSibling || document.querySelector(".mask span:first-child");
 
-  console.log("sdfsd", next);
   const up = document.querySelector(".mask span[data-up]");
 
   if (up) {
@@ -96,10 +94,9 @@ setInterval(function () {
   show.setAttribute("data-up", "");
 
   next.setAttribute("data-show", "");
-  console.log("Hello");
 }, 2000);
 
-//Hexagon Progressbar1
+//Hexagon Progressbars
 var forEach = function (array, callback, scope) {
   for (var i = 0; i < array.length; i++) {
     callback.call(scope, i, array[i]);
@@ -133,24 +130,29 @@ window.onload = function () {
 };
 
 // Timeline
+const timelineHeight = document.getElementById("timelineHeight").style.width;
+const lineHeight = document.getElementById("svgLine");
+console.log(timelineHeight);
+// shape.setAttribute("viewBox", "-250 -250 500 750");
+
 var controller = new ScrollMagic.Controller();
-TweenMax.set("#timeline", { visibility: 0 });
+TweenMax.set("#line", { visibility: 0 });
 
 var tweenOne = new TweenMax.fromTo(
-  "#timeline",
+  "#line",
   1,
   { drawSVG: "0%" },
   { drawSVG: "10%" }
 );
 
 var scene1 = new ScrollMagic.Scene({
-  triggerElement: "#timeline",
+  triggerElement: "#line",
 })
   .setTween(tweenOne)
   .addTo(controller);
 
 var tweenTwo = new TweenMax.fromTo(
-  "#timeline",
+  "#line",
   1,
   { drawSVG: "10%" },
   { drawSVG: "20%" }
@@ -163,7 +165,7 @@ var scene2 = new ScrollMagic.Scene({
   .addTo(controller);
 
 var tweenThree = new TweenMax.fromTo(
-  "#timeline",
+  "#line",
   1,
   { drawSVG: "20%" },
   { drawSVG: "40%" }
@@ -176,7 +178,7 @@ var scene3 = new ScrollMagic.Scene({
   .addTo(controller);
 
 var tweenFour = new TweenMax.fromTo(
-  "#timeline",
+  "#line",
   1,
   { drawSVG: "40%" },
   { drawSVG: "65%" }
@@ -189,7 +191,7 @@ var scene3 = new ScrollMagic.Scene({
   .addTo(controller);
 
 var tweenFive = new TweenMax.fromTo(
-  "#timeline",
+  "#line",
   1,
   { drawSVG: "65%" },
   { drawSVG: "85%" }
@@ -202,7 +204,7 @@ var scene3 = new ScrollMagic.Scene({
   .addTo(controller);
 
 var tweenSix = new TweenMax.fromTo(
-  "#timeline",
+  "#line",
   1,
   { drawSVG: "85%" },
   { drawSVG: "102%" }
@@ -215,30 +217,30 @@ var scene3 = new ScrollMagic.Scene({
   .addTo(controller);
 
 // Check if music cover is visible in viewport
-function isInViewport(el) {
-  const rect = el.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
-}
+// function isInViewport(el) {
+//   const rect = el.getBoundingClientRect();
+//   return (
+//     rect.top >= 0 &&
+//     rect.left >= 0 &&
+//     rect.bottom <=
+//       (window.innerHeight || document.documentElement.clientHeight) &&
+//     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+//   );
+// }
 
-const box = document.querySelector("gallery-item, music-slide");
-const message = document.querySelector("#message");
+// const box = document.querySelector("gallery-item, music-slide");
+// const message = document.querySelector("#message");
 
-document.addEventListener(
-  "scroll",
-  function () {
-    const messageText = isInViewport(box)
-      ? "The box is visible in the viewport"
-      : "The box is not visible in the viewport";
+// document.addEventListener(
+//   "scroll",
+//   function () {
+//     const messageText = isInViewport(box)
+//       ? "The box is visible in the viewport"
+//       : "The box is not visible in the viewport";
 
-    message.textContent = messageText;
-  },
-  {
-    passive: true,
-  }
-);
+//     message.textContent = messageText;
+//   },
+//   {
+//     passive: true,
+//   }
+// );

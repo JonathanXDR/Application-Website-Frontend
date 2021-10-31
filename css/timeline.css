@@ -70,7 +70,7 @@
   width: 100%;
   background-size: cover;
   background-position: center center;
-  background-image: url("http://codepen.vincebrown.me/assets/images/snow-mountains.jpg");
+  /* background-image: url("http://codepen.vincebrown.me/assets/images/snow-mountains.jpg"); */
 }
 
 .poster__heading {
