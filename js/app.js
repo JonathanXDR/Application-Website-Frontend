@@ -130,9 +130,8 @@ window.onload = function () {
 };
 
 // Timeline
-const timelineHeight = document.getElementById("timelineHeight").style.width;
-const lineHeight = document.getElementById("svgLine");
-console.log(timelineHeight);
+// const timelineHeight = document.getElementsByClassName("timeline");
+// const lineHeight = document.getElementById("svgLine");
 // shape.setAttribute("viewBox", "-250 -250 500 750");
 
 var controller = new ScrollMagic.Controller();
