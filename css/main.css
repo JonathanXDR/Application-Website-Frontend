@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
 @font-face {
   font-family: Bebas;
-  src: url("../fonts/BebasKai-Regular.otf");
+  src: url('../fonts/BebasKai-Regular.otf');
 }
 
 * {
@@ -15,8 +15,8 @@ html,
 body {
   width: 100%;
   height: 100%;
-  color: #fff;
-  background-color: #000;
+  color: var(--colorFont);
+  background-color: var(--colorBg);
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
   transition: background-color 0.5s ease, color 0.5s ease;
@@ -158,7 +158,7 @@ body {
   display: inline-block;
   margin: 0 5px;
   color: #fff;
-  font-family: "Quattrocento Sans", sans-serif;
+  font-family: 'Quattrocento Sans', sans-serif;
 }
 
 .loading-text span:nth-child(1) {
@@ -327,6 +327,7 @@ span {
 }
 
 #skills {
+  margin-top: 200px;
   /* display: none; */
 }
 
@@ -394,7 +395,7 @@ span {
 }
 
 #home #Mario .mario-box:before {
-  content: "1";
+  content: '1';
   position: absolute;
   top: calc(100% + 1rem);
   left: calc(50% - 1rem);
@@ -417,7 +418,7 @@ span {
 }
 
 #home #Mario .mario-box.b2:before {
-  content: "2";
+  content: '2';
 }
 
 #Mario .mario-box.b3 {
@@ -425,7 +426,7 @@ span {
 }
 
 #home #Mario .mario-box.b3:before {
-  content: "3";
+  content: '3';
 }
 
 @media screen and (max-width: 1024px) {
@@ -484,9 +485,11 @@ a:hover {
 }
 
 #contact_social_media {
+  display: flex;
   position: relative;
+  justify-content: center;
   align-items: center;
-  text-align: center;
+  gap: 50px;
   font-weight: 700;
   font-size: 13px;
   margin-top: 50px;
@@ -494,10 +497,6 @@ a:hover {
 
 #contact_social_media a {
   color: var(--colorFont);
-}
-
-#contact_social_media span {
-  margin-left: 50px;
 }
 
 #faviconTag {
@@ -572,7 +571,7 @@ a:hover {
 }
 
 .menu-bar li::before {
-  content: " ";
+  content: ' ';
   position: absolute;
   top: 0;
   left: 0;
@@ -604,7 +603,7 @@ a:hover {
   margin-left: -26px;
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -635,7 +634,7 @@ input[type="checkbox"] {
 
 #toggleBtn span:before,
 #toggleBtn span:after {
-  content: "";
+  content: '';
   position: absolute;
   top: 8px;
   width: 58px;
@@ -656,20 +655,20 @@ input[type="checkbox"] {
   z-index: 0;
 }
 
-#toggleBtn input[type="checkbox"]:checked + span {
+#toggleBtn input[type='checkbox']:checked + span {
   background-color: #000;
 }
 
-#toggleBtn input[type="checkbox"]:active + span {
+#toggleBtn input[type='checkbox']:active + span {
   opacity: 0.5;
 }
 
-#toggleBtn input[type="checkbox"]:checked + span:before {
+#toggleBtn input[type='checkbox']:checked + span:before {
   background-color: #000;
   transform: translate(56px, -19px);
 }
 
-#toggleBtn input[type="checkbox"]:checked + span:after {
+#toggleBtn input[type='checkbox']:checked + span:after {
   background-color: #fff;
   transform: translate(79px, 0px);
 }
@@ -885,7 +884,7 @@ input[type="checkbox"] {
 }
 
 .languageSkills:after {
-  content: "";
+  content: '';
   display: block;
   width: 100%;
   height: 4px;
@@ -1184,8 +1183,8 @@ a:visited,
   line-height: 1;
   font-weight: 400; /* off */
   letter-spacing: -0.021em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
   padding: 9px 0 11px;
   margin-top: 2px;
   margin-bottom: 4px;
@@ -1223,7 +1222,7 @@ a:-webkit-any-link {
   bottom: -5px;
   width: 100%;
   border-bottom: 2px solid #e85f82;
-  content: "";
+  content: '';
 }
 
 .stations-gallery {
@@ -1389,8 +1388,8 @@ element.style {
   line-height: 1.28577;
   font-weight: 400;
   letter-spacing: -0.016em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
   width: 100%;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1586,7 +1585,7 @@ element.style {
 }
 
 .hexa:before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   width: 0;
@@ -1598,7 +1597,7 @@ element.style {
 }
 
 .hexa:after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   width: 0;
@@ -1676,7 +1675,7 @@ element.style {
 
 .direction-l .flag:after,
 .direction-r .flag:after {
-  content: "";
+  content: '';
   position: absolute;
   left: 50%;
   top: -15px;
@@ -1776,7 +1775,7 @@ element.style {
   }
 
   .items li:after {
-    content: "";
+    content: '';
     display: block;
     height: 0;
     clear: both;
@@ -2067,21 +2066,21 @@ element.style {
   cursor: default;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
 @font-face {
   font-family: Bebas;
-  src: url("../fonts/BebasKai-Regular.otf");
+  src: url('../fonts/BebasKai-Regular.otf');
 }
 
 a {
   width: fit-content;
   text-decoration: none;
-  color: #fff;
+  color: var(--colorFont);
 }
 
 .button2 {
-  border: 1.5px solid #fff;
+  border: 1.5px solid var(--colorBtn);
   border-radius: 0.75rem;
   padding: 0.75rem 1.25rem;
   transition: all 0.3s ease-in-out;
@@ -2116,42 +2115,42 @@ a {
 }
 
 .sky {
-  background: url("../img/sky.png") no-repeat center;
+  background: url('../img/sky.png') no-repeat center;
   background-size: cover;
   transform: translateZ(-600px) scale(3);
   z-index: 1;
 }
 
 .bushes {
-  background: url("../img/bushes.png") no-repeat center;
+  background: url('../img/bushes.png') no-repeat center;
   background-size: cover;
   transform: translateZ(-525px) scale(2.75);
   z-index: 2;
 }
 
 .water {
-  background: url("../img/water.png") no-repeat center;
+  background: url('../img/water.png') no-repeat center;
   background-size: cover;
   transform: translateZ(-400px) scale(2.33333333);
   z-index: 3;
 }
 
 .people1 {
-  background: url("../img/people1.png") no-repeat center;
+  background: url('../img/people1.png') no-repeat center;
   background-size: cover;
   transform: translateZ(-250px) scale(1.833333333);
   z-index: 4;
 }
 
 .people2 {
-  background: url("../img/people2.png") no-repeat center;
+  background: url('../img/people2.png') no-repeat center;
   background-size: cover;
   transform: translateZ(-125px) scale(1.4167);
   z-index: 5;
 }
 
 .people3 {
-  background: url("../img/people3.png") no-repeat center;
+  background: url('../img/people3.png') no-repeat center;
   background-size: cover;
   transform: translateZ(0) scale(1);
   z-index: 6;
@@ -2240,7 +2239,6 @@ a {
 }
 
 .info-container {
-  background: #000;
   transform: translateZ(0) scale(1);
   z-index: 8;
   display: flex;
@@ -2256,6 +2254,7 @@ a {
 }
 
 .text-container {
+  color: var(--colorFont);
   margin-right: 4rem;
   display: flex;
   flex-direction: column;

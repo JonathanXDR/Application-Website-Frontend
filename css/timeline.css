@@ -51,8 +51,7 @@
   letter-spacing: 1px;
   font-size: 0.75rem;
   border-radius: 25px;
-  color: white;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   transition: all 250ms ease;
 }
 
@@ -76,7 +75,6 @@
 .poster__heading {
   margin-top: 500px;
   width: 95%;
-  color: white;
   font-weight: 600;
   font-size: 2em;
   transition: all 400ms ease;
@@ -122,6 +120,7 @@
   margin-left: 50%;
   transform: translateX(-50%);
   display: none;
+  z-index: -1;
 }
 
 @media screen and (min-width: 50em) {
@@ -168,7 +167,6 @@
 .timeline__day {
   font-weight: 600;
   font-size: 0.9em;
-  color: white;
   text-transform: uppercase;
   padding-bottom: 0.75em;
 }
@@ -180,7 +178,6 @@
 }
 
 .timeline__day-sum {
-  color: white;
   font-weight: 300;
   font-size: 0.8em;
   display: block;
@@ -192,7 +189,7 @@
   visibility: hidden;
   display: block;
   font-size: 0;
-  content: " ";
+  content: ' ';
   clear: both;
   height: 0;
 }
