@@ -120,6 +120,7 @@
   margin-left: 50%;
   transform: translateX(-50%);
   display: none;
+  z-index: -1;
 }
 
 @media screen and (min-width: 50em) {
