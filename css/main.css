@@ -17,6 +17,7 @@ body {
   height: 100%;
   color: var(--colorFont);
   background-color: var(--colorBg);
+  background-repeat: repeat-y;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
   transition: background-color 0.5s ease, color 0.5s ease;
