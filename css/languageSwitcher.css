@@ -1,5 +1,5 @@
 /* GENERAL */
-@import url("https://fonts.googleapis.com/css?family=Rubik");
+@import url('https://fonts.googleapis.com/css?family=Rubik');
 .credit {
   position: fixed;
   right: 2rem;
@@ -12,15 +12,15 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
 }
 .body {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-color: #fff;
+  /* background-color: #fff; */
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -170,7 +170,7 @@ label {
   height: 0.25rem;
 }
 .mark::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 0.25rem;
   height: 100%;
@@ -179,7 +179,7 @@ label {
   background-color: inherit;
 }
 .mark::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 0.25rem;
   height: 100%;
@@ -225,7 +225,7 @@ label {
   background-color: black;
 }
 .arrow::before {
-  content: "";
+  content: '';
   position: absolute;
   height: 0.1rem;
   width: 20%;
@@ -235,7 +235,7 @@ label {
   top: 42%;
 }
 .arrow::after {
-  content: "";
+  content: '';
   position: absolute;
   height: 0.1rem;
   width: 20%;
@@ -246,49 +246,49 @@ label {
 }
 
 /* -------- Switch Styles ------------*/
-[type="checkbox"] {
+[type='checkbox'] {
   display: none;
 }
 /* Toggle */
-[type="checkbox"]:checked + .app .toggle {
+[type='checkbox']:checked + .app .toggle {
   transform: translateX(100%);
   background-color: #34323d;
 }
-[type="checkbox"]:checked + .app .dark {
+[type='checkbox']:checked + .app .dark {
   opacity: 1;
 }
-[type="checkbox"]:checked + .app .light {
+[type='checkbox']:checked + .app .light {
   opacity: 0.5;
 }
 /* App */
-[type="checkbox"]:checked + .app .body {
+[type='checkbox']:checked + .app .body {
   background-color: #26242e;
   color: white;
 }
 /* Circle */
-[type="checkbox"]:checked + .app .crescent {
+[type='checkbox']:checked + .app .crescent {
   transform: scale(1);
   background: #26242e;
 }
-[type="checkbox"]:checked + .app .circle {
+[type='checkbox']:checked + .app .circle {
   background: linear-gradient(40deg, #8983f7, #a3dafb 70%);
 }
-[type="checkbox"]:checked + .app .main-circle {
+[type='checkbox']:checked + .app .main-circle {
   background: linear-gradient(40deg, #8983f7, #a3dafb 70%);
 }
 /* Fab */
-[type="checkbox"]:checked + .app .fab {
+[type='checkbox']:checked + .app .fab {
   background-color: #34323d;
 }
-[type="checkbox"]:checked + .app .arrow,
-[type="checkbox"]:checked + .app .mark,
-[type="checkbox"]:checked + .app .battery {
+[type='checkbox']:checked + .app .arrow,
+[type='checkbox']:checked + .app .mark,
+[type='checkbox']:checked + .app .battery {
   background-color: white;
 }
-[type="checkbox"]:checked + .app .network {
+[type='checkbox']:checked + .app .network {
   border-color: transparent transparent white transparent;
 }
-[type="checkbox"]:checked + .app .swipe {
+[type='checkbox']:checked + .app .swipe {
   background-color: #34323d;
   opacity: 1;
 }
