@@ -327,6 +327,7 @@ span {
 }
 
 #skills {
+  margin-top: 200px;
   /* display: none; */
 }
 
@@ -484,9 +485,11 @@ a:hover {
 }
 
 #contact_social_media {
+  display: flex;
   position: relative;
+  justify-content: center;
   align-items: center;
-  text-align: center;
+  gap: 50px;
   font-weight: 700;
   font-size: 13px;
   margin-top: 50px;
@@ -494,10 +497,6 @@ a:hover {
 
 #contact_social_media a {
   color: var(--colorFont);
-}
-
-#contact_social_media span {
-  margin-left: 50px;
 }
 
 #faviconTag {
