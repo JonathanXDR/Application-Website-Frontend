@@ -9,6 +9,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 html,
@@ -20,7 +21,6 @@ body {
   background-repeat: repeat-y;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
-  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .light-theme {
