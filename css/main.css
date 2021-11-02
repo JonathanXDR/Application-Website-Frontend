@@ -31,6 +31,7 @@ body {
 
   --mainLogoBg: #efefef;
   --colorBg: #ffffff;
+  --colorBgReverse: #000000;
   --colorFont: #1d1d1f;
   --colorFontReverse: #f5f5f7;
   --colorContainer: #f3f3f3;
@@ -81,6 +82,7 @@ body {
 
   --mainLogoBg: #232324;
   --colorBg: #000000;
+  --colorBgReverse: #ffffff;
   --colorFont: #f5f5f7;
   --colorFontReverse: #1d1d1f;
   --colorContainer: #151516;
@@ -140,7 +142,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #000;
+  background: black;
   z-index: 9999;
 }
 
@@ -160,7 +162,7 @@ body {
 .loading-text span {
   display: inline-block;
   margin: 0 5px;
-  color: #fff;
+  color: white;
   font-family: 'Quattrocento Sans', sans-serif;
 }
 
@@ -411,7 +413,7 @@ span {
   border-top-color: #aaa;
   border-bottom-color: #444;
   border-radius: 0.25rem;
-  box-shadow: 0 0.25rem 0.25rem #000;
+  box-shadow: 0 0.25rem 0.25rem black;
 }
 
 #Mario .mario-box.b2 {
@@ -568,7 +570,7 @@ span {
 }
 
 .menu-bar li:hover::before {
-  background-color: var(--colorFont);
+  background-color: var(--colorBgReverse);
   transform: scale(1.2);
 }
 
@@ -608,7 +610,7 @@ input[type='checkbox'] {
   left: 0px;
   overflow: hidden;
   opacity: 1;
-  background-color: #fff;
+  background-color: white;
   border-radius: 40px;
   transition: 0.2s ease background-color, 0.2s ease opacity;
 }
@@ -625,19 +627,19 @@ input[type='checkbox'] {
 }
 
 #toggleBtn span:before {
-  background-color: #fff;
+  background-color: white;
   transform: translate(-58px, 0px);
   z-index: 1;
 }
 
 #toggleBtn span:after {
-  background-color: #000;
+  background-color: black;
   transform: translate(8px, 0px);
   z-index: 0;
 }
 
 #toggleBtn input[type='checkbox']:checked + span {
-  background-color: #000;
+  background-color: black;
 }
 
 #toggleBtn input[type='checkbox']:active + span {
@@ -645,12 +647,12 @@ input[type='checkbox'] {
 }
 
 #toggleBtn input[type='checkbox']:checked + span:before {
-  background-color: #000;
+  background-color: black;
   transform: translate(56px, -19px);
 }
 
 #toggleBtn input[type='checkbox']:checked + span:after {
-  background-color: #fff;
+  background-color: white;
   transform: translate(79px, 0px);
 }
 
@@ -839,7 +841,7 @@ input[type='checkbox'] {
   display: block;
   width: 100%;
   height: 4px;
-  background: #fff;
+  background: white;
   animation: load 15s linear;
 }
 @-moz-keyframes load {
