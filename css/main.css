@@ -25,8 +25,8 @@ body {
 .light-theme {
   /* Logos */
   --languageDE: var(lightmode);
-  --mainLogo: url(/img/logo-light.png);
-  --faviconLogo: url(/img/favicon-dark.png);
+  --mainLogo: url(../img/logo-light.png);
+  --faviconLogo: url(../img/favicon-dark.png);
 
   --mainLogoBg: #efefef;
   --colorBg: #ffffff;
@@ -74,8 +74,8 @@ body {
 .dark-theme {
   /* Logos */
   --languageDE: var(darkmode);
-  --mainLogo: url(/img/logo-dark.png);
-  --faviconLogo: url(/img/favicon-light.png);
+  --mainLogo: url(../img/logo-dark.png);
+  --faviconLogo: url(../img/favicon-light.png);
 
   --mainLogoBg: #232324;
   --colorBg: #000000;
@@ -242,7 +242,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(/img/lines.jpg);
+  background: url(../img/lines.jpg);
   z-index: 10;
   background-size: 7px auto;
   mix-blend-mode: overlay;
@@ -284,7 +284,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(/img/vignette.png);
+  background: url(../img/vignette.png);
   z-index: 11;
   background-size: 100% 100%;
   mix-blend-mode: overlay;
@@ -317,7 +317,7 @@ span {
   padding: 300px 0;
 }
 
-#timeline {
+#myProjects {
   /* display: none; */
 }
 
@@ -389,7 +389,7 @@ span {
   left: 0;
   width: 128px;
   height: 128px;
-  background: url(/img/bg-mario.png) no-repeat 0 0;
+  background: url(../img/bg-mario.png) no-repeat 0 0;
   -webkit-animation: marioBox 0.6s steps(4) infinite;
   animation: marioBox 0.6s steps(4) infinite;
 }
@@ -442,7 +442,7 @@ span {
   left: calc(25% - 96px);
   width: 128px;
   height: 248px;
-  background: url(/img/bg-mario.png) no-repeat 0 -384px;
+  background: url(../img/bg-mario.png) no-repeat 0 -384px;
 }
 
 .container,
@@ -693,7 +693,6 @@ input[type='checkbox'] {
   min-width: 28px;
   padding: 8px 16px;
   border-radius: 980px;
-  transition: none;
 }
 
 .button:hover,

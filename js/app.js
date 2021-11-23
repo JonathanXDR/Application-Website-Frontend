@@ -73,9 +73,9 @@ function countToggles() {
 const changeFavicon = () => {
   const faviconTag = document.getElementById('faviconTag');
   if (localStorage.getItem('theme') === 'dark-theme') {
-    faviconTag.href = '/img/favicon-dark.ico';
+    faviconTag.href = '../img/favicon-dark.ico';
   } else {
-    faviconTag.href = '/img/favicon-light.ico';
+    faviconTag.href = '../img/favicon-light.ico';
   }
 };
 
