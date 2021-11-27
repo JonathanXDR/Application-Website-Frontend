@@ -481,6 +481,14 @@ span {
   margin: 50px auto 0 auto;
 }
 
+.infoContainer {
+  margin-top: 53px;
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #contact_social_media {
   margin-top: 50px;
   display: flex;
