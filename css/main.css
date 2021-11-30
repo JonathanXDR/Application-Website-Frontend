@@ -383,7 +383,7 @@ span {
 .infoBar {
   width: 100%;
   height: 45px;
-  position: fixed;
+  margin-top: 0px;
   padding: 12px 0;
   display: flex;
   justify-content: center;
