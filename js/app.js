@@ -182,90 +182,76 @@ window.onload = function () {
 };
 
 // Timeline
-// const timelineHeight = document.getElementsByClassName("timeline");
-// const lineHeight = document.getElementById("svgLine");
-// shape.setAttribute("viewBox", "-250 -250 500 750");
+let ticking = false;
+let last_known_scroll_position = 0;
+let updatePath = false;
 
-var controller = new ScrollMagic.Controller();
-TweenMax.set('#line', { visibility: 0 });
+const element = document.getElementById('svgTimeline');
+const path = element.querySelector('path');
+let totalLength = 0;
 
-var tweenOne = new TweenMax.fromTo(
-  '#line',
-  1,
-  { drawSVG: '0%' },
-  { drawSVG: '10%' }
+initPath(path);
+
+function initPath(path) {
+  totalLength = path.getTotalLength();
+  path.style.strokeDasharray = `${totalLength}`;
+  path.style.strokeDashoffset = totalLength;
+}
+
+function handleEntries(entries) {
+  console.log(entries);
+  entries.forEach((entry) => {
+    console.log(entry);
+    if (entry.isIntersecting) {
+      console.log(entry.target);
+    }
+  });
+}
+
+let observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log(entry);
+        updatePath = true;
+      } else {
+        updatePath = false;
+      }
+    });
+  },
+  { rootMargin: '0px 0px 0px 0px' }
 );
 
-var scene1 = new ScrollMagic.Scene({
-  triggerElement: '#line',
-})
-  .setTween(tweenOne)
-  .addTo(controller);
+observer.observe(element);
 
-var tweenTwo = new TweenMax.fromTo(
-  '#line',
-  1,
-  { drawSVG: '10%' },
-  { drawSVG: '20%' }
-);
+function doSomething(scroll_pos) {
+  if (!updatePath) {
+    return;
+  }
+  window.requestAnimationFrame(() => {
+    const center = window.innerHeight / 2;
+    const boundaries = path.getBoundingClientRect();
+    const top = boundaries.top;
+    const height = boundaries.height;
+    const percentage = (center - top) / height;
+    const drawLength = percentage > 0 ? totalLength * percentage : 0;
+    path.style.strokeDashoffset =
+      drawLength < totalLength ? totalLength - drawLength : 0;
+  });
+}
 
-var scene2 = new ScrollMagic.Scene({
-  triggerElement: '.dayTwo',
-})
-  .setTween(tweenTwo)
-  .addTo(controller);
+window.addEventListener('scroll', function (e) {
+  last_known_scroll_position = window.scrollY;
 
-var tweenThree = new TweenMax.fromTo(
-  '#line',
-  1,
-  { drawSVG: '20%' },
-  { drawSVG: '40%' }
-);
+  if (!ticking) {
+    window.requestAnimationFrame(function () {
+      doSomething(last_known_scroll_position);
+      ticking = false;
+    });
 
-var scene3 = new ScrollMagic.Scene({
-  triggerElement: '.dayThree',
-})
-  .setTween(tweenThree)
-  .addTo(controller);
-
-var tweenFour = new TweenMax.fromTo(
-  '#line',
-  1,
-  { drawSVG: '40%' },
-  { drawSVG: '65%' }
-);
-
-var scene3 = new ScrollMagic.Scene({
-  triggerElement: '.dayFour',
-})
-  .setTween(tweenFour)
-  .addTo(controller);
-
-var tweenFive = new TweenMax.fromTo(
-  '#line',
-  1,
-  { drawSVG: '65%' },
-  { drawSVG: '85%' }
-);
-
-var scene3 = new ScrollMagic.Scene({
-  triggerElement: '.dayFive',
-})
-  .setTween(tweenFive)
-  .addTo(controller);
-
-var tweenSix = new TweenMax.fromTo(
-  '#line',
-  1,
-  { drawSVG: '85%' },
-  { drawSVG: '102%' }
-);
-
-var scene3 = new ScrollMagic.Scene({
-  triggerElement: '.daySix',
-})
-  .setTween(tweenSix)
-  .addTo(controller);
+    ticking = true;
+  }
+});
 
 // Check if music cover is visible in viewport
 // function isInViewport(el) {

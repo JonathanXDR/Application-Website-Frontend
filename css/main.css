@@ -1677,7 +1677,7 @@ element.style {
     linear-gradient(90deg, #172538, #18263a 50%); */
 }
 
-.svg-timeline {
+.svgVertical {
   position: absolute;
   margin-left: 50%;
   transform: translateX(-50%);
@@ -1686,7 +1686,7 @@ element.style {
 }
 
 @media screen and (min-width: 50em) {
-  .svg-timeline {
+  .svgVertical {
     display: block;
   }
 }
