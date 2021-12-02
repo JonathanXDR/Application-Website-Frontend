@@ -1672,24 +1672,27 @@ element.style {
 }
 
 .timeline-wrapper {
-  /* padding-bottom: 25em; */
-  /* background: linear-gradient(rgba(0, 0, 0, 0), #151b25, #151516),
-    linear-gradient(90deg, #172538, #18263a 50%); */
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media screen and (min-width: 50em) {
+  .timeline-wrapper {
+    display: flex;
+    justify-content: center !important;
+  }
 }
 
 .svgVertical {
   position: absolute;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  display: none;
   z-index: -1;
 }
 
-@media screen and (min-width: 50em) {
+/* @media screen and (min-width: 50em) {
   .svgVertical {
     display: block;
   }
-}
+} */
 
 .timeline {
   list-style: none;
