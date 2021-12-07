@@ -65,7 +65,6 @@
     </div>
 
     <ul class="menu-bar">
-      <!-- Logo -->
       <div id="logoFlex">
         <a href="#about">
           <div id="logoPadding">
@@ -82,11 +81,12 @@
         <li class="menu"><a href="#contact">Kontakt</a></li>
       </div>
 
-      <!-- </div> -->
       <div class="toggle-btn" id="toggleBtn">
+        <label for=""></label>
         <input
           type="checkbox"
           onclick="toggleTheme();countToggles()"
+          class="btnInput"
           id="themeId"
         />
         <span></span>
@@ -168,30 +168,32 @@
           </div>
         </div> -->
         <div class="parallax__group info-container">
-          <svg
-            id="hexagonImage"
-            xmlns="http://www.w3.org/2000/svg"
-            width="411"
-            height="411"
-          >
-            <defs>
-              <clipPath id="image">
-                <path
-                  stroke="none"
-                  d="M190.5 14.160254037844a30 30 0 0 1 30 0l143.20508075689 82.679491924311a30 30 0 0 1 15 25.980762113533l0 165.35898384862a30 30 0 0 1 -15 25.980762113533l-143.20508075689 82.679491924311a30 30 0 0 1 -30 0l-143.20508075689 -82.679491924311a30 30 0 0 1 -15 -25.980762113533l2.633606093737e-13 -165.35898384862a30 30 0 0 1 15 -25.980762113533"
-                ></path>
-              </clipPath>
-            </defs>
-            <image
-              clip-path="url(#image)"
-              height="100%"
-              width="100%"
-              x="0"
-              y="10"
-              href="/img/Portrait-PB.jpg"
-              preserveAspectRatio="xMidYMin slice"
-            ></image>
-          </svg>
+          <div>
+            <svg
+              id="hexagonImage"
+              xmlns="http://www.w3.org/2000/svg"
+              width="411"
+              height="411"
+            >
+              <defs>
+                <clipPath id="image">
+                  <path
+                    stroke="none"
+                    d="M190.5 14.160254037844a30 30 0 0 1 30 0l143.20508075689 82.679491924311a30 30 0 0 1 15 25.980762113533l0 165.35898384862a30 30 0 0 1 -15 25.980762113533l-143.20508075689 82.679491924311a30 30 0 0 1 -30 0l-143.20508075689 -82.679491924311a30 30 0 0 1 -15 -25.980762113533l2.633606093737e-13 -165.35898384862a30 30 0 0 1 15 -25.980762113533"
+                  ></path>
+                </clipPath>
+              </defs>
+              <image
+                clip-path="url(#image)"
+                height="100%"
+                width="100%"
+                x="0"
+                y="10"
+                href="/img/Portrait-PB.jpg"
+                preserveAspectRatio="xMidYMin slice"
+              ></image>
+            </svg>
+          </div>
           <div class="aboutContainer">
             <h2>About Me</h2>
             <span>
