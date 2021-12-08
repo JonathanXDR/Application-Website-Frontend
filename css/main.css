@@ -1443,24 +1443,8 @@ element.style {
   align-items: flex-start;
 }
 
-#htmlContainer {
-  width: 400px;
-  height: 400px;
-  background: var(--colorContainer);
-  border-radius: 10px;
-  display: flex;
-  justify-content: center; /* horizontal zentrieren */
-}
-
-#cssContainer {
-  width: 400px;
-  height: 400px;
-  background: var(--colorContainer);
-  border-radius: 10px;
-  display: flex;
-  justify-content: center; /* horizontal zentrieren */
-}
-
+#htmlContainer,
+#cssContainer,
 #jsContainer {
   width: 400px;
   height: 400px;
@@ -1468,6 +1452,20 @@ element.style {
   border-radius: 10px;
   display: flex;
   justify-content: center; /* horizontal zentrieren */
+}
+#htmlContainer,
+#cssContainer,
+#jsContainer,
+#skillsContainer {
+  box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+  transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
+}
+
+#htmlContainer:hover,
+#cssContainer:hover,
+#jsContainer:hover {
+  box-shadow: 2px 4px 16px rgb(0 0 0 / 16%);
+  transform: scale3d(1.01, 1.01, 1.01);
 }
 
 #apple1 {
