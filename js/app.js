@@ -22,6 +22,24 @@ function toggleTheme() {
   changeFavicon();
 }
 
+// open and close modal
+function toggleModal() {
+  if (modal.style.opacity === '1') {
+    modal.style.opacity = '0';
+    // position modal off screen
+    modal.style.position = 'absolute';
+    modal.style.left = '-1000%';
+  } else {
+    // position modal on screen
+    modal.style.position = 'fixed';
+    modal.style.top = '0';
+    modal.style.left = '0';
+    modal.style.right = '0';
+    modal.style.bottom = '0';
+    modal.style.opacity = '1';
+  }
+}
+
 // Vintage Mode
 let count = 0;
 const text = document.querySelectorAll('h1, h2, h3, h4, h5, h6, span, button');
