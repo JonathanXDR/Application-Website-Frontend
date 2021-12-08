@@ -1785,8 +1785,8 @@ element.style {
 
 .scale {
   transform: scale(0.8);
-  -webkit-transform-origin: left top;
-  -moz-transform-origin: left top;
+  transform-origin: left top;
+  width: fit-content;
 }
 
 .timeline-wrapper {
