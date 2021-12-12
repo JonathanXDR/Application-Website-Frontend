@@ -524,6 +524,11 @@ input[type='checkbox'].btnInput {
   z-index: 2;
 }
 
+input[type='checkbox']#active {
+  width: 0px;
+  height: 0px;
+}
+
 /* First toggle btn */
 #toggleBtn span {
   position: absolute;
