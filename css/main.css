@@ -881,13 +881,12 @@ input[type='checkbox'].btnInput {
 #skillsContainer {
   position: sticky;
   width: 70%;
-  height: 200px;
   background: var(--colorContainer);
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
   text-align: center;
-  padding: 30px;
+  padding: 50px 50px 65px;
   /* display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1400,11 +1399,10 @@ element.style {
 
 #contactContainer {
   width: 100%;
-  height: 300px;
   padding-top: 5px;
   background: var(--colorContainer);
   text-align: center;
-  padding: 30px;
+  padding: 30px 30px 50px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1743,7 +1741,7 @@ element.style {
 }
 
 .poster {
-  height: 100vh;
+  height: 50vh; /* 100vh */
   width: 100%;
   background-size: cover;
   background-position: center center;
