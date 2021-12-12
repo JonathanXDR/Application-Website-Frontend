@@ -64,49 +64,50 @@
       <div class="background-inside"></div>
     </div>
 
-    <ul class="menu-bar">
-      <div id="logoFlex">
-        <a href="#about">
-          <div id="logoPadding">
-            <img id="logo" alt="Logo von JR" />
-          </div>
-        </a>
-      </div>
+    <nav>
+      <ul class="menu-bar">
+        <div id="logoFlex">
+          <a href="#about">
+            <div id="logoPadding">
+              <img id="logo" alt="Logo von JR" />
+            </div>
+          </a>
+        </div>
 
-      <div class="ulContainer">
-        <li class="menu"><a href="#about">About</a></li>
-        <li class="menu"><a href="#projects">Projekte</a></li>
-        <li class="menu"><a href="#skills">Skills</a></li>
-        <li class="menu"><a href="#refernces">Referenzen</a></li>
-        <li class="menu"><a href="#contact">Kontakt</a></li>
-      </div>
+        <div class="ulContainer">
+          <li class="item"><a href="#about">About</a></li>
+          <li class="item"><a href="#projects">Projekte</a></li>
+          <li class="item"><a href="#skills">Skills</a></li>
+          <li class="item"><a href="#references">Referenzen</a></li>
+          <li class="item"><a href="#contact">Kontakt</a></li>
+        </div>
 
-      <div class="toggle-btn" id="toggleBtn">
-        <label for=""></label>
-        <input
-          type="checkbox"
-          onclick="toggleTheme();countToggles()"
-          class="btnInput"
-          id="themeId"
-        />
-        <span></span>
-      </div>
-    </ul>
-
-    <input type="checkbox" id="active" />
-    <label for="active" class="menu-btn"><span></span></label>
-    <label for="active" class="close"></label>
-    <div class="ulContainer burgerWrapper">
-      <ul>
-        <li class="menu"><a href="#about">About</a></li>
-        <li class="menu"><a href="#projects">Projekte</a></li>
-        <li class="menu"><a href="#skills">Skills</a></li>
-        <li class="menu"><a href="#refernces">Referenzen</a></li>
-        <li class="menu"><a href="#contact">Kontakt</a></li>
+        <label class="toggle-btn" id="toggleBtn">
+          <input
+            type="checkbox"
+            onclick="toggleTheme();countToggles()"
+            class="btnInput"
+            id="themeId"
+          />
+          <span></span>
+        </label>
       </ul>
-    </div>
 
-    <section class="home">
+      <input type="checkbox" class="btnInput" id="active" />
+      <label for="active" class="menu-btn"><span></span></label>
+      <label for="active" class="close"></label>
+      <div class="burgerWrapper">
+        <ul>
+          <li class="item"><a href="#about">About</a></li>
+          <li class="item"><a href="#projects">Projekte</a></li>
+          <li class="item"><a href="#skills">Skills</a></li>
+          <li class="item"><a href="#refernces">Referenzen</a></li>
+          <li class="item"><a href="#contact">Kontakt</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="about">
       <div class="infoBar">
         <span>Info: This site is still in development</span>
       </div>
@@ -120,13 +121,6 @@
           <span>an arcade.</span>
         </div>
       </h2>
-
-      <div class="container">
-        <p>
-          Coding is <span class="typed-text"></span
-          ><span class="cursor">&nbsp;</span>
-        </p>
-      </div>
 
       <div class="wrapper">
         <!-- <div class="parallax__group hero-container">
@@ -220,7 +214,7 @@
       </div>
     </section>
 
-    <section class="skills">
+    <section id="skills">
       <div id="skillsContainer">
         <div id="skillsText">
           <h2 class="paddingBottom30">Skills</h2>
@@ -230,9 +224,9 @@
           >
         </div>
       </div>
-      <div class="horizontalCenter">
+      <div class="wrapper">
         <!--Hexagon Progressbar1-->
-        <div id="htmlContainer" class="verticalCenter">
+        <div id="htmlContainer">
           <div id="wrapper" class="center">
             <svg
               class="hex-progress noselect"
@@ -273,7 +267,7 @@
         </div>
 
         <!--Hexagon Progressbar2-->
-        <div id="cssContainer" class="verticalCenter">
+        <div id="cssContainer">
           <div id="wrapper2" class="center2">
             <svg
               class="hex-progress2 noselect2"
@@ -314,7 +308,7 @@
         </div>
 
         <!--Hexagon Progressbar3-->
-        <div id="jsContainer" class="verticalCenter">
+        <div id="jsContainer">
           <div id="wrapper3" class="center3">
             <svg
               class="hex-progress3 noselect3"
@@ -364,7 +358,7 @@
       </div> -->
     </section>
 
-    <section class="glichinTriangles">
+    <section id="glichinTriangles">
       <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In  -->
       <svg version="1.1">
         <defs>
@@ -418,178 +412,17 @@
       </div>
     </section>
 
-    <section class="codeTyping">
-      <div
-        class="
-          HomepageAnonHeaderHero_editorCode-_-pxQ
-          HomepageAnonHeaderHero_html-32lze
-        "
-      >
-        <header>
-          <svg
-            width="16"
-            height="16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15 6.675l-1.8-.6c-.2-.1-.3-.3-.2-.4l.9-1.7c.6-1.2-.7-2.5-1.9-1.9l-1.7.9c-.1.1-.3 0-.4-.2l-.6-1.8c-.4-1.3-2.2-1.3-2.6 0l-.6 1.8c-.1.2-.3.3-.4.2l-1.7-.9c-1.2-.6-2.5.7-1.9 1.9l.9 1.7c.1.1 0 .3-.2.4l-1.8.6c-1.3.4-1.3 2.3 0 2.7l1.8.6c.2 0 .3.2.2.3l-.9 1.7c-.6 1.2.7 2.5 1.9 1.9l1.7-.9c.2-.1.4 0 .4.2l.6 1.8c.4 1.3 2.3 1.3 2.7 0l.6-1.8c.1-.2.3-.3.4-.2l1.7.9c1.2.6 2.5-.7 1.9-1.9l-1-1.7c-.1-.2 0-.4.2-.4l1.8-.6c1.3-.4 1.3-2.2 0-2.6zm-7 3.7c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4z"
-              fill="#4C4F5A"
-            ></path>
-          </svg>
-          <h1>HTML</h1>
-          <svg
-            width="16"
-            height="8"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.709 7.651l6.161-5.622c.241-.22.383-.517.383-.84 0-.323-.142-.62-.383-.84A1.361 1.361 0 0 0 13.95 0c-.354 0-.68.13-.921.349l-5.27 4.808L2.492.349A1.361 1.361 0 0 0 1.57 0C1.215 0 .89.13.648.336.38.569.253.879.253 1.189c0 .297.127.595.368.84 1.615 1.486 5.807 5.325 6.09 5.596l.03.026c.509.465 1.458.465 1.968 0z"
-              fill="#4C4F5A"
-            ></path>
-          </svg>
-        </header>
-        <div class="HomepageAnonHeaderHero_codeContent-1TLqW">
-          <code
-            ><span class="HomepageAnonHeaderHero_cr--Mkc-">&lt;div</span>
-            <span class="HomepageAnonHeaderHero_cy-1OaMF">class</span
-            ><span>=</span
-            ><span class="HomepageAnonHeaderHero_cg-220SE">"rect"</span
-            ><span class="HomepageAnonHeaderHero_cr--Mkc-"
-              >&gt;&lt;/div&gt;</span
-            ></code
-          >
-        </div>
-      </div>
-
-      <div
-        class="
-          HomepageAnonHeaderHero_editorCode-_-pxQ
-          HomepageAnonHeaderHero_css-2tL_z
-        "
-      >
-        <header>
-          <svg
-            width="16"
-            height="16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15 6.675l-1.8-.6c-.2-.1-.3-.3-.2-.4l.9-1.7c.6-1.2-.7-2.5-1.9-1.9l-1.7.9c-.1.1-.3 0-.4-.2l-.6-1.8c-.4-1.3-2.2-1.3-2.6 0l-.6 1.8c-.1.2-.3.3-.4.2l-1.7-.9c-1.2-.6-2.5.7-1.9 1.9l.9 1.7c.1.1 0 .3-.2.4l-1.8.6c-1.3.4-1.3 2.3 0 2.7l1.8.6c.2 0 .3.2.2.3l-.9 1.7c-.6 1.2.7 2.5 1.9 1.9l1.7-.9c.2-.1.4 0 .4.2l.6 1.8c.4 1.3 2.3 1.3 2.7 0l.6-1.8c.1-.2.3-.3.4-.2l1.7.9c1.2.6 2.5-.7 1.9-1.9l-1-1.7c-.1-.2 0-.4.2-.4l1.8-.6c1.3-.4 1.3-2.2 0-2.6zm-7 3.7c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4z"
-              fill="#4C4F5A"
-            ></path>
-          </svg>
-          <h1>CSS</h1>
-          <svg
-            width="16"
-            height="8"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.709 7.651l6.161-5.622c.241-.22.383-.517.383-.84 0-.323-.142-.62-.383-.84A1.361 1.361 0 0 0 13.95 0c-.354 0-.68.13-.921.349l-5.27 4.808L2.492.349A1.361 1.361 0 0 0 1.57 0C1.215 0 .89.13.648.336.38.569.253.879.253 1.189c0 .297.127.595.368.84 1.615 1.486 5.807 5.325 6.09 5.596l.03.026c.509.465 1.458.465 1.968 0z"
-              fill="#4C4F5A"
-            ></path>
-          </svg>
-        </header>
-        <div class="HomepageAnonHeaderHero_codeContent-1TLqW">
-          <code
-            ><span class="HomepageAnonHeaderHero_line1-2hbgI">
-              <span class="HomepageAnonHeaderHero_cy-1OaMF">.rect</span>
-              <span>{</span>
-            </span>
-            <br />
-            <span class="HomepageAnonHeaderHero_line2-A3_xZ"
-              ><span class="HomepageAnonHeaderHero_cp-g5I-X">background</span
-              ><span>:</span>
-              <span class="HomepageAnonHeaderHero_cy-1OaMF"
-                >linear-gradient</span
-              >(</span
-            >
-            <br />
-            <span class="HomepageAnonHeaderHero_line3-2wi52"
-              ><span class="HomepageAnonHeaderHero_co-1wWDL">-119deg</span
-              >,</span
-            >
-            <br />
-            <span class="HomepageAnonHeaderHero_line4-1uUtl">
-              <span class="HomepageAnonHeaderHero_cy-1OaMF">$gray</span>
-              <span class="HomepageAnonHeaderHero_co-1wWDL">0%</span>,
-            </span>
-            <br />
-            <span class="HomepageAnonHeaderHero_line5-3llzm">
-              <span class="HomepageAnonHeaderHero_cy-1OaMF">$dark-gray</span>
-              <span class="HomepageAnonHeaderHero_co-1wWDL">100%</span>); }
-            </span></code
-          >
-        </div>
-      </div>
-
-      <div
-        class="
-          HomepageAnonHeaderHero_editorCode-_-pxQ
-          HomepageAnonHeaderHero_js-3XnY6
-        "
-      >
-        <header>
-          <svg
-            width="16"
-            height="16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15 6.675l-1.8-.6c-.2-.1-.3-.3-.2-.4l.9-1.7c.6-1.2-.7-2.5-1.9-1.9l-1.7.9c-.1.1-.3 0-.4-.2l-.6-1.8c-.4-1.3-2.2-1.3-2.6 0l-.6 1.8c-.1.2-.3.3-.4.2l-1.7-.9c-1.2-.6-2.5.7-1.9 1.9l.9 1.7c.1.1 0 .3-.2.4l-1.8.6c-1.3.4-1.3 2.3 0 2.7l1.8.6c.2 0 .3.2.2.3l-.9 1.7c-.6 1.2.7 2.5 1.9 1.9l1.7-.9c.2-.1.4 0 .4.2l.6 1.8c.4 1.3 2.3 1.3 2.7 0l.6-1.8c.1-.2.3-.3.4-.2l1.7.9c1.2.6 2.5-.7 1.9-1.9l-1-1.7c-.1-.2 0-.4.2-.4l1.8-.6c1.3-.4 1.3-2.2 0-2.6zm-7 3.7c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4z"
-              fill="#4C4F5A"
-            ></path>
-          </svg>
-          <h1>JS</h1>
-          <svg
-            width="16"
-            height="8"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.709 7.651l6.161-5.622c.241-.22.383-.517.383-.84 0-.323-.142-.62-.383-.84A1.361 1.361 0 0 0 13.95 0c-.354 0-.68.13-.921.349l-5.27 4.808L2.492.349A1.361 1.361 0 0 0 1.57 0C1.215 0 .89.13.648.336.38.569.253.879.253 1.189c0 .297.127.595.368.84 1.615 1.486 5.807 5.325 6.09 5.596l.03.026c.509.465 1.458.465 1.968 0z"
-              fill="#4C4F5A"
-            ></path>
-          </svg>
-        </header>
-        <div class="HomepageAnonHeaderHero_codeContent-1TLqW">
-          <code
-            ><span class="HomepageAnonHeaderHero_cy-1OaMF">var</span>
-            <span class="HomepageAnonHeaderHero_cb-4LMl9">colors</span
-            ><span> = [</span
-            ><span class="HomepageAnonHeaderHero_cg-220SE">"#74B087"</span
-            ><span>,</span
-            ><span class="HomepageAnonHeaderHero_cg-220SE">"#DE7300"</span
-            ><span>,</span
-            ><span class="HomepageAnonHeaderHero_cg-220SE">"#74B087"</span
-            ><span>];</span><br /><br /><span
-              class="HomepageAnonHeaderHero_cc-3h1mi"
-            ></span
-            ><br /><span class="HomepageAnonHeaderHero_cy-1OaMF">function</span>
-            <span class="HomepageAnonHeaderHero_cb-4LMl9">animate</span
-            ><span>() {};</span></code
-          >
-        </div>
-      </div>
-    </section>
-
     <section>
       <!-- insert Music-Library here -->
     </section>
 
-    <section class="timeline">
+    <section id="projects">
       <header>
         <div class="poster">
           <h1 class="poster__heading">
             Meine Projekte
             <span class="poster__subheading">2021 - 2024</span>
-            <a href="#timeline" class="button">Projekte Entdecken</a>
+            <a href="#projects" class="button">Projekte Entdecken</a>
           </h1>
         </div>
       </header>
@@ -614,9 +447,8 @@
             ></path>
           </svg>
         </div>
-        <div class="middle-separator"></div>
 
-        <ol id="timelineHeight" class="timeline clearfix">
+        <ol class="timeline clearfix">
           <!-- Item 1 -->
           <li class="timeline__item">
             <span class="date">August 2021</span>
@@ -772,7 +604,7 @@
       </div>
     </section>
 
-    <section class="lockApple">
+    <section id="lockApple">
       <div id="apple1">
         <h2>Projects</h2>
         <span
@@ -798,7 +630,7 @@
       </div>
     </section>
 
-    <section class="contact">
+    <section id="contact">
       <div id="contactContainer">
         <h2 class="paddingBottom30">Kontakt</h2>
         <span
@@ -836,18 +668,18 @@
       </div>
     </section>
 
-    <section class="references">
+    <section id="references" href="references">
       <div id="referencesContainer">
         <h2 class="paddingBottom30">Referenzen</h2>
 
         <div class="referencesContainerBar">
-          <div class="referencesContainerItem verticalCenter">
+          <div class="referencesContainerItem">
             <strong><span>Steve Hess</span></strong>
             <span>Lernbegleiter & Vorgesetzter</span>
             <span>Mail: Steve.Hess@swisscom.com</span>
           </div>
 
-          <div class="referencesContainerItem verticalCenter">
+          <div class="referencesContainerItem">
             <strong><span>Nick Zimmermann</span></strong>
             <span>Projektanbieter: Competence Center @NEX</span>
             <span>Mail: Nick.Zimmermann@swisscom.com</span>
@@ -855,16 +687,5 @@
         </div>
       </div>
     </section>
-
-    <script>
-      function getPositionXY(element) {
-        var rect = element.getBoundingClientRect();
-        var position = 'X: ' + rect.x + ', ' + 'Y: ' + rect.y;
-        return position;
-      }
-      var hexa = document.getElementById('hexa');
-      var hexa_position = getPositionXY(hexa);
-      console.log(hexa_position);
-    </script>
   </body>
 </html>
