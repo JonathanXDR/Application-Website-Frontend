@@ -25,6 +25,7 @@ window.onload = function () {
   );
 
   timelineScrolling();
+  age();
 };
 
 // Get current system/browser theme
@@ -67,6 +68,33 @@ function toggleModal() {
     modal.style.bottom = '0';
     modal.style.opacity = '1';
   }
+}
+
+function age() {
+  // Enter your date of birth
+  let d1 = 12; // date
+  let m1 = 12; // month
+  let y1 = 2005; // year
+
+  let date = new Date();
+  let d2 = date.getDate();
+  let m2 = 1 + date.getMonth();
+  let y2 = date.getFullYear();
+  let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  if (d1 > d2) {
+    d2 = d2 + month[m2 - 1];
+    m2 = m2 - 1;
+  }
+  if (m1 > m2) {
+    m2 = m2 + 12;
+    y2 = y2 - 1;
+  }
+  let d = d2 - d1;
+  let m = m2 - m1;
+  let y = y2 - y1;
+
+  document.getElementById('age').textContent = y;
 }
 
 // Vintage Mode
