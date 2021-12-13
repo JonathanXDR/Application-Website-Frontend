@@ -1802,10 +1802,6 @@ element.style {
   z-index: -1;
 }
 
-#svgTimeline {
-  height: 100%;
-}
-
 .pathTimeline {
   transition: stroke-dashoffset 1000ms ease;
 }

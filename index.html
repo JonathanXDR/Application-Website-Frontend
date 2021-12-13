@@ -12,6 +12,14 @@
     <!-- <link rel="stylesheet" href="css/languageSwitcher." /> -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="jquery.js"></script>
+    <script>
+      $(function () {
+        $('#modalHtml').load('modal.html');
+      });
+    </script>
+
     <link
       rel="icon"
       type="image"
@@ -374,7 +382,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="musicLibrary">
       <!-- insert Music-Library here -->
     </section>
 
@@ -390,13 +398,7 @@
       </header>
       <div class="timeline-wrapper">
         <div class="svgVertical">
-          <svg
-            height="2250px"
-            id="svgTimeline"
-            preserveAspectRatio="none"
-            viewBox="0 0 8 2250"
-            xmlns="http://www.w3.org/2250/svg"
-          >
+          <svg id="svgTimeline" preserveAspectRatio="none">
             <path
               class="pathTimeline"
               d="M 4 0 L 4 2250"
@@ -561,7 +563,9 @@
               Mehr Erfahren
             </button>
           </li>
+
           <!-- insert modal here -->
+          <div id="modalHtml"></div>
         </ol>
       </div>
     </section>

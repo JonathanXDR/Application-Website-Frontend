@@ -1,3 +1,32 @@
+window.onload = function () {
+  changeFavicon();
+  const themeButton = document.getElementById('themeId');
+  if (localStorage.getItem('theme') === 'light-theme') {
+    setTheme('light-theme');
+    themeButton.checked = false;
+  } else {
+    setTheme('dark-theme');
+    themeButton.checked = true;
+  }
+
+  var max = 2160;
+  forEach(
+    document.querySelectorAll('.hex-progress, .hex-progress2, .hex-progress3'),
+    function (index, value) {
+      percent = value.getAttribute('data-progress');
+      value
+        .querySelector('.fill, .fill2, .fill3')
+        .setAttribute(
+          'style',
+          'stroke-dashoffset: ' + ((100 - percent) / 100) * max
+        );
+      value.querySelector('.value, .value2, .value3').innerHTML = percent + '%';
+    }
+  );
+
+  timelineScrolling();
+};
+
 // Get current system/browser theme
 const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
 if (darkThemeMq.matches) {
@@ -101,57 +130,28 @@ const changeFavicon = () => {
 // setInterval(changeFavicon, 1000);
 
 // Word Rotation
-setInterval(function () {
-  const show = document.querySelector('.mask span[data-show]');
-  const next =
-    show.nextElementSibling || document.querySelector('.mask span:first-child');
+// setInterval(function () {
+//   const show = document.querySelector('.mask span[data-show]');
+//   const next =
+//     show.nextElementSibling || document.querySelector('.mask span:first-child');
 
-  const up = document.querySelector('.mask span[data-up]');
+//   const up = document.querySelector('.mask span[data-up]');
 
-  if (up) {
-    up.removeAttribute('data-up');
-  }
+//   if (up) {
+//     up.removeAttribute('data-up');
+//   }
 
-  show.removeAttribute('data-show');
-  show.setAttribute('data-up', '');
+//   show.removeAttribute('data-show');
+//   show.setAttribute('data-up', '');
 
-  next.setAttribute('data-show', '');
-}, 2000);
+//   next.setAttribute('data-show', '');
+// }, 2000);
 
 //Hexagon Progressbars
 var forEach = function (array, callback, scope) {
   for (var i = 0; i < array.length; i++) {
     callback.call(scope, i, array[i]);
   }
-};
-
-window.onload = function () {
-  changeFavicon();
-  const themeButton = document.getElementById('themeId');
-  if (localStorage.getItem('theme') === 'light-theme') {
-    setTheme('light-theme');
-    themeButton.checked = false;
-  } else {
-    setTheme('dark-theme');
-    themeButton.checked = true;
-  }
-
-  var max = 2160;
-  forEach(
-    document.querySelectorAll('.hex-progress, .hex-progress2, .hex-progress3'),
-    function (index, value) {
-      percent = value.getAttribute('data-progress');
-      value
-        .querySelector('.fill, .fill2, .fill3')
-        .setAttribute(
-          'style',
-          'stroke-dashoffset: ' + ((100 - percent) / 100) * max
-        );
-      value.querySelector('.value, .value2, .value3').innerHTML = percent + '%';
-    }
-  );
-
-  timelineScrolling();
 };
 
 // Timeline
@@ -164,84 +164,90 @@ function timelineScrolling() {
   const path = element.querySelector('path');
   let totalLength = 0;
 
-  const timelineItems = document.querySelectorAll('.timeline__item');
-  let timelineItemHeights = [];
-  timelineItems.forEach((item) => {
-    timelineItemHeights.push(item.offsetHeight);
-  });
-  timelineItemHeights.forEach((height) => {
-    totalLength += height;
-  });
+  let timelineHeight = 0;
 
-  console.log(totalLength);
-  // path.setAttribute('stroke-dasharray', totalLength);
+  setTimeout(() => {
+    timelineHeight = document.getElementById('first-steps').offsetHeight;
+    // console.log(Math.ceil(timelineHeight));
+    const size = parseInt(Math.ceil(timelineHeight));
+    // console.log(size);
 
-  // const iSize = parseInt(this.size);
+    element.setAttribute('viewBox', `0 0 8 ${size}`);
+    element.setAttribute('height', size);
+    element.setAttribute('xmlns', `http://www.w3.org/${size}/svg`);
 
-  // svg.setAttribute('viewBox', '0 0 ' + iSize + ' ' + iSize);
+    path.setAttribute('d', `M 4 0 L 4 ${size}`);
 
-  initPath(path);
+    path.setAttribute('stroke-dasharray', totalLength);
 
-  function initPath(path) {
-    totalLength = path.getTotalLength();
-    path.style.strokeDasharray = `${totalLength}`;
-    path.style.strokeDashoffset = totalLength;
-  }
+    initPath(path);
 
-  function handleEntries(entries) {
-    console.log(entries);
-    entries.forEach((entry) => {
-      console.log(entry);
-      if (entry.isIntersecting) {
-        console.log(entry.target);
-      }
-    });
-  }
+    function initPath(path) {
+      totalLength = path.getTotalLength();
+      path.style.strokeDasharray = `${totalLength}`;
+      path.style.strokeDashoffset = totalLength;
+    }
 
-  let observer = new IntersectionObserver(
-    (entries, observer) => {
+    function handleEntries(entries) {
+      console.log(entries);
       entries.forEach((entry) => {
+        console.log(entry);
         if (entry.isIntersecting) {
-          console.log(entry);
-          updatePath = true;
-        } else {
-          updatePath = false;
+          console.log(entry.target);
         }
       });
-    },
-    { rootMargin: '0px 0px 0px 0px' }
-  );
-
-  observer.observe(element);
-
-  function doSomething(scroll_pos) {
-    if (!updatePath) {
-      return;
     }
-    window.requestAnimationFrame(() => {
-      const center = window.innerHeight / 2;
-      const boundaries = path.getBoundingClientRect();
-      const top = boundaries.top;
-      const height = boundaries.height;
-      const percentage = (center - top) / height;
-      const drawLength = percentage > 0 ? totalLength * percentage : 0;
-      path.style.strokeDashoffset =
-        drawLength < totalLength ? totalLength - drawLength : 0;
-    });
-  }
 
-  window.addEventListener('scroll', function (e) {
-    last_known_scroll_position = window.scrollY;
+    let observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // console.log(entry);
+            updatePath = true;
+          } else {
+            updatePath = false;
+          }
+        });
+      },
+      { rootMargin: '0px 0px 0px 0px' }
+    );
 
-    if (!ticking) {
-      window.requestAnimationFrame(function () {
-        doSomething(last_known_scroll_position);
-        ticking = false;
+    observer.observe(element);
+
+    function doSomething(scroll_pos) {
+      if (!updatePath) {
+        return;
+      }
+      window.requestAnimationFrame(() => {
+        const center = window.innerHeight / 2;
+        const boundaries = path.getBoundingClientRect();
+        const top = boundaries.top;
+        const height = boundaries.height;
+        const percentage = (center - top) / height;
+        const drawLength = percentage > 0 ? totalLength * percentage : 0;
+        path.style.strokeDashoffset =
+          drawLength < totalLength ? totalLength - drawLength : 0;
       });
-
-      ticking = true;
     }
-  });
+
+    window.addEventListener('scroll', function (e) {
+      last_known_scroll_position = window.scrollY;
+
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          doSomething(last_known_scroll_position);
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+    });
+  }, 500);
+}
+
+if (document.getElementById('timeline') === true) {
+  const timelineHeight = document.getElementById('first-steps').offsetHeight;
+  console.log(timelineHeight);
 }
 // Check if music cover is visible in viewport
 // function isInViewport(el) {
