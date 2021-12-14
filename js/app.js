@@ -53,12 +53,21 @@ function toggleTheme() {
 }
 
 // open and close modal
+const eventListener = (event) => {
+  if (!document.getElementById('modalBox').contains(event.target)) {
+    // alert('Clicked outside Box');
+    toggleModal();
+  }
+};
+
 function toggleModal() {
   if (modal.style.opacity === '1') {
+    window.removeEventListener('click', eventListener);
+
     modal.style.opacity = '0';
     // position modal off screen
     modal.style.position = 'absolute';
-    modal.style.left = '-1000%';
+    modal.style.right = '100%';
   } else {
     // position modal on screen
     modal.style.position = 'fixed';
@@ -67,6 +76,10 @@ function toggleModal() {
     modal.style.right = '0';
     modal.style.bottom = '0';
     modal.style.opacity = '1';
+
+    setTimeout(() => {
+      window.addEventListener('click', eventListener);
+    }, 100);
   }
 }
 

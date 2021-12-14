@@ -1,5 +1,6 @@
 :root {
   --tile-border-radius: 30px;
+  --tile-padding: 40px;
 }
 
 /* ------------------------------------------------------- */
@@ -154,14 +155,14 @@
   margin-bottom: 30px;
 }
 
-.theme-dark h1,
+/* .theme-dark h1,
 .theme-dark h2,
 .theme-dark h3,
 .theme-dark h4,
 .theme-dark h5,
 .theme-dark h6 {
   color: #f5f5f7;
-}
+} */
 
 [class*='typography-eyebrow'] {
   display: block;
@@ -220,10 +221,10 @@ ol + * {
 
 /* ------------------------------------------------------- */
 
-.page-overview .modal-standard .subhead {
+/* .page-overview .modal-standard .subhead {
   color: #f5f5f7;
   display: block;
-}
+} */
 
 /* ------------------------------------------------------- */
 

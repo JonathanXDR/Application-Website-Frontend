@@ -9,15 +9,14 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
 html,
 body {
   width: 100%;
   height: 100%;
-  color: var(--colorFont);
-  background-color: var(--colorBg);
+  background: var(--colorBg);
   background-repeat: repeat-y;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
@@ -32,9 +31,13 @@ body {
   --mainLogoBg: #efefef;
   --colorBg: #ffffff;
   --colorBgReverse: #000000;
-  --colorFont: #1d1d1f;
-  --colorFontReverse: #f5f5f7;
-  --colorContainer: #f3f3f3;
+  --colorTitle: #1d1d1f;
+  --colorTitleReverse: #f5f5f7;
+  --colorText: #86868b;
+
+  --colorContainer: #f5f5f7;
+  --colorBs: rgb(0 0 0 / 8%);
+  --colorBsHover: rgb(0 0 0 / 16%);
 
   --colorMenuBgIpad: rgba(255, 255, 255, 0.72);
   --colorMenuBorder: rgba(0, 0, 0, 0.16);
@@ -83,9 +86,13 @@ body {
   --mainLogoBg: #232324;
   --colorBg: #000000;
   --colorBgReverse: #ffffff;
-  --colorFont: #f5f5f7;
-  --colorFontReverse: #1d1d1f;
+  --colorTitle: #f5f5f7;
+  --colorTitleReverse: #1d1d1f;
+  --colorText: #a1a1a6;
+
   --colorContainer: #151516;
+  --colorBs: rgb(255 255 255 / 8%);
+  --colorBsHover: rgb(255 255 255 / 16%);
 
   --colorMenuBgIpad: rgba(0, 0, 0, 0.72);
   --colorMenuBorder: rgba(255, 255, 255, 0.24);
@@ -304,11 +311,15 @@ h4,
 h5,
 h6 {
   margin: 0;
-  color: var(--colorFont);
+  color: var(--colorTitle);
 }
 
 span {
-  color: var(--colorFont);
+  color: var(--colorText);
+}
+
+.subhead {
+  color: var(--colorTitle);
 }
 
 .paddingBottom30 {
@@ -326,8 +337,9 @@ span {
 }
 
 .projects {
-  /* background-color: rebeccapurple; */
+  /* background: rebeccapurple; */
   display: none;
+  overflow: hidden;
 }
 
 #skills {
@@ -413,7 +425,7 @@ span {
 #logoPadding {
   display: flex;
   padding: 0px 15px;
-  background-color: var(--mainLogoBg);
+  background: var(--mainLogoBg);
   /* border-bottom: 1px solid var(--colorMenuBorder); */
 }
 
@@ -421,14 +433,14 @@ span {
   width: 75px;
   height: 52px;
   content: var(--mainLogo);
-  background-color: var(--mainLogoBg);
+  background: var(--mainLogoBg);
   object-fit: cover;
 }
 
 /*Apple Menu Bar*/
 
 .ulContainer {
-  /* background-color: blue; */
+  /* background: blue; */
   height: 100%;
   display: flex;
   justify-content: flex-end; /* Align menu-points */
@@ -444,7 +456,7 @@ span {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: var(--colorMenuBgIpad);
+  background: var(--colorMenuBgIpad);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   display: flex;
@@ -489,12 +501,12 @@ span {
   border-radius: 5px;
 }
 
-.item:hover > a {
-  color: var(--colorFontReverse);
+.item:hover {
+  color: var(--colorTitleReverse);
 }
 
 .item:hover::before {
-  background-color: var(--colorBgReverse);
+  background: var(--colorBgReverse);
   transform: scale(1.2);
 }
 
@@ -538,9 +550,9 @@ input[type='checkbox']#active {
   left: 0px;
   overflow: hidden;
   opacity: 1;
-  background-color: white;
+  background: white;
   border-radius: 40px;
-  transition: 0.2s ease background-color, 0.2s ease opacity;
+  transition: 0.2s ease background, 0.2s ease opacity;
 }
 
 #toggleBtn span:before,
@@ -551,23 +563,23 @@ input[type='checkbox']#active {
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  transition: 0.5s ease transform, 0.2s ease background-color;
+  transition: 0.5s ease transform, 0.2s ease background;
 }
 
 #toggleBtn span:before {
-  background-color: white;
+  background: white;
   transform: translate(-58px, 0px);
   z-index: 1;
 }
 
 #toggleBtn span:after {
-  background-color: black;
+  background: black;
   transform: translate(8px, 0px);
   z-index: 0;
 }
 
 #toggleBtn input[type='checkbox']:checked + span {
-  background-color: black;
+  background: black;
 }
 
 #toggleBtn input[type='checkbox']:active + span {
@@ -575,12 +587,12 @@ input[type='checkbox']#active {
 }
 
 #toggleBtn input[type='checkbox']:checked + span:before {
-  background-color: black;
+  background: black;
   transform: translate(56px, -19px);
 }
 
 #toggleBtn input[type='checkbox']:checked + span:after {
-  background-color: white;
+  background: white;
   transform: translate(79px, 0px);
 }
 
@@ -677,10 +689,9 @@ input[type='checkbox']#active {
   transform: translateX(400px);
 }
 
-.burgerWrapper ul li {
+.burgerWrapper ul .item {
   text-decoration: none;
   font-size: 20px;
-  color: var(--colorFont);
   /* position: absolute; */
   opacity: 0;
   transition: all 0.3s ease;
@@ -689,7 +700,7 @@ input[type='checkbox']#active {
   transition: opacity 1.2s, transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-#active:checked ~ .burgerWrapper ul li {
+#active:checked ~ .burgerWrapper ul .item {
   opacity: 1;
   transform: none;
   transition-timing-function: ease, cubic-bezier(0.1, 1.3, 0.3, 1); /* easeOutBackを緩めた感じ */
@@ -834,7 +845,7 @@ input[type='checkbox']#active {
 
 .container p span.cursor {
   display: inline-block;
-  background-color: #ccc;
+  background: #ccc;
   margin-left: 0.1rem;
   width: 3px;
   animation: blink 1s infinite;
@@ -846,19 +857,19 @@ input[type='checkbox']#active {
 
 @keyframes blink {
   0% {
-    background-color: #ccc;
+    background: #ccc;
   }
   49% {
-    background-color: #ccc;
+    background: #ccc;
   }
   50% {
-    background-color: transparent;
+    background: transparent;
   }
   99% {
-    background-color: transparent;
+    background: transparent;
   }
   100% {
-    background-color: #ccc;
+    background: #ccc;
   }
 }
 
@@ -890,12 +901,31 @@ input[type='checkbox']#active {
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  text-align: center;
-  padding: 50px 50px 65px;
+  padding: 30px 30px 60px;
   /* display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-content: center; */
+}
+
+.grid-item-header,
+.grid-item-content,
+.grid-item-modal-trigger-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.grid-item-header {
+  font-size: 18px;
+  box-sizing: border-box;
+  /* padding: var(--tile-padding); */
+  padding-bottom: 0;
+  flex-basis: 0;
+}
+
+.large-6 {
+  flex-basis: 50%;
+  max-width: 50%;
 }
 
 #languageSkillsContainer {
@@ -1096,7 +1126,7 @@ input[type='checkbox']#active {
   position: relative;
   top: 100px;
   z-index: 100;
-  background-color: blue;
+  background: blue;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1107,7 +1137,7 @@ input[type='checkbox']#active {
   overflow: hidden;
   padding-top: 20px;
   padding-bottom: 42px; /* off */
-  background-color: #fafafa;
+  background: #fafafa;
 }
 
 .section-stations .section-content {
@@ -1248,7 +1278,7 @@ input[type='checkbox']#active {
 
 .music-slider-container {
   position: relative;
-  background-color: #fafafa;
+  background: #fafafa;
   height: 228px; /* off */
 }
 
@@ -1322,14 +1352,14 @@ input[type='checkbox']#active {
 }
 
 element.style {
-  background-color: #f4f4f4;
+  background: #f4f4f4;
 }
 
 .music-slide-img-wrapper {
   position: relative;
   margin-bottom: 12px;
   padding-bottom: 100%;
-  background-color: #eee; /* off */
+  background: #eee; /* off */
   border-radius: 4px;
 }
 
@@ -1447,7 +1477,7 @@ element.style {
 #jsContainer {
   width: 100%;
   background: var(--colorContainer);
-  padding: 50px;
+  padding: 25px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -1460,14 +1490,14 @@ element.style {
 #cssContainer,
 #jsContainer,
 #skillsContainer {
-  box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+  box-shadow: 2px 4px 12px var(--colorBs);
   transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
 }
 
 #htmlContainer:hover,
 #cssContainer:hover,
 #jsContainer:hover {
-  box-shadow: 2px 4px 16px rgb(0 0 0 / 16%);
+  box-shadow: 2px 4px 16px var(--colorBsHover);
   transform: scale3d(1.01, 1.01, 1.01);
 }
 
@@ -1546,7 +1576,7 @@ element.style {
 .hex-progress .track,
 .hex-progress2 .track2,
 .hex-progress3 .track3 {
-  stroke: rgb(56, 71, 83);
+  stroke: var(--colorBs);
 }
 
 .hex-progress .fill,
@@ -1566,7 +1596,7 @@ element.style {
 .hex-progress3 .text3 {
   /*Font-Family etc.*/
   font-weight: 600;
-  fill: var(--colorFont);
+  fill: var(--colorTitle);
   text-anchor: middle;
 }
 
@@ -1577,7 +1607,7 @@ element.style {
 }
 
 .textStyling {
-  color: var(--colorFont);
+  color: var(--colorTitle);
   font-weight: 600;
   font-size: 25px;
   text-anchor: middle;
@@ -1661,7 +1691,7 @@ element.style {
 }
 
 .btn--primary:hover {
-  background-color: white;
+  background: white;
   color: black;
 }
 
@@ -1758,6 +1788,11 @@ element.style {
   }
 }
 
+.date {
+  color: var(--colorTitle);
+  font-size: 16px;
+}
+
 .timeline__item {
   display: flex;
   flex-direction: column;
@@ -1818,7 +1853,7 @@ element.style {
 a {
   width: fit-content;
   text-decoration: none;
-  color: var(--colorFont);
+  color: var(--colorTitle);
 }
 
 .button2 {
@@ -1995,14 +2030,14 @@ a {
 }
 
 .aboutContainer {
-  color: var(--colorFont);
+  color: var(--colorTitle);
   margin-right: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-content: flex-end;
   gap: 20px;
-  /* background-color: red; */
+  /* background: red; */
 }
 
 .aboutContainer p:nth-of-type(1) {
