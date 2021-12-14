@@ -1,5 +1,6 @@
 <div class="page-overview ac-nav-overlap ac-gn-current-mac theme-dark">
   <div
+    id="modal"
     class="modal modal-standard modal-open done-animating"
     role="dialog"
     aria-label="Modal"
@@ -49,7 +50,9 @@
                 </div>
                 <div class="modal-close-sticky">
                   <button
+                    id="modal-close-circle"
                     class="modal-close-circle"
+                    onclick="toggleModal()"
                     data-modal-close=""
                     aria-label="close Security article"
                   >
