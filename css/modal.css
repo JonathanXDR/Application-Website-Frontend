@@ -1,15 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-}
-
 :root {
   --tile-border-radius: 30px;
 }
@@ -52,13 +40,9 @@ body {
 }
 
 .modal {
-  position: fixed;
-  /* z-index: -1; */
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  /* display: none; */
+  position: absolute;
+  left: -1000%;
+  opacity: 0;
 }
 
 /* ------------------------------------------------------- */
@@ -263,7 +247,6 @@ ol + * {
   height: 36px;
 }
 
-body,
 input,
 textarea,
 select,

@@ -1525,23 +1525,33 @@ element.style {
 }
 
 /*Hexagon Progressbar*/
-.hex-progress {
-  width: 175px;
+.hex-progress,
+.hex-progress2,
+.hex-progress3 {
+  width: 160px;
   height: 200px;
 }
 
 .hex-progress .track,
-.hex-progress .fill {
+.hex-progress2 .track2,
+.hex-progress3 .track3,
+.hex-progress .fill,
+.hex-progress2 .fill2,
+.hex-progress3 .fill3 {
   fill: rgba(0, 0, 0, 0);
   stroke-width: 60;
   transform: translate(70px, 700px) rotate(-90deg);
 }
 
-.hex-progress .track {
+.hex-progress .track,
+.hex-progress2 .track2,
+.hex-progress3 .track3 {
   stroke: rgb(56, 71, 83);
 }
 
-.hex-progress .fill {
+.hex-progress .fill,
+.hex-progress2 .fill2,
+.hex-progress3 .fill3 {
   stroke-linecap: round;
   stroke-dasharray: 2160;
   stroke-dashoffset: 2160;
@@ -1549,14 +1559,20 @@ element.style {
 }
 
 .hex-progress .value,
-.hex-progress .text {
+.hex-progress2 .value2,
+.hex-progress3 .value3,
+.hex-progress .text,
+.hex-progress2 .text2,
+.hex-progress3 .text3 {
   /*Font-Family etc.*/
   font-weight: 600;
   fill: var(--colorFont);
   text-anchor: middle;
 }
 
-.hex-progress .value {
+.hex-progress .value,
+.hex-progress2 .value2,
+.hex-progress3 .value3 {
   font-size: 150px;
 }
 
@@ -1567,110 +1583,14 @@ element.style {
   text-anchor: middle;
 }
 
-.hex-progress .text {
-  font-size: 120px;
-}
-
-.noselect {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: default;
-}
-
-/*Hexagon Progressbar2*/
-.hex-progress2 {
-  width: 175px;
-  height: 200px;
-}
-
-.hex-progress2 .track2,
-.hex-progress2 .fill2 {
-  fill: rgba(0, 0, 0, 0);
-  stroke-width: 60;
-  transform: translate(70px, 700px) rotate(-90deg);
-}
-
-.hex-progress2 .track2 {
-  stroke: rgb(56, 71, 83);
-}
-
-.hex-progress2 .fill2 {
-  stroke-linecap: round;
-  stroke-dasharray: 2160;
-  stroke-dashoffset: 2160;
-  transition: stroke-dashoffset 1s;
-}
-
-.hex-progress2 .value2,
-.hex-progress2 .text2 {
-  /*Font-Family etc.*/
-  font-weight: 600;
-  fill: var(--colorFont);
-  text-anchor: middle;
-}
-
-.hex-progress2 .value2 {
-  font-size: 150px;
-}
-
-.hex-progress2 .text2 {
-  font-size: 120px;
-}
-
-.noselect2 {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: default;
-}
-
-/*Hexagon Progressbar3*/
-.hex-progress3 {
-  width: 175px;
-  height: 200px;
-}
-
-.hex-progress3 .track3,
-.hex-progress3 .fill3 {
-  fill: rgba(0, 0, 0, 0);
-  stroke-width: 60;
-  transform: translate(70px, 700px) rotate(-90deg);
-}
-
-.hex-progress3 .track3 {
-  stroke: rgb(56, 71, 83);
-}
-
-.hex-progress3 .fill3 {
-  stroke-linecap: round;
-  stroke-dasharray: 2160;
-  stroke-dashoffset: 2160;
-  transition: stroke-dashoffset 1s;
-}
-
-.hex-progress3 .value3,
-.hex-progress3 .text3 {
-  /*Font-Family etc.*/
-  font-weight: 600;
-  fill: var(--colorFont);
-  text-anchor: middle;
-}
-
-.hex-progress3 .value3 {
-  font-size: 150px;
-}
-
+.hex-progress .text,
+.hex-progress2 .text2,
 .hex-progress3 .text3 {
   font-size: 120px;
 }
 
+.noselect,
+.noselect2,
 .noselect3 {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
