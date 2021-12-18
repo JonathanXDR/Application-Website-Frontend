@@ -260,7 +260,7 @@ button {
   text-align: left;
 }
 
-button {
+.modal-close-circle {
   background: none;
   border: 0;
   box-sizing: content-box;

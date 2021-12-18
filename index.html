@@ -16,7 +16,9 @@
 
     <script>
       $(function () {
+        $('#cardsHtml').load('./html/cards.html');
         $('#modalHtml').load('./html/modal.html');
+        // $('#musicLibraryHtml').load('./html/musicLibrary.html');
       });
     </script>
 
@@ -167,16 +169,22 @@
               höre sehr oft ein wenig Musik und gehe auch ab und zu mit Freunden
               nach draussen, um etwas zu unternehmen.
             </span>
-            <div class="buttons">
-              <a href="#" class="button2">CV</a>
-              <a href="" class="button2">Motivationsschreiben</a>
 
-              <button class="button" id="cvBtn" onclick="download_cv()">
-                <i class="arrow down"></i>Download CV
+            <div class="buttons">
+              <button
+                class="button button-elevated button-neutral modal-trigger"
+                id="cvBtn"
+                onclick="download_cv()"
+              >
+                <i class="arrow down"></i>CV
               </button>
 
-              <button class="button" id="cvBtn" onclick="download_cv()">
-                <i class="arrow down"></i>Download CV
+              <button
+                class="button button-elevated button-neutral modal-trigger"
+                id="cvBtn"
+                onclick="download_cv()"
+              >
+                <i class="arrow down"></i>Motivationsschreiben
               </button>
             </div>
           </div>
@@ -187,12 +195,7 @@
     <section id="skills">
       <div id="skillsContainer">
         <header class="grid-item-header large-6">
-          <h3
-            class="grid-item-eyebrow typography-eyebrow-reduced"
-            style="font-size: 18px; color: var(--AppleDarkIndigo)"
-          >
-            Skills
-          </h3>
+          <h3 style="font-size: 18px; color: var(--AppleDarkIndigo)">Skills</h3>
         </header>
 
         <div id="skillsText">
@@ -205,28 +208,28 @@
       </div>
       <div class="wrapper">
         <!--Hexagon Progressbar1-->
-        <div id="htmlContainer">
+        <div class="cardContainer">
           <div id="wrapper" class="center">
             <svg
-              class="hex-progress noselect"
-              data-progress="50"
+              class="hex-progress cardProgress noselect"
+              data-progress="80"
               x="0px"
               y="0px"
               viewBox="0 0 776 628"
             >
               <path
-                class="track"
+                class="track cardTrack"
                 d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
               ></path>
               <path
-                class="fill"
+                class="fill cardFill"
                 d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                 stroke="url(#cl1)"
               ></path>
-              <text class="value" x="50%" y="61%">0%</text>
+              <text class="value cardText cardValue" x="50%" y="61%">0%</text>
             </svg>
           </div>
-          <span class="textStyling">HTML</span>
+          <span class="cardText">HTML</span>
 
           <svg width="0" height="0">
             <defs>
@@ -246,28 +249,28 @@
         </div>
 
         <!--Hexagon Progressbar2-->
-        <div id="cssContainer">
-          <div id="wrapper2" class="center2">
+        <div class="cardContainer">
+          <div id="wrapper" class="center">
             <svg
-              class="hex-progress2 noselect2"
-              data-progress="50"
+              class="hex-progress2 cardProgress noselect"
+              data-progress="70"
               x="0px"
               y="0px"
               viewBox="0 0 776 628"
             >
               <path
-                class="track2"
+                class="track2 cardTrack"
                 d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
               ></path>
               <path
-                class="fill2"
+                class="fill2 cardFill"
                 d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                 stroke="url(#cl2)"
               ></path>
-              <text class="value2" x="50%" y="61%">0%</text>
+              <text class="value2 cardText cardValue" x="50%" y="61%">0%</text>
             </svg>
           </div>
-          <span class="textStyling">CSS</span>
+          <span class="cardText">CSS</span>
 
           <svg width="0" height="0">
             <defs>
@@ -287,33 +290,156 @@
         </div>
 
         <!--Hexagon Progressbar3-->
-        <div id="jsContainer">
-          <div id="wrapper3" class="center3">
+        <div class="cardContainer">
+          <div id="wrapper" class="center">
             <svg
-              class="hex-progress3 noselect3"
-              data-progress="50"
+              class="hex-progress3 cardProgress noselect"
+              data-progress="60"
               x="0px"
               y="0px"
               viewBox="0 0 776 628"
             >
               <path
-                class="track3"
+                class="track3 cardTrack"
                 d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
               ></path>
               <path
-                class="fill3"
+                class="fill3 cardFill"
                 d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                 stroke="url(#cl3)"
               ></path>
-              <text class="value3" x="50%" y="61%">0%</text>
+              <text class="value3 cardText cardValue" x="50%" y="61%">0%</text>
             </svg>
           </div>
-          <span class="textStyling">JavaScript</span>
+          <span class="cardText">JavaScript</span>
 
           <svg width="0" height="0">
             <defs>
               <linearGradient
                 id="cl3"
+                gradientUnits="objectBoundingBox"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
+              >
+                <stop stop-color="var(--AppleDarkYellow)" />
+                <stop offset="100%" stop-color="var(--AppleDarkGreen)" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <!--Hexagon Progressbar4-->
+        <div class="cardContainer">
+          <div id="wrapper" class="center">
+            <svg
+              class="hex-progress4 cardProgress noselect"
+              data-progress="40"
+              x="0px"
+              y="0px"
+              viewBox="0 0 776 628"
+            >
+              <path
+                class="track4 cardTrack"
+                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+              ></path>
+              <path
+                class="fill4 cardFill"
+                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                stroke="url(#cl4)"
+              ></path>
+              <text class="value4 cardText cardValue" x="50%" y="61%">0%</text>
+            </svg>
+          </div>
+          <span class="cardText">Node.js</span>
+
+          <svg width="0" height="0">
+            <defs>
+              <linearGradient
+                id="cl4"
+                gradientUnits="objectBoundingBox"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
+              >
+                <stop stop-color="var(--AppleDarkYellow)" />
+                <stop offset="100%" stop-color="var(--AppleDarkGreen)" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <!--Hexagon Progressbar5-->
+        <div class="cardContainer">
+          <div id="wrapper" class="center">
+            <svg
+              class="hex-progress5 cardProgress noselect"
+              data-progress="40"
+              x="0px"
+              y="0px"
+              viewBox="0 0 776 628"
+            >
+              <path
+                class="track5 cardTrack"
+                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+              ></path>
+              <path
+                class="fill5 cardFill"
+                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                stroke="url(#cl5)"
+              ></path>
+              <text class="value5 cardText cardValue" x="50%" y="61%">0%</text>
+            </svg>
+          </div>
+          <span class="cardText">Express.js</span>
+
+          <svg width="0" height="0">
+            <defs>
+              <linearGradient
+                id="cl5"
+                gradientUnits="objectBoundingBox"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
+              >
+                <stop stop-color="var(--AppleDarkYellow)" />
+                <stop offset="100%" stop-color="var(--AppleDarkGreen)" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <!--Hexagon Progressbar6-->
+        <div class="cardContainer">
+          <div id="wrapper" class="center">
+            <svg
+              class="hex-progress6 cardProgress noselect"
+              data-progress="60"
+              x="0px"
+              y="0px"
+              viewBox="0 0 776 628"
+            >
+              <path
+                class="track6 cardTrack"
+                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+              ></path>
+              <path
+                class="fill6 cardFill"
+                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                stroke="url(#cl6)"
+              ></path>
+              <text class="value6 cardText cardValue" x="50%" y="61%">0%</text>
+            </svg>
+          </div>
+          <span class="cardText">Vue.js</span>
+
+          <svg width="0" height="0">
+            <defs>
+              <linearGradient
+                id="cl6"
                 gradientUnits="objectBoundingBox"
                 x1="0"
                 y1="0"

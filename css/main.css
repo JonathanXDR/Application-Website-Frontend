@@ -42,8 +42,7 @@ body {
   --colorMenuBgIpad: rgba(255, 255, 255, 0.72);
   --colorMenuBorder: rgba(0, 0, 0, 0.16);
 
-  --colorBtn: #1d1d1f;
-  --colorBtnReverse: #ffffff;
+  --colorBtn: #000000;
 
   /* Apple Colors Light */
   --AppleLightRed: rgb(255, 59, 48);
@@ -97,8 +96,7 @@ body {
   --colorMenuBgIpad: rgba(0, 0, 0, 0.72);
   --colorMenuBorder: rgba(255, 255, 255, 0.24);
 
-  --colorBtn: #ffffff;
-  --colorBtnReverse: #1d1d1f;
+  --colorBtn: #f5f5f7;
 
   /* Apple Colors Light */
   --AppleLightRed: rgb(255, 59, 48);
@@ -316,6 +314,12 @@ h6 {
 
 span {
   color: var(--colorText);
+  font-size: 16px;
+  line-height: 1.2353641176;
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  /* font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+    sans-serif; */
 }
 
 .subhead {
@@ -708,7 +712,7 @@ input[type='checkbox']#active {
   transform: translateX(-400px);
 }
 
-.button {
+/* .button {
   font-size: 17px;
   line-height: 1.1764805882;
   font-weight: 400;
@@ -735,6 +739,45 @@ input[type='checkbox']#active {
 .button:active {
   color: var(--colorBtnReverse) !important;
   background: var(--colorBtn);
+} */
+
+.button {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  background-color: initial;
+  color: var(--colorTitle);
+  font-size: 17px; /* Priginal: 21px */
+  line-height: 1.1904761905;
+  font-weight: 600;
+  letter-spacing: 0.011em;
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+  min-width: 26px;
+  padding: 12px 22px;
+  border-radius: 980px;
+  transition: all 0.4s ease-in-out;
+  border: 2px solid var(--colorBtn);
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-synthesis: none;
+  -moz-font-feature-settings: 'kern';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: ltr;
+  text-align: left;
+}
+
+.button:hover {
+  color: var(--colorBg);
+  background: var(--colorBtn);
+  border: 2px solid var(--colorBtn);
 }
 
 /* .arrow {
@@ -1459,9 +1502,14 @@ element.style {
   width: 100%;
   margin: 25px auto 0 0;
   display: grid;
-  gap: 50px;
-  grid-template-columns: repeat(auto-fit, minmax(98px, 350px));
+  grid-template-columns: repeat(auto-fit, minmax(98px, 355px));
   align-items: flex-start;
+}
+
+@media (max-width: 865px) {
+  .referencesContainerBar {
+    gap: 50px;
+  }
 }
 
 .referencesContainerItem {
@@ -1472,9 +1520,7 @@ element.style {
   gap: 10px;
 }
 
-#htmlContainer,
-#cssContainer,
-#jsContainer {
+.cardContainer {
   width: 100%;
   background: var(--colorContainer);
   padding: 25px;
@@ -1486,17 +1532,13 @@ element.style {
   gap: 10px;
 }
 
-#htmlContainer,
-#cssContainer,
-#jsContainer,
+.cardContainer,
 #skillsContainer {
   box-shadow: 2px 4px 12px var(--colorBs);
   transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
 }
 
-#htmlContainer:hover,
-#cssContainer:hover,
-#jsContainer:hover {
+.cardContainer:hover {
   box-shadow: 2px 4px 16px var(--colorBsHover);
   transform: scale3d(1.01, 1.01, 1.01);
 }
@@ -1555,73 +1597,42 @@ element.style {
 }
 
 /*Hexagon Progressbar*/
-.hex-progress,
-.hex-progress2,
-.hex-progress3 {
+.cardProgress {
   width: 160px;
   height: 200px;
 }
 
-.hex-progress .track,
-.hex-progress2 .track2,
-.hex-progress3 .track3,
-.hex-progress .fill,
-.hex-progress2 .fill2,
-.hex-progress3 .fill3 {
+.cardTrack,
+.cardFill {
   fill: rgba(0, 0, 0, 0);
   stroke-width: 60;
   transform: translate(70px, 700px) rotate(-90deg);
 }
 
-.hex-progress .track,
-.hex-progress2 .track2,
-.hex-progress3 .track3 {
+.cardTrack {
   stroke: var(--colorBs);
 }
 
-.hex-progress .fill,
-.hex-progress2 .fill2,
-.hex-progress3 .fill3 {
+.cardFill {
   stroke-linecap: round;
   stroke-dasharray: 2160;
   stroke-dashoffset: 2160;
   transition: stroke-dashoffset 1s;
 }
 
-.hex-progress .value,
-.hex-progress2 .value2,
-.hex-progress3 .value3,
-.hex-progress .text,
-.hex-progress2 .text2,
-.hex-progress3 .text3 {
-  /*Font-Family etc.*/
-  font-weight: 600;
-  fill: var(--colorTitle);
-  text-anchor: middle;
-}
-
-.hex-progress .value,
-.hex-progress2 .value2,
-.hex-progress3 .value3 {
-  font-size: 150px;
-}
-
-.textStyling {
+.cardText {
   color: var(--colorTitle);
+  fill: var(--colorTitle);
   font-weight: 600;
   font-size: 25px;
   text-anchor: middle;
 }
 
-.hex-progress .text,
-.hex-progress2 .text2,
-.hex-progress3 .text3 {
-  font-size: 120px;
+.cardValue {
+  font-size: 150px;
 }
 
-.noselect,
-.noselect2,
-.noselect3 {
+.noselect {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -1790,7 +1801,7 @@ element.style {
 
 .date {
   color: var(--colorTitle);
-  font-size: 16px;
+  /* font-size: 16px; */
 }
 
 .timeline__item {
@@ -1822,8 +1833,8 @@ element.style {
 }
 
 .timeline__day-sum {
-  font-weight: 300;
-  font-size: 0.8em;
+  /* font-weight: 300; */
+  font-size: 15px;
   display: block;
   margin-bottom: 1.5em;
   line-height: 1.5;
