@@ -25,8 +25,8 @@ body {
 .light-theme {
   /* Logos */
   --languageDE: var(lightmode);
-  --mainLogo: url(/img/logo-light.png);
-  --faviconLogo: url(/img/favicon-dark.png);
+  --mainLogo: url(../img/logo-light.png);
+  --faviconLogo: url(../img/favicon-dark.png);
 
   --mainLogoBg: #efefef;
   --colorBg: #ffffff;
@@ -79,8 +79,8 @@ body {
 .dark-theme {
   /* Logos */
   --languageDE: var(darkmode);
-  --mainLogo: url(/img/logo-dark.png);
-  --faviconLogo: url(/img/favicon-light.png);
+  --mainLogo: url(../img/logo-dark.png);
+  --faviconLogo: url(../img/favicon-light.png);
 
   --mainLogoBg: #232324;
   --colorBg: #000000;
@@ -252,7 +252,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(/img/lines.jpg);
+  background: url(../img/lines.jpg);
   z-index: 10;
   background-size: 7px auto;
   mix-blend-mode: overlay;
@@ -294,7 +294,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(/img/vignette.png);
+  background: url(../img/vignette.png);
   z-index: 11;
   background-size: 100% 100%;
   mix-blend-mode: overlay;
@@ -711,35 +711,6 @@ input[type='checkbox']#active {
   transition-delay: 0.6s;
   transform: translateX(-400px);
 }
-
-/* .button {
-  font-size: 17px;
-  line-height: 1.1764805882;
-  font-weight: 400;
-  letter-spacing: -0.022em;
-  font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
-  min-width: 26px;
-  color: var(--colorBtn);
-  background: none;
-  border: 2px solid var(--colorBtn);
-  min-width: 97px;
-  padding: 10px 16px;
-  cursor: pointer;
-  display: inline-block;
-  text-align: center;
-  white-space: nowrap;
-  min-width: 28px;
-  padding: 8px 16px;
-  border-radius: 980px;
-  transition: all 0.3s ease-in-out;
-}
-
-.button:hover,
-.button:active {
-  color: var(--colorBtnReverse) !important;
-  background: var(--colorBtn);
-} */
 
 .button {
   cursor: pointer;
