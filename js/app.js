@@ -30,6 +30,7 @@ window.onload = function () {
 
   timelineScrolling();
   age();
+  year();
 };
 
 // Get current system/browser theme
@@ -135,6 +136,38 @@ function age() {
   let y = y2 - y1;
 
   document.getElementById('age').textContent = y;
+}
+
+function year() {
+  // Enter your date of birth
+  let d1 = 01; // date
+  let m1 = 08; // month
+  let y1 = 2021; // year
+
+  let date = new Date();
+  let d2 = date.getDate();
+  let m2 = 1 + date.getMonth();
+  let y2 = date.getFullYear();
+  let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  if (d1 > d2) {
+    d2 = d2 + month[m2 - 1];
+    m2 = m2 - 1;
+  }
+  if (m1 > m2) {
+    m2 = m2 + 12;
+    y2 = y2 - 1;
+  }
+
+  let d = 01 - d1;
+  let m = 01 - m1;
+  let y = 2021 - y1 + 1;
+
+  if (y > 4) {
+    y = 4;
+  }
+
+  document.getElementById('year').textContent = y;
 }
 
 // Vintage Mode
