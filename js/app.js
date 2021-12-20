@@ -32,16 +32,6 @@ window.onload = function () {
   age();
 };
 
-// Get current system/browser theme
-const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
-if (darkThemeMq.matches) {
-  // Theme set to dark.
-  // window.alert('dark');
-} else {
-  // Theme set to light.
-  // window.alert('light');
-}
-
 // function to set a given theme/color-scheme
 function setTheme(themeName) {
   localStorage.setItem('theme', themeName);
@@ -76,7 +66,6 @@ function preventScrolling() {
 // open and close modal
 const eventListener = (event) => {
   if (!document.getElementById('modalBox').contains(event.target)) {
-    // alert('Clicked outside Box');
     toggleModal();
   }
 };
@@ -164,24 +153,6 @@ const changeFavicon = () => {
   }
 };
 
-// Word Rotation
-// setInterval(function () {
-//   const show = document.querySelector('.mask span[data-show]');
-//   const next =
-//     show.nextElementSibling || document.querySelector('.mask span:first-child');
-
-//   const up = document.querySelector('.mask span[data-up]');
-
-//   if (up) {
-//     up.removeAttribute('data-up');
-//   }
-
-//   show.removeAttribute('data-show');
-//   show.setAttribute('data-up', '');
-
-//   next.setAttribute('data-show', '');
-// }, 2000);
-
 //Hexagon Progressbars
 var forEach = function (array, callback, scope) {
   for (var i = 0; i < array.length; i++) {
@@ -203,9 +174,7 @@ function timelineScrolling() {
 
   setTimeout(() => {
     timelineHeight = document.getElementById('first-steps').offsetHeight;
-    // console.log(Math.ceil(timelineHeight));
     const size = parseInt(Math.ceil(timelineHeight));
-    // console.log(size);
 
     element.setAttribute('viewBox', `0 0 8 ${size}`);
     element.setAttribute('height', size);
