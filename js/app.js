@@ -60,6 +60,17 @@ function toggleTheme() {
 
 function hideBurger() {
   document.getElementById('active').checked = false;
+  preventScrolling();
+}
+
+function preventScrolling() {
+  if (document.getElementById('active').checked === true) {
+    $('body').css('overflow', 'hidden');
+    $('body').attr('scroll', 'no');
+  } else {
+    $('body').css('overflow', 'auto');
+    $('body').attr('scroll', 'yes');
+  }
 }
 
 // open and close modal
