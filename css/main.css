@@ -664,7 +664,7 @@ input[type='checkbox']#active {
   letter-spacing: 0.011em;
   font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
     sans-serif;
-  min-width: 26px;
+  min-width: 200px;
   padding: 12px 22px;
   border-radius: 980px;
   transition: all 0.4s ease-in-out;
