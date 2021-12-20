@@ -658,7 +658,7 @@ input[type='checkbox']#active {
   white-space: nowrap;
   background-color: initial;
   color: var(--colorTitle);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.1904761905;
   font-weight: 600;
   letter-spacing: 0.011em;
@@ -1346,19 +1346,6 @@ a {
   width: fit-content;
   text-decoration: none;
   color: var(--colorTitle);
-}
-
-.button2 {
-  border: 1.5px solid var(--colorBtn);
-  border-radius: 0.75rem;
-  padding: 0.75rem 1.25rem;
-  transition: all 0.3s ease-in-out;
-  font-weight: 700;
-}
-
-.button2:hover {
-  color: var(--colorBtnReverse);
-  background: var(--colorBtn);
 }
 
 #about .wrapper {
