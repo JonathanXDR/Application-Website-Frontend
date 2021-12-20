@@ -74,6 +74,9 @@ function toggleModal() {
   if (modal.style.opacity === '1') {
     window.removeEventListener('click', eventListener);
 
+    $('body').css('overflow', 'auto');
+    $('body').attr('scroll', 'yes');
+
     modal.style.opacity = '0';
     // position modal off screen
     modal.style.position = 'absolute';
@@ -86,6 +89,9 @@ function toggleModal() {
     modal.style.right = '0';
     modal.style.bottom = '0';
     modal.style.opacity = '1';
+
+    $('body').css('overflow', 'hidden');
+    $('body').attr('scroll', 'no');
 
     setTimeout(() => {
       window.addEventListener('click', eventListener);
