@@ -108,11 +108,13 @@
       <label for="active" class="close"></label>
       <div class="burgerWrapper">
         <ul>
-          <a href="#about" class="item">About</a>
-          <a href="#skills" class="item">Skills</a>
-          <a href="#projects" class="item">Projekte</a>
-          <a href="#contact" class="item">Kontakt</a>
-          <a href="#references" class="item">Referenzen</a>
+          <a href="#about" class="item" onclick="hideBurger()">About</a>
+          <a href="#skills" class="item" onclick="hideBurger()">Skills</a>
+          <a href="#projects" class="item" onclick="hideBurger()">Projekte</a>
+          <a href="#contact" class="item" onclick="hideBurger()">Kontakt</a>
+          <a href="#references" class="item" onclick="hideBurger()"
+            >Referenzen</a
+          >
         </ul>
       </div>
     </nav>
@@ -194,12 +196,12 @@
 
     <section id="skills">
       <div id="skillsContainer">
-        <header class="grid-item-header large-6">
+        <!-- <header class="grid-item-header large-6">
           <h3 style="font-size: 18px; color: var(--AppleDarkIndigo)">Skills</h3>
-        </header>
+        </header> -->
 
         <div id="skillsText">
-          <h2 class="paddingBottom30">Das kann ich</h2>
+          <h2 class="paddingBottom30">Skills</h2>
           <span
             >Das sind die Skills, die ich bis jetzt erlernt habe. In jedem
             Projekt, dass ich mache werden diese natürlich erweitert</span
@@ -464,7 +466,6 @@
     </section>
 
     <section id="glichinTriangles">
-      <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In  -->
       <svg version="1.1">
         <defs>
           <polygon
@@ -477,8 +478,6 @@
           />
         </defs>
       </svg>
-      <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In  -->
-      <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In  -->
 
       <div class="triangle__green">
         <svg class="icon">
@@ -735,9 +734,8 @@
       <div id="contactContainer">
         <h2 class="paddingBottom30">Kontakt</h2>
         <span
-          >Gerne kannst du mich kontaktieren, unten stehen sämtliche
-          Social-Media Plattformen auf denen ich aktiv bin, sowie auch meine
-          Swisscom-Seite.
+          >Gerne kannst du mich kontaktieren, unten findest du mein GitHub
+          Profil, sowie auch meine Swisscom-Seite.
           <br />
           <br />Ich freue mich auf dich!
         </span>

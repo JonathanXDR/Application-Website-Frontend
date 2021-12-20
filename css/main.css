@@ -470,13 +470,13 @@ span {
   z-index: 100;
 }
 
-@media (min-width: 827px) {
+@media (min-width: 850px) {
   .menu-btn {
     display: none;
   }
 }
 
-@media (max-width: 826px) {
+@media (max-width: 849px) {
   .ulContainer {
     display: none;
   }
@@ -526,7 +526,7 @@ span {
   margin-left: -26px;
 }
 
-input[type='checkbox'].btnInput {
+.btnInput {
   width: 100%;
   height: 100%;
   position: absolute;

@@ -58,6 +58,10 @@ function toggleTheme() {
   changeFavicon();
 }
 
+function hideBurger() {
+  document.getElementById('active').checked = false;
+}
+
 // open and close modal
 const eventListener = (event) => {
   if (!document.getElementById('modalBox').contains(event.target)) {
