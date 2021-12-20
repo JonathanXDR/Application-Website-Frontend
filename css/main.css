@@ -1268,9 +1268,14 @@ textarea {
     width: 80%;
   }
 }
+
 @media (max-width: 799px) {
   .timeline {
     gap: 40px;
+  }
+
+  .svgVertical {
+    display: none;
   }
 }
 
