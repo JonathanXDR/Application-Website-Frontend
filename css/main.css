@@ -651,7 +651,7 @@ input[type='checkbox']#active {
   letter-spacing: 0.011em;
   font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
     sans-serif;
-  min-width: 150px; /* Original: 26px */
+  min-width: 100px; /* Original: 26px */
   padding: 12px 22px;
   border-radius: 980px;
   transition: all 0.4s ease-in-out;
@@ -1191,6 +1191,7 @@ textarea {
 }
 
 .scale {
+  margin-top: 15px;
   transform: scale(0.8);
   transform-origin: left top;
   width: fit-content;
@@ -1259,10 +1260,6 @@ textarea {
   .timeline__item {
     width: 40%;
   }
-
-  .svgVertical {
-    display: none;
-  }
 }
 
 @media screen and (min-width: 75em) {
@@ -1300,7 +1297,6 @@ textarea {
 .timeline__day-sum {
   font-size: 15px;
   display: block;
-  margin-bottom: 1.5em;
   line-height: 1.5;
 }
 
