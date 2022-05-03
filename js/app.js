@@ -12,20 +12,20 @@ window.onload = function () {
   var max = 2160;
   forEach(
     document.querySelectorAll(
-      '.hex-progress, .hex-progress2, .hex-progress3, .hex-progress4, .hex-progress5, .hex-progress6, .hex-progress7, .hex-progress8'
+      '.hex-progress, .hex-progress2, .hex-progress3, .hex-progress4, .hex-progress5, .hex-progress6, .hex-progress7, .hex-progress8, .hex-progress9, .hex-progress10, .hex-progress11, .hex-progress12'
     ),
     function (index, value) {
       percent = value.getAttribute('data-progress');
       value
         .querySelector(
-          '.fill, .fill2, .fill3, .fill4, .fill5, .fill6, .fill7, .fill8'
+          '.fill, .fill2, .fill3, .fill4, .fill5, .fill6, .fill7, .fill8, .fill9, .fill10, .fill11, .fill12'
         )
         .setAttribute(
           'style',
           'stroke-dashoffset: ' + ((100 - percent) / 100) * max
         );
       value.querySelector(
-        '.value, .value2, .value3, .value4, .value5, .value6, .value7, .value8'
+        '.value, .value2, .value3, .value4, .value5, .value6, .value7, .value8, .value9, .value10, .value11, .value12'
       ).innerHTML = percent + '%';
     }
   );
