@@ -12,18 +12,20 @@ window.onload = function () {
   var max = 2160;
   forEach(
     document.querySelectorAll(
-      '.hex-progress, .hex-progress2, .hex-progress3, .hex-progress4, .hex-progress5, .hex-progress6'
+      '.hex-progress, .hex-progress2, .hex-progress3, .hex-progress4, .hex-progress5, .hex-progress6, .hex-progress7, .hex-progress8'
     ),
     function (index, value) {
       percent = value.getAttribute('data-progress');
       value
-        .querySelector('.fill, .fill2, .fill3, .fill4, .fill5, .fill6')
+        .querySelector(
+          '.fill, .fill2, .fill3, .fill4, .fill5, .fill6, .fill7, .fill8'
+        )
         .setAttribute(
           'style',
           'stroke-dashoffset: ' + ((100 - percent) / 100) * max
         );
       value.querySelector(
-        '.value, .value2, .value3, .value4, .value5, .value6'
+        '.value, .value2, .value3, .value4, .value5, .value6, .value7, .value8'
       ).innerHTML = percent + '%';
     }
   );
