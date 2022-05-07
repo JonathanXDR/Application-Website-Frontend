@@ -199,24 +199,6 @@ const changeFavicon = () => {
   }
 };
 
-// Word Rotation
-// setInterval(function () {
-//   const show = document.querySelector('.mask span[data-show]');
-//   const next =
-//     show.nextElementSibling || document.querySelector('.mask span:first-child');
-
-//   const up = document.querySelector('.mask span[data-up]');
-
-//   if (up) {
-//     up.removeAttribute('data-up');
-//   }
-
-//   show.removeAttribute('data-show');
-//   show.setAttribute('data-up', '');
-
-//   next.setAttribute('data-show', '');
-// }, 2000);
-
 //Hexagon Progressbars
 var forEach = function (array, callback, scope) {
   for (var i = 0; i < array.length; i++) {

@@ -17,6 +17,7 @@
         $('#cardsHtml').load('./html/cards.html');
         $('#modalHtml').load('./html/modal.html');
         // $('#musicLibraryHtml').load('./html/musicLibrary.html');
+        // $('#galaxyGameHtml').load('./html/galaxyGame.html');
       });
     </script>
 
@@ -163,8 +164,9 @@
                     <span class="eyebrow">Hello ;)</span>I'm Jonathan
                   </h1>
                   <p class="typography-intro large-6 medium-8 small-12">
-                    Hallo mein Name ist Jonathan und ich bin 16 Jahre alt.
-                    Aktuell bin ich im 1. Lehrjahr als Informatiker -
+                    Hallo mein Name ist Jonathan und ich bin
+                    <span id="age"></span> Jahre alt. Aktuell bin ich im
+                    <span id="year"></span>. Lehrjahr als Informatiker -
                     Applikationsentwicklung. Ich wohne in Egg bei Einsiedeln im
                     Kanton Schwyz. Das Programmieren fasziniert mich sehr und
                     ich finde es spannend, was man damit alles erreichen kann.
@@ -555,59 +557,9 @@
       <div id="cardsHtml"></div>
     </section>
 
-    <section id="glichinTriangles">
-      <svg version="1.1">
-        <defs>
-          <polygon
-            id="icon-triangle"
-            class="triangle"
-            fill="none"
-            stroke-width="5"
-            stroke-miterlimit="10"
-            points="73.8,3 39.5,62.4 5.2,3 "
-          />
-        </defs>
-      </svg>
-
-      <div class="triangle__green">
-        <svg class="icon">
-          <use xlink:href="#icon-triangle"></use>
-        </svg>
-        <svg class="icon">
-          <use xlink:href="#icon-triangle"></use>
-        </svg>
-        <svg class="icon">
-          <use xlink:href="#icon-triangle"></use>
-        </svg>
-      </div>
-
-      <div class="triangle__blue">
-        <svg class="icon">
-          <use xlink:href="#icon-triangle"></use>
-        </svg>
-        <svg class="icon">
-          <use xlink:href="#icon-triangle"></use>
-        </svg>
-        <svg class="icon">
-          <use xlink:href="#icon-triangle"></use>
-        </svg>
-      </div>
-
-      <div class="triangle__gray">
-        <svg class="icon">
-          <use xlink:href="#icon-triangle"></use>
-        </svg>
-        <svg class="icon">
-          <use xlink:href="#icon-triangle"></use>
-        </svg>
-        <svg class="icon">
-          <use xlink:href="#icon-triangle"></use>
-        </svg>
-      </div>
-    </section>
-
-    <section id="musicLibrary">
-      <!-- insert Music-Library here -->
+    <section id="personalProjects">
+      <!-- insert Music Library here -->
+      <!-- insert Galaxy Game here -->
     </section>
 
     <section id="projects">
@@ -794,32 +746,6 @@
       </div>
     </section>
 
-    <section id="lockApple">
-      <div id="apple1">
-        <h2>Projects</h2>
-        <span
-          >Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit
-          jedem Projekt, dass ich mache erweitert.</span
-        >
-      </div>
-
-      <div id="apple2">
-        <h2>Projects</h2>
-        <span
-          >Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit
-          jedem Projekt, dass ich mache erweitert.</span
-        >
-      </div>
-
-      <div id="apple3">
-        <h2>Projects</h2>
-        <span
-          >Das sind meine Skills, die ich mitbringe. Diese werden natürlich mit
-          jedem Projekt, dass ich mache erweitert.</span
-        >
-      </div>
-    </section>
-
     <section id="contact">
       <div id="contactContainer">
         <h2 class="paddingBottom30">Kontakt</h2>
@@ -888,6 +814,44 @@
                 <span class="subhead">Swisscom (intern)</span>
               </a></span
             >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="copyright">
+      <div class="copyrightContainer">
+        <p>© 2022 Jonathan Russ. All rights reserved.</p>
+        <div class="flex flex-row mt-2 md:flex-auto md:flex-row-reverse">
+          <div>
+            <a href="" class="w-1 mx-1 md:mx-2"
+              ><a href="" target="_blank" class="hover:text-gray-400"
+                ><span class="text-xl SoMediaIcon fab fa-twitter"></span></a
+            ></a>
+          </div>
+          <div>
+            <a href="" class="w-1 mx-1 md:mx-2"
+              ><a href="" target="_blank" class="hover:text-gray-400"
+                ><span class="text-xl SoMediaIcon fab fa-mastodon"></span></a
+            ></a>
+          </div>
+          <div>
+            <a href="" class="w-1 mx-1 md:mx-2"
+              ><a href="" target="_blank" class="hover:text-gray-400"
+                ><span class="text-xl SoMediaIcon fab fa-github"></span></a
+            ></a>
+          </div>
+          <div>
+            <a href="" class="w-1 mx-1 md:mx-2"
+              ><a href="" target="_blank" class="hover:text-gray-400"
+                ><span class="text-xl SoMediaIcon fab fa-linkedin"></span></a
+            ></a>
+          </div>
+          <div>
+            <a href="" class="w-1 mx-1 md:mx-2"
+              ><a href="" target="_blank" class="hover:text-gray-400"
+                ><span class="text-xl SoMediaIcon fas fa-envelope"></span></a
+            ></a>
           </div>
         </div>
       </div>
