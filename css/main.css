@@ -482,7 +482,8 @@ p {
 /* Sections */
 #about {
   width: 82.5%;
-  margin: 52px auto 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   border-bottom: 1px solid #d2d2d7;
   /* border-bottom: 1px solid #444; */
   padding-bottom: 4em;
@@ -591,11 +592,6 @@ h1 {
 h1 + .typography-intro {
   margin-top: 1.2em;
 }
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
 .eyebrow {
   display: block;
   margin-bottom: 20px;
@@ -650,13 +646,22 @@ html body.dmf h1 {
   /* background: rebeccapurple; */
 }
 
-#skills {
+#languages {
   padding-top: 4em;
+  width: 82.5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#technologies {
+  padding-top: 4em;
+  /* width: 82.5%; */
+  background: var(--color-fill-tertiary);
   /* display: none; */
 }
 
-#skills .wrapper {
-  width: 70%;
+#technologies .wrapper {
+  width: 82.5%;
   margin: 25px auto 0 auto;
   display: grid;
   gap: 25px;
@@ -1031,8 +1036,6 @@ textarea {
   border: 2px solid var(--color-fill-gray);
 }
 
-/*About Me*/
-
 #image {
   z-index: 1;
 }
@@ -1052,26 +1055,6 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-#skillsContainer {
-  position: sticky;
-  width: 70%;
-  background: var(--color-fill-tertiary);
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
-  padding: 30px 30px 60px;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-content: center; */
-}
-
-.languages {
-  width: 82.5%;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /*! CSS Used from: https://www.apple.com/v/mac-pro/l/built/styles/overview.built.css */
@@ -1612,7 +1595,6 @@ sup a:hover {
 }
 @media only screen and (max-width: 1068px) {
   .graph-gallery-container {
-    padding: 48px 60px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -1622,7 +1604,6 @@ sup a:hover {
 @media only screen and (max-width: 735px) {
   .graph-gallery-container {
     height: 100%;
-    padding: 48px 6.25vw;
   }
 }
 .graph-gallery-container .tabnav-wrapper {
@@ -1896,179 +1877,6 @@ sup a:hover {
   flex-basis: 0;
 }
 
-#languageSkillsContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 75px;
-}
-
-#skillsText {
-  /* background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
-  text-align: center;
-}
-
-.languageSkills {
-  width: 800px;
-  max-width: 85vw;
-  height: 4px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.5);
-  overflow: hidden;
-}
-
-.languageSkills:after {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 4px;
-  background: white;
-  animation: load 15s linear;
-}
-@-moz-keyframes load {
-  0% {
-    width: 0;
-  }
-  10% {
-    width: 5%;
-  }
-  20% {
-    width: 15%;
-  }
-  30% {
-    width: 25%;
-  }
-  40% {
-    width: 30%;
-  }
-  50% {
-    width: 44%;
-  }
-  60% {
-    width: 50%;
-  }
-  70% {
-    width: 72%;
-  }
-  80% {
-    width: 84%;
-  }
-  90% {
-    width: 92%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-@-webkit-keyframes load {
-  0% {
-    width: 0;
-  }
-  10% {
-    width: 5%;
-  }
-  20% {
-    width: 15%;
-  }
-  30% {
-    width: 25%;
-  }
-  40% {
-    width: 30%;
-  }
-  50% {
-    width: 44%;
-  }
-  60% {
-    width: 50%;
-  }
-  70% {
-    width: 72%;
-  }
-  80% {
-    width: 84%;
-  }
-  90% {
-    width: 92%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-@-o-keyframes load {
-  0% {
-    width: 0;
-  }
-  10% {
-    width: 5%;
-  }
-  20% {
-    width: 15%;
-  }
-  30% {
-    width: 25%;
-  }
-  40% {
-    width: 30%;
-  }
-  50% {
-    width: 44%;
-  }
-  60% {
-    width: 50%;
-  }
-  70% {
-    width: 72%;
-  }
-  80% {
-    width: 84%;
-  }
-  90% {
-    width: 92%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-@keyframes load {
-  0% {
-    width: 0;
-  }
-  10% {
-    width: 5%;
-  }
-  20% {
-    width: 15%;
-  }
-  30% {
-    width: 25%;
-  }
-  40% {
-    width: 30%;
-  }
-  50% {
-    width: 44%;
-  }
-  60% {
-    width: 50%;
-  }
-  70% {
-    width: 72%;
-  }
-  80% {
-    width: 84%;
-  }
-  90% {
-    width: 92%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
 #contactContainer {
   width: 100%;
   padding-top: 5px;
@@ -2126,8 +1934,7 @@ sup a:hover {
   gap: 10px;
 }
 
-.cardContainer,
-#skillsContainer {
+.cardContainer {
   box-shadow: 2px 4px 12px var(--colorBs);
   transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
 }
