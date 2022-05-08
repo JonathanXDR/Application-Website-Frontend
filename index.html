@@ -15,6 +15,7 @@
     <script>
       $(function () {
         $('#cardsHtml').load('./html/cards.html');
+        $('#technologiesHtml').load('./html/technolgies.html');
         $('#modalHtml').load('./html/modal.html');
         // $('#musicLibraryHtml').load('./html/musicLibrary.html');
         // $('#galaxyGameHtml').load('./html/galaxyGame.html');
@@ -304,8 +305,25 @@
     </section>
 
     <section id="technologies">
-      <!-- insert modal here -->
-      <div id="cardsHtml"></div>
+      <div class="section-max-width">
+        <div class="content-block">
+          <h3 class="typography-magical-headline large-centered headline">
+            A magical connection to your devices.
+          </h3>
+        </div>
+      </div>
+      <div
+        id="connection-gallery"
+        class="gallery"
+        data-component-list="ConnectionGallery"
+        data-analytics-gallery-id="connection-gallery"
+        aria-label="Magical connection to your devices feature gallery."
+      >
+        <div class="content">
+          <!-- insert modal here -->
+          <div id="technologiesHtml"></div>
+        </div>
+      </div>
     </section>
 
     <section id="personalProjects">
@@ -573,38 +591,28 @@
     <section id="copyright">
       <div class="copyrightContainer">
         <p>© 2022 Jonathan Russ. All rights reserved.</p>
-        <div class="flex flex-row mt-2 md:flex-auto md:flex-row-reverse">
-          <div>
-            <a href="" class="w-1 mx-1 md:mx-2"
-              ><a href="" target="_blank" class="hover:text-gray-400"
-                ><span class="text-xl SoMediaIcon fab fa-twitter"></span></a
-            ></a>
-          </div>
-          <div>
-            <a href="" class="w-1 mx-1 md:mx-2"
-              ><a href="" target="_blank" class="hover:text-gray-400"
-                ><span class="text-xl SoMediaIcon fab fa-mastodon"></span></a
-            ></a>
-          </div>
-          <div>
-            <a href="" class="w-1 mx-1 md:mx-2"
-              ><a href="" target="_blank" class="hover:text-gray-400"
-                ><span class="text-xl SoMediaIcon fab fa-github"></span></a
-            ></a>
-          </div>
-          <div>
-            <a href="" class="w-1 mx-1 md:mx-2"
-              ><a href="" target="_blank" class="hover:text-gray-400"
-                ><span class="text-xl SoMediaIcon fab fa-linkedin"></span></a
-            ></a>
-          </div>
-          <div>
-            <a href="" class="w-1 mx-1 md:mx-2"
-              ><a href="" target="_blank" class="hover:text-gray-400"
-                ><span class="text-xl SoMediaIcon fas fa-envelope"></span></a
-            ></a>
-          </div>
-        </div>
+        <ul class="sharesheet-options">
+          <li class="social-option">
+            <a href=""><i class="fa-solid fa-envelope"></i></a>
+          </li>
+
+          <li class="social-option">
+            <a href=""><i class="fa-brands fa-linkedin"></i></a>
+          </li>
+
+          <li class="social-option">
+            <a href=""><i class="fa-brands fa-github"></i></a>
+          </li>
+
+          <li class="social-option">
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+          </li>
+          <li class="social-option">
+            <a href=""
+              ><img src="./img/Swisscom_Horizontal_RGB_Solid_White.svg" alt=""
+            /></a>
+          </li>
+        </ul>
       </div>
     </section>
   </body>
