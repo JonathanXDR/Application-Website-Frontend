@@ -666,10 +666,12 @@ html body.dmf h1 {
 
 #technologies .item-container {
   width: 82.5%;
-  margin: 25px auto 0 auto;
+  margin: 0 auto 0 auto;
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+  list-style: none;
+  padding: 52px 0;
 }
 
 .container,
@@ -1950,8 +1952,8 @@ sup a:hover {
 
 /*Hexagon Progressbar*/
 .cardProgress {
-  width: 160px;
-  height: 200px;
+  width: 75%;
+  height: 225px;
 }
 
 .cardTrack,
@@ -2347,42 +2349,9 @@ h2 {
 
 /* ------------------------------------------------------------ */
 
-#technologies .gallery {
-  padding: 52px 0;
-}
-
-/* ------------------------------------------------------------ */
-
-#technologies .content {
-  position: relative;
-  overflow: hidden;
-}
-
-/* ------------------------------------------------------------ */
-
-@media only screen and (min-width: 1069px) {
-  #technologies .item-container {
-    padding-left: max(20px, calc(50% - 775px));
-  }
-}
-
-#technologies .item-container {
-  min-height: 484px;
-}
-
 ol,
 ul {
   /* margin-left: 1.1764705882em; */
-}
-
-/* ------------------------------------------------------------ */
-
-#technologies .gallery-item {
-  /* position: absolute; */
-  overflow: hidden;
-  height: 100%;
-  --item-width: 383px;
-  width: calc(var(--item-width) + var(--item-gap));
 }
 
 /* ------------------------------------------------------------ */
