@@ -907,7 +907,7 @@ h1 + .typography-intro {
 }
 
 #technologies .item-container {
-  width: 82.5%;
+  width: 95%;
   margin: 0 auto 0 auto;
   display: grid;
   gap: 20px;
