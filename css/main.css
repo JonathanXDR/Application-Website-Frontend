@@ -931,6 +931,10 @@ h1 + .typography-intro {
   perspective-origin: 50% 50vh;
 } */
 
+#gallery-item-siri {
+  display: none;
+}
+
 .gallery-item {
   height: 484px;
 }
@@ -953,11 +957,6 @@ figure {
 }
 figure {
   display: block;
-}
-:focus {
-  outline: 3px solid #c1e0fe;
-  outline: 3px solid rgba(131, 192, 253, 0.5);
-  outline-offset: 1px;
 }
 ::-moz-focus-inner {
   border: 0;
@@ -1844,7 +1843,7 @@ sup a:hover {
 }
 
 .cardTrack {
-  stroke: var(--colorBs);
+  stroke: var(--color-fill-tertiary);
 }
 
 .cardFill {
