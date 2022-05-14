@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*                               General Styles                               */
+/*                                Global Styles                               */
 /* -------------------------------------------------------------------------- */
 
 * {
@@ -292,9 +292,6 @@ input,
 select,
 textarea {
   font-synthesis: none;
-  -moz-font-feature-settings: 'kern';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   direction: ltr;
   text-align: left;
 }
@@ -318,6 +315,19 @@ h1 {
     'Arial', sans-serif;
 }
 
+h1 + .typography-intro {
+  margin-top: 1.2em;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: 0em;
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+}
+
 span {
   color: var(--color-fill-gray-secondary);
   font-size: 16px;
@@ -336,6 +346,51 @@ p {
   letter-spacing: 0.011em;
   font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
     'Arial', sans-serif;
+}
+
+a {
+  width: fit-content;
+  text-decoration: none;
+  color: var(--color-fill-gray);
+}
+
+a {
+  color: #0070c9;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+sup {
+  font-size: 0.6em;
+  vertical-align: top;
+  position: relative;
+  bottom: -0.2em;
+}
+
+sup a {
+  vertical-align: inherit;
+  color: inherit;
+}
+
+sup a:hover {
+  color: #0070c9;
+  text-decoration: none;
 }
 
 /* ----------------------------------- VHS ---------------------------------- */
@@ -819,10 +874,6 @@ input[type='checkbox']#active {
   }
 }
 
-h1 + .typography-intro {
-  margin-top: 1.2em;
-}
-
 .eyebrow {
   display: block;
   margin-bottom: 20px;
@@ -868,26 +919,6 @@ h1 + .typography-intro {
   border: 2px solid var(--color-fill-gray);
 }
 
-/* #image {
-  z-index: 1;
-}
-
-.buttons {
-  display: flex;
-  align-content: center;
-  gap: 16px;
-}
-
-#flexboxContainer {
-  width: 80%;
-  height: 175px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-} */
-
 /* -------------------------------- Languages ------------------------------- */
 
 #languages {
@@ -914,7 +945,6 @@ h1 + .typography-intro {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
-  list-style: none;
   padding: 52px 0;
 }
 
@@ -947,17 +977,6 @@ h1 + .typography-intro {
   /* background: rebeccapurple; */
 }
 
-/*! CSS Used from: https://www.apple.com/v/mac-pro/l/built/styles/overview.built.css */
-ul,
-li,
-p,
-figure {
-  margin: 0;
-  padding: 0;
-}
-figure {
-  display: block;
-}
 ::-moz-focus-inner {
   border: 0;
   padding: 0;
@@ -970,41 +989,12 @@ figure {
     text-decoration: none;
   }
 }
-ul {
-  margin-left: 1.17647em;
-}
-a {
-  color: #0070c9;
-}
-a:link,
-a:visited {
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-a:active {
-  text-decoration: none;
-}
+
 .footnote {
   vertical-align: inherit;
   color: inherit;
 }
 .footnote:hover {
-  color: #0070c9;
-  text-decoration: none;
-}
-sup {
-  font-size: 0.6em;
-  vertical-align: top;
-  position: relative;
-  bottom: -0.2em;
-}
-sup a {
-  vertical-align: inherit;
-  color: inherit;
-}
-sup a:hover {
   color: #0070c9;
   text-decoration: none;
 }
@@ -1965,7 +1955,6 @@ sup a:hover {
 .timeline {
   display: flex !important;
   flex-direction: column;
-  list-style: none;
   transition: all 250ms ease;
   width: 90%;
   margin: 0 auto;
@@ -2085,12 +2074,6 @@ sup a:hover {
   display: block;
 }
 
-a {
-  width: fit-content;
-  text-decoration: none;
-  color: var(--color-fill-gray);
-}
-
 #about .wrapper {
   margin-top: 100px;
   height: 100%;
@@ -2203,15 +2186,6 @@ a {
   padding: 1.25rem 0.75rem 1.25rem 0.75rem;
 }
 
-h2 {
-  font-size: 40px;
-  line-height: 1.1;
-  font-weight: 600;
-  letter-spacing: 0em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-}
-
 .typography-magical-headline {
   font-size: 64px;
   line-height: 1;
@@ -2224,13 +2198,6 @@ h2 {
 .large-centered {
   margin-left: auto;
   margin-right: auto;
-}
-
-/* ------------------------------------------------------------ */
-
-ol,
-ul {
-  /* margin-left: 1.1764705882em; */
 }
 
 /* ------------------------------------------------------------ */
@@ -2360,19 +2327,6 @@ ul {
 
 .tile-overlay-toggle {
   display: none;
-}
-
-body,
-button,
-input,
-select,
-textarea {
-  font-synthesis: none;
-  -moz-font-feature-settings: 'kern';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  direction: ltr;
-  text-align: left;
 }
 
 /* ------------------------------------------------------------ */
@@ -2686,35 +2640,6 @@ textarea {
     opacity 250ms linear;
 }
 
-button:disabled {
-  /* cursor: default; */
-}
-
-body,
-button,
-input,
-select,
-textarea {
-  font-synthesis: none;
-  -moz-font-feature-settings: 'kern';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  direction: ltr;
-  /* text-align: left; */
-}
-
-button {
-  background: none;
-  /* border: 0; */
-  box-sizing: initial;
-  /* color: inherit; */
-  /* cursor: pointer; */
-  font: inherit;
-  /* line-height: inherit; */
-  /* overflow: visible; */
-  vertical-align: inherit;
-}
-
 /* ------------------------------------------------------------ */
 
 #technologies .paddlenav ul button.paddlenav-arrow:after {
@@ -2834,31 +2759,6 @@ button {
   text-align: center;
   transition: background-color 250ms linear, color 250ms linear,
     opacity 250ms linear;
-}
-
-body,
-button,
-input,
-select,
-textarea {
-  font-synthesis: none;
-  -moz-font-feature-settings: 'kern';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  direction: ltr;
-  /* text-align: left; */
-}
-
-button {
-  background: none;
-  /* border: 0; */
-  box-sizing: initial;
-  /* color: inherit; */
-  cursor: pointer;
-  font: inherit;
-  /* line-height: inherit; */
-  /* overflow: visible; */
-  vertical-align: inherit;
 }
 
 /* ------------------------------------------------------------ */
