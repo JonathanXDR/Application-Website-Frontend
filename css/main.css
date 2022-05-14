@@ -76,6 +76,7 @@ body {
   --color-tutorials-overview-navigation-link-active: #f5f5f7;
   --color-tutorials-overview-navigation-link-hover: #a1a1a6;
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
+  --color-welcome-card-shadow: rgba(0, 0, 0, 0.04);
 
   /* Apple Developer Colors */
   --color-fill: #fff;
@@ -225,6 +226,7 @@ body {
   --color-tutorials-overview-navigation-link-active: #f5f5f7;
   --color-tutorials-overview-navigation-link-hover: #a1a1a6;
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
+  --color-welcome-card-shadow: hsla(0, 0%, 100%, 0.04);
 
   /* Apple Developer Colors */
   --color-fill: #000;
@@ -2250,6 +2252,13 @@ ul {
   position: relative;
   overflow: hidden;
   background-color: var(--color-fill);
+  transition: box-shadow, transform 0.16s ease-out;
+  will-change: box-shadow, transform;
+}
+
+.tile:hover {
+  box-shadow: 0 5px 10px var(--color-welcome-card-shadow);
+  transform: scale(1.007);
 }
 
 /* ------------------------------------------------------------ */
