@@ -32,7 +32,8 @@ window.onload = function () {
 
   timelineScrolling();
   age();
-  year();
+  appYear();
+  currentYear();
 };
 
 // Get current system/browser theme
@@ -142,7 +143,7 @@ function age() {
 }
 
 /* --------------------- dynamic year of apprenticeship --------------------- */
-function year() {
+function appYear() {
   // Enter your date of birth
   let d1 = 01; // date
   let m1 = 08; // month
@@ -171,9 +172,14 @@ function year() {
     y = 4;
   }
 
-  document.getElementById('year').textContent = y;
+  document.getElementById('appYear').textContent = y;
 }
 
+/* -------------------------- dynamic current year -------------------------- */
+
+function currentYear() {
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+}
 /* ------------------------------ Vintage Mode ------------------------------ */
 let count = 0;
 const text = document.querySelectorAll('h1, h2, h3, h4, h5, h6, span, button');
