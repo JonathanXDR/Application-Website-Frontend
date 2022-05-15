@@ -6,64 +6,62 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  transition: background 0.5s ease, color 0.5s ease;
 }
 
 html,
 body {
-  width: 100%;
-  height: 100%;
-  background: var(--color-fill);
-  scroll-behavior: smooth;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+  font-size: 17px;
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
     'Arial', sans-serif;
+  background-color: var(--color-fill);
+  color: var(--color-fill-gray);
+  font-style: normal;
 }
 
 .light-theme {
   /* Logos */
-  --languageDE: var(lightmode);
-  --mainLogo: url(/img/logo-light.png);
-  --faviconLogo: url(/img/favicon-dark.png);
+  --url-logo: url(/img/logo-light.png);
+  --url-favicon: url(/img/favicon-dark.png);
 
-  --mainLogoBg: #efefef;
+  --color-logo-background: #efefef;
 
-  --colorBs: rgb(0 0 0 / 8%);
-  --colorBsHover: rgb(0 0 0 / 16%);
-
-  --colorMenuBgIpad: rgba(255, 255, 255, 0.72);
-  --colorMenuBorder: rgba(0, 0, 0, 0.16);
-  --colorTileButton: rgba(0, 0, 0, 0.8);
+  --color-menu: rgba(255, 255, 255, 0.72);
+  --color-menu-border: rgba(0, 0, 0, 0.16);
+  --color-tile-button: rgba(0, 0, 0, 0.8);
 
   /* Apple Colors Light */
-  --AppleLightRed: rgb(255, 59, 48);
-  --AppleLightOrange: rgb(255, 149, 0);
-  --AppleLightYellow: rgb(255, 204, 0);
-  --AppleLightGreen: rgb(52, 199, 89);
-  --AppleLightMint: rgb(0, 199, 190);
-  --AppleLightTeal: rgb(48, 176, 199);
-  --AppleLightCyan: rgb(50, 173, 230);
-  --AppleLightBlue: rgb(0, 122, 255);
-  --AppleLightIndigo: rgb(88, 86, 214);
-  --AppleLightPurple: rgb(175, 82, 222);
-  --AppleLightPink: rgb(255, 45, 85);
-  --AppleLightBrown: rgb(162, 132, 94);
+  --color-light-red: rgb(255, 59, 48);
+  --color-light-orange: rgb(255, 149, 0);
+  --color-light-yellow: rgb(255, 204, 0);
+  --color-light-green: rgb(52, 199, 89);
+  --color-light-mint: rgb(0, 199, 190);
+  --color-light-teal: rgb(48, 176, 199);
+  --color-light-cyan: rgb(50, 173, 230);
+  --color-light-blue: rgb(0, 122, 255);
+  --color-light-indigo: rgb(88, 86, 214);
+  --color-light-purple: rgb(175, 82, 222);
+  --color-light-pink: rgb(255, 45, 85);
+  --color-light-brown: rgb(162, 132, 94);
 
   /* Apple Colors Dark */
-  --AppleDarkRed: rgb(255, 69, 58);
-  --AppleDarkOrange: rgb(255, 159, 10);
-  --AppleDarkYellow: rgb(255, 214, 10);
-  --AppleDarkGreen: rgb(48, 209, 88);
-  --AppleDarkMint: rgb(102, 212, 207);
-  --AppleDarkTeal: rgb(64, 200, 224);
-  --AppleDarkCyan: rgb(100, 210, 255);
-  --AppleDarkBlue: rgb(10, 132, 255);
-  --AppleDarkIndigo: rgb(94, 92, 230);
-  --AppleDarkPurple: rgb(191, 90, 242);
-  --AppleDarkPink: rgb(255, 55, 95);
-  --AppleDarkBrown: rgb(172, 142, 104);
+  --color-dark-red: rgb(255, 69, 58);
+  --color-dark-orange: rgb(255, 159, 10);
+  --color-dark-yellow: rgb(255, 214, 10);
+  --color-dark-green: rgb(48, 209, 88);
+  --color-dark-mint: rgb(102, 212, 207);
+  --color-dark-teal: rgb(64, 200, 224);
+  --color-dark-cyan: rgb(100, 210, 255);
+  --color-dark-blue: rgb(10, 132, 255);
+  --color-dark-indigo: rgb(94, 92, 230);
+  --color-dark-purple: rgb(191, 90, 242);
+  --color-dark-pink: rgb(255, 55, 95);
+  --color-dark-brown: rgb(172, 142, 104);
 
-  /* Apple Special Colors */
-  --AppleMusicRed: #fa243c;
+  /* Special Colors */
+  --color-sub-text: #aaa;
   --color-tutorials-overview-background: radial-gradient(
     circle at center 70%,
     #242424 0%,
@@ -181,49 +179,45 @@ body {
 
 .dark-theme {
   /* Logos */
-  --languageDE: var(darkmode);
-  --mainLogo: url(/img/logo-dark.png);
-  --faviconLogo: url(/img/favicon-light.png);
+  --url-logo: url(/img/logo-dark.png);
+  --url-favicon: url(/img/favicon-light.png);
 
-  --mainLogoBg: #232324;
+  --color-logo-background: #232324;
 
-  --colorBs: rgb(255 255 255 / 8%);
-  --colorBsHover: rgb(255 255 255 / 16%);
-
-  --colorMenuBgIpad: rgba(0, 0, 0, 0.72);
-  --colorMenuBorder: rgba(255, 255, 255, 0.24);
-  --colorTileButton: rgba(255, 255, 255, 0.8);
+  --color-menu: rgba(0, 0, 0, 0.72);
+  --color-menu-border: rgba(255, 255, 255, 0.24);
+  --color-tile-button: rgba(255, 255, 255, 0.8);
 
   /* Apple Colors Light */
-  --AppleLightRed: rgb(255, 59, 48);
-  --AppleLightOrange: rgb(255, 149, 0);
-  --AppleLightYellow: rgb(255, 204, 0);
-  --AppleLightGreen: rgb(52, 199, 89);
-  --AppleLightMint: rgb(0, 199, 190);
-  --AppleLightTeal: rgb(48, 176, 199);
-  --AppleLightCyan: rgb(50, 173, 230);
-  --AppleLightBlue: rgb(0, 122, 255);
-  --AppleLightIndigo: rgb(88, 86, 214);
-  --AppleLightPurple: rgb(175, 82, 222);
-  --AppleLightPink: rgb(255, 45, 85);
-  --AppleLightBrown: rgb(162, 132, 94);
+  --color-light-red: rgb(255, 59, 48);
+  --color-light-orange: rgb(255, 149, 0);
+  --color-light-yellow: rgb(255, 204, 0);
+  --color-light-green: rgb(52, 199, 89);
+  --color-light-mint: rgb(0, 199, 190);
+  --color-light-teal: rgb(48, 176, 199);
+  --color-light-cyan: rgb(50, 173, 230);
+  --color-light-blue: rgb(0, 122, 255);
+  --color-light-indigo: rgb(88, 86, 214);
+  --color-light-purple: rgb(175, 82, 222);
+  --color-light-pink: rgb(255, 45, 85);
+  --color-light-brown: rgb(162, 132, 94);
 
   /* Apple Colors Dark */
-  --AppleDarkRed: rgb(255, 69, 58);
-  --AppleDarkOrange: rgb(255, 159, 10);
-  --AppleDarkYellow: rgb(255, 214, 10);
-  --AppleDarkGreen: rgb(48, 209, 88);
-  --AppleDarkMint: rgb(102, 212, 207);
-  --AppleDarkTeal: rgb(64, 200, 224);
-  --AppleDarkCyan: rgb(100, 210, 255);
-  --AppleDarkBlue: rgb(10, 132, 255);
-  --AppleDarkIndigo: rgb(94, 92, 230);
-  --AppleDarkPurple: rgb(191, 90, 242);
-  --AppleDarkPink: rgb(255, 55, 95);
-  --AppleDarkBrown: rgb(172, 142, 104);
+  --color-dark-red: rgb(255, 69, 58);
+  --color-dark-orange: rgb(255, 159, 10);
+  --color-dark-yellow: rgb(255, 214, 10);
+  --color-dark-green: rgb(48, 209, 88);
+  --color-dark-mint: rgb(102, 212, 207);
+  --color-dark-teal: rgb(64, 200, 224);
+  --color-dark-cyan: rgb(100, 210, 255);
+  --color-dark-blue: rgb(10, 132, 255);
+  --color-dark-indigo: rgb(94, 92, 230);
+  --color-dark-purple: rgb(191, 90, 242);
+  --color-dark-pink: rgb(255, 55, 95);
+  --color-dark-brown: rgb(172, 142, 104);
 
-  /* Apple Special Colors */
-  --AppleMusicRed: #fa243c;
+  /* Special Colors */
+  --color-sub-text: #666;
   --color-tutorials-overview-background: radial-gradient(
     circle at center 70%,
     #242424 0%,
@@ -306,26 +300,6 @@ body {
     0px 0px 60px green;
 }
 
-body,
-button,
-input,
-select,
-textarea {
-  font-synthesis: none;
-  direction: ltr;
-  text-align: left;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  color: var(--color-fill-gray) !important;
-}
-
 h1 + *,
 h2 + *,
 h3 + *,
@@ -345,7 +319,10 @@ h1 {
     'Arial', sans-serif;
 }
 
-h1 + .typography-intro {
+.typography-headline + .typography-intro,
+h1 + .typography-intro,
+.typography-headline + .intro,
+h1 + .intro {
   margin-top: 1.2em;
 }
 
@@ -358,18 +335,44 @@ h2 {
     'Arial', sans-serif;
 }
 
-span {
-  color: var(--color-fill-gray-secondary);
-  font-size: 16px;
-  line-height: 1.2353641176;
+h3 {
+  font-size: 32px;
+  line-height: 1.125;
   font-weight: 600;
-  letter-spacing: -0.022em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
+  letter-spacing: 0.004em;
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
 }
 
-p {
-  color: var(--color-fill-gray);
+h4 {
+  font-size: 24px;
+  line-height: 1.16667;
+  font-weight: 600;
+  letter-spacing: 0.009em;
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+}
+
+h5 {
+  font-size: 19px;
+  line-height: 1.21053;
+  font-weight: 600;
+  letter-spacing: 0.012em;
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+}
+
+h6 {
+  font-size: 12px;
+  line-height: 1.33337;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+}
+
+.typography-intro,
+.intro {
   font-size: 21px;
   line-height: 1.381;
   font-weight: 400;
@@ -379,7 +382,6 @@ p {
 }
 
 a {
-  width: fit-content;
   text-decoration: none;
   color: var(--color-fill-gray);
 }
@@ -389,37 +391,40 @@ ol {
   list-style: none;
 }
 
-sup {
-  font-size: 0.6em;
-  vertical-align: top;
-  position: relative;
-  bottom: -0.2em;
+.eyebrow,
+.eyebrow-hero {
+  display: block;
+  margin-bottom: 20px;
 }
 
-sup a {
-  vertical-align: inherit;
-  color: inherit;
-}
-
-sup a:hover {
-  color: #0070c9;
-  text-decoration: none;
+.typography-eyebrow,
+.eyebrow {
+  font-size: 24px;
+  line-height: 1.16667;
+  font-weight: 600;
+  letter-spacing: 0.009em;
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
 }
 
 .link {
-  color: #06c;
+  color: var(--ribbon-link-color);
   letter-spacing: inherit;
 }
+
 .link:link,
 .link:visited {
   text-decoration: none;
 }
+
 .link:hover {
   text-decoration: underline;
 }
+
 .link:active {
   text-decoration: none;
 }
+
 .link:disabled {
   opacity: 0.32;
 }
@@ -502,15 +507,15 @@ sup a:hover {
 #logoPadding {
   display: flex;
   padding: 0px 15px;
-  background: var(--mainLogoBg);
-  /* border-bottom: 1px solid var(--colorMenuBorder); */
+  background: var(--color-logo-background);
+  /* border-bottom: 1px solid var(--color-menu-border); */
 }
 
 #logo {
   width: 75px;
   height: 52px;
-  content: var(--mainLogo);
-  background: var(--mainLogoBg);
+  content: var(--url-logo);
+  background: var(--color-logo-background);
   object-fit: cover;
 }
 
@@ -528,12 +533,12 @@ sup a:hover {
 .menu-bar {
   width: 100%;
   border-radius: 0px;
-  /* border-bottom: 1px solid var(--colorMenuBorder); */
+  /* border-bottom: 1px solid var(--color-menu-border); */
   height: 52px;
   position: fixed;
   top: 0;
   left: 0;
-  background: var(--colorMenuBgIpad);
+  background-color: var(--color-menu);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   display: flex;
@@ -580,7 +585,7 @@ sup a:hover {
   min-height: 74px;
   border-radius: 40px;
   transform: scale(0.35);
-  border: solid var(--colorMenuBorder);
+  border: solid var(--color-menu-border);
   border-width: 3px;
   box-sizing: content-box;
   margin-left: -26px;
@@ -775,12 +780,12 @@ input[type='checkbox']#active {
 
 /* -------------------------------- Info Bar -------------------------------- */
 
+.infoBar {
+  margin-top: 52px;
+}
+
 .column {
   position: relative;
-}
-:focus {
-  outline: 4px solid rgba(0, 125, 250, 0.6);
-  outline-offset: 1px;
 }
 ::-moz-focus-inner {
   border: 0;
@@ -1120,20 +1125,12 @@ body[data-color-scheme='dark'].dmf .ribbon-blue-to-default {
 /* ---------------------------------- About --------------------------------- */
 
 #about {
+  margin-top: 100px;
   width: 82.5%;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 4em;
   /* display: none; */
-}
-
-.eyebrow {
-  font-size: 24px;
-  line-height: 1.16667;
-  font-weight: 600;
-  letter-spacing: 0.009em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
 }
 
 .subhead {
@@ -1142,20 +1139,6 @@ body[data-color-scheme='dark'].dmf .ribbon-blue-to-default {
 
 .paddingBottom30 {
   padding: 0 0 30px 0;
-}
-
-.typography-intro {
-  font-size: 21px;
-  line-height: 1.381;
-  font-weight: 400;
-  letter-spacing: 0.011em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-}
-
-.eyebrow {
-  display: block;
-  margin-bottom: 20px;
 }
 
 .sharesheet-options {
@@ -1212,6 +1195,16 @@ body[data-color-scheme='dark'].dmf .ribbon-blue-to-default {
   /* border-top: 1px solid #444; */
 }
 
+#references h2 {
+  margin-bottom: 2em;
+}
+
+#references .grid {
+  display: grid;
+  gap: 64px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
 .grid-parent {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1228,10 +1221,6 @@ body[data-color-scheme='dark'].dmf .ribbon-blue-to-default {
 
 .column {
   position: relative;
-}
-:focus {
-  outline: 4px solid rgba(0, 125, 250, 0.6);
-  outline-offset: 1px;
 }
 ::-moz-focus-inner {
   border: 0;
@@ -1263,10 +1252,6 @@ body[data-color-scheme='dark'].dmf .ribbon-blue-to-default {
   max-width: 100%;
   width: 100%;
 }
-.large-centered {
-  margin-left: auto;
-  margin-right: auto;
-}
 .more::before,
 .more::after {
   font-family: 'SF Pro Icons';
@@ -1296,101 +1281,43 @@ body[data-color-scheme='dark'].dmf .ribbon-blue-to-default {
 .more::after {
   content: '';
 }
-h2 {
-  font-size: 40px;
-  line-height: 1.1;
-  font-weight: 600;
-  letter-spacing: 0em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-}
-h3 {
-  font-size: 32px;
-  line-height: 1.125;
-  font-weight: 600;
-  letter-spacing: 0.004em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-}
-.section-content .row {
-  margin-left: -1.5em;
-  margin-right: -1.5em;
-}
-.section-content .row > .column {
-  padding: 1.5em 1.5em;
-}
-.nowrap {
-  white-space: nowrap;
-}
-::-webkit-input-placeholder,
-:-moz-placeholder,
-::-moz-placeholder,
-:-ms-input-placeholder {
-  color: #f5f5f7;
-}
-body main ::-webkit-scrollbar {
-  width: 16px;
-}
-body main ::-webkit-scrollbar-thumb {
-  border: 4px solid transparent;
-  border-radius: 9px;
-  background-clip: content-box;
-  border-color: var(--system-primary);
-  background: var(--system-secondary);
-}
-body main ::-webkit-scrollbar-thumb:hover {
-  background: var(--system-tertiary);
-}
-body main ::-webkit-scrollbar-track {
-  background: var(--system-primary);
-}
 
-html body.dmf a {
-  color: var(--glyph-blue);
-}
-html body.dmf h2,
-html body.dmf h3 {
-  color: var(--glyph-gray);
-}
-html body.dmf .divider-bottom {
-  border-color: #444;
-}
+/* ---------------------------------- Other --------------------------------- */
 
-#main section.section {
-  padding-top: 4em;
-  padding-bottom: 4em;
-}
-#main section .section-content .row {
+#other {
+  padding: 4em 0 4em 0;
+  width: 82.5%;
   margin-left: auto;
   margin-right: auto;
-}
-#main section .section-content .row > .column {
-  padding: 0;
+  border-top: 1px solid #d2d2d7;
+  /* border-top: 1px solid #444; */
 }
 
-#main section.section {
-  padding-top: 4em;
-  padding-bottom: 0;
+#other h2 {
+  ont-weight: 500;
+  font-size: 28px;
+  line-height: 1.25;
 }
-#main section.section .section-content.divider-bottom {
-  border-bottom: 1px solid #d2d2d7;
-  padding-bottom: 4em;
+
+#other .grid {
+  display: grid;
+  gap: 64px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
-#main section .section-content .row {
-  margin-left: 0;
-  margin-right: 0;
+
+.news .article-date:not(:last-child),
+.releases .article-date:not(:last-child) {
+  margin-bottom: 0.4em;
 }
-#main section .section-content .row.header-row {
-  margin-bottom: 2em;
+
+.article-date {
+  color: var(--color-sub-text);
+  margin: 0.5em 0 0.4em 0;
+  font-size: 0.875em;
 }
-#main section .section-content .row > .column {
-  padding: 0;
-}
-#main section .section-content .row.middle-gutter > .column:first-of-type {
-  padding-right: 2em;
-}
-#main section .section-content .row.middle-gutter > .column:last-of-type {
-  padding-left: 2em;
+
+.download-ical {
+  margin-top: 0.5em;
 }
 
 /* ------------------------------ Technologies ------------------------------ */
@@ -1438,9 +1365,11 @@ html body.dmf .divider-bottom {
 /* -------------------------------- Projects -------------------------------- */
 
 #projects {
-  margin-top: 400px;
-  /* display: none; */
-  /* background: rebeccapurple; */
+  padding-top: 150px;
+}
+
+.project {
+  width: 40%;
 }
 
 ::-moz-focus-inner {
@@ -1621,7 +1550,7 @@ html body.dmf .divider-bottom {
   padding: 9px 0 11px;
   margin-top: 2px;
   margin-bottom: 4px;
-  color: #666;
+  color: var(--color-sub-text);
   text-align: left;
   text-decoration: none;
   display: block;
@@ -1647,7 +1576,7 @@ html body.dmf .divider-bottom {
   position: absolute;
   bottom: -5px;
   width: 100%;
-  border-bottom: 1px solid #666;
+  border-bottom: 1px solid var(--color-sub-text);
   content: '';
 }
 .graph-slide .graph-container {
@@ -1707,7 +1636,7 @@ html body.dmf .divider-bottom {
   margin: 0;
   margin-left: 15px;
   top: -3px;
-  opacity: 0;
+  /* opacity: 0; */
   color: #888;
 }
 .graph-slide .graph-container.row-2,
@@ -1864,40 +1793,6 @@ html body.dmf .divider-bottom {
   /* padding: var(--tile-padding); */
   padding-bottom: 0;
   flex-basis: 0;
-}
-
-#contactContainer {
-  width: 100%;
-  padding-top: 5px;
-  background: var(--color-fill-tertiary);
-  text-align: center;
-  padding: 30px 30px 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-content: center;
-}
-
-.cardContainer {
-  width: 100%;
-  background: var(--color-fill-tertiary);
-  padding: 25px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly; /* horizontal zentrieren */
-  align-items: center;
-  gap: 10px;
-}
-
-.cardContainer {
-  box-shadow: 2px 4px 12px var(--colorBs);
-  transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
-}
-
-.cardContainer:hover {
-  box-shadow: 2px 4px 16px var(--colorBsHover);
-  transform: scale3d(1.01, 1.01, 1.01);
 }
 
 /*Hexagon Progressbar*/
@@ -2080,6 +1975,7 @@ html body.dmf .divider-bottom {
   }
 
   .timeline-wrapper {
+    padding: 52px 0;
     display: flex;
     justify-content: center;
   }
@@ -2156,7 +2052,6 @@ html body.dmf .divider-bottom {
 }
 
 #about .wrapper {
-  margin-top: 100px;
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
@@ -2231,11 +2126,6 @@ html body.dmf .divider-bottom {
   letter-spacing: -0.0009em;
   font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
     sans-serif;
-}
-
-.large-centered {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* ------------------------------------------------------------ */
@@ -2346,11 +2236,6 @@ html body.dmf .divider-bottom {
     sans-serif;
 }
 
-.large-centered {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .large-10 {
   flex-basis: 83.3333333333%;
   max-width: 83.3333333333%;
@@ -2397,7 +2282,7 @@ html body.dmf .divider-bottom {
 /* ------------------------------------------------------------ */
 
 .tile .tile-button:hover {
-  background-color: var(--colorTileButton);
+  background-color: var(--color-tile-button);
   color: var(--color-fill);
 }
 

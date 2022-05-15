@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jonathan Russ</title>
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/apple.css" />
-    <link rel="stylesheet" href="css/infoBar.css" />
+    <link rel="stylesheet" href="css/modal.css" />
     <script src="/js/app.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -16,7 +15,7 @@
       $(function () {
         $('#cardsHtml').load('./html/cards.html');
         $('#technologiesHtml').load('./html/technolgies.html');
-        $('#modalHtml').load('./html/modal.html');
+        // $('#modalHtml').load('./html/modal.html');
         // $('#musicLibraryHtml').load('./html/musicLibrary.html');
         // $('#galaxyGameHtml').load('./html/galaxyGame.html');
       });
@@ -69,6 +68,7 @@
           <a href="#about" class="item">About</a>
           <a href="#languages" class="item">Sprachkenntnisse</a>
           <a href="#references" class="item">Referenzen</a>
+          <a href="#other" class="item">Anderes</a>
           <a href="#technologies" class="item">Technologien</a>
           <a href="#projects" class="item">Projekte</a>
         </div>
@@ -109,7 +109,7 @@
 
     <!-- Info Bar -->
     <div
-      class="ribbon acmi-ribbon ribbon-blue-to-default"
+      class="ribbon acmi-ribbon ribbon-blue-to-default infoBar"
       data-analytics-activitymap-region-id="ribbon"
     >
       <div class="ribbon-drop-wrapper">
@@ -131,10 +131,6 @@
         </div>
       </div>
     </div>
-
-    <!-- <div class="infoBar">
-      <span class="subhead">Info: This site is still in development</span>
-    </div> -->
 
     <section id="about">
       <div class="wrapper">
@@ -183,9 +179,9 @@
             <p>
               <a
                 href="https://developer.apple.com/design/human-interface-guidelines/ios/user-interaction/pointers/"
-                class="more"
-                >Learn more <i class="fa-solid fa-angle-right"></i
-              ></a>
+                class="more link"
+                >Learn more
+              </a>
             </p>
           </div>
         </div>
@@ -290,6 +286,11 @@
               <div class="graph-container row row-1">
                 <div class="column large-8 medium-12">
                   <div class="graph-bar bar-1" style="width: 100%"></div>
+                  <div
+                    class="typography-eyebrow-elevated secondary-badge-value"
+                  >
+                    100%
+                  </div>
                   <p class="graph-caption typography-graph-caption">
                     Muttersprache
                   </p>
@@ -299,6 +300,11 @@
                 <div class="column large-8 medium-12">
                   <div class="graph-badge-container">
                     <div class="graph-bar bar-2" style="width: 60%"></div>
+                    <div
+                      class="typography-eyebrow-elevated secondary-badge-value"
+                    >
+                      60%
+                    </div>
                   </div>
                   <p class="graph-caption typography-graph-caption">
                     Fliessend
@@ -309,6 +315,11 @@
                 <div class="column large-8 medium-12">
                   <div class="graph-badge-container">
                     <div class="graph-bar bar-3" style="width: 30%"></div>
+                    <div
+                      class="typography-eyebrow-elevated secondary-badge-value"
+                    >
+                      45%
+                    </div>
                   </div>
                   <p class="graph-caption typography-graph-caption">Gut</p>
                 </div>
@@ -325,8 +336,8 @@
           <h2>Documents</h2>
         </div>
       </div>
-      <div class="row middle-gutter grid-parent">
-        <div class="large-6 small-12 grid-child1">
+      <div class="grid">
+        <div>
           <h3>Files and folders</h3>
           <p>
             Files supports USB drives, SD cards, and file servers. And features
@@ -339,12 +350,12 @@
           <p>
             <a
               href="https://developer.apple.com/documentation/fileprovider"
-              class="more"
+              class="more link"
               >Learn more</a
             >
           </p>
         </div>
-        <div class="large-6 small-12 grid-child2">
+        <div>
           <h3>Fonts</h3>
           <p>
             Your app can contribute fonts for systemwide use, integrate other
@@ -354,11 +365,80 @@
           <p>
             <a
               href="https://developer.apple.com/documentation/uikit/text_display_and_fonts"
-              class="more"
+              class="more link"
               >Learn more</a
             >
           </p>
         </div>
+      </div>
+    </section>
+
+    <section id="other">
+      <div class="row header-row">
+        <div class="column large-centered large-12">
+          <h2>Anderes</h2>
+        </div>
+      </div>
+      <div class="grid">
+        <section class="row-full">
+          <section
+            class="article-image-container column large-2 medium-3 small-12 padding-right-small padding-top-small no-padding-bottom text-right"
+          >
+            <div class="article-image-wrapper">
+              <img
+                class="article-image"
+                src="/img/svg/calendar-pre.svg"
+                width="24"
+                height="24"
+                alt="App Store"
+                data-hires="false"
+              />
+            </div>
+          </section>
+
+          <section
+            class="article-content-container column large-left large-9 medium-9 small-12 no-padding-left padding-right-small padding-top-small no-padding-bottom"
+          >
+            <a
+              class="article-title"
+              href="/news/upcoming-requirements/?id=06302022a"
+              ><h2>
+                Online group event <span class="nowrap">in-app purchases</span>
+              </h2></a
+            >
+
+            <div class="article-text-wrapper">
+              <p class="lighter article-date">Begins June 30, 2022</p>
+              <span class="article-text"
+                ><p>
+                  <span class="nowrap">App Store</span> Review Guideline 3.11
+                  requires apps offering paid online group services to do so via
+                  <span class="nowrap">in-app purchase.</span> Given the recent
+                  resurgence of COVID and its continued impact on in-person
+                  services, we’ve extended the most recent deadline to
+                  <span class="nowrap">June 30, 2022.</span
+                  ><span class="nowrap"></span>
+                </p>
+                <p>
+                  <span class="nowrap"
+                    ><a
+                      class="icon icon-after icon-chevronright link"
+                      href="https://developer.apple.com/news/?id=i71db0mv"
+                      >Learn more</a
+                    ></span
+                  >
+                </p></span
+              >
+              <p class="download-ical">
+                <a
+                  href="/news/upcoming-requirements/?getReminder=06302022a"
+                  class="icon icon-after icon-downloadcircle link"
+                  >Add to calendar</a
+                >
+              </p>
+            </div>
+          </section>
+        </section>
       </div>
     </section>
 
@@ -377,15 +457,9 @@
     </section>
 
     <section id="projects">
-      <header>
-        <div class="poster">
-          <h1 class="poster__heading">
-            Meine Projekte
-            <span class="poster__subheading">2021 - 2025</span>
-            <a href="#first-steps" class="button">Projekte Entdecken</a>
-          </h1>
-        </div>
-      </header>
+      <h3 class="typography-magical-headline large-centered headline">
+        Technologien
+      </h3>
       <div class="timeline-wrapper">
         <div class="svgVertical">
           <svg id="svgTimeline" preserveAspectRatio="none">
@@ -402,161 +476,243 @@
           </svg>
         </div>
 
-        <ol class="timeline clearfix" id="first-steps">
+        <ul class="timeline clearfix" id="first-steps">
           <!-- Item 1 -->
-          <li class="timeline__item">
-            <span class="date">August 2021</span>
-            <h3 class="timeline__day">First Steps</h3>
-            <span class="timeline__day-sum"
-              >Your adventure begins with a one-night stay in Helsinki,
-              Finland's capital.
-            </span>
-            <button class="button scale" onclick="toggleModal()">
-              Mehr Erfahren
-            </button>
+          <li class="project">
+            <h2>App Store marketing tools</h2>
+            <div class="article-text-wrapper">
+              <p class="lighter article-date">May 3, 2022</p>
+              <span class="article-text"
+                ><p>
+                  Added over 20 language options (including Arabic, Chinese,
+                  Portuguese, Spanish, and Turkish) for creating localized
+                  assets. The App Store marketing tools let you create marketing
+                  assets to promote releases, offers, and updates on social
+                  media and more.
+                </p>
+                <p>
+                  <span class="nowrap"
+                    ><a
+                      class="icon icon-after icon-chevronright link"
+                      href="https://tools.applemediaservices.com/app-store/"
+                      >View page</a
+                    ></span
+                  >
+                </p></span
+              >
+            </div>
           </li>
           <!-- Item 2 -->
-          <li class="timeline__item right">
-            <span class="date">August 2021</span>
-            <h3 class="timeline__day dayTwo">Competence Center NEX-CC</h3>
-            <span class="timeline__day-sum"
-              >From Helsinki, your charter flight will take you to Murmansk,
-              Russia, where you'll embark on your voyage to the North Pole and
-              get acquainted with 50 Years of Victory, the world's largest and
-              most powerful icebreaker.</span
-            >
-            <button class="button scale" onclick="toggleModal()">
-              Mehr Erfahren
-            </button>
+          <li class="project right">
+            <h2>App Store marketing tools</h2>
+            <div class="article-text-wrapper">
+              <p class="lighter article-date">May 3, 2022</p>
+              <span class="article-text"
+                ><p>
+                  Added over 20 language options (including Arabic, Chinese,
+                  Portuguese, Spanish, and Turkish) for creating localized
+                  assets. The App Store marketing tools let you create marketing
+                  assets to promote releases, offers, and updates on social
+                  media and more.
+                </p>
+                <p>
+                  <span class="nowrap"
+                    ><a
+                      class="icon icon-after icon-chevronright link"
+                      href="https://tools.applemediaservices.com/app-store/"
+                      >View page</a
+                    ></span
+                  >
+                </p></span
+              >
+            </div>
           </li>
 
           <!-- Item 3 -->
-          <li class="timeline__item lockIte">
-            <span class="date">August 2021</span>
-            <h3 class="timeline__day dayThree">2. Projekt</h3>
-            <span class="timeline__day-sum"
-              >Watching the ship crush through the Arctic ice pack is a sight
-              you'll never forget, made even more memorable by taking a
-              helicopter flight for a thrilling aerial view of the ship and
-              expansive Arctic Ocean.</span
-            >
-            <span class="timeline__day-sum"
-              >You can expect days, and hours,to present variable sailing
-              conditions this far north. The crossing from Murmansk to the North
-              Pole can take us anywhere from 5-8 days. This means you'll have
-              plenty of time to get to know your shipmates, stare out at the
-              horizon, grab some drinks at the bar or do some laps in our indoor
-              pool.</span
-            >
-            <button class="button scale" onclick="toggleModal()">
-              Mehr Erfahren
-            </button>
+          <li class="project">
+            <h2>App Store marketing tools</h2>
+            <div class="article-text-wrapper">
+              <p class="lighter article-date">May 3, 2022</p>
+              <span class="article-text"
+                ><p>
+                  Added over 20 language options (including Arabic, Chinese,
+                  Portuguese, Spanish, and Turkish) for creating localized
+                  assets. The App Store marketing tools let you create marketing
+                  assets to promote releases, offers, and updates on social
+                  media and more.
+                </p>
+                <p>
+                  <span class="nowrap"
+                    ><a
+                      class="icon icon-after icon-chevronright link"
+                      href="https://tools.applemediaservices.com/app-store/"
+                      >View page</a
+                    ></span
+                  >
+                </p></span
+              >
+            </div>
           </li>
 
           <!-- Item 4 -->
-          <li class="timeline__item right lockIte">
-            <span class="date">August 2021</span>
-            <h3 class="timeline__day dayFour">3. Projekt</h3>
-            <span class="timeline__day-sum"
-              >All of the anticipation of the past few days reaches a climax as
-              you reach the North Pole! Many travelers find themselves overcome
-              with emotion, while others are in a festive mood. Take photos,
-              wave a flag, enjoy your moment! Later, everyone enjoys a champagne
-              toast and a BBQ on the ice. Add an exclamation to your success by
-              rising high in one of our hot air balloons to commemerate this
-              great moment.</span
-            >
-            <button class="button scale" onclick="toggleModal()">
-              Mehr Erfahren
-            </button>
+          <li class="project right">
+            <h2>App Store marketing tools</h2>
+            <div class="article-text-wrapper">
+              <p class="lighter article-date">May 3, 2022</p>
+              <span class="article-text"
+                ><p>
+                  Added over 20 language options (including Arabic, Chinese,
+                  Portuguese, Spanish, and Turkish) for creating localized
+                  assets. The App Store marketing tools let you create marketing
+                  assets to promote releases, offers, and updates on social
+                  media and more.
+                </p>
+                <p>
+                  <span class="nowrap"
+                    ><a
+                      class="icon icon-after icon-chevronright link"
+                      href="https://tools.applemediaservices.com/app-store/"
+                      >View page</a
+                    ></span
+                  >
+                </p></span
+              >
+            </div>
           </li>
 
           <!-- Item 5 -->
-          <li class="timeline__item lockIte">
-            <span class="date">August 2021</span>
-            <h3 class="timeline__day dayFive">4. Projekt</h3>
-            <span class="timeline__day-sum"
-              >Now you can sit back and relax, everything from here on out is a
-              bonus! Expect more great memories as you head south, you may get
-              lucky and spot a Polar Bear hunting a Seal.</span
-            >
-            <button class="button scale" onclick="toggleModal()">
-              Mehr Erfahren
-            </button>
+          <li class="project">
+            <h2>App Store marketing tools</h2>
+            <div class="article-text-wrapper">
+              <p class="lighter article-date">May 3, 2022</p>
+              <span class="article-text"
+                ><p>
+                  Added over 20 language options (including Arabic, Chinese,
+                  Portuguese, Spanish, and Turkish) for creating localized
+                  assets. The App Store marketing tools let you create marketing
+                  assets to promote releases, offers, and updates on social
+                  media and more.
+                </p>
+                <p>
+                  <span class="nowrap"
+                    ><a
+                      class="icon icon-after icon-chevronright link"
+                      href="https://tools.applemediaservices.com/app-store/"
+                      >View page</a
+                    ></span
+                  >
+                </p></span
+              >
+            </div>
           </li>
 
           <!-- Item 6 -->
-          <li class="timeline__item right lockIte">
-            <span class="date">August 2021</span>
-            <h3 class="timeline__day daySix">5. Projekt</h3>
-            <span class="timeline__day-sum"
-              >Now you can sit back and relax, everything from here on out is a
-              bonus! Expect more great memories as you head south, you may get
-              lucky and spot a Polar Bear hunting a Seal.</span
-            >
-            <button class="button scale" onclick="toggleModal()">
-              Mehr Erfahren
-            </button>
+          <li class="project right">
+            <h2>App Store marketing tools</h2>
+            <div class="article-text-wrapper">
+              <p class="lighter article-date">May 3, 2022</p>
+              <span class="article-text"
+                ><p>
+                  Added over 20 language options (including Arabic, Chinese,
+                  Portuguese, Spanish, and Turkish) for creating localized
+                  assets. The App Store marketing tools let you create marketing
+                  assets to promote releases, offers, and updates on social
+                  media and more.
+                </p>
+                <p>
+                  <span class="nowrap"
+                    ><a
+                      class="icon icon-after icon-chevronright link"
+                      href="https://tools.applemediaservices.com/app-store/"
+                      >View page</a
+                    ></span
+                  >
+                </p></span
+              >
+            </div>
           </li>
 
           <!-- Item 7 -->
-          <li class="timeline__item lockIte">
-            <span class="date">August 2021</span>
-            <h3 class="timeline__day dayThree">6. Projekt</h3>
-            <span class="timeline__day-sum"
-              >Watching the ship crush through the Arctic ice pack is a sight
-              you'll never forget, made even more memorable by taking a
-              helicopter flight for a thrilling aerial view of the ship and
-              expansive Arctic Ocean.</span
-            >
-            <span class="timeline__day-sum"
-              >You can expect days, and hours,to present variable sailing
-              conditions this far north. The crossing from Murmansk to the North
-              Pole can take us anywhere from 5-8 days. This means you'll have
-              plenty of time to get to know your shipmates, stare out at the
-              horizon, grab some drinks at the bar or do some laps in our indoor
-              pool.</span
-            >
-            <button class="button scale" onclick="toggleModal()">
-              Mehr Erfahren
-            </button>
+          <li class="project">
+            <h2>App Store marketing tools</h2>
+            <div class="article-text-wrapper">
+              <p class="lighter article-date">May 3, 2022</p>
+              <span class="article-text"
+                ><p>
+                  Added over 20 language options (including Arabic, Chinese,
+                  Portuguese, Spanish, and Turkish) for creating localized
+                  assets. The App Store marketing tools let you create marketing
+                  assets to promote releases, offers, and updates on social
+                  media and more.
+                </p>
+                <p>
+                  <span class="nowrap"
+                    ><a
+                      class="icon icon-after icon-chevronright link"
+                      href="https://tools.applemediaservices.com/app-store/"
+                      >View page</a
+                    ></span
+                  >
+                </p></span
+              >
+            </div>
           </li>
 
           <!-- Item 8 -->
-          <li class="timeline__item right lockIte">
-            <span class="date">August 2021</span>
-            <h3 class="timeline__day dayFour">7. Projekt</h3>
-            <span class="timeline__day-sum"
-              >All of the anticipation of the past few days reaches a climax as
-              you reach the North Pole! Many travelers find themselves overcome
-              with emotion, while others are in a festive mood. Take photos,
-              wave a flag, enjoy your moment! Later, everyone enjoys a champagne
-              toast and a BBQ on the ice. Add an exclamation to your success by
-              rising high in one of our hot air balloons to commemerate this
-              great moment.</span
-            >
-            <button class="button scale" onclick="toggleModal()">
-              Mehr Erfahren
-            </button>
+          <li class="project right">
+            <h2>App Store marketing tools</h2>
+            <div class="article-text-wrapper">
+              <p class="lighter article-date">May 3, 2022</p>
+              <span class="article-text"
+                ><p>
+                  Added over 20 language options (including Arabic, Chinese,
+                  Portuguese, Spanish, and Turkish) for creating localized
+                  assets. The App Store marketing tools let you create marketing
+                  assets to promote releases, offers, and updates on social
+                  media and more.
+                </p>
+                <p>
+                  <span class="nowrap"
+                    ><a
+                      class="icon icon-after icon-chevronright link"
+                      href="https://tools.applemediaservices.com/app-store/"
+                      >View page</a
+                    ></span
+                  >
+                </p></span
+              >
+            </div>
           </li>
 
           <!-- Item 9 -->
-          <li class="timeline__item lockIte">
-            <span class="date">August 2021</span>
-            <h3 class="timeline__day dayFive">8. Projekt</h3>
-            <span class="timeline__day-sum"
-              >Now you can sit back and relax, everything from here on out is a
-              bonus! Expect more great memories as you head south, you may get
-              lucky and spot a Polar Bear hunting a Seal.</span
-            >
-            <button class="button scale" onclick="toggleModal()">
-              Mehr Erfahren
-            </button>
+          <li class="project">
+            <h2>App Store marketing tools</h2>
+            <div class="article-text-wrapper">
+              <p class="lighter article-date">May 3, 2022</p>
+              <span class="article-text"
+                ><p>
+                  Added over 20 language options (including Arabic, Chinese,
+                  Portuguese, Spanish, and Turkish) for creating localized
+                  assets. The App Store marketing tools let you create marketing
+                  assets to promote releases, offers, and updates on social
+                  media and more.
+                </p>
+                <p>
+                  <span class="nowrap"
+                    ><a
+                      class="icon icon-after icon-chevronright link"
+                      href="https://tools.applemediaservices.com/app-store/"
+                      >View page</a
+                    ></span
+                  >
+                </p></span
+              >
+            </div>
           </li>
 
           <!-- insert modal here -->
           <div id="modalHtml"></div>
-        </ol>
+        </ul>
       </div>
     </section>
 
