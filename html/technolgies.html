@@ -88,106 +88,97 @@
   <!-- HTML -->
   <li
     id="gallery-item-one-tap"
-    class="gallery-item"
+    class="tile tile-rounded tile-with-overlay tile-one-tap"
     data-ac-gallery-item=""
     role="listitem"
   >
-    <div
-      class="tile tile-rounded tile-with-overlay tile-one-tap"
-      data-component-list="TileOverlay"
-    >
-      <div class="tile-content">
-        <div class="tile-header">
-          <h4 class="tile-headline typography-connection-tile-headline">
+    <div class="tile-content">
+      <div class="tile-header">
+        <h4 class="tile-headline typography-connection-tile-headline">HTML</h4>
+      </div>
+      <div class="tile-body">
+        <div class="copy-block grid-center">
+          <svg
+            class="hex-progress cardProgress noselect"
+            data-progress="85"
+            x="0px"
+            y="0px"
+            viewBox="0 0 776 628"
+          >
+            <path
+              class="track cardTrack"
+              d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+            ></path>
+            <path
+              class="fill cardFill"
+              d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+              stroke="url(#cl1)"
+            ></path>
+            <text class="value cardText cardValue" x="50%" y="61%">0%</text>
+          </svg>
+          <svg width="0" height="0">
+            <defs>
+              <linearGradient
+                id="cl1"
+                gradientUnits="objectBoundingBox"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
+              >
+                <stop stop-color="var(--AppleDarkOrange)" />
+                <stop offset="100%" stop-color="var(--AppleDarkRed)" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <input
+      type="checkbox"
+      class="tile-overlay-toggle"
+      id="html"
+      data-analytics-title="open - one-tap setup"
+      data-analytics-click="prop3:open - one-tap setup"
+      data-analytics-intrapage-link=""
+    />
+    <div class="tile-overlay">
+      <label tabindex="0" class="tile-button-wrapper" for="html">
+        <span class="tile-button">
+          <svg
+            class="tile-icon-alt"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+            ></path>
+          </svg>
+        </span>
+        <span
+          class="tile-button-text"
+          role="button"
+          aria-expanded="false"
+          aria-controls="content-toggle-one-tap"
+        >
+          <span class="visuallyhidden">More about HTML</span>
+        </span>
+      </label>
+      <div
+        class="tile-overlay-content"
+        role="group"
+        aria-label="More content about One-tap setup"
+        aria-hidden="true"
+      >
+        <div class="tile-overlay-header" id="content-toggle-one-tap">
+          <h4 class="tile-overlay-headline typography-connection-tile-headline">
             HTML
           </h4>
         </div>
-        <div class="tile-body">
-          <div class="copy-block grid-center">
-            <svg
-              class="hex-progress cardProgress noselect"
-              data-progress="85"
-              x="0px"
-              y="0px"
-              viewBox="0 0 776 628"
-            >
-              <path
-                class="track cardTrack"
-                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-              ></path>
-              <path
-                class="fill cardFill"
-                d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                stroke="url(#cl1)"
-              ></path>
-              <text class="value cardText cardValue" x="50%" y="61%">0%</text>
-            </svg>
-            <svg width="0" height="0">
-              <defs>
-                <linearGradient
-                  id="cl1"
-                  gradientUnits="objectBoundingBox"
-                  x1="0"
-                  y1="0"
-                  x2="1"
-                  y2="1"
-                >
-                  <stop stop-color="var(--AppleDarkOrange)" />
-                  <stop offset="100%" stop-color="var(--AppleDarkRed)" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-        </div>
-      </div>
-      <input
-        type="checkbox"
-        class="tile-overlay-toggle"
-        id="html"
-        data-analytics-title="open - one-tap setup"
-        data-analytics-click="prop3:open - one-tap setup"
-        data-analytics-intrapage-link=""
-      />
-      <div class="tile-overlay">
-        <label tabindex="0" class="tile-button-wrapper" for="html">
-          <span class="tile-button">
-            <svg
-              class="tile-icon-alt"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <path
-                d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
-              ></path>
-            </svg>
-          </span>
-          <span
-            class="tile-button-text"
-            role="button"
-            aria-expanded="false"
-            aria-controls="content-toggle-one-tap"
-          >
-            <span class="visuallyhidden">More about HTML</span>
-          </span>
-        </label>
-        <div
-          class="tile-overlay-content"
-          role="group"
-          aria-label="More content about One-tap setup"
-          aria-hidden="true"
-        >
-          <div class="tile-overlay-header" id="content-toggle-one-tap">
-            <h4
-              class="tile-overlay-headline typography-connection-tile-headline"
-            >
-              HTML
-            </h4>
-          </div>
-          <div class="tile-overlay-body">
-            <p class="tile-overlay-copy typography-subsection-copy">
-              Das ist die Beschreibung, wie ich HTML erlernt habe.
-            </p>
-          </div>
+        <div class="tile-overlay-body">
+          <p class="tile-overlay-copy typography-subsection-copy">
+            Das ist die Beschreibung, wie ich HTML erlernt habe.
+          </p>
         </div>
       </div>
     </div>

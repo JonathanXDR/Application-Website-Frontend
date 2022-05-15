@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jonathan Russ</title>
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/modal.css" />
     <link rel="stylesheet" href="css/apple.css" />
+    <link rel="stylesheet" href="css/infoBar.css" />
     <script src="/js/app.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -67,10 +67,10 @@
 
         <div class="ulContainer">
           <a href="#about" class="item">About</a>
+          <a href="#languages" class="item">Sprachkenntnisse</a>
+          <a href="#references" class="item">Referenzen</a>
           <a href="#technologies" class="item">Technologien</a>
           <a href="#projects" class="item">Projekte</a>
-          <a href="#contact" class="item">Kontakt</a>
-          <a href="#references" class="item">Referenzen</a>
         </div>
 
         <label class="toggle-btn" id="toggleBtn">
@@ -107,11 +107,36 @@
       </div>
     </nav>
 
-    <section id="about">
-      <!-- <div class="infoBar">
-        <span class="subhead">Info: This site is still in development</span>
-      </div> -->
+    <!-- Info Bar -->
+    <div
+      class="ribbon acmi-ribbon ribbon-blue-to-default"
+      data-analytics-activitymap-region-id="ribbon"
+    >
+      <div class="ribbon-drop-wrapper">
+        <div class="ribbon-content-wrapper">
+          <div class="ribbon-content row">
+            <div class="column large-centered">
+              <p class="typography-caption ac-promo-copy">
+                <a
+                  href="/tvos/whats-new/"
+                  data-analytics-title="See what’s new in tvOS 15"
+                  aria-label="See what’s new in tvOS 15"
+                  class="icon-wrapper promo-trigger ribbon-link"
+                  ><span class="icon-copy">See what’s new in tvOS 15</span
+                  ><span class="more"></span
+                ></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- <div class="infoBar">
+      <span class="subhead">Info: This site is still in development</span>
+    </div> -->
+
+    <section id="about">
       <div class="wrapper">
         <div class="parallax__group info-container">
           <div>
@@ -144,7 +169,7 @@
             <h1 class="typography-hero-headline">
               <span class="eyebrow">Hey ;)</span>I'm Jonathan
             </h1>
-            <p class="typography-intro large-6 medium-8 small-12">
+            <p class="typography-intro medium-8 small-12">
               Hallo mein Name ist Jonathan und ich bin
               <span id="age"></span> Jahre alt. Aktuell bin ich im
               <span id="appYear"></span>. Lehrjahr als Informatiker -
@@ -248,7 +273,7 @@
         </div>
         <div
           id="processor-memory-graph-gallery"
-          class="graph-gallery slide-container large-6"
+          class="graph-gallery slide-container"
           aria-label="processor-memory graph gallery"
           data-ac-gallery-fade=""
           style="height: 271px"
@@ -273,7 +298,7 @@
               <div class="graph-container row row-2">
                 <div class="column large-8 medium-12">
                   <div class="graph-badge-container">
-                    <div class="graph-bar bar-2" style="width: 56.9%"></div>
+                    <div class="graph-bar bar-2" style="width: 60%"></div>
                   </div>
                   <p class="graph-caption typography-graph-caption">
                     Fliessend
@@ -283,13 +308,56 @@
               <div class="graph-container row row-3">
                 <div class="column large-8 medium-12">
                   <div class="graph-badge-container">
-                    <div class="graph-bar bar-3" style="width: 15.4%"></div>
+                    <div class="graph-bar bar-3" style="width: 30%"></div>
                   </div>
                   <p class="graph-caption typography-graph-caption">Gut</p>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="references">
+      <div class="row header-row">
+        <div class="column large-centered large-12">
+          <h2>Documents</h2>
+        </div>
+      </div>
+      <div class="row middle-gutter grid-parent">
+        <div class="large-6 small-12 grid-child1">
+          <h3>Files and folders</h3>
+          <p>
+            Files supports USB drives, SD cards, and file servers. And features
+            like <span class="nowrap">Column View,</span>
+            <span class="nowrap">Quick Actions,</span> and local storage make
+            Files even more powerful. If your app stores and manages user
+            documents, you can implement a File Provider extension to give users
+            access to their content while they’re using other apps.
+          </p>
+          <p>
+            <a
+              href="https://developer.apple.com/documentation/fileprovider"
+              class="more"
+              >Learn more</a
+            >
+          </p>
+        </div>
+        <div class="large-6 small-12 grid-child2">
+          <h3>Fonts</h3>
+          <p>
+            Your app can contribute fonts for systemwide use, integrate other
+            contributed fonts, and choose from several system UI fonts offered
+            through the font picker interface.
+          </p>
+          <p>
+            <a
+              href="https://developer.apple.com/documentation/uikit/text_display_and_fonts"
+              class="more"
+              >Learn more</a
+            >
+          </p>
         </div>
       </div>
     </section>
@@ -489,42 +557,6 @@
           <!-- insert modal here -->
           <div id="modalHtml"></div>
         </ol>
-      </div>
-    </section>
-
-    <section id="references" href="references">
-      <div id="referencesContainer">
-        <h2 class="paddingBottom30">Referenzen</h2>
-
-        <div class="referencesContainerBar">
-          <div class="referencesContainerItem">
-            <strong><span class="subhead">Steve Hess</span></strong>
-            <span>Lernbegleiter & Vorgesetzter</span>
-            <span
-              >Weitere Infos:
-              <a
-                href="https://intranet.swisscom.com/home/profile/i:0e.t%7Cazuread%7Ctaahest6"
-                target="_blank"
-              >
-                <span class="subhead">Swisscom (intern)</span>
-              </a></span
-            >
-          </div>
-
-          <div class="referencesContainerItem">
-            <strong><span class="subhead">Nick Zimmermann</span></strong>
-            <span>Projektanbieter: Competence Center @NEX</span>
-            <span
-              >Weitere Infos:
-              <a
-                href="https://intranet.swisscom.com/home/profile/i:0e.t%7Cazuread%7Ctaazini3"
-                target="_blank"
-              >
-                <span class="subhead">Swisscom (intern)</span>
-              </a></span
-            >
-          </div>
-        </div>
       </div>
     </section>
 

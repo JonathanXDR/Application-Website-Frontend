@@ -76,7 +76,7 @@ function preventScrolling() {
   }
 }
 
-// open and close modal
+/* ------------------------- open & close the modal ------------------------- */
 const eventListener = (event) => {
   if (!document.getElementById('modalBox').contains(event.target)) {
     // alert('Clicked outside Box');
@@ -113,6 +113,7 @@ function toggleModal() {
   }
 }
 
+/* ------------------------------- dynamic age ------------------------------ */
 function age() {
   // Enter your date of birth
   let d1 = 12; // date
@@ -140,6 +141,7 @@ function age() {
   document.getElementById('age').textContent = y;
 }
 
+/* --------------------- dynamic year of apprenticeship --------------------- */
 function year() {
   // Enter your date of birth
   let d1 = 01; // date
@@ -172,7 +174,7 @@ function year() {
   document.getElementById('year').textContent = y;
 }
 
-// Vintage Mode
+/* ------------------------------ Vintage Mode ------------------------------ */
 let count = 0;
 const text = document.querySelectorAll('h1, h2, h3, h4, h5, h6, span, button');
 
@@ -199,14 +201,14 @@ const changeFavicon = () => {
   }
 };
 
-//Hexagon Progressbars
+/* -------------------------- Hexagon Progressbars -------------------------- */
 var forEach = function (array, callback, scope) {
   for (var i = 0; i < array.length; i++) {
     callback.call(scope, i, array[i]);
   }
 };
 
-// Timeline
+/* -------------------------------- Timeline -------------------------------- */
 function timelineScrolling() {
   let ticking = false;
   let last_known_scroll_position = 0;
