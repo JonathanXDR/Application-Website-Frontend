@@ -1219,10 +1219,19 @@ a.icon-wrapper:hover .icon-copy {
   /* border-top: 1px solid #444; */
 }
 
+#other .row h2 {
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: 0em;
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+}
+
 #other h2 {
-  ont-weight: 500;
   font-size: 28px;
   line-height: 1.25;
+  font-weight: 500;
 }
 
 #other .grid {
