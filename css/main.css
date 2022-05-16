@@ -1657,13 +1657,8 @@ a.icon-wrapper:hover .icon-copy {
   width: 290px;
   white-space: initial;
 }
-.graph-gallery-container
-  .tabnav-wrapper
-  .tabnav
-  .tabnav-items
-  .tabnav-item
-  .tabnav-link.current {
-  color: var(--color-fill-gray);
+.current {
+  color: var(--color-fill-gray) !important;
 }
 .graph-gallery-container
   .tabnav-wrapper
