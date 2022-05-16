@@ -1842,7 +1842,6 @@ a.icon-wrapper:hover .icon-copy {
 
 .svgVertical {
   position: absolute;
-  z-index: -1;
 }
 
 .pathTimeline {
