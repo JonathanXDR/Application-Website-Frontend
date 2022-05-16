@@ -803,8 +803,8 @@ input[type='checkbox']#active {
   min-width: 0px;
 }
 .large-centered {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 .more::before,
 .more::after {
@@ -853,13 +853,6 @@ a.icon-wrapper:hover .icon-copy {
   font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
     'Arial', sans-serif;
 }
-.ribbon {
-  overflow: hidden;
-  --ribbon-background-color: #f5f5f7;
-  --ribbon-text-color: #1d1d1f;
-  --ribbon-link-color: #06c;
-  --ribbon-focus-color: rgba(0, 125, 250, 0.6);
-}
 .ribbon-content-wrapper {
   text-align: center;
 }
@@ -898,15 +891,6 @@ a.icon-wrapper:hover .icon-copy {
 .ribbon .ribbon-link {
   color: var(--ribbon-link-color);
 }
-.ribbon-blue-to-default {
-  --ribbon-background-color: #f5f5f7;
-  --ribbon-background-color-initial: #0071e3;
-  --ribbon-text-color: #1d1d1f;
-  --ribbon-text-color-initial: #fff;
-  --ribbon-link-color: #06c;
-  --ribbon-focus-color: rgba(0, 125, 250, 0.6);
-  --ribbon-link-color-initial: #fff;
-}
 .ribbon-blue-to-default .ribbon-content-wrapper {
   background-color: var(--ribbon-background-color-initial);
   -webkit-animation: animate-background-0071e3-f5f5f7 1s
@@ -937,64 +921,6 @@ a.icon-wrapper:hover .icon-copy {
 .ribbon-drop-wrapper {
   -webkit-animation: ribbon-drop 0.8s cubic-bezier(0.42, 0, 0.58, 1) forwards;
   animation: ribbon-drop 0.8s cubic-bezier(0.42, 0, 0.58, 1) forwards;
-}
-
-::-webkit-input-placeholder,
-:-moz-placeholder,
-::-moz-placeholder,
-:-ms-input-placeholder {
-  color: #f5f5f7;
-}
-body main ::-webkit-scrollbar {
-  width: 16px;
-}
-body main ::-webkit-scrollbar-thumb {
-  border: 4px solid transparent;
-  border-radius: 9px;
-  background-clip: content-box;
-  border-color: var(--system-primary);
-  background: var(--system-secondary);
-}
-body main ::-webkit-scrollbar-thumb:hover {
-  background: var(--system-tertiary);
-}
-body main ::-webkit-scrollbar-track {
-  background: var(--system-primary);
-}
-
-html body .ribbon-blue-to-default {
-  --ribbon-background-color: #1d1d1f;
-  --ribbon-background-color-initial: #0071e3;
-  --ribbon-text-color: #f5f5f7;
-  --ribbon-text-color-initial: #fff;
-  --ribbon-link-color: #2997ff;
-  --ribbon-focus-color: rgba(0, 125, 250, 0.6);
-  --ribbon-link-color-initial: #fff;
-}
-html body .ribbon-blue-to-default .ribbon-content-wrapper {
-  background-color: var(--ribbon-background-color-initial);
-  -webkit-animation: animate-background-0071e3-1d1d1f 1s
-    cubic-bezier(0.42, 0, 0.58, 1) 1.8s forwards;
-  animation: animate-background-0071e3-1d1d1f 1s cubic-bezier(0.42, 0, 0.58, 1)
-    1.8s forwards;
-}
-html body .ribbon .ribbon-content {
-  color: var(--ribbon-text-color);
-}
-html body .ribbon-blue-to-default .ribbon-content {
-  color: var(--ribbon-text-color-initial);
-  animation: animate-color-fff-f5f5f7 1s cubic-bezier(0.42, 0, 0.58, 1) 1.8s
-    forwards;
-}
-html body.dmf a {
-  color: var(--glyph-blue);
-}
-
-.ribbon-blue-to-default {
-  --ribbon-background-color: #d7eefa;
-}
-body[data-color-scheme='dark'].dmf .ribbon-blue-to-default {
-  --ribbon-background-color: #20324b;
 }
 
 @-webkit-keyframes animate-background-0071e3-f5f5f7 {
