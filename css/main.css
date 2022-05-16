@@ -1121,7 +1121,7 @@ a.icon-wrapper:hover .icon-copy {
   /* border-top: 1px solid #444; */
 }
 
-#references h2 {
+#references .row.header-row {
   margin-bottom: 2em;
 }
 
@@ -1292,6 +1292,12 @@ a.icon-wrapper:hover .icon-copy {
 
 #projects {
   padding-top: 150px;
+}
+
+#projects h2 {
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 500;
 }
 
 .project {
@@ -1861,7 +1867,7 @@ a.icon-wrapper:hover .icon-copy {
     display: none;
   }
 
-  .timeline {
+  /* .timeline {
     font-size: 105%;
     width: 80%;
     gap: 40px;
@@ -1869,7 +1875,7 @@ a.icon-wrapper:hover .icon-copy {
 
   .poster__heading {
     font-size: 2.25em;
-  }
+  } */
 
   .svgVertical {
     display: none;
@@ -1885,17 +1891,17 @@ a.icon-wrapper:hover .icon-copy {
     display: none;
   }
 
-  .timeline {
+  /* .timeline {
     font-size: 125%;
     width: 82.5%;
   }
 
   .poster__heading {
     font-size: 2.75em;
-  }
+  } */
 
   .timeline-wrapper {
-    padding: 52px 0;
+    padding: 150px 0;
     display: flex;
     justify-content: center;
   }
@@ -1910,9 +1916,9 @@ a.icon-wrapper:hover .icon-copy {
 }
 
 @media screen and (min-width: 75em) {
-  .timeline {
+  /* .timeline {
     font-size: 125%;
-  }
+  } */
 }
 
 .date {
