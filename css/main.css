@@ -783,10 +783,6 @@ input[type='checkbox']#active {
 .infoBar {
   margin-top: 52px;
 }
-
-.column {
-  position: relative;
-}
 ::-moz-focus-inner {
   border: 0;
   padding: 0;
@@ -795,12 +791,6 @@ input[type='checkbox']#active {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-}
-.column {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  min-width: 0px;
 }
 .large-centered {
   margin-left: auto !important;
@@ -1144,10 +1134,6 @@ a.icon-wrapper:hover .icon-copy {
 .grid-child2 {
   grid-area: 1 / 2 / 2 / 3;
 }
-
-.column {
-  position: relative;
-}
 ::-moz-focus-inner {
   border: 0;
   padding: 0;
@@ -1162,12 +1148,7 @@ a.icon-wrapper:hover .icon-copy {
   flex-wrap: wrap;
   flex-direction: row;
 }
-.column {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  min-width: 0px;
-}
+
 .large-6 {
   flex-basis: 50%;
   max-width: 50%;
@@ -1234,6 +1215,10 @@ a.icon-wrapper:hover .icon-copy {
   font-weight: 500;
 }
 
+#other .row.header-row {
+  margin-bottom: 2em;
+}
+
 #other .grid {
   display: grid;
   gap: 64px;
@@ -1253,6 +1238,33 @@ a.icon-wrapper:hover .icon-copy {
 
 .download-ical {
   margin-top: 0.5em;
+}
+
+.row-full {
+  display: flex;
+  /* flex-wrap: wrap; */
+  /* flex-direction: row; */
+  width: 100%;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0 !important;
+}
+
+.padding-right-small {
+  padding-right: 1.5em !important;
+}
+
+.article-image-wrapper {
+  margin-bottom: 1em;
+}
+
+.article-image {
+  margin-top: 0.3em !important;
 }
 
 /* ------------------------------ Technologies ------------------------------ */
