@@ -2325,10 +2325,11 @@ html.reduced-motion
   border-top: 1px solid #d2d2d7;
   border-top: 1px solid #d2d2d7;
   /* border-top: 1px solid #444; */
-}
-
-.copyrightContainer {
   display: flex;
   justify-content: space-between;
   padding: 1.25rem 0.75rem 1.25rem 0.75rem;
+}
+
+#copyright .sharesheet-options {
+  margin-top: 0px;
 }
