@@ -1264,14 +1264,7 @@ a.icon-wrapper:hover .icon-copy {
   position: relative;
   z-index: 1;
 }
-.row::before,
-.row::after {
-  content: ' ';
-  display: table;
-}
-.row::after {
-  clear: both;
-}
+
 .column {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -1357,6 +1350,7 @@ a.icon-wrapper:hover .icon-copy {
     'Arial', sans-serif;
 }
 .typography-graph-caption {
+  color: #888;
   font-size: 17px;
   line-height: 1.47059;
   font-weight: 400;
@@ -1400,19 +1394,19 @@ a.icon-wrapper:hover .icon-copy {
   text-align: center;
   z-index: 1;
 }
-.tabnav .tabnav-items {
+.tabnav-items {
   margin: 0 34px;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
 }
-.tabnav .tabnav-item {
+.tabnav-item {
   display: inline-block;
   border-bottom: 1px solid #d6d6d6;
   list-style: none;
   outline: none;
 }
-.tabnav .tabnav-item:first-child {
+.tabnav-item:first-child {
   padding-left: 0;
 }
 .tabnav-link {
@@ -1422,7 +1416,6 @@ a.icon-wrapper:hover .icon-copy {
   letter-spacing: -0.021em;
   font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
     'Arial', sans-serif;
-  padding: 9px 0 11px;
   margin-top: 2px;
   margin-bottom: 4px;
   color: var(--color-sub-text);
@@ -1446,17 +1439,10 @@ a.icon-wrapper:hover .icon-copy {
   cursor: default;
   z-index: 10;
 }
-.tabnav-link.current:after {
-  left: 0;
-  position: absolute;
-  bottom: -5px;
-  width: 100%;
-  border-bottom: 1px solid var(--color-sub-text);
-  content: '';
-}
 .graph-slide .graph-container {
   position: relative;
   border-radius: 4px;
+  height: 60px;
 }
 .graph-slide .graph-container:last-child {
   padding-bottom: 0;
@@ -1469,7 +1455,7 @@ a.icon-wrapper:hover .icon-copy {
   border-radius: 4px;
   overflow: hidden;
 }
-.graph-slide .graph-container .graph-bar:after {
+.graph-bar {
   content: '';
   position: absolute;
   top: 0;
@@ -1481,8 +1467,8 @@ a.icon-wrapper:hover .icon-copy {
   -webkit-transform: translateX(-101%);
   transform: translateX(-101%);
 }
-.graph-slide .graph-container .graph-bar.bar-2:after,
-.graph-slide .graph-container .graph-bar.bar-3:after {
+.bar-2,
+.bar-3 {
   background: #888;
 }
 .graph-slide .graph-container .graph-caption {
@@ -1526,7 +1512,7 @@ a.icon-wrapper:hover .icon-copy {
   flex-direction: column;
   gap: 40px;
 }
-.graph-slide.animate .graph-container .graph-bar:after {
+.graph-bar {
   -webkit-transition: -webkit-transform 0.75s ease-in-out;
   transition: -webkit-transform 0.75s ease-in-out !important;
   transition: transform 0.75s ease-in-out !important;
@@ -1546,51 +1532,30 @@ a.icon-wrapper:hover .icon-copy {
   display: -ms-flexbox;
   display: flex;
 }
-.graph-gallery-container .tabnav-wrapper {
-  padding-top: 5px;
-  position: relative;
-  width: 290px;
-  overflow: hidden;
-  font-size: 17px;
-}
-.graph-gallery-container .tabnav-wrapper .tabnav {
-  height: 100%;
-  text-align: left;
-  -webkit-overflow-scrolling: touch;
-}
-.graph-gallery-container .tabnav-wrapper .tabnav ul {
-  margin-left: 0;
-}
-.graph-gallery-container .tabnav-wrapper .tabnav .tabnav-items {
+.graph-gallery-container .tabnav-items {
   display: flex;
   flex-direction: column;
   gap: 40px;
   margin: 0;
+  padding-top: 5px;
   list-style: none;
 }
-.graph-gallery-container .tabnav-wrapper .tabnav .tabnav-items .tabnav-item {
+.graph-gallery-container .tabnav-items .tabnav-item {
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
-  display: block;
-  padding-bottom: 10px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border: none !important;
   list-style: none;
   outline: none;
 }
-.graph-gallery-container
-  .tabnav-wrapper
-  .tabnav
-  .tabnav-items
-  .tabnav-item:first-child {
+.graph-gallery-container .tabnav-items .tabnav-item:first-child {
   padding-top: 0;
 }
-.graph-gallery-container
-  .tabnav-wrapper
-  .tabnav
-  .tabnav-items
-  .tabnav-item
-  .tabnav-link {
+.graph-gallery-container .tabnav-items .tabnav-item .tabnav-link {
   font-size: 28px;
   line-height: 1.14286;
   font-weight: 600;
@@ -1599,7 +1564,6 @@ a.icon-wrapper:hover .icon-copy {
     'Arial', sans-serif;
   font-weight: 700;
   color: #888;
-  padding: 6px 0;
   margin: 0;
   text-decoration: none;
   display: block;
@@ -1609,15 +1573,7 @@ a.icon-wrapper:hover .icon-copy {
 .current {
   color: var(--color-fill-gray) !important;
 }
-.graph-gallery-container
-  .tabnav-wrapper
-  .tabnav
-  .tabnav-items
-  .tabnav-item
-  .tabnav-link.current:after {
-  border: none;
-}
-.graph-gallery-container .slide-container {
+.slide-container {
   position: relative;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
@@ -1627,7 +1583,7 @@ a.icon-wrapper:hover .icon-copy {
   padding-left: 50px;
   border-left: 1px solid #d6d6d6;
 }
-.graph-gallery-container .slide-container .graph-gallery-item {
+.slide-container .graph-gallery-item {
   width: 100%;
 }
 /* .graph-gallery-container.will-change .graph-gallery-item {
@@ -1646,7 +1602,7 @@ a.icon-wrapper:hover .icon-copy {
 .graph-gallery-container.will-change .graph-container .secondary-badge-value {
   will-change: opacity;
 } */
-.tabnav .tabnav-items {
+.tabnav-items {
   position: relative;
 }
 
