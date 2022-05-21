@@ -1,5 +1,4 @@
 window.onload = function () {
-  changeFavicon();
   const themeButton = document.getElementById('themeId');
   if (localStorage.getItem('theme') === 'light-theme') {
     setTheme('light-theme');
@@ -9,42 +8,35 @@ window.onload = function () {
     themeButton.checked = true;
   }
 
+  // Get current system/browser theme
+  const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
+  if (darkThemeMq.matches) {
+    setTheme('dark-theme');
+    themeButton.checked = true;
+  } else {
+    setTheme('light-theme');
+    themeButton.checked = false;
+  }
+
+  changeFavicon();
+
   var max = 2160;
-  forEach(
-    document.querySelectorAll(
-      '.hex-progress, .hex-progress2, .hex-progress3, .hex-progress4, .hex-progress5, .hex-progress6, .hex-progress7, .hex-progress8, .hex-progress9, .hex-progress10, .hex-progress11, .hex-progress12'
-    ),
-    function (index, value) {
-      percent = value.getAttribute('data-progress');
-      value
-        .querySelector(
-          '.fill, .fill2, .fill3, .fill4, .fill5, .fill6, .fill7, .fill8, .fill9, .fill10, .fill11, .fill12'
-        )
-        .setAttribute(
-          'style',
-          'stroke-dashoffset: ' + ((100 - percent) / 100) * max
-        );
-      value.querySelector(
-        '.value, .value2, .value3, .value4, .value5, .value6, .value7, .value8, .value9, .value10, .value11, .value12'
-      ).innerHTML = percent + '%';
-    }
-  );
+  forEach(document.querySelectorAll('.hex-progress'), function (index, value) {
+    percent = value.getAttribute('data-progress');
+    value
+      .querySelector('.fill')
+      .setAttribute(
+        'style',
+        'stroke-dashoffset: ' + ((100 - percent) / 100) * max
+      );
+    value.querySelector('.value').innerHTML = percent + '%';
+  });
 
   timelineScrolling();
   age();
   appYear();
   currentYear();
 };
-
-// Get current system/browser theme
-const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
-if (darkThemeMq.matches) {
-  // Theme set to dark.
-  // window.alert('dark');
-} else {
-  // Theme set to light.
-  // window.alert('light');
-}
 
 // function to set a given theme/color-scheme
 function setTheme(themeName) {
@@ -62,6 +54,7 @@ function toggleTheme() {
   changeFavicon();
 }
 
+/* ------------------------------- menu ------------------------------ */
 function hideBurger() {
   document.getElementById('active').checked = false;
   preventScrolling();
@@ -76,6 +69,18 @@ function preventScrolling() {
     $('body').attr('scroll', 'yes');
   }
 }
+
+// const btns = document.getElementsByClassName('btn');
+// for (var i = 0; i < 4; i++) {
+//   btns[i].addEventListener('click', function () {
+//     closeNav();
+//     const current = document.getElementsByClassName('active');
+//     if (current.length > 0) {
+//       current[0].className = current[0].className.replace(' active', '');
+//     }
+//     this.className += ' active';
+//   });
+// }
 
 /* ------------------------- open & close the modal ------------------------- */
 const eventListener = (event) => {
