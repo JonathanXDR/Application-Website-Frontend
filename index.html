@@ -6,20 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jonathan Russ</title>
     <link rel="stylesheet" href="css/main.css" />
-    <!-- <link rel="stylesheet" href="css/modal.css" /> -->
     <script src="/js/app.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <script>
-      $(function () {
-        $('#cardsHtml').load('./html/cards.html');
-        $('#technologiesHtml').load('./html/technolgies.html');
-        // $('#modalHtml').load('./html/modal.html');
-        // $('#musicLibraryHtml').load('./html/musicLibrary.html');
-        // $('#galaxyGameHtml').load('./html/galaxyGame.html');
-      });
-    </script>
 
     <link
       rel="icon"
@@ -227,32 +214,40 @@
         </ul>
 
         <ul class="graph-slide animate slide-container">
-          <li class="graph-container large-8">
-            <div class="graph-bar current" style="width: 100%"></div>
+          <li class="graph-container">
+            <div style="width: 100%">
+              <div class="graph-bar current"></div>
+              <p class="graph-caption typography-graph-caption current">
+                Muttersprache
+              </p>
+            </div>
             <div
               class="typography-eyebrow-elevated secondary-badge-value current"
             >
               100%
             </div>
-            <p class="graph-caption typography-graph-caption current">
-              Muttersprache
-            </p>
           </li>
 
           <li class="graph-container large-8">
-            <div class="graph-bar bar-2" style="width: 60%"></div>
+            <div style="width: 60%">
+              <div class="graph-bar bar-2"></div>
+
+              <p class="graph-caption typography-graph-caption">Fliessend</p>
+            </div>
             <div class="typography-eyebrow-elevated secondary-badge-value">
               60%
             </div>
-            <p class="graph-caption typography-graph-caption">Fliessend</p>
           </li>
 
           <li class="graph-container large-8">
-            <div class="graph-bar bar-3" style="width: 30%"></div>
+            <div style="width: 30%">
+              <div class="graph-bar bar-3"></div>
+
+              <p class="graph-caption typography-graph-caption">Gut</p>
+            </div>
             <div class="typography-eyebrow-elevated secondary-badge-value">
               30%
             </div>
-            <p class="graph-caption typography-graph-caption">Gut</p>
           </li>
         </ul>
       </div>
@@ -395,8 +390,1016 @@
         Technologien
       </h3>
 
-      <!-- insert modal here -->
-      <div id="technologiesHtml"></div>
+      <ul class="item-container" role="list">
+        <!-- HTML -->
+        <li
+          id="gallery-item-one-tap"
+          class="tile tile-rounded tile-with-overlay tile-one-tap"
+          data-ac-gallery-item=""
+          role="listitem"
+        >
+          <div class="tile-content">
+            <div class="tile-header">
+              <h4 class="tile-headline typography-connection-tile-headline">
+                HTML
+              </h4>
+            </div>
+            <div class="tile-body">
+              <div class="copy-block grid-center">
+                <svg
+                  class="hex-progress cardProgress noselect"
+                  data-progress="85"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 776 628"
+                >
+                  <path
+                    class="track cardTrack"
+                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                  ></path>
+                  <path
+                    class="fill cardFill"
+                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    stroke="url(#cl1)"
+                  ></path>
+                  <text class="value cardText cardValue" x="50%" y="61%">
+                    0%
+                  </text>
+                </svg>
+                <svg width="0" height="0">
+                  <defs>
+                    <linearGradient
+                      id="cl1"
+                      gradientUnits="objectBoundingBox"
+                      x1="0"
+                      y1="0"
+                      x2="1"
+                      y2="1"
+                    >
+                      <stop stop-color="var(--color-dark-orange)" />
+                      <stop offset="100%" stop-color="var(--color-dark-red)" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <input
+            type="checkbox"
+            class="tile-overlay-toggle"
+            id="html"
+            data-analytics-title="open - one-tap setup"
+            data-analytics-click="prop3:open - one-tap setup"
+            data-analytics-intrapage-link=""
+          />
+          <div class="tile-overlay">
+            <label tabindex="0" class="tile-button-wrapper" for="html">
+              <span class="tile-button">
+                <svg
+                  class="tile-icon-alt"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                  ></path>
+                </svg>
+              </span>
+              <span
+                class="tile-button-text"
+                role="button"
+                aria-expanded="false"
+                aria-controls="content-toggle-one-tap"
+              >
+                <span class="visuallyhidden">More about HTML</span>
+              </span>
+            </label>
+            <div
+              class="tile-overlay-content"
+              role="group"
+              aria-label="More content about One-tap setup"
+              aria-hidden="true"
+            >
+              <div class="tile-overlay-header" id="content-toggle-one-tap">
+                <h4
+                  class="tile-overlay-headline typography-connection-tile-headline"
+                >
+                  HTML
+                </h4>
+              </div>
+              <div class="tile-overlay-body">
+                <p class="tile-overlay-copy typography-subsection-copy">
+                  Das ist die Beschreibung, wie ich HTML erlernt habe.
+                </p>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- CSS -->
+        <li
+          id="gallery-item-one-tap"
+          class="gallery-item"
+          data-ac-gallery-item=""
+          role="listitem"
+        >
+          <div
+            class="tile tile-rounded tile-with-overlay tile-one-tap"
+            data-component-list="TileOverlay"
+          >
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4 class="tile-headline typography-connection-tile-headline">
+                  CSS
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="copy-block grid-center">
+                  <svg
+                    class="hex-progress2 cardProgress noselect"
+                    data-progress="85"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track2 cardTrack"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill2 cardFill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl2)"
+                    ></path>
+                    <text class="value2 cardText cardValue" x="50%" y="61%">
+                      0%
+                    </text>
+                  </svg>
+                  <svg width="0" height="0">
+                    <defs>
+                      <linearGradient
+                        id="cl2"
+                        gradientUnits="objectBoundingBox"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                      >
+                        <stop stop-color="var(--color-dark-cyan)" />
+                        <stop
+                          offset="100%"
+                          stop-color="var(--color-dark-indigo)"
+                        />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input
+              type="checkbox"
+              class="tile-overlay-toggle"
+              id="css"
+              data-analytics-title="open - one-tap setup"
+              data-analytics-click="prop3:open - one-tap setup"
+              data-analytics-intrapage-link=""
+            />
+            <div class="tile-overlay">
+              <label tabindex="0" class="tile-button-wrapper" for="css">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span
+                  class="tile-button-text"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="content-toggle-one-tap"
+                >
+                  <span class="visuallyhidden">More about CSS</span>
+                </span>
+              </label>
+              <div
+                class="tile-overlay-content"
+                role="group"
+                aria-label="More content about One-tap setup"
+                aria-hidden="true"
+              >
+                <div class="tile-overlay-header" id="content-toggle-one-tap">
+                  <h4
+                    class="tile-overlay-headline typography-connection-tile-headline"
+                  >
+                    CSS
+                  </h4>
+                </div>
+                <div class="tile-overlay-body">
+                  <p class="tile-overlay-copy typography-subsection-copy">
+                    Das ist die Beschreibung, wie ich CSS erlernt habe.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- JavaScript -->
+        <li
+          id="gallery-item-one-tap"
+          class="gallery-item"
+          data-ac-gallery-item=""
+          role="listitem"
+        >
+          <div
+            class="tile tile-rounded tile-with-overlay tile-one-tap"
+            data-component-list="TileOverlay"
+          >
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4 class="tile-headline typography-connection-tile-headline">
+                  JavaScript
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="copy-block grid-center">
+                  <svg
+                    class="hex-progress3 cardProgress noselect"
+                    data-progress="70"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track3 cardTrack"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill3 cardFill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl3)"
+                    ></path>
+                    <text class="value3 cardText cardValue" x="50%" y="61%">
+                      0%
+                    </text>
+                  </svg>
+                  <svg width="0" height="0">
+                    <defs>
+                      <linearGradient
+                        id="cl3"
+                        gradientUnits="objectBoundingBox"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                      >
+                        <stop stop-color="var(--color-dark-yellow)" />
+                        <stop
+                          offset="100%"
+                          stop-color="var(--color-dark-green)"
+                        />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input
+              type="checkbox"
+              class="tile-overlay-toggle"
+              id="javascript"
+              data-analytics-title="open - one-tap setup"
+              data-analytics-click="prop3:open - one-tap setup"
+              data-analytics-intrapage-link=""
+            />
+            <div class="tile-overlay">
+              <label tabindex="0" class="tile-button-wrapper" for="javascript">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span
+                  class="tile-button-text"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="content-toggle-one-tap"
+                >
+                  <span class="visuallyhidden">More about JavaScript</span>
+                </span>
+              </label>
+              <div
+                class="tile-overlay-content"
+                role="group"
+                aria-label="More content about One-tap setup"
+                aria-hidden="true"
+              >
+                <div class="tile-overlay-header" id="content-toggle-one-tap">
+                  <h4
+                    class="tile-overlay-headline typography-connection-tile-headline"
+                  >
+                    JavaScript
+                  </h4>
+                </div>
+                <div class="tile-overlay-body">
+                  <p class="tile-overlay-copy typography-subsection-copy">
+                    Das ist die Beschreibung, wie ich JavaScript erlernt habe.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Node.js -->
+        <li
+          id="gallery-item-one-tap"
+          class="gallery-item"
+          data-ac-gallery-item=""
+          role="listitem"
+        >
+          <div
+            class="tile tile-rounded tile-with-overlay tile-one-tap"
+            data-component-list="TileOverlay"
+          >
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4 class="tile-headline typography-connection-tile-headline">
+                  Node.js
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="copy-block grid-center">
+                  <svg
+                    class="hex-progress4 cardProgress noselect"
+                    data-progress="60"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track4 cardTrack"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill4 cardFill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl4)"
+                    ></path>
+                    <text class="value4 cardText cardValue" x="50%" y="61%">
+                      0%
+                    </text>
+                  </svg>
+                  <svg width="0" height="0">
+                    <defs>
+                      <linearGradient
+                        id="cl4"
+                        gradientUnits="objectBoundingBox"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                      >
+                        <stop stop-color="var(--color-dark-yellow)" />
+                        <stop
+                          offset="100%"
+                          stop-color="var(--color-dark-green)"
+                        />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input
+              type="checkbox"
+              class="tile-overlay-toggle"
+              id="node.js"
+              data-analytics-title="open - one-tap setup"
+              data-analytics-click="prop3:open - one-tap setup"
+              data-analytics-intrapage-link=""
+            />
+            <div class="tile-overlay">
+              <label tabindex="0" class="tile-button-wrapper" for="node.js">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span
+                  class="tile-button-text"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="content-toggle-one-tap"
+                >
+                  <span class="visuallyhidden">More about Node.js</span>
+                </span>
+              </label>
+              <div
+                class="tile-overlay-content"
+                role="group"
+                aria-label="More content about One-tap setup"
+                aria-hidden="true"
+              >
+                <div class="tile-overlay-header" id="content-toggle-one-tap">
+                  <h4
+                    class="tile-overlay-headline typography-connection-tile-headline"
+                  >
+                    Node.js
+                  </h4>
+                </div>
+                <div class="tile-overlay-body">
+                  <p class="tile-overlay-copy typography-subsection-copy">
+                    Das ist die Beschreibung, wie ich Node.js erlernt habe.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- SQL -->
+        <li
+          id="gallery-item-one-tap"
+          class="gallery-item"
+          data-ac-gallery-item=""
+          role="listitem"
+        >
+          <div
+            class="tile tile-rounded tile-with-overlay tile-one-tap"
+            data-component-list="TileOverlay"
+          >
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4 class="tile-headline typography-connection-tile-headline">
+                  SQL
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="copy-block grid-center">
+                  <svg
+                    class="hex-progress5 cardProgress noselect"
+                    data-progress="70"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track5 cardTrack"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill5 cardFill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl5)"
+                    ></path>
+                    <text class="value5 cardText cardValue" x="50%" y="61%">
+                      0%
+                    </text>
+                  </svg>
+                  <svg width="0" height="0">
+                    <defs>
+                      <linearGradient
+                        id="cl5"
+                        gradientUnits="objectBoundingBox"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                      >
+                        <stop stop-color="var(--color-dark-cyan)" />
+                        <stop
+                          offset="100%"
+                          stop-color="var(--color-dark-indigo)"
+                        />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input
+              type="checkbox"
+              class="tile-overlay-toggle"
+              id="sql"
+              data-analytics-title="open - one-tap setup"
+              data-analytics-click="prop3:open - one-tap setup"
+              data-analytics-intrapage-link=""
+            />
+            <div class="tile-overlay">
+              <label tabindex="0" class="tile-button-wrapper" for="sql">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span
+                  class="tile-button-text"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="content-toggle-one-tap"
+                >
+                  <span class="visuallyhidden">More about SQL</span>
+                </span>
+              </label>
+              <div
+                class="tile-overlay-content"
+                role="group"
+                aria-label="More content about One-tap setup"
+                aria-hidden="true"
+              >
+                <div class="tile-overlay-header" id="content-toggle-one-tap">
+                  <h4
+                    class="tile-overlay-headline typography-connection-tile-headline"
+                  >
+                    SQL
+                  </h4>
+                </div>
+                <div class="tile-overlay-body">
+                  <p class="tile-overlay-copy typography-subsection-copy">
+                    Das ist die Beschreibung, wie ich SQL erlernt habe.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Vue.js -->
+        <li
+          id="gallery-item-one-tap"
+          class="gallery-item"
+          data-ac-gallery-item=""
+          role="listitem"
+        >
+          <div
+            class="tile tile-rounded tile-with-overlay tile-one-tap"
+            data-component-list="TileOverlay"
+          >
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4 class="tile-headline typography-connection-tile-headline">
+                  Vue.js
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="copy-block grid-center">
+                  <svg
+                    class="hex-progress6 cardProgress noselect"
+                    data-progress="60"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track6 cardTrack"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill6 cardFill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl6)"
+                    ></path>
+                    <text class="value6 cardText cardValue" x="50%" y="61%">
+                      0%
+                    </text>
+                  </svg>
+                  <svg width="0" height="0">
+                    <defs>
+                      <linearGradient
+                        id="cl6"
+                        gradientUnits="objectBoundingBox"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                      >
+                        <stop stop-color="var(--color-dark-yellow)" />
+                        <stop
+                          offset="100%"
+                          stop-color="var(--color-dark-green)"
+                        />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input
+              type="checkbox"
+              class="tile-overlay-toggle"
+              id="vue.js"
+              data-analytics-title="open - one-tap setup"
+              data-analytics-click="prop3:open - one-tap setup"
+              data-analytics-intrapage-link=""
+            />
+            <div class="tile-overlay">
+              <label tabindex="0" class="tile-button-wrapper" for="vue.js">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span
+                  class="tile-button-text"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="content-toggle-one-tap"
+                >
+                  <span class="visuallyhidden">More about Vue.js</span>
+                </span>
+              </label>
+              <div
+                class="tile-overlay-content"
+                role="group"
+                aria-label="More content about One-tap setup"
+                aria-hidden="true"
+              >
+                <div class="tile-overlay-header" id="content-toggle-one-tap">
+                  <h4
+                    class="tile-overlay-headline typography-connection-tile-headline"
+                  >
+                    Vue.js
+                  </h4>
+                </div>
+                <div class="tile-overlay-body">
+                  <p class="tile-overlay-copy typography-subsection-copy">
+                    Das ist die Beschreibung, wie ich Vue.js erlernt habe.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- TypeScript -->
+        <li
+          id="gallery-item-one-tap"
+          class="gallery-item"
+          data-ac-gallery-item=""
+          role="listitem"
+        >
+          <div
+            class="tile tile-rounded tile-with-overlay tile-one-tap"
+            data-component-list="TileOverlay"
+          >
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4 class="tile-headline typography-connection-tile-headline">
+                  TypeScript
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="copy-block grid-center">
+                  <svg
+                    class="hex-progress7 cardProgress noselect"
+                    data-progress="50"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track7 cardTrack"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill7 cardFill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl7)"
+                    ></path>
+                    <text class="value7 cardText cardValue" x="50%" y="61%">
+                      0%
+                    </text>
+                  </svg>
+                  <svg width="0" height="0">
+                    <defs>
+                      <linearGradient
+                        id="cl7"
+                        gradientUnits="objectBoundingBox"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                      >
+                        <stop stop-color="var(--color-dark-yellow)" />
+                        <stop
+                          offset="100%"
+                          stop-color="var(--color-dark-green)"
+                        />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input
+              type="checkbox"
+              class="tile-overlay-toggle"
+              id="typescript"
+              data-analytics-title="open - one-tap setup"
+              data-analytics-click="prop3:open - one-tap setup"
+              data-analytics-intrapage-link=""
+            />
+            <div class="tile-overlay">
+              <label tabindex="0" class="tile-button-wrapper" for="typescript">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span
+                  class="tile-button-text"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="content-toggle-one-tap"
+                >
+                  <span class="visuallyhidden">More about TypeScript</span>
+                </span>
+              </label>
+              <div
+                class="tile-overlay-content"
+                role="group"
+                aria-label="More content about One-tap setup"
+                aria-hidden="true"
+              >
+                <div class="tile-overlay-header" id="content-toggle-one-tap">
+                  <h4
+                    class="tile-overlay-headline typography-connection-tile-headline"
+                  >
+                    TypeScript
+                  </h4>
+                </div>
+                <div class="tile-overlay-body">
+                  <p class="tile-overlay-copy typography-subsection-copy">
+                    Das ist die Beschreibung, wie ich Typescript erlernt habe.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- C# -->
+        <li
+          id="gallery-item-one-tap"
+          class="gallery-item"
+          data-ac-gallery-item=""
+          role="listitem"
+        >
+          <div
+            class="tile tile-rounded tile-with-overlay tile-one-tap"
+            data-component-list="TileOverlay"
+          >
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4 class="tile-headline typography-connection-tile-headline">
+                  C#
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="copy-block grid-center">
+                  <svg
+                    class="hex-progress8 cardProgress noselect"
+                    data-progress="25"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track8 cardTrack"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill8 cardFill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl8)"
+                    ></path>
+                    <text class="value8 cardText cardValue" x="50%" y="61%">
+                      0%
+                    </text>
+                  </svg>
+                  <svg width="0" height="0">
+                    <defs>
+                      <linearGradient
+                        id="cl8"
+                        gradientUnits="objectBoundingBox"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                      >
+                        <stop stop-color="var(--color-dark-pink)" />
+                        <stop
+                          offset="100%"
+                          stop-color="var(--color-dark-purple)"
+                        />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input
+              type="checkbox"
+              class="tile-overlay-toggle"
+              id="c#"
+              data-analytics-title="open - one-tap setup"
+              data-analytics-click="prop3:open - one-tap setup"
+              data-analytics-intrapage-link=""
+            />
+            <div class="tile-overlay">
+              <label tabindex="0" class="tile-button-wrapper" for="c#">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span
+                  class="tile-button-text"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="content-toggle-one-tap"
+                >
+                  <span class="visuallyhidden">More about C#</span>
+                </span>
+              </label>
+              <div
+                class="tile-overlay-content"
+                role="group"
+                aria-label="More content about One-tap setup"
+                aria-hidden="true"
+              >
+                <div class="tile-overlay-header" id="content-toggle-one-tap">
+                  <h4
+                    class="tile-overlay-headline typography-connection-tile-headline"
+                  >
+                    C#
+                  </h4>
+                </div>
+                <div class="tile-overlay-body">
+                  <p class="tile-overlay-copy typography-subsection-copy">
+                    Das ist die Beschreibung, wie ich C# erlernt habe.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Java -->
+        <li
+          id="gallery-item-one-tap"
+          class="gallery-item"
+          data-ac-gallery-item=""
+          role="listitem"
+        >
+          <div
+            class="tile tile-rounded tile-with-overlay tile-one-tap"
+            data-component-list="TileOverlay"
+          >
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4 class="tile-headline typography-connection-tile-headline">
+                  Java
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="copy-block grid-center">
+                  <svg
+                    class="hex-progress9 cardProgress noselect"
+                    data-progress="10"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track9 cardTrack"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill9 cardFill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl9)"
+                    ></path>
+                    <text class="value9 cardText cardValue" x="50%" y="61%">
+                      0%
+                    </text>
+                  </svg>
+                  <svg width="0" height="0">
+                    <defs>
+                      <linearGradient
+                        id="cl9"
+                        gradientUnits="objectBoundingBox"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                      >
+                        <stop stop-color="var(--color-dark-yellow)" />
+                        <stop
+                          offset="100%"
+                          stop-color="var(--color-dark-green)"
+                        />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input
+              type="checkbox"
+              class="tile-overlay-toggle"
+              id="java"
+              data-analytics-title="open - one-tap setup"
+              data-analytics-click="prop3:open - one-tap setup"
+              data-analytics-intrapage-link=""
+            />
+            <div class="tile-overlay">
+              <label tabindex="0" class="tile-button-wrapper" for="java">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span
+                  class="tile-button-text"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="content-toggle-one-tap"
+                >
+                  <span class="visuallyhidden">More about Java</span>
+                </span>
+              </label>
+              <div
+                class="tile-overlay-content"
+                role="group"
+                aria-label="More content about One-tap setup"
+                aria-hidden="true"
+              >
+                <div class="tile-overlay-header" id="content-toggle-one-tap">
+                  <h4
+                    class="tile-overlay-headline typography-connection-tile-headline"
+                  >
+                    Java
+                  </h4>
+                </div>
+                <div class="tile-overlay-body">
+                  <p class="tile-overlay-copy typography-subsection-copy">
+                    Das ist die Beschreibung, wie ich Java erlernt habe.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
     </section>
 
     <section id="personalProjects">
@@ -728,9 +1731,6 @@
               </p> -->
             </div>
           </li>
-
-          <!-- insert modal here -->
-          <div id="modalHtml"></div>
         </ul>
       </div>
     </section>

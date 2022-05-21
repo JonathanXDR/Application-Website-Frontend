@@ -1440,7 +1440,8 @@ a.icon-wrapper:hover .icon-copy {
   z-index: 10;
 }
 .graph-slide .graph-container {
-  position: relative;
+  display: flex;
+  /* position: relative; */
   border-radius: 4px;
   height: 60px;
 }
@@ -1492,8 +1493,8 @@ a.icon-wrapper:hover .icon-copy {
   opacity: 0;
 }
 .graph-slide .graph-container .secondary-badge-value {
-  position: absolute;
-  display: inline-block;
+  /* position: absolute; */
+  /* display: inline-block; */
   margin: 0;
   margin-left: 15px;
   top: -3px;
