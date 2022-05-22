@@ -790,35 +790,20 @@ input[type='checkbox']#active {
   margin-left: auto !important;
   margin-right: auto !important;
 }
-.more::before,
-.more::after {
-  font-family: 'SF Pro Icons';
-  color: inherit;
+
+.more {
   display: inline-block;
   font-style: normal;
   font-weight: inherit;
-  font-size: inherit;
+  font-size: smaller;
   line-height: 1;
-  text-decoration: underline;
+  text-decoration: none;
   position: relative;
   z-index: 1;
-  alt: '';
-}
-.more::before,
-.more::after {
-  text-decoration: none;
-}
-.more::before {
-  display: none;
-}
-.more::after {
   padding-left: 0.3em;
   top: 0;
 }
-.more::before,
-.more::after {
-  content: '';
-}
+
 .icon-wrapper .more::after {
   display: inline;
   position: static;
