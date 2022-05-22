@@ -54,7 +54,8 @@ function toggleTheme() {
   changeFavicon();
 }
 
-/* ------------------------------- menu ------------------------------ */
+/* ---------------------------------- Menu ---------------------------------- */
+
 function hideBurger() {
   document.getElementById('active').checked = false;
   preventScrolling();
@@ -70,10 +71,11 @@ function preventScrolling() {
   }
 }
 
-// const btns = document.getElementsByClassName('btn');
+// const item = document.getElementsByClassName('item');
 // for (var i = 0; i < 4; i++) {
-//   btns[i].addEventListener('click', function () {
-//     closeNav();
+//   console.log(item);
+//   item[i].addEventListener('click', function () {
+//     hideBurger();
 //     const current = document.getElementsByClassName('active');
 //     if (current.length > 0) {
 //       current[0].className = current[0].className.replace(' active', '');
@@ -82,7 +84,46 @@ function preventScrolling() {
 //   });
 // }
 
-/* ------------------------- open & close the modal ------------------------- */
+// function isIntoView(elem) {
+//   var documentViewTop = $(window).scrollTop();
+//   var documentViewBottom = documentViewTop + $(window).height();
+
+//   var elementTop = $(elem).offset().top;
+//   var elementBottom = elementTop + $(elem).height();
+
+//   return elementBottom <= documentViewBottom && elementTop >= documentViewTop;
+// }
+
+// let lastItertionInView = true;
+
+// $(window).scroll(function () {
+//   var scrollTop = $(window).scrollTop();
+//   var sections = $('section');
+//   var navbarLinks = $('nav ul li a');
+//   var currentId = '';
+//   sections.each(function () {
+//     var section = $(this);
+//     var sectionId = section.attr('id');
+//     var sectionTop = section.offset().top - 80;
+//     var sectionBottom = sectionTop + section.height();
+//     if (scrollTop >= sectionTop && scrollTop <= sectionBottom) {
+//       currentId = sectionId;
+//     }
+//   });
+//   navbarLinks.each(function () {
+//     var link = $(this);
+//     var linkId = link.attr('href').split('#')[1];
+//     if (currentId === linkId) {
+//       link.addClass('active');
+//     } else {
+//       link.removeClass('active');
+//       lastItertionInView = false;
+//     }
+//   });
+// });
+
+/* ---------------------------------- Modal --------------------------------- */
+
 const eventListener = (event) => {
   if (!document.getElementById('modalBox').contains(event.target)) {
     // alert('Clicked outside Box');
@@ -119,7 +160,8 @@ function toggleModal() {
   }
 }
 
-/* ------------------------------- dynamic age ------------------------------ */
+/* ----------------------------------- Age ---------------------------------- */
+
 function age() {
   // Enter your date of birth
   let d1 = 12; // date
@@ -147,7 +189,8 @@ function age() {
   document.getElementById('age').textContent = y;
 }
 
-/* --------------------- dynamic year of apprenticeship --------------------- */
+/* ------------------------- Year Of Apprenticeship ------------------------- */
+
 function appYear() {
   // Enter your date of birth
   let d1 = 01; // date
@@ -180,12 +223,14 @@ function appYear() {
   document.getElementById('appYear').textContent = y;
 }
 
-/* -------------------------- dynamic current year -------------------------- */
+/* ------------------------------ Current Year ------------------------------ */
 
 function currentYear() {
   document.getElementById('currentYear').textContent = new Date().getFullYear();
 }
+
 /* ------------------------------ Vintage Mode ------------------------------ */
+
 let count = 0;
 const text = document.querySelectorAll('h1, h2, h3, h4, h5, h6, span, button');
 
@@ -213,6 +258,7 @@ const changeFavicon = () => {
 };
 
 /* -------------------------- Hexagon Progressbars -------------------------- */
+
 var forEach = function (array, callback, scope) {
   for (var i = 0; i < array.length; i++) {
     callback.call(scope, i, array[i]);
@@ -220,6 +266,7 @@ var forEach = function (array, callback, scope) {
 };
 
 /* -------------------------------- Timeline -------------------------------- */
+
 function timelineScrolling() {
   let ticking = false;
   let last_known_scroll_position = 0;
