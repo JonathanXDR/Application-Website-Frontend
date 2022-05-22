@@ -793,15 +793,9 @@ input[type='checkbox']#active {
 
 .more {
   display: inline-block;
-  font-style: normal;
-  font-weight: inherit;
   font-size: smaller;
-  line-height: 1;
   text-decoration: none;
-  position: relative;
-  z-index: 1;
   padding-left: 0.3em;
-  top: 0;
 }
 
 .icon-wrapper .more::after {
@@ -2241,11 +2235,6 @@ a.icon-wrapper:hover .icon-copy {
   transition: opacity 0.5s ease-in-out;
 }
 
-html.no-js .tile-content,
-html.reduced-motion .tile-content {
-  transition: none;
-}
-
 .expanded .tile-content {
   visibility: hidden;
   opacity: 0;
@@ -2259,22 +2248,9 @@ html.reduced-motion .tile-content {
   transition: transform 0.5s ease-in-out;
 }
 
-html.no-js .tile-overlay-toggle:checked ~ .tile-overlay .tile-button,
-html.reduced-motion .tile-overlay-toggle:checked ~ .tile-overlay .tile-button {
-  transition: none;
-}
-
 .tile-overlay-toggle:checked ~ .tile-overlay .tile-overlay-content {
   opacity: 1;
   visibility: visible;
-}
-
-html.no-js .tile-overlay-toggle:checked ~ .tile-overlay .tile-overlay-content,
-html.reduced-motion
-  .tile-overlay-toggle:checked
-  ~ .tile-overlay
-  .tile-overlay-content {
-  transition: none;
 }
 
 .tile-overlay-toggle:checked ~ .tile-overlay :focus {
