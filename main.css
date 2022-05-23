@@ -798,6 +798,10 @@ input[type='checkbox']#active {
   padding-left: 0.3em;
 }
 
+.article-image {
+  margin-top: 0.3em !important;
+}
+
 .icon-wrapper .more::after {
   display: inline;
   position: static;
