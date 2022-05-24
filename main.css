@@ -404,6 +404,9 @@ ol {
 .link {
   color: var(--ribbon-link-color);
   letter-spacing: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
 }
 
 .link:link,
@@ -789,13 +792,6 @@ input[type='checkbox']#active {
 .large-centered {
   margin-left: auto !important;
   margin-right: auto !important;
-}
-
-.more {
-  display: inline-block;
-  font-size: smaller;
-  text-decoration: none;
-  padding-left: 0.3em;
 }
 
 .article-image {
