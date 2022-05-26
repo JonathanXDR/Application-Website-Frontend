@@ -1,5 +1,5 @@
 window.onload = function () {
-  const themeButton = document.getElementById('themeId');
+  const themeButton = document.getElementById('theme-id');
   if (localStorage.getItem('theme') === 'light-theme') {
     setTheme('light-theme');
     themeButton.checked = false;
@@ -220,13 +220,14 @@ function appYear() {
     y = 4;
   }
 
-  document.getElementById('appYear').textContent = y;
+  document.getElementById('app-year').textContent = y;
 }
 
 /* ------------------------------ Current Year ------------------------------ */
 
 function currentYear() {
-  document.getElementById('currentYear').textContent = new Date().getFullYear();
+  document.getElementById('current-year').textContent =
+    new Date().getFullYear();
 }
 
 /* ------------------------------ Vintage Mode ------------------------------ */
@@ -249,7 +250,7 @@ function countToggles() {
 }
 
 const changeFavicon = () => {
-  const faviconTag = document.getElementById('faviconTag');
+  const faviconTag = document.getElementById('favicon-tag');
   if (localStorage.getItem('theme') === 'dark-theme') {
     faviconTag.href = '/img/favicon-dark.ico';
   } else {
@@ -272,7 +273,7 @@ function timelineScrolling() {
   let last_known_scroll_position = 0;
   let updatePath = false;
 
-  const element = document.getElementById('svgTimeline');
+  const element = document.getElementById('svg-timeline');
   const path = element.querySelector('path');
   let totalLength = 0;
 
