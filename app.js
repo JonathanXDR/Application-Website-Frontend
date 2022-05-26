@@ -29,7 +29,7 @@ window.onload = function () {
         'style',
         'stroke-dashoffset: ' + ((100 - percent) / 100) * max
       );
-    value.querySelector('.value').innerHTML = percent + '%';
+    value.querySelector('.card-text').innerHTML = percent + '%';
   });
 
   timelineScrolling();
@@ -71,56 +71,32 @@ function preventScrolling() {
   }
 }
 
-// const item = document.getElementsByClassName('item');
-// for (var i = 0; i < 4; i++) {
-//   console.log(item);
-//   item[i].addEventListener('click', function () {
-//     hideBurger();
-//     const current = document.getElementsByClassName('active');
-//     if (current.length > 0) {
-//       current[0].className = current[0].className.replace(' active', '');
-//     }
-//     this.className += ' active';
-//   });
-// }
+/* -------------------- Play animations when in viewport -------------------- */
 
-// function isIntoView(elem) {
-//   var documentViewTop = $(window).scrollTop();
-//   var documentViewBottom = documentViewTop + $(window).height();
+const inViewport = (entries, observer) => {
+  entries.forEach((entry) => {
+    entry.target.classList.toggle('is-inViewport', entry.isIntersecting);
+  });
+};
 
-//   var elementTop = $(elem).offset().top;
-//   var elementBottom = elementTop + $(elem).height();
+const Obs = new IntersectionObserver(inViewport);
+const obsOptions = {
+  // Default is null (Browser viewport). Set a specific parent element:
+  root: document.querySelector('#someSpecificParent'),
+  // add 40px inner "margin" area at which the observer starts to calculate:
+  rootMargin: '40px',
+  // Default is 0.0 meaning the callback is called as soon 1 pixel is inside the viewport.
+  // Set to 1.0 to trigger a callback when 100% of the target element is inside the viewport,
+  // or i.e: 0.5 when half of the target element is visible:
+  threshold: 0.5,
+};
+//See: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
 
-//   return elementBottom <= documentViewBottom && elementTop >= documentViewTop;
-// }
-
-// let lastItertionInView = true;
-
-// $(window).scroll(function () {
-//   var scrollTop = $(window).scrollTop();
-//   var sections = $('section');
-//   var navbarLinks = $('nav ul li a');
-//   var currentId = '';
-//   sections.each(function () {
-//     var section = $(this);
-//     var sectionId = section.attr('id');
-//     var sectionTop = section.offset().top - 80;
-//     var sectionBottom = sectionTop + section.height();
-//     if (scrollTop >= sectionTop && scrollTop <= sectionBottom) {
-//       currentId = sectionId;
-//     }
-//   });
-//   navbarLinks.each(function () {
-//     var link = $(this);
-//     var linkId = link.attr('href').split('#')[1];
-//     if (currentId === linkId) {
-//       link.addClass('active');
-//     } else {
-//       link.removeClass('active');
-//       lastItertionInView = false;
-//     }
-//   });
-// });
+// Attach observer to every [data-inviewport] element:
+const ELs_inViewport = document.querySelectorAll('[data-inviewport]');
+ELs_inViewport.forEach((EL) => {
+  Obs.observe(EL, obsOptions);
+});
 
 /* ---------------------------------- Modal --------------------------------- */
 
@@ -280,7 +256,7 @@ function timelineScrolling() {
   let timelineHeight = 0;
 
   setTimeout(() => {
-    timelineHeight = document.getElementById('first-steps').offsetHeight;
+    timelineHeight = document.getElementById('timeline-id').offsetHeight;
     // console.log(Math.ceil(timelineHeight));
     const size = parseInt(Math.ceil(timelineHeight));
     // console.log(size);
@@ -359,6 +335,6 @@ function timelineScrolling() {
 }
 
 if (document.getElementById('timeline') === true) {
-  const timelineHeight = document.getElementById('first-steps').offsetHeight;
+  const timelineHeight = document.getElementById('timeline-id').offsetHeight;
   console.log(timelineHeight);
 }

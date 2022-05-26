@@ -409,6 +409,143 @@ ol {
     'Arial', sans-serif;
 }
 
+.typography-caption {
+  font-size: 12px;
+  line-height: 1.33337;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+}
+
+.badge-value {
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -0.003em;
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+  left: -2px;
+  display: block;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.badge-caption {
+  font-size: 14px;
+  line-height: 1.28583;
+  font-weight: 400;
+  letter-spacing: -0.016em;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+  left: 0;
+  color: #333;
+  display: block;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.badge .badge-value {
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -0.003em;
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+}
+
+.badge .badge-caption {
+  font-size: 14px;
+  line-height: 1.28583;
+  font-weight: 400;
+  letter-spacing: -0.016em;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+}
+
+.typography-eyebrow-elevated {
+  font-size: 28px;
+  line-height: 1.14286;
+  font-weight: 600;
+  letter-spacing: 0.007em;
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+}
+
+.typography-graph-caption {
+  color: #888;
+  color: var(--color-sub-text);
+  font-size: 17px;
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+}
+
+.badge .badge-value {
+  font-size: 56px;
+  line-height: 1.07143;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 2px;
+}
+
+.badge .badge-caption {
+  font-size: 17px;
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+  font-weight: 500;
+  color: #888;
+  display: block;
+}
+
+.typography-magical-headline {
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.0009em;
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+}
+
+.typography-connection-tile-headline {
+  font-size: 24px;
+  line-height: 1.1666666667;
+  font-weight: 600;
+  letter-spacing: 0.009em;
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+}
+
+.typography-siri-utterance {
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.00043em;
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+}
+
+.typography-eyebrow-reduced {
+  font-size: 21px;
+  line-height: 1.1904761905;
+  font-weight: 600;
+  letter-spacing: 0.011em;
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+}
+
 .link {
   color: var(--ribbon-link-color);
   letter-spacing: inherit;
@@ -460,17 +597,6 @@ ol {
     background-position-y: 100%;
   }
 }
-
-/* @keyframes crtAnimation {
-  0% {
-    transform: scaleY(0) scaleX(0);
-    filter: brightness(15) blur(0px);
-  }
-  20% {
-    transform: scaleY(0.02) scaleX(0.8);
-    filter: brightness(15) blur(0px);
-  }
-} */
 
 #darken {
   position: fixed;
@@ -527,7 +653,6 @@ ol {
 /* -------------------------------- Menu Bar -------------------------------- */
 
 .ul-container {
-  /* background: blue; */
   height: 100%;
   display: flex;
   justify-content: flex-end; /* Align menu-points */
@@ -817,15 +942,6 @@ a.icon-wrapper {
 }
 a.icon-wrapper:hover .icon-copy {
   text-decoration: underline;
-}
-
-.typography-caption {
-  font-size: 12px;
-  line-height: 1.33337;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
 }
 
 .ribbon-content-wrapper {
@@ -1235,97 +1351,6 @@ a.icon-wrapper:hover .icon-copy {
   z-index: 1;
 }
 
-.badge-value {
-  font-size: 48px;
-  line-height: 1;
-  font-weight: 400;
-  letter-spacing: -0.003em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-  left: -2px;
-  display: block;
-  white-space: nowrap;
-  position: relative;
-  z-index: 1;
-}
-
-.badge-caption {
-  font-size: 14px;
-  line-height: 1.28583;
-  font-weight: 400;
-  letter-spacing: -0.016em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-  left: 0;
-  color: #333;
-  display: block;
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  z-index: 1;
-}
-
-.badge .badge-value {
-  font-size: 48px;
-  line-height: 1;
-  font-weight: 400;
-  letter-spacing: -0.003em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-}
-
-.badge .badge-caption {
-  font-size: 14px;
-  line-height: 1.28583;
-  font-weight: 400;
-  letter-spacing: -0.016em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-}
-
-.typography-eyebrow-elevated {
-  font-size: 28px;
-  line-height: 1.14286;
-  font-weight: 600;
-  letter-spacing: 0.007em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-}
-
-.typography-graph-caption {
-  color: #888;
-  font-size: 17px;
-  line-height: 1.47059;
-  font-weight: 400;
-  letter-spacing: -0.022em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-}
-
-.badge .badge-value {
-  font-size: 56px;
-  line-height: 1.07143;
-  font-weight: 600;
-  letter-spacing: -0.005em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-  font-weight: 700;
-  color: #111;
-  margin-bottom: 2px;
-}
-
-.badge .badge-caption {
-  font-size: 17px;
-  line-height: 1.47059;
-  font-weight: 400;
-  letter-spacing: -0.022em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-  font-weight: 500;
-  color: #888;
-  display: block;
-}
-
 .tabnav {
   width: 100%;
   position: relative;
@@ -1348,6 +1373,7 @@ a.icon-wrapper:hover .icon-copy {
 .graph-container {
   display: flex;
   height: 60px;
+  width: 100%;
 }
 
 .graph-container:last-child {
@@ -1373,9 +1399,6 @@ a.icon-wrapper:hover .icon-copy {
   padding-top: 10px;
   font-weight: 600;
   opacity: 0;
-}
-
-.graph-caption {
   -webkit-transition: opacity 0.75s ease-in;
   transition: opacity 0.75s ease-in;
   opacity: 1;
@@ -1405,9 +1428,6 @@ a.icon-wrapper:hover .icon-copy {
   opacity: 0;
   color: #888;
   color: var(--color-sub-text);
-}
-
-.secondary-badge-value {
   -webkit-transition: opacity 0.3s ease-in 0.2s;
   transition: opacity 0.3s ease-in 0.2s;
   opacity: 1;
@@ -1531,12 +1551,8 @@ a.icon-wrapper:hover .icon-copy {
   color: var(--color-fill-gray);
   fill: var(--color-fill-gray);
   font-weight: 600;
-  font-size: 25px;
+  font-size: 125px;
   text-anchor: middle;
-}
-
-.card-value {
-  font-size: 150px;
 }
 
 .timeline::before,
@@ -1811,19 +1827,9 @@ a.icon-wrapper:hover .icon-copy {
   }
 }
 
-.typography-magical-headline {
-  font-size: 64px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: -0.0009em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
-}
-
-/* ------------------------------------------------------------ */
-
 .tile {
-  height: 100%;
+  height: 400px;
+  /* height: 484px; */
   position: relative;
   background-color: var(--color-fill);
   border-radius: 18px;
@@ -1835,8 +1841,6 @@ a.icon-wrapper:hover .icon-copy {
   transform: scale(1.007);
 }
 
-/* ------------------------------------------------------------ */
-
 .tile-content {
   height: 100%;
   display: grid;
@@ -1847,46 +1851,27 @@ a.icon-wrapper:hover .icon-copy {
   transition: opacity 0.5s ease-in-out;
 }
 
-/* ------------------------------------------------------------ */
-
 .tile-header {
   text-align: left;
   grid-area: tile-header;
   padding-left: 45px;
 }
 
-/* ------------------------------------------------------------ */
-
-.tile .tile-headline {
+.tile-headline {
   display: inline-block;
   bottom: 30px;
   width: 270px;
 }
-
-.typography-connection-tile-headline {
-  font-size: 24px;
-  line-height: 1.1666666667;
-  font-weight: 600;
-  letter-spacing: 0.009em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
-}
-
-/* ------------------------------------------------------------ */
 
 .tile-body {
   grid-area: tile-body;
   display: grid;
 }
 
-/* ------------------------------------------------------------ */
-
 .grid-center {
   align-self: center;
   justify-self: center;
 }
-
-/* ------------------------------------------------------------ */
 
 .tile-siri .siri-utterance {
   display: inline-block;
@@ -1894,27 +1879,14 @@ a.icon-wrapper:hover .icon-copy {
   -webkit-text-fill-color: transparent;
 }
 
-.typography-siri-utterance {
-  font-size: 42px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: -0.00043em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
-}
-
 .large-10 {
   flex-basis: 83.3333333333%;
   max-width: 83.3333333333%;
 }
 
-/* ------------------------------------------------------------ */
-
 .tile-overlay-toggle {
   display: none;
 }
-
-/* ------------------------------------------------------------ */
 
 .tile-button-wrapper {
   width: 37px;
@@ -1927,8 +1899,6 @@ a.icon-wrapper:hover .icon-copy {
   align-items: center;
   position: absolute;
 }
-
-/* ------------------------------------------------------------ */
 
 .tile-button:hover {
   background-color: var(--color-tile-button);
@@ -1949,8 +1919,6 @@ a.icon-wrapper:hover .icon-copy {
   z-index: 2;
 }
 
-/* ------------------------------------------------------------ */
-
 .tile-icon-alt {
   fill: currentColor;
   width: 50%;
@@ -1960,15 +1928,11 @@ a.icon-wrapper:hover .icon-copy {
   transform: translateX(-50%);
 }
 
-/* ------------------------------------------------------------ */
-
 .tile-button-text {
   position: absolute;
   width: 100%;
   height: 100%;
 }
-
-/* ------------------------------------------------------------ */
 
 .visuallyhidden {
   position: absolute;
@@ -1981,8 +1945,6 @@ a.icon-wrapper:hover .icon-copy {
   padding: 0;
   border: 0;
 }
-
-/* ------------------------------------------------------------ */
 
 .tile-overlay-content {
   box-sizing: border-box;
@@ -2003,22 +1965,15 @@ a.icon-wrapper:hover .icon-copy {
   border-radius: 18px;
 }
 
-/* ------------------------------------------------------------ */
-
 .tile-overlay-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* ------------------------------------------------------------ */
-
 .tile-overlay-copy {
   margin-top: 0.8em;
-  max-width: var(--tile-overlay-copy-max-width);
 }
-
-/* ------------------------------------------------------------ */
 
 .tile-announce-notifications .tile-content .copy-block {
   display: grid;
@@ -2026,19 +1981,6 @@ a.icon-wrapper:hover .icon-copy {
   color: var(--color-fill-gray-secondary) !important;
   padding: 0 40px;
 }
-
-/* ------------------------------------------------------------ */
-
-.typography-eyebrow-reduced {
-  font-size: 21px;
-  line-height: 1.1904761905;
-  font-weight: 600;
-  letter-spacing: 0.011em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
-}
-
-/* ------------------------------------------------------------ */
 
 .expanded .tile-content {
   visibility: hidden;
@@ -2064,8 +2006,6 @@ a.icon-wrapper:hover .icon-copy {
   width: 82.5%;
   margin: 100px auto 0 auto;
   border-top: 1px solid #d2d2d7;
-  border-top: 1px solid #d2d2d7;
-
   display: flex;
   justify-content: space-between;
   padding: 1.25rem 0.75rem 1.25rem 0.75rem;
