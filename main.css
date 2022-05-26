@@ -18,43 +18,15 @@ body {
 }
 
 .light-theme {
-  /* Logos */
+  /* Logo */
   --url-logo: url(/img/logo-light.png);
   --url-favicon: url(/img/favicon-dark.png);
-
   --color-logo-background: #efefef;
 
+  /* Menu */
   --color-menu: rgba(255, 255, 255, 0.72);
   --color-menu-border: rgba(0, 0, 0, 0.16);
   --color-tile-button: rgba(0, 0, 0, 0.8);
-
-  /* Apple Colors Light */
-  --color-light-red: rgb(255, 59, 48);
-  --color-light-orange: rgb(255, 149, 0);
-  --color-light-yellow: rgb(255, 204, 0);
-  --color-light-green: rgb(52, 199, 89);
-  --color-light-mint: rgb(0, 199, 190);
-  --color-light-teal: rgb(48, 176, 199);
-  --color-light-cyan: rgb(50, 173, 230);
-  --color-light-blue: rgb(0, 122, 255);
-  --color-light-indigo: rgb(88, 86, 214);
-  --color-light-purple: rgb(175, 82, 222);
-  --color-light-pink: rgb(255, 45, 85);
-  --color-light-brown: rgb(162, 132, 94);
-
-  /* Apple Colors Dark */
-  --color-dark-red: rgb(255, 69, 58);
-  --color-dark-orange: rgb(255, 159, 10);
-  --color-dark-yellow: rgb(255, 214, 10);
-  --color-dark-green: rgb(48, 209, 88);
-  --color-dark-mint: rgb(102, 212, 207);
-  --color-dark-teal: rgb(64, 200, 224);
-  --color-dark-cyan: rgb(100, 210, 255);
-  --color-dark-blue: rgb(10, 132, 255);
-  --color-dark-indigo: rgb(94, 92, 230);
-  --color-dark-purple: rgb(191, 90, 242);
-  --color-dark-pink: rgb(255, 55, 95);
-  --color-dark-brown: rgb(172, 142, 104);
 
   /* Special Colors */
   --color-sub-text: #666;
@@ -82,7 +54,7 @@ body {
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-welcome-card-shadow: rgba(0, 0, 0, 0.04);
 
-  /* Apple Developer Colors */
+  /* Dev Colors */
   --color-fill: #fff;
   --color-fill-secondary: #fbfbfd;
   --color-fill-tertiary: #f5f5f7;
@@ -174,47 +146,25 @@ body {
 }
 
 .dark-theme {
-  /* Logos */
+  /* Logo */
   --url-logo: url(/img/logo-dark.png);
   --url-favicon: url(/img/favicon-light.png);
-
   --color-logo-background: #232324;
 
+  /* Menu */
   --color-menu: rgba(0, 0, 0, 0.72);
   --color-menu-border: rgba(255, 255, 255, 0.24);
   --color-tile-button: rgba(255, 255, 255, 0.8);
 
-  /* Apple Colors Light */
-  --color-light-red: rgb(255, 59, 48);
-  --color-light-orange: rgb(255, 149, 0);
-  --color-light-yellow: rgb(255, 204, 0);
-  --color-light-green: rgb(52, 199, 89);
-  --color-light-mint: rgb(0, 199, 190);
-  --color-light-teal: rgb(48, 176, 199);
-  --color-light-cyan: rgb(50, 173, 230);
-  --color-light-blue: rgb(0, 122, 255);
-  --color-light-indigo: rgb(88, 86, 214);
-  --color-light-purple: rgb(175, 82, 222);
-  --color-light-pink: rgb(255, 45, 85);
-  --color-light-brown: rgb(162, 132, 94);
-  --color-dark-red: rgb(255, 69, 58);
-  --color-dark-orange: rgb(255, 159, 10);
-  --color-dark-yellow: rgb(255, 214, 10);
-  --color-dark-green: rgb(48, 209, 88);
-  --color-dark-mint: rgb(102, 212, 207);
-  --color-dark-teal: rgb(64, 200, 224);
-  --color-dark-cyan: rgb(100, 210, 255);
-  --color-dark-blue: rgb(10, 132, 255);
-  --color-dark-indigo: rgb(94, 92, 230);
-  --color-dark-purple: rgb(191, 90, 242);
-  --color-dark-pink: rgb(255, 55, 95);
-  --color-dark-brown: rgb(172, 142, 104);
+  /* Special Colors */
   --color-sub-text: #aaa;
   --color-tutorials-overview-background: radial-gradient(
     circle at center 70%,
     #242424 0%,
     #0c0c0c 100%
   );
+
+  /* Infobar */
   --ribbon-background-color: #20324b;
   --ribbon-background-color-initial: #0071e3;
   --ribbon-text-color: #f5f5f7;
@@ -230,6 +180,8 @@ body {
   --color-tutorials-overview-navigation-link-hover: #a1a1a6;
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-welcome-card-shadow: hsla(0, 0%, 100%, 0.04);
+
+  /* Dev Colors */
   --color-fill: #000;
   --color-fill-secondary: #161617;
   --color-fill-tertiary: #1d1d1f;
@@ -277,6 +229,36 @@ body {
     --color-nav-dark-solid-background
   );
   --color-tutorial-navbar-dropdown-border: var(--color-fill-gray-tertiary);
+}
+
+:root {
+  /* Light Colors */
+  --color-light-red: rgb(255, 59, 48);
+  --color-light-orange: rgb(255, 149, 0);
+  --color-light-yellow: rgb(255, 204, 0);
+  --color-light-green: rgb(52, 199, 89);
+  --color-light-mint: rgb(0, 199, 190);
+  --color-light-teal: rgb(48, 176, 199);
+  --color-light-cyan: rgb(50, 173, 230);
+  --color-light-blue: rgb(0, 122, 255);
+  --color-light-indigo: rgb(88, 86, 214);
+  --color-light-purple: rgb(175, 82, 222);
+  --color-light-pink: rgb(255, 45, 85);
+  --color-light-brown: rgb(162, 132, 94);
+
+  /* Dark Colors */
+  --color-dark-red: rgb(255, 69, 58);
+  --color-dark-orange: rgb(255, 159, 10);
+  --color-dark-yellow: rgb(255, 214, 10);
+  --color-dark-green: rgb(48, 209, 88);
+  --color-dark-mint: rgb(102, 212, 207);
+  --color-dark-teal: rgb(64, 200, 224);
+  --color-dark-cyan: rgb(100, 210, 255);
+  --color-dark-blue: rgb(10, 132, 255);
+  --color-dark-indigo: rgb(94, 92, 230);
+  --color-dark-purple: rgb(191, 90, 242);
+  --color-dark-pink: rgb(255, 55, 95);
+  --color-dark-brown: rgb(172, 142, 104);
 }
 
 .section-separated {
@@ -454,7 +436,6 @@ ul {
 
 .typography-graph-caption {
   color: #888;
-  color: var(--color-sub-text);
   font-size: 17px;
   line-height: 1.47059;
   font-weight: 400;
@@ -530,6 +511,8 @@ ul {
   opacity: 0.32;
 }
 
+/* ----------------------------------- VHS ---------------------------------- */
+
 #vhs {
   display: none;
 }
@@ -579,6 +562,8 @@ ul {
   opacity: 0.6;
 }
 
+/* ---------------------------------- Logo ---------------------------------- */
+
 #logo-flex {
   width: 100%;
   display: flex;
@@ -599,6 +584,8 @@ ul {
   background: var(--color-logo-background);
   object-fit: cover;
 }
+
+/* ---------------------------------- Menu ---------------------------------- */
 
 .ul-container {
   height: 100%;
@@ -845,6 +832,8 @@ input[type='checkbox']#active {
   transform: translateX(-400px);
 }
 
+/* -------------------------------- Info Bar -------------------------------- */
+
 .infoBar {
   margin-top: 52px;
 }
@@ -858,11 +847,6 @@ input[type='checkbox']#active {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-}
-
-.large-centered {
-  margin-left: auto !important;
-  margin-right: auto !important;
 }
 
 .article-image {
@@ -882,30 +866,11 @@ a.icon-wrapper:hover .icon-copy {
   text-decoration: underline;
 }
 
-.ribbon-content-wrapper {
-  text-align: center;
-}
-
-.ribbon-content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 980px;
-}
-
-.ribbon-link {
-  white-space: nowrap;
-}
-
 .ribbon-link:focus {
   text-decoration: underline;
 }
 
-.ribbon .ribbon-content-wrapper {
-  padding-top: 0.94118em;
-  padding-bottom: 0.94118em;
-}
-
-.ribbon .ribbon-content {
+.ribbon-content {
   font-size: 14px;
   line-height: 1.42859;
   font-weight: 400;
@@ -914,24 +879,29 @@ a.icon-wrapper:hover .icon-copy {
     'Arial', sans-serif;
 }
 
-.ribbon .ribbon-content-wrapper {
-  background-color: var(--ribbon-background-color);
-}
-
-.ribbon .ribbon-content {
+.ribbon-content {
   color: var(--ribbon-text-color);
+  margin-left: auto;
+  margin-right: auto;
+  width: 980px;
 }
 
-.ribbon .ribbon-link:focus {
+.ribbon-content-wrapper {
+  background-color: var(--ribbon-background-color);
+  text-align: center;
+  padding-top: 0.94118em;
+  padding-bottom: 0.94118em;
+}
+
+.ribbon-link:focus {
   outline-color: var(--ribbon-focus-color);
 }
 
-.ribbon .ribbon-link {
+.ribbon-link {
   color: var(--ribbon-link-color);
-  fill: var(--ribbon-link-color);
 }
 
-.ribbon-blue-to-default .ribbon-content-wrapper {
+.ribbon-content-wrapper {
   background-color: var(--ribbon-background-color-initial);
   -webkit-animation: animate-background-0071e3-f5f5f7 1s
     cubic-bezier(0.42, 0, 0.58, 1) 1.8s forwards;
@@ -939,7 +909,7 @@ a.icon-wrapper:hover .icon-copy {
     1.8s forwards;
 }
 
-.ribbon-blue-to-default .ribbon-content {
+.ribbon-content {
   color: var(--ribbon-text-color-initial);
   -webkit-animation: animate-color-fff-1d1d1f 1s cubic-bezier(0.42, 0, 0.58, 1)
     1.8s forwards;
@@ -947,11 +917,11 @@ a.icon-wrapper:hover .icon-copy {
     forwards;
 }
 
-.ribbon-blue-to-default .ribbon-link:focus {
+.ribbon-link:focus {
   outline-color: var(--ribbon-focus-color);
 }
 
-.ribbon-blue-to-default .ribbon-link {
+.ribbon-link {
   color: var(--ribbon-link-color-initial);
   fill: var(--ribbon-link-color-initial);
   -webkit-animation: animate-color-fff-06c 1s cubic-bezier(0.42, 0, 0.58, 1)
@@ -1236,10 +1206,9 @@ a.icon-wrapper:hover .icon-copy {
   box-sizing: border-box;
   position: relative;
   z-index: 1;
-  margin: 0;
-  padding: 0;
   float: left;
   min-height: 2px;
+  margin: 0 auto 0 auto;
 }
 
 .large-3 {
@@ -1305,7 +1274,6 @@ a.icon-wrapper:hover .icon-copy {
   border-radius: 4px;
   overflow: hidden;
   background: #888;
-  background: var(--color-sub-text);
 }
 
 .graph-bar.current {
@@ -1344,7 +1312,6 @@ a.icon-wrapper:hover .icon-copy {
   top: -3px;
   opacity: 0;
   color: #888;
-  color: var(--color-sub-text);
   -webkit-transition: opacity 0.3s ease-in 0.2s;
   transition: opacity 0.3s ease-in 0.2s;
   opacity: 1;
@@ -1396,7 +1363,6 @@ a.icon-wrapper:hover .icon-copy {
     'Arial', sans-serif;
   font-weight: 700;
   color: #888;
-  color: var(--color-sub-text);
   margin: 0;
   text-decoration: none;
   display: block;
@@ -1729,6 +1695,8 @@ a.icon-wrapper:hover .icon-copy {
   opacity: 1;
   visibility: visible;
 }
+
+/* -------------------------------- Copyright ------------------------------- */
 
 #copyright {
   width: 82.5%;

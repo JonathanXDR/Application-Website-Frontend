@@ -20,69 +20,18 @@
       crossorigin="anonymous"
     ></script>
 
-    <svg width="0" height="0">
-      <defs>
-        <linearGradient
-          id="cl1"
-          gradientUnits="objectBoundingBox"
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1"
-        >
-          <stop stop-color="var(--color-dark-orange)" />
-          <stop offset="100%" stop-color="var(--color-dark-red)" />
-        </linearGradient>
-      </defs>
-    </svg>
+    <script>
+      function setTheme(themeName) {
+        localStorage.setItem('theme', themeName);
+        document.documentElement.className = themeName;
+      }
 
-    <svg width="0" height="0">
-      <defs>
-        <linearGradient
-          id="cl2"
-          gradientUnits="objectBoundingBox"
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1"
-        >
-          <stop stop-color="var(--color-dark-cyan)" />
-          <stop offset="100%" stop-color="var(--color-dark-indigo)" />
-        </linearGradient>
-      </defs>
-    </svg>
-
-    <svg width="0" height="0">
-      <defs>
-        <linearGradient
-          id="cl3"
-          gradientUnits="objectBoundingBox"
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1"
-        >
-          <stop stop-color="var(--color-dark-yellow)" />
-          <stop offset="100%" stop-color="var(--color-dark-green)" />
-        </linearGradient>
-      </defs>
-    </svg>
-
-    <svg width="0" height="0">
-      <defs>
-        <linearGradient
-          id="cl4"
-          gradientUnits="objectBoundingBox"
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1"
-        >
-          <stop stop-color="var(--color-dark-pink)" />
-          <stop offset="100%" stop-color="var(--color-dark-purple)" />
-        </linearGradient>
-      </defs>
-    </svg>
+      if (localStorage.getItem('theme') === 'light-theme') {
+        setTheme('light-theme');
+      } else {
+        setTheme('dark-theme');
+      }
+    </script>
   </head>
 
   <body>
@@ -146,38 +95,23 @@
     </nav>
 
     <!-- Info Bar -->
-    <!-- <div class="ribbon acmi-ribbon ribbon-blue-to-default infoBar">
+    <div class="ribbon acmi-ribbon ribbon-blue-to-default infoBar">
       <div class="ribbon-drop-wrapper">
         <div class="ribbon-content-wrapper">
           <div class="ribbon-content row">
-            <div class="column large-centered">
+            <div class="column">
               <p class="typography-caption ac-promo-copy">
                 <a
                   href="https://github.com/JonathanXDR/Application-Website/compare/v1.1.0...v2.0.0"
                   class="icon-wrapper promo-trigger ribbon-link"
-                  ><span class="icon-copy"
-                    >Was ist neu in Version 2.0?<svg
-                      class="ribbon-link"
-                      width="9"
-                      height="9"
-                      viewBox="0 0 10 17"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        class="ribbon-link"
-                        d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
-                        fill="var(--ribbon-link-color)"
-                      />
-                    </svg>
-                  </span>
+                  ><span class="icon-copy">Was ist neu in Version 2.0?</span>
                 </a>
               </p>
             </div>
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
 
     <section id="about" class="section-separated">
       <div class="info-container">
@@ -599,7 +533,21 @@
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                     stroke="url(#cl1)"
                   ></path>
-                  <text class="card-text" x="50%" y="61%">0%</text>
+                  <text class="card-text" x="50%" y="61%">0%</text></svg
+                ><svg width="0" height="0">
+                  <defs>
+                    <linearGradient
+                      id="cl1"
+                      gradientUnits="objectBoundingBox"
+                      x1="0"
+                      y1="0"
+                      x2="1"
+                      y2="1"
+                    >
+                      <stop stop-color="var(--color-dark-orange)" />
+                      <stop offset="100%" stop-color="var(--color-dark-red)" />
+                    </linearGradient>
+                  </defs>
                 </svg>
               </div>
             </div>
@@ -657,7 +605,24 @@
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                     stroke="url(#cl2)"
                   ></path>
-                  <text class="card-text" x="50%" y="61%">0%</text>
+                  <text class="card-text" x="50%" y="61%">0%</text></svg
+                ><svg width="0" height="0">
+                  <defs>
+                    <linearGradient
+                      id="cl2"
+                      gradientUnits="objectBoundingBox"
+                      x1="0"
+                      y1="0"
+                      x2="1"
+                      y2="1"
+                    >
+                      <stop stop-color="var(--color-dark-cyan)" />
+                      <stop
+                        offset="100%"
+                        stop-color="var(--color-dark-indigo)"
+                      />
+                    </linearGradient>
+                  </defs>
                 </svg>
               </div>
             </div>
@@ -715,7 +680,24 @@
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                     stroke="url(#cl3)"
                   ></path>
-                  <text class="card-text" x="50%" y="61%">0%</text>
+                  <text class="card-text" x="50%" y="61%">0%</text></svg
+                ><svg width="0" height="0">
+                  <defs>
+                    <linearGradient
+                      id="cl3"
+                      gradientUnits="objectBoundingBox"
+                      x1="0"
+                      y1="0"
+                      x2="1"
+                      y2="1"
+                    >
+                      <stop stop-color="var(--color-dark-yellow)" />
+                      <stop
+                        offset="100%"
+                        stop-color="var(--color-dark-green)"
+                      />
+                    </linearGradient>
+                  </defs>
                 </svg>
               </div>
             </div>
@@ -1005,7 +987,24 @@
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                     stroke="url(#cl4)"
                   ></path>
-                  <text class="card-text" x="50%" y="61%">0%</text>
+                  <text class="card-text" x="50%" y="61%">0%</text></svg
+                ><svg width="0" height="0">
+                  <defs>
+                    <linearGradient
+                      id="cl4"
+                      gradientUnits="objectBoundingBox"
+                      x1="0"
+                      y1="0"
+                      x2="1"
+                      y2="1"
+                    >
+                      <stop stop-color="var(--color-dark-pink)" />
+                      <stop
+                        offset="100%"
+                        stop-color="var(--color-dark-purple)"
+                      />
+                    </linearGradient>
+                  </defs>
                 </svg>
               </div>
             </div>

@@ -8,7 +8,6 @@ window.onload = function () {
     themeButton.checked = true;
   }
 
-  // Get current system/browser theme
   const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
   if (darkThemeMq.matches) {
     setTheme('dark-theme');
@@ -38,13 +37,11 @@ window.onload = function () {
   currentYear();
 };
 
-// function to set a given theme/color-scheme
 function setTheme(themeName) {
   localStorage.setItem('theme', themeName);
   document.documentElement.className = themeName;
 }
 
-// function to toggle between light and dark theme
 function toggleTheme() {
   if (localStorage.getItem('theme') === 'dark-theme') {
     setTheme('light-theme');
@@ -102,7 +99,6 @@ ELs_inViewport.forEach((EL) => {
 
 const eventListener = (event) => {
   if (!document.getElementById('modalBox').contains(event.target)) {
-    // alert('Clicked outside Box');
     toggleModal();
   }
 };
