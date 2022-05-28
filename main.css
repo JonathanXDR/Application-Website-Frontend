@@ -1202,11 +1202,11 @@ a.icon-wrapper:hover .icon-copy {
   }
 
   .info-container div p:last-child {
-    justify-content: flex-start;
+    justify-content: flex-start !important;
   }
 
   .sharesheet-options {
-    justify-content: flex-start;
+    justify-content: flex-start !important;
   }
 }
 
