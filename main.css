@@ -345,7 +345,12 @@ a {
   color: var(--color-fill-gray);
 }
 
-.p-margin {
+p:not(.article-date) + p:not(.download-ical) {
+  margin-top: 0.8em;
+  display: flex;
+}
+
+h2 + p:not(.article-date) {
   margin-top: 0.8em;
 }
 
@@ -489,9 +494,9 @@ ul {
 .link {
   color: var(--ribbon-link-color);
   letter-spacing: inherit;
-  /* display: flex;
+  display: flex;
   align-items: center;
-  gap: 0.3em; */
+  gap: 0.3em;
 }
 
 .link:link,
@@ -1208,6 +1213,7 @@ a.icon-wrapper:hover .icon-copy {
 
 .download-ical {
   margin-top: 0.5em;
+  display: flex;
 }
 
 /* -------------------------------- Languages ------------------------------- */
@@ -1389,24 +1395,14 @@ a.icon-wrapper:hover .icon-copy {
 
 #projects {
   padding-top: 150px;
+  width: 82.5%;
+  margin: 0 auto 0 auto;
 }
 
 #projects h2 {
   font-size: 28px;
   line-height: 1.25;
   font-weight: 500;
-}
-
-.project {
-  width: 40%;
-}
-
-.timeline li:nth-child(even) {
-  align-self: flex-end;
-}
-
-.svg-vertical {
-  position: absolute;
 }
 
 .path-timeline {
@@ -1417,20 +1413,21 @@ a.icon-wrapper:hover .icon-copy {
   padding: 150px 0;
 }
 
-@media screen and (min-width: 943px) {
-  .timeline-wrapper {
-    display: flex;
-    justify-content: center;
-  }
+#svg-timeline {
+  position: absolute;
 }
 
 .timeline {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  align-items: flex-end;
+  gap: 64px;
   transition: all 250ms ease;
-  width: 90%;
   margin: 0 auto;
+}
+
+.timeline li {
+  width: 90%;
 }
 
 .date {
@@ -1444,6 +1441,25 @@ a.icon-wrapper:hover .icon-copy {
   align-content: flex-end;
   gap: 10px;
   clear: both;
+}
+
+@media screen and (min-width: 1168px) {
+  .timeline-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .timeline {
+    align-items: flex-start !important;
+  }
+
+  .timeline li {
+    width: 40%;
+  }
+
+  .timeline li:nth-child(even) {
+    align-self: flex-end;
+  }
 }
 
 /* ------------------------------ Technologies ------------------------------ */
