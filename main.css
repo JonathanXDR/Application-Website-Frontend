@@ -1397,13 +1397,12 @@ a.icon-wrapper:hover .icon-copy {
   font-weight: 500;
 }
 
-/* .project {
+.project {
   width: 40%;
-} */
+}
 
 .timeline li:nth-child(even) {
-  /* justify-self: end; */
-  grid-column: 2;
+  align-self: flex-end;
 }
 
 .svg-vertical {
@@ -1426,11 +1425,9 @@ a.icon-wrapper:hover .icon-copy {
 }
 
 .timeline {
-  display: grid;
-  /* grid-template-columns: repeat(1, 1fr); */
-  grid-template-columns: repeat(2, minmax(400px, 1fr));
-  column-gap: 200px;
-  row-gap: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
   transition: all 250ms ease;
   width: 90%;
   margin: 0 auto;
