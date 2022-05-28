@@ -354,7 +354,9 @@ h2 + p:not(.article-date) {
   margin-top: 0.8em;
 }
 
-ul {
+ul,
+ol,
+li {
   list-style: none;
 }
 
@@ -570,7 +572,6 @@ a:link:hover {
 /* ---------------------------------- Logo ---------------------------------- */
 
 #logo-flex {
-  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -600,7 +601,7 @@ a:link:hover {
   gap: 10px;
 }
 
-@media screen and (min-width: 9.375em) {
+/* @media screen and (min-width: 9.375em) {
   .ul-container {
     display: none;
   }
@@ -614,7 +615,7 @@ a:link:hover {
   .menu-btn {
     display: none;
   }
-}
+} */
 
 .menu-bar {
   width: 100%;
@@ -627,7 +628,6 @@ a:link:hover {
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   gap: 10px;
   z-index: 100;
@@ -770,9 +770,7 @@ input[type='checkbox']#active {
 }
 
 .menu-btn {
-  position: fixed;
-  top: 0;
-  right: 0;
+  position: relative;
   height: 50px;
   width: 50px;
   text-align: center;
@@ -1131,7 +1129,11 @@ a.icon-wrapper:hover .icon-copy {
   padding-top: 50px;
 }
 
-@media (min-width: 1310px) {
+.info-container div p:last-child {
+  justify-content: center;
+}
+
+@media (min-width: 1356px) {
   .info-container {
     display: grid;
     grid-template-columns: 411px 1fr;
@@ -1143,10 +1145,19 @@ a.icon-wrapper:hover .icon-copy {
   .info-container div {
     padding: 0;
   }
+
+  .info-container div p:last-child {
+    justify-content: flex-start;
+  }
+
+  .sharesheet-options {
+    justify-content: flex-start;
+  }
 }
 
 .sharesheet-options {
   display: flex;
+  justify-content: center;
   gap: 20px;
   margin-top: 20px;
 }

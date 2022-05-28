@@ -41,35 +41,47 @@
       <div id="vignette"></div>
     </div>
 
-    <nav>
-      <ul class="menu-bar">
-        <div id="logo-flex">
-          <a href="#about">
-            <div id="logo-padding">
-              <img id="logo" alt="Logo von JR" />
-            </div>
-          </a>
+    <nav class="menu-bar">
+      <a href="#about">
+        <div id="logo-padding">
+          <img id="logo" alt="Logo von JR" />
         </div>
+      </a>
 
-        <ul class="ul-container">
-          <li><a href="#about" class="item">About</a></li>
-          <li><a href="#languages" class="item">Sprachkenntnisse</a></li>
-          <li><a href="#references" class="item">Referenzen</a></li>
-          <li><a href="#other" class="item">Anderes</a></li>
-          <li><a href="#technologies" class="item">Technologien</a></li>
-          <li><a href="#projects" class="item">Projekte</a></li>
-        </ul>
+      <a href="#about" class="item">About</a>
+      <a href="#languages" class="item">Sprachkenntnisse</a>
+      <a href="#references" class="item">Referenzen</a>
+      <a href="#other" class="item">Anderes</a>
+      <a href="#technologies" class="item">Technologien</a>
+      <a href="#projects" class="item">Projekte</a>
 
-        <label class="toggle-btn" id="toggle-btn-id">
-          <input
-            type="checkbox"
-            onclick="toggleTheme();countToggles()"
-            class="btn-input"
-            id="theme-id"
-          />
-          <span></span>
-        </label>
-      </ul>
+      <label class="toggle-btn" id="toggle-btn-id">
+        <input
+          type="checkbox"
+          onclick="toggleTheme();countToggles()"
+          class="btn-input"
+          id="theme-id"
+        />
+        <span></span>
+      </label>
+
+      <label for="active" class="menu-btn"
+        ><input type="checkbox" id="active" /><span></span
+      ></label>
+      <!-- <label for="active" class="close"></label>
+      <div class="wrapper">
+        <a href="#about" class="item">About</a>
+        <a href="#languages" class="item">Sprachkenntnisse</a>
+        <a href="#references" class="item">Referenzen</a>
+        <a href="#other" class="item">Anderes</a>
+        <a href="#technologies" class="item">Technologien</a>
+        <a href="#projects" class="item">Projekte</a>
+      </div> -->
+
+      <!-- <div>
+        <input type="checkbox" id="active" />
+        <label for="active" class="menu-btn"><span></span></label>
+      </div>
 
       <input
         type="checkbox"
@@ -80,18 +92,33 @@
       <label for="active" class="menu-btn"><span></span></label>
       <label for="active" class="close"></label>
       <div class="burger-wrapper">
-        <ul>
-          <a href="#about" class="item" onclick="hideBurger()">About</a>
-          <a href="#technologies" class="item" onclick="hideBurger()"
-            >Technologien</a
-          >
-          <a href="#projects" class="item" onclick="hideBurger()">Projekte</a>
-          <a href="#contact" class="item" onclick="hideBurger()">Kontakt</a>
-          <a href="#references" class="item" onclick="hideBurger()"
-            >Referenzen</a
-          >
+        <ul class="ul-container">
+          <li>
+            <a href="#about" class="item" onclick="hideBurger()">About</a>
+          </li>
+          <li>
+            <a href="#languages" class="item" onclick="hideBurger()"
+              >Sprachkenntnisse</a
+            >
+          </li>
+          <li>
+            <a href="#references" class="item" onclick="hideBurger()"
+              >Referenzen</a
+            >
+          </li>
+          <li>
+            <a href="#other" class="item" onclick="hideBurger()">Anderes</a>
+          </li>
+          <li>
+            <a href="#technologies" class="item" onclick="hideBurger()"
+              >Technologien</a
+            >
+          </li>
+          <li>
+            <a href="#projects" class="item" onclick="hideBurger()">Projekte</a>
+          </li>
         </ul>
-      </div>
+      </div> -->
     </nav>
 
     <!-- Info Bar -->
@@ -142,8 +169,8 @@
             Schwyz. Das Programmieren fasziniert mich sehr und ich finde es
             spannend, was man damit alles erreichen kann. In meiner Freizeit
             spiele ich gerne Computer -und Konsolenspiele und treffe mich oft
-            mit Freunden. Ausserdem höre ich häufig Musik und produziere diese
-            manchmal auch selbst.
+            mit Freunden. Ausserdem höre ich häufig Musik und produziere sie
+            auch manchmal selbst.
           </p>
 
           <p>
