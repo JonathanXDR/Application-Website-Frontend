@@ -51,14 +51,14 @@
           </a>
         </div>
 
-        <div class="ul-container">
-          <a href="#about" class="item">About</a>
-          <a href="#languages" class="item">Sprachkenntnisse</a>
-          <a href="#references" class="item">Referenzen</a>
-          <a href="#other" class="item">Anderes</a>
-          <a href="#technologies" class="item">Technologien</a>
-          <a href="#projects" class="item">Projekte</a>
-        </div>
+        <ul class="ul-container">
+          <li><a href="#about" class="item">About</a></li>
+          <li><a href="#languages" class="item">Sprachkenntnisse</a></li>
+          <li><a href="#references" class="item">Referenzen</a></li>
+          <li><a href="#other" class="item">Anderes</a></li>
+          <li><a href="#technologies" class="item">Technologien</a></li>
+          <li><a href="#projects" class="item">Projekte</a></li>
+        </ul>
 
         <label class="toggle-btn" id="toggle-btn-id">
           <input
@@ -99,15 +99,13 @@
       <div class="ribbon-drop-wrapper">
         <div class="ribbon-content-wrapper">
           <div class="ribbon-content row">
-            <div class="column">
-              <p class="typography-caption ac-promo-copy">
-                <a
-                  href="https://github.com/JonathanXDR/Application-Website/compare/v1.1.0...v2.0.0"
-                  class="icon-wrapper promo-trigger ribbon-link"
-                  ><span class="icon-copy">Was ist neu in Version 2.0?</span>
-                </a>
-              </p>
-            </div>
+            <p class="typography-caption ac-promo-copy">
+              <a
+                href="https://github.com/JonathanXDR/Application-Website/compare/v1.1.0...v2.0.0"
+                class="icon-wrapper promo-trigger ribbon-link"
+                ><span class="icon-copy">Was ist neu in Version 2.0?</span>
+              </a>
+            </p>
           </div>
         </div>
       </div>
@@ -269,18 +267,37 @@
             <!-- <p class="article-date">Begins June 30, 2022</p> -->
             <p class="p-margin">Lernbegleiter & Vorgesetzter</p>
             <!-- <p class="p-margin">
+              <a class="link" href="https://tbz.ch"
+                >Mehr erfahren<svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 10 17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
+                    fill="var(--ribbon-link-color)"
+                  /></svg
+              ></a>
+            </p>
+            <p class="download-ical">
               <a
+                href="/media/calendar/Berufsschule Jonathan Russ.ics"
                 class="link"
-                href="https://developer.apple.com/news/?id=i71db0mv"
-                >Learn more</a
-              >
-            </p> -->
-            <!-- <p class="download-ical">
-              <a
-                href="/news/upcoming-requirements/?getReminder=06302022a"
-                class="link"
-                >Add to calendar</a
-              >
+                >Zum Kalender hinzufügen<svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 20 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
+                    fill="var(--ribbon-link-color)"
+                  />
+                </svg>
+              </a>
             </p> -->
           </div>
         </li>
@@ -306,7 +323,9 @@
           <div>
             <h2>Nick Zimmermann</h2>
             <!-- <p class="article-date">Begins June 30, 2022</p> -->
-            <p class="p-margin">Projektanbieter in Competence Center NexCC</p>
+            <p class="p-margin">
+              Projektanbieter in <a href="#nex-cc">Competence Center NexCC</a>
+            </p>
             <p class="p-margin">
               <a class="link" href="https://nickzimmermann.com"
                 >Mehr erfahren
@@ -326,15 +345,26 @@
             </p>
             <!-- <p class="download-ical">
               <a
-                href="/news/upcoming-requirements/?getReminder=06302022a"
+                href="/media/calendar/Berufsschule Jonathan Russ.ics"
                 class="link"
-                >Add to calendar</a
-              >
+                >Zum Kalender hinzufügen<svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 20 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
+                    fill="var(--ribbon-link-color)"
+                  />
+                </svg>
+              </a>
             </p> -->
           </div>
         </li>
 
-        <!-- Item 2 -->
+        <!-- Item 3 -->
         <li class="row-full">
           <div class="padding-right-small">
             <svg
@@ -356,21 +386,43 @@
             <h2>Alessio Iantosca</h2>
             <!-- <p class="article-date">Begins June 30, 2022</p> -->
             <p class="p-margin">
-              Projektanbieter bei Automatisierungsprojekten im Banking Bereich
+              Projektanbieter bei
+              <a href="#banking-automation"
+                >Automatisierungsprojekten im Banking Bereich</a
+              >
             </p>
             <!-- <p class="p-margin">
+              <a class="link" href="https://tbz.ch"
+                >Mehr erfahren<svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 10 17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
+                    fill="var(--ribbon-link-color)"
+                  /></svg
+              ></a>
+            </p>
+            <p class="download-ical">
               <a
+                href="/media/calendar/Berufsschule Jonathan Russ.ics"
                 class="link"
-                href="https://developer.apple.com/news/?id=i71db0mv"
-                >Learn more</a
-              >
-            </p> -->
-            <!-- <p class="download-ical">
-              <a
-                href="/news/upcoming-requirements/?getReminder=06302022a"
-                class="link"
-                >Add to calendar</a
-              >
+                >Zum Kalender hinzufügen<svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 20 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
+                    fill="var(--ribbon-link-color)"
+                  />
+                </svg>
+              </a>
             </p> -->
           </div>
         </li>
@@ -1149,24 +1201,43 @@
                 und auch andere Dinge, wie beispielsweise die Arbeitssicherheit.
               </p>
               <!-- <p class="p-margin">
+                <a class="link" href="https://tbz.ch"
+                  >Mehr erfahren<svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 10 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
+                      fill="var(--ribbon-link-color)"
+                    /></svg
+                ></a>
+              </p>
+              <p class="download-ical">
                 <a
+                  href="/media/calendar/Berufsschule Jonathan Russ.ics"
                   class="link"
-                  href="https://developer.apple.com/news/?id=i71db0mv"
-                  >Learn more</a
-                >
-              </p> -->
-              <!-- <p class="download-ical">
-                <a
-                  href="/news/upcoming-requirements/?getReminder=06302022a"
-                  class="link"
-                  >Add to calendar</a
-                >
+                  >Zum Kalender hinzufügen<svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 20 19"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
+                      fill="var(--ribbon-link-color)"
+                    />
+                  </svg>
+                </a>
               </p> -->
             </div>
           </li>
 
           <!-- Item 2 -->
-          <li class="row-full project right">
+          <li class="row-full project right" id="nex-cc">
             <div class="padding-right-small">
               <svg
                 width="35"
@@ -1196,12 +1267,9 @@
                 Programmiersprachen, wie Node.js, Express.js oder Vue.js neu
                 dazugelernt.
               </p>
-              <p class="p-margin">
-                <a
-                  class="link"
-                  href="https://developer.apple.com/news/?id=i71db0mv"
-                  >Mehr erfahren
-                  <svg
+              <!-- <p class="p-margin">
+                <a class="link" href="https://tbz.ch"
+                  >Mehr erfahren<svg
                     width="13"
                     height="13"
                     viewBox="0 0 10 17"
@@ -1214,18 +1282,29 @@
                     /></svg
                 ></a>
               </p>
-              <!-- <p class="download-ical">
+              <p class="download-ical">
                 <a
-                  href="/news/upcoming-requirements/?getReminder=06302022a"
+                  href="/media/calendar/Berufsschule Jonathan Russ.ics"
                   class="link"
-                  >Add to calendar</a
-                >
+                  >Zum Kalender hinzufügen<svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 20 19"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
+                      fill="var(--ribbon-link-color)"
+                    />
+                  </svg>
+                </a>
               </p> -->
             </div>
           </li>
 
           <!-- Item 3 -->
-          <li class="row-full project">
+          <li class="row-full project" id="banking-automation">
             <div class="padding-right-small">
               <svg
                 width="35"
@@ -1252,12 +1331,9 @@
                 Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu
                 verbessern!
               </p>
-              <p class="p-margin">
-                <a
-                  class="link"
-                  href="https://developer.apple.com/news/?id=i71db0mv"
-                  >Mehr erfahren
-                  <svg
+              <!-- <p class="p-margin">
+                <a class="link" href="https://tbz.ch"
+                  >Mehr erfahren<svg
                     width="13"
                     height="13"
                     viewBox="0 0 10 17"
@@ -1270,12 +1346,23 @@
                     /></svg
                 ></a>
               </p>
-              <!-- <p class="download-ical">
+              <p class="download-ical">
                 <a
-                  href="/news/upcoming-requirements/?getReminder=06302022a"
+                  href="/media/calendar/Berufsschule Jonathan Russ.ics"
                   class="link"
-                  >Add to calendar</a
-                >
+                  >Zum Kalender hinzufügen<svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 20 19"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
+                      fill="var(--ribbon-link-color)"
+                    />
+                  </svg>
+                </a>
               </p> -->
             </div>
           </li>
