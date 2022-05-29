@@ -41,7 +41,7 @@
       <div id="vignette"></div>
     </div>
 
-    <nav class="menu-bar">
+    <nav class="menu-bar nav--open" id="myNav">
       <a href="#about">
         <div id="logo-padding">
           <img id="logo" alt="Logo von JR" />
@@ -64,61 +64,6 @@
         />
         <span></span>
       </label>
-
-      <label for="active" class="menu-btn"
-        ><input type="checkbox" id="active" /><span></span
-      ></label>
-      <!-- <label for="active" class="close"></label>
-      <div class="wrapper">
-        <a href="#about" class="item">About</a>
-        <a href="#languages" class="item">Sprachkenntnisse</a>
-        <a href="#references" class="item">Referenzen</a>
-        <a href="#other" class="item">Anderes</a>
-        <a href="#technologies" class="item">Technologien</a>
-        <a href="#projects" class="item">Projekte</a>
-      </div> -->
-
-      <!-- <div>
-        <input type="checkbox" id="active" />
-        <label for="active" class="menu-btn"><span></span></label>
-      </div>
-
-      <input
-        type="checkbox"
-        class="btn-input"
-        id="active"
-        onclick="preventScrolling()"
-      />
-      <label for="active" class="menu-btn"><span></span></label>
-      <label for="active" class="close"></label>
-      <div class="burger-wrapper">
-        <ul class="ul-container">
-          <li>
-            <a href="#about" class="item" onclick="hideBurger()">About</a>
-          </li>
-          <li>
-            <a href="#languages" class="item" onclick="hideBurger()"
-              >Sprachkenntnisse</a
-            >
-          </li>
-          <li>
-            <a href="#references" class="item" onclick="hideBurger()"
-              >Referenzen</a
-            >
-          </li>
-          <li>
-            <a href="#other" class="item" onclick="hideBurger()">Anderes</a>
-          </li>
-          <li>
-            <a href="#technologies" class="item" onclick="hideBurger()"
-              >Technologien</a
-            >
-          </li>
-          <li>
-            <a href="#projects" class="item" onclick="hideBurger()">Projekte</a>
-          </li>
-        </ul>
-      </div> -->
     </nav>
 
     <!-- Info Bar -->
@@ -234,12 +179,16 @@
         <ul class="slide-container">
           <li class="graph-container">
             <div style="width: 100%">
-              <div class="graph-bar current"></div>
-              <p class="graph-caption typography-graph-caption current">
+              <div data-inviewport="graph-bar" class="graph-bar current"></div>
+              <p
+                data-inviewport="graph-caption"
+                class="graph-caption typography-graph-caption current"
+              >
                 Muttersprache
               </p>
             </div>
             <div
+              data-inviewport="secondary-badge-value"
               class="typography-eyebrow-elevated secondary-badge-value current"
             >
               100%
@@ -248,20 +197,36 @@
 
           <li class="graph-container">
             <div style="width: 60%">
-              <div class="graph-bar bar-2"></div>
-              <p class="graph-caption typography-graph-caption">Fliessend</p>
+              <div data-inviewport="graph-bar" class="graph-bar bar-2"></div>
+              <p
+                data-inviewport="graph-caption"
+                class="graph-caption typography-graph-caption"
+              >
+                Fliessend
+              </p>
             </div>
-            <div class="typography-eyebrow-elevated secondary-badge-value">
+            <div
+              data-inviewport="secondary-badge-value"
+              class="typography-eyebrow-elevated secondary-badge-value"
+            >
               60%
             </div>
           </li>
 
           <li class="graph-container">
             <div style="width: 30%">
-              <div class="graph-bar bar-3"></div>
-              <p class="graph-caption typography-graph-caption">Gut</p>
+              <div data-inviewport="graph-bar" class="graph-bar bar-3"></div>
+              <p
+                data-inviewport="graph-caption"
+                class="graph-caption typography-graph-caption"
+              >
+                Gut
+              </p>
             </div>
-            <div class="typography-eyebrow-elevated secondary-badge-value">
+            <div
+              data-inviewport="secondary-badge-value"
+              class="typography-eyebrow-elevated secondary-badge-value"
+            >
               30%
             </div>
           </li>
@@ -540,7 +505,7 @@
           </div>
 
           <div>
-            <h2>Berufsmaturitätsschule Zürich</h2>
+            <h2>Berufsmaturitäts- <br />schule Zürich</h2>
             <p class="article-date">Freitag</p>
             <p>
               Während Freitags gehe ich immer in die Berufsmaturitätsschule in
@@ -609,6 +574,7 @@
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                   ></path>
                   <path
+                    data-inviewport="hex-progress"
                     class="fill card-fill"
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                     stroke="url(#cl1)"
@@ -681,6 +647,7 @@
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                   ></path>
                   <path
+                    data-inviewport="hex-progress"
                     class="fill card-fill"
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                     stroke="url(#cl2)"
@@ -756,6 +723,7 @@
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                   ></path>
                   <path
+                    data-inviewport="hex-progress"
                     class="fill card-fill"
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                     stroke="url(#cl3)"
@@ -831,6 +799,7 @@
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                   ></path>
                   <path
+                    data-inviewport="hex-progress"
                     class="fill card-fill"
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                     stroke="url(#cl3)"
@@ -889,6 +858,7 @@
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                   ></path>
                   <path
+                    data-inviewport="hex-progress"
                     class="fill card-fill"
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                     stroke="url(#cl2)"
@@ -947,6 +917,7 @@
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                   ></path>
                   <path
+                    data-inviewport="hex-progress"
                     class="fill card-fill"
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                     stroke="url(#cl3)"
@@ -1005,6 +976,7 @@
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                   ></path>
                   <path
+                    data-inviewport="hex-progress"
                     class="fill card-fill"
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                     stroke="url(#cl3)"
@@ -1063,6 +1035,7 @@
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                   ></path>
                   <path
+                    data-inviewport="hex-progress"
                     class="fill card-fill"
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                     stroke="url(#cl4)"
@@ -1138,6 +1111,7 @@
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                   ></path>
                   <path
+                    data-inviewport="hex-progress"
                     class="fill card-fill"
                     d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
                     stroke="url(#cl3)"
@@ -1347,7 +1321,11 @@
             </div>
 
             <div>
-              <h2>Automatisierungsprojekte im Banking Bereich</h2>
+              <h2>
+                Automatisierungs-
+                <br />
+                projekte im Banking Bereich
+              </h2>
               <p class="article-date">Februar 2022 - Juli 2022</p>
               <p>
                 Hier durfte ich einen generellen Einblick in die Automation und
