@@ -73,20 +73,70 @@ function intersectionObserver() {
 
 /* ---------------------------------- Menu ---------------------------------- */
 
-function hideBurger() {
-  document.getElementById('active').checked = false;
-  preventScrolling();
+const items = document.getElementsByClassName('item');
+for (var i = 0; i < 4; i++) {
+  items[i].addEventListener('click', function () {
+    closeNav();
+    const current = document.getElementsByClassName('active');
+    if (current.length > 0) {
+      current[0].className = current[0].className.replace(' active', '');
+    }
+    this.className += ' active';
+  });
 }
 
-function preventScrolling() {
-  if (document.getElementById('active').checked === true) {
-    $('body').css('overflow', 'hidden');
-    $('body').attr('scroll', 'no');
-  } else {
-    $('body').css('overflow', 'auto');
-    $('body').attr('scroll', 'yes');
-  }
+const burgerClicked = () => {
+  const nav = document.getElementById('myNav');
+  nav.classList.toggle('nav--open');
+  nav.classList.toggle('nav--close');
+};
+
+const closeNav = () => {
+  const nav = document.getElementById('myNav');
+  nav.classList.add('nav--close');
+  nav.classList.remove('nav--open');
+};
+
+/* --------------------------------- jQuery --------------------------------- */
+
+function isIntoView(elem) {
+  var documentViewTop = $(window).scrollTop();
+  var documentViewBottom = documentViewTop + $(window).height();
+
+  var elementTop = $(elem).offset().top;
+  var elementBottom = elementTop + $(elem).height();
+
+  return elementBottom <= documentViewBottom && elementTop >= documentViewTop;
 }
+
+let lastItertionInView = true;
+
+$(window).scroll(function () {
+  document.getElementById('year').innerHTML = new Date().getFullYear();
+  var scrollTop = $(window).scrollTop();
+  var sections = $('section');
+  var navbarLinks = $('nav ul li a');
+  var currentId = '';
+  sections.each(function () {
+    var section = $(this);
+    var sectionId = section.attr('id');
+    var sectionTop = section.offset().top - 80;
+    var sectionBottom = sectionTop + section.height();
+    if (scrollTop >= sectionTop && scrollTop <= sectionBottom) {
+      currentId = sectionId;
+    }
+  });
+  navbarLinks.each(function () {
+    var link = $(this);
+    var linkId = link.attr('href').split('#')[1];
+    if (currentId === linkId) {
+      link.addClass('active');
+    } else {
+      link.removeClass('active');
+      lastItertionInView = false;
+    }
+  });
+});
 
 /* ---------------------------------- Modal --------------------------------- */
 
