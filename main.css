@@ -1015,9 +1015,6 @@ a.icon-wrapper:hover .icon-copy {
 
 /* ---------------------------------- About --------------------------------- */
 
-#about {
-}
-
 #about .wrapper {
   height: 100%;
   overflow-x: hidden;
@@ -1189,7 +1186,6 @@ a.icon-wrapper:hover .icon-copy {
   height: 8px;
   border-radius: 4px;
   overflow: hidden;
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .graph-bar:after {
