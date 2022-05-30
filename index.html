@@ -48,12 +48,14 @@
         </div>
       </a>
 
-      <a href="#about" class="item">About</a>
-      <a href="#languages" class="item">Sprachkenntnisse</a>
-      <a href="#references" class="item">Referenzen</a>
-      <a href="#other" class="item">Anderes</a>
-      <a href="#technologies" class="item">Technologien</a>
-      <a href="#projects" class="item">Projekte</a>
+      <ul>
+        <a href="#about" class="item">About</a>
+        <a href="#languages" class="item">Sprachkenntnisse</a>
+        <a href="#references" class="item">Referenzen</a>
+        <a href="#other" class="item">Anderes</a>
+        <a href="#technologies" class="item">Technologien</a>
+        <a href="#projects" class="item">Projekte</a>
+      </ul>
 
       <label class="toggle-btn" id="toggle-btn-id">
         <input
@@ -64,6 +66,10 @@
         />
         <span></span>
       </label>
+
+      <div id="menu-toggle" onclick="burgerClicked()">
+        <span class="hamburger"></span>
+      </div>
     </nav>
 
     <!-- Info Bar -->

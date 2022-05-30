@@ -19,7 +19,7 @@ window.onload = function () {
 
   changeFavicon();
 
-  var max = 2160;
+  const max = 2160;
   forEach(document.querySelectorAll('.hex-progress'), function (index, value) {
     percent = value.getAttribute('data-progress');
     value
@@ -225,8 +225,8 @@ const changeFavicon = () => {
 
 /* -------------------------- Hexagon Progressbars -------------------------- */
 
-var forEach = function (array, callback, scope) {
-  for (var i = 0; i < array.length; i++) {
+let forEach = function (array, callback, scope) {
+  for (let i = 0; i < array.length; i++) {
     callback.call(scope, i, array[i]);
   }
 };
