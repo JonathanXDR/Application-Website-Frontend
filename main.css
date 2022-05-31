@@ -386,6 +386,10 @@ a {
   color: var(--color-fill-gray);
 }
 
+.active {
+  color: var(--ribbon-link-color);
+}
+
 p:not(.article-date) + p:not(.download-ical) {
   margin-top: 0.8em;
   display: flex;
@@ -702,6 +706,7 @@ nav {
   border-width: 3px;
   box-sizing: content-box;
   margin: 0 -26px;
+  display: none;
 }
 
 .btn-input {
@@ -1460,11 +1465,11 @@ a.icon-wrapper:hover .icon-copy {
 }
 
 [data-inviewport='hex-progress'] {
-  transform: translate(70px, 700px) rotate(-90deg);
+  transition: stroke-dashoffset 1s;
   stroke-dashoffset: 2160;
 }
 [data-inviewport='hex-progress'].is-inViewport {
-  stroke-dashoffset: 0;
+  stroke-dashoffset: 864 !important;
 }
 
 .card-track {
@@ -1474,8 +1479,6 @@ a.icon-wrapper:hover .icon-copy {
 .card-fill {
   stroke-linecap: round;
   stroke-dasharray: 2160;
-  stroke-dashoffset: 2160;
-  transition: stroke-dashoffset 1s;
 }
 
 .card-text {

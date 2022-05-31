@@ -20,22 +20,26 @@ window.onload = function () {
   changeFavicon();
 
   const max = 2160;
-  forEach(document.querySelectorAll('.hex-progress'), function (index, value) {
-    percent = value.getAttribute('data-progress');
-    value
-      .querySelector('.fill')
-      .setAttribute(
-        'style',
-        'stroke-dashoffset: ' + ((100 - percent) / 100) * max
-      );
-    value.querySelector('.card-text').innerHTML = percent + '%';
-  });
+  forEach(
+    document.querySelectorAll('[data-inviewport="hex-progress"].is-inViewport'),
+    function (index, value) {
+      percent = value.getAttribute('data-progress');
+      value
+        .querySelector('.fill')
+        .setAttribute(
+          'style',
+          'stroke-dashoffset: ' + ((100 - percent) / 100) * max
+        );
+      value.querySelector('.card-text').innerHTML = percent + '%';
+    }
+  );
 
   timelineScrolling();
   age();
   appYear();
   currentYear();
   intersectionObserver();
+  setActiveItem();
 };
 
 function setTheme(themeName) {
@@ -73,16 +77,18 @@ function intersectionObserver() {
 
 /* ---------------------------------- Menu ---------------------------------- */
 
-const items = document.getElementsByClassName('item');
-for (var i = 0; i < 4; i++) {
-  items[i].addEventListener('click', function () {
-    closeNav();
-    const current = document.getElementsByClassName('active');
-    if (current.length > 0) {
-      current[0].className = current[0].className.replace(' active', '');
-    }
-    this.className += ' active';
-  });
+function setActiveItem() {
+  const items = document.getElementsByClassName('item');
+  for (var i = 0; i < 4; i++) {
+    items[i].addEventListener('click', function () {
+      closeNav();
+      const current = document.getElementsByClassName('active');
+      if (current.length > 0) {
+        current[0].className = current[0].className.replace(' active', '');
+      }
+      this.className += ' active';
+    });
+  }
 }
 
 const burgerClicked = () => {
@@ -97,8 +103,6 @@ const closeNav = () => {
   nav.classList.remove('nav--open');
 };
 
-/* --------------------------------- jQuery --------------------------------- */
-
 function isIntoView(elem) {
   var documentViewTop = $(window).scrollTop();
   var documentViewBottom = documentViewTop + $(window).height();
@@ -112,7 +116,6 @@ function isIntoView(elem) {
 let lastItertionInView = true;
 
 $(window).scroll(function () {
-  document.getElementById('year').innerHTML = new Date().getFullYear();
   var scrollTop = $(window).scrollTop();
   var sections = $('section');
   var navbarLinks = $('nav ul li a');
@@ -120,12 +123,13 @@ $(window).scroll(function () {
   sections.each(function () {
     var section = $(this);
     var sectionId = section.attr('id');
-    var sectionTop = section.offset().top - 80;
+    var sectionTop = section.offset().top - 52;
     var sectionBottom = sectionTop + section.height();
     if (scrollTop >= sectionTop && scrollTop <= sectionBottom) {
       currentId = sectionId;
     }
   });
+
   navbarLinks.each(function () {
     var link = $(this);
     var linkId = link.attr('href').split('#')[1];
