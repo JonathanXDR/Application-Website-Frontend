@@ -20,19 +20,16 @@ window.onload = function () {
   changeFavicon();
 
   const max = 2160;
-  forEach(
-    document.querySelectorAll('[data-inviewport="hex-progress"].is-inViewport'),
-    function (index, value) {
-      percent = value.getAttribute('data-progress');
-      value
-        .querySelector('.fill')
-        .setAttribute(
-          'style',
-          'stroke-dashoffset: ' + ((100 - percent) / 100) * max
-        );
-      value.querySelector('.card-text').innerHTML = percent + '%';
-    }
-  );
+  forEach(document.querySelectorAll('hex-progress'), function (index, value) {
+    percent = value.getAttribute('data-progress');
+    value
+      .querySelector('.fill')
+      .setAttribute(
+        'style',
+        'stroke-dashoffset: ' + ((100 - percent) / 100) * max
+      );
+    value.querySelector('.card-text').innerHTML = percent + '%';
+  });
 
   timelineScrolling();
   age();

@@ -1505,13 +1505,13 @@ a.icon-wrapper:hover .icon-copy {
   transform: translate(70px, 700px) rotate(-90deg);
 }
 
-[data-inviewport='hex-progress'] {
+/* [data-inviewport='hex-progress'] {
   stroke-dashoffset: 2160;
 }
+
 [data-inviewport='hex-progress'].is-inViewport {
-  stroke-dashoffset: 864 !important;
   transition: stroke-dashoffset 1s;
-}
+} */
 
 .card-track {
   stroke: var(--color-fill-tertiary);
@@ -1520,6 +1520,8 @@ a.icon-wrapper:hover .icon-copy {
 .card-fill {
   stroke-linecap: round;
   stroke-dasharray: 2160;
+  stroke-dashoffset: 2160;
+  transition: stroke-dashoffset 1s;
 }
 
 .card-text {
