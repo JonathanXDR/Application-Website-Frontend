@@ -66,9 +66,8 @@ function intersectionObserver() {
   };
 
   const Obs = new IntersectionObserver(inViewport);
-  const obsOptions = {}; //See: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
+  const obsOptions = {};
 
-  // Attach observer to every [data-inviewport] element:
   const ELs_inViewport = document.querySelectorAll('[data-inviewport]');
   ELs_inViewport.forEach((EL) => {
     Obs.observe(EL, obsOptions);
@@ -79,7 +78,7 @@ function intersectionObserver() {
 
 function setActiveItem() {
   const items = document.getElementsByClassName('item');
-  for (var i = 0; i < 4; i++) {
+  for (let i = 0; i < 4; i++) {
     items[i].addEventListener('click', function () {
       closeNav();
       const current = document.getElementsByClassName('active');
@@ -104,11 +103,11 @@ const closeNav = () => {
 };
 
 function isIntoView(elem) {
-  var documentViewTop = $(window).scrollTop();
-  var documentViewBottom = documentViewTop + $(window).height();
+  const documentViewTop = $(window).scrollTop();
+  const documentViewBottom = documentViewTop + $(window).height();
 
-  var elementTop = $(elem).offset().top;
-  var elementBottom = elementTop + $(elem).height();
+  const elementTop = $(elem).offset().top;
+  const elementBottom = elementTop + $(elem).height();
 
   return elementBottom <= documentViewBottom && elementTop >= documentViewTop;
 }
@@ -116,23 +115,23 @@ function isIntoView(elem) {
 let lastItertionInView = true;
 
 $(window).scroll(function () {
-  var scrollTop = $(window).scrollTop();
-  var sections = $('section');
-  var navbarLinks = $('nav ul li a');
-  var currentId = '';
+  const scrollTop = $(window).scrollTop();
+  const sections = $('section');
+  const navbarLinks = $('nav ul li a');
+  let currentId = '';
   sections.each(function () {
-    var section = $(this);
-    var sectionId = section.attr('id');
-    var sectionTop = section.offset().top - 52;
-    var sectionBottom = sectionTop + section.height();
+    const section = $(this);
+    const sectionId = section.attr('id');
+    const sectionTop = section.offset().top - 52;
+    const sectionBottom = sectionTop + section.height();
     if (scrollTop >= sectionTop && scrollTop <= sectionBottom) {
       currentId = sectionId;
     }
   });
 
   navbarLinks.each(function () {
-    var link = $(this);
-    var linkId = link.attr('href').split('#')[1];
+    const link = $(this);
+    const linkId = link.attr('href').split('#')[1];
     if (currentId === linkId) {
       link.addClass('active');
     } else {

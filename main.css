@@ -1093,6 +1093,47 @@ a.icon-wrapper:hover .icon-copy {
   margin-top: 10px;
 }
 
+.sharesheet-options li:nth-child(1) {
+  animation-delay: 0.1s;
+  -webkit-animation-delay: 0.1s;
+}
+
+.sharesheet-options li:nth-child(2) {
+  animation-delay: 0.15s;
+  -webkit-animation-delay: 0.15s;
+}
+
+.sharesheet-options li:nth-child(3) {
+  animation-delay: 0.2s;
+  -webkit-animation-delay: 0.2s;
+}
+
+.sharesheet-options li:nth-child(4) {
+  animation-delay: 0.25s;
+  -webkit-animation-delay: 0.25s;
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+[data-inviewport='sharesheet-options'] {
+  visibility: hidden;
+}
+
+[data-inviewport='sharesheet-options'].is-inViewport {
+  visibility: visible;
+  animation: FadeIn 0.2s linear;
+  -webkit-animation: FadeIn 0.2s linear;
+  animation-fill-mode: both;
+  -webkit-animation-fill-mode: both;
+}
+
 .button {
   cursor: pointer;
   display: inline-block;
@@ -1204,6 +1245,11 @@ a.icon-wrapper:hover .icon-copy {
   background: #888;
 }
 
+[data-inviewport='graph-bar']:after {
+  -webkit-transform: translateX(-101%);
+  transform: translateX(-101%);
+}
+
 [data-inviewport='graph-bar'].is-inViewport:after {
   -webkit-transition: -webkit-transform 0.75s ease-in-out;
   transition: -webkit-transform 0.75s ease-in-out;
@@ -1211,11 +1257,6 @@ a.icon-wrapper:hover .icon-copy {
   transition: transform 0.75s ease-in-out, -webkit-transform 0.75s ease-in-out;
   -webkit-transform: translateX(0);
   transform: translateX(0);
-}
-
-[data-inviewport='graph-bar']:after {
-  -webkit-transform: translateX(-101%);
-  transform: translateX(-101%);
 }
 
 .graph-bar.current:after {
@@ -1229,12 +1270,12 @@ a.icon-wrapper:hover .icon-copy {
 
 [data-inviewport='graph-caption'] {
   opacity: 0;
-  -webkit-transition: opacity 0.75s ease-in;
-  transition: opacity 0.75s ease-in;
 }
 
 [data-inviewport='graph-caption'].is-inViewport {
   opacity: 1;
+  -webkit-transition: opacity 0.75s ease-in;
+  transition: opacity 0.75s ease-in;
 }
 
 .graph-slide .graph-container .badge {
@@ -1263,12 +1304,12 @@ a.icon-wrapper:hover .icon-copy {
 
 [data-inviewport='secondary-badge-value'] {
   opacity: 0;
-  -webkit-transition: opacity 0.3s ease-in 0.2s;
-  transition: opacity 0.3s ease-in 0.2s;
 }
 
 [data-inviewport='secondary-badge-value'].is-inViewport {
   opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in 0.2s;
+  transition: opacity 0.3s ease-in 0.2s;
 }
 
 .graph-gallery-container {
@@ -1465,11 +1506,11 @@ a.icon-wrapper:hover .icon-copy {
 }
 
 [data-inviewport='hex-progress'] {
-  transition: stroke-dashoffset 1s;
   stroke-dashoffset: 2160;
 }
 [data-inviewport='hex-progress'].is-inViewport {
   stroke-dashoffset: 864 !important;
+  transition: stroke-dashoffset 1s;
 }
 
 .card-track {
