@@ -20,7 +20,7 @@ window.onload = function () {
   changeFavicon();
 
   const max = 2160;
-  forEach(document.querySelectorAll('hex-progress'), function (index, value) {
+  forEach(document.querySelectorAll('.hex-progress'), function (index, value) {
     percent = value.getAttribute('data-progress');
     value
       .querySelector('.fill')
