@@ -41,7 +41,83 @@
       <div id="vignette"></div>
     </div>
 
-    <nav id="myNav" class="nav--close">
+    <input type="checkbox" id="ac-ln-menustate" class="ac-ln-menustate" />
+    <div id="ac-ln-sticky-placeholder" class="css-sticky"></div>
+    <nav id="ac-localnav">
+      <div class="ac-ln-wrapper">
+        <div class="ac-ln-background"></div>
+        <div class="ac-ln-content">
+          <a href="https://jonathan-russ.com"
+            ><img src="/img/download-1.png" alt="" class="logo"
+          /></a>
+          <div class="ac-ln-menu">
+            <a
+              href="#ac-ln-menustate"
+              class="ac-ln-menucta-anchor ac-ln-menucta-anchor-open"
+              id="ac-ln-menustate-open"
+            >
+              <span class="ac-ln-menucta-anchor-label"
+                >Local Nav Open Menu</span
+              >
+            </a>
+            <a
+              href="#"
+              class="ac-ln-menucta-anchor ac-ln-menucta-anchor-close"
+              id="ac-ln-menustate-close"
+            >
+              <span class="ac-ln-menucta-anchor-label"
+                >Local Nav Close Menu</span
+              >
+            </a>
+            <div class="ac-ln-menu-tray">
+              <ul class="ac-ln-menu-items">
+                <li class="ac-ln-menu-item">
+                  <a href="#about" class="ac-ln-menu-link">About</a>
+                </li>
+                <li class="ac-ln-menu-item">
+                  <a href="#languages" class="ac-ln-menu-link"
+                    >Sprachkenntnisse</a
+                  >
+                </li>
+                <li class="ac-ln-menu-item">
+                  <a href="#references" class="ac-ln-menu-link">Referenzen</a>
+                </li>
+                <li class="ac-ln-menu-item">
+                  <a href="#other" class="ac-ln-menu-link">Anderes</a>
+                </li>
+                <li class="ac-ln-menu-item">
+                  <a href="#technologies" class="ac-ln-menu-link"
+                    >Technologien</a
+                  >
+                </li>
+                <li class="ac-ln-menu-item">
+                  <a href="#projects" class="ac-ln-menu-link">Projekte</a>
+                </li>
+              </ul>
+            </div>
+            <div class="ac-ln-actions">
+              <div class="ac-ln-action ac-ln-action-menucta">
+                <label for="ac-ln-menustate" class="ac-ln-menucta">
+                  <span class="ac-ln-menucta-chevron"></span>
+                </label>
+              </div>
+              <label class="toggle-btn" id="toggle-btn-id">
+                <input
+                  type="checkbox"
+                  onclick="toggleTheme();countToggles()"
+                  class="btn-input"
+                  id="theme-id"
+                />
+                <span></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <label id="ac-ln-curtain" for="ac-ln-menustate"></label>
+
+    <!-- <nav id="myNav" class="nav--close">
       <a href="#about">
         <div id="logo-padding">
           <img id="logo" alt="Logo von JR" />
@@ -82,10 +158,10 @@
       <div id="menu-toggle" onclick="burgerClicked()">
         <span class="hamburger"></span>
       </div>
-    </nav>
+    </nav> -->
 
     <!-- Info Bar -->
-    <div class="ribbon acmi-ribbon ribbon-blue-to-default infoBar">
+    <div class="ribbon acmi-ribbon ribbon-blue-to-default">
       <div class="ribbon-drop-wrapper">
         <div class="ribbon-content-wrapper">
           <div class="ribbon-content row">

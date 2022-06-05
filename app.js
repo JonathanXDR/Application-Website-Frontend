@@ -36,7 +36,7 @@ window.onload = function () {
   appYear();
   currentYear();
   intersectionObserver();
-  setActiveItem();
+  setCurrentItem();
 };
 
 function setTheme(themeName) {
@@ -73,16 +73,16 @@ function intersectionObserver() {
 
 /* ---------------------------------- Menu ---------------------------------- */
 
-function setActiveItem() {
+function setCurrentItem() {
   const items = document.getElementsByClassName('item');
   for (let i = 0; i < 4; i++) {
     items[i].addEventListener('click', function () {
       closeNav();
-      const current = document.getElementsByClassName('active');
+      const current = document.getElementsByClassName('current');
       if (current.length > 0) {
-        current[0].className = current[0].className.replace(' active', '');
+        current[0].className = current[0].className.replace(' current', '');
       }
-      this.className += ' active';
+      this.className += ' current';
     });
   }
 }
@@ -130,9 +130,9 @@ $(window).scroll(function () {
     const link = $(this);
     const linkId = link.attr('href').split('#')[1];
     if (currentId === linkId) {
-      link.addClass('active');
+      link.addClass('current');
     } else {
-      link.removeClass('active');
+      link.removeClass('current');
       lastItertionInView = false;
     }
   });
