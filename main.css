@@ -6,7 +6,7 @@
 
 html,
 body {
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -0.022em;
@@ -284,7 +284,7 @@ h1 + .typography-intro {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 32px;
   line-height: 1.08349;
   font-weight: 600;
   letter-spacing: -0.003em;
@@ -293,7 +293,7 @@ h1 {
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 24px;
   line-height: 1.1;
   font-weight: 600;
   letter-spacing: 0;
@@ -302,7 +302,7 @@ h2 {
 }
 
 h3 {
-  font-size: 32px;
+  font-size: 19px;
   line-height: 1.125;
   font-weight: 600;
   letter-spacing: 0.004em;
@@ -311,7 +311,7 @@ h3 {
 }
 
 h4 {
-  font-size: 24px;
+  font-size: 17px;
   line-height: 1.16667;
   font-weight: 600;
   letter-spacing: 0.009em;
@@ -320,7 +320,7 @@ h4 {
 }
 
 h5 {
-  font-size: 19px;
+  font-size: 12px;
   line-height: 1.21053;
   font-weight: 600;
   letter-spacing: 0.012em;
@@ -329,7 +329,7 @@ h5 {
 }
 
 h6 {
-  font-size: 12px;
+  font-size: 8px;
   line-height: 1.33337;
   font-weight: 400;
   letter-spacing: -0.01em;
@@ -337,7 +337,57 @@ h6 {
     'Arial', sans-serif;
 }
 
-@media (min-width: 500px) {
+@media screen and (min-width: 500px) {
+  body {
+    font-size: 17px;
+  }
+
+  h1 {
+    font-size: 40px !important;
+  }
+  h2 {
+    font-size: 32px !important;
+  }
+  h3 {
+    font-size: 24px !important;
+  }
+
+  .eyebrow,
+  .typography-eyebrow {
+    font-size: 24px !important;
+  }
+
+  .intro,
+  .typography-intro {
+    font-size: 17px !important;
+  }
+
+  .tabnav-link {
+    font-size: 24px !important;
+  }
+
+  .row-full h2 {
+    font-size: 24px !important;
+  }
+
+  .typography-magical-headline {
+    font-size: 48px !important;
+  }
+
+  .typography-eyebrow-elevated {
+    font-size: 24px !important;
+  }
+
+  .typography-graph-caption {
+    font-size: 17px !important;
+  }
+
+  .typography-connection-tile-headline {
+    font-size: 24px !important;
+  }
+}
+
+@media screen and (min-width: 943px) {
   h1 {
     font-size: 48px !important;
   }
@@ -377,7 +427,7 @@ h6 {
 
 .intro,
 .typography-intro {
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.381;
   font-weight: 400;
   letter-spacing: 0.011em;
@@ -483,7 +533,7 @@ li {
 }
 
 .typography-eyebrow-elevated {
-  font-size: 24px;
+  font-size: 19px;
   line-height: 1.14286;
   font-weight: 600;
   letter-spacing: 0.007em;
@@ -493,7 +543,7 @@ li {
 
 .typography-graph-caption {
   color: #888;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -0.022em;
@@ -526,7 +576,7 @@ li {
 }
 
 .typography-magical-headline {
-  font-size: 48px;
+  font-size: 32px;
   line-height: 1;
   font-weight: 700;
   letter-spacing: -0.0009em;
@@ -535,7 +585,7 @@ li {
 }
 
 .typography-connection-tile-headline {
-  font-size: 24px;
+  font-size: 19px;
   line-height: 1.1666666667;
   font-weight: 600;
   letter-spacing: 0.009em;
@@ -710,7 +760,7 @@ a:link:hover {
   z-index: 9997;
 }
 
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-localnav {
     height: 48px;
   }
@@ -739,7 +789,7 @@ a:link:hover {
     border-bottom: none;
   }
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-localnav .ac-ln-content {
     padding: 0 16px;
   }
@@ -764,7 +814,7 @@ a:link:hover {
   z-index: 9996;
   transition: opacity 0.2s ease;
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-ln-curtain {
     transition: opacity 1s ease 0.2s, width 0s ease 1.2s, height 0s ease 1.2s;
   }
@@ -773,7 +823,7 @@ a:link:hover {
 #ac-ln-menustate:target ~ #ac-ln-curtain {
   transition: opacity 1s ease 0.1s;
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-ln-menustate:checked ~ #ac-ln-curtain,
   #ac-ln-menustate:target ~ #ac-ln-curtain {
     opacity: 1;
@@ -787,7 +837,7 @@ a:link:hover {
   float: left;
   padding-top: 18px;
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-localnav .ac-ln-actions {
     right: 0;
     padding-left: 22px;
@@ -798,7 +848,7 @@ a:link:hover {
     padding-right: calc(22px + constant(safe-area-inset-right));
   }
 }
-@media only screen and (max-width: 833px) and (max-width: 833px) {
+@media only screen and (max-width: 943px) and (max-width: 943px) {
   #ac-localnav .ac-ln-actions {
     padding-left: 16px;
     padding-right: 16px;
@@ -810,7 +860,7 @@ a:link:hover {
   margin-left: 24px;
   float: left;
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-localnav .toggle-btn {
     margin-left: 17px;
     margin-top: -3px;
@@ -837,7 +887,7 @@ a:link:hover {
   position: relative;
   z-index: 1;
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-localnav .ac-ln-action-menucta {
     float: left;
   }
@@ -854,7 +904,7 @@ a:link:hover {
   z-index: 1;
   transition: background-color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-localnav .ac-ln-background {
     min-height: 48px;
     transition: background-color 0.5s ease 0.7s;
@@ -882,7 +932,7 @@ a:link:hover {
   float: right;
   margin-top: -3px;
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-localnav .ac-ln-menu {
     font-size: 14px;
     line-height: 1;
@@ -892,7 +942,7 @@ a:link:hover {
       'Arial', sans-serif;
   }
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-localnav .ac-ln-menu {
     font-size: 14px;
     line-height: 1;
@@ -909,7 +959,7 @@ a:link:hover {
   float: left;
   padding-top: 18px;
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-localnav .ac-ln-menu-tray {
     float: none;
     overflow: hidden !important;
@@ -932,14 +982,14 @@ a:link:hover {
     transition-delay: 0.2s, 0s;
   }
 }
-@media only screen and (max-width: 833px) and (orientation: landscape) {
+@media only screen and (max-width: 943px) and (orientation: landscape) {
   #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menu-tray,
   #ac-ln-menustate:target ~ #ac-localnav .ac-ln-menu-tray {
     max-height: 280px;
     max-height: calc(100vh - 48px - 48px);
   }
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-localnav .ac-ln-menu-items {
     opacity: 0;
     padding: 4px 24px 24px;
@@ -959,7 +1009,7 @@ a:link:hover {
   float: left;
   list-style: none;
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-localnav .ac-ln-menu-item {
     margin-left: 0;
     display: inline-block;
@@ -1061,7 +1111,7 @@ a:link:hover {
   opacity: 1;
   text-decoration: none;
 } */
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-localnav .ac-ln-menu-link {
     border-top: 1px solid var(--color-menu-mobile-border);
     display: flex;
@@ -1095,7 +1145,7 @@ a:link:hover {
 #ac-localnav .ac-ln-action-menucta {
   display: none;
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-localnav .ac-ln-action-menucta {
     display: block;
   }
@@ -1178,7 +1228,7 @@ a:link:hover {
   height: 1px;
   z-index: 10;
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-localnav .ac-ln-menucta-anchor {
     display: block;
   }
@@ -1205,7 +1255,7 @@ a:link:hover {
   padding: 0;
   border: 0;
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menucta-anchor-open,
   #ac-ln-menustate:target ~ #ac-localnav .ac-ln-menucta-anchor-open {
     display: none;
@@ -1219,7 +1269,7 @@ a:link:hover {
 #ac-localnav .logo {
   height: 52px;
 }
-@media only screen and (max-width: 833px) {
+@media only screen and (max-width: 943px) {
   #ac-localnav .logo {
     /* display: inline-block; */
     /* margin: 12px 0 -12px; */
@@ -1589,7 +1639,7 @@ a.icon-wrapper:hover .icon-copy {
   justify-content: center;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 943px) {
   .info-container > svg {
     transform: scale(1);
   }
@@ -1629,6 +1679,7 @@ a.icon-wrapper:hover .icon-copy {
   display: flex;
   gap: 20px;
   margin-top: 10px;
+  font-size: 17px !important;
 }
 
 .sharesheet-options li:nth-child(1) {
@@ -1701,7 +1752,7 @@ a.icon-wrapper:hover .icon-copy {
 /* --------------------------- References & Other --------------------------- */
 
 .row-full h2 {
-  font-size: 24px;
+  font-size: 19px;
   line-height: 1.25;
   font-weight: 500;
 }
@@ -1713,7 +1764,7 @@ a.icon-wrapper:hover .icon-copy {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-@media (min-width: 500px) {
+@media (min-width: 943px) {
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
@@ -1767,9 +1818,15 @@ a.icon-wrapper:hover .icon-copy {
   position: relative;
   display: inline-block;
   width: 100%;
-  height: 8px;
+  height: 5px;
   border-radius: 4px;
   overflow: hidden;
+}
+
+@media screen and (min-width: 500px) {
+  .graph-bar {
+    height: 8px;
+  }
 }
 
 .graph-bar:after {
@@ -1858,7 +1915,7 @@ a.icon-wrapper:hover .icon-copy {
 .tabnav-items {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 75px;
   position: absolute;
 }
 
@@ -1867,6 +1924,16 @@ a.icon-wrapper:hover .icon-copy {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+@media screen and (min-width: 500px) {
+  .tabnav-items {
+    gap: 100px !important;
+  }
+
+  .slide-container {
+    gap: 100px !important;
+  }
 }
 
 @media screen and (min-width: 943px) {
@@ -1882,14 +1949,14 @@ a.icon-wrapper:hover .icon-copy {
   }
 
   .tabnav-items {
-    gap: 40px;
+    gap: 40px !important;
     padding-top: 5px;
     position: inherit;
   }
 }
 
 .tabnav-link {
-  font-size: 24px;
+  font-size: 19px;
   line-height: 1.14286;
   letter-spacing: 0.007em;
   font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
@@ -1913,7 +1980,7 @@ a.icon-wrapper:hover .icon-copy {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 75px;
   padding: 50px 0 0 0;
 }
 
@@ -1944,6 +2011,22 @@ a.icon-wrapper:hover .icon-copy {
 
 .path-timeline {
   transition: stroke-dashoffset 1s ease;
+}
+
+@media screen and (min-width: 500px) {
+  .path-timeline {
+    stroke-width: 8px;
+  }
+
+  .svg-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .article-image {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 .timeline-wrapper {
@@ -2017,7 +2100,26 @@ a.icon-wrapper:hover .icon-copy {
   padding: 52px 0;
 }
 
-@media (min-width: 500px) {
+@media screen and (min-width: 500px) {
+  #technologies .item-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .tile {
+    height: 350px !important;
+  }
+
+  .hex-progress {
+    height: 200px !important;
+  }
+
+  .tile-button {
+    width: 33px !important;
+    height: 33px !important;
+  }
+}
+
+@media screen and (min-width: 943px) {
   #technologies .item-container {
     grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
   }
@@ -2033,7 +2135,7 @@ a.icon-wrapper:hover .icon-copy {
 
 .hex-progress {
   width: 75%;
-  height: 200px;
+  height: 175px;
 }
 
 .card-fill,
@@ -2071,14 +2173,14 @@ a.icon-wrapper:hover .icon-copy {
 }
 
 .tile {
-  height: 350px;
+  height: 300px;
   position: relative;
   background-color: var(--color-fill);
   border-radius: 18px;
   transition: box-shadow, transform 0.16s ease-out;
 }
 
-/* @media (min-width: 500px) {
+/* @media (min-width: 943px) {
   .tile {
   }
 } */
@@ -2144,8 +2246,8 @@ a.icon-wrapper:hover .icon-copy {
 }
 
 .tile-button {
-  width: 33px;
-  height: 33px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -2228,7 +2330,7 @@ a.icon-wrapper:hover .icon-copy {
   font-size: 14px;
 }
 
-@media (min-width: 600px) {
+@media screen and (min-width: 500px) {
   #copyright {
     flex-direction: row !important;
   }
