@@ -265,6 +265,10 @@ body {
   --color-dark-brown: rgb(172, 142, 104);
 }
 
+#about.section-separated {
+  padding: 0 0 4em 0;
+}
+
 .section-separated {
   padding: 4em 0 4em 0;
   width: 90%;
@@ -390,6 +394,10 @@ h6 {
     width: 82.5%;
   }
 
+  #about.section-separated {
+    padding: 2em 0 4em 0;
+  }
+
   .icon-chevron {
     width: 14px;
     height: 14px;
@@ -441,6 +449,10 @@ h6 {
 
   .typography-eyebrow-elevated {
     font-size: 28px !important;
+  }
+
+  #about.section-separated {
+    padding: 4em 0 4em 0;
   }
 }
 
@@ -1664,6 +1676,12 @@ a.icon-wrapper:hover .icon-copy {
   justify-content: center;
 }
 
+@media (min-width: 500px) {
+  .info-container > svg {
+    transform: scale(0.85);
+  }
+}
+
 @media (min-width: 943px) {
   .info-container > svg {
     transform: scale(1);
@@ -2067,7 +2085,7 @@ a.icon-wrapper:hover .icon-copy {
 }
 
 .timeline-wrapper {
-  padding: 100px 0;
+  padding: 100px 0 50px 0;
 }
 
 #svg-timeline {
@@ -2106,7 +2124,7 @@ a.icon-wrapper:hover .icon-copy {
   }
 
   .timeline-wrapper {
-    padding: 150px 0;
+    padding: 150px 0 100px 0;
   }
 }
 
@@ -2132,8 +2150,7 @@ a.icon-wrapper:hover .icon-copy {
 /* ------------------------------ Technologies ------------------------------ */
 
 #technologies {
-  padding-top: 150px;
-  padding-bottom: 100px;
+  padding: 100px 0;
   text-align: center;
   background: var(--color-fill-tertiary);
 }
@@ -2148,6 +2165,10 @@ a.icon-wrapper:hover .icon-copy {
 }
 
 @media screen and (min-width: 500px) {
+  #technologies {
+    padding: 150px 0 100px 0;
+  }
+
   #technologies .item-container {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
