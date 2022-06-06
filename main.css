@@ -267,7 +267,7 @@ body {
 
 .section-separated {
   padding: 4em 0 4em 0;
-  width: 82.5%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -384,6 +384,25 @@ h6 {
 
   .typography-connection-tile-headline {
     font-size: 24px !important;
+  }
+
+  .section-separated {
+    width: 82.5%;
+  }
+
+  .icon-chevron {
+    width: 14px;
+    height: 14px;
+  }
+
+  .icon-chevron-cv {
+    width: 16px;
+    height: 16px;
+  }
+
+  .icon-download {
+    width: 22px;
+    height: 22px;
   }
 }
 
@@ -780,10 +799,16 @@ a:link:hover {
 }
 #ac-localnav .ac-ln-content {
   margin: 0 auto;
-  width: 82.5%;
+  width: 90%;
   position: relative;
   z-index: 2;
 }
+@media screen and (min-width: 500px) {
+  #ac-localnav .ac-ln-content {
+    width: 82.5%;
+  }
+}
+
 @media only screen and (max-width: 1023px) {
   #ac-localnav .ac-ln-content {
     border-bottom: none;
@@ -1760,17 +1785,19 @@ a.icon-wrapper:hover .icon-copy {
 .grid {
   margin-top: 3em;
   display: grid;
-  gap: 64px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-@media (min-width: 943px) {
+@media screen and (min-width: 500px) {
+  .grid {
+    gap: 64px;
+  }
+}
+
+@media screen and (min-width: 943px) {
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  }
-
-  .download-ical svg {
-    display: block !important;
   }
 }
 
@@ -1796,10 +1823,6 @@ a.icon-wrapper:hover .icon-copy {
 .download-ical {
   margin-top: 0.5em;
   display: flex;
-}
-
-.download-ical svg {
-  display: none;
 }
 
 /* -------------------------------- Languages ------------------------------- */
@@ -1859,7 +1882,7 @@ a.icon-wrapper:hover .icon-copy {
 }
 
 .graph-caption {
-  padding-top: 10px;
+  padding-top: 3px;
   font-weight: 600;
 }
 
@@ -1908,14 +1931,14 @@ a.icon-wrapper:hover .icon-copy {
 }
 
 .graph-gallery-container {
-  margin-top: 3em;
+  margin-top: 2em;
   display: flex;
 }
 
 .tabnav-items {
   display: flex;
   flex-direction: column;
-  gap: 75px;
+  gap: 55px;
   position: absolute;
 }
 
@@ -1933,6 +1956,15 @@ a.icon-wrapper:hover .icon-copy {
 
   .slide-container {
     gap: 100px !important;
+    padding: 50px 0 0 0 !important;
+  }
+
+  .graph-caption {
+    padding-top: 10px;
+  }
+
+  .graph-gallery-container {
+    margin-top: 3em;
   }
 }
 
@@ -1980,8 +2012,8 @@ a.icon-wrapper:hover .icon-copy {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 75px;
-  padding: 50px 0 0 0;
+  gap: 55px;
+  padding: 40px 0 0 0;
 }
 
 .slide-container .graph-gallery-item {
@@ -2004,8 +2036,8 @@ a.icon-wrapper:hover .icon-copy {
 /* -------------------------------- Projects -------------------------------- */
 
 #projects {
-  padding-top: 150px;
-  width: 82.5%;
+  padding-top: 100px;
+  width: 90%;
   margin: 0 auto 0 auto;
 }
 
@@ -2014,6 +2046,11 @@ a.icon-wrapper:hover .icon-copy {
 }
 
 @media screen and (min-width: 500px) {
+  #projects {
+    padding-top: 150px;
+    width: 82.5%;
+  }
+
   .path-timeline {
     stroke-width: 8px;
   }
@@ -2030,7 +2067,7 @@ a.icon-wrapper:hover .icon-copy {
 }
 
 .timeline-wrapper {
-  padding: 150px 0;
+  padding: 100px 0;
 }
 
 #svg-timeline {
@@ -2041,7 +2078,7 @@ a.icon-wrapper:hover .icon-copy {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 64px;
+  gap: 48px;
   transition: all 250ms ease;
   margin: 0 auto;
 }
@@ -2061,6 +2098,16 @@ a.icon-wrapper:hover .icon-copy {
   align-content: flex-end;
   gap: 10px;
   clear: both;
+}
+
+@media screen and (min-width: 500px) {
+  .timeline {
+    gap: 64px;
+  }
+
+  .timeline-wrapper {
+    padding: 150px 0;
+  }
 }
 
 @media screen and (min-width: 1220px) {
@@ -2316,7 +2363,7 @@ a.icon-wrapper:hover .icon-copy {
 /* -------------------------------- Copyright ------------------------------- */
 
 #copyright {
-  width: 82.5%;
+  width: 90%;
   margin: 100px auto 0 auto;
   border-top: 1px solid #d2d2d7;
   display: flex;
@@ -2332,6 +2379,7 @@ a.icon-wrapper:hover .icon-copy {
 
 @media screen and (min-width: 500px) {
   #copyright {
+    width: 82.5%;
     flex-direction: row !important;
   }
 
