@@ -15,6 +15,8 @@ body {
   background-color: var(--color-fill);
   color: var(--color-fill-gray);
   font-style: normal;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .light-theme {
@@ -648,12 +650,6 @@ a:link:hover {
 .link:disabled {
   opacity: 0.32;
 }
-
-/* #references,
-#other,
-#projects {
-  display: none;
-} */
 
 /* ----------------------------------- VHS ---------------------------------- */
 
@@ -1692,7 +1688,7 @@ a.icon-wrapper:hover .icon-copy {
   }
 }
 
-@media (min-width: 1220px) {
+@media (min-width: 1177px) {
   .info-container {
     display: grid;
     grid-template-columns: 411px 1fr;
@@ -1804,12 +1800,13 @@ a.icon-wrapper:hover .icon-copy {
   margin-top: 3em;
   display: grid;
   gap: 48px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
 }
 
 @media screen and (min-width: 500px) {
   .grid {
     gap: 64px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 
@@ -2016,8 +2013,8 @@ a.icon-wrapper:hover .icon-copy {
   margin: 0;
   text-decoration: none;
   display: block;
-  width: 290px;
-  white-space: initial;
+  width: 100%;
+  white-space: nowrap;
 }
 
 .graph-caption.current,
@@ -2128,7 +2125,7 @@ a.icon-wrapper:hover .icon-copy {
   }
 }
 
-@media screen and (min-width: 1220px) {
+@media screen and (min-width: 1177px) {
   .timeline-wrapper {
     display: flex;
     justify-content: center;
@@ -2156,11 +2153,11 @@ a.icon-wrapper:hover .icon-copy {
 }
 
 #technologies .item-container {
-  width: 95%;
+  width: 90%;
   margin: 0 auto 0 auto;
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   padding: 52px 0;
 }
 
@@ -2170,6 +2167,7 @@ a.icon-wrapper:hover .icon-copy {
   }
 
   #technologies .item-container {
+    width: 82.5%;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
@@ -2178,7 +2176,7 @@ a.icon-wrapper:hover .icon-copy {
   }
 
   .hex-progress {
-    height: 200px !important;
+    width: 200px !important;
   }
 
   .tile-button {
@@ -2189,6 +2187,7 @@ a.icon-wrapper:hover .icon-copy {
 
 @media screen and (min-width: 943px) {
   #technologies .item-container {
+    width: 95%;
     grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
   }
 
@@ -2197,13 +2196,15 @@ a.icon-wrapper:hover .icon-copy {
   }
 
   .hex-progress {
-    height: 225px !important;
+    width: 200px !important;
   }
 }
 
 .hex-progress {
-  width: 75%;
-  height: 175px;
+  width: 175px;
+  height: 225px;
+  align-self: center;
+  justify-self: center;
 }
 
 .card-fill,
