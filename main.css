@@ -2358,6 +2358,7 @@ a.icon-wrapper:hover .icon-copy {
   left: 0;
   padding: 50px 65px 60px 45px;
   opacity: 0;
+  visibility: hidden;
   transition: opacity 0.5s ease-in-out;
   border-radius: 18px;
 }
