@@ -31,6 +31,17 @@ window.onload = function () {
     value.querySelector('.card-text').innerHTML = percent + '%';
   });
 
+  const tileOverlayToggle = document.querySelectorAll('.tile-overlay-toggle');
+  forEach(tileOverlayToggle, function (index, value) {
+    value.addEventListener('change', function () {
+      if (this.checked) {
+        value.parentElement.classList.add('expanded');
+      } else {
+        value.parentElement.classList.remove('expanded');
+      }
+    });
+  });
+
   timelineScrolling();
   age();
   appYear();

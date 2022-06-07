@@ -2267,6 +2267,12 @@ a.icon-wrapper:hover .icon-copy {
   transition: opacity 0.5s ease-in-out;
 }
 
+.expanded .tile-content {
+  visibility: hidden;
+  opacity: 0;
+  transition: none;
+}
+
 .tile-header {
   text-align: left;
   grid-area: tile-header;
