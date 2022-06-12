@@ -1,19 +1,19 @@
 window.onload = function () {
   const themeButton = document.getElementById('theme-id');
-  if (localStorage.getItem('theme') === 'light-theme') {
-    setTheme('light-theme');
+  if (localStorage.getItem('theme') === 'light') {
+    setTheme('light');
     themeButton.checked = false;
   } else {
-    setTheme('dark-theme');
+    setTheme('dark');
     themeButton.checked = true;
   }
 
   const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
   if (darkThemeMq.matches) {
-    setTheme('dark-theme');
+    setTheme('dark');
     themeButton.checked = true;
   } else {
-    setTheme('light-theme');
+    setTheme('light');
     themeButton.checked = false;
   }
 
@@ -56,10 +56,10 @@ function setTheme(themeName) {
 }
 
 function toggleTheme() {
-  if (localStorage.getItem('theme') === 'dark-theme') {
-    setTheme('light-theme');
+  if (localStorage.getItem('theme') === 'dark') {
+    setTheme('light');
   } else {
-    setTheme('dark-theme');
+    setTheme('dark');
   }
   changeFavicon();
 }
@@ -277,7 +277,7 @@ function countToggles() {
 
 const changeFavicon = () => {
   const faviconTag = document.getElementById('favicon-tag');
-  if (localStorage.getItem('theme') === 'dark-theme') {
+  if (localStorage.getItem('theme') === 'dark') {
     faviconTag.href = '/img/favicon-dark.ico';
   } else {
     faviconTag.href = '/img/favicon-light.ico';
