@@ -31,24 +31,18 @@ window.onload = function () {
     value.querySelector('.card-text').innerHTML = percent + '%';
   });
 
-  const tileOverlayToggle = document.querySelectorAll('.tile-overlay-toggle');
-  forEach(tileOverlayToggle, function (index, value) {
-    value.addEventListener('change', function () {
-      if (this.checked) {
-        value.parentElement.classList.add('expanded');
-      } else {
-        value.parentElement.classList.remove('expanded');
-      }
-    });
-  });
-
   timelineScrolling();
   age();
   appYear();
   currentYear();
   intersectionObserver();
   setCurrentItem();
+  navOpen();
+  closeNav();
+  expandTile();
 };
+
+/* ---------------------------------- Theme --------------------------------- */
 
 function setTheme(themeName) {
   localStorage.setItem('theme', themeName);
@@ -96,6 +90,31 @@ function setCurrentItem() {
       this.className += ' current';
     });
   }
+}
+
+function navOpen() {
+  const menuState = document.getElementById('ac-ln-menustate');
+  if (menuState.checked) {
+    document.getElementById('ac-localnav').classList.add('nav-open');
+  }
+  menuState.addEventListener('change', function () {
+    if (this.checked) {
+      document.getElementById('ac-localnav').classList.add('nav-open');
+    } else {
+      document.getElementById('ac-localnav').classList.remove('nav-open');
+    }
+  });
+}
+
+function closeNav() {
+  window.addEventListener('scroll', function () {
+    if (
+      document.getElementById('ac-localnav').classList.contains('nav-open') &&
+      window.scrollY > 0
+    ) {
+      document.getElementById('ac-localnav').classList.remove('nav-open');
+    }
+  });
 }
 
 function isIntoView(elem) {
@@ -273,6 +292,19 @@ const changeFavicon = () => {
 };
 
 /* -------------------------- Hexagon Progressbars -------------------------- */
+
+function expandTile() {
+  const tileOverlayToggle = document.querySelectorAll('.tile-overlay-toggle');
+  forEach(tileOverlayToggle, function (index, value) {
+    value.addEventListener('change', function () {
+      if (this.checked) {
+        value.parentElement.classList.add('expanded');
+      } else {
+        value.parentElement.classList.remove('expanded');
+      }
+    });
+  });
+}
 
 let forEach = function (array, callback, scope) {
   for (let i = 0; i < array.length; i++) {

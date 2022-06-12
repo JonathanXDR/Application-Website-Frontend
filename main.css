@@ -160,7 +160,7 @@ body {
   /* Menu */
   --color-menu: rgba(0, 0, 0, 0.72);
   --color-menu-border: rgba(255, 255, 255, 0.24);
-  --color-menu-mobile: rgba(29, 29, 31, 0.9);
+  --color-menu-mobile: #1d1d1f;
   --color-menu-mobile-border: rgba(255, 255, 255, 0.26087);
   --color-tile-button: rgba(255, 255, 255, 0.8);
 
@@ -920,15 +920,10 @@ a:link:hover {
   }
 }
 
-#ac-ln-menustate:checked ~ #ac-localnav .ac-ln-background,
-#ac-ln-menustate:target ~ #ac-localnav .ac-ln-background {
-  background-color: var(--color-menu-mobile);
-  max-height: none;
-  transition: background-color 0.5s ease;
-  transition-property: background-color, -webkit-backdrop-filter;
-  transition-property: background-color, backdrop-filter;
-  transition-property: background-color, backdrop-filter,
-    -webkit-backdrop-filter;
+.nav-open .ac-ln-background {
+  background-color: var(--color-menu-mobile) !important;
+  max-height: none !important;
+  transition: background-color 0.5s ease !important;
 }
 #ac-localnav.ac-localnav-dark .ac-ln-background:after {
   background-color: rgba(255, 255, 255, 0.24);
@@ -959,11 +954,10 @@ a:link:hover {
   left: 0;
   width: 100%;
 }
-#ac-ln-menustate:checked ~ #ac-localnav .ac-ln-background:after,
-#ac-ln-menustate:target ~ #ac-localnav .ac-ln-background:after {
-  margin-left: 0;
-  left: 0;
-  width: 100%;
+.nav-open .ac-ln-background:after {
+  margin-left: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
 }
 
 /* ------------------------------- ac-ln-menu ------------------------------- */
@@ -1010,28 +1004,25 @@ a:link:hover {
     transition: max-height 0.5s cubic-bezier(0.28, 0.11, 0.32, 1) 0.4s,
       visibility 0s linear 1s;
   }
-  #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menu-tray,
-  #ac-ln-menustate:target ~ #ac-localnav .ac-ln-menu-tray {
-    max-height: 400px;
-    max-height: calc(100vh - 48px - 48px);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    pointer-events: auto;
-    visibility: visible;
-    transition-delay: 0.2s, 0s;
+  .nav-open .ac-ln-menu-tray {
+    max-height: 400px !important;
+    max-height: calc(100vh - 48px - 48px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+    transition-delay: 0.2s, 0s !important;
   }
 }
 @media only screen and (max-width: 943px) and (orientation: landscape) {
-  #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menu-tray,
-  #ac-ln-menustate:target ~ #ac-localnav .ac-ln-menu-tray {
-    max-height: 280px;
-    max-height: calc(100vh - 48px - 48px);
+  .nav-open .ac-ln-menu-tray {
+    max-height: 280px !important;
+    max-height: calc(100vh - 48px - 48px) !important;
   }
 }
 @media only screen and (max-width: 943px) {
-  #ac-ln-menustate:checked ~ #ac-localnav.ac-ln-sticking .ac-ln-menu-tray,
-  #ac-ln-menustate:target ~ #ac-localnav.ac-ln-sticking .ac-ln-menu-tray {
-    max-height: calc(100vh - 48px);
+  .nav-open.ac-ln-sticking .ac-ln-menu-tray {
+    max-height: calc(100vh - 48px) !important;
   }
 }
 
@@ -1045,11 +1036,10 @@ a:link:hover {
     transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1) 0.5s,
       opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
   }
-  #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menu-items,
-  #ac-ln-menustate:target ~ #ac-localnav .ac-ln-menu-items {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-    transition-delay: 0.2s, 0.4s;
+  .nav-open .ac-ln-menu-items {
+    opacity: 1 !important;
+    transform: translate3d(0, 0, 0) !important;
+    transition-delay: 0.2s, 0.4s !important;
   }
 }
 
@@ -1093,18 +1083,10 @@ a:link:hover {
   #ac-ln-menustate:checked
     ~ #ac-localnav
     .ac-ln-menu-item:nth-child(1)
-    .ac-ln-menu-link,
-  #ac-ln-menustate:target
-    ~ #ac-localnav
-    .ac-ln-menu-item:nth-child(1)
     .ac-ln-menu-link {
     transition-delay: 0.56s;
   }
   #ac-ln-menustate:checked
-    ~ #ac-localnav
-    .ac-ln-menu-item:nth-child(2)
-    .ac-ln-menu-link,
-  #ac-ln-menustate:target
     ~ #ac-localnav
     .ac-ln-menu-item:nth-child(2)
     .ac-ln-menu-link {
@@ -1113,18 +1095,10 @@ a:link:hover {
   #ac-ln-menustate:checked
     ~ #ac-localnav
     .ac-ln-menu-item:nth-child(3)
-    .ac-ln-menu-link,
-  #ac-ln-menustate:target
-    ~ #ac-localnav
-    .ac-ln-menu-item:nth-child(3)
     .ac-ln-menu-link {
     transition-delay: 0.42s;
   }
   #ac-ln-menustate:checked
-    ~ #ac-localnav
-    .ac-ln-menu-item:nth-child(4)
-    .ac-ln-menu-link,
-  #ac-ln-menustate:target
     ~ #ac-localnav
     .ac-ln-menu-item:nth-child(4)
     .ac-ln-menu-link {
@@ -1133,18 +1107,10 @@ a:link:hover {
   #ac-ln-menustate:checked
     ~ #ac-localnav
     .ac-ln-menu-item:nth-child(5)
-    .ac-ln-menu-link,
-  #ac-ln-menustate:target
-    ~ #ac-localnav
-    .ac-ln-menu-item:nth-child(5)
     .ac-ln-menu-link {
     transition-delay: 0.28s;
   }
   #ac-ln-menustate:checked
-    ~ #ac-localnav
-    .ac-ln-menu-item:nth-child(6)
-    .ac-ln-menu-link,
-  #ac-ln-menustate:target
     ~ #ac-localnav
     .ac-ln-menu-item:nth-child(6)
     .ac-ln-menu-link {
@@ -1177,26 +1143,23 @@ a:link:hover {
     transition: 0.5s ease;
     transition-property: transform, opacity;
   }
-  #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menu-link,
-  #ac-ln-menustate:target ~ #ac-localnav .ac-ln-menu-link {
-    opacity: 0.88;
-    transform: translate3d(0, 0, 0);
+  .nav-open .ac-ln-menu-link {
+    opacity: 0.88 !important;
+    transform: translate3d(0, 0, 0) !important;
   }
 }
 #ac-localnav.ac-localnav-dark .ac-ln-menu-link:hover {
   color: #2997ff;
   opacity: 1;
 }
-#ac-ln-menustate:checked ~ .ac-localnav-dark#ac-localnav .ac-ln-menu-link,
-#ac-ln-menustate:target ~ .ac-localnav-dark#ac-localnav .ac-ln-menu-link {
-  opacity: 0.92;
+.nav-open .ac-ln-menu-link {
+  opacity: 0.92 !important;
 }
 #ac-localnav .ac-ln-menu-link.current:hover {
   color: #000;
 }
-#ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menu-link.current,
-#ac-ln-menustate:target ~ #ac-localnav .ac-ln-menu-link.current {
-  opacity: 0.56;
+.nav-open .ac-ln-menu-link.current {
+  opacity: 0.56 !important;
   /* border-color: rgba(0, 0, 0, 0.285714); */
 }
 #ac-localnav.ac-localnav-dark .ac-ln-menu-link.current {
@@ -1206,9 +1169,6 @@ a:link:hover {
   color: #fff;
 }
 #ac-ln-menustate:checked
-  ~ .ac-localnav-dark#ac-localnav
-  .ac-ln-menu-link.current,
-#ac-ln-menustate:target
   ~ .ac-localnav-dark#ac-localnav
   .ac-ln-menu-link.current {
   opacity: 0.56;
@@ -1276,19 +1236,16 @@ a:link:hover {
 #ac-localnav .ac-ln-menucta-chevron:hover {
   opacity: 1;
 }
-#ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menucta-chevron,
-#ac-ln-menustate:target ~ #ac-localnav .ac-ln-menucta-chevron {
-  transform: translateY(-8px);
+.nav-open .ac-ln-menucta-chevron {
+  transform: translateY(-8px) !important;
 }
-#ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menucta-chevron::before,
-#ac-ln-menustate:target ~ #ac-localnav .ac-ln-menucta-chevron::before {
-  transform-origin: 100% 0%;
-  transform: rotate(-40deg) scaleY(1.1);
+.nav-open .ac-ln-menucta-chevron::before {
+  transform-origin: 100% 0% !important;
+  transform: rotate(-40deg) scaleY(1.1) !important;
 }
-#ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menucta-chevron::after,
-#ac-ln-menustate:target ~ #ac-localnav .ac-ln-menucta-chevron::after {
-  transform-origin: 0% 0%;
-  transform: rotate(40deg) scaleY(1.1);
+.nav-open .ac-ln-menucta-chevron::after {
+  transform-origin: 0% 0% !important;
+  transform: rotate(40deg) scaleY(1.1) !important;
 }
 #ac-localnav.ac-localnav-dark .ac-ln-menucta-chevron::before,
 #ac-localnav.ac-localnav-dark .ac-ln-menucta-chevron::after {
@@ -1303,6 +1260,40 @@ a:link:hover {
 
 a:disabled {
   opacity: 0.32;
+}
+
+/* ----------------------------- #ac-ln-curtain ----------------------------- */
+
+#ac-ln-curtain {
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: 9996;
+  transition: opacity 0.2s ease;
+}
+
+@media only screen and (max-width: 833px) {
+  #ac-ln-curtain {
+    transition: opacity 1s ease 0.2s, width 0s ease 1.2s, height 0s ease 1.2s;
+  }
+}
+
+.nav-open #ac-ln-curtain {
+  transition: opacity 1s ease 0.1s !important;
+}
+
+@media only screen and (max-width: 833px) {
+  .nav-open #ac-ln-curtain {
+    opacity: 1 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
 }
 
 /* ------------------------------ Theme Button ------------------------------ */
