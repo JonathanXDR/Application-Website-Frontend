@@ -17,8 +17,6 @@ window.onload = function () {
     themeButton.checked = false;
   }
 
-  changeFavicon();
-
   const max = 2160;
   forEach(document.querySelectorAll('.hex-progress'), function (index, value) {
     percent = value.getAttribute('data-progress');
@@ -55,7 +53,6 @@ function toggleTheme() {
   } else {
     setTheme('dark');
   }
-  changeFavicon();
 }
 
 /* -------------------------- IntersectionObserver -------------------------- */
@@ -80,9 +77,9 @@ function intersectionObserver() {
 
 function setCurrentItem() {
   const items = document.getElementsByClassName('ac-ln-menu-link');
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 6; i++) {
     items[i].addEventListener('click', function () {
-      closeNav();
+      // closeNav();
       const current = document.getElementsByClassName('current');
       if (current.length > 0) {
         current[0].className = current[0].className.replace(' current', '');
@@ -282,15 +279,6 @@ function countToggles() {
     text.style.backfaceVisibility = 'hidden';
   }
 }
-
-const changeFavicon = () => {
-  const faviconTag = document.getElementById('favicon-tag');
-  if (localStorage.getItem('theme') === 'dark') {
-    faviconTag.href = '/img/favicon-dark.ico';
-  } else {
-    faviconTag.href = '/img/favicon-light.ico';
-  }
-};
 
 /* -------------------------- Hexagon Progressbars -------------------------- */
 

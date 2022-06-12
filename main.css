@@ -398,6 +398,10 @@ h6 {
     width: 82.5%;
   }
 
+  .ac-ln-content {
+    width: 82.5% !important;
+  }
+
   #about.section-separated {
     padding: 2em 0 4em 0;
   }
@@ -832,7 +836,7 @@ a:link:hover {
 }
 #ac-localnav .ac-ln-content {
   margin: 0 auto;
-  width: 82.5%;
+  width: 90%;
   /* padding: 0 22px; */
   position: relative;
   z-index: 2;
@@ -1288,7 +1292,7 @@ a:disabled {
 
 @media only screen and (min-width: 943px) {
   .toggle-btn {
-    margin: -29px -26px -26px -2px !important;
+    margin: -29px -50px -26px -2px !important;
   }
 }
 
