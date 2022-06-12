@@ -37,8 +37,14 @@
   <body>
     <header>
       <input type="checkbox" id="ac-ln-menustate" class="ac-ln-menustate" />
-      <div id="ac-ln-sticky-placeholder" class="css-sticky"></div>
-      <nav id="ac-localnav" class="ac-localnav-noborder js no-touch css-sticky">
+      <div
+        id="ac-ln-sticky-placeholder"
+        class="css-sticky ac-ln-sticking"
+      ></div>
+      <nav
+        id="ac-localnav"
+        class="ac-localnav-dark ac-localnav-noborder js no-touch css-sticky ac-ln-sticking"
+      >
         <div class="ac-ln-wrapper">
           <div class="ac-ln-background"></div>
           <div class="ac-ln-content">
@@ -50,7 +56,6 @@
                 href="#ac-ln-menustate"
                 class="ac-ln-menucta-anchor ac-ln-menucta-anchor-open"
                 id="ac-ln-menustate-open"
-                role="button"
               >
                 <span class="ac-ln-menucta-anchor-label"
                   >Local Nav Open Menu</span
@@ -60,7 +65,6 @@
                 href="#"
                 class="ac-ln-menucta-anchor ac-ln-menucta-anchor-close"
                 id="ac-ln-menustate-close"
-                role="button"
               >
                 <span class="ac-ln-menucta-anchor-label"
                   >Local Nav Close Menu</span
@@ -69,44 +73,30 @@
               <div class="ac-ln-menu-tray">
                 <ul class="ac-ln-menu-items">
                   <li class="ac-ln-menu-item">
-                    <span class="ac-ln-menu-link current">Overview</span>
+                    <span
+                      class="ac-ln-menu-link current"
+                      role="link"
+                      aria-disabled="true"
+                      aria-current="page"
+                      >Overview</span
+                    >
                   </li>
                   <li class="ac-ln-menu-item">
-                    <a href="/ipad-pro/why-ipad/" class="ac-ln-menu-link"
+                    <a
+                      href="/ipad-pro/why-ipad/"
+                      class="ac-ln-menu-link"
+                      data-analytics-title="why-ipad"
                       >Why iPad</a
                     >
                   </li>
                   <li class="ac-ln-menu-item">
-                    <a href="/ipad-pro/specs/" class="ac-ln-menu-link"
+                    <a
+                      href="/ipad-pro/specs/"
+                      class="ac-ln-menu-link"
+                      data-analytics-title="specs"
                       >Tech Specs</a
                     >
                   </li>
-                  <!-- <li class="ac-ln-menu-item">
-                    <a href="#about" class="ac-ln-menu-link item">About</a>
-                  </li>
-                  <li class="ac-ln-menu-item">
-                    <a href="#languages" class="ac-ln-menu-link item"
-                      >Sprachkenntnisse</a
-                    >
-                  </li>
-                  <li class="ac-ln-menu-item">
-                    <a href="#references" class="ac-ln-menu-link item"
-                      >Referenzen</a
-                    >
-                  </li>
-                  <li class="ac-ln-menu-item">
-                    <a href="#other" class="ac-ln-menu-link item">Anderes</a>
-                  </li>
-                  <li class="ac-ln-menu-item">
-                    <a href="#technologies" class="ac-ln-menu-link item"
-                      >Technologien</a
-                    >
-                  </li>
-                  <li class="ac-ln-menu-item">
-                    <a href="#projects" class="ac-ln-menu-link item"
-                      >Projekte</a
-                    >
-                  </li> -->
                 </ul>
               </div>
               <div class="ac-ln-actions">
@@ -115,17 +105,15 @@
                     <span class="ac-ln-menucta-chevron"></span>
                   </label>
                 </div>
-                <div class="ac-ln-action ac-ln-action-button">
-                  <label class="toggle-btn" id="toggle-btn-id">
-                    <input
-                      type="checkbox"
-                      onclick="toggleTheme();countToggles()"
-                      class="btn-input"
-                      id="theme-id"
-                    />
-                    <span></span>
-                  </label>
-                </div>
+                <label class="toggle-btn" id="toggle-btn-id">
+                  <input
+                    type="checkbox"
+                    onclick="toggleTheme();countToggles()"
+                    class="btn-input"
+                    id="theme-id"
+                  />
+                  <span></span>
+                </label>
               </div>
             </div>
           </div>
