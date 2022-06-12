@@ -113,6 +113,7 @@ function closeNav() {
       window.scrollY > 0
     ) {
       document.getElementById('ac-localnav').classList.remove('nav-open');
+      document.getElementById('ac-ln-menustate').checked = false;
     }
   });
 }
