@@ -18,6 +18,7 @@ body {
   overflow-wrap: break-word;
   hyphens: auto;
   /* transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1); */
+  scroll-behavior: smooth;
 }
 
 .light {
@@ -836,16 +837,23 @@ a:link:hover {
   position: relative;
   z-index: 2;
 }
-@media only screen and (max-width: 1023px) {
+
+/* ------------------------------ ac-ln-content ----------------------------- */
+
+/* @media only screen and (max-width: 1023px) {
   #ac-localnav .ac-ln-content {
     border-bottom: none;
   }
-}
-@media only screen and (max-width: 943px) {
+} */
+
+/* @media only screen and (max-width: 943px) {
   #ac-localnav .ac-ln-content {
     padding: 0 16px;
   }
-}
+} */
+
+/* ------------------------------ ac-ln-actions ----------------------------- */
+
 #ac-localnav .ac-ln-actions {
   float: left;
   padding-top: 18px;
@@ -853,8 +861,8 @@ a:link:hover {
 @media only screen and (max-width: 943px) {
   #ac-localnav .ac-ln-actions {
     right: 0;
-    padding-left: 22px;
-    padding-right: 22px;
+    /* padding-left: 22px;
+    padding-right: 22px; */
     position: absolute;
     top: 0;
     z-index: 1;
@@ -863,8 +871,8 @@ a:link:hover {
 }
 @media only screen and (max-width: 943px) and (max-width: 943px) {
   #ac-localnav .ac-ln-actions {
-    padding-left: 16px;
-    padding-right: 16px;
+    /* padding-left: 16px;
+    padding-right: 16px; */
     padding-top: 16px;
   }
 }
@@ -883,6 +891,9 @@ a:link:hover {
     float: left;
   }
 }
+
+/* ---------------------------- ac-ln-background ---------------------------- */
+
 #ac-localnav .ac-ln-background {
   position: absolute;
   left: 0;
@@ -954,6 +965,9 @@ a:link:hover {
   left: 0;
   width: 100%;
 }
+
+/* ------------------------------- ac-ln-menu ------------------------------- */
+
 #ac-localnav .ac-ln-menu {
   font-size: 12px;
   line-height: 1;
@@ -977,6 +991,9 @@ a:link:hover {
     width: 100%;
   }
 }
+
+/* ----------------------------- ac-ln-menu-tray ---------------------------- */
+
 #ac-localnav .ac-ln-menu-tray {
   float: left;
   padding-top: 18px;
@@ -1017,6 +1034,9 @@ a:link:hover {
     max-height: calc(100vh - 48px);
   }
 }
+
+/* ---------------------------- ac-ln-menu-items ---------------------------- */
+
 @media only screen and (max-width: 943px) {
   #ac-localnav .ac-ln-menu-items {
     opacity: 0;
@@ -1032,6 +1052,9 @@ a:link:hover {
     transition-delay: 0.2s, 0.4s;
   }
 }
+
+/* ----------------------------- ac-ln-menu-item ---------------------------- */
+
 #ac-localnav .ac-ln-menu-item {
   margin-left: 24px;
   float: left;
@@ -1045,12 +1068,10 @@ a:link:hover {
     width: 100%;
     height: 44px;
   }
+
   #ac-localnav .ac-ln-menu-item:first-child .ac-ln-menu-link {
     border-top: 0;
   }
-  /* #ac-localnav.ac-localnav-dark .ac-ln-menu-item {
-    border-color: rgba(255, 255, 255, 0.24);
-  } */
   #ac-localnav .ac-ln-menu-item:nth-child(1) .ac-ln-menu-link {
     transition-delay: 0.07s;
   }
@@ -1130,6 +1151,9 @@ a:link:hover {
     transition-delay: 0.21s;
   }
 }
+
+/* ----------------------------- ac-ln-menu-link ---------------------------- */
+
 #ac-localnav .ac-ln-menu-link {
   display: inline-block;
   line-height: 22px;
@@ -1173,7 +1197,7 @@ a:link:hover {
 #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menu-link.current,
 #ac-ln-menustate:target ~ #ac-localnav .ac-ln-menu-link.current {
   opacity: 0.56;
-  border-color: rgba(0, 0, 0, 0.285714);
+  /* border-color: rgba(0, 0, 0, 0.285714); */
 }
 #ac-localnav.ac-localnav-dark .ac-ln-menu-link.current {
   opacity: 0.56;
@@ -1188,7 +1212,7 @@ a:link:hover {
   ~ .ac-localnav-dark#ac-localnav
   .ac-ln-menu-link.current {
   opacity: 0.56;
-  border-color: rgba(255, 255, 255, 0.428571);
+  /* border-color: rgba(255, 255, 255, 0.428571); */
 }
 #ac-localnav .ac-ln-action-menucta {
   display: none;
@@ -1207,6 +1231,9 @@ a:link:hover {
   height: 30px;
   -webkit-tap-highlight-color: transparent;
 }
+
+/* -------------------------- ac-ln-menucta-chevron ------------------------- */
+
 #ac-localnav .ac-ln-menucta-chevron {
   display: block;
   position: relative;
@@ -1268,53 +1295,10 @@ a:link:hover {
   background: var(--color-fill-gray);
 }
 
-#ac-localnav .ac-ln-title {
-  font-size: 21px;
-  line-height: 1.14286;
-  font-weight: 600;
-  letter-spacing: 0.011em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
-  cursor: default;
-  display: block;
-  float: left;
-  margin: 14px 0 -14px;
-  padding: 0;
-  height: 52px;
-  white-space: nowrap;
-  transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
-}
-@media only screen and (max-width: 943px) {
-  #ac-localnav .ac-ln-title {
-    font-size: 19px;
-    line-height: 1.26316;
-    font-weight: 600;
-    letter-spacing: 0.012em;
-    font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-      'Arial', sans-serif;
-  }
-}
-@media only screen and (max-width: 943px) {
-  #ac-localnav .ac-ln-title {
-    display: inline-block;
-    margin: 12px 0 -12px;
-    height: 48px;
-  }
-}
-#ac-localnav .ac-ln-title a {
-  display: flex;
-  flex-direction: column-reverse;
-  letter-spacing: inherit;
-  line-height: inherit;
-  margin: 0;
-  white-space: nowrap;
-  opacity: 0.88;
-}
-#ac-localnav .ac-ln-title a:hover {
-  text-decoration: none;
-}
-#ac-localnav.ac-localnav-dark .ac-ln-title a {
-  opacity: 0.92;
+/* ------------------------------- ac-ln-title ------------------------------ */
+
+.ac-ln-title img {
+  height: 45px;
 }
 
 a:disabled {
@@ -1332,7 +1316,7 @@ a:disabled {
   border: solid var(--color-menu-border);
   border-width: 3px;
   box-sizing: content-box;
-  margin: -29px -26px -26px 26px;
+  margin: -29px -50px -26px 26px;
   /* display: none; */
 }
 
@@ -2079,13 +2063,20 @@ a.icon-wrapper:hover .icon-copy {
   }
 
   .svg-icon {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
   }
 
   .article-image {
     width: 25px;
     height: 25px;
+  }
+}
+
+@media screen and (min-width: 943px) {
+  .svg-icon {
+    width: 35px;
+    height: 35px;
   }
 }
 
@@ -2165,7 +2156,7 @@ a.icon-wrapper:hover .icon-copy {
   margin: 0 auto 0 auto;
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
   padding: 52px 0;
 }
 

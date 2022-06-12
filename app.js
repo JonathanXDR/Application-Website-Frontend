@@ -85,7 +85,7 @@ function intersectionObserver() {
 /* ---------------------------------- Menu ---------------------------------- */
 
 function setCurrentItem() {
-  const items = document.getElementsByClassName('item');
+  const items = document.getElementsByClassName('ac-ln-menu-link');
   for (let i = 0; i < 4; i++) {
     items[i].addEventListener('click', function () {
       closeNav();
@@ -97,18 +97,6 @@ function setCurrentItem() {
     });
   }
 }
-
-const burgerClicked = () => {
-  const nav = document.getElementById('myNav');
-  nav.classList.toggle('nav--open');
-  nav.classList.toggle('nav--close');
-};
-
-const closeNav = () => {
-  const nav = document.getElementById('myNav');
-  nav.classList.add('nav--close');
-  nav.classList.remove('nav--open');
-};
 
 function isIntoView(elem) {
   const documentViewTop = $(window).scrollTop();
