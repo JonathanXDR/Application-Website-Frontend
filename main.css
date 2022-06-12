@@ -1352,7 +1352,7 @@ a:disabled {
   border: solid var(--color-menu-border);
   border-width: 3px;
   box-sizing: content-box;
-  /* margin: -26px -26px !important; */
+  margin: -29px 0 0 26px !important;
   /* display: none; */
 }
 
