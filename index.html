@@ -35,13 +35,7 @@
   </head>
 
   <body>
-    <div id="vhs">
-      <div id="crt-lines"></div>
-      <div id="darken"></div>
-      <div id="vignette"></div>
-    </div>
-
-    <div>
+    <header>
       <input type="checkbox" id="ac-ln-menustate" class="ac-ln-menustate" />
       <div id="ac-ln-sticky-placeholder" class="css-sticky"></div>
       <nav id="ac-localnav" class="ac-localnav-noborder js no-touch css-sticky">
@@ -87,6 +81,32 @@
                       >Tech Specs</a
                     >
                   </li>
+                  <!-- <li class="ac-ln-menu-item">
+                    <a href="#about" class="ac-ln-menu-link item">About</a>
+                  </li>
+                  <li class="ac-ln-menu-item">
+                    <a href="#languages" class="ac-ln-menu-link item"
+                      >Sprachkenntnisse</a
+                    >
+                  </li>
+                  <li class="ac-ln-menu-item">
+                    <a href="#references" class="ac-ln-menu-link item"
+                      >Referenzen</a
+                    >
+                  </li>
+                  <li class="ac-ln-menu-item">
+                    <a href="#other" class="ac-ln-menu-link item">Anderes</a>
+                  </li>
+                  <li class="ac-ln-menu-item">
+                    <a href="#technologies" class="ac-ln-menu-link item"
+                      >Technologien</a
+                    >
+                  </li>
+                  <li class="ac-ln-menu-item">
+                    <a href="#projects" class="ac-ln-menu-link item"
+                      >Projekte</a
+                    >
+                  </li> -->
                 </ul>
               </div>
               <div class="ac-ln-actions">
@@ -112,1367 +132,331 @@
         </div>
       </nav>
       <label id="ac-ln-curtain" for="ac-ln-menustate"></label>
-    </div>
 
-    <!-- <nav id="myNav" class="nav--close">
-      <a href="#about">
-        <div id="logo-padding">
-          <img id="logo" alt="Logo von JR" />
+      <!-- <nav id="myNav" class="nav--close">
+        <a href="#about">
+          <div id="logo-padding">
+            <img id="logo" alt="Logo von JR" />
+          </div>
+        </a>
+
+        <ul>
+          <li>
+            <a href="#about" class="item">About</a>
+          </li>
+          <li>
+            <a href="#languages" class="item">Sprachkenntnisse</a>
+          </li>
+          <li>
+            <a href="#references" class="item">Referenzen</a>
+          </li>
+          <li>
+            <a href="#other" class="item">Anderes</a>
+          </li>
+          <li>
+            <a href="#technologies" class="item">Technologien</a>
+          </li>
+          <li>
+            <a href="#projects" class="item">Projekte</a>
+          </li>
+        </ul>
+
+        <label class="toggle-btn" id="toggle-btn-id">
+          <input
+            type="checkbox"
+            onclick="toggleTheme();countToggles()"
+            class="btn-input"
+            id="theme-id"
+          />
+          <span></span>
+        </label>
+
+        <div id="menu-toggle" onclick="burgerClicked()">
+          <span class="hamburger"></span>
         </div>
-      </a>
+      </nav> -->
 
-      <ul>
-        <li>
-          <a href="#about" class="item">About</a>
-        </li>
-        <li>
-          <a href="#languages" class="item">Sprachkenntnisse</a>
-        </li>
-        <li>
-          <a href="#references" class="item">Referenzen</a>
-        </li>
-        <li>
-          <a href="#other" class="item">Anderes</a>
-        </li>
-        <li>
-          <a href="#technologies" class="item">Technologien</a>
-        </li>
-        <li>
-          <a href="#projects" class="item">Projekte</a>
-        </li>
-      </ul>
-
-      <label class="toggle-btn" id="toggle-btn-id">
-        <input
-          type="checkbox"
-          onclick="toggleTheme();countToggles()"
-          class="btn-input"
-          id="theme-id"
-        />
-        <span></span>
-      </label>
-
-      <div id="menu-toggle" onclick="burgerClicked()">
-        <span class="hamburger"></span>
-      </div>
-    </nav> -->
-
-    <!-- Info Bar -->
-    <div class="ribbon acmi-ribbon ribbon-blue-to-default">
-      <div class="ribbon-drop-wrapper">
-        <div class="ribbon-content-wrapper">
-          <div class="ribbon-content row">
-            <p class="typography-caption ac-promo-copy">
-              <a
-                href="https://github.com/JonathanXDR/Application-Website/compare/v1.1.0...v2.0.0"
-                class="icon-wrapper promo-trigger ribbon-link"
-                ><span class="icon-copy">Was ist neu in Version 2.0?</span>
-              </a>
-            </p>
+      <!-- Info Bar -->
+      <div class="ribbon acmi-ribbon ribbon-blue-to-default">
+        <div class="ribbon-drop-wrapper">
+          <div class="ribbon-content-wrapper">
+            <div class="ribbon-content row">
+              <p class="typography-caption ac-promo-copy">
+                <a
+                  href="https://github.com/JonathanXDR/Application-Website/compare/v1.1.0...v2.0.0"
+                  class="icon-wrapper promo-trigger ribbon-link"
+                  ><span class="icon-copy">Was ist neu in Version 2.0?</span>
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </header>
 
-    <section id="about" class="section-separated">
-      <div class="info-container">
-        <svg xmlns="http://www.w3.org/2000/svg" width="411" height="411">
-          <defs>
-            <clipPath id="image">
-              <path
-                d="M190.5 14.160254037844a30 30 0 0 1 30 0l143.20508075689 82.679491924311a30 30 0 0 1 15 25.980762113533l0 165.35898384862a30 30 0 0 1 -15 25.980762113533l-143.20508075689 82.679491924311a30 30 0 0 1 -30 0l-143.20508075689 -82.679491924311a30 30 0 0 1 -15 -25.980762113533l2.633606093737e-13 -165.35898384862a30 30 0 0 1 15 -25.980762113533"
-              ></path>
-            </clipPath>
-          </defs>
-          <image
-            clip-path="url(#image)"
-            height="100%"
-            width="100%"
-            x="0"
-            y="10"
-            href="/img/Portrait-PB.jpg"
-            preserveAspectRatio="xMidYMin slice"
-          ></image>
-        </svg>
+    <main>
+      <div id="vhs">
+        <div id="crt-lines"></div>
+        <div id="darken"></div>
+        <div id="vignette"></div>
+      </div>
 
-        <div>
-          <h1><span class="eyebrow">Hey ;)</span>I'm Jonathan</h1>
-          <p class="typography-intro">
-            Hallo mein Name ist Jonathan und ich bin
-            <span id="age"></span> Jahre alt. Aktuell bin ich im
-            <span id="app-year"></span>. Lehrjahr als Informatiker -
-            Applikationsentwicklung. Ich wohne in Egg bei Einsiedeln im Kanton
-            Schwyz. Das Programmieren fasziniert mich sehr und ich finde es
-            spannend, was man damit alles erreichen kann. In meiner Freizeit
-            spiele ich gerne Computer -und Konsolenspiele und treffe mich oft
-            mit Freunden. Ausserdem höre ich häufig Musik und produziere sie
-            auch manchmal selbst.
-          </p>
-
-          <p>
-            <a
-              href="https://swisscom-my.sharepoint.com/:b:/p/jonathan_russ/EV1fbkdctGdPhW4kGzxcWpcBfBkv7AzhCnzqIjLxZStcWA?e=voEttz"
-              class="link typography-intro"
-              >Zum Lebenslauf<svg
-                class="icon-chevron-cv"
-                width="12"
-                height="12"
-                viewBox="0 0 10 17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+      <section id="about" class="section-separated">
+        <div class="info-container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="411" height="411">
+            <defs>
+              <clipPath id="image">
                 <path
-                  d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
-                  fill="var(--ribbon-link-color)"
-                />
-              </svg>
-            </a>
-          </p>
+                  d="M190.5 14.160254037844a30 30 0 0 1 30 0l143.20508075689 82.679491924311a30 30 0 0 1 15 25.980762113533l0 165.35898384862a30 30 0 0 1 -15 25.980762113533l-143.20508075689 82.679491924311a30 30 0 0 1 -30 0l-143.20508075689 -82.679491924311a30 30 0 0 1 -15 -25.980762113533l2.633606093737e-13 -165.35898384862a30 30 0 0 1 15 -25.980762113533"
+                ></path>
+              </clipPath>
+            </defs>
+            <image
+              clip-path="url(#image)"
+              height="100%"
+              width="100%"
+              x="0"
+              y="10"
+              href="/img/Portrait-PB.jpg"
+              preserveAspectRatio="xMidYMin slice"
+            ></image>
+          </svg>
+
+          <div>
+            <h1><span class="eyebrow">Hey ;)</span>I'm Jonathan</h1>
+            <p class="typography-intro">
+              Hallo mein Name ist Jonathan und ich bin
+              <span id="age"></span> Jahre alt. Aktuell bin ich im
+              <span id="app-year"></span>. Lehrjahr als Informatiker -
+              Applikationsentwicklung. Ich wohne in Egg bei Einsiedeln im Kanton
+              Schwyz. Das Programmieren fasziniert mich sehr und ich finde es
+              spannend, was man damit alles erreichen kann. In meiner Freizeit
+              spiele ich gerne Computer -und Konsolenspiele und treffe mich oft
+              mit Freunden. Ausserdem höre ich häufig Musik und produziere sie
+              auch manchmal selbst.
+            </p>
+
+            <p>
+              <a
+                href="https://swisscom-my.sharepoint.com/:b:/p/jonathan_russ/EV1fbkdctGdPhW4kGzxcWpcBfBkv7AzhCnzqIjLxZStcWA?e=voEttz"
+                class="link typography-intro"
+                >Zum Lebenslauf<svg
+                  class="icon-chevron-cv"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 10 17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
+                    fill="var(--ribbon-link-color)"
+                  />
+                </svg>
+              </a>
+            </p>
+          </div>
         </div>
-      </div>
 
-      <ul class="sharesheet-options">
-        <li data-inviewport="sharesheet-options">
-          <a href="mailto:jonathan.russ@bluewin.ch" target="_blank"
-            ><i class="fa-solid fa-envelope"></i
-          ></a>
-        </li>
-
-        <li data-inviewport="sharesheet-options">
-          <a
-            href="https://www.linkedin.com/in/jonathan-russ-b7442a228"
-            target="_blank"
-            ><i class="fa-brands fa-linkedin"></i
-          ></a>
-        </li>
-
-        <li data-inviewport="sharesheet-options">
-          <a href="https://github.com/JonathanXDR" target="_blank"
-            ><i class="fa-brands fa-github"></i
-          ></a>
-        </li>
-
-        <li data-inviewport="sharesheet-options">
-          <a href="https://twitter.com/JonathanXD12_" target="_blank"
-            ><i class="fa-brands fa-twitter"></i
-          ></a>
-        </li>
-      </ul>
-    </section>
-
-    <section id="languages" class="section-separated">
-      <h2>Sprachkenntnisse</h2>
-      <div class="graph-gallery-container">
-        <ul class="tabnav-items">
-          <li class="tabnav-item">
-            <span class="tabnav-link current">Deutsch</span>
+        <ul class="sharesheet-options">
+          <li data-inviewport="sharesheet-options">
+            <a href="mailto:jonathan.russ@bluewin.ch" target="_blank"
+              ><i class="fa-solid fa-envelope"></i
+            ></a>
           </li>
-          <li class="tabnav-item">
-            <span class="tabnav-link">Englisch</span>
+
+          <li data-inviewport="sharesheet-options">
+            <a
+              href="https://www.linkedin.com/in/jonathan-russ-b7442a228"
+              target="_blank"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
           </li>
-          <li class="tabnav-item">
-            <span class="tabnav-link">Französisch</span>
+
+          <li data-inviewport="sharesheet-options">
+            <a href="https://github.com/JonathanXDR" target="_blank"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+          </li>
+
+          <li data-inviewport="sharesheet-options">
+            <a href="https://twitter.com/JonathanXD12_" target="_blank"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
           </li>
         </ul>
+      </section>
 
-        <ul class="slide-container">
-          <li class="graph-container">
-            <div style="width: 100%">
-              <div data-inviewport="graph-bar" class="graph-bar current"></div>
-              <p
-                data-inviewport="graph-caption"
-                class="graph-caption typography-graph-caption current"
-              >
-                Muttersprache
-              </p>
-            </div>
-            <div
-              data-inviewport="secondary-badge-value"
-              class="typography-eyebrow-elevated secondary-badge-value current"
-            >
-              100%
-            </div>
-          </li>
+      <section id="languages" class="section-separated">
+        <h2>Sprachkenntnisse</h2>
+        <div class="graph-gallery-container">
+          <ul class="tabnav-items">
+            <li class="tabnav-item">
+              <span class="tabnav-link current">Deutsch</span>
+            </li>
+            <li class="tabnav-item">
+              <span class="tabnav-link">Englisch</span>
+            </li>
+            <li class="tabnav-item">
+              <span class="tabnav-link">Französisch</span>
+            </li>
+          </ul>
 
-          <li class="graph-container">
-            <div style="width: 60%">
-              <div data-inviewport="graph-bar" class="graph-bar bar-2"></div>
-              <p
-                data-inviewport="graph-caption"
-                class="graph-caption typography-graph-caption"
-              >
-                Fliessend
-              </p>
-            </div>
-            <div
-              data-inviewport="secondary-badge-value"
-              class="typography-eyebrow-elevated secondary-badge-value"
-            >
-              60%
-            </div>
-          </li>
-
-          <li class="graph-container">
-            <div style="width: 30%">
-              <div data-inviewport="graph-bar" class="graph-bar bar-3"></div>
-              <p
-                data-inviewport="graph-caption"
-                class="graph-caption typography-graph-caption"
-              >
-                Gut
-              </p>
-            </div>
-            <div
-              data-inviewport="secondary-badge-value"
-              class="typography-eyebrow-elevated secondary-badge-value"
-            >
-              30%
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="references" class="section-separated">
-      <h2>Referenzen</h2>
-      <ul class="grid">
-        <!-- Item 1 -->
-        <li class="row-full">
-          <div class="padding-right-small">
-            <svg
-              class="article-image"
-              width="20"
-              height="20"
-              viewBox="0 0 18 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3.67383 16.8809H14.3174C16.2246 16.8809 17.209 15.8965 17.209 14.0156V3.31934C17.209 1.43848 16.2246 0.454102 14.3174 0.454102H3.67383C1.77539 0.454102 0.782227 1.42969 0.782227 3.31934V14.0156C0.782227 15.8965 1.77539 16.8809 3.67383 16.8809ZM2.53125 13.8574V3.47754C2.53125 2.625 2.97949 2.20312 3.78809 2.20312H14.2031C15.0029 2.20312 15.46 2.625 15.46 3.47754V13.8574C15.46 14.5166 15.1787 14.9209 14.6777 15.0703C13.8867 13.04 11.6631 11.6426 9 11.6426C6.33691 11.6426 4.10449 13.04 3.31348 15.0703C2.80371 14.9297 2.53125 14.5254 2.53125 13.8574ZM9 10.2363C10.6787 10.2451 11.9883 8.82129 11.9883 6.95801C11.9883 5.20898 10.6699 3.74121 9 3.74121C7.32129 3.74121 5.99414 5.20898 6.00293 6.95801C6.01172 8.82129 7.3125 10.2188 9 10.2363Z"
-                fill="var(--color-fill-gray)"
-              />
-            </svg>
-          </div>
-
-          <div>
-            <h2>Steve Hess</h2>
-            <!-- <p class="article-date">Begins June 30, 2022</p> -->
-            <p>Lernbegleiter & Vorgesetzter</p>
-            <!-- <p>
-              <a class="link" href="https://tbz.ch"
-                >Mehr erfahren<svg
-                  class="icon-chevron"
-width="12"
-                  height="12"
-                  viewBox="0 0 10 17"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+          <ul class="slide-container">
+            <li class="graph-container">
+              <div style="width: 100%">
+                <div
+                  data-inviewport="graph-bar"
+                  class="graph-bar current"
+                ></div>
+                <p
+                  data-inviewport="graph-caption"
+                  class="graph-caption typography-graph-caption current"
                 >
-                  <path
-                    d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
-                    fill="var(--ribbon-link-color)"
-                  /></svg
-              ></a>
-            </p>
-            <p class="download-ical">
-              <a
-                href="/media/calendar/Berufsschule Jonathan Russ.ics"
-                class="link"
-                >Zum Kalender hinzufügen<svg
-                  class="icon-download"
-width="18"
-                  height="18"
-                  viewBox="0 0 20 19"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
-                    fill="var(--ribbon-link-color)"
-                  />
-                </svg>
-              </a>
-            </p> -->
-          </div>
-        </li>
-
-        <!-- Item 2 -->
-        <li class="row-full">
-          <div class="padding-right-small">
-            <svg
-              class="article-image"
-              width="20"
-              height="20"
-              viewBox="0 0 18 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3.67383 16.8809H14.3174C16.2246 16.8809 17.209 15.8965 17.209 14.0156V3.31934C17.209 1.43848 16.2246 0.454102 14.3174 0.454102H3.67383C1.77539 0.454102 0.782227 1.42969 0.782227 3.31934V14.0156C0.782227 15.8965 1.77539 16.8809 3.67383 16.8809ZM2.53125 13.8574V3.47754C2.53125 2.625 2.97949 2.20312 3.78809 2.20312H14.2031C15.0029 2.20312 15.46 2.625 15.46 3.47754V13.8574C15.46 14.5166 15.1787 14.9209 14.6777 15.0703C13.8867 13.04 11.6631 11.6426 9 11.6426C6.33691 11.6426 4.10449 13.04 3.31348 15.0703C2.80371 14.9297 2.53125 14.5254 2.53125 13.8574ZM9 10.2363C10.6787 10.2451 11.9883 8.82129 11.9883 6.95801C11.9883 5.20898 10.6699 3.74121 9 3.74121C7.32129 3.74121 5.99414 5.20898 6.00293 6.95801C6.01172 8.82129 7.3125 10.2188 9 10.2363Z"
-                fill="var(--color-fill-gray)"
-              />
-            </svg>
-          </div>
-
-          <div>
-            <h2>Nick Zimmermann</h2>
-            <!-- <p class="article-date">Begins June 30, 2022</p> -->
-            <p>
-              Projektanbieter in <a href="#nex-cc">Competence Center NexCC</a>
-            </p>
-            <p>
-              <a class="link" href="https://nickzimmermann.com"
-                >Mehr erfahren
-                <svg
-                  class="icon-chevron"
-                  width="12"
-                  height="12"
-                  viewBox="0 0 10 17"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
-                    fill="var(--ribbon-link-color)"
-                  />
-                </svg>
-              </a>
-            </p>
-            <!-- <p class="download-ical">
-              <a
-                href="/media/calendar/Berufsschule Jonathan Russ.ics"
-                class="link"
-                >Zum Kalender hinzufügen<svg
-                  class="icon-download"
-width="18"
-                  height="18"
-                  viewBox="0 0 20 19"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
-                    fill="var(--ribbon-link-color)"
-                  />
-                </svg>
-              </a>
-            </p> -->
-          </div>
-        </li>
-
-        <!-- Item 3 -->
-        <li class="row-full">
-          <div class="padding-right-small">
-            <svg
-              class="article-image"
-              width="20"
-              height="20"
-              viewBox="0 0 18 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3.67383 16.8809H14.3174C16.2246 16.8809 17.209 15.8965 17.209 14.0156V3.31934C17.209 1.43848 16.2246 0.454102 14.3174 0.454102H3.67383C1.77539 0.454102 0.782227 1.42969 0.782227 3.31934V14.0156C0.782227 15.8965 1.77539 16.8809 3.67383 16.8809ZM2.53125 13.8574V3.47754C2.53125 2.625 2.97949 2.20312 3.78809 2.20312H14.2031C15.0029 2.20312 15.46 2.625 15.46 3.47754V13.8574C15.46 14.5166 15.1787 14.9209 14.6777 15.0703C13.8867 13.04 11.6631 11.6426 9 11.6426C6.33691 11.6426 4.10449 13.04 3.31348 15.0703C2.80371 14.9297 2.53125 14.5254 2.53125 13.8574ZM9 10.2363C10.6787 10.2451 11.9883 8.82129 11.9883 6.95801C11.9883 5.20898 10.6699 3.74121 9 3.74121C7.32129 3.74121 5.99414 5.20898 6.00293 6.95801C6.01172 8.82129 7.3125 10.2188 9 10.2363Z"
-                fill="var(--color-fill-gray)"
-              />
-            </svg>
-          </div>
-
-          <div>
-            <h2>Alessio Iantosca</h2>
-            <!-- <p class="article-date">Begins June 30, 2022</p> -->
-            <p>
-              Projektanbieter bei
-              <a href="#banking-automation"
-                >Automatisierungsprojekten im Banking Bereich</a
-              >
-            </p>
-            <!-- <p>
-              <a class="link" href="https://tbz.ch"
-                >Mehr erfahren<svg
-                  class="icon-chevron"
-width="12"
-                  height="12"
-                  viewBox="0 0 10 17"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
-                    fill="var(--ribbon-link-color)"
-                  /></svg
-              ></a>
-            </p>
-            <p class="download-ical">
-              <a
-                href="/media/calendar/Berufsschule Jonathan Russ.ics"
-                class="link"
-                >Zum Kalender hinzufügen<svg
-                  class="icon-download"
-width="18"
-                  height="18"
-                  viewBox="0 0 20 19"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
-                    fill="var(--ribbon-link-color)"
-                  />
-                </svg>
-              </a>
-            </p> -->
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <section id="other" class="section-separated">
-      <h2>Anderes</h2>
-      <ul class="grid">
-        <!-- Item 1 -->
-        <li class="row-full">
-          <div class="padding-right-small">
-            <svg
-              class="article-image"
-              width="20"
-              height="20"
-              viewBox="0 0 18 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2.94434 16.8809H15.0469C16.9541 16.8809 17.9473 15.8965 17.9473 14.0156V3.31934C17.9473 1.43848 16.9541 0.454102 15.0469 0.454102H2.94434C1.0459 0.454102 0.0527344 1.42969 0.0527344 3.31934V14.0156C0.0527344 15.8965 1.0459 16.8809 2.94434 16.8809ZM2.93555 15.1318C2.20605 15.1318 1.80176 14.7539 1.80176 13.9805V5.89453C1.80176 5.12109 2.20605 4.74316 2.93555 4.74316H15.0557C15.7852 4.74316 16.1895 5.12109 16.1895 5.89453V13.9805C16.1895 14.7539 15.7852 15.1318 15.0557 15.1318H2.93555ZM7.30371 7.77539H7.82227C8.13867 7.77539 8.24414 7.67871 8.24414 7.37109V6.85254C8.24414 6.53613 8.13867 6.43945 7.82227 6.43945H7.30371C6.9873 6.43945 6.88184 6.53613 6.88184 6.85254V7.37109C6.88184 7.67871 6.9873 7.77539 7.30371 7.77539ZM10.1777 7.77539H10.6963C11.0039 7.77539 11.1094 7.67871 11.1094 7.37109V6.85254C11.1094 6.53613 11.0039 6.43945 10.6963 6.43945H10.1777C9.86133 6.43945 9.75586 6.53613 9.75586 6.85254V7.37109C9.75586 7.67871 9.86133 7.77539 10.1777 7.77539ZM13.043 7.77539H13.5615C13.8779 7.77539 13.9834 7.67871 13.9834 7.37109V6.85254C13.9834 6.53613 13.8779 6.43945 13.5615 6.43945H13.043C12.7354 6.43945 12.6299 6.53613 12.6299 6.85254V7.37109C12.6299 7.67871 12.7354 7.77539 13.043 7.77539ZM4.43848 10.6055H4.94824C5.26465 10.6055 5.37012 10.5088 5.37012 10.1924V9.67383C5.37012 9.36621 5.26465 9.26953 4.94824 9.26953H4.43848C4.12207 9.26953 4.0166 9.36621 4.0166 9.67383V10.1924C4.0166 10.5088 4.12207 10.6055 4.43848 10.6055ZM7.30371 10.6055H7.82227C8.13867 10.6055 8.24414 10.5088 8.24414 10.1924V9.67383C8.24414 9.36621 8.13867 9.26953 7.82227 9.26953H7.30371C6.9873 9.26953 6.88184 9.36621 6.88184 9.67383V10.1924C6.88184 10.5088 6.9873 10.6055 7.30371 10.6055ZM10.1777 10.6055H10.6963C11.0039 10.6055 11.1094 10.5088 11.1094 10.1924V9.67383C11.1094 9.36621 11.0039 9.26953 10.6963 9.26953H10.1777C9.86133 9.26953 9.75586 9.36621 9.75586 9.67383V10.1924C9.75586 10.5088 9.86133 10.6055 10.1777 10.6055ZM13.043 10.6055H13.5615C13.8779 10.6055 13.9834 10.5088 13.9834 10.1924V9.67383C13.9834 9.36621 13.8779 9.26953 13.5615 9.26953H13.043C12.7354 9.26953 12.6299 9.36621 12.6299 9.67383V10.1924C12.6299 10.5088 12.7354 10.6055 13.043 10.6055ZM4.43848 13.4268H4.94824C5.26465 13.4268 5.37012 13.3301 5.37012 13.0225V12.5039C5.37012 12.1875 5.26465 12.0908 4.94824 12.0908H4.43848C4.12207 12.0908 4.0166 12.1875 4.0166 12.5039V13.0225C4.0166 13.3301 4.12207 13.4268 4.43848 13.4268ZM7.30371 13.4268H7.82227C8.13867 13.4268 8.24414 13.3301 8.24414 13.0225V12.5039C8.24414 12.1875 8.13867 12.0908 7.82227 12.0908H7.30371C6.9873 12.0908 6.88184 12.1875 6.88184 12.5039V13.0225C6.88184 13.3301 6.9873 13.4268 7.30371 13.4268ZM10.1777 13.4268H10.6963C11.0039 13.4268 11.1094 13.3301 11.1094 13.0225V12.5039C11.1094 12.1875 11.0039 12.0908 10.6963 12.0908H10.1777C9.86133 12.0908 9.75586 12.1875 9.75586 12.5039V13.0225C9.75586 13.3301 9.86133 13.4268 10.1777 13.4268Z"
-                fill="var(--color-fill-gray)"
-              />
-            </svg>
-          </div>
-
-          <div>
-            <h2>Technische Berufsschule Zürich</h2>
-            <p class="article-date">Donnerstag</p>
-            <p>
-              Ich gehe immer Donnerstags zur Berufsschule in Zürich. Füge diesen
-              Termin gerne zu deinen Kalender hinzu!
-            </p>
-            <p>
-              <a class="link" href="https://tbz.ch"
-                >Mehr über TBZ<svg
-                  class="icon-chevron"
-                  width="12"
-                  height="12"
-                  viewBox="0 0 10 17"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
-                    fill="var(--ribbon-link-color)"
-                  /></svg
-              ></a>
-            </p>
-            <p class="download-ical">
-              <a
-                href="/media/calendar/Berufsschule Jonathan Russ.ics"
-                class="link"
-                >Zum Kalender hinzufügen<svg
-                  class="icon-download"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 20 19"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
-                    fill="var(--ribbon-link-color)"
-                  />
-                </svg>
-              </a>
-            </p>
-          </div>
-        </li>
-
-        <!-- Item 2 -->
-        <li class="row-full">
-          <div class="padding-right-small">
-            <svg
-              class="article-image"
-              width="20"
-              height="20"
-              viewBox="0 0 18 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2.94434 16.8809H15.0469C16.9541 16.8809 17.9473 15.8965 17.9473 14.0156V3.31934C17.9473 1.43848 16.9541 0.454102 15.0469 0.454102H2.94434C1.0459 0.454102 0.0527344 1.42969 0.0527344 3.31934V14.0156C0.0527344 15.8965 1.0459 16.8809 2.94434 16.8809ZM2.93555 15.1318C2.20605 15.1318 1.80176 14.7539 1.80176 13.9805V5.89453C1.80176 5.12109 2.20605 4.74316 2.93555 4.74316H15.0557C15.7852 4.74316 16.1895 5.12109 16.1895 5.89453V13.9805C16.1895 14.7539 15.7852 15.1318 15.0557 15.1318H2.93555ZM7.30371 7.77539H7.82227C8.13867 7.77539 8.24414 7.67871 8.24414 7.37109V6.85254C8.24414 6.53613 8.13867 6.43945 7.82227 6.43945H7.30371C6.9873 6.43945 6.88184 6.53613 6.88184 6.85254V7.37109C6.88184 7.67871 6.9873 7.77539 7.30371 7.77539ZM10.1777 7.77539H10.6963C11.0039 7.77539 11.1094 7.67871 11.1094 7.37109V6.85254C11.1094 6.53613 11.0039 6.43945 10.6963 6.43945H10.1777C9.86133 6.43945 9.75586 6.53613 9.75586 6.85254V7.37109C9.75586 7.67871 9.86133 7.77539 10.1777 7.77539ZM13.043 7.77539H13.5615C13.8779 7.77539 13.9834 7.67871 13.9834 7.37109V6.85254C13.9834 6.53613 13.8779 6.43945 13.5615 6.43945H13.043C12.7354 6.43945 12.6299 6.53613 12.6299 6.85254V7.37109C12.6299 7.67871 12.7354 7.77539 13.043 7.77539ZM4.43848 10.6055H4.94824C5.26465 10.6055 5.37012 10.5088 5.37012 10.1924V9.67383C5.37012 9.36621 5.26465 9.26953 4.94824 9.26953H4.43848C4.12207 9.26953 4.0166 9.36621 4.0166 9.67383V10.1924C4.0166 10.5088 4.12207 10.6055 4.43848 10.6055ZM7.30371 10.6055H7.82227C8.13867 10.6055 8.24414 10.5088 8.24414 10.1924V9.67383C8.24414 9.36621 8.13867 9.26953 7.82227 9.26953H7.30371C6.9873 9.26953 6.88184 9.36621 6.88184 9.67383V10.1924C6.88184 10.5088 6.9873 10.6055 7.30371 10.6055ZM10.1777 10.6055H10.6963C11.0039 10.6055 11.1094 10.5088 11.1094 10.1924V9.67383C11.1094 9.36621 11.0039 9.26953 10.6963 9.26953H10.1777C9.86133 9.26953 9.75586 9.36621 9.75586 9.67383V10.1924C9.75586 10.5088 9.86133 10.6055 10.1777 10.6055ZM13.043 10.6055H13.5615C13.8779 10.6055 13.9834 10.5088 13.9834 10.1924V9.67383C13.9834 9.36621 13.8779 9.26953 13.5615 9.26953H13.043C12.7354 9.26953 12.6299 9.36621 12.6299 9.67383V10.1924C12.6299 10.5088 12.7354 10.6055 13.043 10.6055ZM4.43848 13.4268H4.94824C5.26465 13.4268 5.37012 13.3301 5.37012 13.0225V12.5039C5.37012 12.1875 5.26465 12.0908 4.94824 12.0908H4.43848C4.12207 12.0908 4.0166 12.1875 4.0166 12.5039V13.0225C4.0166 13.3301 4.12207 13.4268 4.43848 13.4268ZM7.30371 13.4268H7.82227C8.13867 13.4268 8.24414 13.3301 8.24414 13.0225V12.5039C8.24414 12.1875 8.13867 12.0908 7.82227 12.0908H7.30371C6.9873 12.0908 6.88184 12.1875 6.88184 12.5039V13.0225C6.88184 13.3301 6.9873 13.4268 7.30371 13.4268ZM10.1777 13.4268H10.6963C11.0039 13.4268 11.1094 13.3301 11.1094 13.0225V12.5039C11.1094 12.1875 11.0039 12.0908 10.6963 12.0908H10.1777C9.86133 12.0908 9.75586 12.1875 9.75586 12.5039V13.0225C9.75586 13.3301 9.86133 13.4268 10.1777 13.4268Z"
-                fill="var(--color-fill-gray)"
-              />
-            </svg>
-          </div>
-
-          <div>
-            <h2>Berufsmaturitätsschule Zürich</h2>
-            <p class="article-date">Freitag</p>
-            <p>
-              Während Freitags gehe ich immer in die Berufsmaturitätsschule in
-              Zürich. Füge diesen Termin gerne zu deinen Kalender hinzu!
-            </p>
-            <p>
-              <a class="link" href="https://www.bms-zuerich.ch"
-                >Mehr über BMZ<svg
-                  class="icon-chevron"
-                  width="12"
-                  height="12"
-                  viewBox="0 0 10 17"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
-                    fill="var(--ribbon-link-color)"
-                  />
-                </svg>
-              </a>
-            </p>
-            <p class="download-ical">
-              <a href="/media/calendar/BMS Jonathan Russ.ics" class="link"
-                >Zum Kalender hinzufügen<svg
-                  class="icon-download"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 20 19"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
-                    fill="var(--ribbon-link-color)"
-                  />
-                </svg>
-              </a>
-            </p>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <section id="technologies">
-      <h3 class="typography-magical-headline">Technologien</h3>
-
-      <ul class="item-container">
-        <!-- HTML -->
-        <li class="tile">
-          <div class="tile-content">
-            <div class="tile-header">
-              <h4
-                data-inviewport="graph-caption"
-                class="tile-headline typography-connection-tile-headline"
-              >
-                HTML
-              </h4>
-            </div>
-            <div class="tile-body">
-              <div class="grid-center">
-                <svg
-                  data-inviewport="hex-progress"
-                  class="hex-progress"
-                  data-progress="85"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 776 628"
-                >
-                  <path
-                    class="track card-track"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                  ></path>
-                  <path
-                    class="fill card-fill"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                    stroke="url(#cl1)"
-                  ></path>
-                  <text
-                    data-inviewport="secondary-badge-value"
-                    class="card-text"
-                    x="50%"
-                    y="61%"
-                  >
-                    0%
-                  </text></svg
-                ><svg width="0" height="0">
-                  <defs>
-                    <linearGradient
-                      id="cl1"
-                      gradientUnits="objectBoundingBox"
-                      x1="0"
-                      y1="0"
-                      x2="1"
-                      y2="1"
-                    >
-                      <stop stop-color="var(--color-dark-orange)" />
-                      <stop offset="100%" stop-color="var(--color-dark-red)" />
-                    </linearGradient>
-                  </defs>
-                </svg>
+                  Muttersprache
+                </p>
               </div>
-            </div>
-          </div>
-          <input type="checkbox" class="tile-overlay-toggle" id="html" />
-          <div class="tile-overlay">
-            <label class="tile-button-wrapper" for="html">
-              <span class="tile-button">
-                <svg
-                  class="tile-icon-alt"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
-                  ></path>
-                </svg>
-              </span>
-            </label>
-            <div class="tile-overlay-content">
-              <h4 class="typography-connection-tile-headline">HTML</h4>
-
-              <p>
-                Erster Kontakt: NexCC
-                <br />
-                Vertiefungen: M293
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <!-- CSS -->
-        <li class="tile">
-          <div class="tile-content">
-            <div class="tile-header">
-              <h4
-                data-inviewport="graph-caption"
-                class="tile-headline typography-connection-tile-headline"
+              <div
+                data-inviewport="secondary-badge-value"
+                class="typography-eyebrow-elevated secondary-badge-value current"
               >
-                CSS
-              </h4>
-            </div>
-            <div class="tile-body">
-              <div class="grid-center">
-                <svg
-                  data-inviewport="hex-progress"
-                  class="hex-progress"
-                  data-progress="85"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 776 628"
-                >
-                  <path
-                    class="track card-track"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                  ></path>
-                  <path
-                    class="fill card-fill"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                    stroke="url(#cl2)"
-                  ></path>
-                  <text
-                    data-inviewport="secondary-badge-value"
-                    class="card-text"
-                    x="50%"
-                    y="61%"
-                  >
-                    0%
-                  </text></svg
-                ><svg width="0" height="0">
-                  <defs>
-                    <linearGradient
-                      id="cl2"
-                      gradientUnits="objectBoundingBox"
-                      x1="0"
-                      y1="0"
-                      x2="1"
-                      y2="1"
-                    >
-                      <stop stop-color="var(--color-dark-cyan)" />
-                      <stop
-                        offset="100%"
-                        stop-color="var(--color-dark-indigo)"
-                      />
-                    </linearGradient>
-                  </defs>
-                </svg>
+                100%
               </div>
-            </div>
-          </div>
-          <input type="checkbox" class="tile-overlay-toggle" id="css" />
-          <div class="tile-overlay">
-            <label class="tile-button-wrapper" for="css">
-              <span class="tile-button">
-                <svg
-                  class="tile-icon-alt"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
+            </li>
+
+            <li class="graph-container">
+              <div style="width: 60%">
+                <div data-inviewport="graph-bar" class="graph-bar bar-2"></div>
+                <p
+                  data-inviewport="graph-caption"
+                  class="graph-caption typography-graph-caption"
                 >
-                  <path
-                    d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
-                  ></path>
-                </svg>
-              </span>
-            </label>
-            <div class="tile-overlay-content">
-              <h4 class="typography-connection-tile-headline">CSS</h4>
-
-              <p>
-                Erster Kontakt: NexCC
-                <br />
-                Vertiefungen: M293
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <!-- JavaScript -->
-        <li class="tile">
-          <div class="tile-content">
-            <div class="tile-header">
-              <h4
-                data-inviewport="graph-caption"
-                class="tile-headline typography-connection-tile-headline"
+                  Fliessend
+                </p>
+              </div>
+              <div
+                data-inviewport="secondary-badge-value"
+                class="typography-eyebrow-elevated secondary-badge-value"
               >
-                JavaScript
-              </h4>
-            </div>
-            <div class="tile-body">
-              <div class="grid-center">
-                <svg
-                  data-inviewport="hex-progress"
-                  class="hex-progress"
-                  data-progress="70"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 776 628"
-                >
-                  <path
-                    class="track card-track"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                  ></path>
-                  <path
-                    class="fill card-fill"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                    stroke="url(#cl3)"
-                  ></path>
-                  <text
-                    data-inviewport="secondary-badge-value"
-                    class="card-text"
-                    x="50%"
-                    y="61%"
-                  >
-                    0%
-                  </text></svg
-                ><svg width="0" height="0">
-                  <defs>
-                    <linearGradient
-                      id="cl3"
-                      gradientUnits="objectBoundingBox"
-                      x1="0"
-                      y1="0"
-                      x2="1"
-                      y2="1"
-                    >
-                      <stop stop-color="var(--color-dark-yellow)" />
-                      <stop
-                        offset="100%"
-                        stop-color="var(--color-dark-green)"
-                      />
-                    </linearGradient>
-                  </defs>
-                </svg>
+                60%
               </div>
-            </div>
-          </div>
-          <input type="checkbox" class="tile-overlay-toggle" id="javascript" />
-          <div class="tile-overlay">
-            <label class="tile-button-wrapper" for="javascript">
-              <span class="tile-button">
-                <svg
-                  class="tile-icon-alt"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
+            </li>
+
+            <li class="graph-container">
+              <div style="width: 30%">
+                <div data-inviewport="graph-bar" class="graph-bar bar-3"></div>
+                <p
+                  data-inviewport="graph-caption"
+                  class="graph-caption typography-graph-caption"
                 >
-                  <path
-                    d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
-                  ></path>
-                </svg>
-              </span>
-            </label>
-            <div class="tile-overlay-content">
-              <h4 class="typography-connection-tile-headline">JavaScript</h4>
-
-              <p>
-                Erster Kontakt: NexCC
-                <br />
-                Vertiefungen: -
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <!-- Node.js -->
-        <li class="tile">
-          <div class="tile-content">
-            <div class="tile-header">
-              <h4
-                data-inviewport="graph-caption"
-                class="tile-headline typography-connection-tile-headline"
+                  Gut
+                </p>
+              </div>
+              <div
+                data-inviewport="secondary-badge-value"
+                class="typography-eyebrow-elevated secondary-badge-value"
               >
-                Node.js
-              </h4>
-            </div>
-            <div class="tile-body">
-              <div class="grid-center">
-                <svg
-                  data-inviewport="hex-progress"
-                  class="hex-progress"
-                  data-progress="60"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 776 628"
-                >
-                  <path
-                    class="track card-track"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                  ></path>
-                  <path
-                    class="fill card-fill"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                    stroke="url(#cl3)"
-                  ></path>
-                  <text
-                    data-inviewport="secondary-badge-value"
-                    class="card-text"
-                    x="50%"
-                    y="61%"
-                  >
-                    0%
-                  </text>
-                </svg>
+                30%
               </div>
-            </div>
-          </div>
-          <input type="checkbox" class="tile-overlay-toggle" id="node.js" />
-          <div class="tile-overlay">
-            <label class="tile-button-wrapper" for="node.js">
-              <span class="tile-button">
-                <svg
-                  class="tile-icon-alt"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
-                  ></path>
-                </svg>
-              </span>
-            </label>
-            <div class="tile-overlay-content">
-              <h4 class="typography-connection-tile-headline">Node.js</h4>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-              <p>
-                Erster Kontakt: NexCC
-                <br />
-                Vertiefungen: -
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <!-- SQL -->
-        <li class="tile">
-          <div class="tile-content">
-            <div class="tile-header">
-              <h4
-                data-inviewport="graph-caption"
-                class="tile-headline typography-connection-tile-headline"
-              >
-                SQL
-              </h4>
-            </div>
-            <div class="tile-body">
-              <div class="grid-center">
-                <svg
-                  data-inviewport="hex-progress"
-                  class="hex-progress"
-                  data-progress="70"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 776 628"
-                >
-                  <path
-                    class="track card-track"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                  ></path>
-                  <path
-                    class="fill card-fill"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                    stroke="url(#cl2)"
-                  ></path>
-                  <text
-                    data-inviewport="secondary-badge-value"
-                    class="card-text"
-                    x="50%"
-                    y="61%"
-                  >
-                    0%
-                  </text>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <input type="checkbox" class="tile-overlay-toggle" id="sql" />
-          <div class="tile-overlay">
-            <label class="tile-button-wrapper" for="sql">
-              <span class="tile-button">
-                <svg
-                  class="tile-icon-alt"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
-                  ></path>
-                </svg>
-              </span>
-            </label>
-            <div class="tile-overlay-content">
-              <h4 class="typography-connection-tile-headline">SQL</h4>
-
-              <p>
-                Erster Kontakt: NexCC
-                <br />
-                Vertiefungen: ÜK106, M164
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <!-- Vue.js -->
-        <li class="tile">
-          <div class="tile-content">
-            <div class="tile-header">
-              <h4
-                data-inviewport="graph-caption"
-                class="tile-headline typography-connection-tile-headline"
-              >
-                Vue.js
-              </h4>
-            </div>
-            <div class="tile-body">
-              <div class="grid-center">
-                <svg
-                  data-inviewport="hex-progress"
-                  class="hex-progress"
-                  data-progress="60"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 776 628"
-                >
-                  <path
-                    class="track card-track"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                  ></path>
-                  <path
-                    class="fill card-fill"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                    stroke="url(#cl3)"
-                  ></path>
-                  <text
-                    data-inviewport="secondary-badge-value"
-                    class="card-text"
-                    x="50%"
-                    y="61%"
-                  >
-                    0%
-                  </text>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <input type="checkbox" class="tile-overlay-toggle" id="vue.js" />
-          <div class="tile-overlay">
-            <label class="tile-button-wrapper" for="vue.js">
-              <span class="tile-button">
-                <svg
-                  class="tile-icon-alt"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
-                  ></path>
-                </svg>
-              </span>
-            </label>
-            <div class="tile-overlay-content">
-              <h4 class="typography-connection-tile-headline">Vue.js</h4>
-
-              <p>
-                Erster Kontakt: NexCC
-                <br />
-                Vertiefungen: -
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <!-- TypeScript -->
-        <li class="tile">
-          <div class="tile-content">
-            <div class="tile-header">
-              <h4
-                data-inviewport="graph-caption"
-                class="tile-headline typography-connection-tile-headline"
-              >
-                TypeScript
-              </h4>
-            </div>
-            <div class="tile-body">
-              <div class="grid-center">
-                <svg
-                  data-inviewport="hex-progress"
-                  class="hex-progress"
-                  data-progress="50"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 776 628"
-                >
-                  <path
-                    class="track card-track"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                  ></path>
-                  <path
-                    class="fill card-fill"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                    stroke="url(#cl3)"
-                  ></path>
-                  <text
-                    data-inviewport="secondary-badge-value"
-                    class="card-text"
-                    x="50%"
-                    y="61%"
-                  >
-                    0%
-                  </text>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <input type="checkbox" class="tile-overlay-toggle" id="typescript" />
-          <div class="tile-overlay">
-            <label class="tile-button-wrapper" for="typescript">
-              <span class="tile-button">
-                <svg
-                  class="tile-icon-alt"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
-                  ></path>
-                </svg>
-              </span>
-            </label>
-            <div class="tile-overlay-content">
-              <h4 class="typography-connection-tile-headline">TypeScript</h4>
-
-              <p>
-                Erster Kontakt: NexCC
-                <br />
-                Vertiefungen: -
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <!-- C# -->
-        <li class="tile">
-          <div class="tile-content">
-            <div class="tile-header">
-              <h4
-                data-inviewport="graph-caption"
-                class="tile-headline typography-connection-tile-headline"
-              >
-                C#
-              </h4>
-            </div>
-            <div class="tile-body">
-              <div class="grid-center">
-                <svg
-                  data-inviewport="hex-progress"
-                  class="hex-progress"
-                  data-progress="25"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 776 628"
-                >
-                  <path
-                    class="track card-track"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                  ></path>
-                  <path
-                    class="fill card-fill"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                    stroke="url(#cl4)"
-                  ></path>
-                  <text
-                    data-inviewport="secondary-badge-value"
-                    class="card-text"
-                    x="50%"
-                    y="61%"
-                  >
-                    0%
-                  </text></svg
-                ><svg width="0" height="0">
-                  <defs>
-                    <linearGradient
-                      id="cl4"
-                      gradientUnits="objectBoundingBox"
-                      x1="0"
-                      y1="0"
-                      x2="1"
-                      y2="1"
-                    >
-                      <stop stop-color="var(--color-dark-pink)" />
-                      <stop
-                        offset="100%"
-                        stop-color="var(--color-dark-purple)"
-                      />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <input type="checkbox" class="tile-overlay-toggle" id="c#" />
-          <div class="tile-overlay">
-            <label class="tile-button-wrapper" for="c#">
-              <span class="tile-button">
-                <svg
-                  class="tile-icon-alt"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
-                  ></path>
-                </svg>
-              </span>
-            </label>
-            <div class="tile-overlay-content">
-              <h4 class="typography-connection-tile-headline">C#</h4>
-
-              <p>
-                Erster Kontakt: Automatisierungsprojekte im Banking Bereich
-                <br />
-                Vertiefungen: -
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <!-- Java -->
-        <li class="tile">
-          <div class="tile-content">
-            <div class="tile-header">
-              <h4
-                data-inviewport="graph-caption"
-                class="tile-headline typography-connection-tile-headline"
-              >
-                Java
-              </h4>
-            </div>
-            <div class="tile-body">
-              <div class="grid-center">
-                <svg
-                  data-inviewport="hex-progress"
-                  class="hex-progress"
-                  data-progress="10"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 776 628"
-                >
-                  <path
-                    class="track card-track"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                  ></path>
-                  <path
-                    class="fill card-fill"
-                    d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-                    stroke="url(#cl3)"
-                  ></path>
-                  <text
-                    data-inviewport="secondary-badge-value"
-                    class="card-text"
-                    x="50%"
-                    y="61%"
-                  >
-                    0%
-                  </text>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <input type="checkbox" class="tile-overlay-toggle" id="java" />
-          <div class="tile-overlay">
-            <label class="tile-button-wrapper" for="java">
-              <span class="tile-button">
-                <svg
-                  class="tile-icon-alt"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
-                  ></path>
-                </svg>
-              </span>
-            </label>
-            <div class="tile-overlay-content">
-              <h4 class="typography-connection-tile-headline">Java</h4>
-
-              <p>
-                Erster Kontakt: M319
-                <br />
-                Vertiefungen: -
-              </p>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <section id="personalProjects">
-      <!-- insert Music Library here -->
-      <!-- insert Galaxy Game here -->
-    </section>
-
-    <section id="projects">
-      <h3 class="typography-magical-headline" style="text-align: center">
-        Projekte bei Swisscom
-      </h3>
-      <div class="timeline-wrapper">
-        <svg id="svg-timeline" preserveAspectRatio="none">
-          <path
-            class="path-timeline"
-            d="M 4 0 L 4 2250"
-            stroke-width="5"
-            fill="none"
-            fill-rule="evenodd"
-            stroke="var(--color-fill-gray)"
-            stroke-linecap="butt"
-            stroke-miterlimit="10"
-          ></path>
-        </svg>
-
-        <ul class="timeline" id="timeline-id">
+      <section id="references" class="section-separated">
+        <h2>Referenzen</h2>
+        <ul class="grid">
           <!-- Item 1 -->
-          <li class="row-full" id="first-steps">
+          <li class="row-full">
             <div class="padding-right-small">
               <svg
-                class="svg-icon"
-                width="25"
-                height="25"
-                viewBox="0 0 24 17"
+                class="article-image"
+                width="20"
+                height="20"
+                viewBox="0 0 18 17"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M5.65441 10.6056L20.7452 6.58019C22.4943 6.11437 23.7599 4.82238 23.2941 3.53917C22.8546 2.37902 21.1319 2.05382 19.5675 2.58995L14.2589 4.4005C13.8986 4.52355 13.6437 4.51476 13.2218 4.31261L5.87414 0.849719C5.61925 0.726672 5.338 0.709094 5.08312 0.779406L4.47668 0.972766C4.22179 1.05187 4.14269 1.3507 4.36242 1.588L8.77453 6.28136L5.97082 7.23937L1.76964 5.74523C1.49718 5.65734 1.26867 5.70128 1.02257 5.9298L0.758902 6.1671C0.556754 6.35167 0.547965 6.59777 0.723746 6.78234L3.79992 10.2452C4.23058 10.7198 4.86339 10.8165 5.65441 10.6056ZM2.3673 16.67H21.4132C21.8878 16.67 22.2745 16.2833 22.2745 15.8087C22.2745 15.3341 21.8878 14.9474 21.4132 14.9474H2.3673C1.90148 14.9474 1.50597 15.3341 1.50597 15.8087C1.50597 16.2833 1.90148 16.67 2.3673 16.67Z"
+                  d="M3.67383 16.8809H14.3174C16.2246 16.8809 17.209 15.8965 17.209 14.0156V3.31934C17.209 1.43848 16.2246 0.454102 14.3174 0.454102H3.67383C1.77539 0.454102 0.782227 1.42969 0.782227 3.31934V14.0156C0.782227 15.8965 1.77539 16.8809 3.67383 16.8809ZM2.53125 13.8574V3.47754C2.53125 2.625 2.97949 2.20312 3.78809 2.20312H14.2031C15.0029 2.20312 15.46 2.625 15.46 3.47754V13.8574C15.46 14.5166 15.1787 14.9209 14.6777 15.0703C13.8867 13.04 11.6631 11.6426 9 11.6426C6.33691 11.6426 4.10449 13.04 3.31348 15.0703C2.80371 14.9297 2.53125 14.5254 2.53125 13.8574ZM9 10.2363C10.6787 10.2451 11.9883 8.82129 11.9883 6.95801C11.9883 5.20898 10.6699 3.74121 9 3.74121C7.32129 3.74121 5.99414 5.20898 6.00293 6.95801C6.01172 8.82129 7.3125 10.2188 9 10.2363Z"
                   fill="var(--color-fill-gray)"
                 />
               </svg>
             </div>
 
             <div>
-              <h2>NEX First Steps</h2>
-              <p class="article-date">August 2021</p>
-              <p>
-                In den First Steps hat meine Lehre begonnen. Dort habe ich alles
-                rund um Swisscom kennengelernt, also z.B. wie man die
-                verschieden Tools verwendet, wie man richtig zusammenarbeitet
-                und auch andere Dinge, wie beispielsweise die Arbeitssicherheit.
-              </p>
+              <h2>Steve Hess</h2>
+              <!-- <p class="article-date">Begins June 30, 2022</p> -->
+              <p>Lernbegleiter & Vorgesetzter</p>
               <!-- <p>
-                <a class="link" href="https://tbz.ch"
-                  >Mehr erfahren<svg
-                    width="13"
-                    height="13"
-                    viewBox="0 0 10 17"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
-                      fill="var(--ribbon-link-color)"
-                    /></svg
-                ></a>
-              </p>
-              <p class="download-ical">
-                <a
-                  href="/media/calendar/Berufsschule Jonathan Russ.ics"
-                  class="link"
-                  >Zum Kalender hinzufügen<svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
-                      fill="var(--ribbon-link-color)"
-                    />
-                  </svg>
-                </a>
-              </p> -->
+              <a class="link" href="https://tbz.ch"
+                >Mehr erfahren<svg
+                  class="icon-chevron"
+width="12"
+                  height="12"
+                  viewBox="0 0 10 17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
+                    fill="var(--ribbon-link-color)"
+                  /></svg
+              ></a>
+            </p>
+            <p class="download-ical">
+              <a
+                href="/media/calendar/Berufsschule Jonathan Russ.ics"
+                class="link"
+                >Zum Kalender hinzufügen<svg
+                  class="icon-download"
+width="18"
+                  height="18"
+                  viewBox="0 0 20 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
+                    fill="var(--ribbon-link-color)"
+                  />
+                </svg>
+              </a>
+            </p> -->
             </div>
           </li>
 
           <!-- Item 2 -->
-          <li class="row-full" id="nex-cc">
+          <li class="row-full">
             <div class="padding-right-small">
               <svg
-                class="svg-icon"
-                width="25"
-                height="25"
-                viewBox="0 0 26 18"
+                class="article-image"
+                width="20"
+                height="20"
+                viewBox="0 0 18 17"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M10.5479 17.0832C11.1367 17.2414 11.6729 16.925 11.8486 16.3361L16.1729 1.50894C16.3398 0.955233 16.0674 0.410312 15.4785 0.252108C14.8984 0.0939054 14.3887 0.348788 14.1953 0.999179L9.88867 15.7648C9.71289 16.3625 9.94141 16.9162 10.5479 17.0832ZM0.291016 8.65445C0.291016 8.95328 0.422852 9.2609 0.677734 9.48062L6.36426 14.6134C6.83008 15.0353 7.4541 15.0265 7.84082 14.5871C8.23633 14.1476 8.18359 13.5148 7.73535 13.1105L2.81348 8.65445L7.73535 4.18961C8.18359 3.78531 8.23633 3.16129 7.84082 2.72184C7.4541 2.28238 6.83008 2.27359 6.36426 2.69547L0.677734 7.81949C0.422852 8.04801 0.291016 8.35562 0.291016 8.65445ZM25.7002 8.65445C25.7002 8.35562 25.5684 8.04801 25.3135 7.81949L19.627 2.69547C19.1611 2.27359 18.5371 2.28238 18.1504 2.72184C17.7549 3.16129 17.8076 3.78531 18.2559 4.18961L23.1777 8.65445L18.2559 13.1105C17.8076 13.5148 17.7549 14.1476 18.1504 14.5871C18.5371 15.0265 19.1611 15.0353 19.627 14.6134L25.3135 9.48062C25.5684 9.2609 25.7002 8.95328 25.7002 8.65445Z"
+                  d="M3.67383 16.8809H14.3174C16.2246 16.8809 17.209 15.8965 17.209 14.0156V3.31934C17.209 1.43848 16.2246 0.454102 14.3174 0.454102H3.67383C1.77539 0.454102 0.782227 1.42969 0.782227 3.31934V14.0156C0.782227 15.8965 1.77539 16.8809 3.67383 16.8809ZM2.53125 13.8574V3.47754C2.53125 2.625 2.97949 2.20312 3.78809 2.20312H14.2031C15.0029 2.20312 15.46 2.625 15.46 3.47754V13.8574C15.46 14.5166 15.1787 14.9209 14.6777 15.0703C13.8867 13.04 11.6631 11.6426 9 11.6426C6.33691 11.6426 4.10449 13.04 3.31348 15.0703C2.80371 14.9297 2.53125 14.5254 2.53125 13.8574ZM9 10.2363C10.6787 10.2451 11.9883 8.82129 11.9883 6.95801C11.9883 5.20898 10.6699 3.74121 9 3.74121C7.32129 3.74121 5.99414 5.20898 6.00293 6.95801C6.01172 8.82129 7.3125 10.2188 9 10.2363Z"
                   fill="var(--color-fill-gray)"
                 />
               </svg>
             </div>
 
             <div>
-              <h2>Competence Center NexCC</h2>
-              <p class="article-date">August 2021 - Januar 2022</p>
+              <h2>Nick Zimmermann</h2>
+              <!-- <p class="article-date">Begins June 30, 2022</p> -->
               <p>
-                Im NexCC durfte ich zuerst diese Webseite hier erstellen und
-                habe dabei viele neue Programmiersprachen gelernt. Darunter
-                HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App
-                erstellen, welche ich mit einer SQL-Datenbank verbunden habe.
-                Später habe ich auch noch ein Frontend hinzugefügt und so ein
-                eigenes Login-System erstellt. Dabei habe ich vor allem das
-                Backend kennengelernt und Framework basierte
-                Programmiersprachen, wie Node.js, Express.js oder Vue.js neu
-                dazugelernt.
+                Projektanbieter in <a href="#nex-cc">Competence Center NexCC</a>
               </p>
-              <!-- <p>
-                <a class="link" href="https://tbz.ch"
-                  >Mehr erfahren<svg
-                    width="13"
-                    height="13"
+              <p>
+                <a class="link" href="https://nickzimmermann.com"
+                  >Mehr erfahren
+                  <svg
+                    class="icon-chevron"
+                    width="12"
+                    height="12"
                     viewBox="0 0 10 17"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1480,60 +464,985 @@ width="18"
                     <path
                       d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
                       fill="var(--ribbon-link-color)"
-                    /></svg
-                ></a>
-              </p>
-              <p class="download-ical">
-                <a
-                  href="/media/calendar/Berufsschule Jonathan Russ.ics"
-                  class="link"
-                  >Zum Kalender hinzufügen<svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 20 19"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
-                      fill="var(--ribbon-link-color)"
                     />
                   </svg>
                 </a>
-              </p> -->
+              </p>
+              <!-- <p class="download-ical">
+              <a
+                href="/media/calendar/Berufsschule Jonathan Russ.ics"
+                class="link"
+                >Zum Kalender hinzufügen<svg
+                  class="icon-download"
+width="18"
+                  height="18"
+                  viewBox="0 0 20 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
+                    fill="var(--ribbon-link-color)"
+                  />
+                </svg>
+              </a>
+            </p> -->
             </div>
           </li>
 
           <!-- Item 3 -->
-          <li class="row-full" id="banking-automation">
+          <li class="row-full">
             <div class="padding-right-small">
               <svg
-                class="svg-icon"
-                width="25"
-                height="25"
-                viewBox="0 0 22 21"
+                class="article-image"
+                width="20"
+                height="20"
+                viewBox="0 0 18 17"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M11 19.3818C11.2109 19.3818 11.4131 19.3642 11.6328 19.3466L12.125 20.2782C12.2305 20.5156 12.4678 20.6298 12.7402 20.5947C12.9951 20.5507 13.1709 20.3574 13.2061 20.0937L13.3555 19.0478C13.7686 18.9423 14.1729 18.7841 14.5596 18.6171L15.333 19.3115C15.5176 19.496 15.7725 19.5224 16.0273 19.3906C16.2471 19.2587 16.335 19.0214 16.291 18.7577L16.0713 17.7382C16.4141 17.4921 16.748 17.2197 17.0645 16.9208L18.0137 17.3163C18.2686 17.4218 18.5059 17.3603 18.6992 17.1406C18.8574 16.956 18.8838 16.6923 18.7432 16.4638L18.1895 15.5761C18.4268 15.2333 18.6289 14.8554 18.8135 14.4599L19.8682 14.5126C20.123 14.5302 20.3516 14.3808 20.4395 14.1347C20.5273 13.8886 20.4395 13.6337 20.2373 13.4755L19.4199 12.8251C19.5254 12.4208 19.6045 11.999 19.6396 11.5595L20.6328 11.2431C20.8877 11.1552 21.0459 10.9531 21.0459 10.6894C21.0459 10.4257 20.8877 10.2236 20.6328 10.1357L19.6396 9.81927C19.6045 9.37981 19.5166 8.96673 19.4199 8.55364L20.2373 7.90325C20.4395 7.75384 20.5186 7.50774 20.4395 7.26165C20.3516 7.00677 20.123 6.85735 19.8682 6.87493L18.8135 6.91009C18.6289 6.52337 18.4268 6.15423 18.1895 5.80266L18.7432 4.90618C18.875 4.69524 18.8574 4.43157 18.6992 4.247C18.5059 4.02727 18.2686 3.96575 18.0137 4.07122L17.0557 4.45794C16.748 4.1679 16.4141 3.88665 16.0713 3.64934L16.291 2.62981C16.335 2.35735 16.2471 2.12005 16.0186 1.997C15.7725 1.86516 15.5176 1.88274 15.333 2.0761L14.5596 2.76165C14.1729 2.58587 13.7686 2.44524 13.3555 2.33098L13.2061 1.30266C13.1709 1.03899 12.9951 0.845633 12.7402 0.792899C12.4678 0.757742 12.2393 0.872 12.125 1.09173L11.6328 2.03216C11.4131 2.01458 11.2109 2.00579 11 2.00579C10.7715 2.00579 10.5693 2.01458 10.3496 2.03216L9.85742 1.09173C9.75195 0.872 9.51465 0.757742 9.24219 0.801688C8.9873 0.845633 8.81152 1.03899 8.77637 1.30266L8.62695 2.33098C8.22266 2.44524 7.81836 2.58587 7.42285 2.76165L6.6582 2.0761C6.46484 1.89153 6.20996 1.86516 5.96387 1.997C5.74414 2.12005 5.64746 2.35735 5.69141 2.62981L5.91113 3.64934C5.56836 3.88665 5.23438 4.1679 4.92676 4.45794L3.96875 4.07122C3.72266 3.96575 3.47656 4.02727 3.29199 4.247C3.125 4.43157 3.10742 4.69524 3.23926 4.90618L3.80176 5.80266C3.56445 6.15423 3.3623 6.52337 3.16895 6.91009L2.12305 6.87493C1.85938 6.85735 1.63086 7.00677 1.55176 7.26165C1.46387 7.50774 1.53418 7.75384 1.74512 7.90325L2.57129 8.55364C2.46582 8.96673 2.37793 9.37981 2.35156 9.81927L1.3584 10.1357C1.09473 10.2236 0.945312 10.4169 0.945312 10.6894C0.945312 10.9531 1.09473 11.1552 1.3584 11.2431L2.35156 11.5595C2.37793 11.999 2.46582 12.4208 2.57129 12.8251L1.75391 13.4755C1.54297 13.6249 1.47266 13.8798 1.55176 14.1259C1.63086 14.3808 1.85938 14.5302 2.12305 14.5126L3.16895 14.4599C3.35352 14.8554 3.56445 15.2333 3.80176 15.5761L3.23926 16.4726C3.09863 16.6923 3.125 16.956 3.29199 17.1406C3.47656 17.3603 3.72266 17.4218 3.96875 17.3163L4.92676 16.9208C5.23438 17.2197 5.56836 17.4921 5.91113 17.7382L5.69141 18.7577C5.64746 19.0214 5.73535 19.2587 5.96387 19.3906C6.20996 19.5224 6.46484 19.496 6.6582 19.3115L7.42285 18.6171C7.81836 18.7841 8.21387 18.9423 8.62695 19.0566L8.77637 20.0937C8.81152 20.3574 8.9873 20.5507 9.25098 20.5947C9.51465 20.6298 9.75195 20.5156 9.85742 20.287L10.3496 19.3466C10.5693 19.3642 10.7715 19.3818 11 19.3818ZM13.2939 9.99505C12.8633 8.86126 11.9844 8.24602 10.9473 8.24602C10.7979 8.24602 10.6396 8.2636 10.3672 8.32513L7.99414 4.247C8.89941 3.82513 9.91016 3.58782 10.9912 3.58782C14.709 3.58782 17.627 6.38274 17.9609 9.99505H13.2939ZM3.99512 10.6982C3.99512 8.3427 5.07617 6.27727 6.79004 4.98528L9.18066 9.0722C8.71484 9.58196 8.49512 10.1445 8.49512 10.7245C8.49512 11.2782 8.69727 11.8056 9.18066 12.3417L6.71973 16.3583C5.0498 15.0663 3.99512 13.0185 3.99512 10.6982ZM9.89258 10.7157C9.89258 10.1181 10.3936 9.66106 10.9561 9.66106C11.5449 9.66106 12.0283 10.1181 12.0283 10.7157C12.0283 11.2958 11.5449 11.7792 10.9561 11.7792C10.3936 11.7792 9.89258 11.2958 9.89258 10.7157ZM10.9912 17.7997C9.88379 17.7997 8.84668 17.5536 7.92383 17.1054L10.3584 13.1152C10.6221 13.1679 10.7979 13.1855 10.9473 13.1855C11.9932 13.1855 12.8633 12.5527 13.2939 11.3925H17.9609C17.627 15.0048 14.709 17.7997 10.9912 17.7997Z"
+                  d="M3.67383 16.8809H14.3174C16.2246 16.8809 17.209 15.8965 17.209 14.0156V3.31934C17.209 1.43848 16.2246 0.454102 14.3174 0.454102H3.67383C1.77539 0.454102 0.782227 1.42969 0.782227 3.31934V14.0156C0.782227 15.8965 1.77539 16.8809 3.67383 16.8809ZM2.53125 13.8574V3.47754C2.53125 2.625 2.97949 2.20312 3.78809 2.20312H14.2031C15.0029 2.20312 15.46 2.625 15.46 3.47754V13.8574C15.46 14.5166 15.1787 14.9209 14.6777 15.0703C13.8867 13.04 11.6631 11.6426 9 11.6426C6.33691 11.6426 4.10449 13.04 3.31348 15.0703C2.80371 14.9297 2.53125 14.5254 2.53125 13.8574ZM9 10.2363C10.6787 10.2451 11.9883 8.82129 11.9883 6.95801C11.9883 5.20898 10.6699 3.74121 9 3.74121C7.32129 3.74121 5.99414 5.20898 6.00293 6.95801C6.01172 8.82129 7.3125 10.2188 9 10.2363Z"
                   fill="var(--color-fill-gray)"
                 />
               </svg>
             </div>
 
             <div>
-              <h2>Automatisierungsprojekte im Banking Bereich</h2>
-              <p class="article-date">Februar 2022 - Juli 2022</p>
+              <h2>Alessio Iantosca</h2>
+              <!-- <p class="article-date">Begins June 30, 2022</p> -->
               <p>
-                Hier durfte ich einen generellen Einblick in die Automation und
-                ihr Umfeld erhalten. Ich war aktiv dabei und habe die einzelnen
-                Banken gelernt zu testen bzw. zu automatisieren. Ausserdem habe
-                ich dabei auch ein wenig C# gelernt und mehr über das .Net
-                Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu
-                verbessern!
+                Projektanbieter bei
+                <a href="#banking-automation"
+                  >Automatisierungsprojekten im Banking Bereich</a
+                >
               </p>
               <!-- <p>
+              <a class="link" href="https://tbz.ch"
+                >Mehr erfahren<svg
+                  class="icon-chevron"
+width="12"
+                  height="12"
+                  viewBox="0 0 10 17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
+                    fill="var(--ribbon-link-color)"
+                  /></svg
+              ></a>
+            </p>
+            <p class="download-ical">
+              <a
+                href="/media/calendar/Berufsschule Jonathan Russ.ics"
+                class="link"
+                >Zum Kalender hinzufügen<svg
+                  class="icon-download"
+width="18"
+                  height="18"
+                  viewBox="0 0 20 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
+                    fill="var(--ribbon-link-color)"
+                  />
+                </svg>
+              </a>
+            </p> -->
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="other" class="section-separated">
+        <h2>Anderes</h2>
+        <ul class="grid">
+          <!-- Item 1 -->
+          <li class="row-full">
+            <div class="padding-right-small">
+              <svg
+                class="article-image"
+                width="20"
+                height="20"
+                viewBox="0 0 18 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2.94434 16.8809H15.0469C16.9541 16.8809 17.9473 15.8965 17.9473 14.0156V3.31934C17.9473 1.43848 16.9541 0.454102 15.0469 0.454102H2.94434C1.0459 0.454102 0.0527344 1.42969 0.0527344 3.31934V14.0156C0.0527344 15.8965 1.0459 16.8809 2.94434 16.8809ZM2.93555 15.1318C2.20605 15.1318 1.80176 14.7539 1.80176 13.9805V5.89453C1.80176 5.12109 2.20605 4.74316 2.93555 4.74316H15.0557C15.7852 4.74316 16.1895 5.12109 16.1895 5.89453V13.9805C16.1895 14.7539 15.7852 15.1318 15.0557 15.1318H2.93555ZM7.30371 7.77539H7.82227C8.13867 7.77539 8.24414 7.67871 8.24414 7.37109V6.85254C8.24414 6.53613 8.13867 6.43945 7.82227 6.43945H7.30371C6.9873 6.43945 6.88184 6.53613 6.88184 6.85254V7.37109C6.88184 7.67871 6.9873 7.77539 7.30371 7.77539ZM10.1777 7.77539H10.6963C11.0039 7.77539 11.1094 7.67871 11.1094 7.37109V6.85254C11.1094 6.53613 11.0039 6.43945 10.6963 6.43945H10.1777C9.86133 6.43945 9.75586 6.53613 9.75586 6.85254V7.37109C9.75586 7.67871 9.86133 7.77539 10.1777 7.77539ZM13.043 7.77539H13.5615C13.8779 7.77539 13.9834 7.67871 13.9834 7.37109V6.85254C13.9834 6.53613 13.8779 6.43945 13.5615 6.43945H13.043C12.7354 6.43945 12.6299 6.53613 12.6299 6.85254V7.37109C12.6299 7.67871 12.7354 7.77539 13.043 7.77539ZM4.43848 10.6055H4.94824C5.26465 10.6055 5.37012 10.5088 5.37012 10.1924V9.67383C5.37012 9.36621 5.26465 9.26953 4.94824 9.26953H4.43848C4.12207 9.26953 4.0166 9.36621 4.0166 9.67383V10.1924C4.0166 10.5088 4.12207 10.6055 4.43848 10.6055ZM7.30371 10.6055H7.82227C8.13867 10.6055 8.24414 10.5088 8.24414 10.1924V9.67383C8.24414 9.36621 8.13867 9.26953 7.82227 9.26953H7.30371C6.9873 9.26953 6.88184 9.36621 6.88184 9.67383V10.1924C6.88184 10.5088 6.9873 10.6055 7.30371 10.6055ZM10.1777 10.6055H10.6963C11.0039 10.6055 11.1094 10.5088 11.1094 10.1924V9.67383C11.1094 9.36621 11.0039 9.26953 10.6963 9.26953H10.1777C9.86133 9.26953 9.75586 9.36621 9.75586 9.67383V10.1924C9.75586 10.5088 9.86133 10.6055 10.1777 10.6055ZM13.043 10.6055H13.5615C13.8779 10.6055 13.9834 10.5088 13.9834 10.1924V9.67383C13.9834 9.36621 13.8779 9.26953 13.5615 9.26953H13.043C12.7354 9.26953 12.6299 9.36621 12.6299 9.67383V10.1924C12.6299 10.5088 12.7354 10.6055 13.043 10.6055ZM4.43848 13.4268H4.94824C5.26465 13.4268 5.37012 13.3301 5.37012 13.0225V12.5039C5.37012 12.1875 5.26465 12.0908 4.94824 12.0908H4.43848C4.12207 12.0908 4.0166 12.1875 4.0166 12.5039V13.0225C4.0166 13.3301 4.12207 13.4268 4.43848 13.4268ZM7.30371 13.4268H7.82227C8.13867 13.4268 8.24414 13.3301 8.24414 13.0225V12.5039C8.24414 12.1875 8.13867 12.0908 7.82227 12.0908H7.30371C6.9873 12.0908 6.88184 12.1875 6.88184 12.5039V13.0225C6.88184 13.3301 6.9873 13.4268 7.30371 13.4268ZM10.1777 13.4268H10.6963C11.0039 13.4268 11.1094 13.3301 11.1094 13.0225V12.5039C11.1094 12.1875 11.0039 12.0908 10.6963 12.0908H10.1777C9.86133 12.0908 9.75586 12.1875 9.75586 12.5039V13.0225C9.75586 13.3301 9.86133 13.4268 10.1777 13.4268Z"
+                  fill="var(--color-fill-gray)"
+                />
+              </svg>
+            </div>
+
+            <div>
+              <h2>Technische Berufsschule Zürich</h2>
+              <p class="article-date">Donnerstag</p>
+              <p>
+                Ich gehe immer Donnerstags zur Berufsschule in Zürich. Füge
+                diesen Termin gerne zu deinen Kalender hinzu!
+              </p>
+              <p>
+                <a class="link" href="https://tbz.ch"
+                  >Mehr über TBZ<svg
+                    class="icon-chevron"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 10 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
+                      fill="var(--ribbon-link-color)"
+                    /></svg
+                ></a>
+              </p>
+              <p class="download-ical">
+                <a
+                  href="/media/calendar/Berufsschule Jonathan Russ.ics"
+                  class="link"
+                  >Zum Kalender hinzufügen<svg
+                    class="icon-download"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 20 19"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
+                      fill="var(--ribbon-link-color)"
+                    />
+                  </svg>
+                </a>
+              </p>
+            </div>
+          </li>
+
+          <!-- Item 2 -->
+          <li class="row-full">
+            <div class="padding-right-small">
+              <svg
+                class="article-image"
+                width="20"
+                height="20"
+                viewBox="0 0 18 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2.94434 16.8809H15.0469C16.9541 16.8809 17.9473 15.8965 17.9473 14.0156V3.31934C17.9473 1.43848 16.9541 0.454102 15.0469 0.454102H2.94434C1.0459 0.454102 0.0527344 1.42969 0.0527344 3.31934V14.0156C0.0527344 15.8965 1.0459 16.8809 2.94434 16.8809ZM2.93555 15.1318C2.20605 15.1318 1.80176 14.7539 1.80176 13.9805V5.89453C1.80176 5.12109 2.20605 4.74316 2.93555 4.74316H15.0557C15.7852 4.74316 16.1895 5.12109 16.1895 5.89453V13.9805C16.1895 14.7539 15.7852 15.1318 15.0557 15.1318H2.93555ZM7.30371 7.77539H7.82227C8.13867 7.77539 8.24414 7.67871 8.24414 7.37109V6.85254C8.24414 6.53613 8.13867 6.43945 7.82227 6.43945H7.30371C6.9873 6.43945 6.88184 6.53613 6.88184 6.85254V7.37109C6.88184 7.67871 6.9873 7.77539 7.30371 7.77539ZM10.1777 7.77539H10.6963C11.0039 7.77539 11.1094 7.67871 11.1094 7.37109V6.85254C11.1094 6.53613 11.0039 6.43945 10.6963 6.43945H10.1777C9.86133 6.43945 9.75586 6.53613 9.75586 6.85254V7.37109C9.75586 7.67871 9.86133 7.77539 10.1777 7.77539ZM13.043 7.77539H13.5615C13.8779 7.77539 13.9834 7.67871 13.9834 7.37109V6.85254C13.9834 6.53613 13.8779 6.43945 13.5615 6.43945H13.043C12.7354 6.43945 12.6299 6.53613 12.6299 6.85254V7.37109C12.6299 7.67871 12.7354 7.77539 13.043 7.77539ZM4.43848 10.6055H4.94824C5.26465 10.6055 5.37012 10.5088 5.37012 10.1924V9.67383C5.37012 9.36621 5.26465 9.26953 4.94824 9.26953H4.43848C4.12207 9.26953 4.0166 9.36621 4.0166 9.67383V10.1924C4.0166 10.5088 4.12207 10.6055 4.43848 10.6055ZM7.30371 10.6055H7.82227C8.13867 10.6055 8.24414 10.5088 8.24414 10.1924V9.67383C8.24414 9.36621 8.13867 9.26953 7.82227 9.26953H7.30371C6.9873 9.26953 6.88184 9.36621 6.88184 9.67383V10.1924C6.88184 10.5088 6.9873 10.6055 7.30371 10.6055ZM10.1777 10.6055H10.6963C11.0039 10.6055 11.1094 10.5088 11.1094 10.1924V9.67383C11.1094 9.36621 11.0039 9.26953 10.6963 9.26953H10.1777C9.86133 9.26953 9.75586 9.36621 9.75586 9.67383V10.1924C9.75586 10.5088 9.86133 10.6055 10.1777 10.6055ZM13.043 10.6055H13.5615C13.8779 10.6055 13.9834 10.5088 13.9834 10.1924V9.67383C13.9834 9.36621 13.8779 9.26953 13.5615 9.26953H13.043C12.7354 9.26953 12.6299 9.36621 12.6299 9.67383V10.1924C12.6299 10.5088 12.7354 10.6055 13.043 10.6055ZM4.43848 13.4268H4.94824C5.26465 13.4268 5.37012 13.3301 5.37012 13.0225V12.5039C5.37012 12.1875 5.26465 12.0908 4.94824 12.0908H4.43848C4.12207 12.0908 4.0166 12.1875 4.0166 12.5039V13.0225C4.0166 13.3301 4.12207 13.4268 4.43848 13.4268ZM7.30371 13.4268H7.82227C8.13867 13.4268 8.24414 13.3301 8.24414 13.0225V12.5039C8.24414 12.1875 8.13867 12.0908 7.82227 12.0908H7.30371C6.9873 12.0908 6.88184 12.1875 6.88184 12.5039V13.0225C6.88184 13.3301 6.9873 13.4268 7.30371 13.4268ZM10.1777 13.4268H10.6963C11.0039 13.4268 11.1094 13.3301 11.1094 13.0225V12.5039C11.1094 12.1875 11.0039 12.0908 10.6963 12.0908H10.1777C9.86133 12.0908 9.75586 12.1875 9.75586 12.5039V13.0225C9.75586 13.3301 9.86133 13.4268 10.1777 13.4268Z"
+                  fill="var(--color-fill-gray)"
+                />
+              </svg>
+            </div>
+
+            <div>
+              <h2>Berufsmaturitätsschule Zürich</h2>
+              <p class="article-date">Freitag</p>
+              <p>
+                Während Freitags gehe ich immer in die Berufsmaturitätsschule in
+                Zürich. Füge diesen Termin gerne zu deinen Kalender hinzu!
+              </p>
+              <p>
+                <a class="link" href="https://www.bms-zuerich.ch"
+                  >Mehr über BMZ<svg
+                    class="icon-chevron"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 10 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
+                      fill="var(--ribbon-link-color)"
+                    />
+                  </svg>
+                </a>
+              </p>
+              <p class="download-ical">
+                <a href="/media/calendar/BMS Jonathan Russ.ics" class="link"
+                  >Zum Kalender hinzufügen<svg
+                    class="icon-download"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 20 19"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
+                      fill="var(--ribbon-link-color)"
+                    />
+                  </svg>
+                </a>
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="technologies">
+        <h3 class="typography-magical-headline">Technologien</h3>
+
+        <ul class="item-container">
+          <!-- HTML -->
+          <li class="tile">
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4
+                  data-inviewport="graph-caption"
+                  class="tile-headline typography-connection-tile-headline"
+                >
+                  HTML
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="grid-center">
+                  <svg
+                    data-inviewport="hex-progress"
+                    class="hex-progress"
+                    data-progress="85"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track card-track"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill card-fill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl1)"
+                    ></path>
+                    <text
+                      data-inviewport="secondary-badge-value"
+                      class="card-text"
+                      x="50%"
+                      y="61%"
+                    >
+                      0%
+                    </text></svg
+                  ><svg width="0" height="0">
+                    <defs>
+                      <linearGradient
+                        id="cl1"
+                        gradientUnits="objectBoundingBox"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                      >
+                        <stop stop-color="var(--color-dark-orange)" />
+                        <stop
+                          offset="100%"
+                          stop-color="var(--color-dark-red)"
+                        />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input type="checkbox" class="tile-overlay-toggle" id="html" />
+            <div class="tile-overlay">
+              <label class="tile-button-wrapper" for="html">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+              </label>
+              <div class="tile-overlay-content">
+                <h4 class="typography-connection-tile-headline">HTML</h4>
+
+                <p>
+                  Erster Kontakt: NexCC
+                  <br />
+                  Vertiefungen: M293
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <!-- CSS -->
+          <li class="tile">
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4
+                  data-inviewport="graph-caption"
+                  class="tile-headline typography-connection-tile-headline"
+                >
+                  CSS
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="grid-center">
+                  <svg
+                    data-inviewport="hex-progress"
+                    class="hex-progress"
+                    data-progress="85"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track card-track"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill card-fill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl2)"
+                    ></path>
+                    <text
+                      data-inviewport="secondary-badge-value"
+                      class="card-text"
+                      x="50%"
+                      y="61%"
+                    >
+                      0%
+                    </text></svg
+                  ><svg width="0" height="0">
+                    <defs>
+                      <linearGradient
+                        id="cl2"
+                        gradientUnits="objectBoundingBox"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                      >
+                        <stop stop-color="var(--color-dark-cyan)" />
+                        <stop
+                          offset="100%"
+                          stop-color="var(--color-dark-indigo)"
+                        />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input type="checkbox" class="tile-overlay-toggle" id="css" />
+            <div class="tile-overlay">
+              <label class="tile-button-wrapper" for="css">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+              </label>
+              <div class="tile-overlay-content">
+                <h4 class="typography-connection-tile-headline">CSS</h4>
+
+                <p>
+                  Erster Kontakt: NexCC
+                  <br />
+                  Vertiefungen: M293
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <!-- JavaScript -->
+          <li class="tile">
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4
+                  data-inviewport="graph-caption"
+                  class="tile-headline typography-connection-tile-headline"
+                >
+                  JavaScript
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="grid-center">
+                  <svg
+                    data-inviewport="hex-progress"
+                    class="hex-progress"
+                    data-progress="70"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track card-track"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill card-fill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl3)"
+                    ></path>
+                    <text
+                      data-inviewport="secondary-badge-value"
+                      class="card-text"
+                      x="50%"
+                      y="61%"
+                    >
+                      0%
+                    </text></svg
+                  ><svg width="0" height="0">
+                    <defs>
+                      <linearGradient
+                        id="cl3"
+                        gradientUnits="objectBoundingBox"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                      >
+                        <stop stop-color="var(--color-dark-yellow)" />
+                        <stop
+                          offset="100%"
+                          stop-color="var(--color-dark-green)"
+                        />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input
+              type="checkbox"
+              class="tile-overlay-toggle"
+              id="javascript"
+            />
+            <div class="tile-overlay">
+              <label class="tile-button-wrapper" for="javascript">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+              </label>
+              <div class="tile-overlay-content">
+                <h4 class="typography-connection-tile-headline">JavaScript</h4>
+
+                <p>
+                  Erster Kontakt: NexCC
+                  <br />
+                  Vertiefungen: -
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <!-- Node.js -->
+          <li class="tile">
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4
+                  data-inviewport="graph-caption"
+                  class="tile-headline typography-connection-tile-headline"
+                >
+                  Node.js
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="grid-center">
+                  <svg
+                    data-inviewport="hex-progress"
+                    class="hex-progress"
+                    data-progress="60"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track card-track"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill card-fill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl3)"
+                    ></path>
+                    <text
+                      data-inviewport="secondary-badge-value"
+                      class="card-text"
+                      x="50%"
+                      y="61%"
+                    >
+                      0%
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input type="checkbox" class="tile-overlay-toggle" id="node.js" />
+            <div class="tile-overlay">
+              <label class="tile-button-wrapper" for="node.js">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+              </label>
+              <div class="tile-overlay-content">
+                <h4 class="typography-connection-tile-headline">Node.js</h4>
+
+                <p>
+                  Erster Kontakt: NexCC
+                  <br />
+                  Vertiefungen: -
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <!-- SQL -->
+          <li class="tile">
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4
+                  data-inviewport="graph-caption"
+                  class="tile-headline typography-connection-tile-headline"
+                >
+                  SQL
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="grid-center">
+                  <svg
+                    data-inviewport="hex-progress"
+                    class="hex-progress"
+                    data-progress="70"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track card-track"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill card-fill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl2)"
+                    ></path>
+                    <text
+                      data-inviewport="secondary-badge-value"
+                      class="card-text"
+                      x="50%"
+                      y="61%"
+                    >
+                      0%
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input type="checkbox" class="tile-overlay-toggle" id="sql" />
+            <div class="tile-overlay">
+              <label class="tile-button-wrapper" for="sql">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+              </label>
+              <div class="tile-overlay-content">
+                <h4 class="typography-connection-tile-headline">SQL</h4>
+
+                <p>
+                  Erster Kontakt: NexCC
+                  <br />
+                  Vertiefungen: ÜK106, M164
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <!-- Vue.js -->
+          <li class="tile">
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4
+                  data-inviewport="graph-caption"
+                  class="tile-headline typography-connection-tile-headline"
+                >
+                  Vue.js
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="grid-center">
+                  <svg
+                    data-inviewport="hex-progress"
+                    class="hex-progress"
+                    data-progress="60"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track card-track"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill card-fill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl3)"
+                    ></path>
+                    <text
+                      data-inviewport="secondary-badge-value"
+                      class="card-text"
+                      x="50%"
+                      y="61%"
+                    >
+                      0%
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input type="checkbox" class="tile-overlay-toggle" id="vue.js" />
+            <div class="tile-overlay">
+              <label class="tile-button-wrapper" for="vue.js">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+              </label>
+              <div class="tile-overlay-content">
+                <h4 class="typography-connection-tile-headline">Vue.js</h4>
+
+                <p>
+                  Erster Kontakt: NexCC
+                  <br />
+                  Vertiefungen: -
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <!-- TypeScript -->
+          <li class="tile">
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4
+                  data-inviewport="graph-caption"
+                  class="tile-headline typography-connection-tile-headline"
+                >
+                  TypeScript
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="grid-center">
+                  <svg
+                    data-inviewport="hex-progress"
+                    class="hex-progress"
+                    data-progress="50"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track card-track"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill card-fill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl3)"
+                    ></path>
+                    <text
+                      data-inviewport="secondary-badge-value"
+                      class="card-text"
+                      x="50%"
+                      y="61%"
+                    >
+                      0%
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input
+              type="checkbox"
+              class="tile-overlay-toggle"
+              id="typescript"
+            />
+            <div class="tile-overlay">
+              <label class="tile-button-wrapper" for="typescript">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+              </label>
+              <div class="tile-overlay-content">
+                <h4 class="typography-connection-tile-headline">TypeScript</h4>
+
+                <p>
+                  Erster Kontakt: NexCC
+                  <br />
+                  Vertiefungen: -
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <!-- C# -->
+          <li class="tile">
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4
+                  data-inviewport="graph-caption"
+                  class="tile-headline typography-connection-tile-headline"
+                >
+                  C#
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="grid-center">
+                  <svg
+                    data-inviewport="hex-progress"
+                    class="hex-progress"
+                    data-progress="25"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track card-track"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill card-fill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl4)"
+                    ></path>
+                    <text
+                      data-inviewport="secondary-badge-value"
+                      class="card-text"
+                      x="50%"
+                      y="61%"
+                    >
+                      0%
+                    </text></svg
+                  ><svg width="0" height="0">
+                    <defs>
+                      <linearGradient
+                        id="cl4"
+                        gradientUnits="objectBoundingBox"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                      >
+                        <stop stop-color="var(--color-dark-pink)" />
+                        <stop
+                          offset="100%"
+                          stop-color="var(--color-dark-purple)"
+                        />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input type="checkbox" class="tile-overlay-toggle" id="c#" />
+            <div class="tile-overlay">
+              <label class="tile-button-wrapper" for="c#">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+              </label>
+              <div class="tile-overlay-content">
+                <h4 class="typography-connection-tile-headline">C#</h4>
+
+                <p>
+                  Erster Kontakt: Automatisierungsprojekte im Banking Bereich
+                  <br />
+                  Vertiefungen: -
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <!-- Java -->
+          <li class="tile">
+            <div class="tile-content">
+              <div class="tile-header">
+                <h4
+                  data-inviewport="graph-caption"
+                  class="tile-headline typography-connection-tile-headline"
+                >
+                  Java
+                </h4>
+              </div>
+              <div class="tile-body">
+                <div class="grid-center">
+                  <svg
+                    data-inviewport="hex-progress"
+                    class="hex-progress"
+                    data-progress="10"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 776 628"
+                  >
+                    <path
+                      class="track card-track"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                    ></path>
+                    <path
+                      class="fill card-fill"
+                      d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
+                      stroke="url(#cl3)"
+                    ></path>
+                    <text
+                      data-inviewport="secondary-badge-value"
+                      class="card-text"
+                      x="50%"
+                      y="61%"
+                    >
+                      0%
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <input type="checkbox" class="tile-overlay-toggle" id="java" />
+            <div class="tile-overlay">
+              <label class="tile-button-wrapper" for="java">
+                <span class="tile-button">
+                  <svg
+                    class="tile-icon-alt"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
+                    ></path>
+                  </svg>
+                </span>
+              </label>
+              <div class="tile-overlay-content">
+                <h4 class="typography-connection-tile-headline">Java</h4>
+
+                <p>
+                  Erster Kontakt: M319
+                  <br />
+                  Vertiefungen: -
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="personalProjects">
+        <!-- insert Music Library here -->
+        <!-- insert Galaxy Game here -->
+      </section>
+
+      <section id="projects">
+        <h3 class="typography-magical-headline" style="text-align: center">
+          Projekte bei Swisscom
+        </h3>
+        <div class="timeline-wrapper">
+          <svg id="svg-timeline" preserveAspectRatio="none">
+            <path
+              class="path-timeline"
+              d="M 4 0 L 4 2250"
+              stroke-width="5"
+              fill="none"
+              fill-rule="evenodd"
+              stroke="var(--color-fill-gray)"
+              stroke-linecap="butt"
+              stroke-miterlimit="10"
+            ></path>
+          </svg>
+
+          <ul class="timeline" id="timeline-id">
+            <!-- Item 1 -->
+            <li class="row-full" id="first-steps">
+              <div class="padding-right-small">
+                <svg
+                  class="svg-icon"
+                  width="25"
+                  height="25"
+                  viewBox="0 0 24 17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.65441 10.6056L20.7452 6.58019C22.4943 6.11437 23.7599 4.82238 23.2941 3.53917C22.8546 2.37902 21.1319 2.05382 19.5675 2.58995L14.2589 4.4005C13.8986 4.52355 13.6437 4.51476 13.2218 4.31261L5.87414 0.849719C5.61925 0.726672 5.338 0.709094 5.08312 0.779406L4.47668 0.972766C4.22179 1.05187 4.14269 1.3507 4.36242 1.588L8.77453 6.28136L5.97082 7.23937L1.76964 5.74523C1.49718 5.65734 1.26867 5.70128 1.02257 5.9298L0.758902 6.1671C0.556754 6.35167 0.547965 6.59777 0.723746 6.78234L3.79992 10.2452C4.23058 10.7198 4.86339 10.8165 5.65441 10.6056ZM2.3673 16.67H21.4132C21.8878 16.67 22.2745 16.2833 22.2745 15.8087C22.2745 15.3341 21.8878 14.9474 21.4132 14.9474H2.3673C1.90148 14.9474 1.50597 15.3341 1.50597 15.8087C1.50597 16.2833 1.90148 16.67 2.3673 16.67Z"
+                    fill="var(--color-fill-gray)"
+                  />
+                </svg>
+              </div>
+
+              <div>
+                <h2>NEX First Steps</h2>
+                <p class="article-date">August 2021</p>
+                <p>
+                  In den First Steps hat meine Lehre begonnen. Dort habe ich
+                  alles rund um Swisscom kennengelernt, also z.B. wie man die
+                  verschieden Tools verwendet, wie man richtig zusammenarbeitet
+                  und auch andere Dinge, wie beispielsweise die
+                  Arbeitssicherheit.
+                </p>
+                <!-- <p>
                 <a class="link" href="https://tbz.ch"
                   >Mehr erfahren<svg
                     width="13"
@@ -1566,13 +1475,147 @@ width="18"
                   </svg>
                 </a>
               </p> -->
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
+              </div>
+            </li>
 
-    <section id="copyright">
+            <!-- Item 2 -->
+            <li class="row-full" id="nex-cc">
+              <div class="padding-right-small">
+                <svg
+                  class="svg-icon"
+                  width="25"
+                  height="25"
+                  viewBox="0 0 26 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.5479 17.0832C11.1367 17.2414 11.6729 16.925 11.8486 16.3361L16.1729 1.50894C16.3398 0.955233 16.0674 0.410312 15.4785 0.252108C14.8984 0.0939054 14.3887 0.348788 14.1953 0.999179L9.88867 15.7648C9.71289 16.3625 9.94141 16.9162 10.5479 17.0832ZM0.291016 8.65445C0.291016 8.95328 0.422852 9.2609 0.677734 9.48062L6.36426 14.6134C6.83008 15.0353 7.4541 15.0265 7.84082 14.5871C8.23633 14.1476 8.18359 13.5148 7.73535 13.1105L2.81348 8.65445L7.73535 4.18961C8.18359 3.78531 8.23633 3.16129 7.84082 2.72184C7.4541 2.28238 6.83008 2.27359 6.36426 2.69547L0.677734 7.81949C0.422852 8.04801 0.291016 8.35562 0.291016 8.65445ZM25.7002 8.65445C25.7002 8.35562 25.5684 8.04801 25.3135 7.81949L19.627 2.69547C19.1611 2.27359 18.5371 2.28238 18.1504 2.72184C17.7549 3.16129 17.8076 3.78531 18.2559 4.18961L23.1777 8.65445L18.2559 13.1105C17.8076 13.5148 17.7549 14.1476 18.1504 14.5871C18.5371 15.0265 19.1611 15.0353 19.627 14.6134L25.3135 9.48062C25.5684 9.2609 25.7002 8.95328 25.7002 8.65445Z"
+                    fill="var(--color-fill-gray)"
+                  />
+                </svg>
+              </div>
+
+              <div>
+                <h2>Competence Center NexCC</h2>
+                <p class="article-date">August 2021 - Januar 2022</p>
+                <p>
+                  Im NexCC durfte ich zuerst diese Webseite hier erstellen und
+                  habe dabei viele neue Programmiersprachen gelernt. Darunter
+                  HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App
+                  erstellen, welche ich mit einer SQL-Datenbank verbunden habe.
+                  Später habe ich auch noch ein Frontend hinzugefügt und so ein
+                  eigenes Login-System erstellt. Dabei habe ich vor allem das
+                  Backend kennengelernt und Framework basierte
+                  Programmiersprachen, wie Node.js, Express.js oder Vue.js neu
+                  dazugelernt.
+                </p>
+                <!-- <p>
+                <a class="link" href="https://tbz.ch"
+                  >Mehr erfahren<svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 10 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
+                      fill="var(--ribbon-link-color)"
+                    /></svg
+                ></a>
+              </p>
+              <p class="download-ical">
+                <a
+                  href="/media/calendar/Berufsschule Jonathan Russ.ics"
+                  class="link"
+                  >Zum Kalender hinzufügen<svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 20 19"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
+                      fill="var(--ribbon-link-color)"
+                    />
+                  </svg>
+                </a>
+              </p> -->
+              </div>
+            </li>
+
+            <!-- Item 3 -->
+            <li class="row-full" id="banking-automation">
+              <div class="padding-right-small">
+                <svg
+                  class="svg-icon"
+                  width="25"
+                  height="25"
+                  viewBox="0 0 22 21"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 19.3818C11.2109 19.3818 11.4131 19.3642 11.6328 19.3466L12.125 20.2782C12.2305 20.5156 12.4678 20.6298 12.7402 20.5947C12.9951 20.5507 13.1709 20.3574 13.2061 20.0937L13.3555 19.0478C13.7686 18.9423 14.1729 18.7841 14.5596 18.6171L15.333 19.3115C15.5176 19.496 15.7725 19.5224 16.0273 19.3906C16.2471 19.2587 16.335 19.0214 16.291 18.7577L16.0713 17.7382C16.4141 17.4921 16.748 17.2197 17.0645 16.9208L18.0137 17.3163C18.2686 17.4218 18.5059 17.3603 18.6992 17.1406C18.8574 16.956 18.8838 16.6923 18.7432 16.4638L18.1895 15.5761C18.4268 15.2333 18.6289 14.8554 18.8135 14.4599L19.8682 14.5126C20.123 14.5302 20.3516 14.3808 20.4395 14.1347C20.5273 13.8886 20.4395 13.6337 20.2373 13.4755L19.4199 12.8251C19.5254 12.4208 19.6045 11.999 19.6396 11.5595L20.6328 11.2431C20.8877 11.1552 21.0459 10.9531 21.0459 10.6894C21.0459 10.4257 20.8877 10.2236 20.6328 10.1357L19.6396 9.81927C19.6045 9.37981 19.5166 8.96673 19.4199 8.55364L20.2373 7.90325C20.4395 7.75384 20.5186 7.50774 20.4395 7.26165C20.3516 7.00677 20.123 6.85735 19.8682 6.87493L18.8135 6.91009C18.6289 6.52337 18.4268 6.15423 18.1895 5.80266L18.7432 4.90618C18.875 4.69524 18.8574 4.43157 18.6992 4.247C18.5059 4.02727 18.2686 3.96575 18.0137 4.07122L17.0557 4.45794C16.748 4.1679 16.4141 3.88665 16.0713 3.64934L16.291 2.62981C16.335 2.35735 16.2471 2.12005 16.0186 1.997C15.7725 1.86516 15.5176 1.88274 15.333 2.0761L14.5596 2.76165C14.1729 2.58587 13.7686 2.44524 13.3555 2.33098L13.2061 1.30266C13.1709 1.03899 12.9951 0.845633 12.7402 0.792899C12.4678 0.757742 12.2393 0.872 12.125 1.09173L11.6328 2.03216C11.4131 2.01458 11.2109 2.00579 11 2.00579C10.7715 2.00579 10.5693 2.01458 10.3496 2.03216L9.85742 1.09173C9.75195 0.872 9.51465 0.757742 9.24219 0.801688C8.9873 0.845633 8.81152 1.03899 8.77637 1.30266L8.62695 2.33098C8.22266 2.44524 7.81836 2.58587 7.42285 2.76165L6.6582 2.0761C6.46484 1.89153 6.20996 1.86516 5.96387 1.997C5.74414 2.12005 5.64746 2.35735 5.69141 2.62981L5.91113 3.64934C5.56836 3.88665 5.23438 4.1679 4.92676 4.45794L3.96875 4.07122C3.72266 3.96575 3.47656 4.02727 3.29199 4.247C3.125 4.43157 3.10742 4.69524 3.23926 4.90618L3.80176 5.80266C3.56445 6.15423 3.3623 6.52337 3.16895 6.91009L2.12305 6.87493C1.85938 6.85735 1.63086 7.00677 1.55176 7.26165C1.46387 7.50774 1.53418 7.75384 1.74512 7.90325L2.57129 8.55364C2.46582 8.96673 2.37793 9.37981 2.35156 9.81927L1.3584 10.1357C1.09473 10.2236 0.945312 10.4169 0.945312 10.6894C0.945312 10.9531 1.09473 11.1552 1.3584 11.2431L2.35156 11.5595C2.37793 11.999 2.46582 12.4208 2.57129 12.8251L1.75391 13.4755C1.54297 13.6249 1.47266 13.8798 1.55176 14.1259C1.63086 14.3808 1.85938 14.5302 2.12305 14.5126L3.16895 14.4599C3.35352 14.8554 3.56445 15.2333 3.80176 15.5761L3.23926 16.4726C3.09863 16.6923 3.125 16.956 3.29199 17.1406C3.47656 17.3603 3.72266 17.4218 3.96875 17.3163L4.92676 16.9208C5.23438 17.2197 5.56836 17.4921 5.91113 17.7382L5.69141 18.7577C5.64746 19.0214 5.73535 19.2587 5.96387 19.3906C6.20996 19.5224 6.46484 19.496 6.6582 19.3115L7.42285 18.6171C7.81836 18.7841 8.21387 18.9423 8.62695 19.0566L8.77637 20.0937C8.81152 20.3574 8.9873 20.5507 9.25098 20.5947C9.51465 20.6298 9.75195 20.5156 9.85742 20.287L10.3496 19.3466C10.5693 19.3642 10.7715 19.3818 11 19.3818ZM13.2939 9.99505C12.8633 8.86126 11.9844 8.24602 10.9473 8.24602C10.7979 8.24602 10.6396 8.2636 10.3672 8.32513L7.99414 4.247C8.89941 3.82513 9.91016 3.58782 10.9912 3.58782C14.709 3.58782 17.627 6.38274 17.9609 9.99505H13.2939ZM3.99512 10.6982C3.99512 8.3427 5.07617 6.27727 6.79004 4.98528L9.18066 9.0722C8.71484 9.58196 8.49512 10.1445 8.49512 10.7245C8.49512 11.2782 8.69727 11.8056 9.18066 12.3417L6.71973 16.3583C5.0498 15.0663 3.99512 13.0185 3.99512 10.6982ZM9.89258 10.7157C9.89258 10.1181 10.3936 9.66106 10.9561 9.66106C11.5449 9.66106 12.0283 10.1181 12.0283 10.7157C12.0283 11.2958 11.5449 11.7792 10.9561 11.7792C10.3936 11.7792 9.89258 11.2958 9.89258 10.7157ZM10.9912 17.7997C9.88379 17.7997 8.84668 17.5536 7.92383 17.1054L10.3584 13.1152C10.6221 13.1679 10.7979 13.1855 10.9473 13.1855C11.9932 13.1855 12.8633 12.5527 13.2939 11.3925H17.9609C17.627 15.0048 14.709 17.7997 10.9912 17.7997Z"
+                    fill="var(--color-fill-gray)"
+                  />
+                </svg>
+              </div>
+
+              <div>
+                <h2>Automatisierungsprojekte im Banking Bereich</h2>
+                <p class="article-date">Februar 2022 - Juli 2022</p>
+                <p>
+                  Hier durfte ich einen generellen Einblick in die Automation
+                  und ihr Umfeld erhalten. Ich war aktiv dabei und habe die
+                  einzelnen Banken gelernt zu testen bzw. zu automatisieren.
+                  Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr
+                  über das .Net Framework erfahren. Mein Ziel ist es aber in
+                  Zukunft das noch zu verbessern!
+                </p>
+                <!-- <p>
+                <a class="link" href="https://tbz.ch"
+                  >Mehr erfahren<svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 10 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.65137 8.6543C9.64258 8.34668 9.52832 8.08301 9.29102 7.8457L2.45312 1.15723C2.25098 0.963867 2.01367 0.858398 1.72363 0.858398C1.13477 0.858398 0.677734 1.31543 0.677734 1.9043C0.677734 2.18555 0.791992 2.44922 0.994141 2.65137L7.14648 8.6543L0.994141 14.6572C0.791992 14.8594 0.677734 15.1143 0.677734 15.4043C0.677734 15.9932 1.13477 16.4502 1.72363 16.4502C2.00488 16.4502 2.25098 16.3447 2.45312 16.1514L9.29102 9.4541C9.53711 9.22559 9.65137 8.96191 9.65137 8.6543Z"
+                      fill="var(--ribbon-link-color)"
+                    /></svg
+                ></a>
+              </p>
+              <p class="download-ical">
+                <a
+                  href="/media/calendar/Berufsschule Jonathan Russ.ics"
+                  class="link"
+                  >Zum Kalender hinzufügen<svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 20 19"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.99121 18.7422C14.9746 18.7422 19.0879 14.6289 19.0879 9.6543C19.0879 4.67969 14.9658 0.566406 9.98242 0.566406C5.00781 0.566406 0.90332 4.67969 0.90332 9.6543C0.90332 14.6289 5.0166 18.7422 9.99121 18.7422ZM9.99121 16.9316C5.95703 16.9316 2.73145 13.6885 2.73145 9.6543C2.73145 5.62012 5.95703 2.38574 9.98242 2.38574C14.0166 2.38574 17.2598 5.62012 17.2686 9.6543C17.2773 13.6885 14.0254 16.9316 9.99121 16.9316ZM9.99121 5.1543C9.54297 5.1543 9.20898 5.4707 9.20898 5.91895V10.0586L9.28809 11.8516L8.49707 10.876L7.5127 9.84766C7.38086 9.70703 7.19629 9.61914 6.97656 9.61914C6.56348 9.61914 6.25586 9.92676 6.25586 10.3311C6.25586 10.542 6.31738 10.7178 6.4668 10.8672L9.36719 13.8027C9.56934 14.0049 9.75391 14.1016 9.99121 14.1016C10.2373 14.1016 10.4395 13.9961 10.624 13.8027L13.5244 10.8672C13.665 10.7178 13.7354 10.542 13.7354 10.3311C13.7354 9.92676 13.4277 9.61914 13.0146 9.61914C12.7949 9.61914 12.6104 9.69824 12.4785 9.84766L11.5029 10.8672L10.7031 11.8604L10.7822 10.0586V5.91895C10.7822 5.4707 10.4482 5.1543 9.99121 5.1543Z"
+                      fill="var(--ribbon-link-color)"
+                    />
+                  </svg>
+                </a>
+              </p> -->
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer id="copyright">
       <p>
         © <span id="current-year"></span> Jonathan Russ. All rights reserved.
       </p>
@@ -1603,6 +1646,6 @@ width="18"
           ></a>
         </li>
       </ul>
-    </section>
+    </footer>
   </body>
 </html>

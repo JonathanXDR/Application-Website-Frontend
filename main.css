@@ -17,6 +17,7 @@ body {
   font-style: normal;
   overflow-wrap: break-word;
   hyphens: auto;
+  /* transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1); */
 }
 
 .light-theme {
@@ -741,7 +742,7 @@ a:link:hover {
   justify-content: space-between;
   gap: 10px;
   z-index: 100;
-}
+} */
 
 .item {
   list-style: none;
@@ -767,13 +768,13 @@ a:link:hover {
 }
 
 .item:hover {
-  color: var(--color-fill-tertiary);
+  color: var(--color-fill-tertiary) !important;
 }
 
 .item:hover::before {
   background: var(--color-code-plain);
   transform: scale(1.2);
-} */
+}
 
 /* --------------------------------- Navbar --------------------------------- */
 
@@ -1166,7 +1167,7 @@ a:link:hover {
 }
 #ac-localnav .ac-ln-menu-link {
   color: var(--color-fill-gray);
-  display: inline-block;
+  /* display: inline-block; */
   line-height: 22px;
   white-space: nowrap;
   opacity: 0.88;
