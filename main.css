@@ -20,7 +20,7 @@ body {
   /* transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1); */
 }
 
-.light-theme {
+.light {
   /* Logo */
   --url-logo: url(/img/logo-light.png);
   --url-favicon: url(/img/favicon-dark.png);
@@ -150,7 +150,7 @@ body {
   --color-tutorial-navbar-dropdown-border: var(--color-dropdown-border);
 }
 
-.dark-theme {
+.dark {
   /* Logo */
   --url-logo: url(/img/logo-dark.png);
   --url-favicon: url(/img/favicon-light.png);
