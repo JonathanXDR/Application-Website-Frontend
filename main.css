@@ -1233,9 +1233,8 @@ a:link:hover {
 
 /* ------------------------------- ac-ln-title ------------------------------ */
 
-.ac-ln-title {
-  position: relative;
-  top: 13px;
+.ac-ln-title svg {
+  margin-top: 16px;
 }
 
 a:disabled {
