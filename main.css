@@ -725,6 +725,10 @@ a:link:hover {
   stroke-opacity: 1;
 }
 
+.ac-ln-title svg {
+  margin-top: 16px;
+}
+
 /* ---------------------------------- Menu ---------------------------------- */
 
 /* #myNav {
@@ -1222,10 +1226,6 @@ a:link:hover {
 }
 
 /* ------------------------------- ac-ln-title ------------------------------ */
-
-.ac-ln-title svg {
-  margin-top: 15px;
-}
 
 a:disabled {
   opacity: 0.32;
