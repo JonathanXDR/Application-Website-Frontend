@@ -22,11 +22,6 @@ body {
 }
 
 .light {
-  /* Logo */
-  --url-logo: url(/img/logo-light.png);
-  --url-favicon: url(/img/favicon-dark.png);
-  --color-logo-background: #efefef;
-
   /* Menu */
   --color-menu: rgba(255, 255, 255, 0.72);
   --color-menu-border: rgba(0, 0, 0, 0.16);
@@ -152,11 +147,6 @@ body {
 }
 
 .dark {
-  /* Logo */
-  --url-logo: url(/img/logo-dark.png);
-  --url-favicon: url(/img/favicon-light.png);
-  --color-logo-background: #232324;
-
   /* Menu */
   --color-menu: rgba(0, 0, 0, 0.72);
   --color-menu-border: rgba(255, 255, 255, 0.24);
@@ -674,7 +664,7 @@ a:link:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(/img/lines.jpg);
+  background: url(img/lines.jpg);
   z-index: 10;
   background-size: 7px auto;
   mix-blend-mode: overlay;
@@ -705,7 +695,7 @@ a:link:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(/img/vignette.png);
+  background: url(img/vignette.png);
   z-index: 11;
   background-size: 100% 100%;
   mix-blend-mode: overlay;
@@ -715,24 +705,24 @@ a:link:hover {
 
 /* ---------------------------------- Logo ---------------------------------- */
 
-#logo-flex {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+.aD6z1nYkhcolor {
+  fill: var(--color-fill-gray);
+  fill-opacity: 1;
 }
 
-#logo-padding {
-  display: flex;
-  padding: 0 15px;
-  background: var(--color-logo-background);
+.aD6z1nYkhstrokeColor-str {
+  stroke: var(--color-fill-gray);
+  stroke-opacity: 1;
 }
 
-#logo {
-  width: 75px;
-  height: 52px;
-  content: var(--url-logo);
-  background: var(--color-logo-background);
-  object-fit: cover;
+.ahTdFi603-color {
+  fill: var(--color-fill-gray);
+  fill-opacity: 1;
+}
+
+.ahTdFi603-strokeColor-str {
+  stroke: var(--color-fill-gray);
+  stroke-opacity: 1;
 }
 
 /* ---------------------------------- Menu ---------------------------------- */
@@ -1234,7 +1224,7 @@ a:link:hover {
 /* ------------------------------- ac-ln-title ------------------------------ */
 
 .ac-ln-title svg {
-  margin-top: 16px;
+  margin-top: 15px;
 }
 
 a:disabled {
