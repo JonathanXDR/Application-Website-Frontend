@@ -2177,14 +2177,6 @@ a.icon-wrapper:hover .icon-copy {
   transform: translate(70px, 700px) rotate(-90deg);
 }
 
-/* [data-inviewport='hex-progress'] .fill {
-  stroke-dashoffset: 2160;
-}
-
-[data-inviewport='hex-progress'].is-inViewport .fill {
-  transition: stroke-dashoffset 1s;
-} */
-
 .card-track {
   stroke: var(--color-fill-tertiary);
 }
