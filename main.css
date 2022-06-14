@@ -379,9 +379,18 @@ h6 {
     padding: 2em 0 4em 0;
   }
 
+  .ribbon-content {
+    font-size: 14px !important;
+  }
+
   .icon-chevron {
     width: 14px;
     height: 14px;
+  }
+
+  .ribbon .icon-chevron {
+    width: 11px !important;
+    height: 11px !important;
   }
 
   .icon-download {
@@ -438,8 +447,8 @@ h6 {
 }
 
 .ribbon .icon-chevron {
-  width: 12px !important;
-  height: 12px !important;
+  width: 10px;
+  height: 10px;
 }
 
 .intro,
@@ -1362,7 +1371,7 @@ input[type='checkbox']#active {
 }
 
 .ribbon-content {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.4285914286;
   font-weight: 400;
   letter-spacing: -0.016em;
