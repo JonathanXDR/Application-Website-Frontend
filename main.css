@@ -1376,7 +1376,6 @@ input[type='checkbox']#active {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 4px;
 }
 
 .ribbon-content-wrapper {
