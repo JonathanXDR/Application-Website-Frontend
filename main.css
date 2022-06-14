@@ -38,22 +38,13 @@ body {
   );
 
   /* Infobar */
-  --ribbon-background-color: #d7eefa;
+  --ribbon-background-color: #f5f5f7;
   --ribbon-background-color-initial: #0071e3;
   --ribbon-text-color: #1d1d1f;
-  --ribbon-text-color-initial: #fff;
-  --ribbon-link-color: #06c;
+  --ribbon-text-color-initial: white;
+  --ribbon-link-color: #0066cc;
   --ribbon-focus-color: rgba(0, 125, 250, 0.6);
-  --ribbon-link-color-initial: #fff;
-
-  --color-tutorials-overview-content: #f5f5f7;
-  --color-tutorials-overview-content-alt: #a1a1a6;
-  --color-tutorials-overview-eyebrow: #a1a1a6;
-  --color-tutorials-overview-icon: #a1a1a6;
-  --color-tutorials-overview-navigation-link-active: #f5f5f7;
-  --color-tutorials-overview-navigation-link-hover: #a1a1a6;
-  --color-welcome-technologies-card-accent: var(--color-figure-blue);
-  --color-welcome-card-shadow: rgba(0, 0, 0, 0.04);
+  --ribbon-link-color-initial: white;
 
   /* Dev Colors */
   --color-fill: #fff;
@@ -163,21 +154,13 @@ body {
   );
 
   /* Infobar */
-  --ribbon-background-color: #20324b;
+  --ribbon-background-color: #1d1d1f;
   --ribbon-background-color-initial: #0071e3;
   --ribbon-text-color: #f5f5f7;
-  --ribbon-text-color-initial: #fff;
+  --ribbon-text-color-initial: white;
   --ribbon-link-color: #2997ff;
   --ribbon-focus-color: rgba(0, 125, 250, 0.6);
-  --ribbon-link-color-initial: #fff;
-  --color-tutorials-overview-content: #f5f5f7;
-  --color-tutorials-overview-content-alt: #a1a1a6;
-  --color-tutorials-overview-eyebrow: #a1a1a6;
-  --color-tutorials-overview-icon: #a1a1a6;
-  --color-tutorials-overview-navigation-link-active: #f5f5f7;
-  --color-tutorials-overview-navigation-link-hover: #a1a1a6;
-  --color-welcome-technologies-card-accent: var(--color-figure-blue);
-  --color-welcome-card-shadow: hsla(0, 0%, 100%, 0.04);
+  --ribbon-link-color-initial: white;
 
   /* Dev Colors */
   --color-fill: #000;
@@ -401,11 +384,6 @@ h6 {
     height: 14px;
   }
 
-  .icon-chevron-cv {
-    width: 14px;
-    height: 14px;
-  }
-
   .icon-download {
     width: 22px;
     height: 22px;
@@ -453,10 +431,15 @@ h6 {
     padding: 4em 0 4em 0;
   }
 
-  .icon-chevron-cv {
+  .info-container .icon-chevron {
     width: 16px;
     height: 16px;
   }
+}
+
+.ribbon .icon-chevron {
+  width: 12px !important;
+  height: 12px !important;
 }
 
 .intro,
@@ -633,6 +616,7 @@ li {
   display: flex;
   align-items: center;
   gap: 0.3em;
+  white-space: nowrap;
 }
 
 .link:link,
@@ -1363,11 +1347,6 @@ input[type='checkbox']#active {
 
 /* -------------------------------- Info Bar -------------------------------- */
 
-::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
 .row {
   width: 100%;
   display: flex;
@@ -1378,37 +1357,37 @@ input[type='checkbox']#active {
   margin-top: 0.3em !important;
 }
 
-.icon-wrapper .more::after {
-  display: inline;
-  position: static;
-}
-
-a.icon-wrapper {
-  text-decoration: none;
-}
-
-a.icon-wrapper:hover .icon-copy {
-  text-decoration: underline;
-}
-
 .ribbon {
   margin-top: 52px;
 }
 
 .ribbon-content {
   font-size: 14px;
-  line-height: 1.42859;
+  line-height: 1.4285914286;
   font-weight: 400;
   letter-spacing: -0.016em;
   font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
     'Arial', sans-serif;
 }
 
+.ribbon-content p {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
 .ribbon-content-wrapper {
   background-color: var(--ribbon-background-color);
   text-align: center;
-  padding-top: 0.94118em;
-  padding-bottom: 0.94118em;
+  padding-top: 0.9411764706em;
+  padding-bottom: 0.9411764706em;
+}
+
+.ribbon-content {
+  color: var(--ribbon-text-color);
 }
 
 .ribbon-link {
@@ -1417,131 +1396,47 @@ a.icon-wrapper:hover .icon-copy {
 
 .ribbon-content-wrapper {
   background-color: var(--ribbon-background-color-initial);
-  -webkit-animation: animate-background-0071e3-f5f5f7 1s
-    cubic-bezier(0.42, 0, 0.58, 1) 1.8s forwards;
-  animation: animate-background-0071e3-f5f5f7 1s cubic-bezier(0.42, 0, 0.58, 1)
-    1.8s forwards;
+  animation: animate-background-0071e3-f5f5f7 1s ease-in-out 1.8s forwards;
 }
 
 .ribbon-content {
-  color: var(--ribbon-text-color);
-  -webkit-animation: animate-color-fff-1d1d1f 1s cubic-bezier(0.42, 0, 0.58, 1)
-    1.8s forwards;
-  animation: animate-color-fff-1d1d1f 1s cubic-bezier(0.42, 0, 0.58, 1) 1.8s
-    forwards;
+  color: var(--ribbon-text-color-initial);
+  animation: animate-color-white-1d1d1f 1s ease-in-out 1.8s forwards;
 }
 
 .ribbon-link {
   color: var(--ribbon-link-color-initial);
-  fill: var(--ribbon-link-color-initial);
-  -webkit-animation: animate-color-fff-06c 1s cubic-bezier(0.42, 0, 0.58, 1)
-    1.8s forwards;
-  animation: animate-color-fff-06c 1s cubic-bezier(0.42, 0, 0.58, 1) 1.8s
-    forwards;
+  animation: animate-color-white-0066cc 1s ease-in-out 1.8s forwards;
 }
 
 .ribbon-drop-wrapper {
-  -webkit-animation: ribbon-drop 0.8s cubic-bezier(0.42, 0, 0.58, 1) forwards;
-  animation: ribbon-drop 0.8s cubic-bezier(0.42, 0, 0.58, 1) forwards;
-}
-
-@-webkit-keyframes animate-background-0071e3-f5f5f7 {
-  0% {
-    background-color: var(--ribbon-background-color-initial);
-  }
-
-  100% {
-    background-color: var(--ribbon-background-color);
-  }
+  animation: ribbon-drop 0.8s ease-in-out forwards;
 }
 
 @keyframes animate-background-0071e3-f5f5f7 {
   0% {
     background-color: var(--ribbon-background-color-initial);
   }
-
-  100% {
+  to {
     background-color: var(--ribbon-background-color);
   }
 }
 
-@keyframes animate-background-0071e3-f5f5f7 {
-  0% {
-    background-color: var(--ribbon-background-color-initial);
-  }
-
-  100% {
-    background-color: var(--ribbon-background-color);
-  }
-}
-
-@-webkit-keyframes animate-color-fff-1d1d1f {
+@keyframes animate-color-white-1d1d1f {
   0% {
     color: var(--ribbon-text-color-initial);
   }
-
-  100% {
+  to {
     color: var(--ribbon-text-color);
   }
 }
 
-@keyframes animate-color-fff-1d1d1f {
-  0% {
-    color: var(--ribbon-text-color-initial);
-  }
-
-  100% {
-    color: var(--ribbon-text-color);
-  }
-}
-
-@keyframes animate-color-fff-1d1d1f {
-  0% {
-    color: var(--ribbon-text-color-initial);
-  }
-
-  100% {
-    color: var(--ribbon-text-color);
-  }
-}
-
-@-webkit-keyframes animate-color-fff-06c {
+@keyframes animate-color-white-0066cc {
   0% {
     color: var(--ribbon-link-color-initial);
   }
-
-  100% {
+  to {
     color: var(--ribbon-link-color);
-  }
-}
-
-@keyframes animate-color-fff-06c {
-  0% {
-    color: var(--ribbon-link-color-initial);
-  }
-
-  100% {
-    color: var(--ribbon-link-color);
-  }
-}
-
-@keyframes animate-color-fff-06c {
-  0% {
-    color: var(--ribbon-link-color-initial);
-  }
-
-  100% {
-    color: var(--ribbon-link-color);
-  }
-}
-
-@-webkit-keyframes ribbon-drop {
-  0% {
-    transform: translateY(-100%);
-  }
-
-  100% {
-    transform: translateY(0);
   }
 }
 
@@ -1549,19 +1444,8 @@ a.icon-wrapper:hover .icon-copy {
   0% {
     transform: translateY(-100%);
   }
-
-  100% {
+  to {
     transform: translateY(0);
-  }
-}
-
-@-webkit-keyframes animate-background-0071e3-1d1d1f {
-  0% {
-    background-color: var(--ribbon-background-color-initial);
-  }
-
-  100% {
-    background-color: var(--ribbon-background-color);
   }
 }
 
@@ -1569,29 +1453,26 @@ a.icon-wrapper:hover .icon-copy {
   0% {
     background-color: var(--ribbon-background-color-initial);
   }
-
-  100% {
+  to {
     background-color: var(--ribbon-background-color);
   }
 }
 
-@-webkit-keyframes animate-color-fff-f5f5f7 {
+@keyframes animate-color-white-f5f5f7 {
   0% {
     color: var(--ribbon-text-color-initial);
   }
-
-  100% {
+  to {
     color: var(--ribbon-text-color);
   }
 }
 
-@keyframes animate-color-fff-f5f5f7 {
+@keyframes animate-color-white-2997ff {
   0% {
-    color: var(--ribbon-text-color-initial);
+    color: var(--ribbon-link-color-initial);
   }
-
-  100% {
-    color: var(--ribbon-text-color);
+  to {
+    color: var(--ribbon-link-color);
   }
 }
 
