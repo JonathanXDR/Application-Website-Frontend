@@ -1446,9 +1446,11 @@ input[type='checkbox']#active {
 @keyframes animate-color-white-0066cc {
   0% {
     color: var(--ribbon-link-color-initial);
+    fill: var(--ribbon-link-color-initial);
   }
   to {
     color: var(--ribbon-link-color);
+    fill: var(--ribbon-link-color);
   }
 }
 
