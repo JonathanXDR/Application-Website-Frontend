@@ -1264,7 +1264,7 @@ a:disabled {
 
 /* ------------------------------ Theme Button ------------------------------ */
 
-.toggle-btn {
+#theme-button {
   position: relative;
   min-width: 145px;
   min-height: 74px;
@@ -1278,7 +1278,7 @@ a:disabled {
 }
 
 @media only screen and (min-width: 943px) {
-  .toggle-btn {
+  #theme-button {
     margin: -29px -50px -26px -2px !important;
   }
 }
@@ -1302,7 +1302,7 @@ input[type='checkbox']#active {
   height: 0;
 }
 
-#toggle-btn-id span {
+#theme-button span {
   position: absolute;
   top: 0;
   right: 0;
@@ -1315,8 +1315,8 @@ input[type='checkbox']#active {
   transition: 0.2s ease background, 0.2s ease opacity;
 }
 
-#toggle-btn-id span:after,
-#toggle-btn-id span:before {
+#theme-button span:after,
+#theme-button span:before {
   content: '';
   position: absolute;
   top: 8px;
@@ -1326,32 +1326,32 @@ input[type='checkbox']#active {
   transition: 0.5s ease transform, 0.2s ease background;
 }
 
-#toggle-btn-id span:before {
+#theme-button span:before {
   background: #fff;
   transform: translate(-58px, 0);
   z-index: 1;
 }
 
-#toggle-btn-id span:after {
+#theme-button span:after {
   background: #000;
   transform: translate(8px, 0);
   z-index: 0;
 }
 
-#toggle-btn-id input[type='checkbox']:checked + span {
+#theme-button input[type='checkbox']:checked + span {
   background: #000;
 }
 
-#toggle-btn-id input[type='checkbox']:active + span {
+#theme-button input[type='checkbox']:active + span {
   opacity: 0.5;
 }
 
-#toggle-btn-id input[type='checkbox']:checked + span:before {
+#theme-button input[type='checkbox']:checked + span:before {
   background: #000;
   transform: translate(56px, -19px);
 }
 
-#toggle-btn-id input[type='checkbox']:checked + span:after {
+#theme-button input[type='checkbox']:checked + span:after {
   background: #fff;
   transform: translate(79px, 0);
 }
