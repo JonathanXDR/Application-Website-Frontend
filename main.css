@@ -1477,7 +1477,7 @@ input[type='checkbox']#active {
 }
 
 .ribbon-content p {
-  width: 100%;
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1701,8 +1701,8 @@ input[type='checkbox']#active {
 .info-container > svg {
   -webkit-filter: saturate(0.9);
   filter: saturate(0.9);
-  -webkit-transform: scale(0.75);
-  transform: scale(0.75);
+  -webkit-transform: scale(0.63);
+  transform: scale(0.63);
   margin: 0 -32px;
 }
 
@@ -1806,6 +1806,13 @@ input[type='checkbox']#active {
   color: var(--color-fill);
   background: var(--color-fill-gray);
   border: 2px solid var(--color-fill-gray);
+}
+
+@media screen and (min-width: 350px) {
+  .info-container > svg {
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+  }
 }
 
 @media screen and (min-width: 900px) {
