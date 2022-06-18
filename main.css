@@ -532,7 +532,7 @@ a:link:hover {
   opacity: 0.32;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 900px) {
   body {
     font-size: 17px;
   }
@@ -613,7 +613,7 @@ a:link:hover {
   }
 }
 
-@media screen and (min-width: 943px) {
+@media screen and (min-width: 1177px) {
   h1 {
     font-size: 48px !important;
   }
@@ -798,7 +798,7 @@ a:link:hover {
   height: 52px;
   z-index: 9997;
 }
-@media only screen and (max-width: 943px) {
+@media only screen and (max-width: 1177px) {
   #ac-localnav {
     height: 48px;
   }
@@ -807,7 +807,7 @@ a:link:hover {
   margin-top: 44px;
   margin-bottom: -96px;
 }
-@media only screen and (max-width: 943px) {
+@media only screen and (max-width: 1177px) {
   .ac-nav-overlap #ac-localnav {
     margin-top: 48px;
     margin-bottom: -96px;
@@ -836,7 +836,7 @@ a:link:hover {
   float: left;
   padding-top: 18px;
 }
-@media only screen and (max-width: 943px) {
+@media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-actions {
     right: 0;
     position: absolute;
@@ -845,7 +845,7 @@ a:link:hover {
     padding-right: calc(22px + constant(safe-area-inset-right));
   }
 }
-@media only screen and (max-width: 943px) and (max-width: 943px) {
+@media only screen and (max-width: 1177px) and (max-width: 1177px) {
   #ac-localnav .ac-ln-actions {
     padding-top: 16px;
   }
@@ -860,7 +860,7 @@ a:link:hover {
   position: relative;
   z-index: 1;
 }
-@media only screen and (max-width: 943px) {
+@media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-action-menucta {
     float: left;
   }
@@ -887,7 +887,7 @@ a:link:hover {
 #ac-localnav .ac-ln-background:after {
   background-color: rgba(0, 0, 0, 0.16);
 }
-@media only screen and (max-width: 943px) {
+@media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-background {
     min-height: 48px;
     transition: background-color 0.5s ease 0.7s;
@@ -946,7 +946,7 @@ a:link:hover {
   float: right;
   margin-top: -3px;
 }
-@media only screen and (max-width: 943px) {
+@media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-menu {
     padding-top: 0;
     margin-top: 0;
@@ -960,7 +960,7 @@ a:link:hover {
   float: left;
   padding-top: 18px;
 }
-@media only screen and (max-width: 943px) {
+@media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-menu-tray {
     float: none;
     overflow: hidden !important;
@@ -982,13 +982,13 @@ a:link:hover {
     transition-delay: 0.2s, 0s !important;
   }
 }
-@media only screen and (max-width: 943px) and (orientation: landscape) {
+@media only screen and (max-width: 1177px) and (orientation: landscape) {
   .nav-open .ac-ln-menu-tray {
     max-height: 280px !important;
     max-height: calc(100vh - 48px - 48px) !important;
   }
 }
-@media only screen and (max-width: 943px) {
+@media only screen and (max-width: 1177px) {
   .nav-open.ac-ln-sticking .ac-ln-menu-tray {
     max-height: calc(100vh - 48px) !important;
   }
@@ -996,7 +996,7 @@ a:link:hover {
 
 /* ---------------------------- ac-ln-menu-items ---------------------------- */
 
-@media only screen and (max-width: 943px) {
+@media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-menu-items {
     opacity: 0;
     padding: 4px 0 24px 0;
@@ -1018,7 +1018,7 @@ a:link:hover {
   float: left;
   list-style: none;
 }
-@media only screen and (max-width: 943px) {
+@media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-menu-item {
     margin-left: 0;
     display: inline-block;
@@ -1099,7 +1099,7 @@ a:link:hover {
   opacity: 1;
   text-decoration: none;
 }
-@media only screen and (max-width: 943px) {
+@media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-menu-link {
     border-top: 1px solid var(--color-menu-mobile-border);
     display: flex;
@@ -1138,7 +1138,7 @@ a:link:hover {
 #ac-localnav .ac-ln-action-menucta {
   display: none;
 }
-@media only screen and (max-width: 943px) {
+@media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-action-menucta {
     display: block;
   }
@@ -1233,7 +1233,7 @@ a:disabled {
   transition: opacity 0.2s ease;
 }
 
-@media only screen and (max-width: 943px) {
+@media only screen and (max-width: 1177px) {
   #ac-ln-curtain {
     transition: opacity 1s ease 0.2s, width 0s ease 1.2s, height 0s ease 1.2s;
   }
@@ -1243,7 +1243,7 @@ a:disabled {
   transition: opacity 1s ease 0.1s !important;
 }
 
-@media only screen and (max-width: 943px) {
+@media only screen and (max-width: 1177px) {
   .nav-open ~ #ac-ln-curtain {
     opacity: 1 !important;
     right: 0 !important;
@@ -1340,7 +1340,7 @@ input[type='checkbox']#active {
   transform: translate(79px, 0);
 }
 
-@media only screen and (min-width: 943px) {
+@media only screen and (min-width: 1177px) {
   #theme-button {
     margin: -29px -50px -26px -2px !important;
   }
@@ -1593,13 +1593,13 @@ input[type='checkbox']#active {
   border: 2px solid var(--color-fill-gray);
 }
 
-@media (min-width: 500px) {
+@media screen and (min-width: 900px) {
   .info-container > svg {
     transform: scale(0.85);
   }
 }
 
-@media (min-width: 943px) {
+@media screen and (min-width: 1177px) {
   .info-container > svg {
     transform: scale(1);
   }
@@ -1609,7 +1609,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media (min-width: 1177px) {
+@media screen and (min-width: 1177px) {
   .info-container {
     display: grid;
     grid-template-columns: 411px 1fr;
@@ -1669,14 +1669,14 @@ input[type='checkbox']#active {
   display: flex;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 900px) {
   .grid {
     gap: 64px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 
-@media screen and (min-width: 943px) {
+@media screen and (min-width: 1177px) {
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
@@ -1846,7 +1846,7 @@ input[type='checkbox']#active {
   flex-basis: 0;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 900px) {
   .graph-bar {
     height: 8px;
   }
@@ -1869,7 +1869,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 943px) {
+@media screen and (min-width: 1177px) {
   .graph-gallery-container {
     margin-top: 4em;
   }
@@ -1934,7 +1934,7 @@ input[type='checkbox']#active {
   clear: both;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 900px) {
   #projects {
     padding-top: 150px;
     width: 82.5%;
@@ -2180,7 +2180,7 @@ input[type='checkbox']#active {
   visibility: visible;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 900px) {
   #technologies {
     padding: 150px 0 100px 0;
   }
@@ -2204,7 +2204,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 943px) {
+@media screen and (min-width: 1177px) {
   #technologies .item-container {
     width: 95%;
     grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
@@ -2236,7 +2236,7 @@ input[type='checkbox']#active {
   font-size: 14px;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 900px) {
   #copyright {
     width: 82.5%;
     flex-direction: row !important;
