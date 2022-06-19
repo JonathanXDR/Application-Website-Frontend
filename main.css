@@ -978,7 +978,7 @@ a:link:hover {
     min-height: 48px;
   }
 
-  #ac-localnav .background-transition {
+  #ac-localnav .ac-ln-background-transition {
     -webkit-transition: background-color 0.5s ease 0.7s;
     -o-transition: background-color 0.5s ease 0.7s;
     -moz-transition: background-color 0.5s ease 0.7s;
@@ -1784,7 +1784,7 @@ input[type='checkbox']#active {
   fill: var(--ribbon-link-color);
 }
 
-.ribbon-content-wrapper {
+.ribbon-content-wrapper-animation {
   background-color: var(--ribbon-background-color-initial);
   -webkit-animation: animate-background-0071e3-f5f5f7 1s ease-in-out 1.8s
     forwards;
@@ -1793,7 +1793,7 @@ input[type='checkbox']#active {
   animation: animate-background-0071e3-f5f5f7 1s ease-in-out 1.8s forwards;
 }
 
-.ribbon-content {
+.ribbon-content-animation {
   color: var(--ribbon-text-color-initial);
   -webkit-animation: animate-color-white-1d1d1f 1s ease-in-out 1.8s forwards;
   -moz-animation: animate-color-white-1d1d1f 1s ease-in-out 1.8s forwards;

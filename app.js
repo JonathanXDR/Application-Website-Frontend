@@ -50,12 +50,12 @@ function themeSettings() {
     if (this.checked === true || this.checked === false) {
       document
         .getElementById('ac-ln-background')
-        .classList.remove('background-transition');
+        .classList.remove('ac-ln-background-transition');
 
       setTimeout(() => {
         document
           .getElementById('ac-ln-background')
-          .classList.add('background-transition');
+          .classList.add('ac-ln-background-transition');
       }, 500);
     }
   });
