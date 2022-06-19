@@ -7,15 +7,15 @@
 
 html,
 body {
+  color: var(--color-fill-gray);
   font-size: 15px;
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -0.022em;
   font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
     'Arial', sans-serif;
-  background-color: var(--color-fill);
-  color: var(--color-fill-gray);
   font-style: normal;
+  background-color: var(--color-fill);
   overflow-wrap: break-word;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
@@ -757,10 +757,6 @@ a:link:hover {
   transition: fill 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
 }
 
-.ac-ln-title svg {
-  margin-top: 16px;
-}
-
 /* ---------------------------------- Menu ---------------------------------- */
 
 .item {
@@ -847,17 +843,23 @@ a:link:hover {
 #ac-localnav .ac-ln-content {
   margin: 0 auto;
   width: 90%;
+  height: 52px;
   padding: 0 4px;
   position: relative;
   z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+@media only screen and (max-width: 1177px) {
+  #ac-localnav .ac-ln-content {
+    display: block;
+    height: 48px;
+  }
+}
 /* ------------------------------ ac-ln-actions ----------------------------- */
 
-#ac-localnav .ac-ln-actions {
-  float: left;
-  padding-top: 18px;
-}
 @media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-actions {
     right: 0;
@@ -865,26 +867,10 @@ a:link:hover {
     top: 0;
     z-index: 1;
     padding-right: calc(22px + constant(safe-area-inset-right));
-  }
-}
-@media only screen and (max-width: 1177px) and (max-width: 1177px) {
-  #ac-localnav .ac-ln-actions {
-    padding-top: 16px;
-  }
-}
-#ac-localnav .ac-ln-action {
-  margin-left: 24px;
-  float: left;
-}
-
-#ac-localnav .ac-ln-action-menucta {
-  margin-top: -2px;
-  position: relative;
-  z-index: 1;
-}
-@media only screen and (max-width: 1177px) {
-  #ac-localnav .ac-ln-action-menucta {
-    float: left;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 17px;
   }
 }
 
@@ -972,29 +958,36 @@ a:link:hover {
   font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
     'Arial', sans-serif;
   float: right;
-  margin-top: -3px;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 @media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-menu {
     padding-top: 0;
     margin-top: 0;
     width: 100%;
+    height: auto;
+    display: block;
   }
 }
 
 /* ----------------------------- ac-ln-menu-tray ---------------------------- */
 
 #ac-localnav .ac-ln-menu-tray {
-  float: left;
-  padding-top: 18px;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 @media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-menu-tray {
+    display: block;
     float: none;
     overflow: hidden !important;
     pointer-events: none;
     visibility: hidden;
     width: 100%;
+    height: auto;
     padding-top: 0;
     max-height: 0;
     -webkit-transition: max-height 0.5s cubic-bezier(0.28, 0.11, 0.32, 1) 0.4s,
@@ -1030,7 +1023,7 @@ a:link:hover {
 @media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-menu-items {
     opacity: 0;
-    padding: 24px;
+    padding: 10px 24px 24px;
     -webkit-transform: translate3d(0, -150px, 0);
     transform: translate3d(0, -150px, 0);
     -webkit-transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.2s,
@@ -1207,12 +1200,11 @@ a:link:hover {
   }
 }
 #ac-localnav .ac-ln-menucta {
-  margin-right: -11px;
   cursor: pointer;
   display: block;
   overflow: hidden;
-  width: 40px;
-  height: 30px;
+  width: 30px;
+  height: 22.5px;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -1304,6 +1296,12 @@ a:link:hover {
 
 /* ------------------------------- ac-ln-title ------------------------------ */
 
+.ac-ln-title {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 a:disabled {
   opacity: 0.32;
 }
@@ -1349,7 +1347,6 @@ a:disabled {
 /* ------------------------------ Theme Button ------------------------------ */
 
 #theme-button {
-  position: relative;
   min-width: 145px;
   min-height: 74px;
   border-radius: 40px;
@@ -1359,7 +1356,7 @@ a:disabled {
   border-width: 3px;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
-  margin: -29px -50px -26px 26px;
+  margin: -26px -50px;
 }
 
 .btn-input {
@@ -1464,7 +1461,7 @@ input[type='checkbox']#active {
 }
 
 .ribbon {
-  margin-top: 52px;
+  margin-top: 48px;
 }
 
 .ribbon-content {
@@ -1665,6 +1662,12 @@ input[type='checkbox']#active {
   }
   to {
     color: var(--ribbon-link-color);
+  }
+}
+
+@media screen and (min-width: 1177px) {
+  .ribbon {
+    margin-top: 52px;
   }
 }
 
