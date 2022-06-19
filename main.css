@@ -975,6 +975,10 @@ a:link:hover {
 
 /* ----------------------------- ac-ln-menu-tray ---------------------------- */
 
+#ac-localnav .ac-ln-menu-tray {
+  height: 100%;
+}
+
 @media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-menu-tray {
     overflow: hidden !important;
