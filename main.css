@@ -1204,8 +1204,8 @@ a:link:hover {
   cursor: pointer;
   display: block;
   overflow: hidden;
-  width: 30px;
-  height: 22.5px;
+  width: 20px;
+  height: 20px;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -1357,7 +1357,7 @@ a:disabled {
   border-width: 3px;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
-  margin: -26px -50px;
+  margin: -26px -52px;
 }
 
 .btn-input {
