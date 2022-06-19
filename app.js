@@ -6,8 +6,8 @@ window.onload = function () {
   appYear();
   currentYear();
   intersectionObserver();
-  setCurrentItem();
-  navOpen();
+  currentItem();
+  openNav();
   closeNav();
   expandTile();
 };
@@ -80,7 +80,7 @@ function intersectionObserver() {
 
 /* ---------------------------------- Menu ---------------------------------- */
 
-function setCurrentItem() {
+function currentItem() {
   const items = document.getElementsByClassName('ac-ln-menu-link');
   for (let i = 0; i < 6; i++) {
     items[i].addEventListener('click', function () {
@@ -94,7 +94,7 @@ function setCurrentItem() {
   }
 }
 
-function navOpen() {
+function openNav() {
   const menuState = document.getElementById('ac-ln-menustate');
   if (menuState.checked) {
     document.getElementById('ac-localnav').classList.add('nav-open');
@@ -256,7 +256,7 @@ function appYear() {
     y = 4;
   }
 
-  document.getElementById('app-year').textContent = y;
+  document.getElementById('training-year').textContent = y;
 }
 
 /* ------------------------------ Current Year ------------------------------ */

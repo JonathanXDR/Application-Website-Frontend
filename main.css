@@ -2899,7 +2899,6 @@ input[type='checkbox']#active {
 }
 
 .card-text {
-  color: var(--color-fill-gray);
   fill: var(--color-fill-gray);
   font-weight: 600;
   font-size: 125px;
