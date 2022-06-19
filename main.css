@@ -28,8 +28,9 @@ body {
   /* Menu */
   --color-menu: rgba(255, 255, 255, 0.72);
   --color-menu-border: rgba(0, 0, 0, 0.16);
-  --color-menu-mobile: rgba(255, 255, 255, 0.9);
-  --color-menu-mobile-border: rgba(0, 0, 0, 0.181818);
+  --color-mobile: rgba(255, 255, 255, 0.9);
+  --color-mobile-border: rgba(0, 0, 0, 0.181818);
+  --color-mobile-border-opacity: rgba(0, 0, 0, 0.285714);
   --color-tile-button: rgba(0, 0, 0, 0.8);
 
   /* Special Colors */
@@ -154,8 +155,9 @@ body {
   /* Menu */
   --color-menu: rgba(0, 0, 0, 0.72);
   --color-menu-border: rgba(255, 255, 255, 0.24);
-  --color-menu-mobile: #1d1d1f;
-  --color-menu-mobile-border: rgba(255, 255, 255, 0.26087);
+  --color-mobile: #1d1d1f;
+  --color-mobile-border: rgba(255, 255, 255, 0.26087);
+  --color-mobile-border-opacity: rgba(255, 255, 255, 0.428571);
   --color-tile-button: rgba(255, 255, 255, 0.8);
 
   /* Special Colors */
@@ -1056,7 +1058,6 @@ a:link:hover {
 
 @media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-menu-item {
-    margin-left: 0;
     display: inline-block;
     width: 100%;
     height: 44px;
@@ -1148,7 +1149,7 @@ a:link:hover {
 }
 @media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-menu-link {
-    border-top: 1px solid var(--color-menu-mobile-border);
+    border-top: 1px solid var(--color-mobile-border);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1184,6 +1185,7 @@ a:link:hover {
 #ac-localnav.ac-localnav-dark .ac-ln-menu-link.current {
   color: var(--color-fill-gray);
   opacity: 0.56;
+  border-color: var(--color-mobile-border-opacity);
   pointer-events: none;
 }
 
@@ -1300,6 +1302,7 @@ a:link:hover {
 .ac-ln-title {
   display: flex;
   align-items: center;
+  width: 50px;
   height: 100%;
 }
 
