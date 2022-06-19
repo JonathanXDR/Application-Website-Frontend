@@ -28,15 +28,15 @@
     ></script>
 
     <script>
-      function setTheme(themeName) {
+      function storeTheme(themeName) {
         localStorage.setItem('theme', themeName);
         document.documentElement.className = themeName;
       }
 
       if (localStorage.getItem('theme') === 'light') {
-        setTheme('light');
+        storeTheme('light');
       } else {
-        setTheme('dark');
+        storeTheme('dark');
       }
     </script>
   </head>
@@ -50,7 +50,7 @@
         class="ac-localnav-dark ac-localnav-noborder ac-ln-sticking"
       >
         <div class="ac-ln-wrapper">
-          <div class="ac-ln-background"></div>
+          <div id="ac-ln-background" class="ac-ln-background background-transition"></div>
           <div class="ac-ln-content">
             <a href="https://jonathan-russ.com" class="ac-ln-title"
               ><svg
@@ -1189,7 +1189,7 @@
       </section>
 
       <section id="projects">
-        <h3 class="typography-magical-headline" style="text-align: center">
+        <h3 class="typography-magical-headline"">
           Projekte bei Swisscom
         </h3>
         <div class="timeline-wrapper">

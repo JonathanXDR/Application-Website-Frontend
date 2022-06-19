@@ -975,6 +975,9 @@ a:link:hover {
 @media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-background {
     min-height: 48px;
+  }
+
+  #ac-localnav .background-transition {
     -webkit-transition: background-color 0.5s ease 0.7s;
     -o-transition: background-color 0.5s ease 0.7s;
     -moz-transition: background-color 0.5s ease 0.7s;

@@ -1,34 +1,6 @@
 window.onload = function () {
-  const themeButton = document.getElementById('theme-id');
-  if (localStorage.getItem('theme') === 'light') {
-    setTheme('light');
-    themeButton.checked = false;
-  } else {
-    setTheme('dark');
-    themeButton.checked = true;
-  }
-
-  const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
-  if (darkThemeMq.matches) {
-    setTheme('dark');
-    themeButton.checked = true;
-  } else {
-    setTheme('light');
-    themeButton.checked = false;
-  }
-
-  const max = 2160;
-  forEach(document.querySelectorAll('.hex-progress'), function (index, value) {
-    percent = value.getAttribute('data-progress');
-    value
-      .querySelector('.fill')
-      .setAttribute(
-        'style',
-        'stroke-dashoffset: ' + ((100 - percent) / 100) * max
-      );
-    value.querySelector('.card-text').innerHTML = percent + '%';
-  });
-
+  themeSettings();
+  calcProgress();
   timelineScrolling();
   age();
   appYear();
@@ -42,19 +14,52 @@ window.onload = function () {
 
 /* ---------------------------------- Theme --------------------------------- */
 
-function setTheme(themeName) {
+function storeTheme(themeName) {
   localStorage.setItem('theme', themeName);
   document.documentElement.className = themeName;
 }
 
 function toggleTheme() {
   if (localStorage.getItem('theme') === 'dark') {
-    setTheme('light');
+    storeTheme('light');
   } else {
-    setTheme('dark');
+    storeTheme('dark');
   }
 }
 
+function themeSettings() {
+  const themeButton = document.getElementById('theme-id');
+  if (localStorage.getItem('theme') === 'light') {
+    storeTheme('light');
+    themeButton.checked = false;
+  } else {
+    storeTheme('dark');
+    themeButton.checked = true;
+  }
+
+  const preferedTheme = window.matchMedia('(prefers-color-scheme: dark)');
+  if (preferedTheme.matches) {
+    storeTheme('dark');
+    themeButton.checked = true;
+  } else {
+    storeTheme('light');
+    themeButton.checked = false;
+  }
+
+  themeButton.addEventListener('change', function () {
+    if (this.checked === true || this.checked === false) {
+      document
+        .getElementById('ac-ln-background')
+        .classList.remove('background-transition');
+
+      setTimeout(() => {
+        document
+          .getElementById('ac-ln-background')
+          .classList.add('background-transition');
+      }, 500);
+    }
+  });
+}
 /* -------------------------- IntersectionObserver -------------------------- */
 
 function intersectionObserver() {
@@ -281,6 +286,20 @@ function countToggles() {
 }
 
 /* -------------------------- Hexagon Progressbars -------------------------- */
+
+function calcProgress() {
+  const max = 2160;
+  forEach(document.querySelectorAll('.hex-progress'), function (index, value) {
+    percent = value.getAttribute('data-progress');
+    value
+      .querySelector('.fill')
+      .setAttribute(
+        'style',
+        'stroke-dashoffset: ' + ((100 - percent) / 100) * max
+      );
+    value.querySelector('.card-text').innerHTML = percent + '%';
+  });
+}
 
 function expandTile() {
   const tileOverlayToggle = document.querySelectorAll('.tile-overlay-toggle');
