@@ -951,6 +951,7 @@ a:link:hover {
 /* ------------------------------- ac-ln-menu ------------------------------- */
 
 #ac-localnav .ac-ln-menu {
+  height: 100%;
   font-size: 14px;
   line-height: 1;
   font-weight: 600;
@@ -960,7 +961,7 @@ a:link:hover {
   float: right;
   display: flex;
   align-items: center;
-  height: 100%;
+  gap: 24px;
 }
 @media only screen and (max-width: 1177px) {
   #ac-localnav .ac-ln-menu {
@@ -1432,12 +1433,6 @@ input[type='checkbox']#active {
   background: #fff;
   -webkit-transform: translate(79px, 0);
   transform: translate(79px, 0);
-}
-
-@media only screen and (min-width: 1177px) {
-  #theme-button {
-    margin: -29px -50px -26px -2px !important;
-  }
 }
 
 /* -------------------------------- Info Bar -------------------------------- */
