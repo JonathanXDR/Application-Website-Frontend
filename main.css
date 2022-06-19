@@ -506,6 +506,7 @@ li {
   letter-spacing: -0.0009em;
   font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, 'Helvetica',
     'Arial', sans-serif;
+  text-align: center;
 }
 
 .typography-connection-tile-headline {
@@ -2848,7 +2849,6 @@ input[type='checkbox']#active {
 
 #technologies {
   padding: 100px 0;
-  text-align: center;
   background: var(--color-fill-tertiary);
 }
 
