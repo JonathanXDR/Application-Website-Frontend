@@ -531,7 +531,7 @@ a:link:hover {
   opacity: 0.32;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 360px) {
   body {
     -webkit-hyphens: none;
     -ms-hyphens: none;
