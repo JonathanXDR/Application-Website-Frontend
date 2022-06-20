@@ -3,7 +3,7 @@ window.onload = function () {
   calcProgress();
   timelineScrolling();
   age();
-  appYear();
+  trainingYear();
   currentYear();
   intersectionObserver();
   currentItem();
@@ -47,17 +47,41 @@ function themeSettings() {
   }
 
   themeButton.addEventListener('change', function () {
-    if (this.checked === true || this.checked === false) {
+    document
+      .getElementById('ac-ln-background')
+      .classList.remove('ac-ln-background-transition');
+
+    document
+      .getElementById('ribbon-content-wrapper')
+      .classList.remove('ribbon-content-wrapper-animation');
+
+    document
+      .getElementById('ribbon-content')
+      .classList.remove('ribbon-content-animation');
+
+    document
+      .getElementById('ribbon-link')
+      .classList.remove('ribbon-link-animation');
+
+    setTimeout(() => {
       document
         .getElementById('ac-ln-background')
-        .classList.remove('ac-ln-background-transition');
+        .classList.add('ac-ln-background-transition');
+    }, 500);
 
-      setTimeout(() => {
-        document
-          .getElementById('ac-ln-background')
-          .classList.add('ac-ln-background-transition');
-      }, 500);
-    }
+    setTimeout(() => {
+      document
+        .getElementById('ribbon-content-wrapper')
+        .classList.add('ribbon-content-wrapper-animation');
+
+      document
+        .getElementById('ribbon-content')
+        .classList.add('ribbon-content-animation');
+
+      document
+        .getElementById('ribbon-link')
+        .classList.add('ribbon-link-animation');
+    }, 1);
   });
 }
 /* -------------------------- IntersectionObserver -------------------------- */
@@ -199,10 +223,9 @@ function toggleModal() {
 /* ----------------------------------- Age ---------------------------------- */
 
 function age() {
-  // Enter your date of birth
-  let d1 = 12; // date
-  let m1 = 12; // month
-  let y1 = 2005; // year
+  let d1 = 12;
+  let m1 = 12;
+  let y1 = 2005;
 
   let date = new Date();
   let d2 = date.getDate();
@@ -225,13 +248,12 @@ function age() {
   document.getElementById('age').textContent = y;
 }
 
-/* ------------------------- Year Of Apprenticeship ------------------------- */
+/* ------------------------- Training Year ------------------------- */
 
-function appYear() {
-  // Enter your date of birth
-  let d1 = 01; // date
-  let m1 = 08; // month
-  let y1 = 2021; // year
+function trainingYear() {
+  let d1 = 01;
+  let m1 = 08;
+  let y1 = 2021;
 
   let date = new Date();
   let d2 = date.getDate();
