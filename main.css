@@ -12,9 +12,8 @@ body {
   font-size: 15px;
   line-height: 1.47059;
   font-weight: 400;
-  letter-spacing: -0.022em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: -0.022em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-style: normal;
   background-color: var(--color-fill);
   overflow-wrap: break-word;
@@ -22,7 +21,6 @@ body {
   -ms-hyphens: auto;
   -moz-hyphens: auto;
   hyphens: auto;
-  /* transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1); */
   scroll-behavior: smooth;
 }
 
@@ -295,54 +293,48 @@ h1 {
   font-size: 32px;
   line-height: 1.08349;
   font-weight: 600;
-  letter-spacing: -0.003em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: -0.003em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 h2 {
   font-size: 24px;
   line-height: 1.1;
   font-weight: 600;
-  letter-spacing: 0;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: 0; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 h3 {
   font-size: 19px;
   line-height: 1.125;
   font-weight: 600;
-  letter-spacing: 0.004em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: 0.004em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 h4 {
   font-size: 17px;
   line-height: 1.16667;
   font-weight: 600;
-  letter-spacing: 0.009em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: 0.009em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 h5 {
   font-size: 12px;
   line-height: 1.21053;
   font-weight: 600;
-  letter-spacing: 0.012em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: 0.012em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 h6 {
   font-size: 8px;
   line-height: 1.33337;
   font-weight: 400;
-  letter-spacing: -0.01em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: -0.01em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .intro,
@@ -350,9 +342,8 @@ h6 {
   font-size: 15px;
   line-height: 1.381;
   font-weight: 400;
-  letter-spacing: 0.011em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: 0.011em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -394,27 +385,24 @@ li {
   font-size: 20px;
   line-height: 1.16667;
   font-weight: 600;
-  letter-spacing: 0.009em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: 0.009em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .typography-caption {
   font-size: 12px;
   line-height: 1.33337;
   font-weight: 400;
-  letter-spacing: -0.01em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: -0.01em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .badge-value {
   font-size: 48px;
   line-height: 1;
   font-weight: 400;
-  letter-spacing: -0.003em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: -0.003em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   left: -2px;
   display: block;
   white-space: nowrap;
@@ -426,9 +414,8 @@ li {
   font-size: 14px;
   line-height: 1.28583;
   font-weight: 400;
-  letter-spacing: -0.016em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: -0.016em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   left: 0;
   color: #333;
   display: block;
@@ -442,27 +429,24 @@ li {
   font-size: 48px;
   line-height: 1;
   font-weight: 400;
-  letter-spacing: -0.003em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: -0.003em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .badge .badge-caption {
   font-size: 14px;
   line-height: 1.28583;
   font-weight: 400;
-  letter-spacing: -0.016em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: -0.016em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .typography-eyebrow-elevated {
   font-size: 19px;
   line-height: 1.14286;
   font-weight: 600;
-  letter-spacing: 0.007em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: 0.007em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .typography-graph-caption {
@@ -470,18 +454,16 @@ li {
   font-size: 15px;
   line-height: 1.47059;
   font-weight: 400;
-  letter-spacing: -0.022em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: -0.022em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .badge .badge-value {
   font-size: 56px;
   line-height: 1.07143;
   font-weight: 600;
-  letter-spacing: -0.005em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: -0.005em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
   color: #111;
   margin-bottom: 2px;
@@ -491,9 +473,8 @@ li {
   font-size: 17px;
   line-height: 1.47059;
   font-weight: 400;
-  letter-spacing: -0.022em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: -0.022em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 500;
   color: #888;
   display: block;
@@ -503,9 +484,8 @@ li {
   font-size: 32px;
   line-height: 1;
   font-weight: 700;
-  letter-spacing: -0.0009em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: -0.0009em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: center;
 }
 
@@ -513,9 +493,8 @@ li {
   font-size: 19px;
   line-height: 1.1666666667;
   font-weight: 600;
-  letter-spacing: 0.009em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: 0.009em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .link {
@@ -550,6 +529,15 @@ a:link:hover {
 
 .link:disabled {
   opacity: 0.32;
+}
+
+@media screen and (min-width: 400px) {
+  body {
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    -moz-hyphens: none;
+    hyphens: none;
+  }
 }
 
 @media screen and (min-width: 900px) {
@@ -633,7 +621,7 @@ a:link:hover {
   }
 }
 
-@media screen and (min-width: 1177px) {
+@media screen and (min-width: 1200px) {
   h1 {
     font-size: 48px !important;
   }
@@ -862,7 +850,7 @@ a:link:hover {
   height: 52px;
   z-index: 9997;
 }
-@media only screen and (max-width: 1177px) {
+@media only screen and (max-width: 1200px) {
   #ac-localnav {
     height: 48px;
   }
@@ -871,7 +859,7 @@ a:link:hover {
   margin-top: 44px;
   margin-bottom: -96px;
 }
-@media only screen and (max-width: 1177px) {
+@media only screen and (max-width: 1200px) {
   .ac-nav-overlap #ac-localnav {
     margin-top: 48px;
     margin-bottom: -96px;
@@ -910,7 +898,7 @@ a:link:hover {
   align-items: center;
 }
 
-@media only screen and (max-width: 1177px) {
+@media only screen and (max-width: 1200px) {
   #ac-localnav .ac-ln-content {
     display: block;
     height: 48px;
@@ -918,7 +906,7 @@ a:link:hover {
 }
 /* ------------------------------ ac-ln-actions ----------------------------- */
 
-@media only screen and (max-width: 1177px) {
+@media only screen and (max-width: 1200px) {
   #ac-localnav .ac-ln-actions {
     right: 0;
     position: absolute;
@@ -973,7 +961,7 @@ a:link:hover {
 #ac-localnav .ac-ln-background:after {
   background-color: rgba(0, 0, 0, 0.16);
 }
-@media only screen and (max-width: 1177px) {
+@media only screen and (max-width: 1200px) {
   #ac-localnav .ac-ln-background {
     min-height: 48px;
   }
@@ -1036,9 +1024,8 @@ a:link:hover {
   font-size: 14px;
   line-height: 1;
   font-weight: 600;
-  letter-spacing: -0.02em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: -0.02em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   float: right;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1052,7 +1039,7 @@ a:link:hover {
   align-items: center;
   gap: 24px;
 }
-@media only screen and (max-width: 1177px) {
+@media only screen and (max-width: 1200px) {
   #ac-localnav .ac-ln-menu {
     padding-top: 0;
     margin-top: 0;
@@ -1068,7 +1055,7 @@ a:link:hover {
   height: 100%;
 }
 
-@media only screen and (max-width: 1177px) {
+@media only screen and (max-width: 1200px) {
   #ac-localnav .ac-ln-menu-tray {
     overflow: hidden !important;
     pointer-events: none;
@@ -1100,7 +1087,7 @@ a:link:hover {
     transition-delay: 0.2s, 0s !important;
   }
 }
-@media only screen and (max-width: 1177px) and (orientation: landscape) {
+@media only screen and (max-width: 1200px) and (orientation: landscape) {
   .nav-open .ac-ln-menu-tray {
     max-height: 280px !important;
     max-height: -webkit-calc(100vh - 48px - 48px) !important;
@@ -1108,7 +1095,7 @@ a:link:hover {
     max-height: calc(100vh - 48px - 48px) !important;
   }
 }
-@media only screen and (max-width: 1177px) {
+@media only screen and (max-width: 1200px) {
   .nav-open.ac-ln-sticking .ac-ln-menu-tray {
     max-height: -webkit-calc(100vh - 48px) !important;
     max-height: -moz-calc(100vh - 48px) !important;
@@ -1134,7 +1121,7 @@ a:link:hover {
   gap: 24px;
 }
 
-@media only screen and (max-width: 1177px) {
+@media only screen and (max-width: 1200px) {
   #ac-localnav .ac-ln-menu-items {
     opacity: 0;
     padding: 10px 24px 24px;
@@ -1183,7 +1170,7 @@ a:link:hover {
 
 /* ----------------------------- ac-ln-menu-item ---------------------------- */
 
-@media only screen and (max-width: 1177px) {
+@media only screen and (max-width: 1200px) {
   #ac-localnav .ac-ln-menu-item {
     display: inline-block;
     width: 100%;
@@ -1298,7 +1285,7 @@ a:link:hover {
   opacity: 1;
   text-decoration: none;
 }
-@media only screen and (max-width: 1177px) {
+@media only screen and (max-width: 1200px) {
   #ac-localnav .ac-ln-menu-link {
     border-top: 1px solid var(--color-mobile-border);
     display: -webkit-box;
@@ -1360,7 +1347,7 @@ a:link:hover {
 #ac-localnav .ac-ln-action-menucta {
   display: none;
 }
-@media only screen and (max-width: 1177px) {
+@media only screen and (max-width: 1200px) {
   #ac-localnav .ac-ln-action-menucta {
     display: block;
   }
@@ -1562,7 +1549,7 @@ a:disabled {
   transition: opacity 0.2s ease;
 }
 
-@media only screen and (max-width: 1177px) {
+@media only screen and (max-width: 1200px) {
   #ac-ln-curtain {
     -webkit-transition: opacity 1s ease 0.2s, width 0s ease 1.2s,
       height 0s ease 1.2s;
@@ -1582,7 +1569,7 @@ a:disabled {
   transition: opacity 1s ease 0.1s !important;
 }
 
-@media only screen and (max-width: 1177px) {
+@media only screen and (max-width: 1200px) {
   .nav-open ~ #ac-ln-curtain {
     opacity: 1 !important;
     right: 0 !important;
@@ -1740,9 +1727,8 @@ input[type='checkbox']#active {
   font-size: 13px;
   line-height: 1.4285914286;
   font-weight: 400;
-  letter-spacing: -0.016em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: -0.016em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .ribbon-content p {
@@ -2094,7 +2080,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 1177px) {
+@media screen and (min-width: 1200px) {
   .ribbon {
     margin-top: 52px;
   }
@@ -2273,9 +2259,8 @@ input[type='checkbox']#active {
   font-size: 16px;
   line-height: 1.1904761905;
   font-weight: 600;
-  letter-spacing: 0.011em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: 0.011em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   min-width: 150px;
   padding: 12px 22px;
   -webkit-border-radius: 980px;
@@ -2314,7 +2299,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 1177px) {
+@media screen and (min-width: 1200px) {
   .info-container > svg {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -2328,7 +2313,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 1177px) {
+@media screen and (min-width: 1200px) {
   .info-container {
     display: -ms-grid;
     display: grid;
@@ -2418,7 +2403,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 1177px) {
+@media screen and (min-width: 1200px) {
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
@@ -2597,9 +2582,8 @@ input[type='checkbox']#active {
 .tabnav-link {
   font-size: 19px;
   line-height: 1.14286;
-  letter-spacing: 0.007em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  /* letter-spacing: 0.007em; */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
   color: #888;
   margin: 0;
@@ -2677,7 +2661,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 1177px) {
+@media screen and (min-width: 1200px) {
   .graph-gallery-container {
     margin-top: 4em;
   }
@@ -2807,7 +2791,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 1177px) {
+@media screen and (min-width: 1200px) {
   .svg-icon {
     width: 35px;
     height: 35px;
@@ -3200,7 +3184,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 1177px) {
+@media screen and (min-width: 1200px) {
   #technologies .item-container {
     width: 95%;
     grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
