@@ -47,40 +47,45 @@ function themeSettings() {
   }
 
   themeButton.addEventListener('change', function () {
-    document
-      .getElementById('ac-ln-background')
-      .classList.remove('ac-ln-background-transition');
+    const elementsAndClassNames = [
+      {
+        element: document.getElementById('ac-ln-background'),
+        className: 'ac-ln-background-transition',
+      },
+      {
+        element: document.getElementById('ribbon-content-wrapper'),
+        className: 'ribbon-content-wrapper-animation',
+      },
+      {
+        element: document.getElementById('ribbon-content'),
+        className: 'ribbon-content-animation',
+      },
+      {
+        element: document.getElementById('ribbon-link'),
+        className: 'ribbon-link-animation',
+      },
+    ];
 
-    document
-      .getElementById('ribbon-content-wrapper')
-      .classList.remove('ribbon-content-wrapper-animation');
-
-    document
-      .getElementById('ribbon-content')
-      .classList.remove('ribbon-content-animation');
-
-    document
-      .getElementById('ribbon-link')
-      .classList.remove('ribbon-link-animation');
+    forEach(elementsAndClassNames, (index, elementAndClassName) => {
+      elementAndClassName.element.classList.remove(
+        elementAndClassName.className
+      );
+    });
 
     setTimeout(() => {
-      document
-        .getElementById('ac-ln-background')
-        .classList.add('ac-ln-background-transition');
+      elementsAndClassNames[0].element.classList.add(
+        elementsAndClassNames[0].className
+      );
     }, 500);
 
     setTimeout(() => {
-      document
-        .getElementById('ribbon-content-wrapper')
-        .classList.add('ribbon-content-wrapper-animation');
-
-      document
-        .getElementById('ribbon-content')
-        .classList.add('ribbon-content-animation');
-
-      document
-        .getElementById('ribbon-link')
-        .classList.add('ribbon-link-animation');
+      forEach(elementsAndClassNames, (index, elementAndClassName) => {
+        if (index !== 0) {
+          elementAndClassName.element.classList.add(
+            elementAndClassName.className
+          );
+        }
+      });
     }, 1);
   });
 }
