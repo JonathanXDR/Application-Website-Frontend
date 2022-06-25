@@ -626,7 +626,7 @@ a:link:hover {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1250px) {
   h1 {
     font-size: 48px !important;
   }
@@ -855,7 +855,7 @@ a:link:hover {
   height: 52px;
   z-index: 9997;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1250px) {
   #ac-localnav {
     height: 48px;
   }
@@ -864,7 +864,7 @@ a:link:hover {
   margin-top: 44px;
   margin-bottom: -96px;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1250px) {
   .ac-nav-overlap #ac-localnav {
     margin-top: 48px;
     margin-bottom: -96px;
@@ -903,7 +903,7 @@ a:link:hover {
   align-items: center;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1250px) {
   #ac-localnav .ac-ln-content {
     display: block;
     height: 48px;
@@ -911,7 +911,7 @@ a:link:hover {
 }
 /* ------------------------------ ac-ln-actions ----------------------------- */
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1250px) {
   #ac-localnav .ac-ln-actions {
     right: 0;
     position: absolute;
@@ -966,7 +966,7 @@ a:link:hover {
 #ac-localnav .ac-ln-background:after {
   background-color: rgba(0, 0, 0, 0.16);
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1250px) {
   #ac-localnav .ac-ln-background {
     min-height: 48px;
   }
@@ -1044,7 +1044,7 @@ a:link:hover {
   align-items: center;
   gap: 24px;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1250px) {
   #ac-localnav .ac-ln-menu {
     padding-top: 0;
     margin-top: 0;
@@ -1060,7 +1060,7 @@ a:link:hover {
   height: 100%;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1250px) {
   #ac-localnav .ac-ln-menu-tray {
     overflow: hidden !important;
     pointer-events: none;
@@ -1092,7 +1092,7 @@ a:link:hover {
     transition-delay: 0.2s, 0s !important;
   }
 }
-@media only screen and (max-width: 1200px) and (orientation: landscape) {
+@media only screen and (max-width: 1250px) and (orientation: landscape) {
   .nav-open .ac-ln-menu-tray {
     max-height: 280px !important;
     max-height: -webkit-calc(100vh - 48px - 48px) !important;
@@ -1100,7 +1100,7 @@ a:link:hover {
     max-height: calc(100vh - 48px - 48px) !important;
   }
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1250px) {
   .nav-open.ac-ln-sticking .ac-ln-menu-tray {
     max-height: -webkit-calc(100vh - 48px) !important;
     max-height: -moz-calc(100vh - 48px) !important;
@@ -1126,7 +1126,7 @@ a:link:hover {
   gap: 24px;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1250px) {
   #ac-localnav .ac-ln-menu-items {
     opacity: 0;
     padding: 10px 24px 24px;
@@ -1175,7 +1175,7 @@ a:link:hover {
 
 /* ----------------------------- ac-ln-menu-item ---------------------------- */
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1250px) {
   #ac-localnav .ac-ln-menu-item {
     display: inline-block;
     width: 100%;
@@ -1290,7 +1290,7 @@ a:link:hover {
   opacity: 1;
   text-decoration: none;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1250px) {
   #ac-localnav .ac-ln-menu-link {
     border-top: 1px solid var(--color-mobile-border);
     display: -webkit-box;
@@ -1352,7 +1352,7 @@ a:link:hover {
 #ac-localnav .ac-ln-action-menucta {
   display: none;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1250px) {
   #ac-localnav .ac-ln-action-menucta {
     display: block;
   }
@@ -1554,7 +1554,7 @@ a:disabled {
   transition: opacity 0.2s ease;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1250px) {
   #ac-ln-curtain {
     -webkit-transition: opacity 1s ease 0.2s, width 0s ease 1.2s,
       height 0s ease 1.2s;
@@ -1574,7 +1574,7 @@ a:disabled {
   transition: opacity 1s ease 0.1s !important;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1250px) {
   .nav-open ~ #ac-ln-curtain {
     opacity: 1 !important;
     right: 0 !important;
@@ -2085,7 +2085,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1250px) {
   .ribbon {
     margin-top: 52px;
   }
@@ -2304,7 +2304,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1250px) {
   .info-container > svg {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -2318,7 +2318,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1250px) {
   .info-container {
     display: -ms-grid;
     display: grid;
@@ -2408,7 +2408,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1250px) {
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
@@ -2666,7 +2666,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1250px) {
   .graph-gallery-container {
     margin-top: 4em;
   }
@@ -2796,7 +2796,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1250px) {
   .svg-icon {
     width: 35px;
     height: 35px;
@@ -3189,7 +3189,7 @@ input[type='checkbox']#active {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1250px) {
   #technologies .item-container {
     width: 95%;
     grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
