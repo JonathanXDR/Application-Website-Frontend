@@ -274,10 +274,9 @@ function trainingYear() {
     m2 = m2 + 12;
     y2 = y2 - 1;
   }
-
-  let d = 01 - d1;
-  let m = 01 - m1;
-  let y = 2021 - y1 + 1;
+  let d = d2 - d1;
+  let m = m2 - m1;
+  let y = y2 - y1 + 1;
 
   if (y > 4) {
     y = 4;
