@@ -146,7 +146,7 @@ body {
   --color-step-caption: var(--color-fill-gray-tertiary);
   --color-step-focused: var(--color-figure-light-blue);
   --color-step-text: var(--color-figure-gray);
-  --color-svg-icon: #86868b;
+  --color-icon-article: #86868b;
   --color-tabnav-item-border-color: var(--color-fill-gray-tertiary);
   --color-tutorial-navbar-dropdown-border: var(--color-dropdown-border);
 }
@@ -230,7 +230,7 @@ body {
   --color-code-plain: #fff;
   --color-not-found-input-background: var(--color-fill-gray-quaternary);
   --color-step-background: var(--color-fill-gray-quaternary);
-  --color-svg-icon: #6e6e73;
+  --color-icon-article: #6e6e73;
   --color-tutorial-navbar-dropdown-background: var(
     --color-nav-dark-solid-background
   );
@@ -597,21 +597,6 @@ a:link:hover {
   #about.section-separated {
     padding: 2em 0 4em 0;
   }
-
-  .icon-chevron {
-    width: 14px;
-    height: 14px;
-  }
-
-  .ribbon .icon-chevron {
-    width: 12px !important;
-    height: 12px !important;
-  }
-
-  .icon-download {
-    width: 22px;
-    height: 22px;
-  }
 }
 
 @media screen and (min-width: 1250px) {
@@ -649,11 +634,6 @@ a:link:hover {
 
   #about.section-separated {
     padding: 4em 0 4em 0;
-  }
-
-  .info-container .icon-chevron {
-    width: 16px;
-    height: 16px;
   }
 }
 
@@ -1357,7 +1337,12 @@ a:link:hover {
     stroke-width: 8px;
   }
 
-  .svg-icon {
+  .icon-after {
+    width: 21px;
+    height: 21px;
+  }
+
+  .icon-article {
     width: 30px;
     height: 30px;
   }
@@ -1377,7 +1362,7 @@ a:link:hover {
 }
 
 @media screen and (min-width: 1250px) {
-  .svg-icon {
+  .icon-article {
     width: 35px;
     height: 35px;
   }
