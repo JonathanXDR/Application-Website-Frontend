@@ -14,4 +14,16 @@ export default {
     RibbonBar,
     FooterSection,
   },
+  created() {
+    function storeTheme(themeName: any) {
+      localStorage.setItem('theme', themeName);
+      document.documentElement.className = themeName;
+    }
+
+    if (localStorage.getItem('theme') === 'light') {
+      storeTheme('light');
+    } else {
+      storeTheme('dark');
+    }
+  },
 };

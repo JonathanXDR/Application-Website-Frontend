@@ -19,7 +19,11 @@
               class="link icon-wrapper icon-wrapper ribbon-link ribbon-link-animation"
               target="_blank"
               >{{ link.title }}
-              <component v-if="link.icon" :is="link.icon" />
+              <component
+                v-if="link.icon"
+                :is="link.icon"
+                class="icon-after-ribbon"
+              />
             </a>
           </p>
         </div>

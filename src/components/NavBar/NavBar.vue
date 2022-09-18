@@ -1,7 +1,8 @@
 <template>
-  <input type="checkbox" id="ac-ln-menustate" />
+  <input type="checkbox" id="ac-ln-menustate" ref="menustate" />
   <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking"></div>
   <nav
+    ref="localnav"
     id="ac-localnav"
     class="ac-localnav-dark ac-localnav-noborder ac-ln-sticking"
   >
@@ -11,9 +12,7 @@
         class="ac-ln-background ac-ln-background-transition"
       ></div>
       <div class="ac-ln-content">
-        <a href="https://jonathan-russ.com" class="ac-ln-title"
-          ><LogoIcon />
-        </a>
+        <router-link to="/" class="ac-ln-title"><LogoIcon /> </router-link>
         <div class="ac-ln-menu">
           <div class="ac-ln-menu-tray">
             <ul class="ac-ln-menu-items">
@@ -37,10 +36,7 @@
             <div id="theme-button">
               <input
                 type="checkbox"
-                @click="
-                  toggleTheme();
-                  countToggles();
-                "
+                @click="toggleTheme()"
                 class="btn-input"
                 id="theme-checkbox"
               />
