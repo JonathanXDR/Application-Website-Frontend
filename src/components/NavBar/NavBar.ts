@@ -15,6 +15,7 @@ export default {
         { name: 'Technologien', route: '#technologies' },
         { name: 'Projekte', route: '#projects' },
       ],
+      navOpen: false,
     };
   },
   methods: {
@@ -109,31 +110,29 @@ export default {
     //   }
     // },
 
-    openNav() {
-      const menuState = this.$refs.menustate as HTMLInputElement;
-      const nav = this.$refs.localnav as HTMLDivElement;
-      if (menuState.checked) {
-        nav.classList.add('nav-open');
-      }
-      menuState.addEventListener('change', function () {
-        if (this.checked) {
-          nav.classList.add('nav-open');
-        } else {
-          nav.classList.remove('nav-open');
-        }
-      });
-    },
+    // openNav() {
+    //   const menuState = this.$refs.menustate as HTMLInputElement;
+    //   if (menuState.checked) {
+    //     this.navOpen = true;
+    //   }
+    //   menuState.addEventListener('change', function () {
+    //     if (this.checked) {
+    //       this.navOpen = true;
+    //     } else {
+    //       this.navOpen = false;
+    //     }
+    //   });
+    // },
 
-    closeNav() {
-      const menuState = this.$refs.menustate as HTMLInputElement;
-      const nav = this.$refs.localnav as HTMLDivElement;
-      window.addEventListener('scroll', function () {
-        if (nav.classList.contains('nav-open') && window.scrollY > 0) {
-          nav.classList.remove('nav-open');
-          menuState.checked = false;
-        }
-      });
-    },
+    // closeNav() {
+    //   const menuState = this.$refs.menustate as HTMLInputElement;
+    //   window.addEventListener('scroll', function () {
+    //     if ((this.navOpen = true && window.scrollY > 0)) {
+    //       this.navOpen = false;
+    //       menuState.checked = false;
+    //     }
+    //   });
+    // },
 
     // isIntoView(elem) {
     //   const documentViewTop = $(window).scrollTop();

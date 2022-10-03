@@ -5,6 +5,7 @@
     ref="localnav"
     id="ac-localnav"
     class="ac-localnav-dark ac-localnav-noborder ac-ln-sticking"
+    :class="{ navOpen: 'nav-open' }"
   >
     <div class="ac-ln-wrapper">
       <div
@@ -12,7 +13,9 @@
         class="ac-ln-background ac-ln-background-transition"
       ></div>
       <div class="ac-ln-content">
-        <router-link to="/" class="ac-ln-title"><LogoIcon /> </router-link>
+        <router-link to="/" class="ac-ln-title">
+          <LogoIcon />
+        </router-link>
         <div class="ac-ln-menu">
           <div class="ac-ln-menu-tray">
             <ul class="ac-ln-menu-items">
