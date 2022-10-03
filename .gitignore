@@ -199,5 +199,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Package Lock
+package-lock.json
+
 # User files
 SF-Symbols
