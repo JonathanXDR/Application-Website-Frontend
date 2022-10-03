@@ -45,7 +45,7 @@
           </p>
 
           <p v-for="(link, index) in data.about.links" :key="index">
-            <a :href="link" class="link typography-intro" target="_blank"
+            <a :href="link.url" class="link typography-intro" target="_blank"
               >{{ link.title }}
               <component v-if="link.icon" :is="link.icon" />
             </a>
