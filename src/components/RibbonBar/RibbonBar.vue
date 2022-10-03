@@ -14,7 +14,7 @@
             <a
               v-for="(link, index) in data.ribbon.links"
               :key="index"
-              :href="link"
+              :href="link.url"
               id="ribbon-link"
               class="link icon-wrapper icon-wrapper ribbon-link ribbon-link-animation"
               target="_blank"
