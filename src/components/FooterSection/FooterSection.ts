@@ -1,7 +1,11 @@
+import json from '@/assets/data/data.json';
+
 export default {
   name: 'FooterSection',
   components: {},
   data() {
-    return {};
+    return {
+      data: json,
+    };
   },
 };
