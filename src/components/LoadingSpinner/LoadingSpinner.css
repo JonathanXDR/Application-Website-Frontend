@@ -1,14 +1,16 @@
-._gears-loading .loading {
+.gears-loading .loading {
   height: '20px';
   width: '20px';
 }
-._gears-loading .loading,
-._gears-loading .loading:after {
+
+.gears-loading .loading,
+.gears-loading .loading:after {
   border-radius: 50%;
   width: 40px;
   height: 40px;
 }
-._gears-loading .loading {
+
+.gears-loading .loading {
   margin: 216px auto;
   font-size: 10px;
   position: relative;
@@ -19,13 +21,10 @@
   border-left: 2px solid transparent;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
-  -webkit-animation: load8 0.8s infinite linear;
-  animation: load8 0.8s infinite linear;
+  -webkit-animation: load 0.8s infinite linear;
+  animation: load 0.8s infinite linear;
 }
-::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
+
 .visuallyhidden {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
@@ -37,7 +36,8 @@
   padding: 0;
   border: 0;
 }
-@-webkit-keyframes load8 {
+
+@-webkit-keyframes load {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -47,7 +47,8 @@
     transform: rotate(360deg);
   }
 }
-@keyframes load8 {
+
+@keyframes load {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
