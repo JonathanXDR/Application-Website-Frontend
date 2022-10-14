@@ -2,10 +2,9 @@
   <input v-model="navOpen" type="checkbox" id="ac-ln-menustate" />
   <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking"></div>
   <nav
-    ref="localnav"
     id="ac-localnav"
     class="ac-localnav-dark ac-localnav-noborder ac-ln-sticking"
-    :class="{ navOpen: 'nav-open' }"
+    :class="{ 'nav-open': navOpen }"
   >
     <div class="ac-ln-wrapper">
       <div
@@ -38,8 +37,9 @@
             </div>
             <div id="theme-button">
               <input
+                @input="toggleTheme()"
+                v-model="themeDark"
                 type="checkbox"
-                @click="toggleTheme()"
                 class="btn-input"
                 id="theme-checkbox"
               />
