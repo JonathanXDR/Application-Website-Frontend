@@ -9,6 +9,7 @@ import GearIcon from '@/components/Icons/GearIcon.vue';
 import PersonCropSquareIcon from '@/components/Icons/PersonCropSquareIcon.vue';
 
 import RibbonBar from '@/components/RibbonBar/RibbonBar.vue';
+import ShareSheet from '../../components/ShareSheet/ShareSheet.vue';
 import CardTile from '@/components/CardTile/CardTile.vue';
 import ArticleItem from '@/components/ArticleItem/ArticleItem.vue';
 
@@ -25,6 +26,7 @@ export default defineComponent({
     GearIcon,
     PersonCropSquareIcon,
     RibbonBar,
+    ShareSheet,
     CardTile,
     ArticleItem,
   },

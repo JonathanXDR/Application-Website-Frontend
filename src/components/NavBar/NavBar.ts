@@ -1,6 +1,7 @@
 import LogoIcon from '@/components/Icons/LogoIcon.vue';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'NavBar',
   components: {
     LogoIcon,
@@ -96,83 +97,12 @@ export default {
       });
     },
 
-    // currentItem() {
-    //   const items = document.getElementsByClassName('ac-ln-menu-link');
-    //   for (let i = 0; i < 6; i++) {
-    //     items[i].addEventListener('click', function () {
-    //       // closeNav();
-    //       const current = document.getElementsByClassName('current');
-    //       if (current.length > 0) {
-    //         current[0].className = current[0].className.replace(' current', '');
-    //       }
-    //       this.className += ' current';
-    //     });
-    //   }
-    // },
+    toggleNav(): void {
+      this.navOpen = !this.navOpen;
 
-    // openNav() {
-    //   const menuState = this.$refs.menustate as HTMLInputElement;
-    //   if (menuState.checked) {
-    //     this.navOpen = true;
-    //   }
-    //   menuState.addEventListener('change', function () {
-    //     if (this.checked) {
-    //       this.navOpen = true;
-    //     } else {
-    //       this.navOpen = false;
-    //     }
-    //   });
-    // },
-
-    // closeNav() {
-    //   const menuState = this.$refs.menustate as HTMLInputElement;
-    //   window.addEventListener('scroll', function () {
-    //     if ((this.navOpen = true && window.scrollY > 0)) {
-    //       this.navOpen = false;
-    //       menuState.checked = false;
-    //     }
-    //   });
-    // },
-
-    // isIntoView(elem) {
-    //   const documentViewTop = $(window).scrollTop();
-    //   const documentViewBottom = documentViewTop + $(window).height();
-
-    //   const elementTop = $(elem).offset().top;
-    //   const elementBottom = elementTop + $(elem).height();
-
-    //   return (
-    //     elementBottom <= documentViewBottom && elementTop >= documentViewTop
-    //   );
-    // },
-
-    // let lastItertionInView = true;
-
-    // $(window).scroll(function () {
-    //   const scrollTop = $(window).scrollTop();
-    //   const sections = $('section');
-    //   const navbarLinks = $('nav ul li a');
-    //   let currentId = '';
-    //   sections.each(function () {
-    //     const section = $(this);
-    //     const sectionId = section.attr('id');
-    //     const sectionTop = section.offset().top - 52;
-    //     const sectionBottom = sectionTop + section.height();
-    //     if (scrollTop >= sectionTop && scrollTop <= sectionBottom) {
-    //       currentId = sectionId;
-    //     }
-    //   });
-
-    //   navbarLinks.each(function () {
-    //     const link = $(this);
-    //     const linkId = link.attr('href').split('#')[1];
-    //     if (currentId === linkId) {
-    //       link.addClass('current');
-    //     } else {
-    //       link.removeClass('current');
-    //       lastItertionInView = false;
-    //     }
-    //   });
-    // });
+      if ((this.navOpen = true && window.scrollY > 0)) {
+        this.navOpen = false;
+      }
+    },
   },
-};
+});

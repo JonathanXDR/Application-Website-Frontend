@@ -1,5 +1,5 @@
 <template>
-  <input type="checkbox" id="ac-ln-menustate" ref="menustate" />
+  <input v-model="navOpen" type="checkbox" id="ac-ln-menustate" />
   <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking"></div>
   <nav
     ref="localnav"

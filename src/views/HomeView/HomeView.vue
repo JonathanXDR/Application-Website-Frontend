@@ -53,19 +53,7 @@
         </div>
       </div>
 
-      <ul class="sharesheet-options">
-        <li
-          v-for="(link, index) in data.sharesheet.links"
-          :key="index"
-          data-inviewport="sharesheet-options"
-        >
-          <a :href="link.url" target="_blank">
-            <font-awesome-icon
-              :icon="'fa-' + link.category + ' fa-' + link.icon"
-            />
-          </a>
-        </li>
-      </ul>
+      <ShareSheet />
     </section>
 
     <section id="languages" class="section-separated">
