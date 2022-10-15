@@ -39,7 +39,9 @@ export default defineComponent({
   },
   methods: {
     toggleTheme() {
+      // this.updateAnimations();
       this.themeDark = !this.themeDark;
+
       if (this.themeDark) {
         this.storeTheme('dark');
       } else {
@@ -53,47 +55,44 @@ export default defineComponent({
       document.documentElement.className = themeName;
     },
 
-    //   themeButton.addEventListener('change', function () {
-    //     const elementsAndClassNames = [
-    //       {
-    //         element: document.getElementById('ac-ln-background'),
-    //         className: 'ac-ln-background-transition',
-    //       },
-    //       {
-    //         element: document.getElementById('ribbon-content-wrapper'),
-    //         className: 'ribbon-content-wrapper-animation',
-    //       },
-    //       {
-    //         element: document.getElementById('ribbon-content'),
-    //         className: 'ribbon-content-animation',
-    //       },
-    //       {
-    //         element: document.getElementById('ribbon-link'),
-    //         className: 'ribbon-link-animation',
-    //       },
-    //     ] as Array<{ element: HTMLElement; className: string }>;
+    updateAnimations() {
+      const animations = [
+        {
+          ref: 'ac-ln-background',
+          className: 'ac-ln-background-transition',
+        },
+        {
+          ref: 'ribbon-content-wrapper',
+          className: 'ribbon-content-wrapper-animation',
+        },
+        {
+          ref: 'ribbon-content',
+          className: 'ribbon-content-animation',
+        },
+        {
+          ref: 'ribbon-link',
+          className: 'ribbon-link-animation',
+        },
+      ] as Array<{ ref: string; className: string }>;
 
-    //     elementsAndClassNames.forEach((elementAndClassName) => {
-    //       elementAndClassName.element?.classList.remove(
-    //         elementAndClassName.className
-    //       );
-    //     });
+      animations.forEach((animation) => {
+        const element = this.$refs[animation.ref] as HTMLElement;
+        // console.log(element);
+        element.classList.remove(animation.className);
+      });
 
-    //     setTimeout(() => {
-    //       elementsAndClassNames[0].element.classList.add(
-    //         elementsAndClassNames[0].className
-    //       );
-    //     }, 500);
+      setTimeout(() => {
+        const element = this.$refs[animations[0].ref] as HTMLElement;
+        element.classList.add(animations[0].className);
+      }, 500);
 
-    //     setTimeout(() => {
-    //       elementsAndClassNames.forEach((elementAndClassName) => {
-    //         elementAndClassName.element?.classList.add(
-    //           elementAndClassName.className
-    //         );
-    //       });
-    //     }, 1);
-    //   });
-    // },
+      setTimeout(() => {
+        animations.forEach((animation) => {
+          const element = this.$refs[animation.ref] as HTMLElement;
+          element.classList.add(animation.className);
+        });
+      }, 1);
+    },
 
     toggleNav(): void {
       this.navOpen = !this.navOpen;

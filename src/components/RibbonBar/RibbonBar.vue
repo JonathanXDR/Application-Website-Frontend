@@ -2,11 +2,11 @@
   <div class="ribbon ribbon-blue-to-default">
     <div class="ribbon-drop-wrapper">
       <div
-        id="ribbon-content-wrapper"
+        ref="ribbon-content-wrapper"
         class="ribbon-content-wrapper ribbon-content-wrapper-animation"
       >
         <div
-          id="ribbon-content"
+          ref="ribbon-content"
           class="ribbon-content row ribbon-content-animation"
         >
           <p>
@@ -15,7 +15,7 @@
               v-for="(link, index) in data.ribbon.links"
               :key="index"
               :href="link.url"
-              id="ribbon-link"
+              ref="ribbon-link"
               class="link icon-wrapper icon-wrapper ribbon-link ribbon-link-animation"
               target="_blank"
               >{{ link.title }}

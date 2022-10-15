@@ -8,7 +8,7 @@
   >
     <div class="ac-ln-wrapper">
       <div
-        id="ac-ln-background"
+        ref="ac-ln-background"
         class="ac-ln-background ac-ln-background-transition"
       ></div>
       <div class="ac-ln-content">
@@ -35,13 +35,12 @@
                 <span class="ac-ln-menucta-chevron"></span>
               </label>
             </div>
-            <div id="theme-button">
+            <div class="theme-button">
               <input
                 @input="toggleTheme()"
                 v-model="themeDark"
                 type="checkbox"
                 class="btn-input"
-                id="theme-checkbox"
               />
               <span></span>
             </div>

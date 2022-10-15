@@ -837,7 +837,7 @@ a:disabled {
 
 /* ------------------------------ Theme Button ------------------------------ */
 
-#theme-button {
+.theme-button {
   min-width: 145px;
   min-height: 74px;
   -webkit-border-radius: 40px;
@@ -875,7 +875,7 @@ input[type='checkbox']#active {
   height: 0;
 }
 
-#theme-button span {
+.theme-button span {
   position: absolute;
   top: 0;
   right: 0;
@@ -893,8 +893,8 @@ input[type='checkbox']#active {
   transition: 0.2s ease background, 0.2s ease opacity;
 }
 
-#theme-button span:after,
-#theme-button span:before {
+.theme-button span:after,
+.theme-button span:before {
   content: '';
   position: absolute;
   top: 8px;
@@ -909,7 +909,7 @@ input[type='checkbox']#active {
   transition: 0.5s ease transform, 0.2s ease background;
 }
 
-#theme-button span:before {
+.theme-button span:before {
   background: #fff;
   -webkit-transform: translate(-58px, 0);
   -moz-transform: translate(-58px, 0);
@@ -919,7 +919,7 @@ input[type='checkbox']#active {
   z-index: 1;
 }
 
-#theme-button span:after {
+.theme-button span:after {
   background: #000;
   -webkit-transform: translate(8px, 0);
   -moz-transform: translate(8px, 0);
@@ -929,15 +929,15 @@ input[type='checkbox']#active {
   z-index: 0;
 }
 
-#theme-button input[type='checkbox']:checked + span {
+.theme-button input[type='checkbox']:checked + span {
   background: #000;
 }
 
-#theme-button input[type='checkbox']:active + span {
+.theme-button input[type='checkbox']:active + span {
   opacity: 0.5;
 }
 
-#theme-button input[type='checkbox']:checked + span:before {
+.theme-button input[type='checkbox']:checked + span:before {
   background: #000;
   -webkit-transform: translate(56px, -19px);
   -moz-transform: translate(56px, -19px);
@@ -946,7 +946,7 @@ input[type='checkbox']#active {
   transform: translate(56px, -19px);
 }
 
-#theme-button input[type='checkbox']:checked + span:after {
+.theme-button input[type='checkbox']:checked + span:after {
   background: #fff;
   -webkit-transform: translate(79px, 0);
   -moz-transform: translate(79px, 0);
