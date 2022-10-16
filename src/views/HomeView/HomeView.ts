@@ -34,6 +34,9 @@ export default defineComponent({
     return {
       data: json,
       age: [] as number[],
+      size: 0 as number,
+      totalLength: 0 as number,
+      timelineHeight: 0 as number,
     };
   },
   created() {
@@ -44,85 +47,104 @@ export default defineComponent({
       this.age.push(age);
     });
 
-    // function timelineScrolling() {
-    //   let ticking = false;
-    //   let last_known_scroll_position = 0;
-    //   let updatePath = false;
-    //   const element = document.getElementById('svg-timeline') as HTMLElement;
-    //   const path = element.querySelector('path') as SVGPathElement;
-    //   let totalLength = 0;
-    //   let timelineHeight = 0;
-    //   setTimeout(() => {
-    //     timelineHeight = document.getElementById('timeline-id')
-    //       .offsetHeight as number;
-    //     // console.log(Math.ceil(timelineHeight));
-    //     const size = parseInt(Math.ceil(timelineHeight));
-    //     // console.log(size);
-    //     element.setAttribute('viewBox', `0 0 8 ${size}`);
-    //     element.setAttribute('height', size);
-    //     element.setAttribute('xmlns', `http://www.w3.org/${size}/svg`);
-    //     path.setAttribute('d', `M 4 0 L 4 ${size}`);
-    //     path.setAttribute('stroke-dasharray', totalLength);
-    //     initPath(path);
-    //     function initPath(path: any) {
-    //       totalLength = path.getTotalLength();
-    //       path.style.strokeDasharray = `${totalLength}`;
-    //       path.style.strokeDashoffset = totalLength;
-    //     }
-    //     function handleEntries(entries: any) {
-    //       console.log(entries);
-    //       entries.forEach((entry: any) => {
-    //         console.log(entry);
-    //         if (entry.isIntersecting) {
-    //           console.log(entry.target);
-    //         }
-    //       });
-    //     }
-    //     const observer = new IntersectionObserver(
-    //       (entries, observer) => {
-    //         entries.forEach((entry) => {
-    //           if (entry.isIntersecting) {
-    //             // console.log(entry);
-    //             updatePath = true;
-    //           } else {
-    //             updatePath = false;
-    //           }
-    //         });
-    //       },
-    //       { rootMargin: '0px 0px 0px 0px' }
-    //     );
-    //     observer.observe(element);
-    //     function doSomething() {
-    //       if (!updatePath) {
-    //         return;
-    //       }
-    //       window.requestAnimationFrame(() => {
-    //         const center = window.innerHeight / 2;
-    //         const boundaries = path.getBoundingClientRect();
-    //         const top = boundaries.top;
-    //         const height = boundaries.height;
-    //         const percentage = (center - top) / height;
-    //         const drawLength = percentage > 0 ? totalLength * percentage : 0;
-    //         path.style.strokeDashoffset =
-    //           drawLength < totalLength ? totalLength - drawLength : 0;
-    //       });
-    //     }
-    //     window.addEventListener('scroll', function (e) {
-    //       last_known_scroll_position = window.scrollY;
-    //       if (!ticking) {
-    //         window.requestAnimationFrame(function () {
-    //           doSomething(last_known_scroll_position);
-    //           ticking = false;
-    //         });
-    //         ticking = true;
-    //       }
-    //     });
-    //   }, 500);
-    // }
-    // if (document.getElementById('timeline') === true) {
-    //   const timelineHeight =
-    //     document.getElementById('timeline-id').offsetHeight;
-    //   console.log(timelineHeight);
-    // }
+    this.Test();
+  },
+  methods: {
+    Test() {
+      let ticking = false;
+      let last_known_scroll_position = 0;
+      let updatePath = false;
+
+      // const element = document.getElementById('svg-timeline');
+      // const path = element.querySelector('path');
+
+      setTimeout(() => {
+        this.timelineHeight = this.$refs.ulTimeline.offsetHeight;
+        // console.log(Math.ceil(timelineHeight));
+        this.size = Math.ceil(this.timelineHeight);
+        this.totalLength = this.$refs.pathTimeline.getTotalLength();
+        // console.log(size);
+
+        // element.setAttribute('viewBox', `0 0 8 ${size}`);
+        // element.setAttribute('height', size);
+        // element.setAttribute('xmlns', `http://www.w3.org/${size}/svg`);
+        // path.setAttribute('d', `M 4 0 L 4 ${size}`);
+        // path.setAttribute('stroke-dasharray', totalLength);
+
+        // initPath(path);
+
+        // function initPath(path) {
+        //   totalLength = path.getTotalLength();
+        //   path.style.strokeDasharray = `${totalLength}`;
+        //   path.style.strokeDashoffset = totalLength;
+        // }
+
+        // function handleEntries(entries: any) {
+        //   console.log(entries);
+        //   entries.forEach((entry: any) => {
+        //     console.log(entry);
+        //     if (entry.isIntersecting) {
+        //       console.log(entry.target);
+        //     }
+        //   });
+        // }
+
+        // console.log(this.$refs.pathTimeline);
+
+        const observer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // console.log(entry);
+                updatePath = true;
+              } else {
+                updatePath = false;
+              }
+            });
+          },
+          { rootMargin: '0px 0px 0px 0px' }
+        );
+
+        observer.observe(this.$refs.svgTimeline);
+
+        function doSomething(scroll_pos) {
+          if (!updatePath) {
+            return;
+          }
+          const self = this;
+          window.requestAnimationFrame(() => {
+            const center = window.innerHeight / 2;
+            const boundaries = this.$refs.pathTimeline.getBoundingClientRect();
+            const top = boundaries.top;
+            const height = boundaries.height;
+            const percentage = (center - top) / height;
+            const drawLength =
+              percentage > 0 ? this.totalLength * percentage : 0;
+            this.$refs.pathTimelineh.style.strokeDashoffset =
+              drawLength < this.totalLength ? this.totalLength - drawLength : 0;
+          });
+        }
+
+        window.addEventListener('scroll', function (e) {
+          last_known_scroll_position = window.scrollY;
+
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              doSomething(last_known_scroll_position);
+              ticking = false;
+              // const test = this;
+            });
+
+            ticking = true;
+          }
+        });
+      }, 500);
+
+      // if (document.getElementById('timeline') === true) {
+      //   const timelineHeight =
+      //     document.getElementById('timeline-id').offsetHeight;
+      //   console.log(timelineHeight);
+      // }
+    },
   },
 });

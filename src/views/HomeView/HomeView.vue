@@ -136,10 +136,20 @@
     <section id="projects">
       <h3 class="typography-magical-headline">Projekte bei Swisscom</h3>
       <div class="timeline-wrapper">
-        <svg id="svg-timeline" preserveAspectRatio="none">
+        <svg
+          ref="svgTimeline"
+          id="svg-timeline"
+          preserveAspectRatio="none"
+          :viewBox="`0 0 8 ${size}`"
+          :height="size"
+          :xmlns="`http://www.w3.org/${size}/svg`"
+        >
           <path
+            :style="`strokeDasharray: ${totalLength}; strokeDashoffset: ${totalLength}`"
+            :d="`M 4 0 L 4 ${size}`"
+            :stroke-dasharray="totalLength"
+            ref="pathTimeline"
             class="path-timeline"
-            d="M 4 0 L 4 2250"
             stroke-width="5"
             fill="none"
             fill-rule="evenodd"
@@ -149,7 +159,7 @@
           ></path>
         </svg>
 
-        <ul class="timeline" id="timeline-id">
+        <ul class="timeline" ref="ulTimeline">
           <ArticleItem
             v-for="(projects, index) in data.projects"
             :key="index"

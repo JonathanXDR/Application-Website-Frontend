@@ -1,7 +1,6 @@
 import json from '@/assets/data/data.json';
-import { defineComponent } from 'vue';
 
-export default defineComponent({
+export default {
   name: 'CardTile',
   props: ['card'],
   data() {
@@ -10,5 +9,4 @@ export default defineComponent({
       cardOpen: false,
     };
   },
-  methods: {},
-});
+};
