@@ -19,6 +19,16 @@
         "url": "https://swisscom-my.sharepoint.com/:b:/p/jonathan_russ/EV1fbkdctGdPhW4kGzxcWpcBfBkv7AzhCnzqIjLxZStcWA?e=voEttz",
         "icon": "ChevronRightIcon"
       }
+    ],
+    "dates": [
+      {
+        "title": "Age",
+        "date": "2005-12-12"
+      },
+      {
+        "title": "Traning Year",
+        "date": "2021-08-01"
+      }
     ]
   },
   "sharesheet": {

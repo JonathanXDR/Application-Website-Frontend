@@ -33,9 +33,17 @@ export default defineComponent({
   data() {
     return {
       data: json,
+      age: [] as number[],
     };
   },
   created() {
+    this.data.about.dates.forEach((item) => {
+      const date = new Date(item.date);
+      const difference = new Date(Date.now() - date.getTime());
+      const age = Math.abs(difference.getUTCFullYear() - 1970);
+      this.age.push(age);
+    });
+
     // function timelineScrolling() {
     //   let ticking = false;
     //   let last_known_scroll_position = 0;
