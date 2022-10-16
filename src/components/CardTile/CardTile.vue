@@ -1,5 +1,5 @@
 <template>
-  <li class="tile">
+  <li class="tile" :class="{ expanded: cardOpen }">
     <div class="tile-content">
       <div class="tile-header">
         <h4 class="tile-headline typography-connection-tile-headline">
@@ -8,29 +8,26 @@
       </div>
       <div class="tile-body">
         <div class="grid-center">
-          <svg
-            class="hex-progress"
-            :data-progress="card.progress"
-            x="0px"
-            y="0px"
-            viewBox="0 0 776 628"
-          >
+          <svg class="hex-progress" x="0px" y="0px" viewBox="0 0 776 628">
             <path
               class="track card-track"
               d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
             ></path>
             <path
+              :style="{
+                strokeDashoffset: ((100 - card.progress) / 100) * 2160,
+              }"
               id="hex-progress-bar"
               class="fill card-fill"
               d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
-              stroke="url(#cl)"
+              :stroke="`url(#color${card.title})`"
             ></path>
-            <!-- <text class="card-text" x="50%" y="61%">0%</text> -->
+            <text class="card-text" x="50%" y="61%">{{ card.progress }}%</text>
           </svg>
-          <!-- <svg width="0" height="0">
+          <svg width="0" height="0">
             <defs>
               <linearGradient
-                id="cl"
+                :id="`color${card.title}`"
                 gradientUnits="objectBoundingBox"
                 x1="0"
                 y1="0"
@@ -41,13 +38,18 @@
                 <stop offset="100%" :stop-color="card.color2" />
               </linearGradient>
             </defs>
-          </svg> -->
+          </svg>
         </div>
       </div>
     </div>
-    <input type="checkbox" class="tile-overlay-toggle" :id="card.title" />
+    <input
+      type="checkbox"
+      class="tile-overlay-toggle"
+      v-model="cardOpen"
+      :id="`input${card.title}`"
+    />
     <div class="tile-overlay">
-      <label class="tile-button-wrapper" :for="card.title">
+      <label class="tile-button-wrapper" :for="`input${card.title}`">
         <span class="tile-button">
           <svg
             class="tile-icon-alt"
