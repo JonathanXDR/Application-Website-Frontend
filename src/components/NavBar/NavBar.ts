@@ -3,6 +3,7 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "NavBar",
+  emits: ["my-event"],
   components: {
     LogoIcon,
   },
@@ -39,7 +40,6 @@ export default defineComponent({
   },
   methods: {
     toggleTheme() {
-      // this.updateAnimations();
       this.themeDark = !this.themeDark;
 
       if (this.themeDark) {
@@ -47,51 +47,13 @@ export default defineComponent({
       } else {
         this.storeTheme("light");
       }
+      this.$emit("my-event");
     },
 
     storeTheme(themeName: string): void {
       this.themeDark = themeName === "dark";
       localStorage.setItem("theme", themeName);
       document.documentElement.className = themeName;
-    },
-
-    updateAnimations() {
-      const animations = [
-        {
-          ref: "ac-ln-background",
-          className: "ac-ln-background-transition",
-        },
-        {
-          ref: "ribbon-content-wrapper",
-          className: "ribbon-content-wrapper-animation",
-        },
-        {
-          ref: "ribbon-content",
-          className: "ribbon-content-animation",
-        },
-        {
-          ref: "ribbon-link",
-          className: "ribbon-link-animation",
-        },
-      ] as Array<{ ref: string; className: string }>;
-
-      animations.forEach((animation) => {
-        const element = this.$refs[animation.ref] as HTMLElement;
-        // console.log(element);
-        element.classList.remove(animation.className);
-      });
-
-      setTimeout(() => {
-        const element = this.$refs[animations[0].ref] as HTMLElement;
-        element.classList.add(animations[0].className);
-      }, 500);
-
-      setTimeout(() => {
-        animations.forEach((animation) => {
-          const element = this.$refs[animation.ref] as HTMLElement;
-          element.classList.add(animation.className);
-        });
-      }, 1);
     },
 
     toggleNav(): void {

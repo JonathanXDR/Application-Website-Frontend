@@ -356,7 +356,7 @@ a {
   color: var(--ribbon-link-color);
 }
 
-p:not(.article-date) + p:not(.download-ical) {
+.links p:first-child {
   margin-top: 0.8em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -985,7 +985,7 @@ a:link:hover {
   margin-bottom: 2em;
 }
 
-.download-ical {
+.links p {
   margin-top: 0.5em;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -10,12 +10,14 @@
       <p>
         {{ article.description }}
       </p>
-      <p v-for="link in article.links" :key="link">
-        <a class="link" :href="link.url" target="_blank">
-          {{ link.title }}
-          <component v-if="link.icon" :is="link.icon" class="icon-after" />
-        </a>
-      </p>
+      <div class="links">
+        <p v-for="link in article.links" :key="link">
+          <a class="link" :href="link.url" target="_blank">
+            {{ link.title }}
+            <component v-if="link.icon" :is="link.icon" class="icon-after" />
+          </a>
+        </p>
+      </div>
     </div>
   </li>
 </template>
