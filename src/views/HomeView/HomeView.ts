@@ -34,12 +34,9 @@ export default defineComponent({
     return {
       data: json,
       age: [] as number[],
-      size: 0 as number,
-      totalLength: 0 as number,
-      timelineHeight: 0 as number,
     };
   },
-  created() {
+  mounted() {
     this.data.about.dates.forEach((item) => {
       const date = new Date(item.date);
       const difference = new Date(Date.now() - date.getTime());
@@ -47,104 +44,23 @@ export default defineComponent({
       this.age.push(age);
     });
 
-    this.Test();
-  },
-  methods: {
-    Test() {
-      let ticking = false;
-      let last_known_scroll_position = 0;
-      let updatePath = false;
-
-      // const element = document.getElementById('svg-timeline');
-      // const path = element.querySelector('path');
-
-      setTimeout(() => {
-        this.timelineHeight = this.$refs.ulTimeline.offsetHeight;
-        // console.log(Math.ceil(timelineHeight));
-        this.size = Math.ceil(this.timelineHeight);
-        this.totalLength = this.$refs.pathTimeline.getTotalLength();
-        // console.log(size);
-
-        // element.setAttribute('viewBox', `0 0 8 ${size}`);
-        // element.setAttribute('height', size);
-        // element.setAttribute('xmlns', `http://www.w3.org/${size}/svg`);
-        // path.setAttribute('d', `M 4 0 L 4 ${size}`);
-        // path.setAttribute('stroke-dasharray', totalLength);
-
-        // initPath(path);
-
-        // function initPath(path) {
-        //   totalLength = path.getTotalLength();
-        //   path.style.strokeDasharray = `${totalLength}`;
-        //   path.style.strokeDashoffset = totalLength;
-        // }
-
-        // function handleEntries(entries: any) {
-        //   console.log(entries);
-        //   entries.forEach((entry: any) => {
-        //     console.log(entry);
-        //     if (entry.isIntersecting) {
-        //       console.log(entry.target);
-        //     }
-        //   });
-        // }
-
-        // console.log(this.$refs.pathTimeline);
-
-        const observer = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                // console.log(entry);
-                updatePath = true;
-              } else {
-                updatePath = false;
-              }
-            });
-          },
-          { rootMargin: '0px 0px 0px 0px' }
-        );
-
-        observer.observe(this.$refs.svgTimeline);
-
-        function doSomething(scroll_pos) {
-          if (!updatePath) {
-            return;
-          }
-          const self = this;
-          window.requestAnimationFrame(() => {
-            const center = window.innerHeight / 2;
-            const boundaries = this.$refs.pathTimeline.getBoundingClientRect();
-            const top = boundaries.top;
-            const height = boundaries.height;
-            const percentage = (center - top) / height;
-            const drawLength =
-              percentage > 0 ? this.totalLength * percentage : 0;
-            this.$refs.pathTimelineh.style.strokeDashoffset =
-              drawLength < this.totalLength ? this.totalLength - drawLength : 0;
-          });
+    const inViewport = (entries: any, observer: any) => {
+      entries.forEach((entry: any) => {
+        entry.target.classList.toggle('is-inViewport', entry.isIntersecting);
+        // if class is added once, keep it
+        if (entry.target.classList.contains('is-inViewport')) {
+          observer.unobserve(entry.target);
         }
+      });
+    };
 
-        window.addEventListener('scroll', function (e) {
-          last_known_scroll_position = window.scrollY;
+    const obsOptions = {}; //See: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
+    const observer = new IntersectionObserver(inViewport, obsOptions);
 
-          if (!ticking) {
-            window.requestAnimationFrame(() => {
-              doSomething(last_known_scroll_position);
-              ticking = false;
-              // const test = this;
-            });
-
-            ticking = true;
-          }
-        });
-      }, 500);
-
-      // if (document.getElementById('timeline') === true) {
-      //   const timelineHeight =
-      //     document.getElementById('timeline-id').offsetHeight;
-      //   console.log(timelineHeight);
-      // }
-    },
+    // Attach observer to every [animation] element:
+    const dataInViewport = document.querySelectorAll('[animation]');
+    dataInViewport.forEach((el) => {
+      observer.observe(el);
+    });
   },
 });

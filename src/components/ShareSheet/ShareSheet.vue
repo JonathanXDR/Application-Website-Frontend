@@ -1,6 +1,10 @@
 <template>
   <ul class="sharesheet-options">
-    <li v-for="link in data.sharesheet.links" :key="link.url">
+    <li
+      v-for="link in data.sharesheet.links"
+      :key="link.url"
+      animation="sharesheet-options"
+    >
       <a :href="link.url" :title="link.title" target="_blank">
         <font-awesome-icon :icon="`fa-${link.category} fa-${link.icon}`" />
       </a>

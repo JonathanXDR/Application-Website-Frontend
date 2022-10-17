@@ -858,11 +858,11 @@ a:link:hover {
   }
 }
 
-[data-inviewport='sharesheet-options'] {
+[animation='sharesheet-options'] {
   visibility: hidden;
 }
 
-[data-inviewport='sharesheet-options'].is-inViewport {
+[animation='sharesheet-options'].is-inViewport {
   visibility: visible;
   -moz-animation: FadeIn 0.2s linear;
   -o-animation: FadeIn 0.2s linear;
@@ -1045,7 +1045,7 @@ a:link:hover {
   background: #888;
 }
 
-[data-inviewport='graph-bar']:after {
+[animation='graph-bar']:after {
   -webkit-transform: translateX(-101%);
   -moz-transform: translateX(-101%);
   -ms-transform: translateX(-101%);
@@ -1053,7 +1053,7 @@ a:link:hover {
   transform: translateX(-101%);
 }
 
-[data-inviewport='graph-bar'].is-inViewport:after {
+[animation='graph-bar'].is-inViewport:after {
   -webkit-transition: -webkit-transform 0.75s ease-in-out;
   transition: -webkit-transform 0.75s ease-in-out;
   -o-transition: -o-transform 0.75s ease-in-out;
@@ -1078,11 +1078,11 @@ a:link:hover {
   font-weight: 600;
 }
 
-[data-inviewport='graph-caption'] {
+[animation='graph-caption'] {
   opacity: 0;
 }
 
-[data-inviewport='graph-caption'].is-inViewport {
+[animation='graph-caption'].is-inViewport {
   opacity: 1;
   -webkit-transition: opacity 0.75s ease-in;
   -o-transition: opacity 0.75s ease-in;
@@ -1116,11 +1116,11 @@ a:link:hover {
   color: #888;
 }
 
-[data-inviewport='secondary-badge-value'] {
+[animation='secondary-badge-value'] {
   opacity: 0;
 }
 
-[data-inviewport='secondary-badge-value'].is-inViewport {
+[animation='secondary-badge-value'].is-inViewport {
   opacity: 1;
   -webkit-transition: opacity 0.3s ease-in 0.2s;
   -o-transition: opacity 0.3s ease-in 0.2s;

@@ -75,16 +75,16 @@
             class="graph-container"
           >
             <div :style="'width: ' + language.progress + '%'">
-              <div data-inviewport="graph-bar" class="graph-bar current"></div>
+              <div animation="graph-bar" class="graph-bar current"></div>
               <p
-                data-inviewport="graph-caption"
+                animation="graph-caption"
                 class="graph-caption typography-graph-caption current"
               >
                 {{ language.description }}
               </p>
             </div>
             <div
-              data-inviewport="secondary-badge-value"
+              animation="secondary-badge-value"
               class="typography-eyebrow-elevated secondary-badge-value current"
             >
               {{ language.progress }}%
