@@ -136,18 +136,8 @@
     <section id="projects">
       <h3 class="typography-magical-headline">Projekte bei Swisscom</h3>
       <div class="timeline-wrapper">
-        <svg
-          ref="svgTimeline"
-          id="svg-timeline"
-          preserveAspectRatio="none"
-          :viewBox="`0 0 8 ${size}`"
-          :height="size"
-          :xmlns="`http://www.w3.org/${size}/svg`"
-        >
+        <svg ref="svgTimeline" id="svg-timeline" preserveAspectRatio="none">
           <path
-            :style="`strokeDasharray: ${totalLength}; strokeDashoffset: ${totalLength}`"
-            :d="`M 4 0 L 4 ${size}`"
-            :stroke-dasharray="totalLength"
             ref="pathTimeline"
             class="path-timeline"
             stroke-width="5"
