@@ -318,8 +318,8 @@
   }
 
   #technologies .item-container {
-    width: 82.5%;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    width: 82.5% !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
   }
 
   .tile {
@@ -338,8 +338,8 @@
 
 @media screen and (min-width: 1250px) {
   #technologies .item-container {
-    width: 95%;
-    grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+    width: 95% !important;
+    grid-template-columns: repeat(auto-fit, minmax(325px, 1fr)) !important;
   }
 
   .tile {
