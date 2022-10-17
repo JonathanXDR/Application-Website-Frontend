@@ -1,22 +1,22 @@
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 
-import AirplaneDepartureIcon from '@/components/Icons/AirplaneDepartureIcon.vue';
-import ArrowDownCircleIcon from '@/components/Icons/ArrowDownCircleIcon.vue';
-import CalendarIcon from '@/components/Icons/CalendarIcon.vue';
-import ChevronLeftForwardslashChevronRightIcon from '@/components/Icons/ChevronLeftForwardslashChevronRightIcon.vue';
-import ChevronRightIcon from '@/components/Icons/ChevronRightIcon.vue';
-import GearIcon from '@/components/Icons/GearIcon.vue';
-import PersonCropSquareIcon from '@/components/Icons/PersonCropSquareIcon.vue';
+import AirplaneDepartureIcon from "@/components/Icons/AirplaneDepartureIcon.vue";
+import ArrowDownCircleIcon from "@/components/Icons/ArrowDownCircleIcon.vue";
+import CalendarIcon from "@/components/Icons/CalendarIcon.vue";
+import ChevronLeftForwardslashChevronRightIcon from "@/components/Icons/ChevronLeftForwardslashChevronRightIcon.vue";
+import ChevronRightIcon from "@/components/Icons/ChevronRightIcon.vue";
+import GearIcon from "@/components/Icons/GearIcon.vue";
+import PersonCropSquareIcon from "@/components/Icons/PersonCropSquareIcon.vue";
 
-import RibbonBar from '@/components/RibbonBar/RibbonBar.vue';
-import ShareSheet from '../../components/ShareSheet/ShareSheet.vue';
-import CardTile from '@/components/CardTile/CardTile.vue';
-import ArticleItem from '@/components/ArticleItem/ArticleItem.vue';
+import RibbonBar from "@/components/RibbonBar/RibbonBar.vue";
+import ShareSheet from "../../components/ShareSheet/ShareSheet.vue";
+import CardTile from "@/components/CardTile/CardTile.vue";
+import ArticleItem from "@/components/ArticleItem/ArticleItem.vue";
 
-import json from '@/assets/data/data.json';
+import json from "@/assets/data/data.json";
 
 export default defineComponent({
-  name: 'HomeView',
+  name: "HomeView",
   components: {
     AirplaneDepartureIcon,
     ArrowDownCircleIcon,
@@ -46,9 +46,9 @@ export default defineComponent({
 
     const inViewport = (entries: any, observer: any) => {
       entries.forEach((entry: any) => {
-        entry.target.classList.toggle('is-inViewport', entry.isIntersecting);
+        entry.target.classList.toggle("is-inViewport", entry.isIntersecting);
         // if class is added once, keep it
-        if (entry.target.classList.contains('is-inViewport')) {
+        if (entry.target.classList.contains("is-inViewport")) {
           observer.unobserve(entry.target);
         }
       });
@@ -58,7 +58,7 @@ export default defineComponent({
     const observer = new IntersectionObserver(inViewport, obsOptions);
 
     // Attach observer to every [animation] element:
-    const dataInViewport = document.querySelectorAll('[animation]');
+    const dataInViewport = document.querySelectorAll("[animation]");
     dataInViewport.forEach((el) => {
       observer.observe(el);
     });

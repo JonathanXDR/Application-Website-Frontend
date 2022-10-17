@@ -1,5 +1,5 @@
 export default {
-  name: 'LoadingSpinner',
+  name: "LoadingSpinner",
   data() {
     return {};
   },
