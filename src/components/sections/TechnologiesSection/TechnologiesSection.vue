@@ -1,0 +1,13 @@
+<template>
+  <h3 class="typography-magical-headline">Technologien</h3>
+  <ul class="item-container">
+    <CardTile
+      v-for="(technologies, index) in data.technologies"
+      :key="index"
+      :card="technologies"
+    />
+  </ul>
+</template>
+
+<script lang="ts" src="./TechnologiesSection.ts"></script>
+<style src="./TechnologiesSection.css"></style>

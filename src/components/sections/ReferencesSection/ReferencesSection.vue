@@ -1,0 +1,13 @@
+<template>
+  <h2>Referenzen</h2>
+  <ul class="grid">
+    <ArticleItem
+      v-for="(references, index) in data.references"
+      :key="index"
+      :article="references"
+    />
+  </ul>
+</template>
+
+<script lang="ts" src="./ReferencesSection.ts"></script>
+<style src="./ReferencesSection.css"></style>

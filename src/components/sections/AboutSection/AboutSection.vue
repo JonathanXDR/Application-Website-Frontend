@@ -1,0 +1,44 @@
+<template>
+  <div class="info-container">
+    <svg xmlns="http://www.w3.org/2000/svg" width="411" height="411">
+      <defs>
+        <clipPath id="image">
+          <path
+            d="M190.5 14.160254037844a30 30 0 0 1 30 0l143.20508075689 82.679491924311a30 30 0 0 1 15 25.980762113533l0 165.35898384862a30 30 0 0 1 -15 25.980762113533l-143.20508075689 82.679491924311a30 30 0 0 1 -30 0l-143.20508075689 -82.679491924311a30 30 0 0 1 -15 -25.980762113533l2.633606093737e-13 -165.35898384862a30 30 0 0 1 15 -25.980762113533"
+          ></path>
+        </clipPath>
+      </defs>
+      <image
+        clip-path="url(#image)"
+        height="100%"
+        width="100%"
+        x="0"
+        y="10"
+        href="@/assets/img/portrait.jpg"
+        preserveAspectRatio="xMidYMin slice"
+      ></image>
+    </svg>
+
+    <div>
+      <h1>
+        <span class="eyebrow">{{ data.eyebrow }}</span
+        >{{ data.title }}
+      </h1>
+      <p class="typography-intro">
+        {{ data.description }}
+      </p>
+
+      <p v-for="(link, index) in data.links" :key="index">
+        <a :href="link.url" class="link typography-intro" target="_blank"
+          >{{ link.title }}
+          <component v-if="link.icon" :is="link.icon" />
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <ShareSheet />
+</template>
+
+<script lang="ts" src="./AboutSection.ts"></script>
+<style src="./AboutSection.css"></style>

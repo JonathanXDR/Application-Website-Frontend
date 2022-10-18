@@ -17,7 +17,6 @@
               :style="{
                 strokeDashoffset: ((100 - card.progress) / 100) * 2160,
               }"
-              id="hex-progress-bar"
               class="fill card-fill"
               d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
               :stroke="`url(#color${card.title})`"
