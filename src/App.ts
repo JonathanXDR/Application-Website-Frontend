@@ -1,8 +1,8 @@
 import { RouterLink, RouterView } from 'vue-router';
-import LoadingSpinner from '@/components/LoadingSpinner/LoadingSpinner.vue';
-import NavBar from '@/components/NavBar/NavBar.vue';
-import RibbonBar from './components/RibbonBar/RibbonBar.vue';
-import FooterSection from '@/components/FooterSection/FooterSection.vue';
+import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue';
+import NavBar from '@/components/common/NavBar/NavBar.vue';
+import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue';
+import FooterSection from '@/components/common/FooterSection/FooterSection.vue';
 
 export default {
   name: 'App',

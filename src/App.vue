@@ -1,7 +1,7 @@
 <template>
   <header>
     <NavBar ref="navBar" @my-event="updateAnimations" />
-    <RibbonBar ref="ribbonBar" />
+    <!-- <RibbonBar ref="ribbonBar" /> -->
   </header>
   <Suspense>
     <template #default>
@@ -13,7 +13,7 @@
       <LoadingSpinner />
     </template>
   </Suspense>
-  <FooterSection />
+  <!-- <FooterSection /> -->
 </template>
 
 <script lang="ts" src="./App.ts"></script>

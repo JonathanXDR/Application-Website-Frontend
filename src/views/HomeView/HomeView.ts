@@ -1,34 +1,22 @@
 import { defineComponent } from 'vue';
-
-import AirplaneDepartureIcon from '@/components/Icons/AirplaneDepartureIcon.vue';
-import ArrowDownCircleIcon from '@/components/Icons/ArrowDownCircleIcon.vue';
-import CalendarIcon from '@/components/Icons/CalendarIcon.vue';
-import ChevronLeftForwardslashChevronRightIcon from '@/components/Icons/ChevronLeftForwardslashChevronRightIcon.vue';
-import ChevronRightIcon from '@/components/Icons/ChevronRightIcon.vue';
-import GearIcon from '@/components/Icons/GearIcon.vue';
-import PersonCropSquareIcon from '@/components/Icons/PersonCropSquareIcon.vue';
-
-import RibbonBar from '@/components/RibbonBar/RibbonBar.vue';
-import ShareSheet from '../../components/ShareSheet/ShareSheet.vue';
-import CardTile from '@/components/CardTile/CardTile.vue';
-import ArticleItem from '@/components/ArticleItem/ArticleItem.vue';
-
 import json from '@/assets/data/data.json';
+
+import AboutSection from '@/components/containers/AboutSection/AboutSection.vue';
+import LanguagesSection from '@/components/containers/LanguagesSection/LanguagesSection.vue';
+import ReferencesSection from '@/components/containers/ReferencesSection/ReferencesSection.vue';
+import OtherSection from '@/components/containers/OtherSection/OtherSection.vue';
+import TechnologiesSection from '@/components/containers/TechnologiesSection/TechnologiesSection.vue';
+import ProjectsSection from '@/components/containers/ProjectsSection/ProjectsSection.vue';
 
 export default defineComponent({
   name: 'HomeView',
   components: {
-    AirplaneDepartureIcon,
-    ArrowDownCircleIcon,
-    CalendarIcon,
-    ChevronLeftForwardslashChevronRightIcon,
-    ChevronRightIcon,
-    GearIcon,
-    PersonCropSquareIcon,
-    RibbonBar,
-    ShareSheet,
-    CardTile,
-    ArticleItem,
+    AboutSection,
+    LanguagesSection,
+    ReferencesSection,
+    OtherSection,
+    TechnologiesSection,
+    ProjectsSection,
   },
   data() {
     return {

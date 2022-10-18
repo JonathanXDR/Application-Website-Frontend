@@ -7,11 +7,13 @@
     </div>
 
     <section
-      v-for="(section, index) in data.sections"
+      v-for="(container, index) in data.containers"
       :key="index"
-      :id="section.title"
-      :class="section.type"
-    ></section>
+      :id="container.title"
+      :class="container.type"
+    >
+      <component v-if="container.title" :is="`${container.title}Section`" />
+    </section>
 
     <!-- insert Music Library here -->
     <!-- insert Galaxy Game here -->

@@ -1,8 +1,8 @@
+import ChevronRightIcon from '@/components/common/Icons/ChevronRightIcon.vue';
 import json from '@/assets/data/data.json';
-import ChevronRightIcon from '@/components/Icons/ChevronRightIcon.vue';
 
 export default {
-  name: 'ReferencesSection',
+  name: 'RibbonBar',
   components: {
     ChevronRightIcon,
   },
