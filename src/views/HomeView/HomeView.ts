@@ -1,5 +1,4 @@
 import { defineComponent } from 'vue';
-import json from '@/assets/data/data.json';
 
 import AboutSection from '@/components/containers/AboutSection/AboutSection.vue';
 import LanguagesSection from '@/components/containers/LanguagesSection/LanguagesSection.vue';
@@ -7,6 +6,8 @@ import ReferencesSection from '@/components/containers/ReferencesSection/Referen
 import OtherSection from '@/components/containers/OtherSection/OtherSection.vue';
 import TechnologiesSection from '@/components/containers/TechnologiesSection/TechnologiesSection.vue';
 import ProjectsSection from '@/components/containers/ProjectsSection/ProjectsSection.vue';
+
+import json from '@/assets/data/data.json';
 
 export default defineComponent({
   name: 'HomeView',
@@ -20,7 +21,7 @@ export default defineComponent({
   },
   data() {
     return {
-      data: json,
+      data: json.components[1].data,
       age: [] as number[],
     };
   },

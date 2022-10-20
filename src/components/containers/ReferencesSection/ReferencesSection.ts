@@ -1,5 +1,3 @@
-import json from '@/assets/data/data.json';
-
 import AirplaneDepartureIcon from '@/components/common/Icons/AirplaneDepartureIcon.vue';
 import ArrowDownCircleIcon from '@/components/common/Icons/ArrowDownCircleIcon.vue';
 import CalendarIcon from '@/components/common/Icons/CalendarIcon.vue';
@@ -12,6 +10,8 @@ import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue';
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue';
 import CardTile from '@/components/common/CardTile/CardTile.vue';
 import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue';
+
+import json from '@/assets/data/data.json';
 
 export default {
   name: 'ReferencesSection',
@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      data: json,
+      data: json.components[1].data[2].data,
     };
   },
 };

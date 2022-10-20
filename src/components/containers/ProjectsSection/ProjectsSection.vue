@@ -16,7 +16,7 @@
 
     <ul class="timeline" ref="ulTimeline">
       <ArticleItem
-        v-for="(projects, index) in data.projects"
+        v-for="(projects, index) in data"
         :key="index"
         :article="projects"
       />

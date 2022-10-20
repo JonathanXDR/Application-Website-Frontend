@@ -1,11 +1,7 @@
 <template>
   <h2>Anderes</h2>
   <ul class="grid">
-    <ArticleItem
-      v-for="(other, index) in data.other"
-      :key="index"
-      :article="other"
-    />
+    <ArticleItem v-for="(other, index) in data" :key="index" :article="other" />
   </ul>
 </template>
 

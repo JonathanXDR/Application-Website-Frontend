@@ -7,7 +7,7 @@
     </div>
 
     <section
-      v-for="(container, index) in data.containers"
+      v-for="(container, index) in data"
       :key="index"
       :id="container.title"
       :class="container.type"

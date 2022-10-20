@@ -1,10 +1,10 @@
-import json from "@/assets/data/data.json";
+import json from '@/assets/data/data.json';
 
 export default {
-  name: "ShareSheet",
+  name: 'ShareSheet',
   data() {
     return {
-      data: json,
+      data: json.components[0].data[1].data,
     };
   },
 };

@@ -1,4 +1,5 @@
 import ChevronRightIcon from '@/components/common/Icons/ChevronRightIcon.vue';
+
 import json from '@/assets/data/data.json';
 
 export default {
@@ -8,7 +9,7 @@ export default {
   },
   data() {
     return {
-      data: json,
+      data: json.components[0].data[0].data,
     };
   },
 };

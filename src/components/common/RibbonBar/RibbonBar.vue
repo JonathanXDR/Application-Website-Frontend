@@ -10,9 +10,9 @@
           class="ribbon-content row ribbon-content-animation"
         >
           <p>
-            {{ data.ribbon.description }}&ensp;
+            {{ data.description }}&ensp;
             <a
-              v-for="(link, index) in data.ribbon.links"
+              v-for="(link, index) in data.links"
               :key="index"
               :href="link.url"
               ref="ribbon-link"

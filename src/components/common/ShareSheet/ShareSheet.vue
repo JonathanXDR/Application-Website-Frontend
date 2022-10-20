@@ -1,7 +1,7 @@
 <template>
   <ul class="sharesheet-options">
     <li
-      v-for="link in data.sharesheet.links"
+      v-for="link in data.links"
       :key="link.url"
       animation="sharesheet-options"
     >

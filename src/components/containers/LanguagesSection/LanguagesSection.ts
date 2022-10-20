@@ -4,7 +4,10 @@ export default {
   name: 'LanguagesSection',
   data() {
     return {
-      data: json,
+      data: json.components[1].data[1].data,
     };
+  },
+  mounted() {
+    console.log(this.data);
   },
 };

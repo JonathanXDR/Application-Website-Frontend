@@ -2,7 +2,7 @@
   <h3 class="typography-magical-headline">Technologien</h3>
   <ul class="item-container">
     <CardTile
-      v-for="(technologies, index) in data.technologies"
+      v-for="(technologies, index) in data"
       :key="index"
       :card="technologies"
     />
