@@ -35,18 +35,13 @@ export default {
           className: 'ribbon-content-animation',
           timeout: 1,
         },
-        {
-          ref: 'ribbon-link',
-          parent: 'ribbon-bar',
-          className: 'ribbon-link-animation',
-          timeout: 1,
-        },
-      ] as Array<{
-        ref: string;
-        parent: string;
-        className: string;
-        timeout: number;
-      }>;
+        // {
+        //   ref: 'ribbon-link',
+        //   parent: 'ribbon-bar',
+        //   className: 'ribbon-link-animation',
+        //   timeout: 1,
+        // },
+      ];
 
       // foreach item in array remove the class
       animations.forEach((animation) => {
