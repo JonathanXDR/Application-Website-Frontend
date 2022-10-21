@@ -37,11 +37,11 @@ export default defineComponent({
     };
   },
   created() {
-    this.data.dates.forEach((item) => {
+    this.data.dates.forEach((item: any) => {
       const date = new Date(item.date);
       const difference = new Date(Date.now() - date.getTime());
       const age = Math.abs(difference.getUTCFullYear() - 1970);
       this.age.push(age);
     });
   },
-};
+});
