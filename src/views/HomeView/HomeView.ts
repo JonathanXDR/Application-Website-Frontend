@@ -9,6 +9,8 @@ import ProjectsSection from '@/components/containers/ProjectsSection/ProjectsSec
 
 import json from '@/assets/data/data.json';
 
+import { ref } from 'vue';
+
 export default defineComponent({
   name: 'HomeView',
   components: {
@@ -23,26 +25,35 @@ export default defineComponent({
     return {
       data: json.components[1].data,
       age: [] as number[],
+      currentSection: ref('') as any,
     };
   },
   mounted() {
-    const inViewport = (entries: any, observer: any) => {
-      entries.forEach((entry: any) => {
-        entry.target.classList.toggle('is-inViewport', entry.isIntersecting);
-        // if class is added once, keep it
-        if (entry.target.classList.contains('is-inViewport')) {
-          observer.unobserve(entry.target);
-        }
-      });
-    };
-
-    const obsOptions = {}; //See: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
-    const observer = new IntersectionObserver(inViewport, obsOptions);
-
-    // Attach observer to every [animation] element:
-    const dataInViewport = document.querySelectorAll('[animation]');
-    dataInViewport.forEach((el) => {
-      observer.observe(el);
-    });
+    // const inViewport = (entries: any, observer: any) => {
+    //   entries.forEach((entry: any) => {
+    //     entry.target.classList.toggle('is-inViewport', entry.isIntersecting);
+    //     // if class is added once, keep it
+    //     if (entry.target.classList.contains('is-inViewport')) {
+    //       observer.unobserve(entry.target);
+    //     }
+    //   });
+    // };
+    // const obsOptions = {}; //See: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
+    // const observer = new IntersectionObserver(inViewport, obsOptions);
+    // // Attach observer to every [animation] element:
+    // const dataInViewport = document.querySelectorAll('[animation]');
+    // dataInViewport.forEach((el) => {
+    //   observer.observe(el);
+    // });
+    // const observer = new IntersectionObserver((entries) => {
+    //   entries.forEach((entry) => {
+    //     if (entry.intersectionRatio > 0) {
+    //       this.currentSection = entry.target.getAttribute('section');
+    //     }
+    //   });
+    // });
+    // document.querySelectorAll('[section]').forEach((section) => {
+    //   observer.observe(section);
+    // });
   },
 });

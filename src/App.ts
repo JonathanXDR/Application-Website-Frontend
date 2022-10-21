@@ -19,28 +19,28 @@ export default {
       const animations = [
         {
           ref: 'ac-ln-background',
-          parent: 'navBar',
+          parent: 'nav-bar',
           className: 'ac-ln-background-transition',
           timeout: 500,
         },
         {
           ref: 'ribbon-content-wrapper',
-          parent: 'ribbonBar',
+          parent: 'ribbon-bar',
           className: 'ribbon-content-wrapper-animation',
           timeout: 1,
         },
         {
           ref: 'ribbon-content',
-          parent: 'ribbonBar',
+          parent: 'ribbon-bar',
           className: 'ribbon-content-animation',
           timeout: 1,
         },
-        // {
-        //   ref: 'ribbon-link',
-        //   parent: 'ribbonBar',
-        //   className: 'ribbon-link-animation',
-        //   timeout: 1,
-        // },
+        {
+          ref: 'ribbon-link',
+          parent: 'ribbon-bar',
+          className: 'ribbon-link-animation',
+          timeout: 1,
+        },
       ] as Array<{
         ref: string;
         parent: string;

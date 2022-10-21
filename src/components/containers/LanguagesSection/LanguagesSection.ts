@@ -7,7 +7,4 @@ export default {
       data: json.components[1].data[1].data,
     };
   },
-  mounted() {
-    console.log(this.data);
-  },
 };

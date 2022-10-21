@@ -6,16 +6,8 @@ import ChevronRightIcon from '@/components/common/Icons/ChevronRightIcon.vue';
 import GearIcon from '@/components/common/Icons/GearIcon.vue';
 import PersonCropSquareIcon from '@/components/common/Icons/PersonCropSquareIcon.vue';
 
-import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue';
-import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue';
-import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue';
-import CardTile from '@/components/common/CardTile/CardTile.vue';
-import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue';
-
-import json from '@/assets/data/data.json';
-
 export default {
-  name: 'TechnologiesSection',
+  name: 'LinkCollection',
   components: {
     AirplaneDepartureIcon,
     ArrowDownCircleIcon,
@@ -24,15 +16,6 @@ export default {
     ChevronRightIcon,
     GearIcon,
     PersonCropSquareIcon,
-    RibbonBar,
-    LinkCollection,
-    ShareSheet,
-    CardTile,
-    ArticleItem,
   },
-  data() {
-    return {
-      data: json.components[1].data[4].data,
-    };
-  },
+  props: ['data'],
 };

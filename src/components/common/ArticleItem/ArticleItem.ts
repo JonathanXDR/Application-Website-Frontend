@@ -6,6 +6,8 @@ import ChevronRightIcon from '@/components/common/Icons/ChevronRightIcon.vue';
 import GearIcon from '@/components/common/Icons/GearIcon.vue';
 import PersonCropSquareIcon from '@/components/common/Icons/PersonCropSquareIcon.vue';
 
+import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue';
+
 import json from '@/assets/data/data.json';
 
 export default {
@@ -18,6 +20,7 @@ export default {
     ChevronRightIcon,
     GearIcon,
     PersonCropSquareIcon,
+    LinkCollection,
   },
   props: ['article'],
   data() {

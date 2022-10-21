@@ -1,7 +1,7 @@
 <template>
   <header>
-    <NavBar ref="navBar" @my-event="updateAnimations" />
-    <RibbonBar ref="ribbonBar" />
+    <NavBar ref="nav-bar" @updateAnimations="updateAnimations" />
+    <RibbonBar ref="ribbon-bar" />
   </header>
   <Suspense>
     <template #default>

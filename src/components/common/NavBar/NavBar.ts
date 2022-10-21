@@ -3,7 +3,7 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'NavBar',
-  emits: ['my-event'],
+  emits: ['updateAnimations'],
   components: {
     LogoIcon,
   },
@@ -22,6 +22,8 @@ export default defineComponent({
     };
   },
   created() {
+    window.addEventListener('scroll', this.handleScroll);
+
     if (localStorage.getItem('theme') === null) {
       const preferedTheme = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -41,13 +43,12 @@ export default defineComponent({
   methods: {
     toggleTheme() {
       this.themeDark = !this.themeDark;
-
       if (this.themeDark) {
         this.storeTheme('dark');
       } else {
         this.storeTheme('light');
       }
-      this.$emit('my-event');
+      this.$emit('updateAnimations');
     },
 
     storeTheme(themeName: string): void {
@@ -58,7 +59,19 @@ export default defineComponent({
 
     toggleNav(): void {
       this.navOpen = !this.navOpen;
+      this.checkboxTimeout();
+    },
 
+    checkboxTimeout(): void {
+      const checkbox = this.$refs['input-checkbox'] as HTMLInputElement;
+
+      checkbox.disabled = true;
+      setTimeout(() => {
+        checkbox.disabled = false;
+      }, 1000);
+    },
+
+    handleScroll(): void {
       if ((this.navOpen = true && window.scrollY > 0)) {
         this.navOpen = false;
       }

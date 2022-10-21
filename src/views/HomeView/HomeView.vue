@@ -12,7 +12,11 @@
       :id="container.title"
       :class="container.type"
     >
-      <component v-if="container.title" :is="`${container.title}Section`" />
+      <component
+        v-if="container.title"
+        :is="`${container.title}Section`"
+        :id="index"
+      />
     </section>
 
     <!-- insert Music Library here -->

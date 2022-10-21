@@ -28,12 +28,7 @@
         {{ data.description }}
       </p>
 
-      <p v-for="(link, index) in data.links" :key="index">
-        <a :href="link.url" class="link typography-intro" target="_blank"
-          >{{ link.title }}
-          <component v-if="link.icon" :is="link.icon" />
-        </a>
-      </p>
+      <LinkCollection :data="data.links" />
     </div>
   </div>
 

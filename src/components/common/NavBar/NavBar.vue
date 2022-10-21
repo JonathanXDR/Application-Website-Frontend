@@ -1,5 +1,11 @@
 <template>
-  <input v-model="navOpen" type="checkbox" id="ac-ln-menustate" />
+  <input
+    @input="toggleNav()"
+    v-model="navOpen"
+    ref="input-checkbox"
+    type="checkbox"
+    id="ac-ln-menustate"
+  />
   <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking"></div>
   <nav
     id="ac-localnav"
@@ -23,7 +29,11 @@
                 :key="index"
                 class="ac-ln-menu-item"
               >
-                <router-link :to="item.route" class="ac-ln-menu-link">
+                <router-link
+                  :to="item.route"
+                  :class="{ current: index == currentSection }"
+                  class="ac-ln-menu-link"
+                >
                   {{ item.name }}
                 </router-link>
               </li>
