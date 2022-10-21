@@ -24,7 +24,6 @@ export default defineComponent({
   data() {
     return {
       data: json.components[1].data,
-      age: [] as number[],
       currentSection: ref('') as any,
     };
   },
@@ -45,15 +44,21 @@ export default defineComponent({
     // dataInViewport.forEach((el) => {
     //   observer.observe(el);
     // });
-    // const observer = new IntersectionObserver((entries) => {
-    //   entries.forEach((entry) => {
-    //     if (entry.intersectionRatio > 0) {
-    //       this.currentSection = entry.target.getAttribute('section');
-    //     }
-    //   });
-    // });
-    // document.querySelectorAll('[section]').forEach((section) => {
-    //   observer.observe(section);
-    // });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio > 0) {
+            this.currentSection = entry.target.getAttribute('number');
+          }
+        });
+      },
+      {
+        rootMargin: 'Opx Opx -90% 0px',
+      }
+    );
+    document.querySelectorAll('[number]').forEach((section) => {
+      observer.observe(section);
+    });
   },
 });

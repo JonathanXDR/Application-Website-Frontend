@@ -6,17 +6,15 @@
       <div id="vignette"></div>
     </div>
 
+    <p>{{ currentSection }}</p>
     <section
       v-for="(container, index) in data"
       :key="index"
+      :number="index"
       :id="container.title"
       :class="container.type"
     >
-      <component
-        v-if="container.title"
-        :is="`${container.title}Section`"
-        :id="index"
-      />
+      <component v-if="container.title" :is="`${container.title}Section`" />
     </section>
 
     <!-- insert Music Library here -->

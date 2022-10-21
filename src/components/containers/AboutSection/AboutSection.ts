@@ -38,7 +38,7 @@ export default defineComponent({
       age: [] as number[],
     };
   },
-  created() {
+  mounted() {
     this.data.dates.forEach((item: any) => {
       const date = new Date(item.date);
       const difference = new Date(Date.now() - date.getTime());
