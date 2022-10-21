@@ -1,3 +1,5 @@
+import { defineComponent } from 'vue';
+
 import AirplaneDepartureIcon from '@/components/common/Icons/AirplaneDepartureIcon.vue';
 import ArrowDownCircleIcon from '@/components/common/Icons/ArrowDownCircleIcon.vue';
 import CalendarIcon from '@/components/common/Icons/CalendarIcon.vue';
@@ -13,7 +15,7 @@ import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue';
 
 import json from '@/assets/data/data.json';
 
-export default {
+export default defineComponent({
   name: 'AboutSection',
   components: {
     AirplaneDepartureIcon,
