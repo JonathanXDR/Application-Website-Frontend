@@ -348,6 +348,11 @@ h6 {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+.links.typography-intro p {
+  display: flex;
+  justify-content: center;
+}
+
 a {
   text-decoration: none;
   color: var(--color-fill-gray);
@@ -2157,14 +2162,6 @@ input[type='checkbox']#active {
 
 .info-container div {
   padding: 0;
-}
-
-.info-container div p:last-child {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  justify-content: center;
 }
 
 #about .sharesheet-options {
