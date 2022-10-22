@@ -1,8 +1,8 @@
 <template>
   <ul class="sharesheet-options">
     <li
-      v-for="link in data.links"
-      :key="link.url"
+      v-for="(link, index) in data.links"
+      :key="index"
       animation="sharesheet-options"
     >
       <a :href="link.url" :title="link.title" target="_blank">

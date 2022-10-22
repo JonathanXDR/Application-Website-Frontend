@@ -267,11 +267,6 @@ body {
   --color-dark-brown: rgb(172, 142, 104);
 }
 
-#about.section-separated {
-  padding: 0 0 4em 0;
-  margin-top: -2em;
-}
-
 .section-separated {
   padding: 4em 0 4em 0;
   width: 90%;
@@ -279,7 +274,7 @@ body {
   margin-right: auto !important;
 }
 
-.section-separated:not(#about) {
+.section-separated:not(:first-of-type) {
   border-top: 1px solid #d2d2d7;
 }
 
@@ -1048,91 +1043,8 @@ a:link:hover {
   background: #888;
 }
 
-[animation='graph-bar']:after {
-  -webkit-transform: translateX(-101%);
-  -moz-transform: translateX(-101%);
-  -ms-transform: translateX(-101%);
-  -o-transform: translateX(-101%);
-  transform: translateX(-101%);
-}
-
-[animation='graph-bar'].visible:after {
-  -webkit-transition: -webkit-transform 0.75s ease-in-out;
-  transition: -webkit-transform 0.75s ease-in-out;
-  -o-transition: -o-transform 0.75s ease-in-out;
-  -moz-transition: transform 0.75s ease-in-out, -moz-transform 0.75s ease-in-out;
-  transition: transform 0.75s ease-in-out;
-  transition: transform 0.75s ease-in-out, -webkit-transform 0.75s ease-in-out,
-    -moz-transform 0.75s ease-in-out, -o-transform 0.75s ease-in-out;
-  transition: transform 0.75s ease-in-out, -webkit-transform 0.75s ease-in-out;
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -o-transform: translateX(0);
-  transform: translateX(0);
-}
-
-.graph-bar.current:after {
-  background: var(--color-fill-gray);
-}
-
-.graph-caption {
-  padding-top: 3px;
-  font-weight: 600;
-}
-
-[animation='graph-caption'] {
-  opacity: 0;
-}
-
-[animation='graph-caption'].visible {
-  opacity: 1;
-  -webkit-transition: opacity 0.75s ease-in;
-  -o-transition: opacity 0.75s ease-in;
-  -moz-transition: opacity 0.75s ease-in;
-  transition: opacity 0.75s ease-in;
-}
-
-.graph-slide .graph-container .badge {
-  position: absolute;
-  top: -4px;
-  right: -webkit-calc(8.33% - 44px);
-  right: -moz-calc(8.33% - 44px);
-  right: calc(8.33% - 44px);
-  margin: 0;
-}
-
-.graph-slide .graph-container .badge .badge-content {
-  margin: 0;
-}
-
-.graph-slide .graph-container .badge .badge-caption,
-.graph-slide .graph-container .badge .badge-value {
-  position: relative;
-  color: #000;
-  opacity: 0;
-}
-
-.secondary-badge-value {
-  margin-left: 15px;
-  top: -3px;
-  color: #888;
-}
-
-[animation='secondary-badge-value'] {
-  opacity: 0;
-}
-
-[animation='secondary-badge-value'].visible {
-  opacity: 1;
-  -webkit-transition: opacity 0.3s ease-in 0.2s;
-  -o-transition: opacity 0.3s ease-in 0.2s;
-  -moz-transition: opacity 0.3s ease-in 0.2s;
-  transition: opacity 0.3s ease-in 0.2s;
-}
-
-.graph-gallery-container {
-  margin-top: 2em;
+.links p {
+  margin-top: 0.5em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;

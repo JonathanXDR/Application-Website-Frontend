@@ -22,6 +22,48 @@ export default defineComponent({
   data() {
     return {
       data: json.components[1].data,
+      currentSection: 0,
     };
+  },
+  mounted() {
+    const animationObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle('visible', entry.isIntersecting);
+          if (entry.isIntersecting) {
+            animationObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 1,
+        rootMargin: '-52px 0px 0px 0px',
+      }
+    );
+
+    const animationElements = document.querySelectorAll('[animation]');
+    animationElements.forEach((el) => {
+      animationObserver.observe(el);
+    });
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.currentSection = parseInt(
+              entry.target.getAttribute('number') as string
+            );
+          }
+        });
+      },
+      {
+        rootMargin: '-52px 0px -90% 0px',
+      }
+    );
+
+    const sections = document.querySelectorAll('[number]');
+    sections.forEach((section) => {
+      sectionObserver.observe(section);
+    });
   },
 });
