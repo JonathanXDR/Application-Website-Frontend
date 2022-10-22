@@ -94,13 +94,15 @@ export default defineComponent({
 
       // foreach item in array remove the class
       animations.forEach((animation) => {
-        const element = this.$refs[animation.parent].$refs[animation.ref];
+        const parent = this.$refs[animation.parent] as any;
+        const element = parent.$refs[animation.ref];
         element.classList.remove(animation.className);
       });
 
       // add the class back after a timeout for each item in array
       animations.forEach((animation) => {
-        const element = this.$refs[animation.parent].$refs[animation.ref];
+        const parent = this.$refs[animation.parent] as any;
+        const element = parent.$refs[animation.ref];
         setTimeout(() => {
           element.classList.add(animation.className);
         }, animation.timeout);
