@@ -1,16 +1,13 @@
 <template>
   <li class="graph-container">
     <div :style="'width: ' + language.progress + '%'">
-      <div animation="graph-bar" class="graph-bar current"></div>
-      <p
-        animation="graph-caption"
-        class="graph-caption typography-graph-caption current"
-      >
+      <div v-animation class="graph-bar current"></div>
+      <p v-animation class="graph-caption typography-graph-caption current">
         {{ language.description }}
       </p>
     </div>
     <div
-      animation="secondary-badge-value"
+      v-animation
       class="typography-eyebrow-elevated secondary-badge-value current"
     >
       {{ language.progress }}%

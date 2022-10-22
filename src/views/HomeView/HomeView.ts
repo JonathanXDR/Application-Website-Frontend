@@ -22,8 +22,6 @@ export default defineComponent({
   data() {
     return {
       data: json.components[1].data,
-      currentSection: 0,
     };
   },
-  mounted() {},
 });

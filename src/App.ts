@@ -1,13 +1,11 @@
 import { RouterLink, RouterView } from 'vue-router';
 
-import { defineComponent } from 'vue';
-
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue';
 import NavBar from '@/components/common/NavBar/NavBar.vue';
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue';
 import FooterItem from '@/components/common/FooterItem/FooterItem.vue';
 
-export default defineComponent({
+export default {
   name: 'App',
   components: {
     RouterLink,
@@ -16,11 +14,6 @@ export default defineComponent({
     NavBar,
     RibbonBar,
     FooterItem,
-  },
-  data() {
-    return {
-      currentSection: 0,
-    };
   },
   methods: {
     updateAnimations() {
@@ -68,4 +61,4 @@ export default defineComponent({
       });
     },
   },
-});
+};

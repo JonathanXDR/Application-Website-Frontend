@@ -23,44 +23,38 @@ app.use(router);
 app.use(MotionPlugin);
 app.component('font-awesome-icon', FontAwesomeIcon);
 
-app.directive('animation', {
-  mounted: (el, binding) => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          entry.target.classList.toggle('visible', entry.isIntersecting);
-          if (entry.isIntersecting) {
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 1,
-        rootMargin: '-52px 0px 0px 0px',
-      }
-    );
-    observer.observe(el);
-  },
+app.directive('animation', (el, binding) => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('visible', entry.isIntersecting);
+        if (entry.isIntersecting) {
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 1,
+      rootMargin: '-52px 0px 0px 0px',
+    }
+  );
+  observer.observe(el);
 });
 
-app.directive('section', {
-  mounted: (el, binding) => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            this.currentSection = parseInt(
-              entry.target.getAttribute('number') as string
-            );
-          }
-        });
-      },
-      {
-        rootMargin: '-52px 0px -90% 0px',
-      }
-    );
-    observer.observe(el);
-  },
+app.directive('section', (el, binding) => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          app.config.globalProperties.$currentSection = binding.value;
+        }
+      });
+    },
+    {
+      rootMargin: '-52px 0px -90% 0px',
+    }
+  );
+  observer.observe(el);
 });
 
 app.mount('#app');

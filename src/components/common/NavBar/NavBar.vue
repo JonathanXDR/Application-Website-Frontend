@@ -31,7 +31,7 @@
               >
                 <router-link
                   :to="item.route"
-                  :class="{ current: index == currentSection }"
+                  :class="{ current: index == $currentSection }"
                   class="ac-ln-menu-link"
                 >
                   {{ item.name }}

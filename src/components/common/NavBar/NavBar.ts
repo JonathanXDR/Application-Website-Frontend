@@ -19,7 +19,6 @@ export default defineComponent({
       ],
       themeDark: false,
       navOpen: false,
-      currentSection: 0,
     };
   },
   created() {

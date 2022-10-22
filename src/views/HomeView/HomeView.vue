@@ -9,7 +9,7 @@
     <section
       v-for="(container, index) in data"
       :key="index"
-      :number="index"
+      v-section="index"
       :id="container.title"
       :class="container.type"
     >
