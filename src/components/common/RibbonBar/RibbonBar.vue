@@ -11,20 +11,12 @@
         >
           <p>
             {{ data.description }}&ensp;
-            <a
-              v-for="(link, index) in data.links"
-              :key="index"
-              :href="link.url"
+
+            <LinkCollection
+              :data="data.links"
               ref="ribbon-link"
-              class="link icon-wrapper icon-wrapper ribbon-link ribbon-link-animation"
-              target="_blank"
-              >{{ link.title }}
-              <component
-                v-if="link.icon"
-                :is="link.icon"
-                class="icon-after-ribbon"
-              />
-            </a>
+              class="ribbon-link ribbon-link-animation icon-after-ribbon"
+            />
           </p>
         </div>
       </div>

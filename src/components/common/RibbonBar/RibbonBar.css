@@ -1,4 +1,4 @@
-.icon-after-ribbon {
+.icon-after-ribbon svg {
   width: 18px;
   height: 18px;
 }
@@ -66,7 +66,7 @@
   color: var(--ribbon-text-color);
 }
 
-.ribbon-link,
+.ribbon-link a,
 .ribbon-link path {
   color: var(--ribbon-link-color);
   fill: var(--ribbon-link-color);
@@ -89,7 +89,7 @@
   animation: animate-color-white-1d1d1f 1s ease-in-out 1.8s forwards;
 }
 
-.ribbon-link-animation,
+.ribbon-link-animation a,
 .ribbon-link-animation path {
   color: var(--ribbon-link-color-initial);
   fill: var(--ribbon-link-color-initial);

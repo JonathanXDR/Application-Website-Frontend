@@ -1,11 +1,11 @@
-import ChevronRightIcon from '@/components/common/Icons/ChevronRightIcon.vue';
+import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue';
 
 import json from '@/assets/data/data.json';
 
 export default {
   name: 'RibbonBar',
   components: {
-    ChevronRightIcon,
+    LinkCollection,
   },
   data() {
     return {
