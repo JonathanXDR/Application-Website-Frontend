@@ -28,7 +28,7 @@
         {{ data.description }}
       </p>
 
-      <LinkCollection :data="data.links" />
+      <LinkCollection :data="data.links" class="typography-intro" />
     </div>
   </div>
 

@@ -339,7 +339,8 @@ h6 {
 }
 
 .intro,
-.typography-intro {
+.typography-intro,
+.typography-intro a {
   font-size: 15px;
   line-height: 1.381;
   font-weight: 400;
@@ -566,7 +567,8 @@ a:link:hover {
   }
 
   .intro,
-  .typography-intro {
+  .typography-intro,
+  .typography-intro a {
     font-size: 17px !important;
   }
 
@@ -616,7 +618,8 @@ a:link:hover {
   }
 
   .intro,
-  .typography-intro {
+  .typography-intro,
+  .typography-intro a {
     font-size: 21px !important;
   }
 
