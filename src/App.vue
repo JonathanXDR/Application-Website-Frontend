@@ -14,7 +14,7 @@
       <LoadingSpinner />
     </template>
   </Suspense>
-  <FooterSection />
+  <FooterItem />
 </template>
 
 <script lang="ts" src="./App.ts"></script>

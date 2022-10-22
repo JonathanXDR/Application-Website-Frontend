@@ -4,7 +4,7 @@ import ShareSheet from '../ShareSheet/ShareSheet.vue';
 import json from '@/assets/data/data.json';
 
 export default defineComponent({
-  name: 'FooterSection',
+  name: 'FooterItem',
   components: {
     ShareSheet,
   },

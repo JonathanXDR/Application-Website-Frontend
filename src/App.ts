@@ -5,7 +5,7 @@ import { defineComponent } from 'vue';
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue';
 import NavBar from '@/components/common/NavBar/NavBar.vue';
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue';
-import FooterSection from '@/components/common/FooterSection/FooterSection.vue';
+import FooterItem from '@/components/common/FooterItem/FooterItem.vue';
 
 export default defineComponent({
   name: 'App',
@@ -15,7 +15,7 @@ export default defineComponent({
     LoadingSpinner,
     NavBar,
     RibbonBar,
-    FooterSection,
+    FooterItem,
   },
   data() {
     return {

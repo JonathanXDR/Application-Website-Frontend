@@ -5,5 +5,5 @@
   </footer>
 </template>
 
-<script lang="ts" src="./FooterSection.ts"></script>
-<style src="./FooterSection.css"></style>
+<script lang="ts" src="./FooterItem.ts"></script>
+<style src="./FooterItem.css"></style>
