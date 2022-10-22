@@ -862,7 +862,7 @@ a:link:hover {
   visibility: hidden;
 }
 
-[animation='sharesheet-options'].is-inViewport {
+[animation='sharesheet-options'].visible {
   visibility: visible;
   -moz-animation: FadeIn 0.2s linear;
   -o-animation: FadeIn 0.2s linear;
@@ -1053,7 +1053,7 @@ a:link:hover {
   transform: translateX(-101%);
 }
 
-[animation='graph-bar'].is-inViewport:after {
+[animation='graph-bar'].visible:after {
   -webkit-transition: -webkit-transform 0.75s ease-in-out;
   transition: -webkit-transform 0.75s ease-in-out;
   -o-transition: -o-transform 0.75s ease-in-out;
@@ -1082,7 +1082,7 @@ a:link:hover {
   opacity: 0;
 }
 
-[animation='graph-caption'].is-inViewport {
+[animation='graph-caption'].visible {
   opacity: 1;
   -webkit-transition: opacity 0.75s ease-in;
   -o-transition: opacity 0.75s ease-in;
@@ -1120,7 +1120,7 @@ a:link:hover {
   opacity: 0;
 }
 
-[animation='secondary-badge-value'].is-inViewport {
+[animation='secondary-badge-value'].visible {
   opacity: 1;
   -webkit-transition: opacity 0.3s ease-in 0.2s;
   -o-transition: opacity 0.3s ease-in 0.2s;

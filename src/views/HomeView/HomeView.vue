@@ -6,7 +6,6 @@
       <div id="vignette"></div>
     </div>
 
-    <p>{{ currentSection }}</p>
     <section
       v-for="(container, index) in data"
       :key="index"

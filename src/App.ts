@@ -1,10 +1,13 @@
 import { RouterLink, RouterView } from 'vue-router';
+
+import { defineComponent } from 'vue';
+
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue';
 import NavBar from '@/components/common/NavBar/NavBar.vue';
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue';
 import FooterSection from '@/components/common/FooterSection/FooterSection.vue';
 
-export default {
+export default defineComponent({
   name: 'App',
   components: {
     RouterLink,
@@ -13,6 +16,52 @@ export default {
     NavBar,
     RibbonBar,
     FooterSection,
+  },
+  data() {
+    return {
+      currentSection: 0,
+    };
+  },
+  mounted() {
+    const animationObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle('visible', entry.isIntersecting);
+          if (entry.isIntersecting) {
+            animationObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 1,
+        rootMargin: '-52px 0px 0px 0px',
+      }
+    );
+
+    const animationElements = document.querySelectorAll('[animation]');
+    animationElements.forEach((el) => {
+      animationObserver.observe(el);
+    });
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.currentSection = parseInt(
+              entry.target.getAttribute('number') as string
+            );
+          }
+        });
+      },
+      {
+        rootMargin: '-52px 0px -90% 0px',
+      }
+    );
+
+    const sections = document.querySelectorAll('[number]');
+    sections.forEach((section) => {
+      sectionObserver.observe(section);
+    });
   },
   methods: {
     updateAnimations() {
@@ -58,4 +107,4 @@ export default {
       });
     },
   },
-};
+});

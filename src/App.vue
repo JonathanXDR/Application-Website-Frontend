@@ -6,6 +6,7 @@
   <Suspense>
     <template #default>
       <main>
+        <p>{{ currentSection }}</p>
         <RouterView />
       </main>
     </template>
