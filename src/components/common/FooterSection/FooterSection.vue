@@ -1,6 +1,6 @@
 <template>
   <footer id="copyright">
-    <p>© <span id="current-year"></span> Jonathan Russ. All rights reserved.</p>
+    <p>© {{ currentYear }} Jonathan Russ. All rights reserved.</p>
     <ShareSheet />
   </footer>
 </template>
