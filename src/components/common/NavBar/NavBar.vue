@@ -63,4 +63,4 @@
 </template>
 
 <script lang="ts" src="./NavBar.ts"></script>
-<style src="./NavBar.css"></style>
+<style scoped src="./NavBar.css"></style>

@@ -1,0 +1,12 @@
+.links p:first-child {
+  margin-top: 0.8em;
+}
+
+.links.typography-intro p {
+  display: flex;
+  justify-content: center;
+}
+
+.links p {
+  margin-top: 0.5em;
+}

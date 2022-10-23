@@ -1,0 +1,60 @@
+/* -------------------------------- row-full -------------------------------- */
+
+.row-full {
+  display: flex;
+  width: 100%;
+}
+
+.row-full h2 {
+  font-size: 19px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 900px) {
+  .row-full h2 {
+    font-size: 24px !important;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .row-full h2 {
+    font-size: 28px !important;
+  }
+}
+
+/* ---------------------------------- grid ---------------------------------- */
+
+.grid {
+  margin-top: 3em;
+  display: grid;
+  gap: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+}
+
+@media screen and (min-width: 900px) {
+  .grid {
+    gap: 64px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+.row.header-row {
+  margin-bottom: 2em;
+}
+
+.padding-right-small {
+  padding-right: 1.5em !important;
+}
+
+.article-date {
+  color: var(--color-sub-text);
+  margin: 0.5em 0 0.4em 0;
+  font-size: 0.875em;
+}
