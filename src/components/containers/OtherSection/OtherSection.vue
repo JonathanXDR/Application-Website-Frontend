@@ -6,4 +6,4 @@
 </template>
 
 <script lang="ts" src="./OtherSection.ts"></script>
-<style src="./OtherSection.css"></style>
+<style scoped src="./OtherSection.css"></style>

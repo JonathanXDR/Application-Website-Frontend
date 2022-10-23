@@ -16,4 +16,4 @@
 </template>
 
 <script lang="ts" src="./ArticleItem.ts"></script>
-<style src="./ArticleItem.css"></style>
+<style scoped src="./ArticleItem.css"></style>

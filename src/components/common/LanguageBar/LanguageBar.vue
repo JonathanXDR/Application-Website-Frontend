@@ -16,4 +16,4 @@
 </template>
 
 <script lang="ts" src="./LanguageBar.ts"></script>
-<style src="./LanguageBar.css"></style>
+<style scoped src="./LanguageBar.css"></style>

@@ -563,3 +563,25 @@ a:link:hover {
     font-size: 64px !important;
   }
 }
+
+/* ---------------------------------- grid ---------------------------------- */
+
+.grid {
+  margin-top: 3em;
+  display: grid;
+  gap: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+}
+
+@media screen and (min-width: 900px) {
+  .grid {
+    gap: 64px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}

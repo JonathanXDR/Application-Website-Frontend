@@ -25,4 +25,4 @@
 </template>
 
 <script lang="ts" src="./ProjectsSection.ts"></script>
-<style src="./ProjectsSection.css"></style>
+<style scoped src="./ProjectsSection.css"></style>

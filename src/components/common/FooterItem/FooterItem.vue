@@ -6,4 +6,4 @@
 </template>
 
 <script lang="ts" src="./FooterItem.ts"></script>
-<style src="./FooterItem.css"></style>
+<style scoped src="./FooterItem.css"></style>

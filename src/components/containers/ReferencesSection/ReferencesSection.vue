@@ -10,4 +10,4 @@
 </template>
 
 <script lang="ts" src="./ReferencesSection.ts"></script>
-<style src="./ReferencesSection.css"></style>
+<style scoped src="./ReferencesSection.css"></style>

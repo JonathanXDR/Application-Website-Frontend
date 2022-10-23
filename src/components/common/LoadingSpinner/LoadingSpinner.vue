@@ -7,4 +7,4 @@
 </template>
 
 <script lang="ts" src="./LoadingSpinner.ts"></script>
-<style src="./LoadingSpinner.css"></style>
+<style scoped src="./LoadingSpinner.css"></style>

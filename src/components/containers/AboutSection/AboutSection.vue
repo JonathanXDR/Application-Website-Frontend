@@ -36,4 +36,4 @@
 </template>
 
 <script lang="ts" src="./AboutSection.ts"></script>
-<style src="./AboutSection.css"></style>
+<style scoped src="./AboutSection.css"></style>

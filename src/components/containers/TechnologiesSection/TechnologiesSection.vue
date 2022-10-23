@@ -10,4 +10,4 @@
 </template>
 
 <script lang="ts" src="./TechnologiesSection.ts"></script>
-<style src="./TechnologiesSection.css"></style>
+<style scoped src="./TechnologiesSection.css"></style>

@@ -9,4 +9,4 @@
 </template>
 
 <script lang="ts" src="./ShareSheet.ts"></script>
-<style src="./ShareSheet.css"></style>
+<style scoped src="./ShareSheet.css"></style>

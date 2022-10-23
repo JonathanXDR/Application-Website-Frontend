@@ -25,4 +25,4 @@
 </template>
 
 <script lang="ts" src="./RibbonBar.ts"></script>
-<style src="./RibbonBar.css"></style>
+<style scoped src="./RibbonBar.css"></style>

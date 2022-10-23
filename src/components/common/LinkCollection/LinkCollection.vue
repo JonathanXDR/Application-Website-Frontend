@@ -10,4 +10,4 @@
 </template>
 
 <script lang="ts" src="./LinkCollection.ts"></script>
-<style src="./LinkCollection.css"></style>
+<style scoped src="./LinkCollection.css"></style>

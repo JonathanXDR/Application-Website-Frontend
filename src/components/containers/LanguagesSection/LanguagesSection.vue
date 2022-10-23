@@ -18,4 +18,4 @@
 </template>
 
 <script lang="ts" src="./LanguagesSection.ts"></script>
-<style src="./LanguagesSection.css"></style>
+<style scoped src="./LanguagesSection.css"></style>

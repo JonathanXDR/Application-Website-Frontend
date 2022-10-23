@@ -75,4 +75,4 @@
 </template>
 
 <script lang="ts" src="./CardTile.ts"></script>
-<style src="./CardTile.css"></style>
+<style scoped src="./CardTile.css"></style>
