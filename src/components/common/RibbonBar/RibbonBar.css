@@ -13,8 +13,16 @@
   height: 21px;
 }
 
+/* --------------------------------- ribbon --------------------------------- */
+
 .ribbon {
   margin-top: 48px;
+}
+
+@media screen and (min-width: 1250px) {
+  .ribbon {
+    margin-top: 52px;
+  }
 }
 
 .ribbon .links {
@@ -26,12 +34,24 @@
   margin: 0 !important;
 }
 
+/* ----------------------------- ribbon-content ----------------------------- */
+
 .ribbon-content {
   font-size: 13px;
   line-height: 1.4285914286;
   font-weight: 400;
   /* letter-spacing: -0.016em; */
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@media screen and (min-width: 900px) {
+  .ribbon-content {
+    font-size: 14px !important;
+  }
+}
+
+.ribbon-content {
+  color: var(--ribbon-text-color);
 }
 
 .ribbon-content p {
@@ -42,6 +62,8 @@
   flex-wrap: wrap;
 }
 
+/* ------------------------- ribbon-content-wrapper ------------------------- */
+
 .ribbon-content-wrapper {
   background-color: var(--ribbon-background-color);
   text-align: center;
@@ -49,9 +71,7 @@
   padding-bottom: 0.9411764706em;
 }
 
-.ribbon-content {
-  color: var(--ribbon-text-color);
-}
+/* ------------------------------- ribbon-link ------------------------------ */
 
 .ribbon-link a.link,
 .ribbon-link a.link path {
@@ -59,15 +79,21 @@
   fill: var(--ribbon-link-color);
 }
 
+/* -------------------- ribbon-content-wrapper-animation -------------------- */
+
 .ribbon-content-wrapper-animation {
   background-color: var(--ribbon-background-color-initial);
   animation: animate-background-0071e3-f5f5f7 1s ease-in-out 1.8s forwards;
 }
 
+/* ------------------------ ribbon-content-animation ------------------------ */
+
 .ribbon-content-animation {
   color: var(--ribbon-text-color-initial);
   animation: animate-color-white-1d1d1f 1s ease-in-out 1.8s forwards;
 }
+
+/* -------------------------- ribbon-link-animation ------------------------- */
 
 .ribbon-link-animation a.link,
 .ribbon-link-animation a.link path {
@@ -75,6 +101,8 @@
   fill: var(--ribbon-link-color-initial);
   animation: animate-color-white-0066cc 1s ease-in-out 1.8s forwards;
 }
+
+/* --------------------------- ribbon-drop-wrapper -------------------------- */
 
 .ribbon-drop-wrapper {
   animation: ribbon-drop 0.8s ease-in-out forwards;
@@ -142,11 +170,5 @@
   }
   to {
     color: var(--ribbon-link-color);
-  }
-}
-
-@media screen and (min-width: 1250px) {
-  .ribbon {
-    margin-top: 52px;
   }
 }

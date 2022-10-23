@@ -1,5 +1,5 @@
 <template>
-  <div class="ribbon ribbon-blue-to-default">
+  <div class="ribbon">
     <div class="ribbon-drop-wrapper">
       <div
         ref="ribbon-content-wrapper"

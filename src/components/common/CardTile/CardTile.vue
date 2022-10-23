@@ -10,14 +10,14 @@
         <div class="grid-center">
           <svg class="hex-progress" x="0px" y="0px" viewBox="0 0 776 628">
             <path
-              class="track card-track"
+              class="card-track"
               d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
             ></path>
             <path
               :style="{
                 strokeDashoffset: ((100 - card.progress) / 100) * 2160,
               }"
-              class="fill card-fill"
+              class="card-fill"
               d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
               :stroke="`url(#color${card.title})`"
             ></path>
