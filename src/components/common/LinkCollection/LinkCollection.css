@@ -1,12 +1,47 @@
-.links p:first-child {
+.links p:first-of-type {
   margin-top: 0.8em;
-}
-
-.links.typography-intro p {
-  display: flex;
-  justify-content: center;
 }
 
 .links p {
   margin-top: 0.5em;
+}
+
+/* --------------------------------- ribbon --------------------------------- */
+
+.ribbon .links p {
+  margin: 0 !important;
+}
+
+/* ---------------------------------- about --------------------------------- */
+
+#about .links p {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 1250px) {
+  #about .links p {
+    justify-content: flex-start !important;
+  }
+}
+
+/* ---------------------------------- icon ---------------------------------- */
+
+.link .link-icon {
+  height: 1.2em;
+  width: 1.2em;
+  margin-left: 0.3em;
+}
+
+.svg-icon {
+  fill: var(--colors-svg-icon-fill-light, var(--color-svg-icon));
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  overflow: visible;
+}
+
+.svg-icon.icon-inline {
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
 }

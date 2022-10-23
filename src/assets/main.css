@@ -457,11 +457,8 @@ li {
 
 .link {
   color: var(--ribbon-link-color);
-  letter-spacing: inherit;
   display: flex;
   align-items: center;
-  gap: 0.3em;
-  white-space: nowrap;
 }
 
 .link:link,

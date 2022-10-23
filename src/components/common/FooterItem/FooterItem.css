@@ -8,23 +8,25 @@
   padding: 20px 0;
 }
 
-#copyright p,
-#copyright span {
-  font-size: 14px;
-}
-
 @media screen and (min-width: 900px) {
   #copyright {
     width: 82.5%;
     flex-direction: row !important;
   }
+}
 
-  #copyright p,
-  #copyright span {
+p,
+span {
+  font-size: 14px;
+}
+
+@media screen and (min-width: 900px) {
+  p,
+  span {
     font-size: 17px;
   }
 
-  #copyright .sharesheet-options {
+  .sharesheet-options {
     margin: 0;
   }
 }

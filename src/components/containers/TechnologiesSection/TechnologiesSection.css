@@ -1,19 +1,6 @@
-/* ------------------------------ technologies ------------------------------ */
-
-#technologies {
-  padding: 100px 0;
-  background: var(--color-fill-tertiary);
-}
-
-@media screen and (min-width: 900px) {
-  #technologies {
-    padding: 150px 0 100px 0;
-  }
-}
-
 /* ----------------------------- item-container ----------------------------- */
 
-#technologies .item-container {
+.item-container {
   width: 90%;
   margin: 0 auto 0 auto;
   display: grid;
@@ -23,14 +10,14 @@
 }
 
 @media screen and (min-width: 900px) {
-  #technologies .item-container {
+  .item-container {
     width: 82.5%;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 
 @media screen and (min-width: 1250px) {
-  #technologies .item-container {
+  .item-container {
     width: 95%;
     grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
   }

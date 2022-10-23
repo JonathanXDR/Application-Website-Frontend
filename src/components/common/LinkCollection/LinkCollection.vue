@@ -3,7 +3,11 @@
     <p v-for="(link, index) in data" :key="index">
       <a :href="link.url" class="link" target="_blank">
         {{ link.title }}
-        <component v-if="link.icon" :is="link.icon" class="icon-after" />
+        <component
+          v-if="link.icon"
+          :is="link.icon"
+          class="svg-icon inline-chevron-right-icon icon-inline link-icon"
+        />
       </a>
     </p>
   </div>

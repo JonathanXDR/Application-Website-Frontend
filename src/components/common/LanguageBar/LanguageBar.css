@@ -32,7 +32,7 @@
 
 @media screen and (min-width: 900px) {
   .graph-bar {
-    height: 8px;
+    height: 8px !important;
   }
 }
 
@@ -73,7 +73,7 @@
 
 .graph-caption {
   padding-top: 3px;
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 
 .graph-caption {
@@ -91,7 +91,7 @@
 
 @media screen and (min-width: 900px) {
   .graph-caption {
-    padding-top: 10px;
+    padding-top: 10px !important;
   }
 }
 

@@ -1,8 +1,8 @@
 <template>
-  <footer id="copyright">
+  <section id="copyright">
     <p>© {{ currentYear }} Jonathan Russ. All rights reserved.</p>
     <ShareSheet />
-  </footer>
+  </section>
 </template>
 
 <script lang="ts" src="./FooterItem.ts"></script>
