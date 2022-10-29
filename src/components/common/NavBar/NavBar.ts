@@ -19,6 +19,7 @@ export default defineComponent({
       ],
       themeDark: false,
       navOpen: false,
+      navDisabled: false,
     };
   },
   created() {
@@ -63,11 +64,9 @@ export default defineComponent({
     },
 
     checkboxTimeout(): void {
-      const checkbox = this.$refs['input-checkbox'] as HTMLInputElement;
-
-      checkbox.disabled = true;
+      this.navDisabled = true;
       setTimeout(() => {
-        checkbox.disabled = false;
+        this.navDisabled = false;
       }, 1000);
     },
 

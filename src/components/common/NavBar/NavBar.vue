@@ -2,9 +2,9 @@
   <input
     @input="toggleNav()"
     v-model="navOpen"
-    ref="input-checkbox"
     type="checkbox"
     id="ac-ln-menustate"
+    :disabled="navDisabled"
   />
   <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking"></div>
   <nav
@@ -31,7 +31,7 @@
               >
                 <router-link
                   :to="item.route"
-                  :class="{ current: index == $currentSection }"
+                  :class="{ current: index === $currentSection }"
                   class="ac-ln-menu-link"
                 >
                   {{ item.name }}
