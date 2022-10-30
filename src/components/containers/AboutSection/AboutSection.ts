@@ -1,3 +1,5 @@
+import { defineComponent } from 'vue';
+
 import AirplaneDepartureIcon from '@/components/common/Icons/AirplaneDepartureIcon.vue';
 import ArrowDownCircleIcon from '@/components/common/Icons/ArrowDownCircleIcon.vue';
 import CalendarIcon from '@/components/common/Icons/CalendarIcon.vue';
@@ -12,9 +14,11 @@ import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue';
 import CardTile from '@/components/common/CardTile/CardTile.vue';
 import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue';
 
+import { stringTemplateParser } from '@/services/utils';
+
 import json from '@/assets/data/data.json';
 
-export default {
+export default defineComponent({
   name: 'AboutSection',
   components: {
     AirplaneDepartureIcon,
@@ -37,11 +41,16 @@ export default {
     };
   },
   mounted() {
-    // this.data.dates.forEach((item: any) => {
-    //   const date = new Date(item.date);
-    //   const difference = new Date(Date.now() - date.getTime());
-    //   const age = Math.abs(difference.getUTCFullYear() - 1970);
-    //   this.age.push(age);
-    // });
+    this.data.dates.forEach((item: any) => {
+      const date = new Date(item.date);
+      const difference = new Date(Date.now() - date.getTime());
+      const age = Math.abs(difference.getUTCFullYear() - 1970);
+      this.age.push(age);
+    });
+
+    this.data = stringTemplateParser(json.components[1].data[0].data, {
+      age: this.age,
+    });
   },
-};
+  methods: {},
+});

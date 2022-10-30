@@ -36,12 +36,12 @@ export default {
           className: 'ribbon-content-animation',
           timeout: 1,
         },
-        // {
-        //   ref: 'ribbon-link',
-        //   parent: 'ribbon-bar',
-        //   className: 'ribbon-link-animation',
-        //   timeout: 1,
-        // },
+        {
+          ref: 'ribbon-link',
+          parent: 'ribbon-bar',
+          className: 'ribbon-link-animation',
+          timeout: 1,
+        },
       ];
 
       // foreach item in array remove the class
