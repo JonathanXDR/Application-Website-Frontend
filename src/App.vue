@@ -1,7 +1,7 @@
 <template>
   <header>
-    <NavBar ref="nav-bar" @updateAnimations="updateAnimations" />
-    <RibbonBar ref="ribbon-bar" />
+    <NavBar />
+    <RibbonBar />
   </header>
   <Suspense>
     <template #default>

@@ -46,3 +46,29 @@
     </g>
   </svg>
 </template>
+
+<style scoped>
+.aD6z1nYkhcolor {
+  fill: var(--color-fill-gray);
+  fill-opacity: 1;
+  transition: fill 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+
+.aD6z1nYkhstrokeColor-str {
+  stroke: var(--color-fill-gray);
+  stroke-opacity: 1;
+  transition: fill 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+
+.ahTdFi603-color {
+  fill: var(--color-fill-gray);
+  fill-opacity: 1;
+  transition: fill 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+
+.ahTdFi603-strokeColor-str {
+  stroke: var(--color-fill-gray);
+  stroke-opacity: 1;
+  transition: fill 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+</style>

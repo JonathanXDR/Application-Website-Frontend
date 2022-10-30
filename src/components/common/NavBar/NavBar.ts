@@ -49,7 +49,7 @@ export default defineComponent({
       } else {
         this.storeTheme('light');
       }
-      this.$emit('updateAnimations');
+      this.updateAnimations();
     },
 
     storeTheme(themeName: string): void {
@@ -74,6 +74,14 @@ export default defineComponent({
       if ((this.navOpen = true && window.scrollY > 0)) {
         this.navOpen = false;
       }
+    },
+
+    updateAnimations(): void {
+      const background = this.$refs['ac-ln-background'] as any;
+      background.classList.remove('ac-ln-background-transition');
+      setTimeout(() => {
+        background.classList.add('ac-ln-background-transition');
+      }, 500);
     },
   },
 });

@@ -13,6 +13,7 @@ import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vu
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue';
 import CardTile from '@/components/common/CardTile/CardTile.vue';
 import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue';
+import TimeLine from '@/components/common/TimeLine/TimeLine.vue';
 
 import { stringTemplateParser } from '@/services/utils';
 
@@ -33,6 +34,7 @@ export default defineComponent({
     ShareSheet,
     CardTile,
     ArticleItem,
+    TimeLine,
   },
   data() {
     return {
