@@ -2,7 +2,7 @@
   <h2>Referenzen</h2>
   <ul class="grid">
     <ArticleItem
-      v-for="(references, index) in data"
+      v-for="(references, index) in json"
       :key="index"
       :article="references"
     />

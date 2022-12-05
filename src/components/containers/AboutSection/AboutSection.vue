@@ -21,14 +21,14 @@
 
     <div>
       <h1>
-        <span class="eyebrow">{{ data.eyebrow }}</span
-        >{{ data.title }}
+        <span class="eyebrow">{{ json.eyebrow }}</span
+        >{{ json.title }}
       </h1>
       <p class="typography-intro">
-        {{ data.description }}
+        {{ json.description }}
       </p>
 
-      <LinkCollection :data="data.links" class="typography-intro" />
+      <LinkCollection :data="json.links" class="typography-intro" />
     </div>
   </div>
 

@@ -21,7 +21,7 @@ export default defineComponent({
   },
   data() {
     return {
-      data: json.components[1].data,
+      json: json.components.containers,
     };
   },
 });

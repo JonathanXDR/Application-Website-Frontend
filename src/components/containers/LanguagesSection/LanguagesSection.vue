@@ -2,14 +2,14 @@
   <h2>Sprachkenntnisse</h2>
   <div class="graph-gallery-container">
     <ul class="tabnav-items">
-      <li v-for="(language, index) in data" :key="index" class="tabnav-item">
+      <li v-for="(language, index) in json" :key="index" class="tabnav-item">
         <span class="tabnav-link current">{{ language.title }}</span>
       </li>
     </ul>
 
     <ul class="slide-container">
       <LanguageBar
-        v-for="(language, index) in data"
+        v-for="(language, index) in json"
         :key="index"
         :language="language"
       />

@@ -9,7 +9,7 @@ export default {
   },
   data() {
     return {
-      data: json.components[0].data[0].data,
+      json: json.components.common.RibbonBar,
     };
   },
 };

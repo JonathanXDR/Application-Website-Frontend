@@ -5,7 +5,7 @@
 
     <ul class="timeline" ref="ul-timeline">
       <ArticleItem
-        v-for="(projects, index) in data"
+        v-for="(projects, index) in json"
         :key="index"
         :article="projects"
       />

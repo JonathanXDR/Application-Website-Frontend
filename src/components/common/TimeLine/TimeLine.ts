@@ -34,7 +34,7 @@ export default defineComponent({
   },
   data() {
     return {
-      data: json.components[1].data[5].data,
+      json: json,
       totalLength: 0,
       scrollPosition: 0,
       strokeDashoffset: 0,

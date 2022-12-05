@@ -10,7 +10,7 @@ export default defineComponent({
   },
   data() {
     return {
-      data: json,
+      json: json,
       currentYear: new Date().getFullYear(),
     };
   },

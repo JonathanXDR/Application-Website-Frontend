@@ -25,7 +25,7 @@ export default {
   props: ['article'],
   data() {
     return {
-      data: json,
+      json: json,
     };
   },
 };

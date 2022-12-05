@@ -1,6 +1,6 @@
 <template>
   <div class="links">
-    <p v-for="(link, index) in data" :key="index">
+    <p v-for="(link, index) in json" :key="index">
       <a :href="link.url" class="link" target="_blank">
         {{ link.title }}
         <component

@@ -34,7 +34,7 @@ export default {
   },
   data() {
     return {
-      data: json.components[1].data[4].data,
+      json: json.components.containers.technologies.technologies,
     };
   },
 };

@@ -4,10 +4,10 @@
       <div class="ribbon-content-wrapper ribbon-content-wrapper-animation">
         <div class="ribbon-content row ribbon-content-animation">
           <p>
-            {{ data.description }}&ensp;
+            {{ json.description }}&ensp;
 
             <LinkCollection
-              :data="data.links"
+              :data="json.links"
               class="ribbon-link ribbon-link-animation icon-after-ribbon"
             />
           </p>

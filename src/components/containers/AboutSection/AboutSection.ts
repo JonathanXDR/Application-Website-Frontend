@@ -38,21 +38,24 @@ export default defineComponent({
   },
   data() {
     return {
-      data: json.components[1].data[0].data,
+      json: json.components.containers.about,
       age: [] as number[],
     };
   },
   mounted() {
-    this.data.dates.forEach((item: any) => {
+    this.json.dates.forEach((item: any) => {
       const date = new Date(item.date);
       const difference = new Date(Date.now() - date.getTime());
       const age = Math.abs(difference.getUTCFullYear() - 1970);
       this.age.push(age);
     });
 
-    this.data = stringTemplateParser(json.components[1].data[0].data, {
-      age: this.age,
-    });
+    this.json = stringTemplateParser(
+      json.components.containers.about.description,
+      {
+        age: this.age,
+      }
+    );
   },
   methods: {},
 });
