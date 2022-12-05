@@ -6,12 +6,15 @@
       <div id="vignette"></div>
     </div>
 
-    <AboutSection class="section-separated" />
-    <LanguagesSection class="section-separated" />
-    <ReferencesSection class="section-separated" />
-    <OtherSection class="section-separated" />
-    <TechnologiesSection />
-    <ProjectsSection />
+    <section
+      v-for="(container, index) in json"
+      :key="index"
+      v-section="index"
+      :id="container.id"
+      :class="container.class"
+    >
+      <component v-if="container.id" :is="`${container.id}Section`" />
+    </section>
 
     <!-- insert Music Library here -->
     <!-- insert Galaxy Game here -->
