@@ -10,7 +10,7 @@
       <p>
         {{ article.description }}
       </p>
-      <LinkCollection :data="article.links" />
+      <LinkCollection :links="article.links" />
     </div>
   </li>
 </template>

@@ -17,5 +17,5 @@ export default {
     GearIcon,
     PersonCropSquareIcon,
   },
-  props: ['data'],
+  props: ['links'],
 };

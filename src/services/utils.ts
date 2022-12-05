@@ -9,7 +9,7 @@ export async function fetchData() {
   }
 }
 
-export function stringTemplateParser(expression: string, object: any) {
+export function stringTemplateParser(expression: object, object: any) {
   const templateMatcher =
     /{{\s?([a-zA-Z0-9]*)(\[\d+\])?\s?([/+\-*]\s?\d+)?\s?}}/g;
   const description = JSON.stringify(expression).replace(

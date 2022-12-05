@@ -50,12 +50,8 @@ export default defineComponent({
       this.age.push(age);
     });
 
-    this.json = stringTemplateParser(
-      json.components.containers.about.description,
-      {
-        age: this.age,
-      }
-    );
+    this.json = stringTemplateParser(this.json, {
+      age: this.age,
+    });
   },
-  methods: {},
 });

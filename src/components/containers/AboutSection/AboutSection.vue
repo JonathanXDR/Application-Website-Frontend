@@ -28,7 +28,7 @@
         {{ json.description }}
       </p>
 
-      <LinkCollection :data="json.links" class="typography-intro" />
+      <LinkCollection :links="json.links" class="typography-intro" />
     </div>
   </div>
 

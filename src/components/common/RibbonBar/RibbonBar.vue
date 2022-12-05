@@ -7,7 +7,7 @@
             {{ json.description }}&ensp;
 
             <LinkCollection
-              :data="json.links"
+              :links="json.links"
               class="ribbon-link ribbon-link-animation icon-after-ribbon"
             />
           </p>
