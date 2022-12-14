@@ -65,9 +65,9 @@
         <h4 class="typography-connection-tile-headline">{{ card.title }}</h4>
 
         <p>
-          Erster Kontakt: {{ card.learned }}
+          <strong> Erster Kontakt:</strong> {{ card.learned }}
           <br />
-          Vertiefungen: {{ card.enhanced }}
+          <strong> Vertiefungen:</strong> {{ card.enhanced }}
         </p>
       </div>
     </div>

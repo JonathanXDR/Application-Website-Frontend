@@ -247,6 +247,22 @@
             "enhanced": "M122",
             "color1": "var(--color-dark-pink)",
             "color2": "var(--color-dark-purple)"
+          },
+          {
+            "title": "React",
+            "progress": 55,
+            "learned": "ÜK294, Apps Team Frontend",
+            "enhanced": "-",
+            "color1": "var(--color-dark-cyan)",
+            "color2": "var(--color-dark-indigo)"
+          },
+          {
+            "title": "Next.js",
+            "progress": 50,
+            "learned": "Apps Team Frontend",
+            "enhanced": "-",
+            "color1": "var(--color-dark-yellow)",
+            "color2": "var(--color-dark-green)"
           }
         ]
       },
@@ -275,7 +291,7 @@
           {
             "title": "Apps Team Frontend",
             "date": "August 2022 - Januar 2023",
-            "description": "Aktuell arbeite ich im Apps Team als Frontend Developer und ich bin dabei eine Memory App zu entwickeln. Dafür verwende ich hauptsächlich Vue.js und TypeScript. In Zukunft werde ich noch Next.js dazulernen und ich darf dann auch bei der Apps Team Webseite mitarbeiten.",
+            "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Aktuell darf ich beim programmieren der neuen Apps Team Webseite mithelfen. Wir arbeiten dort ebenfalls mit TypeScript und SDX, verwenden aber Next.js als Framework.",
             "icon": "ChevronLeftForwardslashChevronRightIcon"
           }
         ]
