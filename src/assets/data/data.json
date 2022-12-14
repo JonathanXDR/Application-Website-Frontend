@@ -188,9 +188,17 @@
             "title": "JavaScript",
             "progress": 70,
             "learned": "NexCC",
-            "enhanced": "Apps Team, ÜK294",
+            "enhanced": "Apps Team Frontend, ÜK294",
             "color1": "var(--color-dark-yellow)",
             "color2": "var(--color-dark-green)"
+          },
+          {
+            "title": "SDX",
+            "progress": 70,
+            "learned": "NexCC",
+            "enhanced": "Apps Team Frontend",
+            "color1": "var(--color-dark-cyan)",
+            "color2": "var(--color-dark-indigo)"
           },
           {
             "title": "Node.js",
@@ -212,7 +220,7 @@
             "title": "Vue.js",
             "progress": 80,
             "learned": "NexCC",
-            "enhanced": "Apps Team",
+            "enhanced": "Apps Team Frontend",
             "color1": "var(--color-dark-yellow)",
             "color2": "var(--color-dark-green)"
           },
@@ -220,7 +228,7 @@
             "title": "TypeScript",
             "progress": 75,
             "learned": "NexCC",
-            "enhanced": "Apps Team, ÜK294",
+            "enhanced": "Apps Team Frontend, ÜK294",
             "color1": "var(--color-dark-yellow)",
             "color2": "var(--color-dark-green)"
           },
