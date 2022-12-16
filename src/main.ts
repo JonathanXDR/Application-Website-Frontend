@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
+import useSectionStore from './stores/section';
 
 import App from './App.vue';
 import router from './router';
@@ -10,6 +11,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+
 import { MotionPlugin } from '@vueuse/motion';
 
 library.add(faEnvelope, faLinkedin, faGithub, faTwitter);
@@ -46,7 +48,8 @@ app.directive('section', (el, binding) => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          app.config.globalProperties.$currentSection = binding.value;
+          useSectionStore().setCurrentSection(binding.value);
+          // console.log(binding.value);
         }
       });
     },

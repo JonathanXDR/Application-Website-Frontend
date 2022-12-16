@@ -1,4 +1,5 @@
 import LogoIcon from '@/components/common/Icons/LogoIcon.vue';
+import useSectionStore from '@/stores/section';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -20,6 +21,7 @@ export default defineComponent({
       themeDark: false,
       navOpen: false,
       navDisabled: false,
+      currentSection: null as number | null,
     };
   },
   created() {
