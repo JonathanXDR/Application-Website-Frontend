@@ -1,73 +1,85 @@
-import { defineComponent } from 'vue';
-
-import AirplaneDepartureIcon from '@/components/common/Icons/AirplaneDepartureIcon.vue';
-import ArrowDownCircleIcon from '@/components/common/Icons/ArrowDownCircleIcon.vue';
-import CalendarIcon from '@/components/common/Icons/CalendarIcon.vue';
-import ChevronLeftForwardslashChevronRightIcon from '@/components/common/Icons/ChevronLeftForwardslashChevronRightIcon.vue';
-import ChevronRightIcon from '@/components/common/Icons/ChevronRightIcon.vue';
-import GearIcon from '@/components/common/Icons/GearIcon.vue';
-import PersonCropSquareIcon from '@/components/common/Icons/PersonCropSquareIcon.vue';
-
-import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue';
-import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue';
-import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue';
-import CardTile from '@/components/common/CardTile/CardTile.vue';
-import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue';
-
+import { defineComponent, ref } from 'vue';
 import json from '@/assets/data/data.json';
 
+/**
+ * A Vue component that animates a vertical line on an SVG element as the user scrolls down the page.
+ */
 export default defineComponent({
   name: 'TimeLine',
-  components: {
-    AirplaneDepartureIcon,
-    ArrowDownCircleIcon,
-    CalendarIcon,
-    ChevronLeftForwardslashChevronRightIcon,
-    ChevronRightIcon,
-    GearIcon,
-    PersonCropSquareIcon,
-    RibbonBar,
-    LinkCollection,
-    ShareSheet,
-    CardTile,
-    ArticleItem,
-  },
+  components: {},
+
+  /**
+   * The component's data.
+   *
+   * @returns {object} An object containing the component's data properties.
+   */
   data() {
     return {
-      json: json,
       totalLength: 0,
-      scrollPosition: 0,
-      strokeDashoffset: 0,
+      updatePath: false,
+      lastScrollPos: 0,
     };
   },
   mounted() {
-    const element = this.$refs['svg-timeline'] as SVGElement;
-    const path = this.$refs['path-timeline'] as SVGPathElement;
-    this.totalLength = this.$parent.$refs['ul-timeline'].offsetHeight;
-
-    console.log('path', path.getTotalLength());
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // console.log("I'm visible");
-            window.addEventListener('scroll', this.handleScroll());
-          } else {
-            // console.log("I'm not visible");
-            window.removeEventListener('scroll', this.handleScroll());
-          }
-        });
-      },
-      { rootMargin: '-52px 0px 0px 0px' }
-    );
-
-    observer.observe(element);
+    // Initialize the path and set up the intersection observer and scroll event listener.
+    this.initPath();
+    const path = this.$refs.path as SVGPathElement;
+    const observer = new IntersectionObserver(this.handleEntries, {
+      rootMargin: '0px 0px 0px 0px',
+    });
+    observer.observe(path);
+    window.addEventListener('scroll', this.handleScroll);
   },
   methods: {
+    /**
+     * Initializes the path element.
+     */
+    initPath() {
+      const path = this.$refs.path as SVGPathElement;
+
+      this.totalLength = path.getTotalLength();
+      path.style.strokeDasharray = `${this.totalLength}`;
+      path.style.strokeDashoffset = `${this.totalLength}`;
+    },
+    /**
+     * Handles intersection observer entries.
+     *
+     * @param {IntersectionObserverEntry[]} entries - The intersection observer entries.
+     */
+    handleEntries(entries: IntersectionObserverEntry[]) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.updatePath = true;
+        } else {
+          this.updatePath = false;
+        }
+      });
+    },
+    /**
+     * Handles the scroll event.
+     */
     handleScroll() {
-      this.scrollPosition = window.scrollY;
-      console.log('scrollPosition', this.scrollPosition);
+      this.lastScrollPos = window.scrollY;
+      this.animateLine();
+    },
+    /**
+     * Animates the line on the path element.
+     */
+    animateLine() {
+      if (!this.updatePath) {
+        return;
+      }
+      const path = this.$refs.path as SVGPathElement;
+      const center = window.innerHeight / 2;
+      const boundaries = path.getBoundingClientRect();
+      const top = boundaries.top;
+      const height = boundaries.height;
+      const percentage = (center - top) / height;
+      const drawLength = percentage > 0 ? this.totalLength * percentage : 0;
+
+      path.style.strokeDashoffset = `${
+        drawLength < this.totalLength ? this.totalLength - drawLength : 0
+      }`;
     },
   },
 });

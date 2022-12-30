@@ -1,18 +1,9 @@
 <template>
-  <svg
-    id="svg-timeline"
-    ref="svg-timeline"
-    preserveAspectRatio="none"
-    :height="totalLength"
-  >
+  <svg id="svg-timeline" preserveAspectRatio="none">
     <path
-      :style="{
-        strokeDashoffset: totalLength,
-        strokeDasharray: scrollPosition,
-      }"
-      ref="path-timeline"
+      ref="path"
       class="path-timeline"
-      :d="`M 4 0 L 4 ${totalLength}`"
+      d="M 4 0 L 4 2250"
       stroke-width="5"
       fill="none"
       fill-rule="evenodd"
