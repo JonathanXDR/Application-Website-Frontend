@@ -3,7 +3,7 @@
     ref="svg"
     class="svg-timeline"
     preserveAspectRatio="none"
-    :height="height"
+    :height="ulHeight"
     :viewBox="viewBox"
     :xmlns="xmlns"
   >
