@@ -42,8 +42,6 @@
     },
     "containers": {
       "about": {
-        "id": "about",
-        "class": "section-separated",
         "eyebrow": "Hey ;)",
         "title": "I'm Jonathan",
         "description": "Hallo mein Name ist Jonathan und ich bin {{ age[0] }} Jahre alt. Aktuell bin ich im {{ age[1] +1 }}. Lehrjahr als Informatiker - Applikationsentwicklung. Ich wohne in Egg bei Einsiedeln im Kanton Schwyz. Das Programmieren fasziniert mich sehr und ich finde es spannend, was man damit alles erreichen kann. In meiner Freizeit spiele ich gerne Computer -und Konsolenspiele und treffe mich oft mit Freunden. Ausserdem höre ich häufig Musik und produziere sie auch manchmal selbst.",
@@ -65,245 +63,227 @@
           }
         ]
       },
-      "languages": {
-        "id": "languages",
-        "class": "section-separated",
-        "languages": [
-          {
-            "title": "Deutsch",
-            "description": "Muttersprache",
-            "progress": "100"
-          },
-          {
-            "title": "Englisch",
-            "description": "Fliessend",
-            "progress": "60"
-          },
-          {
-            "title": "Französisch",
-            "description": "Gut",
-            "progress": "30"
-          }
-        ]
-      },
-      "references": {
-        "id": "references",
-        "class": "section-separated",
-        "references": [
-          {
-            "title": "Steve Hess",
-            "description": "Lernbegleiter & Vorgesetzter",
-            "links": [],
-            "icon": "PersonCropSquareIcon"
-          },
-          {
-            "title": "Nick Zimmermann",
-            "description": "Projektanbieter in Competence Center NexCC",
-            "links": [
-              {
-                "title": "Mehr erfahren",
-                "url": "https://nickzimmermann.com/",
-                "icon": "ChevronRightIcon"
-              }
-            ],
-            "icon": "PersonCropSquareIcon"
-          },
-          {
-            "title": "Alessio Iantosca",
-            "description": "Projektanbieter bei Automatisierungsprojekten im Banking Bereich",
-            "links": [],
-            "icon": "PersonCropSquareIcon"
-          },
-          {
-            "title": "Carlo Schmid",
-            "description": "Projektanbieter im Apps Team Frontend",
-            "links": [],
-            "icon": "PersonCropSquareIcon"
-          }
-        ]
-      },
-      "other": {
-        "id": "other",
-        "class": "section-separated",
-        "other": [
-          {
-            "title": "Technische Berufsschule Zürich",
-            "date": "Donnerstag",
-            "description": "Ich gehe immer Donnerstags zur Berufsschule in Zürich. Füge diesen Termin gerne zu deinen Kalender hinzu.",
-            "links": [
-              {
-                "title": "Mehr über TBZ",
-                "url": "https://tbz.ch/",
-                "icon": "ChevronRightIcon"
-              },
-              {
-                "title": "Zum Kalender hinzufügen",
-                "url": "../calendar/Berufsschule Jonathan Russ.ics",
-                "icon": "ArrowDownCircleIcon"
-              }
-            ],
-            "icon": "CalendarIcon"
-          },
-          {
-            "title": "Berufsmaturitätsschule Zürich",
-            "date": "Freitag",
-            "description": "Am Freitag gehe ich jeweils zur Berufsmaturitätsschule in Zürich. Gerne kannst du diesen Termin zu deinem Kalender hinzufügen.",
-            "links": [
-              {
-                "title": "Mehr über BMZ",
-                "url": "https://www.bms-zuerich.ch/",
-                "icon": "ChevronRightIcon"
-              },
-              {
-                "title": "Zum Kalender hinzufügen",
-                "url": "../calendar/Berufsschule Jonathan Russ.ics",
-                "icon": "ArrowDownCircleIcon"
-              }
-            ],
-            "icon": "CalendarIcon"
-          }
-        ]
-      },
-      "technologies": {
-        "id": "technologies",
-        "class": "",
-        "technologies": [
-          {
-            "title": "HTML",
-            "progress": 85,
-            "learned": "NexCC",
-            "enhanced": "M293",
-            "color1": "var(--color-dark-orange)",
-            "color2": "var(--color-dark-red)"
-          },
-          {
-            "title": "CSS",
-            "progress": 85,
-            "learned": "NexCC",
-            "enhanced": "M293",
-            "color1": "var(--color-dark-cyan)",
-            "color2": "var(--color-dark-indigo)"
-          },
-          {
-            "title": "JavaScript",
-            "progress": 70,
-            "learned": "NexCC",
-            "enhanced": "Apps Team Frontend, ÜK294",
-            "color1": "var(--color-dark-yellow)",
-            "color2": "var(--color-dark-green)"
-          },
-          {
-            "title": "SDX",
-            "progress": 70,
-            "learned": "NexCC",
-            "enhanced": "Apps Team Frontend",
-            "color1": "var(--color-dark-cyan)",
-            "color2": "var(--color-dark-indigo)"
-          },
-          {
-            "title": "Node.js",
-            "progress": 60,
-            "learned": "NexCC",
-            "enhanced": "-",
-            "color1": "var(--color-dark-yellow)",
-            "color2": "var(--color-dark-green)"
-          },
-          {
-            "title": "SQL",
-            "progress": 70,
-            "learned": "NexCC",
-            "enhanced": "ÜK106, M164",
-            "color1": "var(--color-dark-cyan)",
-            "color2": "var(--color-dark-indigo)"
-          },
-          {
-            "title": "Vue.js",
-            "progress": 80,
-            "learned": "NexCC",
-            "enhanced": "Apps Team Frontend",
-            "color1": "var(--color-dark-yellow)",
-            "color2": "var(--color-dark-green)"
-          },
-          {
-            "title": "TypeScript",
-            "progress": 75,
-            "learned": "NexCC",
-            "enhanced": "Apps Team Frontend, ÜK294",
-            "color1": "var(--color-dark-yellow)",
-            "color2": "var(--color-dark-green)"
-          },
-          {
-            "title": "C#",
-            "progress": 25,
-            "learned": "Automatisierungsprojekte im Banking Bereich",
-            "enhanced": "-",
-            "color1": "var(--color-dark-pink)",
-            "color2": "var(--color-dark-purple)"
-          },
-          {
-            "title": "Java",
-            "progress": 10,
-            "learned": "M319",
-            "enhanced": "-",
-            "color1": "var(--color-dark-yellow)",
-            "color2": "var(--color-dark-green)"
-          },
-          {
-            "title": "Bash",
-            "progress": 50,
-            "learned": "NexCC",
-            "enhanced": "M122",
-            "color1": "var(--color-dark-pink)",
-            "color2": "var(--color-dark-purple)"
-          },
-          {
-            "title": "React",
-            "progress": 55,
-            "learned": "ÜK294, Apps Team Frontend",
-            "enhanced": "-",
-            "color1": "var(--color-dark-cyan)",
-            "color2": "var(--color-dark-indigo)"
-          },
-          {
-            "title": "Next.js",
-            "progress": 50,
-            "learned": "Apps Team Frontend",
-            "enhanced": "-",
-            "color1": "var(--color-dark-yellow)",
-            "color2": "var(--color-dark-green)"
-          }
-        ]
-      },
-      "projects": {
-        "id": "projects",
-        "class": "",
-        "projects": [
-          {
-            "title": "NEX First Steps",
-            "date": "August 2021",
-            "description": "In den First Steps hat meine Lehre begonnen. Dort habe ich alles rund um Swisscom kennengelernt, also z.B. wie man die verschieden Tools verwendet, wie man richtig zusammenarbeitet und auch andere Dinge, wie beispielsweise die Arbeitssicherheit.",
-            "icon": "AirplaneDepartureIcon"
-          },
-          {
-            "title": "Competence Center NexCC",
-            "date": "August 2021 - Januar 2022",
-            "description": "Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei viele neue Programmiersprachen gelernt. Darunter HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App erstellen, welche ich mit einer SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend hinzugefügt und so ein eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte Programmiersprachen, wie Node.js, Express.js oder Vue.js neu dazugelernt.",
-            "icon": "ChevronLeftForwardslashChevronRightIcon"
-          },
-          {
-            "title": "Automatisierungsprojekte im Banking Bereich",
-            "date": "Februar 2022 - Juli 2022",
-            "description": "Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld erhalten. Ich war aktiv dabei und habe die einzelnen Banken gelernt zu testen bzw. zu automatisieren. Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr über das .Net Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu verbessern!",
-            "icon": "GearIcon"
-          },
-          {
-            "title": "Apps Team Frontend",
-            "date": "August 2022 - Januar 2023",
-            "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Aktuell darf ich beim programmieren der neuen Apps Team Webseite mithelfen. Wir arbeiten dort ebenfalls mit TypeScript und SDX, verwenden aber Next.js als Framework.",
-            "icon": "ChevronLeftForwardslashChevronRightIcon"
-          }
-        ]
-      }
+
+      "languages": [
+        {
+          "title": "Deutsch",
+          "description": "Muttersprache",
+          "progress": "100"
+        },
+        {
+          "title": "Englisch",
+          "description": "Fliessend",
+          "progress": "60"
+        },
+        {
+          "title": "Französisch",
+          "description": "Gut",
+          "progress": "30"
+        }
+      ],
+
+      "references": [
+        {
+          "title": "Steve Hess",
+          "description": "Lernbegleiter & Vorgesetzter",
+          "links": [],
+          "icon": "PersonCropSquareIcon"
+        },
+        {
+          "title": "Nick Zimmermann",
+          "description": "Projektanbieter in Competence Center NexCC",
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://nickzimmermann.com/",
+              "icon": "ChevronRightIcon"
+            }
+          ],
+          "icon": "PersonCropSquareIcon"
+        },
+        {
+          "title": "Alessio Iantosca",
+          "description": "Projektanbieter bei Automatisierungsprojekten im Banking Bereich",
+          "links": [],
+          "icon": "PersonCropSquareIcon"
+        },
+        {
+          "title": "Carlo Schmid",
+          "description": "Projektanbieter im Apps Team Frontend",
+          "links": [],
+          "icon": "PersonCropSquareIcon"
+        }
+      ],
+      "other": [
+        {
+          "title": "Technische Berufsschule Zürich",
+          "date": "Donnerstag",
+          "description": "Ich gehe immer Donnerstags zur Berufsschule in Zürich. Füge diesen Termin gerne zu deinen Kalender hinzu.",
+          "links": [
+            {
+              "title": "Mehr über TBZ",
+              "url": "https://tbz.ch/",
+              "icon": "ChevronRightIcon"
+            },
+            {
+              "title": "Zum Kalender hinzufügen",
+              "url": "../calendar/Berufsschule Jonathan Russ.ics",
+              "icon": "ArrowDownCircleIcon"
+            }
+          ],
+          "icon": "CalendarIcon"
+        },
+        {
+          "title": "Berufsmaturitätsschule Zürich",
+          "date": "Freitag",
+          "description": "Am Freitag gehe ich jeweils zur Berufsmaturitätsschule in Zürich. Gerne kannst du diesen Termin zu deinem Kalender hinzufügen.",
+          "links": [
+            {
+              "title": "Mehr über BMZ",
+              "url": "https://www.bms-zuerich.ch/",
+              "icon": "ChevronRightIcon"
+            },
+            {
+              "title": "Zum Kalender hinzufügen",
+              "url": "../calendar/Berufsschule Jonathan Russ.ics",
+              "icon": "ArrowDownCircleIcon"
+            }
+          ],
+          "icon": "CalendarIcon"
+        }
+      ],
+      "technologies": [
+        {
+          "title": "HTML",
+          "progress": 85,
+          "learned": "NexCC",
+          "enhanced": "M293",
+          "color1": "var(--color-dark-orange)",
+          "color2": "var(--color-dark-red)"
+        },
+        {
+          "title": "CSS",
+          "progress": 85,
+          "learned": "NexCC",
+          "enhanced": "M293",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "JavaScript",
+          "progress": 70,
+          "learned": "NexCC",
+          "enhanced": "Apps Team Frontend, ÜK294",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "SDX",
+          "progress": 70,
+          "learned": "NexCC",
+          "enhanced": "Apps Team Frontend",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "Node.js",
+          "progress": 60,
+          "learned": "NexCC",
+          "enhanced": "-",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "SQL",
+          "progress": 70,
+          "learned": "NexCC",
+          "enhanced": "ÜK106, M164",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "Vue.js",
+          "progress": 80,
+          "learned": "NexCC",
+          "enhanced": "Apps Team Frontend",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "TypeScript",
+          "progress": 75,
+          "learned": "NexCC",
+          "enhanced": "Apps Team Frontend, ÜK294",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "C#",
+          "progress": 25,
+          "learned": "Automatisierungsprojekte im Banking Bereich",
+          "enhanced": "-",
+          "color1": "var(--color-dark-pink)",
+          "color2": "var(--color-dark-purple)"
+        },
+        {
+          "title": "Java",
+          "progress": 10,
+          "learned": "M319",
+          "enhanced": "-",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "Bash",
+          "progress": 50,
+          "learned": "NexCC",
+          "enhanced": "M122",
+          "color1": "var(--color-dark-pink)",
+          "color2": "var(--color-dark-purple)"
+        },
+        {
+          "title": "React",
+          "progress": 55,
+          "learned": "ÜK294, Apps Team Frontend",
+          "enhanced": "-",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "Next.js",
+          "progress": 50,
+          "learned": "Apps Team Frontend",
+          "enhanced": "-",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        }
+      ],
+      "projects": [
+        {
+          "title": "NEX First Steps",
+          "date": "August 2021",
+          "description": "In den First Steps hat meine Lehre begonnen. Dort habe ich alles rund um Swisscom kennengelernt, also z.B. wie man die verschieden Tools verwendet, wie man richtig zusammenarbeitet und auch andere Dinge, wie beispielsweise die Arbeitssicherheit.",
+          "icon": "AirplaneDepartureIcon"
+        },
+        {
+          "title": "Competence Center NexCC",
+          "date": "August 2021 - Januar 2022",
+          "description": "Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei viele neue Programmiersprachen gelernt. Darunter HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App erstellen, welche ich mit einer SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend hinzugefügt und so ein eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte Programmiersprachen, wie Node.js, Express.js oder Vue.js neu dazugelernt.",
+          "icon": "ChevronLeftForwardslashChevronRightIcon"
+        },
+        {
+          "title": "Automatisierungsprojekte im Banking Bereich",
+          "date": "Februar 2022 - Juli 2022",
+          "description": "Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld erhalten. Ich war aktiv dabei und habe die einzelnen Banken gelernt zu testen bzw. zu automatisieren. Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr über das .Net Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu verbessern!",
+          "icon": "GearIcon"
+        },
+        {
+          "title": "Apps Team Frontend",
+          "date": "August 2022 - Januar 2023",
+          "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Aktuell darf ich beim programmieren der neuen Apps Team Webseite mithelfen. Wir arbeiten dort ebenfalls mit TypeScript und SDX, verwenden aber Next.js als Framework.",
+          "icon": "ChevronLeftForwardslashChevronRightIcon"
+        }
+      ]
     }
   }
 }

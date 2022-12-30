@@ -21,8 +21,12 @@ export default defineComponent({
       themeDark: false,
       navOpen: false,
       navDisabled: false,
-      currentSection: null as number | null,
     };
+  },
+  computed: {
+    currentSection(): number | null {
+      return useSectionStore().currentSection;
+    },
   },
   created() {
     window.addEventListener('scroll', this.handleScroll);
@@ -79,7 +83,7 @@ export default defineComponent({
     },
 
     updateAnimations(): void {
-      const background = this.$refs['ac-ln-background'] as any;
+      const background = this.$refs['ac-ln-background'] as HTMLElement;
       background.classList.remove('ac-ln-background-transition');
       setTimeout(() => {
         background.classList.add('ac-ln-background-transition');

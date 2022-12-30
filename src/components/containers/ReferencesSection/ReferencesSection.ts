@@ -34,7 +34,7 @@ export default {
   },
   data() {
     return {
-      json: json.components.containers.references.references,
+      json: json.components.containers.references,
     };
   },
 };

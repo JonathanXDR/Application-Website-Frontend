@@ -8,7 +8,7 @@ export default {
   },
   data() {
     return {
-      json: json.components.containers.languages.languages,
+      json: json.components.containers.languages,
     };
   },
 };

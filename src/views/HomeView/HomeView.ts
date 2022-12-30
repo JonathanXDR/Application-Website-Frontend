@@ -7,8 +7,6 @@ import OtherSection from '@/components/containers/OtherSection/OtherSection.vue'
 import TechnologiesSection from '@/components/containers/TechnologiesSection/TechnologiesSection.vue';
 import ProjectsSection from '@/components/containers/ProjectsSection/ProjectsSection.vue';
 
-import json from '@/assets/data/data.json';
-
 export default defineComponent({
   name: 'HomeView',
   components: {
@@ -21,7 +19,14 @@ export default defineComponent({
   },
   data() {
     return {
-      json: json.components.containers,
+      sections: [
+        { id: 'about', class: 'section-separated' },
+        { id: 'languages', class: 'section-separated' },
+        { id: 'references', class: 'section-separated' },
+        { id: 'other', class: 'section-separated' },
+        { id: 'technologies' },
+        { id: 'projects' },
+      ],
     };
   },
 });

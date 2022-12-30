@@ -8,7 +8,6 @@ export const useSectionStore = defineStore({
   actions: {
     setCurrentSection(section: number) {
       this.currentSection = section;
-      // console.log(section);
     },
   },
 });
