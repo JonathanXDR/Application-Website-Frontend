@@ -2,8 +2,6 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'TimeLine',
-  components: {},
-
   data() {
     return {
       pathD: undefined as string | undefined,
@@ -19,22 +17,17 @@ export default defineComponent({
     this.initPath();
 
     const svg = this.$refs.svg as SVGElement;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            window.addEventListener('scroll', this.animateLine);
-            window.addEventListener('resize', this.initPath);
-          } else {
-            window.removeEventListener('scroll', this.animateLine);
-            window.removeEventListener('resize', this.initPath);
-          }
-        });
-      },
-      {
-        rootMargin: '0px 0px 0px 0px',
-      }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          window.addEventListener('scroll', this.animateLine);
+          window.addEventListener('resize', this.initPath);
+        } else {
+          window.removeEventListener('scroll', this.animateLine);
+          window.removeEventListener('resize', this.initPath);
+        }
+      });
+    });
 
     observer.observe(svg);
   },

@@ -2,21 +2,16 @@
   <svg
     ref="svg"
     class="svg-timeline"
-    preserveAspectRatio="none"
-    :height="ulHeight"
     :viewBox="viewBox"
     :xmlns="xmlns"
+    :height="ulHeight"
   >
     <path
       ref="path"
       class="path-timeline"
       :d="pathD"
-      fill="none"
-      fill-rule="evenodd"
-      stroke-width="5"
       stroke="var(--color-fill-gray)"
-      stroke-linecap="butt"
-      stroke-miterlimit="10"
+      stroke-width="5"
       :stroke-dashoffset="strokeDashoffset"
       :stroke-dasharray="strokeDasharray"
     ></path>
