@@ -48,7 +48,7 @@
         "links": [
           {
             "title": "Zum Lebenslauf",
-            "url": "https://swisscom-my.sharepoint.com/:b:/p/jonathan_russ/EV1fbkdctGdPhW4kGzxcWpcBfBkv7AzhCnzqIjLxZStcWA?e=voEttz",
+            "url": "https://swisscom-my.sharepoint.com/:b:/p/jonathan_russ/EelSh9FRfBJNiobyuqxTQNABz_CxsEyZtYatiFTgozTDaQ?e=SpcSXI",
             "icon": "ChevronRightIcon"
           }
         ],
@@ -124,11 +124,6 @@
               "title": "Mehr über TBZ",
               "url": "https://tbz.ch/",
               "icon": "ChevronRightIcon"
-            },
-            {
-              "title": "Zum Kalender hinzufügen",
-              "url": "../calendar/Berufsschule Jonathan Russ.ics",
-              "icon": "ArrowDownCircleIcon"
             }
           ],
           "icon": "CalendarIcon"
@@ -142,11 +137,6 @@
               "title": "Mehr über BMZ",
               "url": "https://www.bms-zuerich.ch/",
               "icon": "ChevronRightIcon"
-            },
-            {
-              "title": "Zum Kalender hinzufügen",
-              "url": "../calendar/Berufsschule Jonathan Russ.ics",
-              "icon": "ArrowDownCircleIcon"
             }
           ],
           "icon": "CalendarIcon"
