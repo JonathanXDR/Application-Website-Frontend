@@ -1,15 +1,24 @@
 <template>
-  <svg id="svg-timeline" preserveAspectRatio="none">
+  <svg
+    ref="svg"
+    class="svg-timeline"
+    preserveAspectRatio="none"
+    :height="height"
+    :viewBox="viewBox"
+    :xmlns="xmlns"
+  >
     <path
       ref="path"
       class="path-timeline"
-      d="M 4 0 L 4 2250"
-      stroke-width="5"
+      :d="pathD"
       fill="none"
       fill-rule="evenodd"
+      stroke-width="5"
       stroke="var(--color-fill-gray)"
       stroke-linecap="butt"
       stroke-miterlimit="10"
+      :stroke-dashoffset="strokeDashoffset"
+      :stroke-dasharray="strokeDasharray"
     ></path>
   </svg>
 </template>

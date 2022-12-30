@@ -3,7 +3,7 @@
   <div class="timeline-wrapper">
     <TimeLine />
 
-    <ul class="timeline" ref="ul-timeline">
+    <ul ref="ul" class="timeline">
       <ArticleItem
         v-for="(projects, index) in json"
         :key="index"
