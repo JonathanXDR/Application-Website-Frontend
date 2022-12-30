@@ -55,24 +55,3 @@
     align-self: flex-end;
   }
 }
-
-/* ---------------------------------- other --------------------------------- */
-
-@media screen and (min-width: 900px) {
-  .svg-icon {
-    width: 30px;
-    height: 30px;
-  }
-
-  .article-image {
-    width: 25px;
-    height: 25px;
-  }
-}
-
-@media screen and (min-width: 1250px) {
-  .svg-icon {
-    width: 35px;
-    height: 35px;
-  }
-}
