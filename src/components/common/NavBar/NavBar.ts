@@ -1,23 +1,23 @@
-import { defineComponent } from 'vue';
-import useSectionStore from '@/stores/navbarSections';
-import useAnimationStore from '@/stores/headerAnimations';
+import { defineComponent } from "vue";
+import useSectionStore from "@/stores/navbarSections";
+import useAnimationStore from "@/stores/headerAnimations";
 
-import LogoIcon from '@/components/common/Icons/LogoIcon.vue';
+import LogoIcon from "@/components/common/Icons/LogoIcon.vue";
 
 export default defineComponent({
-  name: 'NavBar',
+  name: "NavBar",
   components: {
     LogoIcon,
   },
   data() {
     return {
       items: [
-        { name: 'About', route: '#about' },
-        { name: 'Sprachkenntnisse', route: '#languages' },
-        { name: 'Referenzen', route: '#references' },
-        { name: 'Anderes', route: '#other' },
-        { name: 'Technologien', route: '#technologies' },
-        { name: 'Projekte', route: '#projects' },
+        { name: "About", route: "#about" },
+        { name: "Sprachkenntnisse", route: "#languages" },
+        { name: "Referenzen", route: "#references" },
+        { name: "Anderes", route: "#other" },
+        { name: "Technologien", route: "#technologies" },
+        { name: "Projekte", route: "#projects" },
       ],
       themeDark: false,
       navOpen: false,
@@ -35,8 +35,8 @@ export default defineComponent({
       timeout: number;
     }[] {
       useAnimationStore().setHeaderAnimation({
-        element: this.$refs['ac-ln-background'] as HTMLElement,
-        class: 'ac-ln-background-transition' as string,
+        element: this.$refs["ac-ln-background"] as HTMLElement,
+        class: "ac-ln-background-transition" as string,
         timeout: 500 as number,
       });
 
@@ -44,21 +44,21 @@ export default defineComponent({
     },
   },
   created() {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll);
 
-    if (localStorage.getItem('theme') === null) {
-      const preferedTheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (localStorage.getItem("theme") === null) {
+      const preferedTheme = window.matchMedia("(prefers-color-scheme: dark)");
 
       if (preferedTheme.matches) {
-        this.storeTheme('dark');
+        this.storeTheme("dark");
       } else {
-        this.storeTheme('light');
+        this.storeTheme("light");
       }
     } else {
-      if (localStorage.getItem('theme') === 'dark') {
-        this.storeTheme('dark');
+      if (localStorage.getItem("theme") === "dark") {
+        this.storeTheme("dark");
       } else {
-        this.storeTheme('light');
+        this.storeTheme("light");
       }
     }
   },
@@ -66,16 +66,16 @@ export default defineComponent({
     toggleTheme() {
       this.themeDark = !this.themeDark;
       if (this.themeDark) {
-        this.storeTheme('dark');
+        this.storeTheme("dark");
       } else {
-        this.storeTheme('light');
+        this.storeTheme("light");
       }
       this.updateAnimations();
     },
 
     storeTheme(themeName: string): void {
-      this.themeDark = themeName === 'dark';
-      localStorage.setItem('theme', themeName);
+      this.themeDark = themeName === "dark";
+      localStorage.setItem("theme", themeName);
       document.documentElement.className = themeName;
     },
 

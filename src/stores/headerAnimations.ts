@@ -1,7 +1,7 @@
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
 
 export const useAnimationStore = defineStore({
-  id: 'headerAnimations',
+  id: "headerAnimations",
   state: () => ({
     headerAnimations: [] as Array<{
       element: HTMLElement;

@@ -1,7 +1,7 @@
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
 
 export const useSectionStore = defineStore({
-  id: 'navbarSections',
+  id: "navbarSections",
   state: () => ({
     currentSection: null as number | null,
   }),

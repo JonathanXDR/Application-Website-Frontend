@@ -1,7 +1,7 @@
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'TimeLine',
+  name: "TimeLine",
   data() {
     return {
       pathD: undefined as string | undefined,
@@ -20,11 +20,11 @@ export default defineComponent({
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          window.addEventListener('scroll', this.animateLine);
-          window.addEventListener('resize', this.initPath);
+          window.addEventListener("scroll", this.animateLine);
+          window.addEventListener("resize", this.initPath);
         } else {
-          window.removeEventListener('scroll', this.animateLine);
-          window.removeEventListener('resize', this.initPath);
+          window.removeEventListener("scroll", this.animateLine);
+          window.removeEventListener("resize", this.initPath);
         }
       });
     });

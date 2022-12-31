@@ -1,10 +1,10 @@
-import { defineComponent } from 'vue';
-import json from '@/assets/data/data.json';
+import { defineComponent } from "vue";
+import json from "@/assets/data/data.json";
 
-import ShareSheet from '../ShareSheet/ShareSheet.vue';
+import ShareSheet from "../ShareSheet/ShareSheet.vue";
 
 export default defineComponent({
-  name: 'FooterItem',
+  name: "FooterItem",
   components: {
     ShareSheet,
   },

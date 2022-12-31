@@ -1,7 +1,7 @@
-import json from '@/assets/data/data.json';
+import json from "@/assets/data/data.json";
 
 export default {
-  name: 'ShareSheet',
+  name: "ShareSheet",
   data() {
     return {
       json: json.components.common.ShareSheet,
