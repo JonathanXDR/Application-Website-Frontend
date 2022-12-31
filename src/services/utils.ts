@@ -1,10 +1,10 @@
 export async function fetchData() {
   try {
-    const response = await fetch('src/assets/data/data.json');
+    const response = await fetch("src/assets/data/data.json");
     const json = await response.json();
     return json;
   } catch (error: unknown) {
-    console.error('Utils', new Error(error as string));
+    console.error("Utils", new Error(error as string));
     return {};
   }
 }
@@ -13,7 +13,6 @@ export function stringTemplateParser(
   expression: object,
   object: { [key: string]: any }
 ) {
-  console.log('expression', expression);
   const templateMatcher =
     /{{\s?([a-zA-Z0-9]*)(\[\d+\])?\s?([/+\-*]\s?\d+)?\s?}}/g;
   const description = JSON.stringify(expression).replace(
@@ -22,7 +21,7 @@ export function stringTemplateParser(
       const [key, index, operation] = args;
       let value = object[key];
       if (index) {
-        value = value[index.replace(/\[|\]/g, '')];
+        value = value[index.replace(/\[|\]/g, "")];
       }
       if (operation) {
         value = eval(`${value} ${operation}`);
