@@ -1,10 +1,10 @@
 import LogoIcon from '@/components/common/Icons/LogoIcon.vue';
-import useSectionStore from '@/stores/section';
+import useSectionStore from '@/stores/navbarSections';
+import useAnimationStore from '@/stores/headerAnimations';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'NavBar',
-  emits: ['updateAnimations'],
   components: {
     LogoIcon,
   },
@@ -26,6 +26,20 @@ export default defineComponent({
   computed: {
     currentSection(): number | null {
       return useSectionStore().currentSection;
+    },
+
+    headerAnimations(): {
+      element: HTMLElement;
+      class: string;
+      timeout: number;
+    }[] {
+      useAnimationStore().setHeaderAnimation({
+        element: this.$refs['ac-ln-background'] as HTMLElement,
+        class: 'ac-ln-background-transition' as string,
+        timeout: 500 as number,
+      });
+
+      return useAnimationStore().headerAnimations;
     },
   },
   created() {
@@ -83,11 +97,13 @@ export default defineComponent({
     },
 
     updateAnimations(): void {
-      const background = this.$refs['ac-ln-background'] as HTMLElement;
-      background.classList.remove('ac-ln-background-transition');
-      setTimeout(() => {
-        background.classList.add('ac-ln-background-transition');
-      }, 500);
+      this.headerAnimations.forEach((element) => {
+        element.element.classList.remove(element.class);
+
+        setTimeout(() => {
+          element.element.classList.add(element.class);
+        }, element.timeout);
+      });
     },
   },
 });

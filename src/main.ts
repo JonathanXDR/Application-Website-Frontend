@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
-import useSectionStore from './stores/section';
+import useSectionStore from '@/stores/navbarSections';
 
 import App from './App.vue';
 import router from './router';

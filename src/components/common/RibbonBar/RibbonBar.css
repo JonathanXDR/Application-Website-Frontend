@@ -67,42 +67,7 @@
   padding-bottom: 0.9411764706em;
 }
 
-/* ------------------------------- ribbon-link ------------------------------ */
-
-.ribbon-link a.link,
-.ribbon-link a.link path {
-  color: var(--ribbon-link-color);
-  fill: var(--ribbon-link-color);
-}
-
 /* -------------------- ribbon-content-wrapper-animation -------------------- */
-
-.ribbon-content-wrapper-animation {
-  background-color: var(--ribbon-background-color-initial);
-  animation: animate-background-0071e3-f5f5f7 1s ease-in-out 1.8s forwards;
-}
-
-/* ------------------------ ribbon-content-animation ------------------------ */
-
-.ribbon-content-animation {
-  color: var(--ribbon-text-color-initial);
-  animation: animate-color-white-1d1d1f 1s ease-in-out 1.8s forwards;
-}
-
-/* -------------------------- ribbon-link-animation ------------------------- */
-
-.ribbon-link-animation a.link,
-.ribbon-link-animation a.link path {
-  color: var(--ribbon-link-color-initial);
-  fill: var(--ribbon-link-color-initial);
-  animation: animate-color-white-0066cc 1s ease-in-out 1.8s forwards;
-}
-
-/* --------------------------- ribbon-drop-wrapper -------------------------- */
-
-.ribbon-drop-wrapper {
-  animation: ribbon-drop 0.8s ease-in-out forwards;
-}
 
 @keyframes animate-background-0071e3-f5f5f7 {
   0% {
@@ -113,6 +78,13 @@
   }
 }
 
+.ribbon-content-wrapper-animation {
+  background-color: var(--ribbon-background-color-initial);
+  animation: animate-background-0071e3-f5f5f7 1s ease-in-out 1.8s forwards;
+}
+
+/* ------------------------ ribbon-content-animation ------------------------ */
+
 @keyframes animate-color-white-1d1d1f {
   0% {
     color: var(--ribbon-text-color-initial);
@@ -122,16 +94,12 @@
   }
 }
 
-@keyframes animate-color-white-0066cc {
-  0% {
-    color: var(--ribbon-link-color-initial);
-    fill: var(--ribbon-link-color-initial);
-  }
-  to {
-    color: var(--ribbon-link-color);
-    fill: var(--ribbon-link-color);
-  }
+.ribbon-content-animation {
+  color: var(--ribbon-text-color-initial);
+  animation: animate-color-white-1d1d1f 1s ease-in-out 1.8s forwards;
 }
+
+/* --------------------------- ribbon-drop-wrapper -------------------------- */
 
 @keyframes ribbon-drop {
   0% {
@@ -142,29 +110,6 @@
   }
 }
 
-@keyframes animate-background-0071e3-1d1d1f {
-  0% {
-    background-color: var(--ribbon-background-color-initial);
-  }
-  to {
-    background-color: var(--ribbon-background-color);
-  }
-}
-
-@keyframes animate-color-white-f5f5f7 {
-  0% {
-    color: var(--ribbon-text-color-initial);
-  }
-  to {
-    color: var(--ribbon-text-color);
-  }
-}
-
-@keyframes animate-color-white-2997ff {
-  0% {
-    color: var(--ribbon-link-color-initial);
-  }
-  to {
-    color: var(--ribbon-link-color);
-  }
+.ribbon-drop-wrapper {
+  animation: ribbon-drop 0.8s ease-in-out forwards;
 }

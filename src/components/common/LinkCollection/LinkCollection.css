@@ -12,6 +12,34 @@
   margin: 0 !important;
 }
 
+/* ------------------------------- ribbon-link ------------------------------ */
+
+.ribbon-link a.link,
+.ribbon-link a.link path {
+  color: var(--ribbon-link-color);
+  fill: var(--ribbon-link-color);
+}
+
+/* -------------------------- ribbon-link-animation ------------------------- */
+
+@keyframes animate-color-white-0066cc {
+  0% {
+    color: var(--ribbon-link-color-initial);
+    fill: var(--ribbon-link-color-initial);
+  }
+  to {
+    color: var(--ribbon-link-color);
+    fill: var(--ribbon-link-color);
+  }
+}
+
+.ribbon-link-animation a.link,
+.ribbon-link-animation a.link path {
+  color: var(--ribbon-link-color-initial);
+  fill: var(--ribbon-link-color-initial);
+  animation: animate-color-white-0066cc 1s ease-in-out 1.8s forwards;
+}
+
 /* ---------------------------------- about --------------------------------- */
 
 #about .links p {
