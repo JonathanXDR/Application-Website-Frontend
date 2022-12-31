@@ -27,7 +27,7 @@ export default defineComponent({
         timeout: 1 as number,
       },
       {
-        element: this.$refs["ribbon-link"].$el as HTMLElement,
+        element: (this.$refs["ribbon-link"] as any).$el as HTMLElement,
         class: "ribbon-link-animation" as string,
         timeout: 1 as number,
       },
