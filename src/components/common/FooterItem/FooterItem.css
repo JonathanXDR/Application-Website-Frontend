@@ -1,0 +1,32 @@
+#copyright {
+  width: 90%;
+  margin: 100px auto 0 auto;
+  border-top: 1px solid #d2d2d7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+@media screen and (min-width: 900px) {
+  #copyright {
+    width: 82.5%;
+    flex-direction: row !important;
+  }
+}
+
+p,
+span {
+  font-size: 14px;
+}
+
+@media screen and (min-width: 900px) {
+  p,
+  span {
+    font-size: 17px;
+  }
+
+  .sharesheet-options {
+    margin: 0;
+  }
+}

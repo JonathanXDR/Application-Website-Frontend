@@ -1,0 +1,75 @@
+.links p:first-of-type {
+  margin-top: 0.8em;
+}
+
+.links p {
+  margin-top: 0.5em;
+}
+
+/* --------------------------------- ribbon --------------------------------- */
+
+.ribbon .links p {
+  margin: 0 !important;
+}
+
+/* ------------------------------- ribbon-link ------------------------------ */
+
+.ribbon-link a.link,
+.ribbon-link a.link path {
+  color: var(--ribbon-link-color);
+  fill: var(--ribbon-link-color);
+}
+
+/* -------------------------- ribbon-link-animation ------------------------- */
+
+@keyframes animate-color-white-0066cc {
+  0% {
+    color: var(--ribbon-link-color-initial);
+    fill: var(--ribbon-link-color-initial);
+  }
+  to {
+    color: var(--ribbon-link-color);
+    fill: var(--ribbon-link-color);
+  }
+}
+
+.ribbon-link-animation a.link,
+.ribbon-link-animation a.link path {
+  color: var(--ribbon-link-color-initial);
+  fill: var(--ribbon-link-color-initial);
+  animation: animate-color-white-0066cc 1s ease-in-out 1.8s forwards;
+}
+
+/* ---------------------------------- about --------------------------------- */
+
+#about .links p {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 1250px) {
+  #about .links p {
+    justify-content: flex-start !important;
+  }
+}
+
+/* ---------------------------------- icon ---------------------------------- */
+
+.link .link-icon {
+  height: 1.25em;
+  width: 1.25em;
+  /* margin-left: 0.3em; */
+}
+
+.svg-icon {
+  fill: var(--colors-svg-icon-fill-light, var(--color-svg-icon));
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  overflow: visible;
+}
+
+.svg-icon.icon-inline {
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+}
