@@ -1,7 +1,8 @@
-import LogoIcon from '@/components/common/Icons/LogoIcon.vue';
+import { defineComponent } from 'vue';
 import useSectionStore from '@/stores/navbarSections';
 import useAnimationStore from '@/stores/headerAnimations';
-import { defineComponent } from 'vue';
+
+import LogoIcon from '@/components/common/Icons/LogoIcon.vue';
 
 export default defineComponent({
   name: 'NavBar',

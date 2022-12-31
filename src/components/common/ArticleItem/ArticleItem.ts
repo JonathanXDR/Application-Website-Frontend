@@ -1,3 +1,5 @@
+import json from '@/assets/data/data.json';
+
 import AirplaneDepartureIcon from '@/components/common/Icons/AirplaneDepartureIcon.vue';
 import ArrowDownCircleIcon from '@/components/common/Icons/ArrowDownCircleIcon.vue';
 import CalendarIcon from '@/components/common/Icons/CalendarIcon.vue';
@@ -7,8 +9,6 @@ import GearIcon from '@/components/common/Icons/GearIcon.vue';
 import PersonCropSquareIcon from '@/components/common/Icons/PersonCropSquareIcon.vue';
 
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue';
-
-import json from '@/assets/data/data.json';
 
 export default {
   name: 'ArticleItem',

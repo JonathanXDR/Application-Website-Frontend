@@ -1,4 +1,6 @@
 import { defineComponent } from 'vue';
+import { stringTemplateParser } from '@/services/utils';
+import json from '@/assets/data/data.json';
 
 import AirplaneDepartureIcon from '@/components/common/Icons/AirplaneDepartureIcon.vue';
 import ArrowDownCircleIcon from '@/components/common/Icons/ArrowDownCircleIcon.vue';
@@ -14,10 +16,6 @@ import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue';
 import CardTile from '@/components/common/CardTile/CardTile.vue';
 import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue';
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue';
-
-import { stringTemplateParser } from '@/services/utils';
-
-import json from '@/assets/data/data.json';
 
 export default defineComponent({
   name: 'AboutSection',
