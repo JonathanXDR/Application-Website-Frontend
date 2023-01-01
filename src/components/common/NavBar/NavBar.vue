@@ -21,6 +21,7 @@
         <router-link to="/" class="ac-ln-title">
           <LogoIcon />
         </router-link>
+        <small ref="dev-badge" class="dev-badge" data-tag-name="Dev"></small>
         <div class="ac-ln-menu">
           <div class="ac-ln-menu-tray">
             <ul class="ac-ln-menu-items">
