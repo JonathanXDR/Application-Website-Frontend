@@ -15,4 +15,7 @@ export default {
     RibbonBar,
     FooterItem,
   },
+  metaInfo: {
+    titleTemplate: "%s | JR",
+  },
 };
