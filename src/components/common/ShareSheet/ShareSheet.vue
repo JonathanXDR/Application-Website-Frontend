@@ -6,7 +6,7 @@
       :key="index"
       v-animation
     >
-      <a :href="link.url" :title="link.title" target="_blank">
+      <a class="link" :href="link.url" :title="link.title" target="_blank">
         <font-awesome-icon :icon="`fa-${link.category} fa-${link.icon}`" />
       </a>
     </li>

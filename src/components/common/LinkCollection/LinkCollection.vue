@@ -1,7 +1,7 @@
 <template>
   <div class="links">
     <p v-for="(link, index) in links" :key="index">
-      <a :href="link.url" class="link" target="_blank">
+      <a :href="link.url" class="link link-icon" target="_blank">
         {{ link.title }}
         <component
           v-if="link.icon"
