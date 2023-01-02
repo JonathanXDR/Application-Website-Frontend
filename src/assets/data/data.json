@@ -44,7 +44,7 @@
       "about": {
         "eyebrow": "Hey ;)",
         "title": "I'm Jonathan",
-        "description": "Hallo mein Name ist Jonathan und ich bin {{ age[0] }} Jahre alt. Aktuell bin ich im {{ age[1] +1 }}. Lehrjahr als Informatiker - Applikationsentwicklung. Ich wohne in Egg bei Einsiedeln im Kanton Schwyz. Das Programmieren fasziniert mich sehr und ich finde es spannend, was man damit alles erreichen kann. In meiner Freizeit spiele ich gerne Computer -und Konsolenspiele und treffe mich oft mit Freunden. Ausserdem höre ich häufig Musik und produziere sie auch manchmal selbst.",
+        "description": "Hallo mein Name ist Jonathan und ich bin {age} Jahre alt. Aktuell bin ich im {trainingYear}. Lehrjahr als Informatiker - Applikationsentwicklung. Ich wohne in Egg bei Einsiedeln im Kanton Schwyz. Das Programmieren fasziniert mich sehr und ich finde es spannend, was man damit alles erreichen kann. In meiner Freizeit spiele ich gerne Computer -und Konsolenspiele und treffe mich oft mit Freunden. Ausserdem höre ich häufig Musik und produziere sie auch manchmal selbst.",
         "links": [
           {
             "title": "Zum Lebenslauf",
@@ -63,7 +63,6 @@
           }
         ]
       },
-
       "languages": [
         {
           "title": "Deutsch",
@@ -81,7 +80,6 @@
           "progress": "30"
         }
       ],
-
       "references": [
         {
           "title": "Steve Hess",
@@ -118,7 +116,7 @@
         {
           "title": "Technische Berufsschule Zürich",
           "date": "Donnerstag",
-          "description": "Ich gehe immer Donnerstags zur Berufsschule in Zürich. Füge diesen Termin gerne zu deinen Kalender hinzu.",
+          "description": "Ich gehe immer Donnerstags zur Berufsschule in Zürich.",
           "links": [
             {
               "title": "Mehr über TBZ",
@@ -131,7 +129,7 @@
         {
           "title": "Berufsmaturitätsschule Zürich",
           "date": "Freitag",
-          "description": "Am Freitag gehe ich jeweils zur Berufsmaturitätsschule in Zürich. Gerne kannst du diesen Termin zu deinem Kalender hinzufügen.",
+          "description": "Am Freitag gehe ich jeweils zur Berufsmaturitätsschule in Zürich.",
           "links": [
             {
               "title": "Mehr über BMZ",

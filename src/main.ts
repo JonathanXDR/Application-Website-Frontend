@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-import useSectionStore from "@/stores/navbarSections";
+import { createI18n } from "vue-i18n";
 
 import App from "./App.vue";
 import router from "./router";
@@ -14,15 +14,26 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import { MotionPlugin } from "@vueuse/motion";
 
-library.add(faEnvelope, faLinkedin, faGithub, faTwitter);
-
+// Ein Importpfad darf nicht mit einer Erweiterung ".ts" enden. Importieren Sie ggf. stattdessen "@/assets/lang/index.js"
+import { defaultLocale, fallbackLocale, languages } from "@/assets/lang/index";
+import useSectionStore from "@/stores/navbarSections";
 import "./assets/main.css";
 
 const app = createApp(App);
 
+const i18n = createI18n({
+  locale: defaultLocale,
+  fallbackLocale: fallbackLocale,
+  messages: languages,
+});
+
 app.use(createPinia());
+app.use(i18n);
 app.use(router);
 app.use(MotionPlugin);
+
+library.add(faEnvelope, faLinkedin, faGithub, faTwitter);
+
 app.component("font-awesome-icon", FontAwesomeIcon);
 
 app.directive("animation", (el) => {
@@ -59,4 +70,5 @@ app.directive("section", (el, binding) => {
   observer.observe(el);
 });
 
+export default i18n;
 app.mount("#app");

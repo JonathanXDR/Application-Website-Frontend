@@ -1,4 +1,3 @@
-import json from "@/assets/data/data.json";
 import LanguageBar from "@/components/common/LanguageBar/LanguageBar.vue";
 
 export default {
@@ -8,7 +7,7 @@ export default {
   },
   data() {
     return {
-      json: json.components.containers.languages,
+      // json: $i18n.locale === 'en' ? json.en : json.de,
     };
   },
 };

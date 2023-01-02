@@ -13,7 +13,7 @@
         <li>
           <input
             type="radio"
-            onclick="SwitchLang('DE')"
+            @click="changeLang('de')"
             name="language"
             id="german"
             class="hideRadio"
@@ -24,7 +24,7 @@
         <li>
           <input
             type="radio"
-            onclick="SwitchLang('EN')"
+            @click="changeLang('en')"
             name="language"
             id="english"
             class="hideRadio"
@@ -34,7 +34,7 @@
         <li>
           <input
             type="radio"
-            onclick="SwitchLang('FR')"
+            @click="changeLang('fr')"
             name="language"
             id="french"
             class="hideRadio"
@@ -44,8 +44,7 @@
         <li>
           <input
             type="radio"
-            onclick="SwitchLang('IT')"
-            name="language"
+            @click="changeLang('it')"
             id="italian"
             class="hideRadio"
           />
