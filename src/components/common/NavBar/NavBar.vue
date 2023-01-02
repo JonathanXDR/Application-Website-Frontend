@@ -22,7 +22,7 @@
           <router-link to="/" class="ac-ln-title">
             <LogoIcon />
           </router-link>
-          <small ref="dev-badge" class="dev-badge" data-tag-name="Dev"></small>
+          <small class="dev-badge" data-tag-name="Dev"></small>
         </div>
         <div class="ac-ln-menu">
           <div class="ac-ln-menu-tray">
@@ -34,7 +34,7 @@
               >
                 <router-link
                   :to="item.route"
-                  :class="{ current: index === currentSection }"
+                  :class="{ current: index === currentSectionIndex }"
                   class="ac-ln-menu-link"
                 >
                   {{ item.name }}

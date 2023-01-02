@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
+import { createMetaManager } from "vue-meta";
 import useSectionStore from "@/stores/navbarSections";
 
 import App from "./App.vue";
@@ -21,6 +22,7 @@ import "./assets/main.css";
 const app = createApp(App);
 
 app.use(createPinia());
+app.use(createMetaManager());
 app.use(router);
 app.use(MotionPlugin);
 app.component("font-awesome-icon", FontAwesomeIcon);
@@ -48,7 +50,7 @@ app.directive("section", (el, binding) => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          useSectionStore().setCurrentSection(binding.value);
+          useSectionStore().setCurrentSection(el.id, binding.value);
         }
       });
     },

@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   visibility: visible;
+  margin-top: 10px;
 }
 
 /* -------------------- social-option ------------------- */

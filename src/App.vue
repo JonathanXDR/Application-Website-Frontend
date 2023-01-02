@@ -1,4 +1,11 @@
 <template>
+  <head>
+    <metainfo>
+      <template v-slot:title="{ content }">{{
+        content ? `${content} | Jonathan Russ` : `Jonathan Russ`
+      }}</template>
+    </metainfo>
+  </head>
   <header>
     <NavBar />
     <RibbonBar />
