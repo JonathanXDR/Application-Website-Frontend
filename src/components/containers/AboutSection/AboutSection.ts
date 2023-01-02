@@ -1,7 +1,6 @@
 import { defineComponent } from "vue";
 import { stringTemplateParser } from "@/services/utils";
-import json from "@/assets/data/data.json";
-import { fetchData } from "@/services/utils";
+import json from "@/assets/lang/de.json";
 
 import AirplaneDepartureIcon from "@/components/common/Icons/AirplaneDepartureIcon.vue";
 import ArrowDownCircleIcon from "@/components/common/Icons/ArrowDownCircleIcon.vue";
@@ -37,7 +36,6 @@ export default defineComponent({
   },
   data() {
     return {
-      fetchData: fetchData("components.containers.about"),
       json: json.components.containers.about,
       age: [] as number[],
     };

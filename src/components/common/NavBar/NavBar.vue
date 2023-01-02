@@ -35,7 +35,7 @@
                   :class="{ current: index === currentSection }"
                   class="ac-ln-menu-link"
                 >
-                  {{ item.name }}
+                  {{ $t(item.name) }}
                 </router-link>
               </li>
             </ul>
@@ -48,7 +48,7 @@
             </div>
             <div class="theme-button">
               <input
-                @input="toggleTheme()"
+                @input="changeTheme()"
                 v-model="themeDark"
                 type="checkbox"
                 class="btn-input"

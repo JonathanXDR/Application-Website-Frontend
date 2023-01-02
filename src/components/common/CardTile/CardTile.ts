@@ -1,4 +1,4 @@
-import json from "@/assets/data/data.json";
+import json from "@/assets/lang/de.json";
 
 export default {
   name: "CardTile",

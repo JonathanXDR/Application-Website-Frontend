@@ -3,7 +3,7 @@
     <div class="tile-content">
       <div class="tile-header">
         <h4 class="tile-headline typography-connection-tile-headline">
-          {{ card.title }}
+          {{ $t(card.title) }}
         </h4>
       </div>
       <div class="tile-body">
@@ -21,7 +21,9 @@
               d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
               :stroke="`url(#color${card.title})`"
             ></path>
-            <text class="card-text" x="50%" y="61%">{{ card.progress }}%</text>
+            <text class="card-text" x="50%" y="61%">
+              {{ $t(card.progress) }}%
+            </text>
           </svg>
           <svg width="0" height="0">
             <defs>
@@ -65,9 +67,9 @@
         <h4 class="typography-connection-tile-headline">{{ card.title }}</h4>
 
         <p>
-          <strong> Erster Kontakt:</strong> {{ card.learned }}
+          <strong> Erster Kontakt:</strong> {{ $t(card.learned) }}
           <br />
-          <strong> Vertiefungen:</strong> {{ card.enhanced }}
+          <strong> Vertiefungen:</strong> {{ $t(card.enhanced) }}
         </p>
       </div>
     </div>

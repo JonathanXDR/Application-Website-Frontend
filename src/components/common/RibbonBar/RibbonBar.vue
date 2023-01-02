@@ -10,7 +10,7 @@
           class="ribbon-content row ribbon-content-animation"
         >
           <p>
-            {{ json.description }}&ensp;
+            {{ $t("components.common.RibbonBar.description") }}&ensp;
 
             <LinkCollection
               ref="ribbon-link"

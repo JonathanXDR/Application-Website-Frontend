@@ -1,6 +1,6 @@
 import { defineComponent } from "vue";
 import useAnimationStore from "@/stores/headerAnimations";
-import json from "@/assets/data/data.json";
+import json from "@/assets/lang/de.json";
 
 import LinkCollection from "@/components/common/LinkCollection/LinkCollection.vue";
 

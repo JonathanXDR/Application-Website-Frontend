@@ -17,7 +17,7 @@
             name="language"
             id="german"
             class="hideRadio"
-            checked
+            :checked="$i18n.locale === 'de'"
           />
           <label for="german" class="link">Deutsch</label>
         </li>
@@ -28,6 +28,7 @@
             name="language"
             id="english"
             class="hideRadio"
+            :checked="$i18n.locale === 'en'"
           />
           <label for="english" class="link">English</label>
         </li>
@@ -38,6 +39,7 @@
             name="language"
             id="french"
             class="hideRadio"
+            :checked="$i18n.locale === 'fr'"
           />
           <label for="french" class="link">Français</label>
         </li>
@@ -45,8 +47,10 @@
           <input
             type="radio"
             @click="changeLang('it')"
+            name="language"
             id="italian"
             class="hideRadio"
+            :checked="$i18n.locale === 'it'"
           />
           <label for="italian" class="link">Italiano</label>
         </li>

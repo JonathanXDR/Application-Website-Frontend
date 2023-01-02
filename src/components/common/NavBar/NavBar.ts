@@ -65,7 +65,7 @@ export default defineComponent({
     this.devConfig();
   },
   methods: {
-    toggleTheme() {
+    changeTheme() {
       this.themeDark = !this.themeDark;
       if (this.themeDark) {
         this.storeTheme("dark");
