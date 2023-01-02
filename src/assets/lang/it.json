@@ -1,0 +1,271 @@
+{
+  "components": {
+    "common": {
+      "RibbonBar": {
+        "description": "Cosa c'è di nuovo nella versione 2.0?",
+        "links": [
+          {
+            "title": "Scopri di più",
+            "url": "https://github.com/JonathanXDR/Application-Website/compare/v1.1.0...v2.0.0",
+            "icon": "ChevronRightIcon"
+          }
+        ]
+      },
+      "ShareSheet": {
+        "links": [
+          {
+            "title": "Mail",
+            "url": "mailto:jonathan.russ@bluewin.ch",
+            "category": "solid",
+            "icon": "envelope"
+          },
+          {
+            "title": "LinkedIn",
+            "url": "https://www.linkedin.com/in/jonathan-russ-b7442a228",
+            "category": "brands",
+            "icon": "linkedin"
+          },
+          {
+            "title": "GitHub",
+            "url": "https://github.com/JonathanXDR",
+            "category": "brands",
+            "icon": "github"
+          },
+          {
+            "title": "Twitter",
+            "url": "https://twitter.com/JonathanXD12_",
+            "category": "brands",
+            "icon": "twitter"
+          }
+        ]
+      }
+    },
+    "containers": {
+      "about": {
+        "eyebrow": "Ehi ;)",
+        "title": "Sono Jonathan",
+        "description": "Ciao, mi chiamo Jonathan e ho {age} anni. Attualmente sono nel {trainingYear}. anno di formazione come sviluppatore di applicazioni informatiche. Abito a Egg, vicino a Einsiedeln, nel cantone di Schwyz. Mi affascina molto la programmazione e mi piace scoprire cosa si può ottenere con essa. Nel tempo libero mi piace giocare a giochi per computer e console e incontrarmi spesso con gli amici. Inoltre, ascolto spesso musica e a volte la produco anche da solo.",
+        "links": [
+          {
+            "title": "Al curriculum vitae",
+            "url": "https://swisscom-my.sharepoint.com/:b:/p/jonathan_russ/EelSh9FRfBJNiobyuqxTQNABz_CxsEyZtYatiFTgozTDaQ?e=SpcSXI",
+            "icon": "ChevronRightIcon"
+          }
+        ],
+        "dates": [
+          {
+            "title": "Età",
+            "date": "2005-12-12"
+          },
+          {
+            "title": "Anno di formazione",
+            "date": "2021-08-01"
+          }
+        ]
+      },
+      "languages": [
+        {
+          "title": "Tedesco",
+          "description": "Lingua madre",
+          "progress": "100"
+        },
+        {
+          "title": "Inglese",
+          "description": "Fluente",
+          "progress": "60"
+        },
+        {
+          "title": "Francese",
+          "description": "Buono",
+          "progress": "30"
+        }
+      ],
+      "references": [
+        {
+          "title": "Steve Hess",
+          "description": "Tutor & Capo",
+          "links": [],
+          "icon": "PersonCropSquareIcon"
+        },
+        {
+          "title": "Nick Zimmermann",
+          "description": "Fornitore di progetti nel Competence Center NexCC",
+          "links": [
+            {
+              "title": "Scopri di più",
+              "url": "https://nickzimmermann.com/",
+              "icon": "ChevronRightIcon"
+            }
+          ],
+          "icon": "PersonCropSquareIcon"
+        },
+        {
+          "title": "Alessio Iantosca",
+          "description": "Fornitore di progetti in progetti di automazione nel settore bancario",
+          "links": [],
+          "icon": "PersonCropSquareIcon"
+        },
+        {
+          "title": "Carlo Schmid",
+          "description": "Fornitore di progetti nel team di app front-end",
+          "links": [],
+          "icon": "PersonCropSquareIcon"
+        }
+      ],
+      "other": [
+        {
+          "title": "Scuola professionale tecnica di Zurigo",
+          "date": "Giovedì",
+          "description": "Vado sempre alla scuola professionale di Zurigo il giovedì.",
+          "links": [
+            {
+              "title": "Maggiori informazioni su TBZ",
+              "url": "https://tbz.ch/",
+              "icon": "ChevronRightIcon"
+            }
+          ],
+          "icon": "CalendarIcon"
+        },
+        {
+          "title": "Scuola di maturità professionale di Zurigo",
+          "date": "Venerdì",
+          "description": "Il venerdì vado alla scuola di maturità professionale di Zurigo.",
+          "links": [
+            {
+              "title": "Maggiori informazioni su BMZ",
+              "url": "https://www.bms-zuerich.ch/",
+              "icon": "ChevronRightIcon"
+            }
+          ],
+          "icon": "CalendarIcon"
+        }
+      ],
+      "technologies": [
+        {
+          "title": "HTML",
+          "progress": 85,
+          "learned": "NexCC",
+          "enhanced": "M293",
+          "color1": "var(--color-dark-orange)",
+          "color2": "var(--color-dark-red)"
+        },
+        {
+          "title": "CSS",
+          "progress": 85,
+          "learned": "NexCC",
+          "enhanced": "M293",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "JavaScript",
+          "progress": 70,
+          "learned": "NexCC",
+          "enhanced": "Apps Team Frontend, ÜK294",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "SDX",
+          "progress": 70,
+          "learned": "NexCC",
+          "enhanced": "Apps Team Frontend",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "Node.js",
+          "progress": 60,
+          "learned": "NexCC",
+          "enhanced": "-",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "SQL",
+          "progress": 70,
+          "learned": "NexCC",
+          "enhanced": "ÜK106, M164",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "Vue.js",
+          "progress": 80,
+          "learned": "NexCC",
+          "enhanced": "Apps Team Frontend",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "TypeScript",
+          "progress": 75,
+          "learned": "NexCC",
+          "enhanced": "Apps Team Frontend, ÜK294",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "C#",
+          "progress": 25,
+          "learned": "Progetti di automazione nel settore bancario",
+          "enhanced": "-",
+          "color1": "var(--color-dark-pink)",
+          "color2": "var(--color-dark-purple)"
+        },
+        {
+          "title": "Java",
+          "progress": 10,
+          "learned": "M319",
+          "enhanced": "-",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "Bash",
+          "progress": 50,
+          "learned": "NexCC",
+          "enhanced": "M122",
+          "color1": "var(--color-dark-pink)",
+          "color2": "var(--color-dark-purple)"
+        },
+        {
+          "title": "React",
+          "progress": 55,
+          "learned": "ÜK294, Apps Team Frontend",
+          "enhanced": "-",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "Next.js",
+          "progress": 50,
+          "learned": "Apps Team Frontend",
+          "enhanced": "-",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        }
+      ],
+      "projects": [
+        {
+          "title": "Primi passi di NEX",
+          "date": "Agosto 2021",
+          "description": "Con i primi passi è iniziato il mio tirocinio. Lì ho imparato tutto ciò che riguarda Swisscom, ad esempio come usare gli strumenti diversi, come lavorare insieme correttamente e anche altre cose, come la sicurezza sul lavoro.",
+          "icon": "AirplaneDepartureIcon"
+        },
+        {
+          "title": "Competence Center NexCC",
+          "date": "Agosto 2021 - Gennaio 2022",
+          "description": "Nel NexCC ho avuto l'opportunità di creare questo sito Web e ho imparato molte nuove lingue di programmazione. Tra cui HTML, CSS e JavaScript. Successivamente, ho creato un'app CRUD che ho collegato a un database SQL. In seguito, ho aggiunto un front-end e creato un sistema di login autonomo. In particolare, ho imparato il back-end e le lingue di programmazione basate su framework come Node.js, Express.js o Vue.js.",
+          "icon": "ChevronLeftForwardslashChevronRightIcon"
+        },
+        {
+          "title": "Apps Team Frontend",
+          "date": "Agosto 2022 - Gennaio 2023",
+          "description": "Nel Apps Team ho avuto l'opportunità di creare una mia app Memory con Vue.js, TypeScript e SDX. Attualmente posso partecipare alla programmazione del nuovo sito Web del team di app. Lavoriamo lì anche con TypeScript e SDX, ma utilizziamo Next.js come framework.",
+          "icon": "ChevronLeftForwardslashChevronRightIcon"
+        }
+      ]
+    }
+  }
+}
