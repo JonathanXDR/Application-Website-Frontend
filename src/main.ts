@@ -16,9 +16,7 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import { MotionPlugin } from "@vueuse/motion";
 
-// Ein Importpfad darf nicht mit einer Erweiterung ".ts" enden. Importieren Sie ggf. stattdessen "@/assets/lang/index.js"
 import { defaultLocale, fallbackLocale, languages } from "@/assets/lang/index";
-import useSectionStore from "@/stores/navbarSections";
 import "./assets/main.css";
 
 const app = createApp(App);
@@ -30,6 +28,8 @@ const i18n = createI18n({
 });
 
 app.use(createPinia());
+app.use(createMetaManager());
+app.use(i18n);
 app.use(router);
 app.use(MotionPlugin);
 
