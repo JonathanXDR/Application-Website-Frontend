@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 export const useColorStore = defineStore({
   id: "colorBadge",
   state: () => ({
-    colorBadge: [
+    colorBadgeArray: [
       {
         colorName: "orange",
         colorVar: "var(--color-figure-orange)",
@@ -20,11 +20,22 @@ export const useColorStore = defineStore({
         colorHex: "a95ed2",
       },
     ],
+    colorBadge: null as {
+      colorName: string;
+      colorVar: string;
+      colorHex: string;
+    } | null,
   }),
   actions: {
     randomizeColor() {
-      const randomColor = Math.floor(Math.random() * this.colorBadge.length);
-      return this.colorBadge[randomColor];
+      const randomColor = Math.floor(
+        Math.random() * this.colorBadgeArray.length
+      );
+
+      if (this.colorBadge === null) {
+        this.colorBadge = this.colorBadgeArray[randomColor];
+      }
+      return this.colorBadge;
     },
   },
 });

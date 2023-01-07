@@ -22,7 +22,11 @@
           <router-link to="/" class="ac-ln-title">
             <LogoIcon />
           </router-link>
-          <small class="dev-badge" data-tag-name="Dev"></small>
+          <small
+            :style="{ color: colorBadge.colorVar }"
+            class="dev-badge"
+            data-tag-name="Dev"
+          ></small>
         </div>
         <div class="ac-ln-menu">
           <div class="ac-ln-menu-tray">
