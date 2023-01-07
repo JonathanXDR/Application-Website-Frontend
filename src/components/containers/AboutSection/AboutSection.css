@@ -19,7 +19,6 @@
 }
 
 .sharesheet-options {
-  margin-top: 10px;
   justify-content: center;
 }
 
@@ -62,6 +61,10 @@
 
   .info-container div {
     padding: 0;
+  }
+
+  .sharesheet-options {
+    justify-content: flex-start;
   }
 
   .links p {

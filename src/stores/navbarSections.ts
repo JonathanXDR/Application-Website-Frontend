@@ -3,11 +3,16 @@ import { defineStore } from "pinia";
 export const useSectionStore = defineStore({
   id: "navbarSections",
   state: () => ({
-    currentSection: null as number | null,
+    currentSectionName: null as string | null,
+    currentSectionIndex: null as number | null,
   }),
   actions: {
-    setCurrentSection(section: number) {
-      this.currentSection = section;
+    setCurrentSection(sectionName: string, sectionIndex: number) {
+      const modifiedSectionName = sectionName.replace(/^\w/, (c) =>
+        c.toUpperCase()
+      );
+      this.currentSectionName = modifiedSectionName;
+      this.currentSectionIndex = sectionIndex;
     },
   },
 });
