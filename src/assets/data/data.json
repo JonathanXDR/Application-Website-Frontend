@@ -324,13 +324,13 @@
         {
           "title": "Apps Team Frontend",
           "date": "August 2022 - Februar 2023",
-          "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Aktuell darf ich beim programmieren der neuen Apps Team Webseite mithelfen. Wir arbeiten dort ebenfalls mit TypeScript und SDX, verwenden aber Next.js als Framework.",
+          "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
           "icon": "ChevronLeftForwardslashChevronRightIcon"
         },
         {
           "title": "Apps Team Backend",
           "date": "Februar 2023 - August 2023",
-          "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Die Arbeit mit Nest.js und TypeScript war dort eine super Lernerfahrung für mich. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Danach habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt, was ebenfalls neu für mich war. Nachdem ich meine CRUD-App erstellt habe, durfte ich dann beim Tool für die Medienkurse mithelfen und konnte dort einige Features hinzufügen, sowie auch Fehler beheben. Momentan darf ich beim neuen Fleet Management Tool mitarbeiten und ich bin gespannt was mich dort noch alles in Zukunft erwartet!",
+          "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Die Arbeit mit Nest.js und TypeScript war dort eine super Lernerfahrung für mich. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt, was ebenfalls neu für mich war. Nachdem ich meine CRUD-App erstellt habe, durfte ich dann beim Tool für die Medienkurse mithelfen und konnte dort einige Features hinzufügen, sowie auch Fehler beheben. Momentan darf ich beim neuen Fleet Management Tool mitarbeiten und ich bin gespannt was mich dort noch alles in Zukunft erwartet!",
           "icon": "ChevronLeftForwardslashChevronRightIcon"
         }
       ]
