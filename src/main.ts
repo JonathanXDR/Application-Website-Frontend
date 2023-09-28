@@ -1,11 +1,7 @@
 import useSectionStore from "@/stores/navbarSections";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faGithub,
-  faLinkedinIn,
-  faXTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { MotionPlugin } from "@vueuse/motion";
 import { createPinia } from "pinia";
@@ -15,7 +11,7 @@ import App from "./App.vue";
 import "./assets/main.css";
 import router from "./router";
 
-library.add(faEnvelope, faLinkedinIn, faGithub, faXTwitter);
+library.add(fas, fab);
 
 const app = createApp(App);
 
