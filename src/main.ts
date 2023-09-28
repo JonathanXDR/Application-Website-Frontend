@@ -2,8 +2,8 @@ import useSectionStore from "@/stores/navbarSections";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faGithub,
-  faLinkedin,
-  faTwitter,
+  faLinkedinIn,
+  faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -15,7 +15,7 @@ import App from "./App.vue";
 import "./assets/main.css";
 import router from "./router";
 
-library.add(faEnvelope, faLinkedin, faGithub, faTwitter);
+library.add(faEnvelope, faLinkedinIn, faGithub, faXTwitter);
 
 const app = createApp(App);
 
@@ -38,7 +38,7 @@ app.directive("animation", (el) => {
     {
       threshold: 1,
       rootMargin: "-52px 0px 0px 0px",
-    }
+    },
   );
   observer.observe(el);
 });
@@ -54,7 +54,7 @@ app.directive("section", (el, binding) => {
     },
     {
       rootMargin: "-52px 0px -94% 0px",
-    }
+    },
   );
   observer.observe(el);
 });
