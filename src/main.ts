@@ -29,8 +29,6 @@ app.use(i18n);
 app.use(router);
 app.use(MotionPlugin);
 
-library.add(faEnvelope, faLinkedin, faGithub, faTwitter);
-
 app.component("font-awesome-icon", FontAwesomeIcon);
 
 app.directive("animation", (el) => {
