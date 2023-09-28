@@ -23,7 +23,7 @@
             "title": "LinkedIn",
             "url": "https://www.linkedin.com/in/jonathan-russ-b7442a228",
             "category": "brands",
-            "icon": "linkedin"
+            "icon": "linkedin-in"
           },
           {
             "title": "GitHub",
@@ -35,7 +35,7 @@
             "title": "Twitter",
             "url": "https://twitter.com/JonathanXD12_",
             "category": "brands",
-            "icon": "twitter"
+            "icon": "x-twitter"
           }
         ]
       }
@@ -45,13 +45,7 @@
         "eyebrow": "Hey ;)",
         "title": "I'm Jonathan",
         "description": "Hallo mein Name ist Jonathan und ich bin {{ age[0] }} Jahre alt. Aktuell bin ich im {{ age[1] +1 }}. Lehrjahr als Informatiker - Applikationsentwicklung. Ich wohne in Egg bei Einsiedeln im Kanton Schwyz. Das Programmieren fasziniert mich sehr und ich finde es spannend, was man damit alles erreichen kann. In meiner Freizeit spiele ich gerne Computer -und Konsolenspiele und treffe mich oft mit Freunden. Ausserdem höre ich häufig Musik und produziere sie auch manchmal selbst.",
-        "links": [
-          {
-            "title": "Zum Lebenslauf",
-            "url": "https://swisscom-my.sharepoint.com/:b:/p/jonathan_russ/EelSh9FRfBJNiobyuqxTQNABz_CxsEyZtYatiFTgozTDaQ?e=SpcSXI",
-            "icon": "ChevronRightIcon"
-          }
-        ],
+        "links": [],
         "dates": [
           {
             "title": "Age",
@@ -63,7 +57,6 @@
           }
         ]
       },
-
       "languages": [
         {
           "title": "Deutsch",
@@ -81,7 +74,6 @@
           "progress": "30"
         }
       ],
-
       "references": [
         {
           "title": "Steve Hess",
@@ -110,6 +102,12 @@
         {
           "title": "Carlo Schmid",
           "description": "Projektanbieter im Apps Team Frontend",
+          "links": [],
+          "icon": "PersonCropSquareIcon"
+        },
+        {
+          "title": "Kim Eggler",
+          "description": "Projektanbieter im Apps Team Backend",
           "links": [],
           "icon": "PersonCropSquareIcon"
         }
@@ -192,6 +190,14 @@
           "color2": "var(--color-dark-indigo)"
         },
         {
+          "title": "Express.js",
+          "progress": 70,
+          "learned": "NexCC",
+          "enhanced": "ÜK295",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
           "title": "Vue.js",
           "progress": 80,
           "learned": "NexCC",
@@ -233,7 +239,7 @@
         },
         {
           "title": "React",
-          "progress": 55,
+          "progress": 60,
           "learned": "ÜK294, Apps Team Frontend",
           "enhanced": "-",
           "color1": "var(--color-dark-cyan)",
@@ -246,6 +252,46 @@
           "enhanced": "-",
           "color1": "var(--color-dark-yellow)",
           "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "Docker",
+          "progress": 50,
+          "learned": "ÜK210",
+          "enhanced": "M347",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "Kubernetes",
+          "progress": 50,
+          "learned": "ÜK210",
+          "enhanced": "M347",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "Nest.js",
+          "progress": 70,
+          "learned": "Apps Team Backend",
+          "enhanced": "-",
+          "color1": "var(--color-dark-orange)",
+          "color2": "var(--color-dark-red)"
+        },
+        {
+          "title": "Prisma",
+          "progress": 60,
+          "learned": "Apps Team Backend",
+          "enhanced": "-",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "TypeORM",
+          "progress": 60,
+          "learned": "Apps Team Backend",
+          "enhanced": "-",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
         }
       ],
       "projects": [
@@ -269,8 +315,14 @@
         },
         {
           "title": "Apps Team Frontend",
-          "date": "August 2022 - Januar 2023",
-          "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Aktuell darf ich beim programmieren der neuen Apps Team Webseite mithelfen. Wir arbeiten dort ebenfalls mit TypeScript und SDX, verwenden aber Next.js als Framework.",
+          "date": "August 2022 - Februar 2023",
+          "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
+          "icon": "ChevronLeftForwardslashChevronRightIcon"
+        },
+        {
+          "title": "Apps Team Backend",
+          "date": "Februar 2023 - August 2023",
+          "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Die Arbeit mit Nest.js und TypeScript war dort eine super Lernerfahrung für mich. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt, was ebenfalls neu für mich war. Nachdem ich meine CRUD-App erstellt habe, durfte ich dann beim Tool für die Medienkurse mithelfen und konnte dort einige Features hinzufügen, sowie auch Fehler beheben. Momentan darf ich beim neuen Fleet Management Tool mitarbeiten und ich bin gespannt was mich dort noch alles in Zukunft erwartet!",
           "icon": "ChevronLeftForwardslashChevronRightIcon"
         }
       ]

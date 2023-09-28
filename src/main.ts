@@ -1,23 +1,21 @@
-import { createApp } from "vue";
-import { createPinia } from "pinia";
-import { createMetaManager } from "vue-meta";
 import useSectionStore from "@/stores/navbarSections";
-
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faGithub,
+  faLinkedinIn,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { MotionPlugin } from "@vueuse/motion";
+import { createPinia } from "pinia";
+import { createApp } from "vue";
+import { createMetaManager } from "vue-meta";
 import App from "./App.vue";
+import "./assets/main.css";
 import router from "./router";
 
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-
-import { MotionPlugin } from "@vueuse/motion";
-
-library.add(faEnvelope, faLinkedin, faGithub, faTwitter);
-
-import "./assets/main.css";
+library.add(faEnvelope, faLinkedinIn, faGithub, faXTwitter);
 
 const app = createApp(App);
 
@@ -40,7 +38,7 @@ app.directive("animation", (el) => {
     {
       threshold: 1,
       rootMargin: "-52px 0px 0px 0px",
-    }
+    },
   );
   observer.observe(el);
 });
@@ -56,7 +54,7 @@ app.directive("section", (el, binding) => {
     },
     {
       rootMargin: "-52px 0px -94% 0px",
-    }
+    },
   );
   observer.observe(el);
 });

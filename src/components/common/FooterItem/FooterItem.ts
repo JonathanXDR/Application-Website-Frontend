@@ -1,6 +1,5 @@
-import { defineComponent } from "vue";
 import json from "@/assets/data/data.json";
-
+import { defineComponent } from "vue";
 import ShareSheet from "../ShareSheet/ShareSheet.vue";
 
 export default defineComponent({

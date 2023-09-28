@@ -1,11 +1,10 @@
-import { defineComponent } from "vue";
-
 import AboutSection from "@/components/containers/AboutSection/AboutSection.vue";
 import LanguagesSection from "@/components/containers/LanguagesSection/LanguagesSection.vue";
-import ReferencesSection from "@/components/containers/ReferencesSection/ReferencesSection.vue";
 import OtherSection from "@/components/containers/OtherSection/OtherSection.vue";
-import TechnologiesSection from "@/components/containers/TechnologiesSection/TechnologiesSection.vue";
 import ProjectsSection from "@/components/containers/ProjectsSection/ProjectsSection.vue";
+import ReferencesSection from "@/components/containers/ReferencesSection/ReferencesSection.vue";
+import TechnologiesSection from "@/components/containers/TechnologiesSection/TechnologiesSection.vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "HomeView",
