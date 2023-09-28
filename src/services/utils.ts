@@ -16,7 +16,7 @@ export async function fetchData() {
 
 export function stringTemplateParser(
   expression: object,
-  object: { [key: string]: any }
+  object: { [key: string]: any },
 ) {
   const templateMatcher =
     /{{\s?([a-zA-Z0-9]*)(\[\d+\])?\s?([/+\-*]\s?\d+)?\s?}}/g;
@@ -32,7 +32,7 @@ export function stringTemplateParser(
         value = eval(`${value} ${operation}`);
       }
       return value;
-    }
+    },
   );
   return JSON.parse(description);
 }
