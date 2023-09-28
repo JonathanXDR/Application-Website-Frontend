@@ -1,6 +1,4 @@
-import { createApp } from "vue";
-import { createPinia } from "pinia";
-import { createMetaManager } from "vue-meta";
+import { defaultLocale, fallbackLocale, languages } from "@/assets/lang/index";
 import useSectionStore from "@/stores/navbarSections";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -9,9 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { MotionPlugin } from "@vueuse/motion";
 import { createPinia } from "pinia";
 import { createApp } from "vue";
+import { createI18n } from "vue-i18n";
 import { createMetaManager } from "vue-meta";
 import App from "./App.vue";
-import { defaultLocale, fallbackLocale, languages } from "@/assets/lang/index";
 import "./assets/main.css";
 import router from "./router";
 
