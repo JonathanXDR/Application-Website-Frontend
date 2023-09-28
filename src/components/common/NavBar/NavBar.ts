@@ -1,9 +1,8 @@
-import { defineComponent } from "vue";
-import useSectionStore from "@/stores/navbarSections";
-import useAnimationStore from "@/stores/headerAnimations";
-import useColorStore from "@/stores/colorBadge";
-
 import LogoIcon from "@/components/common/Icons/LogoIcon.vue";
+import useColorStore from "@/stores/colorBadge";
+import useAnimationStore from "@/stores/headerAnimations";
+import useSectionStore from "@/stores/navbarSections";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "NavBar",
