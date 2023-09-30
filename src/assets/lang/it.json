@@ -44,7 +44,7 @@
       "about": {
         "eyebrow": "Ehi ;)",
         "title": "Sono Jonathan",
-        "description": "Ciao, mi chiamo Jonathan e ho {age} anni. Attualmente sono nel {trainingYear}. anno di formazione come sviluppatore di applicazioni informatiche. Abito a Egg, vicino a Einsiedeln, nel cantone di Schwyz. Mi affascina molto la programmazione e mi piace scoprire cosa si può ottenere con essa. Nel tempo libero mi piace giocare a giochi per computer e console e incontrarmi spesso con gli amici. Inoltre, ascolto spesso musica e a volte la produco anche da solo.",
+        "description": "Ciao, mi chiamo Jonathan e ho {{ age[0] }} anni. Attualmente sono nel {{ age[1] +1 }}. anno di formazione come sviluppatore di applicazioni informatiche. Abito a Egg, vicino a Einsiedeln, nel cantone di Schwyz. Mi affascina molto la programmazione e mi piace scoprire cosa si può ottenere con essa. Nel tempo libero mi piace giocare a giochi per computer e console e incontrarmi spesso con gli amici. Inoltre, ascolto spesso musica e a volte la produco anche da solo.",
         "links": [],
         "dates": [
           {
