@@ -4,7 +4,7 @@
     :key="section.id"
     :id="section.id"
     :class="section.class"
-    v-section="index"
+    v-section="(section.id, index)"
   >
     <component :is="`${section.id}Section`" />
   </section>

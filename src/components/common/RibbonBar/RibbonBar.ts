@@ -1,8 +1,7 @@
-import { defineComponent } from "vue";
-import useAnimationStore from "@/stores/headerAnimations";
 import json from "@/assets/data/data.json";
-
 import LinkCollection from "@/components/common/LinkCollection/LinkCollection.vue";
+import useAnimationStore from "@/stores/headerAnimations";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "RibbonBar",

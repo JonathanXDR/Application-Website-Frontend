@@ -23,7 +23,7 @@
             "title": "LinkedIn",
             "url": "https://www.linkedin.com/in/jonathan-russ-b7442a228",
             "category": "brands",
-            "icon": "linkedin"
+            "icon": "linkedin-in"
           },
           {
             "title": "GitHub",
@@ -35,7 +35,7 @@
             "title": "Twitter",
             "url": "https://twitter.com/JonathanXD12_",
             "category": "brands",
-            "icon": "twitter"
+            "icon": "x-twitter"
           }
         ]
       }

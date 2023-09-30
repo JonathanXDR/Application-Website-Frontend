@@ -1,26 +1,22 @@
-import { createApp } from "vue";
-import { createPinia } from "pinia";
 import useSectionStore from "@/stores/navbarSections";
-
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { MotionPlugin } from "@vueuse/motion";
+import { createPinia } from "pinia";
+import { createApp } from "vue";
+import { createMetaManager } from "vue-meta";
 import App from "./App.vue";
+import "./assets/main.css";
 import router from "./router";
 
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-
-import { MotionPlugin } from "@vueuse/motion";
-
-library.add(faEnvelope, faLinkedin, faGithub, faTwitter);
-
-import "./assets/main.css";
+library.add(fas, fab);
 
 const app = createApp(App);
 
 app.use(createPinia());
+app.use(createMetaManager());
 app.use(router);
 app.use(MotionPlugin);
 app.component("font-awesome-icon", FontAwesomeIcon);
@@ -38,7 +34,7 @@ app.directive("animation", (el) => {
     {
       threshold: 1,
       rootMargin: "-52px 0px 0px 0px",
-    }
+    },
   );
   observer.observe(el);
 });
@@ -48,13 +44,13 @@ app.directive("section", (el, binding) => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          useSectionStore().setCurrentSection(binding.value);
+          useSectionStore().setCurrentSection(el.id, binding.value);
         }
       });
     },
     {
       rootMargin: "-52px 0px -94% 0px",
-    }
+    },
   );
   observer.observe(el);
 });

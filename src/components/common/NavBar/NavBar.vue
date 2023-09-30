@@ -13,25 +13,26 @@
     :class="{ 'nav-open': navOpen }"
   >
     <div class="ac-ln-wrapper">
-      <div
-        ref="ac-ln-background"
-        class="ac-ln-background ac-ln-background-transition"
-      ></div>
+      <div ref="ac-ln-background" class="ac-ln-background ac-ln-background-transition"></div>
       <div class="ac-ln-content">
-        <router-link to="/" class="ac-ln-title">
-          <LogoIcon />
-        </router-link>
+        <div class="ac-ln-title">
+          <router-link to="/" class="ac-ln-title">
+            <LogoIcon />
+          </router-link>
+          <small
+            v-if="nodeEnv === 'development'"
+            :style="{ color: colorBadge.colorVar }"
+            class="dev-badge"
+            data-tag-name="Dev"
+          ></small>
+        </div>
         <div class="ac-ln-menu">
           <div class="ac-ln-menu-tray">
             <ul class="ac-ln-menu-items">
-              <li
-                v-for="(item, index) in items"
-                :key="index"
-                class="ac-ln-menu-item"
-              >
+              <li v-for="(item, index) in items" :key="index" class="ac-ln-menu-item">
                 <router-link
                   :to="item.route"
-                  :class="{ current: index === currentSection }"
+                  :class="{ current: index === currentSectionIndex }"
                   class="ac-ln-menu-link"
                 >
                   {{ item.name }}
@@ -46,12 +47,7 @@
               </label>
             </div>
             <div class="theme-button">
-              <input
-                @input="toggleTheme()"
-                v-model="themeDark"
-                type="checkbox"
-                class="btn-input"
-              />
+              <input @input="toggleTheme()" v-model="themeDark" type="checkbox" class="btn-input" />
               <span></span>
             </div>
           </div>

@@ -63,6 +63,10 @@
     padding: 0;
   }
 
+  .sharesheet-options {
+    justify-content: flex-start;
+  }
+
   .links p {
     justify-content: flex-start !important;
   }

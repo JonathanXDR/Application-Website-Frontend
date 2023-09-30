@@ -1,4 +1,5 @@
 <template>
+  <metainfo />
   <header>
     <NavBar />
     <!-- <RibbonBar /> -->

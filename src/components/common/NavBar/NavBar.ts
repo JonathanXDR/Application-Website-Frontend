@@ -1,8 +1,8 @@
-import { defineComponent } from "vue";
-import useSectionStore from "@/stores/navbarSections";
-import useAnimationStore from "@/stores/headerAnimations";
-
 import LogoIcon from "@/components/common/Icons/LogoIcon.vue";
+import useColorStore from "@/stores/colorBadge";
+import useAnimationStore from "@/stores/headerAnimations";
+import useSectionStore from "@/stores/navbarSections";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "NavBar",
@@ -25,10 +25,19 @@ export default defineComponent({
     };
   },
   computed: {
-    currentSection(): number | null {
-      return useSectionStore().currentSection;
+    nodeEnv(): string | undefined {
+      return process.env.NODE_ENV
     },
-
+    currentSectionIndex(): number | null {
+      return useSectionStore().currentSectionIndex;
+    },
+    colorBadge(): {
+      colorName: string;
+      colorVar: string;
+      colorHex: string;
+    } {
+      return useColorStore().randomizeColor();
+    },
     headerAnimations(): {
       element: HTMLElement;
       class: string;
