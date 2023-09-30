@@ -34,7 +34,6 @@ export default defineComponent({
     },
   },
   created() {
-    console.log(this.colorBadge);
     useMeta({
       htmlAttrs: { lang: "de", amp: true },
       title: this.currentSectionName
