@@ -25,6 +25,9 @@ export default defineComponent({
     };
   },
   computed: {
+    nodeEnv(): string | undefined {
+      return process.env.NODE_ENV
+    },
     currentSectionIndex(): number | null {
       return useSectionStore().currentSectionIndex;
     },
