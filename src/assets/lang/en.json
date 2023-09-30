@@ -23,7 +23,7 @@
             "title": "LinkedIn",
             "url": "https://www.linkedin.com/in/jonathan-russ-b7442a228",
             "category": "brands",
-            "icon": "linkedin"
+            "icon": "linkedin-in"
           },
           {
             "title": "GitHub",
@@ -35,7 +35,7 @@
             "title": "Twitter",
             "url": "https://twitter.com/JonathanXD12_",
             "category": "brands",
-            "icon": "twitter"
+            "icon": "x-twitter"
           }
         ]
       }
@@ -45,13 +45,7 @@
         "eyebrow": "Hey ;)",
         "title": "I'm Jonathan",
         "description": "Hello, my name is Jonathan and I am {age} years old. Currently, I am in my {trainingYear}. year of training as an informatics - application development. I live in Egg near Einsiedeln in the canton of Schwyz. I am very fascinated by programming and find it exciting what can be achieved with it. In my free time I like to play computer and console games and often meet up with friends. I also listen to music often and sometimes produce it myself.",
-        "links": [
-          {
-            "title": "To the resume",
-            "url": "https://swisscom-my.sharepoint.com/:b:/p/jonathan_russ/EelSh9FRfBJNiobyuqxTQNABz_CxsEyZtYatiFTgozTDaQ?e=SpcSXI",
-            "icon": "ChevronRightIcon"
-          }
-        ],
+        "links": [],
         "dates": [
           {
             "title": "Age",
@@ -108,6 +102,12 @@
         {
           "title": "Carlo Schmid",
           "description": "Project provider in Apps Team Frontend",
+          "links": [],
+          "icon": "PersonCropSquareIcon"
+        },
+        {
+          "title": "Kim Eggler",
+          "description": "Project provider in Apps Team Backend",
           "links": [],
           "icon": "PersonCropSquareIcon"
         }
@@ -190,6 +190,14 @@
           "color2": "var(--color-dark-indigo)"
         },
         {
+          "title": "Express.js",
+          "progress": 70,
+          "learned": "NexCC",
+          "enhanced": "ÜK295",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
           "title": "Vue.js",
           "progress": 80,
           "learned": "NexCC",
@@ -231,7 +239,7 @@
         },
         {
           "title": "React",
-          "progress": 55,
+          "progress": 60,
           "learned": "ÜK294, Apps Team Frontend",
           "enhanced": "-",
           "color1": "var(--color-dark-cyan)",
@@ -244,6 +252,46 @@
           "enhanced": "-",
           "color1": "var(--color-dark-yellow)",
           "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "Docker",
+          "progress": 50,
+          "learned": "ÜK210",
+          "enhanced": "M347",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "Kubernetes",
+          "progress": 50,
+          "learned": "ÜK210",
+          "enhanced": "M347",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "Nest.js",
+          "progress": 70,
+          "learned": "Apps Team Backend",
+          "enhanced": "-",
+          "color1": "var(--color-dark-orange)",
+          "color2": "var(--color-dark-red)"
+        },
+        {
+          "title": "Prisma",
+          "progress": 60,
+          "learned": "Apps Team Backend",
+          "enhanced": "-",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "TypeORM",
+          "progress": 60,
+          "learned": "Apps Team Backend",
+          "enhanced": "-",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
         }
       ],
       "projects": [
@@ -269,6 +317,18 @@
           "title": "Apps Team Frontend",
           "date": "August 2022 - January 2023",
           "description": "In the Apps Team, I was initially allowed to create my own Memory App with Vue.js, TypeScript and SDX. Currently, I am helping to program the new Apps Team website. We are also working with TypeScript and SDX there, but use Next.js as a framework.",
+          "icon": "ChevronLeftForwardslashChevronRightIcon"
+        },
+        {
+          "title": "Apps Team Backend",
+          "date": "February 2023 - August 2023",
+          "description": "After already working in the Apps team as a frontend developer, I now wanted to get to know the backend better. First, I was allowed to create my own CRUD app. I was able to learn a lot of new things about Nest.js and the two ORMs Prisma and TypeORM and gained valuable experience. Later, I also created a frontend for my CRUD app using GitHub Primer. After creating my CRUD app, I was then allowed to help out with the media courses tool and was able to add some features and fix bugs there. Finally, I also got to help out with the Fleet Management Tool and the New Web Frontends, which I really enjoyed :)",
+          "icon": "ChevronLeftForwardslashChevronRightIcon"
+        },
+        {
+          "title": "Security Journey - Development Stream",
+          "date": "September 2023 - August 2024",
+          "description": "In this project, I started with some trainings on Cloud & Security, which was quite educational for me. After that, I was already allowed to work on my current project, a tool that records database activities (Database Activity Monitoring). There I use Python, Docker and Kubernetes, whereas Python is new for me.",
           "icon": "ChevronLeftForwardslashChevronRightIcon"
         }
       ]
