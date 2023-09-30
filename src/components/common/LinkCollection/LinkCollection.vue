@@ -2,7 +2,7 @@
   <div class="links">
     <p v-for="(link, index) in links" :key="index">
       <a :href="link.url" class="link link-icon" target="_blank">
-        {{ $t("link.title") }}
+        {{ $t(link.title) }}
         <component
           v-if="link.icon"
           :is="link.icon"

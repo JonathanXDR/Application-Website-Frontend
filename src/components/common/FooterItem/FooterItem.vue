@@ -3,10 +3,6 @@
     <section id="copyright">
       <p>© {{ currentYear }} Jonathan Russ. All rights reserved.</p>
     </section>
-    <section id="social-share-container">
-      <ShareSheet />
-    </section>
-
     <section class="lang-switcher-container">
       <span class="language-switcher-text">Wähle deine Sprache:</span>
       <ul class="locale-lang language-picker-wrapper">

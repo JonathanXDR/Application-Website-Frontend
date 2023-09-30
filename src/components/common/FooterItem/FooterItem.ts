@@ -25,8 +25,6 @@ export default defineComponent({
     changeLang(lang: string) {
       this.$i18n.locale = ["de", "en", "fr", "it"].includes(lang) ? lang : "de";
       localStorage.setItem("language", this.$i18n.locale);
-
-      // fetch data again with new language in every component
     },
   },
 });
