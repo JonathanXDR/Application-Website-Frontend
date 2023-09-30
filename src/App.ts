@@ -22,6 +22,9 @@ export default defineComponent({
     return {};
   },
   computed: {
+    nodeEnv(): string | undefined {
+      return process.env.NODE_ENV
+    },
     currentSectionName(): string | null {
       return useSectionStore().currentSectionName;
     },
