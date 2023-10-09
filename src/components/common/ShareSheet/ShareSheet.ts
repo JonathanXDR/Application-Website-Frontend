@@ -1,10 +1,26 @@
-import json from "@/assets/lang/de.json";
+import { fetchData } from '@/services/utils'
 
 export default {
-  name: "ShareSheet",
+  name: 'ShareSheet',
   data() {
     return {
-      json: json.components.common.ShareSheet,
-    };
+      json: null
+    }
   },
-};
+  watch: {
+    '$i18n.locale': 'fetchLocalizedData'
+  },
+  methods: {
+    async fetchLocalizedData() {
+      try {
+        const data = await fetchData()
+        this.json = data.components.common.ShareSheet
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    }
+  },
+  created() {
+    this.fetchLocalizedData()
+  }
+}

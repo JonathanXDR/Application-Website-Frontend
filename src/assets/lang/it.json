@@ -37,6 +37,10 @@
           }
         ]
       },
+      "CardTile": {
+        "firstEncounter": "Primo incontro",
+        "enhanced": "Esteso"
+      },
       "ShareSheet": {
         "links": [
           {

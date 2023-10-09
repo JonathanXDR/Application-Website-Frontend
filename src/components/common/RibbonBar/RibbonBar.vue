@@ -5,14 +5,12 @@
         ref="ribbon-content-wrapper"
         class="ribbon-content-wrapper ribbon-content-wrapper-animation"
       >
-        <div
-          ref="ribbon-content"
-          class="ribbon-content row ribbon-content-animation"
-        >
+        <div ref="ribbon-content" class="ribbon-content row ribbon-content-animation">
           <p>
-            {{ $t("components.common.RibbonBar.description") }}&ensp;
+            {{ $t('components.common.RibbonBar.description') }}&ensp;
 
             <LinkCollection
+              v-if="json"
               ref="ribbon-link"
               :links="json.links"
               class="ribbon-link ribbon-link-animation icon-after-ribbon"

@@ -21,21 +21,19 @@
 
     <div>
       <h1>
-        <span class="eyebrow">{{
-          $t("components.containers.about.eyebrow")
-        }}</span
-        >{{ $t("components.containers.about.title") }}
+        <span class="eyebrow">{{ $t('components.containers.about.eyebrow') }}</span
+        >{{ $t('components.containers.about.title') }}
       </h1>
       <p class="typography-intro">
         {{
-          $t("components.containers.about.description", {
-            age: "AGE",
-            trainingYear: "TRAINING YEAR",
+          $t('components.containers.about.description', {
+            age: 'AGE',
+            trainingYear: 'TRAINING YEAR'
           })
         }}
       </p>
 
-      <LinkCollection :links="json.links" class="typography-intro" />
+      <LinkCollection v-if="json" :links="json.links" class="typography-intro" />
     </div>
   </div>
 

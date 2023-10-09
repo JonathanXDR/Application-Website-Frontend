@@ -3,7 +3,7 @@
     <div class="tile-content">
       <div class="tile-header">
         <h4 class="tile-headline typography-connection-tile-headline">
-          {{ $t(card.title) }}
+          {{ card.title }}
         </h4>
       </div>
       <div class="tile-body">
@@ -15,15 +15,13 @@
             ></path>
             <path
               :style="{
-                strokeDashoffset: ((100 - card.progress) / 100) * 2160,
+                strokeDashoffset: ((100 - card.progress) / 100) * 2160
               }"
               class="card-fill"
               d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"
               :stroke="`url(#color${card.title})`"
             ></path>
-            <text class="card-text" x="50%" y="61%">
-              {{ $t(card.progress) }}%
-            </text>
+            <text class="card-text" x="50%" y="61%">{{ card.progress }}%</text>
           </svg>
           <svg width="0" height="0">
             <defs>
@@ -52,11 +50,7 @@
     <div class="tile-overlay">
       <label class="tile-button-wrapper" :for="`input${card.title}`">
         <span class="tile-button">
-          <svg
-            class="tile-icon-alt"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
+          <svg class="tile-icon-alt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
             <path
               d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"
             ></path>
@@ -67,9 +61,10 @@
         <h4 class="typography-connection-tile-headline">{{ card.title }}</h4>
 
         <p>
-          <strong> Erster Kontakt:</strong> {{ $t(card.learned) }}
+          <strong> {{ $t('components.common.CardTile.firstEncounter') }}:</strong>
+          {{ card.learned }}
           <br />
-          <strong> Vertiefungen:</strong> {{ $t(card.enhanced) }}
+          <strong> {{ $t('components.common.CardTile.enhanced') }}:</strong> {{ card.enhanced }}
         </p>
       </div>
     </div>
