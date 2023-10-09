@@ -70,6 +70,29 @@
       }
     },
     "containers": {
+      "common": [
+        {
+          "about": "About"
+        },
+        {
+          "languages": "Langues"
+        },
+        {
+          "references": "Références"
+        },
+        {
+          "other": "Autre"
+        },
+        {
+          "technologies": "Technologies"
+        },
+        {
+          "projects": "Projets"
+        },
+        {
+          "projectsAtSwisscom": "Projets chez Swisscom"
+        }
+      ],
       "about": {
         "eyebrow": "Hey ;)",
         "title": "Je suis Jonathan",
@@ -362,28 +385,5 @@
         }
       ]
     }
-  },
-  "translations": [
-    {
-      "about": "About"
-    },
-    {
-      "languages": "Langues"
-    },
-    {
-      "references": "Références"
-    },
-    {
-      "other": "Autre"
-    },
-    {
-      "technologies": "Technologies"
-    },
-    {
-      "projects": "Projets"
-    },
-    {
-      "projectsAtSwisscom": "Projets chez Swisscom"
-    }
-  ]
+  }
 }
