@@ -1,4 +1,5 @@
 import LogoIcon from "@/components/common/Icons/LogoIcon.vue";
+import { fetchData } from "@/services/utils";
 import useColorStore from "@/stores/colorBadge";
 import useAnimationStore from "@/stores/headerAnimations";
 import useSectionStore from "@/stores/navbarSections";
@@ -11,14 +12,7 @@ export default defineComponent({
   },
   data() {
     return {
-      items: [
-        { name: "About", route: "#about" },
-        { name: "Sprachkenntnisse", route: "#languages" },
-        { name: "Referenzen", route: "#references" },
-        { name: "Anderes", route: "#other" },
-        { name: "Technologien", route: "#technologies" },
-        { name: "Projekte", route: "#projects" },
-      ],
+      json: null,
       themeDark: false,
       navOpen: false,
       navDisabled: false,
@@ -53,6 +47,7 @@ export default defineComponent({
     },
   },
   created() {
+    this.fetchLocalizedData();
     window.addEventListener("scroll", this.handleScroll);
 
     if (localStorage.getItem("theme") === null) {
@@ -71,7 +66,18 @@ export default defineComponent({
       }
     }
   },
+  watch: {
+    '$i18n.locale': 'fetchLocalizedData',
+  },
   methods: {
+    async fetchLocalizedData() {
+      try {
+        const data = await fetchData();
+        this.json = data.components.common.NavBar;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    },
     changeTheme() {
       this.themeDark = !this.themeDark;
       if (this.themeDark) {
