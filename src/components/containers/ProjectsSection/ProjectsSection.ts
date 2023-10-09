@@ -1,4 +1,3 @@
-import json from "@/assets/data/data.json";
 import ArticleItem from "@/components/common/ArticleItem/ArticleItem.vue";
 import CardTile from "@/components/common/CardTile/CardTile.vue";
 import AirplaneDepartureIcon from "@/components/common/Icons/AirplaneDepartureIcon.vue";
@@ -12,8 +11,10 @@ import LinkCollection from "@/components/common/LinkCollection/LinkCollection.vu
 import RibbonBar from "@/components/common/RibbonBar/RibbonBar.vue";
 import ShareSheet from "@/components/common/ShareSheet/ShareSheet.vue";
 import TimeLine from "@/components/common/TimeLine/TimeLine.vue";
+import { fetchData } from "@/services/utils";
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent( {
   name: "ProjectsSection",
   components: {
     AirplaneDepartureIcon,
@@ -32,7 +33,23 @@ export default {
   },
   data() {
     return {
-      json: json.components.containers.projects,
+      json: null,
     };
   },
-};
+  watch: {
+    '$i18n.locale': 'fetchLocalizedData',  
+  },
+  methods: {
+    async fetchLocalizedData() {
+      try {
+        const data = await fetchData();
+        this.json = data.components.containers.projects;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+  },
+  created() {
+    this.fetchLocalizedData(); 
+  },
+});

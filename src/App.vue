@@ -2,7 +2,7 @@
   <metainfo />
   <header>
     <NavBar />
-    <!-- <RibbonBar /> -->
+    <RibbonBar />
   </header>
   <Suspense>
     <template #default>

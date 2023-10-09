@@ -1,6 +1,32 @@
 {
   "components": {
     "common": {
+      "NavBar": [
+        {
+          "name": "About",
+          "route": "#about"
+        },
+        {
+          "name": "Sprachen",
+          "route": "#languages"
+        },
+        {
+          "name": "Referenzen",
+          "route": "#references"
+        },
+        {
+          "name": "Anderes",
+          "route": "#other"
+        },
+        {
+          "name": "Technologien",
+          "route": "#technologies"
+        },
+        {
+          "name": "Projekte",
+          "route": "#projects"
+        }
+      ],
       "RibbonBar": {
         "description": "Was ist neu in Version 2.0?",
         "links": [
@@ -38,6 +64,9 @@
             "icon": "x-twitter"
           }
         ]
+      },
+      "FooterItem": {
+        "chooseYourLanguage": "Wähle deine Sprache"
       }
     },
     "containers": {
@@ -333,5 +362,28 @@
         }
       ]
     }
-  }
+  },
+  "translations": [
+    {
+      "about": "About"
+    },
+    {
+      "languages": "Sprachen"
+    },
+    {
+      "references": "Referenzen"
+    },
+    {
+      "other": "Anderes"
+    },
+    {
+      "technologies": "Technologien"
+    },
+    {
+      "projects": "Projekte"
+    },
+    {
+      "projectsAtSwisscom": "Projekte bei Swisscom"
+    }
+  ]
 }
