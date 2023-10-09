@@ -35,7 +35,7 @@
                   :class="{ current: index === currentSectionIndex }"
                   class="ac-ln-menu-link"
                 >
-                  {{ $t(item.name) }}
+                  {{ item.name }}
                 </router-link>
               </li>
             </ul>

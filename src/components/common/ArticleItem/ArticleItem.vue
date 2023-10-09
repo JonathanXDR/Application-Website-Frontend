@@ -5,10 +5,10 @@
     </div>
 
     <div>
-      <h2>{{ $t(article.title) }}</h2>
+      <h2>{{ article.title }}</h2>
       <p class="article-date">{{ article.date }}</p>
       <p>
-        {{ $t(article.description) }}
+        {{ article.description }}
       </p>
       <LinkCollection :links="article.links" />
     </div>
