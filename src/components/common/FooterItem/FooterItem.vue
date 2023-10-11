@@ -54,6 +54,7 @@
         </li>
       </ul>
     </section>
+    <ShareSheet />
   </div>
 </template>
 
