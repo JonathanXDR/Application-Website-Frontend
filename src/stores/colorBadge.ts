@@ -29,7 +29,7 @@ export const useColorStore = defineStore({
   actions: {
     randomizeColor() {
       const randomColor = Math.floor(
-        Math.random() * this.colorBadgeArray.length
+        Math.random() * this.colorBadgeArray.length,
       );
 
       if (this.colorBadge === null) {

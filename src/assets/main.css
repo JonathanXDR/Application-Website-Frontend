@@ -457,6 +457,15 @@ li {
 
 .link {
   color: var(--ribbon-link-color);
+  cursor: pointer;
+}
+
+.link.current {
+  color: var(--color-fill-gray-secondary) !important;
+  pointer-events: none;
+}
+
+.link-icon {
   display: flex;
   align-items: center;
 }
@@ -466,7 +475,7 @@ li {
   text-decoration: none;
 }
 
-a:link:hover {
+.link:hover {
   text-decoration: underline;
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div class="gears-loading">
     <div class="loading">
-      <span aria-live="assertive" class="visuallyhidden">Loading..</span>
+      <span aria-live="assertive" class="visuallyhidden">Loading...</span>
     </div>
   </div>
 </template>

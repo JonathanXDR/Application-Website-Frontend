@@ -19,17 +19,23 @@
       ></image>
     </svg>
 
-    <div>
+    <div v-if="json">
       <h1>
-        <span class="eyebrow">{{ json.eyebrow }}</span
-        >{{ json.title }}
+        <span class="eyebrow">{{ $t('components.containers.about.eyebrow') }}</span
+        >{{ $t('components.containers.about.title') }}
       </h1>
       <p class="typography-intro">
-        {{ json.description }}
+        {{
+          $t('components.containers.about.description', {
+            age: dates.age,
+            apprenticeshipYear: dates.apprenticeshipYear + 1
+          })
+        }}
       </p>
 
-      <LinkCollection :links="json.links" class="typography-intro" />
+      <LinkCollection v-if="json" :links="json.links" class="typography-intro" />
     </div>
+    <LoadingSpinner v-else class="center" />
   </div>
 
   <ShareSheet />

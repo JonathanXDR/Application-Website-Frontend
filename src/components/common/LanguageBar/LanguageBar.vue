@@ -6,10 +6,7 @@
         {{ language.description }}
       </p>
     </div>
-    <div
-      v-animation
-      class="typography-eyebrow-elevated secondary-badge-value current"
-    >
+    <div v-animation class="typography-eyebrow-elevated secondary-badge-value current">
       {{ language.progress }}%
     </div>
   </li>
