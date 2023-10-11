@@ -1,10 +1,12 @@
 import LanguageBar from '@/components/common/LanguageBar/LanguageBar.vue'
+import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import { fetchData } from '@/helpers/locale-helper'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'LanguagesSection',
   components: {
+    LoadingSpinner,
     LanguageBar
   },
   data() {

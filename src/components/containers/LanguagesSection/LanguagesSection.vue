@@ -1,6 +1,6 @@
 <template>
   <h2>{{ $t('components.containers.common.languages') }}</h2>
-  <div class="graph-gallery-container">
+  <div class="graph-gallery-container" v-if="json">
     <ul class="tabnav-items">
       <li v-for="(language, index) in json" :key="index" class="tabnav-item">
         <span class="tabnav-link current">{{ language.title }}</span>
@@ -11,6 +11,7 @@
       <LanguageBar v-for="(language, index) in json" :key="index" :language="language" />
     </ul>
   </div>
+  <LoadingSpinner v-else />
 </template>
 
 <script lang="ts" src="./LanguagesSection.ts"></script>

@@ -1,4 +1,5 @@
 import LogoIcon from '@/components/common/Icons/LogoIcon.vue'
+import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import { fetchData } from '@/helpers/locale-helper'
 import useColorStore from '@/stores/colorBadge'
 import useAnimationStore from '@/stores/headerAnimations'
@@ -8,7 +9,8 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'NavBar',
   components: {
-    LogoIcon
+    LogoIcon,
+    LoadingSpinner
   },
   data() {
     return {

@@ -11,7 +11,7 @@
       </main>
     </template>
     <template #fallback>
-      <LoadingSpinner />
+      <LoadingSpinner class="full-screen center" />
     </template>
   </Suspense>
   <footer>

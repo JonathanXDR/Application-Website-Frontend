@@ -8,6 +8,7 @@ import ChevronRightIcon from '@/components/common/Icons/ChevronRightIcon.vue'
 import GearIcon from '@/components/common/Icons/GearIcon.vue'
 import PersonCropSquareIcon from '@/components/common/Icons/PersonCropSquareIcon.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
+import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
@@ -24,6 +25,7 @@ export default defineComponent({
     ChevronRightIcon,
     GearIcon,
     PersonCropSquareIcon,
+    LoadingSpinner,
     RibbonBar,
     LinkCollection,
     ShareSheet,

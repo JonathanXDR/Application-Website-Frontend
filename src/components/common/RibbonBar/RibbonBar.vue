@@ -1,5 +1,5 @@
 <template>
-  <div class="ribbon">
+  <div class="ribbon" v-if="json">
     <div class="ribbon-drop-wrapper">
       <div
         ref="ribbon-content-wrapper"
@@ -20,6 +20,7 @@
       </div>
     </div>
   </div>
+  <LoadingSpinner v-else class="medium center" />
 </template>
 
 <script lang="ts" src="./RibbonBar.ts"></script>

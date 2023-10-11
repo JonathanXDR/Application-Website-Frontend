@@ -28,7 +28,7 @@
         </div>
         <div class="ac-ln-menu">
           <div class="ac-ln-menu-tray">
-            <ul class="ac-ln-menu-items">
+            <ul class="ac-ln-menu-items" v-if="json">
               <li v-for="(item, index) in json" :key="index" class="ac-ln-menu-item">
                 <router-link
                   :to="item.route"
@@ -39,6 +39,7 @@
                 </router-link>
               </li>
             </ul>
+            <LoadingSpinner v-else class="medium center reduced-margin" />
           </div>
           <div class="ac-ln-actions">
             <div class="ac-ln-action ac-ln-action-menucta">

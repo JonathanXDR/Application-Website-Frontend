@@ -2,13 +2,14 @@
   <h3 class="typography-magical-headline">
     {{ $t('components.containers.common.projectsAtSwisscom') }}
   </h3>
-  <div class="timeline-wrapper">
+  <div class="timeline-wrapper" v-if="json">
     <TimeLine />
 
     <ul ref="ul" class="timeline">
       <ArticleItem v-for="(projects, index) in json" :key="index" :article="projects" />
     </ul>
   </div>
+  <LoadingSpinner v-else class="center" />
 </template>
 
 <script lang="ts" src="./ProjectsSection.ts"></script>

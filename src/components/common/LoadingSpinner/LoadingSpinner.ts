@@ -1,6 +1,3 @@
 export default {
-  name: "LoadingSpinner",
-  data() {
-    return {};
-  },
-};
+  name: 'LoadingSpinner'
+}
