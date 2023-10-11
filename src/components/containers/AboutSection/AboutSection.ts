@@ -11,7 +11,7 @@ import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vu
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
-import { fetchData, stringTemplateParser } from '@/services/utils'
+import { fetchData } from '@/helpers/locale-helper'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -34,7 +34,7 @@ export default defineComponent({
   data() {
     return {
       json: null as any,
-      age: [] as number[]
+      dates: { age: 0, apprenticeshipYear: 0 }
     }
   },
   watch: {
@@ -48,27 +48,20 @@ export default defineComponent({
       } catch (error) {
         console.error('Error fetching data:', error)
       }
+    },
+    calculateYears(date: string) {
+      const currentDate = new Date(Date.now())
+      const birthDate = new Date(date)
+      const difference = new Date(currentDate.getTime() - birthDate.getTime())
+      const years = Math.abs(difference.getUTCFullYear() - 1970)
+      return years
     }
   },
-  created() {
-    this.fetchLocalizedData()
-  },
-  mounted() {
-    if (!this.json) {
-      console.error('Error: JSON data is null')
-      return
-    }
+  async mounted() {
+    await this.fetchLocalizedData()
 
-    const jsonWithDates = this.json as { dates: { date: string }[] }
-    jsonWithDates.dates.forEach((item) => {
-      const date = new Date(item.date)
-      const difference = new Date(Date.now() - date.getTime())
-      const age = Math.abs(difference.getUTCFullYear() - 1970)
-      this.age.push(age)
-    })
-
-    this.json = stringTemplateParser(this.json, {
-      age: this.age
+    this.json.dates.forEach((item) => {
+      this.dates[item.key] = this.calculateYears(item.date)
     })
   }
 })

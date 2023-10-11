@@ -27,8 +27,8 @@
       <p class="typography-intro">
         {{
           $t('components.containers.about.description', {
-            age: 'AGE',
-            trainingYear: 'TRAINING YEAR'
+            age: dates.age,
+            apprenticeshipYear: dates.apprenticeshipYear + 1
           })
         }}
       </p>

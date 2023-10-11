@@ -11,7 +11,7 @@ import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vu
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
-import { fetchData } from '@/services/utils'
+import { fetchData } from '@/helpers/locale-helper'
 import { defineComponent } from 'vue'
 
 export default defineComponent({

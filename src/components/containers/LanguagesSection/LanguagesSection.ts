@@ -1,5 +1,5 @@
 import LanguageBar from '@/components/common/LanguageBar/LanguageBar.vue'
-import { fetchData } from '@/services/utils'
+import { fetchData } from '@/helpers/locale-helper'
 import { defineComponent } from 'vue'
 
 export default defineComponent({

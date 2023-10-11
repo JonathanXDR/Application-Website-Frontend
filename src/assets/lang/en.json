@@ -86,15 +86,17 @@
       "about": {
         "eyebrow": "Hey ;)",
         "title": "I'm Jonathan",
-        "description": "Hello, my name is Jonathan and I am {{ age[0] }} years old. Currently, I am in my {{ age[1] +1 }}. year of training as an informatics - application development. I live in Egg near Einsiedeln in the canton of Schwyz. I am very fascinated by programming and find it exciting what can be achieved with it. In my free time I like to play computer and console games and often meet up with friends. I also listen to music often and sometimes produce it myself.",
+        "description": "Hello, my name is Jonathan and I am {age} years old. Currently, I am in the {apprenticeshipYear} year of apprenticeship as a computer scientist - application development. I live in Egg near Einsiedeln in the canton of Schwyz. I am very fascinated by programming and find it exciting what can be achieved with it. In my free time I like to play computer and console games and often meet up with friends. I also listen to music often and sometimes produce it myself.",
         "links": [],
         "dates": [
           {
             "title": "Age",
+            "key": "age",
             "date": "2005-12-12"
           },
           {
-            "title": "Training Year",
+            "title": "Apprenticeship year",
+            "key": "apprenticeshipYear",
             "date": "2021-08-01"
           }
         ]

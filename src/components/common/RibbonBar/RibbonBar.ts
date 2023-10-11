@@ -1,5 +1,5 @@
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
-import { fetchData } from '@/services/utils'
+import { fetchData } from '@/helpers/locale-helper'
 import useAnimationStore from '@/stores/headerAnimations'
 import { defineComponent } from 'vue'
 
@@ -40,12 +40,12 @@ export default defineComponent({
         element: this.$refs['ribbon-content'] as HTMLElement,
         class: 'ribbon-content-animation' as string,
         timeout: 1 as number
-      },
-      {
-        element: (this.$refs['ribbon-link'] as any).$el as HTMLElement,
-        class: 'ribbon-link-animation' as string,
-        timeout: 1 as number
       }
+      // {
+      //   element: (this.$refs['ribbon-link'] as any).$el as HTMLElement,
+      //   class: 'ribbon-link-animation' as string,
+      //   timeout: 1 as number
+      // }
     ]
 
     elements.forEach((element) => {
