@@ -10,7 +10,7 @@ export default defineComponent({
   },
   data() {
     return {
-      json: null
+      json: null as any
     }
   },
   watch: {

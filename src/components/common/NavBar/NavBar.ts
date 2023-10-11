@@ -1,125 +1,125 @@
-import LogoIcon from "@/components/common/Icons/LogoIcon.vue";
-import { fetchData } from "@/services/utils";
-import useColorStore from "@/stores/colorBadge";
-import useAnimationStore from "@/stores/headerAnimations";
-import useSectionStore from "@/stores/navbarSections";
-import { defineComponent } from "vue";
+import LogoIcon from '@/components/common/Icons/LogoIcon.vue'
+import { fetchData } from '@/services/utils'
+import useColorStore from '@/stores/colorBadge'
+import useAnimationStore from '@/stores/headerAnimations'
+import useSectionStore from '@/stores/navbarSections'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "NavBar",
+  name: 'NavBar',
   components: {
-    LogoIcon,
+    LogoIcon
   },
   data() {
     return {
-      json: null,
+      json: null as any,
       themeDark: false,
       navOpen: false,
-      navDisabled: false,
-    };
+      navDisabled: false
+    }
   },
   computed: {
     nodeEnv(): string | undefined {
       return process.env.NODE_ENV
     },
     currentSectionIndex(): number | null {
-      return useSectionStore().currentSectionIndex;
+      return useSectionStore().currentSectionIndex
     },
     colorBadge(): {
-      colorName: string;
-      colorVar: string;
-      colorHex: string;
+      colorName: string
+      colorVar: string
+      colorHex: string
     } {
-      return useColorStore().randomizeColor();
+      return useColorStore().randomizeColor()
     },
     headerAnimations(): {
-      element: HTMLElement;
-      class: string;
-      timeout: number;
+      element: HTMLElement
+      class: string
+      timeout: number
     }[] {
       useAnimationStore().setHeaderAnimation({
-        element: this.$refs["ac-ln-background"] as HTMLElement,
-        class: "ac-ln-background-transition" as string,
-        timeout: 500 as number,
-      });
+        element: this.$refs['ac-ln-background'] as HTMLElement,
+        class: 'ac-ln-background-transition' as string,
+        timeout: 500 as number
+      })
 
-      return useAnimationStore().headerAnimations;
-    },
+      return useAnimationStore().headerAnimations
+    }
   },
   created() {
-    this.fetchLocalizedData();
-    window.addEventListener("scroll", this.handleScroll);
+    this.fetchLocalizedData()
+    window.addEventListener('scroll', this.handleScroll)
 
-    if (localStorage.getItem("theme") === null) {
-      const preferedTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    if (localStorage.getItem('theme') === null) {
+      const preferedTheme = window.matchMedia('(prefers-color-scheme: dark)')
 
       if (preferedTheme.matches) {
-        this.storeTheme("dark");
+        this.storeTheme('dark')
       } else {
-        this.storeTheme("light");
+        this.storeTheme('light')
       }
     } else {
-      if (localStorage.getItem("theme") === "dark") {
-        this.storeTheme("dark");
+      if (localStorage.getItem('theme') === 'dark') {
+        this.storeTheme('dark')
       } else {
-        this.storeTheme("light");
+        this.storeTheme('light')
       }
     }
   },
   watch: {
-    '$i18n.locale': 'fetchLocalizedData',
+    '$i18n.locale': 'fetchLocalizedData'
   },
   methods: {
     async fetchLocalizedData() {
       try {
-        const data = await fetchData();
-        this.json = data.components.common.NavBar;
+        const data = await fetchData()
+        this.json = data.components.common.NavBar
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching data:', error)
       }
     },
     changeTheme() {
-      this.themeDark = !this.themeDark;
+      this.themeDark = !this.themeDark
       if (this.themeDark) {
-        this.storeTheme("dark");
+        this.storeTheme('dark')
       } else {
-        this.storeTheme("light");
+        this.storeTheme('light')
       }
-      this.updateAnimations();
+      this.updateAnimations()
     },
 
     storeTheme(themeName: string): void {
-      this.themeDark = themeName === "dark";
-      localStorage.setItem("theme", themeName);
-      document.documentElement.className = themeName;
+      this.themeDark = themeName === 'dark'
+      localStorage.setItem('theme', themeName)
+      document.documentElement.className = themeName
     },
 
     toggleNav(): void {
-      this.navOpen = !this.navOpen;
-      this.checkboxTimeout();
+      this.navOpen = !this.navOpen
+      this.checkboxTimeout()
     },
 
     checkboxTimeout(): void {
-      this.navDisabled = true;
+      this.navDisabled = true
       setTimeout(() => {
-        this.navDisabled = false;
-      }, 1000);
+        this.navDisabled = false
+      }, 1000)
     },
 
     handleScroll(): void {
       if ((this.navOpen = true && window.scrollY > 0)) {
-        this.navOpen = false;
+        this.navOpen = false
       }
     },
 
     updateAnimations(): void {
       this.headerAnimations.forEach((element) => {
-        element.element.classList.remove(element.class);
+        element.element.classList.remove(element.class)
 
         setTimeout(() => {
-          element.element.classList.add(element.class);
-        }, element.timeout);
-      });
-    },
-  },
-});
+          element.element.classList.add(element.class)
+        }, element.timeout)
+      })
+    }
+  }
+})

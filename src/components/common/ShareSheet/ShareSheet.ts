@@ -1,10 +1,11 @@
 import { fetchData } from '@/services/utils'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   name: 'ShareSheet',
   data() {
     return {
-      json: null
+      json: null as any
     }
   },
   watch: {
@@ -23,4 +24,4 @@ export default {
   created() {
     this.fetchLocalizedData()
   }
-}
+})

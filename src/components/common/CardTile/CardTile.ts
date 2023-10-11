@@ -1,11 +1,18 @@
 import { fetchData } from '@/services/utils'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   name: 'CardTile',
-  props: ['card'],
+  props: {
+    card: {
+      type: Object,
+      required: true,
+      default: () => {}
+    }
+  },
   data() {
     return {
-      json: null,
+      json: null as any,
       cardOpen: false
     }
   },
@@ -25,4 +32,4 @@ export default {
   created() {
     this.fetchLocalizedData()
   }
-}
+})

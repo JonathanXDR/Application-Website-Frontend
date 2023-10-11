@@ -4,7 +4,9 @@
       <p>© {{ currentYear }} Jonathan Russ. All rights reserved.</p>
     </section>
     <section class="lang-switcher-container">
-      <span class="language-switcher-text">Wähle deine Sprache:</span>
+      <span class="language-switcher-text"
+        >{{ $t('components.common.FooterItem.chooseYourLanguage') }}:</span
+      >
       <ul class="locale-lang language-picker-wrapper">
         <li>
           <input

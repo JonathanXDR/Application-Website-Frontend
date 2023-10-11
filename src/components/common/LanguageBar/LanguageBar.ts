@@ -1,4 +1,10 @@
 export default {
   name: 'LanguageBar',
-  props: ['language']
+  props: {
+    language: {
+      type: Object,
+      required: true,
+      default: () => {}
+    }
+  }
 }
