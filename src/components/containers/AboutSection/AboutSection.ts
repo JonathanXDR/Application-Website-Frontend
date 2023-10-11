@@ -34,7 +34,7 @@ export default defineComponent({
   data() {
     return {
       json: null as any,
-      dates: { age: 0, apprenticeshipYear: 0 }
+      dates: { age: '', apprenticeshipYear: '' }
     }
   },
   watch: {
