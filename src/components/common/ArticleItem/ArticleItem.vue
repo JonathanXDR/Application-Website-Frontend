@@ -4,7 +4,7 @@
       <component v-if="article.icon" :is="article.icon" class="icon-article" />
     </div>
 
-    <div>
+    <div class="padding-left-small">
       <h2>{{ article.title }}</h2>
       <p class="article-date">{{ article.date }}</p>
       <p>
