@@ -1,4 +1,3 @@
-import { fetchData } from '@/helpers/locale-helper'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -12,24 +11,7 @@ export default defineComponent({
   },
   data() {
     return {
-      json: null as any,
       cardOpen: false
     }
-  },
-  watch: {
-    '$i18n.locale': 'fetchLocalizedData'
-  },
-  methods: {
-    async fetchLocalizedData() {
-      try {
-        const data = await fetchData()
-        this.json = data.components.common.CardTile
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
-    }
-  },
-  created() {
-    this.fetchLocalizedData()
   }
 })

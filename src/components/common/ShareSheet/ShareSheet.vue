@@ -6,6 +6,7 @@
       </a>
     </li>
   </ul>
+  <LoadingSpinner v-else />
 </template>
 
 <script lang="ts" src="./ShareSheet.ts"></script>
