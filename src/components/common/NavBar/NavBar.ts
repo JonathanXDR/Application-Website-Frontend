@@ -78,7 +78,7 @@ export default defineComponent({
         console.error('Error fetching data:', error)
       }
     },
-    changeTheme() {
+    toggleTheme() {
       this.themeDark = !this.themeDark
       if (this.themeDark) {
         this.storeTheme('dark')
