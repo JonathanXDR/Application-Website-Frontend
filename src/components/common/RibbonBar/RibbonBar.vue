@@ -1,18 +1,16 @@
 <template>
-  <div class="ribbon">
+  <div class="ribbon" v-if="json">
     <div class="ribbon-drop-wrapper">
       <div
         ref="ribbon-content-wrapper"
         class="ribbon-content-wrapper ribbon-content-wrapper-animation"
       >
-        <div
-          ref="ribbon-content"
-          class="ribbon-content row ribbon-content-animation"
-        >
+        <div ref="ribbon-content" class="ribbon-content row ribbon-content-animation">
           <p>
-            {{ json.description }}&ensp;
+            {{ $t('components.common.RibbonBar.description') }}&ensp;
 
             <LinkCollection
+              v-if="json"
               ref="ribbon-link"
               :links="json.links"
               class="ribbon-link ribbon-link-animation icon-after-ribbon"
@@ -22,6 +20,7 @@
       </div>
     </div>
   </div>
+  <LoadingSpinner v-else class="medium center" />
 </template>
 
 <script lang="ts" src="./RibbonBar.ts"></script>

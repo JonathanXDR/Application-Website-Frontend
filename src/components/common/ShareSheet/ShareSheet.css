@@ -58,7 +58,3 @@
 .sharesheet-options .social-option a {
   color: #666;
 }
-
-.sharesheet-options .social-option a:hover {
-  color: var(--ribbon-link-color);
-}

@@ -9,7 +9,7 @@ export const useSectionStore = defineStore({
   actions: {
     setCurrentSection(sectionName: string, sectionIndex: number) {
       const modifiedSectionName = sectionName.replace(/^\w/, (c) =>
-        c.toUpperCase()
+        c.toUpperCase(),
       );
       this.currentSectionName = modifiedSectionName;
       this.currentSectionIndex = sectionIndex;

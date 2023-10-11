@@ -2,7 +2,7 @@
   <metainfo />
   <header>
     <NavBar />
-    <!-- <RibbonBar /> -->
+    <RibbonBar />
   </header>
   <Suspense>
     <template #default>
@@ -11,7 +11,7 @@
       </main>
     </template>
     <template #fallback>
-      <LoadingSpinner />
+      <LoadingSpinner class="full-screen center" />
     </template>
   </Suspense>
   <footer>

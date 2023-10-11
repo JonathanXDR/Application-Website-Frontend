@@ -1,22 +1,22 @@
-import json from "@/assets/data/data.json";
-import ArticleItem from "@/components/common/ArticleItem/ArticleItem.vue";
-import CardTile from "@/components/common/CardTile/CardTile.vue";
-import AirplaneDepartureIcon from "@/components/common/Icons/AirplaneDepartureIcon.vue";
-import ArrowDownCircleIcon from "@/components/common/Icons/ArrowDownCircleIcon.vue";
-import CalendarIcon from "@/components/common/Icons/CalendarIcon.vue";
-import ChevronLeftForwardslashChevronRightIcon from "@/components/common/Icons/ChevronLeftForwardslashChevronRightIcon.vue";
-import ChevronRightIcon from "@/components/common/Icons/ChevronRightIcon.vue";
-import GearIcon from "@/components/common/Icons/GearIcon.vue";
-import PersonCropSquareIcon from "@/components/common/Icons/PersonCropSquareIcon.vue";
-import LinkCollection from "@/components/common/LinkCollection/LinkCollection.vue";
-import RibbonBar from "@/components/common/RibbonBar/RibbonBar.vue";
-import ShareSheet from "@/components/common/ShareSheet/ShareSheet.vue";
-import TimeLine from "@/components/common/TimeLine/TimeLine.vue";
-import { stringTemplateParser } from "@/services/utils";
-import { defineComponent } from "vue";
+import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue'
+import CardTile from '@/components/common/CardTile/CardTile.vue'
+import AirplaneDepartureIcon from '@/components/common/Icons/AirplaneDepartureIcon.vue'
+import ArrowDownCircleIcon from '@/components/common/Icons/ArrowDownCircleIcon.vue'
+import CalendarIcon from '@/components/common/Icons/CalendarIcon.vue'
+import ChevronLeftForwardslashChevronRightIcon from '@/components/common/Icons/ChevronLeftForwardslashChevronRightIcon.vue'
+import ChevronRightIcon from '@/components/common/Icons/ChevronRightIcon.vue'
+import GearIcon from '@/components/common/Icons/GearIcon.vue'
+import PersonCropSquareIcon from '@/components/common/Icons/PersonCropSquareIcon.vue'
+import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
+import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
+import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
+import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
+import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
+import { fetchData } from '@/helpers/locale-helper'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "AboutSection",
+  name: 'AboutSection',
   components: {
     AirplaneDepartureIcon,
     ArrowDownCircleIcon,
@@ -25,29 +25,45 @@ export default defineComponent({
     ChevronRightIcon,
     GearIcon,
     PersonCropSquareIcon,
+    LoadingSpinner,
     RibbonBar,
     LinkCollection,
     ShareSheet,
     CardTile,
     ArticleItem,
-    TimeLine,
+    TimeLine
   },
   data() {
     return {
-      json: json.components.containers.about,
-      age: [] as number[],
-    };
+      json: undefined as any,
+      dates: { age: '', apprenticeshipYear: '' }
+    }
   },
-  mounted() {
-    this.json.dates.forEach((item) => {
-      const date = new Date(item.date);
-      const difference = new Date(Date.now() - date.getTime());
-      const age = Math.abs(difference.getUTCFullYear() - 1970);
-      this.age.push(age);
-    });
+  watch: {
+    '$i18n.locale': 'fetchLocalizedData'
+  },
+  methods: {
+    async fetchLocalizedData() {
+      try {
+        const data = (await fetchData()) as any
+        this.json = data.components.containers.about
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    },
+    calculateYears(date: string) {
+      const currentDate = new Date(Date.now())
+      const birthDate = new Date(date)
+      const difference = new Date(currentDate.getTime() - birthDate.getTime())
+      const years = Math.abs(difference.getUTCFullYear() - 1970)
+      return years
+    }
+  },
+  async mounted() {
+    await this.fetchLocalizedData()
 
-    this.json = stringTemplateParser(this.json, {
-      age: this.age,
-    });
-  },
-});
+    this.json.dates.forEach((item) => {
+      this.dates[item.key] = this.calculateYears(item.date)
+    })
+  }
+})

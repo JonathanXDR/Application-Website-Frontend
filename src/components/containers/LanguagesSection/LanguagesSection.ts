@@ -1,14 +1,33 @@
-import json from "@/assets/data/data.json";
-import LanguageBar from "@/components/common/LanguageBar/LanguageBar.vue";
+import LanguageBar from '@/components/common/LanguageBar/LanguageBar.vue'
+import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
+import { fetchData } from '@/helpers/locale-helper'
+import { defineComponent } from 'vue'
 
-export default {
-  name: "LanguagesSection",
+export default defineComponent({
+  name: 'LanguagesSection',
   components: {
-    LanguageBar,
+    LoadingSpinner,
+    LanguageBar
   },
   data() {
     return {
-      json: json.components.containers.languages,
-    };
+      json: undefined as any
+    }
   },
-};
+  watch: {
+    '$i18n.locale': 'fetchLocalizedData'
+  },
+  methods: {
+    async fetchLocalizedData() {
+      try {
+        const data = (await fetchData()) as any
+        this.json = data.components.containers.languages
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    }
+  },
+  created() {
+    this.fetchLocalizedData()
+  }
+})

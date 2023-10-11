@@ -1,12 +1,17 @@
-import json from "@/assets/data/data.json";
+import { defineComponent } from 'vue'
 
-export default {
-  name: "CardTile",
-  props: ["card"],
+export default defineComponent({
+  name: 'CardTile',
+  props: {
+    card: {
+      type: Object,
+      required: true,
+      default: () => {}
+    }
+  },
   data() {
     return {
-      json: json,
-      cardOpen: false,
-    };
-  },
-};
+      cardOpen: false
+    }
+  }
+})

@@ -1,11 +1,10 @@
-import json from "@/assets/data/data.json";
-
 export default {
-  name: "LanguageBar",
-  props: ["language"],
-  data() {
-    return {
-      json: json.components.containers.languages,
-    };
-  },
-};
+  name: 'LanguageBar',
+  props: {
+    language: {
+      type: Object,
+      required: true,
+      default: () => {}
+    }
+  }
+}
