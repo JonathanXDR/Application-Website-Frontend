@@ -35,7 +35,7 @@ export default defineComponent({
   },
   data() {
     return {
-      json: null as any,
+      json: undefined as any,
       dates: { age: '', apprenticeshipYear: '' }
     }
   },
@@ -45,7 +45,7 @@ export default defineComponent({
   methods: {
     async fetchLocalizedData() {
       try {
-        const data = await fetchData()
+        const data = (await fetchData()) as any
         this.json = data.components.containers.about
       } catch (error) {
         console.error('Error fetching data:', error)

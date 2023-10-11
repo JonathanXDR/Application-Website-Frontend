@@ -9,7 +9,7 @@ export default defineComponent({
   },
   data() {
     return {
-      json: null as any
+      json: undefined as any
     }
   },
   watch: {
@@ -18,7 +18,7 @@ export default defineComponent({
   methods: {
     async fetchLocalizedData() {
       try {
-        const data = await fetchData()
+        const data = (await fetchData()) as any
         this.json = data.components.common.ShareSheet
       } catch (error) {
         console.error('Error fetching data:', error)

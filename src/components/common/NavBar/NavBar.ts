@@ -14,7 +14,7 @@ export default defineComponent({
   },
   data() {
     return {
-      json: null as any,
+      json: undefined as any,
       themeDark: false,
       navOpen: false,
       navDisabled: false
@@ -74,7 +74,7 @@ export default defineComponent({
   methods: {
     async fetchLocalizedData() {
       try {
-        const data = await fetchData()
+        const data = (await fetchData()) as any
         this.json = data.components.common.NavBar
       } catch (error) {
         console.error('Error fetching data:', error)
