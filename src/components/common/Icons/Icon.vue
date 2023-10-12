@@ -55,7 +55,7 @@ export default defineComponent({
   computed: {
     svgOptions(): SvgOptions {
       return {
-        path: `src/assets/icons/${this.size}/${this.name}.svg`,
+        path: `/assets/icons/${this.size}/${this.name}.svg`,
         attrs: this.$attrs
       }
     }
