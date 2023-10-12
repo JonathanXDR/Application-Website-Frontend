@@ -62,3 +62,10 @@ export default defineComponent({
   }
 })
 </script>
+
+<style>
+.icon-article {
+  width: 1.25em;
+  height: 1.25em;
+}
+</style>
