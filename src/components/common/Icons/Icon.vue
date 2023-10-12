@@ -65,8 +65,8 @@ export default defineComponent({
 
 <style>
 .icon-article {
-  width: 1.25em;
-  height: 1.25em;
+  width: 1.5em;
+  height: 1.5em;
 }
 
 .link .link-icon {

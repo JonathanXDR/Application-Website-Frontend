@@ -16,8 +16,11 @@ find "$abs_dir" -name '*.svg' | while IFS= read -r file; do
         "$file"
 
     sed -i '' \
-        -e 's/ fill-opacity="[^"]*"//g' \
-        -e 's/ fill="[^"]*"/ fill="currentColor"/g' \
+        -e 's/fill="#ffffff" fill-opacity="0.2125"/fill="none"/g' \
+        "$file"
+
+    sed -i '' \
+        -e 's/fill="#ffffff" fill-opacity="0.85"/fill="currentColor"/g' \
         "$file"
 
     width=$(grep -m1 -o 'width="[0-9.]*"' "$file" | awk -F'"' '{print $2}')
