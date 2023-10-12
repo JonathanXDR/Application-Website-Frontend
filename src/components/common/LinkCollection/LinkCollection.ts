@@ -7,7 +7,7 @@ export default defineComponent({
   },
   props: {
     links: {
-      type: Array,
+      type: Array as () => any[],
       required: true,
       default: () => []
     }
