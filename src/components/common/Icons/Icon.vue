@@ -1,34 +1,37 @@
 <template>
-  <div
-    v-svg="{
-      path: `src/assets/icons/${size}/${name}.svg`,
-      attrs: $attrs
-    }"
-  ></div>
+  <div v-svg="svgOptions"></div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, DirectiveBinding } from 'vue'
+
+interface SvgOptions {
+  path: string
+  attrs: Record<string, unknown>
+}
 
 const svgDirective = {
-  async mounted(el, binding) {
+  async mounted(el: HTMLElement, binding: DirectiveBinding<SvgOptions>) {
     const { path, attrs } = binding.value
-    const response = await fetch(path)
-    if (response.ok) {
+    try {
+      const response = await fetch(path)
+      if (!response.ok) {
+        throw new Error(`Failed to load SVG: ${response.statusText}`)
+      }
       const text = await response.text()
       const tempContainer = document.createElement('div')
       tempContainer.innerHTML = text
-      const svgElement = tempContainer.firstChild as Element
-      for (const [key, value] of Object.entries(attrs)) {
-        if (key === 'style' && value && typeof value === 'object') {
+      const svgElement = tempContainer.firstChild as SVGElement
+      Object.entries(attrs).forEach(([key, value]) => {
+        if (key === 'style' && typeof value === 'object' && value !== null) {
           Object.assign(svgElement.style, value)
         } else {
-          svgElement.setAttribute(key, value as string)
+          svgElement.setAttribute(key, String(value))
         }
-      }
-      el.parentNode.replaceChild(svgElement, el)
-    } else {
-      console.error(`Failed to load SVG: ${response.statusText}`)
+      })
+      el.parentNode!.replaceChild(svgElement, el)
+    } catch (error) {
+      console.error((error as Error).message)
     }
   }
 }
@@ -46,7 +49,15 @@ export default defineComponent({
     size: {
       type: String,
       default: 'medium',
-      validator: (value: string) => ['big', 'medium', 'small'].includes(value)
+      validator: (value: string): boolean => ['big', 'medium', 'small'].includes(value)
+    }
+  },
+  computed: {
+    svgOptions(): SvgOptions {
+      return {
+        path: `src/assets/icons/${this.size}/${this.name}.svg`,
+        attrs: this.$attrs
+      }
     }
   }
 })
