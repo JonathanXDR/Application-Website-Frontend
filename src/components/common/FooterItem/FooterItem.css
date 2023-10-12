@@ -21,68 +21,8 @@
   }
 }
 
-p,
-span,
-a {
-  font-size: 14px;
-}
-
 @media screen and (min-width: 900px) {
-  p,
-  span,
-  a {
-    font-size: 17px;
-  }
-
   .sharesheet-options {
     margin: 0;
   }
-}
-
-/* ------------------------- lang-switcher-container ------------------------ */
-
-.lang-switcher-container {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-/* ---------------------------------- language-switcher-text  ---------------------------------- */
-
-.lang-switcher-container .language-switcher-text {
-  padding-right: 10px;
-}
-
-/* ------------------------- language-picker-wrapper ------------------------ */
-
-.lang-switcher-container .language-picker-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-/* ----------------------------------- li ----------------------------------- */
-
-.lang-switcher-container .language-picker-wrapper li {
-  padding-right: 10px;
-  margin-right: 10px;
-  border-right: 1px solid var(--color-fill-gray-tertiary);
-}
-
-.lang-switcher-container .language-picker-wrapper li:last-of-type {
-  border-right: none;
-  padding-right: 10px;
-  margin-right: 20px;
-}
-
-/* -------------------------------- hideRadio ------------------------------- */
-
-.hideRadio {
-  display: none;
-}
-
-/* ---------------------------------- label --------------------------------- */
-
-input[name='language']:checked ~ label {
-  color: var(--color-fill-gray-secondary) !important;
-  pointer-events: none;
 }

@@ -1,28 +1,16 @@
 import { defineComponent } from 'vue'
+import LanguagePicker from '../LanguagePicker/LanguagePicker.vue'
 import ShareSheet from '../ShareSheet/ShareSheet.vue'
 
 export default defineComponent({
   name: 'FooterItem',
   components: {
+    LanguagePicker,
     ShareSheet
   },
   data() {
     return {
       currentYear: new Date().getFullYear()
-    }
-  },
-  created() {
-    if (localStorage.getItem('language') === null) {
-      const preferedLanguage = window.navigator.language
-      this.changeLang(preferedLanguage)
-    } else {
-      this.changeLang(localStorage.getItem('language') as string)
-    }
-  },
-  methods: {
-    changeLang(lang: string) {
-      this.$i18n.locale = ['de', 'en', 'fr', 'it'].includes(lang) ? lang : 'de'
-      localStorage.setItem('language', this.$i18n.locale)
     }
   }
 })
