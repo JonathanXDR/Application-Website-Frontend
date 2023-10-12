@@ -1,7 +1,8 @@
 import Icon from '@/components/common/Icons/Icon.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   name: 'ArticleItem',
   components: {
     Icon,
@@ -14,4 +15,4 @@ export default {
       default: () => {}
     }
   }
-}
+})

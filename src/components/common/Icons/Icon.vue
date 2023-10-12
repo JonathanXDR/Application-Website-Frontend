@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, DirectiveBinding } from 'vue'
+import { defineComponent, type DirectiveBinding } from 'vue'
 
 interface SvgOptions {
   path: string
@@ -67,5 +67,26 @@ export default defineComponent({
 .icon-article {
   width: 1.25em;
   height: 1.25em;
+}
+
+.link .link-icon {
+  /* height: 0.6em;
+  width: 0.6em; */
+  height: 0.75em;
+  width: 0.75em;
+  margin-left: 0.3em;
+}
+
+.svg-icon {
+  fill: var(--colors-svg-icon-fill-light, var(--color-svg-icon));
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  overflow: visible;
+}
+
+.svg-icon.icon-inline {
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
 }
 </style>

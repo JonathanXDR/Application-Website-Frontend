@@ -3,9 +3,10 @@
     <p v-for="(link, index) in links" :key="index">
       <a :href="link.url" class="link link-icon" target="_blank">
         {{ link.title }}
-        <component
+        <Icon
           v-if="link.icon"
-          :is="link.icon"
+          :name="link.icon"
+          size="big"
           class="svg-icon inline-chevron-right-icon icon-inline link-icon"
         />
       </a>
