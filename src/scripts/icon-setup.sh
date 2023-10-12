@@ -1,40 +1,37 @@
 #!/bin/bash
 
 # Define the directory containing the SVG files
-dir="assets/icons"
+# Use a relative path to the directory
+dir="../assets/icons"
+
+# Convert the relative path to an absolute path
+abs_dir=$(cd "$(dirname "$0")" && cd "$dir" && pwd)
 
 # Check if the directory exists
-if [[ ! -d "$dir" ]]; then
-    echo "Directory '$dir' does not exist."
+if [[ ! -d "$abs_dir" ]]; then
+    echo "Directory '$abs_dir' does not exist."
     exit 1
 fi
 
-# Navigate to the directory
-cd "$dir"
-
-# Iterate through each SVG file in the directory
-for file in *.svg; do
-    # Use sed to remove the specified lines from each SVG file
-    sed -i '' '/^<?xml version="1.0" encoding="UTF-8"?>/d' "$file"
-    sed -i '' '/^<!--Generator: Apple Native CoreSVG 232.5-->/d' "$file"
-    sed -i '' '/^<!DOCTYPE svg/,/^       "http:\/\/www.w3.org\/Graphics\/SVG\/1.1\/DTD\/svg11.dtd">/d' "$file"
-
-    # Extract the width and height attributes
-    width=$(xmlstarlet sel -t -v "/svg/@width" "$file")
-    height=$(xmlstarlet sel -t -v "/svg/@height" "$file")
-
-    # Use xmlstarlet to update the fill attribute, remove the fill-opacity attribute, and set the viewBox attribute
-    xmlstarlet ed -L \
-        -u "//@fill" -v "currentColor" \
-        -d "//@fill-opacity" \
-        -i "/svg" -t attr -n "viewBox" -v "0 0 $width $height" \
+# Use find to get a list of all SVG files in the directory and its subdirectories
+find "$abs_dir" -name '*.svg' | while IFS= read -r file; do
+    # Use sed to remove the specified lines and to update the attributes
+    sed -i '' \
+        -e '/<?xml version/d' \
+        -e '/<!--Generator/d' \
+        -e '/<!DOCTYPE svg/d' \
+        -e 's/ fill-opacity="0.85"//g' \
+        -e 's/ fill="#ffffff"/ fill="currentColor"/g' \
         "$file"
 
-    # Format the SVG file with Prettier
-    prettier --write "$file"
-done
+    # Extract width and height values using grep and awk
+    width=$(grep -o 'width="[0-9.]*"' "$file" | awk -F'"' '{print $2}')
+    height=$(grep -o 'height="[0-9.]*"' "$file" | awk -F'"' '{print $2}')
 
-# Return to the original directory
-cd -
+    # Use sed to set the viewBox attribute
+    sed -i '' \
+        -e "/<svg/s/>/ viewBox=\"0 0 $width $height\">/" \
+        "$file"
+done
 
 echo "Processing complete."
