@@ -1,7 +1,7 @@
 <template>
   <li class="row-full">
     <div class="padding-right-small">
-      <component v-if="article.icon" :is="article.icon" class="icon-article" />
+      <Icon v-if="article.icon" :name="article.icon" size="medium" class="icon-article" />
     </div>
 
     <div class="padding-left-small">

@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     async loadIcon() {
-      const iconPath = `../assets/icons/${this.size}/${this.name}.svg`
+      const iconPath = `src/assets/icons/${this.size}/${this.name}.svg`
       try {
         const response = await fetch(iconPath)
         if (!response.ok) {
