@@ -366,7 +366,7 @@
         {
           "title": "Apps Team Backend",
           "date": "February 2023 - August 2023",
-          "description": "After already working in the Apps team as a frontend developer, I now wanted to get to know the backend better. First, I was allowed to create my own CRUD app. I was able to learn a lot of new things about Nest.js and the two ORMs Prisma and TypeORM and gained valuable experience. Later, I also created a frontend for my CRUD app using GitHub Primer. After creating my CRUD app, I was then allowed to help out with the media courses tool and was able to add some features and fix bugs there. Finally, I also got to help out with the Fleet Management Tool and the New Web Frontends, which I really enjoyed :)",
+          "description": "After already working in the Apps team as a frontend developer, I now wanted to get to know the backend better. First I was allowed to create my own CRUD app. I was able to learn a lot of new things about Nest.js and the two ORMs Prisma and TypeORM and gained valuable experience. Later, I also created a frontend for my CRUD app using GitHub Primer. After that, I then helped with the tool for media courses and was able to add some features and fix bugs there. Finally, I was also allowed to contribute to the fleet management tool and the new web frontends, which I really enjoyed :)",
           "icon": "ChevronLeftForwardslashChevronRightIcon"
         },
         {
