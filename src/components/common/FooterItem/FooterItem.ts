@@ -1,6 +1,6 @@
+import LanguagePicker from '@/components/common/LanguagePicker/LanguagePicker.vue'
+import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import { defineComponent } from 'vue'
-import LanguagePicker from '../LanguagePicker/LanguagePicker.vue'
-import ShareSheet from '../ShareSheet/ShareSheet.vue'
 
 export default defineComponent({
   name: 'FooterItem',

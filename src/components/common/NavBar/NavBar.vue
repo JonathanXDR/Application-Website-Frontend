@@ -38,6 +38,7 @@
                   {{ item.name }}
                 </router-link>
               </li>
+              <!-- <LanguagePicker :introText="false" :shortForm="true" /> -->
             </ul>
             <LoadingSpinner v-else class="medium center reduced-margin" />
           </div>
