@@ -1,52 +1,21 @@
 <template>
   <section class="lang-switcher-container">
-    <span class="language-switcher-text"
-      >{{ $t('components.common.FooterItem.chooseYourLanguage') }}:</span
-    >
+    <span v-if="introText" class="language-switcher-text">
+      {{ $t('components.common.FooterItem.chooseYourLanguage') }}:
+    </span>
     <ul class="locale-lang language-picker-wrapper">
-      <li>
+      <li v-for="lang in languages" :key="lang.key">
         <input
           type="radio"
-          @click="changeLang('de')"
+          @click="changeLang(lang.key)"
           name="language"
-          id="german"
+          :id="lang.key"
           class="hideRadio"
-          :checked="$i18n.locale === 'de'"
+          :checked="$i18n.locale === lang.key"
         />
-        <label for="german" class="link">Deutsch</label>
-      </li>
-      <li>
-        <input
-          type="radio"
-          @click="changeLang('en')"
-          name="language"
-          id="english"
-          class="hideRadio"
-          :checked="$i18n.locale === 'en'"
-        />
-        <label for="english" class="link">English</label>
-      </li>
-      <li>
-        <input
-          type="radio"
-          @click="changeLang('fr')"
-          name="language"
-          id="french"
-          class="hideRadio"
-          :checked="$i18n.locale === 'fr'"
-        />
-        <label for="french" class="link">Français</label>
-      </li>
-      <li>
-        <input
-          type="radio"
-          @click="changeLang('it')"
-          name="language"
-          id="italian"
-          class="hideRadio"
-          :checked="$i18n.locale === 'it'"
-        />
-        <label for="italian" class="link">Italiano</label>
+        <label :for="lang.key" class="link">
+          {{ getLabel(lang) }}
+        </label>
       </li>
     </ul>
   </section>
