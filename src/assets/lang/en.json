@@ -355,25 +355,25 @@
           "title": "Automation projects in the banking sector",
           "date": "February 2022 - July 2022",
           "description": "Here I was given a general overview of automation and its environment. I was actively involved and learned how to test and automate individual banks. I also learned a little C# and more about the .Net Framework. However, my goal is to improve that in the future!",
-          "icon": "gear"
+          "icon": "clock.arrow.2.circlepath"
         },
         {
           "title": "Apps Team Frontend",
           "date": "August 2022 - January 2023",
           "description": "In the Apps Team, I was initially allowed to create my own Memory App with Vue.js, TypeScript and SDX. Currently, I am helping to program the new Apps Team website. We are also working with TypeScript and SDX there, but use Next.js as a framework.",
-          "icon": "chevron.left.forwardslash.chevron.right"
+          "icon": "display"
         },
         {
           "title": "Apps Team Backend",
           "date": "February 2023 - August 2023",
           "description": "After already working in the Apps team as a frontend developer, I now wanted to get to know the backend better. First I was allowed to create my own CRUD app. I was able to learn a lot of new things about Nest.js and the two ORMs Prisma and TypeORM and gained valuable experience. Later, I also created a frontend for my CRUD app using GitHub Primer. After that, I then helped with the tool for media courses and was able to add some features and fix bugs there. Finally, I was also allowed to contribute to the fleet management tool and the new web frontends, which I really enjoyed :)",
-          "icon": "chevron.left.forwardslash.chevron.right"
+          "icon": "gear"
         },
         {
           "title": "Security Journey - Development Stream",
           "date": "September 2023 - August 2024",
           "description": "In this project, I started with some trainings on Cloud & Security, which was quite educational for me. After that, I was already allowed to work on my current project, a tool that records database activities (Database Activity Monitoring). There I use Python, Docker and Kubernetes, whereas Python is new for me.",
-          "icon": "chevron.left.forwardslash.chevron.right"
+          "icon": "shield.lefthalf.filled"
         }
       ]
     }

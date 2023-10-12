@@ -355,25 +355,25 @@
           "title": "Progetti di automazione nel settore bancario",
           "date": "Febbraio 2022 - Luglio 2022",
           "description": "Qui ho potuto acquisire una visione generale dell'automazione e del suo ambiente. Sono stato coinvolto attivamente e ho imparato a testare e automatizzare le singole banche. Ho anche imparato un po' di C# e qualcosa in più sul Framework .Net. Il mio obiettivo è quello di migliorare questo aspetto in futuro!",
-          "icon": "gear"
+          "icon": "clock.arrow.2.circlepath"
         },
         {
           "title": "Apps Team Frontend",
           "date": "Agosto 2022 - Gennaio 2023",
           "description": "Nel Apps Team ho avuto l'opportunità di creare una mia app Memory con Vue.js, TypeScript e SDX. Attualmente posso partecipare alla programmazione del nuovo sito Web del team di app. Lavoriamo lì anche con TypeScript e SDX, ma utilizziamo Next.js come framework.",
-          "icon": "chevron.left.forwardslash.chevron.right"
+          "icon": "display"
         },
         {
           "title": "Apps Team Backend",
           "date": "Febbraio 2023 - Agosto 2023",
           "description": "Avendo già lavorato come sviluppatore frontend nel team delle applicazioni, ora volevo conoscere meglio il backend. Per prima cosa, mi è stato permesso di creare la mia applicazione CRUD. Ho potuto imparare molte cose nuove su Nest.js e sui due ORM Prisma e TypeORM, acquisendo una preziosa esperienza. In seguito, ho anche creato un frontend per la mia applicazione CRUD con GitHub Primer. In seguito, ho collaborato con lo strumento per i corsi sui media e ho potuto aggiungere alcune funzionalità e correggere alcuni bug. Infine, mi è stato permesso di contribuire allo strumento di gestione del parco macchine e ai nuovi frontend web, cosa che mi è piaciuta molto :)",
-          "icon": "chevron.left.forwardslash.chevron.right"
+          "icon": "gear"
         },
         {
           "title": "Security Journey - Development Stream",
           "date": "Settembre 2023 - Agosto 2024",
           "description": "In questo progetto ho iniziato con una formazione sul cloud e sulla sicurezza, che è stata molto istruttiva per me. In seguito, mi è stato permesso di lavorare al mio progetto attuale, uno strumento che registra le attività dei database (Database Activity Monitoring). In questo progetto utilizzo Python, Docker e Kubernetes, anche se Python è nuovo per me.",
-          "icon": "chevron.left.forwardslash.chevron.right"
+          "icon": "shield.lefthalf.filled"
         }
       ]
     }
