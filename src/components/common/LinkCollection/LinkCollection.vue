@@ -6,7 +6,7 @@
         <Icon
           v-if="link.icon"
           :name="link.icon"
-          size="big"
+          size="large"
           class="svg-icon inline-chevron-right-icon icon-inline link-icon"
         />
       </a>
