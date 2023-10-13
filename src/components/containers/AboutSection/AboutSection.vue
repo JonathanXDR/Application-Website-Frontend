@@ -39,6 +39,8 @@
   </div>
 
   <ShareSheet />
+
+  <TabBar />
 </template>
 
 <script lang="ts" src="./AboutSection.ts"></script>
