@@ -55,10 +55,10 @@ a:disabled {
   opacity: 0.32;
 }
 /*! CSS Used from: https://www.apple.com/v/mac-mini/s/built/styles/overview.built.css */
-.theme-dark a {
+a {
   color: #2997ff;
 }
-.default-gallery .tabnav {
+.tabnav {
   --scroll-container-paddle-width: 34px;
   --scroll-container-paddle-chevron-color: #f5f5f7;
   --scroll-container-border-color: #424245;
@@ -77,11 +77,11 @@ a:disabled {
   text-align: center;
   z-index: 1;
 }
-.theme-dark .default-gallery .tabnav {
+.tabnav {
   --scroll-container-border-color: #424245;
   --scroll-container-paddle-chevron-color: #f5f5f7;
 }
-.default-gallery .tabnav-paddle {
+.tabnav-paddle {
   font-size: 17px;
   line-height: 1.7647058824;
   font-weight: 300;
@@ -104,37 +104,37 @@ a:disabled {
   width: calc(var(--scroll-container-paddle-width) - 1px);
   transition: opacity var(--scroll-container-paddle-fade-duration) ease-out;
 }
-.default-gallery .tabnav-paddle:after {
+.tabnav-paddle:after {
   opacity: var(--scroll-container-paddle-opacity);
   transition: opacity var(--scroll-container-paddle-hover-duration) linear;
 }
-.default-gallery .tabnav-paddle:disabled {
+.tabnav-paddle:disabled {
   opacity: 0;
 }
-.default-gallery .tabnav-paddle:hover:after {
+.tabnav-paddle:hover:after {
   opacity: var(--scroll-container-paddle-hover-opacity);
 }
-.default-gallery .tabnav-paddle:focus {
+.tabnav-paddle:focus {
   outline: none;
 }
-.default-gallery .tabnav-paddle:focus:after {
+.tabnav-paddle:focus:after {
   outline: 4px solid rgba(0, 125, 250, 0.6);
   outline-offset: 4px;
   opacity: 1;
 }
-.default-gallery .tabnav-paddle:active {
+.tabnav-paddle:active {
   outline: none;
 }
-.default-gallery .tabnav-paddle:active:after {
+.tabnav-paddle:active:after {
   outline: none;
   opacity: var(--scroll-container-paddle-hover-opacity);
 }
-.default-gallery .tabnav-paddle-left {
+.tabnav-paddle-left {
   border-right-width: var(--scroll-container-border-width);
   left: 0;
 }
-.default-gallery .tabnav-paddle-left:after,
-.default-gallery .tabnav-paddle-left:before {
+.tabnav-paddle-left:after,
+.tabnav-paddle-left:before {
   font-family: SF Pro Icons;
   color: inherit;
   display: inline-block;
@@ -148,22 +148,22 @@ a:disabled {
   alt: '';
   text-decoration: none;
 }
-.default-gallery .tabnav-paddle-left:before {
+.tabnav-paddle-left:before {
   display: none;
 }
-.default-gallery .tabnav-paddle-left:after,
-.default-gallery .tabnav-paddle-left:before {
+.tabnav-paddle-left:after,
+.tabnav-paddle-left:before {
   content: '';
 }
-.default-gallery .tabnav-paddle-left:after {
+.tabnav-paddle-left:after {
   margin-left: var(--scroll-container-paddle-horizontal-offset);
 }
-.default-gallery .tabnav-paddle-right {
+.tabnav-paddle-right {
   border-left-width: var(--scroll-container-border-width);
   right: 0;
 }
-.default-gallery .tabnav-paddle-right:after,
-.default-gallery .tabnav-paddle-right:before {
+.tabnav-paddle-right:after,
+.tabnav-paddle-right:before {
   font-family: SF Pro Icons;
   color: inherit;
   display: inline-block;
@@ -177,17 +177,17 @@ a:disabled {
   alt: '';
   text-decoration: none;
 }
-.default-gallery .tabnav-paddle-right:before {
+.tabnav-paddle-right:before {
   display: none;
 }
-.default-gallery .tabnav-paddle-right:after,
-.default-gallery .tabnav-paddle-right:before {
+.tabnav-paddle-right:after,
+.tabnav-paddle-right:before {
   content: '';
 }
-.default-gallery .tabnav-paddle-right:after {
+.tabnav-paddle-right:after {
   margin-right: var(--scroll-container-paddle-horizontal-offset);
 }
-.default-gallery .tabnav-items {
+.tabnav-items {
   margin: 0 var(--scroll-container-paddle-width);
   overflow-x: auto;
   overflow-y: hidden;
@@ -196,7 +196,7 @@ a:disabled {
   -ms-overflow-style: none;
   padding: 0 0 3.1764705882em;
 }
-.default-gallery .tabnav-item {
+.tabnav-item {
   display: inline-block;
   padding-left: 60px;
   border-bottom: 1px solid #424245;
@@ -204,19 +204,19 @@ a:disabled {
   outline: none;
 }
 @media only screen and (max-width: 1068px) {
-  .default-gallery .tabnav-item {
+  .tabnav-item {
     padding-left: 50px;
   }
 }
 @media only screen and (max-width: 734px) {
-  .default-gallery .tabnav-item {
+  .tabnav-item {
     padding-left: 30px;
   }
 }
-.default-gallery .tabnav-item:first-child {
+.tabnav-item:first-child {
   padding-left: 0;
 }
-.default-gallery .tabnav-link {
+.tabnav-link {
   font-size: 17px;
   line-height: 1;
   font-weight: 400;
@@ -237,14 +237,14 @@ a:disabled {
   position: relative;
   z-index: 0;
 }
-.default-gallery .tabnav-link:hover {
+.tabnav-link:hover {
   color: #a1a1a6;
   text-decoration: none;
 }
-.default-gallery .tabnav-link:focus {
+.tabnav-link:focus {
   outline-offset: -1px;
 }
-.default-gallery .tabnav-link:after {
+.tabnav-link:after {
   left: 0;
   position: absolute;
   bottom: -5px;
@@ -252,31 +252,31 @@ a:disabled {
   border-bottom: 1px solid transparent;
   content: '';
 }
-.default-gallery .tabnav-link.current {
+.tabnav-link.current {
   pointer-events: none;
   text-decoration: none;
   cursor: default;
   z-index: 10;
 }
-.default-gallery .tablist-wrapper {
+.tablist-wrapper {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
   max-width: 100%;
 }
-.default-gallery .tabnav {
+.tabnav {
   height: 3.4em;
 }
-.default-gallery .tabnav-items {
+.tabnav-items {
   display: flex;
 }
-.default-gallery .tabnav-item {
+.tabnav-item {
   display: block;
   border-bottom-width: 2px;
   border-bottom-color: #86868b;
 }
-.default-gallery .tabnav-link {
+.tabnav-link {
   font-size: 21px;
   line-height: 1.381002381;
   font-weight: 600;
@@ -291,7 +291,7 @@ a:disabled {
   color: #86868b;
 }
 @media only screen and (max-width: 1068px) {
-  .default-gallery .tabnav-link {
+  .tabnav-link {
     font-size: 19px;
     line-height: 1.4211026316;
     font-weight: 600;
@@ -306,7 +306,7 @@ a:disabled {
   }
 }
 @media only screen and (max-width: 734px) {
-  .default-gallery .tabnav-link {
+  .tabnav-link {
     font-size: 17px;
     line-height: 1.2353641176;
     font-weight: 600;
@@ -320,14 +320,14 @@ a:disabled {
       sans-serif;
   }
 }
-.default-gallery .tabnav-link:after {
+.tabnav-link:after {
   border-bottom-width: 2px;
   bottom: -6px;
 }
-.default-gallery .tabnav-link.current {
+.tabnav-link.current {
   color: #f5f5f7;
 }
-.default-gallery .tabnav-link.current:after {
+.tabnav-link.current:after {
   border-bottom-color: #f5f5f7;
 }
 .section-versatility-gallery .gallery .tablist-wrapper {
