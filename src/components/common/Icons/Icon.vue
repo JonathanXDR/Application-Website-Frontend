@@ -71,6 +71,19 @@ export default defineComponent({
   height: 1.25em;
 }
 
+#music .tabnav-paddle-icon {
+  opacity: 0.8;
+  transition: opacity 200ms linear;
+}
+
+#music .tabnav-paddle-left .tabnav-paddle-icon {
+  margin-left: -0.5px;
+}
+
+#music .tabnav-paddle-right .tabnav-paddle-icon {
+  margin-right: -0.5px;
+}
+
 #references .icon-article {
   width: 1.25em;
   height: 1.25em;

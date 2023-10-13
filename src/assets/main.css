@@ -121,9 +121,7 @@ body {
   --color-changes-deprecated-hover: rgba(191, 72, 0, 0.05);
   --color-changes-modified: var(--color-figure-purple);
   --color-changes-modified-hover: var(--color-fill-purple-secondary);
-  --color-changes-modified-previous-background: var(
-    --color-fill-purple-secondary
-  );
+  --color-changes-modified-previous-background: var(--color-fill-purple-secondary);
   --color-code-background: var(--color-fill-tertiary);
   --color-code-collapsible-background: var(--color-fill-gray-quaternary);
   --color-code-line-highlight: var(--color-fill-light-blue-secondary);
@@ -226,9 +224,7 @@ body {
   --color-not-found-input-background: var(--color-fill-gray-quaternary);
   --color-step-background: var(--color-fill-gray-quaternary);
   --color-svg-icon: #6e6e73;
-  --color-tutorial-navbar-dropdown-background: var(
-    --color-nav-dark-solid-background
-  );
+  --color-tutorial-navbar-dropdown-background: var(--color-nav-dark-solid-background);
   --color-tutorial-navbar-dropdown-border: var(--color-fill-gray-tertiary);
 }
 
@@ -356,6 +352,11 @@ ul,
 ol,
 li {
   list-style: none;
+}
+
+button,
+fieldset {
+  all: unset;
 }
 
 .eyebrow {
