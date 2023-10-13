@@ -11,6 +11,7 @@ import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vu
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
+import TabBar from '@/components/common/TabBar/TabBar.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import { fetchData } from '@/helpers/locale-helper'
 import { defineComponent } from 'vue'
@@ -31,7 +32,8 @@ export default defineComponent({
     ShareSheet,
     CardTile,
     ArticleItem,
-    TimeLine
+    TimeLine,
+    TabBar
   },
   data() {
     return {

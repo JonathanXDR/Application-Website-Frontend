@@ -46,6 +46,9 @@ body {
   --ribbon-link-color-initial: white;
 
   /* Cards */
+  --color-nav-background: rgba(0, 0, 0, 0.08);
+  --color-dropdown-background: rgba(255, 255, 255, 0.8);
+  --color-dropdown-background-disabled: rgba(0, 0, 0, 0.01);
   --color-tutorials-overview-content: #f5f5f7;
   --color-tutorials-overview-content-alt: #a1a1a6;
   --color-tutorials-overview-eyebrow: #a1a1a6;
@@ -121,9 +124,7 @@ body {
   --color-changes-deprecated-hover: rgba(191, 72, 0, 0.05);
   --color-changes-modified: var(--color-figure-purple);
   --color-changes-modified-hover: var(--color-fill-purple-secondary);
-  --color-changes-modified-previous-background: var(
-    --color-fill-purple-secondary
-  );
+  --color-changes-modified-previous-background: var(--color-fill-purple-secondary);
   --color-code-background: var(--color-fill-tertiary);
   --color-code-collapsible-background: var(--color-fill-gray-quaternary);
   --color-code-line-highlight: var(--color-fill-light-blue-secondary);
@@ -173,6 +174,9 @@ body {
   --ribbon-link-color-initial: white;
 
   /* Cards */
+  --color-nav-background: rgba(255, 255, 255, 0.08);
+  --color-dropdown-background: rgba(0, 0, 0, 0.8);
+  --color-dropdown-background-disabled: rgba(255, 255, 255, 0.01);
   --color-tutorials-overview-content: #f5f5f7;
   --color-tutorials-overview-content-alt: #a1a1a6;
   --color-tutorials-overview-eyebrow: #a1a1a6;
@@ -226,9 +230,7 @@ body {
   --color-not-found-input-background: var(--color-fill-gray-quaternary);
   --color-step-background: var(--color-fill-gray-quaternary);
   --color-svg-icon: #6e6e73;
-  --color-tutorial-navbar-dropdown-background: var(
-    --color-nav-dark-solid-background
-  );
+  --color-tutorial-navbar-dropdown-background: var(--color-nav-dark-solid-background);
   --color-tutorial-navbar-dropdown-border: var(--color-fill-gray-tertiary);
 }
 

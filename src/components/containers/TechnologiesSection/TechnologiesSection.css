@@ -1,7 +1,7 @@
 /* ----------------------------- item-container ----------------------------- */
 
 .item-container {
-  width: 90%;
+  width: 100%;
   margin: 0 auto 0 auto;
   display: grid;
   gap: 20px;
@@ -11,14 +11,12 @@
 
 @media screen and (min-width: 900px) {
   .item-container {
-    width: 82.5%;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 
 @media screen and (min-width: 1250px) {
   .item-container {
-    width: 95%;
     grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
   }
 }
