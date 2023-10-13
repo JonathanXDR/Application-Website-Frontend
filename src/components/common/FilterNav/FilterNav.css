@@ -419,6 +419,7 @@ fieldset {
 }
 
 .role-select > input[type='radio']:checked ~ label.button {
+  cursor: default;
   background: var(--color-fill-gray);
   color: var(--color-fill-tertiary);
   border-color: var(--color-fill-gray);
