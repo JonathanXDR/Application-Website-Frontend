@@ -13,7 +13,9 @@
         <option value="2015">2015</option>
         <option value="2014">2014</option>
       </select>
-      <span class="form-dropdown-chevron"></span>
+      <span class="form-dropdown-chevron">
+        <Icon name="chevron.down" size="small" />
+      </span>
     </div>
     <div class="role-selects-container">
       <ul class="role-selects">
