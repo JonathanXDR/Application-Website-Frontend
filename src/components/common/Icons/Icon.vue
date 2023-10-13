@@ -54,8 +54,10 @@ export default defineComponent({
   },
   computed: {
     svgOptions(): SvgOptions {
+      const path = new URL(`/src/assets/icons/${this.size}/${this.name}.svg`, import.meta.url)
+
       return {
-        path: `/assets/icons/${this.size}/${this.name}.svg`,
+        path: path.href,
         attrs: this.$attrs
       }
     }
@@ -64,7 +66,12 @@ export default defineComponent({
 </script>
 
 <style>
-.icon-article {
+#references .icon-article {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+#projects .icon-article {
   width: 1.5em;
   height: 1.5em;
 }
