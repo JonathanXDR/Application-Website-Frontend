@@ -16,32 +16,32 @@
       <span class="form-dropdown-chevron"></span>
     </div>
     <div class="role-selects-container">
-      <div class="role-selects">
-        <div class="role-select">
-          <input type="radio" name="role" value="overall" checked />
-          <span id="role-overall-label" class="button">Overall</span>
-        </div>
-        <div class="role-select">
-          <input type="radio" name="role" value="tech" />
-          <span id="role-tech-label" class="button">Tech</span>
-        </div>
-        <div class="role-select">
-          <input type="radio" name="role" value="nontech" />
-          <span id="role-nontech-label" class="button">Nontech</span>
-        </div>
-        <div class="role-select">
-          <input type="radio" name="role" value="leadership" />
-          <span id="role-leadership-label" class="button">Leadership</span>
-        </div>
-        <div class="role-select">
-          <input type="radio" name="role" value="retail" />
-          <span id="role-retail-label" class="button">Retail</span>
-        </div>
-        <div class="role-select">
-          <input type="radio" name="role" value="retailLeadership" />
-          <span id="role-retailLeadership-label" class="button">Retail Leadership</span>
-        </div>
-      </div>
+      <ul class="role-selects">
+        <li class="role-select">
+          <input id="overall" type="radio" name="category" />
+          <label id="overall" class="button">Overall</label>
+        </li>
+        <li class="role-select">
+          <input id="tech" type="radio" name="category" />
+          <label id="tech" class="button">Tech</label>
+        </li>
+        <li class="role-select">
+          <input id="nontech" type="radio" name="category" />
+          <label id="nontech" class="button">Nontech</label>
+        </li>
+        <li class="role-select">
+          <input id="leadership" type="radio" name="category" />
+          <label id="leadership" class="button">Leadership</label>
+        </li>
+        <li class="role-select">
+          <input id="retail" type="radio" name="category" />
+          <label id="retail" class="button">Retail</label>
+        </li>
+        <li class="role-select">
+          <input id="retailLeadership" type="radio" name="category" />
+          <label id="retailLeadership" class="button">Retail Leadership</label>
+        </li>
+      </ul>
     </div>
   </fieldset>
 </template>

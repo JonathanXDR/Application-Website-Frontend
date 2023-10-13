@@ -1,3 +1,4 @@
+import FilterNav from '@/components/common/FilterNav/FilterNav.vue'
 import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue'
 import CardTile from '@/components/common/CardTile/CardTile.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'

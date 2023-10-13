@@ -1,25 +1,5 @@
-fieldset,
-input,
-legend {
-  margin: 0;
-  padding: 0;
-}
-fieldset {
-  border: 0;
-}
-/* :focus {
-  outline: 4px solid rgba(0, 125, 250, 0.6);
-  outline-offset: 1px;
-} */
-input,
-select {
-  font-synthesis: none;
-  -moz-font-feature-settings: 'kern';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  direction: ltr;
-  text-align: left;
-}
+/* ----------------------------- visuallyhidden ----------------------------- */
+
 .visuallyhidden {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
@@ -30,9 +10,17 @@ select {
   padding: 0;
   border: 0;
 }
+
+.visuallyhidden {
+  top: 0;
+}
+
+/* --------------------------------- button --------------------------------- */
+
 .button {
   display: inline-block;
 }
+
 .button {
   cursor: pointer;
   text-align: center;
@@ -56,30 +44,40 @@ select {
   --sk-button-margin-horizontal: 14px;
   --sk-button-margin-vertical: 14px;
 }
+
 .button:hover {
   text-decoration: none;
 }
+
 /* .button:focus {
   box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.6);
   outline: none;
 } */
+
 .button:active {
   outline: none;
 }
+
 .button:disabled {
   cursor: default;
 }
+
 .button:hover {
   background: #0077ed;
 }
+
 .button:active {
   background: #006edb;
 }
+
 .button:disabled {
   background: #0071e3;
   color: var(--color-fill);
   opacity: 0.32;
 }
+
+/* ---------------------------------- tile ---------------------------------- */
+
 .tile {
   margin-left: auto;
   margin-right: auto;
@@ -89,40 +87,43 @@ select {
   overflow: hidden;
   background-color: var(--color-fill);
 }
+
+/* ------------------------------ tile-rounded ------------------------------ */
+
 .tile-rounded {
   border-radius: 18px;
 }
-.visuallyhidden {
-  top: 0;
+
+.tile-rounded {
+  border-radius: 30px;
 }
-/*! CSS Used from: https://www.apple.com/v/diversity/h/built/styles/overview.built.css */
+
+/* ------------------------------ form-dropdown ----------------------------- */
+
 .form-dropdown {
   position: relative;
   margin-bottom: 0.8235294118rem;
 }
-.form-dropdown .form-dropdown-select {
-  color: var(--color-fill-gray);
-  border-color: var(--color-fill-gray-secondary);
-  background-color: var(--color-dropdown-background);
+
+.form-dropdown {
+  margin-bottom: 0;
+  min-width: 150px;
 }
-/* .form-dropdown .form-dropdown-select:focus {
-  border-color: #0071e3;
+
+@media only screen and (max-width: 1068px) {
+  .form-dropdown {
+    min-width: 130px;
+  }
 }
-.form-dropdown .form-dropdown-select:focus:not(button) {
-  outline: none;
-} */
-.form-dropdown .form-dropdown-select option:not(:disabled) {
-  color: var(--color-fill-gray);
+
+@media only screen and (max-width: 734px) {
+  .form-dropdown {
+    min-width: 70px;
+  }
 }
-.form-dropdown :disabled {
-  color: #6e6e73;
-  opacity: 1;
-  border-color: rgba(134, 134, 139, 0.42);
-  background-color: var(--color-dropdown-background-disabled);
-}
-.form-dropdown .form-dropdown-chevron {
-  color: #6e6e73;
-}
+
+/* -------------------------- form-dropdown-select -------------------------- */
+
 .form-dropdown-select {
   font-size: 17px;
   line-height: 1.2353641176;
@@ -147,13 +148,78 @@ select {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.form-dropdown-select {
+  color: var(--color-fill-gray);
+  border-color: var(--color-fill-gray-secondary);
+  background-color: var(--color-dropdown-background);
+}
+
+.form-dropdown-select {
+  height: auto;
+  padding-block: 12px;
+}
+
+/* .form-dropdown-select:focus {
+  border-color: #0071e3;
+}
+
+.form-dropdown-select:focus:not(button) {
+  outline: none;
+} */
+
 /* .form-dropdown-select:focus:not(button) {
   border-width: 2px;
   padding-left: 0.8823529412rem;
 } */
+
 .form-dropdown-select:disabled + .form-dropdown-chevron {
   opacity: 0.42;
 }
+
+.form-dropdown-select option:not(:disabled) {
+  color: var(--color-fill-gray);
+}
+
+@media only screen and (max-width: 1068px) {
+  .form-dropdown-select {
+    padding-block: 7.5px;
+  }
+}
+
+@media only screen and (max-width: 734px) {
+  .form-dropdown-select {
+    font-size: 12px;
+    line-height: 1.3333733333;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    font-family:
+      SF Pro Text,
+      SF Pro Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
+    border-radius: 22px;
+    padding: 4px 11px;
+  }
+}
+
+/* ------------------------------ form-dropdown ----------------------------- */
+
+.form-dropdown:disabled {
+  color: #6e6e73;
+  opacity: 1;
+  border-color: rgba(134, 134, 139, 0.42);
+  background-color: var(--color-dropdown-background-disabled);
+}
+
+/* -------------------------- form-dropdown-chevron ------------------------- */
+
+.form-dropdown-chevron {
+  color: #6e6e73;
+}
+
 .form-dropdown-chevron {
   font-size: 20px;
   line-height: 1.4;
@@ -171,6 +237,14 @@ select {
   right: 0.9411764706rem;
   top: 0.7058823529rem;
 }
+
+.form-dropdown-chevron {
+  top: 0;
+  bottom: 0;
+  height: 1.6em;
+  margin: auto;
+}
+
 .form-dropdown-chevron:after,
 .form-dropdown-chevron:before {
   font-family: SF Pro Icons;
@@ -186,13 +260,36 @@ select {
   alt: '';
   text-decoration: none;
 }
+
 .form-dropdown-chevron:before {
   display: none;
 }
+
 .form-dropdown-chevron:after,
 .form-dropdown-chevron:before {
   content: '';
 }
+
+@media only screen and (max-width: 734px) {
+  .form-dropdown-chevron {
+    font-size: 12px;
+    line-height: 1.3333733333;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    font-family:
+      SF Pro Text,
+      SF Pro Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
+    right: 0.9em;
+    height: 1.5em;
+  }
+}
+
+/* ------------------------------- sticky-nav ------------------------------- */
+
 .sticky-nav {
   transition: border-radius 0.2s;
   z-index: 1;
@@ -215,6 +312,7 @@ select {
   --padding-block: 9px;
   --gap: 22px;
 }
+
 @media only screen and (max-width: 734px) {
   .sticky-nav {
     --padding-inline: 16px;
@@ -222,77 +320,19 @@ select {
     --gap: 10px;
   }
 }
+
 .sticky-nav.sticking {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
 .sticky-nav:where(fieldset) {
   min-inline-size: 0;
 }
-.sticky-nav .form-dropdown {
-  margin-bottom: 0;
-  min-width: 150px;
-}
-@media only screen and (max-width: 1068px) {
-  .sticky-nav .form-dropdown {
-    min-width: 130px;
-  }
-}
-@media only screen and (max-width: 734px) {
-  .sticky-nav .form-dropdown {
-    min-width: 70px;
-  }
-}
-.sticky-nav .form-dropdown-select {
-  height: auto;
-  padding-block: 12px;
-}
-@media only screen and (max-width: 1068px) {
-  .sticky-nav .form-dropdown-select {
-    padding-block: 7.5px;
-  }
-}
-@media only screen and (max-width: 734px) {
-  .sticky-nav .form-dropdown-select {
-    font-size: 12px;
-    line-height: 1.3333733333;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    font-family:
-      SF Pro Text,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
-    border-radius: 22px;
-    padding: 4px 11px;
-  }
-}
-.sticky-nav .form-dropdown-chevron {
-  top: 0;
-  bottom: 0;
-  height: 1.6em;
-  margin: auto;
-}
-@media only screen and (max-width: 734px) {
-  .sticky-nav .form-dropdown-chevron {
-    font-size: 12px;
-    line-height: 1.3333733333;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    font-family:
-      SF Pro Text,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
-    right: 0.9em;
-    height: 1.5em;
-  }
-}
-.sticky-nav .role-selects-container {
+
+/* ------------------------- role-selects-container ------------------------- */
+
+.role-selects-container {
   flex-shrink: 1;
   display: grid;
   align-items: center;
@@ -300,24 +340,30 @@ select {
   grid-gap: var(--gap);
   gap: var(--gap);
 }
-.sticky-nav .role-selects-container:before {
+
+.role-selects-container:before {
   height: 56px;
   display: block;
   content: '';
   width: 1px;
   background-color: var(--color-fill-gray-tertiary);
 }
+
 @media only screen and (max-width: 1068px) {
-  .sticky-nav .role-selects-container:before {
+  .role-selects-container:before {
     height: 47.5px;
   }
 }
+
 @media only screen and (max-width: 734px) {
-  .sticky-nav .role-selects-container:before {
+  .role-selects-container:before {
     height: 36px;
   }
 }
-.sticky-nav .role-selects {
+
+/* ------------------------------ role-selects ------------------------------ */
+
+.role-selects {
   grid-gap: 10px;
   gap: 10px;
   position: relative;
@@ -330,34 +376,40 @@ select {
   margin-inline-end: calc(var(--padding) * -1);
   scrollbar-width: none;
 }
+
 @media only screen and (max-width: 734px) {
-  .sticky-nav .role-selects {
+  .role-selects {
     grid-gap: 4px;
     gap: 4px;
   }
 }
-.sticky-nav .role-selects::-webkit-scrollbar {
+
+.role-selects::-webkit-scrollbar {
   inline-size: 0px;
   block-size: 0px;
 }
-.sticky-nav .role-selects .role-select {
+
+/* ------------------------------- role-select ------------------------------ */
+
+.role-select {
   position: relative;
   flex-shrink: 0;
   display: inline-grid;
 }
-.sticky-nav .role-selects .role-select > * {
+
+.role-select > * {
   grid-area: 1/1;
 }
-.sticky-nav .role-selects .role-select > input[type='radio'] {
-  z-index: 2;
-  -webkit-appearance: none;
-  appearance: none;
-  block-size: 100%;
-  inline-size: 100%;
-  border-radius: 980px;
-  cursor: pointer;
+
+.role-select > input[type='radio'] {
+  display: none;
 }
-.sticky-nav .role-selects .role-select > .button {
+
+.role-select > input[type='radio']:checked ~ label {
+  background: red;
+}
+
+.role-select > .button {
   z-index: 1;
   background: transparent;
   color: var(--color-fill-gray);
@@ -370,21 +422,26 @@ select {
   text-align: center;
   white-space: nowrap;
 }
-.sticky-nav .role-selects .role-select > .button:hover {
+
+.role-select > .button:hover {
   text-decoration: none;
 }
-/* .sticky-nav .role-selects .role-select > .button:focus {
+
+/* .role-select > .button:focus {
   box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.6);
   outline: none;
 } */
-.sticky-nav .role-selects .role-select > .button:active {
+
+.role-select > .button:active {
   outline: none;
 }
-.sticky-nav .role-selects .role-select > .button:disabled {
+
+.role-select > .button:disabled {
   cursor: default;
 }
+
 @media only screen and (min-width: 1069px) {
-  .sticky-nav .role-selects .role-select > .button {
+  .role-select > .button {
     font-size: 17px;
     line-height: 1.1764805882;
     font-weight: 400;
@@ -402,8 +459,9 @@ select {
     --sk-button-margin-vertical: 18px;
   }
 }
+
 @media only screen and (min-width: 735px) and (max-width: 1068px) {
-  .sticky-nav .role-selects .role-select > .button {
+  .role-select > .button {
     font-size: 17px;
     line-height: 1.1764805882;
     font-weight: 400;
@@ -421,8 +479,9 @@ select {
     --sk-button-margin-vertical: 14px;
   }
 }
+
 @media only screen and (max-width: 734px) {
-  .sticky-nav .role-selects .role-select > .button {
+  .role-select > .button {
     font-size: 12px;
     line-height: 1.3333733333;
     font-weight: 400;
@@ -439,7 +498,4 @@ select {
     --sk-button-margin-horizontal: 10px;
     --sk-button-margin-vertical: 10px;
   }
-}
-.tile-rounded {
-  border-radius: 30px;
 }
