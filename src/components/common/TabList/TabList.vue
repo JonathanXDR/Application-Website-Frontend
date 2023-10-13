@@ -3,44 +3,20 @@
     <div class="tabnav">
       <ul role="tablist" class="tabnav-items">
         <li role="presentation" class="tabnav-item current">
-          <a
-            href="#versatility-gallery-item-1"
-            id="versatility-gallery-item-1-trigger"
-            class="tabnav-link current"
-            role="tab"
-            tabindex="0"
-            >Productivity</a
-          >
+          <input id="productivity" type="radio" name="category" checked />
+          <label for="productivity" class="tabnav-link current">Productivity</label>
         </li>
         <li role="presentation" class="tabnav-item">
-          <a
-            href="#versatility-gallery-item-2"
-            id="versatility-gallery-item-2-trigger"
-            class="tabnav-link"
-            role="tab"
-            tabindex="-1"
-            >Gaming</a
-          >
+          <input id="gaming" type="radio" name="category" />
+          <label for="gaming" class="tabnav-link">Gaming</label>
         </li>
         <li role="presentation" class="tabnav-item">
-          <a
-            href="#versatility-gallery-item-3"
-            id="versatility-gallery-item-3-trigger"
-            class="tabnav-link"
-            role="tab"
-            tabindex="-1"
-            >Audio and video production</a
-          >
+          <input id="production" type="radio" name="category" />
+          <label for="production" class="tabnav-link">Audio and video production</label>
         </li>
         <li role="presentation" class="tabnav-item">
-          <a
-            href="#versatility-gallery-item-4"
-            id="versatility-gallery-item-4-trigger"
-            class="tabnav-link"
-            role="tab"
-            tabindex="-1"
-            >Software development</a
-          >
+          <input id="development" type="radio" name="category" />
+          <label for="development" class="tabnav-link">Software development</label>
         </li>
       </ul>
       <div class="tabnav-paddles">

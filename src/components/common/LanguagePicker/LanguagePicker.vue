@@ -10,7 +10,6 @@
           @click="changeLang(lang.key)"
           name="language"
           :id="lang.key"
-          class="hideRadio"
           :checked="$i18n.locale === lang.key"
         />
         <label :for="lang.key" class="link">
