@@ -54,10 +54,10 @@ export default defineComponent({
   },
   computed: {
     svgOptions(): SvgOptions {
-      const path = new URL(`/src/assets/icons/${this.size}/${this.name}.svg`, import.meta.url)
+      // const path = new URL(`/src/assets/icons/${this.size}/${this.name}.svg`, import.meta.url)
 
       return {
-        path: path.href,
+        path: `/src/assets/icons/${this.size}/${this.name}.svg`,
         attrs: this.$attrs
       }
     }
