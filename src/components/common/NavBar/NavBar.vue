@@ -17,7 +17,7 @@
       <div class="ac-ln-content">
         <div class="ac-ln-title">
           <router-link to="/" class="ac-ln-title">
-            <LogoIcon />
+            <Logo />
           </router-link>
           <small
             v-if="nodeEnv === 'development'"
