@@ -2,62 +2,29 @@
   <!-- <h2>{{ $t('components.containers.common.music') }}</h2> -->
   <LoadingSpinner />
 
-  <section class="section section-stations" data-analytics-section-engagement="name:stations">
+  <section class="section section-stations">
     <div class="section-content">
       <h2 class="section-headline">
         Playlists and charts <br class="large" /><br class="medium" />that keep you in the&nbsp;mix.
       </h2>
     </div>
-    <div
-      id="stations"
-      class="stations-gallery marquees-initialized mounted"
-      data-component-list="Stations FadeGallery"
-      data-anim-scroll-group="Stations"
-      data-analytics-gallery-id="stations"
-      data-locale="us"
-      data-lang="en-US"
-      aria-label="Apple Music playlists and albums gallery"
-      data-cta-copy="Listen Now"
-      data-rooms="[976405703, 978247996, 1457265756, 976405707, 1457265757]"
-    >
+    <div id="stations" class="stations-gallery marquees-initialized mounted">
       <TabList />
 
-      <div
-        class="dynamic-gallery marquees-initialized"
-        data-component-list="DynamicGallery"
-        data-endpoint="apple-music"
-        aria-label=""
-        data-cta-copy="Listen now"
-        data-base-api-url=""
-      >
+      <div class="dynamic-gallery marquees-initialized">
         <div
           class="dynamic-gallery-item-container apple-music dynamic-gallery-item-container--default"
         >
-          <div
-            id="dynamic-gallery-item-a"
-            class="dynamic-gallery-item"
-            data-ac-gallery-item=""
-            data-analytics-gallery-item-id="dynamic-gallery-item-a"
-          >
+          <div id="dynamic-gallery-item-a" class="dynamic-gallery-item">
             <div
               class="marquee images-loading"
-              data-marquee-clickable=""
-              data-component-list=" Marquee"
               style="will-change: transform; transform: matrix(1, 0, 0, 1, -909.553, 0)"
             >
               <ul class="marquee-list">
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-0"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/rap-life/pl.abe8ba42278f4ef490e3a9fc5ec8e8c5?itscg=10000&amp;itsct=mus-0-mus_fam-posn1_stm-apl-avl-200130"
-                    data-analytics-title="listen now - rap life"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #131314">
@@ -77,18 +44,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-1"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/dale-play/pl.4b364b8b182f4115acbf6deb83bd5222?itscg=10000&amp;itsct=mus-0-mus_fam-posn2_stm-apl-avl-200130"
-                    data-analytics-title="listen now - ¡dale play!"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #4b0601">
@@ -108,18 +67,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-2"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/a-list-pop/pl.5ee8333dbe944d9f9151e97d92d1ead9?itscg=10000&amp;itsct=mus-0-mus_fam-posn3_stm-apl-avl-200130"
-                    data-analytics-title="listen now - a-list pop"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #0439c0">
@@ -139,18 +90,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-3"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/r-b-now/pl.b7ae3e0a28e84c5c96c4284b6a6c70af?itscg=10000&amp;itsct=mus-0-mus_fam-posn4_stm-apl-avl-200130"
-                    data-analytics-title="listen now - r&amp;b now"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #010101">
@@ -170,18 +113,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-4"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/dancexl/pl.6bf4415b83ce4f3789614ac4c3675740?itscg=10000&amp;itsct=mus-0-mus_fam-posn5_stm-apl-avl-200130"
-                    data-analytics-title="listen now - dancexl"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #000000">
@@ -201,13 +136,10 @@
                     </div>
                   </a>
                 </li>
-                <li class="marquee-tile" data-id="dynamic-gallery-item-a-marquee-tile-5">
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/pure-meditation/pl.e896478fdf824a93ab2f99165c3a1422?itscg=10000&amp;itsct=mus-0-mus_fam-posn6_stm-apl-avl-200130"
-                    data-analytics-title="listen now - pure meditation"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #e52a56">
@@ -227,13 +159,10 @@
                     </div>
                   </a>
                 </li>
-                <li class="marquee-tile" data-id="dynamic-gallery-item-a-marquee-tile-6">
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/alt-ctrl/pl.0b593f1142b84a50a2c1e7088b3fb683?itscg=10000&amp;itsct=mus-0-mus_fam-posn7_stm-apl-avl-200130"
-                    data-analytics-title="listen now - alt ctrl"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #2e292b">
@@ -253,13 +182,10 @@
                     </div>
                   </a>
                 </li>
-                <li class="marquee-tile" data-id="dynamic-gallery-item-a-marquee-tile-7">
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/puro-pop/pl.2754a2d6e0084e2b8106fcd35fef6492?itscg=10000&amp;itsct=mus-0-mus_fam-posn8_stm-apl-avl-200130"
-                    data-analytics-title="listen now - puro pop"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #fae11d">
@@ -279,18 +205,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-8"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/superbloom/pl.78ee237116dc46f1a5a3d8916b4a28fc?itscg=10000&amp;itsct=mus-0-mus_fam-posn9_stm-apl-avl-200130"
-                    data-analytics-title="listen now - superbloom"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #fc4308">
@@ -310,18 +228,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-9"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/high-maintenance/pl.8573a92705fe4253af597147d7cb981f?itscg=10000&amp;itsct=mus-0-mus_fam-posn10_stm-apl-avl-200130"
-                    data-analytics-title="listen now - high maintenance"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #af6746">
@@ -341,18 +251,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-10"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/africa-now/pl.a0794db8bc6f45888834fa708a674987?itscg=10000&amp;itsct=mus-0-mus_fam-posn11_stm-apl-avl-200130"
-                    data-analytics-title="listen now - africa now"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #e4a864">
@@ -372,18 +274,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-11"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/todays-hits/pl.f4d106fed2bd41149aaacabb233eb5eb?itscg=10000&amp;itsct=mus-0-mus_fam-posn12_stm-apl-avl-200130"
-                    data-analytics-title="listen now - today’s hits"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #b98740">
@@ -403,18 +297,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-12"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/the-a-list-k-pop/pl.48229b41bbfc47d7af39dae8e8b5276e?itscg=10000&amp;itsct=mus-0-mus_fam-posn13_stm-apl-avl-200130"
-                    data-analytics-title="listen now - the a-list: k-pop"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #7400e4">
@@ -434,18 +320,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-13"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/family-pop/pl.cd835923714f47f295c08470b18e8891?itscg=10000&amp;itsct=mus-0-mus_fam-posn14_stm-apl-avl-200130"
-                    data-analytics-title="listen now - family pop"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #f399ac">
@@ -465,18 +343,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-14"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/punjabi-hits/pl.35b8520d9d6a486d9bf5c1b3331165b2?itscg=10000&amp;itsct=mus-0-mus_fam-posn15_stm-apl-avl-200130"
-                    data-analytics-title="listen now - punjabi hits"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #d9d9d9">
@@ -496,18 +366,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-15"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/la-oficial/pl.daca4fa353174d7493a2394f03f623ea?itscg=10000&amp;itsct=mus-0-mus_fam-posn16_stm-apl-avl-200130"
-                    data-analytics-title="listen now - la oficial"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #0027ec">
@@ -527,18 +389,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-16"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/todays-country/pl.87bb5b36a9bd49db8c975607452bfa2b?itscg=10000&amp;itsct=mus-0-mus_fam-posn17_stm-apl-avl-200130"
-                    data-analytics-title="listen now - today’s country"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #efece7">
@@ -558,18 +412,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-17"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/onrepeat/pl.426a1044619f47d6b1f86b3f79ecf857?itscg=10000&amp;itsct=mus-0-mus_fam-posn18_stm-apl-avl-200130"
-                    data-analytics-title="listen now - #onrepeat"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #000000">
@@ -589,18 +435,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-18"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/new-music-daily/pl.2b0e6e332fdf4b7a91164da3162127b5?itscg=10000&amp;itsct=mus-0-mus_fam-posn19_stm-apl-avl-200130"
-                    data-analytics-title="listen now - new music daily"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #373737">
@@ -622,18 +460,10 @@
                 </li>
               </ul>
               <ul class="marquee-list clone">
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-0"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/rap-life/pl.abe8ba42278f4ef490e3a9fc5ec8e8c5?itscg=10000&amp;itsct=mus-0-mus_fam-posn1_stm-apl-avl-200130"
-                    data-analytics-title="listen now - rap life"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #131314">
@@ -653,18 +483,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-1"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/dale-play/pl.4b364b8b182f4115acbf6deb83bd5222?itscg=10000&amp;itsct=mus-0-mus_fam-posn2_stm-apl-avl-200130"
-                    data-analytics-title="listen now - ¡dale play!"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #4b0601">
@@ -684,18 +506,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-2"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/a-list-pop/pl.5ee8333dbe944d9f9151e97d92d1ead9?itscg=10000&amp;itsct=mus-0-mus_fam-posn3_stm-apl-avl-200130"
-                    data-analytics-title="listen now - a-list pop"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #0439c0">
@@ -715,18 +529,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-3"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/r-b-now/pl.b7ae3e0a28e84c5c96c4284b6a6c70af?itscg=10000&amp;itsct=mus-0-mus_fam-posn4_stm-apl-avl-200130"
-                    data-analytics-title="listen now - r&amp;b now"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #010101">
@@ -746,18 +552,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-4"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/dancexl/pl.6bf4415b83ce4f3789614ac4c3675740?itscg=10000&amp;itsct=mus-0-mus_fam-posn5_stm-apl-avl-200130"
-                    data-analytics-title="listen now - dancexl"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #000000">
@@ -777,18 +575,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-5"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/pure-meditation/pl.e896478fdf824a93ab2f99165c3a1422?itscg=10000&amp;itsct=mus-0-mus_fam-posn6_stm-apl-avl-200130"
-                    data-analytics-title="listen now - pure meditation"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #e52a56">
@@ -808,18 +598,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-6"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/alt-ctrl/pl.0b593f1142b84a50a2c1e7088b3fb683?itscg=10000&amp;itsct=mus-0-mus_fam-posn7_stm-apl-avl-200130"
-                    data-analytics-title="listen now - alt ctrl"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #2e292b">
@@ -839,18 +621,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-7"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/puro-pop/pl.2754a2d6e0084e2b8106fcd35fef6492?itscg=10000&amp;itsct=mus-0-mus_fam-posn8_stm-apl-avl-200130"
-                    data-analytics-title="listen now - puro pop"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #fae11d">
@@ -870,18 +644,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-8"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/superbloom/pl.78ee237116dc46f1a5a3d8916b4a28fc?itscg=10000&amp;itsct=mus-0-mus_fam-posn9_stm-apl-avl-200130"
-                    data-analytics-title="listen now - superbloom"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #fc4308">
@@ -901,18 +667,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-9"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/high-maintenance/pl.8573a92705fe4253af597147d7cb981f?itscg=10000&amp;itsct=mus-0-mus_fam-posn10_stm-apl-avl-200130"
-                    data-analytics-title="listen now - high maintenance"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #af6746">
@@ -932,18 +690,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-10"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/africa-now/pl.a0794db8bc6f45888834fa708a674987?itscg=10000&amp;itsct=mus-0-mus_fam-posn11_stm-apl-avl-200130"
-                    data-analytics-title="listen now - africa now"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #e4a864">
@@ -963,18 +713,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-11"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/todays-hits/pl.f4d106fed2bd41149aaacabb233eb5eb?itscg=10000&amp;itsct=mus-0-mus_fam-posn12_stm-apl-avl-200130"
-                    data-analytics-title="listen now - today’s hits"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #b98740">
@@ -994,18 +736,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-12"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/the-a-list-k-pop/pl.48229b41bbfc47d7af39dae8e8b5276e?itscg=10000&amp;itsct=mus-0-mus_fam-posn13_stm-apl-avl-200130"
-                    data-analytics-title="listen now - the a-list: k-pop"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #7400e4">
@@ -1025,18 +759,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-13"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/family-pop/pl.cd835923714f47f295c08470b18e8891?itscg=10000&amp;itsct=mus-0-mus_fam-posn14_stm-apl-avl-200130"
-                    data-analytics-title="listen now - family pop"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #f399ac">
@@ -1056,18 +782,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-14"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/punjabi-hits/pl.35b8520d9d6a486d9bf5c1b3331165b2?itscg=10000&amp;itsct=mus-0-mus_fam-posn15_stm-apl-avl-200130"
-                    data-analytics-title="listen now - punjabi hits"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #d9d9d9">
@@ -1087,18 +805,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-15"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/la-oficial/pl.daca4fa353174d7493a2394f03f623ea?itscg=10000&amp;itsct=mus-0-mus_fam-posn16_stm-apl-avl-200130"
-                    data-analytics-title="listen now - la oficial"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #0027ec">
@@ -1118,18 +828,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-16"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/todays-country/pl.87bb5b36a9bd49db8c975607452bfa2b?itscg=10000&amp;itsct=mus-0-mus_fam-posn17_stm-apl-avl-200130"
-                    data-analytics-title="listen now - today’s country"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #efece7">
@@ -1149,18 +851,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-17"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/onrepeat/pl.426a1044619f47d6b1f86b3f79ecf857?itscg=10000&amp;itsct=mus-0-mus_fam-posn18_stm-apl-avl-200130"
-                    data-analytics-title="listen now - #onrepeat"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #000000">
@@ -1180,18 +874,10 @@
                     </div>
                   </a>
                 </li>
-                <li
-                  class="marquee-tile"
-                  data-id="dynamic-gallery-item-a-marquee-tile-18"
-                  aria-hidden="true"
-                >
+                <li class="marquee-tile">
                   <a
                     class="marquee-link"
                     href="https://music.apple.com/us/playlist/new-music-daily/pl.2b0e6e332fdf4b7a91164da3162127b5?itscg=10000&amp;itsct=mus-0-mus_fam-posn19_stm-apl-avl-200130"
-                    data-analytics-title="listen now - new music daily"
-                    data-analytics-exit-link=""
-                    data-rid-relay='{"286":"itsct"}'
-                    tabindex="-1"
                   >
                     <div class="marquee-hover-container">
                       <picture class="marquee-picture" style="background-color: #373737">
@@ -1216,19 +902,7 @@
           </div>
         </div>
         <div class="control-container mediaobject-enhanced">
-          <button
-            class="play-pause-button play-pause-marquees-button has-background playing"
-            data-aria-playing="pause apple music video and gallery"
-            data-aria-paused="play apple music video and gallery"
-            data-analytics-title-playing="pause apple music video and gallery"
-            data-analytics-title-paused="play apple music video and gallery"
-            data-analytics-click-playing="prop3:pause apple music video and gallery"
-            data-analytics-click-paused="prop3:play apple music video and gallery"
-            data-analytics-intrapage-link=""
-            data-analytics-click="prop3:pause apple music video and gallery"
-            data-analytics-title="pause apple music video and gallery"
-            aria-label="pause apple music video and gallery"
-          >
+          <button class="play-pause-button play-pause-marquees-button has-background playing">
             <span class="control-icon play-icon">
               <svg
                 xmlns:xlink="http://www.w3.org/1999/xlink"

@@ -20,8 +20,8 @@
         </li>
       </ul>
       <div class="tabnav-paddles">
-        <button class="tabnav-paddle tabnav-paddle-left" aria-hidden="true" disabled></button>
-        <button class="tabnav-paddle tabnav-paddle-right" aria-hidden="true" disabled></button>
+        <button class="tabnav-paddle tabnav-paddle-left" disabled></button>
+        <button class="tabnav-paddle tabnav-paddle-right" disabled></button>
       </div>
     </div>
   </div>
