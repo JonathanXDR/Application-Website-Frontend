@@ -1,5 +1,6 @@
 import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue'
 import CardTile from '@/components/common/CardTile/CardTile.vue'
+import FilterNav from '@/components/common/FilterNav/FilterNav.vue'
 import AirplaneDepartureIcon from '@/components/common/Icons/AirplaneDepartureIcon.vue'
 import ArrowDownCircleIcon from '@/components/common/Icons/ArrowDownCircleIcon.vue'
 import CalendarIcon from '@/components/common/Icons/CalendarIcon.vue'
@@ -11,7 +12,6 @@ import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vu
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
-import TabBar from '@/components/common/TabBar/TabBar.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import { fetchData } from '@/helpers/locale-helper'
 import { defineComponent } from 'vue'
@@ -33,7 +33,7 @@ export default defineComponent({
     CardTile,
     ArticleItem,
     TimeLine,
-    TabBar
+    FilterNav
   },
   data() {
     return {

@@ -48,5 +48,5 @@
   </fieldset>
 </template>
 
-<script lang="ts" src="./TabBar.ts"></script>
-<style scoped src="./TabBar.css"></style>
+<script lang="ts" src="./FilterNav.ts"></script>
+<style scoped src="./FilterNav.css"></style>
