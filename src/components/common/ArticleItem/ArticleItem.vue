@@ -1,10 +1,10 @@
 <template>
   <li class="row-full">
-    <div class="padding-right-small">
-      <component v-if="article.icon" :is="article.icon" class="icon-article" />
+    <div v-if="article.icon" class="padding-right padding-top-small">
+      <Icon :name="article.icon" class="icon-article" />
     </div>
 
-    <div class="padding-left-small">
+    <div>
       <h2>{{ article.title }}</h2>
       <p class="article-date">{{ article.date }}</p>
       <p>
