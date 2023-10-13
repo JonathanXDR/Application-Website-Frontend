@@ -1,22 +1,3 @@
-button {
-  all: unset;
-}
-
-/* ---------------------------------- music --------------------------------- */
-
-#music {
-  padding: 100px 0;
-  width: 90%;
-  margin: 0 auto 0 auto;
-}
-
-@media screen and (min-width: 900px) {
-  #music {
-    padding: 150px 0 100px 0;
-    width: 82.5%;
-  }
-}
-
 /* ---------------------------- play-pause-button --------------------------- */
 
 .play-pause-button {
@@ -75,7 +56,7 @@ button {
 
 @media only screen and (max-width: 734px) {
   .play-pause-button.has-background svg {
-    fill: #000;
+    fill: var(--color-code-plain);
   }
 }
 
@@ -102,7 +83,7 @@ button {
 
 @media only screen and (max-width: 734px) {
   .play-pause-button svg {
-    fill: #000;
+    fill: var(--color-code-plain);
   }
 }
 
@@ -165,7 +146,7 @@ button {
   position: relative;
   flex-direction: column;
   width: var(--tile-width);
-  margin-top: 15px;
+  /* margin-top: 15px; */
   margin-right: 15px;
 }
 
@@ -244,10 +225,10 @@ button {
   text-decoration: none;
 }
 
-.marquee-cta:focus {
+/* .marquee-cta:focus {
   box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.6);
   outline: none;
-}
+} */
 
 .marquee-cta:active {
   outline: none;
@@ -262,7 +243,7 @@ button {
 }
 
 .marquee-cta:active {
-  background: #ebebeb;
+  background: var(--color-fill-tertiary);
 }
 
 .marquee-cta:disabled {
@@ -510,7 +491,7 @@ button {
   justify-content: flex-end;
   opacity: 0;
   pointer-events: none;
-  color: #6e6e73;
+  color: var(--color-figure-gray-secondary);
 }
 
 .play-pause-marquees-button:hover {

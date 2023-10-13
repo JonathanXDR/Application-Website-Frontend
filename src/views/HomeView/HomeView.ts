@@ -25,6 +25,7 @@ export default defineComponent({
         { id: 'languages', class: 'section-separated' },
         { id: 'references', class: 'section-separated' },
         { id: 'other', class: 'section-separated' },
+        { id: 'music' },
         { id: 'technologies' },
         { id: 'projects' }
       ]

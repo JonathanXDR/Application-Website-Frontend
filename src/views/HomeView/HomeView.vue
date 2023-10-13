@@ -1,6 +1,4 @@
 <template>
-  <MusicSection />
-
   <section
     v-for="(section, index) in sections"
     :key="section.id"
