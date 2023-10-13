@@ -259,11 +259,11 @@ a {
   z-index: 10;
 }
 .tablist-wrapper {
-  position: absolute;
+  /* position: absolute;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  max-width: 100%;
+  max-width: 100%; */
 }
 .tabnav {
   height: 3.4em;
