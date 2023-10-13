@@ -19,27 +19,27 @@
       <ul class="role-selects">
         <li class="role-select">
           <input id="overall" type="radio" name="category" />
-          <label id="overall" class="button">Overall</label>
+          <label for="overall" class="button">Overall</label>
         </li>
         <li class="role-select">
           <input id="tech" type="radio" name="category" />
-          <label id="tech" class="button">Tech</label>
+          <label for="tech" class="button">Tech</label>
         </li>
         <li class="role-select">
           <input id="nontech" type="radio" name="category" />
-          <label id="nontech" class="button">Nontech</label>
+          <label for="nontech" class="button">Nontech</label>
         </li>
         <li class="role-select">
           <input id="leadership" type="radio" name="category" />
-          <label id="leadership" class="button">Leadership</label>
+          <label for="leadership" class="button">Leadership</label>
         </li>
         <li class="role-select">
           <input id="retail" type="radio" name="category" />
-          <label id="retail" class="button">Retail</label>
+          <label for="retail" class="button">Retail</label>
         </li>
         <li class="role-select">
           <input id="retailLeadership" type="radio" name="category" />
-          <label id="retailLeadership" class="button">Retail Leadership</label>
+          <label for="retailLeadership" class="button">Retail Leadership</label>
         </li>
       </ul>
     </div>
