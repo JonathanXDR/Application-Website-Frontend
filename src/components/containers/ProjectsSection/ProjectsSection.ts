@@ -13,6 +13,7 @@ import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import { fetchData } from '@/helpers/locale-helper'
+import axios from 'axios'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -35,7 +36,8 @@ export default defineComponent({
   },
   data() {
     return {
-      json: undefined as any
+      json: undefined as any,
+      projects: [] as any[]
     }
   },
   watch: {
@@ -49,9 +51,25 @@ export default defineComponent({
       } catch (error) {
         console.error('Error fetching data:', error)
       }
+    },
+    async fetchProjects() {
+      axios
+        .get('https://api.github.com/users/JonathanXDR/repos')
+        .then((response) => {
+          this.projects = response.data
+        })
+        .catch((error) => {
+          console.log(error.toJSON())
+          this.projects.push({
+            id: 1,
+            name: `${error.toJSON().message}: ${error.toJSON().code}`,
+            description: error.toJSON().description
+          })
+        })
     }
   },
   created() {
     this.fetchLocalizedData()
+    this.fetchProjects()
   }
 })

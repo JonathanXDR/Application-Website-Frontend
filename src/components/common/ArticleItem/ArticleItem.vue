@@ -5,8 +5,17 @@
     </div>
 
     <div class="padding-left-small">
-      <h2>{{ article.title }}</h2>
-      <p class="article-date">{{ article.date }}</p>
+      <h2>{{ article.title || article.name }}</h2>
+      <p class="article-date">
+        {{
+          article.date ||
+          new Date(article.updated_at).toLocaleDateString('de-CH', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })
+        }}
+      </p>
       <p>
         {{ article.description }}
       </p>

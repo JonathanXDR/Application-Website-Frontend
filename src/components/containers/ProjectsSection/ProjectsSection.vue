@@ -5,8 +5,12 @@
   <div class="timeline-wrapper" v-if="json">
     <TimeLine />
 
-    <ul ref="ul" class="timeline">
+    <!-- <ul ref="ul" class="timeline">
       <ArticleItem v-for="(projects, index) in json" :key="index" :article="projects" />
+    </ul> -->
+
+    <ul ref="ul" class="timeline">
+      <ArticleItem v-for="(project, index) in projects" :key="index" :article="project" />
     </ul>
   </div>
   <LoadingSpinner v-else class="center" />
