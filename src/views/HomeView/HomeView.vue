@@ -1,5 +1,5 @@
 <template>
-  <section
+  <!-- <section
     v-for="(section, index) in sections"
     :key="section.id"
     :id="section.id"
@@ -7,9 +7,9 @@
     v-section="(section.id, index)"
   >
     <component :is="`${section.id}Section`" />
-  </section>
+  </section> -->
 
-  <!-- insert Music Library here -->
+  <MusicSection />
   <!-- insert Galaxy Game here -->
 </template>
 

@@ -1,0 +1,15 @@
+@media only screen and (min-width: 0px) {
+  .stations-item-container {
+    --tile-width: 234px;
+  }
+}
+@media only screen and (max-width: 1068px) {
+  .stations-item-container {
+    --tile-width: 164px;
+  }
+}
+@media only screen and (max-width: 735px) {
+  .stations-item-container {
+    --tile-width: 132px;
+  }
+}

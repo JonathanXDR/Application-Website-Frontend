@@ -1,11 +1,13 @@
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
+import TabList from '@/components/common/TabList/TabList.vue'
 import { fetchData } from '@/helpers/locale-helper'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'MusicSection',
   components: {
-    LoadingSpinner
+    LoadingSpinner,
+    TabList
   },
   data() {
     return {

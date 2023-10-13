@@ -1,6 +1,6 @@
 <template>
-  <h2>{{ $t('components.containers.common.music') }}</h2>
-  <LoadingSpinner v-else />
+  <!-- <h2>{{ $t('components.containers.common.music') }}</h2> -->
+  <LoadingSpinner />
 
   <section class="section section-stations" data-analytics-section-engagement="name:stations">
     <div class="section-content">
@@ -20,107 +20,9 @@
       data-cta-copy="Listen Now"
       data-rooms="[976405703, 978247996, 1457265756, 976405707, 1457265757]"
     >
-      <div class="tablist-wrapper">
-        <div class="tabnav" data-analytics-gallery-interaction-type="tabnav">
-          <ul role="tablist" class="tabnav-items">
-            <li role="presentation" class="tabnav-item current">
-              <a
-                href="#stations-item-a"
-                id="stations-item-a-tabnav-trigger"
-                data-ac-gallery-trigger="stations-item-a"
-                class="tabnav-link current"
-                role="tab"
-                aria-controls="stations-item-a"
-                tabindex="0"
-                aria-selected="true"
-                >New Music</a
-              >
-            </li>
-            <li role="presentation" class="tabnav-item">
-              <a
-                href="#stations-item-b"
-                id="stations-item-b-tabnav-trigger"
-                data-ac-gallery-trigger="stations-item-b"
-                class="tabnav-link"
-                role="tab"
-                aria-controls="stations-item-b"
-                tabindex="-1"
-                aria-selected="false"
-                >From Our Editors</a
-              >
-            </li>
-            <li role="presentation" class="tabnav-item">
-              <a
-                href="#stations-item-c"
-                id="stations-item-c-tabnav-trigger"
-                data-ac-gallery-trigger="stations-item-c"
-                class="tabnav-link"
-                role="tab"
-                aria-controls="stations-item-c"
-                tabindex="-1"
-                aria-selected="false"
-                >Fall Sounds</a
-              >
-            </li>
-            <li role="presentation" class="tabnav-item">
-              <a
-                href="#stations-item-d"
-                id="stations-item-d-tabnav-trigger"
-                data-ac-gallery-trigger="stations-item-d"
-                class="tabnav-link"
-                role="tab"
-                aria-controls="stations-item-d"
-                tabindex="-1"
-                aria-selected="false"
-                >Daily Top 100</a
-              >
-            </li>
-            <li role="presentation" class="tabnav-item">
-              <a
-                href="#stations-item-e"
-                id="stations-item-e-tabnav-trigger"
-                data-ac-gallery-trigger="stations-item-e"
-                class="tabnav-link"
-                role="tab"
-                aria-controls="stations-item-e"
-                tabindex="-1"
-                aria-selected="false"
-                >Just Updated</a
-              >
-            </li>
-          </ul>
-          <div class="tabnav-paddles">
-            <button
-              class="tabnav-paddle tabnav-paddle-left"
-              aria-hidden="true"
-              disabled=""
-            ></button>
-            <button
-              class="tabnav-paddle tabnav-paddle-right"
-              aria-hidden="true"
-              disabled=""
-            ></button>
-          </div>
-        </div>
-      </div>
+      <TabList />
+
       <div class="stations-item-container">
-        <style type="text/css">
-          @media only screen and (min-width: 0px) {
-            .stations-item-container {
-              --tile-width: 234px;
-            }
-          }
-          @media only screen and (max-width: 1068px) {
-            .stations-item-container {
-              --tile-width: 164px;
-            }
-          }
-          @media only screen and (max-width: 735px) {
-            .stations-item-container {
-              --tile-width: 132px;
-            }
-          }
-        </style>
         <div
           id="stations-item-a"
           class="stations-gallery-item current"
@@ -147,30 +49,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #000000">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/468x468bb.jpg"
                         alt="Public Displays Of Affection: The Album - Muni Long"
                       />
                     </picture>
@@ -195,30 +76,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #545454">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/468x468bb.jpg"
                         alt="U Wasn't There - Cam'ron &amp; A-Trak"
                       />
                     </picture>
@@ -243,30 +103,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #426898">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/468x468bb.jpg"
                         alt="SUBJECT TO CHANGE - Kelsea Ballerini"
                       />
                     </picture>
@@ -291,30 +130,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #ffffff">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/468x468bb.jpg"
                         alt="Insecure - Inayah"
                       />
                     </picture>
@@ -339,30 +157,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #bfe2e8">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/468x468bb.jpg"
                         alt="Trick City - BigWalkDog"
                       />
                     </picture>
@@ -387,30 +184,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #faeaf4">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/468x468bb.jpg"
                         alt="FLAWLESS LIKE ME - LUCKI"
                       />
                     </picture>
@@ -435,30 +211,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #a8acd1">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/468x468bb.jpg"
                         alt="Through The Madness, Vol. 2 - Maddie &amp; Tae"
                       />
                     </picture>
@@ -483,30 +238,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #e4e2d5">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/468x468bb.jpg"
                         alt="Denim &amp; Diamonds - Nikki Lane"
                       />
                     </picture>
@@ -531,30 +265,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #cec5bc">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/468x468bb.jpg"
                         alt="The Lead (Apple Music Up Next Film Edition) - EP - FLO"
                       />
                     </picture>
@@ -579,30 +292,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #fbe6d1">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/468x468bb.jpg"
                         alt="5SOS5 - 5 Seconds of Summer"
                       />
                     </picture>
@@ -627,30 +319,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #010101">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/468x468bb.jpg"
                         alt="New Money - Baby Money"
                       />
                     </picture>
@@ -675,30 +346,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #021519">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/468x468bb.jpg"
                         alt="Sad Songs In A Hotel Room - EP - Joshua Bassett"
                       />
                     </picture>
@@ -723,30 +373,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #222d29">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/468x468bb.jpg"
                         alt="Baby On Baby 2 - DaBaby"
                       />
                     </picture>
@@ -771,30 +400,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #ff48a3">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/468x468bb.jpg"
                         alt="Life In Plastic 3 - DreamDoll"
                       />
                     </picture>
@@ -819,30 +427,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #919392">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/234x234bb.jpg"
+                        src="https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/468x468bb.jpg"
                         alt="this is what ____ feels like (Vol. 1-4) - JVKE"
                       />
                     </picture>
@@ -867,30 +454,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #dcdcdc">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/234x234bb.jpg"
+                        src="https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/468x468bb.jpg"
                         alt="DOY - P Yungin"
                       />
                     </picture>
@@ -915,30 +481,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #8e9fb3">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/468x468bb.jpg"
                         alt="God Save the Animals - Alex G"
                       />
                     </picture>
@@ -963,30 +508,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #020f13">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/468x468bb.jpg"
                         alt="SZNZ: Autumn - Weezer"
                       />
                     </picture>
@@ -1011,30 +535,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #e7e6eb">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/468x468bb.jpg"
                         alt="Apple Music Home Session: Tate McRae - Tate McRae"
                       />
                     </picture>
@@ -1059,30 +562,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #d0ab99">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/468x468bb.jpg"
                         alt="Sad Romance - CKay"
                       />
                     </picture>
@@ -1107,30 +589,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #e1ddd2">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/468x468bb.jpg"
                         alt="MOSS - Maya Hawke"
                       />
                     </picture>
@@ -1155,30 +616,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #000000">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/468x468bb.jpg"
                         alt="The Cage - EP - Billy Idol"
                       />
                     </picture>
@@ -1202,30 +642,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #fdfdfd">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/468x468bb.jpg"
                         alt="CYBERKISS* - BLACKSTARKIDS"
                       />
                     </picture>
@@ -1249,30 +668,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #ebf4f1">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/234x234bb.jpg"
+                        src="https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/468x468bb.jpg"
                         alt="Fitness: Run, September 2022 (DJ Mix) - Deorro"
                       />
                     </picture>
@@ -1296,30 +694,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #007684">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/468x468bb.jpg"
                         alt="breathe - Chad Lawson"
                       />
                     </picture>
@@ -1343,30 +720,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #04090c">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/468x468bb.jpg"
                         alt="The Hum Goes on Forever - The Wonder Years"
                       />
                     </picture>
@@ -1391,30 +747,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #dce5ea">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/468x468bb.jpg"
                         alt="Blink Twice - Arkells"
                       />
                     </picture>
@@ -1439,30 +774,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #000000">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/468x468bb.jpg"
                         alt="The Last Goodbye Remixes N°.1 - EP - ODESZA"
                       />
                     </picture>
@@ -1487,30 +801,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #f4f4f4">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/468x468bb.jpg"
                         alt="hyper relevisation - Eve 6"
                       />
                     </picture>
@@ -1535,30 +828,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #000000">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/234x234bb.jpg"
+                        src="https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/468x468bb.jpg"
                         alt="Caroline Shaw: Evergreen - Caroline Shaw &amp; Attacca Quartet"
                       />
                     </picture>
@@ -1583,30 +855,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #15181c">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/468x468bb.jpg"
                         alt="Weather Alive - Beth Orton"
                       />
                     </picture>
@@ -1631,30 +882,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #1f1f24">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/468x468bb.jpg"
                         alt="Cry Havoc! - Mobley"
                       />
                     </picture>
@@ -1679,30 +909,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #c4c3bf">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/468x468bb.jpg"
                         alt="Come on Sunshine - Kendell Marvel"
                       />
                     </picture>
@@ -1727,30 +936,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #ffffff">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/468x468bb.jpg"
                         alt="Married Alone - Sunny Sweeney"
                       />
                     </picture>
@@ -1775,30 +963,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #050402">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/468x468bb.jpg"
                         alt="Thrive - SLANDER"
                       />
                     </picture>
@@ -1823,30 +990,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #190a0a">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/468x468bb.jpg"
                         alt="NULL - KEN mode"
                       />
                     </picture>
@@ -1871,30 +1017,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #ffffff">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/468x468bb.jpg"
                         alt="Hectic / Amazon Dust - Single - Robert Hood"
                       />
                     </picture>
@@ -1919,30 +1044,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #005f97">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/468x468bb.jpg"
                         alt="Ali - Vieux Farka Touré &amp; Khruangbin"
                       />
                     </picture>
@@ -1967,30 +1071,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #19291f">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/468x468bb.jpg"
                         alt="Revelator - EP - Enamour"
                       />
                     </picture>
@@ -2015,30 +1098,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #f9f9f1">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/468x468bb.jpg"
                         alt="Simple - Bethel Music"
                       />
                     </picture>
@@ -2063,30 +1125,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #c79a57">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/468x468bb.jpg"
                         alt="Where is Home / Hae ke Kae - Abel Selaocoe"
                       />
                     </picture>
@@ -2111,30 +1152,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #1f1714">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/468x468bb.jpg"
                         alt="Chapter 1: Things We're Not Saying - EP - Georgia Webster"
                       />
                     </picture>
@@ -2159,30 +1179,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #ffffff">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/234x234bb.jpg"
+                        src="https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/468x468bb.jpg"
                         alt="U Wanna - EP - Procombo"
                       />
                     </picture>
@@ -2207,30 +1206,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #fdfdfd">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/234x234bb.jpg"
+                        src="https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/468x468bb.jpg"
                         alt="jams 2 - EP - Luna Li"
                       />
                     </picture>
@@ -2255,30 +1233,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #070707">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/468x468bb.jpg"
                         alt="Open Source Records Volume 9 - EP - DJ Hazy, Orlando Voorn &amp; Pat Hurley"
                       />
                     </picture>
@@ -2303,30 +1260,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #102b46">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/468x468bb.jpg"
                         alt="Hyper-Dimensional Expansion Beam - The Comet Is Coming"
                       />
                     </picture>
@@ -2351,30 +1287,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #fbfbfb">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/468x468bb.jpg"
                         alt="Sub-Sonar - EP - nthng"
                       />
                     </picture>
@@ -2399,30 +1314,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #030200">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/468x468bb.jpg"
                         alt="Mirage - Gaerea"
                       />
                     </picture>
@@ -2447,30 +1341,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #fdfef9">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/468x468bb.jpg"
                         alt="Honey Badger - EP - Rhyw"
                       />
                     </picture>
@@ -2495,30 +1368,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #041e3c">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/468x468bb.jpg"
                         alt="Last Spa on Earth - Divino Niño"
                       />
                     </picture>
@@ -2543,30 +1395,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #000000">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/468x468bb.jpg"
                         alt="Conviction - EP - Rob Strobe"
                       />
                     </picture>
@@ -2591,30 +1422,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #030102">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/468x468bb.jpg"
                         alt="There's Only Black - Venom Inc."
                       />
                     </picture>
@@ -2639,30 +1449,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #1e50a7">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/468x468bb.jpg"
                         alt="Leap Day - EP - Remember Sports"
                       />
                     </picture>
@@ -2687,30 +1476,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #ffffff">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/468x468bb.jpg"
                         alt="Warehouse Vol. 1 - EP - Shan"
                       />
                     </picture>
@@ -2735,30 +1503,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #e9e9e9">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/468x468bb.jpg"
                         alt="Exister - The Soft Moon"
                       />
                     </picture>
@@ -2783,30 +1530,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #000000">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/468x468bb.jpg"
                         alt="Belgica - EP - Helsmoortel"
                       />
                     </picture>
@@ -2831,30 +1557,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #101012">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/468x468bb.jpg"
                         alt="Fancy Feast - EP - Maara"
                       />
                     </picture>
@@ -2881,30 +1586,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #000000">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/20/82/43/208243e5-4c2b-e2bb-eb21-8020f480f793/22UMGIM94909.rgb.jpg/468x468bb.jpg"
                         alt="Public Displays Of Affection: The Album - Muni Long"
                       />
                     </picture>
@@ -2929,30 +1613,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #545454">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/6d/7a/4a6d7add-5d86-122b-735c-e1602b9a8070/194690893834_cover.jpg/468x468bb.jpg"
                         alt="U Wasn't There - Cam'ron &amp; A-Trak"
                       />
                     </picture>
@@ -2977,30 +1640,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #426898">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/4f/2c/32/4f2c32bf-5a25-5c23-acf3-c92b7a388b0d/196925407298.jpg/468x468bb.jpg"
                         alt="SUBJECT TO CHANGE - Kelsea Ballerini"
                       />
                     </picture>
@@ -3025,30 +1667,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #ffffff">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/9c/8b/3e/9c8b3e3b-c0ba-c7a1-dabe-d1717b1f8a63/194690939457_cover.jpg/468x468bb.jpg"
                         alt="Insecure - Inayah"
                       />
                     </picture>
@@ -3073,30 +1694,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #bfe2e8">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/ac/7b/6a/ac7b6ab5-78ad-1a56-0a58-f742e7447b39/075679724137.jpg/468x468bb.jpg"
                         alt="Trick City - BigWalkDog"
                       />
                     </picture>
@@ -3121,30 +1721,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #faeaf4">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/27/a5/fc/27a5fcaa-f29f-a03e-41fa-b54ffe16f47e/194690946806_cover.jpg/468x468bb.jpg"
                         alt="FLAWLESS LIKE ME - LUCKI"
                       />
                     </picture>
@@ -3169,30 +1748,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #a8acd1">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d5/dc/ec/d5dcec8d-c53b-221c-4973-8ee9c64ad4e4/22UMGIM77979.rgb.jpg/468x468bb.jpg"
                         alt="Through The Madness, Vol. 2 - Maddie &amp; Tae"
                       />
                     </picture>
@@ -3217,30 +1775,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #e4e2d5">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ee/10/54/ee105409-d396-c17a-9618-c4c6ca83338c/607396646739.png/468x468bb.jpg"
                         alt="Denim &amp; Diamonds - Nikki Lane"
                       />
                     </picture>
@@ -3265,30 +1802,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #cec5bc">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/d6/a2/7e/d6a27eb2-d021-d1a2-426b-cb174fcc54b4/22UMGIM67844.rgb.jpg/468x468bb.jpg"
                         alt="The Lead (Apple Music Up Next Film Edition) - EP - FLO"
                       />
                     </picture>
@@ -3313,30 +1829,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #fbe6d1">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/06/72/6e/06726e09-be9d-e6e5-9588-72e6e5dbdd61/4050538811070.jpg/468x468bb.jpg"
                         alt="5SOS5 - 5 Seconds of Summer"
                       />
                     </picture>
@@ -3361,30 +1856,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #010101">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ad/5f/a0/ad5fa028-1c7e-bb63-f21f-bf804c989bd1/22UMGIM89027.rgb.jpg/468x468bb.jpg"
                         alt="New Money - Baby Money"
                       />
                     </picture>
@@ -3409,30 +1883,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #021519">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/2f/e8/e2/2fe8e298-594a-fcb8-9ba4-28dafaa39b5c/093624870197.jpg/468x468bb.jpg"
                         alt="Sad Songs In A Hotel Room - EP - Joshua Bassett"
                       />
                     </picture>
@@ -3457,30 +1910,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #222d29">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/4d/5e/44/4d5e44e6-66d0-d4ae-ca96-e6d51c1c3475/22UM1IM06577.rgb.jpg/468x468bb.jpg"
                         alt="Baby On Baby 2 - DaBaby"
                       />
                     </picture>
@@ -3505,30 +1937,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #ff48a3">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e2/46/77/e246770e-7cc1-7683-c59f-f49aac73d819/093624871941.jpg/468x468bb.jpg"
                         alt="Life In Plastic 3 - DreamDoll"
                       />
                     </picture>
@@ -3553,30 +1964,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #919392">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/234x234bb.jpg"
+                        src="https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/5d/68/64/5d6864de-3809-0257-ceaa-9f7f1bbd1172/5056167175650_1.jpg/468x468bb.jpg"
                         alt="this is what ____ feels like (Vol. 1-4) - JVKE"
                       />
                     </picture>
@@ -3601,30 +1991,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #dcdcdc">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/234x234bb.jpg"
+                        src="https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/eb/84/c7/eb84c7ea-50b1-eed0-454c-3b005b97da76/22UMGIM98707.rgb.jpg/468x468bb.jpg"
                         alt="DOY - P Yungin"
                       />
                     </picture>
@@ -3649,30 +2018,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #8e9fb3">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music126/v4/82/d9/bb/82d9bbb3-0b7b-bb1d-9632-44bb2c70c744/887828050765.png/468x468bb.jpg"
                         alt="God Save the Animals - Alex G"
                       />
                     </picture>
@@ -3697,30 +2045,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #020f13">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a9/aa/27/a9aa27da-e879-f126-6e82-a3ff06452ab7/075679753366.jpg/468x468bb.jpg"
                         alt="SZNZ: Autumn - Weezer"
                       />
                     </picture>
@@ -3745,30 +2072,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #e7e6eb">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/17/e3/2f17e31b-7f48-b580-53e0-f891dc7adebc/196589496928.jpg/468x468bb.jpg"
                         alt="Apple Music Home Session: Tate McRae - Tate McRae"
                       />
                     </picture>
@@ -3793,30 +2099,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #d0ab99">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/02/fc/2e/02fc2ec4-2fad-b4e2-4cb7-83d7ace8a0bb/5054197321573.jpg/468x468bb.jpg"
                         alt="Sad Romance - CKay"
                       />
                     </picture>
@@ -3841,30 +2126,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #e1ddd2">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/ae/90/0e/ae900ea7-efaf-c8f2-47ae-d5d2411c349f/810090090924.png/468x468bb.jpg"
                         alt="MOSS - Maya Hawke"
                       />
                     </picture>
@@ -3889,30 +2153,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #000000">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/37/9b/d2/379bd281-52b8-6e90-a65a-91d419cad120/4050538821390.jpg/468x468bb.jpg"
                         alt="The Cage - EP - Billy Idol"
                       />
                     </picture>
@@ -3937,30 +2180,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #fdfdfd">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/e1/30/53/e1305322-c99e-499c-0338-c0f112a910c0/196922119743_Cover.jpg/468x468bb.jpg"
                         alt="CYBERKISS* - BLACKSTARKIDS"
                       />
                     </picture>
@@ -3985,30 +2207,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #ebf4f1">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/234x234bb.jpg"
+                        src="https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/a8/ef/de/a8efde4c-f19f-0b5a-41e1-4a3d319bcda9/dj.zcoejtym.png/468x468bb.jpg"
                         alt="Fitness: Run, September 2022 (DJ Mix) - Deorro"
                       />
                     </picture>
@@ -4033,30 +2234,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #007684">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/6c/24/d7/6c24d761-7b29-1348-1326-4d017fe9babb/22UMGIM60762.rgb.jpg/468x468bb.jpg"
                         alt="breathe - Chad Lawson"
                       />
                     </picture>
@@ -4081,30 +2261,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #04090c">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/50/e4/cb/50e4cb75-82a2-d1e2-fb44-77218a1451ea/1464.jpg/468x468bb.jpg"
                         alt="The Hum Goes on Forever - The Wonder Years"
                       />
                     </picture>
@@ -4129,30 +2288,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #dce5ea">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/95/46/29/95462918-b894-d4d4-15a4-670fa6b2b939/22UMGIM64890.rgb.jpg/468x468bb.jpg"
                         alt="Blink Twice - Arkells"
                       />
                     </picture>
@@ -4177,30 +2315,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #000000">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/d1/d6/20d1d6cd-e3e4-f5d7-836e-6fac3eae185f/dj.gegdyjmf.png/468x468bb.jpg"
                         alt="The Last Goodbye Remixes N°.1 - EP - ODESZA"
                       />
                     </picture>
@@ -4225,30 +2342,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #f4f4f4">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/35/7b/51/357b513c-f660-f84a-fc81-06b9d3fa231b/794558906463.jpg/468x468bb.jpg"
                         alt="hyper relevisation - Eve 6"
                       />
                     </picture>
@@ -4273,30 +2369,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #000000">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/234x234bb.jpg"
+                        src="https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/0e/f4/06/0ef40642-7902-dbb0-ae30-54c604620502/075597913491.jpg/468x468bb.jpg"
                         alt="Caroline Shaw: Evergreen - Caroline Shaw &amp; Attacca Quartet"
                       />
                     </picture>
@@ -4321,30 +2396,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #15181c">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/a3/54/a5/a354a51b-31fb-3a76-f4dc-a241df55b6f0/720841302308.jpg/468x468bb.jpg"
                         alt="Weather Alive - Beth Orton"
                       />
                     </picture>
@@ -4369,30 +2423,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #1f1f24">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/20/62/55/206255d1-debc-11c7-e63b-c33f9780dcea/634164908935.png/468x468bb.jpg"
                         alt="Cry Havoc! - Mobley"
                       />
                     </picture>
@@ -4417,30 +2450,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #c4c3bf">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/d6/88/30/d6883033-12e4-0e8b-de41-6c4a50ad95a1/28803.jpg/468x468bb.jpg"
                         alt="Come on Sunshine - Kendell Marvel"
                       />
                     </picture>
@@ -4465,30 +2477,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #ffffff">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/9a/aa/aa/9aaaaa6b-84ed-1815-4daf-552f9ae14253/196626392879.jpg/468x468bb.jpg"
                         alt="Married Alone - Sunny Sweeney"
                       />
                     </picture>
@@ -4513,30 +2504,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #050402">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/ec/8d/f5/ec8df5fd-96b8-b19d-2447-14425677a713/730530457035_cover.jpg/468x468bb.jpg"
                         alt="Thrive - SLANDER"
                       />
                     </picture>
@@ -4561,30 +2531,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #190a0a">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music126/v4/c5/0b/23/c50b232d-c040-ef28-9216-fbff8f3d98b8/628070640799.jpg/468x468bb.jpg"
                         alt="NULL - KEN mode"
                       />
                     </picture>
@@ -4609,30 +2558,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #ffffff">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/3b/31/48/3b31484f-d0bb-470a-2425-ae98c7a2b11c/8718723201766.jpg/468x468bb.jpg"
                         alt="Hectic / Amazon Dust - Single - Robert Hood"
                       />
                     </picture>
@@ -4657,30 +2585,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #005f97">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/a5/48/75/a54875f3-4c06-8416-bca8-e6dd80841790/34636.jpg/468x468bb.jpg"
                         alt="Ali - Vieux Farka Touré &amp; Khruangbin"
                       />
                     </picture>
@@ -4705,30 +2612,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #19291f">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/fc/e2/a6/fce2a6f6-2e84-59ea-0d58-0451f82c039f/5039060808795.png/468x468bb.jpg"
                         alt="Revelator - EP - Enamour"
                       />
                     </picture>
@@ -4753,30 +2639,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #f9f9f1">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music122/v4/75/c3/e5/75c3e5de-7f01-b8e4-0a48-84b2bc44e3b0/dj.depzmpqk.png/468x468bb.jpg"
                         alt="Simple - Bethel Music"
                       />
                     </picture>
@@ -4801,30 +2666,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #c79a57">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music116/v4/9a/6a/bc/9a6abc31-6060-15ef-8df4-58712c4ddd62/190296224324.jpg/468x468bb.jpg"
                         alt="Where is Home / Hae ke Kae - Abel Selaocoe"
                       />
                     </picture>
@@ -4849,30 +2693,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #1f1714">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f5/af/4c/f5af4cf5-f75e-8331-b12a-57200fb506f6/196589446954.jpg/468x468bb.jpg"
                         alt="Chapter 1: Things We're Not Saying - EP - Georgia Webster"
                       />
                     </picture>
@@ -4897,30 +2720,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #ffffff">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/234x234bb.jpg"
+                        src="https://is3-ssl.mzstatic.com/image/thumb/Music112/v4/d2/ef/24/d2ef2400-14ae-766d-2907-1139a3137100/5060972804391.png/468x468bb.jpg"
                         alt="U Wanna - EP - Procombo"
                       />
                     </picture>
@@ -4945,30 +2747,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #fdfdfd">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/234x234bb.jpg"
+                        src="https://is3-ssl.mzstatic.com/image/thumb/Music122/v4/9d/d8/9a/9dd89a49-6df8-6edf-1e98-804029ec787d/5056167175766_1.jpg/468x468bb.jpg"
                         alt="jams 2 - EP - Luna Li"
                       />
                     </picture>
@@ -4993,30 +2774,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #070707">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/88/11/4f/88114f6a-b623-17e5-b20e-b73c257cdb1e/8718723208659.jpg/468x468bb.jpg"
                         alt="Open Source Records Volume 9 - EP - DJ Hazy, Orlando Voorn &amp; Pat Hurley"
                       />
                     </picture>
@@ -5041,30 +2801,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #102b46">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/e8/0b/15/e80b1567-face-82a2-a7ef-91b50964784f/22UMGIM77927.rgb.jpg/468x468bb.jpg"
                         alt="Hyper-Dimensional Expansion Beam - The Comet Is Coming"
                       />
                     </picture>
@@ -5089,30 +2828,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #fbfbfb">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/95/8c/37/958c371d-4401-ff1e-b70f-0dabecdf5669/8720246792362.jpg/468x468bb.jpg"
                         alt="Sub-Sonar - EP - nthng"
                       />
                     </picture>
@@ -5137,30 +2855,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #030200">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ac/63/b2/ac63b2a8-003a-6265-d832-bdb2ac6bd17a/822603166903.jpg/468x468bb.jpg"
                         alt="Mirage - Gaerea"
                       />
                     </picture>
@@ -5185,30 +2882,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #fdfef9">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/01/09/38/0109383d-8f9c-7503-4307-6fcbfa5661ce/8718723209298.jpg/468x468bb.jpg"
                         alt="Honey Badger - EP - Rhyw"
                       />
                     </picture>
@@ -5233,30 +2909,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #041e3c">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/cb/b6/46/cbb6466b-6ac7-a2ae-97ac-48d5ec44c75b/34533.jpg/468x468bb.jpg"
                         alt="Last Spa on Earth - Divino Niño"
                       />
                     </picture>
@@ -5281,30 +2936,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #000000">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/234x234bb.jpg"
+                        src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4c/58/77/4c587799-5ccf-88ad-bf28-a6674c168e1b/0633726534582.jpg/468x468bb.jpg"
                         alt="Conviction - EP - Rob Strobe"
                       />
                     </picture>
@@ -5329,30 +2963,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #030102">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/27/38/b7/2738b71e-f9da-3317-a4f2-cfad01626c3f/cover.jpg/468x468bb.jpg"
                         alt="There's Only Black - Venom Inc."
                       />
                     </picture>
@@ -5377,30 +2990,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #1e50a7">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/e6/b2/73/e6b273de-a5e9-962c-bb7f-f04296d47be9/35416.jpg/468x468bb.jpg"
                         alt="Leap Day - EP - Remember Sports"
                       />
                     </picture>
@@ -5425,30 +3017,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #ffffff">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/234x234bb.jpg"
+                        src="https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/2f/87/25/2f8725fe-27d4-af12-3c46-d6dd490c1671/4251804149570_3000.jpg/468x468bb.jpg"
                         alt="Warehouse Vol. 1 - EP - Shan"
                       />
                     </picture>
@@ -5473,30 +3044,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #e9e9e9">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/234x234bb.jpg"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Music112/v4/a3/39/f5/a339f5f6-2a40-f4e6-2127-5712d0d995ea/34162.jpg/468x468bb.jpg"
                         alt="Exister - The Soft Moon"
                       />
                     </picture>
@@ -5521,30 +3071,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #000000">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music122/v4/56/04/2d/56042dc9-2897-848e-348e-b901a38659d6/0502485601814.jpg/468x468bb.jpg"
                         alt="Belgica - EP - Helsmoortel"
                       />
                     </picture>
@@ -5569,30 +3098,9 @@
                 >
                   <div class="marquee-hover-container">
                     <picture class="marquee-picture" style="background-color: #101012">
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/132x132bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/264x264bb.jpg 2x
-                        "
-                        media="(max-width:735px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/164x164bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/328x328bb.jpg 2x
-                        "
-                        media="(max-width:1068px)"
-                      />
-                      <source
-                        srcset="
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/234x234bb.jpg,
-                          /web/20220928042411oe_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/468x468bb.jpg 2x
-                        "
-                        media="(min-width:0px)"
-                      />
                       <img
                         class="marquee-picture-img"
-                        src="https://web.archive.org/web/20220928042411im_/https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/234x234bb.jpg"
+                        src="https://is5-ssl.mzstatic.com/image/thumb/Music112/v4/9e/ea/c4/9eeac416-4b80-04b1-6f29-24d6408fa3c8/840200513562_cover.jpg/468x468bb.jpg"
                         alt="Fancy Feast - EP - Maara"
                       />
                     </picture>
