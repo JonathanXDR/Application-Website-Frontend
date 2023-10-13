@@ -88,8 +88,8 @@
 /* ------------------------------ tabnav-items ------------------------------ */
 
 .tabnav-items {
-  margin: 0 34px;
-  overflow-x: auto;
+  /* margin: 0 34px; */
+  overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
