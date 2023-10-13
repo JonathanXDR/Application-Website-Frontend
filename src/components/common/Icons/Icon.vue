@@ -66,6 +66,11 @@ export default defineComponent({
 </script>
 
 <style>
+#music .icon-cta {
+  width: 1.25em;
+  height: 1.25em;
+}
+
 #references .icon-article {
   width: 1.25em;
   height: 1.25em;

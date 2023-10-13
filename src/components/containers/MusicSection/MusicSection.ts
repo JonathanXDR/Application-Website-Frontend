@@ -1,3 +1,4 @@
+import Icon from '@/components/common/Icons/Icon.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import TabList from '@/components/common/TabList/TabList.vue'
 import { fetchData } from '@/helpers/locale-helper'
@@ -7,6 +8,7 @@ export default defineComponent({
   name: 'MusicSection',
   components: {
     LoadingSpinner,
+    Icon,
     TabList
   },
   data() {

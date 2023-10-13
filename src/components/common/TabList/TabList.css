@@ -114,11 +114,6 @@
   display: none;
 }
 
-.tabnav-paddle-left:after,
-.tabnav-paddle-left:before {
-  content: '';
-}
-
 .tabnav-paddle-left:after {
   margin-left: var(--scroll-container-paddle-horizontal-offset);
 }
@@ -148,11 +143,6 @@
 
 .tabnav-paddle-right:before {
   display: none;
-}
-
-.tabnav-paddle-right:after,
-.tabnav-paddle-right:before {
-  content: '';
 }
 
 .tabnav-paddle-right:after {

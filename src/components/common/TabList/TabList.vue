@@ -20,8 +20,12 @@
         </li>
       </ul>
       <div class="tabnav-paddles">
-        <button class="tabnav-paddle tabnav-paddle-left" disabled></button>
-        <button class="tabnav-paddle tabnav-paddle-right" disabled></button>
+        <button class="tabnav-paddle tabnav-paddle-left">
+          <Icon name="chevron.left" />
+        </button>
+        <button class="tabnav-paddle tabnav-paddle-right">
+          <Icon name="chevron.right" />
+        </button>
       </div>
     </div>
   </div>
