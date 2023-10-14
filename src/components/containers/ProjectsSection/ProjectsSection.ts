@@ -14,7 +14,6 @@ import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import { fetchData } from '@/helpers/locale-helper'
 import { Octokit } from '@octokit/rest'
-import { RestEndpointMethodTypes } from '@octokit/types'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -39,7 +38,7 @@ export default defineComponent({
     return {
       octokit: new Octokit(),
       json: undefined as any,
-      projects: [] as RestEndpointMethodTypes['repos']['listForUser']['response']['data']
+      projects: [] as any[]
     }
   },
   watch: {
@@ -60,7 +59,7 @@ export default defineComponent({
           username: 'JonathanXDR'
         })
         this.projects = response.data
-      } catch (error) {
+      } catch (error: any) {
         console.error('Error fetching projects:', error)
         this.projects.push({
           id: 1,
