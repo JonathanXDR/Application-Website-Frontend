@@ -1,29 +1,38 @@
 <template>
-  <a href="/documentation/Updates/wwdc2023" class="card large">
+  <a
+    href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/macros"
+    class="card small"
+  >
     <div class="card-cover-wrap">
-      <picture class="card-cover">
+      <picture class="card-cover"
+        ><source
+          media="(prefers-color-scheme: dark)"
+          srcset="
+            https://docs-assets.developer.apple.com/published/3415dcf5a890828b3ca66264c78f6306/Swift-Macros-3up~dark@2x.png 2x
+          "
+        />
         <img
           decoding="async"
           loading="lazy"
           alt=" "
           srcset="
-            https://docs-assets.developer.apple.com/published/9053196293f9a63894d17ebb5c68d41a/New-Technologies-2023-2up@2x.png 2x
+            https://docs-assets.developer.apple.com/published/a5f92cbaec780ef88061df4e1829eff0/Swift-Macros-3up@2x.png 2x
           "
-          src="https://docs-assets.developer.apple.com/published/9053196293f9a63894d17ebb5c68d41a/New-Technologies-2023-2up@2x.png"
-          width="483"
+          src="https://docs-assets.developer.apple.com/published/a5f92cbaec780ef88061df4e1829eff0/Swift-Macros-3up@2x.png"
+          width="317"
           height="auto"
         />
       </picture>
     </div>
     <div class="details">
-      <div id="card_eyebrow_45" class="eyebrow">New documentation</div>
-      <div id="card_title_45" class="title">Technologies from WWDC23</div>
-      <div id="card_content_45" class="card-content">
+      <div id="card_eyebrow_98" class="eyebrow">Language feature</div>
+      <div id="card_title_98" class="title">Macros</div>
+      <div id="card_content_98" class="card-content">
         <div class="content">
-          Browse new and updated documentation for technologies, frameworks, and APIs.
+          Learn how Swift macros can make your code cleaner and more powerful.
         </div>
       </div>
-      <div class="link" v-if="this.size === 'small' || 'large'">
+      <div class="link">
         Read documentation
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +45,6 @@
           ></path>
         </svg>
       </div>
-      <button v-else class="button-cta link">Discover visionOS</button>
     </div>
   </a>
 </template>

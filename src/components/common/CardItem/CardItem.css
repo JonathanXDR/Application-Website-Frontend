@@ -1,11 +1,11 @@
 /*! CSS Used from: https://developer.apple.com/tutorials/css/chunk-vendors.41e9a72f.css */
-.svg-icon[data-v-b5c5049e] {
+.svg-icon {
   fill: var(--colors-svg-icon-fill-light, var(--color-svg-icon));
   transform: scale(1);
   -webkit-transform: scale(1);
   overflow: visible;
 }
-.svg-icon.icon-inline[data-v-b5c5049e] {
+.svg-icon.icon-inline {
   display: inline-block;
   vertical-align: middle;
   fill: currentColor;
@@ -42,12 +42,12 @@ a:active {
   outline: none;
 }
 /*! CSS Used from: https://developer.apple.com/tutorials/css/432.103ee183.css */
-.card-cover[data-v-5789ced9] {
+.card-cover {
   background-color: var(--color-card-background);
   display: block;
   height: var(--card-cover-height, 180px);
 }
-.card-cover[data-v-5789ced9] img {
+.card-cover img {
   width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
@@ -56,10 +56,10 @@ a:active {
   display: block;
   margin: 0;
 }
-.card-cover[data-v-5789ced9] img {
+.card-cover img {
   height: 100%;
 }
-.card[data-v-09c4afde] {
+.card {
   overflow: hidden;
   display: block;
   transition:
@@ -71,35 +71,45 @@ a:active {
   height: var(--card-height);
   border-radius: 18px;
 }
-.card[data-v-09c4afde]:hover {
+.card:hover {
   text-decoration: none;
 }
-.card:hover .link[data-v-09c4afde] {
+.card:hover .link {
   text-decoration: underline;
 }
-.card[data-v-09c4afde]:hover {
+.card:hover {
   box-shadow: 0 5px 10px var(--color-card-shadow);
   transform: scale(1.007);
 }
 @media (prefers-reduced-motion: reduce) {
-  .card[data-v-09c4afde]:hover {
+  .card:hover {
     box-shadow: none;
     transform: none;
   }
 }
-.card.large[data-v-09c4afde] {
+.card.large {
   --card-height: 556px;
   --card-details-height: 163px;
   --card-cover-height: 359px;
 }
+.card.small {
+  --card-height: 408px;
+  --card-details-height: 139px;
+  --card-cover-height: 235px;
+}
 @media only screen and (max-width: 1250px) {
-  .card.large[data-v-09c4afde] {
+  .card.large {
     --card-height: 420px;
     --card-details-height: 137px;
     --card-cover-height: 249px;
   }
+  .card.small {
+    --card-height: 341px;
+    --card-details-height: 144px;
+    --card-cover-height: 163px;
+  }
 }
-.details[data-v-09c4afde] {
+.details {
   background-color: var(--color-card-background);
   padding: 17px;
   position: relative;
@@ -120,7 +130,7 @@ a:active {
     sans-serif
   );
 }
-.large .details[data-v-09c4afde] {
+.large .details {
   font-size: 1rem;
   line-height: 1.4705882353;
   font-weight: 400;
@@ -138,7 +148,7 @@ a:active {
   );
 }
 @media only screen and (max-width: 1250px) {
-  .large .details[data-v-09c4afde] {
+  .large .details {
     font-size: 0.8235294118rem;
     line-height: 1.2857742857;
     font-weight: 400;
@@ -156,7 +166,7 @@ a:active {
     );
   }
 }
-.eyebrow[data-v-09c4afde] {
+.eyebrow {
   color: var(--color-card-eyebrow);
   display: block;
   margin-bottom: 4px;
@@ -176,7 +186,7 @@ a:active {
     sans-serif
   );
 }
-.large .eyebrow[data-v-09c4afde] {
+.large .eyebrow {
   font-size: 1rem;
   line-height: 1.2353641176;
   font-weight: 600;
@@ -194,7 +204,7 @@ a:active {
   );
 }
 @media only screen and (max-width: 1250px) {
-  .large .eyebrow[data-v-09c4afde] {
+  .large .eyebrow {
     font-size: 0.8235294118rem;
     line-height: 1.2857742857;
     font-weight: 600;
@@ -212,7 +222,7 @@ a:active {
     );
   }
 }
-.title[data-v-09c4afde] {
+.title {
   color: var(--color-card-content-text);
   font-size: 1rem;
   line-height: 1.2353641176;
@@ -231,7 +241,7 @@ a:active {
   );
 }
 @media only screen and (max-width: 1250px) {
-  .title[data-v-09c4afde] {
+  .title {
     font-size: 0.8235294118rem;
     line-height: 1.2857742857;
     font-weight: 600;
@@ -250,7 +260,7 @@ a:active {
   }
 }
 @media only screen and (max-width: 735px) {
-  .title[data-v-09c4afde] {
+  .title {
     font-size: 1rem;
     line-height: 1.2353641176;
     font-weight: 600;
@@ -268,7 +278,7 @@ a:active {
     );
   }
 }
-.large .title[data-v-09c4afde] {
+.large .title {
   font-size: 1.2352941176rem;
   line-height: 1.1904761905;
   font-weight: 600;
@@ -286,7 +296,7 @@ a:active {
   );
 }
 @media only screen and (max-width: 1250px) {
-  .large .title[data-v-09c4afde] {
+  .large .title {
     font-size: 1rem;
     line-height: 1.2353641176;
     font-weight: 600;
@@ -304,34 +314,36 @@ a:active {
     );
   }
 }
-.card-content[data-v-09c4afde] {
+.card-content {
   color: var(--color-card-content-text);
   margin-top: 4px;
 }
-.link[data-v-09c4afde] {
+.link {
   bottom: 17px;
   display: flex;
   align-items: center;
   position: absolute;
 }
-.link .link-icon[data-v-09c4afde] {
+.link .link-icon {
   height: 0.6em;
   width: 0.6em;
   margin-left: 0.3em;
 }
 @media only screen and (max-width: 735px) {
-  .card[data-v-09c4afde] {
+  .card {
     margin-left: auto;
     margin-right: auto;
   }
-  .card.large[data-v-09c4afde] {
+  .card.large,
+  .card.small {
     --card-height: auto;
     --card-details-height: auto;
     min-width: 280px;
     max-width: 300px;
     --card-cover-height: 227px;
   }
-  .card.large .link[data-v-09c4afde] {
+  .card.large .link,
+  .card.small .link {
     bottom: unset;
     margin-top: 7px;
     position: relative;
