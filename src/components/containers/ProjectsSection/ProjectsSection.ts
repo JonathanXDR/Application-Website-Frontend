@@ -5,12 +5,10 @@ import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vu
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
+import { fetchUserRepos, sortProjects } from '@/helpers/github-helper'
 import { fetchData } from '@/helpers/locale-helper'
-import type { Endpoints } from '@octokit/types'
-import { Octokit } from 'octokit'
+import type { Repository } from '@/types/GitHub/Repository'
 import { defineComponent } from 'vue'
-
-type ListUserReposResponse = Endpoints['GET /users/{username}/repos']['response']
 
 export default defineComponent({
   name: 'ProjectsSection',
@@ -26,9 +24,9 @@ export default defineComponent({
   data() {
     return {
       projects: {
-        personal: [] as ListUserReposResponse['data'],
-        swisscom: [] as Array<any>,
-        school: [] as ListUserReposResponse['data']
+        personal: [] as Repository['data'],
+        swisscom: [] as any[],
+        school: [] as Repository['data']
       },
       errors: [] as string[]
     }
@@ -39,36 +37,22 @@ export default defineComponent({
   methods: {
     async fetchLocalizedData() {
       try {
-        const data = (await fetchData()) as any
+        const data = await fetchData()
         this.projects.swisscom = data.components.containers.projects
-      } catch (error) {
+      } catch (error: any) {
         console.error('Error fetching data:', error)
       }
     },
     async fetchProjects() {
-      const octokit = new Octokit()
       try {
-        const response = await octokit.request('GET /users/{username}/repos', {
-          username: 'JonathanXDR',
-          per_page: 100
-        })
-        this.sortProjects(response.data)
+        const projects = await fetchUserRepos('JonathanXDR')
+        const sortedProjects = sortProjects(projects)
+        this.projects.personal = sortedProjects.personal
+        this.projects.school = sortedProjects.school
       } catch (error: any) {
         console.error('Error fetching projects:', error)
         this.errors.push(`Error: ${error.message}: ${error.status}`)
       }
-    },
-    sortProjects(projects: ListUserReposResponse['data']) {
-      projects.forEach((project) => {
-        if (
-          project.name.match(/^(M\d+|UEK-\d+)-Portfolio$/i) ||
-          project.name.match(/^(TBZ|UEK)-Modules$/i)
-        ) {
-          this.projects.school.push(project)
-        } else {
-          this.projects.personal.push(project)
-        }
-      })
     }
   },
   created() {
