@@ -1,31 +1,31 @@
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import { fetchData } from '@/helpers/locale-helper'
-import { defineComponent } from 'vue'
+import { defineComponent, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'ShareSheet',
   components: {
     LoadingSpinner
   },
-  data() {
-    return {
-      json: undefined as any
-    }
-  },
-  watch: {
-    '$i18n.locale': 'fetchLocalizedData'
-  },
-  methods: {
-    async fetchLocalizedData() {
+  setup() {
+    const { locale } = useI18n()
+    const json = ref<any>(undefined)
+
+    const fetchLocalizedData = async () => {
       try {
         const data = (await fetchData()) as any
-        this.json = data.components.common.ShareSheet
+        json.value = data.components.common.ShareSheet
       } catch (error) {
         console.error('Error fetching data:', error)
       }
     }
-  },
-  created() {
-    this.fetchLocalizedData()
+
+    watch(locale, fetchLocalizedData, { immediate: true })
+
+    return {
+      json,
+      fetchLocalizedData
+    }
   }
 })

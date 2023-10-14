@@ -1,6 +1,7 @@
 import Icon from '@/components/common/Icons/Icon.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
-import { defineComponent } from 'vue'
+import type { ArticleItem } from '@/types/common/ArticleItem'
+import { defineComponent, type PropType } from 'vue'
 
 export default defineComponent({
   name: 'ArticleItem',
@@ -10,9 +11,9 @@ export default defineComponent({
   },
   props: {
     article: {
-      type: Object,
+      type: Object as PropType<ArticleItem>,
       required: true,
-      default: () => {}
+      default: () => ({})
     }
   }
 })
