@@ -34,29 +34,16 @@
   margin-bottom: 2em;
 }
 
-.padding-left-small {
-  padding-left: 0.25em;
+.padding-top-small {
+  padding-top: 0.25em;
 }
 
-.padding-right-small {
-  padding-right: 1.5em !important;
+.padding-right {
+  padding-right: 1.5em;
 }
 
 .article-date {
   color: var(--color-sub-text);
   margin: 0.5em 0 0.4em 0;
   font-size: 0.875em;
-}
-
-@media screen and (min-width: 900px) {
-  .padding-left-small {
-    padding-left: 0 !important;
-  }
-}
-
-/* ------------------------------ icon-article ------------------------------ */
-
-.icon-article {
-  width: 2em;
-  height: 2em;
 }

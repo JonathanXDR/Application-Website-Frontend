@@ -1,12 +1,5 @@
 import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue'
 import CardTile from '@/components/common/CardTile/CardTile.vue'
-import AirplaneDepartureIcon from '@/components/common/Icons/AirplaneDepartureIcon.vue'
-import ArrowDownCircleIcon from '@/components/common/Icons/ArrowDownCircleIcon.vue'
-import CalendarIcon from '@/components/common/Icons/CalendarIcon.vue'
-import ChevronLeftForwardslashChevronRightIcon from '@/components/common/Icons/ChevronLeftForwardslashChevronRightIcon.vue'
-import ChevronRightIcon from '@/components/common/Icons/ChevronRightIcon.vue'
-import GearIcon from '@/components/common/Icons/GearIcon.vue'
-import PersonCropSquareIcon from '@/components/common/Icons/PersonCropSquareIcon.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
@@ -22,13 +15,6 @@ type ListUserReposResponse = Endpoints['GET /users/{username}/repos']['response'
 export default defineComponent({
   name: 'ProjectsSection',
   components: {
-    AirplaneDepartureIcon,
-    ArrowDownCircleIcon,
-    CalendarIcon,
-    ChevronLeftForwardslashChevronRightIcon,
-    ChevronRightIcon,
-    GearIcon,
-    PersonCropSquareIcon,
     LoadingSpinner,
     RibbonBar,
     LinkCollection,
