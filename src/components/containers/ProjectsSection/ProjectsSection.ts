@@ -13,7 +13,8 @@ import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import { fetchData } from '@/helpers/locale-helper'
-import axios from 'axios'
+import { Octokit } from '@octokit/rest'
+import { RestEndpointMethodTypes } from '@octokit/types'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -36,8 +37,9 @@ export default defineComponent({
   },
   data() {
     return {
+      octokit: new Octokit(),
       json: undefined as any,
-      projects: [] as any[]
+      projects: [] as RestEndpointMethodTypes['repos']['listForUser']['response']['data']
     }
   },
   watch: {
@@ -53,19 +55,40 @@ export default defineComponent({
       }
     },
     async fetchProjects() {
-      axios
-        .get('https://api.github.com/users/JonathanXDR/repos')
-        .then((response) => {
-          this.projects = response.data
+      try {
+        const response = await this.octokit.repos.listForUser({
+          username: 'JonathanXDR'
         })
-        .catch((error) => {
-          console.log(error.toJSON())
-          this.projects.push({
-            id: 1,
-            name: `${error.toJSON().message}: ${error.toJSON().code}`,
-            description: error.toJSON().description
-          })
+        this.projects = response.data
+      } catch (error) {
+        console.error('Error fetching projects:', error)
+        this.projects.push({
+          id: 1,
+          name: `${error.name}: ${error.status}`,
+          description: error.message
         })
+      }
+    },
+    splitProjects(projects: any[]) {
+      const personalProjects = []
+      const schoolProjects = []
+      const schoolProjectCollections = []
+
+      projects.forEach((project) => {
+        if (project.name.match(/^M\d+-Portfolio$/i) || project.name.match(/^UEK-\d+-Portfolio$/i)) {
+          schoolProjects.push(project)
+        } else if (project.name.match(/^UEK-Modules$/i) || project.name.match(/^TBZ-Modules$/i)) {
+          schoolProjectCollections.push(project)
+        } else {
+          personalProjects.push(project)
+        }
+      })
+
+      return {
+        personalProjects,
+        schoolProjects,
+        schoolProjectCollections
+      }
     }
   },
   created() {
