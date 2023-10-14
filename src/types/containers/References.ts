@@ -1,5 +1,5 @@
 import type { ArticleItem } from '../common/ArticleItem'
 
-export type Languages = ArticleItem & {
-  languages: ArticleItem[]
+export type References = ArticleItem & {
+  references: ArticleItem[]
 }
