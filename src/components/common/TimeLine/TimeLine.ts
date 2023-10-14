@@ -1,62 +1,72 @@
-import { defineComponent } from "vue";
+import { defineComponent, onMounted, ref } from 'vue'
 
 export default defineComponent({
-  name: "TimeLine",
-  data() {
+  name: 'TimeLine',
+  setup() {
+    const pathD = ref<string | undefined>(undefined)
+    const ulHeight = ref<number | undefined>(undefined)
+    const viewBox = ref<string | undefined>(undefined)
+    const xmlns = ref<string | undefined>(undefined)
+
+    const strokeDasharray = ref(0)
+    const strokeDashoffset = ref(0)
+
+    const svg = ref<SVGElement | null>(null)
+    const path = ref<SVGPathElement | null>(null)
+
+    const initPath = () => {
+      const ul = (svg.value as any).$parent?.$refs.ul as HTMLElement
+
+      const ulHeightValue = ul.getBoundingClientRect().height
+      const ulHeightRounded = Math.round(ulHeightValue)
+
+      pathD.value = `M 4 0 L 4 ${ulHeightRounded}`
+      ulHeight.value = ulHeightValue
+      viewBox.value = `0 0 8 ${ulHeightRounded}`
+      xmlns.value = `http://www.w3.org/${ulHeightRounded}/svg`
+
+      strokeDasharray.value = ulHeightValue
+      strokeDashoffset.value = ulHeightValue
+    }
+
+    const animateLine = () => {
+      const ulHeightValue = ulHeight.value || 0
+      const center = window.innerHeight / 2
+      const boundaries = path.value?.getBoundingClientRect()
+
+      const percentage = (center - (boundaries?.top || 0)) / (boundaries?.height || 1)
+      const drawLength = percentage > 0 ? ulHeightValue * percentage : 0
+
+      strokeDashoffset.value = drawLength < ulHeightValue ? ulHeightValue - drawLength : 0
+    }
+
+    onMounted(() => {
+      initPath()
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            window.addEventListener('scroll', animateLine)
+            window.addEventListener('resize', initPath)
+          } else {
+            window.removeEventListener('scroll', animateLine)
+            window.removeEventListener('resize', initPath)
+          }
+        })
+      })
+
+      observer.observe(svg.value as SVGElement)
+    })
+
     return {
-      pathD: undefined as string | undefined,
-      ulHeight: undefined as number | undefined,
-      viewBox: undefined as string | undefined,
-      xmlns: undefined as string | undefined,
-
-      strokeDasharray: 0,
-      strokeDashoffset: 0,
-    };
-  },
-  mounted() {
-    this.initPath();
-
-    const svg = this.$refs.svg as SVGElement;
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          window.addEventListener("scroll", this.animateLine);
-          window.addEventListener("resize", this.initPath);
-        } else {
-          window.removeEventListener("scroll", this.animateLine);
-          window.removeEventListener("resize", this.initPath);
-        }
-      });
-    });
-
-    observer.observe(svg);
-  },
-  methods: {
-    initPath() {
-      const ul = this.$parent?.$refs.ul as HTMLElement;
-
-      const ulHeight = ul.getBoundingClientRect().height;
-      const ulHeightRounded = Math.round(ulHeight);
-
-      this.pathD = `M 4 0 L 4 ${ulHeightRounded}`;
-      this.ulHeight = ulHeight;
-      this.viewBox = `0 0 8 ${ulHeightRounded}`;
-      this.xmlns = `http://www.w3.org/${ulHeightRounded}/svg`;
-
-      this.strokeDasharray = this.ulHeight;
-      this.strokeDashoffset = this.ulHeight;
-    },
-
-    animateLine() {
-      const ulHeight = this.ulHeight || 0;
-      const path = this.$refs.path as SVGPathElement;
-      const center = window.innerHeight / 2;
-      const boundaries = path.getBoundingClientRect();
-
-      const percentage = (center - boundaries.top) / boundaries.height;
-      const drawLength = percentage > 0 ? ulHeight * percentage : 0;
-
-      this.strokeDashoffset = drawLength < ulHeight ? ulHeight - drawLength : 0;
-    },
-  },
-});
+      pathD,
+      ulHeight,
+      viewBox,
+      xmlns,
+      strokeDasharray,
+      strokeDashoffset,
+      svg,
+      path
+    }
+  }
+})
