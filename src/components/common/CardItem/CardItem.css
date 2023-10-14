@@ -52,7 +52,45 @@ a:active {
   outline: none;
 }
 
-/*! CSS Used from: https://developer.apple.com/tutorials/css/432.103ee183.css */
+/* ------------------------------- button-cta ------------------------------- */
+
+.button-cta {
+  background: var(--colors-button-light-background, var(--color-button-background));
+  border-color: var(--color-button-border, currentcolor);
+  border-radius: var(--button-border-radius, 18px);
+  border-style: var(--button-border-style, none);
+  border-width: var(--button-border-width, medium);
+  color: var(--colors-button-text, var(--color-button-text));
+  cursor: pointer;
+  min-width: 1.7647058824rem;
+  padding: .2352941176rem .8823529412rem;
+  text-align: center;
+  white-space: nowrap;
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1.4705882353;
+  font-weight: 400;
+  letter-spacing: -.022em;
+  font-family: var(--typography-html-font, "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
+}
+
+.button-cta:active {
+  background: var(--colors-button-light-backgroundActive, var(--color-button-background-active));
+  outline: none;
+}
+
+.button-cta:hover:not([disabled]) {
+  background: var(--colors-button-light-backgroundHover, var(--color-button-background-hover));
+  text-decoration: none;
+}
+
+.button-cta:disabled {
+  opacity: .32;
+  cursor: default;
+}
+
+/* ------------------------------- card-cover ------------------------------- */
+
 .card-cover {
   background-color: var(--color-card-background);
   display: block;
@@ -73,12 +111,12 @@ a:active {
   height: 100%;
 }
 
+/* ---------------------------------- card ---------------------------------- */
+
 .card {
   overflow: hidden;
   display: block;
-  transition:
-    box-shadow,
-    transform 0.16s ease-out;
+  transition: box-shadow, transform .16s ease-out;
   will-change: box-shadow, transform;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -97,6 +135,13 @@ a:active {
 .card:hover {
   box-shadow: 0 5px 10px var(--color-card-shadow);
   transform: scale(1.007);
+}
+
+@media only screen and (max-width:735px) {
+  .card {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
