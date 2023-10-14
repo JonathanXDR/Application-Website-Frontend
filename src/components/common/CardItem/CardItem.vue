@@ -4,7 +4,14 @@
     class="card large"
     style="border-radius: 30px !important"
   >
-    <div class="card-cover-wrap" style="color: #1d1d1f; background: #f5f5f7; padding: 30px">
+    <div
+      class="card-cover-wrap"
+      style="
+        color: var(--color-fill-tertiary) !important;
+        background: var(--color-code-plain);
+        padding: 30px;
+      "
+    >
       <!-- <picture class="card-cover"
         ><source
           media="(prefers-color-scheme: dark)"
@@ -56,7 +63,10 @@
               ></path>
             </svg>
           </figure>
-          <h4 class="sector-labels typography-donut-label">
+          <h4
+            class="sector-labels typography-donut-label"
+            style="color: var(--color-fill-tertiary) !important"
+          >
             <span>Global</span>
           </h4>
         </div>
