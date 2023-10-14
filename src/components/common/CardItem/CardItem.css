@@ -78,7 +78,13 @@
   line-height: 1.3333733333 !important;
   font-weight: 400 !important;
   letter-spacing: -0.01em !important;
-  font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif !important;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif !important;
 }
 
 .button {
@@ -101,7 +107,13 @@
   line-height: 1.2857742857;
   font-weight: 400;
   letter-spacing: -0.016em;
-  font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   background: var(--color-code-plain);
   color: var(--sk-button-color);
   padding-block: calc(var(--sk-button-padding-vertical) - var(--sk-button-border-width));
@@ -109,7 +121,7 @@
   border-radius: var(--sk-button-border-radius);
   border: var(--sk-button-border-width) solid var(--sk-button-border-color);
   width: var(--sk-button-width);
-  min-width: calc(var(--sk-button-min-width-basis) - var(--sk-button-padding-horizontal)*2);
+  min-width: calc(var(--sk-button-min-width-basis) - var(--sk-button-padding-horizontal) * 2);
   cursor: pointer;
   display: var(--sk-button-display);
   box-sizing: var(--sk-button-box-sizing);
@@ -117,8 +129,8 @@
   text-decoration: none;
   white-space: nowrap;
   --sk-button-background: rgb(0, 113, 227);
-  --sk-button-background-hover: #0077ED;
-  --sk-button-background-active: #006EDB;
+  --sk-button-background-hover: #0077ed;
+  --sk-button-background-active: #006edb;
 }
 
 /* ------------------------------- card-cover ------------------------------- */
@@ -249,7 +261,6 @@
   align-items: flex-start;
   gap: 4px;
   z-index: 1;
-
 
   background-color: var(--color-fill);
   padding: 17px;
@@ -709,14 +720,20 @@
   }
 }
 
-/* -------------------------------- bar-graph ------------------------------- */
+/* -------------------------------- bar ------------------------------- */
 
 .typography-body-tight {
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 400;
   letter-spacing: 0em;
-  font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .group {
@@ -724,20 +741,26 @@
   box-sizing: border-box;
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .group {
     padding: 20px 0;
   }
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .group {
     padding: 0;
     font-size: 14px;
     line-height: 1.2857742857;
     font-weight: 400;
     letter-spacing: -0.016em;
-    font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family:
+      SF Pro Text,
+      SF Pro Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 }
 
@@ -752,7 +775,7 @@
   margin-top: 12px;
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .bar-container {
     margin-top: 5px;
   }
@@ -768,6 +791,320 @@
   border-radius: 10px;
   padding-inline-start: 5px;
   padding-inline-end: 5px;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+/* ---------------------------------- donut --------------------------------- */
+
+/*! CSS Used from: https://www.apple.com/v/diversity/h/built/styles/main.built.css */
+figure,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+:focus {
+  outline: 4px solid rgba(0, 125, 250, 0.6);
+  outline-offset: 1px;
+}
+
+h4 {
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+br.large {
+  display: block;
+}
+
+@media only screen and (max-width: 1068px) {
+  br.large {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 734px) {
+  br.large {
+    display: none;
+  }
+}
+
+br.medium {
+  display: none;
+}
+
+@media only screen and (max-width: 1068px) {
+  br.medium {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 734px) {
+  br.medium {
+    display: none;
+  }
+}
+
+.typography-donut-label {
+  font-size: 17px;
+  line-height: 1.2353641176;
+  font-weight: 600;
+  letter-spacing: 0em;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+@media only screen and (max-width: 1068px) {
+  .typography-donut-label {
+    font-size: 17px;
+    line-height: 1.2353641176;
+    font-weight: 600;
+    letter-spacing: 0em;
+    font-family:
+      SF Pro Text,
+      SF Pro Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
+  }
+}
+
+@media only screen and (max-width: 734px) {
+  .typography-donut-label {
+    font-size: 14px;
+    line-height: 1.2857742857;
+    font-weight: 600;
+    letter-spacing: -0.016em;
+    font-family:
+      SF Pro Text,
+      SF Pro Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
+  }
+}
+
+br.large,
+br.medium {
+  display: none !important;
+}
+
+@media only screen and (min-width: 1069px) {
+
+  br.large.large,
+  br.medium.large {
+    display: block !important;
+  }
+}
+
+@media only screen and (min-width: 735px) and (max-width: 1068px) {
+
+  br.large.medium,
+  br.medium.medium {
+    display: block !important;
+  }
+}
+
+/*! CSS Used from: https://www.apple.com/v/diversity/h/built/styles/overview.built.css */
+.typography-donut-label {
+  font-size: 17px;
+  line-height: 1.2353641176;
+  font-weight: 600;
+  letter-spacing: 0em;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+@media only screen and (max-width: 1068px) {
+  .typography-donut-label {
+    font-size: 17px;
+    line-height: 1.2353641176;
+    font-weight: 600;
+    letter-spacing: 0em;
+    font-family:
+      SF Pro Text,
+      SF Pro Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
+  }
+}
+
+@media only screen and (max-width: 734px) {
+  .typography-donut-label {
+    font-size: 14px;
+    line-height: 1.2857742857;
+    font-weight: 600;
+    letter-spacing: -0.016em;
+    font-family:
+      SF Pro Text,
+      SF Pro Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
+  }
+}
+
+.ac-graph-donut .donut-wedge {
+  fill: #f56300;
+}
+
+svg.ac-graph-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 734px) {
+  .container {
+    margin-top: 8px;
+    flex-wrap: wrap;
+    grid-row-gap: 20px;
+    row-gap: 20px;
+    grid-column-gap: 40px;
+    column-gap: 40px;
+    justify-content: center;
+  }
+}
+
+.wedge-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 10px;
+  gap: 10px;
+}
+
+@media only screen and (min-width: 735px) {
+  .wedge-legend {
+    width: 120px;
+  }
+}
+
+.wedge-legend:before {
+  display: inline-block;
+  content: '';
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  --size: 10px;
+}
+
+@media only screen and (max-width: 734px) {
+  .wedge-legend:before {
+    --size: 20px;
+  }
+}
+
+@media only screen and (min-width: 735px) {
+  .wedge-legend.female {
+    order: -1;
+  }
+}
+
+.wedge-legend.female {
+  justify-content: end;
+}
+
+.wedge-legend.female:before {
+  background: var(--color-fill);
+}
+
+.wedge-legend.male {
+  justify-content: start;
+}
+
+.wedge-legend.male:before {
+  background: #cecece;
+}
+
+.wedge-legend [data-value] {
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.donut-container {
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  --size: 360px;
+  --max-width: var(--size);
+}
+
+@media only screen and (max-width: 1068px) {
+  .donut-container {
+    --size: 300px;
+  }
+}
+
+@media only screen and (max-width: 734px) {
+  .donut-container {
+    --size: 100%;
+    --max-width: 240px;
+  }
+}
+
+.donut-container .donut {
+  position: relative;
+  width: min(100%, var(--max-width));
+  padding-bottom: min(100%, var(--max-width));
+  height: 0;
+  margin: auto;
+}
+
+.donut-container .donut-wedge:nth-child(odd) {
+  fill: #cecece;
+}
+
+.donut-container .donut-wedge:nth-child(2n) {
+  fill: var(--color-fill);
+}
+
+.donut-container .donut svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.donut-container .sector-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  text-align: center;
+  max-width: var(--max-width);
+  margin: auto;
 }
 
 .semibold {
