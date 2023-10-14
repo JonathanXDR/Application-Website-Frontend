@@ -264,7 +264,26 @@ a:active {
       sans-serif);
 }
 
+/* ---------------------------------- title --------------------------------- */
+
 .large .eyebrow {
+  font-size: 1rem;
+  line-height: 1.2353641176;
+  font-weight: 600;
+  letter-spacing: -0.024em;
+  font-family: var(--typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif);
+}
+
+.title {
+  color: var(--color-card-content-text);
   font-size: 1rem;
   line-height: 1.2353641176;
   font-weight: 600;
@@ -367,8 +386,42 @@ a:active {
       sans-serif);
 }
 
+.featured-card .title {
+  font-size: 1.2352941176rem;
+  line-height: 1.1904761905;
+  font-weight: 600;
+  letter-spacing: 0.011em;
+  font-family: var(--typography-html-font,
+      'SF Pro Display',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif);
+}
+
 @media only screen and (max-width: 1250px) {
   .large .title {
+    font-size: 1rem;
+    line-height: 1.2353641176;
+    font-weight: 600;
+    letter-spacing: -0.024em;
+    font-family: var(--typography-html-font,
+        'SF Pro Text',
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        sans-serif);
+  }
+}
+
+@media only screen and (max-width: 735px) {
+  .featured-card .title {
     font-size: 1rem;
     line-height: 1.2353641176;
     font-weight: 600;
