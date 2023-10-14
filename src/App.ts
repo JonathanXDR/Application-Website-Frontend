@@ -5,6 +5,8 @@ import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import { defineComponent, ref } from 'vue'
 import { useMeta } from 'vue-meta'
 import { RouterLink, RouterView } from 'vue-router'
+import useColorStore from './stores/color'
+import useSectionStore from './stores/section'
 
 export default defineComponent({
   name: 'App',
@@ -17,13 +19,11 @@ export default defineComponent({
     FooterItem
   },
   setup() {
-    const useColorStore = require('@/stores/colorBadge')
-    const useSectionStore = require('@/stores/navbarSections')
     const colorStore = useColorStore()
     const sectionStore = useSectionStore()
 
     const nodeEnv = ref(process.env.NODE_ENV)
-    const currentSectionName = ref(sectionStore.currentSectionName)
+    const currentSectionName = ref(sectionStore.state.currentSectionName)
     const colorBadge = ref(colorStore.randomizeColor())
 
     useMeta({

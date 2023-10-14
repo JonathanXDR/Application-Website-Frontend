@@ -23,7 +23,7 @@ export default defineComponent({
     const navDisabled = ref<boolean>(false)
 
     const nodeEnv = computed(() => process.env.NODE_ENV)
-    const currentSectionIndex = computed(() => useSectionStore().currentSectionIndex)
+    const currentSectionIndex = computed(() => useSectionStore().state.currentSectionIndex)
     const colorBadge = computed(() => useColorStore().randomizeColor())
     const headerAnimations = computed(() => {
       useAnimationStore().setHeaderAnimation({
