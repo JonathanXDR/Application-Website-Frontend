@@ -63,15 +63,23 @@ a:active {
   color: var(--colors-button-text, var(--color-button-text));
   cursor: pointer;
   min-width: 1.7647058824rem;
-  padding: .2352941176rem .8823529412rem;
+  padding: 0.2352941176rem 0.8823529412rem;
   text-align: center;
   white-space: nowrap;
   display: inline-block;
   font-size: 1rem;
   line-height: 1.4705882353;
   font-weight: 400;
-  letter-spacing: -.022em;
-  font-family: var(--typography-html-font, "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
+  letter-spacing: -0.022em;
+  font-family: var(--typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif);
 }
 
 .button-cta:active {
@@ -85,7 +93,7 @@ a:active {
 }
 
 .button-cta:disabled {
-  opacity: .32;
+  opacity: 0.32;
   cursor: default;
 }
 
@@ -116,7 +124,9 @@ a:active {
 .card {
   overflow: hidden;
   display: block;
-  transition: box-shadow, transform .16s ease-out;
+  transition:
+    box-shadow,
+    transform 0.16s ease-out;
   will-change: box-shadow, transform;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -137,7 +147,7 @@ a:active {
   transform: scale(1.007);
 }
 
-@media only screen and (max-width:735px) {
+@media only screen and (max-width: 735px) {
   .card {
     margin-left: auto;
     margin-right: auto;
@@ -184,11 +194,19 @@ a:active {
   padding: 17px;
   position: relative;
   height: var(--card-details-height);
-  font-size: .8235294118rem;
+  font-size: 0.8235294118rem;
   line-height: 1.2857742857;
   font-weight: 400;
-  letter-spacing: -.016em;
-  font-family: var(--typography-html-font, "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
+  letter-spacing: -0.016em;
+  font-family: var(--typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif);
 }
 
 .large .details {
@@ -225,15 +243,25 @@ a:active {
   }
 }
 
+/* --------------------------------- eyebrow -------------------------------- */
+
 .eyebrow {
   color: var(--color-card-eyebrow);
   display: block;
   margin-bottom: 4px;
-  font-size: .8235294118rem;
+  font-size: 0.8235294118rem;
   line-height: 1.2857742857;
   font-weight: 600;
-  letter-spacing: -.016em;
-  font-family: var(--typography-html-font, "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
+  letter-spacing: -0.016em;
+  font-family: var(--typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif);
 }
 
 .large .eyebrow {
@@ -362,6 +390,11 @@ a:active {
   margin-top: 4px;
 }
 
+.featured-card .content,
+.featured-card .title {
+  color: var(--color-welcome-featured-card-content);
+}
+
 .link {
   bottom: 17px;
   display: flex;
@@ -369,10 +402,27 @@ a:active {
   position: absolute;
 }
 
+.featured-card .link {
+  margin-top: 15px;
+  position: static;
+}
+
 .link .link-icon {
   height: 0.6em;
   width: 0.6em;
   margin-left: 0.3em;
+}
+
+@media only screen and (max-width: 1250px) {
+  .featured-card {
+    --card-height: 307px;
+    margin-bottom: 15px;
+  }
+
+  .featured-card .details {
+    right: 58px;
+    width: 288px;
+  }
 }
 
 @media only screen and (max-width: 735px) {
@@ -390,10 +440,53 @@ a:active {
     --card-cover-height: 227px;
   }
 
+  .featured-card {
+    --card-height: auto;
+    margin-bottom: 20px;
+    max-width: 300px;
+    min-width: 280px;
+    --card-cover-height: 227px;
+  }
+
   .card.large .link,
   .card.small .link {
     bottom: unset;
     margin-top: 7px;
     position: relative;
+  }
+
+  .featured-card .card-cover img {
+    -o-object-position: -3px center;
+    object-position: -3px center;
+    width: 688px;
+  }
+
+  .featured-card .details {
+    background-color: var(--color-welcome-featured-card-details-small);
+    display: block;
+    height: unset;
+    padding: 17px;
+    position: relative;
+    right: unset;
+    top: unset;
+    width: unset;
+  }
+
+  .featured-card .eyebrow {
+    color: var(--color-welcome-featured-card-eyebrow-text-small);
+  }
+
+  .featured-card .content,
+  .featured-card .title {
+    color: var(--color-welcome-featured-card-content-small);
+  }
+
+  .featured-card .title {
+    font-weight: 600;
+  }
+
+  .featured-card .link {
+    display: inline-block;
+    margin-top: 10px;
   }
 }
