@@ -177,24 +177,18 @@ a:active {
   }
 }
 
+/* --------------------------------- details -------------------------------- */
+
 .details {
   background-color: var(--color-card-background);
   padding: 17px;
   position: relative;
   height: var(--card-details-height);
-  font-size: 0.8235294118rem;
+  font-size: .8235294118rem;
   line-height: 1.2857742857;
   font-weight: 400;
-  letter-spacing: -0.016em;
-  font-family: var(--typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif);
+  letter-spacing: -.016em;
+  font-family: var(--typography-html-font, "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
 }
 
 .large .details {
@@ -235,19 +229,11 @@ a:active {
   color: var(--color-card-eyebrow);
   display: block;
   margin-bottom: 4px;
-  font-size: 0.8235294118rem;
+  font-size: .8235294118rem;
   line-height: 1.2857742857;
   font-weight: 600;
-  letter-spacing: -0.016em;
-  font-family: var(--typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif);
+  letter-spacing: -.016em;
+  font-family: var(--typography-html-font, "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
 }
 
 .large .eyebrow {
