@@ -9,7 +9,7 @@ export default defineComponent({
     LoadingSpinner
   },
   setup() {
-    const { locale } = useI18n()
+    const { locale } = useI18n({ useScope: 'global' })
     const json = ref<any>(undefined)
 
     const fetchLocalizedData = async () => {

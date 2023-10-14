@@ -1,6 +1,7 @@
+import { defineStore } from 'pinia'
 import { reactive, toRefs } from 'vue'
 
-export const useAnimationStore = () => {
+export const useAnimationStore = defineStore('animation', () => {
   const state = reactive({
     headerAnimations: [] as Array<{
       element: HTMLElement
@@ -21,6 +22,4 @@ export const useAnimationStore = () => {
     ...toRefs(state),
     setHeaderAnimation
   }
-}
-
-export default useAnimationStore
+})

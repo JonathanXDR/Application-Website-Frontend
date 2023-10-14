@@ -2,11 +2,11 @@ import FooterItem from '@/components/common/FooterItem/FooterItem.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import NavBar from '@/components/common/NavBar/NavBar.vue'
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
+import { useColorStore } from '@/stores/color'
+import { useSectionStore } from '@/stores/section'
 import { defineComponent, ref } from 'vue'
 import { useMeta } from 'vue-meta'
 import { RouterLink, RouterView } from 'vue-router'
-import useColorStore from './stores/color'
-import useSectionStore from './stores/section'
 
 export default defineComponent({
   name: 'App',

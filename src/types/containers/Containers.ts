@@ -4,7 +4,7 @@ import type { LanguageBar } from '../common/LanguageBar'
 import type { About } from './About'
 import type { CommonContainers } from './Common'
 
-export type Containers = {
+export type Containers = ArticleItem & {
   common: CommonContainers
   about: About
   languages: LanguageBar[]

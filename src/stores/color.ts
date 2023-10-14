@@ -1,6 +1,7 @@
+import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
 
-export const useColorStore = () => {
+export const useColorStore = defineStore('color', () => {
   const colorBadgeArray = reactive([
     {
       colorName: 'orange',
@@ -39,6 +40,4 @@ export const useColorStore = () => {
     colorBadge,
     randomizeColor
   }
-}
-
-export default useColorStore
+})

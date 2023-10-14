@@ -1,6 +1,7 @@
+import { defineStore } from 'pinia'
 import { reactive } from 'vue'
 
-export const useSectionStore = () => {
+export const useSectionStore = defineStore('section', () => {
   const state = reactive({
     currentSectionName: null as string | null,
     currentSectionIndex: null as number | null
@@ -16,6 +17,4 @@ export const useSectionStore = () => {
     state,
     setCurrentSection
   }
-}
-
-export default useSectionStore
+})
