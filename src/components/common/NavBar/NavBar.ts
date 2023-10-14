@@ -101,6 +101,7 @@ export default defineComponent({
 
     return {
       json,
+      fetchLocalizedData,
       themeDark,
       navOpen,
       navDisabled,
