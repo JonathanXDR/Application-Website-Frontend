@@ -25,11 +25,11 @@ export default defineComponent({
   },
   data() {
     return {
-      json: undefined as any,
-      allProjects: [] as ListUserReposResponse['data'],
-      personalProjects: [] as ListUserReposResponse['data'],
-      schoolProjects: [] as ListUserReposResponse['data'],
-      schoolProjectCollections: [] as ListUserReposResponse['data'],
+      projects: {
+        personal: [] as ListUserReposResponse['data'],
+        swisscom: [] as Array<any>,
+        school: [] as ListUserReposResponse['data']
+      },
       errors: [] as string[]
     }
   },
@@ -40,7 +40,7 @@ export default defineComponent({
     async fetchLocalizedData() {
       try {
         const data = (await fetchData()) as any
-        this.json = data.components.containers.projects
+        this.projects.swisscom = data.components.containers.projects
       } catch (error) {
         console.error('Error fetching data:', error)
       }
@@ -49,22 +49,24 @@ export default defineComponent({
       const octokit = new Octokit()
       try {
         const response = await octokit.request('GET /users/{username}/repos', {
-          username: 'JonathanXDR'
+          username: 'JonathanXDR',
+          per_page: 100
         })
-        this.allProjects = response.data
+        this.sortProjects(response.data)
       } catch (error: any) {
         console.error('Error fetching projects:', error)
         this.errors.push(`Error: ${error.message}: ${error.status}`)
       }
     },
-    splitProjects(projects: ListUserReposResponse['data']) {
+    sortProjects(projects: ListUserReposResponse['data']) {
       projects.forEach((project) => {
-        if (project.name.match(/^M\d+-Portfolio$/i) || project.name.match(/^UEK-\d+-Portfolio$/i)) {
-          this.schoolProjects.push(project)
-        } else if (project.name.match(/^UEK-Modules$/i) || project.name.match(/^TBZ-Modules$/i)) {
-          this.schoolProjectCollections.push(project)
+        if (
+          project.name.match(/^(M\d+|UEK-\d+)-Portfolio$/i) ||
+          project.name.match(/^(TBZ|UEK)-Modules$/i)
+        ) {
+          this.projects.school.push(project)
         } else {
-          this.personalProjects.push(project)
+          this.projects.personal.push(project)
         }
       })
     }

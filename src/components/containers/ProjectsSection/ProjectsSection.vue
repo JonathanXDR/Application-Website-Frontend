@@ -2,17 +2,16 @@
   <h3 class="typography-magical-headline">
     {{ $t('components.containers.common.projectsAtSwisscom') }}
   </h3>
-  <div class="timeline-wrapper" v-if="json">
+  <div class="timeline-wrapper" v-if="projects.personal && projects.swisscom && projects.school">
     <TimeLine />
 
-    <!-- <ul ref="ul" class="timeline">
-      <ArticleItem v-for="(projects, index) in json" :key="index" :article="projects" />
-    </ul> -->
-
-    <ul ref="ul" class="timeline" v-if="allProjects">
-      <ArticleItem v-for="(project, index) in allProjects" :key="index" :article="project" />
+    <ul ref="ul" class="timeline">
+      <ArticleItem v-for="(project, index) in projects.swisscom" :key="index" :article="project" />
     </ul>
-    <LoadingSpinner v-else class="center" />
+
+    <!-- <ul ref="ul" class="timeline">
+      <ArticleItem v-for="(project, index) in projects.personal" :key="index" :article="project" />
+    </ul> -->
   </div>
   <LoadingSpinner v-else class="center" />
 </template>
