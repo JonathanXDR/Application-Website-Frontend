@@ -1,0 +1,339 @@
+/*! CSS Used from: https://developer.apple.com/tutorials/css/chunk-vendors.41e9a72f.css */
+.svg-icon[data-v-b5c5049e] {
+  fill: var(--colors-svg-icon-fill-light, var(--color-svg-icon));
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  overflow: visible;
+}
+.svg-icon.icon-inline[data-v-b5c5049e] {
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+}
+img {
+  border: 0;
+}
+:focus {
+  outline: 4px solid var(--color-focus-color);
+  outline-offset: 1px;
+}
+@media print {
+  a,
+  a:link,
+  a:visited {
+    color: #000;
+    text-decoration: none;
+  }
+}
+a {
+  color: var(--colors-link, var(--color-link));
+}
+a:link,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:active {
+  text-decoration: none;
+}
+[data-v-21735da6] :focus:not(input):not(textarea):not(select) {
+  outline: none;
+}
+/*! CSS Used from: https://developer.apple.com/tutorials/css/432.103ee183.css */
+.card-cover[data-v-5789ced9] {
+  background-color: var(--color-card-background);
+  display: block;
+  height: var(--card-cover-height, 180px);
+}
+.card-cover[data-v-5789ced9] img {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  display: block;
+  margin: 0;
+}
+.card-cover[data-v-5789ced9] img {
+  height: 100%;
+}
+.card[data-v-09c4afde] {
+  overflow: hidden;
+  display: block;
+  transition:
+    box-shadow,
+    transform 0.16s ease-out;
+  will-change: box-shadow, transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  height: var(--card-height);
+  border-radius: 18px;
+}
+.card[data-v-09c4afde]:hover {
+  text-decoration: none;
+}
+.card:hover .link[data-v-09c4afde] {
+  text-decoration: underline;
+}
+.card[data-v-09c4afde]:hover {
+  box-shadow: 0 5px 10px var(--color-card-shadow);
+  transform: scale(1.007);
+}
+@media (prefers-reduced-motion: reduce) {
+  .card[data-v-09c4afde]:hover {
+    box-shadow: none;
+    transform: none;
+  }
+}
+.card.large[data-v-09c4afde] {
+  --card-height: 556px;
+  --card-details-height: 163px;
+  --card-cover-height: 359px;
+}
+@media only screen and (max-width: 1250px) {
+  .card.large[data-v-09c4afde] {
+    --card-height: 420px;
+    --card-details-height: 137px;
+    --card-cover-height: 249px;
+  }
+}
+.details[data-v-09c4afde] {
+  background-color: var(--color-card-background);
+  padding: 17px;
+  position: relative;
+  height: var(--card-details-height);
+  font-size: 0.8235294118rem;
+  line-height: 1.2857742857;
+  font-weight: 400;
+  letter-spacing: -0.016em;
+  font-family: var(
+    --typography-html-font,
+    'SF Pro Text',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif
+  );
+}
+.large .details[data-v-09c4afde] {
+  font-size: 1rem;
+  line-height: 1.4705882353;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family: var(
+    --typography-html-font,
+    'SF Pro Text',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif
+  );
+}
+@media only screen and (max-width: 1250px) {
+  .large .details[data-v-09c4afde] {
+    font-size: 0.8235294118rem;
+    line-height: 1.2857742857;
+    font-weight: 400;
+    letter-spacing: -0.016em;
+    font-family: var(
+      --typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif
+    );
+  }
+}
+.eyebrow[data-v-09c4afde] {
+  color: var(--color-card-eyebrow);
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.8235294118rem;
+  line-height: 1.2857742857;
+  font-weight: 600;
+  letter-spacing: -0.016em;
+  font-family: var(
+    --typography-html-font,
+    'SF Pro Text',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif
+  );
+}
+.large .eyebrow[data-v-09c4afde] {
+  font-size: 1rem;
+  line-height: 1.2353641176;
+  font-weight: 600;
+  letter-spacing: -0.024em;
+  font-family: var(
+    --typography-html-font,
+    'SF Pro Text',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif
+  );
+}
+@media only screen and (max-width: 1250px) {
+  .large .eyebrow[data-v-09c4afde] {
+    font-size: 0.8235294118rem;
+    line-height: 1.2857742857;
+    font-weight: 600;
+    letter-spacing: -0.016em;
+    font-family: var(
+      --typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif
+    );
+  }
+}
+.title[data-v-09c4afde] {
+  color: var(--color-card-content-text);
+  font-size: 1rem;
+  line-height: 1.2353641176;
+  font-weight: 600;
+  letter-spacing: -0.024em;
+  font-family: var(
+    --typography-html-font,
+    'SF Pro Text',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif
+  );
+}
+@media only screen and (max-width: 1250px) {
+  .title[data-v-09c4afde] {
+    font-size: 0.8235294118rem;
+    line-height: 1.2857742857;
+    font-weight: 600;
+    letter-spacing: -0.016em;
+    font-family: var(
+      --typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif
+    );
+  }
+}
+@media only screen and (max-width: 735px) {
+  .title[data-v-09c4afde] {
+    font-size: 1rem;
+    line-height: 1.2353641176;
+    font-weight: 600;
+    letter-spacing: -0.024em;
+    font-family: var(
+      --typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif
+    );
+  }
+}
+.large .title[data-v-09c4afde] {
+  font-size: 1.2352941176rem;
+  line-height: 1.1904761905;
+  font-weight: 600;
+  letter-spacing: 0.011em;
+  font-family: var(
+    --typography-html-font,
+    'SF Pro Display',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif
+  );
+}
+@media only screen and (max-width: 1250px) {
+  .large .title[data-v-09c4afde] {
+    font-size: 1rem;
+    line-height: 1.2353641176;
+    font-weight: 600;
+    letter-spacing: -0.024em;
+    font-family: var(
+      --typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif
+    );
+  }
+}
+.card-content[data-v-09c4afde] {
+  color: var(--color-card-content-text);
+  margin-top: 4px;
+}
+.link[data-v-09c4afde] {
+  bottom: 17px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+}
+.link .link-icon[data-v-09c4afde] {
+  height: 0.6em;
+  width: 0.6em;
+  margin-left: 0.3em;
+}
+@media only screen and (max-width: 735px) {
+  .card[data-v-09c4afde] {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card.large[data-v-09c4afde] {
+    --card-height: auto;
+    --card-details-height: auto;
+    min-width: 280px;
+    max-width: 300px;
+    --card-cover-height: 227px;
+  }
+  .card.large .link[data-v-09c4afde] {
+    bottom: unset;
+    margin-top: 7px;
+    position: relative;
+  }
+}
