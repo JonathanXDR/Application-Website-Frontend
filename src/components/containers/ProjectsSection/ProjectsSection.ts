@@ -24,9 +24,9 @@ export default defineComponent({
   data() {
     return {
       projects: {
-        personal: [] as Repository['data'],
+        personal: [] as Repository,
         swisscom: [] as any[],
-        school: [] as Repository['data']
+        school: [] as Repository
       },
       errors: [] as string[]
     }
@@ -37,10 +37,14 @@ export default defineComponent({
   methods: {
     async fetchLocalizedData() {
       try {
-        const data = await fetchData()
+        const data = (await fetchData()) as any
         this.projects.swisscom = data.components.containers.projects
-      } catch (error: any) {
-        console.error('Error fetching data:', error)
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          console.error('Error fetching data:', error.message)
+        } else {
+          console.error('An unknown error occurred:', error)
+        }
       }
     },
     async fetchProjects() {
@@ -49,9 +53,14 @@ export default defineComponent({
         const sortedProjects = sortProjects(projects)
         this.projects.personal = sortedProjects.personal
         this.projects.school = sortedProjects.school
-      } catch (error: any) {
-        console.error('Error fetching projects:', error)
-        this.errors.push(`Error: ${error.message}: ${error.status}`)
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          console.error('Error fetching projects:', error.message)
+          this.errors.push(error.message)
+        } else {
+          console.error('An unknown error occurred:', error)
+          this.errors.push('An unknown error occurred.')
+        }
       }
     }
   },
