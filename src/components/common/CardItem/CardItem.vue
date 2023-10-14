@@ -3,7 +3,7 @@
     href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/macros"
     class="card large"
   >
-    <div class="card-cover-wrap" style="color: #1d1d1f; background: #f5f5f7; padding-inline: 17px">
+    <div class="card-cover-wrap" style="color: #1d1d1f; background: #f5f5f7; padding: 17px">
       <!-- <picture class="card-cover"
         ><source
           media="(prefers-color-scheme: dark)"
