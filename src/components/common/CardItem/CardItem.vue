@@ -3,16 +3,7 @@
     href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/macros"
     class="card large"
   >
-    <div
-      class="card-cover-wrap"
-      style="
-        display: flex;
-        flex-direction: column;
-        color: #1d1d1f;
-        background: #f5f5f7;
-        padding-inline: 17px;
-      "
-    >
+    <div class="card-cover-wrap" style="color: #1d1d1f; background: #f5f5f7; padding-inline: 17px">
       <!-- <picture class="card-cover"
         ><source
           media="(prefers-color-scheme: dark)"
@@ -32,39 +23,21 @@
           height="auto"
         />
       </picture> -->
-      <div
-        class="group group-hispanic typography-body-tight"
-        style="
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        "
-      >
+      <div class="group group-hispanic typography-body-tight">
         <p>
           <span class="semibold"> <span data-value="">27.1</span>% </span>
           <span>Hispanic/Latinx</span>
         </p>
-        <div class="bar-container" style="width: 100%">
+        <div class="bar-container">
           <div class="bar" data-bar="" style="width: 27.1%"></div>
         </div>
       </div>
-      <div
-        class="group group-white typography-body-tight"
-        style="
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        "
-      >
+      <div class="group group-white typography-body-tight">
         <p>
           <span class="semibold"> <span data-value="">39.7</span>% </span>
           <span>White</span>
         </p>
-        <div class="bar-container" style="width: 100%">
+        <div class="bar-container">
           <div class="bar" data-bar="" style="width: 39.7%"></div>
         </div>
       </div>
