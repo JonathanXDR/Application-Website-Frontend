@@ -975,6 +975,14 @@ svg.ac-graph-svg {
   display: flex;
   width: 100%;
   justify-content: space-between;
+
+  margin-top: 8px;
+  flex-wrap: wrap;
+  grid-row-gap: 20px;
+  row-gap: 20px;
+  grid-column-gap: 40px;
+  column-gap: 40px;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 734px) {
@@ -999,7 +1007,7 @@ svg.ac-graph-svg {
 
 @media only screen and (min-width: 735px) {
   .wedge-legend {
-    width: 120px;
+    /* width: 120px; */
   }
 }
 
@@ -1009,7 +1017,9 @@ svg.ac-graph-svg {
   width: var(--size);
   height: var(--size);
   border-radius: 50%;
-  --size: 10px;
+  /* --size: 10px; */
+
+  --size: 20px;
 }
 
 @media only screen and (max-width: 734px) {
@@ -1020,7 +1030,7 @@ svg.ac-graph-svg {
 
 @media only screen and (min-width: 735px) {
   .wedge-legend.female {
-    order: -1;
+    /* order: -1; */
   }
 }
 
@@ -1049,8 +1059,11 @@ svg.ac-graph-svg {
   position: relative;
   width: var(--size);
   height: var(--size);
-  --size: 360px;
-  --max-width: var(--size);
+  /* --size: 360px;
+  --max-width: var(--size); */
+
+  --size: 100%;
+  --max-width: 220px;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -1062,7 +1075,7 @@ svg.ac-graph-svg {
 @media only screen and (max-width: 734px) {
   .donut-container {
     --size: 100%;
-    --max-width: 240px;
+    --max-width: 220px;
   }
 }
 

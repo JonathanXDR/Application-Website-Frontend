@@ -58,9 +58,6 @@
           </figure>
           <h4 class="sector-labels typography-donut-label">
             <span>Global</span>
-            <!-- <span>United States, Canada, Latin America, and the Caribbean</span>
-            <span>Asia Pacific</span>
-            <span>Europe, Middle East, <br class="large medium" />India, and Africa</span> -->
           </h4>
         </div>
         <div class="wedge-legend typography-donut-label female">
