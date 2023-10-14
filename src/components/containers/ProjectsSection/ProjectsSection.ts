@@ -13,8 +13,11 @@ import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import { fetchData } from '@/helpers/locale-helper'
-import { Octokit } from '@octokit/rest'
+import type { Endpoints } from '@octokit/types'
+import { Octokit } from 'octokit'
 import { defineComponent } from 'vue'
+
+type ListUserReposResponse = Endpoints['GET /users/{username}/repos']['response']
 
 export default defineComponent({
   name: 'ProjectsSection',
@@ -36,9 +39,12 @@ export default defineComponent({
   },
   data() {
     return {
-      octokit: new Octokit(),
       json: undefined as any,
-      projects: [] as any[]
+      allProjects: [] as ListUserReposResponse['data'],
+      personalProjects: [] as ListUserReposResponse['data'],
+      schoolProjects: [] as ListUserReposResponse['data'],
+      schoolProjectCollections: [] as ListUserReposResponse['data'],
+      errors: [] as string[]
     }
   },
   watch: {
@@ -54,40 +60,27 @@ export default defineComponent({
       }
     },
     async fetchProjects() {
+      const octokit = new Octokit()
       try {
-        const response = await this.octokit.repos.listForUser({
+        const response = await octokit.request('GET /users/{username}/repos', {
           username: 'JonathanXDR'
         })
-        this.projects = response.data
+        this.allProjects = response.data
       } catch (error: any) {
         console.error('Error fetching projects:', error)
-        this.projects.push({
-          id: 1,
-          name: `${error.name}: ${error.status}`,
-          description: error.message
-        })
+        this.errors.push(`Error: ${error.message}: ${error.status}`)
       }
     },
-    splitProjects(projects: any[]) {
-      const personalProjects = []
-      const schoolProjects = []
-      const schoolProjectCollections = []
-
+    splitProjects(projects: ListUserReposResponse['data']) {
       projects.forEach((project) => {
         if (project.name.match(/^M\d+-Portfolio$/i) || project.name.match(/^UEK-\d+-Portfolio$/i)) {
-          schoolProjects.push(project)
+          this.schoolProjects.push(project)
         } else if (project.name.match(/^UEK-Modules$/i) || project.name.match(/^TBZ-Modules$/i)) {
-          schoolProjectCollections.push(project)
+          this.schoolProjectCollections.push(project)
         } else {
-          personalProjects.push(project)
+          this.personalProjects.push(project)
         }
       })
-
-      return {
-        personalProjects,
-        schoolProjects,
-        schoolProjectCollections
-      }
     }
   },
   created() {
