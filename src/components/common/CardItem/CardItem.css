@@ -5,19 +5,24 @@
   -webkit-transform: scale(1);
   overflow: visible;
 }
+
 .svg-icon.icon-inline {
   display: inline-block;
   vertical-align: middle;
   fill: currentColor;
 }
+
 img {
   border: 0;
 }
+
 :focus {
   outline: 4px solid var(--color-focus-color);
   outline-offset: 1px;
 }
+
 @media print {
+
   a,
   a:link,
   a:visited {
@@ -25,28 +30,35 @@ img {
     text-decoration: none;
   }
 }
+
 a {
   color: var(--colors-link, var(--color-link));
 }
+
 a:link,
 a:visited {
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
+
 a:active {
   text-decoration: none;
 }
+
 [data-v-21735da6] :focus:not(input):not(textarea):not(select) {
   outline: none;
 }
+
 /*! CSS Used from: https://developer.apple.com/tutorials/css/432.103ee183.css */
 .card-cover {
   background-color: var(--color-card-background);
   display: block;
   height: var(--card-cover-height, 180px);
 }
+
 .card-cover img {
   width: 100%;
   -o-object-fit: cover;
@@ -56,9 +68,11 @@ a:active {
   display: block;
   margin: 0;
 }
+
 .card-cover img {
   height: 100%;
 }
+
 .card {
   overflow: hidden;
   display: block;
@@ -71,44 +85,53 @@ a:active {
   height: var(--card-height);
   border-radius: 18px;
 }
+
 .card:hover {
   text-decoration: none;
 }
+
 .card:hover .link {
   text-decoration: underline;
 }
+
 .card:hover {
   box-shadow: 0 5px 10px var(--color-card-shadow);
   transform: scale(1.007);
 }
+
 @media (prefers-reduced-motion: reduce) {
   .card:hover {
     box-shadow: none;
     transform: none;
   }
 }
+
 .card.large {
   --card-height: 556px;
   --card-details-height: 163px;
   --card-cover-height: 359px;
 }
+
 .card.small {
   --card-height: 408px;
   --card-details-height: 139px;
   --card-cover-height: 235px;
 }
+
 @media only screen and (max-width: 1250px) {
   .card.large {
     --card-height: 420px;
     --card-details-height: 137px;
     --card-cover-height: 249px;
   }
+
   .card.small {
     --card-height: 341px;
     --card-details-height: 144px;
     --card-cover-height: 163px;
   }
 }
+
 .details {
   background-color: var(--color-card-background);
   padding: 17px;
@@ -118,43 +141,7 @@ a:active {
   line-height: 1.2857742857;
   font-weight: 400;
   letter-spacing: -0.016em;
-  font-family: var(
-    --typography-html-font,
-    'SF Pro Text',
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif
-  );
-}
-.large .details {
-  font-size: 1rem;
-  line-height: 1.4705882353;
-  font-weight: 400;
-  letter-spacing: -0.022em;
-  font-family: var(
-    --typography-html-font,
-    'SF Pro Text',
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif
-  );
-}
-@media only screen and (max-width: 1250px) {
-  .large .details {
-    font-size: 0.8235294118rem;
-    line-height: 1.2857742857;
-    font-weight: 400;
-    letter-spacing: -0.016em;
-    font-family: var(
-      --typography-html-font,
+  font-family: var(--typography-html-font,
       'SF Pro Text',
       system-ui,
       -apple-system,
@@ -162,10 +149,43 @@ a:active {
       'Helvetica Neue',
       'Helvetica',
       'Arial',
-      sans-serif
-    );
+      sans-serif);
+}
+
+.large .details {
+  font-size: 1rem;
+  line-height: 1.4705882353;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family: var(--typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif);
+}
+
+@media only screen and (max-width: 1250px) {
+  .large .details {
+    font-size: 0.8235294118rem;
+    line-height: 1.2857742857;
+    font-weight: 400;
+    letter-spacing: -0.016em;
+    font-family: var(--typography-html-font,
+        'SF Pro Text',
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        sans-serif);
   }
 }
+
 .eyebrow {
   color: var(--color-card-eyebrow);
   display: block;
@@ -174,166 +194,162 @@ a:active {
   line-height: 1.2857742857;
   font-weight: 600;
   letter-spacing: -0.016em;
-  font-family: var(
-    --typography-html-font,
-    'SF Pro Text',
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif
-  );
+  font-family: var(--typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif);
 }
+
 .large .eyebrow {
   font-size: 1rem;
   line-height: 1.2353641176;
   font-weight: 600;
   letter-spacing: -0.024em;
-  font-family: var(
-    --typography-html-font,
-    'SF Pro Text',
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif
-  );
+  font-family: var(--typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif);
 }
+
 @media only screen and (max-width: 1250px) {
   .large .eyebrow {
     font-size: 0.8235294118rem;
     line-height: 1.2857742857;
     font-weight: 600;
     letter-spacing: -0.016em;
-    font-family: var(
-      --typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif
-    );
+    font-family: var(--typography-html-font,
+        'SF Pro Text',
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        sans-serif);
   }
 }
+
 .title {
   color: var(--color-card-content-text);
   font-size: 1rem;
   line-height: 1.2353641176;
   font-weight: 600;
   letter-spacing: -0.024em;
-  font-family: var(
-    --typography-html-font,
-    'SF Pro Text',
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif
-  );
+  font-family: var(--typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif);
 }
+
 @media only screen and (max-width: 1250px) {
   .title {
     font-size: 0.8235294118rem;
     line-height: 1.2857742857;
     font-weight: 600;
     letter-spacing: -0.016em;
-    font-family: var(
-      --typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif
-    );
+    font-family: var(--typography-html-font,
+        'SF Pro Text',
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        sans-serif);
   }
 }
+
 @media only screen and (max-width: 735px) {
   .title {
     font-size: 1rem;
     line-height: 1.2353641176;
     font-weight: 600;
     letter-spacing: -0.024em;
-    font-family: var(
-      --typography-html-font,
-      'SF Pro Text',
+    font-family: var(--typography-html-font,
+        'SF Pro Text',
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        sans-serif);
+  }
+}
+
+.large .title {
+  font-size: 1.2352941176rem;
+  line-height: 1.1904761905;
+  font-weight: 600;
+  letter-spacing: 0.011em;
+  font-family: var(--typography-html-font,
+      'SF Pro Display',
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
       'Helvetica Neue',
       'Helvetica',
       'Arial',
-      sans-serif
-    );
-  }
+      sans-serif);
 }
-.large .title {
-  font-size: 1.2352941176rem;
-  line-height: 1.1904761905;
-  font-weight: 600;
-  letter-spacing: 0.011em;
-  font-family: var(
-    --typography-html-font,
-    'SF Pro Display',
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif
-  );
-}
+
 @media only screen and (max-width: 1250px) {
   .large .title {
     font-size: 1rem;
     line-height: 1.2353641176;
     font-weight: 600;
     letter-spacing: -0.024em;
-    font-family: var(
-      --typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif
-    );
+    font-family: var(--typography-html-font,
+        'SF Pro Text',
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        sans-serif);
   }
 }
+
 .card-content {
   color: var(--color-card-content-text);
   margin-top: 4px;
 }
+
 .link {
   bottom: 17px;
   display: flex;
   align-items: center;
   position: absolute;
 }
+
 .link .link-icon {
   height: 0.6em;
   width: 0.6em;
   margin-left: 0.3em;
 }
+
 @media only screen and (max-width: 735px) {
   .card {
     margin-left: auto;
     margin-right: auto;
   }
+
   .card.large,
   .card.small {
     --card-height: auto;
@@ -342,6 +358,7 @@ a:active {
     max-width: 300px;
     --card-cover-height: 227px;
   }
+
   .card.large .link,
   .card.small .link {
     bottom: unset;
