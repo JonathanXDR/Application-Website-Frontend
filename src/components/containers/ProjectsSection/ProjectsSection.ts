@@ -6,6 +6,7 @@ import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import { fetchData } from '@/helpers/locale-helper'
+import type { Projects } from '@/types/containers/Projects'
 import { defineComponent, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -27,7 +28,7 @@ export default defineComponent({
     const fetchLocalizedData = async () => {
       try {
         const data = (await fetchData()) as any
-        json.value = data.components.common.ShareSheet
+        json.value = data.components.containers.projects as Projects
       } catch (error) {
         console.error('Error fetching data:', error)
       }

@@ -1,6 +1,7 @@
 import LanguageBar from '@/components/common/LanguageBar/LanguageBar.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import { fetchData } from '@/helpers/locale-helper'
+import type { Languages } from '@/types/containers/Languages'
 import { defineComponent, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -17,7 +18,7 @@ export default defineComponent({
     const fetchLocalizedData = async () => {
       try {
         const data = (await fetchData()) as any
-        json.value = data.components.common.ShareSheet
+        json.value = data.components.containers.languages as Languages
       } catch (error) {
         console.error('Error fetching data:', error)
       }
