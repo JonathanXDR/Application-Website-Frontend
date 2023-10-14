@@ -22,3 +22,5 @@ export const useAnimationStore = () => {
     setHeaderAnimation
   }
 }
+
+export default useAnimationStore
