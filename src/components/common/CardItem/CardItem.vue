@@ -23,7 +23,7 @@
           Browse new and updated documentation for technologies, frameworks, and APIs.
         </div>
       </div>
-      <div class="link">
+      <div class="link" v-if="this.size === 'small' || 'large'">
         Read documentation
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -36,6 +36,7 @@
           ></path>
         </svg>
       </div>
+      <button v-else class="button-cta link">Discover visionOS</button>
     </div>
   </a>
 </template>
