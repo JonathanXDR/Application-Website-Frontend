@@ -30,11 +30,9 @@ body {
 
   /* Special Colors */
   --color-sub-text: #666;
-  --color-tutorials-overview-background: radial-gradient(
-    circle at center 70%,
-    #242424 0%,
-    #0c0c0c 100%
-  );
+  --color-tutorials-overview-background: radial-gradient(circle at center 70%,
+      #242424 0%,
+      #0c0c0c 100%);
 
   /* Infobar */
   --ribbon-background-color: #f5f5f7;
@@ -70,13 +68,13 @@ body {
   --color-fill-gray-tertiary: #d2d2d7;
   --color-fill-gray-quaternary: #e8e8ed;
   --color-fill-green-secondary: #f5fff6;
-  --color-fill-light-blue-secondary: #f1f7ff;
+  --color-fill-light-blue-secondary: #eaf3ff;
   --color-fill-light-gray-secondary: #f5f5f7;
   --color-fill-orange-secondary: #fff9f4;
   --color-fill-purple-secondary: #fcf8ff;
   --color-fill-red-secondary: #fff2f4;
   --color-fill-teal-secondary: #faffff;
-  --color-fill-yellow-secondary: #fffef2;
+  --color-fill-yellow-secondary: #fffbf2;
   --color-figure-blue: #06c;
   --color-figure-gray: #1d1d1f;
   --color-figure-gray-secondary: #6e6e73;
@@ -90,7 +88,7 @@ body {
   --color-figure-purple: #8c28c2;
   --color-figure-red: #e30000;
   --color-figure-teal: #007c78;
-  --color-figure-yellow: #936d00;
+  --color-figure-yellow: #9e6700;
   --color-highlight-green: #e4fee6;
   --color-highlight-red: #f8dddd;
   --color-tutorials-teal: #38a39c;
@@ -112,19 +110,19 @@ body {
   --color-aside-warning: var(--color-figure-red);
   --color-aside-warning-background: var(--color-fill-red-secondary);
   --color-aside-warning-border: var(--color-figure-red);
-  --color-badge-default: var(--color-figure-teal);
-  --color-badge-dark-default: #00c2bb;
+  --color-badge-beta: var(--color-figure-teal);
   --color-badge-spi: var(--color-figure-pink);
+  --color-badge-dark-beta: #00c2bb;
   --color-badge-dark-spi: #f14bf1;
   --color-button-background-active: var(--color-fill-blue);
   --color-button-background-hover: #0077ed;
   --color-changes-added: var(--color-figure-green);
   --color-changes-added-hover: var(--color-fill-green-secondary);
   --color-changes-deprecated: var(--color-figure-orange);
-  --color-changes-deprecated-hover: rgba(191, 72, 0, 0.05);
+  --color-changes-deprecated-hover: rgba(191, 72, 0, .05);
   --color-changes-modified: var(--color-figure-purple);
   --color-changes-modified-hover: var(--color-fill-purple-secondary);
-  --color-changes-modified-previous-background: var(--color-fill-purple-secondary);
+  --color-changes-modified-previous-background: var(--color-fill);
   --color-code-background: var(--color-fill-tertiary);
   --color-code-collapsible-background: var(--color-fill-gray-quaternary);
   --color-code-line-highlight: var(--color-fill-light-blue-secondary);
@@ -158,11 +156,9 @@ body {
 
   /* Special Colors */
   --color-sub-text: #aaa;
-  --color-tutorials-overview-background: radial-gradient(
-    circle at center 70%,
-    #242424 0%,
-    #0c0c0c 100%
-  );
+  --color-tutorials-overview-background: radial-gradient(circle at center 70%,
+      #242424 0%,
+      #0c0c0c 100%);
 
   /* Infobar */
   --ribbon-background-color: #1d1d1f;
@@ -203,7 +199,7 @@ body {
   --color-fill-purple-secondary: #190325;
   --color-fill-red-secondary: #300;
   --color-fill-teal-secondary: #002d2b;
-  --color-fill-yellow-secondary: #2b2000;
+  --color-fill-yellow-secondary: #2b1e00;
   --color-figure-blue: #2997ff;
   --color-figure-gray: #f5f5f7;
   --color-figure-gray-secondary: #86868b;
@@ -217,12 +213,12 @@ body {
   --color-figure-purple: #a95ed2;
   --color-figure-red: #ff3037;
   --color-figure-teal: #00c2bb;
-  --color-figure-yellow: #ad8200;
+  --color-figure-yellow: #ffb50f;
   --color-highlight-green: #032603;
   --color-highlight-red: #410606;
   --color-tutorials-teal: #54c4bc;
   --color-article-body-background: var(--color-fill-secondary);
-  --color-changes-deprecated-hover: rgba(245, 99, 0, 0.05);
+  --color-changes-deprecated-hover: rgba(245, 99, 0, .05);
   --color-code-background: var(--color-fill-gray-quaternary);
   --color-code-collapsible-background: var(--color-fill-tertiary);
   --color-code-line-highlight: var(--color-fill-gray-tertiary);
@@ -232,6 +228,7 @@ body {
   --color-svg-icon: #6e6e73;
   --color-tutorial-navbar-dropdown-background: var(--color-nav-dark-solid-background);
   --color-tutorial-navbar-dropdown-border: var(--color-fill-gray-tertiary);
+  --color-navigator-item-hover: rgba(0, 113, 227, .6)
 }
 
 :root {
@@ -271,14 +268,14 @@ body {
   margin-right: auto !important;
 }
 
-.section-separated ~ .section-separated {
+.section-separated~.section-separated {
   border-top: 1px solid var(--color-fill-gray-tertiary);
 }
 
-.typography-headline + .intro,
-.typography-headline + .typography-intro,
-h1 + .intro,
-h1 + .typography-intro {
+.typography-headline+.intro,
+.typography-headline+.typography-intro,
+h1+.intro,
+h1+.typography-intro {
   margin-top: 1.2em;
 }
 
@@ -349,8 +346,8 @@ a {
   color: var(--ribbon-link-color);
 }
 
-h2 + p:not(.article-date),
-h4 + p:not(.article-date) {
+h2+p:not(.article-date),
+h4+p:not(.article-date) {
   margin-top: 0.8em;
 }
 
@@ -503,9 +500,11 @@ li {
   h1 {
     font-size: 40px !important;
   }
+
   h2 {
     font-size: 32px !important;
   }
+
   h3 {
     font-size: 24px !important;
   }
@@ -549,9 +548,11 @@ li {
   h1 {
     font-size: 48px !important;
   }
+
   h2 {
     font-size: 40px !important;
   }
+
   h3 {
     font-size: 48px !important;
   }
