@@ -357,6 +357,11 @@ li {
   list-style: none;
 }
 
+button,
+fieldset {
+  all: unset
+}
+
 .eyebrow {
   display: block;
   margin-bottom: 20px;
