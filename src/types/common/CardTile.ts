@@ -1,7 +1,8 @@
-export type Technology = {
-  title: string
+import type { ArticleItem } from './ArticleItem'
+
+export type CardTile = ArticleItem & {
   progress: number
-  learned: string
+  firstEncounter: string
   enhanced: string
   color1: string
   color2: string

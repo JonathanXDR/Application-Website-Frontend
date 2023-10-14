@@ -19,6 +19,7 @@ library.add(fas, fab)
 const app = createApp(App)
 
 const i18n = createI18n({
+  legacy: false,
   locale: defaultLocale,
   fallbackLocale: fallbackLocale,
   messages: languages

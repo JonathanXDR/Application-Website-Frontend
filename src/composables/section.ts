@@ -1,4 +1,4 @@
-import useSectionStore from '@/stores/section'
+import { useSectionStore } from '@/stores/section'
 import type { App } from 'vue'
 
 export function useSectionDirective(app: App) {

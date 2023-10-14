@@ -21,7 +21,7 @@ export default defineComponent({
     TimeLine
   },
   setup() {
-    const { locale } = useI18n()
+    const { locale } = useI18n({ useScope: 'global' })
     const json = ref<any>(undefined)
     const dates = ref<{ age: string; apprenticeshipYear: string }>({
       age: '',

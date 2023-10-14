@@ -3,7 +3,7 @@ import LanguagePicker from '@/components/common/LanguagePicker/LanguagePicker.vu
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import { fetchData } from '@/helpers/locale-helper'
 import { useAnimationStore } from '@/stores/animation'
-import useColorStore from '@/stores/color'
+import { useColorStore } from '@/stores/color'
 import { useSectionStore } from '@/stores/section'
 import { computed, defineComponent, onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -16,7 +16,7 @@ export default defineComponent({
     LanguagePicker
   },
   setup() {
-    const { locale } = useI18n()
+    const { locale } = useI18n({ useScope: 'global' })
     const json = ref<any>(undefined)
     const themeDark = ref<boolean>(false)
     const navOpen = ref<boolean>(false)

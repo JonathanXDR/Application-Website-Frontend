@@ -16,7 +16,7 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const { locale } = useI18n()
+    const { locale } = useI18n({ useScope: 'global' })
     const languages = reactive([
       { title: 'Deutsch', key: 'de', abbr: 'DE' },
       { title: 'English', key: 'en', abbr: 'EN' },
