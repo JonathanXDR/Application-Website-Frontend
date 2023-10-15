@@ -1,7 +1,8 @@
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
-import { fetchData } from '@/helpers/locale-helper'
-import { defineComponent } from 'vue'
+import type { LinkType } from '@/types/common/Link'
+import { computed, defineComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'RibbonBar',
@@ -9,25 +10,13 @@ export default defineComponent({
     LoadingSpinner,
     LinkCollection
   },
-  data() {
+  setup() {
+    const { tm } = useI18n()
+    const links = computed(() => tm('components.common.RibbonBar.links') as LinkType[])
+
     return {
-      json: undefined as any
+      tm,
+      links
     }
-  },
-  watch: {
-    '$i18n.locale': 'fetchLocalizedData'
-  },
-  methods: {
-    async fetchLocalizedData() {
-      try {
-        const data = (await fetchData()) as any
-        this.json = data.components.common.RibbonBar
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
-    }
-  },
-  created() {
-    this.fetchLocalizedData()
   }
 })
