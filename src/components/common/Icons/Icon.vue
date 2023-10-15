@@ -6,8 +6,8 @@
 </template>
 
 <script lang="ts">
+import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import { computed, defineComponent, onMounted, ref } from 'vue'
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.vue'
 
 export default defineComponent({
   name: 'Icon',
