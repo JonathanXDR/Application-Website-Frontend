@@ -1,8 +1,8 @@
 import Icon from '@/components/common/Icons/Icon.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import TabList from '@/components/common/TabList/TabList.vue'
-import { fetchData } from '@/helpers/locale-helper'
 import { defineComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'MusicSection',
@@ -11,25 +11,11 @@ export default defineComponent({
     Icon,
     TabList
   },
-  data() {
+  setup() {
+    const { tm } = useI18n()
+
     return {
-      json: undefined as any
+      tm
     }
-  },
-  watch: {
-    '$i18n.locale': 'fetchLocalizedData'
-  },
-  methods: {
-    async fetchLocalizedData() {
-      try {
-        const data = (await fetchData()) as any
-        this.json = data.components.containers.languages
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
-    }
-  },
-  created() {
-    this.fetchLocalizedData()
   }
 })
