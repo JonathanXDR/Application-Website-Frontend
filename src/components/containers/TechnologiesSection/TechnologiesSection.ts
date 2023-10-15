@@ -7,8 +7,9 @@ import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vu
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
-import { fetchData } from '@/helpers/locale-helper'
-import { defineComponent } from 'vue'
+import type { CardTileType } from '@/types/common/CardTile'
+import { computed, defineComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'TechnologiesSection',
@@ -23,25 +24,13 @@ export default defineComponent({
     FilterNav,
     CardItem
   },
-  data() {
+  setup() {
+    const { tm } = useI18n()
+    const cards = computed(() => tm('components.containers.technologies') as CardTileType[])
+
     return {
-      json: undefined as any
+      tm,
+      cards
     }
-  },
-  watch: {
-    '$i18n.locale': 'fetchLocalizedData'
-  },
-  methods: {
-    async fetchLocalizedData() {
-      try {
-        const data = (await fetchData()) as any
-        this.json = data.components.containers.technologies
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
-    }
-  },
-  created() {
-    this.fetchLocalizedData()
   }
 })
