@@ -1,14 +1,9 @@
 <template>
-  <div v-svg="svgOptions"></div>
+  <div v-html="icon"></div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, type DirectiveBinding } from 'vue'
-
-interface SvgOptions {
-  path: string
-  attrs: Record<string, unknown>
-}
+import { defineComponent, onMounted, ref } from 'vue'
 
 export default defineComponent({
   name: 'SvgComponent',
@@ -24,42 +19,32 @@ export default defineComponent({
       validator: (value: string): boolean => ['small', 'medium', 'large'].includes(value)
     }
   },
-  directives: {
-    svg: {
-      async mounted(el: HTMLElement, binding: DirectiveBinding<SvgOptions>) {
-        const { path, attrs } = binding.value
-        try {
-          const response = await fetch(path)
-          if (!response.ok) {
-            throw new Error(`Failed to load SVG: ${response.statusText}`)
-          }
-          const text = await response.text()
-          const tempContainer = document.createElement('div')
-          tempContainer.innerHTML = text
-          const svgElement = tempContainer.firstChild as SVGElement
-          Object.entries(attrs).forEach(([key, value]) => {
-            if (key === 'style' && typeof value === 'object' && value !== null) {
-              Object.assign(svgElement.style, value)
-            } else {
-              svgElement.setAttribute(key, String(value))
-            }
-          })
-          el.parentNode!.replaceChild(svgElement, el)
-        } catch (error) {
-          console.error((error as Error).message)
-        }
+  setup(props) {
+    const icon = ref('')
+
+    // const getImageUrl = (size: string, name: string): string => {
+    //   return new URL(`@/assets/icons/${size}/${name}.svg`, import.meta.url).href
+    // }
+
+    const importIcon = async (name: string, size: string) => {
+      return import(`/src/assets/icons/${size}/${name}.svg`)
+    }
+
+    const fetchIcon = async () => {
+      const module = await importIcon(props.name, props.size)
+      const url = module.default
+      const response = await fetch(url)
+      if (response.ok) {
+        const text = await response.text()
+        icon.value = text
+      } else {
+        console.error('Failed to fetch icon:', response.status, response.statusText)
       }
     }
-  },
-  setup(props, { attrs }) {
-    const svgOptions = ref<SvgOptions>({
-      path: `/src/assets/icons/${props.size}/${props.name}.svg`,
-      attrs: attrs
-    })
 
-    return {
-      svgOptions
-    }
+    onMounted(fetchIcon)
+
+    return { icon }
   }
 })
 </script>
