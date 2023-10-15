@@ -28,8 +28,8 @@
         </div>
         <div class="ac-ln-menu">
           <div class="ac-ln-menu-tray">
-            <ul class="ac-ln-menu-items" v-if="json">
-              <li v-for="(item, index) in json" :key="index" class="ac-ln-menu-item">
+            <ul class="ac-ln-menu-items">
+              <li v-for="(item, index) in items" :key="index" class="ac-ln-menu-item">
                 <router-link
                   :to="item.route"
                   :class="{ current: index === currentSectionIndex }"
@@ -40,7 +40,6 @@
               </li>
               <!-- <LanguagePicker :introText="false" :shortForm="true" /> -->
             </ul>
-            <LoadingSpinner v-else class="medium center reduced-margin" />
           </div>
           <div class="ac-ln-actions">
             <div class="ac-ln-action ac-ln-action-menucta">
