@@ -43,3 +43,36 @@ export default defineComponent({
   }
 })
 </script>
+
+<style>
+#references .icon-article {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+#projects .icon-article {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.link .link-icon {
+  /* height: 0.6em;
+  width: 0.6em; */
+  height: 0.75em;
+  width: 0.75em;
+  margin-left: 0.3em;
+}
+
+.svg-icon {
+  fill: var(--colors-svg-icon-fill-light, var(--color-svg-icon));
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  overflow: visible;
+}
+
+.svg-icon.icon-inline {
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+}
+</style>
