@@ -1,6 +1,6 @@
-import type { ArticleItem } from './ArticleItem'
+import type { ArticleItemType } from './ArticleItem'
 
-export type CardTile = ArticleItem & {
+export type CardTileType = ArticleItemType & {
   progress: number
   firstEncounter: string
   enhanced: string

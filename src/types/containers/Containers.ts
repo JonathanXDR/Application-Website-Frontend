@@ -1,4 +1,4 @@
-import type { ArticleItem } from '../common/ArticleItem'
+import type { ArticleItemType } from '../common/ArticleItem'
 import type { About } from './About'
 import type { CommonContainers } from './Common'
 import type { Languages } from './Languages'
@@ -7,7 +7,7 @@ import type { Projects } from './Projects'
 import type { References } from './References'
 import type { Technologies } from './Technologies'
 
-export type Containers = ArticleItem & {
+export type Containers = ArticleItemType & {
   common: CommonContainers
   about: About
   languages: Languages

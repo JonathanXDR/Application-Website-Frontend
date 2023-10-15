@@ -1,5 +1,5 @@
-import type { Link } from './Link'
+import type { LinkType } from './Link'
 
 export type ShareSheet = {
-  links: Link[]
+  links: LinkType[]
 }

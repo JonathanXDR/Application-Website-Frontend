@@ -1,6 +1,6 @@
-import type { Link } from './Link'
+import type { LinkType } from './Link'
 
 export type RibbonBar = {
   description: string
-  links: Link[]
+  links: LinkType[]
 }

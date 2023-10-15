@@ -1,12 +1,12 @@
-import type { CardTile } from './CardTile'
-import type { NavBarLink } from './NavBarLink'
+import type { CardTileType } from './CardTile'
+import type { NavBarLinkType } from './NavBarLink'
 import type { RibbonBar } from './RibbonBar'
 import type { ShareSheet } from './ShareSheet'
 
 export type CommonComponents = {
-  NavBar: NavBarLink[]
+  NavBar: NavBarLinkType[]
   RibbonBar: RibbonBar
-  CardTile: CardTile
+  CardTile: CardTileType
   ShareSheet: ShareSheet
   FooterItem: {
     chooseYourLanguage: string
