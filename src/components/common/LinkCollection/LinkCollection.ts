@@ -1,5 +1,5 @@
 import Icon from '@/components/common/Icons/Icon.vue'
-import type { Link } from '@/types/common/Link'
+import type { LinkType } from '@/types/common/Link'
 import { defineComponent, toRefs } from 'vue'
 
 export default defineComponent({
@@ -9,7 +9,7 @@ export default defineComponent({
   },
   props: {
     links: {
-      type: Array as () => Link[],
+      type: Array as () => LinkType[],
       required: true,
       default: () => []
     }
