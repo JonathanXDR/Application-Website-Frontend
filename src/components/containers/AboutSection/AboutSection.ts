@@ -5,8 +5,9 @@ import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vu
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
-import type { DateItem } from '@/types/common/DateItem'
-import { defineComponent, onMounted, ref } from 'vue'
+import type { DateItemType } from '@/types/common/DateItem'
+import type { LinkType } from '@/types/common/Link'
+import { computed, defineComponent, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -22,8 +23,8 @@ export default defineComponent({
   },
   setup() {
     const { tm } = useI18n()
-
-    const dateItems = tm('components.containers.about.dates') as DateItem[]
+    const links = computed(() => tm('components.containers.about.links') as LinkType[])
+    const dateItems = tm('components.containers.about.dates') as DateItemType[]
     const dates = ref<{ age: string; apprenticeshipYear: string }>({
       age: '',
       apprenticeshipYear: ''
@@ -45,6 +46,7 @@ export default defineComponent({
 
     return {
       tm,
+      links,
       dates,
       calculateYears
     }

@@ -6,11 +6,7 @@
     <TimeLine />
 
     <ul ref="ul" class="timeline">
-      <ArticleItem
-        v-for="(projects, index) in tm('components.containers.projects')"
-        :key="index"
-        :article="projects"
-      />
+      <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" />
     </ul>
   </div>
 </template>
