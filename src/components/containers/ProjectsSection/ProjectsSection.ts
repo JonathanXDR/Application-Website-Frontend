@@ -22,7 +22,7 @@ export default defineComponent({
   },
   setup() {
     const { tm } = useI18n()
-    const articles = computed(() => tm('components.containers.other') as ArticleItemType[])
+    const articles = computed(() => tm('components.containers.projects') as ArticleItemType[])
 
     return {
       tm,
