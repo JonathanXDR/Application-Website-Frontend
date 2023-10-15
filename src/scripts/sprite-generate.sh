@@ -16,12 +16,11 @@ generate_sprite() {
     exit 1
   }
   svg-sprite --symbol --symbol-sprite=sprite.svg ./*.svg
-  echo "Sprite generated for $sub_dir."
 }
 
 for sub_dir in small medium large; do
   generate_sprite "$sub_dir"
 done
 
-# Return to the original directory
 cd - >/dev/null
+echo "\nProcessing complete.\n"
