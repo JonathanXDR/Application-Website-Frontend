@@ -10,10 +10,5 @@ export default defineComponent({
     type: String,
     default: 'medium',
     validator: (value: string): boolean => ['small', 'large', 'full'].includes(value)
-  },
-  data() {
-    return {
-      cardOpen: false
-    }
   }
 })
