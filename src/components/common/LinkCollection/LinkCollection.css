@@ -52,24 +52,3 @@
     justify-content: flex-start !important;
   }
 }
-
-/* ---------------------------------- icon ---------------------------------- */
-
-.link .link-icon {
-  height: 1.25em;
-  width: 1.25em;
-  /* margin-left: 0.3em; */
-}
-
-.svg-icon {
-  fill: var(--colors-svg-icon-fill-light, var(--color-svg-icon));
-  transform: scale(1);
-  -webkit-transform: scale(1);
-  overflow: visible;
-}
-
-.svg-icon.icon-inline {
-  display: inline-block;
-  vertical-align: middle;
-  fill: currentColor;
-}

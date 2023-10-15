@@ -2,6 +2,7 @@
 
 .row-full {
   display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -12,6 +13,10 @@
 }
 
 @media screen and (min-width: 900px) {
+  .row-full {
+    flex-direction: row !important;
+  }
+
   .row-full h2 {
     font-size: 24px !important;
   }
@@ -29,19 +34,16 @@
   margin-bottom: 2em;
 }
 
-.padding-right-small {
-  padding-right: 1.5em !important;
+.padding-block-small {
+  padding-block: 0.25em;
+}
+
+.padding-right {
+  padding-right: 1.5em;
 }
 
 .article-date {
   color: var(--color-sub-text);
   margin: 0.5em 0 0.4em 0;
   font-size: 0.875em;
-}
-
-/* ------------------------------ icon-article ------------------------------ */
-
-.icon-article {
-  width: 2em;
-  height: 2em;
 }

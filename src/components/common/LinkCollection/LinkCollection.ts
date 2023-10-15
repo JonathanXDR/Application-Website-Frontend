@@ -1,27 +1,23 @@
-import AirplaneDepartureIcon from '@/components/common/Icons/AirplaneDepartureIcon.vue'
-import ArrowDownCircleIcon from '@/components/common/Icons/ArrowDownCircleIcon.vue'
-import CalendarIcon from '@/components/common/Icons/CalendarIcon.vue'
-import ChevronLeftForwardslashChevronRightIcon from '@/components/common/Icons/ChevronLeftForwardslashChevronRightIcon.vue'
-import ChevronRightIcon from '@/components/common/Icons/ChevronRightIcon.vue'
-import GearIcon from '@/components/common/Icons/GearIcon.vue'
-import PersonCropSquareIcon from '@/components/common/Icons/PersonCropSquareIcon.vue'
+import Icon from '@/components/common/Icons/Icon.vue'
+import type { LinkType } from '@/types/common/Link'
+import { defineComponent, toRefs } from 'vue'
 
-export default {
+export default defineComponent({
   name: 'LinkCollection',
   components: {
-    AirplaneDepartureIcon,
-    ArrowDownCircleIcon,
-    CalendarIcon,
-    ChevronLeftForwardslashChevronRightIcon,
-    ChevronRightIcon,
-    GearIcon,
-    PersonCropSquareIcon
+    Icon
   },
   props: {
     links: {
-      type: Array,
+      type: Array as () => LinkType[],
       required: true,
       default: () => []
     }
+  },
+  setup(props) {
+    const { links } = toRefs(props)
+    return {
+      links
+    }
   }
-}
+})
