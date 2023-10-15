@@ -10,10 +10,9 @@
     </ul>
 
     <!-- <ul ref="ul" class="timeline">
-      <ArticleItem v-for="(project, index) in projects.personal" :key="index" :article="project" />
+      <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" />
     </ul> -->
   </div>
-  <LoadingSpinner v-else class="center" />
 </template>
 
 <script lang="ts" src="./ProjectsSection.ts"></script>

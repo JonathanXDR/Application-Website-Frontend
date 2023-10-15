@@ -1,7 +1,8 @@
 import LanguageBar from '@/components/common/LanguageBar/LanguageBar.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
-import { fetchData } from '@/helpers/locale-helper'
-import { defineComponent } from 'vue'
+import type { LanguageBarType } from '@/types/common/LanguageBar'
+import { computed, defineComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'LanguagesSection',
@@ -9,25 +10,13 @@ export default defineComponent({
     LoadingSpinner,
     LanguageBar
   },
-  data() {
+  setup() {
+    const { tm } = useI18n()
+    const languages = computed(() => tm('components.containers.languages') as LanguageBarType[])
+
     return {
-      json: undefined as any
+      tm,
+      languages
     }
-  },
-  watch: {
-    '$i18n.locale': 'fetchLocalizedData'
-  },
-  methods: {
-    async fetchLocalizedData() {
-      try {
-        const data = (await fetchData()) as any
-        this.json = data.components.containers.languages
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
-    }
-  },
-  created() {
-    this.fetchLocalizedData()
   }
 })

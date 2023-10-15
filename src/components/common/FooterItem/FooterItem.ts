@@ -1,6 +1,6 @@
 import LanguagePicker from '@/components/common/LanguagePicker/LanguagePicker.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'FooterItem',
@@ -8,9 +8,11 @@ export default defineComponent({
     LanguagePicker,
     ShareSheet
   },
-  data() {
+  setup() {
+    const currentYear = ref(new Date().getFullYear())
+
     return {
-      currentYear: new Date().getFullYear()
+      currentYear
     }
   }
 })

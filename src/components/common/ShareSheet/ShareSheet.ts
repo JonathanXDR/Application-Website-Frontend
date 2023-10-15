@@ -1,31 +1,20 @@
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
-import { fetchData } from '@/helpers/locale-helper'
-import { defineComponent } from 'vue'
+import type { FaLinkType } from '@/types/common/FaLink'
+import { computed, defineComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'ShareSheet',
   components: {
     LoadingSpinner
   },
-  data() {
+  setup() {
+    const { tm } = useI18n()
+    const links = computed(() => tm('components.common.ShareSheet.links') as FaLinkType[])
+
     return {
-      json: undefined as any
+      tm,
+      links
     }
-  },
-  watch: {
-    '$i18n.locale': 'fetchLocalizedData'
-  },
-  methods: {
-    async fetchLocalizedData() {
-      try {
-        const data = (await fetchData()) as any
-        this.json = data.components.common.ShareSheet
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
-    }
-  },
-  created() {
-    this.fetchLocalizedData()
   }
 })
