@@ -21,7 +21,7 @@ export default defineComponent({
     size: {
       type: String,
       default: 'medium',
-      validator: (value: string): boolean => ['big', 'medium', 'small'].includes(value)
+      validator: (value: string): boolean => ['small', 'medium', 'large'].includes(value)
     }
   },
   directives: {
