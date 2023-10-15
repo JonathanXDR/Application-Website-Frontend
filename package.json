@@ -9,7 +9,8 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "icon:setup": "sh ./src/scripts/icon-setup.sh"
+    "icon:cleanup": "sh ./src/scripts/icon-setup.sh",
+    "sprite:generate": "sh ./src/scripts/sprite-generate.sh"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
@@ -19,9 +20,10 @@
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@vueuse/motion": "^2.0.0",
     "pinia": "^2.1.6",
+    "svg-sprite": "^2.0.2",
     "vue": "^3.3.4",
-    "vue-meta": "^3.0.0-alpha.10",
     "vue-i18n": "^9.5.0",
+    "vue-meta": "^3.0.0-alpha.10",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
