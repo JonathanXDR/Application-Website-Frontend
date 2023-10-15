@@ -29,11 +29,7 @@
         <div class="ac-ln-menu">
           <div class="ac-ln-menu-tray">
             <ul class="ac-ln-menu-items">
-              <li
-                v-for="(item, index) in tm('components.common.NavBar')"
-                :key="index"
-                class="ac-ln-menu-item"
-              >
+              <li v-for="(item, index) in items" :key="index" class="ac-ln-menu-item">
                 <router-link
                   :to="item.route"
                   :class="{ current: index === currentSectionIndex }"

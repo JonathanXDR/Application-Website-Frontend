@@ -33,7 +33,7 @@
         }}
       </p>
 
-      <LinkCollection :links="tm('components.containers.about.links')" class="typography-intro" />
+      <LinkCollection :links="links" class="typography-intro" />
     </div>
   </div>
 

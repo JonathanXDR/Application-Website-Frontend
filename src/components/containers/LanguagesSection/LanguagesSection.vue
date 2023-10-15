@@ -2,21 +2,13 @@
   <h2>{{ $t('components.containers.common.languages') }}</h2>
   <div class="graph-gallery-container">
     <ul class="tabnav-items">
-      <li
-        v-for="(language, index) in tm('components.containers.languages')"
-        :key="index"
-        class="tabnav-item"
-      >
+      <li v-for="(language, index) in languages" :key="index" class="tabnav-item">
         <span class="tabnav-link current">{{ language.title }}</span>
       </li>
     </ul>
 
     <ul class="slide-container">
-      <LanguageBar
-        v-for="(language, index) in tm('components.containers.languages')"
-        :key="index"
-        :language="language"
-      />
+      <LanguageBar v-for="(language, index) in languages" :key="index" :language="language" />
     </ul>
   </div>
 </template>

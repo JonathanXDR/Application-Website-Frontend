@@ -11,7 +11,7 @@
 
             <LinkCollection
               ref="ribbon-link"
-              :links="tm('components.common.RibbonBar.links')"
+              :links="links"
               class="ribbon-link ribbon-link-animation icon-after-ribbon"
             />
           </p>

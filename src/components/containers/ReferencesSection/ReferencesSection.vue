@@ -1,11 +1,7 @@
 <template>
   <h2>{{ $t('components.containers.common.references') }}</h2>
   <ul class="grid">
-    <ArticleItem
-      v-for="(references, index) in tm('components.containers.references')"
-      :key="index"
-      :article="references"
-    />
+    <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" />
   </ul>
 </template>
 
