@@ -1,5 +1,5 @@
 <template>
-  <svg :viewBox="viewBox">
+  <svg v-if="viewBox" :viewBox="viewBox">
     <use :href="icon" />
   </svg>
 </template>
@@ -45,14 +45,14 @@ export default defineComponent({
 </script>
 
 <style>
-#references .icon-article {
+.icon-article {
   width: 1.25em;
   height: 1.25em;
 }
 
 #projects .icon-article {
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.5em !important;
+  height: 1.5em !important;
 }
 
 .link .link-icon {
