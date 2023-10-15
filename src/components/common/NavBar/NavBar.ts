@@ -17,7 +17,7 @@ export default defineComponent({
   },
   setup() {
     const { tm } = useI18n()
-    const items = computed(() => tm('components.common.ShareSheet.links') as NavBarLinkType[])
+    const items = computed(() => tm('components.common.NavBar') as NavBarLinkType[])
     const themeDark = ref<boolean>(false)
     const navOpen = ref<boolean>(false)
     const navDisabled = ref<boolean>(false)
