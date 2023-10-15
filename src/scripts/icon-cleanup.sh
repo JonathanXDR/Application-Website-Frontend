@@ -39,5 +39,4 @@ for sub_dir in $(find "$abs_dir" -mindepth 1 -maxdepth 1 -type d); do
   process_svgs "$(basename "$sub_dir")"
 done
 
-cd - >/dev/null
 echo "\nProcessing complete.\n"
