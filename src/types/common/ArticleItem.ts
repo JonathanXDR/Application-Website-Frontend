@@ -1,9 +1,9 @@
-import type { Link } from './Link'
+import type { LinkType } from './Link'
 
-export type ArticleItem = {
+export type ArticleItemType = {
   title: string
   date?: string
   description?: string
-  links?: Link[]
+  links?: LinkType[]
   icon?: string
 }

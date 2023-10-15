@@ -1,5 +1,5 @@
-import type { ArticleItem } from '../common/ArticleItem'
+import type { ArticleItemType } from '../common/ArticleItem'
 
-export type Other = ArticleItem & {
-  other: ArticleItem[]
+export type Other = ArticleItemType & {
+  other: ArticleItemType[]
 }

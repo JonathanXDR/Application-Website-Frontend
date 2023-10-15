@@ -1,4 +1,4 @@
-export type NavBarLink = {
+export type NavBarLinkType = {
   name: string
   route: string
 }
