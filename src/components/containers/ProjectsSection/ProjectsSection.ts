@@ -33,7 +33,9 @@ export default defineComponent({
 
     return {
       tm,
-      articles
+      articles,
+      projects,
+      errors
     }
   }
 })
