@@ -9,7 +9,7 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "icon:cleanup": "sh ./src/scripts/icon-setup.sh",
+    "icon:cleanup": "sh ./src/scripts/icon-cleanup.sh",
     "sprite:generate": "sh ./src/scripts/sprite-generate.sh"
   },
   "dependencies": {
