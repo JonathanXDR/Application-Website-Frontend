@@ -2,7 +2,7 @@
   <svg v-if="viewBox" :viewBox="viewBox">
     <use :href="icon" />
   </svg>
-  <LoadingSpinner v-else class="medium no-margin" />
+  <LoadingSpinner v-else-if="!chevron" class="medium no-margin" />
 </template>
 
 <script lang="ts">
@@ -23,6 +23,7 @@ export default defineComponent({
   setup(props) {
     const viewBox = ref('')
     const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`)
+    const chevron = computed(() => props.name.startsWith('chevron.'))
 
     const getSpriteUrl = (size) => {
       return new URL(`/src/assets/icons/${size}/symbol/sprite.svg`, import.meta.url).href
@@ -39,7 +40,7 @@ export default defineComponent({
       }
     })
 
-    return { icon, viewBox }
+    return { viewBox, icon, chevron }
   }
 })
 </script>
