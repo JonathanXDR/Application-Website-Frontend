@@ -2,13 +2,16 @@
   <svg v-if="viewBox" :viewBox="viewBox">
     <use :href="icon" />
   </svg>
+  <LoadingSpinner v-else class="medium no-margin" />
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, onMounted, ref } from 'vue'
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.vue'
 
 export default defineComponent({
   name: 'Icon',
+  components: { LoadingSpinner },
   props: {
     name: { type: String, required: true },
     size: {
@@ -19,14 +22,13 @@ export default defineComponent({
   },
   setup(props) {
     const viewBox = ref('')
+    const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`)
 
     const getSpriteUrl = (size) => {
       return new URL(`/src/assets/icons/${size}/symbol/sprite.svg`, import.meta.url).href
     }
 
-    const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`)
-
-    const loadViewBox = async () => {
+    onMounted(async () => {
       const response = await fetch(getSpriteUrl(props.size))
       const text = await response.text()
       const parser = new DOMParser()
@@ -35,9 +37,7 @@ export default defineComponent({
       if (symbol) {
         viewBox.value = symbol.getAttribute('viewBox') || ''
       }
-    }
-
-    onMounted(loadViewBox)
+    })
 
     return { icon, viewBox }
   }
