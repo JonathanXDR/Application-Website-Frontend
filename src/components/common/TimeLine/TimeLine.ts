@@ -15,11 +15,8 @@ export default defineComponent({
     const path = ref<SVGPathElement | null>(null)
 
     const initPath = () => {
-      const ul = (svg.value as any).$parent?.$refs.ul as HTMLElement | undefined
-
-      if (!ul) {
-        return
-      }
+      const instance = getCurrentInstance()
+      const ul = instance?.parent?.refs.ul as HTMLElement
 
       const ulHeightValue = ul.getBoundingClientRect().height
       const ulHeightRounded = Math.round(ulHeightValue)
