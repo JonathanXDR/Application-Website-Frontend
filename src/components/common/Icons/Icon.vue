@@ -1,19 +1,16 @@
 <template>
-  <svg>
+  <svg :viewBox="viewBox">
     <use :href="icon" />
   </svg>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, onMounted, ref } from 'vue'
 
 export default defineComponent({
-  name: 'SvgComponent',
+  name: 'Icon',
   props: {
-    name: {
-      type: String,
-      required: true
-    },
+    name: { type: String, required: true },
     size: {
       type: String,
       default: 'medium',
@@ -21,12 +18,28 @@ export default defineComponent({
     }
   },
   setup(props) {
+    const viewBox = ref('')
+
     const getSpriteUrl = (size) => {
       return new URL(`/src/assets/icons/${size}/symbol/sprite.svg`, import.meta.url).href
     }
+
     const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`)
 
-    return { icon }
+    const loadViewBox = async () => {
+      const response = await fetch(getSpriteUrl(props.size))
+      const text = await response.text()
+      const parser = new DOMParser()
+      const svgDoc = parser.parseFromString(text, 'image/svg+xml')
+      const symbol = svgDoc.getElementById(props.name)
+      if (symbol) {
+        viewBox.value = symbol.getAttribute('viewBox') || ''
+      }
+    }
+
+    onMounted(loadViewBox)
+
+    return { icon, viewBox }
   }
 })
 </script>
