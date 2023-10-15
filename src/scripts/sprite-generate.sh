@@ -18,8 +18,8 @@ generate_sprite() {
   svg-sprite --symbol --symbol-sprite=sprite.svg ./*.svg
 }
 
-for sub_dir in small medium large; do
-  generate_sprite "$sub_dir"
+for sub_dir in $(find "$abs_dir" -mindepth 1 -maxdepth 1 -type d); do
+  generate_sprite "$(basename "$sub_dir")"
 done
 
 cd - >/dev/null
