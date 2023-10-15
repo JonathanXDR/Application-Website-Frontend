@@ -1,11 +1,10 @@
 import Logo from '@/components/common/Icons/Logo.vue'
 import LanguagePicker from '@/components/common/LanguagePicker/LanguagePicker.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
-import { fetchData } from '@/helpers/locale-helper'
 import { useAnimationStore } from '@/stores/animation'
 import { useColorStore } from '@/stores/color'
 import { useSectionStore } from '@/stores/section'
-import { computed, defineComponent, onMounted, ref, watch } from 'vue'
+import { computed, defineComponent, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -16,8 +15,7 @@ export default defineComponent({
     LanguagePicker
   },
   setup() {
-    const { locale } = useI18n({ useScope: 'global' })
-    const json = ref<any>(undefined)
+    const { tm } = useI18n()
     const themeDark = ref<boolean>(false)
     const navOpen = ref<boolean>(false)
     const navDisabled = ref<boolean>(false)
@@ -34,15 +32,6 @@ export default defineComponent({
 
       return useAnimationStore().headerAnimations
     })
-
-    const fetchLocalizedData = async () => {
-      try {
-        const data = (await fetchData()) as any
-        json.value = data.components.common.NavBar
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
-    }
 
     const toggleTheme = () => {
       themeDark.value = !themeDark.value
@@ -84,10 +73,7 @@ export default defineComponent({
       })
     }
 
-    watch(locale, fetchLocalizedData, { immediate: true })
-
     onMounted(() => {
-      fetchLocalizedData()
       window.addEventListener('scroll', handleScroll)
 
       const storedTheme = localStorage.getItem('theme')
@@ -100,8 +86,7 @@ export default defineComponent({
     })
 
     return {
-      json,
-      fetchLocalizedData,
+      tm,
       themeDark,
       navOpen,
       navDisabled,

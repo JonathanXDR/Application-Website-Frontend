@@ -19,7 +19,7 @@
       ></image>
     </svg>
 
-    <div v-if="json">
+    <div>
       <h1>
         <span class="eyebrow">{{ $t('components.containers.about.eyebrow') }}</span
         >{{ $t('components.containers.about.title') }}
@@ -33,9 +33,8 @@
         }}
       </p>
 
-      <LinkCollection v-if="json" :links="json.links" class="typography-intro" />
+      <LinkCollection :links="tm('components.containers.about.links')" class="typography-intro" />
     </div>
-    <LoadingSpinner v-else class="center" />
   </div>
 
   <ShareSheet />
