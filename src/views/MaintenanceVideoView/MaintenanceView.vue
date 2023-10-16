@@ -39,10 +39,14 @@
         <div class="rs-covers-content-container">
           <h1 class="rs-covers-heading">
             <span>We can't wait either.</span>
+            <!-- <span>Be right back.</span> -->
           </h1>
           <div class="rs-covers-desc">
             Pre-order begins at 5:00 a.m. PDT. <span class="nowrap">See you then.</span>
           </div>
+          <!-- <div class="rs-covers-desc">
+            We're making updates to the Apple Store. <span class="nowrap">Check back soon.</span>
+          </div> -->
         </div>
       </div>
     </div>
