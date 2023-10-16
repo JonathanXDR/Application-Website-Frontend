@@ -1,4 +1,8 @@
-import type { GetRepoResponse, ListPublicReposResponse } from '@/types/GitHub/Repository'
+import type {
+  GetRepoResponse,
+  ListPublicReposResponse,
+  ListUserReposResponse
+} from '@/types/GitHub/Repository'
 import type { ListRepoTagsResponse } from '@/types/GitHub/Tag'
 import { Octokit } from 'octokit'
 
@@ -6,7 +10,11 @@ const octokit = new Octokit({
   auth: import.meta.env.VITE_GITHUB_TOKEN
 })
 
-export async function listPublicRepositories(since?: number): Promise<ListPublicReposResponse> {
+export async function listPublicRepositories(params: {
+  since?: number
+}): Promise<ListPublicReposResponse> {
+  const { since } = params
+
   try {
     const response = await octokit.request('GET /repositories', {
       since,
@@ -21,14 +29,23 @@ export async function listPublicRepositories(since?: number): Promise<ListPublic
   }
 }
 
-export async function listUserRepositories(
-  username: string,
-  type?: string = 'owner',
-  sort?: string = 'full_name',
-  direction?: string = 'asc',
-  perPage?: number = 30,
-  page?: number = 1
-): Promise<ListUserReposResponse> {
+export async function listUserRepositories(params: {
+  username: string
+  type?: 'all' | 'owner' | 'member' | undefined
+  sort?: 'full_name' | 'created' | 'updated' | 'pushed' | undefined
+  direction?: 'asc' | 'desc' | undefined
+  perPage?: number
+  page?: number
+}): Promise<ListUserReposResponse> {
+  const {
+    username,
+    type = 'owner',
+    sort = 'full_name',
+    direction = 'asc',
+    perPage = 30,
+    page = 1
+  } = params
+
   try {
     const response = await octokit.request('GET /users/{username}/repos', {
       username,
@@ -48,7 +65,12 @@ export async function listUserRepositories(
   }
 }
 
-export async function getRepository(owner: string, repo: string): Promise<GetRepoResponse> {
+export async function getRepository(params: {
+  owner: string
+  repo: string
+}): Promise<GetRepoResponse> {
+  const { owner, repo } = params
+
   try {
     const response = await octokit.request('GET /repos/{owner}/{repo}', {
       owner,
@@ -64,12 +86,14 @@ export async function getRepository(owner: string, repo: string): Promise<GetRep
   }
 }
 
-export async function listRepositoryTags(
-  owner: string,
-  repo: string,
-  perPage?: number = 30,
-  page?: number = 1
-): Promise<ListRepoTagsResponse> {
+export async function listRepositoryTags(params: {
+  owner: string
+  repo: string
+  perPage?: number
+  page?: number
+}): Promise<ListRepoTagsResponse> {
+  const { owner, repo, perPage = 30, page = 1 } = params
+
   try {
     const response = await octokit.request('GET /repos/{owner}/{repo}/tags', {
       owner,
