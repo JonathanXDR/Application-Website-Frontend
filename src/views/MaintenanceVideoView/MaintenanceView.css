@@ -3933,22 +3933,6 @@ body {
   margin: 0 auto;
 }
 
-.rs-covers-desc:lang(ar) {
-  line-height: 1.58824;
-  letter-spacing: 0;
-  font-family:
-    SF Pro AR,
-    SF Pro AR Text,
-    SF Pro Text,
-    SF Pro Gulf,
-    SF Pro Icons,
-    AOS Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
-}
-
 @media only screen and (max-width: 1068px) {
   .rs-covers-desc {
     padding-top: 10px;
