@@ -11,8 +11,8 @@ export default defineComponent({
     const strokeDasharray = ref(0)
     const strokeDashoffset = ref(0)
 
-    const svg = ref<SVGElement | null>(null)
-    const path = ref<SVGPathElement | null>(null)
+    const svg = ref<SVGElement | undefined>(undefined)
+    const path = ref<SVGPathElement | undefined>(undefined)
 
     const initPath = () => {
       const instance = getCurrentInstance()

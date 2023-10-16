@@ -2,7 +2,7 @@ import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vu
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import { listRepositoryTags } from '@/helpers/github-helper'
 import type { LinkType } from '@/types/common/Link'
-import { computed, defineComponent, onMounted, reactive } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -13,31 +13,24 @@ export default defineComponent({
   },
   setup() {
     const { tm } = useI18n()
-    const links = computed(() => tm('components.common.RibbonBar.links') as LinkType[])
-    const tags = reactive({
-      latest: null,
-      previous: null
-    }) as { latest: string | null; previous: string | null }
+    const links = ref<LinkType[]>(tm('components.common.RibbonBar.links'))
+    const tags = ref<{ latest: string | undefined; previous: string | undefined }>({
+      latest: undefined,
+      previous: undefined
+    })
 
     const fetchTags = async () => {
-      const allTags = await listRepositoryTags({
+      const [latest, previous] = await listRepositoryTags({
         owner: 'JonathanXDR',
         repo: 'Application-Website-Frontend',
         perPage: 2
       })
 
-      tags.latest = allTags[0].name
-      tags.previous = allTags[1].name
+      tags.value = { latest: latest.name, previous: previous.name }
     }
 
-    onMounted(() => {
-      fetchTags()
-    })
+    onMounted(fetchTags)
 
-    return {
-      tm,
-      links,
-      tags
-    }
+    return { tm, links, tags }
   }
 })

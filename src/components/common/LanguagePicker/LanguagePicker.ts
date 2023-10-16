@@ -35,7 +35,7 @@ export default defineComponent({
     }
 
     onMounted(() => {
-      if (localStorage.getItem('language') === null) {
+      if (localStorage.getItem('language') === undefined) {
         const preferredLanguage = window.navigator.language
         changeLang(preferredLanguage)
       } else {
