@@ -6,7 +6,7 @@ const octokit = new Octokit({
   auth: import.meta.env.VITE_GITHUB_TOKEN
 })
 
-export async function listPublicRepositories(since: number): Promise<ListPublicReposResponse> {
+export async function listPublicRepositories(since?: number): Promise<ListPublicReposResponse> {
   try {
     const response = await octokit.request('GET /repositories', {
       since,

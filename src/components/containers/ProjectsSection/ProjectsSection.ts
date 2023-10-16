@@ -5,10 +5,11 @@ import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vu
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
-import type { Repository } from '@/types/GitHub/Repository'
+import type { ListPublicReposResponse } from '@/types/GitHub/Repository'
 import type { ArticleItemType } from '@/types/common/ArticleItem'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { listPublicRepositories } from '@/helpers/github-helper'
 
 export default defineComponent({
   name: 'ProjectsSection',
@@ -25,11 +26,26 @@ export default defineComponent({
     const { tm } = useI18n()
     const articles = computed(() => tm('components.containers.projects') as ArticleItemType[])
     const projects = {
-      personal: [] as Repository,
-      swisscom: [] as any[],
-      school: [] as Repository
+      personal: [] as ListPublicReposResponse,
+      swisscom: [] as ArticleItemType[],
+      school: [] as ListPublicReposResponse
     }
     const errors = [] as string[]
+
+    const fetchProjects = async () => {
+      const projects = await listPublicRepositories()
+      projects.forEach((project) => {
+        const schoolProjectPattern = /^(M\d+|UEK-\d+)-Portfolio$|^(TBZ|UEK)-Modules$/i
+        ;(schoolProjectPattern.test(project.name) ? school : personal).push(project)
+      })
+
+      this.projects.personal = sortedProjects.personal
+      this.projects.school = sortedProjects.school
+    }
+
+    onMounted(() => {
+      fetchProjects()
+    })
 
     return {
       tm,
