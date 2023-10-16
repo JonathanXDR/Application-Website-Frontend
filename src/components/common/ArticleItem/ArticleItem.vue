@@ -1,6 +1,6 @@
 <template>
   <li class="row-full">
-    <div v-if="article.icon" class="padding-right padding-top-small">
+    <div v-if="article.icon" class="padding-right padding-block-small">
       <Icon :name="article.icon" class="icon-article" />
     </div>
 
