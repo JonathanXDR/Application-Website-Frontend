@@ -8,7 +8,7 @@ import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import { listUserRepositories } from '@/helpers/github-helper'
 import type { ListUserReposResponse } from '@/types/GitHub/Repository'
 import type { ArticleItemType } from '@/types/common/ArticleItem'
-import { computed, defineComponent, onMounted } from 'vue'
+import { computed, defineComponent, onMounted, reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -25,11 +25,11 @@ export default defineComponent({
   setup() {
     const { tm } = useI18n()
     const articles = computed(() => tm('components.containers.projects') as ArticleItemType[])
-    const projects = {
+    const projects = reactive({
       personal: [] as ListUserReposResponse,
-      swisscom: [] as ArticleItemType[],
+      swisscom: computed(() => tm('components.containers.projects') as ArticleItemType[]),
       school: [] as ListUserReposResponse
-    }
+    })
 
     const fetchProjects = async () => {
       const allProjects = await listUserRepositories({
