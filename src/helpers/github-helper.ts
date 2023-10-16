@@ -11,7 +11,7 @@ export async function listPublicRepositories(since?: number): Promise<ListPublic
     const response = await octokit.request('GET /repositories', {
       since,
       headers: {
-        accept: 'application/vnd.github.v3+json'
+        accept: 'application/vnd.github+json'
       }
     })
     return response.data
@@ -38,7 +38,7 @@ export async function listUserRepositories(
       per_page: perPage,
       page,
       headers: {
-        accept: 'application/vnd.github.v3+json'
+        accept: 'application/vnd.github+json'
       }
     })
     return response.data
@@ -54,7 +54,7 @@ export async function getRepository(owner: string, repo: string): Promise<GetRep
       owner,
       repo,
       headers: {
-        accept: 'application/vnd.github.v3+json'
+        accept: 'application/vnd.github+json'
       }
     })
     return response.data
@@ -77,7 +77,7 @@ export async function listRepositoryTags(
       per_page: perPage,
       page,
       headers: {
-        accept: 'application/vnd.github.v3+json'
+        accept: 'application/vnd.github+json'
       }
     })
     return response.data
