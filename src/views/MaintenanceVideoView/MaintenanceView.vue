@@ -9,7 +9,8 @@
             id="rs-covers-media"
             class="rc-videoplayer rs-covers-media-wrapper rc-videoplayer-muted rc-videoplayer-stalled rc-videoplayer-medium"
           >
-            <video
+            <Icon name="wrench.and.screwdriver.fill" class="rs-covers-media-img" />
+            <!-- <video
               class="rc-video rs-covers-media"
               preload="metadata"
               loop
@@ -29,7 +30,7 @@
                 alt=""
                 src="https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/images/covers-apple-outline.jpg"
               />
-            </div>
+            </div> -->
           </div>
           <button type="button" class="rs-covers-mediabtn icon icon-after icon-thumbnailplay">
             <span class="visuallyhidden">play animation</span>

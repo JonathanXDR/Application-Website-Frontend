@@ -6,7 +6,7 @@ import { useColorStore } from '@/stores/color'
 import { useSectionStore } from '@/stores/section'
 import { defineComponent, ref } from 'vue'
 import { useMeta } from 'vue-meta'
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'App',
@@ -19,6 +19,7 @@ export default defineComponent({
     FooterItem
   },
   setup() {
+    const route = useRoute()
     const colorStore = useColorStore()
     const sectionStore = useSectionStore()
 
@@ -58,6 +59,7 @@ export default defineComponent({
     })
 
     return {
+      route,
       nodeEnv,
       currentSectionName,
       colorBadge
