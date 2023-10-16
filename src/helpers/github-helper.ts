@@ -18,7 +18,7 @@ const octokit = new Octokit({
   auth: process.env.VUE_APP_GITHUB_TOKEN
 })
 
-export async function listPublicRepos(since?: number): Promise<ListPublicReposResponse> {
+export async function listPublicRepositories(since: number): Promise<ListPublicReposResponse> {
   try {
     const response = await octokit.request('GET /repositories', {
       since,
@@ -28,12 +28,12 @@ export async function listPublicRepos(since?: number): Promise<ListPublicReposRe
     })
     return response.data
   } catch (error) {
-    console.error('Error listing public repositories:', error)
+    console.error('Error fetching public repositories:', error)
     throw error
   }
 }
 
-export async function getRepo(owner: string, repo: string): Promise<GetRepoResponse> {
+export async function getRepository(owner: string, repo: string): Promise<GetRepoResponse> {
   try {
     const response = await octokit.request('GET /repos/{owner}/{repo}', {
       owner,
@@ -49,17 +49,17 @@ export async function getRepo(owner: string, repo: string): Promise<GetRepoRespo
   }
 }
 
-export async function listRepoTags(
+export async function listRepositoryTags(
   owner: string,
   repo: string,
-  per_page: number = 30,
+  perPage: number = 30,
   page: number = 1
 ): Promise<ListRepoTagsResponse> {
   try {
     const response = await octokit.request('GET /repos/{owner}/{repo}/tags', {
       owner,
       repo,
-      per_page,
+      per_page: perPage,
       page,
       headers: {
         accept: 'application/vnd.github.v3+json'
