@@ -2,20 +2,8 @@ import type { GetRepoResponse, ListPublicReposResponse } from '@/types/GitHub/Re
 import type { ListRepoTagsResponse } from '@/types/GitHub/Tag'
 import { Octokit } from 'octokit'
 
-export function sortProjects(projects) {
-  const personal = []
-  const school = []
-
-  projects.forEach((project) => {
-    const schoolProjectPattern = /^(M\d+|UEK-\d+)-Portfolio$|^(TBZ|UEK)-Modules$/i
-    ;(schoolProjectPattern.test(project.name) ? school : personal).push(project)
-  })
-
-  return { personal, school }
-}
-
 const octokit = new Octokit({
-  auth: process.env.VUE_APP_GITHUB_TOKEN
+  auth: import.meta.env.VITE_GITHUB_TOKEN
 })
 
 export async function listPublicRepositories(since: number): Promise<ListPublicReposResponse> {
