@@ -14,84 +14,60 @@ export function sortProjects(projects) {
   return { personal, school }
 }
 
-/**
- * List public repositories
- * @param since - A repository ID to list repositories created after it.
- */
-export async function listPublicRepositories(since?: number): Promise<ListPublicReposResponse> {
-  const octokit = new Octokit({
-    auth: 'YOUR-TOKEN'
-  })
+const octokit = new Octokit({
+  auth: process.env.VUE_APP_GITHUB_TOKEN
+})
 
+export async function listPublicRepos(since?: number): Promise<ListPublicReposResponse> {
   try {
     const response = await octokit.request('GET /repositories', {
       since,
       headers: {
-        accept: 'application/vnd.github+json'
+        accept: 'application/vnd.github.v3+json'
       }
     })
     return response.data
   } catch (error) {
-    console.error('Failed to list public repositories:', error)
+    console.error('Error listing public repositories:', error)
     throw error
   }
 }
 
-/**
- * Get a specific repository
- * @param owner - The account owner of the repository.
- * @param repo - The name of the repository.
- */
-export async function getRepository(owner: string, repo: string): Promise<GetRepoResponse> {
-  const octokit = new Octokit({
-    auth: 'YOUR-TOKEN'
-  })
-
+export async function getRepo(owner: string, repo: string): Promise<GetRepoResponse> {
   try {
     const response = await octokit.request('GET /repos/{owner}/{repo}', {
       owner,
       repo,
       headers: {
-        accept: 'application/vnd.github+json'
+        accept: 'application/vnd.github.v3+json'
       }
     })
     return response.data
   } catch (error) {
-    console.error(`Failed to get repository ${owner}/${repo}:`, error)
+    console.error(`Error fetching repository ${owner}/${repo}:`, error)
     throw error
   }
 }
 
-/**
- * List repository tags
- * @param owner - The account owner of the repository.
- * @param repo - The name of the repository.
- * @param perPage - The number of results per page.
- * @param page - Page number of the results to fetch.
- */
-export async function listRepositoryTags(
+export async function listRepoTags(
   owner: string,
   repo: string,
-  perPage: number = 30,
+  per_page: number = 30,
   page: number = 1
 ): Promise<ListRepoTagsResponse> {
-  const octokit = new Octokit({
-    auth: 'YOUR-TOKEN'
-  })
-
   try {
     const response = await octokit.request('GET /repos/{owner}/{repo}/tags', {
       owner,
       repo,
-      per_page: perPage,
+      per_page,
       page,
       headers: {
-        accept: 'application/vnd.github+json'
+        accept: 'application/vnd.github.v3+json'
       }
     })
     return response.data
   } catch (error) {
-    console.error(`Failed to list tags for repository ${owner}/${repo}:`, error)
+    console.error(`Error fetching tags for repository ${owner}/${repo}:`, error)
     throw error
   }
 }
