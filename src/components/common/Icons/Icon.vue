@@ -1,65 +1,46 @@
 <template>
-  <div v-svg="svgOptions"></div>
+  <svg v-if="viewBox" :viewBox="viewBox">
+    <use :href="icon" />
+  </svg>
+  <LoadingSpinner v-else-if="!chevron" class="medium no-margin" />
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, type DirectiveBinding } from 'vue'
-
-interface SvgOptions {
-  path: string
-  attrs: Record<string, unknown>
-}
+import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
+import { computed, defineComponent, onMounted, ref } from 'vue'
 
 export default defineComponent({
-  name: 'SvgComponent',
-  inheritAttrs: false,
+  name: 'Icon',
+  components: { LoadingSpinner },
   props: {
-    name: {
-      type: String,
-      required: true
-    },
+    name: { type: String, required: true },
     size: {
       type: String,
       default: 'medium',
-      validator: (value: string): boolean => ['big', 'medium', 'small'].includes(value)
+      validator: (value: string): boolean => ['small', 'medium', 'large'].includes(value)
     }
   },
-  directives: {
-    svg: {
-      async mounted(el: HTMLElement, binding: DirectiveBinding<SvgOptions>) {
-        const { path, attrs } = binding.value
-        try {
-          const response = await fetch(path)
-          if (!response.ok) {
-            throw new Error(`Failed to load SVG: ${response.statusText}`)
-          }
-          const text = await response.text()
-          const tempContainer = document.createElement('div')
-          tempContainer.innerHTML = text
-          const svgElement = tempContainer.firstChild as SVGElement
-          Object.entries(attrs).forEach(([key, value]) => {
-            if (key === 'style' && typeof value === 'object' && value !== null) {
-              Object.assign(svgElement.style, value)
-            } else {
-              svgElement.setAttribute(key, String(value))
-            }
-          })
-          el.parentNode!.replaceChild(svgElement, el)
-        } catch (error) {
-          console.error((error as Error).message)
-        }
+  setup(props) {
+    const viewBox = ref('')
+    const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`)
+    const chevron = computed(() => props.name.startsWith('chevron.'))
+
+    const getSpriteUrl = (size) => {
+      return new URL(`/src/assets/icons/${size}/symbol/sprite.svg`, import.meta.url).href
+    }
+
+    onMounted(async () => {
+      const response = await fetch(getSpriteUrl(props.size))
+      const text = await response.text()
+      const parser = new DOMParser()
+      const svgDoc = parser.parseFromString(text, 'image/svg+xml')
+      const symbol = svgDoc.getElementById(props.name)
+      if (symbol) {
+        viewBox.value = symbol.getAttribute('viewBox') || ''
       }
-    }
-  },
-  setup(props, { attrs }) {
-    const svgOptions = ref<SvgOptions>({
-      path: `/src/assets/icons/${props.size}/${props.name}.svg`,
-      attrs: attrs
     })
 
-    return {
-      svgOptions
-    }
+    return { viewBox, icon, chevron }
   }
 })
 </script>
@@ -83,14 +64,9 @@ export default defineComponent({
   margin-right: -0.5px;
 }
 
-#references .icon-article {
+.icon-article {
   width: 1.25em;
   height: 1.25em;
-}
-
-#projects .icon-article {
-  width: 1.5em;
-  height: 1.5em;
 }
 
 .link .link-icon {
