@@ -33,14 +33,22 @@ export default defineComponent({
     const errors = [] as string[]
 
     const fetchProjects = async () => {
+      const sortedProjects = {
+        personal: [] as ListPublicReposResponse,
+        school: [] as ListPublicReposResponse
+      }
       const projects = await listPublicRepositories()
+      console.log(projects)
       projects.forEach((project) => {
         const schoolProjectPattern = /^(M\d+|UEK-\d+)-Portfolio$|^(TBZ|UEK)-Modules$/i
-        ;(schoolProjectPattern.test(project.name) ? school : personal).push(project)
+        ;(schoolProjectPattern.test(project.name)
+          ? sortedProjects.school
+          : sortedProjects.personal
+        ).push(project)
       })
 
-      this.projects.personal = sortedProjects.personal
-      this.projects.school = sortedProjects.school
+      projects.personal = sortedProjects.personal
+      projects.school = sortedProjects.school
     }
 
     onMounted(() => {

@@ -21,6 +21,33 @@ export async function listPublicRepositories(since?: number): Promise<ListPublic
   }
 }
 
+export async function listUserRepositories(
+  username: string,
+  type?: string = 'owner',
+  sort?: string = 'full_name',
+  direction?: string = 'asc',
+  perPage?: number = 30,
+  page?: number = 1
+): Promise<ListUserReposResponse> {
+  try {
+    const response = await octokit.request('GET /users/{username}/repos', {
+      username,
+      type,
+      sort,
+      direction,
+      per_page: perPage,
+      page,
+      headers: {
+        accept: 'application/vnd.github.v3+json'
+      }
+    })
+    return response.data
+  } catch (error) {
+    console.error(`Error fetching repositories for user ${username}:`, error)
+    throw error
+  }
+}
+
 export async function getRepository(owner: string, repo: string): Promise<GetRepoResponse> {
   try {
     const response = await octokit.request('GET /repos/{owner}/{repo}', {
@@ -32,7 +59,7 @@ export async function getRepository(owner: string, repo: string): Promise<GetRep
     })
     return response.data
   } catch (error) {
-    console.error(`Error fetching repository ${owner}/${repo}:`, error)
+    console.error(`Error fetching repository for owner ${owner}:`, error)
     throw error
   }
 }
@@ -40,8 +67,8 @@ export async function getRepository(owner: string, repo: string): Promise<GetRep
 export async function listRepositoryTags(
   owner: string,
   repo: string,
-  perPage: number = 30,
-  page: number = 1
+  perPage?: number = 30,
+  page?: number = 1
 ): Promise<ListRepoTagsResponse> {
   try {
     const response = await octokit.request('GET /repos/{owner}/{repo}/tags', {
@@ -55,7 +82,7 @@ export async function listRepositoryTags(
     })
     return response.data
   } catch (error) {
-    console.error(`Error fetching tags for repository ${owner}/${repo}:`, error)
+    console.error(`Error fetching tags for repository ${repo}:`, error)
     throw error
   }
 }
