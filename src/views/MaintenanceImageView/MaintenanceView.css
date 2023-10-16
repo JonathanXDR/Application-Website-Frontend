@@ -1,15 +1,15 @@
 html.ac-gn-noscroll {
-  margin-top: 0 !important
+  margin-top: 0 !important;
 }
 
 html.ac-gn-noscroll,
 html.ac-gn-noscroll body {
   overflow: hidden !important;
-  height: 100% !important
+  height: 100% !important;
 }
 
 html.ac-gn-noscroll-long {
-  overflow-y: scroll !important
+  overflow-y: scroll !important;
 }
 
 html {
@@ -29,32 +29,32 @@ html {
   --r-globalnav-viewport-xsmall-query: (max-width: 419px);
   --r-globalnav-segmentbar-background: #272729;
   --r-globalnav-segmentbar-text-color: rgba(255, 255, 255, 0.92);
-  --r-globalnav-segmentbar-border-color: rgba(255, 255, 255, 0.24)
+  --r-globalnav-segmentbar-border-color: rgba(255, 255, 255, 0.24);
 }
 
 html.ac-gn-segmentbar-visible {
-  --r-globalnav-segmentbar-height: 40px
+  --r-globalnav-segmentbar-height: 40px;
 }
 
 @media only screen and (max-width: 833px) {
   html {
-    --r-globalnav-height: 48px
+    --r-globalnav-height: 48px;
   }
 
   html.ac-gn-segmentbar-visible {
-    --r-globalnav-segmentbar-height: 44px
+    --r-globalnav-segmentbar-height: 44px;
   }
 }
 
 @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
   html {
-    --r-globalnav-segmentbar-background: #424245
+    --r-globalnav-segmentbar-background: #424245;
   }
 }
 
 html {
   -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%;
 }
 
 abbr,
@@ -82,7 +82,7 @@ p,
 pre,
 ul {
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 
 address,
@@ -93,35 +93,35 @@ pre,
 th {
   font-size: 1em;
   font-weight: 400;
-  font-style: normal
+  font-style: normal;
 }
 
 fieldset,
 iframe {
-  border: 0
+  border: 0;
 }
 
 caption,
 th {
-  text-align: left
+  text-align: left;
 }
 
 table {
   border-collapse: collapse;
-  border-spacing: 0
+  border-spacing: 0;
 }
 
 details,
 main,
 summary {
-  display: block
+  display: block;
 }
 
 audio,
 canvas,
 progress,
 video {
-  vertical-align: baseline
+  vertical-align: baseline;
 }
 
 button {
@@ -133,183 +133,357 @@ button {
   font: inherit;
   line-height: inherit;
   overflow: visible;
-  vertical-align: inherit
+  vertical-align: inherit;
 }
 
 button:disabled {
-  cursor: default
+  cursor: default;
 }
 
 :focus {
-  outline: 4px solid rgba(0, 125, 250, .6);
-  outline-offset: 1px
+  outline: 4px solid rgba(0, 125, 250, 0.6);
+  outline-offset: 1px;
 }
 
 html.as-mouseuser :focus:not(input):not(textarea):not(select) {
-  outline: none
+  outline: none;
 }
 
 ::-moz-focus-inner {
   border: 0;
-  padding: 0
+  padding: 0;
 }
 
 input::-ms-clear {
-  display: none
+  display: none;
 }
 
-input[type=number] {
-  -moz-appearance: textfield
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
-  margin: 0
+  margin: 0;
 }
 
 .metrics {
-  display: none
+  display: none;
 }
 
 html {
-  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   font-size: 106.25%;
-  quotes: "â€œ" "â€"
+  quotes: 'â€œ' 'â€';
 }
 
 [lang]:lang(ar) {
-  font-family: SF Pro AR, SF Pro Gulf, SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro AR,
+    SF Pro Gulf,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [lang]:lang(ja) {
-  font-family: SF Pro JP, SF Pro Text, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3, ãƒ¡ã‚¤ãƒªã‚ª, Meiryo, ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro JP,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Hiragino Kaku Gothic Pro,
+    ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3,
+    ãƒ¡ã‚¤ãƒªã‚ª,
+    Meiryo,
+    ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [lang]:lang(ko) {
-  font-family: SF Pro KR, SF Pro Text, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro KR,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Apple Gothic,
+    HY Gulim,
+    MalgunGothic,
+    HY Dotum,
+    Lexi Gulim,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [lang]:lang(th) {
-  font-family: SF Pro TH, SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TH,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [lang]:lang(zh-CN) {
-  font-family: SF Pro SC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro SC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang SC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [lang]:lang(zh-HK) {
-  font-family: SF Pro HK, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [lang]:lang(zh-MO) {
-  font-family: SF Pro HK, SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [lang]:lang(zh-TW) {
-  font-family: SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang TC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 :lang(cs),
 :lang(de) {
-  quotes: "â€ž" "â€œ"
+  quotes: 'â€ž' 'â€œ';
 }
 
 :lang(de-CH),
 :lang(de-LI) {
-  quotes: "Â«" "Â»"
+  quotes: 'Â«' 'Â»';
 }
 
 :lang(fr) {
-  quotes: "Â«Â " "Â Â»"
+  quotes: 'Â«Â ' 'Â Â»';
 }
 
 :lang(es-ES),
 :lang(fr-CH) {
-  quotes: "Â«" "Â»"
+  quotes: 'Â«' 'Â»';
 }
 
 :lang(hu) {
-  quotes: "â€ž" "â€œ"
+  quotes: 'â€ž' 'â€œ';
 }
 
 :lang(ja-JP) {
-  quotes: "ã€Œ" "ã€"
+  quotes: 'ã€Œ' 'ã€';
 }
 
 :lang(no-NO) {
-  quotes: "Â«" "Â»"
+  quotes: 'Â«' 'Â»';
 }
 
 :lang(lt),
 :lang(pl) {
-  quotes: "â€ž" "â€œ"
+  quotes: 'â€ž' 'â€œ';
 }
 
 :lang(ru) {
-  quotes: "Â« " " Â»"
+  quotes: 'Â« ' ' Â»';
 }
 
 :lang(zh) {
-  quotes: "ã€Œ" "ã€"
+  quotes: 'ã€Œ' 'ã€';
 }
 
 :lang(zh-CN) {
-  quotes: "â€œ" "â€"
+  quotes: 'â€œ' 'â€';
 }
 
 body {
   font-size: 17px;
   line-height: 1.47059;
   font-weight: 400;
-  letter-spacing: -.022em;
-  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  letter-spacing: -0.022em;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   background-color: #fff;
   color: #1d1d1f;
-  font-style: normal
+  font-style: normal;
 }
 
 body:lang(ar) {
   line-height: 1.58824;
   letter-spacing: 0;
-  font-family: SF Pro AR, SF Pro Gulf, SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro AR,
+    SF Pro Gulf,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body:lang(ja) {
   letter-spacing: 0;
-  font-family: SF Pro JP, SF Pro Text, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3, ãƒ¡ã‚¤ãƒªã‚ª, Meiryo, ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro JP,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Hiragino Kaku Gothic Pro,
+    ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3,
+    ãƒ¡ã‚¤ãƒªã‚ª,
+    Meiryo,
+    ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body:lang(ko) {
   line-height: 1.58824;
-  font-family: SF Pro KR, SF Pro Text, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro KR,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Apple Gothic,
+    HY Gulim,
+    MalgunGothic,
+    HY Dotum,
+    Lexi Gulim,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body:lang(ko),
 body:lang(th),
 body:lang(zh) {
-  letter-spacing: 0
+  letter-spacing: 0;
 }
 
 body:lang(th) {
   line-height: 1.35296;
-  font-family: SF Pro TH, SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TH,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body:lang(zh-CN) {
-  font-family: SF Pro SC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro SC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang SC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body:lang(zh-HK) {
-  font-family: SF Pro HK, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body:lang(zh-MO) {
-  font-family: SF Pro HK, SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body:lang(zh-TW) {
-  font-family: SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang TC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body,
@@ -318,11 +492,11 @@ input,
 select,
 textarea {
   font-synthesis: none;
-  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: 'kern';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: ltr;
-  text-align: left
+  text-align: left;
 }
 
 h1,
@@ -332,7 +506,7 @@ h4,
 h5,
 h6 {
   font-weight: 600;
-  color: #1d1d1f
+  color: #1d1d1f;
 }
 
 h1 img,
@@ -342,7 +516,7 @@ h4 img,
 h5 img,
 h6 img {
   display: block;
-  margin: 0
+  margin: 0;
 }
 
 h1+*,
@@ -351,7 +525,7 @@ h3+*,
 h4+*,
 h5+*,
 h6+* {
-  margin-top: .8em
+  margin-top: 0.8em;
 }
 
 h1+h1,
@@ -390,7 +564,7 @@ h6+h3,
 h6+h4,
 h6+h5,
 h6+h6 {
-  margin-top: .4em
+  margin-top: 0.4em;
 }
 
 ol+h1,
@@ -411,22 +585,22 @@ ul+h3,
 ul+h4,
 ul+h5,
 ul+h6 {
-  margin-top: 1.6em
+  margin-top: 1.6em;
 }
 
 .heading-collapsed+* {
-  margin-top: 0
+  margin-top: 0;
 }
 
 ol+*,
 p+*,
 ul+* {
-  margin-top: .8em
+  margin-top: 0.8em;
 }
 
 ol,
 ul {
-  margin-left: 1.17647em
+  margin-left: 1.17647em;
 }
 
 ol ol,
@@ -434,198 +608,198 @@ ol ul,
 ul ol,
 ul ul {
   margin-top: 0;
-  margin-bottom: 0
+  margin-bottom: 0;
 }
 
 nav ol,
 nav ul {
   margin: 0;
-  list-style: none
+  list-style: none;
 }
 
 li li {
-  font-size: 1em
+  font-size: 1em;
 }
 
 .link,
 a {
   color: #06c;
-  letter-spacing: inherit
+  letter-spacing: inherit;
 }
 
 .link:link,
 .link:visited,
 a:link,
 a:visited {
-  text-decoration: none
+  text-decoration: none;
 }
 
 .link:hover,
 a:hover {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
 .link:active,
 a:active {
-  text-decoration: none
+  text-decoration: none;
 }
 
 .link:disabled,
 a:disabled {
-  opacity: .32
+  opacity: 0.32;
 }
 
 .links-inline,
 .links-stacked {
   margin-left: 0;
   margin-right: 0;
-  list-style: none
+  list-style: none;
 }
 
 .links-inline li {
   display: inline;
-  margin: 0 .8em
+  margin: 0 0.8em;
 }
 
 .links-inline li:first-child {
-  margin-left: 0
+  margin-left: 0;
 }
 
 .links-inline li:last-child {
-  margin-right: 0
+  margin-right: 0;
 }
 
 .links-stacked li {
   margin: 0;
-  display: block
+  display: block;
 }
 
 .links-stacked li+li {
-  margin-top: .4em
+  margin-top: 0.4em;
 }
 
 b,
 strong {
-  font-weight: 600
+  font-weight: 600;
 }
 
 cite,
 dfn,
 em,
 i {
-  font-style: italic
+  font-style: italic;
 }
 
 sub,
 sup {
   position: relative;
-  font-size: .6em;
-  vertical-align: baseline
+  font-size: 0.6em;
+  vertical-align: baseline;
 }
 
 sup {
-  top: -.5em
+  top: -0.5em;
 }
 
 sub {
-  bottom: -.25em
+  bottom: -0.25em;
 }
 
 .footnote a {
   vertical-align: inherit;
-  color: inherit
+  color: inherit;
 }
 
 .footnote a:hover {
   color: #06c;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .footnote-reduced {
-  font-size: .45em
+  font-size: 0.45em;
 }
 
 sup.footnote-reduced {
-  top: -.86em
+  top: -0.86em;
 }
 
 sub.footnote-reduced {
-  bottom: -.36em
+  bottom: -0.36em;
 }
 
 .footnote-supglyph {
   position: relative;
-  vertical-align: baseline
+  vertical-align: baseline;
 }
 
 .footnote-supglyph.footnote-reduced {
-  font-size: .9em;
-  top: -.09em
+  font-size: 0.9em;
+  top: -0.09em;
 }
 
 .footnote-diamond {
   position: relative;
   vertical-align: baseline;
-  font-feature-settings: "numr";
-  font-size: 1em
+  font-feature-settings: 'numr';
+  font-size: 1em;
 }
 
 sup.footnote-diamond {
-  top: auto
+  top: auto;
 }
 
 sub.footnote-diamond {
-  bottom: -.5em
+  bottom: -0.5em;
 }
 
 .footnote-diamond.footnote-reduced {
-  font-size: .9em;
-  top: -.09em
+  font-size: 0.9em;
+  top: -0.09em;
 }
 
 sub.footnote-diamond.footnote-reduced {
   top: auto;
-  bottom: -.52em
+  bottom: -0.52em;
 }
 
 .footnote-number {
   position: relative;
   vertical-align: baseline;
-  font-feature-settings: "numr";
-  font-size: 1em
+  font-feature-settings: 'numr';
+  font-size: 1em;
 }
 
 sup.footnote-number {
-  top: auto
+  top: auto;
 }
 
 sub.footnote-number {
-  bottom: -.5em
+  bottom: -0.5em;
 }
 
 .footnote-number.footnote-reduced {
-  font-size: .9em;
-  top: -.09em
+  font-size: 0.9em;
+  top: -0.09em;
 }
 
 sub.footnote-number.footnote-reduced {
   top: auto;
-  bottom: -.52em
+  bottom: -0.52em;
 }
 
 abbr {
-  border: 0
+  border: 0;
 }
 
 :lang(ja),
 :lang(ko),
 :lang(th),
 :lang(zh) {
-  font-style: normal
+  font-style: normal;
 }
 
 :lang(ko) {
-  word-break: keep-all
+  word-break: keep-all;
 }
 
 body:lang(ja),
@@ -643,267 +817,267 @@ select:lang(zh),
 textarea:lang(ja),
 textarea:lang(ko),
 textarea:lang(zh) {
-  font-synthesis: weight
+  font-synthesis: weight;
 }
 
-a[role=button] {
-  cursor: pointer
+a[role='button'] {
+  cursor: pointer;
 }
 
 .justify-content-start {
-  justify-content: flex-start
+  justify-content: flex-start;
 }
 
 .justify-content-end {
-  justify-content: flex-end
+  justify-content: flex-end;
 }
 
 .justify-content-center {
-  justify-content: center
+  justify-content: center;
 }
 
 .justify-content-spacebetween {
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 .justify-content-spacearound {
-  justify-content: space-around
+  justify-content: space-around;
 }
 
 .justify-content-spaceevenly {
-  justify-content: space-evenly
+  justify-content: space-evenly;
 }
 
 .align-items-start {
-  align-items: flex-start
+  align-items: flex-start;
 }
 
 .align-items-center {
-  align-items: center
+  align-items: center;
 }
 
 .align-items-end {
-  align-items: flex-end
+  align-items: flex-end;
 }
 
 .align-self-start {
-  align-self: flex-start
+  align-self: flex-start;
 }
 
 .align-self-center {
-  align-self: center
+  align-self: center;
 }
 
 .align-self-end {
-  align-self: flex-end
+  align-self: flex-end;
 }
 
 .large-justify-content-start {
-  justify-content: flex-start
+  justify-content: flex-start;
 }
 
 .large-justify-content-end {
-  justify-content: flex-end
+  justify-content: flex-end;
 }
 
 .large-justify-content-center {
-  justify-content: center
+  justify-content: center;
 }
 
 .large-justify-content-spacebetween {
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 .large-justify-content-spacearound {
-  justify-content: space-around
+  justify-content: space-around;
 }
 
 .large-justify-content-spaceevenly {
-  justify-content: space-evenly
+  justify-content: space-evenly;
 }
 
 .large-align-items-start {
-  align-items: flex-start
+  align-items: flex-start;
 }
 
 .large-align-items-center {
-  align-items: center
+  align-items: center;
 }
 
 .large-align-items-end {
-  align-items: flex-end
+  align-items: flex-end;
 }
 
 .large-align-self-start {
-  align-self: flex-start
+  align-self: flex-start;
 }
 
 .large-align-self-center {
-  align-self: center
+  align-self: center;
 }
 
 .large-align-self-end {
-  align-self: flex-end
+  align-self: flex-end;
 }
 
-@media only screen and (min-width:1441px) {
+@media only screen and (min-width: 1441px) {
   .xlarge-justify-content-start {
-    justify-content: flex-start
+    justify-content: flex-start;
   }
 
   .xlarge-justify-content-end {
-    justify-content: flex-end
+    justify-content: flex-end;
   }
 
   .xlarge-justify-content-center {
-    justify-content: center
+    justify-content: center;
   }
 
   .xlarge-justify-content-spacebetween {
-    justify-content: space-between
+    justify-content: space-between;
   }
 
   .xlarge-justify-content-spacearound {
-    justify-content: space-around
+    justify-content: space-around;
   }
 
   .xlarge-justify-content-spaceevenly {
-    justify-content: space-evenly
+    justify-content: space-evenly;
   }
 
   .xlarge-align-items-start {
-    align-items: flex-start
+    align-items: flex-start;
   }
 
   .xlarge-align-items-center {
-    align-items: center
+    align-items: center;
   }
 
   .xlarge-align-items-end {
-    align-items: flex-end
+    align-items: flex-end;
   }
 
   .xlarge-align-self-start {
-    align-self: flex-start
+    align-self: flex-start;
   }
 
   .xlarge-align-self-center {
-    align-self: center
+    align-self: center;
   }
 
   .xlarge-align-self-end {
-    align-self: flex-end
+    align-self: flex-end;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .medium-justify-content-start {
-    justify-content: flex-start
+    justify-content: flex-start;
   }
 
   .medium-justify-content-end {
-    justify-content: flex-end
+    justify-content: flex-end;
   }
 
   .medium-justify-content-center {
-    justify-content: center
+    justify-content: center;
   }
 
   .medium-justify-content-spacebetween {
-    justify-content: space-between
+    justify-content: space-between;
   }
 
   .medium-justify-content-spacearound {
-    justify-content: space-around
+    justify-content: space-around;
   }
 
   .medium-justify-content-spaceevenly {
-    justify-content: space-evenly
+    justify-content: space-evenly;
   }
 
   .medium-align-items-start {
-    align-items: flex-start
+    align-items: flex-start;
   }
 
   .medium-align-items-center {
-    align-items: center
+    align-items: center;
   }
 
   .medium-align-items-end {
-    align-items: flex-end
+    align-items: flex-end;
   }
 
   .medium-align-self-start {
-    align-self: flex-start
+    align-self: flex-start;
   }
 
   .medium-align-self-center {
-    align-self: center
+    align-self: center;
   }
 
   .medium-align-self-end {
-    align-self: flex-end
+    align-self: flex-end;
   }
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .small-justify-content-start {
-    justify-content: flex-start
+    justify-content: flex-start;
   }
 
   .small-justify-content-end {
-    justify-content: flex-end
+    justify-content: flex-end;
   }
 
   .small-justify-content-center {
-    justify-content: center
+    justify-content: center;
   }
 
   .small-justify-content-spacebetween {
-    justify-content: space-between
+    justify-content: space-between;
   }
 
   .small-justify-content-spacearound {
-    justify-content: space-around
+    justify-content: space-around;
   }
 
   .small-justify-content-spaceevenly {
-    justify-content: space-evenly
+    justify-content: space-evenly;
   }
 
   .small-align-items-start {
-    align-items: flex-start
+    align-items: flex-start;
   }
 
   .small-align-items-center {
-    align-items: center
+    align-items: center;
   }
 
   .small-align-items-end {
-    align-items: flex-end
+    align-items: flex-end;
   }
 
   .small-align-self-start {
-    align-self: flex-start
+    align-self: flex-start;
   }
 
   .small-align-self-center {
-    align-self: center
+    align-self: center;
   }
 
   .small-align-self-end {
-    align-self: flex-end
+    align-self: flex-end;
   }
 }
 
 .selfclear:after,
 .selfclear:before {
-  content: " ";
-  display: table
+  content: ' ';
+  display: table;
 }
 
 .selfclear:after {
-  clear: both
+  clear: both;
 }
 
 .visuallyhidden {
@@ -915,35 +1089,35 @@ a[role=button] {
   height: 1px;
   width: 1px;
   padding: 0;
-  border: 0
+  border: 0;
 }
 
 @media only screen and (inverted-colors) {
   .no-inversion {
-    filter: invert(1)
+    filter: invert(1);
   }
 }
 
 .nowrap {
   display: inline-block;
   text-decoration: inherit;
-  white-space: nowrap
+  white-space: nowrap;
 }
 
 .clear {
-  clear: both
+  clear: both;
 }
 
 .cursor-grab {
   cursor: move;
   cursor: -webkit-grab;
-  cursor: grab
+  cursor: grab;
 }
 
 .cursor-grabbing {
   cursor: move;
   cursor: -webkit-grabbing;
-  cursor: grabbing
+  cursor: grabbing;
 }
 
 .a11y {
@@ -955,798 +1129,798 @@ a[role=button] {
   height: 1px;
   width: 1px;
   padding: 0;
-  border: 0
+  border: 0;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  width: 100%
+  width: 100%;
 }
 
 .row-reverse {
-  flex-direction: row-reverse
+  flex-direction: row-reverse;
 }
 
 .column {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  min-width: 0
+  min-width: 0;
 }
 
 .large-offset-0 {
-  margin-left: 0
+  margin-left: 0;
 }
 
 .large-order-0 {
-  order: 0
+  order: 0;
 }
 
 .large-1 {
   flex-basis: 8.33333%;
-  max-width: 8.33333%
+  max-width: 8.33333%;
 }
 
 .large-offset-1 {
-  margin-left: 8.33333%
+  margin-left: 8.33333%;
 }
 
 .large-order-1 {
-  order: 1
+  order: 1;
 }
 
 .large-2 {
   flex-basis: 16.66667%;
-  max-width: 16.66667%
+  max-width: 16.66667%;
 }
 
 .large-offset-2 {
-  margin-left: 16.66667%
+  margin-left: 16.66667%;
 }
 
 .large-order-2 {
-  order: 2
+  order: 2;
 }
 
 .large-3 {
   flex-basis: 25%;
-  max-width: 25%
+  max-width: 25%;
 }
 
 .large-offset-3 {
-  margin-left: 25%
+  margin-left: 25%;
 }
 
 .large-order-3 {
-  order: 3
+  order: 3;
 }
 
 .large-4 {
   flex-basis: 33.33333%;
-  max-width: 33.33333%
+  max-width: 33.33333%;
 }
 
 .large-offset-4 {
-  margin-left: 33.33333%
+  margin-left: 33.33333%;
 }
 
 .large-order-4 {
-  order: 4
+  order: 4;
 }
 
 .large-5 {
   flex-basis: 41.66667%;
-  max-width: 41.66667%
+  max-width: 41.66667%;
 }
 
 .large-offset-5 {
-  margin-left: 41.66667%
+  margin-left: 41.66667%;
 }
 
 .large-order-5 {
-  order: 5
+  order: 5;
 }
 
 .large-6 {
   flex-basis: 50%;
-  max-width: 50%
+  max-width: 50%;
 }
 
 .large-offset-6 {
-  margin-left: 50%
+  margin-left: 50%;
 }
 
 .large-order-6 {
-  order: 6
+  order: 6;
 }
 
 .large-7 {
   flex-basis: 58.33333%;
-  max-width: 58.33333%
+  max-width: 58.33333%;
 }
 
 .large-offset-7 {
-  margin-left: 58.33333%
+  margin-left: 58.33333%;
 }
 
 .large-order-7 {
-  order: 7
+  order: 7;
 }
 
 .large-8 {
   flex-basis: 66.66667%;
-  max-width: 66.66667%
+  max-width: 66.66667%;
 }
 
 .large-offset-8 {
-  margin-left: 66.66667%
+  margin-left: 66.66667%;
 }
 
 .large-order-8 {
-  order: 8
+  order: 8;
 }
 
 .large-9 {
   flex-basis: 75%;
-  max-width: 75%
+  max-width: 75%;
 }
 
 .large-offset-9 {
-  margin-left: 75%
+  margin-left: 75%;
 }
 
 .large-order-9 {
-  order: 9
+  order: 9;
 }
 
 .large-10 {
   flex-basis: 83.33333%;
-  max-width: 83.33333%
+  max-width: 83.33333%;
 }
 
 .large-offset-10 {
-  margin-left: 83.33333%
+  margin-left: 83.33333%;
 }
 
 .large-order-10 {
-  order: 10
+  order: 10;
 }
 
 .large-11 {
   flex-basis: 91.66667%;
-  max-width: 91.66667%
+  max-width: 91.66667%;
 }
 
 .large-offset-11 {
-  margin-left: 91.66667%
+  margin-left: 91.66667%;
 }
 
 .large-order-11 {
-  order: 11
+  order: 11;
 }
 
 .large-12 {
   flex-basis: 100%;
-  max-width: 100%
+  max-width: 100%;
 }
 
 .large-offset-12 {
-  margin-left: 100%
+  margin-left: 100%;
 }
 
 .large-order-12 {
-  order: 12
+  order: 12;
 }
 
 .large-centered {
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
 }
 
 .large-uncentered {
   margin-left: 0;
-  margin-right: 0
+  margin-right: 0;
 }
 
 .large-last {
-  margin-left: auto
+  margin-left: auto;
 }
 
 .large-notlast {
-  margin-left: 0
+  margin-left: 0;
 }
 
 .large-grow {
   flex: auto;
-  max-width: none
+  max-width: none;
 }
 
 .large-ungrow {
   flex: initial;
-  max-width: none
+  max-width: none;
 }
 
-@media only screen and (min-width:1441px) {
+@media only screen and (min-width: 1441px) {
   .xlarge-offset-0 {
-    margin-left: 0
+    margin-left: 0;
   }
 
   .xlarge-order-0 {
-    order: 0
+    order: 0;
   }
 
   .xlarge-1 {
     flex-basis: 8.33333%;
-    max-width: 8.33333%
+    max-width: 8.33333%;
   }
 
   .xlarge-offset-1 {
-    margin-left: 8.33333%
+    margin-left: 8.33333%;
   }
 
   .xlarge-order-1 {
-    order: 1
+    order: 1;
   }
 
   .xlarge-2 {
     flex-basis: 16.66667%;
-    max-width: 16.66667%
+    max-width: 16.66667%;
   }
 
   .xlarge-offset-2 {
-    margin-left: 16.66667%
+    margin-left: 16.66667%;
   }
 
   .xlarge-order-2 {
-    order: 2
+    order: 2;
   }
 
   .xlarge-3 {
     flex-basis: 25%;
-    max-width: 25%
+    max-width: 25%;
   }
 
   .xlarge-offset-3 {
-    margin-left: 25%
+    margin-left: 25%;
   }
 
   .xlarge-order-3 {
-    order: 3
+    order: 3;
   }
 
   .xlarge-4 {
     flex-basis: 33.33333%;
-    max-width: 33.33333%
+    max-width: 33.33333%;
   }
 
   .xlarge-offset-4 {
-    margin-left: 33.33333%
+    margin-left: 33.33333%;
   }
 
   .xlarge-order-4 {
-    order: 4
+    order: 4;
   }
 
   .xlarge-5 {
     flex-basis: 41.66667%;
-    max-width: 41.66667%
+    max-width: 41.66667%;
   }
 
   .xlarge-offset-5 {
-    margin-left: 41.66667%
+    margin-left: 41.66667%;
   }
 
   .xlarge-order-5 {
-    order: 5
+    order: 5;
   }
 
   .xlarge-6 {
     flex-basis: 50%;
-    max-width: 50%
+    max-width: 50%;
   }
 
   .xlarge-offset-6 {
-    margin-left: 50%
+    margin-left: 50%;
   }
 
   .xlarge-order-6 {
-    order: 6
+    order: 6;
   }
 
   .xlarge-7 {
     flex-basis: 58.33333%;
-    max-width: 58.33333%
+    max-width: 58.33333%;
   }
 
   .xlarge-offset-7 {
-    margin-left: 58.33333%
+    margin-left: 58.33333%;
   }
 
   .xlarge-order-7 {
-    order: 7
+    order: 7;
   }
 
   .xlarge-8 {
     flex-basis: 66.66667%;
-    max-width: 66.66667%
+    max-width: 66.66667%;
   }
 
   .xlarge-offset-8 {
-    margin-left: 66.66667%
+    margin-left: 66.66667%;
   }
 
   .xlarge-order-8 {
-    order: 8
+    order: 8;
   }
 
   .xlarge-9 {
     flex-basis: 75%;
-    max-width: 75%
+    max-width: 75%;
   }
 
   .xlarge-offset-9 {
-    margin-left: 75%
+    margin-left: 75%;
   }
 
   .xlarge-order-9 {
-    order: 9
+    order: 9;
   }
 
   .xlarge-10 {
     flex-basis: 83.33333%;
-    max-width: 83.33333%
+    max-width: 83.33333%;
   }
 
   .xlarge-offset-10 {
-    margin-left: 83.33333%
+    margin-left: 83.33333%;
   }
 
   .xlarge-order-10 {
-    order: 10
+    order: 10;
   }
 
   .xlarge-11 {
     flex-basis: 91.66667%;
-    max-width: 91.66667%
+    max-width: 91.66667%;
   }
 
   .xlarge-offset-11 {
-    margin-left: 91.66667%
+    margin-left: 91.66667%;
   }
 
   .xlarge-order-11 {
-    order: 11
+    order: 11;
   }
 
   .xlarge-12 {
     flex-basis: 100%;
-    max-width: 100%
+    max-width: 100%;
   }
 
   .xlarge-offset-12 {
-    margin-left: 100%
+    margin-left: 100%;
   }
 
   .xlarge-order-12 {
-    order: 12
+    order: 12;
   }
 
   .xlarge-centered {
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
   }
 
   .xlarge-uncentered {
     margin-left: 0;
-    margin-right: 0
+    margin-right: 0;
   }
 
   .xlarge-last {
-    margin-left: auto
+    margin-left: auto;
   }
 
   .xlarge-notlast {
-    margin-left: 0
+    margin-left: 0;
   }
 
   .xlarge-grow {
     flex: auto;
-    max-width: none
+    max-width: none;
   }
 
   .xlarge-ungrow {
     flex: initial;
-    max-width: none
+    max-width: none;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .medium-offset-0 {
-    margin-left: 0
+    margin-left: 0;
   }
 
   .medium-order-0 {
-    order: 0
+    order: 0;
   }
 
   .medium-1 {
     flex-basis: 8.33333%;
-    max-width: 8.33333%
+    max-width: 8.33333%;
   }
 
   .medium-offset-1 {
-    margin-left: 8.33333%
+    margin-left: 8.33333%;
   }
 
   .medium-order-1 {
-    order: 1
+    order: 1;
   }
 
   .medium-2 {
     flex-basis: 16.66667%;
-    max-width: 16.66667%
+    max-width: 16.66667%;
   }
 
   .medium-offset-2 {
-    margin-left: 16.66667%
+    margin-left: 16.66667%;
   }
 
   .medium-order-2 {
-    order: 2
+    order: 2;
   }
 
   .medium-3 {
     flex-basis: 25%;
-    max-width: 25%
+    max-width: 25%;
   }
 
   .medium-offset-3 {
-    margin-left: 25%
+    margin-left: 25%;
   }
 
   .medium-order-3 {
-    order: 3
+    order: 3;
   }
 
   .medium-4 {
     flex-basis: 33.33333%;
-    max-width: 33.33333%
+    max-width: 33.33333%;
   }
 
   .medium-offset-4 {
-    margin-left: 33.33333%
+    margin-left: 33.33333%;
   }
 
   .medium-order-4 {
-    order: 4
+    order: 4;
   }
 
   .medium-5 {
     flex-basis: 41.66667%;
-    max-width: 41.66667%
+    max-width: 41.66667%;
   }
 
   .medium-offset-5 {
-    margin-left: 41.66667%
+    margin-left: 41.66667%;
   }
 
   .medium-order-5 {
-    order: 5
+    order: 5;
   }
 
   .medium-6 {
     flex-basis: 50%;
-    max-width: 50%
+    max-width: 50%;
   }
 
   .medium-offset-6 {
-    margin-left: 50%
+    margin-left: 50%;
   }
 
   .medium-order-6 {
-    order: 6
+    order: 6;
   }
 
   .medium-7 {
     flex-basis: 58.33333%;
-    max-width: 58.33333%
+    max-width: 58.33333%;
   }
 
   .medium-offset-7 {
-    margin-left: 58.33333%
+    margin-left: 58.33333%;
   }
 
   .medium-order-7 {
-    order: 7
+    order: 7;
   }
 
   .medium-8 {
     flex-basis: 66.66667%;
-    max-width: 66.66667%
+    max-width: 66.66667%;
   }
 
   .medium-offset-8 {
-    margin-left: 66.66667%
+    margin-left: 66.66667%;
   }
 
   .medium-order-8 {
-    order: 8
+    order: 8;
   }
 
   .medium-9 {
     flex-basis: 75%;
-    max-width: 75%
+    max-width: 75%;
   }
 
   .medium-offset-9 {
-    margin-left: 75%
+    margin-left: 75%;
   }
 
   .medium-order-9 {
-    order: 9
+    order: 9;
   }
 
   .medium-10 {
     flex-basis: 83.33333%;
-    max-width: 83.33333%
+    max-width: 83.33333%;
   }
 
   .medium-offset-10 {
-    margin-left: 83.33333%
+    margin-left: 83.33333%;
   }
 
   .medium-order-10 {
-    order: 10
+    order: 10;
   }
 
   .medium-11 {
     flex-basis: 91.66667%;
-    max-width: 91.66667%
+    max-width: 91.66667%;
   }
 
   .medium-offset-11 {
-    margin-left: 91.66667%
+    margin-left: 91.66667%;
   }
 
   .medium-order-11 {
-    order: 11
+    order: 11;
   }
 
   .medium-12 {
     flex-basis: 100%;
-    max-width: 100%
+    max-width: 100%;
   }
 
   .medium-offset-12 {
-    margin-left: 100%
+    margin-left: 100%;
   }
 
   .medium-order-12 {
-    order: 12
+    order: 12;
   }
 
   .medium-centered {
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
   }
 
   .medium-uncentered {
     margin-left: 0;
-    margin-right: 0
+    margin-right: 0;
   }
 
   .medium-last {
-    margin-left: auto
+    margin-left: auto;
   }
 
   .medium-notlast {
-    margin-left: 0
+    margin-left: 0;
   }
 
   .medium-grow {
     flex: auto;
-    max-width: none
+    max-width: none;
   }
 
   .medium-ungrow {
     flex: initial;
-    max-width: none
+    max-width: none;
   }
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .small-offset-0 {
-    margin-left: 0
+    margin-left: 0;
   }
 
   .small-order-0 {
-    order: 0
+    order: 0;
   }
 
   .small-1 {
     flex-basis: 8.33333%;
-    max-width: 8.33333%
+    max-width: 8.33333%;
   }
 
   .small-offset-1 {
-    margin-left: 8.33333%
+    margin-left: 8.33333%;
   }
 
   .small-order-1 {
-    order: 1
+    order: 1;
   }
 
   .small-2 {
     flex-basis: 16.66667%;
-    max-width: 16.66667%
+    max-width: 16.66667%;
   }
 
   .small-offset-2 {
-    margin-left: 16.66667%
+    margin-left: 16.66667%;
   }
 
   .small-order-2 {
-    order: 2
+    order: 2;
   }
 
   .small-3 {
     flex-basis: 25%;
-    max-width: 25%
+    max-width: 25%;
   }
 
   .small-offset-3 {
-    margin-left: 25%
+    margin-left: 25%;
   }
 
   .small-order-3 {
-    order: 3
+    order: 3;
   }
 
   .small-4 {
     flex-basis: 33.33333%;
-    max-width: 33.33333%
+    max-width: 33.33333%;
   }
 
   .small-offset-4 {
-    margin-left: 33.33333%
+    margin-left: 33.33333%;
   }
 
   .small-order-4 {
-    order: 4
+    order: 4;
   }
 
   .small-5 {
     flex-basis: 41.66667%;
-    max-width: 41.66667%
+    max-width: 41.66667%;
   }
 
   .small-offset-5 {
-    margin-left: 41.66667%
+    margin-left: 41.66667%;
   }
 
   .small-order-5 {
-    order: 5
+    order: 5;
   }
 
   .small-6 {
     flex-basis: 50%;
-    max-width: 50%
+    max-width: 50%;
   }
 
   .small-offset-6 {
-    margin-left: 50%
+    margin-left: 50%;
   }
 
   .small-order-6 {
-    order: 6
+    order: 6;
   }
 
   .small-7 {
     flex-basis: 58.33333%;
-    max-width: 58.33333%
+    max-width: 58.33333%;
   }
 
   .small-offset-7 {
-    margin-left: 58.33333%
+    margin-left: 58.33333%;
   }
 
   .small-order-7 {
-    order: 7
+    order: 7;
   }
 
   .small-8 {
     flex-basis: 66.66667%;
-    max-width: 66.66667%
+    max-width: 66.66667%;
   }
 
   .small-offset-8 {
-    margin-left: 66.66667%
+    margin-left: 66.66667%;
   }
 
   .small-order-8 {
-    order: 8
+    order: 8;
   }
 
   .small-9 {
     flex-basis: 75%;
-    max-width: 75%
+    max-width: 75%;
   }
 
   .small-offset-9 {
-    margin-left: 75%
+    margin-left: 75%;
   }
 
   .small-order-9 {
-    order: 9
+    order: 9;
   }
 
   .small-10 {
     flex-basis: 83.33333%;
-    max-width: 83.33333%
+    max-width: 83.33333%;
   }
 
   .small-offset-10 {
-    margin-left: 83.33333%
+    margin-left: 83.33333%;
   }
 
   .small-order-10 {
-    order: 10
+    order: 10;
   }
 
   .small-11 {
     flex-basis: 91.66667%;
-    max-width: 91.66667%
+    max-width: 91.66667%;
   }
 
   .small-offset-11 {
-    margin-left: 91.66667%
+    margin-left: 91.66667%;
   }
 
   .small-order-11 {
-    order: 11
+    order: 11;
   }
 
   .small-12 {
     flex-basis: 100%;
-    max-width: 100%
+    max-width: 100%;
   }
 
   .small-offset-12 {
-    margin-left: 100%
+    margin-left: 100%;
   }
 
   .small-order-12 {
-    order: 12
+    order: 12;
   }
 
   .small-centered {
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
   }
 
   .small-uncentered {
     margin-left: 0;
-    margin-right: 0
+    margin-right: 0;
   }
 
   .small-last {
-    margin-left: auto
+    margin-left: auto;
   }
 
   .small-notlast {
-    margin-left: 0
+    margin-left: 0;
   }
 
   .small-grow {
     flex: auto;
-    max-width: none
+    max-width: none;
   }
 
   .small-ungrow {
     flex: initial;
-    max-width: none
+    max-width: none;
   }
 }
 
@@ -1754,269 +1928,271 @@ a[role=button] {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  min-width: 0
+  min-width: 0;
 }
 
 .row-reverse .large-offset-0 {
-  margin-right: 0
+  margin-right: 0;
 }
 
 .row-reverse .large-offset-1 {
-  margin-right: 8.33333%
+  margin-right: 8.33333%;
 }
 
 .row-reverse .large-offset-2 {
-  margin-right: 16.66667%
+  margin-right: 16.66667%;
 }
 
 .row-reverse .large-offset-3 {
-  margin-right: 25%
+  margin-right: 25%;
 }
 
 .row-reverse .large-offset-4 {
-  margin-right: 33.33333%
+  margin-right: 33.33333%;
 }
 
 .row-reverse .large-offset-5 {
-  margin-right: 41.66667%
+  margin-right: 41.66667%;
 }
 
 .row-reverse .large-offset-6 {
-  margin-right: 50%
+  margin-right: 50%;
 }
 
 .row-reverse .large-offset-7 {
-  margin-right: 58.33333%
+  margin-right: 58.33333%;
 }
 
 .row-reverse .large-offset-8 {
-  margin-right: 66.66667%
+  margin-right: 66.66667%;
 }
 
 .row-reverse .large-offset-9 {
-  margin-right: 75%
+  margin-right: 75%;
 }
 
 .row-reverse .large-offset-10 {
-  margin-right: 83.33333%
+  margin-right: 83.33333%;
 }
 
 .row-reverse .large-offset-11 {
-  margin-right: 91.66667%
+  margin-right: 91.66667%;
 }
 
 .row-reverse .large-offset-12 {
-  margin-right: 100%
+  margin-right: 100%;
 }
 
 .row-reverse .large-last {
-  margin-right: auto
+  margin-right: auto;
 }
 
 .row-reverse .large-notlast {
-  margin-right: 0
+  margin-right: 0;
 }
 
-@media only screen and (min-width:1441px) {
+@media only screen and (min-width: 1441px) {
   .row-reverse .xlarge-offset-0 {
-    margin-right: 0
+    margin-right: 0;
   }
 
   .row-reverse .xlarge-offset-1 {
-    margin-right: 8.33333%
+    margin-right: 8.33333%;
   }
 
   .row-reverse .xlarge-offset-2 {
-    margin-right: 16.66667%
+    margin-right: 16.66667%;
   }
 
   .row-reverse .xlarge-offset-3 {
-    margin-right: 25%
+    margin-right: 25%;
   }
 
   .row-reverse .xlarge-offset-4 {
-    margin-right: 33.33333%
+    margin-right: 33.33333%;
   }
 
   .row-reverse .xlarge-offset-5 {
-    margin-right: 41.66667%
+    margin-right: 41.66667%;
   }
 
   .row-reverse .xlarge-offset-6 {
-    margin-right: 50%
+    margin-right: 50%;
   }
 
   .row-reverse .xlarge-offset-7 {
-    margin-right: 58.33333%
+    margin-right: 58.33333%;
   }
 
   .row-reverse .xlarge-offset-8 {
-    margin-right: 66.66667%
+    margin-right: 66.66667%;
   }
 
   .row-reverse .xlarge-offset-9 {
-    margin-right: 75%
+    margin-right: 75%;
   }
 
   .row-reverse .xlarge-offset-10 {
-    margin-right: 83.33333%
+    margin-right: 83.33333%;
   }
 
   .row-reverse .xlarge-offset-11 {
-    margin-right: 91.66667%
+    margin-right: 91.66667%;
   }
 
   .row-reverse .xlarge-offset-12 {
-    margin-right: 100%
+    margin-right: 100%;
   }
 
   .row-reverse .xlarge-last {
-    margin-right: auto
+    margin-right: auto;
   }
 
   .row-reverse .xlarge-notlast {
-    margin-right: 0
+    margin-right: 0;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .row-reverse .medium-offset-0 {
-    margin-right: 0
+    margin-right: 0;
   }
 
   .row-reverse .medium-offset-1 {
-    margin-right: 8.33333%
+    margin-right: 8.33333%;
   }
 
   .row-reverse .medium-offset-2 {
-    margin-right: 16.66667%
+    margin-right: 16.66667%;
   }
 
   .row-reverse .medium-offset-3 {
-    margin-right: 25%
+    margin-right: 25%;
   }
 
   .row-reverse .medium-offset-4 {
-    margin-right: 33.33333%
+    margin-right: 33.33333%;
   }
 
   .row-reverse .medium-offset-5 {
-    margin-right: 41.66667%
+    margin-right: 41.66667%;
   }
 
   .row-reverse .medium-offset-6 {
-    margin-right: 50%
+    margin-right: 50%;
   }
 
   .row-reverse .medium-offset-7 {
-    margin-right: 58.33333%
+    margin-right: 58.33333%;
   }
 
   .row-reverse .medium-offset-8 {
-    margin-right: 66.66667%
+    margin-right: 66.66667%;
   }
 
   .row-reverse .medium-offset-9 {
-    margin-right: 75%
+    margin-right: 75%;
   }
 
   .row-reverse .medium-offset-10 {
-    margin-right: 83.33333%
+    margin-right: 83.33333%;
   }
 
   .row-reverse .medium-offset-11 {
-    margin-right: 91.66667%
+    margin-right: 91.66667%;
   }
 
   .row-reverse .medium-offset-12 {
-    margin-right: 100%
+    margin-right: 100%;
   }
 
   .row-reverse .medium-last {
-    margin-right: auto
+    margin-right: auto;
   }
 
   .row-reverse .medium-notlast {
-    margin-right: 0
+    margin-right: 0;
   }
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .row-reverse .small-offset-0 {
-    margin-right: 0
+    margin-right: 0;
   }
 
   .row-reverse .small-offset-1 {
-    margin-right: 8.33333%
+    margin-right: 8.33333%;
   }
 
   .row-reverse .small-offset-2 {
-    margin-right: 16.66667%
+    margin-right: 16.66667%;
   }
 
   .row-reverse .small-offset-3 {
-    margin-right: 25%
+    margin-right: 25%;
   }
 
   .row-reverse .small-offset-4 {
-    margin-right: 33.33333%
+    margin-right: 33.33333%;
   }
 
   .row-reverse .small-offset-5 {
-    margin-right: 41.66667%
+    margin-right: 41.66667%;
   }
 
   .row-reverse .small-offset-6 {
-    margin-right: 50%
+    margin-right: 50%;
   }
 
   .row-reverse .small-offset-7 {
-    margin-right: 58.33333%
+    margin-right: 58.33333%;
   }
 
   .row-reverse .small-offset-8 {
-    margin-right: 66.66667%
+    margin-right: 66.66667%;
   }
 
   .row-reverse .small-offset-9 {
-    margin-right: 75%
+    margin-right: 75%;
   }
 
   .row-reverse .small-offset-10 {
-    margin-right: 83.33333%
+    margin-right: 83.33333%;
   }
 
   .row-reverse .small-offset-11 {
-    margin-right: 91.66667%
+    margin-right: 91.66667%;
   }
 
   .row-reverse .small-offset-12 {
-    margin-right: 100%
+    margin-right: 100%;
   }
 
   .row-reverse .small-last {
-    margin-right: auto
+    margin-right: auto;
   }
 
   .row-reverse .small-notlast {
-    margin-right: 0
+    margin-right: 0;
   }
 }
 
 .as-grid {
   display: flex;
-  flex-wrap: wrap
+  flex-wrap: wrap;
 }
 
 .as-grid-item {
-  flex: 0 auto
+  flex: 0 auto;
 }
 
 .icon:after,
 .icon:before,
 .more:after,
 .more:before {
-  font-family: SF Pro Icons, AOS Icons;
+  font-family:
+    SF Pro Icons,
+    AOS Icons;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -2026,43 +2202,43 @@ a[role=button] {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: "";
-  text-decoration: none
+  alt: '';
+  text-decoration: none;
 }
 
 .icon:before,
 .more:before {
-  display: none
+  display: none;
 }
 
 .icon-after:after,
 .more:after {
-  padding-left: .3em;
-  top: 0
+  padding-left: 0.3em;
+  top: 0;
 }
 
 .icon-before:before {
-  padding-right: .3em;
+  padding-right: 0.3em;
   display: inline-block;
-  top: 0
+  top: 0;
 }
 
 .icon-before:after {
-  display: none
+  display: none;
 }
 
 .icon-before.icon-apple:before {
   padding-right: 0;
   display: inline-block;
-  top: 0
+  top: 0;
 }
 
 .icon-before.icon-apple:after {
-  display: none
+  display: none;
 }
 
 .more-block {
-  margin-top: .5em
+  margin-top: 0.5em;
 }
 
 .icon-wrapper .icon,
@@ -2070,23 +2246,23 @@ a[role=button] {
 .icon-wrapper .icon-before:before,
 .icon-wrapper .more:not(.icon-before):after {
   display: inline;
-  position: static
+  position: static;
 }
 
 a.icon-wrapper {
-  text-decoration: none
+  text-decoration: none;
 }
 
 a.icon-wrapper:hover .icon-copy {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
-html[dir=rtl] .icon-wrapper {
-  unicode-bidi: bidi-override
+html[dir='rtl'] .icon-wrapper {
+  unicode-bidi: bidi-override;
 }
 
-html[dir=rtl] .icon-copy {
-  unicode-bidi: embed
+html[dir='rtl'] .icon-copy {
+  unicode-bidi: embed;
 }
 
 @font-face {
@@ -2094,176 +2270,179 @@ html[dir=rtl] .icon-copy {
   font-style: normal;
   font-weight: 400;
   src: url(https://store.storeimages.cdn-apple.com/store.apple.com/shop/rs-covers/dist/dist/assets/as-icons/fonts/aosicons_regular.eot);
-  src: url(https://store.storeimages.cdn-apple.com/store.apple.com/shop/rs-covers/dist/dist/assets/as-icons/fonts/aosicons_regular.eot#iefix) format("embedded-opentype"), url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/dist/dist/assets/as-icons/fonts/aosicons_regular.woff) format("woff"), url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/dist/dist/assets/as-icons/fonts/aosicons_regular.ttf) format("truetype")
+  src:
+    url(https://store.storeimages.cdn-apple.com/store.apple.com/shop/rs-covers/dist/dist/assets/as-icons/fonts/aosicons_regular.eot#iefix) format('embedded-opentype'),
+    url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/dist/dist/assets/as-icons/fonts/aosicons_regular.woff) format('woff'),
+    url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/dist/dist/assets/as-icons/fonts/aosicons_regular.ttf) format('truetype');
 }
 
 body {
-  min-width: 320px
+  min-width: 320px;
 }
 
 .large-hide {
-  display: none
+  display: none;
 }
 
 .large-show {
-  display: block
+  display: block;
 }
 
 .large-show-inline {
-  display: inline
+  display: inline;
 }
 
 .large-show-inlineblock {
-  display: inline-block
+  display: inline-block;
 }
 
-@media only screen and (min-width:1441px) {
+@media only screen and (min-width: 1441px) {
   .xlarge-hide {
-    display: none
+    display: none;
   }
 
   .xlarge-show {
-    display: block
+    display: block;
   }
 
   .xlarge-show-inline {
-    display: inline
+    display: inline;
   }
 
   .xlarge-show-inlineblock {
-    display: inline-block
+    display: inline-block;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .medium-hide {
-    display: none
+    display: none;
   }
 
   .medium-show {
-    display: block
+    display: block;
   }
 
   .medium-show-inline {
-    display: inline
+    display: inline;
   }
 
   .medium-show-inlineblock {
-    display: inline-block
+    display: inline-block;
   }
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .small-hide {
-    display: none
+    display: none;
   }
 
   .small-show {
-    display: block
+    display: block;
   }
 
   .small-show-inline {
-    display: inline
+    display: inline;
   }
 
   .small-show-inlineblock {
-    display: inline-block
+    display: inline-block;
   }
 }
 
 .viewport-content {
   margin-left: auto;
   margin-right: auto;
-  width: 980px
+  width: 980px;
 }
 
-@media only screen and (min-width:1441px) {
+@media only screen and (min-width: 1441px) {
   .viewport-content {
     margin-left: auto;
     margin-right: auto;
-    width: 980px
+    width: 980px;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .viewport-content {
     margin-left: auto;
     margin-right: auto;
-    width: 692px
+    width: 692px;
   }
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .viewport-content {
     margin-left: auto;
     margin-right: auto;
-    width: 87.5%
+    width: 87.5%;
   }
 }
 
 .as-l-container {
   margin-left: auto;
   margin-right: auto;
-  width: 980px
+  width: 980px;
 }
 
-@media only screen and (min-width:1441px) {
+@media only screen and (min-width: 1441px) {
   .as-l-container {
     margin-left: auto;
     margin-right: auto;
-    width: 980px
+    width: 980px;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .as-l-container {
     margin-left: auto;
     margin-right: auto;
-    width: 692px
+    width: 692px;
   }
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .as-l-container {
     margin-left: auto;
     margin-right: auto;
-    width: 87.5%
+    width: 87.5%;
   }
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .as-l-container-mobileoverflow {
     -webkit-overflow-scrolling: touch;
     overflow-x: auto;
     white-space: nowrap;
-    width: auto
+    width: auto;
   }
 
   .as-l-container-mobileoverflow::-webkit-scrollbar {
-    display: none
+    display: none;
   }
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .as-l-container-mobileoverflow-content {
     box-sizing: border-box;
     display: inline-block;
-    min-width: 100%
+    min-width: 100%;
   }
 }
 
-@media only screen and (max-width:734px) and (max-width:734px) {
+@media only screen and (max-width: 734px) and (max-width: 734px) {
   .as-l-container-mobileoverflow-content {
     width: auto;
-    padding-left: calc((100vw - 87.5%)/2);
-    padding-right: calc((100vw - 87.5%)/2)
+    padding-left: calc((100vw - 87.5%) / 2);
+    padding-right: calc((100vw - 87.5%) / 2);
   }
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .as-l-container-full-small {
     margin-left: -7.14286%;
-    margin-right: -7.14286%
+    margin-right: -7.14286%;
   }
 }
 
@@ -2271,23 +2450,23 @@ body {
   box-sizing: border-box;
   max-width: 1439px;
   min-width: 320px;
-  width: 100%
+  width: 100%;
 }
 
 .as-l-bleedcolumn-left,
 .as-l-bleedcolumn-right {
-  width: 490px
+  width: 490px;
 }
 
 .as-l-bleedcolumn-left {
-  margin-left: auto
+  margin-left: auto;
 }
 
 .as-l-bleedcolumn-right {
-  margin-right: auto
+  margin-right: auto;
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
 
   .as-l-bleedcolumn-left,
   .as-l-bleedcolumn-leftbleed,
@@ -2295,17 +2474,17 @@ body {
   .as-l-bleedcolumn-rightbleed {
     width: 87.5%;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
   }
 }
 
 .as-l-fullwidth {
   width: 100%;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .theme-dark {
-  background-color: #000
+  background-color: #000;
 }
 
 .theme-dark,
@@ -2315,35 +2494,35 @@ body {
 .theme-dark h4,
 .theme-dark h5,
 .theme-dark h6 {
-  color: #f5f5f7
+  color: #f5f5f7;
 }
 
 .theme-dark .link,
 .theme-dark a {
-  color: #2997ff
+  color: #2997ff;
 }
 
 .theme-dark .footnote a {
-  color: inherit
+  color: inherit;
 }
 
 .theme-dark .footnote a:hover {
-  color: #2997ff
+  color: #2997ff;
 }
 
 .rr-materializer {
   transition-property: opacity;
   transition-duration: 1s;
-  display: block
+  display: block;
 }
 
 .rr-materializer.rr-materializer-invisible,
 .rr-materializer.rr-materializer-shown.rr-materializer-changed {
-  opacity: 0
+  opacity: 0;
 }
 
 .rr-materializer.rr-materializer-hidden {
-  display: none
+  display: none;
 }
 
 #rr-viewport {
@@ -2351,52 +2530,52 @@ body {
   width: 0;
   height: 0;
   overflow: hidden;
-  visibility: hidden
+  visibility: hidden;
 }
 
 #rr-viewport:before {
-  content: "large"
+  content: 'large';
 }
 
-@media only screen and (min-width:1441px) {
+@media only screen and (min-width: 1441px) {
   #rr-viewport:before {
-    content: "xlarge"
+    content: 'xlarge';
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   #rr-viewport:before {
-    content: "medium"
+    content: 'medium';
   }
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   #rr-viewport:before {
-    content: "small"
+    content: 'small';
   }
 }
 
 .rs-covers-container {
   text-align: center;
   overflow: hidden;
-  min-height: 100vh
+  min-height: 100vh;
 }
 
 .rs-covers-content {
-  text-align: center
+  text-align: center;
 }
 
 .rs-covers-logo {
   width: 260px;
   height: 316px;
   display: block;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .rs-covers-logo {
     width: 184px;
-    height: 224px
+    height: 224px;
   }
 }
 
@@ -2404,315 +2583,837 @@ body {
   font-size: 80px;
   line-height: 1.05;
   font-weight: 600;
-  letter-spacing: -.015em;
-  font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
-  padding-top: 55px
+  letter-spacing: -0.015em;
+  font-family:
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+  padding-top: 55px;
 }
 
 .rs-covers-heading:lang(ar) {
   line-height: 1.2;
   letter-spacing: 0;
-  font-family: SF Pro AR, SF Pro Gulf, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro AR,
+    SF Pro Gulf,
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-heading:lang(ja) {
   line-height: 1.0875;
   letter-spacing: 0;
-  font-family: SF Pro JP, SF Pro Display, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3, ãƒ¡ã‚¤ãƒªã‚ª, Meiryo, ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro JP,
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    Hiragino Kaku Gothic Pro,
+    ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3,
+    ãƒ¡ã‚¤ãƒªã‚ª,
+    Meiryo,
+    ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-heading:lang(ko) {
   line-height: 1.15;
   letter-spacing: 0;
-  font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro KR,
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    Apple Gothic,
+    HY Gulim,
+    MalgunGothic,
+    HY Dotum,
+    Lexi Gulim,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-heading:lang(zh) {
-  letter-spacing: 0
+  letter-spacing: 0;
 }
 
 .rs-covers-heading:lang(th) {
   line-height: 1.35;
-  font-family: SF Pro TH, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TH,
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-heading:lang(zh-CN) {
-  font-family: SF Pro SC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro SC,
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang SC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-heading:lang(zh-HK) {
-  font-family: SF Pro HK, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-heading:lang(zh-MO) {
-  font-family: SF Pro HK, SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro TC,
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-heading:lang(zh-TW) {
-  font-family: SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TC,
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang TC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .rs-covers-heading {
     font-size: 64px;
     line-height: 1.0625;
     font-weight: 600;
-    letter-spacing: -.009em;
-    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    letter-spacing: -0.009em;
+    font-family:
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ar) {
     line-height: 1.20312;
     letter-spacing: 0;
-    font-family: SF Pro AR, SF Pro Gulf, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro AR,
+      SF Pro Gulf,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ja) {
     line-height: 1.10938;
     letter-spacing: 0;
-    font-family: SF Pro JP, SF Pro Display, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3, ãƒ¡ã‚¤ãƒªã‚ª, Meiryo, ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro JP,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Hiragino Kaku Gothic Pro,
+      ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3,
+      ãƒ¡ã‚¤ãƒªã‚ª,
+      Meiryo,
+      ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ko) {
     line-height: 1.17188;
     letter-spacing: 0;
-    font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro KR,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Apple Gothic,
+      HY Gulim,
+      MalgunGothic,
+      HY Dotum,
+      Lexi Gulim,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh) {
-    letter-spacing: 0
+    letter-spacing: 0;
   }
 
   .rs-covers-heading:lang(th) {
     line-height: 1.34375;
-    font-family: SF Pro TH, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TH,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-CN) {
-    font-family: SF Pro SC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro SC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang SC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-HK) {
-    font-family: SF Pro HK, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-MO) {
-    font-family: SF Pro HK, SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-TW) {
-    font-family: SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang TC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .rs-covers-heading {
     font-size: 48px;
     line-height: 1.08349;
     font-weight: 600;
-    letter-spacing: -.003em;
-    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    letter-spacing: -0.003em;
+    font-family:
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ar) {
     line-height: 1.25;
     letter-spacing: 0;
-    font-family: SF Pro AR, SF Pro Gulf, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro AR,
+      SF Pro Gulf,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ja) {
     line-height: 1.14599;
     letter-spacing: 0;
-    font-family: SF Pro JP, SF Pro Display, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3, ãƒ¡ã‚¤ãƒªã‚ª, Meiryo, ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro JP,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Hiragino Kaku Gothic Pro,
+      ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3,
+      ãƒ¡ã‚¤ãƒªã‚ª,
+      Meiryo,
+      ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ko) {
     line-height: 1.1875;
     letter-spacing: 0;
-    font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro KR,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Apple Gothic,
+      HY Gulim,
+      MalgunGothic,
+      HY Dotum,
+      Lexi Gulim,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh) {
-    letter-spacing: 0
+    letter-spacing: 0;
   }
 
   .rs-covers-heading:lang(th) {
     line-height: 1.33349;
-    font-family: SF Pro TH, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TH,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-CN) {
-    font-family: SF Pro SC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro SC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang SC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-HK) {
-    font-family: SF Pro HK, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-MO) {
-    font-family: SF Pro HK, SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-TW) {
-    font-family: SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang TC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .rs-covers-deciduous .rs-covers-heading {
     font-size: 64px;
     line-height: 1.0625;
     font-weight: 600;
-    letter-spacing: -.009em;
-    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    letter-spacing: -0.009em;
+    font-family:
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(ar) {
     line-height: 1.20312;
     letter-spacing: 0;
-    font-family: SF Pro AR, SF Pro Gulf, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro AR,
+      SF Pro Gulf,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(ja) {
     line-height: 1.10938;
     letter-spacing: 0;
-    font-family: SF Pro JP, SF Pro Display, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3, ãƒ¡ã‚¤ãƒªã‚ª, Meiryo, ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro JP,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Hiragino Kaku Gothic Pro,
+      ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3,
+      ãƒ¡ã‚¤ãƒªã‚ª,
+      Meiryo,
+      ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(ko) {
     line-height: 1.17188;
     letter-spacing: 0;
-    font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro KR,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Apple Gothic,
+      HY Gulim,
+      MalgunGothic,
+      HY Dotum,
+      Lexi Gulim,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(zh) {
-    letter-spacing: 0
+    letter-spacing: 0;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(th) {
     line-height: 1.34375;
-    font-family: SF Pro TH, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TH,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(zh-CN) {
-    font-family: SF Pro SC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro SC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang SC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(zh-HK) {
-    font-family: SF Pro HK, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(zh-MO) {
-    font-family: SF Pro HK, SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(zh-TW) {
-    font-family: SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang TC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 }
 
-@media only screen and (max-width:734px) and (max-width:1068px) {
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
   .rs-covers-deciduous .rs-covers-heading {
     font-size: 48px;
     line-height: 1.08349;
     font-weight: 600;
-    letter-spacing: -.003em;
-    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    letter-spacing: -0.003em;
+    font-family:
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(ar) {
     line-height: 1.25;
     letter-spacing: 0;
-    font-family: SF Pro AR, SF Pro Gulf, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro AR,
+      SF Pro Gulf,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(ja) {
     line-height: 1.14599;
     letter-spacing: 0;
-    font-family: SF Pro JP, SF Pro Display, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3, ãƒ¡ã‚¤ãƒªã‚ª, Meiryo, ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro JP,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Hiragino Kaku Gothic Pro,
+      ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3,
+      ãƒ¡ã‚¤ãƒªã‚ª,
+      Meiryo,
+      ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(ko) {
     line-height: 1.1875;
     letter-spacing: 0;
-    font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro KR,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Apple Gothic,
+      HY Gulim,
+      MalgunGothic,
+      HY Dotum,
+      Lexi Gulim,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(zh) {
-    letter-spacing: 0
+    letter-spacing: 0;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(th) {
     line-height: 1.33349;
-    font-family: SF Pro TH, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TH,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(zh-CN) {
-    font-family: SF Pro SC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro SC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang SC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(zh-HK) {
-    font-family: SF Pro HK, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(zh-MO) {
-    font-family: SF Pro HK, SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(zh-TW) {
-    font-family: SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang TC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 }
 
-@media only screen and (max-width:734px) and (max-width:734px) {
+@media only screen and (max-width: 734px) and (max-width: 734px) {
   .rs-covers-deciduous .rs-covers-heading {
     font-size: 40px;
     line-height: 1.1;
     font-weight: 600;
     letter-spacing: 0;
-    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(ar) {
     line-height: 1.3;
-    font-family: SF Pro AR, SF Pro Gulf, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro AR,
+      SF Pro Gulf,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(ja) {
     line-height: 1.175;
-    font-family: SF Pro JP, SF Pro Display, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3, ãƒ¡ã‚¤ãƒªã‚ª, Meiryo, ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro JP,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Hiragino Kaku Gothic Pro,
+      ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3,
+      ãƒ¡ã‚¤ãƒªã‚ª,
+      Meiryo,
+      ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(ko) {
     line-height: 1.2;
-    font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro KR,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Apple Gothic,
+      HY Gulim,
+      MalgunGothic,
+      HY Dotum,
+      Lexi Gulim,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(th) {
     line-height: 1.35;
-    font-family: SF Pro TH, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TH,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(zh-CN) {
-    font-family: SF Pro SC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro SC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang SC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(zh-HK) {
-    font-family: SF Pro HK, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(zh-MO) {
-    font-family: SF Pro HK, SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-deciduous .rs-covers-heading:lang(zh-TW) {
-    font-family: SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang TC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 }
 
-@media only screen and (max-device-width:320px) and (orientation:portrait) {
+@media only screen and (max-device-width: 320px) and (orientation: portrait) {
   .rs-covers-heading {
-    padding-top: 42px
+    padding-top: 42px;
   }
 }
 
@@ -2720,69 +3421,156 @@ body {
   font-size: 17px;
   line-height: 1.47059;
   font-weight: 400;
-  letter-spacing: -.022em;
-  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  letter-spacing: -0.022em;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   font-weight: 500;
   padding: 19px 0 48px;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 .rs-covers-desc:lang(ar) {
   line-height: 1.58824;
   letter-spacing: 0;
-  font-family: SF Pro AR, SF Pro Gulf, SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro AR,
+    SF Pro Gulf,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-desc:lang(ja) {
   letter-spacing: 0;
-  font-family: SF Pro JP, SF Pro Text, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3, ãƒ¡ã‚¤ãƒªã‚ª, Meiryo, ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro JP,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Hiragino Kaku Gothic Pro,
+    ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3,
+    ãƒ¡ã‚¤ãƒªã‚ª,
+    Meiryo,
+    ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-desc:lang(ko) {
   line-height: 1.58824;
   letter-spacing: 0;
-  font-family: SF Pro KR, SF Pro Text, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro KR,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Apple Gothic,
+    HY Gulim,
+    MalgunGothic,
+    HY Dotum,
+    Lexi Gulim,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-desc:lang(zh) {
-  letter-spacing: 0
+  letter-spacing: 0;
 }
 
 .rs-covers-desc:lang(th) {
   line-height: 1.35296;
   letter-spacing: 0;
-  font-family: SF Pro TH, SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TH,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-desc:lang(zh-CN) {
-  font-family: SF Pro SC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro SC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang SC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-desc:lang(zh-HK) {
-  font-family: SF Pro HK, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-desc:lang(zh-MO) {
-  font-family: SF Pro HK, SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-desc:lang(zh-TW) {
-  font-family: SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang TC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .rs-covers-desc {
-    padding-top: 10px
+    padding-top: 10px;
   }
 }
 
 .rs-covers-partial .rs-covers-desc {
-  width: 518px
+  width: 518px;
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .rs-covers-partial .rs-covers-desc {
-    width: auto
+    width: auto;
   }
 }
 
@@ -2790,77 +3578,164 @@ body {
   font-size: 12px;
   line-height: 1.33337;
   font-weight: 400;
-  letter-spacing: -.01em;
-  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  letter-spacing: -0.01em;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   text-align: center;
-  min-height: 96px
+  min-height: 96px;
 }
 
 .rs-covers-footer:lang(ar) {
   line-height: 1.66667;
   letter-spacing: 0;
-  font-family: SF Pro AR, SF Pro Gulf, SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro AR,
+    SF Pro Gulf,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-footer:lang(ja) {
   line-height: 1.41667;
   letter-spacing: 0;
-  font-family: SF Pro JP, SF Pro Text, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3, ãƒ¡ã‚¤ãƒªã‚ª, Meiryo, ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro JP,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Hiragino Kaku Gothic Pro,
+    ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3,
+    ãƒ¡ã‚¤ãƒªã‚ª,
+    Meiryo,
+    ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-footer:lang(ko) {
   line-height: 1.41667;
   letter-spacing: 0;
-  font-family: SF Pro KR, SF Pro Text, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro KR,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Apple Gothic,
+    HY Gulim,
+    MalgunGothic,
+    HY Dotum,
+    Lexi Gulim,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-footer:lang(zh) {
-  letter-spacing: 0
+  letter-spacing: 0;
 }
 
 .rs-covers-footer:lang(th) {
   line-height: 1.33337;
   letter-spacing: 0;
-  font-family: SF Pro TH, SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TH,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-footer:lang(zh-CN) {
-  font-family: SF Pro SC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro SC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang SC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-footer:lang(zh-HK) {
-  font-family: SF Pro HK, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-footer:lang(zh-MO) {
-  font-family: SF Pro HK, SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-footer:lang(zh-TW) {
-  font-family: SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang TC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-footer.theme-dark {
-  color: #666
+  color: #666;
 }
 
 .rs-covers-footercontent {
-  padding: 10px 0
+  padding: 10px 0;
 }
 
 .rs-covers-media-container {
-  padding-top: 102px
+  padding-top: 102px;
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .rs-covers-media-container {
-    padding-top: 82px
+    padding-top: 82px;
   }
 }
 
-@media only screen and (max-device-width:320px) and (orientation:portrait) {
+@media only screen and (max-device-width: 320px) and (orientation: portrait) {
   .rs-covers-media-container {
-    padding-top: 66px
+    padding-top: 66px;
   }
 }
 
@@ -2870,13 +3745,13 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 260px;
-  height: 316px
+  height: 316px;
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .rs-covers-media-wrapper {
     width: 184px;
-    height: 224px
+    height: 224px;
   }
 }
 
@@ -2886,13 +3761,13 @@ body {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   width: 260px;
-  height: 316px
+  height: 316px;
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .rs-covers-media {
     width: 184px;
-    height: 224px
+    height: 224px;
   }
 }
 
@@ -2908,75 +3783,75 @@ body {
   z-index: 2;
   opacity: 0;
   cursor: none;
-  pointer-events: none
+  pointer-events: none;
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .rs-covers-mediabtn {
     top: 65px;
     width: 35px;
     height: 35px;
     right: 17px;
-    font-size: 18px
+    font-size: 18px;
   }
 }
 
 .rs-covers-mediabtn.rs-covers-mediabtn-animate {
   cursor: pointer;
   pointer-events: auto;
-  transition: opacity 1s ease-in-out 1s
+  transition: opacity 1s ease-in-out 1s;
 }
 
 .as-keyboarduser .rs-covers-mediabtn.rs-covers-mediabtn-show,
 .rs-covers-mediabtn.rs-covers-mediabtn-animate.rs-covers-mediabtn-show {
-  opacity: 1
+  opacity: 1;
 }
 
 .rs-covers-deciduous.rs-covers-scalevideo .rs-covers-media-container {
-  min-height: 480px
+  min-height: 480px;
 }
 
 .rs-covers-deciduous.rs-covers-scalevideo .rs-covers-media-wrapper {
   padding: 0;
   margin-top: -45px;
   height: calc(100vh - 190px);
-  position: relative
+  position: relative;
 }
 
 .rs-covers-deciduous.rs-covers-scalevideo .rs-covers-media,
 .rs-covers-deciduous.rs-covers-scalevideo .rs-covers-media-img {
   position: absolute;
   left: 50%;
-  transform: translate(-50%)
+  transform: translate(-50%);
 }
 
-@media only screen and (min-width:1024px) {
+@media only screen and (min-width: 1024px) {
   .rs-covers-deciduous.rs-covers-scalevideo .rs-covers-media {
-    width: 100%
+    width: 100%;
   }
 }
 
 .rs-covers-deciduous.rs-covers-scalevideo .rs-covers-media-img {
-  width: 1400px
+  width: 1400px;
 }
 
 .rs-covers-media-img {
   display: block;
   position: absolute;
   width: 260px;
-  height: 316px
+  height: 316px;
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
   .rs-covers-media-img {
     width: 184px;
-    height: 224px
+    height: 224px;
   }
 }
 
 .rs-covers-media-img.rs-covers-media-show {
   position: static;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 .icon-thumbnailpause:after,
@@ -2984,42 +3859,42 @@ body {
 .icon-thumbnailplay:after,
 .icon-thumbnailplay:before {
   color: #888;
-  padding-left: 16px
+  padding-left: 16px;
 }
 
-@media only screen and (max-width:734px) {
+@media only screen and (max-width: 734px) {
 
   .icon-thumbnailpause:after,
   .icon-thumbnailpause:before,
   .icon-thumbnailplay:after,
   .icon-thumbnailplay:before {
-    padding-left: 10px
+    padding-left: 10px;
   }
 }
 
-@media (prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion: reduce) {
 
   .rs-covers-media,
   .rs-covers-mediabtn {
-    display: none
+    display: none;
   }
 }
 
 .rs-covers-fade.rr-materializer {
-  transition-timing-function: ease-in
+  transition-timing-function: ease-in;
 }
 
 .nojs {
-  text-align: center
+  text-align: center;
 }
 
 .nojs .rs-covers-media-img {
   display: block;
   padding-top: 92px;
   position: static;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 .nojs .rs-covers-footercontent {
-  padding-top: 20px
+  padding-top: 20px;
 }

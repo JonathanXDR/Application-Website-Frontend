@@ -1,88 +1,88 @@
 body {
-  min-width: 320px
+  min-width: 320px;
 }
 
 .large-hide {
-  display: none
+  display: none;
 }
 
 .large-show {
-  display: block
+  display: block;
 }
 
 .large-show-inline {
-  display: inline
+  display: inline;
 }
 
 .large-show-inlineblock {
-  display: inline-block
+  display: inline-block;
 }
 
 @media only screen and (min-width: 1441px) {
   .xlarge-hide {
-    display: none
+    display: none;
   }
 
   .xlarge-show {
-    display: block
+    display: block;
   }
 
   .xlarge-show-inline {
-    display: inline
+    display: inline;
   }
 
   .xlarge-show-inlineblock {
-    display: inline-block
+    display: inline-block;
   }
 }
 
 @media only screen and (max-width: 1068px) {
   .medium-hide {
-    display: none
+    display: none;
   }
 
   .medium-show {
-    display: block
+    display: block;
   }
 
   .medium-show-inline {
-    display: inline
+    display: inline;
   }
 
   .medium-show-inlineblock {
-    display: inline-block
+    display: inline-block;
   }
 }
 
 @media only screen and (max-width: 734px) {
   .small-hide {
-    display: none
+    display: none;
   }
 
   .small-show {
-    display: block
+    display: block;
   }
 
   .small-show-inline {
-    display: inline
+    display: inline;
   }
 
   .small-show-inlineblock {
-    display: inline-block
+    display: inline-block;
   }
 }
 
 .viewport-content {
   margin-inline-start: auto;
   margin-inline-end: auto;
-  width: 980px
+  width: 980px;
 }
 
 @media only screen and (min-width: 1441px) {
   .viewport-content {
     margin-inline-start: auto;
     margin-inline-end: auto;
-    width: 980px
+    width: 980px;
   }
 }
 
@@ -90,7 +90,7 @@ body {
   .viewport-content {
     margin-inline-start: auto;
     margin-inline-end: auto;
-    width: 692px
+    width: 692px;
   }
 }
 
@@ -98,7 +98,7 @@ body {
   .viewport-content {
     margin-inline-start: auto;
     margin-inline-end: auto;
-    width: 87.5%
+    width: 87.5%;
   }
 }
 
@@ -116,49 +116,49 @@ body {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: ""
+  alt: '';
 }
 
 .icon:before,
 .icon:after,
 .more:before,
 .more:after {
-  text-decoration: none
+  text-decoration: none;
 }
 
 .icon:before,
 .more:before {
-  display: none
+  display: none;
 }
 
 .icon-after:after,
 .more:after {
-  padding-inline-start: .3em;
-  top: 0
+  padding-inline-start: 0.3em;
+  top: 0;
 }
 
 .icon-before:before {
-  padding-inline-end: .3em;
+  padding-inline-end: 0.3em;
   display: inline-block;
-  top: 0
+  top: 0;
 }
 
 .icon-before:after {
-  display: none
+  display: none;
 }
 
 .icon-before.icon-apple:before {
   padding-inline-end: 0;
   display: inline-block;
-  top: 0
+  top: 0;
 }
 
 .icon-before.icon-apple:after {
-  display: none
+  display: none;
 }
 
 .more-block {
-  margin-top: .5em
+  margin-top: 0.5em;
 }
 
 .icon-wrapper .icon,
@@ -166,23 +166,23 @@ body {
 .icon-wrapper .icon-before:before,
 .icon-wrapper .icon-after:after {
   display: inline;
-  position: static
+  position: static;
 }
 
 a.icon-wrapper {
-  text-decoration: none
+  text-decoration: none;
 }
 
 a.icon-wrapper:hover .icon-copy {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
-html[dir=rtl] .icon-wrapper {
-  unicode-bidi: bidi-override
+html[dir='rtl'] .icon-wrapper {
+  unicode-bidi: bidi-override;
 }
 
-html[dir=rtl] .icon-copy {
-  unicode-bidi: embed
+html[dir='rtl'] .icon-copy {
+  unicode-bidi: embed;
 }
 
 .progress-indicator-curtain {
@@ -193,246 +193,246 @@ html[dir=rtl] .icon-copy {
   justify-content: center;
   align-items: center;
   background-color: var(--progress-indicator-curtain-color);
-  --progress-indicator-curtain-color: rgba(255, 255, 255, .48)
+  --progress-indicator-curtain-color: rgba(255, 255, 255, 0.48);
 }
 
 .theme-dark .progress-indicator-curtain,
 .progress-indicator-curtain.theme-dark {
-  --progress-indicator-curtain-color: rgba(0, 0, 0, .48)
+  --progress-indicator-curtain-color: rgba(0, 0, 0, 0.48);
 }
 
 .theme-dark {
   --sk-body-background-color: rgb(0, 0, 0);
   --sk-body-text-color: rgb(245, 245, 247);
   --sk-headline-text-color: rgb(245, 245, 247);
-  --sk-body-link-color: rgb(41, 151, 255)
+  --sk-body-link-color: rgb(41, 151, 255);
 }
 
 .theme-light {
   --sk-body-background-color: rgb(255, 255, 255);
   --sk-body-text-color: rgb(29, 29, 31);
   --sk-headline-text-color: rgb(29, 29, 31);
-  --sk-body-link-color: rgb(0, 102, 204)
+  --sk-body-link-color: rgb(0, 102, 204);
 }
 
 .progress-indicator-indeterminate {
   display: flex;
   --progress-indicator-size: 39px;
-  --progress-indicator-color: rgba(0, 0, 0, .56)
+  --progress-indicator-color: rgba(0, 0, 0, 0.56);
 }
 
 .progress-indicator-indeterminate.progress-indicator-visible {
-  opacity: 1
+  opacity: 1;
 }
 
 .progress-indicator-indeterminate.progress-indicator-visible .progress-indicator-icon {
   opacity: 1;
-  transition: opacity .4s ease;
-  will-change: opacity
+  transition: opacity 0.4s ease;
+  will-change: opacity;
 }
 
 .progress-indicator-indeterminate.progress-indicator-immediate .progress-indicator-icon {
-  transition: none
+  transition: none;
 }
 
 .theme-dark .progress-indicator-indeterminate,
 .progress-indicator-indeterminate.theme-dark {
-  --progress-indicator-color: rgba(255, 255, 255, .8)
+  --progress-indicator-color: rgba(255, 255, 255, 0.8);
 }
 
 .progress-indicator-icon {
   width: var(--progress-indicator-size);
   height: var(--progress-indicator-size);
-  opacity: 0
+  opacity: 0;
 }
 
 .progress-indicator-icon .progress-indicator-spoke {
   fill: var(--progress-indicator-color);
-  opacity: .2;
+  opacity: 0.2;
   animation-name: progress-indicator-animating;
   animation-direction: forward;
-  animation-timing-function: cubic-bezier(1, .1, 0, .3);
+  animation-timing-function: cubic-bezier(1, 0.1, 0, 0.3);
   animation-duration: 1s;
-  animation-iteration-count: infinite
+  animation-iteration-count: infinite;
 }
 
 .progress-indicator-icon .progress-indicator-spoke:nth-child(0) {
-  animation-delay: -.125s
+  animation-delay: -0.125s;
 }
 
 .progress-indicator-icon .progress-indicator-spoke:nth-child(1) {
-  animation-delay: 0s
+  animation-delay: 0s;
 }
 
 .progress-indicator-icon .progress-indicator-spoke:nth-child(2) {
-  animation-delay: .125s
+  animation-delay: 0.125s;
 }
 
 .progress-indicator-icon .progress-indicator-spoke:nth-child(3) {
-  animation-delay: .25s
+  animation-delay: 0.25s;
 }
 
 .progress-indicator-icon .progress-indicator-spoke:nth-child(4) {
-  animation-delay: .375s
+  animation-delay: 0.375s;
 }
 
 .progress-indicator-icon .progress-indicator-spoke:nth-child(5) {
-  animation-delay: .5s
+  animation-delay: 0.5s;
 }
 
 .progress-indicator-icon .progress-indicator-spoke:nth-child(6) {
-  animation-delay: .625s
+  animation-delay: 0.625s;
 }
 
 .progress-indicator-icon .progress-indicator-spoke:nth-child(7) {
-  animation-delay: .75s
+  animation-delay: 0.75s;
 }
 
 .progress-indicator-icon .progress-indicator-spoke:nth-child(8) {
-  animation-delay: .875s
+  animation-delay: 0.875s;
 }
 
 @keyframes progress-indicator-animating {
   0% {
-    opacity: 1
+    opacity: 1;
   }
 
   12.5% {
-    opacity: .9
+    opacity: 0.9;
   }
 
   25% {
-    opacity: .7
+    opacity: 0.7;
   }
 
   37.5% {
-    opacity: .6
+    opacity: 0.6;
   }
 
   50% {
-    opacity: .4
+    opacity: 0.4;
   }
 
   62.5% {
-    opacity: .3
+    opacity: 0.3;
   }
 
   75% {
-    opacity: .2
+    opacity: 0.2;
   }
 
   87.5% {
-    opacity: .13
+    opacity: 0.13;
   }
 }
 
 .progress-indicator-indeterminate-size-tiny {
-  --progress-indicator-size: 15px
+  --progress-indicator-size: 15px;
 }
 
 .progress-indicator-indeterminate-size-elevated {
-  --progress-indicator-size: 55px
+  --progress-indicator-size: 55px;
 }
 
 [data-core-fade-transition-wrapper] {
   opacity: 0;
   transition-property: opacity;
   transition-timing-function: ease-in-out;
-  transition-duration: .4s
+  transition-duration: 0.4s;
 }
 
 .r-fade-transition-appear-active,
 .r-fade-transition-enter-active,
 .r-fade-transition-enter-done,
 .r-fade-transition-exit {
-  opacity: 1
+  opacity: 1;
 }
 
 .r-fade-transition-exit-active {
-  opacity: 0
+  opacity: 0;
 }
 
 .r-fade-transition-exit-done {
-  display: none
+  display: none;
 }
 
 [data-core-height-transition-wrapper] {
   transition-property: height;
   transition-timing-function: ease-in-out;
-  transition-duration: .4s;
-  overflow: hidden
+  transition-duration: 0.4s;
+  overflow: hidden;
 }
 
 [data-core-height-transition-content] {
-  overflow: hidden
+  overflow: hidden;
 }
 
 .r-height-transition-exit-done {
-  display: none
+  display: none;
 }
 
 .r-height-transition-enter-done:not(.r-height-transition-enter-active) [data-core-height-transition-content],
 .r-height-transition-enter-done:not(.r-height-transition-enter-active)[data-core-height-transition-wrapper] {
-  overflow: visible
+  overflow: visible;
 }
 
 .rc-image-cross-fade {
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 .rc-image-cross-fade[data-core-fade-transition-wrapper] {
-  transition: opacity .3s ease-in-out
+  transition: opacity 0.3s ease-in-out;
 }
 
 .rc-slider {
   margin: 0;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .rc-slider-horizontal {
   width: 250px;
   max-width: 100%;
-  padding: 4px 0
+  padding: 4px 0;
 }
 
 .rc-slider-vertical {
   height: 250px;
   max-height: 100%;
-  padding: 0 4px
+  padding: 0 4px;
 }
 
 .rc-slider-track {
   position: relative;
   border: 1px solid #d2d2d7;
-  border-radius: 4px
+  border-radius: 4px;
 }
 
 .rc-slider-horizontal .rc-slider-track {
   height: 4px;
-  width: 100%
+  width: 100%;
 }
 
 .rc-slider-vertical .rc-slider-track {
   width: 4px;
-  height: 100%
+  height: 100%;
 }
 
 .rc-slider-progress {
   background-color: #d2d2d7;
-  border-radius: inherit
+  border-radius: inherit;
 }
 
 .rc-slider-horizontal .rc-slider-progress {
-  height: 4px
+  height: 4px;
 }
 
 .rc-slider-vertical .rc-slider-progress {
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0
+  right: 0;
 }
 
 .rc-slider-handle {
@@ -443,44 +443,44 @@ html[dir=rtl] .icon-copy {
   background-color: #d2d2d7;
   z-index: 1;
   transform-origin: center;
-  transition: padding .2s ease-in-out
+  transition: padding 0.2s ease-in-out;
 }
 
 .rc-slider-handle:hover {
-  padding: 2px
+  padding: 2px;
 }
 
 .rc-slider-horizontal .rc-slider-handle {
   top: 50%;
   left: 0;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
 }
 
 .rc-slider-vertical .rc-slider-handle {
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, 50%)
+  transform: translate(-50%, 50%);
 }
 
 .rc-slider-disabled,
 .rc-slider-disabled * {
-  pointer-events: none
+  pointer-events: none;
 }
 
 .rc-slider-disabled .rc-slider-progress,
 .rc-slider-disabled .rc-slider-track {
-  opacity: .5
+  opacity: 0.5;
 }
 
 .rc-video {
   max-width: 100%;
-  display: block
+  display: block;
 }
 
 .rc-videoplayer-controls {
-  background: linear-gradient(rgba(0, 0, 0, .04), rgba(0, 0, 0, .56));
+  background: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.56));
   opacity: 0;
-  transition: opacity 1s cubic-bezier(.4, 0, .6, 1);
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.6, 1);
   position: absolute;
   z-index: 2;
   display: flex;
@@ -491,30 +491,30 @@ html[dir=rtl] .icon-copy {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .rc-videoplayer-ended .rc-videoplayer-controls,
 .rc-videoplayer:not(.rc-videoplayer-touched) .rc-videoplayer-controls {
   opacity: 1;
-  background: rgba(0, 0, 0, .16);
-  transition: all .5s cubic-bezier(.4, 0, .6, 1)
+  background: rgba(0, 0, 0, 0.16);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 .rc-videoplayer-hovering:not(.rc-videoplayer-touched) .rc-videoplayer-controls {
-  background: rgba(0, 0, 0, .32)
+  background: rgba(0, 0, 0, 0.32);
 }
 
 .rc-videoplayer-touched .rc-videoplayer-controls {
   opacity: 0;
-  transition: all .5s cubic-bezier(.4, 0, .6, 1)
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 .as-keyboarduser .rc-videoplayer-controls,
 .rc-videoplayer-touched.rc-videoplayer-ended .rc-videoplayer-controls,
 .rc-videoplayer-touched.rc-videoplayer-hovering .rc-videoplayer-controls {
   opacity: 1;
-  transition: opacity 1s cubic-bezier(.4, .1, .4, 1)
+  transition: opacity 1s cubic-bezier(0.4, 0.1, 0.4, 1);
 }
 
 .rc-videoplayer-controls-center {
@@ -528,7 +528,9 @@ html[dir=rtl] .icon-copy {
   bottom: 0;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity .4s cubic-bezier(.4, 0, .6, 1) .05s, transform .5s cubic-bezier(.4, 0, .6, 1)
+  transition:
+    opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1) 0.05s,
+    transform 0.5s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 .as-keyboarduser .rc-videoplayer-controls-center,
@@ -538,57 +540,61 @@ html[dir=rtl] .icon-copy {
 .rc-videoplayer:not(.rc-videoplayer-touched) .rc-videoplayer-controls-center {
   transform: translateY(0);
   opacity: 1;
-  transition: opacity .4s cubic-bezier(0, 0, .2, 1) .25s, transform .5s cubic-bezier(0, 0, .2, 1) .2s
+  transition:
+    opacity 0.4s cubic-bezier(0, 0, 0.2, 1) 0.25s,
+    transform 0.5s cubic-bezier(0, 0, 0.2, 1) 0.2s;
 }
 
 .rc-videoplayer-controls-center:active .rc-videoplayer-button {
-  transform: scale(.9)
+  transform: scale(0.9);
 }
 
 .rc-videoplayer-button {
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  opacity: .8;
-  transition: transform .2s ease, opacity .3s ease;
-  padding: 0 3px
+  opacity: 0.8;
+  transition:
+    transform 0.2s ease,
+    opacity 0.3s ease;
+  padding: 0 3px;
 }
 
 .rc-videoplayer-button:hover {
-  opacity: 1
+  opacity: 1;
 }
 
 .rc-videoplayer-button-playpause {
   width: 52px;
   height: 52px;
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_play.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_play.svg);
 }
 
 .rc-videoplayer-large .rc-videoplayer-button-playpause {
   width: 75px;
   height: 75px;
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_play_super.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_play_super.svg);
 }
 
 .rc-videoplayer-playing .rc-videoplayer-button-playpause {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pause.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pause.svg);
 }
 
 .rc-videoplayer-large.rc-videoplayer-playing .rc-videoplayer-button-playpause {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pause_super.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pause_super.svg);
 }
 
 .rc-videoplayer-ended .rc-videoplayer-button-playpause {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_replay.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_replay.svg);
 }
 
 .rc-videoplayer-large.rc-videoplayer-ended .rc-videoplayer-button-playpause {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_replay_super.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_replay_super.svg);
 }
 
 .rc-videoplayer-large.rc-videoplayer-waiting .rc-videoplayer-button-playpause,
 .rc-videoplayer-waiting .rc-videoplayer-button-playpause {
   background-image: none;
-  transition: background-image 0s linear .3s
+  transition: background-image 0s linear 0.3s;
 }
 
 .rc-videoplayer-controls-bottom {
@@ -605,16 +611,18 @@ html[dir=rtl] .icon-copy {
   display: flex;
   box-sizing: border-box;
   transform: translateY(20px);
-  transition: opacity .4s cubic-bezier(.4, 0, .6, 1) .05s, transform .5s cubic-bezier(.4, 0, .6, 1)
+  transition:
+    opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1) 0.05s,
+    transform 0.5s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 .rc-videoplayer-large .rc-videoplayer-controls-bottom {
-  padding: 0 24px
+  padding: 0 24px;
 }
 
 .rc-videoplayer-ended .rc-videoplayer-controls-bottom,
 .rc-videoplayer:not(.rc-videoplayer-touched) .rc-videoplayer-controls-bottom {
-  display: none
+  display: none;
 }
 
 .as-keyboarduser .rc-videoplayer-controls-bottom,
@@ -623,79 +631,81 @@ html[dir=rtl] .icon-copy {
 .rc-videoplayer:not(.rc-videoplayer-touched) .rc-videoplayer-controls-bottom {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity .4s cubic-bezier(0, 0, .2, 1) .05s, transform .5s cubic-bezier(0, 0, .2, 1)
+  transition:
+    opacity 0.4s cubic-bezier(0, 0, 0.2, 1) 0.05s,
+    transform 0.5s cubic-bezier(0, 0, 0.2, 1);
 }
 
 .rc-videoplayer-button-mute {
   width: 32px;
   height: 32px;
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_volume_on.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_volume_on.svg);
 }
 
 .rc-videoplayer-muted .rc-videoplayer-button-mute {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_volume_mute.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_volume_mute.svg);
 }
 
 .rc-videoplayer-button-captions {
   width: 32px;
   height: 32px;
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_cc_off.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_cc_off.svg);
 }
 
 .rc-videoplayer-captions-on .rc-videoplayer-button-captions {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_cc_on.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_cc_on.svg);
 }
 
 .rc-videoplayer-button-airplay {
   width: 32px;
   height: 32px;
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_airplay.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_airplay.svg);
 }
 
 .rc-videoplayer-airplay-on .rc-videoplayer-button-airplay {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_airplay_active.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_airplay_active.svg);
 }
 
 .rc-videoplayer-button-pip {
   width: 32px;
   height: 32px;
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pip_default.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pip_default.svg);
 }
 
 .rc-videoplayer-pip .rc-videoplayer-button-pip {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pip_active.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pip_active.svg);
 }
 
 .rc-videoplayer-button-fullscreen {
   width: 32px;
   height: 32px;
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_fullscreen.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_fullscreen.svg);
 }
 
 .rc-videoplayer-fullscreen .rc-videoplayer-button-fullscreen {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_fullscreen_exit.svg)
+  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_fullscreen_exit.svg);
 }
 
 .rc-videoplayer-medium .rc-videoplayer-controls-bottom {
-  padding: 0 18px
+  padding: 0 18px;
 }
 
 .rc-videoplayer-controls-bottom .rc-slider-track {
   border: none;
-  background-color: hsla(0, 0%, 100%, .3)
+  background-color: hsla(0, 0%, 100%, 0.3);
 }
 
 .rc-videoplayer-controls-bottom .rc-slider-handle,
 .rc-videoplayer-controls-bottom .rc-slider-progress {
-  background-color: #fff
+  background-color: #fff;
 }
 
 .rc-videoplayer-controls-bottom .rc-slider-handle:hover {
-  padding: 4px
+  padding: 4px;
 }
 
 .rc-videoplayer-controls-volume {
-  position: relative
+  position: relative;
 }
 
 .rc-videoplayer-controls-volume .as-keyboarduser .rc-videoplayer-volume-slider-box,
@@ -706,7 +716,7 @@ html[dir=rtl] .icon-copy {
 .rc-videoplayer-controls-volume .rc-videoplayer-volume-slider-box:hover .rc-videoplayer-button,
 .rc-videoplayer-controls-volume:hover .rc-videoplayer-volume-slider-box,
 .rc-videoplayer-controls-volume:hover .rc-videoplayer-volume-slider-box .rc-videoplayer-button {
-  opacity: 1
+  opacity: 1;
 }
 
 .rc-videoplayer-controls-volume .as-keyboarduser .rc-videoplayer-volume-slider-box .rc-videoplayer-volume-slider,
@@ -717,7 +727,7 @@ html[dir=rtl] .icon-copy {
 .rc-videoplayer-controls-volume .rc-videoplayer-volume-slider-box:hover:after,
 .rc-videoplayer-controls-volume:hover .rc-videoplayer-volume-slider-box .rc-videoplayer-volume-slider,
 .rc-videoplayer-controls-volume:hover .rc-videoplayer-volume-slider-box:after {
-  transform: translateY(-8px)
+  transform: translateY(-8px);
 }
 
 .rc-videoplayer-volume-slider-box {
@@ -730,54 +740,54 @@ html[dir=rtl] .icon-copy {
   padding: 20px 10px 0;
   z-index: 1;
   width: 12px;
-  opacity: .8;
-  transition: opacity .335s cubic-bezier(.4, 0, .6, 1)
+  opacity: 0.8;
+  transition: opacity 0.335s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 .rc-videoplayer-volume-slider-box .rc-slider-track {
-  background-color: transparent
+  background-color: transparent;
 }
 
 .as-keyboarduser .rc-videoplayer-volume-slider-box:after {
-  transform: translateY(-8px)
+  transform: translateY(-8px);
 }
 
 .rc-videoplayer-volume-slider-box:after {
-  content: "";
+  content: '';
   top: 20px;
   left: 14px;
   max-height: 55px;
   height: 55px;
   width: 4px;
-  background-color: hsla(0, 0%, 100%, .3);
+  background-color: hsla(0, 0%, 100%, 0.3);
   display: block;
   transform: translateY(65px);
-  transition: transform .234s cubic-bezier(.4, 0, .6, 1);
+  transition: transform 0.234s cubic-bezier(0.4, 0, 0.6, 1);
   position: absolute;
   border-radius: 4px;
   z-index: 0;
-  pointer-events: none
+  pointer-events: none;
 }
 
 .rc-videoplayer-volume-slider {
   transform: translateY(65px);
-  transition: transform .335s cubic-bezier(.4, 0, .6, 1)
+  transition: transform 0.335s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 .rc-videoplayer-volume-slider .rc-slider-handle {
   width: 4px;
   height: 4px;
-  padding: 3px
+  padding: 3px;
 }
 
 .as-keyboarduser .rc-videoplayer-volume-slider {
-  transform: translateY(-8px)
+  transform: translateY(-8px);
 }
 
 .rc-videoplayer-timeline {
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
 .rc-videoplayer-controls-progress {
@@ -786,25 +796,25 @@ html[dir=rtl] .icon-copy {
   top: 10px;
   padding: 0 7px;
   margin: 0 10px;
-  height: 14px
+  height: 14px;
 }
 
 .rc-videoplayer-controls-progress .rc-slider-horizontal {
   width: 100%;
-  margin: 0 10px
+  margin: 0 10px;
 }
 
 .rc-videoplayer-controls-progress .rc-slider-horizontal .rc-slider-track {
-  width: 100%
+  width: 100%;
 }
 
 .rc-videoplayer-controls-progress .rc-slider-handle {
   width: 4px;
-  height: 4px
+  height: 4px;
 }
 
 .rc-videoplayer-controls-progress:hover .rc-slider-handle {
-  padding: 3px
+  padding: 3px;
 }
 
 .rc-videoplayer-timeline-current,
@@ -812,10 +822,10 @@ html[dir=rtl] .icon-copy {
   font-weight: 600;
   font-size: 11px;
   font-variant-numeric: tabular-nums;
-  font-feature-settings: "tnum";
+  font-feature-settings: 'tnum';
   line-height: 1;
-  letter-spacing: -.11px;
-  color: #fff
+  letter-spacing: -0.11px;
+  color: #fff;
 }
 
 .rc-videoplayer-loadingindicator-box {
@@ -828,7 +838,7 @@ html[dir=rtl] .icon-copy {
   justify-content: center;
   top: 0;
   pointer-events: none;
-  z-index: 15
+  z-index: 15;
 }
 
 .rc-videoplayer-loadingindicator {
@@ -840,18 +850,18 @@ html[dir=rtl] .icon-copy {
   align-self: center;
   position: relative;
   transition: opacity 1s ease;
-  transform: translateX(50%) translateY(50%)
+  transform: translateX(50%) translateY(50%);
 }
 
 .rc-videoplayer-large .rc-videoplayer-loadingindicator {
   width: 75px;
   height: 75px;
   bottom: 8px;
-  right: 3px
+  right: 3px;
 }
 
 .rc-videoplayer-waiting .rc-videoplayer-loadingindicator {
-  opacity: 1
+  opacity: 1;
 }
 
 .rc-videoplayer-waiting .rc-videoplayer-loadingindicator>* {
@@ -866,117 +876,117 @@ html[dir=rtl] .icon-copy {
   animation-direction: forward;
   animation-duration: 1s;
   animation-iteration-count: infinite;
-  animation-timing-function: cubic-bezier(1, .1, 0, .3)
+  animation-timing-function: cubic-bezier(1, 0.1, 0, 0.3);
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator>:nth-child(0) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(0) {
   transform: rotate(-45deg) translateY(-18.5px);
-  animation-delay: -.125s
+  animation-delay: -0.125s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator>:first-child {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :first-child {
   transform: rotate(0deg) translateY(-18.5px);
-  animation-delay: 0s
+  animation-delay: 0s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator>:nth-child(2) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(2) {
   transform: rotate(45deg) translateY(-18.5px);
-  animation-delay: .125s
+  animation-delay: 0.125s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator>:nth-child(3) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(3) {
   transform: rotate(90deg) translateY(-18.5px);
-  animation-delay: .25s
+  animation-delay: 0.25s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator>:nth-child(4) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(4) {
   transform: rotate(135deg) translateY(-18.5px);
-  animation-delay: .375s
+  animation-delay: 0.375s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator>:nth-child(5) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(5) {
   transform: rotate(180deg) translateY(-18.5px);
-  animation-delay: .5s
+  animation-delay: 0.5s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator>:nth-child(6) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(6) {
   transform: rotate(225deg) translateY(-18.5px);
-  animation-delay: .625s
+  animation-delay: 0.625s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator>:nth-child(7) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(7) {
   transform: rotate(270deg) translateY(-18.5px);
-  animation-delay: .75s
+  animation-delay: 0.75s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator>:nth-child(8) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(8) {
   transform: rotate(315deg) translateY(-18.5px);
-  animation-delay: .875s
+  animation-delay: 0.875s;
 }
 
 @keyframes loading-fade {
   0% {
-    opacity: 1
+    opacity: 1;
   }
 
   62.5% {
-    opacity: .12
+    opacity: 0.12;
   }
 
   to {
-    opacity: .12
+    opacity: 0.12;
   }
 }
 
 .rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator>* {
   width: 5px;
   height: 12px;
-  border-radius: 19.5px
+  border-radius: 19.5px;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator>:nth-child(0) {
+.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(0) {
   transform: rotate(-45deg) translateY(-13.5px);
-  animation-delay: -.125s
+  animation-delay: -0.125s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator>:first-child {
+.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :first-child {
   transform: rotate(0deg) translateY(-13.5px);
-  animation-delay: 0s
+  animation-delay: 0s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator>:nth-child(2) {
+.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(2) {
   transform: rotate(45deg) translateY(-13.5px);
-  animation-delay: .125s
+  animation-delay: 0.125s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator>:nth-child(3) {
+.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(3) {
   transform: rotate(90deg) translateY(-13.5px);
-  animation-delay: .25s
+  animation-delay: 0.25s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator>:nth-child(4) {
+.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(4) {
   transform: rotate(135deg) translateY(-13.5px);
-  animation-delay: .375s
+  animation-delay: 0.375s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator>:nth-child(5) {
+.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(5) {
   transform: rotate(180deg) translateY(-13.5px);
-  animation-delay: .5s
+  animation-delay: 0.5s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator>:nth-child(6) {
+.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(6) {
   transform: rotate(225deg) translateY(-13.5px);
-  animation-delay: .625s
+  animation-delay: 0.625s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator>:nth-child(7) {
+.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(7) {
   transform: rotate(270deg) translateY(-13.5px);
-  animation-delay: .75s
+  animation-delay: 0.75s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator>:nth-child(8) {
+.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(8) {
   transform: rotate(315deg) translateY(-13.5px);
-  animation-delay: .875s
+  animation-delay: 0.875s;
 }
 
 .rc-videoplayer {
@@ -984,12 +994,12 @@ html[dir=rtl] .icon-copy {
   width: 100%;
   min-height: 400px;
   height: auto;
-  position: relative
+  position: relative;
 }
 
 .rc-videoplayer>* {
   -webkit-user-select: none;
-  user-select: none
+  user-select: none;
 }
 
 .rc-videoplayer video {
@@ -998,60 +1008,86 @@ html[dir=rtl] .icon-copy {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0
+  bottom: 0;
 }
 
 .rc-videoplayer video,
 .rc-videoplayer video img {
   display: block;
-  outline: none
+  outline: none;
 }
 
 .rc-videoplayer video::-webkit-media-controls-start-playback-button {
-  background: rgba(0, 0, 0, .25);
+  background: rgba(0, 0, 0, 0.25);
   -webkit-clip-path: none;
   clip-path: none;
   width: 100%;
   height: 100%;
   top: 0;
-  left: 0
+  left: 0;
 }
 
 .rc-videoplayer video::-webkit-media-controls-start-playback-background {
-  background: hsla(0, 0%, 100%, .8);
+  background: hsla(0, 0%, 100%, 0.8);
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
-  -webkit-clip-path: polygon(54.2px 55.2px, 54.2px 37.2px, 53.5px 37.9px, 25.1px 55.2px, 24.1px 55.5px, 22.4px 54.5px, 22.1px 53.5px, 22.1px 19.1px, 22.4px 18.1px, 23.1px 17.4px, 24.1px 17.1px, 25.1px 17.4px, 53.5px 34.6px, 54.2px 35.2px);
-  clip-path: polygon(54.2px 55.2px, 54.2px 37.2px, 53.5px 37.9px, 25.1px 55.2px, 24.1px 55.5px, 22.4px 54.5px, 22.1px 53.5px, 22.1px 19.1px, 22.4px 18.1px, 23.1px 17.4px, 24.1px 17.1px, 25.1px 17.4px, 53.5px 34.6px, 54.2px 35.2px);
+  -webkit-clip-path: polygon(54.2px 55.2px,
+      54.2px 37.2px,
+      53.5px 37.9px,
+      25.1px 55.2px,
+      24.1px 55.5px,
+      22.4px 54.5px,
+      22.1px 53.5px,
+      22.1px 19.1px,
+      22.4px 18.1px,
+      23.1px 17.4px,
+      24.1px 17.1px,
+      25.1px 17.4px,
+      53.5px 34.6px,
+      54.2px 35.2px);
+  clip-path: polygon(54.2px 55.2px,
+      54.2px 37.2px,
+      53.5px 37.9px,
+      25.1px 55.2px,
+      24.1px 55.5px,
+      22.4px 54.5px,
+      22.1px 53.5px,
+      22.1px 19.1px,
+      22.4px 18.1px,
+      23.1px 17.4px,
+      24.1px 17.1px,
+      25.1px 17.4px,
+      53.5px 34.6px,
+      54.2px 35.2px);
   top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%)
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .rc-videoplayer video::-webkit-media-controls-start-playback-glyph,
 .rc-videoplayer video::-webkit-media-controls-start-playback-tint {
-  background: none
+  background: none;
 }
 
 .rc-videoplayer-poster {
-  transition: opacity .5s linear;
+  transition: opacity 0.5s linear;
   position: absolute;
   z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
-  opacity: 1
+  opacity: 1;
 }
 
 .rc-videoplayer-poster img {
   display: block;
   width: 100%;
-  height: auto
+  height: auto;
 }
 
 .rc-videoplayer-touched .rc-videoplayer-poster {
   opacity: 0;
-  pointer-events: none
+  pointer-events: none;
 }
 
 .rc-videoplayer-mow {
@@ -1059,90 +1095,178 @@ html[dir=rtl] .icon-copy {
   width: 100%;
   height: auto;
   position: relative;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .rc-videoplayer-mow video {
   width: 100%;
-  height: 100%
+  height: 100%;
 }
 
 .rc-videoplayer-mow .rc-videoplayer-controls,
 .rc-videoplayer-mow .rc-videoplayer-controls-center,
 .rc-videoplayer-mow .rc-videoplayer-poster {
   transition: none;
-  opacity: 1
+  opacity: 1;
 }
 
 .rc-videoplayer-mow.rc-videoplayer-touched .rc-videoplayer-controls,
 .rc-videoplayer-mow.rc-videoplayer-touched .rc-videoplayer-controls-center,
 .rc-videoplayer-mow.rc-videoplayer-touched .rc-videoplayer-poster {
-  display: none
+  display: none;
 }
 
 .rc-videoplayer-mow .rc-videoplayer-controls-center {
-  transform: none
+  transform: none;
 }
 
 .rc-videoplayer-transcript-btn {
   font-size: 14px;
   line-height: 1.42859;
   font-weight: 400;
-  letter-spacing: -.016em;
-  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  letter-spacing: -0.016em;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   display: block;
   color: #06c;
-  padding-top: 10px
+  padding-top: 10px;
 }
 
 .rc-videoplayer-transcript-btn:lang(ar) {
   line-height: 1.57143;
   letter-spacing: 0;
-  font-family: SF Pro AR, SF Pro AR Text, SF Pro Text, SF Pro Gulf, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro AR,
+    SF Pro AR Text,
+    SF Pro Text,
+    SF Pro Gulf,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rc-videoplayer-transcript-btn:lang(ja) {
   letter-spacing: 0;
-  font-family: SF Pro JP, SF Pro Text, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ヒラギノ角ゴ Pro W3, メイリオ, Meiryo, ＭＳ Ｐゴシック, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro JP,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Hiragino Kaku Gothic Pro,
+    ヒラギノ角ゴ Pro W3,
+    メイリオ,
+    Meiryo,
+    ＭＳ Ｐゴシック,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rc-videoplayer-transcript-btn:lang(ko) {
   line-height: 1.57143;
   letter-spacing: 0;
-  font-family: SF Pro KR, SF Pro Text, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro KR,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Apple Gothic,
+    HY Gulim,
+    MalgunGothic,
+    HY Dotum,
+    Lexi Gulim,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rc-videoplayer-transcript-btn:lang(zh) {
   line-height: 1.5;
-  letter-spacing: 0
+  letter-spacing: 0;
 }
 
 .rc-videoplayer-transcript-btn:lang(th) {
   line-height: 1.35718;
   letter-spacing: 0;
-  font-family: SF Pro TH, SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TH,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rc-videoplayer-transcript-btn:lang(zh-CN) {
-  font-family: SF Pro SC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro SC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang SC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rc-videoplayer-transcript-btn:lang(zh-HK) {
-  font-family: SF Pro HK, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rc-videoplayer-transcript-btn:lang(zh-MO) {
-  font-family: SF Pro HK, SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rc-videoplayer-transcript-btn:lang(zh-TW) {
-  font-family: SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang TC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
-@media only screen and (max-width:1023px) and (max-device-width:736px) {
+@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-videoplayer-transcript-btn {
     width: 100%;
-    text-align: center
+    text-align: center;
   }
 }
 
@@ -1159,34 +1283,34 @@ html[dir=rtl] .icon-copy {
   align-items: flex-start;
   padding: 54px 0;
   -webkit-overflow-scrolling: touch;
-  -webkit-tap-highlight-color: transparent
+  -webkit-tap-highlight-color: transparent;
 }
 
 [data-core-overlay][data-core-fade-transition-wrapper] {
-  transition-duration: .1s
+  transition-duration: 0.1s;
 }
 
 [data-core-overlay].r-fade-transition-exit-done {
-  display: none
+  display: none;
 }
 
 [data-core-overlay-content] {
   margin: auto;
   padding: 30px;
   position: relative;
-  background: #fff
+  background: #fff;
 }
 
 [data-core-overlay-cover] {
-  background-color: rgba(50, 50, 50, .88);
+  background-color: rgba(50, 50, 50, 0.88);
   backface-visibility: visible;
-  -webkit-tap-highlight-color: transparent
+  -webkit-tap-highlight-color: transparent;
 }
 
 [data-core-overlay-fullscreen][data-core-overlay] {
   background-color: #fff;
   padding: 0;
-  margin: 0
+  margin: 0;
 }
 
 [data-core-overlay-fullscreen] [data-core-overlay-content] {
@@ -1195,17 +1319,17 @@ html[dir=rtl] .icon-copy {
   width: 100%;
   max-width: none;
   min-height: 100vh;
-  border: none
+  border: none;
 }
 
 [data-core-overlay-fullscreen] [data-core-overlay-content]:focus {
-  outline-offset: -4px
+  outline-offset: -4px;
 }
 
 [data-core-overlay-open-ios-fixed],
 [data-core-overlay-open] {
   overflow: hidden;
-  position: relative
+  position: relative;
 }
 
 [data-core-overlay-open-ios-fixed] {
@@ -1213,7 +1337,7 @@ html[dir=rtl] .icon-copy {
   bottom: 0;
   right: 0;
   left: 0;
-  position: fixed
+  position: fixed;
 }
 
 .rc-overlay-close {
@@ -1226,7 +1350,7 @@ html[dir=rtl] .icon-copy {
   position: absolute;
   top: 56px;
   left: 16px;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .rc-overlay-close .rc-overlay-closesvg {
@@ -1238,7 +1362,7 @@ html[dir=rtl] .icon-copy {
   height: 36px;
   width: 36px;
   outline: none;
-  position: relative
+  position: relative;
 }
 
 .rc-overlay-close .rc-overlay-closesvg svg {
@@ -1247,35 +1371,35 @@ html[dir=rtl] .icon-copy {
   left: 50%;
   transform: translateX(-50%);
   height: 20px;
-  width: 20px
+  width: 20px;
 }
 
 .rc-overlay-popup[data-core-overlay] {
   padding: 0;
-  margin: 0
+  margin: 0;
 }
 
-@media only screen and (max-width:1023px) and (max-device-width:736px) {
+@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-overlay-popup[data-core-overlay] {
-    padding: 0 20px
+    padding: 0 20px;
   }
 }
 
 .rc-overlay-popup [data-core-overlay-content] {
   padding: 0;
   max-width: 816px;
-  background: transparent
+  background: transparent;
 }
 
-@media only screen and (max-width:1023px) and (max-device-width:736px) {
+@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-overlay-popup [data-core-overlay-content] {
     padding: 0;
     max-width: 640px;
-    border: none
+    border: none;
   }
 
   .rc-overlay-popup [data-core-overlay-content]:focus {
-    outline-offset: -4px
+    outline-offset: -4px;
   }
 }
 
@@ -1283,42 +1407,42 @@ html[dir=rtl] .icon-copy {
   background: #fff;
   border-radius: 18px;
   margin: 40px 0;
-  overflow: hidden
+  overflow: hidden;
 }
 
-@media only screen and (max-width:1023px) and (max-device-width:736px) {
+@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-overlay-with-footer .rc-overlay-popup-outer {
     display: flex;
-    flex-direction: column
+    flex-direction: column;
   }
 }
 
 .rc-overlay-popup-content {
-  padding: 76px
+  padding: 76px;
 }
 
 .rc-overlay-with-footer .rc-overlay-popup-content {
-  padding-bottom: 60px
+  padding-bottom: 60px;
 }
 
-@media only screen and (max-width:1023px) and (max-device-width:736px) {
+@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-overlay-popup-content {
-    padding: 76px 6.25% 60px
+    padding: 76px 6.25% 60px;
   }
 
   .rc-overlay-with-footer .rc-overlay-popup-content {
-    flex-grow: 1
+    flex-grow: 1;
   }
 }
 
 .rc-overlay-footer {
-  border-radius: 0 0 18px 18px
+  border-radius: 0 0 18px 18px;
 }
 
-@media only screen and (max-width:1023px) and (max-device-width:736px) {
+@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-overlay-footer {
     border-radius: 0;
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -1327,98 +1451,98 @@ html[dir=rtl] .icon-copy {
   top: 0;
   left: 0;
   right: 0;
-  height: 25px
+  height: 25px;
 }
 
 .rc-overlay-fullscreen [data-core-overlay-content] {
-  min-width: 100vw
+  min-width: 100vw;
 }
 
 .rc-overlay-fullscreen .rc-overlay-close {
-  top: 28px
+  top: 28px;
 }
 
-@media only screen and (max-width:1023px) and (max-device-width:736px) {
+@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-overlay-fullscreen .rc-overlay-close {
     top: 16px;
-    left: 16px
+    left: 16px;
   }
 }
 
 .rc-overlay-fullscreen-content {
   background: #fff;
-  padding: 80px
+  padding: 80px;
 }
 
-@media only screen and (max-width:1023px) and (max-device-width:736px) {
+@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-overlay-fullscreen-content {
-    padding: 76px 6.25% 60px
+    padding: 76px 6.25% 60px;
   }
 
   .rc-overlay-with-footer .rc-overlay-fullscreen-content {
-    padding-bottom: 100px
+    padding-bottom: 100px;
   }
 }
 
 .rc-overlay-content-nopadding .rc-overlay-fullscreen-content,
 .rc-overlay-content-nopadding .rc-overlay-popup-content {
-  padding: 0
+  padding: 0;
 }
 
 .rc-overlay-content-doublepadding .rc-overlay-fullscreen-content,
 .rc-overlay-content-doublepadding .rc-overlay-popup-content {
   padding-left: 160px;
-  padding-right: 160px
+  padding-right: 160px;
 }
 
-@media only screen and (max-width:1023px) and (max-device-width:736px) {
+@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
 
   .rc-overlay-content-doublepadding .rc-overlay-fullscreen-content,
   .rc-overlay-content-doublepadding .rc-overlay-popup-content {
     padding-left: 6.25%;
-    padding-right: 6.25%
+    padding-right: 6.25%;
   }
 }
 
-@media only screen and (max-width:1023px) and (max-device-width:736px) {
+@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-overlay-fixed-width[data-core-overlay] {
-    padding: 0
+    padding: 0;
   }
 }
 
-@media only screen and (max-width:1023px) and (max-device-width:736px) {
+@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-overlay-fixed-width .rc-overlay-popup-outer {
     margin-top: 20px;
     margin-bottom: 0;
     border-radius: 18px 18px 0 0;
-    min-height: calc(100vh - 20px)
+    min-height: calc(100vh - 20px);
   }
 }
 
-@media only screen and (max-width:1023px) and (max-device-width:736px) {
+@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-overlay-fixed-width .rc-overlay-close {
     top: 36px;
-    left: 14px
+    left: 14px;
   }
 }
 
 .rc-overlay-fixed-width [data-core-overlay-content] {
   flex-grow: 1;
-  min-width: 48rem
+  min-width: 48rem;
 }
 
-@media only screen and (max-width:1023px) and (max-device-width:736px) {
+@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-overlay-fixed-width [data-core-overlay-content] {
     margin: 0 auto;
     min-width: inherit;
     min-height: 100vh;
-    width: 100%
+    width: 100%;
   }
 }
 
-@media screen and (min-width:1069px) {
+@media screen and (min-width: 1069px) {
   .rc-overlay-fixed-width.rc-overlay-content-wide [data-core-overlay-content] {
-    min-width: 60.52941rem
+    min-width: 60.52941rem;
   }
 }
 
@@ -1429,7 +1553,7 @@ html[dir=rtl] .icon-copy {
   width: 1px;
   height: 1px;
   top: 50%;
-  left: 50%
+  left: 50%;
 }
 
 .rc-videoplayer-overlay .rc-videoplayer-mow video {
@@ -1438,16 +1562,16 @@ html[dir=rtl] .icon-copy {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0
+  bottom: 0;
 }
 
 .rc-videoplayer-overlay .rc-videoplayer-playing {
-  visibility: visible
+  visibility: visible;
 }
 
 html {
   -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%;
 }
 
 abbr,
@@ -1475,7 +1599,7 @@ p,
 pre,
 ul {
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 
 address,
@@ -1486,35 +1610,35 @@ pre,
 th {
   font-size: 1em;
   font-weight: 400;
-  font-style: normal
+  font-style: normal;
 }
 
 fieldset,
 iframe {
-  border: 0
+  border: 0;
 }
 
 caption,
 th {
-  text-align: left
+  text-align: left;
 }
 
 table {
   border-collapse: collapse;
-  border-spacing: 0
+  border-spacing: 0;
 }
 
 details,
 main,
 summary {
-  display: block
+  display: block;
 }
 
 audio,
 canvas,
 progress,
 video {
-  vertical-align: baseline
+  vertical-align: baseline;
 }
 
 button {
@@ -1526,184 +1650,360 @@ button {
   font: inherit;
   line-height: inherit;
   overflow: visible;
-  vertical-align: inherit
+  vertical-align: inherit;
 }
 
 button:disabled {
-  cursor: default
+  cursor: default;
 }
 
 :focus {
   outline: 2px solid #0071e3;
-  outline-offset: 0
+  outline-offset: 0;
 }
 
 html.as-mouseuser :focus:not(input):not(textarea):not(select) {
-  outline: none
+  outline: none;
 }
 
 ::-moz-focus-inner {
   border: 0;
-  padding: 0
+  padding: 0;
 }
 
 input::-ms-clear {
-  display: none
+  display: none;
 }
 
-input[type=number] {
-  -moz-appearance: textfield
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
-  margin: 0
+  margin: 0;
 }
 
 .metrics {
-  display: none
+  display: none;
 }
 
 html {
-  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   font-size: 106.25%;
-  quotes: "“" "”";
-  --sk-link-disabled-opacity: .42
+  quotes: '“' '”';
+  --sk-link-disabled-opacity: 0.42;
 }
 
 [lang]:lang(ar) {
-  font-family: SF Pro AR, SF Pro AR Text, SF Pro Text, SF Pro Gulf, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro AR,
+    SF Pro AR Text,
+    SF Pro Text,
+    SF Pro Gulf,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [lang]:lang(ja) {
-  font-family: SF Pro JP, SF Pro Text, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ヒラギノ角ゴ Pro W3, メイリオ, Meiryo, ＭＳ Ｐゴシック, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro JP,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Hiragino Kaku Gothic Pro,
+    ヒラギノ角ゴ Pro W3,
+    メイリオ,
+    Meiryo,
+    ＭＳ Ｐゴシック,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [lang]:lang(ko) {
-  font-family: SF Pro KR, SF Pro Text, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro KR,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Apple Gothic,
+    HY Gulim,
+    MalgunGothic,
+    HY Dotum,
+    Lexi Gulim,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [lang]:lang(th) {
-  font-family: SF Pro TH, SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TH,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [lang]:lang(zh-CN) {
-  font-family: SF Pro SC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro SC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang SC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [lang]:lang(zh-HK) {
-  font-family: SF Pro HK, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [lang]:lang(zh-MO) {
-  font-family: SF Pro HK, SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [lang]:lang(zh-TW) {
-  font-family: SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang TC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 :lang(cs),
 :lang(de) {
-  quotes: "„" "“"
+  quotes: '„' '“';
 }
 
 :lang(de-CH),
 :lang(de-LI) {
-  quotes: "«" "»"
+  quotes: '«' '»';
 }
 
 :lang(fr) {
-  quotes: "« " " »"
+  quotes: '« ' ' »';
 }
 
 :lang(es-ES),
 :lang(fr-CH) {
-  quotes: "«" "»"
+  quotes: '«' '»';
 }
 
 :lang(hu) {
-  quotes: "„" "“"
+  quotes: '„' '“';
 }
 
 :lang(ja-JP) {
-  quotes: "「" "」"
+  quotes: '「' '」';
 }
 
 :lang(no-NO) {
-  quotes: "«" "»"
+  quotes: '«' '»';
 }
 
 :lang(lt),
 :lang(pl) {
-  quotes: "„" "“"
+  quotes: '„' '“';
 }
 
 :lang(ru) {
-  quotes: "« " " »"
+  quotes: '« ' ' »';
 }
 
 :lang(zh) {
-  quotes: "「" "」"
+  quotes: '「' '」';
 }
 
 :lang(zh-CN) {
-  quotes: "“" "”"
+  quotes: '“' '”';
 }
 
 body {
   font-size: 17px;
   line-height: 1.47059;
   font-weight: 400;
-  letter-spacing: -.022em;
-  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  letter-spacing: -0.022em;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   background-color: #fff;
   color: #1d1d1f;
-  font-style: normal
+  font-style: normal;
 }
 
 body:lang(ar) {
   line-height: 1.58824;
   letter-spacing: 0;
-  font-family: SF Pro AR, SF Pro AR Text, SF Pro Text, SF Pro Gulf, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro AR,
+    SF Pro AR Text,
+    SF Pro Text,
+    SF Pro Gulf,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body:lang(ja) {
   letter-spacing: 0;
-  font-family: SF Pro JP, SF Pro Text, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ヒラギノ角ゴ Pro W3, メイリオ, Meiryo, ＭＳ Ｐゴシック, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro JP,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Hiragino Kaku Gothic Pro,
+    ヒラギノ角ゴ Pro W3,
+    メイリオ,
+    Meiryo,
+    ＭＳ Ｐゴシック,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body:lang(ko) {
   line-height: 1.58824;
-  font-family: SF Pro KR, SF Pro Text, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro KR,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Apple Gothic,
+    HY Gulim,
+    MalgunGothic,
+    HY Dotum,
+    Lexi Gulim,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body:lang(ko),
 body:lang(th),
 body:lang(zh) {
-  letter-spacing: 0
+  letter-spacing: 0;
 }
 
 body:lang(th) {
   line-height: 1.35296;
-  font-family: SF Pro TH, SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TH,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body:lang(zh-CN) {
-  font-family: SF Pro SC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro SC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang SC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body:lang(zh-HK) {
-  font-family: SF Pro HK, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body:lang(zh-MO) {
-  font-family: SF Pro HK, SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body:lang(zh-TW) {
-  font-family: SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang TC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 body,
@@ -1712,11 +2012,11 @@ input,
 select,
 textarea {
   font-synthesis: none;
-  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: 'kern';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: ltr;
-  text-align: left
+  text-align: left;
 }
 
 h1,
@@ -1726,7 +2026,7 @@ h4,
 h5,
 h6 {
   font-weight: 600;
-  color: #1d1d1f
+  color: #1d1d1f;
 }
 
 h1 img,
@@ -1736,7 +2036,7 @@ h4 img,
 h5 img,
 h6 img {
   display: block;
-  margin: 0
+  margin: 0;
 }
 
 h1+*,
@@ -1745,7 +2045,7 @@ h3+*,
 h4+*,
 h5+*,
 h6+* {
-  margin-top: .8em
+  margin-top: 0.8em;
 }
 
 h1+h1,
@@ -1784,7 +2084,7 @@ h6+h3,
 h6+h4,
 h6+h5,
 h6+h6 {
-  margin-top: .4em
+  margin-top: 0.4em;
 }
 
 ol+h1,
@@ -1805,22 +2105,22 @@ ul+h3,
 ul+h4,
 ul+h5,
 ul+h6 {
-  margin-top: 1.6em
+  margin-top: 1.6em;
 }
 
 .heading-collapsed+* {
-  margin-top: 0
+  margin-top: 0;
 }
 
 ol+*,
 p+*,
 ul+* {
-  margin-top: .8em
+  margin-top: 0.8em;
 }
 
 ol,
 ul {
-  margin-left: 1.17647em
+  margin-left: 1.17647em;
 }
 
 ol ol,
@@ -1828,214 +2128,214 @@ ol ul,
 ul ol,
 ul ul {
   margin-top: 0;
-  margin-bottom: 0
+  margin-bottom: 0;
 }
 
 nav ol,
 nav ul {
   margin: 0;
-  list-style: none
+  list-style: none;
 }
 
 li li {
-  font-size: 1em
+  font-size: 1em;
 }
 
 .link,
 a {
   color: #06c;
-  letter-spacing: inherit
+  letter-spacing: inherit;
 }
 
 .link:link,
 .link:visited,
 a:link,
 a:visited {
-  text-decoration: none
+  text-decoration: none;
 }
 
 .link:hover,
 a:hover {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
 .link:active,
 a:active {
-  text-decoration: none
+  text-decoration: none;
 }
 
 .link.disabled,
 .link :disabled,
 a.disabled,
 a :disabled {
-  opacity: var(--sk-link-disabled-opacity)
+  opacity: var(--sk-link-disabled-opacity);
 }
 
 .link-inline,
 .link-inline:link {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
 .link-standalone:link {
-  text-decoration: none
+  text-decoration: none;
 }
 
 .link-standalone:link:focus,
 .link-standalone:link:hover {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
 .links-inline,
 .links-stacked {
   margin-left: 0;
   margin-right: 0;
-  list-style: none
+  list-style: none;
 }
 
 .links-inline li {
   display: inline;
-  margin: 0 .8em
+  margin: 0 0.8em;
 }
 
 .links-inline li:first-child {
-  margin-left: 0
+  margin-left: 0;
 }
 
 .links-inline li:last-child {
-  margin-right: 0
+  margin-right: 0;
 }
 
 .links-stacked li {
   margin: 0;
-  display: block
+  display: block;
 }
 
 .links-stacked li+li {
-  margin-top: .4em
+  margin-top: 0.4em;
 }
 
 b,
 strong {
-  font-weight: 600
+  font-weight: 600;
 }
 
 cite,
 dfn,
 em,
 i {
-  font-style: italic
+  font-style: italic;
 }
 
 sub,
 sup {
   position: relative;
-  font-size: .6em;
-  vertical-align: baseline
+  font-size: 0.6em;
+  vertical-align: baseline;
 }
 
 sup {
-  top: -.5em
+  top: -0.5em;
 }
 
 sub {
-  bottom: -.25em
+  bottom: -0.25em;
 }
 
 .footnote a {
   vertical-align: inherit;
-  color: inherit
+  color: inherit;
 }
 
 .footnote a:hover {
   color: #06c;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .footnote-reduced {
-  font-size: .45em
+  font-size: 0.45em;
 }
 
 sup.footnote-reduced {
-  top: -.86em
+  top: -0.86em;
 }
 
 sub.footnote-reduced {
-  bottom: -.36em
+  bottom: -0.36em;
 }
 
 .footnote-supglyph {
   position: relative;
-  vertical-align: baseline
+  vertical-align: baseline;
 }
 
 .footnote-supglyph.footnote-reduced {
-  font-size: .9em;
-  top: -.09em
+  font-size: 0.9em;
+  top: -0.09em;
 }
 
 .footnote-diamond {
   position: relative;
   vertical-align: baseline;
-  font-feature-settings: "numr";
-  font-size: 1em
+  font-feature-settings: 'numr';
+  font-size: 1em;
 }
 
 sup.footnote-diamond {
-  top: auto
+  top: auto;
 }
 
 sub.footnote-diamond {
-  bottom: -.5em
+  bottom: -0.5em;
 }
 
 .footnote-diamond.footnote-reduced {
-  font-size: .9em;
-  top: -.09em
+  font-size: 0.9em;
+  top: -0.09em;
 }
 
 sub.footnote-diamond.footnote-reduced {
   top: auto;
-  bottom: -.52em
+  bottom: -0.52em;
 }
 
 .footnote-number {
   position: relative;
   vertical-align: baseline;
-  font-feature-settings: "numr";
-  font-size: 1em
+  font-feature-settings: 'numr';
+  font-size: 1em;
 }
 
 sup.footnote-number {
-  top: auto
+  top: auto;
 }
 
 sub.footnote-number {
-  bottom: -.5em
+  bottom: -0.5em;
 }
 
 .footnote-number.footnote-reduced {
-  font-size: .9em;
-  top: -.09em
+  font-size: 0.9em;
+  top: -0.09em;
 }
 
 sub.footnote-number.footnote-reduced {
   top: auto;
-  bottom: -.52em
+  bottom: -0.52em;
 }
 
 abbr {
-  border: 0
+  border: 0;
 }
 
 :lang(ja),
 :lang(ko),
 :lang(th),
 :lang(zh) {
-  font-style: normal
+  font-style: normal;
 }
 
 :lang(ko) {
-  word-break: keep-all
+  word-break: keep-all;
 }
 
 body:lang(ja),
@@ -2053,267 +2353,267 @@ select:lang(zh),
 textarea:lang(ja),
 textarea:lang(ko),
 textarea:lang(zh) {
-  font-synthesis: weight
+  font-synthesis: weight;
 }
 
-a[role=button] {
-  cursor: pointer
+a[role='button'] {
+  cursor: pointer;
 }
 
 .justify-content-start {
-  justify-content: flex-start
+  justify-content: flex-start;
 }
 
 .justify-content-end {
-  justify-content: flex-end
+  justify-content: flex-end;
 }
 
 .justify-content-center {
-  justify-content: center
+  justify-content: center;
 }
 
 .justify-content-spacebetween {
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 .justify-content-spacearound {
-  justify-content: space-around
+  justify-content: space-around;
 }
 
 .justify-content-spaceevenly {
-  justify-content: space-evenly
+  justify-content: space-evenly;
 }
 
 .align-items-start {
-  align-items: flex-start
+  align-items: flex-start;
 }
 
 .align-items-center {
-  align-items: center
+  align-items: center;
 }
 
 .align-items-end {
-  align-items: flex-end
+  align-items: flex-end;
 }
 
 .align-self-start {
-  align-self: flex-start
+  align-self: flex-start;
 }
 
 .align-self-center {
-  align-self: center
+  align-self: center;
 }
 
 .align-self-end {
-  align-self: flex-end
+  align-self: flex-end;
 }
 
 .large-justify-content-start {
-  justify-content: flex-start
+  justify-content: flex-start;
 }
 
 .large-justify-content-end {
-  justify-content: flex-end
+  justify-content: flex-end;
 }
 
 .large-justify-content-center {
-  justify-content: center
+  justify-content: center;
 }
 
 .large-justify-content-spacebetween {
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 .large-justify-content-spacearound {
-  justify-content: space-around
+  justify-content: space-around;
 }
 
 .large-justify-content-spaceevenly {
-  justify-content: space-evenly
+  justify-content: space-evenly;
 }
 
 .large-align-items-start {
-  align-items: flex-start
+  align-items: flex-start;
 }
 
 .large-align-items-center {
-  align-items: center
+  align-items: center;
 }
 
 .large-align-items-end {
-  align-items: flex-end
+  align-items: flex-end;
 }
 
 .large-align-self-start {
-  align-self: flex-start
+  align-self: flex-start;
 }
 
 .large-align-self-center {
-  align-self: center
+  align-self: center;
 }
 
 .large-align-self-end {
-  align-self: flex-end
+  align-self: flex-end;
 }
 
-@media only screen and (min-width:1441px) {
+@media only screen and (min-width: 1441px) {
   .xlarge-justify-content-start {
-    justify-content: flex-start
+    justify-content: flex-start;
   }
 
   .xlarge-justify-content-end {
-    justify-content: flex-end
+    justify-content: flex-end;
   }
 
   .xlarge-justify-content-center {
-    justify-content: center
+    justify-content: center;
   }
 
   .xlarge-justify-content-spacebetween {
-    justify-content: space-between
+    justify-content: space-between;
   }
 
   .xlarge-justify-content-spacearound {
-    justify-content: space-around
+    justify-content: space-around;
   }
 
   .xlarge-justify-content-spaceevenly {
-    justify-content: space-evenly
+    justify-content: space-evenly;
   }
 
   .xlarge-align-items-start {
-    align-items: flex-start
+    align-items: flex-start;
   }
 
   .xlarge-align-items-center {
-    align-items: center
+    align-items: center;
   }
 
   .xlarge-align-items-end {
-    align-items: flex-end
+    align-items: flex-end;
   }
 
   .xlarge-align-self-start {
-    align-self: flex-start
+    align-self: flex-start;
   }
 
   .xlarge-align-self-center {
-    align-self: center
+    align-self: center;
   }
 
   .xlarge-align-self-end {
-    align-self: flex-end
+    align-self: flex-end;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .medium-justify-content-start {
-    justify-content: flex-start
+    justify-content: flex-start;
   }
 
   .medium-justify-content-end {
-    justify-content: flex-end
+    justify-content: flex-end;
   }
 
   .medium-justify-content-center {
-    justify-content: center
+    justify-content: center;
   }
 
   .medium-justify-content-spacebetween {
-    justify-content: space-between
+    justify-content: space-between;
   }
 
   .medium-justify-content-spacearound {
-    justify-content: space-around
+    justify-content: space-around;
   }
 
   .medium-justify-content-spaceevenly {
-    justify-content: space-evenly
+    justify-content: space-evenly;
   }
 
   .medium-align-items-start {
-    align-items: flex-start
+    align-items: flex-start;
   }
 
   .medium-align-items-center {
-    align-items: center
+    align-items: center;
   }
 
   .medium-align-items-end {
-    align-items: flex-end
+    align-items: flex-end;
   }
 
   .medium-align-self-start {
-    align-self: flex-start
+    align-self: flex-start;
   }
 
   .medium-align-self-center {
-    align-self: center
+    align-self: center;
   }
 
   .medium-align-self-end {
-    align-self: flex-end
+    align-self: flex-end;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .small-justify-content-start {
-    justify-content: flex-start
+    justify-content: flex-start;
   }
 
   .small-justify-content-end {
-    justify-content: flex-end
+    justify-content: flex-end;
   }
 
   .small-justify-content-center {
-    justify-content: center
+    justify-content: center;
   }
 
   .small-justify-content-spacebetween {
-    justify-content: space-between
+    justify-content: space-between;
   }
 
   .small-justify-content-spacearound {
-    justify-content: space-around
+    justify-content: space-around;
   }
 
   .small-justify-content-spaceevenly {
-    justify-content: space-evenly
+    justify-content: space-evenly;
   }
 
   .small-align-items-start {
-    align-items: flex-start
+    align-items: flex-start;
   }
 
   .small-align-items-center {
-    align-items: center
+    align-items: center;
   }
 
   .small-align-items-end {
-    align-items: flex-end
+    align-items: flex-end;
   }
 
   .small-align-self-start {
-    align-self: flex-start
+    align-self: flex-start;
   }
 
   .small-align-self-center {
-    align-self: center
+    align-self: center;
   }
 
   .small-align-self-end {
-    align-self: flex-end
+    align-self: flex-end;
   }
 }
 
 .selfclear:after,
 .selfclear:before {
-  content: " ";
-  display: table
+  content: ' ';
+  display: table;
 }
 
 .selfclear:after {
-  clear: both
+  clear: both;
 }
 
 .visuallyhidden {
@@ -2325,33 +2625,33 @@ a[role=button] {
   height: 1px;
   width: 1px;
   padding: 0;
-  border: 0
+  border: 0;
 }
 
 @media only screen and (inverted-colors) {
   .no-inversion {
-    filter: invert(1)
+    filter: invert(1);
   }
 }
 
 .nowrap {
   display: inline-block;
   text-decoration: inherit;
-  white-space: nowrap
+  white-space: nowrap;
 }
 
 .clear {
-  clear: both
+  clear: both;
 }
 
 .cursor-grab {
   cursor: move;
-  cursor: grab
+  cursor: grab;
 }
 
 .cursor-grabbing {
   cursor: move;
-  cursor: grabbing
+  cursor: grabbing;
 }
 
 .a11y {
@@ -2363,798 +2663,798 @@ a[role=button] {
   height: 1px;
   width: 1px;
   padding: 0;
-  border: 0
+  border: 0;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  width: 100%
+  width: 100%;
 }
 
 .row-reverse {
-  flex-direction: row-reverse
+  flex-direction: row-reverse;
 }
 
 .column {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  min-width: 0
+  min-width: 0;
 }
 
 .large-offset-0 {
-  margin-left: 0
+  margin-left: 0;
 }
 
 .large-order-0 {
-  order: 0
+  order: 0;
 }
 
 .large-1 {
   flex-basis: 8.33333%;
-  max-width: 8.33333%
+  max-width: 8.33333%;
 }
 
 .large-offset-1 {
-  margin-left: 8.33333%
+  margin-left: 8.33333%;
 }
 
 .large-order-1 {
-  order: 1
+  order: 1;
 }
 
 .large-2 {
   flex-basis: 16.66667%;
-  max-width: 16.66667%
+  max-width: 16.66667%;
 }
 
 .large-offset-2 {
-  margin-left: 16.66667%
+  margin-left: 16.66667%;
 }
 
 .large-order-2 {
-  order: 2
+  order: 2;
 }
 
 .large-3 {
   flex-basis: 25%;
-  max-width: 25%
+  max-width: 25%;
 }
 
 .large-offset-3 {
-  margin-left: 25%
+  margin-left: 25%;
 }
 
 .large-order-3 {
-  order: 3
+  order: 3;
 }
 
 .large-4 {
   flex-basis: 33.33333%;
-  max-width: 33.33333%
+  max-width: 33.33333%;
 }
 
 .large-offset-4 {
-  margin-left: 33.33333%
+  margin-left: 33.33333%;
 }
 
 .large-order-4 {
-  order: 4
+  order: 4;
 }
 
 .large-5 {
   flex-basis: 41.66667%;
-  max-width: 41.66667%
+  max-width: 41.66667%;
 }
 
 .large-offset-5 {
-  margin-left: 41.66667%
+  margin-left: 41.66667%;
 }
 
 .large-order-5 {
-  order: 5
+  order: 5;
 }
 
 .large-6 {
   flex-basis: 50%;
-  max-width: 50%
+  max-width: 50%;
 }
 
 .large-offset-6 {
-  margin-left: 50%
+  margin-left: 50%;
 }
 
 .large-order-6 {
-  order: 6
+  order: 6;
 }
 
 .large-7 {
   flex-basis: 58.33333%;
-  max-width: 58.33333%
+  max-width: 58.33333%;
 }
 
 .large-offset-7 {
-  margin-left: 58.33333%
+  margin-left: 58.33333%;
 }
 
 .large-order-7 {
-  order: 7
+  order: 7;
 }
 
 .large-8 {
   flex-basis: 66.66667%;
-  max-width: 66.66667%
+  max-width: 66.66667%;
 }
 
 .large-offset-8 {
-  margin-left: 66.66667%
+  margin-left: 66.66667%;
 }
 
 .large-order-8 {
-  order: 8
+  order: 8;
 }
 
 .large-9 {
   flex-basis: 75%;
-  max-width: 75%
+  max-width: 75%;
 }
 
 .large-offset-9 {
-  margin-left: 75%
+  margin-left: 75%;
 }
 
 .large-order-9 {
-  order: 9
+  order: 9;
 }
 
 .large-10 {
   flex-basis: 83.33333%;
-  max-width: 83.33333%
+  max-width: 83.33333%;
 }
 
 .large-offset-10 {
-  margin-left: 83.33333%
+  margin-left: 83.33333%;
 }
 
 .large-order-10 {
-  order: 10
+  order: 10;
 }
 
 .large-11 {
   flex-basis: 91.66667%;
-  max-width: 91.66667%
+  max-width: 91.66667%;
 }
 
 .large-offset-11 {
-  margin-left: 91.66667%
+  margin-left: 91.66667%;
 }
 
 .large-order-11 {
-  order: 11
+  order: 11;
 }
 
 .large-12 {
   flex-basis: 100%;
-  max-width: 100%
+  max-width: 100%;
 }
 
 .large-offset-12 {
-  margin-left: 100%
+  margin-left: 100%;
 }
 
 .large-order-12 {
-  order: 12
+  order: 12;
 }
 
 .large-centered {
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
 }
 
 .large-uncentered {
   margin-left: 0;
-  margin-right: 0
+  margin-right: 0;
 }
 
 .large-last {
-  margin-left: auto
+  margin-left: auto;
 }
 
 .large-notlast {
-  margin-left: 0
+  margin-left: 0;
 }
 
 .large-grow {
   flex: auto;
-  max-width: none
+  max-width: none;
 }
 
 .large-ungrow {
   flex: initial;
-  max-width: none
+  max-width: none;
 }
 
-@media only screen and (min-width:1441px) {
+@media only screen and (min-width: 1441px) {
   .xlarge-offset-0 {
-    margin-left: 0
+    margin-left: 0;
   }
 
   .xlarge-order-0 {
-    order: 0
+    order: 0;
   }
 
   .xlarge-1 {
     flex-basis: 8.33333%;
-    max-width: 8.33333%
+    max-width: 8.33333%;
   }
 
   .xlarge-offset-1 {
-    margin-left: 8.33333%
+    margin-left: 8.33333%;
   }
 
   .xlarge-order-1 {
-    order: 1
+    order: 1;
   }
 
   .xlarge-2 {
     flex-basis: 16.66667%;
-    max-width: 16.66667%
+    max-width: 16.66667%;
   }
 
   .xlarge-offset-2 {
-    margin-left: 16.66667%
+    margin-left: 16.66667%;
   }
 
   .xlarge-order-2 {
-    order: 2
+    order: 2;
   }
 
   .xlarge-3 {
     flex-basis: 25%;
-    max-width: 25%
+    max-width: 25%;
   }
 
   .xlarge-offset-3 {
-    margin-left: 25%
+    margin-left: 25%;
   }
 
   .xlarge-order-3 {
-    order: 3
+    order: 3;
   }
 
   .xlarge-4 {
     flex-basis: 33.33333%;
-    max-width: 33.33333%
+    max-width: 33.33333%;
   }
 
   .xlarge-offset-4 {
-    margin-left: 33.33333%
+    margin-left: 33.33333%;
   }
 
   .xlarge-order-4 {
-    order: 4
+    order: 4;
   }
 
   .xlarge-5 {
     flex-basis: 41.66667%;
-    max-width: 41.66667%
+    max-width: 41.66667%;
   }
 
   .xlarge-offset-5 {
-    margin-left: 41.66667%
+    margin-left: 41.66667%;
   }
 
   .xlarge-order-5 {
-    order: 5
+    order: 5;
   }
 
   .xlarge-6 {
     flex-basis: 50%;
-    max-width: 50%
+    max-width: 50%;
   }
 
   .xlarge-offset-6 {
-    margin-left: 50%
+    margin-left: 50%;
   }
 
   .xlarge-order-6 {
-    order: 6
+    order: 6;
   }
 
   .xlarge-7 {
     flex-basis: 58.33333%;
-    max-width: 58.33333%
+    max-width: 58.33333%;
   }
 
   .xlarge-offset-7 {
-    margin-left: 58.33333%
+    margin-left: 58.33333%;
   }
 
   .xlarge-order-7 {
-    order: 7
+    order: 7;
   }
 
   .xlarge-8 {
     flex-basis: 66.66667%;
-    max-width: 66.66667%
+    max-width: 66.66667%;
   }
 
   .xlarge-offset-8 {
-    margin-left: 66.66667%
+    margin-left: 66.66667%;
   }
 
   .xlarge-order-8 {
-    order: 8
+    order: 8;
   }
 
   .xlarge-9 {
     flex-basis: 75%;
-    max-width: 75%
+    max-width: 75%;
   }
 
   .xlarge-offset-9 {
-    margin-left: 75%
+    margin-left: 75%;
   }
 
   .xlarge-order-9 {
-    order: 9
+    order: 9;
   }
 
   .xlarge-10 {
     flex-basis: 83.33333%;
-    max-width: 83.33333%
+    max-width: 83.33333%;
   }
 
   .xlarge-offset-10 {
-    margin-left: 83.33333%
+    margin-left: 83.33333%;
   }
 
   .xlarge-order-10 {
-    order: 10
+    order: 10;
   }
 
   .xlarge-11 {
     flex-basis: 91.66667%;
-    max-width: 91.66667%
+    max-width: 91.66667%;
   }
 
   .xlarge-offset-11 {
-    margin-left: 91.66667%
+    margin-left: 91.66667%;
   }
 
   .xlarge-order-11 {
-    order: 11
+    order: 11;
   }
 
   .xlarge-12 {
     flex-basis: 100%;
-    max-width: 100%
+    max-width: 100%;
   }
 
   .xlarge-offset-12 {
-    margin-left: 100%
+    margin-left: 100%;
   }
 
   .xlarge-order-12 {
-    order: 12
+    order: 12;
   }
 
   .xlarge-centered {
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
   }
 
   .xlarge-uncentered {
     margin-left: 0;
-    margin-right: 0
+    margin-right: 0;
   }
 
   .xlarge-last {
-    margin-left: auto
+    margin-left: auto;
   }
 
   .xlarge-notlast {
-    margin-left: 0
+    margin-left: 0;
   }
 
   .xlarge-grow {
     flex: auto;
-    max-width: none
+    max-width: none;
   }
 
   .xlarge-ungrow {
     flex: initial;
-    max-width: none
+    max-width: none;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .medium-offset-0 {
-    margin-left: 0
+    margin-left: 0;
   }
 
   .medium-order-0 {
-    order: 0
+    order: 0;
   }
 
   .medium-1 {
     flex-basis: 8.33333%;
-    max-width: 8.33333%
+    max-width: 8.33333%;
   }
 
   .medium-offset-1 {
-    margin-left: 8.33333%
+    margin-left: 8.33333%;
   }
 
   .medium-order-1 {
-    order: 1
+    order: 1;
   }
 
   .medium-2 {
     flex-basis: 16.66667%;
-    max-width: 16.66667%
+    max-width: 16.66667%;
   }
 
   .medium-offset-2 {
-    margin-left: 16.66667%
+    margin-left: 16.66667%;
   }
 
   .medium-order-2 {
-    order: 2
+    order: 2;
   }
 
   .medium-3 {
     flex-basis: 25%;
-    max-width: 25%
+    max-width: 25%;
   }
 
   .medium-offset-3 {
-    margin-left: 25%
+    margin-left: 25%;
   }
 
   .medium-order-3 {
-    order: 3
+    order: 3;
   }
 
   .medium-4 {
     flex-basis: 33.33333%;
-    max-width: 33.33333%
+    max-width: 33.33333%;
   }
 
   .medium-offset-4 {
-    margin-left: 33.33333%
+    margin-left: 33.33333%;
   }
 
   .medium-order-4 {
-    order: 4
+    order: 4;
   }
 
   .medium-5 {
     flex-basis: 41.66667%;
-    max-width: 41.66667%
+    max-width: 41.66667%;
   }
 
   .medium-offset-5 {
-    margin-left: 41.66667%
+    margin-left: 41.66667%;
   }
 
   .medium-order-5 {
-    order: 5
+    order: 5;
   }
 
   .medium-6 {
     flex-basis: 50%;
-    max-width: 50%
+    max-width: 50%;
   }
 
   .medium-offset-6 {
-    margin-left: 50%
+    margin-left: 50%;
   }
 
   .medium-order-6 {
-    order: 6
+    order: 6;
   }
 
   .medium-7 {
     flex-basis: 58.33333%;
-    max-width: 58.33333%
+    max-width: 58.33333%;
   }
 
   .medium-offset-7 {
-    margin-left: 58.33333%
+    margin-left: 58.33333%;
   }
 
   .medium-order-7 {
-    order: 7
+    order: 7;
   }
 
   .medium-8 {
     flex-basis: 66.66667%;
-    max-width: 66.66667%
+    max-width: 66.66667%;
   }
 
   .medium-offset-8 {
-    margin-left: 66.66667%
+    margin-left: 66.66667%;
   }
 
   .medium-order-8 {
-    order: 8
+    order: 8;
   }
 
   .medium-9 {
     flex-basis: 75%;
-    max-width: 75%
+    max-width: 75%;
   }
 
   .medium-offset-9 {
-    margin-left: 75%
+    margin-left: 75%;
   }
 
   .medium-order-9 {
-    order: 9
+    order: 9;
   }
 
   .medium-10 {
     flex-basis: 83.33333%;
-    max-width: 83.33333%
+    max-width: 83.33333%;
   }
 
   .medium-offset-10 {
-    margin-left: 83.33333%
+    margin-left: 83.33333%;
   }
 
   .medium-order-10 {
-    order: 10
+    order: 10;
   }
 
   .medium-11 {
     flex-basis: 91.66667%;
-    max-width: 91.66667%
+    max-width: 91.66667%;
   }
 
   .medium-offset-11 {
-    margin-left: 91.66667%
+    margin-left: 91.66667%;
   }
 
   .medium-order-11 {
-    order: 11
+    order: 11;
   }
 
   .medium-12 {
     flex-basis: 100%;
-    max-width: 100%
+    max-width: 100%;
   }
 
   .medium-offset-12 {
-    margin-left: 100%
+    margin-left: 100%;
   }
 
   .medium-order-12 {
-    order: 12
+    order: 12;
   }
 
   .medium-centered {
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
   }
 
   .medium-uncentered {
     margin-left: 0;
-    margin-right: 0
+    margin-right: 0;
   }
 
   .medium-last {
-    margin-left: auto
+    margin-left: auto;
   }
 
   .medium-notlast {
-    margin-left: 0
+    margin-left: 0;
   }
 
   .medium-grow {
     flex: auto;
-    max-width: none
+    max-width: none;
   }
 
   .medium-ungrow {
     flex: initial;
-    max-width: none
+    max-width: none;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .small-offset-0 {
-    margin-left: 0
+    margin-left: 0;
   }
 
   .small-order-0 {
-    order: 0
+    order: 0;
   }
 
   .small-1 {
     flex-basis: 8.33333%;
-    max-width: 8.33333%
+    max-width: 8.33333%;
   }
 
   .small-offset-1 {
-    margin-left: 8.33333%
+    margin-left: 8.33333%;
   }
 
   .small-order-1 {
-    order: 1
+    order: 1;
   }
 
   .small-2 {
     flex-basis: 16.66667%;
-    max-width: 16.66667%
+    max-width: 16.66667%;
   }
 
   .small-offset-2 {
-    margin-left: 16.66667%
+    margin-left: 16.66667%;
   }
 
   .small-order-2 {
-    order: 2
+    order: 2;
   }
 
   .small-3 {
     flex-basis: 25%;
-    max-width: 25%
+    max-width: 25%;
   }
 
   .small-offset-3 {
-    margin-left: 25%
+    margin-left: 25%;
   }
 
   .small-order-3 {
-    order: 3
+    order: 3;
   }
 
   .small-4 {
     flex-basis: 33.33333%;
-    max-width: 33.33333%
+    max-width: 33.33333%;
   }
 
   .small-offset-4 {
-    margin-left: 33.33333%
+    margin-left: 33.33333%;
   }
 
   .small-order-4 {
-    order: 4
+    order: 4;
   }
 
   .small-5 {
     flex-basis: 41.66667%;
-    max-width: 41.66667%
+    max-width: 41.66667%;
   }
 
   .small-offset-5 {
-    margin-left: 41.66667%
+    margin-left: 41.66667%;
   }
 
   .small-order-5 {
-    order: 5
+    order: 5;
   }
 
   .small-6 {
     flex-basis: 50%;
-    max-width: 50%
+    max-width: 50%;
   }
 
   .small-offset-6 {
-    margin-left: 50%
+    margin-left: 50%;
   }
 
   .small-order-6 {
-    order: 6
+    order: 6;
   }
 
   .small-7 {
     flex-basis: 58.33333%;
-    max-width: 58.33333%
+    max-width: 58.33333%;
   }
 
   .small-offset-7 {
-    margin-left: 58.33333%
+    margin-left: 58.33333%;
   }
 
   .small-order-7 {
-    order: 7
+    order: 7;
   }
 
   .small-8 {
     flex-basis: 66.66667%;
-    max-width: 66.66667%
+    max-width: 66.66667%;
   }
 
   .small-offset-8 {
-    margin-left: 66.66667%
+    margin-left: 66.66667%;
   }
 
   .small-order-8 {
-    order: 8
+    order: 8;
   }
 
   .small-9 {
     flex-basis: 75%;
-    max-width: 75%
+    max-width: 75%;
   }
 
   .small-offset-9 {
-    margin-left: 75%
+    margin-left: 75%;
   }
 
   .small-order-9 {
-    order: 9
+    order: 9;
   }
 
   .small-10 {
     flex-basis: 83.33333%;
-    max-width: 83.33333%
+    max-width: 83.33333%;
   }
 
   .small-offset-10 {
-    margin-left: 83.33333%
+    margin-left: 83.33333%;
   }
 
   .small-order-10 {
-    order: 10
+    order: 10;
   }
 
   .small-11 {
     flex-basis: 91.66667%;
-    max-width: 91.66667%
+    max-width: 91.66667%;
   }
 
   .small-offset-11 {
-    margin-left: 91.66667%
+    margin-left: 91.66667%;
   }
 
   .small-order-11 {
-    order: 11
+    order: 11;
   }
 
   .small-12 {
     flex-basis: 100%;
-    max-width: 100%
+    max-width: 100%;
   }
 
   .small-offset-12 {
-    margin-left: 100%
+    margin-left: 100%;
   }
 
   .small-order-12 {
-    order: 12
+    order: 12;
   }
 
   .small-centered {
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
   }
 
   .small-uncentered {
     margin-left: 0;
-    margin-right: 0
+    margin-right: 0;
   }
 
   .small-last {
-    margin-left: auto
+    margin-left: auto;
   }
 
   .small-notlast {
-    margin-left: 0
+    margin-left: 0;
   }
 
   .small-grow {
     flex: auto;
-    max-width: none
+    max-width: none;
   }
 
   .small-ungrow {
     flex: initial;
-    max-width: none
+    max-width: none;
   }
 }
 
@@ -3162,267 +3462,269 @@ a[role=button] {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  min-width: 0
+  min-width: 0;
 }
 
 .row-reverse .large-offset-0 {
-  margin-right: 0
+  margin-right: 0;
 }
 
 .row-reverse .large-offset-1 {
-  margin-right: 8.33333%
+  margin-right: 8.33333%;
 }
 
 .row-reverse .large-offset-2 {
-  margin-right: 16.66667%
+  margin-right: 16.66667%;
 }
 
 .row-reverse .large-offset-3 {
-  margin-right: 25%
+  margin-right: 25%;
 }
 
 .row-reverse .large-offset-4 {
-  margin-right: 33.33333%
+  margin-right: 33.33333%;
 }
 
 .row-reverse .large-offset-5 {
-  margin-right: 41.66667%
+  margin-right: 41.66667%;
 }
 
 .row-reverse .large-offset-6 {
-  margin-right: 50%
+  margin-right: 50%;
 }
 
 .row-reverse .large-offset-7 {
-  margin-right: 58.33333%
+  margin-right: 58.33333%;
 }
 
 .row-reverse .large-offset-8 {
-  margin-right: 66.66667%
+  margin-right: 66.66667%;
 }
 
 .row-reverse .large-offset-9 {
-  margin-right: 75%
+  margin-right: 75%;
 }
 
 .row-reverse .large-offset-10 {
-  margin-right: 83.33333%
+  margin-right: 83.33333%;
 }
 
 .row-reverse .large-offset-11 {
-  margin-right: 91.66667%
+  margin-right: 91.66667%;
 }
 
 .row-reverse .large-offset-12 {
-  margin-right: 100%
+  margin-right: 100%;
 }
 
 .row-reverse .large-last {
-  margin-right: auto
+  margin-right: auto;
 }
 
 .row-reverse .large-notlast {
-  margin-right: 0
+  margin-right: 0;
 }
 
-@media only screen and (min-width:1441px) {
+@media only screen and (min-width: 1441px) {
   .row-reverse .xlarge-offset-0 {
-    margin-right: 0
+    margin-right: 0;
   }
 
   .row-reverse .xlarge-offset-1 {
-    margin-right: 8.33333%
+    margin-right: 8.33333%;
   }
 
   .row-reverse .xlarge-offset-2 {
-    margin-right: 16.66667%
+    margin-right: 16.66667%;
   }
 
   .row-reverse .xlarge-offset-3 {
-    margin-right: 25%
+    margin-right: 25%;
   }
 
   .row-reverse .xlarge-offset-4 {
-    margin-right: 33.33333%
+    margin-right: 33.33333%;
   }
 
   .row-reverse .xlarge-offset-5 {
-    margin-right: 41.66667%
+    margin-right: 41.66667%;
   }
 
   .row-reverse .xlarge-offset-6 {
-    margin-right: 50%
+    margin-right: 50%;
   }
 
   .row-reverse .xlarge-offset-7 {
-    margin-right: 58.33333%
+    margin-right: 58.33333%;
   }
 
   .row-reverse .xlarge-offset-8 {
-    margin-right: 66.66667%
+    margin-right: 66.66667%;
   }
 
   .row-reverse .xlarge-offset-9 {
-    margin-right: 75%
+    margin-right: 75%;
   }
 
   .row-reverse .xlarge-offset-10 {
-    margin-right: 83.33333%
+    margin-right: 83.33333%;
   }
 
   .row-reverse .xlarge-offset-11 {
-    margin-right: 91.66667%
+    margin-right: 91.66667%;
   }
 
   .row-reverse .xlarge-offset-12 {
-    margin-right: 100%
+    margin-right: 100%;
   }
 
   .row-reverse .xlarge-last {
-    margin-right: auto
+    margin-right: auto;
   }
 
   .row-reverse .xlarge-notlast {
-    margin-right: 0
+    margin-right: 0;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .row-reverse .medium-offset-0 {
-    margin-right: 0
+    margin-right: 0;
   }
 
   .row-reverse .medium-offset-1 {
-    margin-right: 8.33333%
+    margin-right: 8.33333%;
   }
 
   .row-reverse .medium-offset-2 {
-    margin-right: 16.66667%
+    margin-right: 16.66667%;
   }
 
   .row-reverse .medium-offset-3 {
-    margin-right: 25%
+    margin-right: 25%;
   }
 
   .row-reverse .medium-offset-4 {
-    margin-right: 33.33333%
+    margin-right: 33.33333%;
   }
 
   .row-reverse .medium-offset-5 {
-    margin-right: 41.66667%
+    margin-right: 41.66667%;
   }
 
   .row-reverse .medium-offset-6 {
-    margin-right: 50%
+    margin-right: 50%;
   }
 
   .row-reverse .medium-offset-7 {
-    margin-right: 58.33333%
+    margin-right: 58.33333%;
   }
 
   .row-reverse .medium-offset-8 {
-    margin-right: 66.66667%
+    margin-right: 66.66667%;
   }
 
   .row-reverse .medium-offset-9 {
-    margin-right: 75%
+    margin-right: 75%;
   }
 
   .row-reverse .medium-offset-10 {
-    margin-right: 83.33333%
+    margin-right: 83.33333%;
   }
 
   .row-reverse .medium-offset-11 {
-    margin-right: 91.66667%
+    margin-right: 91.66667%;
   }
 
   .row-reverse .medium-offset-12 {
-    margin-right: 100%
+    margin-right: 100%;
   }
 
   .row-reverse .medium-last {
-    margin-right: auto
+    margin-right: auto;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
 
   .row-reverse .medium-notlast,
   .row-reverse .small-offset-0 {
-    margin-right: 0
+    margin-right: 0;
   }
 
   .row-reverse .small-offset-1 {
-    margin-right: 8.33333%
+    margin-right: 8.33333%;
   }
 
   .row-reverse .small-offset-2 {
-    margin-right: 16.66667%
+    margin-right: 16.66667%;
   }
 
   .row-reverse .small-offset-3 {
-    margin-right: 25%
+    margin-right: 25%;
   }
 
   .row-reverse .small-offset-4 {
-    margin-right: 33.33333%
+    margin-right: 33.33333%;
   }
 
   .row-reverse .small-offset-5 {
-    margin-right: 41.66667%
+    margin-right: 41.66667%;
   }
 
   .row-reverse .small-offset-6 {
-    margin-right: 50%
+    margin-right: 50%;
   }
 
   .row-reverse .small-offset-7 {
-    margin-right: 58.33333%
+    margin-right: 58.33333%;
   }
 
   .row-reverse .small-offset-8 {
-    margin-right: 66.66667%
+    margin-right: 66.66667%;
   }
 
   .row-reverse .small-offset-9 {
-    margin-right: 75%
+    margin-right: 75%;
   }
 
   .row-reverse .small-offset-10 {
-    margin-right: 83.33333%
+    margin-right: 83.33333%;
   }
 
   .row-reverse .small-offset-11 {
-    margin-right: 91.66667%
+    margin-right: 91.66667%;
   }
 
   .row-reverse .small-offset-12 {
-    margin-right: 100%
+    margin-right: 100%;
   }
 
   .row-reverse .small-last {
-    margin-right: auto
+    margin-right: auto;
   }
 
   .row-reverse .small-notlast {
-    margin-right: 0
+    margin-right: 0;
   }
 }
 
 .as-grid {
   display: flex;
-  flex-wrap: wrap
+  flex-wrap: wrap;
 }
 
 .as-grid-item {
-  flex: 0 auto
+  flex: 0 auto;
 }
 
 .icon:after,
 .icon:before,
 .more:after,
 .more:before {
-  font-family: SF Pro Icons, AOS Icons;
+  font-family:
+    SF Pro Icons,
+    AOS Icons;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -3432,48 +3734,48 @@ a[role=button] {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: "";
-  text-decoration: none
+  alt: '';
+  text-decoration: none;
 }
 
 .icon:before,
 .more:before {
-  display: none
+  display: none;
 }
 
 .icon-after:after,
 .more:after {
-  padding-left: .3em;
-  top: 0
+  padding-left: 0.3em;
+  top: 0;
 }
 
 .icon-before:before {
-  padding-right: .3em;
+  padding-right: 0.3em;
   display: inline-block;
-  top: 0
+  top: 0;
 }
 
 .icon-before:after {
-  display: none
+  display: none;
 }
 
 .icon-before.icon-apple:before {
   padding-right: 0;
   display: inline-block;
-  top: 0
+  top: 0;
 }
 
 .icon-before.icon-apple:after {
-  display: none
+  display: none;
 }
 
 .icon-apple:after,
 .icon-apple:before {
-  content: ""
+  content: '';
 }
 
 .more-block {
-  margin-top: .5em
+  margin-top: 0.5em;
 }
 
 .icon-wrapper .icon,
@@ -3481,23 +3783,23 @@ a[role=button] {
 .icon-wrapper .icon-before:before,
 .icon-wrapper .more:not(.icon-before):after {
   display: inline;
-  position: static
+  position: static;
 }
 
 a.icon-wrapper {
-  text-decoration: none
+  text-decoration: none;
 }
 
 a.icon-wrapper:hover .icon-copy {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
-html[dir=rtl] .icon-wrapper {
-  unicode-bidi: bidi-override
+html[dir='rtl'] .icon-wrapper {
+  unicode-bidi: bidi-override;
 }
 
-html[dir=rtl] .icon-copy {
-  unicode-bidi: embed
+html[dir='rtl'] .icon-copy {
+  unicode-bidi: embed;
 }
 
 @font-face {
@@ -3505,103 +3807,106 @@ html[dir=rtl] .icon-copy {
   font-style: normal;
   font-weight: 400;
   src: url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.eot);
-  src: url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.eot#iefix) format("embedded-opentype"), url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.woff) format("woff"), url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.ttf) format("truetype")
+  src:
+    url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.eot#iefix) format('embedded-opentype'),
+    url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.woff) format('woff'),
+    url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.ttf) format('truetype');
 }
 
 body {
-  min-width: 320px
+  min-width: 320px;
 }
 
 .large-hide {
-  display: none
+  display: none;
 }
 
 .large-show {
-  display: block
+  display: block;
 }
 
 .large-show-inline {
-  display: inline
+  display: inline;
 }
 
 .large-show-inlineblock {
-  display: inline-block
+  display: inline-block;
 }
 
-@media only screen and (min-width:1441px) {
+@media only screen and (min-width: 1441px) {
   .xlarge-hide {
-    display: none
+    display: none;
   }
 
   .xlarge-show {
-    display: block
+    display: block;
   }
 
   .xlarge-show-inline {
-    display: inline
+    display: inline;
   }
 
   .xlarge-show-inlineblock {
-    display: inline-block
+    display: inline-block;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .medium-hide {
-    display: none
+    display: none;
   }
 
   .medium-show {
-    display: block
+    display: block;
   }
 
   .medium-show-inline {
-    display: inline
+    display: inline;
   }
 
   .medium-show-inlineblock {
-    display: inline-block
+    display: inline-block;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .small-hide {
-    display: none
+    display: none;
   }
 
   .small-show {
-    display: block
+    display: block;
   }
 
   .small-show-inline {
-    display: inline
+    display: inline;
   }
 
   .small-show-inlineblock {
-    display: inline-block
+    display: inline-block;
   }
 }
 
 .viewport-content {
   margin-left: auto;
   margin-right: auto;
-  width: 980px
+  width: 980px;
 }
 
-@media only screen and (min-width:1441px) {
+@media only screen and (min-width: 1441px) {
   .viewport-content {
     margin-left: auto;
     margin-right: auto;
-    width: 980px
+    width: 980px;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .viewport-content {
     margin-left: auto;
     margin-right: auto;
     width: 94.14966%;
-    width: 87.5%
+    width: 87.5%;
   }
 }
 
@@ -3610,82 +3915,82 @@ body {
   width: 0;
   height: 0;
   overflow: hidden;
-  visibility: hidden
+  visibility: hidden;
 }
 
 #rr-viewport:before {
-  content: "large"
+  content: 'large';
 }
 
-@media only screen and (min-width:1441px) {
+@media only screen and (min-width: 1441px) {
   #rr-viewport:before {
-    content: "xlarge"
+    content: 'xlarge';
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   #rr-viewport:before {
-    content: "medium";
-    content: "small"
+    content: 'medium';
+    content: 'small';
   }
 }
 
 .as-l-container {
   margin-left: auto;
   margin-right: auto;
-  width: 980px
+  width: 980px;
 }
 
-@media only screen and (min-width:1441px) {
+@media only screen and (min-width: 1441px) {
   .as-l-container {
     margin-left: auto;
     margin-right: auto;
-    width: 980px
+    width: 980px;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .as-l-container {
     margin-left: auto;
     margin-right: auto;
     width: 94.14966%;
-    width: 87.5%
+    width: 87.5%;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .as-l-container-mobileoverflow {
     -webkit-overflow-scrolling: touch;
     overflow-x: auto;
     white-space: nowrap;
-    width: auto
+    width: auto;
   }
 
   .as-l-container-mobileoverflow::-webkit-scrollbar {
-    display: none
+    display: none;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .as-l-container-mobileoverflow-content {
     box-sizing: border-box;
     display: inline-block;
-    min-width: 100%
+    min-width: 100%;
   }
 }
 
-@media only screen and (max-width:1068px) and (max-width:1068px) {
+@media only screen and (max-width: 1068px) and (max-width: 1068px) {
   .as-l-container-mobileoverflow-content {
     width: auto;
     padding-left: calc((100vw - 87.5%) / 2);
-    padding-right: calc((100vw - 87.5%) / 2)
+    padding-right: calc((100vw - 87.5%) / 2);
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .as-l-container-full-small {
     margin-left: -7.14286%;
-    margin-right: -7.14286%
+    margin-right: -7.14286%;
   }
 }
 
@@ -3693,23 +3998,23 @@ body {
   box-sizing: border-box;
   max-width: 1439px;
   min-width: 320px;
-  width: 100%
+  width: 100%;
 }
 
 .as-l-bleedcolumn-left,
 .as-l-bleedcolumn-right {
-  width: 490px
+  width: 490px;
 }
 
 .as-l-bleedcolumn-left {
-  margin-left: auto
+  margin-left: auto;
 }
 
 .as-l-bleedcolumn-right {
-  margin-right: auto
+  margin-right: auto;
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
 
   .as-l-bleedcolumn-left,
   .as-l-bleedcolumn-leftbleed,
@@ -3717,18 +4022,18 @@ body {
   .as-l-bleedcolumn-rightbleed {
     width: 87.5%;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
   }
 }
 
 .as-l-fullwidth {
   width: 100%;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .theme-dark {
-  --sk-link-disabled-opacity: .36;
-  background-color: #000
+  --sk-link-disabled-opacity: 0.36;
+  background-color: #000;
 }
 
 .theme-dark,
@@ -3738,45 +4043,45 @@ body {
 .theme-dark h4,
 .theme-dark h5,
 .theme-dark h6 {
-  color: #f5f5f7
+  color: #f5f5f7;
 }
 
 .theme-dark .link,
 .theme-dark a {
-  color: #2997ff
+  color: #2997ff;
 }
 
 .theme-dark .footnote a {
-  color: inherit
+  color: inherit;
 }
 
 .theme-dark .footnote a:hover {
-  color: #2997ff
+  color: #2997ff;
 }
 
 .rs-covers {
-  text-align: center
+  text-align: center;
 }
 
 .rs-covers .rc-videoplayer-playing .rc-videoplayer-poster {
-  transition-delay: .5s;
+  transition-delay: 0.5s;
   opacity: 0;
-  pointer-events: none
+  pointer-events: none;
 }
 
-@media (prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion: reduce) {
   .rs-covers .rc-videoplayer .rc-videoplayer-poster {
-    opacity: 1
+    opacity: 1;
   }
 }
 
-@media (prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion: reduce) {
   .rc-videoplayer .rs-covers-media {
-    opacity: 0
+    opacity: 0;
   }
 
   .rs-covers-mediabtn {
-    display: none
+    display: none;
   }
 }
 
@@ -3785,86 +4090,86 @@ body {
   min-height: 650px;
   display: flex;
   align-items: center;
-  flex-direction: column
+  flex-direction: column;
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .rs-covers-container {
     min-height: calc(100vh - 48px - 36px);
-    margin: auto
+    margin: auto;
   }
 }
 
 .rs-covers-transtion {
-  transition-duration: .2s
+  transition-duration: 0.2s;
 }
 
 .rs-covers-media-wrapper {
   z-index: 1;
   width: 260px;
   height: 316px;
-  min-height: auto
+  min-height: auto;
 }
 
 .rs-covers-media-wrapper .rc-videoplayer {
-  min-height: auto
+  min-height: auto;
 }
 
 .rs-covers-media,
 .rs-covers-media-image {
   display: block;
   width: 260px;
-  height: 316px
+  height: 316px;
 }
 
 .rs-covers-media {
   position: absolute;
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent
+  -webkit-tap-highlight-color: transparent;
 }
 
 .rs-covers-media-fullscreen.rs-covers-container {
   min-height: calc(100vh - 44px - 36px);
-  height: unset
+  height: unset;
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .rs-covers-media-fullscreen.rs-covers-container {
     width: 87%;
-    min-height: calc(100vh - 48px - 36px)
+    min-height: calc(100vh - 48px - 36px);
   }
 }
 
 .rs-covers-media-fullscreen .rs-covers-media-container {
-  height: calc(100vh - 44px - 36px)
+  height: calc(100vh - 44px - 36px);
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .rs-covers-media-fullscreen .rs-covers-media-container {
-    height: calc(100vh - 48px - 36px)
+    height: calc(100vh - 48px - 36px);
   }
 }
 
 .rs-covers-media-fullscreen .rs-covers-media-wrapper {
   width: 100%;
-  height: 100%
+  height: 100%;
 }
 
 .rs-covers-media-fullscreen .rs-covers-media {
   margin: 0 auto;
-  position: static
+  position: static;
 }
 
 .rs-covers-media-fullscreen .rc-videoplayer-poster {
   bottom: 0;
   height: 100%;
-  justify-content: center
+  justify-content: center;
 }
 
 .rs-covers-media-fullscreen .rc-videoplayer-poster img {
   margin: auto;
   height: 100%;
-  object-fit: contain
+  object-fit: contain;
 }
 
 .rs-covers-media-fullscreen .rs-covers-content-container {
@@ -3873,39 +4178,39 @@ body {
   margin: 0 auto;
   z-index: 1;
   display: flex;
-  flex-direction: column
+  flex-direction: column;
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .rs-covers-media-fullscreen .rs-covers-content-container {
-    width: 87%
+    width: 87%;
   }
 }
 
 .rs-covers-media-fullscreen .rs-covers-media-image {
   width: 100%;
   height: 100%;
-  object-fit: contain
+  object-fit: contain;
 }
 
 .rs-covers-textovervideo {
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .rs-covers-textovervideo {
     height: unset;
-    min-height: calc(100vh - 48px - 36px)
+    min-height: calc(100vh - 48px - 36px);
   }
 }
 
 .rs-covers-textovervideo .rs-covers-content {
-  position: absolute
+  position: absolute;
 }
 
 .rs-covers-media-centered.rs-covers-container {
-  justify-content: center
+  justify-content: center;
 }
 
 .rs-covers-mediabtn {
@@ -3920,21 +4225,21 @@ body {
   z-index: 2;
   opacity: 0;
   cursor: none;
-  pointer-events: none
+  pointer-events: none;
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .rs-covers-mediabtn {
     top: 65px;
     width: 35px;
     height: 35px;
     right: 17px;
-    font-size: 18px
+    font-size: 18px;
   }
 }
 
 .as-keyboarduser .rs-covers-mediabtn {
-  opacity: 1
+  opacity: 1;
 }
 
 .icon-thumbnailpause:after,
@@ -3942,16 +4247,16 @@ body {
 .icon-thumbnailplay:after,
 .icon-thumbnailplay:before {
   color: #888;
-  padding-left: 16px
+  padding-left: 16px;
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
 
   .icon-thumbnailpause:after,
   .icon-thumbnailpause:before,
   .icon-thumbnailplay:after,
   .icon-thumbnailplay:before {
-    padding-left: 10px
+    padding-left: 10px;
   }
 }
 
@@ -3959,268 +4264,708 @@ body {
   font-size: 80px;
   line-height: 1.05;
   font-weight: 600;
-  letter-spacing: -.015em;
-  font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
-  padding-top: 50px
+  letter-spacing: -0.015em;
+  font-family:
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+  padding-top: 50px;
 }
 
 .rs-covers-heading:lang(ar) {
   line-height: 1.2;
   letter-spacing: 0;
-  font-family: SF Pro AR, SF Pro AR Display, SF Pro Display, SF Pro Gulf, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro AR,
+    SF Pro AR Display,
+    SF Pro Display,
+    SF Pro Gulf,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-heading:lang(ja) {
   line-height: 1.0875;
   letter-spacing: 0;
-  font-family: SF Pro JP, SF Pro Display, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ヒラギノ角ゴ Pro W3, メイリオ, Meiryo, ＭＳ Ｐゴシック, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro JP,
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    Hiragino Kaku Gothic Pro,
+    ヒラギノ角ゴ Pro W3,
+    メイリオ,
+    Meiryo,
+    ＭＳ Ｐゴシック,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-heading:lang(ko) {
   line-height: 1.15;
   letter-spacing: 0;
-  font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro KR,
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    Apple Gothic,
+    HY Gulim,
+    MalgunGothic,
+    HY Dotum,
+    Lexi Gulim,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-heading:lang(zh) {
   line-height: 1.0875;
-  letter-spacing: 0
+  letter-spacing: 0;
 }
 
 .rs-covers-heading:lang(th) {
   line-height: 1.35;
-  font-family: SF Pro TH, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TH,
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-heading:lang(zh-CN) {
-  font-family: SF Pro SC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro SC,
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang SC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-heading:lang(zh-HK) {
-  font-family: SF Pro HK, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-heading:lang(zh-MO) {
-  font-family: SF Pro HK, SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro TC,
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-heading:lang(zh-TW) {
-  font-family: SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TC,
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang TC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .rs-covers-heading {
     font-size: 48px;
     line-height: 1.08349;
     font-weight: 600;
-    letter-spacing: -.003em;
-    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    letter-spacing: -0.003em;
+    font-family:
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ar) {
     line-height: 1.25;
     letter-spacing: 0;
-    font-family: SF Pro AR, SF Pro AR Display, SF Pro Display, SF Pro Gulf, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro AR,
+      SF Pro AR Display,
+      SF Pro Display,
+      SF Pro Gulf,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ja) {
     line-height: 1.14599;
     letter-spacing: 0;
-    font-family: SF Pro JP, SF Pro Display, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ヒラギノ角ゴ Pro W3, メイリオ, Meiryo, ＭＳ Ｐゴシック, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro JP,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Hiragino Kaku Gothic Pro,
+      ヒラギノ角ゴ Pro W3,
+      メイリオ,
+      Meiryo,
+      ＭＳ Ｐゴシック,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ko) {
     line-height: 1.1875;
     letter-spacing: 0;
-    font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro KR,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Apple Gothic,
+      HY Gulim,
+      MalgunGothic,
+      HY Dotum,
+      Lexi Gulim,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh) {
-    letter-spacing: 0
+    letter-spacing: 0;
   }
 
   .rs-covers-heading:lang(th) {
     line-height: 1.33349;
-    font-family: SF Pro TH, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TH,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-CN) {
-    font-family: SF Pro SC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro SC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang SC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-HK) {
-    font-family: SF Pro HK, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-MO) {
-    font-family: SF Pro HK, SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-TW) {
-    font-family: SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang TC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .rs-covers-heading {
     font-size: 64px;
     line-height: 1.0625;
     font-weight: 600;
-    letter-spacing: -.009em;
-    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    letter-spacing: -0.009em;
+    font-family:
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ar) {
     line-height: 1.20312;
     letter-spacing: 0;
-    font-family: SF Pro AR, SF Pro AR Display, SF Pro Display, SF Pro Gulf, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro AR,
+      SF Pro AR Display,
+      SF Pro Display,
+      SF Pro Gulf,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ja) {
     line-height: 1.10938;
     letter-spacing: 0;
-    font-family: SF Pro JP, SF Pro Display, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ヒラギノ角ゴ Pro W3, メイリオ, Meiryo, ＭＳ Ｐゴシック, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro JP,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Hiragino Kaku Gothic Pro,
+      ヒラギノ角ゴ Pro W3,
+      メイリオ,
+      Meiryo,
+      ＭＳ Ｐゴシック,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ko) {
     line-height: 1.17188;
     letter-spacing: 0;
-    font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro KR,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Apple Gothic,
+      HY Gulim,
+      MalgunGothic,
+      HY Dotum,
+      Lexi Gulim,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh) {
     line-height: 1.09375;
-    letter-spacing: 0
+    letter-spacing: 0;
   }
 
   .rs-covers-heading:lang(th) {
     line-height: 1.34375;
-    font-family: SF Pro TH, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TH,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-CN) {
-    font-family: SF Pro SC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro SC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang SC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-HK) {
-    font-family: SF Pro HK, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-MO) {
-    font-family: SF Pro HK, SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-TW) {
-    font-family: SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang TC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 }
 
-@media only screen and (max-width:1068px) and (max-width:1068px) {
+@media only screen and (max-width: 1068px) and (max-width: 1068px) {
   .rs-covers-heading {
     font-size: 48px;
     line-height: 1.08349;
     font-weight: 600;
-    letter-spacing: -.003em;
-    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    letter-spacing: -0.003em;
+    font-family:
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ar) {
     line-height: 1.25;
     letter-spacing: 0;
-    font-family: SF Pro AR, SF Pro AR Display, SF Pro Display, SF Pro Gulf, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro AR,
+      SF Pro AR Display,
+      SF Pro Display,
+      SF Pro Gulf,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ja) {
     line-height: 1.14599;
     letter-spacing: 0;
-    font-family: SF Pro JP, SF Pro Display, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ヒラギノ角ゴ Pro W3, メイリオ, Meiryo, ＭＳ Ｐゴシック, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro JP,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Hiragino Kaku Gothic Pro,
+      ヒラギノ角ゴ Pro W3,
+      メイリオ,
+      Meiryo,
+      ＭＳ Ｐゴシック,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ko) {
     line-height: 1.1875;
     letter-spacing: 0;
-    font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro KR,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Apple Gothic,
+      HY Gulim,
+      MalgunGothic,
+      HY Dotum,
+      Lexi Gulim,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh) {
-    letter-spacing: 0
+    letter-spacing: 0;
   }
 
   .rs-covers-heading:lang(th) {
     line-height: 1.33349;
-    font-family: SF Pro TH, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TH,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-CN) {
-    font-family: SF Pro SC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro SC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang SC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-HK) {
-    font-family: SF Pro HK, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-MO) {
-    font-family: SF Pro HK, SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-TW) {
-    font-family: SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang TC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 }
 
-@media only screen and (max-width:1068px) and (max-width:1068px) {
+@media only screen and (max-width: 1068px) and (max-width: 1068px) {
   .rs-covers-heading {
     font-size: 40px;
     line-height: 1.1;
     font-weight: 600;
     letter-spacing: 0;
-    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ar) {
     line-height: 1.3;
-    font-family: SF Pro AR, SF Pro AR Display, SF Pro Display, SF Pro Gulf, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro AR,
+      SF Pro AR Display,
+      SF Pro Display,
+      SF Pro Gulf,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ja) {
     line-height: 1.175;
-    font-family: SF Pro JP, SF Pro Display, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ヒラギノ角ゴ Pro W3, メイリオ, Meiryo, ＭＳ Ｐゴシック, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro JP,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Hiragino Kaku Gothic Pro,
+      ヒラギノ角ゴ Pro W3,
+      メイリオ,
+      Meiryo,
+      ＭＳ Ｐゴシック,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(ko) {
     line-height: 1.2;
-    font-family: SF Pro KR, SF Pro Display, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro KR,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Apple Gothic,
+      HY Gulim,
+      MalgunGothic,
+      HY Dotum,
+      Lexi Gulim,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(th) {
     line-height: 1.35;
-    font-family: SF Pro TH, SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TH,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-CN) {
-    font-family: SF Pro SC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro SC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang SC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-HK) {
-    font-family: SF Pro HK, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-MO) {
-    font-family: SF Pro HK, SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro HK,
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang HK,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 
   .rs-covers-heading:lang(zh-TW) {
-    font-family: SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+    font-family:
+      SF Pro TC,
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      PingFang TC,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 }
 
 .rs-covers-partial {
-  width: 518px
+  width: 518px;
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .rs-covers-partial {
-    width: auto
+    width: auto;
   }
 }
 
@@ -4228,59 +4973,147 @@ body {
   font-size: 17px;
   line-height: 1.47059;
   font-weight: 400;
-  letter-spacing: -.022em;
-  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  letter-spacing: -0.022em;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   font-weight: 500;
   padding: 19px 0 48px;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 .rs-covers-desc:lang(ar) {
   line-height: 1.58824;
   letter-spacing: 0;
-  font-family: SF Pro AR, SF Pro AR Text, SF Pro Text, SF Pro Gulf, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro AR,
+    SF Pro AR Text,
+    SF Pro Text,
+    SF Pro Gulf,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-desc:lang(ja) {
   letter-spacing: 0;
-  font-family: SF Pro JP, SF Pro Text, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ヒラギノ角ゴ Pro W3, メイリオ, Meiryo, ＭＳ Ｐゴシック, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro JP,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Hiragino Kaku Gothic Pro,
+    ヒラギノ角ゴ Pro W3,
+    メイリオ,
+    Meiryo,
+    ＭＳ Ｐゴシック,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-desc:lang(ko) {
   line-height: 1.58824;
   letter-spacing: 0;
-  font-family: SF Pro KR, SF Pro Text, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro KR,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Apple Gothic,
+    HY Gulim,
+    MalgunGothic,
+    HY Dotum,
+    Lexi Gulim,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-desc:lang(zh) {
-  letter-spacing: 0
+  letter-spacing: 0;
 }
 
 .rs-covers-desc:lang(th) {
   line-height: 1.35296;
   letter-spacing: 0;
-  font-family: SF Pro TH, SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TH,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-desc:lang(zh-CN) {
-  font-family: SF Pro SC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro SC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang SC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-desc:lang(zh-HK) {
-  font-family: SF Pro HK, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-desc:lang(zh-MO) {
-  font-family: SF Pro HK, SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-desc:lang(zh-TW) {
-  font-family: SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang TC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
-@media only screen and (max-width:1068px) {
+@media only screen and (max-width: 1068px) {
   .rs-covers-desc {
-    padding-top: 10px
+    padding-top: 10px;
   }
 }
 
@@ -4288,70 +5121,158 @@ body {
   font-size: 12px;
   line-height: 1.33337;
   font-weight: 400;
-  letter-spacing: -.01em;
-  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  letter-spacing: -0.01em;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   color: #86868b;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 36px
+  min-height: 36px;
 }
 
 .rs-covers-footer:lang(ar) {
   line-height: 1.66667;
   letter-spacing: 0;
-  font-family: SF Pro AR, SF Pro AR Text, SF Pro Text, SF Pro Gulf, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro AR,
+    SF Pro AR Text,
+    SF Pro Text,
+    SF Pro Gulf,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-footer:lang(ja) {
   line-height: 1.41667;
   letter-spacing: 0;
-  font-family: SF Pro JP, SF Pro Text, SF Pro Icons, AOS Icons, Hiragino Kaku Gothic Pro, ヒラギノ角ゴ Pro W3, メイリオ, Meiryo, ＭＳ Ｐゴシック, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro JP,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Hiragino Kaku Gothic Pro,
+    ヒラギノ角ゴ Pro W3,
+    メイリオ,
+    Meiryo,
+    ＭＳ Ｐゴシック,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-footer:lang(ko) {
   line-height: 1.41667;
   letter-spacing: 0;
-  font-family: SF Pro KR, SF Pro Text, SF Pro Icons, AOS Icons, Apple Gothic, HY Gulim, MalgunGothic, HY Dotum, Lexi Gulim, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro KR,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Apple Gothic,
+    HY Gulim,
+    MalgunGothic,
+    HY Dotum,
+    Lexi Gulim,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-footer:lang(zh) {
-  letter-spacing: 0
+  letter-spacing: 0;
 }
 
 .rs-covers-footer:lang(th) {
   line-height: 1.33337;
   letter-spacing: 0;
-  font-family: SF Pro TH, SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TH,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-footer:lang(zh-CN) {
-  font-family: SF Pro SC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro SC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang SC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-footer:lang(zh-HK) {
-  font-family: SF Pro HK, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-footer:lang(zh-MO) {
-  font-family: SF Pro HK, SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang HK, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro HK,
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang HK,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .rs-covers-footer:lang(zh-TW) {
-  font-family: SF Pro TC, SF Pro Text, SF Pro Icons, AOS Icons, PingFang TC, Helvetica Neue, Helvetica, Arial, sans-serif
+  font-family:
+    SF Pro TC,
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    PingFang TC,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 .nojs {
-  text-align: center
+  text-align: center;
 }
 
 .nojs .rs-covers-media-img {
   display: block;
   padding-top: 40px;
   position: static;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 .nojs .rs-covers-footercontent {
-  padding-top: 20px
+  padding-top: 20px;
 }
