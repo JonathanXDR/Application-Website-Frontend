@@ -1,5 +1,5 @@
 import HomeView from '@/views/HomeView/HomeView.vue'
-import MaintenanceView from '@/views/MaintenanceVideoView/MaintenanceView.vue'
+import MaintenanceView from '@/views/MaintenanceView/MaintenanceView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
