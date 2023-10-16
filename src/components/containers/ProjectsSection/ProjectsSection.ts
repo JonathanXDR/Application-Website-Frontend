@@ -5,11 +5,11 @@ import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vu
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
-import type { ListPublicReposResponse } from '@/types/GitHub/Repository'
+import { listUserRepositories } from '@/helpers/github-helper'
+import type { ListUserReposResponse } from '@/types/GitHub/Repository'
 import type { ArticleItemType } from '@/types/common/ArticleItem'
 import { computed, defineComponent, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { listPublicRepositories } from '@/helpers/github-helper'
 
 export default defineComponent({
   name: 'ProjectsSection',
@@ -26,29 +26,23 @@ export default defineComponent({
     const { tm } = useI18n()
     const articles = computed(() => tm('components.containers.projects') as ArticleItemType[])
     const projects = {
-      personal: [] as ListPublicReposResponse,
+      personal: [] as ListUserReposResponse,
       swisscom: [] as ArticleItemType[],
-      school: [] as ListPublicReposResponse
+      school: [] as ListUserReposResponse
     }
-    const errors = [] as string[]
 
     const fetchProjects = async () => {
-      const sortedProjects = {
-        personal: [] as ListPublicReposResponse,
-        school: [] as ListPublicReposResponse
-      }
-      const projects = await listPublicRepositories()
-      console.log(projects)
-      projects.forEach((project) => {
-        const schoolProjectPattern = /^(M\d+|UEK-\d+)-Portfolio$|^(TBZ|UEK)-Modules$/i
-        ;(schoolProjectPattern.test(project.name)
-          ? sortedProjects.school
-          : sortedProjects.personal
-        ).push(project)
+      const allProjects = await listUserRepositories({
+        username: 'JonathanXDR',
+        perPage: 100
       })
 
-      projects.personal = sortedProjects.personal
-      projects.school = sortedProjects.school
+      allProjects.forEach((project) => {
+        const schoolProjectPattern = /^(M\d+|UEK-\d+)-Portfolio$|^(TBZ|UEK)-Modules$/i
+        ;(schoolProjectPattern.test(project.name) ? projects.school : projects.personal).push(
+          project
+        )
+      })
     }
 
     onMounted(() => {
@@ -58,8 +52,7 @@ export default defineComponent({
     return {
       tm,
       articles,
-      projects,
-      errors
+      projects
     }
   }
 })
