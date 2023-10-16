@@ -28,11 +28,11 @@
         }
       ],
       "RibbonBar": {
-        "description": "Was ist neu in {latestVersion}?",
+        "description": "Was ist neu in {latestTag}?",
         "links": [
           {
             "title": "Mehr erfahren",
-            "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/{previousVersion}...{latestVersion}",
+            "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/{previousTag}...{latestTag}",
             "icon": "chevron.right"
           }
         ]
