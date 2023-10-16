@@ -1,119 +1,106 @@
-import LogoIcon from "@/components/common/Icons/LogoIcon.vue";
-import useColorStore from "@/stores/colorBadge";
-import useAnimationStore from "@/stores/headerAnimations";
-import useSectionStore from "@/stores/navbarSections";
-import { defineComponent } from "vue";
+import Logo from '@/components/common/Icons/Logo.vue'
+import LanguagePicker from '@/components/common/LanguagePicker/LanguagePicker.vue'
+import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
+import { useAnimationStore } from '@/stores/animation'
+import { useColorStore } from '@/stores/color'
+import { useSectionStore } from '@/stores/section'
+import type { NavBarLinkType } from '@/types/common/NavBarLink'
+import { computed, defineComponent, onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
-  name: "NavBar",
+  name: 'NavBar',
   components: {
-    LogoIcon,
+    Logo,
+    LoadingSpinner,
+    LanguagePicker
   },
-  data() {
-    return {
-      items: [
-        { name: "About", route: "#about" },
-        { name: "Sprachkenntnisse", route: "#languages" },
-        { name: "Referenzen", route: "#references" },
-        { name: "Anderes", route: "#other" },
-        { name: "Technologien", route: "#technologies" },
-        { name: "Projekte", route: "#projects" },
-      ],
-      themeDark: false,
-      navOpen: false,
-      navDisabled: false,
-    };
-  },
-  computed: {
-    nodeEnv(): string | undefined {
-      return process.env.NODE_ENV
-    },
-    currentSectionIndex(): number | null {
-      return useSectionStore().currentSectionIndex;
-    },
-    colorBadge(): {
-      colorName: string;
-      colorVar: string;
-      colorHex: string;
-    } {
-      return useColorStore().randomizeColor();
-    },
-    headerAnimations(): {
-      element: HTMLElement;
-      class: string;
-      timeout: number;
-    }[] {
+  setup() {
+    const { tm } = useI18n()
+    const items = computed(() => tm('components.common.NavBar') as NavBarLinkType[])
+    const themeDark = ref<boolean>(false)
+    const navOpen = ref<boolean>(false)
+    const navDisabled = ref<boolean>(false)
+
+    const nodeEnv = computed(() => process.env.NODE_ENV)
+    const currentSectionIndex = computed(() => useSectionStore().state.currentSectionIndex)
+    const colorBadge = computed(() => useColorStore().randomizeColor())
+    const headerAnimations = computed(() => {
       useAnimationStore().setHeaderAnimation({
-        element: this.$refs["ac-ln-background"] as HTMLElement,
-        class: "ac-ln-background-transition" as string,
-        timeout: 500 as number,
-      });
+        element: document.querySelector('.ac-ln-background') as HTMLElement,
+        class: 'ac-ln-background-transition',
+        timeout: 500
+      })
 
-      return useAnimationStore().headerAnimations;
-    },
-  },
-  created() {
-    window.addEventListener("scroll", this.handleScroll);
+      return useAnimationStore().headerAnimations
+    })
 
-    if (localStorage.getItem("theme") === null) {
-      const preferedTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    const toggleTheme = () => {
+      themeDark.value = !themeDark.value
+      storeTheme(themeDark.value ? 'dark' : 'light')
+      updateAnimations()
+    }
 
-      if (preferedTheme.matches) {
-        this.storeTheme("dark");
-      } else {
-        this.storeTheme("light");
-      }
-    } else {
-      if (localStorage.getItem("theme") === "dark") {
-        this.storeTheme("dark");
-      } else {
-        this.storeTheme("light");
+    const storeTheme = (themeName: string) => {
+      themeDark.value = themeName === 'dark'
+      localStorage.setItem('theme', themeName)
+      document.documentElement.className = themeName
+    }
+
+    const toggleNav = () => {
+      navOpen.value = !navOpen.value
+      checkboxTimeout()
+    }
+
+    const checkboxTimeout = () => {
+      navDisabled.value = true
+      setTimeout(() => {
+        navDisabled.value = false
+      }, 1000)
+    }
+
+    const handleScroll = () => {
+      if (navOpen.value && window.scrollY > 0) {
+        navOpen.value = false
       }
     }
-  },
-  methods: {
-    toggleTheme() {
-      this.themeDark = !this.themeDark;
-      if (this.themeDark) {
-        this.storeTheme("dark");
-      } else {
-        this.storeTheme("light");
-      }
-      this.updateAnimations();
-    },
 
-    storeTheme(themeName: string): void {
-      this.themeDark = themeName === "dark";
-      localStorage.setItem("theme", themeName);
-      document.documentElement.className = themeName;
-    },
-
-    toggleNav(): void {
-      this.navOpen = !this.navOpen;
-      this.checkboxTimeout();
-    },
-
-    checkboxTimeout(): void {
-      this.navDisabled = true;
-      setTimeout(() => {
-        this.navDisabled = false;
-      }, 1000);
-    },
-
-    handleScroll(): void {
-      if ((this.navOpen = true && window.scrollY > 0)) {
-        this.navOpen = false;
-      }
-    },
-
-    updateAnimations(): void {
-      this.headerAnimations.forEach((element) => {
-        element.element.classList.remove(element.class);
+    const updateAnimations = () => {
+      headerAnimations.value.forEach((element) => {
+        element.element.classList.remove(element.class)
 
         setTimeout(() => {
-          element.element.classList.add(element.class);
-        }, element.timeout);
-      });
-    },
-  },
-});
+          element.element.classList.add(element.class)
+        }, element.timeout)
+      })
+    }
+
+    onMounted(() => {
+      window.addEventListener('scroll', handleScroll)
+
+      const storedTheme = localStorage.getItem('theme')
+      if (storedTheme === null) {
+        const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)')
+        storeTheme(preferredTheme.matches ? 'dark' : 'light')
+      } else {
+        storeTheme(storedTheme)
+      }
+    })
+
+    return {
+      tm,
+      items,
+      themeDark,
+      navOpen,
+      navDisabled,
+      nodeEnv,
+      currentSectionIndex,
+      colorBadge,
+      headerAnimations,
+      toggleTheme,
+      toggleNav,
+      handleScroll,
+      updateAnimations
+    }
+  }
+})

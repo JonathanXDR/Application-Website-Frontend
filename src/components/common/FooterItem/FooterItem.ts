@@ -1,16 +1,18 @@
-import json from "@/assets/data/data.json";
-import { defineComponent } from "vue";
-import ShareSheet from "../ShareSheet/ShareSheet.vue";
+import LanguagePicker from '@/components/common/LanguagePicker/LanguagePicker.vue'
+import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-  name: "FooterItem",
+  name: 'FooterItem',
   components: {
-    ShareSheet,
+    LanguagePicker,
+    ShareSheet
   },
-  data() {
+  setup() {
+    const currentYear = ref(new Date().getFullYear())
+
     return {
-      json: json,
-      currentYear: new Date().getFullYear(),
-    };
-  },
-});
+      currentYear
+    }
+  }
+})

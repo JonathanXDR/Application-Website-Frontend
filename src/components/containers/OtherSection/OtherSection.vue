@@ -1,7 +1,7 @@
 <template>
-  <h2>Anderes</h2>
+  <h2>{{ $t('components.containers.common.other') }}</h2>
   <ul class="grid">
-    <ArticleItem v-for="(other, index) in json" :key="index" :article="other" />
+    <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" />
   </ul>
 </template>
 

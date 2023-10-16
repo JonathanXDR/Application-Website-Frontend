@@ -1,14 +1,12 @@
 <template>
-  <h3 class="typography-magical-headline">Projekte bei Swisscom</h3>
+  <h3 class="typography-magical-headline">
+    {{ $t('components.containers.common.projectsAtSwisscom') }}
+  </h3>
   <div class="timeline-wrapper">
     <TimeLine />
 
     <ul ref="ul" class="timeline">
-      <ArticleItem
-        v-for="(projects, index) in json"
-        :key="index"
-        :article="projects"
-      />
+      <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" />
     </ul>
   </div>
 </template>

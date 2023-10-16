@@ -1,0 +1,381 @@
+{
+  "components": {
+    "common": {
+      "NavBar": [
+        {
+          "name": "About",
+          "route": "#about"
+        },
+        {
+          "name": "Sprachen",
+          "route": "#languages"
+        },
+        {
+          "name": "Referenzen",
+          "route": "#references"
+        },
+        {
+          "name": "Anderes",
+          "route": "#other"
+        },
+        {
+          "name": "Technologien",
+          "route": "#technologies"
+        },
+        {
+          "name": "Projekte",
+          "route": "#projects"
+        }
+      ],
+      "RibbonBar": {
+        "description": "Was ist neu in Version 2.2.0?",
+        "links": [
+          {
+            "title": "Mehr erfahren",
+            "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/v2.1.3...v2.2.0",
+            "icon": "chevron.right"
+          }
+        ]
+      },
+      "CardTile": {
+        "firstEncounter": "Erstbegegnung",
+        "enhanced": "Erweitert"
+      },
+      "ShareSheet": {
+        "links": [
+          {
+            "title": "Mail",
+            "url": "mailto:contact@jonathan-russ.com",
+            "category": "solid",
+            "icon": "envelope"
+          },
+          {
+            "title": "LinkedIn",
+            "url": "https://www.linkedin.com/in/jonathan-russ-b7442a228",
+            "category": "brands",
+            "icon": "linkedin-in"
+          },
+          {
+            "title": "GitHub",
+            "url": "https://github.com/JonathanXDR",
+            "category": "brands",
+            "icon": "github"
+          },
+          {
+            "title": "Twitter",
+            "url": "https://twitter.com/JonathanXD12_",
+            "category": "brands",
+            "icon": "x-twitter"
+          }
+        ]
+      },
+      "FooterItem": {
+        "chooseYourLanguage": "Wähle deine Sprache"
+      }
+    },
+    "containers": {
+      "common": {
+        "about": "About",
+        "languages": "Sprachen",
+        "references": "Referenzen",
+        "other": "Anderes",
+        "technologies": "Technologien",
+        "projects": "Projekte",
+        "projectsAtSwisscom": "Projekte bei Swisscom"
+      },
+      "about": {
+        "eyebrow": "Hey ;)",
+        "title": "I'm Jonathan",
+        "description": "Hallo mein Name ist Jonathan und ich bin {age} Jahre alt. Aktuell bin ich im {apprenticeshipYear}. Lehrjahr als Informatiker - Applikationsentwicklung. Ich wohne in Egg bei Einsiedeln im Kanton Schwyz. Das Programmieren fasziniert mich sehr und ich finde es spannend, was man damit alles erreichen kann. In meiner Freizeit spiele ich gerne Computer -und Konsolenspiele und treffe mich oft mit Freunden. Ausserdem höre ich häufig Musik und produziere sie auch manchmal selbst.",
+        "links": [],
+        "dates": [
+          {
+            "title": "Jahre",
+            "key": "age",
+            "date": "2005-12-12"
+          },
+          {
+            "title": "Lehrjahr",
+            "key": "apprenticeshipYear",
+            "date": "2021-08-01"
+          }
+        ]
+      },
+      "languages": [
+        {
+          "title": "Deutsch",
+          "description": "Muttersprache",
+          "progress": "100"
+        },
+        {
+          "title": "Englisch",
+          "description": "Fliessend",
+          "progress": "60"
+        },
+        {
+          "title": "Französisch",
+          "description": "Gut",
+          "progress": "30"
+        }
+      ],
+      "references": [
+        {
+          "title": "Steve Hess",
+          "description": "Lernbegleiter & Vorgesetzter",
+          "links": [],
+          "icon": "person.crop.square"
+        },
+        {
+          "title": "Nick Zimmermann",
+          "description": "Projektanbieter in Competence Center NexCC",
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://nickzimmermann.com/",
+              "icon": "chevron.right"
+            }
+          ],
+          "icon": "person.crop.square"
+        },
+        {
+          "title": "Alessio Iantosca",
+          "description": "Projektanbieter bei Automatisierungsprojekten im Banking Bereich",
+          "links": [],
+          "icon": "person.crop.square"
+        },
+        {
+          "title": "Carlo Schmid",
+          "description": "Projektanbieter im Apps Team Frontend",
+          "links": [],
+          "icon": "person.crop.square"
+        },
+        {
+          "title": "Kim Eggler",
+          "description": "Projektanbieter im Apps Team Backend",
+          "links": [],
+          "icon": "person.crop.square"
+        }
+      ],
+      "other": [
+        {
+          "title": "Technische Berufsschule Zürich",
+          "date": "Donnerstag",
+          "description": "Ich gehe immer Donnerstags zur Berufsschule in Zürich. Füge diesen Termin gerne zu deinen Kalender hinzu.",
+          "links": [
+            {
+              "title": "Mehr über TBZ",
+              "url": "https://tbz.ch/",
+              "icon": "chevron.right"
+            }
+          ],
+          "icon": "calendar"
+        },
+        {
+          "title": "Berufsmaturitätsschule Zürich",
+          "date": "Freitag",
+          "description": "Am Freitag gehe ich jeweils zur Berufsmaturitätsschule in Zürich. Gerne kannst du diesen Termin zu deinem Kalender hinzufügen.",
+          "links": [
+            {
+              "title": "Mehr über BMZ",
+              "url": "https://www.bms-zuerich.ch/",
+              "icon": "chevron.right"
+            }
+          ],
+          "icon": "calendar"
+        }
+      ],
+      "technologies": [
+        {
+          "title": "HTML",
+          "progress": 85,
+          "learned": "NexCC",
+          "enhanced": "M293",
+          "color1": "var(--color-dark-orange)",
+          "color2": "var(--color-dark-red)"
+        },
+        {
+          "title": "CSS",
+          "progress": 85,
+          "learned": "NexCC",
+          "enhanced": "M293",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "JavaScript",
+          "progress": 70,
+          "learned": "NexCC",
+          "enhanced": "Apps Team Frontend, ÜK294",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "SDX",
+          "progress": 70,
+          "learned": "NexCC",
+          "enhanced": "Apps Team Frontend",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "Node.js",
+          "progress": 60,
+          "learned": "NexCC",
+          "enhanced": "-",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "SQL",
+          "progress": 70,
+          "learned": "NexCC",
+          "enhanced": "ÜK106, M164",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "Express.js",
+          "progress": 70,
+          "learned": "NexCC",
+          "enhanced": "ÜK295",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "Vue.js",
+          "progress": 80,
+          "learned": "NexCC",
+          "enhanced": "Apps Team Frontend",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "TypeScript",
+          "progress": 75,
+          "learned": "NexCC",
+          "enhanced": "Apps Team Frontend, ÜK294",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "C#",
+          "progress": 25,
+          "learned": "Automatisierungsprojekte im Banking Bereich",
+          "enhanced": "-",
+          "color1": "var(--color-dark-pink)",
+          "color2": "var(--color-dark-purple)"
+        },
+        {
+          "title": "Java",
+          "progress": 10,
+          "learned": "M319",
+          "enhanced": "-",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "Bash",
+          "progress": 50,
+          "learned": "NexCC",
+          "enhanced": "M122",
+          "color1": "var(--color-dark-pink)",
+          "color2": "var(--color-dark-purple)"
+        },
+        {
+          "title": "React",
+          "progress": 60,
+          "learned": "ÜK294, Apps Team Frontend",
+          "enhanced": "-",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "Next.js",
+          "progress": 50,
+          "learned": "Apps Team Frontend",
+          "enhanced": "-",
+          "color1": "var(--color-dark-yellow)",
+          "color2": "var(--color-dark-green)"
+        },
+        {
+          "title": "Docker",
+          "progress": 50,
+          "learned": "ÜK210",
+          "enhanced": "M347",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "Kubernetes",
+          "progress": 50,
+          "learned": "ÜK210",
+          "enhanced": "M347",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "Nest.js",
+          "progress": 70,
+          "learned": "Apps Team Backend",
+          "enhanced": "-",
+          "color1": "var(--color-dark-orange)",
+          "color2": "var(--color-dark-red)"
+        },
+        {
+          "title": "Prisma",
+          "progress": 60,
+          "learned": "Apps Team Backend",
+          "enhanced": "-",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        },
+        {
+          "title": "TypeORM",
+          "progress": 60,
+          "learned": "Apps Team Backend",
+          "enhanced": "-",
+          "color1": "var(--color-dark-cyan)",
+          "color2": "var(--color-dark-indigo)"
+        }
+      ],
+      "projects": [
+        {
+          "title": "NEX First Steps",
+          "date": "August 2021",
+          "description": "In den First Steps hat meine Lehre begonnen. Dort habe ich alles rund um Swisscom kennengelernt, also z.B. wie man die verschieden Tools verwendet, wie man richtig zusammenarbeitet und auch andere Dinge, wie beispielsweise die Arbeitssicherheit.",
+          "icon": "airplane.departure"
+        },
+        {
+          "title": "Competence Center NexCC",
+          "date": "August 2021 - Januar 2022",
+          "description": "Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei viele neue Programmiersprachen gelernt. Darunter HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App erstellen, welche ich mit einer SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend hinzugefügt und so ein eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte Programmiersprachen, wie Node.js, Express.js oder Vue.js neu dazugelernt.",
+          "icon": "chevron.left.forwardslash.chevron.right"
+        },
+        {
+          "title": "Automatisierungsprojekte im Banking Bereich",
+          "date": "Februar 2022 - Juli 2022",
+          "description": "Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld erhalten. Ich war aktiv dabei und habe die einzelnen Banken gelernt zu testen bzw. zu automatisieren. Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr über das .Net Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu verbessern!",
+          "icon": "clock.arrow.2.circlepath"
+        },
+        {
+          "title": "Apps Team Frontend",
+          "date": "August 2022 - Februar 2023",
+          "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
+          "icon": "display"
+        },
+        {
+          "title": "Apps Team Backend",
+          "date": "Februar 2023 - August 2023",
+          "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt. Danach habe ich dann beim Tool für Medienkurse mitgeholfen und konnte dort einige Features hinzufügen und Fehler beheben. Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen Webfrontends mitwirken, was mir sehr gefallen hat :)",
+          "icon": "gear"
+        },
+        {
+          "title": "Security Journey - Development Stream",
+          "date": "September 2023 - August 2024",
+          "description": "In diesem Projekt habe ich mit ein paar Trainings zu Cloud & Security begonnen, was ziemlich lehrreich für mich war. Danach durfte ich bereits an meinem momentanen Projekt arbeiten, einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring). Dort verwende ich Python, Docker und Kubernetes, wobei Python für mich neu ist.",
+          "icon": "shield.lefthalf.filled"
+        }
+      ]
+    }
+  }
+}
