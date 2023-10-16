@@ -19,7 +19,7 @@
               role="img"
             >
               <source
-                src="https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/media/app-covers-apple-outline.mp4"
+                src="https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/media/app-covers-apple-outline.mp4"
                 type="video/mp4"
               />
               <p>Video is not supported</p>
@@ -27,7 +27,7 @@
             <div class="rc-videoplayer-poster">
               <img
                 alt=""
-                src="https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/images/covers-apple-outline.jpg"
+                src="https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/images/covers-apple-outline.jpg"
               />
             </div>
           </div>

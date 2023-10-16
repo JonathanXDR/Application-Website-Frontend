@@ -9,7 +9,7 @@
           <div class="rs-covers-media-container">
             <div class="rs-covers-media-wrapper">
               <img
-                src="https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/images/covers-apple-outline.jpg"
+                src="https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/images/covers-apple-outline.jpg"
                 alt=""
                 class="rs-covers-media-img"
               /><video
@@ -18,7 +18,7 @@
                 autoplay
                 playsinline
                 class="rs-covers-media"
-                src="https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/media/app-covers-apple-outline.mp4"
+                src="https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/media/app-covers-apple-outline.mp4"
               ></video>
             </div>
             <button class="rs-covers-mediabtn icon icon-after icon-thumbnailplay">
