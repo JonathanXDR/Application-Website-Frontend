@@ -1,4 +1,5 @@
 import type { Endpoints } from '@octokit/types'
 
-type ListUserReposResponse = Endpoints['GET /users/{username}/repos']['response']
-export type Repository = ListUserReposResponse['data']
+export type GetRepoResponse = Endpoints['GET /repos/{owner}/{repo}']['response']['data']
+export type ListPublicReposResponse = Endpoints['GET /repositories']['response']['data']
+export type ListUserRepoResponse = Endpoints['GET /repos/{owner}/{repo}']['response']['data']
