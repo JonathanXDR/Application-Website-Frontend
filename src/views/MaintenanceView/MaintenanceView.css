@@ -566,29 +566,29 @@ html[dir='rtl'] .icon-copy {
 .rc-videoplayer-button-playpause {
   width: 52px;
   height: 52px;
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_play.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_play.svg);
 }
 
 .rc-videoplayer-large .rc-videoplayer-button-playpause {
   width: 75px;
   height: 75px;
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_play_super.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_play_super.svg);
 }
 
 .rc-videoplayer-playing .rc-videoplayer-button-playpause {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pause.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pause.svg);
 }
 
 .rc-videoplayer-large.rc-videoplayer-playing .rc-videoplayer-button-playpause {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pause_super.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pause_super.svg);
 }
 
 .rc-videoplayer-ended .rc-videoplayer-button-playpause {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_replay.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_replay.svg);
 }
 
 .rc-videoplayer-large.rc-videoplayer-ended .rc-videoplayer-button-playpause {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_replay_super.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_replay_super.svg);
 }
 
 .rc-videoplayer-large.rc-videoplayer-waiting .rc-videoplayer-button-playpause,
@@ -639,51 +639,51 @@ html[dir='rtl'] .icon-copy {
 .rc-videoplayer-button-mute {
   width: 32px;
   height: 32px;
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_volume_on.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_volume_on.svg);
 }
 
 .rc-videoplayer-muted .rc-videoplayer-button-mute {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_volume_mute.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_volume_mute.svg);
 }
 
 .rc-videoplayer-button-captions {
   width: 32px;
   height: 32px;
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_cc_off.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_cc_off.svg);
 }
 
 .rc-videoplayer-captions-on .rc-videoplayer-button-captions {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_cc_on.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_cc_on.svg);
 }
 
 .rc-videoplayer-button-airplay {
   width: 32px;
   height: 32px;
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_airplay.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_airplay.svg);
 }
 
 .rc-videoplayer-airplay-on .rc-videoplayer-button-airplay {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_airplay_active.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_airplay_active.svg);
 }
 
 .rc-videoplayer-button-pip {
   width: 32px;
   height: 32px;
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pip_default.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pip_default.svg);
 }
 
 .rc-videoplayer-pip .rc-videoplayer-button-pip {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pip_active.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_pip_active.svg);
 }
 
 .rc-videoplayer-button-fullscreen {
   width: 32px;
   height: 32px;
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_fullscreen.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_fullscreen.svg);
 }
 
 .rc-videoplayer-fullscreen .rc-videoplayer-button-fullscreen {
-  background-image: url(https://store.storeimages.cdn-apple.com/2/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_fullscreen_exit.svg);
+  background-image: url(https://store.storeimages.cdn-apple.com/1/store.apple.com/shop/rs-covers/2/dist/us/dist/assets/react-common/video-player/ctrl_fullscreen_exit.svg);
 }
 
 .rc-videoplayer-medium .rc-videoplayer-controls-bottom {
@@ -1607,16 +1607,6 @@ textarea {
   -moz-osx-font-smoothing: grayscale;
   direction: ltr;
   text-align: left;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 600;
-  color: #1d1d1f;
 }
 
 h1 img,
@@ -3592,21 +3582,6 @@ body {
   overflow: hidden;
 }
 
-.theme-dark {
-  --sk-link-disabled-opacity: 0.36;
-  background-color: #000;
-}
-
-.theme-dark,
-.theme-dark h1,
-.theme-dark h2,
-.theme-dark h3,
-.theme-dark h4,
-.theme-dark h5,
-.theme-dark h6 {
-  color: #f5f5f7;
-}
-
 .theme-dark .link,
 .theme-dark a {
   color: #2997ff;
@@ -3952,7 +3927,7 @@ body {
     Helvetica,
     Arial,
     sans-serif;
-  color: #86868b;
+  color: var(--color-figure-gray-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
