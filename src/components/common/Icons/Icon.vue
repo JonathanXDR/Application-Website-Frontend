@@ -46,6 +46,22 @@ export default defineComponent({
 </script>
 
 <style>
+.apple-logo {
+  width: 100%;
+  height: 330px;
+}
+
+.apple-logo path {
+  fill: none;
+  stroke: var(--color-fill-gray);
+  stroke-width: 0.2;
+}
+
+.media-icon {
+  width: 10em;
+  height: 10em;
+}
+
 .icon-article {
   width: 1.25em;
   height: 1.25em;
