@@ -4,27 +4,27 @@
       "NavBar": [
         {
           "name": "About",
-          "route": "#about"
+          "route": "/#about"
         },
         {
           "name": "Sprachen",
-          "route": "#languages"
+          "route": "/#languages"
         },
         {
           "name": "Referenzen",
-          "route": "#references"
+          "route": "/#references"
         },
         {
           "name": "Anderes",
-          "route": "#other"
+          "route": "/#other"
         },
         {
           "name": "Technologien",
-          "route": "#technologies"
+          "route": "/#technologies"
         },
         {
           "name": "Projekte",
-          "route": "#projects"
+          "route": "/#projects"
         }
       ],
       "RibbonBar": {

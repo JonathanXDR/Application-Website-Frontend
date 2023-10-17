@@ -58,8 +58,15 @@ export default defineComponent({
 }
 
 .media-icon {
-  width: 10em;
-  height: 10em;
+  width: 5em;
+  height: 5em;
+}
+
+@media screen and (min-width: 1069px) {
+  .media-icon {
+    width: 10em;
+    height: 10em;
+  }
 }
 
 .icon-article {
