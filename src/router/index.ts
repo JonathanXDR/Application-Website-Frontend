@@ -8,13 +8,19 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        footerCompact: false
+      }
     },
     {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: MaintenanceView,
-      meta: { ribbon: false, footer: false }
+      meta: {
+        ribbon: false,
+        footerFull: false
+      }
     }
   ],
   scrollBehavior(to) {

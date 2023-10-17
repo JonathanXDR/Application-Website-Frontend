@@ -50,9 +50,6 @@
         </div>
       </div>
     </div>
-    <div class="theme-dark rs-covers-footer">
-      <div class="as-l-container">Copyright © 2023 Apple Inc. All rights reserved.</div>
-    </div>
   </div>
 </template>
 
