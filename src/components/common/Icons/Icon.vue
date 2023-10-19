@@ -1,20 +1,34 @@
 <template>
-  <svg>
+  <svg :style="customStyles">
     <use :href="icon" />
   </svg>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, reactive } from 'vue'
 
 export default defineComponent({
   name: 'Icon',
   props: {
-    name: { type: String, required: true },
+    name: {
+      type: String,
+      required: true,
+      default: undefined
+    },
     size: {
       type: String,
       default: 'medium',
       validator: (value: string): boolean => ['small', 'medium', 'large'].includes(value)
+    },
+    colorPrimary: {
+      type: String,
+      required: false,
+      default: 'currentColor'
+    },
+    colorSecondary: {
+      type: String,
+      required: false,
+      default: 'none'
     }
   },
   setup(props) {
@@ -24,7 +38,12 @@ export default defineComponent({
       return new URL(`/src/assets/icons/${size}/symbol/sprite.svg`, import.meta.url).href
     }
 
-    return { icon }
+    const customStyles = reactive({
+      '--color-primary': props.colorPrimary,
+      '--color-secondary': props.colorSecondary
+    })
+
+    return { icon, customStyles }
   }
 })
 </script>
