@@ -4,7 +4,7 @@ import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vu
 import { useAnimationStore } from '@/stores/animation'
 import { useColorStore } from '@/stores/color'
 import { useSectionStore } from '@/stores/section'
-import type { NavBarLinkType } from '@/types/common/NavBarLink'
+import type { SectionType } from '@/types/common/Section'
 import { computed, defineComponent, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -17,7 +17,7 @@ export default defineComponent({
   },
   setup() {
     const { tm } = useI18n()
-    const items = computed(() => tm('components.common.NavBar') as NavBarLinkType[])
+    const items = computed(() => tm('components.common.NavBar') as SectionType[])
     const themeDark = ref<boolean>(false)
     const navOpen = ref<boolean>(false)
     const navDisabled = ref<boolean>(false)

@@ -41,7 +41,7 @@
 
 /* ---------------------------------- label --------------------------------- */
 
-input[name='language']:checked ~ label {
+input[name='language']:checked~label {
   color: var(--color-fill-gray-secondary) !important;
   pointer-events: none;
 }

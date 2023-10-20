@@ -20,11 +20,19 @@ export default defineComponent({
     ArticleItem,
     TimeLine
   },
-  setup() {
+  props: {
+    title: {
+      type: String,
+      required: true,
+      default: undefined
+    }
+  },
+  setup(props) {
     const { tm } = useI18n()
     const articles = computed(() => tm('components.containers.references') as ArticleItemType[])
 
     return {
+      props,
       tm,
       articles
     }
