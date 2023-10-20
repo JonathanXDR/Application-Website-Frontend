@@ -186,7 +186,7 @@ fieldset {
   padding-left: 0.8823529412rem;
 } */
 
-.form-dropdown-select:disabled + .form-dropdown-chevron {
+.form-dropdown-select:disabled+.form-dropdown-chevron {
   opacity: 0.42;
 }
 
@@ -325,6 +325,7 @@ fieldset {
 /* ------------------------- role-selects-container ------------------------- */
 
 .role-selects-container {
+  width: 100%;
   flex-shrink: 1;
   display: grid;
   align-items: center;
@@ -394,18 +395,18 @@ fieldset {
   grid-area: 1/1;
 } */
 
-.role-select > input[type='radio'] {
+.role-select>input[type='radio'] {
   display: none;
 }
 
-.role-select > input[type='radio']:checked ~ label.button {
+.role-select>input[type='radio']:checked~label.button {
   cursor: default;
   background: var(--color-fill-gray);
   color: var(--color-fill-tertiary);
   border-color: var(--color-fill-gray);
 }
 
-.role-select > .button {
+.role-select>.button {
   z-index: -1;
   background: transparent;
   color: var(--color-fill-gray);
@@ -419,7 +420,7 @@ fieldset {
   white-space: nowrap;
 }
 
-.role-select > .button:hover {
+.role-select>.button:hover {
   text-decoration: none;
 }
 
@@ -428,16 +429,16 @@ fieldset {
   outline: none;
 } */
 
-.role-select > .button:active {
+.role-select>.button:active {
   outline: none;
 }
 
-.role-select > .button:disabled {
+.role-select>.button:disabled {
   cursor: default;
 }
 
 @media only screen and (min-width: 1069px) {
-  .role-select > .button {
+  .role-select>.button {
     font-size: 17px;
     line-height: 1.1764805882;
     font-weight: 400;
@@ -457,7 +458,7 @@ fieldset {
 }
 
 @media only screen and (min-width: 735px) and (max-width: 1068px) {
-  .role-select > .button {
+  .role-select>.button {
     font-size: 17px;
     line-height: 1.1764805882;
     font-weight: 400;
@@ -477,7 +478,7 @@ fieldset {
 }
 
 @media only screen and (max-width: 734px) {
-  .role-select > .button {
+  .role-select>.button {
     font-size: 12px;
     line-height: 1.3333733333;
     font-weight: 400;

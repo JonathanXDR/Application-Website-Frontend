@@ -1,5 +1,5 @@
 <template>
-  <CardTile v-for="(card, index) in cards" :key="index" :card="card" />
+  <!-- <CardTile v-for="(card, index) in cards" :key="index" :card="card" /> -->
   <div style="width: 82.5%; margin-left: auto !important; margin-right: auto !important">
     <h3 class="typography-magical-headline">
       {{ $t('components.containers.common.technologies') }}
