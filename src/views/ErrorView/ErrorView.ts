@@ -7,18 +7,26 @@ export default {
   components: {
     Icon
   },
-
-  setup() {
+  props: {
+    name: {
+      type: String,
+      required: false,
+      default: 'error',
+      validator: (value: string): boolean => ['notFound', 'error', 'maintenance'].includes(value)
+    }
+  },
+  setup(props) {
     const splitDescription = (description: string): string[] => {
       return description.split('. ')
     }
 
     const { tm } = useI18n()
-    const colors = computed(() => tm('views.maintenance.icon.colors') as Object)
-    const entireDescription = computed(() => tm('views.maintenance.description') as string)
+    const colors = computed(() => tm(`views.${props.name}.icon.colors`) as Object)
+    const entireDescription = computed(() => tm(`views.${props.name}.description`) as string)
     const description = splitDescription(entireDescription.value)
 
     return {
+      props,
       colors,
       description
     }

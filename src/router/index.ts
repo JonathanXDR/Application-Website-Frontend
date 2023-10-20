@@ -17,6 +17,9 @@ const router = createRouter({
       path: '/:pathMatch(.*)*',
       name: 'error',
       component: ErrorView,
+      props: {
+        name: 'notFound'
+      },
       meta: {
         ribbon: false,
         footerFull: false

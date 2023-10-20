@@ -5,11 +5,11 @@
         class="rs-covers-container rs-covers-media-default rs-covers-textovervideo as-l-container"
       >
         <div class="rs-covers-media-container">
-          <Icon :name="$t('views.maintenance.icon.name')" :colors="colors" class="media-icon" />
+          <Icon :name="$t(`views.${props.name}.icon.name`)" :colors="colors" class="media-icon" />
         </div>
         <div class="rs-covers-content-container">
           <h1 class="rs-covers-heading">
-            <span>{{ $t('views.maintenance.title') }}</span>
+            <span>{{ $t(`views.${props.name}.title`) }}</span>
           </h1>
           <div class="rs-covers-desc">
             {{ description[0] }}.
