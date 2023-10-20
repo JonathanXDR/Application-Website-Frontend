@@ -33,7 +33,13 @@
                   <div class="marquee-hover-content">
                     <span class="marquee-cta"
                       >Listen now
-                      <Icon name="play.circle.fill" style="padding-left: 0.3em" class="icon-cta"
+                      <Icon
+                        name="play.circle.fill"
+                        :colors="{
+                          primary: 'var(--color-fill)'
+                        }"
+                        style="padding-left: 0.3em"
+                        class="icon-cta"
                     /></span>
                   </div>
                 </div>
