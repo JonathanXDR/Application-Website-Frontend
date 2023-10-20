@@ -97,7 +97,7 @@
 }
 
 .segmentnav-item:has(input[type='radio']:checked)::before,
-.segmentnav-item:has(input[type='radio']:checked)+label::before {
+.segmentnav-item:has(input[type='radio']:checked)+.segmentnav-item::before {
   transform: scale(0);
 }
 
