@@ -6,6 +6,10 @@
   margin-top: 0.5em;
 }
 
+.links p .link {
+  width: fit-content;
+}
+
 /* --------------------------------- ribbon --------------------------------- */
 
 .ribbon .links p {
@@ -27,6 +31,7 @@
     color: var(--ribbon-link-color-initial);
     fill: var(--ribbon-link-color-initial);
   }
+
   to {
     color: var(--ribbon-link-color);
     fill: var(--ribbon-link-color);

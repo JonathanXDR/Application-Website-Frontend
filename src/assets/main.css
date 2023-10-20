@@ -16,7 +16,6 @@ body {
   background-color: var(--color-fill);
   overflow-wrap: break-word;
   hyphens: auto;
-  scroll-behavior: smooth;
 }
 
 .light {
@@ -55,6 +54,20 @@ body {
   --color-tutorials-overview-navigation-link-hover: #a1a1a6;
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-welcome-card-shadow: rgba(0, 0, 0, 0.04);
+
+  /* Default Colors */
+  --color-red: rgb(255, 59, 48);
+  --color-orange: rgb(255, 149, 0);
+  --color-yellow: rgb(255, 204, 0);
+  --color-green: rgb(52, 199, 89);
+  --color-mint: rgb(0, 199, 190);
+  --color-teal: rgb(48, 176, 199);
+  --color-cyan: rgb(50, 173, 230);
+  --color-blue: rgb(0, 122, 255);
+  --color-indigo: rgb(88, 86, 214);
+  --color-purple: rgb(175, 82, 222);
+  --color-pink: rgb(255, 45, 85);
+  --color-brown: rgb(162, 132, 94);
 
   /* Dev Colors */
   --color-fill: #fff;
@@ -122,7 +135,7 @@ body {
   --color-changes-deprecated-hover: rgba(191, 72, 0, .05);
   --color-changes-modified: var(--color-figure-purple);
   --color-changes-modified-hover: var(--color-fill-purple-secondary);
-  --color-changes-modified-previous-background: var(--color-fill);
+  --color-changes-modified-previous-background: var(--color-fill-purple-secondary);
   --color-code-background: var(--color-fill-tertiary);
   --color-code-collapsible-background: var(--color-fill-gray-quaternary);
   --color-code-line-highlight: var(--color-fill-light-blue-secondary);
@@ -182,6 +195,20 @@ body {
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-welcome-card-shadow: hsla(0, 0%, 100%, 0.04);
 
+  /* Default Colors */
+  --color-red: rgb(255, 69, 58);
+  --color-orange: rgb(255, 159, 10);
+  --color-yellow: rgb(255, 214, 10);
+  --color-green: rgb(48, 209, 88);
+  --color-mint: rgb(102, 212, 207);
+  --color-teal: rgb(64, 200, 224);
+  --color-cyan: rgb(100, 210, 255);
+  --color-blue: rgb(10, 132, 255);
+  --color-indigo: rgb(94, 92, 230);
+  --color-purple: rgb(191, 90, 242);
+  --color-pink: rgb(255, 55, 95);
+  --color-brown: rgb(172, 142, 104);
+
   /* Dev Colors */
   --color-fill: #000;
   --color-fill-secondary: #161617;
@@ -229,36 +256,6 @@ body {
   --color-tutorial-navbar-dropdown-background: var(--color-nav-dark-solid-background);
   --color-tutorial-navbar-dropdown-border: var(--color-fill-gray-tertiary);
   --color-navigator-item-hover: rgba(0, 113, 227, .6)
-}
-
-:root {
-  /* Light Colors */
-  --color-light-red: rgb(255, 59, 48);
-  --color-light-orange: rgb(255, 149, 0);
-  --color-light-yellow: rgb(255, 204, 0);
-  --color-light-green: rgb(52, 199, 89);
-  --color-light-mint: rgb(0, 199, 190);
-  --color-light-teal: rgb(48, 176, 199);
-  --color-light-cyan: rgb(50, 173, 230);
-  --color-light-blue: rgb(0, 122, 255);
-  --color-light-indigo: rgb(88, 86, 214);
-  --color-light-purple: rgb(175, 82, 222);
-  --color-light-pink: rgb(255, 45, 85);
-  --color-light-brown: rgb(162, 132, 94);
-
-  /* Dark Colors */
-  --color-dark-red: rgb(255, 69, 58);
-  --color-dark-orange: rgb(255, 159, 10);
-  --color-dark-yellow: rgb(255, 214, 10);
-  --color-dark-green: rgb(48, 209, 88);
-  --color-dark-mint: rgb(102, 212, 207);
-  --color-dark-teal: rgb(64, 200, 224);
-  --color-dark-cyan: rgb(100, 210, 255);
-  --color-dark-blue: rgb(10, 132, 255);
-  --color-dark-indigo: rgb(94, 92, 230);
-  --color-dark-purple: rgb(191, 90, 242);
-  --color-dark-pink: rgb(255, 55, 95);
-  --color-dark-brown: rgb(172, 142, 104);
 }
 
 .section-separated {
@@ -503,30 +500,30 @@ fieldset {
   }
 
   h1 {
-    font-size: 40px !important;
+    font-size: 40px;
   }
 
   h2 {
-    font-size: 32px !important;
+    font-size: 32px;
   }
 
   h3 {
-    font-size: 24px !important;
+    font-size: 24px;
   }
 
   .eyebrow,
   .typography-eyebrow {
-    font-size: 24px !important;
+    font-size: 24px;
   }
 
   .intro,
   .typography-intro,
   .typography-intro a {
-    font-size: 17px !important;
+    font-size: 17px;
   }
 
   .typography-magical-headline {
-    font-size: 48px !important;
+    font-size: 48px;
   }
 
   .section-separated {
@@ -539,8 +536,8 @@ fieldset {
   }
 
   .ribbon .icon-chevron {
-    width: 12px !important;
-    height: 12px !important;
+    width: 12px;
+    height: 12px;
   }
 
   .icon-download {
@@ -551,30 +548,30 @@ fieldset {
 
 @media screen and (min-width: 1250px) {
   h1 {
-    font-size: 48px !important;
+    font-size: 48px;
   }
 
   h2 {
-    font-size: 40px !important;
+    font-size: 40px;
   }
 
   h3 {
-    font-size: 48px !important;
+    font-size: 48px;
   }
 
   .eyebrow,
   .typography-eyebrow {
-    font-size: 24px !important;
+    font-size: 28px;
   }
 
   .intro,
   .typography-intro,
   .typography-intro a {
-    font-size: 21px !important;
+    font-size: 21px;
   }
 
   .typography-magical-headline {
-    font-size: 64px !important;
+    font-size: 64px;
   }
 }
 
