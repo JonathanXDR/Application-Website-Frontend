@@ -54,6 +54,7 @@
 }
 
 .segmentnav-item {
+  color: var(--color-fill-gray-secondary);
   position: relative;
   z-index: 2;
   box-sizing: border-box;
@@ -90,14 +91,14 @@
   transition: transform 350ms;
 }
 
-.segmentnav-item.current {
-  color: white;
-  /* pointer-events: none; */
+.segmentnav-item:has(input[type='radio']:checked) {
+  color: var(--color-fill-gray);
+  pointer-events: none;
 }
 
-.segmentnav-item.current::before,
-.segmentnav-item.current+button::before {
-  /* transform: scale(0); */
+.segmentnav-item:has(input[type='radio']:checked)::before,
+.segmentnav-item:has(input[type='radio']:checked)+label::before {
+  transform: scale(0);
 }
 
 .segmentnav-item,
