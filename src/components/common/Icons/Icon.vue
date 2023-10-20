@@ -1,46 +1,49 @@
 <template>
-  <svg v-if="viewBox" :viewBox="viewBox">
+  <svg :style="styles">
     <use :href="icon" />
   </svg>
-  <LoadingSpinner v-else-if="!chevron" class="medium no-margin" />
 </template>
 
 <script lang="ts">
-import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
-import { computed, defineComponent, onMounted, ref } from 'vue'
+import { computed, defineComponent, reactive } from 'vue'
 
 export default defineComponent({
   name: 'Icon',
-  components: { LoadingSpinner },
   props: {
-    name: { type: String, required: true },
+    name: {
+      type: String,
+      required: true,
+      default: undefined
+    },
     size: {
       type: String,
       default: 'medium',
       validator: (value: string): boolean => ['small', 'medium', 'large'].includes(value)
+    },
+    colorPrimary: {
+      type: String,
+      required: false,
+      default: 'currentColor'
+    },
+    colorSecondary: {
+      type: String,
+      required: false,
+      default: 'none'
     }
   },
   setup(props) {
-    const viewBox = ref('')
     const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`)
-    const chevron = computed(() => props.name.startsWith('chevron.'))
 
     const getSpriteUrl = (size) => {
       return new URL(`/src/assets/icons/${size}/symbol/sprite.svg`, import.meta.url).href
     }
 
-    onMounted(async () => {
-      const response = await fetch(getSpriteUrl(props.size))
-      const text = await response.text()
-      const parser = new DOMParser()
-      const svgDoc = parser.parseFromString(text, 'image/svg+xml')
-      const symbol = svgDoc.getElementById(props.name)
-      if (symbol) {
-        viewBox.value = symbol.getAttribute('viewBox') || ''
-      }
+    const styles = reactive({
+      '--color-primary': props.colorPrimary,
+      '--color-secondary': props.colorSecondary
     })
 
-    return { viewBox, icon, chevron }
+    return { icon, styles }
   }
 })
 </script>
