@@ -6,12 +6,12 @@ export default defineComponent({
   props: {
     introText: {
       type: Boolean,
-      required: true,
+      required: false,
       default: () => true
     },
     shortForm: {
       type: Boolean,
-      required: true,
+      required: false,
       default: () => false
     }
   },
