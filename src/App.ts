@@ -5,7 +5,7 @@ import NavBar from '@/components/common/NavBar/NavBar.vue'
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import { useColorStore } from '@/stores/color'
 import { useSectionStore } from '@/stores/section'
-import { defineComponent, ref } from 'vue'
+import { computed, defineComponent, ref, watch } from 'vue'
 import { useMeta } from 'vue-meta'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
 
@@ -26,14 +26,24 @@ export default defineComponent({
     const sectionStore = useSectionStore()
 
     const nodeEnv = ref(process.env.NODE_ENV)
-    const currentSectionName = ref(sectionStore.state.currentSectionName)
     const colorBadge = ref(colorStore.randomizeColor())
+    const title = computed(() => {
+      return sectionStore.state.currentSectionName
+        ? `JR | ${sectionStore.state.currentSectionName}`
+        : 'Jonathan Russ'
+    })
+
+    watch(
+      title,
+      (newTitle) => {
+        document.title = newTitle
+      },
+      { immediate: true }
+    )
 
     useMeta({
       htmlAttrs: { lang: 'de', amp: true },
-      title: currentSectionName.value
-        ? `${currentSectionName.value} | Jonathan Russ`
-        : 'Jonathan Russ',
+      title: title.value,
       link:
         nodeEnv.value === 'development'
           ? [
@@ -63,7 +73,6 @@ export default defineComponent({
     return {
       route,
       nodeEnv,
-      currentSectionName,
       colorBadge
     }
   }

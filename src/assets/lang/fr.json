@@ -3,26 +3,36 @@
     "common": {
       "NavBar": [
         {
+          "id": "about",
           "name": "About",
-          "route": "/#about"
+          "route": "/#about",
+          "class": "section-separated"
         },
         {
+          "id": "languages",
           "name": "Langues",
-          "route": "/#languages"
+          "route": "/#languages",
+          "class": "section-separated"
         },
         {
+          "id": "references",
           "name": "Références",
-          "route": "/#references"
+          "route": "/#references",
+          "class": "section-separated"
         },
         {
+          "id": "other",
           "name": "Autre",
-          "route": "/#other"
+          "route": "/#other",
+          "class": "section-separated"
         },
         {
+          "id": "technologies",
           "name": "Technologies",
           "route": "/#technologies"
         },
         {
+          "id": "projects",
           "name": "Projets",
           "route": "/#projects"
         }
@@ -84,15 +94,6 @@
       }
     },
     "containers": {
-      "common": {
-        "about": "About",
-        "languages": "Langues",
-        "references": "Références",
-        "other": "Autre",
-        "technologies": "Technologies",
-        "projects": "Projets",
-        "projectsAtSwisscom": "Projets chez Swisscom"
-      },
       "about": {
         "eyebrow": "Hey ;)",
         "title": "Je suis Jonathan",

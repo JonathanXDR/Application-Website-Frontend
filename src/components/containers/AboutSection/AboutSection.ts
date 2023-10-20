@@ -21,7 +21,14 @@ export default defineComponent({
     ArticleItem,
     TimeLine
   },
-  setup() {
+  props: {
+    title: {
+      type: String,
+      required: true,
+      default: undefined
+    }
+  },
+  setup(props) {
     const { tm } = useI18n()
     const links = computed(() => tm('components.containers.about.links') as LinkType[])
     const dateItems = tm('components.containers.about.dates') as DateItemType[]
@@ -45,6 +52,7 @@ export default defineComponent({
     })
 
     return {
+      props,
       tm,
       links,
       dates,

@@ -7,7 +7,7 @@ export function useSectionDirective(app: App) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            useSectionStore().setCurrentSection(el.id, binding.value)
+            useSectionStore().setCurrentSection(el.getAttribute('name'), binding.value)
           }
         })
       },
