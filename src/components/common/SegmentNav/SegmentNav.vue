@@ -1,21 +1,17 @@
 <template>
   <div class="segmentnav-container">
     <ul class="segmentnav" role="tablist" aria-orientation="horizontal">
-      <li class="segmentnav-list-item">
+      <li class="segmentnav-item">
         <input id="handoff" type="radio" name="continuity-segment" checked />
-        <label for="handoff" class="typography-segmentnav-item segmentnav-item"> Handoff </label>
+        <label for="handoff" class="typography-segmentnav-item"> Handoff </label>
       </li>
-      <li class="segmentnav-list-item">
+      <li class="segmentnav-item">
         <input id="reading-list" type="radio" name="continuity-segment" />
-        <label for="reading-list" class="typography-segmentnav-item segmentnav-item">
-          Reading List
-        </label>
+        <label for="reading-list" class="typography-segmentnav-item"> Reading List </label>
       </li>
-      <li class="segmentnav-list-item">
+      <li class="segmentnav-item">
         <input id="icloud-keychain" type="radio" name="continuity-segment" />
-        <label for="icloud-keychain" class="typography-segmentnav-item segmentnav-item">
-          iCloud Keychain
-        </label>
+        <label for="icloud-keychain" class="typography-segmentnav-item"> iCloud Keychain </label>
       </li>
       <!-- <button
         id="continuity-segment-handoff"

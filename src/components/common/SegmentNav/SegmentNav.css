@@ -28,7 +28,7 @@
   display: none;
 }
 
-.segmentnav-list-item:has(input[type='radio']:checked) {
+.segmentnav-item:has(input[type='radio']:checked) {
   height: 100%;
   border-radius: 1.25em;
   display: flex;
@@ -44,7 +44,7 @@
 }
 
 
-.segmentnav-list-item {
+.segmentnav-item {
   /* padding: 0 21px; */
   padding: 0 22px;
   height: 100%;
