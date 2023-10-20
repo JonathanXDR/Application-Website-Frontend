@@ -14,10 +14,12 @@ export default {
     }
 
     const { tm } = useI18n()
-    const entireDescription = computed(() => tm('views.notFound.description') as string)
+    const colors = computed(() => tm('views.maintenance.icon.colors') as Object)
+    const entireDescription = computed(() => tm('views.maintenance.description') as string)
     const description = splitDescription(entireDescription.value)
 
     return {
+      colors,
       description
     }
   }
