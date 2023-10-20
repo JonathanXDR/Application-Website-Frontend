@@ -20,15 +20,24 @@ export default defineComponent({
       default: 'medium',
       validator: (value: string): boolean => ['small', 'medium', 'large'].includes(value)
     },
-    colorPrimary: {
-      type: String,
+    colors: {
+      type: Object,
       required: false,
-      default: 'currentColor'
-    },
-    colorSecondary: {
-      type: String,
-      required: false,
-      default: 'none'
+      default: () => ({
+        primary: 'currentColor',
+        secondary: 'currentColor',
+        tertiary: 'currentColor'
+      }),
+      validator(value: { primary?: string; secondary?: string; tertiary?: string }): boolean {
+        const isValidColor = (color: string | undefined): boolean => {
+          return typeof color === 'string' || color === undefined
+        }
+        return (
+          isValidColor(value.primary) &&
+          isValidColor(value.secondary) &&
+          isValidColor(value.tertiary)
+        )
+      }
     }
   },
   setup(props) {
@@ -39,8 +48,9 @@ export default defineComponent({
     }
 
     const styles = reactive({
-      '--color-primary': props.colorPrimary,
-      '--color-secondary': props.colorSecondary
+      '--color-primary': props.colors.primary,
+      '--color-secondary': props.colors.secondary,
+      '--color-tertiary': props.colors.tertiary
     })
 
     return { icon, styles }
