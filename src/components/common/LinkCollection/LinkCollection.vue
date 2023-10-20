@@ -5,7 +5,7 @@
         {{ link.title }}
         <Icon
           v-if="link.icon"
-          :name="link.icon"
+          :name="link.icon.name"
           size="large"
           class="svg-icon inline-chevron-right-icon icon-inline link-icon"
         />
