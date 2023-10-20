@@ -1,5 +1,5 @@
+import ErrorView from '@/views/ErrorView/ErrorView.vue'
 import HomeView from '@/views/HomeView/HomeView.vue'
-import MaintenanceView from '@/views/MaintenanceView/MaintenanceView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -15,8 +15,11 @@ const router = createRouter({
     },
     {
       path: '/:pathMatch(.*)*',
-      name: 'not-found',
-      component: MaintenanceView,
+      name: 'error',
+      component: ErrorView,
+      props: {
+        name: 'notFound'
+      },
       meta: {
         ribbon: false,
         footerFull: false

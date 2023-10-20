@@ -17,6 +17,7 @@ export default defineComponent({
     },
     size: {
       type: String,
+      required: false,
       default: 'medium',
       validator: (value: string): boolean => ['small', 'medium', 'large'].includes(value)
     },
@@ -48,9 +49,9 @@ export default defineComponent({
     }
 
     const styles = reactive({
-      '--color-primary': props.colors.primary,
-      '--color-secondary': props.colors.secondary,
-      '--color-tertiary': props.colors.tertiary
+      '--color-primary': props.colors.primary || 'currentColor',
+      '--color-secondary': props.colors.secondary || 'currentColor',
+      '--color-tertiary': props.colors.tertiary || 'currentColor'
     })
 
     return { icon, styles }
@@ -71,8 +72,15 @@ export default defineComponent({
 }
 
 .media-icon {
-  width: 10em;
-  height: 10em;
+  width: 5em;
+  height: 5em;
+}
+
+@media screen and (min-width: 1069px) {
+  .media-icon {
+    width: 10em;
+    height: 10em;
+  }
 }
 
 .icon-article {
