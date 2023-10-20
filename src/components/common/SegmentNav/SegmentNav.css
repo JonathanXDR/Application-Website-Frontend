@@ -32,7 +32,7 @@
   cursor: pointer;
 }
 
-.segmentnav-item:has(input[type='radio']:checked) {
+/* .segmentnav-item:has(input[type='radio']:checked) {
   height: 100%;
   border-radius: 1.25em;
   display: flex;
@@ -45,7 +45,7 @@
   text-decoration: none;
   cursor: default;
   z-index: 10;
-}
+} */
 
 .segmentnav-item {
   /* padding: 0 21px; */

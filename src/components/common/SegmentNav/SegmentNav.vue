@@ -1,6 +1,6 @@
 <template>
   <div class="segmentnav-container">
-    <ul class="segmentnav" role="tablist" aria-orientation="horizontal">
+    <ul ref="segmentNav" class="segmentnav">
       <li class="segmentnav-item">
         <input id="handoff" type="radio" name="continuity-segment" checked />
         <label for="handoff" class="typography-segmentnav-item"> Handoff </label>
@@ -17,9 +17,6 @@
         id="continuity-segment-handoff"
         class="typography-segmentnav-item segmentnav-item current"
         value="handoff"
-        role="tab"
-        aria-controls="continuity-gallery-item-handoff"
-        aria-selected="true"
         tabindex="0"
       >
         Handoff
@@ -28,9 +25,6 @@
         id="continuity-segment-reading-list"
         class="typography-segmentnav-item segmentnav-item"
         value="reading-list"
-        role="tab"
-        aria-controls="continuity-gallery-item-reading-list"
-        aria-selected="false"
         tabindex="-1"
       >
         Reading List
@@ -39,17 +33,13 @@
         id="continuity-segment-icloud-keychain"
         class="typography-segmentnav-item segmentnav-item"
         value="icloud-keychain"
-        role="tab"
-        aria-controls="continuity-gallery-item-icloud-keychain"
-        aria-selected="false"
         tabindex="-1"
       >
         iCloud Keychain
       </button> -->
       <div
         class="segmentnav-selection-background"
-        role="presentation"
-        style="width: 107px; transform: translateX(0.008px); display: none"
+        style="width: 124px; transform: translateX(107.008px)"
       ></div>
     </ul>
   </div>
