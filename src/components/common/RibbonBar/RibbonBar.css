@@ -73,6 +73,7 @@
   0% {
     background-color: var(--ribbon-background-color-initial);
   }
+
   to {
     background-color: var(--ribbon-background-color);
   }
@@ -89,6 +90,7 @@
   0% {
     color: var(--ribbon-text-color-initial);
   }
+
   to {
     color: var(--ribbon-text-color);
   }
@@ -105,6 +107,7 @@
   0% {
     transform: translateY(-100%);
   }
+
   to {
     transform: translateY(0);
   }
