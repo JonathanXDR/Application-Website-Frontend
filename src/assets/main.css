@@ -16,7 +16,6 @@ body {
   background-color: var(--color-fill);
   overflow-wrap: break-word;
   hyphens: auto;
-  scroll-behavior: smooth;
 }
 
 .light {

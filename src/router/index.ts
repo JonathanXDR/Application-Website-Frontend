@@ -26,12 +26,16 @@ const router = createRouter({
       }
     }
   ],
-  scrollBehavior(to) {
-    if (to.hash) {
-      return {
-        el: to.hash,
-        top: 46,
-        behavior: 'smooth'
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      if (to.hash) {
+        return {
+          el: to.hash,
+          top: 46,
+          behavior: 'smooth'
+        }
       }
     }
   }
