@@ -1,3 +1,4 @@
+import type { IconType } from './Icon'
 import type { LinkType } from './Link'
 
 export type ArticleItemType = {
@@ -5,5 +6,5 @@ export type ArticleItemType = {
   date?: string
   description?: string
   links?: LinkType[]
-  icon?: string
+  icon?: IconType
 }

@@ -1,4 +1,5 @@
-import FooterItem from '@/components/common/FooterItem/FooterItem.vue'
+import FooterCompact from '@/components/common/Footer/FooterCompact/FooterCompact.vue'
+import FooterFull from '@/components/common/Footer/FooterFull/FooterFull.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import NavBar from '@/components/common/NavBar/NavBar.vue'
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
@@ -6,7 +7,7 @@ import { useColorStore } from '@/stores/color'
 import { useSectionStore } from '@/stores/section'
 import { defineComponent, ref } from 'vue'
 import { useMeta } from 'vue-meta'
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'App',
@@ -16,9 +17,11 @@ export default defineComponent({
     LoadingSpinner,
     NavBar,
     RibbonBar,
-    FooterItem
+    FooterFull,
+    FooterCompact
   },
   setup() {
+    const route = useRoute()
     const colorStore = useColorStore()
     const sectionStore = useSectionStore()
 
@@ -58,6 +61,7 @@ export default defineComponent({
     })
 
     return {
+      route,
       nodeEnv,
       currentSectionName,
       colorBadge
