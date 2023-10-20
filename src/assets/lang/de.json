@@ -33,7 +33,9 @@
           {
             "title": "Mehr erfahren",
             "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/v2.1.3...v2.2.0",
-            "icon": "chevron.right"
+            "icon": {
+              "name": "chevron.right"
+            }
           }
         ]
       },
@@ -47,25 +49,33 @@
             "title": "Mail",
             "url": "mailto:contact@jonathan-russ.com",
             "category": "solid",
-            "icon": "envelope"
+            "icon": {
+              "name": "envelope"
+            }
           },
           {
             "title": "LinkedIn",
             "url": "https://www.linkedin.com/in/jonathan-russ-b7442a228",
             "category": "brands",
-            "icon": "linkedin-in"
+            "icon": {
+              "name": "linkedin-in"
+            }
           },
           {
             "title": "GitHub",
             "url": "https://github.com/JonathanXDR",
             "category": "brands",
-            "icon": "github"
+            "icon": {
+              "name": "github"
+            }
           },
           {
             "title": "Twitter",
             "url": "https://twitter.com/JonathanXD12_",
             "category": "brands",
-            "icon": "x-twitter"
+            "icon": {
+              "name": "x-twitter"
+            }
           }
         ]
       },
@@ -123,7 +133,9 @@
           "title": "Steve Hess",
           "description": "Lernbegleiter & Vorgesetzter",
           "links": [],
-          "icon": "person.crop.square"
+          "icon": {
+            "name": "person.crop.square"
+          }
         },
         {
           "title": "Nick Zimmermann",
@@ -132,28 +144,38 @@
             {
               "title": "Mehr erfahren",
               "url": "https://nickzimmermann.com/",
-              "icon": "chevron.right"
+              "icon": {
+                "name": "chevron.right"
+              }
             }
           ],
-          "icon": "person.crop.square"
+          "icon": {
+            "name": "person.crop.square"
+          }
         },
         {
           "title": "Alessio Iantosca",
           "description": "Projektanbieter bei Automatisierungsprojekten im Banking Bereich",
           "links": [],
-          "icon": "person.crop.square"
+          "icon": {
+            "name": "person.crop.square"
+          }
         },
         {
           "title": "Carlo Schmid",
           "description": "Projektanbieter im Apps Team Frontend",
           "links": [],
-          "icon": "person.crop.square"
+          "icon": {
+            "name": "person.crop.square"
+          }
         },
         {
           "title": "Kim Eggler",
           "description": "Projektanbieter im Apps Team Backend",
           "links": [],
-          "icon": "person.crop.square"
+          "icon": {
+            "name": "person.crop.square"
+          }
         }
       ],
       "other": [
@@ -165,10 +187,14 @@
             {
               "title": "Mehr über TBZ",
               "url": "https://tbz.ch/",
-              "icon": "chevron.right"
+              "icon": {
+                "name": "chevron.right"
+              }
             }
           ],
-          "icon": "calendar"
+          "icon": {
+            "name": "calendar"
+          }
         },
         {
           "title": "Berufsmaturitätsschule Zürich",
@@ -178,10 +204,14 @@
             {
               "title": "Mehr über BMZ",
               "url": "https://www.bms-zuerich.ch/",
-              "icon": "chevron.right"
+              "icon": {
+                "name": "chevron.right"
+              }
             }
           ],
-          "icon": "calendar"
+          "icon": {
+            "name": "calendar"
+          }
         }
       ],
       "technologies": [
@@ -190,152 +220,152 @@
           "progress": 85,
           "learned": "NexCC",
           "enhanced": "M293",
-          "color1": "var(--color-dark-orange)",
-          "color2": "var(--color-dark-red)"
+          "color1": "var(--color-orange)",
+          "color2": "var(--color-red)"
         },
         {
           "title": "CSS",
           "progress": 85,
           "learned": "NexCC",
           "enhanced": "M293",
-          "color1": "var(--color-dark-cyan)",
-          "color2": "var(--color-dark-indigo)"
+          "color1": "var(--color-cyan)",
+          "color2": "var(--color-indigo)"
         },
         {
           "title": "JavaScript",
           "progress": 70,
           "learned": "NexCC",
           "enhanced": "Apps Team Frontend, ÜK294",
-          "color1": "var(--color-dark-yellow)",
-          "color2": "var(--color-dark-green)"
+          "color1": "var(--color-yellow)",
+          "color2": "var(--color-green)"
         },
         {
           "title": "SDX",
           "progress": 70,
           "learned": "NexCC",
           "enhanced": "Apps Team Frontend",
-          "color1": "var(--color-dark-cyan)",
-          "color2": "var(--color-dark-indigo)"
+          "color1": "var(--color-cyan)",
+          "color2": "var(--color-indigo)"
         },
         {
           "title": "Node.js",
           "progress": 60,
           "learned": "NexCC",
           "enhanced": "-",
-          "color1": "var(--color-dark-yellow)",
-          "color2": "var(--color-dark-green)"
+          "color1": "var(--color-yellow)",
+          "color2": "var(--color-green)"
         },
         {
           "title": "SQL",
           "progress": 70,
           "learned": "NexCC",
           "enhanced": "ÜK106, M164",
-          "color1": "var(--color-dark-cyan)",
-          "color2": "var(--color-dark-indigo)"
+          "color1": "var(--color-cyan)",
+          "color2": "var(--color-indigo)"
         },
         {
           "title": "Express.js",
           "progress": 70,
           "learned": "NexCC",
           "enhanced": "ÜK295",
-          "color1": "var(--color-dark-yellow)",
-          "color2": "var(--color-dark-green)"
+          "color1": "var(--color-yellow)",
+          "color2": "var(--color-green)"
         },
         {
           "title": "Vue.js",
           "progress": 80,
           "learned": "NexCC",
           "enhanced": "Apps Team Frontend",
-          "color1": "var(--color-dark-yellow)",
-          "color2": "var(--color-dark-green)"
+          "color1": "var(--color-yellow)",
+          "color2": "var(--color-green)"
         },
         {
           "title": "TypeScript",
           "progress": 75,
           "learned": "NexCC",
           "enhanced": "Apps Team Frontend, ÜK294",
-          "color1": "var(--color-dark-yellow)",
-          "color2": "var(--color-dark-green)"
+          "color1": "var(--color-yellow)",
+          "color2": "var(--color-green)"
         },
         {
           "title": "C#",
           "progress": 25,
           "learned": "Automatisierungsprojekte im Banking Bereich",
           "enhanced": "-",
-          "color1": "var(--color-dark-pink)",
-          "color2": "var(--color-dark-purple)"
+          "color1": "var(--color-pink)",
+          "color2": "var(--color-purple)"
         },
         {
           "title": "Java",
           "progress": 10,
           "learned": "M319",
           "enhanced": "-",
-          "color1": "var(--color-dark-yellow)",
-          "color2": "var(--color-dark-green)"
+          "color1": "var(--color-yellow)",
+          "color2": "var(--color-green)"
         },
         {
           "title": "Bash",
           "progress": 50,
           "learned": "NexCC",
           "enhanced": "M122",
-          "color1": "var(--color-dark-pink)",
-          "color2": "var(--color-dark-purple)"
+          "color1": "var(--color-pink)",
+          "color2": "var(--color-purple)"
         },
         {
           "title": "React",
           "progress": 60,
           "learned": "ÜK294, Apps Team Frontend",
           "enhanced": "-",
-          "color1": "var(--color-dark-cyan)",
-          "color2": "var(--color-dark-indigo)"
+          "color1": "var(--color-cyan)",
+          "color2": "var(--color-indigo)"
         },
         {
           "title": "Next.js",
           "progress": 50,
           "learned": "Apps Team Frontend",
           "enhanced": "-",
-          "color1": "var(--color-dark-yellow)",
-          "color2": "var(--color-dark-green)"
+          "color1": "var(--color-yellow)",
+          "color2": "var(--color-green)"
         },
         {
           "title": "Docker",
           "progress": 50,
           "learned": "ÜK210",
           "enhanced": "M347",
-          "color1": "var(--color-dark-cyan)",
-          "color2": "var(--color-dark-indigo)"
+          "color1": "var(--color-cyan)",
+          "color2": "var(--color-indigo)"
         },
         {
           "title": "Kubernetes",
           "progress": 50,
           "learned": "ÜK210",
           "enhanced": "M347",
-          "color1": "var(--color-dark-cyan)",
-          "color2": "var(--color-dark-indigo)"
+          "color1": "var(--color-cyan)",
+          "color2": "var(--color-indigo)"
         },
         {
           "title": "Nest.js",
           "progress": 70,
           "learned": "Apps Team Backend",
           "enhanced": "-",
-          "color1": "var(--color-dark-orange)",
-          "color2": "var(--color-dark-red)"
+          "color1": "var(--color-orange)",
+          "color2": "var(--color-red)"
         },
         {
           "title": "Prisma",
           "progress": 60,
           "learned": "Apps Team Backend",
           "enhanced": "-",
-          "color1": "var(--color-dark-cyan)",
-          "color2": "var(--color-dark-indigo)"
+          "color1": "var(--color-cyan)",
+          "color2": "var(--color-indigo)"
         },
         {
           "title": "TypeORM",
           "progress": 60,
           "learned": "Apps Team Backend",
           "enhanced": "-",
-          "color1": "var(--color-dark-cyan)",
-          "color2": "var(--color-dark-indigo)"
+          "color1": "var(--color-cyan)",
+          "color2": "var(--color-indigo)"
         }
       ],
       "projects": [
@@ -343,37 +373,49 @@
           "title": "NEX First Steps",
           "date": "August 2021",
           "description": "In den First Steps hat meine Lehre begonnen. Dort habe ich alles rund um Swisscom kennengelernt, also z.B. wie man die verschieden Tools verwendet, wie man richtig zusammenarbeitet und auch andere Dinge, wie beispielsweise die Arbeitssicherheit.",
-          "icon": "airplane.departure"
+          "icon": {
+            "name": "airplane.departure"
+          }
         },
         {
           "title": "Competence Center NexCC",
           "date": "August 2021 - Januar 2022",
           "description": "Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei viele neue Programmiersprachen gelernt. Darunter HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App erstellen, welche ich mit einer SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend hinzugefügt und so ein eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte Programmiersprachen, wie Node.js, Express.js oder Vue.js neu dazugelernt.",
-          "icon": "chevron.left.forwardslash.chevron.right"
+          "icon": {
+            "name": "chevron.left.forwardslash.chevron.right"
+          }
         },
         {
           "title": "Automatisierungsprojekte im Banking Bereich",
           "date": "Februar 2022 - Juli 2022",
           "description": "Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld erhalten. Ich war aktiv dabei und habe die einzelnen Banken gelernt zu testen bzw. zu automatisieren. Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr über das .Net Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu verbessern!",
-          "icon": "clock.arrow.2.circlepath"
+          "icon": {
+            "name": "clock.arrow.2.circlepath"
+          }
         },
         {
           "title": "Apps Team Frontend",
           "date": "August 2022 - Februar 2023",
           "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
-          "icon": "display"
+          "icon": {
+            "name": "display"
+          }
         },
         {
           "title": "Apps Team Backend",
           "date": "Februar 2023 - August 2023",
           "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt. Danach habe ich dann beim Tool für Medienkurse mitgeholfen und konnte dort einige Features hinzufügen und Fehler beheben. Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen Webfrontends mitwirken, was mir sehr gefallen hat :)",
-          "icon": "gear"
+          "icon": {
+            "name": "gear"
+          }
         },
         {
           "title": "Security Journey - Development Stream",
           "date": "September 2023 - August 2024",
           "description": "In diesem Projekt habe ich mit ein paar Trainings zu Cloud & Security begonnen, was ziemlich lehrreich für mich war. Danach durfte ich bereits an meinem momentanen Projekt arbeiten, einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring). Dort verwende ich Python, Docker und Kubernetes, wobei Python für mich neu ist.",
-          "icon": "shield.lefthalf.filled"
+          "icon": {
+            "name": "shield.lefthalf.filled"
+          }
         }
       ]
     }
@@ -383,19 +425,28 @@
       "title": "Not Found.",
       "description": "Die Seite, die du suchst, kann nicht gefunden werden. Bitte überprüfe sie und versuche es erneut.",
       "links": [],
-      "icon": "exclamationmark.triangle.fill"
+      "icon": {
+        "name": "exclamationmark.triangle.fill",
+        "colorSecondary": "var(--color-yellow)"
+      }
     },
     "error": {
       "title": "Error.",
       "description": "Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem weiterhin besteht.",
       "links": [],
-      "icon": "exclamationmark.octagon.fill"
+      "icon": {
+        "name": "exclamationmark.octagon.fill",
+        "colorSecondary": "var(--color-red)"
+      }
     },
     "maintenance": {
       "title": "Be right back.",
       "description": "Ich führe Aktualisierungen auf der Seite durch. Schau bald wieder vorbei.",
       "links": [],
-      "icon": "wrench.and.screwdriver.fill"
+      "icon": {
+        "name": "wrench.and.screwdriver.fill",
+        "colorSecondary": "var(--color-red)"
+      }
     }
   }
 }
