@@ -10,7 +10,7 @@
   display: inline-flex;
   box-sizing: border-box;
   position: relative;
-  background: #e2e2e2;
+  background: var(--color-fill-gray-quaternary);
   height: 2.3em;
   border-radius: 1.15em;
   padding: 0.176em;
@@ -28,14 +28,14 @@
   display: none;
 }
 
-.segmentnav input[type='radio']:checked~label {
-  position: absolute;
-  top: 0.176em;
-  left: 0.176em;
+.segmentnav-list-item:has(input[type='radio']:checked) {
+  height: 100%;
+  border-radius: 1.25em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1;
-  height: 1.948em;
-  min-width: 1.948em;
-  background: #111;
+  background: var(--color-fill);
   transition: 300ms;
   pointer-events: none;
   text-decoration: none;
@@ -43,29 +43,33 @@
   z-index: 10;
 }
 
+
+.segmentnav-list-item {
+  /* padding: 0 21px; */
+  padding: 0 22px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .segmentnav input[type='radio']~label {
-  position: relative;
-  z-index: 2;
-  box-sizing: border-box;
-  -webkit-appearance: none;
-  padding: 0 21px;
   text-align: center;
   transition: color 275ms;
-  min-width: 107px;
 }
 
 @media only screen and (max-width: 734px) {
-  .segmentnav label {
+  .segmentnav-list-item {
     padding: 3px 21px;
   }
 }
 
-.segmentnav label:focus {
+.segmentnav-list-item:focus {
   box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.6);
   outline: none;
 }
 
-.segmentnav label:not(:first-of-type)::before {
+.segmentnav-list-item:not(:first-of-type)::before {
   content: '';
   display: block;
   position: absolute;
@@ -80,39 +84,39 @@
   transition: transform 350ms;
 }
 
-.segmentnav label {
+.segmentnav-list-item {
   color: var(--color-fill-gray);
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 
-.segmentnav label::before,
-.segmentnav label+button::before {
-  transform: scale(0);
+.segmentnav-list-item::before,
+.segmentnav-list-item+button::before {
+  /* transform: scale(0); */
 }
 
-.segmentnav label,
+.segmentnav-list-item,
 .segmentnav-selection-background {
   border-radius: 0.974em;
 }
 
 @media only screen and (max-width: 734px) {
 
-  .segmentnav label,
+  .segmentnav-list-item,
   .segmentnav-selection-background {
     border-radius: 100px;
   }
 }
 
-/* .segmentnav-selection-background {
+.segmentnav-selection-background {
   position: absolute;
   top: 0.176em;
   left: 0.176em;
   z-index: 1;
   height: 1.948em;
   min-width: 1.948em;
-  background: #111;
+  background: var(--color-fill-gray);
   transition: 300ms;
-} */
+}
 
 @media only screen and (max-width: 734px) {
   .segmentnav-selection-background {
@@ -120,18 +124,14 @@
   }
 }
 
-.section-continuity .fade-gallery .segmentnav-container {
+.segmentnav-container {
+  padding-top: 100px;
   display: flex;
   justify-content: center;
-  position: absolute;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  z-index: 99;
 }
 
 @media only screen and (max-width: 734px) {
-  .section-continuity .fade-gallery .segmentnav-container {
+  .segmentnav-container {
     width: 100vw;
     left: 50%;
     transform: translateX(-50%);

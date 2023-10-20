@@ -1,21 +1,19 @@
 <template>
   <div class="segmentnav-container">
     <ul class="segmentnav" role="tablist" aria-orientation="horizontal">
-      <li>
-        <input id="gaming" type="radio" name="category" />
-        <label for="gaming" class="typography-segmentnav-item segmentnav-item current">
-          Handoff
-        </label>
+      <li class="segmentnav-list-item">
+        <input id="handoff" type="radio" name="continuity-segment" checked />
+        <label for="handoff" class="typography-segmentnav-item segmentnav-item"> Handoff </label>
       </li>
-      <li>
-        <input id="gaming" type="radio" name="category" />
-        <label for="gaming" class="typography-segmentnav-item segmentnav-item current">
+      <li class="segmentnav-list-item">
+        <input id="reading-list" type="radio" name="continuity-segment" />
+        <label for="reading-list" class="typography-segmentnav-item segmentnav-item">
           Reading List
         </label>
       </li>
-      <li>
-        <input id="gaming" type="radio" name="category" />
-        <label for="gaming" class="typography-segmentnav-item segmentnav-item current">
+      <li class="segmentnav-list-item">
+        <input id="icloud-keychain" type="radio" name="continuity-segment" />
+        <label for="icloud-keychain" class="typography-segmentnav-item segmentnav-item">
           iCloud Keychain
         </label>
       </li>
@@ -55,7 +53,7 @@
       <div
         class="segmentnav-selection-background"
         role="presentation"
-        style="width: 107px; transform: translateX(0.008px)"
+        style="width: 107px; transform: translateX(0.008px); display: none"
       ></div>
     </ul>
   </div>
