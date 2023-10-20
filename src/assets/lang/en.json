@@ -377,5 +377,25 @@
         }
       ]
     }
+  },
+  "views": {
+    "notFound": {
+      "title": "Not Found.",
+      "description": "The page you're looking for can't be found. Please check it and try again.",
+      "links": [],
+      "icon": "exclamationmark.triangle.fill"
+    },
+    "error": {
+      "title": "Error.",
+      "description": "Something went wrong. Check back soon if the issue persists.",
+      "links": [],
+      "icon": "exclamationmark.octagon.fill"
+    },
+    "maintenance": {
+      "title": "Be right back.",
+      "description": "I'm making updates to the page. Check back soon.",
+      "links": [],
+      "icon": "wrench.and.screwdriver.fill"
+    }
   }
 }
