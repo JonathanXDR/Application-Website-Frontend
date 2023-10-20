@@ -5,15 +5,19 @@
         class="rs-covers-container rs-covers-media-default rs-covers-textovervideo as-l-container"
       >
         <div class="rs-covers-media-container">
-          <Icon name="" class="media-icon" />
+          <Icon
+            :name="$t('views.maintenance.icon.name')"
+            :colorPrimary="$t('views.maintenance.icon.colorPrimary')"
+            class="media-icon"
+          />
         </div>
         <div class="rs-covers-content-container">
           <h1 class="rs-covers-heading">
-            <span>Not Found</span>
+            <span>{{ $t('views.notFound.title') }}</span>
           </h1>
           <div class="rs-covers-desc">
-            The page you're looking for can't be found.
-            <span class="nowrap">Please check it and try again.</span>
+            {{ description[0] }}.
+            <span class="nowrap">{{ description[1] }}</span>
           </div>
         </div>
       </div>
