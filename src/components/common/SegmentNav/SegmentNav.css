@@ -95,19 +95,19 @@
   /* pointer-events: none; */
 }
 
-.segmentnav-item::before,
-.segmentnav-item+button::before {
+.segmentnav-item.current::before,
+.segmentnav-item.current+button::before {
   /* transform: scale(0); */
 }
 
-.segmentnav-list-item,
+.segmentnav-item,
 .segmentnav-selection-background {
   border-radius: 0.974em;
 }
 
 @media only screen and (max-width: 734px) {
 
-  .segmentnav-list-item,
+  .segmentnav-item,
   .segmentnav-selection-background {
     border-radius: 100px;
   }
