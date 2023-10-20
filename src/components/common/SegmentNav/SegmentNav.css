@@ -24,8 +24,12 @@
   }
 }
 
-.segmentnav input[type='radio'] {
+.segmentnav-item input[type='radio'] {
   display: none;
+}
+
+.segmentnav-item input[type='radio']~label {
+  cursor: pointer;
 }
 
 .segmentnav-item:has(input[type='radio']:checked) {
@@ -35,7 +39,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
-  background: var(--color-fill);
+  background: var(--color-code-plain);
   transition: 300ms;
   pointer-events: none;
   text-decoration: none;
@@ -91,8 +95,8 @@
 }
 
 .segmentnav-item:has(input[type='radio']:checked) {
-  color: var(--color-fill-gray);
-  pointer-events: none;
+  color: var(--color-fill-tertiary);
+  cursor: default;
 }
 
 .segmentnav-item:has(input[type='radio']:checked)::before,
