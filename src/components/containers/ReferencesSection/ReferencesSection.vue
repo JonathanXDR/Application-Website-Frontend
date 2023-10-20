@@ -1,5 +1,5 @@
 <template>
-  <h2>{{ $t('components.containers.common.references') }}</h2>
+  <h2>{{ props.title }}</h2>
   <ul class="grid">
     <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" />
   </ul>
