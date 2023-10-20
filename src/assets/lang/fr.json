@@ -398,7 +398,10 @@
           "date": "Août 2022 - Janvier 2023",
           "description": "Dans le Apps Team, j'ai d'abord créé une application Memory avec Vue.js, TypeScript et SDX. Actuellement, je participe au développement du nouveau site Web de l'équipe d'applications. Nous utilisons également TypeScript et SDX, mais utilisons Next.js comme framework.",
           "icon": {
-            "name": "display"
+            "name": "display",
+            "colors": {
+              "tertiary": "none"
+            }
           }
         },
         {
