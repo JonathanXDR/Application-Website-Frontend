@@ -2,11 +2,10 @@
   font-size: 14px;
   line-height: 1.28577;
   font-weight: 600;
-  letter-spacing: -.016em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  letter-spacing: -0.016em;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 
-/*! CSS Used from: https://www.apple.com/v/safari/q/built/styles/overview.built.css */
 .segmentnav {
   display: inline-flex;
   box-sizing: border-box;
@@ -14,7 +13,7 @@
   background: #e2e2e2;
   height: 2.3em;
   border-radius: 1.15em;
-  padding: .176em;
+  padding: 0.176em;
 }
 
 @media only screen and (max-width: 734px) {
@@ -25,7 +24,26 @@
   }
 }
 
-.segmentnav>button {
+.segmentnav input[type='radio'] {
+  display: none;
+}
+
+.segmentnav input[type='radio']:checked~label {
+  position: absolute;
+  top: 0.176em;
+  left: 0.176em;
+  z-index: 1;
+  height: 1.948em;
+  min-width: 1.948em;
+  background: #111;
+  transition: 300ms;
+  pointer-events: none;
+  text-decoration: none;
+  cursor: default;
+  z-index: 10;
+}
+
+.segmentnav input[type='radio']~label {
   position: relative;
   z-index: 2;
   box-sizing: border-box;
@@ -37,17 +55,17 @@
 }
 
 @media only screen and (max-width: 734px) {
-  .segmentnav>button {
+  .segmentnav label {
     padding: 3px 21px;
   }
 }
 
-.segmentnav>button:focus {
+.segmentnav label:focus {
   box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.6);
   outline: none;
 }
 
-.segmentnav>button:not(:first-of-type)::before {
+.segmentnav label:not(:first-of-type)::before {
   content: '';
   display: block;
   position: absolute;
@@ -58,47 +76,47 @@
   width: 3px;
   height: 3px;
   border-radius: 3px;
-  background: #000;
+  background: var(--color-code-plain);
   transition: transform 350ms;
 }
 
-.segmentnav>button[aria-selected="true"] {
-  color: white;
+.segmentnav label {
+  color: var(--color-fill-gray);
   pointer-events: none;
 }
 
-.segmentnav>button[aria-selected="true"]::before,
-.segmentnav>button[aria-selected="true"]+button::before {
+.segmentnav label::before,
+.segmentnav label+button::before {
   transform: scale(0);
 }
 
-.segmentnav>button,
+.segmentnav label,
 .segmentnav-selection-background {
-  border-radius: .974em;
+  border-radius: 0.974em;
 }
 
 @media only screen and (max-width: 734px) {
 
-  .segmentnav>button,
+  .segmentnav label,
   .segmentnav-selection-background {
     border-radius: 100px;
   }
 }
 
-.segmentnav-selection-background {
+/* .segmentnav-selection-background {
   position: absolute;
-  top: .176em;
-  left: .176em;
+  top: 0.176em;
+  left: 0.176em;
   z-index: 1;
   height: 1.948em;
   min-width: 1.948em;
   background: #111;
   transition: 300ms;
-}
+} */
 
 @media only screen and (max-width: 734px) {
   .segmentnav-selection-background {
-    height: calc(100% - .352em);
+    height: calc(100% - 0.352em);
   }
 }
 

@@ -2,6 +2,7 @@
   <h3 class="typography-magical-headline">
     {{ $t('components.containers.common.projectsAtSwisscom') }}
   </h3>
+  <SegmentNav />
   <div
     class="timeline-wrapper"
     v-if="projects.personal.length && projects.swisscom.length && projects.school.length"

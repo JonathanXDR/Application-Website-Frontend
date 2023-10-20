@@ -3,6 +3,7 @@ import CardTile from '@/components/common/CardTile/CardTile.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
+import SegmentNav from '@/components/common/SegmentNav/SegmentNav.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import { listUserRepositories } from '@/helpers/github-helper'
@@ -20,6 +21,7 @@ export default defineComponent({
     ShareSheet,
     CardTile,
     ArticleItem,
+    SegmentNav,
     TimeLine
   },
   setup() {
