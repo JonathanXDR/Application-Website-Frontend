@@ -144,12 +144,12 @@
   display: none;
 }
 
-.tile-overlay-toggle:checked ~ .tile-overlay .tile-button {
+.tile-overlay-toggle:checked~.tile-overlay .tile-button {
   transform: rotate(45deg);
   transition: transform 0.5s ease-in-out;
 }
 
-.tile-overlay-toggle:checked ~ .tile-overlay .tile-overlay-content {
+.tile-overlay-toggle:checked~.tile-overlay .tile-overlay-content {
   opacity: 1;
   visibility: visible;
 }

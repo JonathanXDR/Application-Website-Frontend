@@ -5,7 +5,9 @@ import OtherSection from '@/components/containers/OtherSection/OtherSection.vue'
 import ProjectsSection from '@/components/containers/ProjectsSection/ProjectsSection.vue'
 import ReferencesSection from '@/components/containers/ReferencesSection/ReferencesSection.vue'
 import TechnologiesSection from '@/components/containers/TechnologiesSection/TechnologiesSection.vue'
-import { defineComponent, ref } from 'vue'
+import type { SectionType } from '@/types/common/Section'
+import { computed, defineComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'HomeView',
@@ -19,15 +21,8 @@ export default defineComponent({
     ProjectsSection
   },
   setup() {
-    const sections = ref([
-      { id: 'about', class: 'section-separated' },
-      { id: 'languages', class: 'section-separated' },
-      { id: 'references', class: 'section-separated' },
-      { id: 'other', class: 'section-separated' },
-      { id: 'music' },
-      { id: 'technologies' },
-      { id: 'projects' }
-    ])
+    const { tm } = useI18n()
+    const sections = computed(() => tm('components.common.NavBar') as SectionType[])
 
     return {
       sections

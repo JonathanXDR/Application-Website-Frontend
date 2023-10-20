@@ -10,11 +10,19 @@ export default defineComponent({
     LoadingSpinner,
     LanguageBar
   },
-  setup() {
+  props: {
+    title: {
+      type: String,
+      required: true,
+      default: undefined
+    }
+  },
+  setup(props) {
     const { tm } = useI18n()
     const languages = computed(() => tm('components.containers.languages') as LanguageBarType[])
 
     return {
+      props,
       tm,
       languages
     }

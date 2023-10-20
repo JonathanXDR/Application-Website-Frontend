@@ -20,11 +20,19 @@ export default defineComponent({
     ArticleItem,
     TimeLine
   },
-  setup() {
+  props: {
+    title: {
+      type: String,
+      required: true,
+      default: undefined
+    }
+  },
+  setup(props) {
     const { tm } = useI18n()
     const cards = computed(() => tm('components.containers.technologies') as CardTileType[])
 
     return {
+      props,
       tm,
       cards
     }

@@ -1,6 +1,6 @@
 <template>
   <h3 class="typography-magical-headline">
-    {{ $t('components.containers.common.projectsAtSwisscom') }}
+    {{ props.title }}
   </h3>
   <div class="timeline-wrapper">
     <TimeLine />
