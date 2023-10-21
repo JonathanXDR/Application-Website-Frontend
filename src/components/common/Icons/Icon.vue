@@ -83,12 +83,15 @@ export default defineComponent({
   }
 }
 
-.icon-article, .icon-cta {
+.icon-article,
+.icon-cta {
   width: 1.25em;
   height: 1.25em;
 }
 
 #music .tabnav-paddle-icon {
+  width: 0.75em;
+  height: 0.75em;
   opacity: 0.8;
   transition: opacity 200ms linear;
 }

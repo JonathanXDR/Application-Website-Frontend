@@ -1,24 +1,24 @@
 /* ---------------------------- play-pause-button --------------------------- */
 
-.play-pause-button {
+/* .play-pause-button {
   position: relative;
   z-index: 2;
   top: -442px;
   right: 34px;
   height: 34px;
   width: 34px;
-}
+} */
 
-@media only screen and (max-width: 1068px) {
+/* @media only screen and (max-width: 1068px) {
   .play-pause-button {
     top: -248px;
     right: 27px;
     height: 27px;
     width: 27px;
   }
-}
+} */
 
-@media only screen and (max-width: 734px) {
+/* @media only screen and (max-width: 734px) {
   .play-pause-button {
     top: unset;
     right: unset;
@@ -29,9 +29,24 @@
   .play-pause-button {
     top: 36px;
   }
+} */
+
+.play-pause-button.playing,
+.playing .play-pause-button {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.play-pause-button.has-background {
+.play-pause-button {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* .play-pause-button.has-background {
   top: -350px;
   right: 34px;
 }
@@ -58,7 +73,7 @@
   .play-pause-button.has-background svg {
     fill: var(--color-code-plain);
   }
-}
+} */
 
 .play-pause-button.playing .play-icon {
   opacity: 0;
@@ -466,6 +481,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  margin-top: 40px;
   z-index: 4;
   height: 0;
 }
@@ -487,6 +503,9 @@
 /* ----------------------- play-pause-marquees-button ----------------------- */
 
 .play-pause-marquees-button {
+  right: 54px;
+  position: absolute;
+  top: 0;
   display: flex;
   justify-content: flex-end;
   opacity: 0;
@@ -501,6 +520,12 @@
 .dynamic-gallery.marquees-initialized .play-pause-marquees-button {
   opacity: 1;
   pointer-events: auto;
+}
+
+@media only screen and (max-width: 1068px) {
+  .play-pause-marquees-button {
+    right: 20px;
+  }
 }
 
 /* -------------------------- dynamic-gallery-item -------------------------- */

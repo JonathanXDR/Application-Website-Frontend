@@ -88,7 +88,7 @@
 /* ------------------------------ tabnav-items ------------------------------ */
 
 .tabnav-items {
-  /* margin: 0 34px; */
+  margin: 0 34px;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
@@ -128,11 +128,11 @@
   border-bottom-color: var(--color-figure-gray-secondary);
 }
 
-.tabnav-item > input[type='radio'] {
+.tabnav-item>input[type='radio'] {
   display: none;
 }
 
-.tabnav-item > input[type='radio']:checked ~ label.tabnav-link {
+.tabnav-item>input[type='radio']:checked~label.tabnav-link {
   color: var(--color-fill-gray);
   pointer-events: none;
   text-decoration: none;
@@ -140,15 +140,15 @@
   z-index: 10;
 }
 
-#music .tabnav-item > input[type='radio']:checked ~ label.tabnav-link {
+#music .tabnav-item>input[type='radio']:checked~label.tabnav-link {
   color: #e85f82 !important;
 }
 
-.tabnav-item > input[type='radio']:checked ~ label.tabnav-link:after {
+.tabnav-item>input[type='radio']:checked~label.tabnav-link:after {
   border-bottom-color: var(--color-fill-gray);
 }
 
-#music .tabnav-item > input[type='radio']:checked ~ label.tabnav-link:after {
+#music .tabnav-item>input[type='radio']:checked~label.tabnav-link:after {
   border-bottom-width: 2px !important;
   border-bottom-color: #e85f82 !important;
 }
