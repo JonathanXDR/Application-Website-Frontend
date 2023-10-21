@@ -11,7 +11,14 @@ body {
   line-height: 1.47059;
   font-weight: 400;
   /* letter-spacing: -0.022em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
   font-style: normal;
   background-color: var(--color-fill);
   overflow-wrap: break-word;
@@ -274,7 +281,14 @@ h1 {
   line-height: 1.08349;
   font-weight: 600;
   /* letter-spacing: -0.003em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 h2 {
@@ -282,7 +296,14 @@ h2 {
   line-height: 1.1;
   font-weight: 600;
   /* letter-spacing: 0; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 h3 {
@@ -290,7 +311,14 @@ h3 {
   line-height: 1.125;
   font-weight: 600;
   /* letter-spacing: 0.004em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 h4 {
@@ -298,7 +326,14 @@ h4 {
   line-height: 1.16667;
   font-weight: 600;
   /* letter-spacing: 0.009em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 h5 {
@@ -306,7 +341,14 @@ h5 {
   line-height: 1.21053;
   font-weight: 600;
   /* letter-spacing: 0.012em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 h6 {
@@ -314,7 +356,14 @@ h6 {
   line-height: 1.33337;
   font-weight: 400;
   /* letter-spacing: -0.01em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .intro,
@@ -324,7 +373,14 @@ h6 {
   line-height: 1.381;
   font-weight: 400;
   /* letter-spacing: 0.011em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 a {
@@ -358,7 +414,14 @@ li {
   line-height: 1.16667;
   font-weight: 600;
   /* letter-spacing: 0.009em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .typography-caption {
@@ -366,7 +429,14 @@ li {
   line-height: 1.33337;
   font-weight: 400;
   /* letter-spacing: -0.01em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .badge-value {
@@ -374,7 +444,14 @@ li {
   line-height: 1;
   font-weight: 400;
   /* letter-spacing: -0.003em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
   left: -2px;
   display: block;
   white-space: nowrap;
@@ -387,7 +464,14 @@ li {
   line-height: 1.28583;
   font-weight: 400;
   /* letter-spacing: -0.016em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
   left: 0;
   color: #333;
   display: block;
@@ -402,7 +486,14 @@ li {
   line-height: 1;
   font-weight: 400;
   /* letter-spacing: -0.003em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .badge .badge-caption {
@@ -410,7 +501,14 @@ li {
   line-height: 1.28583;
   font-weight: 400;
   /* letter-spacing: -0.016em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .badge .badge-value {
@@ -418,7 +516,14 @@ li {
   line-height: 1.07143;
   font-weight: 600;
   /* letter-spacing: -0.005em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
   font-weight: 700;
   color: #111;
   margin-bottom: 2px;
@@ -429,7 +534,14 @@ li {
   line-height: 1.47059;
   font-weight: 400;
   /* letter-spacing: -0.022em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
   font-weight: 500;
   color: #888;
   display: block;
@@ -440,7 +552,14 @@ li {
   line-height: 1;
   font-weight: 700;
   /* letter-spacing: -0.0009em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
   text-align: center;
 }
 
