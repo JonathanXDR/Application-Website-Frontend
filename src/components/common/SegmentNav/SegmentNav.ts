@@ -24,9 +24,10 @@ export default defineComponent({
       const selectedIndex = segments.value.findIndex(
         (segment) => segment.id === selectedSegment.value
       )
-      if (segmentEls.value[selectedIndex]) {
+      if (segmentEls.value[selectedIndex] && segmentNav.value) {
         selectionWidth.value = segmentEls.value[selectedIndex].offsetWidth
-        translateX.value = segmentEls.value[selectedIndex].offsetLeft
+        const segmentNavPadding = parseFloat(getComputedStyle(segmentNav.value).paddingLeft) || 0
+        translateX.value = segmentEls.value[selectedIndex].offsetLeft - segmentNavPadding
       }
     }
 
