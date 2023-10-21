@@ -6,7 +6,7 @@
           <input
             :id="item.id"
             type="radio"
-            name="continuity-segment"
+            name="category"
             v-model="selectedIndex"
             :value="index"
           />
