@@ -8,7 +8,7 @@
         </option>
       </select>
       <span class="form-dropdown-chevron">
-        <Icon name="chevron.down" size="small" />
+        <Icon name="chevron.down" size="small" class="icon-dropdown" />
       </span>
     </div>
     <div class="role-selects-container">

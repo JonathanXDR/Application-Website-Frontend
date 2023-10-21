@@ -1,8 +1,12 @@
 <template>
   <a
     href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/macros"
-    class="card large"
+    class="card large nr-scroll-animation nr-scroll-animation--off"
     style="border-radius: 30px !important"
+    v-animation="{
+      add: ['nr-scroll-animation--on'],
+      remove: ['nr-scroll-animation--off']
+    }"
   >
     <div
       class="card-cover-wrap"
