@@ -1,3 +1,4 @@
+import type { TabItemType } from '@/types/common/TabItem'
 import { computed, defineComponent, onMounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
