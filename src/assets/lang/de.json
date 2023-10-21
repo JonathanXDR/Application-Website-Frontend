@@ -29,12 +29,14 @@
         {
           "id": "technologies",
           "name": "Technologien",
-          "route": "/#technologies"
+          "route": "/#technologies",
+          "class": "section-separated"
         },
         {
           "id": "projects",
           "name": "Projekte",
-          "route": "/#projects"
+          "route": "/#projects",
+          "class": "section-separated"
         }
       ],
       "RibbonBar": {

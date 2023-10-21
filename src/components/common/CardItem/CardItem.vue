@@ -8,15 +8,15 @@
       remove: ['nr-scroll-animation--off']
     }"
   >
-    <div
+    <!-- <div
       class="card-cover-wrap"
       style="
         color: var(--color-fill-tertiary) !important;
         background: var(--color-code-plain);
         padding: 30px;
       "
-    >
-      <!-- <picture class="card-cover"
+    > -->
+    <!-- <picture class="card-cover"
         ><source
           media="(prefers-color-scheme: dark)"
           srcset="
@@ -35,7 +35,7 @@
           height="auto"
         />
       </picture> -->
-      <!-- <div class="group group-hispanic typography-body-tight">
+    <!-- <div class="group group-hispanic typography-body-tight">
         <p>
           <span class="semibold"> <span data-value>27.1</span>% </span>
           <span>Hispanic/Latinx</span>
@@ -53,7 +53,7 @@
           <div class="bar" data-bar style="width: 39.7%"></div>
         </div>
       </div> -->
-      <div class="container">
+    <!-- <div class="container">
         <div class="donut-container">
           <figure class="donut">
             <svg class="ac-graph-svg ac-graph-donut">
@@ -88,8 +88,8 @@
             <span data-value>64.6</span>%
           </span>
         </div>
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
     <div class="details" style="padding: 30px !important">
       <div id="card_eyebrow_98" class="eyebrow">Language feature</div>
       <div id="card_title_98" class="title">Macros</div>

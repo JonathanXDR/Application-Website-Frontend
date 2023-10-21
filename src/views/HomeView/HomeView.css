@@ -76,7 +76,7 @@
 
 #technologies {
   padding: 100px 0;
-  background: var(--color-fill-tertiary);
+  /* background: var(--color-fill-tertiary); */
 }
 
 @media screen and (min-width: 900px) {
@@ -89,13 +89,13 @@
 
 #projects {
   padding-top: 100px;
-  width: 90%;
-  margin: 0 auto 0 auto;
+  /* width: 90%; */
+  /* margin: 0 auto 0 auto; */
 }
 
 @media screen and (min-width: 900px) {
   #projects {
     padding-top: 150px;
-    width: 82.5%;
+    /* width: 82.5%; */
   }
 }
