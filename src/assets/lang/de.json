@@ -53,6 +53,68 @@
         "firstEncounter": "Erstbegegnung",
         "enhanced": "Erweitert"
       },
+      "FilterNav": {
+        "items": [
+          {
+            "id": "all",
+            "label": "Alle"
+          },
+          {
+            "id": "frameworks",
+            "label": "Frameworks"
+          },
+          {
+            "id": "languages",
+            "label": "Sprachen"
+          },
+          {
+            "id": "libraries",
+            "label": "Libraries"
+          },
+          {
+            "id": "tools",
+            "label": "Tools"
+          },
+          {
+            "id": "platforms",
+            "label": "Plattformen"
+          },
+          {
+            "id": "databases",
+            "label": "Datenbanken"
+          },
+          {
+            "id": "others",
+            "label": "Anderes"
+          }
+        ],
+        "options": [
+          {
+            "id": "all",
+            "label": "Alle"
+          },
+          {
+            "id": "experience",
+            "label": "Erfahrung"
+          },
+          {
+            "id": "newest",
+            "label": "Neueste"
+          },
+          {
+            "id": "oldest",
+            "label": "Älteste"
+          },
+          {
+            "id": "asc",
+            "label": "Aufsteigend"
+          },
+          {
+            "id": "desc",
+            "label": "Absteigend"
+          }
+        ]
+      },
       "ShareSheet": {
         "links": [
           {

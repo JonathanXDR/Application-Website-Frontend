@@ -53,6 +53,68 @@
         "firstEncounter": "Primo incontro",
         "enhanced": "Esteso"
       },
+      "FilterNav": {
+        "items": [
+          {
+            "id": "all",
+            "label": "Tutti"
+          },
+          {
+            "id": "frameworks",
+            "label": "Frameworks"
+          },
+          {
+            "id": "languages",
+            "label": "Lingue"
+          },
+          {
+            "id": "libraries",
+            "label": "Libraries"
+          },
+          {
+            "id": "tools",
+            "label": "Strumenti"
+          },
+          {
+            "id": "platforms",
+            "label": "Piattaforme"
+          },
+          {
+            "id": "databases",
+            "label": "Database"
+          },
+          {
+            "id": "others",
+            "label": "Altri"
+          }
+        ],
+        "options": [
+          {
+            "id": "all",
+            "label": "Tutti"
+          },
+          {
+            "id": "experience",
+            "label": "Esperienza"
+          },
+          {
+            "id": "newest",
+            "label": "Più recenti"
+          },
+          {
+            "id": "oldest",
+            "label": "Più vecchi"
+          },
+          {
+            "id": "asc",
+            "label": "Crescente"
+          },
+          {
+            "id": "desc",
+            "label": "Decrescente"
+          }
+        ]
+      },
       "ShareSheet": {
         "links": [
           {

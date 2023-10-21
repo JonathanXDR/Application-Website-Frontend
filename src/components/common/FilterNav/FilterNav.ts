@@ -1,5 +1,7 @@
 import Icon from '@/components/common/Icons/Icon.vue'
-import { defineComponent, reactive } from 'vue'
+import type { TabItemType } from '@/types/common/TabItem'
+import { computed, defineComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'FilterNav',
@@ -7,26 +9,9 @@ export default defineComponent({
     Icon
   },
   setup() {
-    const items = reactive([
-      { id: 'overall', label: 'Overall' },
-      { id: 'tech', label: 'Tech' },
-      { id: 'nontech', label: 'Non-Tech' },
-      { id: 'leadership', label: 'Leadership' },
-      { id: 'retail', label: 'Retail' },
-      { id: 'retailLeadership', label: 'Retail Leadership' }
-    ])
-
-    const options = reactive([
-      { id: '2022', label: '2022' },
-      { id: '2021', label: '2021' },
-      { id: '2020', label: '2020' },
-      { id: '2019', label: '2019' },
-      { id: '2018', label: '2018' },
-      { id: '2017', label: '2017' },
-      { id: '2016', label: '2016' },
-      { id: '2015', label: '2015' },
-      { id: '2014', label: '2014' }
-    ])
+    const { tm } = useI18n()
+    const items = computed(() => tm('components.common.FilterNav.items') as TabItemType[])
+    const options = computed(() => tm('components.common.FilterNav.options') as TabItemType[])
 
     return {
       items,
