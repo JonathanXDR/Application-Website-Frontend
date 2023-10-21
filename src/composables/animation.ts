@@ -1,21 +1,39 @@
 import type { App } from 'vue'
 
 export function useAnimationDirective(app: App) {
-  app.directive('animation', (el) => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          entry.target.classList.toggle('visible', entry.isIntersecting)
-          if (entry.isIntersecting) {
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      {
-        threshold: 1,
-        rootMargin: '-52px 0px 0px 0px'
-      }
-    )
-    observer.observe(el)
+  app.directive('animation', {
+    mounted(el, binding) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const operations = binding.value
+              if (operations.add) {
+                for (const className of operations.add) {
+                  entry.target.classList.add(className)
+                }
+              }
+              if (operations.remove) {
+                for (const className of operations.remove) {
+                  entry.target.classList.remove(className)
+                }
+              }
+              if (operations.toggle) {
+                for (const className of operations.toggle) {
+                  entry.target.classList.toggle(className)
+                }
+              }
+              observer.unobserve(entry.target)
+            }
+          })
+        },
+        {
+          threshold: 1,
+          rootMargin: '-52px 0px 0px 0px'
+        }
+      )
+
+      observer.observe(el)
+    }
   })
 }
