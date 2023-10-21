@@ -1,5 +1,11 @@
 <template>
-  <li class="row-full">
+  <li
+    class="row-full nr-scroll-animation nr-scroll-animation--off"
+    v-animation="{
+      add: ['nr-scroll-animation--on'],
+      remove: ['nr-scroll-animation--off']
+    }"
+  >
     <div v-if="article.icon" class="padding-right padding-block-small">
       <Icon :name="article.icon.name" :colors="article.icon.colors" class="icon-article" />
     </div>

@@ -24,7 +24,14 @@ export default defineComponent({
     SegmentNav,
     TimeLine
   },
-  setup() {
+  props: {
+    title: {
+      type: String,
+      required: true,
+      default: undefined
+    }
+  },
+  setup(props) {
     const { tm } = useI18n()
     const articles = computed(() => tm('components.containers.projects') as ArticleItemType[])
     const projects = reactive({
@@ -52,6 +59,7 @@ export default defineComponent({
     })
 
     return {
+      props,
       tm,
       articles,
       projects

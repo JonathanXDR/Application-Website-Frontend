@@ -1,8 +1,13 @@
 <template>
   <ul class="sharesheet-options">
-    <li class="social-option" v-for="(link, index) in links" :key="index" v-animation>
+    <li
+      class="social-option"
+      v-for="(link, index) in links"
+      :key="index"
+      v-animation="{ toggle: ['visible'] }"
+    >
       <a class="link" :href="link.url" :title="link.title" target="_blank">
-        <font-awesome-icon :icon="`fa-${link.category} fa-${link.icon}`" />
+        <font-awesome-icon :icon="`fa-${link.category} fa-${link.icon.name}`" />
       </a>
     </li>
   </ul>

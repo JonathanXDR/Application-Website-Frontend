@@ -3,26 +3,36 @@
     "common": {
       "NavBar": [
         {
+          "id": "about",
           "name": "About",
-          "route": "/#about"
+          "route": "/#about",
+          "class": "section-separated"
         },
         {
+          "id": "languages",
           "name": "Le lingue",
-          "route": "/#languages"
+          "route": "/#languages",
+          "class": "section-separated"
         },
         {
+          "id": "references",
           "name": "Riferimenti",
-          "route": "/#references"
+          "route": "/#references",
+          "class": "section-separated"
         },
         {
+          "id": "other",
           "name": "Altro",
-          "route": "/#other"
+          "route": "/#other",
+          "class": "section-separated"
         },
         {
+          "id": "technologies",
           "name": "Tecnologie",
           "route": "/#technologies"
         },
         {
+          "id": "projects",
           "name": "Progetti",
           "route": "/#projects"
         }
@@ -98,15 +108,6 @@
       }
     },
     "containers": {
-      "common": {
-        "about": "About",
-        "languages": "Le lingue",
-        "references": "Riferimenti",
-        "other": "Altro",
-        "technologies": "Tecnologie",
-        "projects": "Progetti",
-        "projectsAtSwisscom": "Progetti presso Swisscom"
-      },
       "about": {
         "eyebrow": "Ehi ;)",
         "title": "Sono Jonathan",
