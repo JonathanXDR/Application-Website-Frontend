@@ -1,4 +1,5 @@
 import { computed, defineComponent, onMounted, reactive, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const calculateSelectionPosition = (
   segmentNav: HTMLUListElement | null,
@@ -16,11 +17,8 @@ const calculateSelectionPosition = (
 export default defineComponent({
   name: 'SegmentNav',
   setup() {
-    const items = reactive([
-      { id: 'handoff', label: 'Handoff' },
-      { id: 'reading-list', label: 'Reading List' },
-      { id: 'icloud-keychain', label: 'iCloud Keychain' }
-    ])
+    const { tm } = useI18n()
+    const items = computed(() => tm('components.common.SegmentNav') as TabItemType[])
     const selectedIndex = ref(0)
     const segmentNav = ref<HTMLUListElement | null>(null)
     const selectionDimensions = reactive({ width: 0, x: 0 })

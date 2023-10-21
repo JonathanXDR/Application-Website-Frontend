@@ -43,6 +43,20 @@
         "firstEncounter": "Erstbegegnung",
         "enhanced": "Erweitert"
       },
+      "SegmentNav": [
+        {
+          "id": "swisscom",
+          "label": "Swisscom"
+        },
+        {
+          "id": "personal",
+          "label": "Persönlich"
+        },
+        {
+          "id": "school",
+          "label": "Schule"
+        }
+      ],
       "ShareSheet": {
         "links": [
           {
