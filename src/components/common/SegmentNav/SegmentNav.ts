@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, onUpdated, ref } from 'vue'
+import { computed, defineComponent, onMounted, ref, watch } from 'vue'
 
 export default defineComponent({
   name: 'SegmentNav',
@@ -9,41 +9,39 @@ export default defineComponent({
       { id: 'icloud-keychain', label: 'iCloud Keychain' }
     ])
     const selectedIndex = ref(0)
+    const segmentNav = ref<HTMLUListElement | null>(null)
     const selectionWidth = ref(0)
     const selectionX = ref(0)
-    const segmentNav = ref<HTMLUListElement | null>(null)
-    const segmentNavSelectionBackground = ref<HTMLDivElement | null>(null)
 
-    const updateSelection = (index: number) => {
-      selectedIndex.value = index
-      calculateSelectionPosition()
-    }
+    const selectionStyle = computed(() => {
+      return {
+        width: `${selectionWidth.value}px`,
+        transform: `translateX(${selectionX.value}px)`
+      }
+    })
 
     const calculateSelectionPosition = () => {
       if (segmentNav.value) {
         const segmentNavItems = segmentNav.value.querySelectorAll('.segmentnav-item')
-        const selectedItem = segmentNavItems[selectedIndex.value] as HTMLElement
-        selectionWidth.value = selectedItem.offsetWidth
-        selectionX.value = selectedItem.offsetLeft
+        const { offsetWidth, offsetLeft } = segmentNavItems[selectedIndex.value] as HTMLElement
+        selectionWidth.value = offsetWidth
+        selectionX.value = offsetLeft
       }
     }
 
-    onMounted(() => {
+    watch(selectedIndex, () => {
       calculateSelectionPosition()
     })
 
-    onUpdated(() => {
+    onMounted(() => {
       calculateSelectionPosition()
     })
 
     return {
       items,
       selectedIndex,
-      selectionWidth,
-      selectionX,
-      segmentNav,
-      segmentNavSelectionBackground,
-      updateSelection
+      selectionStyle,
+      segmentNav
     }
   }
 })

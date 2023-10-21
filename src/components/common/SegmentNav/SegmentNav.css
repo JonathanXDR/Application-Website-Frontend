@@ -129,12 +129,6 @@
   z-index: 1;
 }
 
-@media only screen and (max-width: 734px) {
-  .segmentnav-selection-background {
-    height: calc(100% - 0.352em);
-  }
-}
-
 .segmentnav-container {
   padding-top: 100px;
   display: flex;
