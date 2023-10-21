@@ -18,7 +18,7 @@
       <div
         ref="segmentNavSelectionBackground"
         class="segmentnav-selection-background"
-        :style="{ width: selectionWidth + 'px', transform: 'translateX(' + selectionX + 'px)' }"
+        :style="{ width: `${selectionWidth}px`, transform: `translateX(${selectionX}px)` }"
       ></div>
     </ul>
   </div>
