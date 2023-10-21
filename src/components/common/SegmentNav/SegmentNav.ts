@@ -23,10 +23,8 @@ export default defineComponent({
       if (segmentNav.value) {
         const segmentNavItems = segmentNav.value.querySelectorAll('.segmentnav-item')
         const selectedItem = segmentNavItems[selectedIndex.value] as HTMLElement
-        const computedStyle = window.getComputedStyle(segmentNav.value)
-        const paddingLeft = parseFloat(computedStyle.paddingLeft)
         selectionWidth.value = selectedItem.offsetWidth
-        selectionX.value = selectedItem.offsetLeft - paddingLeft
+        selectionX.value = selectedItem.offsetLeft
       }
     }
 

@@ -7,7 +7,8 @@
 }
 
 .segmentnav {
-  display: inline-flex;
+  display: flex;
+  align-items: center;
   box-sizing: border-box;
   position: relative;
   background: var(--color-fill-gray-quaternary);
@@ -111,14 +112,21 @@
   }
 }
 
+.segmentnav-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 .segmentnav-selection-background {
+  width: 100%;
+  height: 100%;
   position: absolute;
-  top: 0.176em;
-  left: 0.176em;
-  z-index: 1;
-  height: 1.948em;
   background: var(--color-fill-gray);
   transition: 300ms;
+  z-index: 1;
 }
 
 @media only screen and (max-width: 734px) {
