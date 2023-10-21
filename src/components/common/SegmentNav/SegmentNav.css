@@ -48,24 +48,18 @@
 } */
 
 .segmentnav-item {
-  /* padding: 0 21px; */
-  padding: 0 22px;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.segmentnav-item {
-  color: var(--color-fill-gray-secondary);
   position: relative;
-  z-index: 2;
+  padding: 0 21px;
+  color: var(--color-fill-gray-secondary);
+  text-align: center;
   box-sizing: border-box;
   -webkit-appearance: none;
-  padding: 0 21px;
-  text-align: center;
   transition: color 275ms;
-  min-width: 107px;
+  z-index: 2;
 }
 
 @media only screen and (max-width: 734px) {
