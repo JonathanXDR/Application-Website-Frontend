@@ -8,10 +8,10 @@
         </li>
       </ul>
       <div class="tabnav-paddles">
-        <button class="tabnav-paddle tabnav-paddle-left">
+        <button class="tabnav-paddle tabnav-paddle-left" disabled>
           <Icon name="chevron.left" class="tabnav-paddle-icon" />
         </button>
-        <button class="tabnav-paddle tabnav-paddle-right">
+        <button class="tabnav-paddle tabnav-paddle-right" disabled>
           <Icon name="chevron.right" class="tabnav-paddle-icon" />
         </button>
       </div>
