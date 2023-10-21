@@ -1,5 +1,12 @@
 <template>
-  <li class="tile" :class="{ expanded: cardOpen }">
+  <li
+    class="tile nr-scroll-animation nr-scroll-animation--off"
+    :class="{ expanded: cardOpen }"
+    v-animation="{
+      add: ['nr-scroll-animation--on'],
+      remove: ['nr-scroll-animation--off']
+    }"
+  >
     <div class="tile-content">
       <div class="tile-header">
         <h4 class="tile-headline typography-connection-tile-headline">

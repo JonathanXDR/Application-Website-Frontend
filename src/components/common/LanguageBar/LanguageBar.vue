@@ -1,12 +1,18 @@
 <template>
   <li class="graph-container">
     <div :style="'width: ' + language.progress + '%'">
-      <div v-animation class="graph-bar current"></div>
-      <p v-animation class="graph-caption typography-graph-caption current">
+      <div v-animation="{ toggle: ['visible'] }" class="graph-bar current"></div>
+      <p
+        v-animation="{ toggle: ['visible'] }"
+        class="graph-caption typography-graph-caption current"
+      >
         {{ language.description }}
       </p>
     </div>
-    <div v-animation class="typography-eyebrow-elevated secondary-badge-value current">
+    <div
+      v-animation="{ toggle: ['visible'] }"
+      class="typography-eyebrow-elevated secondary-badge-value current"
+    >
       {{ language.progress }}%
     </div>
   </li>
