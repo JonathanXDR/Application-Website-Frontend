@@ -1,40 +1,41 @@
-import { computed, defineComponent, onMounted, ref, watch } from 'vue'
+import { computed, defineComponent, onMounted, reactive, ref, watch } from 'vue'
+
+const calculateSelectionPosition = (
+  segmentNav: HTMLUListElement | null,
+  selectedIndex: number,
+  selectionDimensions: { width: number; x: number }
+) => {
+  if (segmentNav) {
+    const segmentNavItems = segmentNav.querySelectorAll('.segmentnav-item')
+    const { offsetWidth, offsetLeft } = segmentNavItems[selectedIndex] as HTMLElement
+    selectionDimensions.width = offsetWidth
+    selectionDimensions.x = offsetLeft
+  }
+}
 
 export default defineComponent({
   name: 'SegmentNav',
   setup() {
-    const items = ref([
+    const items = reactive([
       { id: 'handoff', label: 'Handoff' },
       { id: 'reading-list', label: 'Reading List' },
       { id: 'icloud-keychain', label: 'iCloud Keychain' }
     ])
     const selectedIndex = ref(0)
     const segmentNav = ref<HTMLUListElement | null>(null)
-    const selectionWidth = ref(0)
-    const selectionX = ref(0)
+    const selectionDimensions = reactive({ width: 0, x: 0 })
 
-    const selectionStyle = computed(() => {
-      return {
-        width: `${selectionWidth.value}px`,
-        transform: `translateX(${selectionX.value}px)`
-      }
-    })
-
-    const calculateSelectionPosition = () => {
-      if (segmentNav.value) {
-        const segmentNavItems = segmentNav.value.querySelectorAll('.segmentnav-item')
-        const { offsetWidth, offsetLeft } = segmentNavItems[selectedIndex.value] as HTMLElement
-        selectionWidth.value = offsetWidth
-        selectionX.value = offsetLeft
-      }
-    }
+    const selectionStyle = computed(() => ({
+      width: `${selectionDimensions.width}px`,
+      transform: `translateX(${selectionDimensions.x}px)`
+    }))
 
     watch(selectedIndex, () => {
-      calculateSelectionPosition()
+      calculateSelectionPosition(segmentNav.value, selectedIndex.value, selectionDimensions)
     })
 
     onMounted(() => {
-      calculateSelectionPosition()
+      calculateSelectionPosition(segmentNav.value, selectedIndex.value, selectionDimensions)
     })
 
     return {
