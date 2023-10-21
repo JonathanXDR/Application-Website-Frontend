@@ -1,5 +1,52 @@
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted, ref, watch, type Ref } from 'vue'
 
 export default defineComponent({
-  name: 'SegmentNav'
+  name: 'SegmentNav',
+  setup() {
+    const segments = ref([
+      { id: 'handoff', label: 'Handoff' },
+      { id: 'reading-list', label: 'Reading List' },
+      { id: 'icloud-keychain', label: 'iCloud Keychain' }
+    ])
+    const selectedSegment = ref('handoff')
+    const segmentNav = ref(null)
+    const segmentNavSelectionBackground = ref(null)
+    const segmentEls: Ref<HTMLLIElement[]> = ref([])
+
+    const selectionWidth = ref(0)
+    const translateX = ref(0)
+
+    const handleRef = (el, index) => {
+      if (el) segmentEls.value[index] = el
+    }
+
+    const updateSelectionStyles = () => {
+      const selectedIndex = segments.value.findIndex(
+        (segment) => segment.id === selectedSegment.value
+      )
+      if (segmentEls.value[selectedIndex]) {
+        selectionWidth.value = segmentEls.value[selectedIndex].offsetWidth
+        translateX.value = segmentEls.value[selectedIndex].offsetLeft
+      }
+    }
+
+    watch(selectedSegment, updateSelectionStyles)
+
+    onMounted(updateSelectionStyles)
+
+    const onSegmentChange = (selectedId: string) => {
+      selectedSegment.value = selectedId
+    }
+
+    return {
+      handleRef,
+      segments,
+      selectedSegment,
+      segmentNav,
+      segmentNavSelectionBackground,
+      onSegmentChange,
+      selectionWidth,
+      translateX
+    }
+  }
 })
