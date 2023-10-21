@@ -64,7 +64,7 @@
 
 @media only screen and (max-width: 734px) {
   .segmentnav-item {
-    padding: 3px 21px;
+    padding: 0px 14px;
   }
 }
 
@@ -117,7 +117,6 @@
   left: 0.176em;
   z-index: 1;
   height: 1.948em;
-  min-width: 1.948em;
   background: var(--color-fill-gray);
   transition: 300ms;
 }
@@ -132,14 +131,4 @@
   padding-top: 100px;
   display: flex;
   justify-content: center;
-}
-
-@media only screen and (max-width: 734px) {
-  .segmentnav-container {
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0 10px;
-    box-sizing: border-box;
-  }
 }
