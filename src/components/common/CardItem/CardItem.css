@@ -32,15 +32,14 @@
   line-height: 1.4705882353;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: var(--typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .button-cta:active {
@@ -79,12 +78,13 @@
   font-weight: 400 !important;
   letter-spacing: -0.01em !important;
   font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif !important;
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .button {
@@ -108,11 +108,12 @@
   font-weight: 400;
   letter-spacing: -0.016em;
   font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   background: var(--color-code-plain);
   color: var(--sk-button-color);
@@ -269,15 +270,14 @@
   line-height: 1.2857742857;
   font-weight: 400;
   letter-spacing: -0.016em;
-  font-family: var(--typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .large .details {
@@ -285,15 +285,14 @@
   line-height: 1.4705882353;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: var(--typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .featured-card .details {
@@ -301,15 +300,14 @@
   line-height: 1.4705882353;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: var(--typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
   align-items: flex-start;
   display: flex;
   background: transparent;
@@ -328,15 +326,14 @@
   line-height: 1.2857742857;
   font-weight: 400;
   letter-spacing: -0.016em;
-  font-family: var(--typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 @media only screen and (max-width: 1250px) {
@@ -345,15 +342,14 @@
     line-height: 1.2857742857;
     font-weight: 400;
     letter-spacing: -0.016em;
-    font-family: var(--typography-html-font,
-        'SF Pro Text',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Helvetica Neue',
-        'Helvetica',
-        'Arial',
-        sans-serif);
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif;
   }
 }
 
@@ -368,15 +364,14 @@
   line-height: 1.2857742857;
   font-weight: 600;
   letter-spacing: -0.016em;
-  font-family: var(--typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .large .eyebrow {
@@ -384,15 +379,14 @@
   line-height: 1.2353641176;
   font-weight: 600;
   letter-spacing: -0.024em;
-  font-family: var(--typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .featured-card .eyebrow {
@@ -400,15 +394,14 @@
   line-height: 1.2353641176;
   font-weight: 600;
   letter-spacing: -0.024em;
-  font-family: var(--typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
   color: var(--color-welcome-featured-card-eyebrow-text);
 }
 
@@ -418,15 +411,14 @@
     line-height: 1.2857742857;
     font-weight: 600;
     letter-spacing: -0.016em;
-    font-family: var(--typography-html-font,
-        'SF Pro Text',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Helvetica Neue',
-        'Helvetica',
-        'Arial',
-        sans-serif);
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif;
   }
 }
 
@@ -436,15 +428,14 @@
     line-height: 1.2857742857;
     font-weight: 600;
     letter-spacing: -0.016em;
-    font-family: var(--typography-html-font,
-        'SF Pro Text',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Helvetica Neue',
-        'Helvetica',
-        'Arial',
-        sans-serif);
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif;
   }
 }
 
@@ -456,15 +447,14 @@
   line-height: 1.2353641176;
   font-weight: 600;
   letter-spacing: -0.024em;
-  font-family: var(--typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .title {
@@ -473,15 +463,14 @@
   line-height: 1.2353641176;
   font-weight: 600;
   letter-spacing: -0.024em;
-  font-family: var(--typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .title {
@@ -489,15 +478,14 @@
   line-height: 1.2857742857;
   font-weight: 600;
   letter-spacing: -0.016em;
-  font-family: var(--typography-html-font,
-      'SF Pro Text',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .large .title {
@@ -505,15 +493,14 @@
   line-height: 1.1904761905;
   font-weight: 600;
   letter-spacing: 0.011em;
-  font-family: var(--typography-html-font,
-      'SF Pro Display',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .featured-card .title {
@@ -521,15 +508,14 @@
   line-height: 1.1904761905;
   font-weight: 600;
   letter-spacing: 0.011em;
-  font-family: var(--typography-html-font,
-      'SF Pro Display',
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 @media only screen and (max-width: 735px) {
@@ -538,15 +524,14 @@
     line-height: 1.2353641176;
     font-weight: 600;
     letter-spacing: -0.024em;
-    font-family: var(--typography-html-font,
-        'SF Pro Text',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Helvetica Neue',
-        'Helvetica',
-        'Arial',
-        sans-serif);
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif;
   }
 }
 
@@ -556,15 +541,14 @@
     line-height: 1.2857742857;
     font-weight: 600;
     letter-spacing: -0.016em;
-    font-family: var(--typography-html-font,
-        'SF Pro Text',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Helvetica Neue',
-        'Helvetica',
-        'Arial',
-        sans-serif);
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif;
   }
 }
 
@@ -574,15 +558,14 @@
     line-height: 1.2353641176;
     font-weight: 600;
     letter-spacing: -0.024em;
-    font-family: var(--typography-html-font,
-        'SF Pro Text',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Helvetica Neue',
-        'Helvetica',
-        'Arial',
-        sans-serif);
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif;
   }
 }
 
@@ -592,15 +575,14 @@
     line-height: 1.2353641176;
     font-weight: 600;
     letter-spacing: -0.024em;
-    font-family: var(--typography-html-font,
-        'SF Pro Text',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Helvetica Neue',
-        'Helvetica',
-        'Arial',
-        sans-serif);
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif;
   }
 }
 
@@ -610,15 +592,14 @@
     line-height: 1.2353641176;
     font-weight: 600;
     letter-spacing: -0.024em;
-    font-family: var(--typography-html-font,
-        'SF Pro Text',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Helvetica Neue',
-        'Helvetica',
-        'Arial',
-        sans-serif);
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif;
   }
 }
 
@@ -728,11 +709,12 @@
   font-weight: 400;
   letter-spacing: 0em;
   font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 
@@ -755,11 +737,12 @@
     font-weight: 400;
     letter-spacing: -0.016em;
     font-family:
-      SF Pro Text,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -854,11 +837,12 @@ br.medium {
   font-weight: 600;
   letter-spacing: 0em;
   font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 
@@ -869,11 +853,12 @@ br.medium {
     font-weight: 600;
     letter-spacing: 0em;
     font-family:
-      SF Pro Text,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -885,11 +870,12 @@ br.medium {
     font-weight: 600;
     letter-spacing: -0.016em;
     font-family:
-      SF Pro Text,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -922,11 +908,12 @@ br.medium {
   font-weight: 600;
   letter-spacing: 0em;
   font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 
@@ -937,11 +924,12 @@ br.medium {
     font-weight: 600;
     letter-spacing: 0em;
     font-family:
-      SF Pro Text,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -953,11 +941,12 @@ br.medium {
     font-weight: 600;
     letter-spacing: -0.016em;
     font-family:
-      SF Pro Text,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }

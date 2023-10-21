@@ -106,7 +106,14 @@ body {
 .icon:after,
 .more:before,
 .more:after {
-  font-family: SF Pro Icons;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -1126,12 +1133,12 @@ html[dir='rtl'] .icon-copy {
   font-weight: 400;
   letter-spacing: -0.016em;
   font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    AOS Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   display: block;
   color: #06c;
@@ -1566,12 +1573,12 @@ input[type='number']::-webkit-outer-spin-button {
 
 html {
   font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    AOS Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   font-size: 106.25%;
   quotes: '“' '”';
@@ -1584,12 +1591,12 @@ body {
   font-weight: 400;
   letter-spacing: -0.022em;
   font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    AOS Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   background-color: #fff;
   color: #1d1d1f;
@@ -3274,8 +3281,13 @@ a[role='button'] {
 .more:after,
 .more:before {
   font-family:
-    SF Pro Icons,
-    AOS Icons;
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -3779,12 +3791,12 @@ body {
   font-weight: 600;
   letter-spacing: -0.015em;
   font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    AOS Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   padding-top: 50px;
 }
@@ -3796,12 +3808,12 @@ body {
     font-weight: 600;
     letter-spacing: -0.003em;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      AOS Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -3813,12 +3825,12 @@ body {
     font-weight: 600;
     letter-spacing: -0.009em;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      AOS Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -3830,12 +3842,12 @@ body {
     font-weight: 600;
     letter-spacing: -0.003em;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      AOS Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -3847,12 +3859,12 @@ body {
     font-weight: 600;
     letter-spacing: 0;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      AOS Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -3873,12 +3885,12 @@ body {
   font-weight: 400;
   letter-spacing: -0.022em;
   font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    AOS Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   font-weight: 500;
   padding: 19px 0 48px;
