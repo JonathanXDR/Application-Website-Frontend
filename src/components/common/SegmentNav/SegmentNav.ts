@@ -19,7 +19,8 @@ export default defineComponent({
   name: 'SegmentNav',
   setup() {
     const { tm } = useI18n()
-    const items = computed(() => tm('components.common.SegmentNav') as TabItemType[])
+    const items = computed(() => tm('components.common.SegmentNav.items') as TabItemType[])
+    const options = computed(() => tm('components.common.SegmentNav.options') as TabItemType[])
     const selectedIndex = ref(0)
     const segmentNav = ref<HTMLUListElement | null>(null)
     const selectionDimensions = reactive({ width: 0, x: 0 })

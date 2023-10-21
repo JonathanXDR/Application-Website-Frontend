@@ -53,20 +53,44 @@
         "firstEncounter": "Primo incontro",
         "enhanced": "Esteso"
       },
-      "SegmentNav": [
-        {
-          "id": "swisscom",
-          "label": "Swisscom"
-        },
-        {
-          "id": "personal",
-          "label": "Personale"
-        },
-        {
-          "id": "school",
-          "label": "Scuola"
-        }
-      ],
+      "SegmentNav": {
+        "items": [
+          {
+            "id": "swisscom",
+            "label": "Swisscom"
+          },
+          {
+            "id": "personal",
+            "label": "Personale"
+          },
+          {
+            "id": "school",
+            "label": "Scuola"
+          }
+        ],
+        "options": [
+          {
+            "id": "all",
+            "label": "Tutti"
+          },
+          {
+            "id": "newest",
+            "label": "Più recenti"
+          },
+          {
+            "id": "oldest",
+            "label": "Più vecchi"
+          },
+          {
+            "id": "asc",
+            "label": "Crescente"
+          },
+          {
+            "id": "desc",
+            "label": "Decrescente"
+          }
+        ]
+      },
       "ShareSheet": {
         "links": [
           {
