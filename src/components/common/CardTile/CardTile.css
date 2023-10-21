@@ -63,7 +63,14 @@
   line-height: 1.1666666667;
   font-weight: 600;
   /* letter-spacing: 0.009em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 @media screen and (min-width: 900px) {
