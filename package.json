@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "Application-Website",
   "private": true,
   "type": "module",
   "scripts": {
@@ -7,10 +7,14 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "icon:cleanup": "sh ./src/scripts/icon-cleanup.sh",
+    "sprite:generate": "sh ./src/scripts/sprite-generate.sh"
   },
   "devDependencies": {
-    "@nuxt/devtools": "latest",
+    "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@nuxt/devtools": "^1.0.0",
+    "@nuxtjs/i18n": "^7.3.1",
     "nuxt": "^3.8.0",
     "vue": "^3.3.6",
     "vue-router": "^4.2.5"
