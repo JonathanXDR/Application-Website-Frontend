@@ -1,3 +1,56 @@
+<template>
+  <div class="rs-covers rs-covers-preorder">
+    <div class="rs-covers-transtion theme-dark r-fade-transition-enter-done">
+      <div
+        class="rs-covers-container rs-covers-media-default rs-covers-textovervideo as-l-container"
+      >
+        <div class="rs-covers-media-container">
+          <Icon
+            :name="$t(`views.${props.name}.icon.name`)"
+            :colors="colors"
+            class="media-icon"
+          />
+        </div>
+        <div class="rs-covers-content-container">
+          <h1 class="rs-covers-heading">
+            <span>{{ $t(`views.${props.name}.title`) }}</span>
+          </h1>
+          <div class="rs-covers-desc">
+            {{ description[0] }}.
+            <span class="nowrap">{{ description[1] }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+const props = defineProps({
+  name: {
+    type: String,
+    required: false,
+    default: 'error',
+    validator: (value: string): boolean => {
+      const viewKeys = Object.keys(i18n.global.tm('views'));
+      return viewKeys.includes(value);
+    },
+  },
+});
+
+const { tm } = useI18n();
+const splitDescription = (description: string): string[] => {
+  return description.split('. ');
+};
+
+const colors = computed(() => tm(`views.${props.name}.icon.colors`) as Object);
+const entireDescription = computed(
+  () => tm(`views.${props.name}.description`) as string
+);
+const description = splitDescription(entireDescription.value);
+</script>
+
+<style scoped>
 body {
   min-width: 320px;
 }
@@ -106,14 +159,8 @@ body {
 .icon:after,
 .more:before,
 .more:after {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -232,13 +279,15 @@ html[dir='rtl'] .icon-copy {
   opacity: 1;
 }
 
-.progress-indicator-indeterminate.progress-indicator-visible .progress-indicator-icon {
+.progress-indicator-indeterminate.progress-indicator-visible
+  .progress-indicator-icon {
   opacity: 1;
   transition: opacity 0.4s ease;
   will-change: opacity;
 }
 
-.progress-indicator-indeterminate.progress-indicator-immediate .progress-indicator-icon {
+.progress-indicator-indeterminate.progress-indicator-immediate
+  .progress-indicator-icon {
   transition: none;
 }
 
@@ -378,8 +427,11 @@ html[dir='rtl'] .icon-copy {
   display: none;
 }
 
-.r-height-transition-enter-done:not(.r-height-transition-enter-active) [data-core-height-transition-content],
-.r-height-transition-enter-done:not(.r-height-transition-enter-active)[data-core-height-transition-wrapper] {
+.r-height-transition-enter-done:not(.r-height-transition-enter-active)
+  [data-core-height-transition-content],
+.r-height-transition-enter-done:not(
+    .r-height-transition-enter-active
+  )[data-core-height-transition-wrapper] {
   overflow: visible;
 }
 
@@ -535,8 +587,7 @@ html[dir='rtl'] .icon-copy {
   bottom: 0;
   opacity: 0;
   transform: translateY(20px);
-  transition:
-    opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1) 0.05s,
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1) 0.05s,
     transform 0.5s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
@@ -547,8 +598,7 @@ html[dir='rtl'] .icon-copy {
 .rc-videoplayer:not(.rc-videoplayer-touched) .rc-videoplayer-controls-center {
   transform: translateY(0);
   opacity: 1;
-  transition:
-    opacity 0.4s cubic-bezier(0, 0, 0.2, 1) 0.25s,
+  transition: opacity 0.4s cubic-bezier(0, 0, 0.2, 1) 0.25s,
     transform 0.5s cubic-bezier(0, 0, 0.2, 1) 0.2s;
 }
 
@@ -560,9 +610,7 @@ html[dir='rtl'] .icon-copy {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   opacity: 0.8;
-  transition:
-    transform 0.2s ease,
-    opacity 0.3s ease;
+  transition: transform 0.2s ease, opacity 0.3s ease;
   padding: 0 3px;
 }
 
@@ -618,8 +666,7 @@ html[dir='rtl'] .icon-copy {
   display: flex;
   box-sizing: border-box;
   transform: translateY(20px);
-  transition:
-    opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1) 0.05s,
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1) 0.05s,
     transform 0.5s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
@@ -638,8 +685,7 @@ html[dir='rtl'] .icon-copy {
 .rc-videoplayer:not(.rc-videoplayer-touched) .rc-videoplayer-controls-bottom {
   opacity: 1;
   transform: translateY(0);
-  transition:
-    opacity 0.4s cubic-bezier(0, 0, 0.2, 1) 0.05s,
+  transition: opacity 0.4s cubic-bezier(0, 0, 0.2, 1) 0.05s,
     transform 0.5s cubic-bezier(0, 0, 0.2, 1);
 }
 
@@ -715,24 +761,48 @@ html[dir='rtl'] .icon-copy {
   position: relative;
 }
 
-.rc-videoplayer-controls-volume .as-keyboarduser .rc-videoplayer-volume-slider-box,
-.rc-videoplayer-controls-volume .as-keyboarduser .rc-videoplayer-volume-slider-box .rc-videoplayer-button,
-.rc-videoplayer-controls-volume.rc-videoplayer-controls-volume-sliding .rc-videoplayer-volume-slider-box,
-.rc-videoplayer-controls-volume.rc-videoplayer-controls-volume-sliding .rc-videoplayer-volume-slider-box .rc-videoplayer-button,
+.rc-videoplayer-controls-volume
+  .as-keyboarduser
+  .rc-videoplayer-volume-slider-box,
+.rc-videoplayer-controls-volume
+  .as-keyboarduser
+  .rc-videoplayer-volume-slider-box
+  .rc-videoplayer-button,
+.rc-videoplayer-controls-volume.rc-videoplayer-controls-volume-sliding
+  .rc-videoplayer-volume-slider-box,
+.rc-videoplayer-controls-volume.rc-videoplayer-controls-volume-sliding
+  .rc-videoplayer-volume-slider-box
+  .rc-videoplayer-button,
 .rc-videoplayer-controls-volume .rc-videoplayer-volume-slider-box:hover,
-.rc-videoplayer-controls-volume .rc-videoplayer-volume-slider-box:hover .rc-videoplayer-button,
+.rc-videoplayer-controls-volume
+  .rc-videoplayer-volume-slider-box:hover
+  .rc-videoplayer-button,
 .rc-videoplayer-controls-volume:hover .rc-videoplayer-volume-slider-box,
-.rc-videoplayer-controls-volume:hover .rc-videoplayer-volume-slider-box .rc-videoplayer-button {
+.rc-videoplayer-controls-volume:hover
+  .rc-videoplayer-volume-slider-box
+  .rc-videoplayer-button {
   opacity: 1;
 }
 
-.rc-videoplayer-controls-volume .as-keyboarduser .rc-videoplayer-volume-slider-box .rc-videoplayer-volume-slider,
-.rc-videoplayer-controls-volume .as-keyboarduser .rc-videoplayer-volume-slider-box:after,
-.rc-videoplayer-controls-volume.rc-videoplayer-controls-volume-sliding .rc-videoplayer-volume-slider-box .rc-videoplayer-volume-slider,
-.rc-videoplayer-controls-volume.rc-videoplayer-controls-volume-sliding .rc-videoplayer-volume-slider-box:after,
-.rc-videoplayer-controls-volume .rc-videoplayer-volume-slider-box:hover .rc-videoplayer-volume-slider,
+.rc-videoplayer-controls-volume
+  .as-keyboarduser
+  .rc-videoplayer-volume-slider-box
+  .rc-videoplayer-volume-slider,
+.rc-videoplayer-controls-volume
+  .as-keyboarduser
+  .rc-videoplayer-volume-slider-box:after,
+.rc-videoplayer-controls-volume.rc-videoplayer-controls-volume-sliding
+  .rc-videoplayer-volume-slider-box
+  .rc-videoplayer-volume-slider,
+.rc-videoplayer-controls-volume.rc-videoplayer-controls-volume-sliding
+  .rc-videoplayer-volume-slider-box:after,
+.rc-videoplayer-controls-volume
+  .rc-videoplayer-volume-slider-box:hover
+  .rc-videoplayer-volume-slider,
 .rc-videoplayer-controls-volume .rc-videoplayer-volume-slider-box:hover:after,
-.rc-videoplayer-controls-volume:hover .rc-videoplayer-volume-slider-box .rc-videoplayer-volume-slider,
+.rc-videoplayer-controls-volume:hover
+  .rc-videoplayer-volume-slider-box
+  .rc-videoplayer-volume-slider,
 .rc-videoplayer-controls-volume:hover .rc-videoplayer-volume-slider-box:after {
   transform: translateY(-8px);
 }
@@ -871,7 +941,7 @@ html[dir='rtl'] .icon-copy {
   opacity: 1;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator>* {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator > * {
   width: 7px;
   height: 18px;
   background: #fff;
@@ -886,47 +956,47 @@ html[dir='rtl'] .icon-copy {
   animation-timing-function: cubic-bezier(1, 0.1, 0, 0.3);
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(0) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator > :nth-child(0) {
   transform: rotate(-45deg) translateY(-18.5px);
   animation-delay: -0.125s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :first-child {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator > :first-child {
   transform: rotate(0deg) translateY(-18.5px);
   animation-delay: 0s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(2) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator > :nth-child(2) {
   transform: rotate(45deg) translateY(-18.5px);
   animation-delay: 0.125s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(3) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator > :nth-child(3) {
   transform: rotate(90deg) translateY(-18.5px);
   animation-delay: 0.25s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(4) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator > :nth-child(4) {
   transform: rotate(135deg) translateY(-18.5px);
   animation-delay: 0.375s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(5) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator > :nth-child(5) {
   transform: rotate(180deg) translateY(-18.5px);
   animation-delay: 0.5s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(6) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator > :nth-child(6) {
   transform: rotate(225deg) translateY(-18.5px);
   animation-delay: 0.625s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(7) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator > :nth-child(7) {
   transform: rotate(270deg) translateY(-18.5px);
   animation-delay: 0.75s;
 }
 
-.rc-videoplayer-waiting .rc-videoplayer-loadingindicator> :nth-child(8) {
+.rc-videoplayer-waiting .rc-videoplayer-loadingindicator > :nth-child(8) {
   transform: rotate(315deg) translateY(-18.5px);
   animation-delay: 0.875s;
 }
@@ -945,53 +1015,73 @@ html[dir='rtl'] .icon-copy {
   }
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator>* {
+.rc-videoplayer-waiting.rc-videoplayer-medium
+  .rc-videoplayer-loadingindicator
+  > * {
   width: 5px;
   height: 12px;
   border-radius: 19.5px;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(0) {
+.rc-videoplayer-waiting.rc-videoplayer-medium
+  .rc-videoplayer-loadingindicator
+  > :nth-child(0) {
   transform: rotate(-45deg) translateY(-13.5px);
   animation-delay: -0.125s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :first-child {
+.rc-videoplayer-waiting.rc-videoplayer-medium
+  .rc-videoplayer-loadingindicator
+  > :first-child {
   transform: rotate(0deg) translateY(-13.5px);
   animation-delay: 0s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(2) {
+.rc-videoplayer-waiting.rc-videoplayer-medium
+  .rc-videoplayer-loadingindicator
+  > :nth-child(2) {
   transform: rotate(45deg) translateY(-13.5px);
   animation-delay: 0.125s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(3) {
+.rc-videoplayer-waiting.rc-videoplayer-medium
+  .rc-videoplayer-loadingindicator
+  > :nth-child(3) {
   transform: rotate(90deg) translateY(-13.5px);
   animation-delay: 0.25s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(4) {
+.rc-videoplayer-waiting.rc-videoplayer-medium
+  .rc-videoplayer-loadingindicator
+  > :nth-child(4) {
   transform: rotate(135deg) translateY(-13.5px);
   animation-delay: 0.375s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(5) {
+.rc-videoplayer-waiting.rc-videoplayer-medium
+  .rc-videoplayer-loadingindicator
+  > :nth-child(5) {
   transform: rotate(180deg) translateY(-13.5px);
   animation-delay: 0.5s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(6) {
+.rc-videoplayer-waiting.rc-videoplayer-medium
+  .rc-videoplayer-loadingindicator
+  > :nth-child(6) {
   transform: rotate(225deg) translateY(-13.5px);
   animation-delay: 0.625s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(7) {
+.rc-videoplayer-waiting.rc-videoplayer-medium
+  .rc-videoplayer-loadingindicator
+  > :nth-child(7) {
   transform: rotate(270deg) translateY(-13.5px);
   animation-delay: 0.75s;
 }
 
-.rc-videoplayer-waiting.rc-videoplayer-medium .rc-videoplayer-loadingindicator> :nth-child(8) {
+.rc-videoplayer-waiting.rc-videoplayer-medium
+  .rc-videoplayer-loadingindicator
+  > :nth-child(8) {
   transform: rotate(315deg) translateY(-13.5px);
   animation-delay: 0.875s;
 }
@@ -1004,7 +1094,7 @@ html[dir='rtl'] .icon-copy {
   position: relative;
 }
 
-.rc-videoplayer>* {
+.rc-videoplayer > * {
   -webkit-user-select: none;
   user-select: none;
 }
@@ -1038,34 +1128,38 @@ html[dir='rtl'] .icon-copy {
   background: hsla(0, 0%, 100%, 0.8);
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
-  -webkit-clip-path: polygon(54.2px 55.2px,
-      54.2px 37.2px,
-      53.5px 37.9px,
-      25.1px 55.2px,
-      24.1px 55.5px,
-      22.4px 54.5px,
-      22.1px 53.5px,
-      22.1px 19.1px,
-      22.4px 18.1px,
-      23.1px 17.4px,
-      24.1px 17.1px,
-      25.1px 17.4px,
-      53.5px 34.6px,
-      54.2px 35.2px);
-  clip-path: polygon(54.2px 55.2px,
-      54.2px 37.2px,
-      53.5px 37.9px,
-      25.1px 55.2px,
-      24.1px 55.5px,
-      22.4px 54.5px,
-      22.1px 53.5px,
-      22.1px 19.1px,
-      22.4px 18.1px,
-      23.1px 17.4px,
-      24.1px 17.1px,
-      25.1px 17.4px,
-      53.5px 34.6px,
-      54.2px 35.2px);
+  -webkit-clip-path: polygon(
+    54.2px 55.2px,
+    54.2px 37.2px,
+    53.5px 37.9px,
+    25.1px 55.2px,
+    24.1px 55.5px,
+    22.4px 54.5px,
+    22.1px 53.5px,
+    22.1px 19.1px,
+    22.4px 18.1px,
+    23.1px 17.4px,
+    24.1px 17.1px,
+    25.1px 17.4px,
+    53.5px 34.6px,
+    54.2px 35.2px
+  );
+  clip-path: polygon(
+    54.2px 55.2px,
+    54.2px 37.2px,
+    53.5px 37.9px,
+    25.1px 55.2px,
+    24.1px 55.5px,
+    22.4px 54.5px,
+    22.1px 53.5px,
+    22.1px 19.1px,
+    22.4px 18.1px,
+    23.1px 17.4px,
+    24.1px 17.1px,
+    25.1px 17.4px,
+    53.5px 34.6px,
+    54.2px 35.2px
+  );
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
@@ -1132,14 +1226,8 @@ html[dir='rtl'] .icon-copy {
   line-height: 1.42859;
   font-weight: 400;
   letter-spacing: -0.016em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   display: block;
   color: #06c;
   padding-top: 10px;
@@ -1378,7 +1466,6 @@ html[dir='rtl'] .icon-copy {
 }
 
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
-
   .rc-overlay-content-doublepadding .rc-overlay-fullscreen-content,
   .rc-overlay-content-doublepadding .rc-overlay-popup-content {
     padding-left: 6.25%;
@@ -1572,14 +1659,8 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 html {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   font-size: 106.25%;
   quotes: '“' '”';
   --sk-link-disabled-opacity: 0.42;
@@ -1590,14 +1671,8 @@ body {
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   background-color: #fff;
   color: #1d1d1f;
   font-style: normal;
@@ -1626,82 +1701,82 @@ h6 img {
   margin: 0;
 }
 
-h1+*,
-h2+*,
-h3+*,
-h4+*,
-h5+*,
-h6+* {
+h1 + *,
+h2 + *,
+h3 + *,
+h4 + *,
+h5 + *,
+h6 + * {
   margin-top: 0.8em;
 }
 
-h1+h1,
-h1+h2,
-h1+h3,
-h1+h4,
-h1+h5,
-h1+h6,
-h2+h1,
-h2+h2,
-h2+h3,
-h2+h4,
-h2+h5,
-h2+h6,
-h3+h1,
-h3+h2,
-h3+h3,
-h3+h4,
-h3+h5,
-h3+h6,
-h4+h1,
-h4+h2,
-h4+h3,
-h4+h4,
-h4+h5,
-h4+h6,
-h5+h1,
-h5+h2,
-h5+h3,
-h5+h4,
-h5+h5,
-h5+h6,
-h6+h1,
-h6+h2,
-h6+h3,
-h6+h4,
-h6+h5,
-h6+h6 {
+h1 + h1,
+h1 + h2,
+h1 + h3,
+h1 + h4,
+h1 + h5,
+h1 + h6,
+h2 + h1,
+h2 + h2,
+h2 + h3,
+h2 + h4,
+h2 + h5,
+h2 + h6,
+h3 + h1,
+h3 + h2,
+h3 + h3,
+h3 + h4,
+h3 + h5,
+h3 + h6,
+h4 + h1,
+h4 + h2,
+h4 + h3,
+h4 + h4,
+h4 + h5,
+h4 + h6,
+h5 + h1,
+h5 + h2,
+h5 + h3,
+h5 + h4,
+h5 + h5,
+h5 + h6,
+h6 + h1,
+h6 + h2,
+h6 + h3,
+h6 + h4,
+h6 + h5,
+h6 + h6 {
   margin-top: 0.4em;
 }
 
-ol+h1,
-ol+h2,
-ol+h3,
-ol+h4,
-ol+h5,
-ol+h6,
-p+h1,
-p+h2,
-p+h3,
-p+h4,
-p+h5,
-p+h6,
-ul+h1,
-ul+h2,
-ul+h3,
-ul+h4,
-ul+h5,
-ul+h6 {
+ol + h1,
+ol + h2,
+ol + h3,
+ol + h4,
+ol + h5,
+ol + h6,
+p + h1,
+p + h2,
+p + h3,
+p + h4,
+p + h5,
+p + h6,
+ul + h1,
+ul + h2,
+ul + h3,
+ul + h4,
+ul + h5,
+ul + h6 {
   margin-top: 1.6em;
 }
 
-.heading-collapsed+* {
+.heading-collapsed + * {
   margin-top: 0;
 }
 
-ol+*,
-p+*,
-ul+* {
+ol + *,
+p + *,
+ul + * {
   margin-top: 0.8em;
 }
 
@@ -1797,7 +1872,7 @@ a :disabled {
   display: block;
 }
 
-.links-stacked li+li {
+.links-stacked li + li {
   margin-top: 0.4em;
 }
 
@@ -3204,7 +3279,6 @@ a[role='button'] {
 }
 
 @media only screen and (max-width: 1068px) {
-
   .row-reverse .medium-notlast,
   .row-reverse .small-offset-0 {
     margin-right: 0;
@@ -3280,14 +3354,8 @@ a[role='button'] {
 .icon:before,
 .more:after,
 .more:before {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -3370,10 +3438,12 @@ html[dir='rtl'] .icon-copy {
   font-style: normal;
   font-weight: 400;
   src: url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.eot);
-  src:
-    url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.eot#iefix) format('embedded-opentype'),
-    url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.woff) format('woff'),
-    url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.ttf) format('truetype');
+  src: url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.eot#iefix)
+      format('embedded-opentype'),
+    url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.woff)
+      format('woff'),
+    url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.ttf)
+      format('truetype');
 }
 
 body {
@@ -3555,7 +3625,6 @@ body {
 }
 
 @media only screen and (max-width: 1068px) {
-
   .as-l-bleedcolumn-left,
   .as-l-bleedcolumn-leftbleed,
   .as-l-bleedcolumn-right,
@@ -3776,7 +3845,6 @@ body {
 }
 
 @media only screen and (max-width: 1068px) {
-
   .icon-thumbnailpause:after,
   .icon-thumbnailpause:before,
   .icon-thumbnailplay:after,
@@ -3790,14 +3858,8 @@ body {
   line-height: 1.05;
   font-weight: 600;
   letter-spacing: -0.015em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   padding-top: 50px;
 }
 
@@ -3807,14 +3869,8 @@ body {
     line-height: 1.08349;
     font-weight: 600;
     letter-spacing: -0.003em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 
@@ -3824,14 +3880,8 @@ body {
     line-height: 1.0625;
     font-weight: 600;
     letter-spacing: -0.009em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 
@@ -3841,14 +3891,8 @@ body {
     line-height: 1.08349;
     font-weight: 600;
     letter-spacing: -0.003em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 
@@ -3858,14 +3902,8 @@ body {
     line-height: 1.1;
     font-weight: 600;
     letter-spacing: 0;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 
@@ -3884,14 +3922,8 @@ body {
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   font-weight: 500;
   padding: 19px 0 48px;
   margin: 0 auto;
@@ -3903,7 +3935,6 @@ body {
   }
 }
 
-
 .nojs {
   text-align: center;
 }
@@ -3914,3 +3945,4 @@ body {
   position: static;
   margin: 0 auto;
 }
+</style>

@@ -1,3 +1,29 @@
+<template>
+  <section
+    v-for="(section, index) in sections"
+    :name="section.name"
+    :key="section.id"
+    :id="section.id"
+    :class="section.class"
+    v-section="(section.id, index)"
+  >
+    <component :title="section.name" :is="`${section.id}Section`" />
+  </section>
+
+  <!-- insert Music Library here -->
+  <!-- insert Galaxy Game here -->
+</template>
+
+<script setup lang="ts">
+import type { SectionType } from '~/src/types/common/Section';
+
+const { tm } = useI18n();
+const sections = computed(
+  () => tm('components.common.NavBar') as SectionType[]
+);
+</script>
+
+<style scoped>
 #vhs {
   display: none;
 }
@@ -99,3 +125,4 @@
     width: 82.5%;
   }
 }
+</style>
