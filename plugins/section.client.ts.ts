@@ -1,5 +1,5 @@
 import { defineNuxtPlugin } from '#app';
-import { useSectionStore } from '@/stores/section';
+import { useSection } from '~/composables/useSection';
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive('section', (el, binding) => {
@@ -7,7 +7,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            useSectionStore().setCurrentSection(
+            useSection().setCurrentSection(
               el.getAttribute('name'),
               binding.value
             );

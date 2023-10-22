@@ -26,6 +26,18 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+
+const page = ref({
+  meta: {
+    ribbon: false,
+    footerFull: false,
+  },
+  props: {
+    name: 'notFound',
+  },
+});
+
 const props = defineProps({
   name: {
     type: String,

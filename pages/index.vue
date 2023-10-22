@@ -15,7 +15,14 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import type { SectionType } from '~/src/types/common/Section';
+
+const page = ref({
+  meta: {
+    footerCompact: false,
+  },
+});
 
 const { tm } = useI18n();
 const sections = computed(
