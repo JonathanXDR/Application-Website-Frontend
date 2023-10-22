@@ -12,6 +12,10 @@
     "sprite:generate": "sh ./src/scripts/sprite-generate.sh"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@nuxt/devtools": "^1.0.0",
     "@nuxtjs/i18n": "^7.3.1",
