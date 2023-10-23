@@ -1,0 +1,375 @@
+/*! CSS Used from: https://developer.apple.com/tutorials/css/chunk-vendors.41e9a72f.css */
+.svg-icon {
+  fill: var(--colors-svg-icon-fill-light, var(--color-svg-icon));
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  overflow: visible;
+}
+
+button,
+input {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background: none;
+  border: 0;
+  box-sizing: content-box;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  line-height: inherit;
+  overflow: visible;
+  vertical-align: inherit;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+:focus {
+  outline: 4px solid var(--color-focus-color);
+  outline-offset: 1px;
+}
+
+button,
+input,
+select {
+  font-synthesis: none;
+  -moz-font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: ltr;
+  text-align: left;
+}
+
+:focus:not(input):not(textarea):not(select) {
+  outline: none;
+}
+
+/*! CSS Used from: https://developer.apple.com/tutorials/css/432.103ee183.css */
+.row {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.col {
+  box-sizing: border-box;
+  flex: none;
+}
+
+.large-4 {
+  flex-basis: 33.3333333333%;
+  max-width: 33.3333333333%;
+}
+
+.large-8 {
+  flex-basis: 66.6666666667%;
+  max-width: 66.6666666667%;
+}
+
+@media only screen and (max-width:1250px) {
+  .medium-5 {
+    flex-basis: 41.6666666667%;
+    max-width: 41.6666666667%;
+  }
+
+  .medium-7 {
+    flex-basis: 58.3333333333%;
+    max-width: 58.3333333333%;
+  }
+}
+
+@media only screen and (max-width:735px) {
+  .small-12 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+/*! CSS Used from: https://developer.apple.com/tutorials/css/welcome-experience-technologies.b7fc829c.css */
+.form-element {
+  position: relative;
+}
+
+.form-dropdown {
+  font-size: 1rem;
+  line-height: 1.2353641176;
+  font-weight: 400;
+  letter-spacing: -.022em;
+  font-family: var(--typography-html-font, "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 3.3em;
+  color: var(--color-dropdown-text);
+  padding: 1.1176470588rem 2.3529411765rem 0 .9411764706rem;
+  text-align: left;
+  border: 1px solid var(--color-dropdown-border);
+  border-radius: 15px;
+  background-clip: padding-box;
+  margin-bottom: .8235294118rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  min-height: 32px;
+}
+
+.form-dropdown:focus {
+  box-shadow: 0 0 0 4px var(--color-focus-color);
+  outline: none;
+  border-color: var(--color-focus-border-color);
+}
+
+.form-dropdown~.form-icon {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  fill: var(--color-figure-gray-tertiary);
+  right: 14px;
+  width: 13px;
+  height: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media only screen and (max-width:735px) {
+  .form-dropdown~.form-icon {
+    right: 14px;
+  }
+}
+
+.form-dropdown~.form-label {
+  font-size: .7058823529rem;
+  line-height: 1.75;
+  font-weight: 400;
+  letter-spacing: -.01em;
+  font-family: var(--typography-html-font, "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
+  position: absolute;
+  top: .4705882353rem;
+  left: 17px;
+  color: var(--color-figure-gray-secondary);
+  pointer-events: none;
+  padding: 0;
+  z-index: 1;
+}
+
+.form-dropdown option {
+  color: var(--color-dropdown-text);
+}
+
+.form-dropdown-selectnone {
+  color: transparent;
+}
+
+.form-dropdown-selectnone~.form-label {
+  font-size: 1rem;
+  line-height: 1.2353641176;
+  font-weight: 400;
+  letter-spacing: -.022em;
+  font-family: var(--typography-html-font, "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
+  top: 19px;
+  left: 17px;
+  color: var(--color-figure-gray-tertiary);
+}
+
+.form-dropdown {
+  margin-bottom: 0;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: var(--color-fill-tertiary);
+  color: var(--color-figure-gray);
+}
+
+.form-dropdown~.form-label {
+  color: var(--color-figure-gray-secondary);
+}
+
+.form-dropdown~.form-icon {
+  fill: var(--color-figure-gray);
+}
+
+.filter-input-sticky-wrapper {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 3.0588235294rem;
+  z-index: 5;
+}
+
+.filter-input-sticky-wrapper .filter-input-container {
+  padding: 10px 0;
+  transition: border-bottom .2s ease-out;
+  border-bottom: 1px solid transparent;
+  background: var(--color-fill);
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 980px;
+}
+
+@media only screen and (max-width:1250px) {
+  .container {
+    width: 692px;
+  }
+}
+
+@media only screen and (max-width:735px) {
+  .container {
+    width: 87.5%;
+  }
+}
+
+@media only screen and (max-width:320px) {
+  .container {
+    width: 215px;
+  }
+}
+
+.filter {
+  --input-vertical-padding: 0.7647058824rem;
+  --input-horizontal-spacing: 0.5882352941rem;
+  --input-height: 1.6470588235rem;
+  --input-border-color: var(--color-fill-gray-secondary);
+  --input-text: var(--color-fill-gray-secondary);
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border-radius: 13px;
+}
+
+.filter__top-wrapper {
+  display: flex;
+}
+
+.filter__filter-button {
+  position: relative;
+  z-index: 1;
+  cursor: text;
+  margin-left: var(--input-horizontal-spacing);
+  margin-right: .1764705882rem;
+}
+
+@media only screen and (max-width:735px) {
+  .filter__filter-button {
+    margin-right: .4117647059rem;
+  }
+}
+
+.filter__filter-button .svg-icon {
+  fill: var(--input-text);
+  display: block;
+  height: 21px;
+}
+
+.filter__wrapper {
+  border: 1px solid var(--input-border-color);
+  background: var(--color-fill);
+  border-radius: 12px;
+}
+
+.filter__delete-button-wrapper {
+  display: flex;
+  align-items: center;
+  padding-right: var(--input-horizontal-spacing);
+  padding-left: .1764705882rem;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.filter__input-label {
+  position: relative;
+  flex-grow: 1;
+  height: var(--input-height);
+  padding: var(--input-vertical-padding) 0;
+}
+
+.filter__input-label:after {
+  content: attr(data-value);
+  visibility: hidden;
+  width: auto;
+  white-space: nowrap;
+  min-width: 130px;
+  display: block;
+  text-indent: .4117647059rem;
+}
+
+@media only screen and (max-width:735px) {
+  .filter__input-label:after {
+    text-indent: .1764705882rem;
+  }
+}
+
+.filter__input-box-wrapper {
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-color: var(--color-figure-gray-tertiary) transparent;
+  scrollbar-width: thin;
+  display: flex;
+  overflow-x: auto;
+  align-items: center;
+  cursor: text;
+  flex: 1;
+}
+
+.filter__input-box-wrapper::-webkit-scrollbar {
+  height: 0;
+}
+
+.filter__input {
+  font-size: 1.2352941176rem;
+  line-height: 1.381002381;
+  font-weight: 400;
+  letter-spacing: .011em;
+  font-family: var(--typography-html-font, "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
+  color: var(--color-text);
+  height: var(--input-height);
+  border: none;
+  width: 100%;
+  position: absolute;
+  background: transparent;
+  z-index: 1;
+  text-indent: .4117647059rem;
+}
+
+@media only screen and (max-width:735px) {
+  .filter__input {
+    font-size: 1.1176470588rem;
+    line-height: 1.4211026316;
+    font-weight: 400;
+    letter-spacing: .012em;
+    font-family: var(--typography-html-font, "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
+  }
+}
+
+@media only screen and (max-width:735px) {
+  .filter__input {
+    text-indent: .1764705882rem;
+  }
+}
+
+.filter__input:focus {
+  outline: none;
+}
+
+.filter__input[placeholder]::placeholder {
+  color: var(--input-text);
+  opacity: 1;
+}
+
+.filter-column {
+  padding-right: 10px;
+}
+
+@media only screen and (max-width:735px) {
+  .filter-column {
+    padding-right: 0;
+    padding-bottom: 10px;
+  }
+}
