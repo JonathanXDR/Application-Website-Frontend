@@ -35,21 +35,21 @@ export default defineComponent({
     const { tm } = useI18n()
     const articles = computed(() => tm('components.containers.projects') as ArticleItemType[])
     const projects = reactive({
-      personal: [] as ListUserReposResponse,
       swisscom: computed(() => tm('components.containers.projects') as ArticleItemType[]),
+      personal: [] as ListUserReposResponse,
       school: [] as ListUserReposResponse
     })
-    const selectedCategory = ref('swisscom')
+    const selectedCategory = ref('school')
+    const categories = Object.keys(projects)
 
     const updateSelectedIndex = (index: number) => {
-      const categories = ['swisscom', 'personal', 'school']
       selectedCategory.value = categories[index]
     }
 
     const categorizeProject = (project: any) => {
       const schoolProjectPattern = /^(M\d+|UEK-\d+)-Portfolio$|^(TBZ|UEK)-Modules$/i
       const category = schoolProjectPattern.test(project.name) ? 'school' : 'personal'
-      projects[category].push(project)
+      return { ...project, category }
     }
 
     const fetchProjects = async () => {
@@ -58,7 +58,9 @@ export default defineComponent({
         perPage: 100
       })
 
-      allProjects.forEach(categorizeProject)
+      allProjects.map(categorizeProject).forEach((project) => {
+        projects[project.category].push(project)
+      })
     }
 
     onMounted(() => {

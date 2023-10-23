@@ -2,7 +2,7 @@
   <div class="segmentnav-container">
     <ul ref="segmentNav" class="segmentnav">
       <div class="segmentnav-wrapper">
-        <li v-for="(item, index) in items" :key="index" class="segmentnav-item">
+        <li v-for="(item, index) in items" :key="index" :class="{ 'segmentnav-item': true }">
           <input
             :id="item.id"
             type="radio"
