@@ -1,4 +1,3 @@
-/*! CSS Used from: https://developer.apple.com/tutorials/css/chunk-vendors.41e9a72f.css */
 .svg-icon {
   fill: var(--colors-svg-icon-fill-light, var(--color-svg-icon));
   transform: scale(1);
@@ -7,7 +6,9 @@
 }
 
 button,
-input {
+input,
+li,
+ul {
   margin: 0;
   padding: 0;
 }
@@ -37,18 +38,33 @@ button,
 input,
 select {
   font-synthesis: none;
-  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: 'kern';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: ltr;
   text-align: left;
 }
 
+ul {
+  margin-left: 1.1764705882em;
+}
+
+.visuallyhidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(0 0 99.9% 99.9%);
+  clip-path: inset(0 0 99.9% 99.9%);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+}
+
 :focus:not(input):not(textarea):not(select) {
   outline: none;
 }
 
-/*! CSS Used from: https://developer.apple.com/tutorials/css/432.103ee183.css */
 .row {
   box-sizing: border-box;
   display: flex;
@@ -70,7 +86,7 @@ select {
   max-width: 66.6666666667%;
 }
 
-@media only screen and (max-width:1250px) {
+@media only screen and (max-width: 1250px) {
   .medium-5 {
     flex-basis: 41.6666666667%;
     max-width: 41.6666666667%;
@@ -82,14 +98,13 @@ select {
   }
 }
 
-@media only screen and (max-width:735px) {
+@media only screen and (max-width: 735px) {
   .small-12 {
     flex-basis: 100%;
     max-width: 100%;
   }
 }
 
-/*! CSS Used from: https://developer.apple.com/tutorials/css/welcome-experience-technologies.b7fc829c.css */
 .form-element {
   position: relative;
 }
@@ -98,19 +113,27 @@ select {
   font-size: 1rem;
   line-height: 1.2353641176;
   font-weight: 400;
-  letter-spacing: -.022em;
-  font-family: var(--typography-html-font, "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
+  letter-spacing: -0.022em;
+  font-family: var(--typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif);
   display: block;
   box-sizing: border-box;
   width: 100%;
   height: 3.3em;
   color: var(--color-dropdown-text);
-  padding: 1.1176470588rem 2.3529411765rem 0 .9411764706rem;
+  padding: 1.1176470588rem 2.3529411765rem 0 0.9411764706rem;
   text-align: left;
   border: 1px solid var(--color-dropdown-border);
   border-radius: 15px;
   background-clip: padding-box;
-  margin-bottom: .8235294118rem;
+  margin-bottom: 0.8235294118rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -138,20 +161,28 @@ select {
   transform: translateY(-50%);
 }
 
-@media only screen and (max-width:735px) {
+@media only screen and (max-width: 735px) {
   .form-dropdown~.form-icon {
     right: 14px;
   }
 }
 
 .form-dropdown~.form-label {
-  font-size: .7058823529rem;
+  font-size: 0.7058823529rem;
   line-height: 1.75;
   font-weight: 400;
-  letter-spacing: -.01em;
-  font-family: var(--typography-html-font, "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
+  letter-spacing: -0.01em;
+  font-family: var(--typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif);
   position: absolute;
-  top: .4705882353rem;
+  top: 0.4705882353rem;
   left: 17px;
   color: var(--color-figure-gray-secondary);
   pointer-events: none;
@@ -161,21 +192,6 @@ select {
 
 .form-dropdown option {
   color: var(--color-dropdown-text);
-}
-
-.form-dropdown-selectnone {
-  color: transparent;
-}
-
-.form-dropdown-selectnone~.form-label {
-  font-size: 1rem;
-  line-height: 1.2353641176;
-  font-weight: 400;
-  letter-spacing: -.022em;
-  font-family: var(--typography-html-font, "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
-  top: 19px;
-  left: 17px;
-  color: var(--color-figure-gray-tertiary);
 }
 
 .form-dropdown {
@@ -203,7 +219,7 @@ select {
 
 .filter-input-sticky-wrapper .filter-input-container {
   padding: 10px 0;
-  transition: border-bottom .2s ease-out;
+  transition: border-bottom 0.2s ease-out;
   border-bottom: 1px solid transparent;
   background: var(--color-fill);
 }
@@ -214,22 +230,105 @@ select {
   width: 980px;
 }
 
-@media only screen and (max-width:1250px) {
+@media only screen and (max-width: 1250px) {
   .container {
     width: 692px;
   }
 }
 
-@media only screen and (max-width:735px) {
+@media only screen and (max-width: 735px) {
   .container {
     width: 87.5%;
   }
 }
 
-@media only screen and (max-width:320px) {
+@media only screen and (max-width: 320px) {
   .container {
     width: 215px;
   }
+}
+
+.tag {
+  display: inline-block;
+  padding-right: 0.5882352941rem;
+}
+
+.tag:focus {
+  outline: none;
+}
+
+.tag button {
+  color: var(--color-figure-gray);
+  background-color: var(--color-fill-tertiary);
+  font-size: 0.8235294118rem;
+  line-height: 1.2857742857;
+  font-weight: 400;
+  letter-spacing: -0.016em;
+  font-family: var(--typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif);
+  border-radius: 0.8235294118rem;
+  padding: 0.2352941176rem 0.5882352941rem;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+@media (hover: hover) {
+  .tag button:hover {
+    transition:
+      background-color 0.2s,
+      color 0.2s;
+    background-color: var(--color-fill-blue);
+    color: #fff;
+  }
+}
+
+.tag button:focus:active {
+  background-color: var(--color-fill-blue);
+  color: #fff;
+}
+
+.tag button:focus {
+  box-shadow: 0 0 0 4px var(--color-focus-color);
+  outline: none;
+  border-color: var(--color-focus-border-color);
+}
+
+.tags {
+  position: relative;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+  transition:
+    padding-right 0.8s,
+    padding-bottom 0.8s,
+    max-height 1s,
+    opacity 1s;
+  padding: 0;
+}
+
+.tags .scroll-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-color: var(--color-figure-gray-tertiary) transparent;
+  scrollbar-width: thin;
+}
+
+.tags .scroll-wrapper::-webkit-scrollbar {
+  height: 0;
+}
+
+.tags ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
 .filter {
@@ -253,12 +352,12 @@ select {
   z-index: 1;
   cursor: text;
   margin-left: var(--input-horizontal-spacing);
-  margin-right: .1764705882rem;
+  margin-right: 0.1764705882rem;
 }
 
-@media only screen and (max-width:735px) {
+@media only screen and (max-width: 735px) {
   .filter__filter-button {
-    margin-right: .4117647059rem;
+    margin-right: 0.4117647059rem;
   }
 }
 
@@ -268,17 +367,49 @@ select {
   height: 21px;
 }
 
+.filter.focus .filter__wrapper {
+  box-shadow: 0 0 0 3pt var(--color-focus-color);
+  --input-border-color: var(--color-fill-blue);
+}
+
 .filter__wrapper {
   border: 1px solid var(--input-border-color);
   background: var(--color-fill);
   border-radius: 12px;
 }
 
+.filter__suggested-tags {
+  border-top: 1px solid var(--color-fill-gray-tertiary);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.filter__suggested-tags ul {
+  padding: var(--input-vertical-padding) 0.5294117647rem;
+  border: 1px solid transparent;
+  border-bottom-left-radius: 11px;
+  border-bottom-right-radius: 11px;
+}
+
+.filter__delete-button {
+  position: relative;
+  margin: 0;
+  z-index: 1;
+  border-radius: 100%;
+}
+
+.filter__delete-button .clear-rounded-icon {
+  height: 0.7058823529rem;
+  width: 0.7058823529rem;
+  fill: var(--input-text);
+  display: block;
+}
+
 .filter__delete-button-wrapper {
   display: flex;
   align-items: center;
   padding-right: var(--input-horizontal-spacing);
-  padding-left: .1764705882rem;
+  padding-left: 0.1764705882rem;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
 }
@@ -297,12 +428,12 @@ select {
   white-space: nowrap;
   min-width: 130px;
   display: block;
-  text-indent: .4117647059rem;
+  text-indent: 0.4117647059rem;
 }
 
-@media only screen and (max-width:735px) {
+@media only screen and (max-width: 735px) {
   .filter__input-label:after {
-    text-indent: .1764705882rem;
+    text-indent: 0.1764705882rem;
   }
 }
 
@@ -326,8 +457,16 @@ select {
   font-size: 1.2352941176rem;
   line-height: 1.381002381;
   font-weight: 400;
-  letter-spacing: .011em;
-  font-family: var(--typography-html-font, "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
+  letter-spacing: 0.011em;
+  font-family: var(--typography-html-font,
+      'SF Pro Display',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif);
   color: var(--color-text);
   height: var(--input-height);
   border: none;
@@ -335,22 +474,30 @@ select {
   position: absolute;
   background: transparent;
   z-index: 1;
-  text-indent: .4117647059rem;
+  text-indent: 0.4117647059rem;
 }
 
-@media only screen and (max-width:735px) {
+@media only screen and (max-width: 735px) {
   .filter__input {
     font-size: 1.1176470588rem;
     line-height: 1.4211026316;
     font-weight: 400;
-    letter-spacing: .012em;
-    font-family: var(--typography-html-font, "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
+    letter-spacing: 0.012em;
+    font-family: var(--typography-html-font,
+        'SF Pro Display',
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        sans-serif);
   }
 }
 
-@media only screen and (max-width:735px) {
+@media only screen and (max-width: 735px) {
   .filter__input {
-    text-indent: .1764705882rem;
+    text-indent: 0.1764705882rem;
   }
 }
 
@@ -367,7 +514,7 @@ select {
   padding-right: 10px;
 }
 
-@media only screen and (max-width:735px) {
+@media only screen and (max-width: 735px) {
   .filter-column {
     padding-right: 0;
     padding-bottom: 10px;
@@ -376,13 +523,11 @@ select {
 
 /* --------------------------- live-result-summary -------------------------- */
 
-
-
 .changesnav-totals {
   display: flex;
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width: 767px) {
   .changesnav-totals {
     width: 100%;
     justify-content: space-between;
@@ -391,14 +536,14 @@ select {
 
 .changed-total {
   border: none;
-  font-size: .8235294118rem;
+  font-size: 0.8235294118rem;
   position: relative;
   box-sizing: border-box;
   padding-left: 1.2941176471rem;
-  margin-right: .5882352941rem;
+  margin-right: 0.5882352941rem;
 }
 
-@media only screen and (min-width:320px) {
+@media only screen and (min-width: 320px) {
   .changed-total:last-child {
     margin-right: 0;
   }
@@ -409,7 +554,7 @@ select {
   background-image: url(https://developer.apple.com/tutorials/img/modified-rounded-icon.d5359e50.svg);
   background-repeat: no-repeat;
   bottom: 0;
-  content: " ";
+  content: ' ';
   margin: auto;
   margin-right: 8px;
   position: absolute;
@@ -419,7 +564,7 @@ select {
 }
 
 @media screen {
-  [data-color-scheme=dark] .changed-total:before {
+  [data-color-scheme='dark'] .changed-total:before {
     background-image: url(https://developer.apple.com/tutorials/img/modified-dark-rounded-icon.21b15694.svg);
   }
 }
@@ -429,7 +574,7 @@ select {
 }
 
 @media screen {
-  [data-color-scheme=dark] .changed-total-added:before {
+  [data-color-scheme='dark'] .changed-total-added:before {
     background-image: url(https://developer.apple.com/tutorials/img/added-dark-rounded-icon.e08a3e82.svg);
   }
 }
@@ -439,12 +584,12 @@ select {
 }
 
 @media screen {
-  [data-color-scheme=dark] .changed-total-deprecated:before {
+  [data-color-scheme='dark'] .changed-total-deprecated:before {
     background-image: url(https://developer.apple.com/tutorials/img/deprecated-dark-rounded-icon.4363aca1.svg);
   }
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width: 767px) {
   .total {
     display: none;
   }
@@ -457,39 +602,47 @@ select {
   color: var(--color-figure-gray-secondary-alt);
   display: flex;
   flex-flow: row wrap;
-  margin-top: .5882352941rem;
+  margin-top: 0.5882352941rem;
   position: relative;
 }
 
-@media only screen and (max-width:1250px) {
+@media only screen and (max-width: 1250px) {
   .results {
     width: 692px;
   }
 }
 
-@media only screen and (max-width:735px) {
+@media only screen and (max-width: 735px) {
   .results {
     width: 87.5%;
   }
 }
 
-@media only screen and (max-width:320px) {
+@media only screen and (max-width: 320px) {
   .results {
     width: 215px;
   }
 }
 
 .number-results {
-  font-size: .8235294118rem;
+  font-size: 0.8235294118rem;
   line-height: 1.4285914286;
   font-weight: 400;
-  letter-spacing: -.016em;
-  font-family: var(--typography-html-font, "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
+  letter-spacing: -0.016em;
+  font-family: var(--typography-html-font,
+      'SF Pro Text',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif);
   color: var(--color-figure-gray-secondary);
   margin-right: 20px;
 }
 
-@media only screen and (max-width:735px) {
+@media only screen and (max-width: 735px) {
   .number-results {
     flex: 1 1 100%;
   }
@@ -500,13 +653,13 @@ select {
   padding-left: 20px;
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width: 767px) {
   .changesnav-totals {
     width: auto;
   }
 }
 
-@media only screen and (max-width:735px) {
+@media only screen and (max-width: 735px) {
   .changesnav-totals {
     margin-top: 7px;
     border-left: none;
@@ -525,14 +678,14 @@ select {
   margin-right: 1.1764705882rem;
 }
 
-@media only screen and (max-width:1250px) {
+@media only screen and (max-width: 1250px) {
   .changesnav-totals .changed-total {
     font-size: 14px;
-    margin-right: .8823529412rem;
+    margin-right: 0.8823529412rem;
   }
 }
 
-@media only screen and (max-width:735px) {
+@media only screen and (max-width: 735px) {
   .changesnav-totals .changed-total {
     font-size: 12px;
     margin-right: 0;
@@ -541,10 +694,10 @@ select {
 
 .changesnav-totals .changed-total:before {
   position: relative;
-  margin: 0 .2352941176rem 0 0;
+  margin: 0 0.2352941176rem 0 0;
 }
 
-@media only screen and (max-width:735px) {
+@media only screen and (max-width: 735px) {
   .changesnav-totals .changed-total:before {
     margin-right: 3px;
     height: 12px;
@@ -557,10 +710,10 @@ select {
 }
 
 .changesnav-totals .changed-total .total {
-  margin-left: .2352941176rem;
+  margin-left: 0.2352941176rem;
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width: 767px) {
   .changesnav-totals .changed-total .total {
     display: inline;
   }
