@@ -1,5 +1,6 @@
 import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue'
 import CardTile from '@/components/common/CardTile/CardTile.vue'
+import HeadlineAnimation from '@/components/common/HeadlineAnimation/HeadlineAnimation.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
@@ -14,6 +15,7 @@ export default defineComponent({
   components: {
     LoadingSpinner,
     RibbonBar,
+    HeadlineAnimation,
     LinkCollection,
     ShareSheet,
     CardTile,

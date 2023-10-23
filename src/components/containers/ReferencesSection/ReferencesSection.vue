@@ -1,5 +1,6 @@
 <template>
-  <h2>{{ props.title }}</h2>
+  <!-- <h2>{{ props.title }}</h2> -->
+  <HeadlineAnimation title="Test Test Test" />
   <ul class="grid">
     <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" />
   </ul>
