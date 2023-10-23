@@ -15,7 +15,6 @@
             {{ char }}<span class="cursor"></span>
           </span>
         </span>
-        <!-- Conditionally render a space span unless it's the last word -->
         <span
           v-if="wordIndex < title.split(' ').length - 1"
           style="--letter-opacity: 1; --cursor-opacity: 0"
