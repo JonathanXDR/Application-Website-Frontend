@@ -87,5 +87,5 @@
   </div>
 </template>
 
-<script lang="ts" src="./ArticleItem.ts"></script>
-<style scoped src="./ArticleItem.css"></style>
+<script lang="ts" src="./FilterInput.ts"></script>
+<style scoped src="./FilterInput.css"></style>
