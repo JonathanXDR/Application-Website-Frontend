@@ -38,11 +38,11 @@
         }
       ],
       "RibbonBar": {
-        "description": "Was ist neu in Version 2.2.1?",
+        "description": "Was ist neu in {latestTag}?",
         "links": [
           {
             "title": "Mehr erfahren",
-            "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/v2.2.0...v2.2.1",
+            "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/{previousTag}...{latestTag}",
             "icon": {
               "name": "chevron.right"
             }
@@ -52,6 +52,44 @@
       "CardTile": {
         "firstEncounter": "Erstbegegnung",
         "enhanced": "Erweitert"
+      },
+      "SegmentNav": {
+        "items": [
+          {
+            "id": "swisscom",
+            "label": "Swisscom"
+          },
+          {
+            "id": "personal",
+            "label": "Persönlich"
+          },
+          {
+            "id": "school",
+            "label": "Schule"
+          }
+        ],
+        "options": [
+          {
+            "id": "all",
+            "label": "Alle"
+          },
+          {
+            "id": "newest",
+            "label": "Neueste"
+          },
+          {
+            "id": "oldest",
+            "label": "Älteste"
+          },
+          {
+            "id": "asc",
+            "label": "Aufsteigend"
+          },
+          {
+            "id": "desc",
+            "label": "Absteigend"
+          }
+        ]
       },
       "ShareSheet": {
         "links": [
