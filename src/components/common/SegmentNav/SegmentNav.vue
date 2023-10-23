@@ -12,7 +12,7 @@
           />
           <label :for="item.id" class="typography-segmentnav-item">{{ item.label }}</label>
         </li>
-        <div class="segmentnav-selection-background" :style="selectionStyle"></div>
+        <div v-if="isLoaded" class="segmentnav-selection-background" :style="selectionStyle"></div>
       </div>
     </ul>
   </div>

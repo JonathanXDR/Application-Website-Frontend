@@ -9,6 +9,7 @@ export default defineComponent({
     const items = computed(() => tm('components.common.SegmentNav.items') as TabItemType[])
     const options = computed(() => tm('components.common.SegmentNav.options') as TabItemType[])
     const selectedIndex = ref(0)
+    const isLoaded = ref(false)
     const segmentNav = ref<HTMLUListElement | null>(null)
     const selectionDimensions = reactive({ width: 0, x: 0 })
 
@@ -34,11 +35,13 @@ export default defineComponent({
 
     onMounted(() => {
       calculateSelectionPosition(selectedIndex.value)
+      isLoaded.value = true
     })
 
     return {
       items,
       selectedIndex,
+      isLoaded,
       selectionStyle,
       segmentNav
     }
