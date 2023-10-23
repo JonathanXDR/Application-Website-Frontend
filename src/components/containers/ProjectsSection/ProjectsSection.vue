@@ -1,5 +1,5 @@
 <template>
-  <h3 class="typography-magical-headline">
+  <h3 class="typography-magical-headline" style="padding-bottom: 100px">
     {{ props.title }}
   </h3>
   <NavBarExtension>
