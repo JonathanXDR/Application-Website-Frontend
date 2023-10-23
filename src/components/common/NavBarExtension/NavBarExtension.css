@@ -12,10 +12,12 @@
 }
 
 .filter-input-sticky-wrapper .filter-input-container {
-  padding: 10px 0;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  background-color: var(--color-menu);
   transition: border-bottom 0.2s ease-out;
-  border-bottom: 1px solid transparent;
-  background: var(--color-fill);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 
 .filter-input-sticky-wrapper.is-sticky .filter-input-container {
