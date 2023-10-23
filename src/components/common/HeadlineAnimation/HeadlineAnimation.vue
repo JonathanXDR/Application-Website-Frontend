@@ -7,8 +7,9 @@
       from&nbsp;anywhere.
     </h2>
     <h2 class="section-header-headline typography-section-headline-bold large-12 animated-headline">
-      <span style="--cursor-opacity: 0" class="letter"> <span class="cursor"></span> </span>
-
+      <span style="--cursor-opacity: 0" class="letter">
+        <span class="cursor"></span>
+      </span>
       <span class="word">
         <span style="--letter-opacity: 1; --cursor-opacity: 0" class="letter"
           >F<span class="cursor"></span>
@@ -52,8 +53,9 @@
         </span>
       </span>
       <br />
-      <span style="--cursor-opacity: 0" class="letter"> <span class="cursor"></span> </span>
-
+      <span style="--cursor-opacity: 0" class="letter">
+        <span class="cursor"></span>
+      </span>
       <span class="word">
         <span style="--letter-opacity: 1; --cursor-opacity: 0" class="letter"
           >f<span class="cursor"></span>
