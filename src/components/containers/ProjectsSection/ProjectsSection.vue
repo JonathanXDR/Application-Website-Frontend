@@ -2,7 +2,9 @@
   <h3 class="typography-magical-headline">
     {{ props.title }}
   </h3>
-  <SegmentNav @update:selectedIndex="updateSelectedIndex" />
+  <NavBarExtension>
+    <SegmentNav @update:selectedIndex="updateSelectedIndex" />
+  </NavBarExtension>
   <div class="timeline-wrapper" v-if="projects[selectedCategory].length">
     <TimeLine />
     <ul ref="ul" class="timeline">
