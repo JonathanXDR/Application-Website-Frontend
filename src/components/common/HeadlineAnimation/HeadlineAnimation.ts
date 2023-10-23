@@ -13,18 +13,6 @@ export default defineComponent({
     const words = computed(() => props.title.split(' '))
     const letterCounter = 0
 
-    const getItemsWithSpaces = (title: string) => {
-      const words = title.split(' ')
-      const itemsWithSpaces: string[] = []
-      words.forEach((word, index) => {
-        itemsWithSpaces.push(word)
-        if (index < words.length - 1) {
-          itemsWithSpaces.push(' ')
-        }
-      })
-      return itemsWithSpaces
-    }
-
     onMounted(() => {
       window.addEventListener('scroll', () => {
         letterIndex.value = Math.floor(window.scrollY / 50)
@@ -34,8 +22,7 @@ export default defineComponent({
     return {
       letterIndex,
       letterCounter,
-      words,
-      getItemsWithSpaces
+      words
     }
   }
 })
