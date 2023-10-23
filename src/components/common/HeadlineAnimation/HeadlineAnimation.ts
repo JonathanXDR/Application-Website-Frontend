@@ -1,4 +1,4 @@
-import { computed, defineComponent, onMounted, ref } from 'vue'
+import { defineComponent, onMounted, onUnmounted, ref } from 'vue'
 
 export default defineComponent({
   name: 'HeadlineAnimation',
@@ -10,19 +10,34 @@ export default defineComponent({
   },
   setup(props) {
     const letterIndex = ref(0)
-    const words = computed(() => props.title.split(' '))
-    const letterCounter = 0
+    let lastScrollY = window.scrollY
+
+    function totalChars(upToWordIndex: number): number {
+      const words = props.title.split(' ').slice(0, upToWordIndex)
+      return words.reduce((total, word) => total + word.length, 0)
+    }
+
+    function handleScroll() {
+      const totalLetters = [...props.title].filter((char) => char !== ' ').length
+      if (window.scrollY > lastScrollY && letterIndex.value < totalLetters) {
+        letterIndex.value += 1
+      } else if (window.scrollY < lastScrollY && letterIndex.value > 0) {
+        letterIndex.value -= 1
+      }
+      lastScrollY = window.scrollY
+    }
 
     onMounted(() => {
-      window.addEventListener('scroll', () => {
-        letterIndex.value = Math.floor(window.scrollY / 50)
-      })
+      window.addEventListener('scroll', handleScroll)
+    })
+
+    onUnmounted(() => {
+      window.removeEventListener('scroll', handleScroll)
     })
 
     return {
       letterIndex,
-      letterCounter,
-      words
+      totalChars
     }
   }
 })

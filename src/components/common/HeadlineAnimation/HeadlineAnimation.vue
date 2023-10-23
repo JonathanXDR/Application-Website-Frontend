@@ -7,7 +7,7 @@
             v-for="(char, charIndex) in word.split('')"
             :key="`char-${wordIndex}-${charIndex}`"
             :style="{
-              '--letter-opacity': letterCounter <= letterIndex ? 1 : 0,
+              '--letter-opacity': charIndex + totalChars(wordIndex) <= letterIndex ? 1 : 0,
               '--cursor-opacity': 0
             }"
             class="letter"
