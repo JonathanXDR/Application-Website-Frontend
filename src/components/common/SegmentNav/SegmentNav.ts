@@ -2,19 +2,6 @@ import type { TabItemType } from '@/types/common/TabItem'
 import { computed, defineComponent, onMounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const calculateSelectionPosition = (
-  segmentNav: HTMLUListElement | null,
-  selectedIndex: number,
-  selectionDimensions: { width: number; x: number }
-) => {
-  if (segmentNav) {
-    const segmentNavItems = segmentNav.querySelectorAll('.segmentnav-item')
-    const { offsetWidth, offsetLeft } = segmentNavItems[selectedIndex] as HTMLElement
-    selectionDimensions.width = offsetWidth
-    selectionDimensions.x = offsetLeft
-  }
-}
-
 export default defineComponent({
   name: 'SegmentNav',
   setup(setup, { emit }) {
@@ -24,6 +11,19 @@ export default defineComponent({
     const selectedIndex = ref(0)
     const segmentNav = ref<HTMLUListElement | null>(null)
     const selectionDimensions = reactive({ width: 0, x: 0 })
+
+    const calculateSelectionPosition = (
+      segmentNav: HTMLUListElement | null,
+      selectedIndex: number,
+      selectionDimensions: { width: number; x: number }
+    ) => {
+      if (segmentNav) {
+        const segmentNavItems = segmentNav.querySelectorAll('.segmentnav-item')
+        const { offsetWidth, offsetLeft } = segmentNavItems[selectedIndex] as HTMLElement
+        selectionDimensions.width = offsetWidth
+        selectionDimensions.x = offsetLeft
+      }
+    }
 
     const selectionStyle = computed(() => ({
       width: `${selectionDimensions.width}px`,

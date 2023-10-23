@@ -46,18 +46,19 @@ export default defineComponent({
       selectedCategory.value = categories[index]
     }
 
+    const categorizeProject = (project: any) => {
+      const schoolProjectPattern = /^(M\d+|UEK-\d+)-Portfolio$|^(TBZ|UEK)-Modules$/i
+      const category = schoolProjectPattern.test(project.name) ? 'school' : 'personal'
+      projects[category].push(project)
+    }
+
     const fetchProjects = async () => {
       const allProjects = await listUserRepositories({
         username: 'JonathanXDR',
         perPage: 100
       })
 
-      allProjects.forEach((project) => {
-        const schoolProjectPattern = /^(M\d+|UEK-\d+)-Portfolio$|^(TBZ|UEK)-Modules$/i
-        ;(schoolProjectPattern.test(project.name) ? projects.school : projects.personal).push(
-          project
-        )
-      })
+      allProjects.forEach(categorizeProject)
     }
 
     onMounted(() => {
