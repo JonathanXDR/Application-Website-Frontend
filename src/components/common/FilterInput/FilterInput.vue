@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col filter-column large-8 medium-7 small-12">
-            <div role="search" class="filter focus">
+            <div class="filter">
               <div class="filter__wrapper">
                 <div class="filter__top-wrapper">
                   <button class="filter__filter-button">
@@ -32,92 +32,25 @@
                     </svg>
                   </button>
                   <div class="filter__input-box-wrapper">
-                    <label id="filter-label" for="filter-input" class="filter__input-label">
-                      <input
+                    <label id="filter-label" for="filter-input" class="filter__input-label"
+                      ><input
                         id="filter-input"
                         placeholder="Filter on this page"
                         type="text"
                         autocorrect="off"
                         autocapitalize="off"
                         spellcheck="false"
-                        role="combobox"
                         class="filter__input"
-                      />
-                    </label>
+                    /></label>
                   </div>
-                  <div class="filter__delete-button-wrapper">
-                    <button class="filter__delete-button">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        class="svg-icon clear-rounded-icon"
-                        viewBox="0 0 16 16"
-                      >
-                        <title>Clear</title>
-                        <path
-                          d="M10.5,11.3a.7.7,0,0,1-.6-.2L8,9.2,6.1,11.1a.7.7,0,0,1-.6.2.8.8,0,0,1-.9-.8.9.9,0,0,
-    1,.3-.6L6.8,8,4.9,6.1a.9.9,0,0,1-.3-.6.8.8,0,0,1,.9-.8l.6.2L8,6.8,9.9,4.9a.7.7,0,0,1,
-    .6-.2.8.8,0,0,1,.9.8.9.9,0,0,1-.3.6L9.2,8l1.9,1.9a.9.9,0,0,1,.3.6A.8.8,0,0,1,10.5,11.3ZM8,
-    16A8,8,0,1,0,0,8,8,8,0,0,0,8,16Z"
-                        ></path>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="tags filter__suggested-tags">
-                  <div class="scroll-wrapper">
-                    <ul id="suggested-tags-tags" tabindex="0" role="listbox">
-                      <li role="presentation" class="tag" filtertext="">
-                        <button role="option">
-                          <span class="visuallyhidden"> Add tag - </span> App Frameworks
-                        </button>
-                      </li>
-                      <li role="presentation" class="tag" filtertext="">
-                        <button role="option">
-                          <span class="visuallyhidden"> Add tag - </span> App Services
-                        </button>
-                      </li>
-                      <li role="presentation" class="tag" filtertext="">
-                        <button role="option">
-                          <span class="visuallyhidden"> Add tag - </span> Design
-                        </button>
-                      </li>
-                      <li role="presentation" class="tag" filtertext="">
-                        <button role="option">
-                          <span class="visuallyhidden"> Add tag - </span>
-                          Developer Tools
-                        </button>
-                      </li>
-                      <li role="presentation" class="tag" filtertext="">
-                        <button role="option">
-                          <span class="visuallyhidden"> Add tag - </span>
-                          Graphics and Games
-                        </button>
-                      </li>
-                      <li role="presentation" class="tag" filtertext="">
-                        <button role="option">
-                          <span class="visuallyhidden"> Add tag - </span> Media
-                        </button>
-                      </li>
-                      <li role="presentation" class="tag" filtertext="">
-                        <button role="option">
-                          <span class="visuallyhidden"> Add tag - </span> System
-                        </button>
-                      </li>
-                      <li role="presentation" class="tag" filtertext="">
-                        <button role="option">
-                          <span class="visuallyhidden"> Add tag - </span> Web
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
+                  <div class="filter__delete-button-wrapper"></div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col large-4 medium-5 small-12">
-            <div class="form-element form-has-value">
-              <select aria-label="Changes Versions" class="form-dropdown">
+            <div class="form-element">
+              <select class="form-dropdown form-dropdown-selectnone">
                 <option class="hide-changes" value="hide">Current APIs</option>
                 <option value="latest_major">Xcode 15.0 beta 8 – Xcode 15.1 beta 1</option>
                 <option value="latest_beta">
@@ -126,10 +59,8 @@
                 </option>
                 <option value="latest_minor">
                   Apple News Format 1.22 – Apple News Format 1.24
-                </option>
-              </select>
-              <svg
-                aria-hidden="true"
+                </option></select
+              ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 class="svg-icon inline-chevron-down-icon form-icon"
@@ -137,12 +68,25 @@
               >
                 <path
                   d="m6.94042969 10.6855469c.17089843 0 .34179687-.0683594.45800781-.1982422l5.2910156-5.42089845c.116211-.11621094.1845703-.26660156.1845703-.4375 0-.35546875-.2666015-.62890625-.6220703-.62890625-.1708984 0-.328125.06835938-.4443359.17773438l-4.86718751 4.9765625-4.87402344-4.9765625c-.109375-.109375-.26660156-.17773438-.44433594-.17773438-.35546875 0-.62207031.2734375-.62207031.62890625 0 .17089844.06835938.32128906.18457031.44433594l5.29101563 5.41406251c.12988281.1298828.28710937.1982422.46484375.1982422z"
-                ></path>
-              </svg>
-              <span aria-hidden="true" class="form-label"> Show API Changes </span>
+                ></path></svg
+              ><span class="form-label"> Show API Changes </span>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div id="live-result-summary" class="results">
+    <div class="number-results">Showing 43 results</div>
+    <div class="changesnav-totals">
+      <div class="changed-total changed-total-modified">
+        <span>Modified</span><span class="total"> (43)</span>
+      </div>
+      <div class="changed-total changed-total-added">
+        <span>Added</span><span class="total"> (0)</span>
+      </div>
+      <div class="changed-total changed-total-deprecated">
+        <span>Deprecated</span><span class="total"> (0)</span>
       </div>
     </div>
   </div>
