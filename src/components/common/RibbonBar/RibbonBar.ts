@@ -12,7 +12,7 @@ export default defineComponent({
     LinkCollection
   },
   setup() {
-    const { tm, t } = useI18n()
+    const { tm, rt } = useI18n()
     const tags = ref<{ latest: string | undefined; previous: string | undefined }>({
       latest: undefined,
       previous: undefined
@@ -32,7 +32,7 @@ export default defineComponent({
       return (tm('components.common.RibbonBar.links') as LinkType[]).map((link) => {
         return {
           ...link,
-          url: t(link.url, { latestTag: tags.value.latest, previousTag: tags.value.previous })
+          url: rt(link.url, { latestTag: tags.value.latest, previousTag: tags.value.previous })
         }
       })
     })
