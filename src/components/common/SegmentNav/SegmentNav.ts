@@ -17,7 +17,7 @@ const calculateSelectionPosition = (
 
 export default defineComponent({
   name: 'SegmentNav',
-  setup() {
+  setup(setup, { emit }) {
     const { tm } = useI18n()
     const items = computed(() => tm('components.common.SegmentNav.items') as TabItemType[])
     const options = computed(() => tm('components.common.SegmentNav.options') as TabItemType[])
@@ -32,6 +32,7 @@ export default defineComponent({
 
     watch(selectedIndex, () => {
       calculateSelectionPosition(segmentNav.value, selectedIndex.value, selectionDimensions)
+      emit('update:selectedIndex', selectedIndex.value)
     })
 
     onMounted(() => {

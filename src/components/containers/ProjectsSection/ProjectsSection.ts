@@ -9,7 +9,7 @@ import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import { listUserRepositories } from '@/helpers/github-helper'
 import type { ListUserReposResponse } from '@/types/GitHub/Repository'
 import type { ArticleItemType } from '@/types/common/ArticleItem'
-import { computed, defineComponent, onMounted, reactive } from 'vue'
+import { computed, defineComponent, onMounted, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -39,6 +39,12 @@ export default defineComponent({
       swisscom: computed(() => tm('components.containers.projects') as ArticleItemType[]),
       school: [] as ListUserReposResponse
     })
+    const selectedCategory = ref('swisscom')
+
+    const updateSelectedIndex = (index: number) => {
+      const categories = ['swisscom', 'personal', 'school']
+      selectedCategory.value = categories[index]
+    }
 
     const fetchProjects = async () => {
       const allProjects = await listUserRepositories({
@@ -62,7 +68,9 @@ export default defineComponent({
       props,
       tm,
       articles,
-      projects
+      projects,
+      selectedCategory,
+      updateSelectedIndex
     }
   }
 })
