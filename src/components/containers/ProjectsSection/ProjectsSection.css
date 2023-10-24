@@ -1,12 +1,16 @@
 /* ---------------------------- timeline-wrapper ---------------------------- */
 
 .timeline-wrapper {
-  padding: 100px 0 50px 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  padding-top: 50px;
 }
 
 @media screen and (min-width: 900px) {
   .timeline-wrapper {
-    padding: 150px 0 100px 0;
+    width: 82.5%;
+    padding: 100px 0 50px 0;
   }
 }
 
