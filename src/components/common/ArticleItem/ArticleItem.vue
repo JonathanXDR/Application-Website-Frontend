@@ -14,11 +14,16 @@
       <h2>{{ article.title || article.name }}</h2>
       <p class="article-date">
         {{
-          article.date ||
-          new Date(article.updated_at).toLocaleDateString('de-CH', {
+          `${new Date(article.date?.from).toLocaleDateString(`${locale.value}-CH`, {
             year: 'numeric',
-            month: 'long',
-            day: 'numeric'
+            month: 'long'
+          })} - ${new Date(article.date?.to).toLocaleDateString(`${locale.value}-CH`, {
+            year: 'numeric',
+            month: 'long'
+          })}` ||
+          new Date(article.updated_at).toLocaleDateString(`${locale.value}-CH`, {
+            year: 'numeric',
+            month: 'long'
           })
         }}
       </p>
