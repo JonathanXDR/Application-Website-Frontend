@@ -12,15 +12,9 @@
 
     <div class="padding-left-small">
       <h2>{{ article.title || article.name }}</h2>
-      <p class="article-date">
+      <p v-if="article.date" class="article-date">
         {{
-          `${new Date(article.date?.from).toLocaleDateString(`${locale.value}-CH`, {
-            year: 'numeric',
-            month: 'long'
-          })} - ${new Date(article.date?.to).toLocaleDateString(`${locale.value}-CH`, {
-            year: 'numeric',
-            month: 'long'
-          })}` ||
+          formattedDateRange ||
           new Date(article.updated_at).toLocaleDateString(`${locale.value}-CH`, {
             year: 'numeric',
             month: 'long'
