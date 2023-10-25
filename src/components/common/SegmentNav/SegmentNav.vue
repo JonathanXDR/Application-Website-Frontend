@@ -1,21 +1,38 @@
 <template>
-  <div class="segmentnav-container">
-    <ul ref="segmentNav" class="segmentnav">
-      <div class="segmentnav-wrapper">
-        <li v-for="(item, index) in items" :key="index" :class="{ 'segmentnav-item': true }">
-          <input
-            :id="item.id"
-            type="radio"
-            name="category"
-            v-model="selectedIndex"
-            :value="index"
-          />
-          <label :for="item.id" class="typography-segmentnav-item">{{ item.label }}</label>
-        </li>
-        <div v-if="isLoaded" class="segmentnav-selection-background" :style="selectionStyle"></div>
-      </div>
-    </ul>
-  </div>
+  <fieldset class="tile">
+    <legend style="display: none">Data filter by job type</legend>
+    <div class="form-dropdown">
+      <select class="form-dropdown-select" name="year">
+        <option v-for="(option, index) in options" :key="index" :value="index">
+          {{ option.label }}
+        </option>
+      </select>
+      <span class="form-dropdown-chevron">
+        <Icon name="chevron.down" size="small" class="icon-dropdown" />
+      </span>
+    </div>
+    <div class="segmentnav-container">
+      <ul ref="segmentNav" class="segmentnav">
+        <div class="segmentnav-wrapper">
+          <li v-for="(item, index) in items" :key="index" :class="{ 'segmentnav-item': true }">
+            <input
+              :id="item.id"
+              type="radio"
+              name="category"
+              v-model="selectedIndex"
+              :value="index"
+            />
+            <label :for="item.id" class="typography-segmentnav-item">{{ item.label }}</label>
+          </li>
+          <div
+            v-if="isLoaded"
+            class="segmentnav-selection-background"
+            :style="selectionStyle"
+          ></div>
+        </div>
+      </ul>
+    </div>
+  </fieldset>
 </template>
 
 <script lang="ts" src="./SegmentNav.ts"></script>

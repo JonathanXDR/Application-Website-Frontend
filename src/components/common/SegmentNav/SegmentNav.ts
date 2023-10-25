@@ -1,9 +1,13 @@
+import Icon from '@/components/common/Icons/Icon.vue'
 import type { TabItemType } from '@/types/common/TabItem'
 import { computed, defineComponent, onMounted, reactive, ref, watchEffect } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'SegmentNav',
+  components: {
+    Icon
+  },
   setup(setup, { emit }) {
     const { tm } = useI18n()
     const items = computed(() => tm('components.common.SegmentNav.items') as TabItemType[])
@@ -40,6 +44,7 @@ export default defineComponent({
 
     return {
       items,
+      options,
       selectedIndex,
       isLoaded,
       selectionStyle,

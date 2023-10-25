@@ -139,4 +139,215 @@
 .segmentnav-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 22px;
+}
+
+.segmentnav-container:before {
+  height: 56px;
+  display: block;
+  content: '';
+  width: 1px;
+  background-color: var(--color-fill-gray-tertiary);
+}
+
+@media only screen and (max-width: 1068px) {
+  .segmentnav-container:before {
+    height: 47.5px;
+  }
+}
+
+@media only screen and (max-width: 734px) {
+  .segmentnav-container:before {
+    height: 36px;
+  }
+}
+
+/* ------------------------------ form-dropdown ----------------------------- */
+
+.form-dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 0;
+  min-width: 150px;
+}
+
+@media only screen and (max-width: 1068px) {
+  .form-dropdown {
+    min-width: 130px;
+  }
+}
+
+@media only screen and (max-width: 734px) {
+  .form-dropdown {
+    min-width: 70px;
+  }
+}
+
+/* -------------------------- form-dropdown-select -------------------------- */
+
+.form-dropdown-select {
+  font-size: 17px;
+  line-height: 1.2353641176;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
+  width: 100%;
+  height: 3.2941176471rem;
+  border-radius: 12px;
+  border-width: 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  /* padding: 1.0588235294rem 2.3529411765rem 0 0.9411764706rem; */
+  padding: 0 2.3529411765rem 0 0.9411764706rem;
+  -webkit-appearance: none;
+  appearance: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.form-dropdown-select {
+  color: var(--color-fill-gray);
+  border-color: var(--color-fill-gray-secondary);
+  background-color: var(--color-dropdown-background);
+}
+
+.form-dropdown-select {
+  height: 2.3em;
+  /* padding-block: 12px; */
+}
+
+@media only screen and (max-width: 734px) {
+  .form-dropdown-select {
+    height: auto;
+    min-height: 2.3em;
+  }
+}
+
+/* .form-dropdown-select:focus {
+  border-color: #0071e3;
+}
+
+.form-dropdown-select:focus:not(button) {
+  outline: none;
+} */
+
+/* .form-dropdown-select:focus:not(button) {
+  border-width: 2px;
+  padding-left: 0.8823529412rem;
+} */
+
+.form-dropdown-select:disabled+.form-dropdown-chevron {
+  opacity: 0.42;
+}
+
+.form-dropdown-select option:not(:disabled) {
+  color: var(--color-fill-gray);
+}
+
+@media only screen and (max-width: 1068px) {
+  .form-dropdown-select {
+    padding-block: 7.5px;
+  }
+}
+
+@media only screen and (max-width: 734px) {
+  .form-dropdown-select {
+    font-size: 12px;
+    line-height: 1.3333733333;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif;
+    border-radius: 22px;
+    /* padding: 4px 11px; */
+    padding: 0 11px;
+  }
+}
+
+/* ------------------------------ form-dropdown ----------------------------- */
+
+.form-dropdown:disabled {
+  color: #6e6e73;
+  opacity: 1;
+  border-color: rgba(134, 134, 139, 0.42);
+  background-color: var(--color-dropdown-background-disabled);
+}
+
+/* -------------------------- form-dropdown-chevron ------------------------- */
+
+.form-dropdown-chevron {
+  color: #6e6e73;
+}
+
+.form-dropdown-chevron {
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 0.006em;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
+  position: absolute;
+  pointer-events: none;
+  right: 0.9411764706rem;
+  /* top: 0.7058823529rem; */
+}
+
+.form-dropdown-chevron {
+  /* top: 0;
+  bottom: 0; */
+  height: 1.6em;
+  /* margin: auto; */
+}
+
+.form-dropdown-chevron:before {
+  display: none;
+}
+
+@media only screen and (max-width: 734px) {
+  .form-dropdown-chevron {
+    font-size: 12px;
+    line-height: 1.3333733333;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif;
+    right: 0.9em;
+    height: 1.5em;
+  }
+}
+
+/* ---------------------------------- tile ---------------------------------- */
+.tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
 }

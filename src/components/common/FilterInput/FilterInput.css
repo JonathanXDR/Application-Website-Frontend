@@ -123,12 +123,16 @@ ul {
       'Helvetica',
       'Arial',
       sans-serif);
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   width: 100%;
-  height: 3.3em;
+  /* height: 3.3em; */
+  height: 40px;
   color: var(--color-dropdown-text);
-  padding: 1.1176470588rem 2.3529411765rem 0 0.9411764706rem;
+  /* padding: 17px 35px 0 14px; */
+  padding: 0 35px 0 14px;
   text-align: left;
   border: 1px solid var(--color-dropdown-border);
   border-radius: 15px;
@@ -344,6 +348,7 @@ ul {
 }
 
 .filter__top-wrapper {
+  height: 40px;
   display: flex;
 }
 
@@ -385,7 +390,8 @@ ul {
 }
 
 .filter__suggested-tags ul {
-  padding: var(--input-vertical-padding) 0.5294117647rem;
+  /* padding: 12px 8px; */
+  padding: 6px 4px;
   border: 1px solid transparent;
   border-bottom-left-radius: 11px;
   border-bottom-right-radius: 11px;
@@ -408,17 +414,18 @@ ul {
 .filter__delete-button-wrapper {
   display: flex;
   align-items: center;
-  padding-right: var(--input-horizontal-spacing);
-  padding-left: 0.1764705882rem;
+  padding-right: 8px;
+  padding-left: 3px;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
 }
 
 .filter__input-label {
+  display: flex;
+  align-items: center;
   position: relative;
   flex-grow: 1;
-  height: 54px;
-  padding: 13px 0;
+  /* height: 54px; */
 }
 
 .filter__input-label:after {
