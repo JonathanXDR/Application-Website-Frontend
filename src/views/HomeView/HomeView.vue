@@ -10,7 +10,6 @@
     <component :title="section.name" :is="`${section.id}Section`" />
   </section>
 
-  <!-- insert Music Library here -->
   <!-- insert Galaxy Game here -->
 </template>
 

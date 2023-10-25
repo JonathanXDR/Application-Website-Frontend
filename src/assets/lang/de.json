@@ -27,6 +27,11 @@
           "class": "section-separated"
         },
         {
+          "id": "music",
+          "name": "Musik",
+          "route": "/#music"
+        },
+        {
           "id": "technologies",
           "name": "Technologien",
           "route": "/#technologies",

@@ -19,6 +19,10 @@
   flex-wrap: wrap;
 }
 
+.language-picker-wrapper li > input[type='radio'] {
+  display: none;
+}
+
 /* ----------------------------------- li ----------------------------------- */
 
 .lang-switcher-container .language-picker-wrapper li {
@@ -31,12 +35,6 @@
   border-right: none;
   padding-right: 10px;
   margin-right: 20px;
-}
-
-/* -------------------------------- hideRadio ------------------------------- */
-
-.hideRadio {
-  display: none;
 }
 
 /* ---------------------------------- label --------------------------------- */

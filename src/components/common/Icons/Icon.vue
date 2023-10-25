@@ -88,14 +88,30 @@ export default defineComponent({
   height: 0.5em;
 }
 
-.icon-article {
+.icon-article,
+.icon-cta {
   width: 1.25em;
   height: 1.25em;
 }
 
-#projects .icon-article {
-  width: 1.5em !important;
-  height: 1.5em !important;
+#music .tabnav-paddle-icon {
+  width: 0.75em;
+  height: 0.75em;
+  opacity: 0.8;
+  transition: opacity 200ms linear;
+}
+
+#music .tabnav-paddle-left .tabnav-paddle-icon {
+  margin-left: -0.5px;
+}
+
+#music .tabnav-paddle-right .tabnav-paddle-icon {
+  margin-right: -0.5px;
+}
+
+.icon-article {
+  width: 1.25em;
+  height: 1.25em;
 }
 
 .link .link-icon {

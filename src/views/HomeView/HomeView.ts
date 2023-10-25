@@ -1,5 +1,6 @@
 import AboutSection from '@/components/containers/AboutSection/AboutSection.vue'
 import LanguagesSection from '@/components/containers/LanguagesSection/LanguagesSection.vue'
+import MusicSection from '@/components/containers/MusicSection/MusicSection.vue'
 import OtherSection from '@/components/containers/OtherSection/OtherSection.vue'
 import ProjectsSection from '@/components/containers/ProjectsSection/ProjectsSection.vue'
 import ReferencesSection from '@/components/containers/ReferencesSection/ReferencesSection.vue'
@@ -15,6 +16,7 @@ export default defineComponent({
     LanguagesSection,
     ReferencesSection,
     OtherSection,
+    MusicSection,
     TechnologiesSection,
     ProjectsSection
   },
