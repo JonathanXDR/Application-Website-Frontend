@@ -4,8 +4,10 @@
   height: 300px;
   position: relative;
   background-color: var(--color-fill);
-  border-radius: 18px;
-  transition: box-shadow, transform 0.16s ease-out;
+  border-radius: 30px;
+  transition:
+    box-shadow,
+    transform 0.16s ease-out;
 }
 
 .tile:hover {
@@ -233,5 +235,5 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease-in-out;
-  border-radius: 18px;
+  border-radius: 30px;
 }

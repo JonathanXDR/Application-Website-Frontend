@@ -76,7 +76,7 @@
 
 #technologies {
   padding: 100px 0;
-  background: var(--color-fill-tertiary);
+  /* background: var(--color-fill-tertiary); */
 }
 
 @media screen and (min-width: 900px) {

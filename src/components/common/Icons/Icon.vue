@@ -83,6 +83,11 @@ export default defineComponent({
   }
 }
 
+.icon-dropdown {
+  width: 0.5em;
+  height: 0.5em;
+}
+
 .icon-article {
   width: 1.25em;
   height: 1.25em;

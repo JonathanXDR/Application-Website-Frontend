@@ -1,5 +1,8 @@
 import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue'
+import CardItem from '@/components/common/CardItem/CardItem.vue'
 import CardTile from '@/components/common/CardTile/CardTile.vue'
+import FilterInput from '@/components/common/FilterInput/FilterInput.vue'
+import FilterNav from '@/components/common/FilterNav/FilterNav.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
@@ -18,7 +21,10 @@ export default defineComponent({
     ShareSheet,
     CardTile,
     ArticleItem,
-    TimeLine
+    TimeLine,
+    FilterInput,
+    FilterNav,
+    CardItem
   },
   props: {
     title: {

@@ -29,12 +29,14 @@
         {
           "id": "technologies",
           "name": "Technologies",
-          "route": "/#technologies"
+          "route": "/#technologies",
+          "class": "section-separated"
         },
         {
           "id": "projects",
           "name": "Projets",
-          "route": "/#projects"
+          "route": "/#projects",
+          "class": "section-separated"
         }
       ],
       "RibbonBar": {
@@ -52,6 +54,68 @@
       "CardTile": {
         "firstEncounter": "Première rencontre",
         "enhanced": "Élargi"
+      },
+      "FilterNav": {
+        "items": [
+          {
+            "id": "all",
+            "label": "Tout"
+          },
+          {
+            "id": "frameworks",
+            "label": "Frameworks"
+          },
+          {
+            "id": "languages",
+            "label": "Langages"
+          },
+          {
+            "id": "libraries",
+            "label": "Libraries"
+          },
+          {
+            "id": "tools",
+            "label": "Outils"
+          },
+          {
+            "id": "platforms",
+            "label": "Plateformes"
+          },
+          {
+            "id": "databases",
+            "label": "Bases de données"
+          },
+          {
+            "id": "others",
+            "label": "Autres"
+          }
+        ],
+        "options": [
+          {
+            "id": "all",
+            "label": "Tout"
+          },
+          {
+            "id": "experience",
+            "label": "Expérience"
+          },
+          {
+            "id": "newest",
+            "label": "Plus récent"
+          },
+          {
+            "id": "oldest",
+            "label": "Plus ancien"
+          },
+          {
+            "id": "asc",
+            "label": "Ascendant"
+          },
+          {
+            "id": "desc",
+            "label": "Descendant"
+          }
+        ]
       },
       "SegmentNav": {
         "items": [
