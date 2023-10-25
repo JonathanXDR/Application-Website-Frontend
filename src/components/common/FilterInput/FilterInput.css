@@ -417,8 +417,8 @@ ul {
 .filter__input-label {
   position: relative;
   flex-grow: 1;
-  height: var(--input-height);
-  padding: var(--input-vertical-padding) 0;
+  height: 54px;
+  padding: 13px 0;
 }
 
 .filter__input-label:after {
