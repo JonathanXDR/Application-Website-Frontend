@@ -1,16 +1,7 @@
 <template>
   <fieldset class="tile">
     <legend style="display: none">Data filter by job type</legend>
-    <div class="form-dropdown">
-      <select class="form-dropdown-select" name="year">
-        <option v-for="(option, index) in options" :key="index" :value="index">
-          {{ option.label }}
-        </option>
-      </select>
-      <span class="form-dropdown-chevron">
-        <Icon name="chevron.down" size="small" class="icon-dropdown" />
-      </span>
-    </div>
+    <DropDown :options="options" />
     <div class="segmentnav-container">
       <ul ref="segmentNav" class="segmentnav">
         <div class="segmentnav-wrapper">

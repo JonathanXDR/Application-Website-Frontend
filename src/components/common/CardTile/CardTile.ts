@@ -7,7 +7,7 @@ export default defineComponent({
     card: {
       type: Object as PropType<CardTileType>,
       required: true,
-      default: () => ({})
+      default: () => {}
     }
   },
   setup() {

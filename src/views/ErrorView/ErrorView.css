@@ -1204,10 +1204,6 @@ html[dir='rtl'] .icon-copy {
   border: none;
 }
 
-[data-core-overlay-fullscreen] [data-core-overlay-content]:focus {
-  outline-offset: -4px;
-}
-
 [data-core-overlay-open-ios-fixed],
 [data-core-overlay-open] {
   overflow: hidden;
@@ -1278,10 +1274,6 @@ html[dir='rtl'] .icon-copy {
     padding: 0;
     max-width: 640px;
     border: none;
-  }
-
-  .rc-overlay-popup [data-core-overlay-content]:focus {
-    outline-offset: -4px;
   }
 }
 
@@ -3902,7 +3894,6 @@ body {
     padding-top: 10px;
   }
 }
-
 
 .nojs {
   text-align: center;

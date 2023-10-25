@@ -53,16 +53,6 @@
   opacity: 1;
 }
 
-/* .tabnav-paddle:focus {
-  outline: none;
-}
-
-.tabnav-paddle:focus:after {
-  outline: 4px solid rgba(0, 125, 250, 0.6);
-  outline-offset: 4px;
-  opacity: 1;
-} */
-
 .tabnav-paddle:active {
   outline: none;
 }
@@ -129,11 +119,11 @@
   border-bottom-color: var(--color-figure-gray-secondary);
 }
 
-.tabnav-item>input[type='radio'] {
+.tabnav-item > input[type='radio'] {
   display: none;
 }
 
-.tabnav-item>input[type='radio']:checked~label.tabnav-link {
+.tabnav-item > input[type='radio']:checked ~ label.tabnav-link {
   color: var(--color-fill-gray);
   pointer-events: none;
   text-decoration: none;
@@ -141,15 +131,15 @@
   z-index: 10;
 }
 
-#music .tabnav-item>input[type='radio']:checked~label.tabnav-link {
+#music .tabnav-item > input[type='radio']:checked ~ label.tabnav-link {
   color: #e85f82 !important;
 }
 
-.tabnav-item>input[type='radio']:checked~label.tabnav-link:after {
+.tabnav-item > input[type='radio']:checked ~ label.tabnav-link:after {
   border-bottom-color: var(--color-fill-gray);
 }
 
-#music .tabnav-item>input[type='radio']:checked~label.tabnav-link:after {
+#music .tabnav-item > input[type='radio']:checked ~ label.tabnav-link:after {
   border-bottom-width: 2px !important;
   border-bottom-color: #e85f82 !important;
 }
@@ -221,10 +211,6 @@
   color: var(--color-figure-gray-secondary-alt);
   text-decoration: none;
 }
-
-/* .tabnav-link:focus {
-  outline-offset: -1px;
-} */
 
 .tabnav-link:after {
   left: 0;

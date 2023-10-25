@@ -19,7 +19,7 @@
   }
 }
 
-.social-option~.social-option {
+.social-option ~ .social-option {
   margin-left: 19px;
 }
 

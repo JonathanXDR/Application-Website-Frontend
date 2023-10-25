@@ -14,7 +14,7 @@ export default defineComponent({
     article: {
       type: Object as PropType<ArticleItemType>,
       required: true,
-      default: () => ({})
+      default: () => {}
     }
   },
   setup(props) {

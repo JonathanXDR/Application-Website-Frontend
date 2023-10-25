@@ -1,17 +1,19 @@
+import DropDown from '@/components/common/DropDown/DropDown.vue'
 import Icon from '@/components/common/Icons/Icon.vue'
-import type { TabItemType } from '@/types/common/TabItem'
+import type { OptionType } from '@/types/common/Option'
 import { computed, defineComponent, onMounted, reactive, ref, watchEffect } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'SegmentNav',
   components: {
-    Icon
+    Icon,
+    DropDown
   },
   setup(setup, { emit }) {
     const { tm } = useI18n()
-    const items = computed(() => tm('components.common.SegmentNav.items') as TabItemType[])
-    const options = computed(() => tm('components.common.SegmentNav.options') as TabItemType[])
+    const items = computed(() => tm('components.common.SegmentNav.items') as OptionType[])
+    const options = computed(() => tm('components.common.SegmentNav.options') as OptionType[])
     const selectedIndex = ref(0)
     const isLoaded = ref(false)
     const segmentNav = ref<HTMLUListElement | null>(null)

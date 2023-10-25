@@ -1,4 +1,4 @@
-export type TabItemType = {
+export type OptionType = {
   id: string
   label: string
 }
