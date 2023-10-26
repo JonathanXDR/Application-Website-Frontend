@@ -5,7 +5,7 @@
   <!-- <FilterNav style="margin: 52px 0" /> -->
   <FilterInput />
   <ul class="item-container">
-    <CardItem v-for="(technologies, index) in 20" :key="index" />
+    <CardItem v-for="(card, index) in cards" :key="index" :card="card" />
     <!-- <CardTile v-for="(card, index) in cards" :key="index" :card="card" /> -->
   </ul>
 </template>

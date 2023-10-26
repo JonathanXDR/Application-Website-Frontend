@@ -8,15 +8,16 @@
       remove: ['nr-scroll-animation--off']
     }"
   >
-    <!-- <div
+    <div
+      v-if="cover || donutGraph || barGraph"
       class="card-cover-wrap"
       style="
         color: var(--color-fill-tertiary) !important;
         background: var(--color-code-plain);
         padding: 30px;
       "
-    > -->
-    <!-- <picture class="card-cover"
+    >
+      <picture v-if="cover" class="card-cover"
         ><source
           media="(prefers-color-scheme: dark)"
           srcset="
@@ -34,26 +35,28 @@
           width="317"
           height="auto"
         />
-      </picture> -->
-    <!-- <div class="group group-hispanic typography-body-tight">
-        <p>
-          <span class="semibold"> <span data-value>27.1</span>% </span>
-          <span>Hispanic/Latinx</span>
-        </p>
-        <div class="bar-container">
-          <div class="bar" data-bar style="width: 27.1%"></div>
+      </picture>
+      <div v-if="barGraph">
+        <div class="group group-hispanic typography-body-tight">
+          <p>
+            <span class="semibold"> <span data-value>27.1</span>% </span>
+            <span>Hispanic/Latinx</span>
+          </p>
+          <div class="bar-container">
+            <div class="bar" data-bar style="width: 27.1%"></div>
+          </div>
+        </div>
+        <div class="group group-white typography-body-tight">
+          <p>
+            <span class="semibold"> <span data-value>39.7</span>% </span>
+            <span>White</span>
+          </p>
+          <div class="bar-container">
+            <div class="bar" data-bar style="width: 39.7%"></div>
+          </div>
         </div>
       </div>
-      <div class="group group-white typography-body-tight">
-        <p>
-          <span class="semibold"> <span data-value>39.7</span>% </span>
-          <span>White</span>
-        </p>
-        <div class="bar-container">
-          <div class="bar" data-bar style="width: 39.7%"></div>
-        </div>
-      </div> -->
-    <!-- <div class="container">
+      <div v-if="donutGraph" class="container">
         <div class="donut-container">
           <figure class="donut">
             <svg class="ac-graph-svg ac-graph-donut">
@@ -88,14 +91,14 @@
             <span data-value>64.6</span>%
           </span>
         </div>
-      </div> -->
-    <!-- </div> -->
+      </div>
+    </div>
     <div class="details" style="padding: 30px !important">
-      <div id="card_eyebrow_98" class="eyebrow">Language feature</div>
-      <div id="card_title_98" class="title">Macros</div>
+      <div id="card_eyebrow_98" class="eyebrow">{{ card.date }}</div>
+      <div id="card_title_98" class="title">{{ card.title }}</div>
       <div id="card_content_98" class="card-content">
         <div class="content">
-          Learn how Swift macros can make your code cleaner and more powerful.
+          {{ card.description }}
         </div>
       </div>
       <div class="ctas-wrapper">
