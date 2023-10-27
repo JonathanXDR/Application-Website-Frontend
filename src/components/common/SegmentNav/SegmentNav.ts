@@ -15,7 +15,7 @@ export default defineComponent({
       tm('components.common.SegmentNav.options')
     )
     const currentIndex: Ref<number> = ref(0)
-    const isLoaded: Ref<boolean> = ref(false)
+    const loading: Ref<boolean> = ref(true)
     const segmentNavEl: Ref<HTMLUListElement | null> = ref(null)
     const segments: Ref<Map<number, HTMLElement>> = ref(new Map())
 
@@ -40,14 +40,14 @@ export default defineComponent({
 
     onMounted(() => {
       updateSegments()
-      isLoaded.value = true
+      loading.value = false
     })
 
     return {
       segmentNavItems,
       segmentNavOptions,
       currentIndex,
-      isLoaded,
+      loading,
       selectionStyle,
       segmentNavEl
     }

@@ -17,7 +17,7 @@
             </label>
           </li>
           <div
-            v-if="isLoaded"
+            v-if="!loading"
             class="segmentnav-selection-background"
             :style="selectionStyle"
           ></div>
