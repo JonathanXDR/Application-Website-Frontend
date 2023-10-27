@@ -132,14 +132,14 @@
   --input-text: var(--color-fill-gray-secondary);
   position: relative;
   box-sizing: border-box;
-  height: 40px;
+  height: 85px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: 13px;
 }
 
 .filter-top-wrapper {
   width: 100%;
-  height: 100%;
+  height: 40px;
   display: flex;
   align-items: center;
 }
@@ -178,6 +178,9 @@
 }
 
 .filter-suggested-tags {
+  width: 100%;
+  height: 45px;
+  display: flex;
   border-top: 1px solid var(--color-fill-gray-tertiary);
   z-index: 1;
   overflow: hidden;
@@ -271,8 +274,9 @@
     'Arial',
     sans-serif;
   color: var(--color-text);
-  border: none;
   width: 100%;
+  height: 100%;
+  border: none;
   position: absolute;
   background: transparent;
   z-index: 1;
