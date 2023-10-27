@@ -3,7 +3,9 @@
     <NavBar v-if="$route.meta.nav !== false" />
     <RibbonBar v-if="$route.meta.ribbon !== false" />
   </header>
-  <NuxtPage />
+  <main>
+    <slot />
+  </main>
   <footer id="footer-full" v-if="$route.meta.footerFull !== false">
     <FooterFull />
   </footer>
@@ -13,14 +15,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
-import FooterCompact from '~/components/common/Footer/FooterCompact/FooterCompact.vue';
-import FooterFull from '~/components/common/Footer/FooterFull/FooterFull.vue';
-import NavBar from '~/components/common/NavBar/NavBar.vue';
-import RibbonBar from '~/components/common/RibbonBar/RibbonBar.vue';
-import { useColor } from '~/composables/useColor';
-import { useSection } from '~/composables/useSection';
-
 const { $route } = useNuxtApp();
 const colorStore = useColor();
 const sectionStore = useSection();

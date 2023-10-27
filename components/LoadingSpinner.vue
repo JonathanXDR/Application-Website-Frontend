@@ -1,0 +1,120 @@
+<template>
+  <div class="gears-loading">
+    <div class="loading">
+      <span aria-live="assertive" class="visuallyhidden">Loading...</span>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.center-horizontal {
+  display: flex;
+  justify-content: center;
+}
+
+.center-vertical {
+  display: flex;
+  align-items: center;
+}
+
+.full-screen.gears-loading {
+  margin: 0;
+}
+
+.no-margin.gears-loading {
+  margin: 0;
+}
+
+.reduced-margin.gears-loading {
+  margin: 0;
+}
+
+.reduced-margin.gears-loading .loading {
+  margin-block: 1.2em;
+}
+
+.gears-loading {
+  width: 100%;
+  height: 100%;
+  margin-block: 1.2em;
+}
+
+.small.gears-loading .loading {
+  height: 20px;
+  width: 20px;
+  border-top: 1px solid #06c;
+  border-right: 1px solid #06c;
+  border-bottom: 1px solid #06c;
+  border-left: 1px solid transparent;
+}
+
+.medium.gears-loading .loading {
+  height: 30px;
+  width: 30px;
+  border-top: 1.5px solid #06c;
+  border-right: 1.5px solid #06c;
+  border-bottom: 1.5px solid #06c;
+  border-left: 1.5px solid transparent;
+}
+
+.gears-loading .loading,
+.gears-loading .loading:after {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.full-screen.gears-loading .loading {
+  margin: 216px auto;
+}
+
+.gears-loading .loading {
+  font-size: 10px;
+  position: relative;
+  /* text-indent: -99990px; */
+  border-top: 2px solid #06c;
+  border-right: 2px solid #06c;
+  border-bottom: 2px solid #06c;
+  border-left: 2px solid transparent;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load 0.8s infinite linear;
+  animation: load 0.8s infinite linear;
+}
+
+.visuallyhidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+  clip-path: inset(0px 0px 99.9% 99.9%);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+}
+
+@-webkit-keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+</style>

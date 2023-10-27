@@ -26,6 +26,7 @@
 </template>
 
 <script setup lang="ts">
+import i18n from '@nuxtjs/i18n/dist/runtime/plugins/i18n';
 import { ref } from 'vue';
 
 const page = ref({

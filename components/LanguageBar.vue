@@ -1,0 +1,195 @@
+<template>
+  <li class="graph-container">
+    <div :style="'width: ' + language.progress + '%'">
+      <div
+        v-animation="{ toggle: ['visible'] }"
+        class="graph-bar current"
+      ></div>
+      <p
+        v-animation="{ toggle: ['visible'] }"
+        class="graph-caption typography-graph-caption current"
+      >
+        {{ language.description }}
+      </p>
+    </div>
+    <div
+      v-animation="{ toggle: ['visible'] }"
+      class="typography-eyebrow-elevated secondary-badge-value current"
+    >
+      {{ language.progress }}%
+    </div>
+  </li>
+</template>
+
+<script lang="ts" setup>
+import type { LanguageBarType } from '~/types/common/LanguageBar';
+
+defineProps({
+  language: {
+    type: Object as PropType<LanguageBarType>,
+    required: true,
+    default: () => ({}),
+  },
+});
+</script>
+
+<style scoped>
+/* ----------------------------- graph-container ---------------------------- */
+
+.graph-container {
+  display: flex;
+  height: 60px;
+  width: 100%;
+}
+
+.graph-container:last-child {
+  padding-bottom: 0;
+}
+
+.graph-slide .graph-container .badge {
+  position: absolute;
+  top: -4px;
+  right: calc(8.33% - 44px);
+  margin: 0;
+}
+
+.graph-slide .graph-container .badge .badge-content {
+  margin: 0;
+}
+
+.graph-slide .graph-container .badge .badge-caption,
+.graph-slide .graph-container .badge .badge-value {
+  position: relative;
+  color: #000;
+  opacity: 0;
+}
+
+/* -------------------------------- graph-bar ------------------------------- */
+
+@media screen and (min-width: 900px) {
+  .graph-bar {
+    height: 8px !important;
+  }
+}
+
+.graph-bar {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.graph-bar:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: #888;
+}
+
+.graph-bar:after {
+  transform: translateX(-101%);
+}
+
+.graph-bar.visible:after {
+  transition: transform 0.75s ease-in-out;
+  transform: translateX(0);
+}
+
+.graph-bar.current:after {
+  background: var(--color-fill-gray);
+}
+
+/* ------------------------------ graph-caption ----------------------------- */
+
+.graph-caption {
+  padding-top: 3px;
+  font-weight: 600 !important;
+}
+
+.graph-caption {
+  opacity: 0;
+}
+
+.graph-caption.visible {
+  opacity: 1;
+  transition: opacity 0.75s ease-in;
+}
+
+.graph-caption.current {
+  color: var(--color-fill-gray) !important;
+}
+
+@media screen and (min-width: 900px) {
+  .graph-caption {
+    padding-top: 10px !important;
+  }
+}
+
+/* ------------------------ typography-graph-caption ------------------------ */
+
+.typography-graph-caption {
+  color: #888;
+  font-size: 15px;
+  line-height: 1.47059;
+  font-weight: 400;
+  /* letter-spacing: -0.022em; */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
+}
+
+@media screen and (min-width: 900px) {
+  .typography-graph-caption {
+    font-size: 17px !important;
+  }
+}
+
+/* ----------------------- typography-eyebrow-elevated ---------------------- */
+
+.typography-eyebrow-elevated {
+  font-size: 19px;
+  line-height: 1.14286;
+  font-weight: 600;
+  /* letter-spacing: 0.007em; */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
+}
+
+@media screen and (min-width: 900px) {
+  .typography-eyebrow-elevated {
+    font-size: 24px !important;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .typography-eyebrow-elevated {
+    font-size: 28px !important;
+  }
+}
+
+/* -------------------------- secondary-badge-value ------------------------- */
+
+.secondary-badge-value {
+  margin-left: 15px;
+  top: -3px;
+  color: #888;
+}
+
+.secondary-badge-value {
+  opacity: 0;
+}
+
+.secondary-badge-value.visible {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.2s;
+}
+
+.secondary-badge-value.current {
+  color: var(--color-fill-gray) !important;
+}
+</style>

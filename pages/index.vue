@@ -15,8 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import type { SectionType } from '~/src/types/common/Section';
+import type { SectionType } from '~/types/common/Section';
 
 const page = ref({
   meta: {
