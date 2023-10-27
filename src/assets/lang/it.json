@@ -34,8 +34,7 @@
         {
           "id": "technologies",
           "name": "Tecnologie",
-          "route": "/#technologies",
-          "class": "section-separated"
+          "route": "/#technologies"
         },
         {
           "id": "projects",

@@ -5,6 +5,7 @@ import FilterInput from '@/components/common/FilterInput/FilterInput.vue'
 import FilterNav from '@/components/common/FilterNav/FilterNav.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
+import NavBarExtension from '@/components/common/NavBarExtension/NavBarExtension.vue'
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
@@ -17,6 +18,7 @@ export default defineComponent({
   components: {
     LoadingSpinner,
     RibbonBar,
+    NavBarExtension,
     LinkCollection,
     ShareSheet,
     CardTile,

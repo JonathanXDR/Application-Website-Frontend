@@ -1,9 +1,12 @@
 <template>
   <!-- <CardTile v-for="(card, index) in cards" :key="index" :card="card" /> -->
 
-  <h3 class="typography-magical-headline">{{ props.title }}</h3>
+  <h3 class="typography-magical-headline" style="padding-bottom: 50px">{{ props.title }}</h3>
   <!-- <FilterNav style="margin: 52px 0" /> -->
-  <FilterInput />
+  <NavBarExtension>
+    <FilterInput />
+  </NavBarExtension>
+
   <ul class="item-container">
     <CardItem v-for="(card, index) in cards" :key="index" :card="card" />
     <!-- <CardTile v-for="(card, index) in cards" :key="index" :card="card" /> -->

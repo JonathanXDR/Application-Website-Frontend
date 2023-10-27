@@ -57,44 +57,6 @@
   }
 }
 
-.filter-input-sticky-wrapper {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 3.0588235294rem;
-  z-index: 5;
-}
-
-.filter-input-sticky-wrapper .filter-input-container {
-  padding: 10px 0;
-  transition: border-bottom 0.2s ease-out;
-  border-bottom: 1px solid transparent;
-  background: var(--color-fill);
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 980px;
-}
-
-@media only screen and (max-width: 1250px) {
-  .container {
-    width: 692px;
-  }
-}
-
-@media only screen and (max-width: 735px) {
-  .container {
-    width: 87.5%;
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  .container {
-    width: 215px;
-  }
-}
-
 .tag {
   display: inline-block;
   padding-right: 0.5882352941rem;
@@ -170,16 +132,19 @@
   --input-text: var(--color-fill-gray-secondary);
   position: relative;
   box-sizing: border-box;
+  height: 40px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: 13px;
 }
 
-.filter__top-wrapper {
-  height: 40px;
+.filter-top-wrapper {
+  width: 100%;
+  height: 100%;
   display: flex;
+  align-items: center;
 }
 
-.filter__filter-button {
+.filter-filter-button {
   position: relative;
   z-index: 1;
   cursor: text;
@@ -188,35 +153,37 @@
 }
 
 @media only screen and (max-width: 735px) {
-  .filter__filter-button {
+  .filter-filter-button {
     margin-right: 0.4117647059rem;
   }
 }
 
-.filter__filter-button .svg-icon {
+.filter-filter-button .svg-icon {
   fill: var(--input-text);
   display: block;
   height: 21px;
 }
 
-.filter.focus .filter__wrapper {
+.filter.focus .filter-wrapper {
   box-shadow: 0 0 0 3pt var(--color-focus-color);
   --input-border-color: var(--color-fill-blue);
 }
 
-.filter__wrapper {
+.filter-wrapper {
+  width: 100%;
+  height: 100%;
   border: 1px solid var(--input-border-color);
   background: var(--color-fill);
   border-radius: 12px;
 }
 
-.filter__suggested-tags {
+.filter-suggested-tags {
   border-top: 1px solid var(--color-fill-gray-tertiary);
   z-index: 1;
   overflow: hidden;
 }
 
-.filter__suggested-tags ul {
+.filter-suggested-tags ul {
   /* padding: 12px 8px; */
   padding: 6px 4px;
   border: 1px solid transparent;
@@ -224,21 +191,21 @@
   border-bottom-right-radius: 11px;
 }
 
-.filter__delete-button {
+.filter-delete-button {
   position: relative;
   margin: 0;
   z-index: 1;
   border-radius: 100%;
 }
 
-.filter__delete-button .clear-rounded-icon {
+.filter-delete-button .clear-rounded-icon {
   height: 0.7058823529rem;
   width: 0.7058823529rem;
   fill: var(--input-text);
   display: block;
 }
 
-.filter__delete-button-wrapper {
+.filter-delete-button-wrapper {
   display: flex;
   align-items: center;
   padding-right: 8px;
@@ -247,15 +214,16 @@
   border-bottom-right-radius: 12px;
 }
 
-.filter__input-label {
+.filter-input-label {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   position: relative;
   flex-grow: 1;
-  /* height: 54px; */
 }
 
-.filter__input-label:after {
+.filter-input-label:after {
   content: attr(data-value);
   visibility: hidden;
   width: auto;
@@ -266,12 +234,14 @@
 }
 
 @media only screen and (max-width: 735px) {
-  .filter__input-label:after {
+  .filter-input-label:after {
     text-indent: 0.1764705882rem;
   }
 }
 
-.filter__input-box-wrapper {
+.filter-input-box-wrapper {
+  width: 100%;
+  height: 100%;
   overflow-y: hidden;
   -ms-overflow-style: none;
   scrollbar-color: var(--color-figure-gray-tertiary) transparent;
@@ -283,11 +253,11 @@
   flex: 1;
 }
 
-.filter__input-box-wrapper::-webkit-scrollbar {
+.filter-input-box-wrapper::-webkit-scrollbar {
   height: 0;
 }
 
-.filter__input {
+.filter-input {
   font-size: 1.2352941176rem;
   line-height: 1.381002381;
   font-weight: 400;
@@ -301,7 +271,6 @@
     'Arial',
     sans-serif;
   color: var(--color-text);
-  height: var(--input-height);
   border: none;
   width: 100%;
   position: absolute;
@@ -311,7 +280,7 @@
 }
 
 @media only screen and (max-width: 735px) {
-  .filter__input {
+  .filter-input {
     font-size: 1.1176470588rem;
     line-height: 1.4211026316;
     font-weight: 400;
@@ -328,12 +297,12 @@
 }
 
 @media only screen and (max-width: 735px) {
-  .filter__input {
+  .filter-input {
     text-indent: 0.1764705882rem;
   }
 }
 
-.filter__input[placeholder]::placeholder {
+.filter-input[placeholder]::placeholder {
   color: var(--input-text);
   opacity: 1;
 }
