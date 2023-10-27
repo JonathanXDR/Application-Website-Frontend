@@ -6,7 +6,6 @@
 
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { computed, reactive } from 'vue';
 
 const props = defineProps({
   name: {

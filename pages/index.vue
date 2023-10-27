@@ -17,12 +17,6 @@
 <script setup lang="ts">
 import type { SectionType } from '~/types/common/Section';
 
-const page = ref({
-  meta: {
-    footerCompact: false,
-  },
-});
-
 const { tm } = useI18n();
 const sections = computed(
   () => tm('components.common.NavBar') as SectionType[]

@@ -72,6 +72,7 @@
 </template>
 
 <script lang="ts" setup>
+import type { AnimationItemType } from '~/types/common/AnimationItem';
 import type { SectionType } from '~/types/common/Section';
 
 const { tm } = useI18n();
@@ -85,15 +86,25 @@ const currentSectionIndex = computed(
   () => useSection().state.currentSectionIndex
 );
 const colorBadge = computed(() => useColor().randomizeColor());
-const headerAnimations = computed(() => {
+const headerAnimations: ComputedRef<AnimationItemType[]> = computed(() => {
   useAnimation().setHeaderAnimation({
     element: document.querySelector('.ac-ln-background') as HTMLElement,
     class: 'ac-ln-background-transition',
     timeout: 500,
   });
 
-  return useAnimation().headerAnimations;
+  return useAnimation().headerAnimations as unknown as AnimationItemType[];
 });
+
+const updateAnimations = () => {
+  headerAnimations.value.forEach((item: AnimationItemType) => {
+    item.element.classList.remove(item.class);
+
+    setTimeout(() => {
+      item.element.classList.add(item.class);
+    }, item.timeout);
+  });
+};
 
 const toggleTheme = () => {
   themeDark.value = !themeDark.value;
@@ -123,18 +134,6 @@ const handleScroll = () => {
   if (navOpen.value && window.scrollY > 0) {
     navOpen.value = false;
   }
-};
-
-const updateAnimations = () => {
-  headerAnimations.value.forEach(
-    (item: { element: HTMLElement; class: string; timeout: number }) => {
-      item.element.classList.remove(item.class);
-
-      setTimeout(() => {
-        item.element.classList.add(item.class);
-      }, item.timeout);
-    }
-  );
 };
 
 onMounted(() => {

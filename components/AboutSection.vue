@@ -74,7 +74,9 @@ const calculateYears = (date: string) => {
 
 onMounted(async () => {
   dateItems.forEach((item) => {
-    dates.value[item.key] = calculateYears(item.date);
+    dates.value[item.key as keyof typeof dates.value] = String(
+      calculateYears(item.date)
+    );
   });
 });
 </script>

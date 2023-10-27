@@ -11,6 +11,7 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
   },
+  ssr: false,
   modules: ['@nuxtjs/i18n'],
   i18n: {
     locales: ['de', 'en', 'fr', 'it'],

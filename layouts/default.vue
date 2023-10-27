@@ -1,15 +1,15 @@
 <template>
-  <header v-if="$route.meta.header !== false">
-    <NavBar v-if="$route.meta.nav !== false" />
-    <RibbonBar v-if="$route.meta.ribbon !== false" />
+  <header>
+    <NavBar />
+    <RibbonBar />
   </header>
   <main>
     <slot />
   </main>
-  <footer id="footer-full" v-if="$route.meta.footerFull !== false">
+  <footer id="footer-full">
     <FooterFull />
   </footer>
-  <footer id="footer-compact" v-if="$route.meta.footerCompact !== false">
+  <footer id="footer-compact">
     <FooterCompact />
   </footer>
 </template>
