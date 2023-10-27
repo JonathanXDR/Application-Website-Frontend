@@ -53,7 +53,7 @@ useHead({
           },
           {
             rel: 'apple-touch-icon',
-            href: `@/assets/img/dev/favicon-dev-${colorBadge.value.colorName}.png`,
+            href: `~/assets/img/dev/favicon-dev-${colorBadge.value.colorName}.png`,
           },
         ]
       : [

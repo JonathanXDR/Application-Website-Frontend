@@ -14,21 +14,23 @@
         width="100%"
         x="0"
         y="10"
-        href="@/assets/img/portrait.jpg"
+        href="~/assets/img/portrait.jpg"
         preserveAspectRatio="xMidYMin slice"
       ></image>
     </svg>
 
     <div>
       <h1>
-        <span class="eyebrow">{{ $t('components.containers.about.eyebrow') }}</span
+        <span class="eyebrow">{{
+          $t('components.containers.about.eyebrow')
+        }}</span
         >{{ $t('components.containers.about.title') }}
       </h1>
       <p class="typography-intro">
         {{
           $t('components.containers.about.description', {
             age: dates.age,
-            apprenticeshipYear: dates.apprenticeshipYear + 1
+            apprenticeshipYear: dates.apprenticeshipYear + 1,
           })
         }}
       </p>

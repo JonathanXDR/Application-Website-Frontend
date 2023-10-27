@@ -1,12 +1,12 @@
-import Logo from '@/components/common/Icons/Logo.vue';
-import LanguagePicker from '@/components/common/LanguagePicker/LanguagePicker.vue';
-import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue';
-import type { SectionType } from '@/types/common/Section';
 import { computed, defineComponent, onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import Logo from '~/components/common/Icons/Logo.vue';
+import LanguagePicker from '~/components/common/LanguagePicker/LanguagePicker.vue';
+import LoadingSpinner from '~/components/common/LoadingSpinner/LoadingSpinner.vue';
 import { useAnimation } from '~/composables/useAnimation';
 import { useColor } from '~/composables/useColor';
 import { useSection } from '~/composables/useSection';
+import type { SectionType } from '~/types/common/Section';
 
 export default defineComponent({
   name: 'NavBar',

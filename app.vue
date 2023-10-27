@@ -1,42 +1,42 @@
 <template>
   <header v-if="route.meta.header !== false">
-    <NavBar v-if="route.meta.nav !== false" />
-    <RibbonBar v-if="route.meta.ribbon !== false" />
+    <ClientOnly>
+      <NavBar v-if="route.meta.nav !== false" />
+      <RibbonBar v-if="route.meta.ribbon !== false" />
+    </ClientOnly>
   </header>
-  <Suspense>
-    <template #default>
-      <main>
-        <RouterView />
-      </main>
-    </template>
-    <template #fallback>
-      <LoadingSpinner class="full-screen center" />
-    </template>
-  </Suspense>
+
+  <NuxtLayout>
+    <main>
+      <NuxtPage />
+    </main>
+  </NuxtLayout>
 
   <footer id="footer-full" v-if="route.meta.footerFull !== false">
-    <FooterFull />
+    <ClientOnly>
+      <FooterFull />
+    </ClientOnly>
   </footer>
   <footer id="footer-compact" v-if="route.meta.footerCompact !== false">
-    <FooterCompact />
+    <ClientOnly>
+      <FooterCompact />
+    </ClientOnly>
   </footer>
 </template>
 
 <script lang="ts">
-import FooterCompact from '@/components/common/Footer/FooterCompact/FooterCompact.vue';
-import FooterFull from '@/components/common/Footer/FooterFull/FooterFull.vue';
-import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue';
-import NavBar from '@/components/common/NavBar/NavBar.vue';
-import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue';
 import { computed, defineComponent, ref, watch } from 'vue';
+import FooterCompact from '~/components/common/Footer/FooterCompact/FooterCompact.vue';
+import FooterFull from '~/components/common/Footer/FooterFull/FooterFull.vue';
+import LoadingSpinner from '~/components/common/LoadingSpinner/LoadingSpinner.vue';
+import NavBar from '~/components/common/NavBar/NavBar.vue';
+import RibbonBar from '~/components/common/RibbonBar/RibbonBar.vue';
 import { useColor } from '~/composables/useColor';
 import { useSection } from '~/composables/useSection';
 
 export default defineComponent({
   name: 'App',
   components: {
-    RouterLink,
-    RouterView,
     LoadingSpinner,
     NavBar,
     RibbonBar,
@@ -77,7 +77,7 @@ export default defineComponent({
               },
               {
                 rel: 'apple-touch-icon',
-                href: `@/assets/img/dev/favicon-dev-${colorBadge.value.colorName}.png`,
+                href: `~/assets/img/dev/favicon-dev-${colorBadge.value.colorName}.png`,
               },
             ]
           : [

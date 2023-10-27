@@ -6,7 +6,6 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/i18n'],
   i18n: {
     locales: ['de', 'en', 'fr', 'it'],
-    legacy: false,
     locale: locale,
     fallbackLocale: fallbackLocale,
     messages: languages,
