@@ -20,7 +20,9 @@
     "@nuxt/devtools": "^1.0.0",
     "@nuxtjs/i18n": "^8.0.0-rc.5",
     "nuxt": "^3.8.0",
+    "typescript": "^5.2.2",
     "vue": "^3.3.7",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vue-tsc": "^1.8.22"
   }
 }

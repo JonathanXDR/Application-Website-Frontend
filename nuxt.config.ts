@@ -4,10 +4,12 @@ import { fallbackLocale, languages, locale } from './assets/lang/index';
 export default defineNuxtConfig({
   devtools: {
     enabled: true,
-
     timeline: {
       enabled: true,
     },
+  },
+  typescript: {
+    typeCheck: true,
   },
   modules: ['@nuxtjs/i18n'],
   i18n: {
