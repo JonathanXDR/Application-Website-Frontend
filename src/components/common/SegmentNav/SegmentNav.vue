@@ -1,15 +1,11 @@
 <template>
   <fieldset class="tile">
-    <legend style="display: none">Data filter by job type</legend>
+    <legend class="visually-hidden">Data filter by job type</legend>
     <DropDown :options="segmentNavOptions" />
     <div class="segmentnav-container">
       <ul ref="segmentNavEl" class="segmentnav">
         <div class="segmentnav-wrapper">
-          <li
-            v-for="(item, index) in segmentNavItems"
-            :key="index"
-            :class="{ 'segmentnav-item': true }"
-          >
+          <li v-for="(item, index) in segmentNavItems" :key="index" class="segmentnav-item">
             <input
               :id="'segment-' + item.id"
               type="radio"
@@ -17,9 +13,9 @@
               v-model="currentIndex"
               :value="index"
             />
-            <label :for="'segment-' + item.id" class="typography-segmentnav-item">{{
-              item.label
-            }}</label>
+            <label :for="'segment-' + item.id" class="typography-segmentnav-item">
+              {{ item.label }}
+            </label>
           </li>
           <div
             v-if="isLoaded"
