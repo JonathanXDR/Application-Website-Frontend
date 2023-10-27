@@ -1,13 +1,13 @@
-import { defaultLocale, fallbackLocale, languages } from "./assets/lang";
+import { defaultLocale, fallbackLocale, languages } from './assets/lang';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     [
-      "@nuxtjs/i18n",
+      '@nuxtjs/i18n',
       {
-        locales: languages,
+        locales: ['de', 'en', 'fr', 'it'],
         defaultLocale: defaultLocale,
         vueI18n: {
           fallbackLocale: fallbackLocale,
