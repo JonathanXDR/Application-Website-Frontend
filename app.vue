@@ -28,9 +28,9 @@ import FooterFull from '@/components/common/Footer/FooterFull/FooterFull.vue';
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue';
 import NavBar from '@/components/common/NavBar/NavBar.vue';
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue';
-import { useColor } from '@/stores/color';
-import { useSection } from '@/stores/section';
 import { computed, defineComponent, ref, watch } from 'vue';
+import { useColor } from '~/composables/useColor';
+import { useSection } from '~/composables/useSection';
 
 export default defineComponent({
   name: 'App',
