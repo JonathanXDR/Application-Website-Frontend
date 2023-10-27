@@ -1,6 +1,6 @@
 import Icon from '@/components/common/Icons/Icon.vue'
 import i18n from '@/main'
-import { computed } from 'vue'
+import { computed, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default {
@@ -25,8 +25,8 @@ export default {
       return description.split('. ')
     }
 
-    const colors = computed(() => tm(`views.${props.name}.icon.colors`) as Object)
-    const entireDescription = computed(() => tm(`views.${props.name}.description`) as string)
+    const colors: Ref<Object> = computed(() => tm(`views.${props.name}.icon.colors`))
+    const entireDescription: Ref<string> = computed(() => tm(`views.${props.name}.description`))
     const description = splitDescription(entireDescription.value)
 
     return {

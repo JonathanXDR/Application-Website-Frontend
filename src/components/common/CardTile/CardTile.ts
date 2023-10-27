@@ -1,5 +1,5 @@
 import type { CardTileType } from '@/types/common/CardTile'
-import { defineComponent, ref, type PropType } from 'vue'
+import { defineComponent, ref, type PropType, type Ref } from 'vue'
 
 export default defineComponent({
   name: 'CardTile',
@@ -11,7 +11,7 @@ export default defineComponent({
     }
   },
   setup() {
-    const cardOpen = ref(false)
+    const cardOpen: Ref<boolean> = ref(false)
 
     return {
       cardOpen

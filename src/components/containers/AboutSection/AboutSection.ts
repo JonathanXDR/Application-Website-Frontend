@@ -7,7 +7,7 @@ import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import type { DateItemType } from '@/types/common/DateItem'
 import type { LinkType } from '@/types/common/Link'
-import { computed, defineComponent, onMounted, ref } from 'vue'
+import { computed, defineComponent, onMounted, ref, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -30,11 +30,11 @@ export default defineComponent({
   },
   setup(props) {
     const { tm } = useI18n()
-    const links = computed(() => tm('components.containers.about.links') as LinkType[])
-    const dateItems = tm('components.containers.about.dates') as DateItemType[]
-    const dates = ref<{ age: string; apprenticeshipYear: string }>({
-      age: '',
-      apprenticeshipYear: ''
+    const links: Ref<LinkType[]> = computed(() => tm('components.containers.about.links'))
+    const dateItems: Ref<DateItemType[]> = computed(() => tm('components.containers.about.dates'))
+    const dates: Ref<{ age: string | undefined; apprenticeshipYear: string | undefined }> = ref({
+      age: undefined,
+      apprenticeshipYear: undefined
     })
 
     const calculateYears = (date: string) => {
@@ -46,7 +46,7 @@ export default defineComponent({
     }
 
     onMounted(async () => {
-      dateItems.forEach((item) => {
+      dateItems.value.forEach((item) => {
         dates.value[item.key] = calculateYears(item.date)
       })
     })

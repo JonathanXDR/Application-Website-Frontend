@@ -5,7 +5,7 @@ import { useAnimationStore } from '@/stores/animation'
 import { useColorStore } from '@/stores/color'
 import { useSectionStore } from '@/stores/section'
 import type { SectionType } from '@/types/common/Section'
-import { computed, defineComponent, onMounted, ref } from 'vue'
+import { computed, defineComponent, onMounted, ref, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -17,10 +17,10 @@ export default defineComponent({
   },
   setup() {
     const { tm } = useI18n()
-    const items = computed(() => tm('components.common.NavBar') as SectionType[])
-    const themeDark = ref<boolean>(false)
-    const navOpen = ref<boolean>(false)
-    const navDisabled = ref<boolean>(false)
+    const items: Ref<SectionType[]> = computed(() => tm('components.common.NavBar'))
+    const themeDark: Ref<boolean> = ref(false)
+    const navOpen: Ref<boolean> = ref(false)
+    const navDisabled: Ref<boolean> = ref(false)
 
     const nodeEnv = computed(() => process.env.NODE_ENV)
     const currentSectionIndex = computed(() => useSectionStore().state.currentSectionIndex)

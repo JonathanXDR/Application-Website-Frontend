@@ -10,7 +10,7 @@ import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import { listUserRepositories } from '@/helpers/github-helper'
 import type { ListUserReposResponse } from '@/types/GitHub/Repository'
 import type { ArticleItemType } from '@/types/common/ArticleItem'
-import { computed, defineComponent, onMounted, reactive, ref } from 'vue'
+import { computed, defineComponent, onMounted, reactive, ref, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -35,9 +35,9 @@ export default defineComponent({
   },
   setup(props) {
     const { tm } = useI18n()
-    const articles = computed(() => tm('components.containers.projects') as ArticleItemType[])
+    const articles: Ref<ArticleItemType[]> = computed(() => tm('components.containers.projects'))
     const projects = reactive({
-      swisscom: computed(() => tm('components.containers.projects') as ArticleItemType[]),
+      swisscom: computed(() => tm('components.containers.projects')) as Ref<ArticleItemType[]>,
       personal: [] as ListUserReposResponse,
       school: [] as ListUserReposResponse
     })

@@ -2,7 +2,7 @@ import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vu
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import { listRepositoryTags } from '@/helpers/github-helper'
 import type { LinkType } from '@/types/common/Link'
-import { computed, defineComponent, onMounted, ref } from 'vue'
+import { computed, defineComponent, onMounted, ref, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -13,7 +13,7 @@ export default defineComponent({
   },
   setup() {
     const { tm, rt } = useI18n()
-    const tags = ref<{ latest: string | undefined; previous: string | undefined }>({
+    const tags: Ref<{ latest: string | undefined; previous: string | undefined }> = ref({
       latest: undefined,
       previous: undefined
     })

@@ -1,6 +1,5 @@
 <template>
   <fieldset class="tile">
-    <legend class="visually-hidden">Data filter by job type</legend>
     <DropDown :options="segmentNavOptions" />
     <div class="segmentnav-container">
       <ul ref="segmentNavEl" class="segmentnav">

@@ -6,7 +6,7 @@ import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import type { ArticleItemType } from '@/types/common/ArticleItem'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -29,7 +29,7 @@ export default defineComponent({
   },
   setup(props) {
     const { tm } = useI18n()
-    const articles = computed(() => tm('components.containers.other') as ArticleItemType[])
+    const articles: Ref<ArticleItemType[]> = computed(() => tm('components.containers.other'))
 
     return {
       props,
