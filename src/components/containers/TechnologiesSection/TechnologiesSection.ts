@@ -4,8 +4,10 @@ import CardTile from '@/components/common/CardTile/CardTile.vue'
 import FilterInput from '@/components/common/FilterInput/FilterInput.vue'
 import FilterNav from '@/components/common/FilterNav/FilterNav.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
+import LiveResultSummary from '@/components/common/LiveResultSummary/LiveResultSummary.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import NavBarExtension from '@/components/common/NavBarExtension/NavBarExtension.vue'
+import ResultBlankState from '@/components/common/ResultBlankState/ResultBlankState.vue'
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
@@ -26,7 +28,9 @@ export default defineComponent({
     TimeLine,
     FilterInput,
     FilterNav,
-    CardItem
+    CardItem,
+    LiveResultSummary,
+    ResultBlankState
   },
   props: {
     title: {

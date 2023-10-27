@@ -7,9 +7,12 @@
     <FilterInput />
   </NavBarExtension>
 
+  <LiveResultSummary />
+
   <ul class="item-container">
     <CardItem v-for="(card, index) in cards" :key="index" :card="card" />
     <!-- <CardTile v-for="(card, index) in cards" :key="index" :card="card" /> -->
+    <ResultBlankState />
   </ul>
 </template>
 

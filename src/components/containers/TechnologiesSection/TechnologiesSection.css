@@ -4,7 +4,7 @@
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  padding-top: 50px;
+  padding: 15px 0 80px 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
   gap: 20px;
@@ -13,7 +13,6 @@
 @media screen and (min-width: 900px) {
   .item-container {
     width: 82.5%;
-    padding: 100px 0 50px 0;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
