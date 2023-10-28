@@ -3,16 +3,12 @@
     {{ props.title }}
   </h3>
   <NavBarExtension>
-    <SegmentNav @update:selectedIndex="updateSelectedIndex" />
+    <SegmentNav :index="currentIndex" @update:currentIndex="updateCurrentIndex" />
   </NavBarExtension>
-  <div class="timeline-wrapper" v-if="projects[selectedCategory].length">
+  <div class="timeline-wrapper" v-if="currentProjects.length">
     <TimeLine />
     <ul ref="ul" class="timeline">
-      <ArticleItem
-        v-for="(project, index) in projects[selectedCategory]"
-        :key="index"
-        :article="project"
-      />
+      <ArticleItem v-for="(project, index) in currentProjects" :key="index" :article="project" />
     </ul>
   </div>
   <LoadingSpinner v-else class="center-horizontal center-vertical" style="padding-top: 100px" />

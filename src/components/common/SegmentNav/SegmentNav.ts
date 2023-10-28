@@ -6,7 +6,14 @@ import { useI18n } from 'vue-i18n'
 export default defineComponent({
   name: 'SegmentNav',
   components: { DropDown },
-  setup() {
+  props: {
+    index: {
+      type: Number,
+      required: true,
+      default: 0
+    }
+  },
+  setup(props, { emit }) {
     const { tm } = useI18n()
     const segmentNavItems: Ref<OptionType[]> = computed(() =>
       tm('components.common.SegmentNav.items')
@@ -14,7 +21,7 @@ export default defineComponent({
     const segmentNavOptions: Ref<OptionType[]> = computed(() =>
       tm('components.common.SegmentNav.options')
     )
-    const currentIndex: Ref<number> = ref(0)
+    const currentIndex: Ref<number> = ref(props.index)
     const loading: Ref<boolean> = ref(true)
     const segmentNavEl: Ref<HTMLUListElement | null> = ref(null)
     const segments: Ref<Map<number, HTMLElement>> = ref(new Map())
@@ -35,6 +42,7 @@ export default defineComponent({
         segmentNavItems.forEach((item, index) => {
           segments.value.set(index, item as HTMLElement)
         })
+        emit('update:currentIndex', currentIndex.value)
       }
     }
 
@@ -49,7 +57,8 @@ export default defineComponent({
       currentIndex,
       loading,
       selectionStyle,
-      segmentNavEl
+      segmentNavEl,
+      updateSegments
     }
   }
 })

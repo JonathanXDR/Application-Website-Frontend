@@ -11,6 +11,7 @@
               name="category"
               v-model="currentIndex"
               :value="index"
+              @change="updateSegments"
             />
             <label :for="'segment-' + item.id" class="typography-segmentnav-item">
               {{ item.label }}

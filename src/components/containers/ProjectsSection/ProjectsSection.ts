@@ -41,11 +41,11 @@ export default defineComponent({
       personal: [] as ListUserReposResponse,
       school: [] as ListUserReposResponse
     })
-    const selectedCategory = ref('school')
-    const categories = Object.keys(projects)
+    const currentProjects = computed(() => projects[Object.keys(projects)[currentIndex.value]])
+    const currentIndex: Ref<number> = ref(0)
 
-    const updateSelectedIndex = (index: number) => {
-      selectedCategory.value = categories[index]
+    const updateCurrentIndex = (index: number) => {
+      currentIndex.value = index
     }
 
     const categorizeProject = (project: any) => {
@@ -74,8 +74,9 @@ export default defineComponent({
       tm,
       articles,
       projects,
-      selectedCategory,
-      updateSelectedIndex
+      currentProjects,
+      updateCurrentIndex,
+      currentIndex
     }
   }
 })
