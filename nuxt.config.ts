@@ -1,7 +1,7 @@
-import { fallbackLocale, languages, locale } from './assets/lang/index';
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
+  ssr: false,
   devtools: {
     enabled: true,
     timeline: {
@@ -11,12 +11,23 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
   },
-  ssr: false,
-  modules: ['@nuxtjs/i18n'],
-  i18n: {
-    locales: ['de', 'en', 'fr', 'it'],
-    locale: locale,
-    fallbackLocale: fallbackLocale,
-    messages: languages,
+  app: {
+    head: {
+      meta: [
+        { charset: 'utf-8' },
+        {
+          'http-equiv': 'X-UA-Compatible',
+          content: 'IE=edge',
+        },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Discover the work of Jonathan Russ and learn more about him, including his projects at Swisscom.',
+        },
+      ],
+      title: 'Jonathan Russ',
+    },
   },
 });
