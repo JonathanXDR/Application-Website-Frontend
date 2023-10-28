@@ -1,27 +1,23 @@
 <template>
-  <header v-if="route.meta.header !== false">
-    <ClientOnly>
+  <ClientOnly>
+    <header v-if="route.meta.header !== false">
       <NavBar v-if="route.meta.nav !== false" />
       <RibbonBar v-if="route.meta.ribbon !== false" />
-    </ClientOnly>
-  </header>
+    </header>
 
-  <NuxtLayout>
-    <main>
-      <NuxtPage />
-    </main>
-  </NuxtLayout>
+    <NuxtLayout>
+      <main>
+        <NuxtPage />
+      </main>
+    </NuxtLayout>
 
-  <footer id="footer-full" v-if="route.meta.footerFull !== false">
-    <ClientOnly>
+    <footer id="footer-full" v-if="route.meta.footerFull !== false">
       <FooterFull />
-    </ClientOnly>
-  </footer>
-  <footer id="footer-compact" v-if="route.meta.footerCompact !== false">
-    <ClientOnly>
+    </footer>
+    <footer id="footer-compact" v-if="route.meta.footerCompact !== false">
       <FooterCompact />
-    </ClientOnly>
-  </footer>
+    </footer>
+  </ClientOnly>
 </template>
 
 <script lang="ts" setup>
@@ -40,7 +36,9 @@ const title = computed(() => {
 watch(
   title,
   (newTitle) => {
-    document.title = newTitle;
+    if (process.client) {
+      document.title = newTitle;
+    }
   },
   { immediate: true }
 );
