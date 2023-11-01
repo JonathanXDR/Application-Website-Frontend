@@ -1,6 +1,7 @@
 import Icon from '@/components/common/Icons/Icon.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import type { ArticleItemType } from '@/types/common/ArticleItem'
+import type { ListUserReposResponse } from '@/types/GitHub/Repository'
 import { defineComponent, onMounted, type PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -12,7 +13,7 @@ export default defineComponent({
   },
   props: {
     article: {
-      type: Object as PropType<ArticleItemType>,
+      type: Object as PropType<ArticleItemType & ListUserReposResponse>,
       required: true,
       default: () => {}
     }

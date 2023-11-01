@@ -1,28 +1,3 @@
-/* ----------------------------- item-container ----------------------------- */
-
-.item-container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-  padding: 15px 0 80px 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
-  gap: 20px;
-}
-
-@media screen and (min-width: 900px) {
-  .item-container {
-    width: 82.5%;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-}
-
-@media screen and (min-width: 1250px) {
-  .item-container {
-    grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
-  }
-}
-
 /* ---------------------------------- other --------------------------------- */
 
 .large-10 {

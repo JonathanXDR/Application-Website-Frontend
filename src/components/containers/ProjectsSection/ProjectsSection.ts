@@ -1,15 +1,17 @@
 import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue'
+import CardItem from '@/components/common/CardItem/CardItem.vue'
 import CardTile from '@/components/common/CardTile/CardTile.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import NavBarExtension from '@/components/common/NavBarExtension/NavBarExtension.vue'
+import ResultBlankState from '@/components/common/ResultBlankState/ResultBlankState.vue'
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
 import SegmentNav from '@/components/common/SegmentNav/SegmentNav.vue'
 import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import { listUserRepositories } from '@/helpers/github-helper'
-import type { ListUserReposResponse } from '@/types/GitHub/Repository'
 import type { ArticleItemType } from '@/types/common/ArticleItem'
+import type { ListUserReposResponse } from '@/types/GitHub/Repository'
 import { computed, defineComponent, onMounted, reactive, ref, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -22,6 +24,8 @@ export default defineComponent({
     LinkCollection,
     ShareSheet,
     CardTile,
+    CardItem,
+    ResultBlankState,
     ArticleItem,
     SegmentNav,
     TimeLine
@@ -38,8 +42,8 @@ export default defineComponent({
     const articles: Ref<ArticleItemType[]> = computed(() => tm('components.containers.projects'))
     const projects = reactive({
       swisscom: computed(() => tm('components.containers.projects')) as Ref<ArticleItemType[]>,
-      personal: [] as ListUserReposResponse,
-      school: [] as ListUserReposResponse
+      personal: [] as ListUserReposResponse[],
+      school: [] as ListUserReposResponse[]
     })
     const currentProjects = computed(() => projects[Object.keys(projects)[currentIndex.value]])
     const currentIndex: Ref<number> = ref(0)

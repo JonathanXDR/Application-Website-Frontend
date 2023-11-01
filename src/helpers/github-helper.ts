@@ -12,7 +12,7 @@ const octokit = new Octokit({
 
 export async function listPublicRepositories(params: {
   since?: number
-}): Promise<ListPublicReposResponse> {
+}): Promise<ListPublicReposResponse[]> {
   const { since } = params
 
   try {
@@ -36,7 +36,7 @@ export async function listUserRepositories(params: {
   direction?: 'asc' | 'desc' | undefined
   perPage?: number
   page?: number
-}): Promise<ListUserReposResponse> {
+}): Promise<ListUserReposResponse[]> {
   const {
     username,
     type = 'owner',

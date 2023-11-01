@@ -1,6 +1,6 @@
 <template>
   <a
-    href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/macros"
+    :href="card.html_url"
     class="card large nr-scroll-animation nr-scroll-animation--off"
     style="border-radius: 30px !important"
     v-animation="{
@@ -95,7 +95,7 @@
     </div>
     <div class="details" style="padding: 30px !important">
       <div id="card_eyebrow_98" class="eyebrow">{{ card.date }}</div>
-      <div id="card_title_98" class="title">{{ card.title }}</div>
+      <div id="card_title_98" class="title">{{ card.title || card.name }}</div>
       <div id="card_content_98" class="card-content">
         <div class="content">
           {{ card.description }}
