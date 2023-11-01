@@ -1,4 +1,5 @@
 import Icon from '@/components/common/Icons/Icon.vue'
+import TagBar from '@/components/common/TagBar/TagBar.vue'
 import type { ArticleItemType } from '@/types/common/ArticleItem'
 import type { ListUserReposResponse } from '@/types/GitHub/Repository'
 import { defineComponent, type PropType } from 'vue'
@@ -6,7 +7,8 @@ import { defineComponent, type PropType } from 'vue'
 export default defineComponent({
   name: 'CardTile',
   components: {
-    Icon
+    Icon,
+    TagBar
   },
   props: {
     card: {

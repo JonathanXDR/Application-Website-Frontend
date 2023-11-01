@@ -62,42 +62,7 @@
               </button>
             </div>
           </div>
-          <div v-if="open" class="tags filter-suggested-tags">
-            <div class="scroll-wrapper">
-              <ul id="suggested-tags-tags">
-                <li class="tag">
-                  <button><span class="visuallyhidden"> Add tag - </span> App Frameworks</button>
-                </li>
-                <li class="tag">
-                  <button><span class="visuallyhidden"> Add tag - </span> App Services</button>
-                </li>
-                <li class="tag">
-                  <button><span class="visuallyhidden"> Add tag - </span> Design</button>
-                </li>
-                <li class="tag">
-                  <button>
-                    <span class="visuallyhidden"> Add tag - </span>
-                    Developer Tools
-                  </button>
-                </li>
-                <li class="tag">
-                  <button>
-                    <span class="visuallyhidden"> Add tag - </span>
-                    Graphics and Games
-                  </button>
-                </li>
-                <li class="tag">
-                  <button><span class="visuallyhidden"> Add tag - </span> Media</button>
-                </li>
-                <li class="tag">
-                  <button><span class="visuallyhidden"> Add tag - </span> System</button>
-                </li>
-                <li class="tag">
-                  <button><span class="visuallyhidden"> Add tag - </span> Web</button>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <TagBar v-if="open" />
         </div>
       </div>
     </div>

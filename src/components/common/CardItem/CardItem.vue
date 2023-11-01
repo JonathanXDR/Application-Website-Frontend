@@ -94,13 +94,16 @@
       </div>
     </div>
     <div class="details" style="padding: 30px !important">
-      <div id="card_eyebrow_98" class="eyebrow">{{ card.date }}</div>
+      <div id="card_eyebrow_98" class="eyebrow">
+        {{ card.date || `Updated ${card.updated_at}` }}
+      </div>
       <div id="card_title_98" class="title">{{ card.title || card.name }}</div>
       <div id="card_content_98" class="card-content">
         <div class="content">
           {{ card.description }}
         </div>
       </div>
+      <TagBar :tags="card.topics" />
       <div class="ctas-wrapper">
         <a href="photos://" class="icon-wrapper button button-reduced button-neutral">
           <span class="icon-copy"> Open</span>

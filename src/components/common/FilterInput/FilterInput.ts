@@ -1,4 +1,5 @@
 import DropDown from '@/components/common/DropDown/DropDown.vue'
+import TagBar from '@/components/common/TagBar/TagBar.vue'
 import type { OptionType } from '@/types/common/Option'
 import { defineComponent, ref, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -6,7 +7,8 @@ import { useI18n } from 'vue-i18n'
 export default defineComponent({
   name: 'FilterInput',
   components: {
-    DropDown
+    DropDown,
+    TagBar
   },
   setup() {
     const { tm } = useI18n()

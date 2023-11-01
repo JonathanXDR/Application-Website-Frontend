@@ -9,7 +9,7 @@
 
   <LiveResultSummary />
 
-  <ul class="item-container">
+  <ul class="card-container">
     <CardItem v-for="(card, index) in cards" :key="index" :card="card" />
     <!-- <CardTile v-for="(card, index) in cards" :key="index" :card="card" /> -->
     <ResultBlankState />
