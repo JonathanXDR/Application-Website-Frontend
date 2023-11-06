@@ -1,8 +1,9 @@
 <template>
-  <a
+  <component
+    :is="variant === 'card' ? 'a' : 'div'"
     :href="card.html_url"
-    class="card large nr-scroll-animation nr-scroll-animation--off"
-    style="border-radius: 30px !important"
+    class="large nr-scroll-animation nr-scroll-animation--off"
+    :class="variant"
     v-animation="{
       add: ['nr-scroll-animation--on'],
       remove: ['nr-scroll-animation--off']
@@ -93,17 +94,18 @@
         </div>
       </div>
     </div>
-    <div class="details" style="padding: 30px !important">
-      <div id="card_eyebrow_98" class="eyebrow">
-        {{ card.date || `Updated ${card.updated_at}` }}
-      </div>
-      <div id="card_title_98" class="title">{{ card.title || card.name }}</div>
-      <div id="card_content_98" class="card-content">
+    <div class="details">
+      <!-- <div class="eyebrow">
+        {{ date }}
+      </div> -->
+      <div class="tile-category">UPDATE</div>
+      <div class="title">{{ card.title || card.name }}</div>
+      <div class="card-content">
         <div class="content">
           {{ card.description }}
         </div>
       </div>
-      <TagBar :tags="card.topics" />
+      <TagBar v-if="card.topics" :tags="card.topics" />
       <div class="ctas-wrapper">
         <a href="photos://" class="icon-wrapper button button-reduced button-neutral">
           <span class="icon-copy"> Open</span>
@@ -117,8 +119,12 @@
           />
         </button>
       </div>
+      <div class="tile-timestamp">
+        <!-- <Icon name="clock" /> -->
+        {{ date }}
+      </div>
     </div>
-  </a>
+  </component>
 </template>
 
 <script lang="ts" src="./CardItem.ts"></script>

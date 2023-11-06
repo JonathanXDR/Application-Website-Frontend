@@ -59,7 +59,7 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   /* height: 100%; */
-  border-radius: 18px;
+  border-radius: 16px;
 
   /* Styles without cover */
   transition:
@@ -156,6 +156,10 @@
 
 /* --------------------------------- details -------------------------------- */
 
+.article .details {
+  padding: 0 !important;
+}
+
 .details {
   width: 100%;
   display: flex;
@@ -163,9 +167,9 @@
   align-items: flex-start;
   gap: 4px;
   z-index: 1;
-
   background-color: var(--color-fill);
-  padding: 17px;
+  /* padding: 17px; */
+  padding: 32px;
   position: relative;
   font-size: 0.8235294118rem;
   line-height: 1.2857742857;
@@ -993,4 +997,67 @@ svg.ac-graph-svg {
 
 .semibold {
   font-weight: 600;
+}
+
+/* ----------------------------- tile-category ----------------------------- */
+
+.tile-category {
+  color: var(--color-figure-gray-secondary-alt);
+}
+
+.tile-category {
+  font-size: 12px;
+  line-height: 1.33337;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+.tile-2up .tile-category {
+  margin-bottom: 8px;
+}
+
+@media only screen and (max-width: 1068px) {
+  .tile-2up .tile-category {
+    margin-bottom: 8px;
+  }
+}
+
+@media only screen and (max-width: 734px) {
+  .tile-2up .tile-category {
+    margin-bottom: 8px;
+  }
+}
+
+/* ----------------------------- tile-timestamp ---------------------------- */
+
+.tile-timestamp {
+  color: var(--color-figure-gray-secondary-alt);
+}
+
+.tile-timestamp {
+  font-size: 12px;
+  line-height: 1.28577;
+  font-weight: 600;
+  letter-spacing: -0.016em;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tile-2up .tile-timestamp {
+  margin-top: 12px;
+}
+
+@media only screen and (max-width: 1068px) {
+  .tile-2up .tile-timestamp {
+    margin-top: 8px;
+  }
+}
+
+@media only screen and (max-width: 734px) {
+  .tile-2up .tile-timestamp {
+    margin-top: 8px;
+  }
 }

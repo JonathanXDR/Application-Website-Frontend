@@ -12,13 +12,8 @@
     </ul>
   </div>
   <ul v-else class="card-container">
-    <CardItem
-      v-for="(card, index) in currentProjects"
-      :key="index"
-      :card="card"
-      donutGraph="true"
-    />
-    <ResultBlankState />
+    <CardItem v-for="(card, index) in currentProjects" :key="index" :card="card" />
+    <ResultBlankState v-if="!currentProjects" />
   </ul>
   <!-- <LoadingSpinner v-else class="center-horizontal center-vertical" style="padding-top: 100px" /> -->
 </template>

@@ -21,6 +21,7 @@
     "@types/musickit-js": "^1.0.7",
     "@vueuse/motion": "^2.0.0",
     "axios": "^1.5.1",
+    "moment": "^2.29.4",
     "musickit-ts": "^1.0.3",
     "octokit": "^3.1.1",
     "pinia": "^2.1.7",
