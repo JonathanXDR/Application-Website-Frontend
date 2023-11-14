@@ -13,6 +13,14 @@
   fill: currentColor;
 }
 
+.card-icon {
+  /* height: 0.6em;
+  width: 0.6em; */
+  height: 1em;
+  width: 1em;
+  margin-right: 0.3em;
+}
+
 /* ------------------------------- button-cta ------------------------------- */
 
 .ctas-wrapper {
@@ -1029,13 +1037,13 @@ svg.ac-graph-svg {
   }
 }
 
-/* ----------------------------- tile-timestamp ---------------------------- */
+/* ----------------------------- info ---------------------------- */
 
-.tile-timestamp {
+.info {
   color: var(--color-figure-gray-secondary-alt);
 }
 
-.tile-timestamp {
+.info {
   font-size: 12px;
   line-height: 1.28577;
   font-weight: 600;
@@ -1044,20 +1052,28 @@ svg.ac-graph-svg {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-.tile-2up .tile-timestamp {
+.info-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tile-2up .info {
   margin-top: 12px;
 }
 
 @media only screen and (max-width: 1068px) {
-  .tile-2up .tile-timestamp {
+  .tile-2up .info {
     margin-top: 8px;
   }
 }
 
 @media only screen and (max-width: 734px) {
-  .tile-2up .tile-timestamp {
+  .tile-2up .info {
     margin-top: 8px;
   }
 }

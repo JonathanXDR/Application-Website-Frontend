@@ -119,9 +119,19 @@
           />
         </button>
       </div>
-      <div class="tile-timestamp">
-        <!-- <Icon name="clock" /> -->
-        {{ date }}
+      <div class="info">
+        <div v-if="date" class="info-item">
+          <Icon name="clock.fill" class="card-icon" />
+          {{ date }}
+        </div>
+        <div v-if="card.language" class="info-item">
+          <Icon name="bubble.left.fill" class="card-icon" />
+          {{ card.language }}
+        </div>
+        <div v-if="card.license" class="info-item">
+          <Icon name="scroll.fill" class="card-icon" />
+          {{ card.license.name }}
+        </div>
       </div>
     </div>
   </component>
