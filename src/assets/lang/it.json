@@ -93,11 +93,7 @@
             "label": "Altri"
           }
         ],
-        "options": [
-          {
-            "id": "all",
-            "label": "Tutti"
-          },
+        "sorts": [
           {
             "id": "experience",
             "label": "Esperienza"
@@ -135,11 +131,7 @@
             "label": "Scuola"
           }
         ],
-        "options": [
-          {
-            "id": "all",
-            "label": "Tutti"
-          },
+        "sorts": [
           {
             "id": "newest",
             "label": "Più recenti"
