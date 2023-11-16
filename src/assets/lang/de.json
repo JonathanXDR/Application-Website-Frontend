@@ -324,9 +324,9 @@
           "title": "HTML",
           "progress": 90,
           "tags": [
-            "markup",
-            "web",
-            "frontend"
+            "Markup",
+            "Web",
+            "Frontend"
           ]
         },
         {
@@ -334,10 +334,10 @@
           "title": "CSS",
           "progress": 90,
           "tags": [
-            "styling",
-            "web",
-            "frontend",
-            "design"
+            "Styling",
+            "Web",
+            "Frontend",
+            "Design"
           ]
         },
         {
@@ -345,10 +345,10 @@
           "title": "JavaScript",
           "progress": 70,
           "tags": [
-            "scripting",
-            "web",
-            "frontend",
-            "backend"
+            "Scripting",
+            "Web",
+            "Frontend",
+            "Backend"
           ]
         },
         {
@@ -356,9 +356,9 @@
           "title": "SDX",
           "progress": 70,
           "tags": [
-            "swisscom",
-            "design",
-            "ui"
+            "Swisscom",
+            "Design",
+            "Ui"
           ]
         },
         {
@@ -366,9 +366,9 @@
           "title": "Node.js",
           "progress": 60,
           "tags": [
-            "javascript",
-            "server",
-            "backend"
+            "Javascript",
+            "Server",
+            "Backend"
           ]
         },
         {
@@ -376,9 +376,9 @@
           "title": "SQL",
           "progress": 70,
           "tags": [
-            "database",
-            "query",
-            "backend"
+            "Database",
+            "Query",
+            "Backend"
           ]
         },
         {
@@ -386,9 +386,9 @@
           "title": "Express.js",
           "progress": 70,
           "tags": [
-            "node.js",
-            "web",
-            "backend"
+            "Node.js",
+            "Web",
+            "Backend"
           ]
         },
         {
@@ -396,9 +396,9 @@
           "title": "Vue.js",
           "progress": 80,
           "tags": [
-            "javascript",
-            "frontend",
-            "web"
+            "Javascript",
+            "Frontend",
+            "Web"
           ]
         },
         {
@@ -406,10 +406,10 @@
           "title": "TypeScript",
           "progress": 75,
           "tags": [
-            "javascript",
-            "typed",
-            "frontend",
-            "backend"
+            "Javascript",
+            "Typed",
+            "Frontend",
+            "Backend"
           ]
         },
         {
@@ -417,9 +417,9 @@
           "title": "C#",
           "progress": 25,
           "tags": [
-            "microsoft",
-            "backend",
-            "object-oriented"
+            "Microsoft",
+            "Backend",
+            "Object-Oriented"
           ]
         },
         {
@@ -427,9 +427,9 @@
           "title": "Java",
           "progress": 10,
           "tags": [
-            "backend",
-            "object-oriented",
-            "enterprise"
+            "Backend",
+            "Object-Oriented",
+            "Enterprise"
           ]
         },
         {
@@ -437,9 +437,9 @@
           "title": "Bash",
           "progress": 50,
           "tags": [
-            "scripting",
-            "shell",
-            "linux"
+            "Scripting",
+            "Shell",
+            "Linux"
           ]
         },
         {
@@ -447,10 +447,10 @@
           "title": "React",
           "progress": 60,
           "tags": [
-            "javascript",
-            "frontend",
-            "web",
-            "ui"
+            "Javascript",
+            "Frontend",
+            "Web",
+            "Ui"
           ]
         },
         {
@@ -458,10 +458,10 @@
           "title": "Next.js",
           "progress": 50,
           "tags": [
-            "react",
-            "frontend",
-            "web",
-            "ssr"
+            "React",
+            "Frontend",
+            "Web",
+            "Ssr"
           ]
         },
         {
@@ -469,9 +469,9 @@
           "title": "Docker",
           "progress": 50,
           "tags": [
-            "container",
-            "devops",
-            "cloud"
+            "Container",
+            "Devops",
+            "Cloud"
           ]
         },
         {
@@ -479,9 +479,9 @@
           "title": "Kubernetes",
           "progress": 50,
           "tags": [
-            "container",
-            "orchestration",
-            "devops"
+            "Container",
+            "Orchestration",
+            "Devops"
           ]
         },
         {
@@ -489,9 +489,9 @@
           "title": "Nest.js",
           "progress": 70,
           "tags": [
-            "node.js",
-            "backend",
-            "typescript"
+            "Node.js",
+            "Backend",
+            "Typescript"
           ]
         },
         {
@@ -499,9 +499,9 @@
           "title": "Prisma",
           "progress": 60,
           "tags": [
-            "database",
-            "typescript",
-            "orm"
+            "Database",
+            "Typescript",
+            "Orm"
           ]
         },
         {
@@ -509,9 +509,9 @@
           "title": "TypeORM",
           "progress": 60,
           "tags": [
-            "database",
-            "typescript",
-            "orm"
+            "Database",
+            "Typescript",
+            "Orm"
           ]
         },
         {
@@ -519,10 +519,10 @@
           "title": "GitHub Primer",
           "progress": 70,
           "tags": [
-            "react",
-            "frontend",
-            "design",
-            "ui"
+            "React",
+            "Frontend",
+            "Design",
+            "Ui"
           ]
         },
         {
@@ -530,10 +530,10 @@
           "title": "Tailwind CSS",
           "progress": 90,
           "tags": [
-            "css",
-            "frontend",
-            "design",
-            "ui"
+            "Css",
+            "Frontend",
+            "Design",
+            "Ui"
           ]
         },
         {
@@ -541,9 +541,9 @@
           "title": "Python",
           "progress": 30,
           "tags": [
-            "scripting",
-            "backend",
-            "object-oriented"
+            "Scripting",
+            "Backend",
+            "Object-Oriented"
           ]
         }
       ],
@@ -557,7 +557,13 @@
           "description": "In den First Steps hat meine Lehre begonnen. Dort habe ich alles rund um Swisscom kennengelernt, also z.B. wie man die verschieden Tools verwendet, wie man richtig zusammenarbeitet und auch andere Dinge, wie beispielsweise die Arbeitssicherheit.",
           "icon": {
             "name": "airplane.departure"
-          }
+          },
+          "tags": [
+            "Introduction",
+            "Swisscom Tools",
+            "Teamwork",
+            "Work Safety"
+          ]
         },
         {
           "title": "Competence Center NexCC",
@@ -568,7 +574,19 @@
           "description": "Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei viele neue Programmiersprachen gelernt. Darunter HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App erstellen, welche ich mit einer SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend hinzugefügt und so ein eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte Programmiersprachen, wie Node.js, Express.js oder Vue.js neu dazugelernt.",
           "icon": {
             "name": "chevron.left.forwardslash.chevron.right"
-          }
+          },
+          "tags": [
+            "Web Development",
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "CRUD App",
+            "SQL Database",
+            "Backend",
+            "Node.js",
+            "Express.js",
+            "Vue.js"
+          ]
         },
         {
           "title": "Automatisierungsprojekte im Banking Bereich",
@@ -579,7 +597,14 @@
           "description": "Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld erhalten. Ich war aktiv dabei und habe die einzelnen Banken gelernt zu testen bzw. zu automatisieren. Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr über das .Net Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu verbessern!",
           "icon": {
             "name": "clock.arrow.2.circlepath"
-          }
+          },
+          "tags": [
+            "Automation",
+            "Banking",
+            "Testing",
+            "C#",
+            ".Net Framework"
+          ]
         },
         {
           "title": "Apps Team Frontend",
@@ -593,7 +618,15 @@
             "colors": {
               "tertiary": "none"
             }
-          }
+          },
+          "tags": [
+            "Frontend Development",
+            "Memory App",
+            "Vue.js",
+            "TypeScript",
+            "SDX",
+            "Next.js"
+          ]
         },
         {
           "title": "Apps Team Backend",
@@ -604,7 +637,18 @@
           "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt. Danach habe ich dann beim Tool für Medienkurse mitgeholfen und konnte dort einige Features hinzufügen und Fehler beheben. Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen Webfrontends mitwirken, was mir sehr gefallen hat :)",
           "icon": {
             "name": "gear"
-          }
+          },
+          "tags": [
+            "Backend Development",
+            "CRUD App",
+            "Nest.js",
+            "ORM",
+            "Prisma",
+            "TypeORM",
+            "GitHub Primer",
+            "Fleet Management",
+            "Web Frontends"
+          ]
         },
         {
           "title": "Security Journey - Development Stream",
@@ -615,7 +659,14 @@
           "description": "In diesem Projekt habe ich mit ein paar Trainings zu Cloud & Security begonnen, was ziemlich lehrreich für mich war. Danach durfte ich bereits an meinem momentanen Projekt arbeiten, einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring). Dort verwende ich Python, Docker und Kubernetes, wobei Python für mich neu ist.",
           "icon": {
             "name": "shield.lefthalf.filled"
-          }
+          },
+          "tags": [
+            "Cloud Security",
+            "Database Activity Monitoring",
+            "Python",
+            "Docker",
+            "Kubernetes"
+          ]
         }
       ]
     }
