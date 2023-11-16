@@ -109,12 +109,13 @@
           <span class="icon-copy"> Open</span>
         </a> -->
         <a class="icon-wrapper secondary-cta link typography-body-reduced modal-trigger">
-          <span :class="['icon-copy', { link: variant === 'article' }]">Learn more</span>
+          <LinkCollection :links="card.links" />
+          <!-- <span :class="['icon-copy', { link: variant === 'article' }]">Learn more</span>
           <Icon
             name="chevron.right"
             size="small"
             class="svg-icon inline-chevron-right-icon icon-inline link-icon"
-          />
+          /> -->
         </a>
       </div>
       <div class="info">

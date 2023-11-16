@@ -1,5 +1,6 @@
 import ButtonItem from '@/components/common/ButtonItem/ButtonItem.vue'
 import Icon from '@/components/common/Icons/Icon.vue'
+import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import TagBar from '@/components/common/TagBar/TagBar.vue'
 import type { CardItemType } from '@/types/common/CardItem'
 import type { ListUserReposResponse } from '@/types/GitHub/Repository'
@@ -11,7 +12,8 @@ export default defineComponent({
   components: {
     Icon,
     ButtonItem,
-    TagBar
+    TagBar,
+    LinkCollection
   },
   props: {
     card: {

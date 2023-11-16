@@ -1,5 +1,14 @@
 <template>
-  <div class="links">
+  <a v-for="(link, index) in links" :key="index" class="link" target="_blank">
+    {{ link.title
+    }}<Icon
+      v-if="link.icon"
+      :name="link.icon.name"
+      size="large"
+      class="svg-icon inline-chevron-right-icon icon-inline link-icon"
+    />
+  </a>
+  <!-- <div class="links">
     <p v-for="(link, index) in links" :key="index">
       <a :href="link.url" class="link link-icon" target="_blank">
         {{ link.title }}
@@ -11,7 +20,7 @@
         />
       </a>
     </p>
-  </div>
+  </div> -->
 </template>
 
 <script lang="ts" src="./LinkCollection.ts"></script>
