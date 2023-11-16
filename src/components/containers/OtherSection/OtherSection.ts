@@ -1,4 +1,5 @@
 import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue'
+import CardItem from '@/components/common/CardItem/CardItem.vue'
 import CardTile from '@/components/common/CardTile/CardTile.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
@@ -17,6 +18,7 @@ export default defineComponent({
     LinkCollection,
     ShareSheet,
     CardTile,
+    CardItem,
     ArticleItem,
     TimeLine
   },

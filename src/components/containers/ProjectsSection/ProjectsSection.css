@@ -47,16 +47,16 @@
 
 /* ------------------------------- timeline li ------------------------------ */
 
-.timeline li {
+.timeline .article {
   width: 90%;
 }
 
 @media screen and (min-width: 1250px) {
-  .timeline li {
+  .timeline .article {
     width: 40%;
   }
 
-  .timeline li:nth-child(even) {
+  .timeline .article:nth-child(even) {
     align-self: flex-end;
   }
 }

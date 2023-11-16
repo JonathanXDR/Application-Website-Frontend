@@ -280,7 +280,7 @@
         {
           "title": "Technische Berufsschule Zürich",
           "date": {
-            "from": "Donnerstag",
+            "from": "2021-08-26",
             "to": ""
           },
           "description": "Ich gehe immer Donnerstags zur Berufsschule in Zürich.",
@@ -300,7 +300,7 @@
         {
           "title": "Berufsmaturitätsschule Zürich",
           "date": {
-            "from": "Freitag",
+            "from": "2021-08-27",
             "to": ""
           },
           "description": "Am Freitag gehe ich jeweils zur Berufsmaturitätsschule in Zürich.",
@@ -476,7 +476,7 @@
         {
           "title": "NEX First Steps",
           "date": {
-            "from": "2021-08",
+            "from": "2021-08-01",
             "to": ""
           },
           "description": "In den First Steps hat meine Lehre begonnen. Dort habe ich alles rund um Swisscom kennengelernt, also z.B. wie man die verschieden Tools verwendet, wie man richtig zusammenarbeitet und auch andere Dinge, wie beispielsweise die Arbeitssicherheit.",
@@ -487,8 +487,8 @@
         {
           "title": "Competence Center NexCC",
           "date": {
-            "from": "August 2021",
-            "to": "Januar 2022"
+            "from": "2021-08-01",
+            "to": "2022-01-01"
           },
           "description": "Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei viele neue Programmiersprachen gelernt. Darunter HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App erstellen, welche ich mit einer SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend hinzugefügt und so ein eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte Programmiersprachen, wie Node.js, Express.js oder Vue.js neu dazugelernt.",
           "icon": {
@@ -498,8 +498,8 @@
         {
           "title": "Automatisierungsprojekte im Banking Bereich",
           "date": {
-            "from": "Februar 2022",
-            "to": "Juli 2022"
+            "from": "2022-02-01",
+            "to": "2022-07-01"
           },
           "description": "Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld erhalten. Ich war aktiv dabei und habe die einzelnen Banken gelernt zu testen bzw. zu automatisieren. Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr über das .Net Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu verbessern!",
           "icon": {
@@ -509,8 +509,8 @@
         {
           "title": "Apps Team Frontend",
           "date": {
-            "from": "August 2022",
-            "to": "Februar 2023"
+            "from": "2022-08-01",
+            "to": "2023-02-01"
           },
           "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
           "icon": {
@@ -523,8 +523,8 @@
         {
           "title": "Apps Team Backend",
           "date": {
-            "from": "Februar 2023",
-            "to": "August 2023"
+            "from": "2023-02-01",
+            "to": "2023-08-01"
           },
           "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt. Danach habe ich dann beim Tool für Medienkurse mitgeholfen und konnte dort einige Features hinzufügen und Fehler beheben. Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen Webfrontends mitwirken, was mir sehr gefallen hat :)",
           "icon": {
@@ -534,8 +534,8 @@
         {
           "title": "Security Journey - Development Stream",
           "date": {
-            "from": "September 2023",
-            "to": "August 2024"
+            "from": "2023-09-01",
+            "to": "2024-08-01"
           },
           "description": "In diesem Projekt habe ich mit ein paar Trainings zu Cloud & Security begonnen, was ziemlich lehrreich für mich war. Danach durfte ich bereits an meinem momentanen Projekt arbeiten, einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring). Dort verwende ich Python, Docker und Kubernetes, wobei Python für mich neu ist.",
           "icon": {

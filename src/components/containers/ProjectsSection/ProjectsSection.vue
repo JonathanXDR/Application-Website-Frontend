@@ -8,7 +8,16 @@
   <div class="timeline-wrapper" v-if="currentIndex === 0">
     <TimeLine />
     <ul ref="ul" class="timeline">
-      <ArticleItem v-for="(project, index) in currentProjects" :key="index" :article="project" />
+      <CardItem
+        variant="article"
+        v-for="(project, index) in currentProjects"
+        :key="index"
+        :card="project"
+        :dateFormatOptions="{
+          year: 'numeric',
+          month: 'long'
+        }"
+      />
     </ul>
   </div>
   <ul v-else class="card-container">

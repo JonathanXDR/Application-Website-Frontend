@@ -1,6 +1,6 @@
 <template>
   <fieldset class="tile">
-    <DropDown :options="segmentNavOptions" />
+    <DropDown :options="sortOptions" />
     <div class="segmentnav-container">
       <ul ref="segmentNavEl" class="segmentnav">
         <div class="segmentnav-wrapper">

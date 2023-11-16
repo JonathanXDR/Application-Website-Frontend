@@ -1,7 +1,7 @@
 import type { IconType } from './Icon'
 import type { LinkType } from './Link'
 
-export type ArticleItemType = {
+export type CardItemType = {
   eyebrow?: string
   title: string
   date?: {

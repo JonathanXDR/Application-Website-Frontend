@@ -18,8 +18,8 @@ export default defineComponent({
     const segmentNavItems: Ref<OptionType[]> = computed(() =>
       tm('components.common.SegmentNav.items')
     )
-    const segmentNavOptions: Ref<OptionType[]> = computed(() =>
-      tm('components.common.SegmentNav.options')
+    const sortOptions: Ref<OptionType[]> = computed(() =>
+      tm('components.common.SegmentNav.sorts')
     )
     const currentIndex: Ref<number> = ref(props.index)
     const loading: Ref<boolean> = ref(true)
@@ -53,7 +53,7 @@ export default defineComponent({
 
     return {
       segmentNavItems,
-      segmentNavOptions,
+      sortOptions,
       currentIndex,
       loading,
       selectionStyle,

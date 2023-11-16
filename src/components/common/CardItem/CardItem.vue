@@ -95,41 +95,38 @@
       </div>
     </div>
     <div class="details">
-      <!-- <div class="eyebrow">
-        {{ date }}
-      </div> -->
-      <div class="tile-category">UPDATE</div>
+      <div v-if="card.eyebrow" class="tile-category">{{ card.eyebrow }}</div>
       <div class="title">{{ card.title || card.name }}</div>
-      <div class="card-content">
+      <div v-if="card.description" class="card-content">
         <div class="content">
           {{ card.description }}
         </div>
       </div>
       <TagBar v-if="card.topics" :tags="card.topics" />
       <div class="ctas-wrapper">
-        <a href="photos://" class="icon-wrapper button button-reduced button-neutral">
+        <!-- <a href="photos://" class="icon-wrapper button button-reduced button-neutral">
           <span class="icon-copy"> Open</span>
-        </a>
-        <button class="icon-wrapper secondary-cta link typography-body-reduced modal-trigger">
+        </a> -->
+        <a class="icon-wrapper secondary-cta link typography-body-reduced modal-trigger">
           <span class="icon-copy">Learn more</span>
           <Icon
             name="chevron.right"
             size="small"
             class="svg-icon inline-chevron-right-icon icon-inline link-icon"
           />
-        </button>
+        </a>
       </div>
       <div class="info">
-        <div v-if="date" class="info-item">
-          <Icon name="clock.fill" class="card-icon" />
-          {{ date }}
+        <div v-if="date || card.date" class="info-item">
+          <Icon v-if="variant != 'article'" name="clock.fill" class="card-icon" />
+          {{ date || `${card.date?.from} - ${card.date?.to}` }}
         </div>
         <div v-if="card.language" class="info-item">
-          <Icon name="bubble.left.fill" class="card-icon" />
+          <Icon v-if="variant != 'article'" name="bubble.left.fill" class="card-icon" />
           {{ card.language }}
         </div>
         <div v-if="card.license" class="info-item">
-          <Icon name="scroll.fill" class="card-icon" />
+          <Icon v-if="variant != 'article'" name="scroll.fill" class="card-icon" />
           {{ card.license.name }}
         </div>
       </div>
