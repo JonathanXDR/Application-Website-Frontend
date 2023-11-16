@@ -104,11 +104,12 @@
       </div>
       <TagBar v-if="card.topics" :tags="card.topics" />
       <div class="ctas-wrapper">
+        <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
         <!-- <a href="photos://" class="icon-wrapper button button-reduced button-neutral">
           <span class="icon-copy"> Open</span>
         </a> -->
         <a class="icon-wrapper secondary-cta link typography-body-reduced modal-trigger">
-          <span class="icon-copy">Learn more</span>
+          <span :class="['icon-copy', { link: variant === 'article' }]">Learn more</span>
           <Icon
             name="chevron.right"
             size="small"

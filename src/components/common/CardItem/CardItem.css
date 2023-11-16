@@ -519,8 +519,12 @@
 
 /* ---------------------------------- link ---------------------------------- */
 
+.article .link {
+  color: var(--ribbon-link-color) !important;
+}
+
 .link {
-  color: var(--color-fill-gray) !important;
+  color: var(--color-fill-gray);
   /* margin-top: 17px; */
   display: flex;
   align-items: center;
@@ -1019,7 +1023,14 @@ svg.ac-graph-svg {
   line-height: 1.33337;
   font-weight: 700;
   letter-spacing: -0.01em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 .tile-2up .tile-category {
@@ -1050,7 +1061,14 @@ svg.ac-graph-svg {
   line-height: 1.28577;
   font-weight: 600;
   letter-spacing: -0.016em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
   display: flex;
   justify-content: flex-start;
   align-items: center;

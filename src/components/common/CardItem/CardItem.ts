@@ -1,3 +1,4 @@
+import ButtonItem from '@/components/common/ButtonItem/ButtonItem.vue'
 import Icon from '@/components/common/Icons/Icon.vue'
 import TagBar from '@/components/common/TagBar/TagBar.vue'
 import type { CardItemType } from '@/types/common/CardItem'
@@ -5,11 +6,11 @@ import type { ListUserReposResponse } from '@/types/GitHub/Repository'
 import moment from 'moment'
 import { defineComponent, type PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
-
 export default defineComponent({
   name: 'CardTile',
   components: {
     Icon,
+    ButtonItem,
     TagBar
   },
   props: {

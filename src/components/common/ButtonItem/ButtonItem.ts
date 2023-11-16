@@ -9,7 +9,7 @@ export default defineComponent({
       required: false,
       default: 'button'
     },
-    type: {
+    variant: {
       type: String as PropType<'primary' | 'secondary' | 'tertiary'>,
       required: false,
       default: 'primary'

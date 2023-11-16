@@ -1,5 +1,5 @@
 <template>
-  <component :is="as">
+  <component :is="as" :class="['button', variant, size]">
     <slot />
   </component>
 </template>
