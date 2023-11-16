@@ -9,6 +9,7 @@ export type CardItemType = {
     to?: string
   }
   description?: string
+  tags: string[]
   links?: LinkType[]
   icon?: IconType
 }

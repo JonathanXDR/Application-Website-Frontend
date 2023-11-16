@@ -213,17 +213,17 @@
         {
           "title": "Deutsch",
           "description": "Muttersprache",
-          "progress": "100"
+          "progress": 100
         },
         {
           "title": "Englisch",
           "description": "Fliessend",
-          "progress": "60"
+          "progress": 60
         },
         {
           "title": "Französisch",
           "description": "Gut",
-          "progress": "30"
+          "progress": 30
         }
       ],
       "references": [
@@ -320,156 +320,231 @@
       ],
       "technologies": [
         {
+          "eyebrow": "Language",
           "title": "HTML",
-          "progress": 85,
-          "learned": "NexCC",
-          "enhanced": "M293",
-          "color1": "var(--color-orange)",
-          "color2": "var(--color-red)"
+          "progress": 90,
+          "tags": [
+            "markup",
+            "web",
+            "frontend"
+          ]
         },
         {
+          "eyebrow": "Language",
           "title": "CSS",
-          "progress": 85,
-          "learned": "NexCC",
-          "enhanced": "M293",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "progress": 90,
+          "tags": [
+            "styling",
+            "web",
+            "frontend",
+            "design"
+          ]
         },
         {
+          "eyebrow": "Language",
           "title": "JavaScript",
           "progress": 70,
-          "learned": "NexCC",
-          "enhanced": "Apps Team Frontend, ÜK294",
-          "color1": "var(--color-yellow)",
-          "color2": "var(--color-green)"
+          "tags": [
+            "scripting",
+            "web",
+            "frontend",
+            "backend"
+          ]
         },
         {
+          "eyebrow": "Library",
           "title": "SDX",
           "progress": 70,
-          "learned": "NexCC",
-          "enhanced": "Apps Team Frontend",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "tags": [
+            "swisscom",
+            "design",
+            "ui"
+          ]
         },
         {
+          "eyebrow": "Runtime",
           "title": "Node.js",
           "progress": 60,
-          "learned": "NexCC",
-          "enhanced": "-",
-          "color1": "var(--color-yellow)",
-          "color2": "var(--color-green)"
+          "tags": [
+            "javascript",
+            "server",
+            "backend"
+          ]
         },
         {
+          "eyebrow": "Language",
           "title": "SQL",
           "progress": 70,
-          "learned": "NexCC",
-          "enhanced": "ÜK106, M164",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "tags": [
+            "database",
+            "query",
+            "backend"
+          ]
         },
         {
+          "eyebrow": "Framework",
           "title": "Express.js",
           "progress": 70,
-          "learned": "NexCC",
-          "enhanced": "ÜK295",
-          "color1": "var(--color-yellow)",
-          "color2": "var(--color-green)"
+          "tags": [
+            "node.js",
+            "web",
+            "backend"
+          ]
         },
         {
+          "eyebrow": "Framework",
           "title": "Vue.js",
           "progress": 80,
-          "learned": "NexCC",
-          "enhanced": "Apps Team Frontend",
-          "color1": "var(--color-yellow)",
-          "color2": "var(--color-green)"
+          "tags": [
+            "javascript",
+            "frontend",
+            "web"
+          ]
         },
         {
+          "eyebrow": "Language",
           "title": "TypeScript",
           "progress": 75,
-          "learned": "NexCC",
-          "enhanced": "Apps Team Frontend, ÜK294",
-          "color1": "var(--color-yellow)",
-          "color2": "var(--color-green)"
+          "tags": [
+            "javascript",
+            "typed",
+            "frontend",
+            "backend"
+          ]
         },
         {
+          "eyebrow": "Language",
           "title": "C#",
           "progress": 25,
-          "learned": "Automatisierungsprojekte im Banking Bereich",
-          "enhanced": "-",
-          "color1": "var(--color-pink)",
-          "color2": "var(--color-purple)"
+          "tags": [
+            "microsoft",
+            "backend",
+            "object-oriented"
+          ]
         },
         {
+          "eyebrow": "Language",
           "title": "Java",
           "progress": 10,
-          "learned": "M319",
-          "enhanced": "-",
-          "color1": "var(--color-yellow)",
-          "color2": "var(--color-green)"
+          "tags": [
+            "backend",
+            "object-oriented",
+            "enterprise"
+          ]
         },
         {
+          "eyebrow": "Language",
           "title": "Bash",
           "progress": 50,
-          "learned": "NexCC",
-          "enhanced": "M122",
-          "color1": "var(--color-pink)",
-          "color2": "var(--color-purple)"
+          "tags": [
+            "scripting",
+            "shell",
+            "linux"
+          ]
         },
         {
+          "eyebrow": "Framework",
           "title": "React",
           "progress": 60,
-          "learned": "ÜK294, Apps Team Frontend",
-          "enhanced": "-",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "tags": [
+            "javascript",
+            "frontend",
+            "web",
+            "ui"
+          ]
         },
         {
+          "eyebrow": "Framework",
           "title": "Next.js",
           "progress": 50,
-          "learned": "Apps Team Frontend",
-          "enhanced": "-",
-          "color1": "var(--color-yellow)",
-          "color2": "var(--color-green)"
+          "tags": [
+            "react",
+            "frontend",
+            "web",
+            "ssr"
+          ]
         },
         {
+          "eyebrow": "Container Management",
           "title": "Docker",
           "progress": 50,
-          "learned": "ÜK210",
-          "enhanced": "M347",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "tags": [
+            "container",
+            "devops",
+            "cloud"
+          ]
         },
         {
+          "eyebrow": "Container Management",
           "title": "Kubernetes",
           "progress": 50,
-          "learned": "ÜK210",
-          "enhanced": "M347",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "tags": [
+            "container",
+            "orchestration",
+            "devops"
+          ]
         },
         {
+          "eyebrow": "Framework",
           "title": "Nest.js",
           "progress": 70,
-          "learned": "Apps Team Backend",
-          "enhanced": "-",
-          "color1": "var(--color-orange)",
-          "color2": "var(--color-red)"
+          "tags": [
+            "node.js",
+            "backend",
+            "typescript"
+          ]
         },
         {
+          "eyebrow": "ORM",
           "title": "Prisma",
           "progress": 60,
-          "learned": "Apps Team Backend",
-          "enhanced": "-",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "tags": [
+            "database",
+            "typescript",
+            "orm"
+          ]
         },
         {
+          "eyebrow": "ORM",
           "title": "TypeORM",
           "progress": 60,
-          "learned": "Apps Team Backend",
-          "enhanced": "-",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "tags": [
+            "database",
+            "typescript",
+            "orm"
+          ]
+        },
+        {
+          "eyebrow": "Library",
+          "title": "GitHub Primer",
+          "progress": 70,
+          "tags": [
+            "react",
+            "frontend",
+            "design",
+            "ui"
+          ]
+        },
+        {
+          "eyebrow": "Library",
+          "title": "Tailwind CSS",
+          "progress": 90,
+          "tags": [
+            "css",
+            "frontend",
+            "design",
+            "ui"
+          ]
+        },
+        {
+          "eyebrow": "Language",
+          "title": "Python",
+          "progress": 30,
+          "tags": [
+            "scripting",
+            "backend",
+            "object-oriented"
+          ]
         }
       ],
       "projects": [

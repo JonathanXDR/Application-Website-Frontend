@@ -72,12 +72,12 @@
   overflow: hidden;
 }
 
-#technologies .filter-suggested-tags {
+.filter .filter-suggested-tags {
   height: 45px;
   border-top: 1px solid var(--color-fill-gray-tertiary);
 }
 
-#technologies .filter-suggested-tags ul {
+.filter .filter-suggested-tags ul {
   /* padding: 12px 8px; */
   padding: 6px 4px;
 }

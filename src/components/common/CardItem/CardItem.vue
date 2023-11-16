@@ -102,7 +102,7 @@
           {{ card.description }}
         </div>
       </div>
-      <TagBar v-if="card.topics" :tags="card.topics" />
+      <TagBar v-if="card.tags || card.topics" :tags="card.tags || card.topics" />
       <div class="ctas-wrapper">
         <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
         <!-- <a href="photos://" class="icon-wrapper button button-reduced button-neutral">

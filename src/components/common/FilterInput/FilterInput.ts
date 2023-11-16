@@ -13,7 +13,7 @@ export default defineComponent({
   setup() {
     const { tm } = useI18n()
     const items: Ref<OptionType[]> = ref(tm('components.common.FilterNav.items'))
-    const options: Ref<OptionType[]> = ref(tm('components.common.FilterNav.options'))
+    const options: Ref<OptionType[]> = ref(tm('components.common.FilterNav.sorts'))
     const open: Ref<boolean> = ref(false)
 
     const onFocus = () => {
