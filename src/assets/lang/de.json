@@ -162,7 +162,7 @@
           },
           {
             "title": "LinkedIn",
-            "url": "https://www.linkedin.com/in/jonathan-russ-b7442a228",
+            "url": "https://linkedin.com/in/jonathan-russ-b7442a228",
             "category": "brands",
             "icon": {
               "name": "linkedin-in"
@@ -307,7 +307,7 @@
           "links": [
             {
               "title": "Mehr über BMZ",
-              "url": "https://www.bms-zuerich.ch/",
+              "url": "https://bms-zuerich.ch/",
               "icon": {
                 "name": "chevron.right"
               }
@@ -320,6 +320,12 @@
       ],
       "technologies": [
         {
+          "icon": {
+            "name": "text.bubble.fill",
+            "colors": {
+              "primary": "var(color-fill-gray)"
+            }
+          },
           "eyebrow": "Language",
           "title": "HTML",
           "progress": 90,
@@ -331,7 +337,7 @@
           "links": [
             {
               "title": "Mehr erfahren",
-              "url": "https://developer.mozilla.org/de/docs/Web/HTML",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
               "icon": {
                 "name": "chevron.right"
               }
@@ -339,6 +345,12 @@
           ]
         },
         {
+          "icon": {
+            "name": "text.bubble.fill",
+            "colors": {
+              "primary": "var(color-fill-gray)"
+            }
+          },
           "eyebrow": "Language",
           "title": "CSS",
           "progress": 90,
@@ -347,9 +359,24 @@
             "Web",
             "Frontend",
             "Design"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "text.bubble.fill",
+            "colors": {
+              "primary": "var(color-fill-gray)"
+            }
+          },
           "eyebrow": "Language",
           "title": "JavaScript",
           "progress": 70,
@@ -358,9 +385,21 @@
             "Web",
             "Frontend",
             "Backend"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "building.columns.fill"
+          },
           "eyebrow": "Library",
           "title": "SDX",
           "progress": 70,
@@ -368,6 +407,15 @@
             "Swisscom",
             "Design",
             "UI"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://sdx.swisscom.ch",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
@@ -378,9 +426,24 @@
             "Javascript",
             "Server",
             "Backend"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://nodejs.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "text.bubble.fill",
+            "colors": {
+              "primary": "var(color-fill-gray)"
+            }
+          },
           "eyebrow": "Language",
           "title": "SQL",
           "progress": 70,
@@ -388,9 +451,21 @@
             "Database",
             "Query",
             "Backend"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://developer.mozilla.org/en-US/docs/Glossary/SQL",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "wrench.and.screwdriver.fill"
+          },
           "eyebrow": "Framework",
           "title": "Express.js",
           "progress": 70,
@@ -398,9 +473,21 @@
             "Node.js",
             "Web",
             "Backend"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://expressjs.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "wrench.and.screwdriver.fill"
+          },
           "eyebrow": "Framework",
           "title": "Vue.js",
           "progress": 80,
@@ -408,9 +495,24 @@
             "Javascript",
             "Frontend",
             "Web"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://vuejs.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "text.bubble.fill",
+            "colors": {
+              "primary": "var(color-fill-gray)"
+            }
+          },
           "eyebrow": "Language",
           "title": "TypeScript",
           "progress": 75,
@@ -419,9 +521,24 @@
             "Typed",
             "Frontend",
             "Backend"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://typescriptlang.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "text.bubble.fill",
+            "colors": {
+              "primary": "var(color-fill-gray)"
+            }
+          },
           "eyebrow": "Language",
           "title": "C#",
           "progress": 25,
@@ -429,9 +546,24 @@
             "Microsoft",
             "Backend",
             "Object-Oriented"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://docs.microsoft.com/en-us/dotnet/csharp",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "text.bubble.fill",
+            "colors": {
+              "primary": "var(color-fill-gray)"
+            }
+          },
           "eyebrow": "Language",
           "title": "Java",
           "progress": 10,
@@ -439,9 +571,24 @@
             "Backend",
             "Object-Oriented",
             "Enterprise"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://java.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "text.bubble.fill",
+            "colors": {
+              "primary": "var(color-fill-gray)"
+            }
+          },
           "eyebrow": "Language",
           "title": "Bash",
           "progress": 50,
@@ -449,9 +596,21 @@
             "Scripting",
             "Shell",
             "Linux"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://gnu.org/software/bash",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "wrench.and.screwdriver.fill"
+          },
           "eyebrow": "Framework",
           "title": "React",
           "progress": 60,
@@ -460,9 +619,21 @@
             "Frontend",
             "Web",
             "UI"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://reactjs.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "wrench.and.screwdriver.fill"
+          },
           "eyebrow": "Framework",
           "title": "Next.js",
           "progress": 50,
@@ -470,10 +641,22 @@
             "React",
             "Frontend",
             "Web",
-            "Ssr"
+            "SSR"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://nextjs.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "shippingbox.fill"
+          },
           "eyebrow": "Container Management",
           "title": "Docker",
           "progress": 50,
@@ -481,9 +664,21 @@
             "Container",
             "Devops",
             "Cloud"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://docker.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "shippingbox.fill"
+          },
           "eyebrow": "Container Management",
           "title": "Kubernetes",
           "progress": 50,
@@ -491,9 +686,21 @@
             "Container",
             "Orchestration",
             "Devops"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://kubernetes.io",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "wrench.and.screwdriver.fill"
+          },
           "eyebrow": "Framework",
           "title": "Nest.js",
           "progress": 70,
@@ -501,9 +708,21 @@
             "Node.js",
             "Backend",
             "Typescript"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://nestjs.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "gear"
+          },
           "eyebrow": "ORM",
           "title": "Prisma",
           "progress": 60,
@@ -511,9 +730,21 @@
             "Database",
             "Typescript",
             "ORM"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://prisma.io",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "gear"
+          },
           "eyebrow": "ORM",
           "title": "TypeORM",
           "progress": 60,
@@ -521,9 +752,21 @@
             "Database",
             "Typescript",
             "ORM"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://typeorm.io",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "building.columns.fill"
+          },
           "eyebrow": "Library",
           "title": "GitHub Primer",
           "progress": 70,
@@ -532,9 +775,21 @@
             "Frontend",
             "Design",
             "UI"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://primer.style",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "building.columns.fill"
+          },
           "eyebrow": "Library",
           "title": "Tailwind CSS",
           "progress": 90,
@@ -543,9 +798,24 @@
             "Frontend",
             "Design",
             "UI"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://tailwindcss.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         },
         {
+          "icon": {
+            "name": "text.bubble.fill",
+            "colors": {
+              "primary": "var(color-fill-gray)"
+            }
+          },
           "eyebrow": "Language",
           "title": "Python",
           "progress": 30,
@@ -553,37 +823,44 @@
             "Scripting",
             "Backend",
             "Object-Oriented"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://python.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ]
         }
       ],
       "projects": [
         {
-          "title": "NEX First Steps",
-          "date": {
-            "from": "2021-08-01",
-            "to": ""
-          },
-          "description": "In den First Steps hat meine Lehre begonnen. Dort habe ich alles rund um Swisscom kennengelernt, also z.B. wie man die verschieden Tools verwendet, wie man richtig zusammenarbeitet und auch andere Dinge, wie beispielsweise die Arbeitssicherheit.",
           "icon": {
             "name": "airplane.departure"
           },
+          "eyebrow": "Introduction",
+          "title": "NEX First Steps",
+          "description": "In den First Steps hat meine Lehre begonnen. Dort habe ich alles rund um Swisscom kennengelernt, also z.B. wie man die verschieden Tools verwendet, wie man richtig zusammenarbeitet und auch andere Dinge, wie beispielsweise die Arbeitssicherheit.",
           "tags": [
             "Introduction",
             "Swisscom Tools",
             "Teamwork",
             "Work Safety"
-          ]
-        },
-        {
-          "title": "Competence Center NexCC",
+          ],
           "date": {
             "from": "2021-08-01",
-            "to": "2022-01-01"
-          },
-          "description": "Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei viele neue Programmiersprachen gelernt. Darunter HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App erstellen, welche ich mit einer SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend hinzugefügt und so ein eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte Programmiersprachen, wie Node.js, Express.js oder Vue.js neu dazugelernt.",
+            "to": ""
+          }
+        },
+        {
           "icon": {
             "name": "chevron.left.forwardslash.chevron.right"
           },
+          "eyebrow": "Full Stack",
+          "title": "Competence Center NexCC",
+          "description": "Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei viele neue Programmiersprachen gelernt. Darunter HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App erstellen, welche ich mit einer SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend hinzugefügt und so ein eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte Programmiersprachen, wie Node.js, Express.js oder Vue.js neu dazugelernt.",
           "tags": [
             "Web Development",
             "HTML",
@@ -595,39 +872,41 @@
             "Node.js",
             "Express.js",
             "Vue.js"
-          ]
+          ],
+          "date": {
+            "from": "2021-08-01",
+            "to": "2022-01-01"
+          }
         },
         {
-          "title": "Automatisierungsprojekte im Banking Bereich",
-          "date": {
-            "from": "2022-02-01",
-            "to": "2022-07-01"
-          },
-          "description": "Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld erhalten. Ich war aktiv dabei und habe die einzelnen Banken gelernt zu testen bzw. zu automatisieren. Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr über das .Net Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu verbessern!",
           "icon": {
             "name": "clock.arrow.2.circlepath"
           },
+          "eyebrow": "Automation",
+          "title": "Automatisierungsprojekte im Banking Bereich",
+          "description": "Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld erhalten. Ich war aktiv dabei und habe die einzelnen Banken gelernt zu testen bzw. zu automatisieren. Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr über das .Net Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu verbessern!",
           "tags": [
             "Automation",
             "Banking",
             "Testing",
             "C#",
             ".Net Framework"
-          ]
+          ],
+          "date": {
+            "from": "2022-02-01",
+            "to": "2022-07-01"
+          }
         },
         {
-          "title": "Apps Team Frontend",
-          "date": {
-            "from": "2022-08-01",
-            "to": "2023-02-01"
-          },
-          "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
           "icon": {
             "name": "display",
             "colors": {
               "tertiary": "none"
             }
           },
+          "eyebrow": "Frontend",
+          "title": "Apps Team Frontend",
+          "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
           "tags": [
             "Frontend Development",
             "Memory App",
@@ -635,18 +914,19 @@
             "TypeScript",
             "SDX",
             "Next.js"
-          ]
+          ],
+          "date": {
+            "from": "2022-08-01",
+            "to": "2023-02-01"
+          }
         },
         {
-          "title": "Apps Team Backend",
-          "date": {
-            "from": "2023-02-01",
-            "to": "2023-08-01"
-          },
-          "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt. Danach habe ich dann beim Tool für Medienkurse mitgeholfen und konnte dort einige Features hinzufügen und Fehler beheben. Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen Webfrontends mitwirken, was mir sehr gefallen hat :)",
           "icon": {
             "name": "gear"
           },
+          "eyebrow": "Backend",
+          "title": "Apps Team Backend",
+          "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt. Danach habe ich dann beim Tool für Medienkurse mitgeholfen und konnte dort einige Features hinzufügen und Fehler beheben. Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen Webfrontends mitwirken, was mir sehr gefallen hat :)",
           "tags": [
             "Backend Development",
             "CRUD App",
@@ -657,64 +937,69 @@
             "GitHub Primer",
             "Fleet Management",
             "Web Frontends"
-          ]
+          ],
+          "date": {
+            "from": "2023-02-01",
+            "to": "2023-08-01"
+          }
         },
         {
-          "title": "Security Journey - Development Stream",
-          "date": {
-            "from": "2023-09-01",
-            "to": "2024-08-01"
-          },
-          "description": "In diesem Projekt habe ich mit ein paar Trainings zu Cloud & Security begonnen, was ziemlich lehrreich für mich war. Danach durfte ich bereits an meinem momentanen Projekt arbeiten, einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring). Dort verwende ich Python, Docker und Kubernetes, wobei Python für mich neu ist.",
           "icon": {
             "name": "shield.lefthalf.filled"
           },
+          "eyebrow": "Security",
+          "title": "Security Journey - Development Stream",
+          "description": "In diesem Projekt habe ich mit ein paar Trainings zu Cloud & Security begonnen, was ziemlich lehrreich für mich war. Danach durfte ich bereits an meinem momentanen Projekt arbeiten, einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring). Dort verwende ich Python, Docker und Kubernetes, wobei Python für mich neu ist.",
           "tags": [
             "Cloud Security",
             "Database Activity Monitoring",
             "Python",
             "Docker",
             "Kubernetes"
-          ]
+          ],
+          "date": {
+            "from": "2023-09-01",
+            "to": "2024-08-01"
+          }
         }
       ]
     }
   },
   "views": {
+    "icon": {
+      "name": "exclamationmark.triangle.fill",
+      "colors": {
+        "primary": "var(--color-fill)",
+        "tertiary": "var(--color-yellow)"
+      }
+    },
     "notFound": {
       "title": "Not Found.",
       "description": "Die Seite, die du suchst, kann nicht gefunden werden. Bitte überprüfe sie und versuche es erneut.",
-      "links": [],
-      "icon": {
-        "name": "exclamationmark.triangle.fill",
-        "colors": {
-          "primary": "var(--color-fill)",
-          "tertiary": "var(--color-yellow)"
-        }
-      }
+      "links": []
     },
     "error": {
-      "title": "Error.",
-      "description": "Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem weiterhin besteht.",
-      "links": [],
       "icon": {
         "name": "exclamationmark.octagon.fill",
         "colors": {
           "primary": "var(--color-fill)",
           "tertiary": "var(--color-red)"
         }
-      }
+      },
+      "title": "Error.",
+      "description": "Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem weiterhin besteht.",
+      "links": []
     },
     "maintenance": {
-      "title": "Be right back.",
-      "description": "Ich führe Aktualisierungen auf der Seite durch. Schau bald wieder vorbei.",
-      "links": [],
       "icon": {
         "name": "wrench.and.screwdriver.fill",
         "colors": {
           "secondary": "var(--color-blue)"
         }
-      }
+      },
+      "title": "Be right back.",
+      "description": "Ich führe Aktualisierungen auf der Seite durch. Schau bald wieder vorbei.",
+      "links": []
     }
   }
 }

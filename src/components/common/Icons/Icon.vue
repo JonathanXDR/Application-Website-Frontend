@@ -77,7 +77,6 @@ export default defineComponent({
   height: 0.5em;
 }
 
-.icon-article,
 .icon-cta {
   width: 1.25em;
   height: 1.25em;
@@ -99,8 +98,8 @@ export default defineComponent({
 }
 
 .icon-article {
-  width: 1.25em;
-  height: 1.25em;
+  width: 1.75em;
+  height: 1.75em;
 }
 
 .link .link-icon {

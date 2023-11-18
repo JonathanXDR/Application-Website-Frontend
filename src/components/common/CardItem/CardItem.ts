@@ -5,7 +5,7 @@ import TagBar from '@/components/common/TagBar/TagBar.vue'
 import type { CardItemType } from '@/types/common/CardItem'
 import type { ListUserReposResponse } from '@/types/GitHub/Repository'
 import moment from 'moment'
-import { defineComponent, type PropType } from 'vue'
+import { computed, defineComponent, type PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 export default defineComponent({
   name: 'CardTile',
@@ -22,7 +22,7 @@ export default defineComponent({
       default: () => {}
     },
     variant: {
-      type: String as PropType<'card' | 'tile' | 'article'>,
+      type: String as PropType<'card' | 'article'>,
       required: false,
       default: 'card'
     },
@@ -42,10 +42,25 @@ export default defineComponent({
       required: false,
       default: 'updated'
     },
-    size: {
-      type: String as PropType<'small' | 'large' | 'full'>,
+    iconPosition: {
+      type: String as PropType<'top' | 'right' | 'bottom' | 'left'>,
       required: false,
-      default: 'medium'
+      default: 'left'
+    },
+    iconAlignment: {
+      type: String as PropType<'start' | 'center' | 'end'>,
+      required: false,
+      default: 'top'
+    },
+    size: {
+      type: String as PropType<'large' | 'full'>,
+      required: false,
+      default: 'large'
+    },
+    hover: {
+      type: String as PropType<'auto' | 'true' | 'false'>,
+      required: false,
+      default: 'auto'
     },
     cover: {
       type: String,
@@ -65,6 +80,40 @@ export default defineComponent({
   },
   setup(props) {
     const { locale } = useI18n({ useScope: 'global' })
+    const applyHover = computed(() => {
+      return (
+        (props.hover === 'auto' && props.card.links && props.card.links.length === 1) ||
+        props.hover === 'true'
+      )
+    })
+
+    const getFlexDirection = () => {
+      switch (props.iconPosition) {
+        case 'top':
+          return 'column'
+        case 'right':
+          return 'row-reverse'
+        case 'bottom':
+          return 'column-reverse'
+        case 'left':
+          return 'row'
+        default:
+          return 'row'
+      }
+    }
+
+    const getAlignItems = () => {
+      switch (props.iconAlignment) {
+        case 'start':
+          return 'flex-start'
+        case 'center':
+          return 'center'
+        case 'end':
+          return 'flex-end'
+        default:
+          return 'flex-start'
+      }
+    }
 
     const formatDate = (dateString: string, formatOptions: Intl.DateTimeFormatOptions) => {
       return new Date(dateString).toLocaleDateString(locale.value, formatOptions)
@@ -93,6 +142,11 @@ export default defineComponent({
       }
     }
 
-    return { date: getDate() }
+    return {
+      applyHover,
+      getFlexDirection,
+      getAlignItems,
+      date: getDate()
+    }
   }
 })

@@ -8,7 +8,7 @@
   <LiveResultSummary />
 
   <ul class="card-container">
-    <CardItem v-for="(card, index) in cards" :key="index" :card="card" />
+    <CardItem v-for="(card, index) in cards" :key="index" :card="card" iconPosition="right" />
     <ResultBlankState v-if="!cards" />
   </ul>
 </template>

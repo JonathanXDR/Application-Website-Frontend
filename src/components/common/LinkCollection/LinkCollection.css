@@ -1,3 +1,9 @@
+.links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .links p:first-of-type {
   margin-top: 0.8em;
 }
