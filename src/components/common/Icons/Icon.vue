@@ -82,6 +82,12 @@ export default defineComponent({
   height: 1.25em;
 }
 
+.icon-live-result-summary {
+  margin-right: 4px;
+  width: 1em;
+  height: 1em;
+}
+
 #music .tabnav-paddle-icon {
   width: 0.75em;
   height: 0.75em;

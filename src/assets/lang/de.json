@@ -27,11 +27,6 @@
           "class": "section-separated"
         },
         {
-          "id": "music",
-          "name": "Musik",
-          "route": "/#music"
-        },
-        {
           "id": "technologies",
           "name": "Technologien",
           "route": "/#technologies"
@@ -286,7 +281,7 @@
           "description": "Ich gehe immer Donnerstags zur Berufsschule in Zürich.",
           "links": [
             {
-              "title": "Mehr über TBZ",
+              "title": "Mehr erfahren",
               "url": "https://tbz.ch/",
               "icon": {
                 "name": "chevron.right"
@@ -306,7 +301,7 @@
           "description": "Am Freitag gehe ich jeweils zur Berufsmaturitätsschule in Zürich.",
           "links": [
             {
-              "title": "Mehr über BMZ",
+              "title": "Mehr erfahren",
               "url": "https://bms-zuerich.ch/",
               "icon": {
                 "name": "chevron.right"
@@ -915,6 +910,15 @@
             "SDX",
             "Next.js"
           ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://appsteam.swisscom.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ],
           "date": {
             "from": "2022-08-01",
             "to": "2023-02-01"
@@ -937,6 +941,15 @@
             "GitHub Primer",
             "Fleet Management",
             "Web Frontends"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://appsteam.swisscom.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
           ],
           "date": {
             "from": "2023-02-01",

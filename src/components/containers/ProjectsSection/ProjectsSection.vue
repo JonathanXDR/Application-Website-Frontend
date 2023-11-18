@@ -20,11 +20,16 @@
       />
     </ul>
   </div>
-  <ul v-else class="card-container">
-    <CardItem v-for="(card, index) in currentProjects" :key="index" :card="card" />
-    <ResultBlankState v-if="!currentProjects" />
-  </ul>
-  <!-- <LoadingSpinner v-else class="center-horizontal center-vertical" style="padding-top: 100px" /> -->
+  <div v-else>
+    <div v-if="projects.personal && projects.school">
+      <LiveResultSummary />
+      <ul class="card-container">
+        <CardItem v-for="(card, index) in currentProjects" :key="index" :card="card" />
+        <ResultBlankState v-if="!currentProjects" />
+      </ul>
+    </div>
+    <LoadingSpinner v-else class="center-horizontal center-vertical" style="padding-top: 100px" />
+  </div>
 </template>
 
 <script lang="ts" src="./ProjectsSection.ts"></script>

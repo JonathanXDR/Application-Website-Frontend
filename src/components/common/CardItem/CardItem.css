@@ -61,12 +61,6 @@
   border-radius: 16px;
 }
 
-@media only screen and (max-width: 1250px) {
-  .card.large {
-    border-radius: 12px !important;
-  }
-}
-
 .card {
   overflow: hidden;
   display: block;
@@ -234,24 +228,6 @@
     sans-serif;
 }
 
-@media only screen and (max-width: 1250px) {
-  .large .details {
-    padding: 24px !important;
-    font-size: 0.8235294118rem !important;
-    line-height: 1.2857742857 !important;
-    font-weight: 400 !important;
-    letter-spacing: -0.016em !important;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif !important;
-  }
-}
-
 /* ---------------------------------- body ---------------------------------- */
 
 .full .body {
@@ -319,40 +295,6 @@
     'Arial',
     sans-serif;
   color: var(--color-welcome-featured-card-eyebrow-text);
-}
-
-@media only screen and (max-width: 1250px) {
-  .large .eyebrow {
-    font-size: 0.8235294118rem;
-    line-height: 1.2857742857;
-    font-weight: 600;
-    letter-spacing: -0.016em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif;
-  }
-}
-
-@media only screen and (max-width: 735px) {
-  .full .eyebrow {
-    font-size: 0.8235294118rem;
-    line-height: 1.2857742857;
-    font-weight: 600;
-    letter-spacing: -0.016em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif;
-  }
 }
 
 /* ---------------------------------- title --------------------------------- */
@@ -432,91 +374,6 @@
     'Helvetica',
     'Arial',
     sans-serif;
-}
-
-@media only screen and (max-width: 735px) {
-  .title {
-    font-size: 1rem;
-    line-height: 1.2353641176;
-    font-weight: 600;
-    letter-spacing: -0.024em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif;
-  }
-}
-
-@media only screen and (max-width: 1250px) {
-  .title {
-    font-size: 0.8235294118rem;
-    line-height: 1.2857742857;
-    font-weight: 600;
-    letter-spacing: -0.016em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif;
-  }
-}
-
-@media only screen and (max-width: 735px) {
-  .title {
-    font-size: 1rem;
-    line-height: 1.2353641176;
-    font-weight: 600;
-    letter-spacing: -0.024em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif;
-  }
-}
-
-@media only screen and (max-width: 1250px) {
-  .large .title {
-    font-size: 1rem;
-    line-height: 1.2353641176;
-    font-weight: 600;
-    letter-spacing: -0.024em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif;
-  }
-}
-
-@media only screen and (max-width: 735px) {
-  .full .title {
-    font-size: 1rem;
-    line-height: 1.2353641176;
-    font-weight: 600;
-    letter-spacing: -0.024em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif;
-  }
 }
 
 /* ---------------------------------- link ---------------------------------- */

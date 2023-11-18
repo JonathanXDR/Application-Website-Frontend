@@ -24,7 +24,7 @@
   }
 }
 
-.changed-total:before {
+/* .changed-total:before {
   left: 0;
   background-image: url(https://developer.apple.com/tutorials/img/modified-rounded-icon.d5359e50.svg);
   background-repeat: no-repeat;
@@ -36,9 +36,9 @@
   top: 0;
   width: 1rem;
   height: 1rem;
-}
+} */
 
-@media screen and (prefers-color-scheme: dark) {
+/* @media screen and (prefers-color-scheme: dark) {
   [data-color-scheme='auto'] .changed-total:before {
     background-image: url(https://developer.apple.com/tutorials/img/modified-dark-rounded-icon.21b15694.svg);
   }
@@ -62,7 +62,7 @@
   [data-color-scheme='auto'] .changed-total-deprecated:before {
     background-image: url(https://developer.apple.com/tutorials/img/deprecated-dark-rounded-icon.4363aca1.svg);
   }
-}
+} */
 
 @media only screen and (max-width: 767px) {
   .total {
@@ -123,7 +123,7 @@
 }
 
 .changesnav-totals {
-  border-left: 2px solid var(--color-fill-gray-tertiary);
+  border-left: 1px solid var(--color-fill-gray-tertiary);
   padding-left: 20px;
 }
 
@@ -166,17 +166,17 @@
   }
 }
 
-.changesnav-totals .changed-total:before {
+/* .changesnav-totals .changed-total:before {
   position: relative;
   margin: 0 0.2352941176rem 0 0;
-}
+} */
 
 @media only screen and (max-width: 735px) {
-  .changesnav-totals .changed-total:before {
+  /* .changesnav-totals .changed-total:before {
     margin-right: 3px;
     height: 12px;
     width: 12px;
-  }
+  } */
 
   .changesnav-totals .changed-total:last-child {
     margin-right: 0;

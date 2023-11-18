@@ -2,6 +2,7 @@ import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue'
 import CardItem from '@/components/common/CardItem/CardItem.vue'
 import CardTile from '@/components/common/CardTile/CardTile.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
+import LiveResultSummary from '@/components/common/LiveResultSummary/LiveResultSummary.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import NavBarExtension from '@/components/common/NavBarExtension/NavBarExtension.vue'
 import ResultBlankState from '@/components/common/ResultBlankState/ResultBlankState.vue'
@@ -25,6 +26,7 @@ export default defineComponent({
     ShareSheet,
     CardTile,
     CardItem,
+    LiveResultSummary,
     ResultBlankState,
     ArticleItem,
     SegmentNav,
