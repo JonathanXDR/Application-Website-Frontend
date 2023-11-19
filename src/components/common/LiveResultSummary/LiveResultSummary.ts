@@ -15,7 +15,7 @@ export default defineComponent({
     },
     pinnedResults: {
       type: Number,
-      required: true,
+      required: false,
       default: 0
     }
   },
