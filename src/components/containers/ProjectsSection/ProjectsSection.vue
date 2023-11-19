@@ -23,8 +23,24 @@
   <div v-else>
     <div v-if="projects.personal && projects.school">
       <LiveResultSummary />
+      <ul v-if="pinned" class="card-container pinned-items">
+        <CardItem
+          v-for="(card, index) in pinned"
+          :key="index"
+          :card="card"
+          iconPosition="right"
+          class="pinned"
+          :style="`--color-figure-random: var(--color-figure-${randomColor});
+          --color-fill-random: var(--color-fill-${randomColor}-secondary)`"
+        />
+      </ul>
       <ul class="card-container">
-        <CardItem v-for="(card, index) in currentProjects" :key="index" :card="card" />
+        <CardItem
+          v-for="(card, index) in currentProjects"
+          :key="index"
+          :card="card"
+          iconPosition="right"
+        />
         <ResultBlankState v-if="!currentProjects" />
       </ul>
     </div>

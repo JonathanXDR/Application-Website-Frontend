@@ -3,7 +3,14 @@
     <div class="number-results">Showing 4 results</div>
     <div class="changesnav-totals">
       <div class="changed-total">
-        <Icon name="pin.fill" size="small" class="icon-live-result-summary" />
+        <Icon
+          name="pin.fill"
+          size="small"
+          :colors="{
+            primary: randomColor
+          }"
+          class="icon-live-result-summary"
+        />
         <span>Pinned</span>
         <span class="total"> (4)</span>
       </div>

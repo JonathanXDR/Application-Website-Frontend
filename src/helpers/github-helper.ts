@@ -4,10 +4,17 @@ import type {
   ListUserReposResponse
 } from '@/types/GitHub/Repository'
 import type { ListRepoTagsResponse } from '@/types/GitHub/Tag'
+import { graphql, type GraphQlQueryResponseData } from '@octokit/graphql'
 import { Octokit } from 'octokit'
 
 const octokit = new Octokit({
   auth: import.meta.env.VITE_GITHUB_TOKEN
+})
+
+const graphqlInstance = graphql.defaults({
+  headers: {
+    authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`
+  }
 })
 
 export async function listPublicRepositories(params: {
@@ -107,6 +114,73 @@ export async function listRepositoryTags(params: {
     return response.data
   } catch (error) {
     console.error(`Error fetching tags for repository ${repo}:`, error)
+    throw error
+  }
+}
+
+export async function listPinnedRepositories(params: {
+  username: string
+  perPage?: number
+}): Promise<ListUserReposResponse[]> {
+  const { username, perPage = 30 } = params
+
+  const query = `
+  {
+    user(login: "${username}") {
+      pinnedItems(first: ${perPage}, types: REPOSITORY) {
+        totalCount
+        edges {
+          node {
+            ... on Repository {
+              name
+              description
+              url
+              repositoryTopics(first: ${perPage}) {
+                edges {
+                  node {
+                    topic {
+                      name
+                    }
+                  }
+                }
+              }
+              updatedAt
+              primaryLanguage {
+                name
+              }
+              licenseInfo {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  `
+
+  const remapProps = (item: any) => {
+    const { name, description, url, repositoryTopics, updatedAt, primaryLanguage, licenseInfo } =
+      item
+    return {
+      name,
+      description,
+      html_url: url,
+      topics: repositoryTopics.edges.map((edge: any) => edge.node.topic.name),
+      updated_at: updatedAt,
+      language: primaryLanguage?.name,
+      license: licenseInfo
+    }
+  }
+
+  try {
+    const response = await graphqlInstance<GraphQlQueryResponseData>(query)
+    const pinnedRepositories = response.user.pinnedItems.edges.map((edge: any) =>
+      remapProps(edge.node)
+    )
+    return pinnedRepositories
+  } catch (error) {
+    console.error(`Error fetching pinned repositories for user ${username}:`, error)
     throw error
   }
 }
