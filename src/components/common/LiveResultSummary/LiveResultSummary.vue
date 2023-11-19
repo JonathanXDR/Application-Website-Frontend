@@ -1,8 +1,8 @@
 <template>
   <div id="live-result-summary" class="results">
     <div class="number-results">Showing {{ props.totalResults }} results</div>
-    <div class="changesnav-totals">
-      <div v-if="props.pinnedResults" class="changed-total">
+    <div class="changesnav-totals" v-if="props.pinnedResults">
+      <div class="changed-total">
         <Icon
           name="pin.fill"
           size="small"
