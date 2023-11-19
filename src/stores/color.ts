@@ -20,16 +20,19 @@ export const useColorStore = defineStore('color', () => {
     }
   ])
 
-  const colorBadge = ref<{
-    colorName: string
-    colorVar: string
-    colorHex: string
-  } | null>(null)
+  const colorBadge = ref<
+    | {
+        colorName: string
+        colorVar: string
+        colorHex: string
+      }
+    | undefined
+  >(undefined)
 
   const randomizeColor = () => {
     const randomColor = Math.floor(Math.random() * colorBadgeArray.length)
 
-    if (colorBadge.value === null) {
+    if (colorBadge.value === undefined) {
       colorBadge.value = colorBadgeArray[randomColor]
     }
     return colorBadge.value

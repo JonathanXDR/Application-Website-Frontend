@@ -116,7 +116,14 @@
   line-height: 1.16667;
   font-weight: 600;
   letter-spacing: 0.009em;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
   padding-left: 10px;
   -webkit-transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
   -o-transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
@@ -130,7 +137,14 @@
     line-height: 1.19048;
     font-weight: 600;
     letter-spacing: 0.011em;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif;
   }
 }
 
@@ -238,7 +252,14 @@
   line-height: 1;
   font-weight: 600;
   /* letter-spacing: -0.02em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
   float: right;
   display: flex;
   align-items: center;
@@ -362,27 +383,27 @@
     transition-delay: 0.42s;
   }
 
-  #ac-ln-menustate:checked~#ac-localnav .ac-ln-menu-item:nth-child(1) .ac-ln-menu-link {
+  #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menu-item:nth-child(1) .ac-ln-menu-link {
     transition-delay: 0.56s;
   }
 
-  #ac-ln-menustate:checked~#ac-localnav .ac-ln-menu-item:nth-child(2) .ac-ln-menu-link {
+  #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menu-item:nth-child(2) .ac-ln-menu-link {
     transition-delay: 0.49s;
   }
 
-  #ac-ln-menustate:checked~#ac-localnav .ac-ln-menu-item:nth-child(3) .ac-ln-menu-link {
+  #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menu-item:nth-child(3) .ac-ln-menu-link {
     transition-delay: 0.42s;
   }
 
-  #ac-ln-menustate:checked~#ac-localnav .ac-ln-menu-item:nth-child(4) .ac-ln-menu-link {
+  #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menu-item:nth-child(4) .ac-ln-menu-link {
     transition-delay: 0.35s;
   }
 
-  #ac-ln-menustate:checked~#ac-localnav .ac-ln-menu-item:nth-child(5) .ac-ln-menu-link {
+  #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menu-item:nth-child(5) .ac-ln-menu-link {
     transition-delay: 0.28s;
   }
 
-  #ac-ln-menustate:checked~#ac-localnav .ac-ln-menu-item:nth-child(6) .ac-ln-menu-link {
+  #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menu-item:nth-child(6) .ac-ln-menu-link {
     transition-delay: 0.21s;
   }
 }
@@ -436,7 +457,7 @@
   pointer-events: none;
 }
 
-#ac-ln-menustate:checked~.ac-localnav-dark#ac-localnav .ac-ln-menu-link.current {
+#ac-ln-menustate:checked ~ .ac-localnav-dark#ac-localnav .ac-ln-menu-link.current {
   opacity: 0.56;
 }
 
@@ -565,12 +586,12 @@ a:disabled {
   }
 }
 
-.nav-open~#ac-ln-curtain {
+.nav-open ~ #ac-ln-curtain {
   transition: opacity 1s ease 0.1s !important;
 }
 
 @media only screen and (max-width: 1250px) {
-  .nav-open~#ac-ln-curtain {
+  .nav-open ~ #ac-ln-curtain {
     opacity: 1 !important;
     right: 0 !important;
     bottom: 0 !important;
@@ -651,20 +672,20 @@ input[type='checkbox']#active {
   z-index: 0;
 }
 
-.theme-button input[type='checkbox']:checked+span {
+.theme-button input[type='checkbox']:checked + span {
   background: #000;
 }
 
-.theme-button input[type='checkbox']:active+span {
+.theme-button input[type='checkbox']:active + span {
   opacity: 0.5;
 }
 
-.theme-button input[type='checkbox']:checked+span:before {
+.theme-button input[type='checkbox']:checked + span:before {
   background: #000;
   transform: translate(56px, -19px);
 }
 
-.theme-button input[type='checkbox']:checked+span:after {
+.theme-button input[type='checkbox']:checked + span:after {
   background: #fff;
   transform: translate(79px, 0);
 }

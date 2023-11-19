@@ -1,18 +1,18 @@
-import { defineComponent, getCurrentInstance, onMounted, ref } from 'vue'
+import { defineComponent, getCurrentInstance, onMounted, ref, type Ref } from 'vue'
 
 export default defineComponent({
   name: 'TimeLine',
   setup() {
-    const pathD = ref<string | undefined>(undefined)
-    const ulHeight = ref<number | undefined>(undefined)
-    const viewBox = ref<string | undefined>(undefined)
-    const xmlns = ref<string | undefined>(undefined)
+    const pathD: Ref<string | undefined> = ref(undefined)
+    const ulHeight: Ref<number | undefined> = ref(undefined)
+    const viewBox: Ref<string | undefined> = ref(undefined)
+    const xmlns: Ref<string | undefined> = ref(undefined)
 
-    const strokeDasharray = ref(0)
-    const strokeDashoffset = ref(0)
+    const strokeDasharray: Ref<number | undefined> = ref(undefined)
+    const strokeDashoffset: Ref<number | undefined> = ref(undefined)
 
-    const svg = ref<SVGElement | null>(null)
-    const path = ref<SVGPathElement | null>(null)
+    const svg: Ref<SVGElement | undefined> = ref(undefined)
+    const path: Ref<SVGPathElement | undefined> = ref(undefined)
 
     const initPath = () => {
       const instance = getCurrentInstance()

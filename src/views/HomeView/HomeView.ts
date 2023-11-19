@@ -6,7 +6,7 @@ import ProjectsSection from '@/components/containers/ProjectsSection/ProjectsSec
 import ReferencesSection from '@/components/containers/ReferencesSection/ReferencesSection.vue'
 import TechnologiesSection from '@/components/containers/TechnologiesSection/TechnologiesSection.vue'
 import type { SectionType } from '@/types/common/Section'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -22,7 +22,7 @@ export default defineComponent({
   },
   setup() {
     const { tm } = useI18n()
-    const sections = computed(() => tm('components.common.NavBar') as SectionType[])
+    const sections: Ref<SectionType[]> = computed(() => tm('components.common.NavBar'))
 
     return {
       sections

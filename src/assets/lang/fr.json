@@ -43,11 +43,11 @@
         }
       ],
       "RibbonBar": {
-        "description": "Quoi de neuf dans la version 2.2.1?",
+        "description": "Quoi de neuf dans {latestTag}?",
         "links": [
           {
             "title": "En savoir plus",
-            "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/v2.2.0...v2.2.1",
+            "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/{previousTag}...{latestTag}",
             "icon": {
               "name": "chevron.right"
             }
@@ -57,6 +57,98 @@
       "CardTile": {
         "firstEncounter": "Première rencontre",
         "enhanced": "Élargi"
+      },
+      "FilterNav": {
+        "items": [
+          {
+            "id": "all",
+            "label": "Tout"
+          },
+          {
+            "id": "frameworks",
+            "label": "Frameworks"
+          },
+          {
+            "id": "languages",
+            "label": "Langages"
+          },
+          {
+            "id": "libraries",
+            "label": "Libraries"
+          },
+          {
+            "id": "tools",
+            "label": "Outils"
+          },
+          {
+            "id": "platforms",
+            "label": "Plateformes"
+          },
+          {
+            "id": "databases",
+            "label": "Bases de données"
+          },
+          {
+            "id": "others",
+            "label": "Autres"
+          }
+        ],
+        "sorts": [
+          {
+            "id": "experience",
+            "label": "Expérience"
+          },
+          {
+            "id": "newest",
+            "label": "Plus récent"
+          },
+          {
+            "id": "oldest",
+            "label": "Plus ancien"
+          },
+          {
+            "id": "asc",
+            "label": "Ascendant"
+          },
+          {
+            "id": "desc",
+            "label": "Descendant"
+          }
+        ]
+      },
+      "SegmentNav": {
+        "items": [
+          {
+            "id": "swisscom",
+            "label": "Swisscom"
+          },
+          {
+            "id": "personal",
+            "label": "Personnel"
+          },
+          {
+            "id": "school",
+            "label": "École"
+          }
+        ],
+        "sorts": [
+          {
+            "id": "newest",
+            "label": "Plus récent"
+          },
+          {
+            "id": "oldest",
+            "label": "Plus ancien"
+          },
+          {
+            "id": "asc",
+            "label": "Ascendant"
+          },
+          {
+            "id": "desc",
+            "label": "Descendant"
+          }
+        ]
       },
       "ShareSheet": {
         "links": [
@@ -187,7 +279,10 @@
       "other": [
         {
           "title": "Ecole professionnelle technique de Zurich",
-          "date": "Jeudi",
+          "date": {
+            "from": "Jeudi",
+            "to": ""
+          },
           "description": "Je vais à l'école professionnelle technique de Zurich tous les jeudis.",
           "links": [
             {
@@ -204,7 +299,10 @@
         },
         {
           "title": "Ecole de maturité professionnelle de Zurich",
-          "date": "Vendredi",
+          "date": {
+            "from": "Vendredi",
+            "to": ""
+          },
           "description": "Le vendredi, je vais à l'école de maturité professionnelle de Zurich.",
           "links": [
             {
@@ -377,7 +475,10 @@
       "projects": [
         {
           "title": "Premiers pas de NEX",
-          "date": "Août 2021",
+          "date": {
+            "from": "Août 2021",
+            "to": ""
+          },
           "description": "Dans les Premiers pas, mon apprentissage a commencé. J'ai appris tout ce qui concerne Swisscom, par exemple comment utiliser les différents outils, comment travailler correctement ensemble et d'autres choses comme la sécurité au travail.",
           "icon": {
             "name": "airplane.departure"
@@ -385,7 +486,10 @@
         },
         {
           "title": "Competence Center NexCC",
-          "date": "Août 2021 - Janvier 2022",
+          "date": {
+            "from": "Août 2021 - Janvier 2022",
+            "to": ""
+          },
           "description": "Au NexCC, j'ai d'abord créé ce site Web ici et j'ai appris de nouveaux langages de programmation. Cela inclut HTML, CSS et JavaScript. Ensuite, j'ai créé une application CRUD que j'ai liée à une base de données SQL. Plus tard, j'ai ajouté un front-end et créé mon propre système de connexion. J'ai surtout appris le backend et les langages de programmation basés sur des frameworks tels que Node.js, Express.js ou Vue.js.",
           "icon": {
             "name": "chevron.left.forwardslash.chevron.right"
@@ -393,7 +497,10 @@
         },
         {
           "title": "Projets d'automatisation dans le domaine bancaire",
-          "date": "Février 2022 - Juillet 2022",
+          "date": {
+            "from": "Février 2022 - Juillet 2022",
+            "to": ""
+          },
           "description": "Ici, j'ai eu un aperçu général de l'automatisation et de son environnement. J'ai participé activement et j'ai appris à tester ou à automatiser les banques individuelles. J'ai également appris un peu de C# et en savoir plus sur le .Net Framework. Mon objectif est cependant de l'améliorer à l'avenir!",
           "icon": {
             "name": "clock.arrow.2.circlepath"
@@ -401,7 +508,10 @@
         },
         {
           "title": "Apps Team Frontend",
-          "date": "Août 2022 - Janvier 2023",
+          "date": {
+            "from": "Août 2022 - Janvier 2023",
+            "to": ""
+          },
           "description": "Dans le Apps Team, j'ai d'abord créé une application Memory avec Vue.js, TypeScript et SDX. Actuellement, je participe au développement du nouveau site Web de l'équipe d'applications. Nous utilisons également TypeScript et SDX, mais utilisons Next.js comme framework.",
           "icon": {
             "name": "display",
@@ -412,7 +522,10 @@
         },
         {
           "title": "Apps Team Backend",
-          "date": "Février 2023 - Août 2023",
+          "date": {
+            "from": "Février 2023 - Août 2023",
+            "to": ""
+          },
           "description": "Après avoir travaillé au sein de l'équipe Apps en tant que développeur front-end, j'ai voulu me familiariser avec le back-end. J'ai d'abord pu créer ma propre application CRUD. J'ai pu apprendre beaucoup de choses nouvelles sur Nest.js et les deux ORM Prisma et TypeORM, et j'ai ainsi acquis une expérience précieuse. Plus tard, j'ai également créé un front-end pour mon application CRUD avec GitHub Primer. Ensuite, j'ai aidé à l'élaboration de l'outil pour les cours médias, où j'ai pu ajouter quelques fonctionnalités et corriger des erreurs. Enfin, j'ai pu participer à l'outil de gestion de parc et aux nouveaux frontaux web, ce qui m'a beaucoup plu :)",
           "icon": {
             "name": "gear"
@@ -420,7 +533,10 @@
         },
         {
           "title": "Security Journey - Development Stream",
-          "date": "Septembre 2023 - août 2024",
+          "date": {
+            "from": "Septembre 2023 - août 2024",
+            "to": ""
+          },
           "description": "Dans ce projet, j'ai commencé par quelques formations sur le cloud et la sécurité, ce qui a été assez instructif pour moi. Ensuite, j'ai pu travailler sur mon projet actuel, un outil qui enregistre les activités des bases de données (Database Activity Monitoring). J'y utilise Python, Docker et Kubernetes, même si Python est nouveau pour moi.",
           "icon": {
             "name": "shield.lefthalf.filled"

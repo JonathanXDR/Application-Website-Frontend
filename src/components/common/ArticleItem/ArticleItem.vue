@@ -10,9 +10,17 @@
       <Icon :name="article.icon.name" :colors="article.icon.colors" class="icon-article" />
     </div>
 
-    <div>
-      <h2>{{ article.title }}</h2>
-      <p class="article-date">{{ article.date }}</p>
+    <div class="padding-left-small">
+      <h2>{{ article.title || article.name }}</h2>
+      <p v-if="article.date" class="article-date">
+        {{
+          formattedDateRange ||
+          new Date(article.updated_at).toLocaleDateString(`${locale.value}-CH`, {
+            year: 'numeric',
+            month: 'long'
+          })
+        }}
+      </p>
       <p>
         {{ article.description }}
       </p>

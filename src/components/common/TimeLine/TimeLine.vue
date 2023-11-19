@@ -1,11 +1,5 @@
 <template>
-  <svg
-    ref="svg"
-    class="svg-timeline"
-    :viewBox="viewBox"
-    :xmlns="xmlns"
-    :height="ulHeight"
-  >
+  <svg ref="svg" class="svg-timeline" :viewBox="viewBox" :xmlns="xmlns" :height="ulHeight">
     <path
       ref="path"
       class="path-timeline"

@@ -222,7 +222,14 @@
   line-height: 1.1428571429;
   font-weight: 700;
   letter-spacing: 0em;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
   min-width: 26px;
   padding: 12px 22px;
   background: var(--color-fill);
@@ -233,11 +240,6 @@
 .marquee-cta:hover {
   text-decoration: none;
 }
-
-/* .marquee-cta:focus {
-  box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.6);
-  outline: none;
-} */
 
 .marquee-cta:active {
   outline: none;
@@ -275,7 +277,14 @@
     line-height: 1.1428571429;
     font-weight: 700;
     letter-spacing: 0em;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif;
     min-width: 28px;
     padding: 8px 10px 8px 11px;
   }
@@ -381,7 +390,14 @@
   line-height: 1.2857742857;
   font-weight: 400;
   letter-spacing: -0.016em;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
   margin-top: 10px;
 }
 
@@ -391,7 +407,14 @@
     line-height: 1.3333733333;
     font-weight: 400;
     letter-spacing: -0.01em;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif;
   }
 }
 

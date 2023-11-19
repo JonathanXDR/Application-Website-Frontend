@@ -43,11 +43,11 @@
         }
       ],
       "RibbonBar": {
-        "description": "What's new in version 2.2.1?",
+        "description": "What's new in {latestTag}?",
         "links": [
           {
             "title": "Learn more",
-            "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/v2.2.0...v2.2.1",
+            "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/{previousTag}...{latestTag}",
             "icon": {
               "name": "chevron.right"
             }
@@ -57,6 +57,98 @@
       "CardTile": {
         "firstEncounter": "First Encounter",
         "enhanced": "Enhanced"
+      },
+      "FilterNav": {
+        "items": [
+          {
+            "id": "all",
+            "label": "All"
+          },
+          {
+            "id": "frameworks",
+            "label": "Frameworks"
+          },
+          {
+            "id": "languages",
+            "label": "Languages"
+          },
+          {
+            "id": "libraries",
+            "label": "Libraries"
+          },
+          {
+            "id": "tools",
+            "label": "Tools"
+          },
+          {
+            "id": "platforms",
+            "label": "Platforms"
+          },
+          {
+            "id": "databases",
+            "label": "Databases"
+          },
+          {
+            "id": "others",
+            "label": "Others"
+          }
+        ],
+        "sorts": [
+          {
+            "id": "experience",
+            "label": "Experience"
+          },
+          {
+            "id": "newest",
+            "label": "Newest"
+          },
+          {
+            "id": "oldest",
+            "label": "Oldest"
+          },
+          {
+            "id": "asc",
+            "label": "Ascending"
+          },
+          {
+            "id": "desc",
+            "label": "Descending"
+          }
+        ]
+      },
+      "SegmentNav": {
+        "items": [
+          {
+            "id": "swisscom",
+            "label": "Swisscom"
+          },
+          {
+            "id": "personal",
+            "label": "Personal"
+          },
+          {
+            "id": "school",
+            "label": "School"
+          }
+        ],
+        "sorts": [
+          {
+            "id": "newest",
+            "label": "Newest"
+          },
+          {
+            "id": "oldest",
+            "label": "Oldest"
+          },
+          {
+            "id": "asc",
+            "label": "Ascending"
+          },
+          {
+            "id": "desc",
+            "label": "Descending"
+          }
+        ]
       },
       "ShareSheet": {
         "links": [
@@ -187,7 +279,10 @@
       "other": [
         {
           "title": "Technical Vocational School Zurich",
-          "date": "Thursday",
+          "date": {
+            "from": "Thursday",
+            "to": ""
+          },
           "description": "I always go to the vocational school in Zurich on Thursdays.",
           "links": [
             {
@@ -204,7 +299,10 @@
         },
         {
           "title": "Vocational Maturity School Zurich",
-          "date": "Friday",
+          "date": {
+            "from": "Friday",
+            "to": ""
+          },
           "description": "On Friday I go to the vocational maturity school in Zurich.",
           "links": [
             {
@@ -377,7 +475,10 @@
       "projects": [
         {
           "title": "NEX First Steps",
-          "date": "August 2021",
+          "date": {
+            "from": "August 2021",
+            "to": ""
+          },
           "description": "In the First Steps, my apprenticeship began. There I learned everything about Swisscom, such as how to use the various tools, how to work properly together and other things such as safety at work.",
           "icon": {
             "name": "airplane.departure"
@@ -385,7 +486,10 @@
         },
         {
           "title": "Competence Center NexCC",
-          "date": "August 2021 - January 2022",
+          "date": {
+            "from": "August 2021 - January 2022",
+            "to": ""
+          },
           "description": "In NexCC, I was initially allowed to create this website here and learned many new programming languages in the process. Including HTML, CSS and JavaScript. Afterwards, I was allowed to create a CRUD app, which I connected to a SQL database. Later, I also added a frontend and created my own login system. I mainly learned the backend and framework-based programming languages such as Node.js, Express.js or Vue.js.",
           "icon": {
             "name": "chevron.left.forwardslash.chevron.right"
@@ -393,7 +497,10 @@
         },
         {
           "title": "Automation projects in the banking sector",
-          "date": "February 2022 - July 2022",
+          "date": {
+            "from": "February 2022 - July 2022",
+            "to": ""
+          },
           "description": "Here I was given a general overview of automation and its environment. I was actively involved and learned how to test and automate individual banks. I also learned a little C# and more about the .Net Framework. However, my goal is to improve that in the future!",
           "icon": {
             "name": "clock.arrow.2.circlepath"
@@ -401,7 +508,10 @@
         },
         {
           "title": "Apps Team Frontend",
-          "date": "August 2022 - January 2023",
+          "date": {
+            "from": "August 2022 - January 2023",
+            "to": ""
+          },
           "description": "In the Apps Team, I was initially allowed to create my own Memory App with Vue.js, TypeScript and SDX. Currently, I am helping to program the new Apps Team website. We are also working with TypeScript and SDX there, but use Next.js as a framework.",
           "icon": {
             "name": "display",
@@ -412,7 +522,10 @@
         },
         {
           "title": "Apps Team Backend",
-          "date": "February 2023 - August 2023",
+          "date": {
+            "from": "February 2023 - August 2023",
+            "to": ""
+          },
           "description": "After already working in the Apps team as a frontend developer, I now wanted to get to know the backend better. First I was allowed to create my own CRUD app. I was able to learn a lot of new things about Nest.js and the two ORMs Prisma and TypeORM and gained valuable experience. Later, I also created a frontend for my CRUD app using GitHub Primer. After that, I then helped with the tool for media courses and was able to add some features and fix bugs there. Finally, I was also allowed to contribute to the fleet management tool and the new web frontends, which I really enjoyed :)",
           "icon": {
             "name": "gear"
@@ -420,7 +533,10 @@
         },
         {
           "title": "Security Journey - Development Stream",
-          "date": "September 2023 - August 2024",
+          "date": {
+            "from": "September 2023 - August 2024",
+            "to": ""
+          },
           "description": "In this project, I started with some trainings on Cloud & Security, which was quite educational for me. After that, I was already allowed to work on my current project, a tool that records database activities (Database Activity Monitoring). There I use Python, Docker and Kubernetes, whereas Python is new for me.",
           "icon": {
             "name": "shield.lefthalf.filled"

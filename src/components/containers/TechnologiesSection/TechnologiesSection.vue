@@ -1,7 +1,15 @@
 <template>
-  <h3 class="typography-magical-headline">{{ props.title }}</h3>
-  <ul class="item-container">
-    <CardTile v-for="(card, index) in cards" :key="index" :card="card" />
+  <h3 class="typography-magical-headline" style="padding-bottom: 50px">{{ props.title }}</h3>
+  <!-- <FilterNav style="margin: 52px 0" /> -->
+  <NavBarExtension>
+    <FilterInput />
+  </NavBarExtension>
+
+  <LiveResultSummary :totalResults="cards.length" />
+
+  <ul class="card-container">
+    <CardItem v-for="(card, index) in cards" :key="index" :card="card" iconPosition="right" />
+    <ResultBlankState v-if="!cards" />
   </ul>
 </template>
 

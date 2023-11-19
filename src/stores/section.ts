@@ -3,8 +3,8 @@ import { reactive } from 'vue'
 
 export const useSectionStore = defineStore('section', () => {
   const state = reactive({
-    currentSectionName: null as string | null,
-    currentSectionIndex: null as number | null
+    currentSectionName: undefined as string | undefined,
+    currentSectionIndex: undefined as number | undefined
   })
 
   const setCurrentSection = (sectionName: string, sectionIndex: number) => {

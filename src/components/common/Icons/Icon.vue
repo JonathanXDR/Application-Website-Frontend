@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, reactive } from 'vue'
+import { computed, defineComponent, reactive, type PropType } from 'vue'
 
 export default defineComponent({
   name: 'Icon',
@@ -16,29 +16,18 @@ export default defineComponent({
       default: undefined
     },
     size: {
-      type: String,
+      type: String as PropType<'small' | 'large' | 'full'>,
       required: false,
-      default: 'medium',
-      validator: (value: string): boolean => ['small', 'medium', 'large'].includes(value)
+      default: 'medium'
     },
     colors: {
-      type: Object,
+      type: Object as PropType<{ primary?: string; secondary?: string; tertiary?: string }>,
       required: false,
       default: () => ({
         primary: 'currentColor',
         secondary: 'currentColor',
         tertiary: 'currentColor'
-      }),
-      validator(value: { primary?: string; secondary?: string; tertiary?: string }): boolean {
-        const isValidColor = (color: string | undefined): boolean => {
-          return typeof color === 'string' || color === undefined
-        }
-        return (
-          isValidColor(value.primary) &&
-          isValidColor(value.secondary) &&
-          isValidColor(value.tertiary)
-        )
-      }
+      })
     }
   },
   setup(props) {
@@ -83,10 +72,20 @@ export default defineComponent({
   }
 }
 
-.icon-article,
+.icon-dropdown {
+  width: 0.5em;
+  height: 0.5em;
+}
+
 .icon-cta {
   width: 1.25em;
   height: 1.25em;
+}
+
+.icon-live-result-summary {
+  margin-right: 4px;
+  width: 1em;
+  height: 1em;
 }
 
 #music .tabnav-paddle-icon {
@@ -105,8 +104,8 @@ export default defineComponent({
 }
 
 .icon-article {
-  width: 1.25em;
-  height: 1.25em;
+  width: 1.75em;
+  height: 1.75em;
 }
 
 .link .link-icon {

@@ -4,8 +4,10 @@
   height: 300px;
   position: relative;
   background-color: var(--color-fill);
-  border-radius: 18px;
-  transition: box-shadow, transform 0.16s ease-out;
+  border-radius: 30px;
+  transition:
+    box-shadow,
+    transform 0.16s ease-out;
 }
 
 .tile:hover {
@@ -63,7 +65,14 @@
   line-height: 1.1666666667;
   font-weight: 600;
   /* letter-spacing: 0.009em; */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 
 @media screen and (min-width: 900px) {
@@ -144,12 +153,12 @@
   display: none;
 }
 
-.tile-overlay-toggle:checked~.tile-overlay .tile-button {
+.tile-overlay-toggle:checked ~ .tile-overlay .tile-button {
   transform: rotate(45deg);
   transition: transform 0.5s ease-in-out;
 }
 
-.tile-overlay-toggle:checked~.tile-overlay .tile-overlay-content {
+.tile-overlay-toggle:checked ~ .tile-overlay .tile-overlay-content {
   opacity: 1;
   visibility: visible;
 }
@@ -226,5 +235,5 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease-in-out;
-  border-radius: 18px;
+  border-radius: 30px;
 }

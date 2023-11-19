@@ -1,7 +1,16 @@
 <template>
   <h2>{{ props.title }}</h2>
   <ul class="grid">
-    <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" />
+    <!-- <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" /> -->
+    <CardItem
+      variant="article"
+      v-for="(article, index) in articles"
+      :key="index"
+      :card="article"
+      :dateFormatOptions="{
+        weekday: 'long'
+      }"
+    />
   </ul>
 </template>
 

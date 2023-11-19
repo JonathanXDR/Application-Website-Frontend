@@ -1,6 +1,6 @@
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import type { FaLinkType } from '@/types/common/FaLink'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -10,7 +10,7 @@ export default defineComponent({
   },
   setup() {
     const { tm } = useI18n()
-    const links = computed(() => tm('components.common.ShareSheet.links') as FaLinkType[])
+    const links: Ref<FaLinkType[]> = computed(() => tm('components.common.ShareSheet.links'))
 
     return {
       tm,
