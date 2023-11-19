@@ -1,6 +1,5 @@
-import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue'
 import CardItem from '@/components/common/CardItem/CardItem.vue'
-import CardTile from '@/components/common/CardTile/CardTile.vue'
+
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import LiveResultSummary from '@/components/common/LiveResultSummary/LiveResultSummary.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
@@ -12,7 +11,7 @@ import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import { listPinnedRepositories, listUserRepositories } from '@/helpers/github-helper'
 import { useColorStore } from '@/stores/color'
-import type { ArticleItemType } from '@/types/common/ArticleItem'
+import type { CardItemType } from '@/types/common/CardItem'
 import type { ListUserReposResponse } from '@/types/GitHub/Repository'
 import { computed, defineComponent, onMounted, reactive, ref, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -25,11 +24,9 @@ export default defineComponent({
     NavBarExtension,
     LinkCollection,
     ShareSheet,
-    CardTile,
     CardItem,
     LiveResultSummary,
     ResultBlankState,
-    ArticleItem,
     SegmentNav,
     TimeLine
   },
@@ -43,9 +40,9 @@ export default defineComponent({
   async setup(props) {
     const { tm } = useI18n()
     const colorStore = useColorStore()
-    const articles: Ref<ArticleItemType[]> = computed(() => tm('components.containers.projects'))
+    const articles: Ref<CardItemType[]> = computed(() => tm('components.containers.projects'))
     const projects = reactive({
-      swisscom: computed(() => tm('components.containers.projects')) as Ref<ArticleItemType[]>,
+      swisscom: computed(() => tm('components.containers.projects')) as Ref<CardItemType[]>,
       personal: [] as ListUserReposResponse[],
       school: [] as ListUserReposResponse[]
     })

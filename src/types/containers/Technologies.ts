@@ -1,6 +1,6 @@
-import type { ArticleItemType } from '../common/ArticleItem'
+import type { CardItemType } from '../common/CardItem'
 import type { CardTileType } from '../common/CardTile'
 
-export type Technologies = ArticleItemType & {
+export type Technologies = CardItemType & {
   technologies: CardTileType[]
 }

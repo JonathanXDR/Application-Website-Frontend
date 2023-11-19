@@ -1,5 +1,3 @@
-import ArticleItem from '@/components/common/ArticleItem/ArticleItem.vue'
-import CardTile from '@/components/common/CardTile/CardTile.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import RibbonBar from '@/components/common/RibbonBar/RibbonBar.vue'
@@ -17,8 +15,6 @@ export default defineComponent({
     RibbonBar,
     LinkCollection,
     ShareSheet,
-    CardTile,
-    ArticleItem,
     TimeLine
   },
   props: {
