@@ -1,4 +1,4 @@
-import type { CardTileType } from './CardTile'
+import type { CardItemType } from './CardItem'
 import type { RibbonBar } from './RibbonBar'
 import type { SectionType } from './Section'
 import type { ShareSheet } from './ShareSheet'
@@ -6,7 +6,7 @@ import type { ShareSheet } from './ShareSheet'
 export type CommonComponents = {
   NavBar: SectionType[]
   RibbonBar: RibbonBar
-  CardTile: CardTileType
+  CardTile: CardItemType
   ShareSheet: ShareSheet
   FooterItem: {
     chooseYourLanguage: string
