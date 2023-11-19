@@ -58,7 +58,7 @@
         "firstEncounter": "First Encounter",
         "enhanced": "Enhanced"
       },
-      "FilterNav": {
+      "FilterInput": {
         "items": [
           {
             "id": "all",
@@ -195,7 +195,6 @@
         "eyebrow": "Hey ;)",
         "title": "I'm Jonathan",
         "description": "Hello, my name is Jonathan and I am {age} years old. Currently, I am in the {apprenticeshipYear} year of apprenticeship as a computer scientist - application development. I live in Egg near Einsiedeln in the canton of Schwyz. I am very fascinated by programming and find it exciting what can be achieved with it. In my free time I like to play computer and console games and often meet up with friends. I also listen to music often and sometimes produce it myself.",
-        "links": [],
         "dates": [
           {
             "title": "Age",
@@ -230,7 +229,6 @@
         {
           "title": "Steve Hess",
           "description": "Mentor & Supervisor",
-          "links": [],
           "icon": {
             "name": "person.crop.square"
           }
@@ -254,7 +252,6 @@
         {
           "title": "Alessio Iantosca",
           "description": "Project provider for automation projects in the banking sector",
-          "links": [],
           "icon": {
             "name": "person.crop.square"
           }
@@ -262,7 +259,6 @@
         {
           "title": "Carlo Schmid",
           "description": "Project provider in Apps Team Frontend",
-          "links": [],
           "icon": {
             "name": "person.crop.square"
           }
@@ -270,7 +266,6 @@
         {
           "title": "Kim Eggler",
           "description": "Project provider in Apps Team Backend",
-          "links": [],
           "icon": {
             "name": "person.crop.square"
           }
@@ -549,7 +544,6 @@
     "notFound": {
       "title": "Not Found.",
       "description": "The page you're looking for can't be found. Please check it and try again.",
-      "links": [],
       "icon": {
         "name": "exclamationmark.triangle.fill",
         "colors": {
@@ -561,7 +555,6 @@
     "error": {
       "title": "Error.",
       "description": "Something went wrong. Check back soon if the issue persists.",
-      "links": [],
       "icon": {
         "name": "exclamationmark.octagon.fill",
         "colors": {
@@ -573,7 +566,6 @@
     "maintenance": {
       "title": "Be right back.",
       "description": "I'm making updates to the page. Check back soon.",
-      "links": [],
       "icon": {
         "name": "wrench.and.screwdriver.fill",
         "colors": {

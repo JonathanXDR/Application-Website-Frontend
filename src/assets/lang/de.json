@@ -53,7 +53,7 @@
         "firstEncounter": "Erstbegegnung",
         "enhanced": "Erweitert"
       },
-      "FilterNav": {
+      "FilterInput": {
         "items": [
           {
             "id": "all",
@@ -190,7 +190,6 @@
         "eyebrow": "Hey ;)",
         "title": "I'm Jonathan",
         "description": "Hallo mein Name ist Jonathan und ich bin {age} Jahre alt. Aktuell bin ich im {apprenticeshipYear}. Lehrjahr als Informatiker - Applikationsentwicklung. Ich wohne in Egg bei Einsiedeln im Kanton Schwyz. Das Programmieren fasziniert mich sehr und ich finde es spannend, was man damit alles erreichen kann. In meiner Freizeit spiele ich gerne Computer -und Konsolenspiele und treffe mich oft mit Freunden. Ausserdem höre ich häufig Musik und produziere sie auch manchmal selbst.",
-        "links": [],
         "dates": [
           {
             "title": "Jahre",
@@ -223,16 +222,19 @@
       ],
       "references": [
         {
-          "title": "Steve Hess",
-          "description": "Lernbegleiter & Vorgesetzter",
-          "links": [],
           "icon": {
             "name": "person.crop.square"
-          }
+          },
+          "title": "Steve Hess",
+          "description": "Lernbegleiter & Vorgesetzter"
         },
         {
+          "icon": {
+            "name": "person.crop.square"
+          },
+          "eyebrow": "Projektanbieter",
           "title": "Nick Zimmermann",
-          "description": "Projektanbieter in Competence Center NexCC",
+          "description": " Competence Center NexCC",
           "links": [
             {
               "title": "Mehr erfahren",
@@ -241,34 +243,31 @@
                 "name": "chevron.right"
               }
             }
-          ],
-          "icon": {
-            "name": "person.crop.square"
-          }
+          ]
         },
         {
+          "icon": {
+            "name": "person.crop.square"
+          },
+          "eyebrow": "Projektanbieter",
           "title": "Alessio Iantosca",
-          "description": "Projektanbieter bei Automatisierungsprojekten im Banking Bereich",
-          "links": [],
-          "icon": {
-            "name": "person.crop.square"
-          }
+          "description": "Automatisierungsprojekte im Banking Bereich"
         },
         {
+          "icon": {
+            "name": "person.crop.square"
+          },
+          "eyebrow": "Projektanbieter",
           "title": "Carlo Schmid",
-          "description": "Projektanbieter im Apps Team Frontend",
-          "links": [],
-          "icon": {
-            "name": "person.crop.square"
-          }
+          "description": " Apps Team Frontend"
         },
         {
-          "title": "Kim Eggler",
-          "description": "Projektanbieter im Apps Team Backend",
-          "links": [],
           "icon": {
             "name": "person.crop.square"
-          }
+          },
+          "eyebrow": "Projektanbieter",
+          "title": "Kim Eggler",
+          "description": "Apps Team Backend"
         }
       ],
       "other": [

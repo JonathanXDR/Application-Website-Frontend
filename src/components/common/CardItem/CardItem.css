@@ -61,8 +61,8 @@
   border-radius: 16px;
 }
 
-.card.pinned {
-  border: 1px solid var(--color-figure-random) !important;
+.card.color {
+  border: 1px solid var(--color-figure) !important;
 }
 
 .card {
@@ -92,9 +92,9 @@
   border-color: var(--color-figure-blue);
 }
 
-.card.pinned:hover {
-  background-color: var(--color-fill-random) !important;
-  border-color: var(--color-figure-random) !important;
+.card.color:hover {
+  background-color: var(--color-fill) !important;
+  border-color: var(--color-figure) !important;
 }
 
 .card:hover .link {

@@ -1,6 +1,5 @@
 <template>
   <h3 class="typography-magical-headline" style="padding-bottom: 50px">{{ props.title }}</h3>
-  <!-- <FilterNav style="margin: 52px 0" /> -->
   <NavBarExtension>
     <FilterInput />
   </NavBarExtension>

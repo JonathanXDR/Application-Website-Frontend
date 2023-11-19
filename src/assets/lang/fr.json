@@ -58,7 +58,7 @@
         "firstEncounter": "Première rencontre",
         "enhanced": "Élargi"
       },
-      "FilterNav": {
+      "FilterInput": {
         "items": [
           {
             "id": "all",
@@ -195,7 +195,6 @@
         "eyebrow": "Hey ;)",
         "title": "Je suis Jonathan",
         "description": "Bonjour, je m'appelle Jonathan et j'ai {age} ans. Actuellement, je suis en {apprenticeshipYear} année d'apprentissage d'informaticien - développement d'applications. Je vis à Egg près d'Einsiedeln dans le canton de Schwyz. Je suis très fasciné par la programmation et je trouve passionnant ce qu'on peut en faire. Dans mon temps libre, j'aime jouer à des jeux informatiques et de console et je rencontre souvent des amis. J'écoute également souvent de la musique et parfois je la produis moi-même.",
-        "links": [],
         "dates": [
           {
             "title": "Âge",
@@ -230,7 +229,6 @@
         {
           "title": "Steve Hess",
           "description": "Tuteur & supérieur",
-          "links": [],
           "icon": {
             "name": "person.crop.square"
           }
@@ -254,7 +252,6 @@
         {
           "title": "Alessio Iantosca",
           "description": "Fournisseur de projet pour les projets d'automatisation dans le domaine bancaire",
-          "links": [],
           "icon": {
             "name": "person.crop.square"
           }
@@ -262,7 +259,6 @@
         {
           "title": "Carlo Schmid",
           "description": "Fournisseur de projet dans Apps Team Frontend",
-          "links": [],
           "icon": {
             "name": "person.crop.square"
           }
@@ -270,7 +266,6 @@
         {
           "title": "Kim Eggler",
           "description": "Fournisseur de projet dans Apps Team Backend",
-          "links": [],
           "icon": {
             "name": "person.crop.square"
           }
@@ -549,7 +544,6 @@
     "notFound": {
       "title": "Not Found.",
       "description": "La page que tu cherches ne peut pas être trouvée. Vérifie-le et essaie à nouveau.",
-      "links": [],
       "icon": {
         "name": "exclamationmark.triangle.fill",
         "colors": {
@@ -561,7 +555,6 @@
     "error": {
       "title": "Error.",
       "description": "Quelque chose a mal tourné. Vérifie à nouveau bientôt si le problème persiste.",
-      "links": [],
       "icon": {
         "name": "exclamationmark.octagon.fill",
         "colors": {
@@ -573,7 +566,6 @@
     "maintenance": {
       "title": "Be right back.",
       "description": "Je fais des mises à jour sur la page. Vérifie à nouveau bientôt.",
-      "links": [],
       "icon": {
         "name": "wrench.and.screwdriver.fill",
         "colors": {

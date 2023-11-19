@@ -32,9 +32,9 @@
           :key="index"
           :card="card"
           iconPosition="right"
-          class="pinned"
-          :style="`--color-figure-random: var(--color-figure-${randomColor});
-          --color-fill-random: var(--color-fill-${randomColor}-secondary)`"
+          class="color"
+          :style="`--color-figure: var(--color-figure-${randomColor});
+          --color-fill: var(--color-fill-${randomColor}-secondary)`"
         />
       </ul>
       <ul class="card-container">
