@@ -5,7 +5,7 @@
     <FilterInput />
   </NavBarExtension>
 
-  <LiveResultSummary />
+  <LiveResultSummary :totalResults="cards.length" />
 
   <ul class="card-container">
     <CardItem v-for="(card, index) in cards" :key="index" :card="card" iconPosition="right" />

@@ -7,11 +7,24 @@ export default defineComponent({
   components: {
     Icon
   },
-  setup() {
+  props: {
+    totalResults: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    pinnedResults: {
+      type: Number,
+      required: true,
+      default: 0
+    }
+  },
+  setup(props) {
     const colorStore = useColorStore()
     const randomColor = ref(colorStore.randomizeColor().colorVar)
     return {
-      randomColor
+      randomColor,
+      props
     }
   }
 })

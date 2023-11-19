@@ -1,8 +1,8 @@
 <template>
   <div id="live-result-summary" class="results">
-    <div class="number-results">Showing 4 results</div>
+    <div class="number-results">Showing {{ props.totalResults }} results</div>
     <div class="changesnav-totals">
-      <div class="changed-total">
+      <div v-if="props.pinnedResults" class="changed-total">
         <Icon
           name="pin.fill"
           size="small"
@@ -12,7 +12,7 @@
           class="icon-live-result-summary"
         />
         <span>Pinned</span>
-        <span class="total"> (4)</span>
+        <span class="total"> ({{ props.pinnedResults }})</span>
       </div>
       <!-- <div class="changed-total changed-total-modified">
         <span>Modified</span><span class="total"> (4)</span>

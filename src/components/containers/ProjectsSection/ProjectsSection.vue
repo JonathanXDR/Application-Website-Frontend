@@ -22,7 +22,10 @@
   </div>
   <div v-else>
     <div v-if="projects.personal && projects.school">
-      <LiveResultSummary />
+      <LiveResultSummary
+        :totalResults="currentProjects.length + pinned.length"
+        :pinnedResults="pinned.length"
+      />
       <ul v-if="pinned" class="card-container pinned-items">
         <CardItem
           v-for="(card, index) in pinned"
