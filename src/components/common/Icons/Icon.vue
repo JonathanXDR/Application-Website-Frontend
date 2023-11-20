@@ -88,18 +88,18 @@ export default defineComponent({
   height: 1em;
 }
 
-#music .tabnav-paddle-icon {
+.tabnav-paddle-icon {
   width: 0.75em;
   height: 0.75em;
   opacity: 0.8;
   transition: opacity 200ms linear;
 }
 
-#music .tabnav-paddle-left .tabnav-paddle-icon {
+.tabnav-paddle-left .tabnav-paddle-icon {
   margin-left: -0.5px;
 }
 
-#music .tabnav-paddle-right .tabnav-paddle-icon {
+.tabnav-paddle-right .tabnav-paddle-icon {
   margin-right: -0.5px;
 }
 
