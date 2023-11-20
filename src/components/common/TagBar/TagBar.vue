@@ -3,7 +3,7 @@
     <div class="scroll-wrapper">
       <ul id="suggested-tags-tags">
         <li v-for="(tag, index) in tags" :key="index" class="tag">
-          <button>{{ tag.title || tag }}</button>
+          <button>{{ tag }}</button>
         </li>
       </ul>
     </div>

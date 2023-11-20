@@ -18,9 +18,7 @@ export default defineComponent({
     const segmentNavItems: Ref<OptionType[]> = computed(() =>
       tm('components.common.SegmentNav.items')
     )
-    const sortOptions: Ref<OptionType[]> = computed(() =>
-      tm('components.common.SegmentNav.sorts')
-    )
+    const sortOptions: Ref<OptionType[]> = computed(() => tm('components.common.SegmentNav.sorts'))
     const currentIndex: Ref<number> = ref(props.index)
     const loading: Ref<boolean> = ref(true)
     const segmentNavEl: Ref<HTMLUListElement | null> = ref(null)
@@ -28,12 +26,12 @@ export default defineComponent({
 
     const selectionStyle = computed(() => {
       const segment = segments.value.get(currentIndex.value)
-      return segment
-        ? {
-            width: `${segment.offsetWidth}px`,
-            transform: `translateX(${segment.offsetLeft}px)`
-          }
-        : {}
+      return (
+        segment && {
+          width: `${segment.offsetWidth}px`,
+          transform: `translateX(${segment.offsetLeft}px)`
+        }
+      )
     })
 
     const updateSegments = () => {
