@@ -16,6 +16,10 @@ import type { ListUserReposResponse } from '@/types/GitHub/Repository'
 import { computed, defineComponent, onMounted, reactive, ref, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
+type ListUserPinnedReposResponse = ListUserReposResponse & {
+  icon?: CardItemType['icon']
+}
+
 export default defineComponent({
   name: 'ProjectsSection',
   components: {
@@ -46,7 +50,7 @@ export default defineComponent({
       personal: [] as ListUserReposResponse[],
       school: [] as ListUserReposResponse[]
     })
-    const pinned: Ref<ListUserReposResponse[]> = ref([])
+    const pinned: Ref<ListUserPinnedReposResponse[]> = ref([])
     const currentProjects = computed(() => projects[Object.keys(projects)[currentIndex.value]])
     const currentIndex: Ref<number> = ref(0)
     const randomColor = ref(colorStore.randomizeColor().colorName)
@@ -72,7 +76,7 @@ export default defineComponent({
         perPage: 100
       })
 
-      pinnedProjects.forEach((project) => {
+      pinnedProjects.forEach((project: ListUserPinnedReposResponse) => {
         project.icon = {
           name: 'pin.fill',
           colors: {
