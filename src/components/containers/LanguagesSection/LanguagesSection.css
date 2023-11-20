@@ -70,7 +70,6 @@ br.small {
   min-width: 5em;
   position: relative;
   z-index: 1;
-  color: #1d1d1f;
 }
 .badge .badge-content {
   margin: 1em 0;
@@ -95,20 +94,18 @@ br.small {
   width: 100%;
   z-index: 1;
 }
-.badge .badge-caption {
-  color: #1d1d1f;
-}
 .badge .badge-value {
   font-size: 48px;
   line-height: 1;
   font-weight: 600;
   letter-spacing: -0.003em;
   font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 .badge .badge-caption {
@@ -117,11 +114,12 @@ br.small {
   font-weight: 400;
   letter-spacing: -0.016em;
   font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 sup.footnote-number {
@@ -152,13 +150,13 @@ sup.footnote-number {
   font-weight: 600;
   letter-spacing: 0.007em;
   font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
-  color: #1d1d1f;
 }
 @media only screen and (max-width: 1068px) {
   .item-container .disclaimer {
@@ -167,11 +165,12 @@ sup.footnote-number {
     font-weight: 600;
     letter-spacing: 0.011em;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -237,7 +236,7 @@ sup.footnote-number {
   height: 100%;
   transform-origin: left;
   border-radius: inherit;
-  background-color: #a1a1a6;
+  background-color: var(--color-fill-gray);
 }
 .item-container .gallery-item .bars-container .bar-caption {
   font-size: 17px;
@@ -245,11 +244,12 @@ sup.footnote-number {
   font-weight: 400;
   letter-spacing: -0.022em;
   font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   display: inline-block;
   padding-top: 12px;
@@ -287,11 +287,12 @@ sup.footnote-number {
   font-weight: 600;
   letter-spacing: -0.003em;
   font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   display: inline-block;
 }
@@ -303,11 +304,12 @@ sup.footnote-number {
     font-weight: 600;
     letter-spacing: 0.007em;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -389,12 +391,13 @@ hr {
   font-weight: 600 !important;
   letter-spacing: -0.005em !important;
   font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif !important;
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 @media only screen and (max-width: 1068px) {
   .item-container .bars-container .badge-unit,
@@ -404,12 +407,13 @@ hr {
     font-weight: 600 !important;
     letter-spacing: -0.003em !important;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif !important;
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -420,17 +424,18 @@ hr {
     font-weight: 600 !important;
     letter-spacing: 0.007em !important;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif !important;
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
+      sans-serif;
   }
 }
 .item-container .bars-container .bar:not(.bar-baseline .bar) {
-  background: linear-gradient(90deg, #d8d8d8, #555558) !important;
+  background: var(--color-fill-gray);
 }
 .item-container .bars-container .bar:is(.bar-baseline .bar) {
-  background-color: #d2d2d7 !important;
+  background-color: var(--color-fill-gray) !important;
 }
