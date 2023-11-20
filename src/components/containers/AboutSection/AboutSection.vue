@@ -19,7 +19,20 @@
       ></image>
     </svg>
 
-    <div>
+    <CardItem
+      :card="{
+        eyebrow: $t('components.containers.about.eyebrow'),
+        title: $t('components.containers.about.title'),
+        description: $t('components.containers.about.description', {
+          age: dates.age && dates.age,
+          apprenticeshipYear: dates.apprenticeshipYear && dates.apprenticeshipYear + 1
+        }),
+        links: links
+      }"
+      variant="article"
+    />
+
+    <!-- <div>
       <h1>
         <span class="eyebrow">{{ $t('components.containers.about.eyebrow') }}</span
         >{{ $t('components.containers.about.title') }}
@@ -34,7 +47,7 @@
       </p>
 
       <LinkCollection :links="links" class="typography-intro" />
-    </div>
+    </div> -->
   </div>
 
   <ShareSheet />

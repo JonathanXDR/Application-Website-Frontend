@@ -84,7 +84,7 @@
         class="icon-article"
       />
       <div class="body">
-        <div v-if="card.eyebrow" class="tile-category">{{ card.eyebrow }}</div>
+        <div v-if="card.eyebrow" class="eyebrow">{{ card.eyebrow }}</div>
         <div class="title">{{ card.title || card.name }}</div>
         <div v-if="card.description" class="card-content">
           <div class="content">
@@ -98,7 +98,21 @@
             <span class="icon-copy"> Open</span>
           </a> -->
 
-          <LinkCollection :links="card.links" :class="{ link: applyHover }" />
+          <LinkCollection
+            v-if="card.links || card.html_url"
+            :links="
+              card.links || [
+                {
+                  title: 'Mehr erfahren',
+                  url: card.html_url,
+                  icon: {
+                    name: 'chevron.right'
+                  }
+                }
+              ]
+            "
+            :class="{ link: applyHover }"
+          />
           <!-- <span :class="['icon-copy', { link: variant === 'article' }]">Learn more</span>
           <Icon
             name="chevron.right"

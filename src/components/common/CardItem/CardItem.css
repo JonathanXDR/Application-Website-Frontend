@@ -259,9 +259,8 @@
 .eyebrow {
   color: var(--color-figure-gray-secondary-alt);
   display: block;
-  margin: 0 !important;
-  /* margin-bottom: 4px; */
-  font-size: 14px !important;
+  margin: 0;
+  font-size: 14px;
   line-height: 1.2857742857;
   font-weight: 600;
   letter-spacing: -0.016em;

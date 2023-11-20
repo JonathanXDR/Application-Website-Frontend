@@ -104,8 +104,13 @@ export default defineComponent({
 }
 
 .icon-article {
-  width: 1.75em;
-  height: 1.75em;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+#projects .timeline .icon-article {
+  width: 1.75em !important;
+  height: 1.75em !important;
 }
 
 .link .link-icon {
