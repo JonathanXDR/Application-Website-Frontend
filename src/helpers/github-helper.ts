@@ -128,7 +128,6 @@ export async function listPinnedRepositories(params: {
   {
     user(login: "${username}") {
       pinnedItems(first: ${perPage}, types: REPOSITORY) {
-        totalCount
         edges {
           node {
             ... on Repository {
