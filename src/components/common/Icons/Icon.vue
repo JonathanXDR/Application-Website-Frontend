@@ -103,12 +103,12 @@ export default defineComponent({
   margin-right: -0.5px;
 }
 
-.icon-article {
+.article .icon {
   width: 1.25em;
   height: 1.25em;
 }
 
-#projects .timeline .icon-article {
+.card .icon {
   width: 1.75em !important;
   height: 1.75em !important;
 }

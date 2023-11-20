@@ -65,6 +65,10 @@
   border: 1px solid var(--color-figure) !important;
 }
 
+.card.color .link {
+  color: var(--color-fill-gray) !important;
+}
+
 .card {
   overflow: hidden;
   display: block;

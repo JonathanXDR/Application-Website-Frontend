@@ -81,7 +81,7 @@
         :name="card.icon?.name"
         :size="card.icon?.size"
         :colors="card.icon?.colors"
-        class="icon-article"
+        class="icon"
       />
       <div class="body">
         <div v-if="card.eyebrow" class="eyebrow">{{ card.eyebrow }}</div>
