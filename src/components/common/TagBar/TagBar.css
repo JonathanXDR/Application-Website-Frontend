@@ -3,7 +3,7 @@
   padding-right: 10px;
 }
 
-.tag button {
+.tag a {
   color: var(--color-figure-gray);
   background-color: var(--color-fill-tertiary);
   font-size: 14px;
@@ -25,7 +25,7 @@
 }
 
 @media (hover: hover) {
-  .tag button:hover {
+  .tag a:hover {
     transition:
       background-color 0.2s,
       color 0.2s;

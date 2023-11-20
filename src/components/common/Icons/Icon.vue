@@ -103,17 +103,13 @@ export default defineComponent({
   margin-right: -0.5px;
 }
 
-.article .icon {
-  width: 1em;
-  height: 1em;
-}
-
 .article.large .icon {
   width: 1.25em;
   height: 1.25em;
 }
 
-.card .icon {
+.card .icon,
+.article .icon {
   width: 1.5em;
   height: 1.5em;
 }

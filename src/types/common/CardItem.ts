@@ -12,4 +12,8 @@ export type CardItemType = {
     from?: string
     to?: string
   }
+  language?: string
+  license?: string
+  location?: string
+  department?: string
 }

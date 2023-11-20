@@ -122,8 +122,16 @@
         </div>
         <div class="info" v-if="date || card.date || card.language || card.license">
           <div v-if="date || card.date" class="info-item">
-            <Icon v-if="variant != 'article'" name="clock.fill" class="card-icon" />
+            <Icon :name="updatedYesterday ? 'clock.fill' : 'calendar'" class="card-icon" />
             {{ date || `${card.date?.from} - ${card.date?.to}` }}
+          </div>
+          <div v-if="card.location" class="info-item">
+            <Icon name="location.fill" class="card-icon" />
+            {{ card.location }}
+          </div>
+          <div v-if="card.department" class="info-item">
+            <Icon name="tag.fill" class="card-icon" />
+            {{ card.department }}
           </div>
           <div v-if="card.language" class="info-item">
             <Icon v-if="variant != 'article'" name="bubble.left.fill" class="card-icon" />

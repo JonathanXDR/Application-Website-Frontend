@@ -846,7 +846,9 @@
           "date": {
             "from": "2021-08-01",
             "to": ""
-          }
+          },
+          "location": "Zürich, Bern",
+          "department": "GHR-POD-NEX"
         },
         {
           "icon": {
@@ -870,7 +872,9 @@
           "date": {
             "from": "2021-08-01",
             "to": "2022-01-01"
-          }
+          },
+          "location": "Zür-Har3",
+          "department": "GHR-POD-NEX"
         },
         {
           "icon": {
@@ -889,7 +893,9 @@
           "date": {
             "from": "2022-02-01",
             "to": "2022-07-01"
-          }
+          },
+          "location": "Zür-Pfi51",
+          "department": "B2B-BAN-COB-ASO-AUT"
         },
         {
           "icon": {
@@ -921,7 +927,9 @@
           "date": {
             "from": "2022-08-01",
             "to": "2023-02-01"
-          }
+          },
+          "location": "Itt-Ey10",
+          "department": "GHR-POD-LES-APP"
         },
         {
           "icon": {
@@ -953,7 +961,9 @@
           "date": {
             "from": "2023-02-01",
             "to": "2023-08-01"
-          }
+          },
+          "location": "Itt-Ey10",
+          "department": "GHR-POD-LES-APP"
         },
         {
           "icon": {
@@ -972,7 +982,9 @@
           "date": {
             "from": "2023-09-01",
             "to": "2024-08-01"
-          }
+          },
+          "location": "Zür-Mas10",
+          "department": "INI-CIT-EAS"
         }
       ]
     }

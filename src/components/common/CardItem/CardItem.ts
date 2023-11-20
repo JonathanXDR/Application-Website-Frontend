@@ -86,6 +86,12 @@ export default defineComponent({
         props.hover === 'true'
       )
     })
+    const updatedYesterday = computed(() => {
+      if (!props.card.updated_at) return false
+      const updatedDate = moment(props.card.updated_at)
+      const currentDate = moment()
+      return currentDate.diff(updatedDate, 'days') <= 1
+    })
 
     const getFlexDirection = () => {
       switch (props.iconPosition) {
@@ -144,6 +150,7 @@ export default defineComponent({
 
     return {
       applyHover,
+      updatedYesterday,
       getFlexDirection,
       getAlignItems,
       date: getDate()
