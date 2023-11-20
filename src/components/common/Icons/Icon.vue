@@ -104,13 +104,23 @@ export default defineComponent({
 }
 
 .article .icon {
+  width: 1em;
+  height: 1em;
+}
+
+.article.large .icon {
   width: 1.25em;
   height: 1.25em;
 }
 
 .card .icon {
-  width: 1.75em !important;
-  height: 1.75em !important;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.card.large .icon {
+  width: 1.75em;
+  height: 1.75em;
 }
 
 .link .link-icon {

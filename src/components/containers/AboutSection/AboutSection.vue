@@ -20,6 +20,8 @@
     </svg>
 
     <CardItem
+      variant="article"
+      size="large"
       :card="{
         eyebrow: $t('components.containers.about.eyebrow'),
         title: $t('components.containers.about.title'),
@@ -29,7 +31,6 @@
         }),
         links: links
       }"
-      variant="article"
     />
 
     <!-- <div>

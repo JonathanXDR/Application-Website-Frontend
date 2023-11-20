@@ -120,7 +120,7 @@
             class="svg-icon inline-chevron-right-icon icon-inline link-icon"
           /> -->
         </div>
-        <div class="info">
+        <div class="info" v-if="date || card.date || card.language || card.license">
           <div v-if="date || card.date" class="info-item">
             <Icon v-if="variant != 'article'" name="clock.fill" class="card-icon" />
             {{ date || `${card.date?.from} - ${card.date?.to}` }}

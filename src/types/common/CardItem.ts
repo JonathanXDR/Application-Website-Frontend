@@ -6,7 +6,7 @@ export type CardItemType = {
   eyebrow?: string
   title: string
   description?: string
-  tags: string[]
+  tags?: string[]
   links?: LinkType[]
   date?: {
     from?: string
