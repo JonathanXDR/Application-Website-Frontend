@@ -93,6 +93,8 @@ export default defineComponent({
       return currentDate.diff(updatedDate, 'days') <= 1
     })
 
+    console.log(props.card.info)
+
     const getFlexDirection = () => {
       switch (props.iconPosition) {
         case 'top':
@@ -129,16 +131,16 @@ export default defineComponent({
       const formatOptions = props.dateFormatOptions
       const dateVariant = props.dateNowKey
 
-      if (props.card.date?.from && props.card.date?.to) {
-        return `${formatDate(props.card.date.from, formatOptions)} - ${formatDate(
-          props.card.date.to,
+      if (props.card?.info?.date?.from && props.card?.info?.date?.to) {
+        return `${formatDate(props.card?.info?.date.from, formatOptions)} - ${formatDate(
+          props.card?.info?.date.to,
           formatOptions
         )}`
-      } else if (props.card.date?.from) {
-        return formatDate(props.card.date.from, formatOptions)
+      } else if (props.card?.info?.date?.from) {
+        return formatDate(props.card?.info?.date.from, formatOptions)
       } else if (props.card.updated_at) {
         return (
-          props.card.date ||
+          props.card?.info?.date ||
           `${dateVariant.charAt(0).toUpperCase()}${dateVariant.slice(1)} ${moment(
             props.card.updated_at
           )

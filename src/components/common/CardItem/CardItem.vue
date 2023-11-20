@@ -125,6 +125,8 @@
           v-if="
             date ||
             card.info?.date ||
+            card.info?.location ||
+            card.info?.department ||
             card.language ||
             card.info?.language ||
             card.license ||

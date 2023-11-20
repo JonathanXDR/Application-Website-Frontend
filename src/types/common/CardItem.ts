@@ -1,4 +1,5 @@
 import type { IconType } from './Icon'
+import type { InfoType } from './Info'
 import type { LinkType } from './Link'
 
 export type CardItemType = {
@@ -8,14 +9,5 @@ export type CardItemType = {
   description?: string
   tags?: string[]
   links?: LinkType[]
-  info?: {
-    date?: {
-      from?: string
-      to?: string
-    }
-    language?: string
-    license?: string
-    location?: string
-    department?: string
-  }
+  info?: InfoType
 }

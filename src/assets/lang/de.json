@@ -223,13 +223,11 @@
       "references": [
         {
           "icon": {
-            "name": "person.text.rectangle.fill",
-            "colors": {
-              "primary": "var(color-fill-gray)"
-            }
+            "name": "person.fill"
           },
+          "eyebrow": "Lernbegleiter & Vorgesetzter",
           "title": "Steve Hess",
-          "description": "Lernbegleiter & Vorgesetzter",
+          "description": "",
           "info": {
             "location": "Wor-Ati6",
             "department": "GHR-POD-NEX"
@@ -237,10 +235,7 @@
         },
         {
           "icon": {
-            "name": "person.text.rectangle.fill",
-            "colors": {
-              "primary": "var(color-fill-gray)"
-            }
+            "name": "person.fill"
           },
           "eyebrow": "Projektanbieter",
           "title": "Nick Zimmermann",
@@ -261,10 +256,7 @@
         },
         {
           "icon": {
-            "name": "person.text.rectangle.fill",
-            "colors": {
-              "primary": "var(color-fill-gray)"
-            }
+            "name": "person.fill"
           },
           "eyebrow": "Projektanbieter",
           "title": "Alessio Iantosca",
@@ -276,10 +268,7 @@
         },
         {
           "icon": {
-            "name": "person.text.rectangle.fill",
-            "colors": {
-              "primary": "var(color-fill-gray)"
-            }
+            "name": "person.fill"
           },
           "eyebrow": "Projektanbieter",
           "title": "Carlo Schmid",
@@ -291,10 +280,7 @@
         },
         {
           "icon": {
-            "name": "person.text.rectangle.fill",
-            "colors": {
-              "primary": "var(color-fill-gray)"
-            }
+            "name": "person.fill"
           },
           "eyebrow": "Projektanbieter",
           "title": "Kim Eggler",
@@ -310,6 +296,7 @@
           "icon": {
             "name": "graduationcap.fill"
           },
+          "eyebrow": "Schule",
           "title": "Technische Berufsschule Zürich",
           "description": "Ich gehe immer Donnerstags zur Berufsschule in Zürich.",
           "links": [
@@ -325,13 +312,15 @@
             "date": {
               "from": "2021-08-26",
               "to": ""
-            }
+            },
+            "location": "Zürich"
           }
         },
         {
           "icon": {
             "name": "graduationcap.fill"
           },
+          "eyebrow": "Schule",
           "title": "Berufsmaturitätsschule Zürich",
           "description": "Am Freitag gehe ich jeweils zur Berufsmaturitätsschule in Zürich.",
           "links": [
@@ -347,7 +336,8 @@
             "date": {
               "from": "2021-08-27",
               "to": ""
-            }
+            },
+            "location": "Zürich"
           }
         }
       ],
@@ -939,7 +929,7 @@
               "to": "2022-07-01"
             },
             "location": "Zür-Pfi51",
-            "department": "B2B-BAN-COB-ASO}-AUT"
+            "department": "B2B-BAN-COB-ASO-AUT"
           }
         },
         {
@@ -975,7 +965,7 @@
               "to": "2023-02-01"
             },
             "location": "Itt-Ey10",
-            "department": "GHR-POD-LES-APP}"
+            "department": "GHR-POD-LES-APP"
           }
         },
         {
@@ -1011,7 +1001,7 @@
               "to": "2023-08-01"
             },
             "location": "Itt-Ey10",
-            "department": "GHR-POD-LES-APP}"
+            "department": "GHR-POD-LES-APP"
           }
         },
         {
