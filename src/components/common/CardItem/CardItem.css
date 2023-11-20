@@ -165,7 +165,7 @@
   /* background-color: var(--color-fill); */
   padding: 20px;
   position: relative;
-  font-size: 0.8235294118rem;
+  font-size: 14px;
   line-height: 1.2857742857;
   font-weight: 400;
   letter-spacing: -0.016em;
@@ -181,7 +181,7 @@
 
 .large .details {
   padding: 32px;
-  font-size: 1rem;
+  font-size: 17px;
   line-height: 1.4705882353;
   font-weight: 400;
   letter-spacing: -0.022em;
@@ -196,7 +196,7 @@
 }
 
 .full .details {
-  font-size: 1rem;
+  font-size: 17px;
   line-height: 1.4705882353;
   font-weight: 400;
   letter-spacing: -0.022em;
@@ -223,7 +223,7 @@
 }
 
 .full .details {
-  font-size: 0.8235294118rem;
+  font-size: 14px;
   line-height: 1.2857742857;
   font-weight: 400;
   letter-spacing: -0.016em;
@@ -261,7 +261,7 @@
   display: block;
   margin: 0 !important;
   /* margin-bottom: 4px; */
-  font-size: 0.8235294118rem !important;
+  font-size: 14px !important;
   line-height: 1.2857742857;
   font-weight: 600;
   letter-spacing: -0.016em;
@@ -276,7 +276,7 @@
 }
 
 .large .eyebrow {
-  font-size: 1rem;
+  font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
   letter-spacing: -0.024em;
@@ -291,7 +291,7 @@
 }
 
 .full .eyebrow {
-  font-size: 1rem;
+  font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
   letter-spacing: -0.024em;
@@ -310,7 +310,7 @@
 
 .title {
   color: var(--color-card-content-text);
-  font-size: 1rem;
+  font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
   letter-spacing: -0.024em;
@@ -326,7 +326,7 @@
 
 .title {
   color: var(--color-card-content-text);
-  font-size: 1rem;
+  font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
   letter-spacing: -0.024em;
@@ -341,7 +341,7 @@
 }
 
 .title {
-  font-size: 0.8235294118rem;
+  font-size: 14px;
   line-height: 1.2857742857;
   font-weight: 600;
   letter-spacing: -0.016em;
@@ -356,7 +356,7 @@
 }
 
 .large .title {
-  font-size: 1.2352941176rem;
+  font-size: 21px;
   line-height: 1.1904761905;
   font-weight: 600;
   letter-spacing: 0.011em;
@@ -371,7 +371,7 @@
 }
 
 .full .title {
-  font-size: 1.2352941176rem;
+  font-size: 21px;
   line-height: 1.1904761905;
   font-weight: 600;
   letter-spacing: 0.011em;

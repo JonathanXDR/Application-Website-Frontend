@@ -128,12 +128,12 @@
   border-width: var(--button-border-width, medium);
   color: var(--colors-button-text, var(--color-button-text));
   cursor: pointer;
-  min-width: 1.7647058824rem;
-  padding: 0.2352941176rem 0.8823529412rem;
+  min-width: 30px;
+  padding: 4px 15px;
   text-align: center;
   white-space: nowrap;
   display: inline-block;
-  font-size: 1rem;
+  font-size: 17px;
   line-height: 1.4705882353;
   font-weight: 400;
   letter-spacing: -0.022em;

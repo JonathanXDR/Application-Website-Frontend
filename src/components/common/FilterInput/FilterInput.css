@@ -58,9 +58,9 @@
 }
 
 .filter {
-  --input-vertical-padding: 0.7647058824rem;
-  --input-horizontal-spacing: 0.5882352941rem;
-  --input-height: 1.6470588235rem;
+  --input-vertical-padding: 13px;
+  --input-horizontal-spacing: 10px;
+  --input-height: 28px;
   position: relative;
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -79,12 +79,12 @@
   z-index: 1;
   cursor: text;
   margin-left: var(--input-horizontal-spacing);
-  margin-right: 0.1764705882rem;
+  margin-right: 3px;
 }
 
 @media only screen and (max-width: 735px) {
   .filter-filter-button {
-    margin-right: 0.4117647059rem;
+    margin-right: 7px;
   }
 }
 
@@ -113,8 +113,8 @@
 }
 
 .filter-delete-button .clear-rounded-icon {
-  height: 0.7058823529rem;
-  width: 0.7058823529rem;
+  height: 12px;
+  width: 12px;
   fill: var(--color-fill-gray-secondary);
   display: block;
 }
@@ -144,12 +144,12 @@
   white-space: nowrap;
   min-width: 130px;
   display: block;
-  text-indent: 0.4117647059rem;
+  text-indent: 7px;
 }
 
 @media only screen and (max-width: 735px) {
   .filter-input-label:after {
-    text-indent: 0.1764705882rem;
+    text-indent: 3px;
   }
 }
 
@@ -172,7 +172,7 @@
 }
 
 .filter-input {
-  font-size: 1.2352941176rem;
+  font-size: 21px;
   line-height: 1.381002381;
   font-weight: 400;
   letter-spacing: 0.011em;
@@ -191,12 +191,12 @@
   position: absolute;
   background: transparent;
   z-index: 1;
-  text-indent: 0.4117647059rem;
+  text-indent: 7px;
 }
 
 @media only screen and (max-width: 735px) {
   .filter-input {
-    font-size: 1.1176470588rem;
+    font-size: 19px;
     line-height: 1.4211026316;
     font-weight: 400;
     letter-spacing: 0.012em;
@@ -213,7 +213,7 @@
 
 @media only screen and (max-width: 735px) {
   .filter-input {
-    text-indent: 0.1764705882rem;
+    text-indent: 3px;
   }
 }
 

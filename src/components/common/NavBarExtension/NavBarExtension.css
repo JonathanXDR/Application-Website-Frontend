@@ -1,7 +1,7 @@
 .filter-input-sticky-wrapper {
   position: -webkit-sticky;
   position: sticky;
-  top: 3.0588235294rem;
+  top: 52px;
   z-index: 5;
 }
 

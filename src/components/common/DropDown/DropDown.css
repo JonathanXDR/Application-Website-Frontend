@@ -3,7 +3,7 @@
 }
 
 .form-dropdown {
-  font-size: 1rem;
+  font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 400;
   letter-spacing: -0.022em;
@@ -29,7 +29,7 @@
   border: 1px solid var(--color-dropdown-border);
   border-radius: 15px;
   background-clip: padding-box;
-  margin-bottom: 0.8235294118rem;
+  margin-bottom: 14px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -58,7 +58,7 @@
 }
 
 .form-dropdown ~ .form-label {
-  font-size: 0.7058823529rem;
+  font-size: 12px;
   line-height: 1.75;
   font-weight: 400;
   letter-spacing: -0.01em;
@@ -71,7 +71,7 @@
     'Arial',
     sans-serif;
   position: absolute;
-  top: 0.4705882353rem;
+  top: 8px;
   left: 17px;
   color: var(--color-figure-gray-secondary);
   pointer-events: none;
