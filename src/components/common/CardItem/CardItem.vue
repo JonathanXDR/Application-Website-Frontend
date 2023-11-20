@@ -120,26 +120,36 @@
             class="svg-icon inline-chevron-right-icon icon-inline link-icon"
           /> -->
         </div>
-        <div class="info" v-if="date || card.date || card.language || card.license">
-          <div v-if="date || card.date" class="info-item">
+        <div
+          class="info"
+          v-if="
+            date ||
+            card.info?.date ||
+            card.language ||
+            card.info?.language ||
+            card.license ||
+            card.info?.license
+          "
+        >
+          <div v-if="date || card.info?.date" class="info-item">
             <Icon :name="updatedYesterday ? 'clock.fill' : 'calendar'" class="card-icon" />
-            {{ date || `${card.date?.from} - ${card.date?.to}` }}
+            {{ date || `${card.info?.date?.from} - ${card.info?.date?.to}` }}
           </div>
-          <div v-if="card.location" class="info-item">
+          <div v-if="card.info?.location" class="info-item">
             <Icon name="location.fill" class="card-icon" />
-            {{ card.location }}
+            {{ card.info.location }}
           </div>
-          <div v-if="card.department" class="info-item">
+          <div v-if="card.info?.department" class="info-item">
             <Icon name="tag.fill" class="card-icon" />
-            {{ card.department }}
+            {{ card.info.department }}
           </div>
-          <div v-if="card.language" class="info-item">
-            <Icon v-if="variant != 'article'" name="bubble.left.fill" class="card-icon" />
-            {{ card.language }}
+          <div v-if="card.language || card.info?.language" class="info-item">
+            <Icon name="bubble.left.fill" class="card-icon" />
+            {{ card.language || card.info?.language }}
           </div>
-          <div v-if="card.license" class="info-item">
+          <div v-if="card.license || card.info?.license" class="info-item">
             <Icon v-if="variant != 'article'" name="scroll.fill" class="card-icon" />
-            {{ card.license.name }}
+            {{ card.license?.name || card.info?.license }}
           </div>
         </div>
       </div>

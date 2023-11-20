@@ -223,14 +223,24 @@
       "references": [
         {
           "icon": {
-            "name": "person.crop.square"
+            "name": "person.text.rectangle.fill",
+            "colors": {
+              "primary": "var(color-fill-gray)"
+            }
           },
           "title": "Steve Hess",
-          "description": "Lernbegleiter & Vorgesetzter"
+          "description": "Lernbegleiter & Vorgesetzter",
+          "info": {
+            "location": "Wor-Ati6",
+            "department": "GHR-POD-NEX"
+          }
         },
         {
           "icon": {
-            "name": "person.crop.square"
+            "name": "person.text.rectangle.fill",
+            "colors": {
+              "primary": "var(color-fill-gray)"
+            }
           },
           "eyebrow": "Projektanbieter",
           "title": "Nick Zimmermann",
@@ -243,40 +253,64 @@
                 "name": "chevron.right"
               }
             }
-          ]
+          ],
+          "info": {
+            "location": "Zür-För181",
+            "department": "INI-DOS-TDE"
+          }
         },
         {
           "icon": {
-            "name": "person.crop.square"
+            "name": "person.text.rectangle.fill",
+            "colors": {
+              "primary": "var(color-fill-gray)"
+            }
           },
           "eyebrow": "Projektanbieter",
           "title": "Alessio Iantosca",
-          "description": "Automatisierungsprojekte im Banking Bereich"
+          "description": "Automatisierungsprojekte im Banking Bereich",
+          "info": {
+            "location": "Zür-Pfi51",
+            "department": "B2B-BAN-COB-ASO-AUT"
+          }
         },
         {
           "icon": {
-            "name": "person.crop.square"
+            "name": "person.text.rectangle.fill",
+            "colors": {
+              "primary": "var(color-fill-gray)"
+            }
           },
           "eyebrow": "Projektanbieter",
           "title": "Carlo Schmid",
-          "description": " Apps Team Frontend"
+          "description": "Apps Team Frontend",
+          "info": {
+            "location": "Itt-Ey10",
+            "department": "GHR-POD-LES-APP"
+          }
         },
         {
           "icon": {
-            "name": "person.crop.square"
+            "name": "person.text.rectangle.fill",
+            "colors": {
+              "primary": "var(color-fill-gray)"
+            }
           },
           "eyebrow": "Projektanbieter",
           "title": "Kim Eggler",
-          "description": "Apps Team Backend"
+          "description": "Apps Team Backend",
+          "info": {
+            "location": "Itt-Ey10",
+            "department": "GHR-POD-LES-APP"
+          }
         }
       ],
       "other": [
         {
-          "title": "Technische Berufsschule Zürich",
-          "date": {
-            "from": "2021-08-26",
-            "to": ""
+          "icon": {
+            "name": "graduationcap.fill"
           },
+          "title": "Technische Berufsschule Zürich",
           "description": "Ich gehe immer Donnerstags zur Berufsschule in Zürich.",
           "links": [
             {
@@ -287,16 +321,18 @@
               }
             }
           ],
-          "icon": {
-            "name": "calendar"
+          "info": {
+            "date": {
+              "from": "2021-08-26",
+              "to": ""
+            }
           }
         },
         {
-          "title": "Berufsmaturitätsschule Zürich",
-          "date": {
-            "from": "2021-08-27",
-            "to": ""
+          "icon": {
+            "name": "graduationcap.fill"
           },
+          "title": "Berufsmaturitätsschule Zürich",
           "description": "Am Freitag gehe ich jeweils zur Berufsmaturitätsschule in Zürich.",
           "links": [
             {
@@ -307,8 +343,11 @@
               }
             }
           ],
-          "icon": {
-            "name": "calendar"
+          "info": {
+            "date": {
+              "from": "2021-08-27",
+              "to": ""
+            }
           }
         }
       ],
@@ -843,12 +882,14 @@
             "Teamwork",
             "Work Safety"
           ],
-          "date": {
-            "from": "2021-08-01",
-            "to": ""
-          },
-          "location": "Zürich, Bern",
-          "department": "GHR-POD-NEX"
+          "info": {
+            "date": {
+              "from": "2021-08-01",
+              "to": ""
+            },
+            "location": "Zürich, Bern",
+            "department": "GHR-POD-NEX"
+          }
         },
         {
           "icon": {
@@ -869,12 +910,14 @@
             "Express.js",
             "Vue.js"
           ],
-          "date": {
-            "from": "2021-08-01",
-            "to": "2022-01-01"
-          },
-          "location": "Zür-Har3",
-          "department": "GHR-POD-NEX"
+          "info": {
+            "date": {
+              "from": "2021-08-01",
+              "to": "2022-01-01"
+            },
+            "location": "Zür-Har3",
+            "department": "GHR-POD-NEX"
+          }
         },
         {
           "icon": {
@@ -890,12 +933,14 @@
             "C#",
             ".Net Framework"
           ],
-          "date": {
-            "from": "2022-02-01",
-            "to": "2022-07-01"
-          },
-          "location": "Zür-Pfi51",
-          "department": "B2B-BAN-COB-ASO-AUT"
+          "info": {
+            "date": {
+              "from": "2022-02-01",
+              "to": "2022-07-01"
+            },
+            "location": "Zür-Pfi51",
+            "department": "B2B-BAN-COB-ASO}-AUT"
+          }
         },
         {
           "icon": {
@@ -924,12 +969,14 @@
               }
             }
           ],
-          "date": {
-            "from": "2022-08-01",
-            "to": "2023-02-01"
-          },
-          "location": "Itt-Ey10",
-          "department": "GHR-POD-LES-APP"
+          "info": {
+            "date": {
+              "from": "2022-08-01",
+              "to": "2023-02-01"
+            },
+            "location": "Itt-Ey10",
+            "department": "GHR-POD-LES-APP}"
+          }
         },
         {
           "icon": {
@@ -958,12 +1005,14 @@
               }
             }
           ],
-          "date": {
-            "from": "2023-02-01",
-            "to": "2023-08-01"
-          },
-          "location": "Itt-Ey10",
-          "department": "GHR-POD-LES-APP"
+          "info": {
+            "date": {
+              "from": "2023-02-01",
+              "to": "2023-08-01"
+            },
+            "location": "Itt-Ey10",
+            "department": "GHR-POD-LES-APP}"
+          }
         },
         {
           "icon": {
@@ -979,12 +1028,14 @@
             "Docker",
             "Kubernetes"
           ],
-          "date": {
-            "from": "2023-09-01",
-            "to": "2024-08-01"
-          },
-          "location": "Zür-Mas10",
-          "department": "INI-CIT-EAS"
+          "info": {
+            "date": {
+              "from": "2023-09-01",
+              "to": "2024-08-01"
+            },
+            "location": "Zür-Mas10",
+            "department": "INI-CIT-EAS"
+          }
         }
       ]
     }

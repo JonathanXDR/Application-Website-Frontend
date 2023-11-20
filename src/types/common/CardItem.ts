@@ -8,12 +8,14 @@ export type CardItemType = {
   description?: string
   tags?: string[]
   links?: LinkType[]
-  date?: {
-    from?: string
-    to?: string
+  info?: {
+    date?: {
+      from?: string
+      to?: string
+    }
+    language?: string
+    license?: string
+    location?: string
+    department?: string
   }
-  language?: string
-  license?: string
-  location?: string
-  department?: string
 }
