@@ -138,13 +138,13 @@
             <Icon :name="updatedYesterday ? 'clock.fill' : 'calendar'" class="card-icon" />
             {{ date || `${card.info?.date?.from} - ${card.info?.date?.to}` }}
           </div>
-          <div v-if="card.info?.supervisor" class="info-item">
-            <Icon name="person.fill" class="card-icon" />
-            {{ card.info.supervisor }}
-          </div>
           <div v-if="card.info?.location" class="info-item">
             <Icon name="location.fill" class="card-icon" />
             {{ card.info.location }}
+          </div>
+          <div v-if="card.info?.supervisor" class="info-item">
+            <Icon name="person.fill" class="card-icon" />
+            {{ card.info.supervisor }}
           </div>
           <div v-if="card.info?.department" class="info-item">
             <Icon name="tag.fill" class="card-icon" />
