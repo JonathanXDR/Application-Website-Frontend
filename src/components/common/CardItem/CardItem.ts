@@ -1,18 +1,18 @@
 import ButtonItem from '@/components/common/ButtonItem/ButtonItem.vue'
 import Icon from '@/components/common/Icons/Icon.vue'
+import InfoBar from '@/components/common/InfoBar/InfoBar.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import TagBar from '@/components/common/TagBar/TagBar.vue'
 import type { CardItemType } from '@/types/common/CardItem'
 import type { ListUserReposResponse } from '@/types/GitHub/Repository'
-import moment from 'moment'
 import { computed, defineComponent, type PropType } from 'vue'
-import { useI18n } from 'vue-i18n'
 export default defineComponent({
   name: 'CardTile',
   components: {
     Icon,
     ButtonItem,
     TagBar,
+    InfoBar,
     LinkCollection
   },
   props: {
@@ -79,18 +79,11 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const { locale } = useI18n({ useScope: 'global' })
     const applyHover = computed(() => {
       return (
         (props.hover === 'auto' && props.card.links && props.card.links.length === 1) ||
         props.hover === 'true'
       )
-    })
-    const updatedYesterday = computed(() => {
-      if (!props.card.updated_at) return false
-      const updatedDate = moment(props.card.updated_at)
-      const currentDate = moment()
-      return currentDate.diff(updatedDate, 'days') <= 1
     })
 
     const getFlexDirection = () => {
@@ -121,39 +114,10 @@ export default defineComponent({
       }
     }
 
-    const formatDate = (dateString: string, formatOptions: Intl.DateTimeFormatOptions) => {
-      return new Date(dateString).toLocaleDateString(locale.value, formatOptions)
-    }
-
-    const getDate = () => {
-      const formatOptions = props.dateFormatOptions
-      const dateVariant = props.dateNowKey
-
-      if (props.card?.info?.date?.from && props.card?.info?.date?.to) {
-        return `${formatDate(props.card?.info?.date.from, formatOptions)} - ${formatDate(
-          props.card?.info?.date.to,
-          formatOptions
-        )}`
-      } else if (props.card?.info?.date?.from) {
-        return formatDate(props.card?.info?.date.from, formatOptions)
-      } else if (props.card.updated_at) {
-        return (
-          props.card?.info?.date ||
-          `${dateVariant.charAt(0).toUpperCase()}${dateVariant.slice(1)} ${moment(
-            props.card.updated_at
-          )
-            .locale(locale.value)
-            .fromNow()}`
-        )
-      }
-    }
-
     return {
       applyHover,
-      updatedYesterday,
       getFlexDirection,
-      getAlignItems,
-      date: getDate()
+      getAlignItems
     }
   }
 })

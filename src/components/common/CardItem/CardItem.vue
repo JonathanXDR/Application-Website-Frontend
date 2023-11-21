@@ -120,45 +120,13 @@
             class="svg-icon inline-chevron-right-icon icon-inline link-icon"
           /> -->
         </div>
-        <div
-          class="info"
-          v-if="
-            date ||
-            card.info?.date ||
-            card.info?.supervisor ||
-            card.info?.location ||
-            card.info?.department ||
-            card.language ||
-            card.info?.language ||
-            card.license ||
-            card.info?.license
-          "
-        >
-          <div v-if="date || card.info?.date" class="info-item">
-            <Icon :name="updatedYesterday ? 'clock.fill' : 'calendar'" class="card-icon" />
-            {{ date || `${card.info?.date?.from} - ${card.info?.date?.to}` }}
-          </div>
-          <div v-if="card.info?.location" class="info-item">
-            <Icon name="location.fill" class="card-icon" />
-            {{ card.info.location }}
-          </div>
-          <div v-if="card.info?.supervisor" class="info-item">
-            <Icon name="person.fill" class="card-icon" />
-            {{ card.info.supervisor }}
-          </div>
-          <div v-if="card.info?.department" class="info-item">
-            <Icon name="tag.fill" class="card-icon" />
-            {{ card.info.department }}
-          </div>
-          <div v-if="card.language || card.info?.language" class="info-item">
-            <Icon name="bubble.left.fill" class="card-icon" />
-            {{ card.language || card.info?.language }}
-          </div>
-          <div v-if="card.license || card.info?.license" class="info-item">
-            <Icon v-if="variant != 'article'" name="scroll.fill" class="card-icon" />
-            {{ card.license?.name || card.info?.license }}
-          </div>
-        </div>
+        <InfoBar
+          v-if="card.info"
+          :info="card.info"
+          :date="card.updated_at"
+          :dateFormatOptions="dateFormatOptions"
+          :dateNowKey="dateNowKey"
+        />
       </div>
     </div>
   </component>
