@@ -227,7 +227,6 @@
           },
           "eyebrow": "Lernbegleiter & Vorgesetzter",
           "title": "Steve Hess",
-          "description": "",
           "info": {
             "location": "Wor-Ati6",
             "department": "GHR-POD-NEX"
@@ -239,7 +238,6 @@
           },
           "eyebrow": "Projektanbieter",
           "title": "Nick Zimmermann",
-          "description": " Competence Center NexCC",
           "links": [
             {
               "title": "Mehr erfahren",
@@ -260,7 +258,6 @@
           },
           "eyebrow": "Projektanbieter",
           "title": "Alessio Iantosca",
-          "description": "Automatisierungsprojekte im Banking Bereich",
           "info": {
             "location": "Zür-Pfi51",
             "department": "B2B-BAN-COB-ASO-AUT"
@@ -272,7 +269,6 @@
           },
           "eyebrow": "Projektanbieter",
           "title": "Carlo Schmid",
-          "description": "Apps Team Frontend",
           "info": {
             "location": "Itt-Ey10",
             "department": "GHR-POD-LES-APP"
@@ -284,7 +280,6 @@
           },
           "eyebrow": "Projektanbieter",
           "title": "Kim Eggler",
-          "description": "Apps Team Backend",
           "info": {
             "location": "Itt-Ey10",
             "department": "GHR-POD-LES-APP"
@@ -310,8 +305,7 @@
           ],
           "info": {
             "date": {
-              "from": "2021-08-26",
-              "to": ""
+              "from": "2021-08-26"
             },
             "location": "Zürich"
           }
@@ -334,8 +328,7 @@
           ],
           "info": {
             "date": {
-              "from": "2021-08-27",
-              "to": ""
+              "from": "2021-08-27"
             },
             "location": "Zürich"
           }
@@ -874,9 +867,9 @@
           ],
           "info": {
             "date": {
-              "from": "2021-08-01",
-              "to": ""
+              "from": "2021-08-01"
             },
+            "supervisor": "Steve Hess",
             "location": "Zürich & Bern",
             "department": "GHR-POD-NEX"
           }
@@ -905,6 +898,7 @@
               "from": "2021-08-01",
               "to": "2022-01-01"
             },
+            "supervisor": "Nick Zimmermann",
             "location": "Zür-Har3",
             "department": "GHR-POD-NEX"
           }
@@ -928,6 +922,7 @@
               "from": "2022-02-01",
               "to": "2022-07-01"
             },
+            "supervisor": "Alessio Iantosca",
             "location": "Zür-Pfi51",
             "department": "B2B-BAN-COB-ASO-AUT"
           }
@@ -964,6 +959,7 @@
               "from": "2022-08-01",
               "to": "2023-02-01"
             },
+            "supervisor": "Carlo Schmid",
             "location": "Itt-Ey10",
             "department": "GHR-POD-LES-APP"
           }
@@ -1000,6 +996,7 @@
               "from": "2023-02-01",
               "to": "2023-08-01"
             },
+            "supervisor": "Kim Eggler",
             "location": "Itt-Ey10",
             "department": "GHR-POD-LES-APP"
           }

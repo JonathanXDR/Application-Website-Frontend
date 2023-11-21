@@ -125,6 +125,7 @@
           v-if="
             date ||
             card.info?.date ||
+            card.info?.supervisor ||
             card.info?.location ||
             card.info?.department ||
             card.language ||
@@ -136,6 +137,10 @@
           <div v-if="date || card.info?.date" class="info-item">
             <Icon :name="updatedYesterday ? 'clock.fill' : 'calendar'" class="card-icon" />
             {{ date || `${card.info?.date?.from} - ${card.info?.date?.to}` }}
+          </div>
+          <div v-if="card.info?.supervisor" class="info-item">
+            <Icon name="person.fill" class="card-icon" />
+            {{ card.info.supervisor }}
           </div>
           <div v-if="card.info?.location" class="info-item">
             <Icon name="location.fill" class="card-icon" />

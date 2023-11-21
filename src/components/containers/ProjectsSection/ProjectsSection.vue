@@ -22,7 +22,7 @@
     </ul>
   </div>
   <div v-else>
-    <div v-if="projects.personal && projects.school">
+    <div v-if="projects.personal.length && projects.school.length">
       <LiveResultSummary
         :totalResults="currentProjects.length + pinned.length"
         :pinnedResults="pinned.length"

@@ -93,8 +93,6 @@ export default defineComponent({
       return currentDate.diff(updatedDate, 'days') <= 1
     })
 
-    console.log(props.card.info)
-
     const getFlexDirection = () => {
       switch (props.iconPosition) {
         case 'top':

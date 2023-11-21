@@ -29,7 +29,6 @@ export default defineComponent({
   setup(props) {
     const { tm } = useI18n()
     const articles: Ref<CardItemType[]> = computed(() => tm('components.containers.references'))
-    console.log(articles.value)
 
     return {
       props,
