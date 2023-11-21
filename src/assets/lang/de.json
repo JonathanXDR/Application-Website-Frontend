@@ -466,7 +466,7 @@
           },
           "eyebrow": "Language",
           "title": "SQL",
-          "description": "SQL habe ich erstmals während der Entwicklung meiner CRUD-App im NexCC verwendent, dabei habe ich die Basics gelernt. Später gab es auch noch entsprechende Module in der Berufsschule und einen ÜK, der sich darauf spezialisiert.",
+          "description": "SQL habe ich erstmals während der Entwicklung meiner CRUD-App im NexCC verwendent, dabei habe ich die Basics gelernt. Später gab es auch noch die beiden Berufsschulmodule 162 und 164 und den ÜK-106, der auch fortgeschrittene Abfragen beinhaltete.",
           "progress": 70,
           "tags": [
             "Database",
@@ -538,6 +538,7 @@
           },
           "eyebrow": "Language",
           "title": "TypeScript",
+          "description": "Diese Technologie habe ich das erste mal bei meiner Memory-App im Apps Team verwendet und benutze seither wenn möglich nur noch TypeScript anstelle von JavaScript. Projekte, bei denen ich TypeScript gearbeitet habe, sind z.B. die Apps Team Webseite, die CRUD-App im Apps Team oder auch das Fleetmanagement Tool.",
           "progress": 75,
           "tags": [
             "Javascript",
@@ -564,6 +565,7 @@
           },
           "eyebrow": "Language",
           "title": "C#",
+          "description": "Ich habe C# bereits in der 3. Oberstufe kennengelernt, als ich ein eigenes Spiel mit Unity als Abschlussarbeit erstellt habe. Bei den Automatisierungsprojekten im Banking Bereich habe ich dann noch ein wenig mehr darüber gelernt.",
           "progress": 25,
           "tags": [
             "Microsoft",
@@ -589,6 +591,7 @@
           },
           "eyebrow": "Language",
           "title": "Java",
+          "description": "Java kenne ich hauptsächlich vom Berufsschulmodul 319, wo wir damit gearbeitet haben und kleinere Aufgaben programmieren mussten. Im Modul 320 kam dann auch noch OOP dazu, was ich sehr interessant fand. Ausserdem habe ich auch noch den ÜK-223 besucht, bei dem es darum ging Multi-User-Applikationen objektorientiert zu realisieren. Das haben wir mit einem Java-Backend und einem ORM gemacht.",
           "progress": 10,
           "tags": [
             "Backend",
@@ -614,6 +617,7 @@
           },
           "eyebrow": "Language",
           "title": "Bash",
+          "description": "Ich habe schon oft mit Bash gearbeitet und bin damit mittlerweile auch einigermassen vertraut. Ich habe damit z.B. schon ein paar kleine Skripte geschrieben, um mir die Arbeit zu erleichtern. Zudem gab es auch das Modul 122 in der Berufsschule, bei dem wir ebenfalls mit Bash gearbeitet haben.",
           "progress": 50,
           "tags": [
             "Scripting",
@@ -636,6 +640,7 @@
           },
           "eyebrow": "Framework",
           "title": "React",
+          "description": "React selbst habe ich erst gelernt, nachdem ich bereits mit Next.js gearbeitet habe, daher war die Lernkurve nicht mehr so steil. Beispiele für Projekte, bei denen ich React verwendet habe, sind z.B. die Medienkurse, das Fleetmanagement Tool oder auch die neuen Webfrontends.",
           "progress": 60,
           "tags": [
             "Javascript",
@@ -659,6 +664,7 @@
           },
           "eyebrow": "Framework",
           "title": "Next.js",
+          "description": "Das erste mal kennenlernen durte ich Next.js im Apps Team, wo ich damit die neue Apps Team Webseite erstellt habe. Dort habe ich gleichzeitig auch sehr viel über React gelernt und konnte so meine Kenntnisse gleich in beiden Frameworks verbessern.",
           "progress": 50,
           "tags": [
             "React",
@@ -682,7 +688,7 @@
           },
           "eyebrow": "Container Management",
           "title": "Docker",
-          "progress": 50,
+          "description": "Richtig verstanden und mich damit beschäftigt habe ich Docker im Berufsschulmodul 347, wo wir eine Applikation mittels CI/CD deployen mussten. Dazu gab es den ÜK 210, bei dem es um das Thema Cloud ging und wir auch dort nochmal mit Docker gearbeitet haben.",
           "tags": [
             "Container",
             "Devops",
@@ -704,7 +710,7 @@
           },
           "eyebrow": "Container Management",
           "title": "Kubernetes",
-          "progress": 50,
+          "description": "Auch Kubernetes habe ich im Berufsschulmodul 347 kennengelernt und dort verwendet, um eine Applikation mittels CI/CD zu deployen. Der ÜK 210 hat mir dann nochmal einen tieferen Einblick in die Container-Orchestrierung gegeben, da er sich mehr damit beschäftigt hat.",
           "tags": [
             "Container",
             "Orchestration",
@@ -726,7 +732,7 @@
           },
           "eyebrow": "Framework",
           "title": "Nest.js",
-          "progress": 70,
+          "description": "Dieses Backend-Framework habe ich im Apps Team kennengelernt und habe damit meine CRUD-App erstellt. Dabei habe ich viel über die Architektur und die verschiedenen Module gelernt. Ausserdem habe ich auch in produktiven Projekten im Apps Team, wie z.B. dem Fleetmanagement Tool oder den neuen Webfrontends damit gearbeitet.",
           "tags": [
             "Node.js",
             "Backend",
@@ -748,7 +754,7 @@
           },
           "eyebrow": "ORM",
           "title": "Prisma",
-          "progress": 60,
+          "description": "Das habe ich verwendet um meine CRUD-App zu erstellen und ich bin dabei das erste mal mit einem ORM in Berührung gekommen. Später habe ich auch beim Fleetmanagement Tool mit Prisma gearbeiet.",
           "tags": [
             "Database",
             "Typescript",
@@ -770,7 +776,7 @@
           },
           "eyebrow": "ORM",
           "title": "TypeORM",
-          "progress": 60,
+          "description": "Als Alternative zu Prisma habe ich meine CRUD-App, nachdem ich sie fertiggestellt habe, auch noch mit TypeORM umgesetzt, da auch dieses ORM in diversen Projekten im Apps Team verwendet wird.",
           "tags": [
             "Database",
             "Typescript",
@@ -792,7 +798,7 @@
           },
           "eyebrow": "Library",
           "title": "GitHub Primer",
-          "progress": 70,
+          "description": "Diese Library habe ich benutzt um ein Frontend zusammen mit React für meine CRUD-App im Apps Team zu erstellen.",
           "tags": [
             "React",
             "Frontend",
@@ -815,7 +821,7 @@
           },
           "eyebrow": "Library",
           "title": "Tailwind CSS",
-          "progress": 90,
+          "description": "Tailwind CSS wurde zusammen mit SDX in vielen Projekten im Apps Team verwendet. Das Fleetmanagement Tool und die neuen Webfrontends sind zwei Beispiele dafür.",
           "tags": [
             "Css",
             "Frontend",
@@ -841,7 +847,7 @@
           },
           "eyebrow": "Language",
           "title": "Python",
-          "progress": 30,
+          "description": "Python habe ich im Security Journey gelernt und habe es für die Entwicklung des DAM Log Scanners verwendet, ein Tool, welches Datenbankaktivitäten aufzeichnet.",
           "tags": [
             "Scripting",
             "Backend",
