@@ -344,6 +344,7 @@
           },
           "eyebrow": "Language",
           "title": "HTML",
+          "description": "Ich habe HTML beim Erstellen dieser Webseite gelernt und fühle mich damit sehr sicher, da ich es in fast allen bisherigen Projekten verwendet habe.",
           "progress": 90,
           "tags": [
             "Markup",
@@ -369,6 +370,7 @@
           },
           "eyebrow": "Language",
           "title": "CSS",
+          "description": "CSS habe ich ebenfalls während dem Aufbau dieser Webseite gelernt. Da CSS genau wie HTML in fast jedem Projekt verwendet wird, habe ich auch hier schon viel Erfahrung gesammelt.",
           "progress": 90,
           "tags": [
             "Styling",
@@ -395,7 +397,7 @@
           },
           "eyebrow": "Language",
           "title": "JavaScript",
-          "progress": 70,
+          "description": "Das ist wahrscheinlich meine meist verwendete Programmiersprache. Ich habe damit schon bei vielen Projekten gearbeitet und auch schon mit Frameworks und Libraries, wie Vue.js, React oder Express.js angewendet, die ja darauf aufbauen.",
           "tags": [
             "Scripting",
             "Web",
@@ -418,6 +420,7 @@
           },
           "eyebrow": "Library",
           "title": "SDX",
+          "description": "Mit dieser Library bin ich schon mehrmals während meiner Ausbildung in Kontakt gekommen. Ich habe damit z.B. beim Entwickeln der Apps Team Webseite, der Medienkurse und noch vielen weiteren Swisscom-Applikationen gearbeitet.",
           "progress": 70,
           "tags": [
             "Swisscom",
@@ -437,6 +440,7 @@
         {
           "eyebrow": "Runtime",
           "title": "Node.js",
+          "description": "Diese Technologie habe ich im NexCC das allererste mal gelernt und angewendet. Dabei habe ich zuerst kennengelernt was Node.js überhaupt ist und auch wie man dependencies mit NPM installiert und verwaltet.",
           "progress": 60,
           "tags": [
             "Javascript",
@@ -462,6 +466,7 @@
           },
           "eyebrow": "Language",
           "title": "SQL",
+          "description": "SQL habe ich erstmals während der Entwicklung meiner CRUD-App im NexCC verwendent, dabei habe ich die Basics gelernt. Später gab es auch noch entsprechende Module in der Berufsschule und einen ÜK, der sich darauf spezialisiert.",
           "progress": 70,
           "tags": [
             "Database",
@@ -484,6 +489,7 @@
           },
           "eyebrow": "Framework",
           "title": "Express.js",
+          "description": "Meine CRUD-App im NexCC habe ich damit erstellt, was sehr lehrreich für mich war. Später hatte ich auch noch einen entsprechenden ÜK, welcher darum ging ein Backend mit Express.js zu erstellen.",
           "progress": 70,
           "tags": [
             "Node.js",
@@ -506,6 +512,7 @@
           },
           "eyebrow": "Framework",
           "title": "Vue.js",
+          "description": "Diese Webseite ist mit Vue.js erstellt worden und ich habe damit auch anderweitig gearbeitet. Beispiele sind meine Memory App im Apps Team oder das Zukunftstagstool und die Berufsschulapp, welche ich wiederrum im NexCC erstellt habe.",
           "progress": 80,
           "tags": [
             "Javascript",
