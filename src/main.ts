@@ -5,7 +5,6 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { MotionPlugin } from '@vueuse/motion'
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 import { createI18n } from 'vue-i18n'
@@ -29,7 +28,6 @@ app.use(createPinia())
 app.use(createMetaManager())
 app.use(i18n)
 app.use(router)
-app.use(MotionPlugin)
 
 app.component('font-awesome-icon', FontAwesomeIcon)
 

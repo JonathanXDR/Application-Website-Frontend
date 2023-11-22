@@ -20,7 +20,6 @@
     "@fortawesome/vue-fontawesome": "^3.0.5",
     "@octokit/graphql": "^7.0.2",
     "@types/musickit-js": "^1.0.8",
-    "@vueuse/motion": "^2.0.0",
     "axios": "^1.6.2",
     "moment": "^2.29.4",
     "octokit": "^3.1.2",
