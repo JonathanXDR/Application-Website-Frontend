@@ -26,7 +26,7 @@
         eyebrow: $t('components.containers.about.eyebrow'),
         title: $t('components.containers.about.title'),
         description: $t('components.containers.about.description', {
-          age: dates.age && dates.age,
+          age: dates.age,
           apprenticeshipYear: dates.apprenticeshipYear && dates.apprenticeshipYear + 1
         }),
         links: links

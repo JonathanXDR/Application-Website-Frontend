@@ -62,7 +62,7 @@
               </button>
             </div>
           </div>
-          <TagBar v-if="open" :tags="options.map((option) => option.label)" />
+          <TagBar v-if="open" :tags="options.forEach((option) => option.label)" />
         </div>
       </div>
     </div>

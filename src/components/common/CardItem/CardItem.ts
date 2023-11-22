@@ -95,7 +95,6 @@ export default defineComponent({
         case 'bottom':
           return 'column-reverse'
         case 'left':
-          return 'row'
         default:
           return 'row'
       }
@@ -104,7 +103,6 @@ export default defineComponent({
     const getAlignItems = () => {
       switch (props.iconAlignment) {
         case 'start':
-          return 'flex-start'
         case 'center':
           return 'center'
         case 'end':
