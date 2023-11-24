@@ -91,15 +91,15 @@
             {{ card.description }}
           </div>
         </div>
-        <TagBar v-if="card.tags || card.topics" :tags="card.tags || card.topics" />
-        <div v-if="card.links" class="ctas-wrapper">
+        <TagBar v-if="card.tags?.length || card.topics?.length" :tags="card.tags || card.topics" />
+        <div v-if="card.links?.length || card.html_url" class="ctas-wrapper">
           <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
           <!-- <a href="photos://" class="icon-wrapper button button-reduced button-neutral">
             <span class="icon-copy"> Open</span>
           </a> -->
 
           <LinkCollection
-            v-if="card.links || card.html_url"
+            v-if="card.links?.length || card.html_url"
             :links="
               card.links || [
                 {
@@ -121,8 +121,14 @@
           /> -->
         </div>
         <InfoBar
-          v-if="card.info"
-          :info="card.info"
+          v-if="card.info || card.created_at || card.updated_at || card.language || card.license"
+          :info="
+            card.info || {
+              date: card.updated_at,
+              language: card.language,
+              license: card.license?.name
+            }
+          "
           :date="card.updated_at"
           :dateFormatOptions="dateFormatOptions"
           :dateNowKey="dateNowKey"

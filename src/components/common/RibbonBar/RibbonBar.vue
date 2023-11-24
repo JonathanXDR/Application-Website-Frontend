@@ -1,5 +1,5 @@
 <template>
-  <div class="ribbon" v-if="tags.latest?.length && tags.previous?.length">
+  <div v-if="tags.latest?.length && tags.previous?.length" class="ribbon">
     <div class="ribbon-drop-wrapper">
       <div
         ref="ribbon-content-wrapper"
@@ -16,8 +16,8 @@
 
             <LinkCollection
               ref="ribbon-link"
-              :links="links"
               class="ribbon-link ribbon-link-animation icon-after-ribbon"
+              :links="links"
             />
           </p>
         </div>

@@ -16,9 +16,9 @@ export default defineComponent({
       default: () => {}
     },
     date: {
-      type: Date as PropType<Date>,
+      type: String,
       required: false,
-      default: () => new Date()
+      default: undefined
     },
     dateFormatOptions: {
       type: Object as PropType<Intl.DateTimeFormatOptions>,
@@ -62,12 +62,9 @@ export default defineComponent({
       } else if (props.info?.date?.from) {
         return formatDate(props.info?.date.from, formatOptions)
       } else if (props.date) {
-        return (
-          props.info?.date ||
-          `${dateVariant.charAt(0).toUpperCase()}${dateVariant.slice(1)} ${moment(props.date)
-            .locale(locale.value)
-            .fromNow()}`
-        )
+        return `${dateVariant.charAt(0).toUpperCase()}${dateVariant.slice(1)} ${moment(props.date)
+          .locale(locale.value)
+          .fromNow()}`
       }
     }
 

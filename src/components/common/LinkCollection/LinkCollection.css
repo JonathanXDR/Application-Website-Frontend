@@ -16,6 +16,16 @@
   width: fit-content;
 }
 
+/* ---------------------------------- card ---------------------------------- */
+
+.card.color .link {
+  color: var(--color-fill-gray) !important;
+}
+
+.card:hover .link {
+  text-decoration: underline !important;
+}
+
 /* --------------------------------- ribbon --------------------------------- */
 
 .ribbon .links p {
