@@ -123,3 +123,816 @@
 .ribbon-drop-wrapper {
   animation: ribbon-drop 0.8s ease-in-out forwards;
 }
+
+/*! CSS Used from: https://store.storeimages.cdn-apple.com/4982/store.apple.com/static-resources/rs-globalelements-2.5.0-13977/dist/ac-globalnav.css ; media=screen, print */
+@media screen, print {
+  .more:before,
+  .more:after {
+    font-family: SF Pro Icons;
+    color: inherit;
+    display: inline-block;
+    font-style: normal;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: 1;
+    text-decoration: underline;
+    position: relative;
+    z-index: 1;
+    alt: '';
+  }
+  .more:before,
+  .more:after {
+    text-decoration: none;
+  }
+  .more:before {
+    display: none;
+  }
+  .more:after {
+    padding-inline-start: 0.3em;
+    top: 0;
+  }
+  html:not([dir='rtl']) .more:before,
+  html:not([dir='rtl']) .more:after {
+    content: '\f301';
+  }
+}
+/*! CSS Used from: https://store.storeimages.cdn-apple.com/4982/store.apple.com/static-resources/rs-vendor-1.16.0-039c5/dist/common-css@0.4.2/dist/common.css ; media=screen, print */
+@media screen, print {
+  button {
+    margin: 0;
+    padding: 0;
+  }
+  button {
+    background: none;
+    border: 0;
+    box-sizing: content-box;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    line-height: inherit;
+    overflow: visible;
+    vertical-align: inherit;
+  }
+  button:disabled {
+    cursor: default;
+  }
+  :focus {
+    outline: 2px solid #0071e3;
+    outline-offset: 0;
+  }
+  html.as-mouseuser :focus:not(input):not(textarea):not(select) {
+    outline: none;
+  }
+  button {
+    font-synthesis: none;
+    -moz-font-feature-settings: 'kern';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    direction: ltr;
+    text-align: left;
+  }
+  a {
+    color: #06c;
+    letter-spacing: inherit;
+  }
+  a:link,
+  a:visited {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  a:active {
+    text-decoration: none;
+  }
+  a :disabled {
+    opacity: var(--sk-link-disabled-opacity);
+  }
+  sup {
+    position: relative;
+    font-size: 0.6em;
+    vertical-align: baseline;
+  }
+  sup {
+    top: -0.5em;
+  }
+  .a11y {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(0 0 99.9% 99.9%);
+    clip-path: inset(0 0 99.9% 99.9%);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    border: 0;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+  }
+  .column {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+  .large-12 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .large-centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    .small-12 {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+  }
+  .more:after,
+  .more:before {
+    font-family:
+      SF Pro Icons,
+      AOS Icons;
+    color: inherit;
+    display: inline-block;
+    font-style: normal;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: 1;
+    text-decoration: underline;
+    position: relative;
+    z-index: 1;
+    alt: '';
+    text-decoration: none;
+  }
+  .more:before {
+    display: none;
+  }
+  .more:after {
+    padding-left: 0.3em;
+    top: 0;
+  }
+  .more:after,
+  .more:before {
+    content: '';
+  }
+}
+/*! CSS Used from: https://store.storeimages.cdn-apple.com/4982/store.apple.com/static-resources/rs-merch-3.22.5-3f807/dist/store-home.css ; media=screen, print */
+@media screen, print {
+  [data-core-gallery] {
+    overflow: hidden;
+    position: relative;
+    min-height: 100px;
+  }
+  [data-core-gallery-scroller] {
+    width: 100%;
+    white-space: nowrap;
+    display: flex;
+    position: relative;
+  }
+  [data-core-gallery-item] {
+    cursor: pointer;
+    width: 100%;
+    overflow: hidden;
+  }
+  .rc-inline-gallery-item {
+    text-align: center;
+  }
+  .paddlenav {
+    margin: 0;
+    list-style: none;
+  }
+  .paddlenav .paddlenav-arrow {
+    display: block;
+    font-style: normal;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    transition:
+      background-color 0.1s linear,
+      color 0.1s linear,
+      opacity 0.1s linear;
+  }
+  .paddlenav .paddlenav-arrow-next,
+  .paddlenav .paddlenav-arrow-previous {
+    top: 50%;
+  }
+  .paddlenav .paddlenav-arrow:hover {
+    text-decoration: none;
+  }
+  .paddlenav .paddlenav-arrow:disabled {
+    cursor: default;
+    opacity: 0;
+  }
+  html.as-mouseuser
+    .paddlenav
+    .paddlenav-arrow:disabled:focus:not(input):not(textarea):not(select) {
+    opacity: 0;
+  }
+  .paddlenav .paddlenav-arrow {
+    font-weight: 300;
+    width: 5.29412rem;
+    height: 5.29412rem;
+    border-radius: 5.29412rem;
+    font-size: 53px;
+    line-height: 5.29412rem;
+  }
+  .paddlenav .paddlenav-arrow-next,
+  .paddlenav .paddlenav-arrow-previous {
+    margin-top: -2.64706rem;
+  }
+  .paddlenav .paddlenav-arrow-next:after,
+  .paddlenav .paddlenav-arrow-next:before {
+    font-family:
+      SF Pro Icons,
+      AOS Icons;
+    color: inherit;
+    display: inline-block;
+    font-style: normal;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: 1;
+    text-decoration: underline;
+    position: relative;
+    z-index: 1;
+    alt: '';
+    text-decoration: none;
+  }
+  .paddlenav .paddlenav-arrow-next:before {
+    display: none;
+  }
+  .paddlenav .paddlenav-arrow-next:after,
+  .paddlenav .paddlenav-arrow-next:before {
+    content: '';
+  }
+  .paddlenav .paddlenav-arrow-next:after {
+    margin-right: -0.056em;
+  }
+  .paddlenav .paddlenav-arrow-previous:after,
+  .paddlenav .paddlenav-arrow-previous:before {
+    font-family:
+      SF Pro Icons,
+      AOS Icons;
+    color: inherit;
+    display: inline-block;
+    font-style: normal;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: 1;
+    text-decoration: underline;
+    position: relative;
+    z-index: 1;
+    alt: '';
+    text-decoration: none;
+  }
+  .paddlenav .paddlenav-arrow-previous:before {
+    display: none;
+  }
+  .paddlenav .paddlenav-arrow-previous:after,
+  .paddlenav .paddlenav-arrow-previous:before {
+    content: '';
+  }
+  .paddlenav .paddlenav-arrow-previous:after {
+    margin-left: -0.056em;
+  }
+  .paddlenav .paddlenav-arrow {
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.56);
+  }
+  .paddlenav .paddlenav-arrow:hover {
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.64);
+  }
+  .paddlenav .paddlenav-arrow:focus {
+    box-shadow:
+      0 0 0 3px #fff,
+      0 0 0 5px #0071e3;
+    outline: none;
+  }
+  html.as-mouseuser .paddlenav .paddlenav-arrow:focus:not(input):not(textarea):not(select) {
+    box-shadow: none;
+  }
+  .paddlenav .paddlenav-arrow:active,
+  html.as-mouseuser .paddlenav .paddlenav-arrow:focus:not(input):not(textarea):not(select):active,
+  html.as-mouseuser .paddlenav .paddlenav-arrow:focus:not(input):not(textarea):not(select):hover {
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.64);
+  }
+  .paddlenav .paddlenav-arrow-next {
+    right: 18px;
+  }
+  .paddlenav .paddlenav-arrow-previous {
+    left: 18px;
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    .paddlenav .paddlenav-arrow {
+      font-weight: 300;
+      width: 3.05882rem;
+      height: 3.05882rem;
+      border-radius: 3.05882rem;
+      font-size: 53px;
+      line-height: 3.05882rem;
+    }
+    .paddlenav .paddlenav-arrow-next,
+    .paddlenav .paddlenav-arrow-previous {
+      margin-top: -1.52941rem;
+    }
+    .paddlenav .paddlenav-arrow-next:after,
+    .paddlenav .paddlenav-arrow-next:before {
+      font-family:
+        SF Pro Icons,
+        AOS Icons;
+      color: inherit;
+      display: inline-block;
+      font-style: normal;
+      font-weight: inherit;
+      font-size: inherit;
+      line-height: 1;
+      text-decoration: underline;
+      position: relative;
+      z-index: 1;
+      alt: '';
+      text-decoration: none;
+    }
+    .paddlenav .paddlenav-arrow-next:before {
+      display: none;
+    }
+    .paddlenav .paddlenav-arrow-next:after,
+    .paddlenav .paddlenav-arrow-next:before {
+      content: '';
+    }
+    .paddlenav .paddlenav-arrow-next:after {
+      margin-right: -0.1em;
+    }
+    .paddlenav .paddlenav-arrow-previous:after,
+    .paddlenav .paddlenav-arrow-previous:before {
+      font-family:
+        SF Pro Icons,
+        AOS Icons;
+      color: inherit;
+      display: inline-block;
+      font-style: normal;
+      font-weight: inherit;
+      font-size: inherit;
+      line-height: 1;
+      text-decoration: underline;
+      position: relative;
+      z-index: 1;
+      alt: '';
+      text-decoration: none;
+    }
+    .paddlenav .paddlenav-arrow-previous:before {
+      display: none;
+    }
+    .paddlenav .paddlenav-arrow-previous:after,
+    .paddlenav .paddlenav-arrow-previous:before {
+      content: '';
+    }
+    .paddlenav .paddlenav-arrow-previous:after {
+      margin-left: -0.1em;
+    }
+  }
+  .paddlenav-compact .paddlenav-arrow {
+    font-weight: 300;
+    width: 3.05882rem;
+    height: 3.05882rem;
+    border-radius: 3.05882rem;
+    font-size: 53px;
+    line-height: 3.05882rem;
+  }
+  .paddlenav-compact .paddlenav-arrow-next,
+  .paddlenav-compact .paddlenav-arrow-previous {
+    margin-top: -1.52941rem;
+  }
+  .paddlenav-compact .paddlenav-arrow-next:after,
+  .paddlenav-compact .paddlenav-arrow-next:before {
+    font-family:
+      SF Pro Icons,
+      AOS Icons;
+    color: inherit;
+    display: inline-block;
+    font-style: normal;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: 1;
+    text-decoration: underline;
+    position: relative;
+    z-index: 1;
+    alt: '';
+    text-decoration: none;
+  }
+  .paddlenav-compact .paddlenav-arrow-next:before {
+    display: none;
+  }
+  .paddlenav-compact .paddlenav-arrow-next:after,
+  .paddlenav-compact .paddlenav-arrow-next:before {
+    content: '';
+  }
+  .paddlenav-compact .paddlenav-arrow-next:after {
+    margin-right: -0.1em;
+  }
+  .paddlenav-compact .paddlenav-arrow-previous:after,
+  .paddlenav-compact .paddlenav-arrow-previous:before {
+    font-family:
+      SF Pro Icons,
+      AOS Icons;
+    color: inherit;
+    display: inline-block;
+    font-style: normal;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: 1;
+    text-decoration: underline;
+    position: relative;
+    z-index: 1;
+    alt: '';
+    text-decoration: none;
+  }
+  .paddlenav-compact .paddlenav-arrow-previous:before {
+    display: none;
+  }
+  .paddlenav-compact .paddlenav-arrow-previous:after,
+  .paddlenav-compact .paddlenav-arrow-previous:before {
+    content: '';
+  }
+  .paddlenav-compact .paddlenav-arrow-previous:after {
+    margin-left: -0.1em;
+  }
+  .with-paddlenav {
+    position: relative;
+  }
+  .rc-gallery-paddlenav button {
+    z-index: 1;
+  }
+  .rc-inline-gallery {
+    position: relative;
+  }
+  .ribbon {
+    overflow: hidden;
+    --ribbon-background-color: #f5f5f7;
+    --ribbon-text-color: #1d1d1f;
+    --ribbon-link-color: #06c;
+    --ribbon-focus-color: rgba(0, 125, 250, 0.6);
+  }
+  .ribbon-content-wrapper {
+    text-align: center;
+  }
+  .ribbon-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 980px;
+  }
+  @media only screen and (min-width: 1441px) {
+    .ribbon-content {
+      margin-left: auto;
+      margin-right: auto;
+      width: 980px;
+    }
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    .ribbon-content {
+      margin-left: auto;
+      margin-right: auto;
+      width: 94.14966%;
+      width: 87.5%;
+    }
+  }
+  .ribbon-link {
+    white-space: nowrap;
+  }
+  .ribbon-link:focus {
+    text-decoration: underline;
+  }
+  .ribbon .ribbon-content-wrapper {
+    padding-top: 0.94118em;
+    padding-bottom: 0.94118em;
+  }
+  .ribbon .ribbon-content {
+    font-size: 14px;
+    line-height: 1.42859;
+    font-weight: 400;
+    letter-spacing: -0.016em;
+    font-family:
+      SF Pro Text,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
+  }
+  .ribbon .ribbon-content-wrapper {
+    background-color: var(--ribbon-background-color);
+  }
+  .ribbon .ribbon-content {
+    color: var(--ribbon-text-color);
+  }
+  .ribbon .ribbon-link:focus {
+    outline-color: var(--ribbon-focus-color);
+  }
+  .ribbon .ribbon-link {
+    color: var(--ribbon-link-color);
+  }
+  .ribbon-blue-to-default {
+    --ribbon-background-color: #f5f5f7;
+    --ribbon-background-color-initial: #0071e3;
+    --ribbon-text-color: #1d1d1f;
+    --ribbon-text-color-initial: #fff;
+    --ribbon-link-color: #06c;
+    --ribbon-focus-color: rgba(0, 125, 250, 0.6);
+    --ribbon-link-color-initial: #fff;
+  }
+  .ribbon-blue-to-default .ribbon-content-wrapper {
+    background-color: var(--ribbon-background-color-initial);
+    animation: animate-background-0071e3-f5f5f7 1s ease-in-out 1.8s forwards;
+  }
+  @media (prefers-reduced-motion) {
+    .ribbon-blue-to-default .ribbon-content-wrapper {
+      background-color: var(--ribbon-background-color);
+      animation: none;
+    }
+  }
+  .ribbon-blue-to-default .ribbon-content {
+    color: var(--ribbon-text-color-initial);
+    animation: animate-color-fff-1d1d1f 1s ease-in-out 1.8s forwards;
+  }
+  @media (prefers-reduced-motion) {
+    .ribbon-blue-to-default .ribbon-content {
+      color: var(--ribbon-text-color);
+      animation: none;
+    }
+  }
+  .ribbon-blue-to-default .ribbon-link:focus {
+    outline-color: var(--ribbon-focus-color);
+  }
+  .ribbon-blue-to-default .ribbon-link {
+    color: var(--ribbon-link-color-initial);
+    animation: animate-color-fff-06c 1s ease-in-out 1.8s forwards;
+  }
+  @media (prefers-reduced-motion) {
+    .ribbon-blue-to-default .ribbon-link {
+      color: var(--ribbon-link-color);
+      animation: none;
+    }
+  }
+  .ribbon-drop-wrapper {
+    animation: ribbon-drop 0.8s ease-in-out forwards;
+  }
+  @media (prefers-reduced-motion) {
+    .ribbon-drop-wrapper {
+      animation: none;
+    }
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) and (orientation: landscape) {
+    .rc-ribbon-content-container {
+      margin-left: calc(max(22px, env(safe-area-inset-left)));
+      margin-right: calc(max(22px, env(safe-area-inset-left)));
+      width: auto;
+    }
+  }
+  .rc-ribbon-content {
+    width: 980px;
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    .rc-ribbon-content {
+      width: 100%;
+    }
+  }
+  .rc-ribbon-content [data-core-gallery-item] {
+    cursor: auto;
+  }
+  .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
+    font-size: 24px;
+    line-height: 1.33341;
+    font-weight: 400;
+    letter-spacing: 0.009em;
+    font-family:
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
+    color: #86868b;
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
+      font-size: 21px;
+      line-height: 1.381;
+      font-weight: 400;
+      letter-spacing: 0.011em;
+      font-family:
+        SF Pro Display,
+        SF Pro Icons,
+        AOS Icons,
+        Helvetica Neue,
+        Helvetica,
+        Arial,
+        sans-serif;
+    }
+  }
+  .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous {
+    opacity: 0;
+    width: 1.47059rem;
+    left: 0;
+    animation: animate-opacity 1s ease 2.8s forwards;
+    z-index: 3;
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous {
+      width: 24px;
+      left: -12px;
+    }
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) and (orientation: landscape) {
+    .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous {
+      left: -6px;
+    }
+  }
+  .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous:after {
+    content: '';
+    width: 10px;
+    margin-left: -18px;
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous:after {
+      margin-left: -9px;
+    }
+  }
+  .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next {
+    opacity: 0;
+    width: 1.47059rem;
+    right: 0;
+    animation: animate-opacity 1s ease 2.8s forwards;
+    z-index: 3;
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next {
+      width: 24px;
+      right: -12px;
+    }
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) and (orientation: landscape) {
+    .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next {
+      right: -6px;
+    }
+  }
+  .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next:after {
+    content: '';
+    width: 10px;
+    margin-right: -18px;
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next:after {
+      margin-right: -9px;
+    }
+  }
+  .with-paddlenav .rc-ribbon-content-autoscroll:after,
+  .with-paddlenav .rc-ribbon-content-autoscroll:before {
+    content: '';
+    display: block;
+    width: 41px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    animation: animate-opacity 1s ease 2.8s forwards;
+    z-index: 2;
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    .with-paddlenav .rc-ribbon-content-autoscroll:after,
+    .with-paddlenav .rc-ribbon-content-autoscroll:before {
+      width: 16px;
+    }
+  }
+  .with-paddlenav .rc-ribbon-content-autoscroll:before {
+    left: 0;
+    background-image: linear-gradient(
+      90deg,
+      var(--ribbon-background-color) 16px,
+      hsla(0, 0%, 100%, 0)
+    );
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    .with-paddlenav .rc-ribbon-content-autoscroll:before {
+      background-image: linear-gradient(
+        90deg,
+        var(--ribbon-background-color),
+        hsla(0, 0%, 100%, 0)
+      );
+    }
+  }
+  .with-paddlenav .rc-ribbon-content-autoscroll:after {
+    right: 0;
+    background-image: linear-gradient(
+      270deg,
+      var(--ribbon-background-color) 16px,
+      hsla(0, 0%, 100%, 0)
+    );
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    .with-paddlenav .rc-ribbon-content-autoscroll:after {
+      background-image: linear-gradient(
+        270deg,
+        var(--ribbon-background-color),
+        hsla(0, 0%, 100%, 0)
+      );
+    }
+  }
+  .ribbon-blue-to-default
+    .rc-ribbon-content-autoscroll
+    .rc-ribbon-content-item:not(.rc-ribbon-content-item-0)
+    .ribbon-link,
+  .ribbon-blue-to-default
+    .rc-ribbon-content-autoscroll:not(.rc-inline-gallery-autoscroll)
+    .ribbon-link {
+    animation: none;
+    color: var(--ribbon-link-color);
+  }
+  .rc-ribbon-content-item-base {
+    padding: 3px 0;
+    white-space: normal;
+  }
+  .rc-ribbon-content-item-base .more {
+    display: inline-block;
+  }
+  .rc-ribbon .ribbon-content-wrapper {
+    padding: 0.76471em 0;
+  }
+  .rc-ribbon-content-scroller {
+    align-items: center;
+  }
+  .rc-ribbon-content-gallery {
+    min-height: auto;
+  }
+  .rc-ribbon-gallery-item[aria-hidden='true'] a {
+    visibility: hidden;
+  }
+  .rc-ribbon-content-item {
+    width: 850px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    .rc-ribbon-content-item {
+      width: 87.5%;
+    }
+  }
+  .rc-ribbon .ribbon-link {
+    position: relative;
+  }
+  .rs-storehome-banner.ribbon-blue-to-default {
+    --ribbon-background-color: #fff;
+  }
+  .rc-ribbon-content-scroller .rc-inline-gallery-item > div {
+    white-space: normal;
+  }
+}
+/*! CSS Used keyframes */
+@keyframes animate-background-0071e3-f5f5f7 {
+  0% {
+    background-color: var(--ribbon-background-color-initial);
+  }
+  to {
+    background-color: var(--ribbon-background-color);
+  }
+}
+@keyframes animate-color-fff-1d1d1f {
+  0% {
+    color: var(--ribbon-text-color-initial);
+  }
+  to {
+    color: var(--ribbon-text-color);
+  }
+}
+@keyframes animate-color-fff-06c {
+  0% {
+    color: var(--ribbon-link-color-initial);
+  }
+  to {
+    color: var(--ribbon-link-color);
+  }
+}
+@keyframes ribbon-drop {
+  0% {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes animate-opacity {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
