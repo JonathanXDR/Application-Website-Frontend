@@ -2,37 +2,35 @@
   <div class="rc-ribbon ribbon ribbon-blue-to-default rs-storehome-banner">
     <div class="ribbon-drop-wrapper">
       <div class="ribbon-content-wrapper">
-        <div class="ribbon-content rc-ribbon-content-container row">
-          <div class="column large-12 small-12 large-centered">
-            <div class="rc-ribbon-content with-paddlenav">
-              <div class="rc-inline-gallery rc-ribbon-content-autoscroll">
-                <div id="ca7b6df0-8b08-11ee-8a7d-7334ba56aa54" class="rc-ribbon-content-gallery">
-                  <div
-                    class="rc-ribbon-content-scroller"
-                    style="
-                      transform: translateX(-1000px);
-                      width: 300%;
-                      left: -100%;
-                      transition: none 0s ease 0s;
-                    "
-                  >
-                    <div class="rc-ribbon-gallery-item rc-inline-gallery-item">
-                      <div
-                        class="rc-ribbon-content-item-base rc-ribbon-content-item-0 rc-ribbon-content-item"
-                      >
-                        {{
-                          $t('components.common.RibbonBar.description', {
-                            latestTag: tags.latest,
-                            previousTag: tags.previous
-                          })
-                        }}&ensp;
+        <div class="ribbon-content rc-ribbon-content-container">
+          <div class="rc-ribbon-content with-paddlenav">
+            <div class="rc-inline-gallery rc-ribbon-content-autoscroll">
+              <div id="ca7b6df0-8b08-11ee-8a7d-7334ba56aa54" class="rc-ribbon-content-gallery">
+                <div
+                  class="rc-ribbon-content-scroller"
+                  style="
+                    transform: translateX(0px);
+                    width: 100%;
+                    left: -100%;
+                    transition: none 0s ease 0s;
+                  "
+                >
+                  <div class="rc-ribbon-gallery-item rc-inline-gallery-item">
+                    <div
+                      class="rc-ribbon-content-item-base rc-ribbon-content-item-0 rc-ribbon-content-item"
+                    >
+                      {{
+                        $t('components.common.RibbonBar.description', {
+                          latestTag: tags.latest,
+                          previousTag: tags.previous
+                        })
+                      }}&ensp;
 
-                        <LinkCollection
-                          ref="ribbon-link"
-                          class="ribbon-link ribbon-link-animation icon-after-ribbon"
-                          :links="links"
-                        />
-                      </div>
+                      <LinkCollection
+                        ref="ribbon-link"
+                        class="ribbon-link ribbon-link-animation icon-after-ribbon"
+                        :links="links"
+                      />
                     </div>
                     <div class="rc-ribbon-gallery-item rc-inline-gallery-item">
                       <div
@@ -63,14 +61,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="rc-gallery-paddlenav paddlenav paddlenav-compact">
-                  <button class="paddlenav-arrow paddlenav-arrow-previous">
-                    <Icon name="chevron.left" size="small" class="paddle-icon" />
-                  </button>
-                  <button class="paddlenav-arrow paddlenav-arrow-next">
-                    <Icon name="chevron.right" size="small" class="paddle-icon" />
-                  </button>
-                </div>
+              </div>
+              <div class="rc-gallery-paddlenav paddlenav paddlenav-compact">
+                <button class="paddlenav-arrow paddlenav-arrow-previous">
+                  <Icon name="chevron.left" size="small" class="paddle-icon" />
+                </button>
+                <button class="paddlenav-arrow paddlenav-arrow-next">
+                  <Icon name="chevron.right" size="small" class="paddle-icon" />
+                </button>
               </div>
             </div>
           </div>
