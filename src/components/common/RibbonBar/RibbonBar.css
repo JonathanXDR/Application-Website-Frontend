@@ -344,7 +344,7 @@
   }
   .paddlenav .paddlenav-arrow-next,
   .paddlenav .paddlenav-arrow-previous {
-    margin-top: -2.64706rem;
+    margin-top: -45px;
   }
   .paddlenav .paddlenav-arrow-next:after,
   .paddlenav .paddlenav-arrow-next:before {
@@ -365,10 +365,6 @@
   }
   .paddlenav .paddlenav-arrow-next:before {
     display: none;
-  }
-  .paddlenav .paddlenav-arrow-next:after,
-  .paddlenav .paddlenav-arrow-next:before {
-    content: '';
   }
   .paddlenav .paddlenav-arrow-next:after {
     margin-right: -0.056em;
@@ -392,10 +388,6 @@
   }
   .paddlenav .paddlenav-arrow-previous:before {
     display: none;
-  }
-  .paddlenav .paddlenav-arrow-previous:after,
-  .paddlenav .paddlenav-arrow-previous:before {
-    content: '';
   }
   .paddlenav .paddlenav-arrow-previous:after {
     margin-left: -0.056em;
@@ -462,10 +454,6 @@
     .paddlenav .paddlenav-arrow-next:before {
       display: none;
     }
-    .paddlenav .paddlenav-arrow-next:after,
-    .paddlenav .paddlenav-arrow-next:before {
-      content: '';
-    }
     .paddlenav .paddlenav-arrow-next:after {
       margin-right: -0.1em;
     }
@@ -488,10 +476,6 @@
     }
     .paddlenav .paddlenav-arrow-previous:before {
       display: none;
-    }
-    .paddlenav .paddlenav-arrow-previous:after,
-    .paddlenav .paddlenav-arrow-previous:before {
-      content: '';
     }
     .paddlenav .paddlenav-arrow-previous:after {
       margin-left: -0.1em;
@@ -529,10 +513,6 @@
   .paddlenav-compact .paddlenav-arrow-next:before {
     display: none;
   }
-  .paddlenav-compact .paddlenav-arrow-next:after,
-  .paddlenav-compact .paddlenav-arrow-next:before {
-    content: '';
-  }
   .paddlenav-compact .paddlenav-arrow-next:after {
     margin-right: -0.1em;
   }
@@ -555,10 +535,6 @@
   }
   .paddlenav-compact .paddlenav-arrow-previous:before {
     display: none;
-  }
-  .paddlenav-compact .paddlenav-arrow-previous:after,
-  .paddlenav-compact .paddlenav-arrow-previous:before {
-    content: '';
   }
   .paddlenav-compact .paddlenav-arrow-previous:after {
     margin-left: -0.1em;
@@ -756,7 +732,6 @@
     }
   }
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous:after {
-    content: '';
     width: 10px;
     margin-left: -18px;
   }
@@ -784,7 +759,6 @@
     }
   }
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next:after {
-    content: '';
     width: 10px;
     margin-right: -18px;
   }
