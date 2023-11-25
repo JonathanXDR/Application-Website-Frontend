@@ -50,15 +50,6 @@ body {
     #0c0c0c 100%
   );
 
-  /* Infobar */
-  --ribbon-background-color: #f5f5f7;
-  --ribbon-background-color-initial: #0071e3;
-  --ribbon-text-color: #1d1d1f;
-  --ribbon-text-color-initial: white;
-  --ribbon-link-color: #0066cc;
-  --ribbon-focus-color: rgba(0, 125, 250, 0.6);
-  --ribbon-link-color-initial: white;
-
   /* Cards */
   --color-nav-background: rgba(0, 0, 0, 0.08);
   --color-dropdown-background: rgba(255, 255, 255, 0.8);
@@ -218,15 +209,6 @@ body {
     #242424 0%,
     #0c0c0c 100%
   );
-
-  /* Infobar */
-  --ribbon-background-color: #1d1d1f;
-  --ribbon-background-color-initial: #0071e3;
-  --ribbon-text-color: #f5f5f7;
-  --ribbon-text-color-initial: white;
-  --ribbon-link-color: #2997ff;
-  --ribbon-focus-color: rgba(0, 125, 250, 0.6);
-  --ribbon-link-color-initial: white;
 
   /* Cards */
   --color-nav-background: rgba(255, 255, 255, 0.08);
@@ -634,7 +616,7 @@ a {
 }
 
 .active {
-  color: var(--ribbon-link-color);
+  color: var(--color-figure-blue);
 }
 
 h2 + p:not(.article-date),
@@ -813,7 +795,7 @@ fieldset {
 }
 
 .link {
-  color: var(--ribbon-link-color);
+  color: var(--color-figure-blue);
   cursor: pointer;
 }
 
