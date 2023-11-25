@@ -1,3 +1,4 @@
+import Icon from '@/components/common/Icons/Icon.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import { listRepositoryTags } from '@/helpers/github-helper'
@@ -9,6 +10,7 @@ export default defineComponent({
   name: 'RibbonBar',
   components: {
     LoadingSpinner,
+    Icon,
     LinkCollection
   },
   setup() {
