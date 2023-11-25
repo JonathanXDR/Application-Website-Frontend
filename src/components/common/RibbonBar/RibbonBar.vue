@@ -1,11 +1,14 @@
 <template>
-  <div class="rc-ribbon ribbon ribbon-blue-to-default rs-storehome-banner">
+  <div
+    v-if="tags.latest?.length && tags.previous?.length"
+    class="rc-ribbon ribbon ribbon-blue-to-default rs-storehome-banner"
+  >
     <div class="ribbon-drop-wrapper">
       <div class="ribbon-content-wrapper">
         <div class="ribbon-content rc-ribbon-content-container">
           <div class="rc-ribbon-content with-paddlenav">
             <div class="rc-inline-gallery rc-ribbon-content-autoscroll">
-              <div id="ca7b6df0-8b08-11ee-8a7d-7334ba56aa54" class="rc-ribbon-content-gallery">
+              <div class="rc-ribbon-content-gallery">
                 <div
                   class="rc-ribbon-content-scroller"
                   style="
