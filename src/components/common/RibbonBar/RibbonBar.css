@@ -328,12 +328,12 @@
   font-weight: 400;
   letter-spacing: -0.016em;
   font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    AOS Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 .ribbon .ribbon-content-wrapper {
@@ -379,12 +379,12 @@
   font-weight: 400;
   letter-spacing: 0.009em;
   font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    AOS Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   color: #86868b;
 }
@@ -395,12 +395,12 @@
     font-weight: 400;
     letter-spacing: 0.011em;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      AOS Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
