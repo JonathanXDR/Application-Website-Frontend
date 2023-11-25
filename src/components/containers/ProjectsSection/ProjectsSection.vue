@@ -10,7 +10,7 @@
     <ul ref="ul" class="timeline">
       <CardItem
         variant="article"
-        size="large"
+        size="medium"
         v-for="(project, index) in currentProjects"
         :key="index"
         :card="project"
@@ -32,6 +32,7 @@
           v-for="(card, index) in pinned"
           :key="index"
           :card="card"
+          size="small"
           iconPosition="right"
           class="color"
           :style="`--color-figure: var(--color-figure-${randomColor});
@@ -43,6 +44,7 @@
           v-for="(card, index) in currentProjects"
           :key="index"
           :card="card"
+          size="small"
           iconPosition="right"
         />
         <ResultBlankState v-if="!currentProjects" />

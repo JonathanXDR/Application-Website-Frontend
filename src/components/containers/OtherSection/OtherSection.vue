@@ -4,7 +4,7 @@
     <!-- <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" /> -->
     <CardItem
       variant="article"
-      size="large"
+      size="medium"
       v-for="(article, index) in articles"
       :key="index"
       :card="article"

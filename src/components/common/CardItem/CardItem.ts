@@ -53,9 +53,9 @@ export default defineComponent({
       default: 'top'
     },
     size: {
-      type: String as PropType<'small' | 'large' | 'full'>,
+      type: String as PropType<'small' | 'medium' | 'large' | 'full'>,
       required: false,
-      default: 'small'
+      default: 'medium'
     },
     hover: {
       type: String as PropType<'auto' | 'true' | 'false'>,

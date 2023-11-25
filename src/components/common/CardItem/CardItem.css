@@ -49,8 +49,12 @@
 
 /* ---------------------------------- card ---------------------------------- */
 
+.card.medium {
+  border-radius: 17px;
+}
+
 .card.large {
-  border-radius: 16px;
+  border-radius: 18px;
 }
 
 .card.color {
@@ -67,7 +71,7 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   /* height: 100%; */
-  border-radius: 15px;
+  border-radius: 16px;
 
   /* Styles without cover */
   transition:
@@ -167,12 +171,28 @@
     sans-serif;
 }
 
-.large .details {
+.medium .details {
   padding: 32px;
   font-size: 17px;
   line-height: 1.4705882353;
   font-weight: 400;
   letter-spacing: -0.022em;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
+}
+
+.large .details {
+  padding: 44px;
+  font-size: 20px;
+  line-height: 1.6470588235;
+  font-weight: 400;
+  letter-spacing: -0.028em;
   font-family:
     system-ui,
     -apple-system,
@@ -238,7 +258,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
   gap: 4px;
 }
 
@@ -262,11 +281,26 @@
     sans-serif;
 }
 
-.large .eyebrow {
+.medium .eyebrow {
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
   letter-spacing: -0.024em;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
+}
+
+.large .eyebrow {
+  font-size: 20px;
+  line-height: 1.4705882353;
+  font-weight: 600;
+  letter-spacing: -0.032em;
   font-family:
     system-ui,
     -apple-system,
@@ -329,6 +363,7 @@
 
 .title {
   font-size: 14px;
+  /* 21.8581628569 */
   line-height: 1.2857742857;
   font-weight: 600;
   letter-spacing: -0.016em;
@@ -342,8 +377,9 @@
     sans-serif;
 }
 
-.large .title {
+.medium .title {
   font-size: 21px;
+  /* 20.2380952385px */
   line-height: 1.1904761905;
   font-weight: 600;
   letter-spacing: 0.011em;
@@ -355,6 +391,24 @@
     'Helvetica',
     'Arial',
     sans-serif;
+}
+
+.large .title {
+  font-size: 28px;
+  line-height: 1.0947058824;
+  font-weight: 600;
+  letter-spacing: 0.032em;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
+
+  /* Styles without cover */
+  color: var(--color-card-content-text);
 }
 
 .full .title {
@@ -410,22 +464,6 @@
     margin-left: auto;
     margin-right: auto;
   }
-
-  .card.large,
-  .card.small {
-    --card-height: auto;
-    --card-details-height: auto;
-    min-width: 280px;
-    max-width: 300px;
-    --card-cover-height: 227px;
-  }
-
-  /* .card.large .link,
-  .card.small .link {
-    bottom: unset;
-    margin-top: 7px;
-    position: relative;
-  } */
 
   .full {
     --card-height: auto;
@@ -552,18 +590,18 @@
 
 /* ---------------------------------- donut --------------------------------- */
 
-br.large {
+br.medium {
   display: block;
 }
 
 @media only screen and (max-width: 1068px) {
-  br.large {
+  br.medium {
     display: none;
   }
 }
 
 @media only screen and (max-width: 734px) {
-  br.large {
+  br.medium {
     display: none;
   }
 }
@@ -633,20 +671,20 @@ br.medium {
   }
 }
 
-br.large,
+br.medium,
 br.medium {
   display: none !important;
 }
 
 @media only screen and (min-width: 1069px) {
-  br.large.large,
-  br.medium.large {
+  br.medium.medium,
+  br.medium.medium {
     display: block !important;
   }
 }
 
 @media only screen and (min-width: 735px) and (max-width: 1068px) {
-  br.large.medium,
+  br.medium.medium,
   br.medium.medium {
     display: block !important;
   }

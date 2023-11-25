@@ -7,7 +7,13 @@
   <LiveResultSummary :totalResults="cards.length" />
 
   <ul class="card-container">
-    <CardItem v-for="(card, index) in cards" :key="index" :card="card" iconPosition="right" />
+    <CardItem
+      v-for="(card, index) in cards"
+      :key="index"
+      :card="card"
+      size="small"
+      iconPosition="right"
+    />
     <ResultBlankState v-if="!cards" />
   </ul>
 </template>
