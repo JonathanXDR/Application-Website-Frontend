@@ -10,7 +10,7 @@
                   <div
                     class="rc-ribbon-content-scroller"
                     style="
-                      transform: translateX(0px);
+                      transform: translateX(-1000px);
                       width: 300%;
                       left: -100%;
                       transition: none 0s ease 0s;
@@ -20,16 +20,18 @@
                       <div
                         class="rc-ribbon-content-item-base rc-ribbon-content-item-0 rc-ribbon-content-item"
                       >
-                        <div>
-                          Save on your new iPhone with special carrier deals at Apple.<sup>1</sup>
-                          <a
-                            href="/shop/buy-iphone/carrier-offers"
-                            class="ribbon-link more"
-                            target="_blank"
-                          >
-                            Find your deal<span class="a11y"> (Opens in a new window)</span>
-                          </a>
-                        </div>
+                        {{
+                          $t('components.common.RibbonBar.description', {
+                            latestTag: tags.latest,
+                            previousTag: tags.previous
+                          })
+                        }}&ensp;
+
+                        <LinkCollection
+                          ref="ribbon-link"
+                          class="ribbon-link ribbon-link-animation icon-after-ribbon"
+                          :links="links"
+                        />
                       </div>
                     </div>
                     <div class="rc-ribbon-gallery-item rc-inline-gallery-item">
