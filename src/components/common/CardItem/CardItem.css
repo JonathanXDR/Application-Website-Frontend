@@ -160,7 +160,7 @@
   font-size: 14px;
   line-height: 1.2857742857;
   font-weight: 400;
-  letter-spacing: -0.016em;
+  /* letter-spacing: -0.016em; */
   font-family:
     system-ui,
     -apple-system,
@@ -176,7 +176,7 @@
   font-size: 17px;
   line-height: 1.4705882353;
   font-weight: 400;
-  letter-spacing: -0.022em;
+  /* letter-spacing: -0.022em; */
   font-family:
     system-ui,
     -apple-system,
@@ -192,7 +192,7 @@
   font-size: 20px;
   line-height: 1.6470588235;
   font-weight: 400;
-  letter-spacing: -0.028em;
+  /* letter-spacing: -0.028em; */
   font-family:
     system-ui,
     -apple-system,
@@ -207,7 +207,7 @@
   font-size: 17px;
   line-height: 1.4705882353;
   font-weight: 400;
-  letter-spacing: -0.022em;
+  /* letter-spacing: -0.022em; */
   font-family:
     system-ui,
     -apple-system,
@@ -234,7 +234,7 @@
   font-size: 14px;
   line-height: 1.2857742857;
   font-weight: 400;
-  letter-spacing: -0.016em;
+  /* letter-spacing: -0.016em; */
   font-family:
     system-ui,
     -apple-system,
@@ -270,7 +270,7 @@
   font-size: 14px;
   line-height: 1.2857742857;
   font-weight: 600;
-  letter-spacing: -0.016em;
+  /* letter-spacing: -0.016em; */
   font-family:
     system-ui,
     -apple-system,
@@ -285,7 +285,7 @@
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
-  letter-spacing: -0.024em;
+  /* letter-spacing: -0.024em; */
   font-family:
     system-ui,
     -apple-system,
@@ -300,7 +300,7 @@
   font-size: 20px;
   line-height: 1.4705882353;
   font-weight: 600;
-  letter-spacing: -0.032em;
+  /* letter-spacing: -0.032em; */
   font-family:
     system-ui,
     -apple-system,
@@ -315,7 +315,7 @@
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
-  letter-spacing: -0.024em;
+  /* letter-spacing: -0.024em; */
   font-family:
     system-ui,
     -apple-system,
@@ -334,7 +334,7 @@
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
-  letter-spacing: -0.024em;
+  /* letter-spacing: -0.024em; */
   font-family:
     system-ui,
     -apple-system,
@@ -350,7 +350,7 @@
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
-  letter-spacing: -0.024em;
+  /* letter-spacing: -0.024em; */
   font-family:
     system-ui,
     -apple-system,
@@ -366,7 +366,7 @@
   /* 21.8581628569 */
   line-height: 1.2857742857;
   font-weight: 600;
-  letter-spacing: -0.016em;
+  /* letter-spacing: -0.016em; */
   font-family:
     system-ui,
     -apple-system,
@@ -382,7 +382,7 @@
   /* 20.2380952385px */
   line-height: 1.1904761905;
   font-weight: 600;
-  letter-spacing: 0.011em;
+  /* letter-spacing: 0.011em; */
   font-family:
     system-ui,
     -apple-system,
@@ -397,7 +397,7 @@
   font-size: 28px;
   line-height: 1.0947058824;
   font-weight: 600;
-  letter-spacing: 0.032em;
+  /* letter-spacing: 0.032em; */
   font-family:
     system-ui,
     -apple-system,
@@ -415,7 +415,7 @@
   font-size: 21px;
   line-height: 1.1904761905;
   font-weight: 600;
-  letter-spacing: 0.011em;
+  /* letter-spacing: 0.011em; */
   font-family:
     system-ui,
     -apple-system,
@@ -515,7 +515,7 @@
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 400;
-  letter-spacing: 0em;
+  /* letter-spacing: 0em; */
   font-family:
     system-ui,
     -apple-system,
@@ -543,7 +543,7 @@
     font-size: 14px;
     line-height: 1.2857742857;
     font-weight: 400;
-    letter-spacing: -0.016em;
+    /* letter-spacing: -0.016em; */
     font-family:
       system-ui,
       -apple-system,
@@ -626,7 +626,7 @@ br.medium {
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
-  letter-spacing: 0em;
+  /* letter-spacing: 0em; */
   font-family:
     system-ui,
     -apple-system,
@@ -642,7 +642,7 @@ br.medium {
     font-size: 17px;
     line-height: 1.2353641176;
     font-weight: 600;
-    letter-spacing: 0em;
+    /* letter-spacing: 0em; */
     font-family:
       system-ui,
       -apple-system,
@@ -659,7 +659,7 @@ br.medium {
     font-size: 14px;
     line-height: 1.2857742857;
     font-weight: 600;
-    letter-spacing: -0.016em;
+    /* letter-spacing: -0.016em; */
     font-family:
       system-ui,
       -apple-system,
@@ -694,7 +694,7 @@ br.medium {
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
-  letter-spacing: 0em;
+  /* letter-spacing: 0em; */
   font-family:
     system-ui,
     -apple-system,
@@ -710,7 +710,7 @@ br.medium {
     font-size: 17px;
     line-height: 1.2353641176;
     font-weight: 600;
-    letter-spacing: 0em;
+    /* letter-spacing: 0em; */
     font-family:
       system-ui,
       -apple-system,
@@ -727,7 +727,7 @@ br.medium {
     font-size: 14px;
     line-height: 1.2857742857;
     font-weight: 600;
-    letter-spacing: -0.016em;
+    /* letter-spacing: -0.016em; */
     font-family:
       system-ui,
       -apple-system,
@@ -911,7 +911,7 @@ svg.ac-graph-svg {
   font-size: 12px;
   line-height: 1.33337;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  /* letter-spacing: -0.01em; */
   font-family:
     system-ui,
     -apple-system,

@@ -115,7 +115,7 @@
   font-size: 22.588px;
   line-height: 1.16667;
   font-weight: 600;
-  letter-spacing: 0.009em;
+  /* letter-spacing: 0.009em; */
   font-family:
     system-ui,
     -apple-system,
@@ -136,7 +136,7 @@
     font-size: 19.765px;
     line-height: 1.19048;
     font-weight: 600;
-    letter-spacing: 0.011em;
+    /* letter-spacing: 0.011em; */
     font-family:
       system-ui,
       -apple-system,
@@ -251,7 +251,7 @@
   font-size: 14px;
   line-height: 1;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  /* letter-spacing: -0.02em; */
   font-family:
     system-ui,
     -apple-system,

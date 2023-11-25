@@ -1,37 +1,3 @@
-figure,
-p {
-  margin: 0;
-  padding: 0;
-}
-:focus {
-  outline: 2px solid #0071e3;
-  outline-offset: 0px;
-}
-p + * {
-  margin-top: 0.8em;
-}
-a {
-  color: #06c;
-  letter-spacing: inherit;
-}
-a:link,
-a:visited {
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-a:active {
-  text-decoration: none;
-}
-sup {
-  position: relative;
-  font-size: 0.6em;
-  vertical-align: initial;
-}
-sup {
-  top: -0.5em;
-}
 .footnote a {
   vertical-align: inherit;
   color: inherit;
@@ -98,7 +64,7 @@ br.small {
   font-size: 48px;
   line-height: 1;
   font-weight: 600;
-  letter-spacing: -0.003em;
+  /* letter-spacing: -0.003em; */
   font-family:
     system-ui,
     -apple-system,
@@ -112,7 +78,7 @@ br.small {
   font-size: 14px;
   line-height: 1.2857742857;
   font-weight: 400;
-  letter-spacing: -0.016em;
+  /* letter-spacing: -0.016em; */
   font-family:
     system-ui,
     -apple-system,
@@ -148,7 +114,7 @@ sup.footnote-number {
   font-size: 28px;
   line-height: 1.1428571429;
   font-weight: 600;
-  letter-spacing: 0.007em;
+  /* letter-spacing: 0.007em; */
   font-family:
     system-ui,
     -apple-system,
@@ -163,7 +129,7 @@ sup.footnote-number {
     font-size: 21px;
     line-height: 1.1904761905;
     font-weight: 600;
-    letter-spacing: 0.011em;
+    /* letter-spacing: 0.011em; */
     font-family:
       system-ui,
       -apple-system,
@@ -242,7 +208,7 @@ sup.footnote-number {
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 400;
-  letter-spacing: -0.022em;
+  /* letter-spacing: -0.022em; */
   font-family:
     system-ui,
     -apple-system,
@@ -285,7 +251,7 @@ sup.footnote-number {
   font-size: 48px;
   line-height: 1.0834933333;
   font-weight: 600;
-  letter-spacing: -0.003em;
+  /* letter-spacing: -0.003em; */
   font-family:
     system-ui,
     -apple-system,
@@ -302,7 +268,7 @@ sup.footnote-number {
     font-size: 28px;
     line-height: 1.1428571429;
     font-weight: 600;
-    letter-spacing: 0.007em;
+    /* letter-spacing: 0.007em; */
     font-family:
       system-ui,
       -apple-system,
@@ -389,7 +355,7 @@ hr {
   font-size: 56px !important;
   line-height: 1.0714285714 !important;
   font-weight: 600 !important;
-  letter-spacing: -0.005em !important;
+  /* letter-spacing: -0.005em !important; */
   font-family:
     system-ui,
     -apple-system,
@@ -405,7 +371,7 @@ hr {
     font-size: 48px !important;
     line-height: 1.0834933333 !important;
     font-weight: 600 !important;
-    letter-spacing: -0.003em !important;
+    /* letter-spacing: -0.003em !important; */
     font-family:
       system-ui,
       -apple-system,
@@ -422,7 +388,7 @@ hr {
     font-size: 28px !important;
     line-height: 1.1428571429 !important;
     font-weight: 600 !important;
-    letter-spacing: 0.007em !important;
+    /* letter-spacing: 0.007em !important; */
     font-family:
       system-ui,
       -apple-system,
