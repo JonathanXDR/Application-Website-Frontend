@@ -6,4 +6,3 @@
 
 <script lang="ts" src="./AnchorButton.ts"></script>
 <style scoped src="./AnchorButton.css"></style>
-./AnchorButton.js./AnchorButton.js

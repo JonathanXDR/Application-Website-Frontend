@@ -1,3 +1,4 @@
+import AnchorButton from '@/components/common/AnchorButton/AnchorButton.vue'
 import ButtonItem from '@/components/common/ButtonItem/ButtonItem.vue'
 import Icon from '@/components/common/Icons/Icon.vue'
 import InfoBar from '@/components/common/InfoBar/InfoBar.vue'
@@ -13,6 +14,7 @@ export default defineComponent({
     ButtonItem,
     TagBar,
     InfoBar,
+    AnchorButton,
     LinkCollection
   },
   props: {

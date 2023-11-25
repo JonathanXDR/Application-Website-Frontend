@@ -47,12 +47,12 @@
       sans-serif;
   }
 }
-.nr-cta-circular-icon,
-.nr-cta-circular-icon .icon,
-.nr-cta-circular-icon .icon::after {
+.nr-cta-circular-icon {
+  color: var(--color-figure-gray-secondary);
+}
+.nr-cta-circular-icon svg {
   width: 0.5em;
   height: 0.5em;
-  color: var(--color-figure-gray-secondary);
 }
 .nr-cta-open {
   background-color: var(--color-fill-tertiary);
@@ -63,10 +63,7 @@
     background-color: var(--color-fill-gray-quaternary);
   }
 }
-.nr-cta-open .icon {
-  transform: translateY(-2px);
-}
-.tile.tile-quick-read .nr-cta-open {
+.card .nr-cta-open {
   bottom: 24px;
   height: 44px;
   position: absolute;
@@ -74,14 +71,14 @@
   right: 24px;
 }
 @media (hover: hover) {
-  .tile.tile-quick-read:hover .nr-cta-open {
+  .card:hover .nr-cta-open {
     transition-property: background-color;
     transition-duration: 400ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.25, 1);
     transition-delay: 0s;
     background-color: var(--color-fill-gray-quaternary);
   }
-  .tile.tile-quick-read:hover .nr-cta-open .icon::after {
+  .card:hover .nr-cta-open svg {
     transition-property: color;
     transition-duration: 400ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.25, 1);
