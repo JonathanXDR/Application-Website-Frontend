@@ -54,7 +54,7 @@
 }
 
 .ribbon-content {
-  color: var(--ribbon-text-color);
+  color: var(--color-fill-gray);
 }
 
 .ribbon-content p {
@@ -68,7 +68,7 @@
 /* ------------------------- ribbon-content-wrapper ------------------------- */
 
 .ribbon-content-wrapper {
-  background-color: var(--ribbon-background-color);
+  background-color: var(--color-fill-tertiary);
   text-align: center;
   padding-top: 0.9411764706em;
   padding-bottom: 0.9411764706em;
@@ -78,16 +78,16 @@
 
 @keyframes animate-background-0071e3-f5f5f7 {
   0% {
-    background-color: var(--ribbon-background-color-initial);
+    background-color: var(--color-fill-blue);
   }
 
   to {
-    background-color: var(--ribbon-background-color);
+    background-color: var(--color-fill-tertiary);
   }
 }
 
 .ribbon-content-wrapper-animation {
-  background-color: var(--ribbon-background-color-initial);
+  background-color: var(--color-fill-blue);
   animation: animate-background-0071e3-f5f5f7 1s ease-in-out 1.8s forwards;
 }
 
@@ -95,16 +95,16 @@
 
 @keyframes animate-color-white-1d1d1f {
   0% {
-    color: var(--ribbon-text-color-initial);
+    color: var(--color-fill);
   }
 
   to {
-    color: var(--ribbon-text-color);
+    color: var(--color-fill-gray);
   }
 }
 
 .ribbon-content-animation {
-  color: var(--ribbon-text-color-initial);
+  color: var(--color-fill);
   animation: animate-color-white-1d1d1f 1s ease-in-out 1.8s forwards;
 }
 
@@ -550,9 +550,6 @@
   }
   .ribbon {
     overflow: hidden;
-    --ribbon-background-color: #f5f5f7;
-    --ribbon-text-color: #1d1d1f;
-    --ribbon-link-color: #06c;
     --ribbon-focus-color: rgba(0, 125, 250, 0.6);
   }
   .ribbon-content-wrapper {
@@ -603,43 +600,37 @@
       sans-serif;
   }
   .ribbon .ribbon-content-wrapper {
-    background-color: var(--ribbon-background-color);
+    background-color: var(--color-fill-tertiary);
   }
   .ribbon .ribbon-content {
-    color: var(--ribbon-text-color);
+    color: var(--color-fill-gray);
   }
   .ribbon .ribbon-link:focus {
     outline-color: var(--ribbon-focus-color);
   }
   .ribbon .ribbon-link {
-    color: var(--ribbon-link-color);
+    color: var(--color-figure-blue);
   }
   .ribbon-blue-to-default {
-    --ribbon-background-color: #f5f5f7;
-    --ribbon-background-color-initial: #0071e3;
-    --ribbon-text-color: #1d1d1f;
-    --ribbon-text-color-initial: #fff;
-    --ribbon-link-color: #06c;
     --ribbon-focus-color: rgba(0, 125, 250, 0.6);
-    --ribbon-link-color-initial: #fff;
   }
   .ribbon-blue-to-default .ribbon-content-wrapper {
-    background-color: var(--ribbon-background-color-initial);
+    background-color: var(--color-fill-blue);
     animation: animate-background-0071e3-f5f5f7 1s ease-in-out 1.8s forwards;
   }
   @media (prefers-reduced-motion) {
     .ribbon-blue-to-default .ribbon-content-wrapper {
-      background-color: var(--ribbon-background-color);
+      background-color: var(--color-fill-tertiary);
       animation: none;
     }
   }
   .ribbon-blue-to-default .ribbon-content {
-    color: var(--ribbon-text-color-initial);
+    color: var(--color-fill);
     animation: animate-color-fff-1d1d1f 1s ease-in-out 1.8s forwards;
   }
   @media (prefers-reduced-motion) {
     .ribbon-blue-to-default .ribbon-content {
-      color: var(--ribbon-text-color);
+      color: var(--color-fill-gray);
       animation: none;
     }
   }
@@ -647,12 +638,12 @@
     outline-color: var(--ribbon-focus-color);
   }
   .ribbon-blue-to-default .ribbon-link {
-    color: var(--ribbon-link-color-initial);
+    color: var(--color-fill);
     animation: animate-color-fff-06c 1s ease-in-out 1.8s forwards;
   }
   @media (prefers-reduced-motion) {
     .ribbon-blue-to-default .ribbon-link {
-      color: var(--ribbon-link-color);
+      color: var(--color-figure-blue);
       animation: none;
     }
   }
@@ -787,36 +778,24 @@
   }
   .with-paddlenav .rc-ribbon-content-autoscroll:before {
     left: 0;
-    background-image: linear-gradient(
-      90deg,
-      var(--ribbon-background-color) 16px,
-      hsla(0, 0%, 100%, 0)
-    );
+    background-image: linear-gradient(90deg, var(--color-fill-tertiary) 16px, hsla(0, 0%, 100%, 0));
   }
   @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
     .with-paddlenav .rc-ribbon-content-autoscroll:before {
-      background-image: linear-gradient(
-        90deg,
-        var(--ribbon-background-color),
-        hsla(0, 0%, 100%, 0)
-      );
+      background-image: linear-gradient(90deg, var(--color-fill-tertiary), hsla(0, 0%, 100%, 0));
     }
   }
   .with-paddlenav .rc-ribbon-content-autoscroll:after {
     right: 0;
     background-image: linear-gradient(
       270deg,
-      var(--ribbon-background-color) 16px,
+      var(--color-fill-tertiary) 16px,
       hsla(0, 0%, 100%, 0)
     );
   }
   @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
     .with-paddlenav .rc-ribbon-content-autoscroll:after {
-      background-image: linear-gradient(
-        270deg,
-        var(--ribbon-background-color),
-        hsla(0, 0%, 100%, 0)
-      );
+      background-image: linear-gradient(270deg, var(--color-fill-tertiary), hsla(0, 0%, 100%, 0));
     }
   }
   .ribbon-blue-to-default
@@ -827,7 +806,7 @@
     .rc-ribbon-content-autoscroll:not(.rc-inline-gallery-autoscroll)
     .ribbon-link {
     animation: none;
-    color: var(--ribbon-link-color);
+    color: var(--color-figure-blue);
   }
   .rc-ribbon-content-item-base {
     padding: 3px 0;
@@ -872,26 +851,26 @@
 /*! CSS Used keyframes */
 @keyframes animate-background-0071e3-f5f5f7 {
   0% {
-    background-color: var(--ribbon-background-color-initial);
+    background-color: var(--color-fill-blue);
   }
   to {
-    background-color: var(--ribbon-background-color);
+    background-color: var(--color-fill-tertiary);
   }
 }
 @keyframes animate-color-fff-1d1d1f {
   0% {
-    color: var(--ribbon-text-color-initial);
+    color: var(--color-fill);
   }
   to {
-    color: var(--ribbon-text-color);
+    color: var(--color-fill-gray);
   }
 }
 @keyframes animate-color-fff-06c {
   0% {
-    color: var(--ribbon-link-color-initial);
+    color: var(--color-fill);
   }
   to {
-    color: var(--ribbon-link-color);
+    color: var(--color-figure-blue);
   }
 }
 @keyframes ribbon-drop {
