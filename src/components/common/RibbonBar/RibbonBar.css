@@ -336,11 +336,11 @@
   }
   .paddlenav .paddlenav-arrow {
     font-weight: 300;
-    width: 5.29412rem;
-    height: 5.29412rem;
-    border-radius: 5.29412rem;
+    width: 90px;
+    height: 90px;
+    border-radius: 90px;
     font-size: 53px;
-    line-height: 5.29412rem;
+    line-height: 90px;
   }
   .paddlenav .paddlenav-arrow-next,
   .paddlenav .paddlenav-arrow-previous {
@@ -432,15 +432,15 @@
   @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
     .paddlenav .paddlenav-arrow {
       font-weight: 300;
-      width: 3.05882rem;
-      height: 3.05882rem;
-      border-radius: 3.05882rem;
+      width: 52px;
+      height: 52px;
+      border-radius: 52px;
       font-size: 53px;
-      line-height: 3.05882rem;
+      line-height: 52px;
     }
     .paddlenav .paddlenav-arrow-next,
     .paddlenav .paddlenav-arrow-previous {
-      margin-top: -1.52941rem;
+      margin-top: -26px;
     }
     .paddlenav .paddlenav-arrow-next:after,
     .paddlenav .paddlenav-arrow-next:before {
@@ -499,15 +499,15 @@
   }
   .paddlenav-compact .paddlenav-arrow {
     font-weight: 300;
-    width: 3.05882rem;
-    height: 3.05882rem;
-    border-radius: 3.05882rem;
+    width: 52px;
+    height: 52px;
+    border-radius: 52px;
     font-size: 53px;
-    line-height: 3.05882rem;
+    line-height: 52px;
   }
   .paddlenav-compact .paddlenav-arrow-next,
   .paddlenav-compact .paddlenav-arrow-previous {
-    margin-top: -1.52941rem;
+    margin-top: -26px;
   }
   .paddlenav-compact .paddlenav-arrow-next:after,
   .paddlenav-compact .paddlenav-arrow-next:before {
@@ -739,7 +739,7 @@
   }
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous {
     opacity: 0;
-    width: 1.47059rem;
+    width: 25px;
     left: 0;
     animation: animate-opacity 1s ease 2.8s forwards;
     z-index: 3;
@@ -767,7 +767,7 @@
   }
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next {
     opacity: 0;
-    width: 1.47059rem;
+    width: 25px;
     right: 0;
     animation: animate-opacity 1s ease 2.8s forwards;
     z-index: 3;
