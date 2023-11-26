@@ -958,43 +958,43 @@ fieldset {
   }
 }
 
-/* --------------------------- nr-scroll-animation -------------------------- */
+/* --------------------------- scroll-animation -------------------------- */
 
 #references,
-#other .nr-scroll-animation {
-  --nr-animation-transform-y: 20% !important;
+#other .scroll-animation {
+  --animation-transform-y: 20% !important;
 }
 
-#technologies .nr-scroll-animation {
-  --nr-animation-transform-y: 10% !important;
+#technologies .scroll-animation {
+  --animation-transform-y: 10% !important;
 }
 
-#projects .nr-scroll-animation {
-  --nr-animation-transform-y: 100% !important;
+#projects .scroll-animation {
+  --animation-transform-y: 100% !important;
 }
 
-.nr-scroll-animation {
-  --nr-animation-transform-x: 0;
-  --nr-animation-transform-y: 0;
-  --nr-animation-transform-scale: 1;
-  --nr-animation-duration: 800ms;
+.scroll-animation {
+  --animation-transform-x: 0;
+  --animation-transform-y: 0;
+  --animation-transform-scale: 1;
+  --animation-duration: 800ms;
 }
 
-.nr-scroll-animation--off {
+.scroll-animation--off {
   opacity: 0 !important;
 }
 
-.nr-scroll-animation--on {
-  animation-name: nr-scroll-animation;
-  animation-duration: var(--nr-animation-duration);
+.scroll-animation--on {
+  animation-name: scroll-animation;
+  animation-duration: var(--animation-duration);
   animation-timing-function: cubic-bezier(0.4, 0, 0.25, 1);
 }
 
-@keyframes nr-scroll-animation {
+@keyframes scroll-animation {
   from {
     opacity: 0;
-    transform: translate(var(--nr-animation-transform-x), var(--nr-animation-transform-y))
-      scale(var(--nr-animation-transform-scale));
+    transform: translate(var(--animation-transform-x), var(--animation-transform-y))
+      scale(var(--animation-transform-scale));
   }
 
   to {

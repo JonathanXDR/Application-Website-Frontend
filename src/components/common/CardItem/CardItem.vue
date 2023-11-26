@@ -2,10 +2,10 @@
   <component
     :is="variant === 'card' ? 'a' : 'div'"
     :href="applyHover && card.links ? card.links[0].url : card.html_url"
-    :class="['nr-scroll-animation nr-scroll-animation--off', variant, size]"
+    :class="['scroll-animation scroll-animation--off', variant, size]"
     v-animation="{
-      add: ['nr-scroll-animation--on'],
-      remove: ['nr-scroll-animation--off']
+      add: ['scroll-animation--on'],
+      remove: ['scroll-animation--off']
     }"
   >
     <div v-if="cover || donutGraph || barGraph" class="card-cover-wrap">
