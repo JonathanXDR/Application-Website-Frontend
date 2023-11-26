@@ -95,6 +95,11 @@ export default defineComponent({
   transition: opacity 200ms linear;
 }
 
+.paddlenav-icon {
+  width: 0.5em;
+  height: 0.5em;
+}
+
 .tabnav-paddle-left .tabnav-paddle-icon {
   margin-left: -0.5px;
 }
