@@ -9,10 +9,10 @@
       </ul>
       <div class="tabnav-paddles">
         <button class="tabnav-paddle tabnav-paddle-left" disabled>
-          <Icon name="chevron.left" class="tabnav-paddle-icon" />
+          <Icon name="chevron.left" class="icon icon-small" />
         </button>
         <button class="tabnav-paddle tabnav-paddle-right" disabled>
-          <Icon name="chevron.right" class="tabnav-paddle-icon" />
+          <Icon name="chevron.right" class="icon icon-small" />
         </button>
       </div>
     </div>

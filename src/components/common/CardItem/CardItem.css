@@ -1,18 +1,3 @@
-/* -------------------------------- svg-icon -------------------------------- */
-
-.svg-icon {
-  fill: var(--colors-svg-icon-fill-light, var(--color-svg-icon));
-  transform: scale(1);
-  -webkit-transform: scale(1);
-  overflow: visible;
-}
-
-.svg-icon.icon-inline {
-  display: inline-block;
-  vertical-align: middle;
-  fill: currentColor;
-}
-
 /* ------------------------------- button-cta ------------------------------- */
 
 .ctas-wrapper {
@@ -433,18 +418,12 @@
   color: var(--color-figure-blue);
   /* margin-top: 17px; */
   display: flex;
-  align-items: center;
+  align-items: baseline;
 }
 
 .full .link {
   margin-top: 15px;
   position: static;
-}
-
-.link .link-icon {
-  height: 0.6em;
-  width: 0.6em;
-  margin-left: 0.3em;
 }
 
 @media only screen and (max-width: 1250px) {

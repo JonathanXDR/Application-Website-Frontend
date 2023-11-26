@@ -40,10 +40,10 @@
               </div>
               <div class="rc-gallery-paddlenav paddlenav paddlenav-compact">
                 <button class="paddlenav-arrow paddlenav-arrow-previous">
-                  <Icon name="chevron.left" size="small" class="paddlenav-icon" />
+                  <Icon name="chevron.left" size="small" class="icon" />
                 </button>
                 <button class="paddlenav-arrow paddlenav-arrow-next">
-                  <Icon name="chevron.right" size="small" class="paddlenav-icon" />
+                  <Icon name="chevron.right" size="small" class="icon" />
                 </button>
               </div>
             </div>

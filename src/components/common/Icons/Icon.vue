@@ -49,6 +49,36 @@ export default defineComponent({
 </script>
 
 <style>
+.icon.icon-xsmall {
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.icon.icon-small {
+  width: 0.75em;
+  height: 0.75em;
+}
+
+.icon.icon-medium {
+  width: 1em;
+  height: 1em;
+}
+
+.icon.icon-large {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.icon.icon-xlarge {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.icon.icon-xxlarge {
+  width: 1.75em;
+  height: 1.75em;
+}
+
 .apple-logo {
   width: 100%;
   height: 330px;
@@ -70,78 +100,5 @@ export default defineComponent({
     width: 10em;
     height: 10em;
   }
-}
-
-.icon-dropdown {
-  width: 0.5em;
-  height: 0.5em;
-}
-
-.icon-cta {
-  width: 1.25em;
-  height: 1.25em;
-}
-
-.icon-live-result-summary {
-  margin-right: 4px;
-  width: 1em;
-  height: 1em;
-}
-
-.tabnav-paddle-icon {
-  width: 0.75em;
-  height: 0.75em;
-  opacity: 0.8;
-  transition: opacity 200ms linear;
-}
-
-.paddlenav-icon {
-  width: 0.5em;
-  height: 0.5em;
-}
-
-.tabnav-paddle-left .tabnav-paddle-icon {
-  margin-left: -0.5px;
-}
-
-.tabnav-paddle-right .tabnav-paddle-icon {
-  margin-right: -0.5px;
-}
-
-.article.large .icon {
-  width: 1.25em;
-  height: 1.25em;
-}
-
-.card .icon,
-.article .icon {
-  width: 1.5em;
-  height: 1.5em;
-}
-
-.card.large .icon {
-  width: 1.75em;
-  height: 1.75em;
-}
-
-.link .link-icon {
-  /* height: 0.6em;
-  width: 0.6em; */
-  height: 0.75em;
-  width: 0.75em;
-  margin-left: 0.3em;
-}
-
-.svg-icon {
-  fill: var(--colors-svg-icon-fill-light, var(--color-svg-icon));
-  transform: scale(1);
-  -webkit-transform: scale(1);
-  overflow: visible;
-}
-
-.svg-icon.icon-inline {
-  display: inline-block;
-  vertical-align: middle;
-  fill: currentColor;
 }
 </style>

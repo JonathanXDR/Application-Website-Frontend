@@ -9,7 +9,7 @@
           :colors="{
             primary: randomColor
           }"
-          class="icon-live-result-summary"
+          class="icon icon-medium"
         />
         <span>Pinned</span>
         <span class="total"> ({{ props.pinnedResults }})</span>

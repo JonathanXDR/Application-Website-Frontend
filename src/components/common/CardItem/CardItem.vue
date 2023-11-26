@@ -81,7 +81,18 @@
         :name="card.icon?.name"
         :size="card.icon?.size"
         :colors="card.icon?.colors"
-        class="icon"
+        :class="[
+          'icon',
+          {
+            'icon-large': variant === 'article' && size === 'large'
+          },
+          {
+            'icon-xlarge': size === 'medium' || size === 'small'
+          },
+          {
+            'icon-xxlarge': variant === 'card' && size === 'large'
+          }
+        ]"
       />
       <div class="body">
         <div v-if="card.eyebrow" class="eyebrow">{{ card.eyebrow }}</div>
@@ -113,12 +124,6 @@
             "
             :class="{ link: applyHover }"
           />
-          <!-- <span :class="['icon-copy', { link: variant === 'article' }]">Learn more</span>
-          <Icon
-            name="chevron.right"
-            size="small"
-            class="svg-icon inline-chevron-right-icon icon-inline link-icon"
-          /> -->
         </div>
         <InfoBar
           v-if="card.info || card.created_at || card.updated_at || card.language || card.license"

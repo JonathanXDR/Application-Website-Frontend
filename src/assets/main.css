@@ -795,6 +795,8 @@ fieldset {
 }
 
 .link {
+  display: flex;
+  align-items: center;
   color: var(--color-figure-blue);
   cursor: pointer;
 }
@@ -802,11 +804,6 @@ fieldset {
 .link.current {
   color: var(--color-fill-gray-secondary) !important;
   pointer-events: none;
-}
-
-.link-icon {
-  display: flex;
-  align-items: center;
 }
 
 .link:link,

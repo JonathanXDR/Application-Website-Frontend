@@ -145,6 +145,10 @@
   }
 }
 
+.icon {
+  margin-right: 4px;
+}
+
 .changesnav-totals .changed-total {
   display: flex;
   align-items: center;

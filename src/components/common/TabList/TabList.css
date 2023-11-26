@@ -69,11 +69,26 @@
   left: 0;
 }
 
+.tabnav-paddle-left .icon {
+  margin-left: -0.5px;
+}
+
 /* --------------------------- tabnav-paddle-right -------------------------- */
 
 .tabnav-paddle-right {
   border-left-width: 1px;
   right: 0;
+}
+
+.tabnav-paddle-right .icon {
+  margin-right: -0.5px;
+}
+
+/* ---------------------------------- icon ---------------------------------- */
+
+.icon {
+  opacity: 0.8;
+  transition: opacity 200ms linear;
 }
 
 /* ------------------------------ tabnav-items ------------------------------ */

@@ -26,6 +26,10 @@
   text-decoration: underline !important;
 }
 
+.icon {
+  margin-left: 0.3em;
+}
+
 /* --------------------------------- ribbon --------------------------------- */
 
 .ribbon .links p {
