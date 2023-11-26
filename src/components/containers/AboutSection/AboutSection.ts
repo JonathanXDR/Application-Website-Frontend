@@ -30,7 +30,7 @@ export default defineComponent({
     const { tm } = useI18n()
     const links: Ref<LinkType[]> = computed(() => tm('components.containers.about.links'))
     const dateItems: Ref<DateItemType[]> = computed(() => tm('components.containers.about.dates'))
-    const dates: Ref<{ age: string | undefined; apprenticeshipYear: string | undefined }> = ref({
+    const dates: Ref<{ age: number | undefined; apprenticeshipYear: number | undefined }> = ref({
       age: undefined,
       apprenticeshipYear: undefined
     })
@@ -44,8 +44,10 @@ export default defineComponent({
     }
 
     onMounted(async () => {
-      dateItems.value.forEach((item) => {
-        dates.value[item.key] = calculateYears(item.date)
+      dateItems.value.forEach((item: DateItemType) => {
+        if (item.key in dates.value) {
+          dates.value[item.key as keyof typeof dates.value] = calculateYears(item.date)
+        }
       })
     })
 

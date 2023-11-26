@@ -32,23 +32,6 @@
         links: links
       }"
     />
-
-    <!-- <div>
-      <h1>
-        <span class="eyebrow">{{ $t('components.containers.about.eyebrow') }}</span
-        >{{ $t('components.containers.about.title') }}
-      </h1>
-      <p class="typography-intro">
-        {{
-          $t('components.containers.about.description', {
-            age: dates.age && dates.age,
-            apprenticeshipYear: dates.apprenticeshipYear && dates.apprenticeshipYear + 1
-          })
-        }}
-      </p>
-
-      <LinkCollection :links="links" class="typography-intro" />
-    </div> -->
   </div>
 
   <ShareSheet />
