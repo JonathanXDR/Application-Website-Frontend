@@ -131,23 +131,6 @@
   transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
 }
 
-@media only screen and (max-width: 1250px) {
-  .dev-badge {
-    font-size: 19.765px;
-    line-height: 1.19048;
-    font-weight: 600;
-    /* letter-spacing: 0.011em; */
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif;
-  }
-}
-
 .dev-badge:before {
   content: attr(data-tag-name);
 }

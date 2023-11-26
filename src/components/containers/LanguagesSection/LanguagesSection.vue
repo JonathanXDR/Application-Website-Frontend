@@ -26,7 +26,7 @@
             <div class="badge-content">
               <div class="badge-value-container">
                 <span class="badge-value">7.6</span>
-                <span class="badge-unit">x</span>
+                <span class="badge-unit">%</span>
               </div>
               <span class="badge-caption"></span>
             </div>
