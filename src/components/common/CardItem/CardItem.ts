@@ -67,7 +67,7 @@ export default defineComponent({
     cover: {
       type: String as PropType<string>,
       required: false,
-      default: false as unknown as string
+      default: undefined
     },
     donutGraph: {
       type: Boolean as PropType<boolean>,
