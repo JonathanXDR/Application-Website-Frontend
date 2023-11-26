@@ -1,6 +1,6 @@
 import Icon from '@/components/common/Icons/Icon.vue'
 import { useColorStore } from '@/stores/color'
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, type PropType } from 'vue'
 
 export default defineComponent({
   name: 'LiveResultSummary',
@@ -9,12 +9,12 @@ export default defineComponent({
   },
   props: {
     totalResults: {
-      type: Number,
+      type: Number as PropType<number>,
       required: true,
       default: 0
     },
     pinnedResults: {
-      type: Number,
+      type: Number as PropType<number>,
       required: false,
       default: 0
     }

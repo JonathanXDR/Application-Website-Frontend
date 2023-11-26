@@ -2,7 +2,7 @@ import LanguageBar from '@/components/common/LanguageBar/LanguageBar.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import TabList from '@/components/common/TabList/TabList.vue'
 import type { LanguageBarType } from '@/types/common/LanguageBar'
-import { computed, defineComponent, type Ref } from 'vue'
+import { computed, defineComponent, type PropType, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -14,7 +14,7 @@ export default defineComponent({
   },
   props: {
     title: {
-      type: String,
+      type: String as PropType<string>,
       required: true,
       default: undefined
     }

@@ -25,7 +25,7 @@ export default defineComponent({
       default: 'reduced'
     },
     label: {
-      type: String,
+      type: String as PropType<string>,
       required: true,
       default: undefined
     },

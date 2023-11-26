@@ -65,17 +65,17 @@ export default defineComponent({
       default: 'auto'
     },
     cover: {
-      type: String,
+      type: String as PropType<string>,
       required: false,
       default: false as unknown as string
     },
     donutGraph: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       required: false,
       default: false
     },
     barGraph: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       required: false,
       default: false
     }

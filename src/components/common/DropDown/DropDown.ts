@@ -10,7 +10,7 @@ export default defineComponent({
       default: () => []
     },
     label: {
-      type: String,
+      type: String as PropType<string>,
       required: false,
       default: undefined
     }

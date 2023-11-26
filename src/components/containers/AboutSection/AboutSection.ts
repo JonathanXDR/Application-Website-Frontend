@@ -6,7 +6,7 @@ import ShareSheet from '@/components/common/ShareSheet/ShareSheet.vue'
 import TimeLine from '@/components/common/TimeLine/TimeLine.vue'
 import type { DateItemType } from '@/types/common/DateItem'
 import type { LinkType } from '@/types/common/Link'
-import { computed, defineComponent, onMounted, ref, type Ref } from 'vue'
+import { computed, defineComponent, onMounted, ref, type PropType, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -21,7 +21,7 @@ export default defineComponent({
   },
   props: {
     title: {
-      type: String,
+      type: String as PropType<string>,
       required: true,
       default: undefined
     }

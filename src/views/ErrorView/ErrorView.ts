@@ -1,16 +1,16 @@
 import Icon from '@/components/common/Icons/Icon.vue'
 import i18n from '@/main'
-import { computed, type Ref } from 'vue'
+import { computed, defineComponent, type PropType, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-export default {
+export default defineComponent({
   name: 'ErrorView',
   components: {
     Icon
   },
   props: {
     name: {
-      type: String,
+      type: String as PropType<string>,
       required: false,
       default: 'error',
       validator: (value: string): boolean => {
@@ -35,4 +35,4 @@ export default {
       description
     }
   }
-}
+})

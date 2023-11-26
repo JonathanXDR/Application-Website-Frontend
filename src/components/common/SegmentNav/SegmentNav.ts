@@ -1,6 +1,6 @@
 import DropDown from '@/components/common/DropDown/DropDown.vue'
 import type { OptionType } from '@/types/common/Option'
-import { computed, defineComponent, onMounted, ref, type Ref } from 'vue'
+import { computed, defineComponent, onMounted, ref, type PropType, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -8,7 +8,7 @@ export default defineComponent({
   components: { DropDown },
   props: {
     index: {
-      type: Number,
+      type: Number as PropType<number>,
       required: true,
       default: 0
     }

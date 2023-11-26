@@ -13,7 +13,7 @@ import { listPinnedRepositories, listUserRepositories } from '@/helpers/github-h
 import { useColorStore } from '@/stores/color'
 import type { CardItemType } from '@/types/common/CardItem'
 import type { ListUserReposResponse } from '@/types/GitHub/Repository'
-import { computed, defineComponent, onMounted, reactive, ref, type Ref } from 'vue'
+import { computed, defineComponent, onMounted, reactive, ref, type PropType, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 type ListUserPinnedReposResponse = ListUserReposResponse & {
@@ -36,7 +36,7 @@ export default defineComponent({
   },
   props: {
     title: {
-      type: String,
+      type: String as PropType<string>,
       required: true,
       default: undefined
     }

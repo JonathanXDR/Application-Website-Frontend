@@ -1,16 +1,16 @@
-import { defineComponent, onMounted, reactive } from 'vue'
+import { defineComponent, onMounted, reactive, type PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'LanguagePicker',
   props: {
     introText: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       required: false,
       default: () => true
     },
     shortForm: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       required: false,
       default: () => false
     }
