@@ -20,6 +20,12 @@ type ListUserPinnedReposResponse = ListUserReposResponse & {
   icon?: CardItemType['icon']
 }
 
+type Projects = {
+  swisscom: CardItemType[]
+  personal: ListUserReposResponse[]
+  school: ListUserReposResponse[]
+}
+
 export default defineComponent({
   name: 'ProjectsSection',
   components: {
@@ -45,13 +51,16 @@ export default defineComponent({
     const { tm } = useI18n()
     const colorStore = useColorStore()
     const articles: Ref<CardItemType[]> = computed(() => tm('components.containers.projects'))
-    const projects = reactive({
+    const projects: Projects = reactive({
       swisscom: computed(() => tm('components.containers.projects')) as Ref<CardItemType[]>,
       personal: [] as ListUserReposResponse[],
       school: [] as ListUserReposResponse[]
     })
     const pinned: Ref<ListUserPinnedReposResponse[]> = ref([])
-    const currentProjects = computed(() => projects[Object.keys(projects)[currentIndex.value]])
+    const currentProjects = computed(
+      () => projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
+    )
+
     const currentIndex: Ref<number> = ref(0)
     const randomColor = ref(colorStore.randomizeColor().colorName)
 
@@ -59,7 +68,7 @@ export default defineComponent({
       currentIndex.value = index
     }
 
-    const categorizeProject = (project: any) => {
+    const categorizeProject = (project: ListUserReposResponse) => {
       const schoolProjectPattern = /^(M\d+|UEK-\d+)-Portfolio$|^(TBZ|UEK)-Modules$/i
       const category = schoolProjectPattern.test(project.name) ? 'school' : 'personal'
       return { ...project, category }
@@ -92,7 +101,10 @@ export default defineComponent({
       pinned.value = pinnedProjects
 
       filteredProjects.map(categorizeProject).forEach((project) => {
-        projects[project.category].push(project)
+        const category = project.category as keyof Projects
+        projects[category].push(
+          project as ListUserReposResponse & CardItemType & { category: string }
+        )
       })
     }
 
