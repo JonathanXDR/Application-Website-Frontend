@@ -339,7 +339,8 @@
           "icon": {
             "name": "text.bubble.fill",
             "colors": {
-              "primary": "var(color-fill-gray)"
+              "primary": "var(--color-fill-tertiary)",
+              "tertiary": "var(--color-fill-gray)"
             }
           },
           "eyebrow": "Language",
@@ -365,7 +366,8 @@
           "icon": {
             "name": "text.bubble.fill",
             "colors": {
-              "primary": "var(color-fill-gray)"
+              "primary": "var(--color-fill-tertiary)",
+              "tertiary": "var(--color-fill-gray)"
             }
           },
           "eyebrow": "Language",
@@ -392,7 +394,8 @@
           "icon": {
             "name": "text.bubble.fill",
             "colors": {
-              "primary": "var(color-fill-gray)"
+              "primary": "var(--color-fill-tertiary)",
+              "tertiary": "var(--color-fill-gray)"
             }
           },
           "eyebrow": "Language",
@@ -461,7 +464,8 @@
           "icon": {
             "name": "text.bubble.fill",
             "colors": {
-              "primary": "var(color-fill-gray)"
+              "primary": "var(--color-fill-tertiary)",
+              "tertiary": "var(--color-fill-gray)"
             }
           },
           "eyebrow": "Language",
@@ -533,7 +537,8 @@
           "icon": {
             "name": "text.bubble.fill",
             "colors": {
-              "primary": "var(color-fill-gray)"
+              "primary": "var(--color-fill-tertiary)",
+              "tertiary": "var(--color-fill-gray)"
             }
           },
           "eyebrow": "Language",
@@ -560,7 +565,8 @@
           "icon": {
             "name": "text.bubble.fill",
             "colors": {
-              "primary": "var(color-fill-gray)"
+              "primary": "var(--color-fill-tertiary)",
+              "tertiary": "var(--color-fill-gray)"
             }
           },
           "eyebrow": "Language",
@@ -586,7 +592,8 @@
           "icon": {
             "name": "text.bubble.fill",
             "colors": {
-              "primary": "var(color-fill-gray)"
+              "primary": "var(--color-fill-tertiary)",
+              "tertiary": "var(--color-fill-gray)"
             }
           },
           "eyebrow": "Language",
@@ -612,7 +619,8 @@
           "icon": {
             "name": "text.bubble.fill",
             "colors": {
-              "primary": "var(color-fill-gray)"
+              "primary": "var(--color-fill-tertiary)",
+              "tertiary": "var(--color-fill-gray)"
             }
           },
           "eyebrow": "Language",
@@ -842,7 +850,8 @@
           "icon": {
             "name": "text.bubble.fill",
             "colors": {
-              "primary": "var(color-fill-gray)"
+              "primary": "var(--color-fill-tertiary)",
+              "tertiary": "var(--color-fill-gray)"
             }
           },
           "eyebrow": "Language",
