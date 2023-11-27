@@ -11,7 +11,7 @@
               <div class="rc-ribbon-content-gallery">
                 <div class="rc-ribbon-content-scroller" :style="transformStyle">
                   <div
-                    v-for="(item, index) in items"
+                    v-for="(item, index) in displayItems"
                     :key="index"
                     class="rc-ribbon-gallery-item rc-inline-gallery-item"
                   >

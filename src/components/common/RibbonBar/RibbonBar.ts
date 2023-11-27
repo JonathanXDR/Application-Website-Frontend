@@ -3,7 +3,7 @@ import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vu
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import { listRepositoryTags } from '@/helpers/github-helper'
 import type { LinkType } from '@/types/common/Link'
-import { computed, defineComponent, onMounted, ref, watch, type Ref } from 'vue'
+import { computed, defineComponent, nextTick, onMounted, ref, watch, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -28,17 +28,7 @@ export default defineComponent({
     const totalItems = ref(baseItems.value.length)
     const isTransitioning = ref(false)
     const scrollDirection = ref('right')
-
-    const items = computed(() => {
-      if (!isTransitioning.value) {
-        const start = currentIndex.value % totalItems.value
-        return Array.from(
-          { length: totalItems.value },
-          (_, i) => baseItems.value[(start + i) % totalItems.value]
-        )
-      }
-      return baseItems.value
-    })
+    const displayItems = ref([...baseItems.value])
 
     const fetchTags = async () => {
       const [latest, previous] = await listRepositoryTags({
@@ -62,12 +52,15 @@ export default defineComponent({
     const scrollContent = (direction: 'left' | 'right') => {
       isTransitioning.value = true
       scrollDirection.value = direction
-      if (direction === 'left') {
-        currentIndex.value =
-          currentIndex.value === 0 ? totalItems.value - 1 : currentIndex.value - 1
-      } else {
-        currentIndex.value = (currentIndex.value + 1) % totalItems.value
-      }
+
+      nextTick(() => {
+        if (direction === 'left') {
+          currentIndex.value =
+            currentIndex.value === 0 ? totalItems.value - 1 : currentIndex.value - 1
+        } else {
+          currentIndex.value = (currentIndex.value + 1) % totalItems.value
+        }
+      })
     }
 
     const transformStyle = computed(() => {
@@ -87,11 +80,16 @@ export default defineComponent({
     watch(currentIndex, () => {
       setTimeout(() => {
         isTransitioning.value = false
+        const start = currentIndex.value % totalItems.value
+        displayItems.value = Array.from(
+          { length: totalItems.value },
+          (_, i) => baseItems.value[(start + i) % totalItems.value]
+        )
       }, 1000)
     })
 
     onMounted(fetchTags)
 
-    return { items, links, tags, scrollContent, transformStyle }
+    return { displayItems, links, tags, scrollContent, transformStyle }
   }
 })
