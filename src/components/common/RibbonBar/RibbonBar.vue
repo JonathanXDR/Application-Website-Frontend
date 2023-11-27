@@ -9,15 +9,7 @@
           <div class="rc-ribbon-content with-paddlenav">
             <div class="rc-inline-gallery rc-ribbon-content-autoscroll">
               <div class="rc-ribbon-content-gallery">
-                <div
-                  class="rc-ribbon-content-scroller"
-                  style="
-                    transform: translateX(0px);
-                    width: 100%;
-                    left: -100%;
-                    transition: none 0s ease 0s;
-                  "
-                >
+                <div class="rc-ribbon-content-scroller" :style="{ transform: transformStyle }">
                   <div class="rc-ribbon-gallery-item rc-inline-gallery-item">
                     <div
                       class="rc-ribbon-content-item-base rc-ribbon-content-item-0 rc-ribbon-content-item"
@@ -39,10 +31,16 @@
                 </div>
               </div>
               <div class="rc-gallery-paddlenav paddlenav paddlenav-compact">
-                <button class="paddlenav-arrow paddlenav-arrow-previous">
+                <button
+                  class="paddlenav-arrow paddlenav-arrow-previous"
+                  @click="scrollContent('left')"
+                >
                   <Icon name="chevron.left" size="small" class="icon" />
                 </button>
-                <button class="paddlenav-arrow paddlenav-arrow-next">
+                <button
+                  class="paddlenav-arrow paddlenav-arrow-next"
+                  @click="scrollContent('right')"
+                >
                   <Icon name="chevron.right" size="small" class="icon" />
                 </button>
               </div>
