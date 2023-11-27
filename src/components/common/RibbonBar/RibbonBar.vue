@@ -9,23 +9,14 @@
           <div class="rc-ribbon-content with-paddlenav">
             <div class="rc-inline-gallery rc-ribbon-content-autoscroll">
               <div class="rc-ribbon-content-gallery">
-                <div class="rc-ribbon-content-scroller" :style="{ transform: transformStyle }">
-                  <div class="rc-ribbon-gallery-item rc-inline-gallery-item">
-                    <div
-                      class="rc-ribbon-content-item-base rc-ribbon-content-item-0 rc-ribbon-content-item"
-                    >
-                      {{
-                        $t('components.common.RibbonBar.description', {
-                          latestTag: tags.latest,
-                          previousTag: tags.previous
-                        })
-                      }}&ensp;
-
-                      <LinkCollection
-                        ref="ribbon-link"
-                        class="ribbon-link ribbon-link-animation icon-after-ribbon"
-                        :links="links"
-                      />
+                <div class="rc-ribbon-content-scroller" :style="transformStyle">
+                  <div
+                    v-for="(item, index) in items"
+                    :key="index"
+                    class="rc-ribbon-gallery-item rc-inline-gallery-item"
+                  >
+                    <div class="rc-ribbon-content-item-base rc-ribbon-content-item">
+                      {{ item }}
                     </div>
                   </div>
                 </div>

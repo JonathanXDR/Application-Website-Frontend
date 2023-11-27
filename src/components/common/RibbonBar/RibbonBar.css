@@ -44,18 +44,18 @@
   content: '';
 }
 
-[data-core-gallery] {
+.rc-ribbon-content-gallery {
   overflow: hidden;
   position: relative;
   min-height: 100px;
 }
-[data-core-gallery-scroller] {
+.rc-ribbon-content-scroller {
   width: 100%;
   white-space: nowrap;
   display: flex;
   position: relative;
 }
-[data-core-gallery-item] {
+.rc-inline-gallery-item {
   cursor: pointer;
   width: 100%;
   overflow: hidden;
@@ -374,7 +374,7 @@
 .rc-ribbon-content {
   width: 100%;
 }
-.rc-ribbon-content [data-core-gallery-item] {
+.rc-ribbon-content .rc-inline-gallery-item {
   cursor: auto;
 }
 .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
