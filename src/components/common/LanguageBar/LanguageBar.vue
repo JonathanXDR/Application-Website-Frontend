@@ -1,21 +1,36 @@
 <template>
-  <li class="graph-container">
-    <div :style="'width: ' + language.progress + '%'">
-      <div v-animation="{ toggle: ['visible'] }" class="graph-bar current"></div>
-      <p
-        v-animation="{ toggle: ['visible'] }"
-        class="graph-caption typography-graph-caption current"
-      >
-        {{ language.description }}
-      </p>
-    </div>
+  <div class="item-container">
     <div
-      v-animation="{ toggle: ['visible'] }"
-      class="typography-eyebrow-elevated secondary-badge-value current"
+      id="standard-gallery-item-1"
+      class="gallery-item current"
+      style="z-index: 2; opacity: 1; transform: translate(0px, 0px)"
     >
-      {{ language.progress }}%
+      <p class="disclaimer">
+        {{ language.title }}
+      </p>
+      <div class="group total-column-1">
+        <div class="bars-container">
+          <div class="bar-content-container bar-mx">
+            <div class="bar-mask" :style="`width: ${language.progress}%`">
+              <hr class="bar bar-1" style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1" />
+            </div>
+            <span class="bar-caption">
+              {{ language.description }}
+            </span>
+          </div>
+          <figure class="badge bar-mx">
+            <div class="badge-content">
+              <div class="badge-value-container">
+                <span class="badge-value">7.6</span>
+                <span class="badge-unit">%</span>
+              </div>
+              <span class="badge-caption"></span>
+            </div>
+          </figure>
+        </div>
+      </div>
     </div>
-  </li>
+  </div>
 </template>
 
 <script lang="ts" src="./LanguageBar.ts"></script>
