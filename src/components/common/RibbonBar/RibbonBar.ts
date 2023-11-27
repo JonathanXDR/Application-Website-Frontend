@@ -57,12 +57,11 @@ export default defineComponent({
     }
 
     const transformStyle = computed(() => {
-      const transitionStyle = isTransitioning.value ? 'transform 1000ms ease 0s' : 'none 0s ease 0s'
       return {
-        transform: `translateX(${-100 / totalItems.value}%)`,
+        transform: `translateX(${isTransitioning.value ? -100 / totalItems.value + '%' : '0px'})`,
         width: `${100 * totalItems.value}%`,
         left: '-100%',
-        transition: transitionStyle
+        transition: isTransitioning.value ? 'transform 1000ms ease 0s' : 'none 0s ease 0s'
       }
     })
 
