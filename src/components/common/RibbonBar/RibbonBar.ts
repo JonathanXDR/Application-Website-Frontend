@@ -50,7 +50,7 @@ export default defineComponent({
     })
 
     const scrollContent = (direction: 'left' | 'right') => {
-      if (!isTransitioning.value) {
+      if (!isTransitioning.value && totalItems.value > 2) {
         isTransitioning.value = true
         scrollDirection.value = direction
 
@@ -66,17 +66,20 @@ export default defineComponent({
     }
 
     const transformStyle = computed(() => {
-      let translateXValue = -100 / totalItems.value
-      if (scrollDirection.value === 'left') {
-        translateXValue = Math.abs(translateXValue)
-      }
+      if (totalItems.value > 2) {
+        let translateXValue = -100 / totalItems.value
+        if (scrollDirection.value === 'left') {
+          translateXValue = Math.abs(translateXValue)
+        }
 
-      return {
-        transform: `translateX(${isTransitioning.value ? translateXValue + '%' : '0px'})`,
-        width: `${100 * totalItems.value}%`,
-        left: '-100%',
-        transition: isTransitioning.value ? 'transform 1000ms ease 0s' : 'none 0s ease 0s'
+        return {
+          transform: `translateX(${isTransitioning.value ? translateXValue + '%' : '0px'})`,
+          width: `${100 * totalItems.value}%`,
+          left: '-100%',
+          transition: isTransitioning.value ? 'transform 1000ms ease 0s' : 'none 0s ease 0s'
+        }
       }
+      return {}
     })
 
     watch(currentIndex, () => {

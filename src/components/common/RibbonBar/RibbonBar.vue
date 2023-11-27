@@ -21,7 +21,7 @@
                   </div>
                 </div>
               </div>
-              <div class="rc-gallery-paddlenav paddlenav paddlenav-compact">
+              <div v-if="totalItems > 2" class="rc-gallery-paddlenav paddlenav paddlenav-compact">
                 <button
                   class="paddlenav-arrow paddlenav-arrow-previous"
                   @click="scrollContent('left')"
