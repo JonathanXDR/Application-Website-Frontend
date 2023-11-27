@@ -25,12 +25,14 @@
                 <button
                   class="paddlenav-arrow paddlenav-arrow-previous"
                   @click="scrollContent('left')"
+                  :disabled="isTransitioning"
                 >
                   <Icon name="chevron.left" size="small" class="icon" />
                 </button>
                 <button
                   class="paddlenav-arrow paddlenav-arrow-next"
                   @click="scrollContent('right')"
+                  :disabled="isTransitioning"
                 >
                   <Icon name="chevron.right" size="small" class="icon" />
                 </button>

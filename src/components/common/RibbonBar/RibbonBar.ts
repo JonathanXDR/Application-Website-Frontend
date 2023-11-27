@@ -50,17 +50,19 @@ export default defineComponent({
     })
 
     const scrollContent = (direction: 'left' | 'right') => {
-      isTransitioning.value = true
-      scrollDirection.value = direction
+      if (!isTransitioning.value) {
+        isTransitioning.value = true
+        scrollDirection.value = direction
 
-      nextTick(() => {
-        if (direction === 'left') {
-          currentIndex.value =
-            currentIndex.value === 0 ? totalItems.value - 1 : currentIndex.value - 1
-        } else {
-          currentIndex.value = (currentIndex.value + 1) % totalItems.value
-        }
-      })
+        nextTick(() => {
+          if (direction === 'left') {
+            currentIndex.value =
+              currentIndex.value === 0 ? totalItems.value - 1 : currentIndex.value - 1
+          } else {
+            currentIndex.value = (currentIndex.value + 1) % totalItems.value
+          }
+        })
+      }
     }
 
     const transformStyle = computed(() => {
@@ -90,6 +92,6 @@ export default defineComponent({
 
     onMounted(fetchTags)
 
-    return { displayItems, links, tags, scrollContent, transformStyle }
+    return { displayItems, links, tags, scrollContent, transformStyle, isTransitioning }
   }
 })
