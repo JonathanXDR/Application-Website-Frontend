@@ -14,7 +14,7 @@ export default defineComponent({
     LinkCollection
   },
   setup() {
-    const items = ref([
+    const baseItems = ref([
       'The latest version of the website.',
       'The previous version of the website.',
       'The first version of the website.'
@@ -25,8 +25,20 @@ export default defineComponent({
       previous: string | undefined
     }>
     const currentIndex = ref(0)
-    const totalItems = ref(items.value.length)
+    const totalItems = ref(baseItems.value.length)
     const isTransitioning = ref(false)
+    const scrollDirection = ref('right')
+
+    const items = computed(() => {
+      if (!isTransitioning.value) {
+        const start = currentIndex.value % totalItems.value
+        return Array.from(
+          { length: totalItems.value },
+          (_, i) => baseItems.value[(start + i) % totalItems.value]
+        )
+      }
+      return baseItems.value
+    })
 
     const fetchTags = async () => {
       const [latest, previous] = await listRepositoryTags({
@@ -49,16 +61,23 @@ export default defineComponent({
 
     const scrollContent = (direction: 'left' | 'right') => {
       isTransitioning.value = true
+      scrollDirection.value = direction
       if (direction === 'left') {
-        currentIndex.value = Math.max(currentIndex.value - 1, 0)
+        currentIndex.value =
+          currentIndex.value === 0 ? totalItems.value - 1 : currentIndex.value - 1
       } else {
-        currentIndex.value = Math.min(currentIndex.value + 1, totalItems.value - 1)
+        currentIndex.value = (currentIndex.value + 1) % totalItems.value
       }
     }
 
     const transformStyle = computed(() => {
+      let translateXValue = -100 / totalItems.value
+      if (scrollDirection.value === 'left') {
+        translateXValue = Math.abs(translateXValue)
+      }
+
       return {
-        transform: `translateX(${isTransitioning.value ? -100 / totalItems.value + '%' : '0px'})`,
+        transform: `translateX(${isTransitioning.value ? translateXValue + '%' : '0px'})`,
         width: `${100 * totalItems.value}%`,
         left: '-100%',
         transition: isTransitioning.value ? 'transform 1000ms ease 0s' : 'none 0s ease 0s'
