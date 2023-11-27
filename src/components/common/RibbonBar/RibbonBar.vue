@@ -23,13 +23,7 @@
                       class="rc-ribbon-content-item-base rc-ribbon-content-item"
                       :style="totalItems <= 2 && 'width: 100% !important'"
                     >
-                      {{
-                        $t(`components.common.RibbonBar[${index}].description`, {
-                          latestTag: tags.latest,
-                          previousTag: tags.previous
-                        })
-                      }}&ensp;
-
+                      {{ item.description }}&ensp;
                       <LinkCollection
                         ref="ribbon-link"
                         class="ribbon-link ribbon-link-animation icon-after-ribbon"

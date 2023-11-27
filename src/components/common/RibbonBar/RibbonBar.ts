@@ -3,7 +3,8 @@ import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vu
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import { listRepositoryTags } from '@/helpers/github-helper'
 import type { LinkType } from '@/types/common/Link'
-import { computed, defineComponent, nextTick, onMounted, ref, watch, type Ref } from 'vue'
+import type { RibbonBar } from '@/types/common/RibbonBar'
+import { computed, defineComponent, nextTick, onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -14,21 +15,31 @@ export default defineComponent({
     LinkCollection
   },
   setup() {
-    const baseItems = ref([
-      'The latest version of the website.',
-      'The previous version of the website.',
-      'The first version of the website.'
-    ])
     const { tm, rt } = useI18n()
-    const tags = ref({ latest: undefined, previous: undefined }) as Ref<{
-      latest: string | undefined
-      previous: string | undefined
-    }>
+    const tags = ref({ latest: undefined, previous: undefined })
+    const baseItems: Ref<RibbonBar[]> = ref(computed(() => tm('components.common.RibbonBar')).value)
+
+    const itemsWithLinks = baseItems.value.map((item, index) => {
+      const itemLinks = (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map(
+        (link) => {
+          return {
+            ...link,
+            url: rt(link.url, { latestTag: tags.value.latest, previousTag: tags.value.previous })
+          }
+        }
+      )
+
+      return {
+        ...item,
+        links: itemLinks
+      }
+    })
+
     const currentIndex = ref(0)
-    const totalItems = ref(baseItems.value.length)
+    const totalItems = ref(itemsWithLinks.length)
     const isTransitioning = ref(false)
     const scrollDirection = ref('right')
-    const displayItems = ref([...baseItems.value])
+    const displayItems = ref([...itemsWithLinks])
 
     const fetchTags = async () => {
       const [latest, previous] = await listRepositoryTags({
@@ -39,15 +50,6 @@ export default defineComponent({
 
       tags.value = { latest: latest.name, previous: previous.name }
     }
-
-    const links = computed(() => {
-      return (tm('components.common.RibbonBar.links') as LinkType[]).map((link) => {
-        return {
-          ...link,
-          url: rt(link.url, { latestTag: tags.value.latest, previousTag: tags.value.previous })
-        }
-      })
-    })
 
     const scrollContent = (direction: 'left' | 'right') => {
       if (!isTransitioning.value && totalItems.value > 2) {
@@ -102,6 +104,14 @@ export default defineComponent({
       )
     })
 
-    return { totalItems, displayItems, links, tags, scrollContent, transformStyle, isTransitioning }
+    return {
+      itemsWithLinks,
+      totalItems,
+      displayItems,
+      tags,
+      scrollContent,
+      transformStyle,
+      isTransitioning
+    }
   }
 })
