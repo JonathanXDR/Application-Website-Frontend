@@ -20,7 +20,9 @@ export default defineComponent({
       latest: string | undefined
       previous: string | undefined
     }>
-    const scrollPosition = ref(0)
+
+    const currentIndex = ref(0)
+    const totalItems = 3
 
     const fetchTags = async () => {
       const [latest, previous] = await listRepositoryTags({
@@ -42,12 +44,21 @@ export default defineComponent({
     })
 
     const scrollContent = (direction: 'left' | 'right') => {
-      const scrollAmount = 300
-      scrollPosition.value += (direction === 'left' ? -1 : 1) * scrollAmount
+      if (direction === 'left') {
+        currentIndex.value = Math.max(currentIndex.value - 1, 0)
+      } else {
+        currentIndex.value = Math.min(currentIndex.value + 1, totalItems - 1)
+      }
     }
 
     const transformStyle = computed(() => {
-      return `translateX(-${scrollPosition.value}px)`
+      const translateX = (currentIndex.value / totalItems) * -100
+      return {
+        transform: `translateX(${translateX}%)`,
+        width: '300%',
+        left: '-100%',
+        transition: 'transform 1000ms ease 0s'
+      }
     })
 
     onMounted(fetchTags)
