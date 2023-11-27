@@ -4,7 +4,7 @@ import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vu
 import { listRepositoryTags } from '@/helpers/github-helper'
 import type { LinkType } from '@/types/common/Link'
 import type { RibbonBar } from '@/types/common/RibbonBar'
-import { computed, defineComponent, nextTick, onMounted, ref, watch } from 'vue'
+import { computed, defineComponent, nextTick, onMounted, ref, watch, type Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -16,30 +16,31 @@ export default defineComponent({
   },
   setup() {
     const { tm, rt } = useI18n()
-    const tags = ref({ latest: undefined, previous: undefined })
-    const baseItems: Ref<RibbonBar[]> = ref(computed(() => tm('components.common.RibbonBar')).value)
-
-    const itemsWithLinks = baseItems.value.map((item, index) => {
-      const itemLinks = (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map(
-        (link) => {
-          return {
+    const tags = ref({ latest: undefined, previous: undefined }) as Ref<{
+      latest: string | undefined
+      previous: string | undefined
+    }>
+    const baseItems = ref(
+      computed(() => {
+        const items = tm('components.common.RibbonBar') as RibbonBar[]
+        return items.map((item, index) => ({
+          description: rt(`components.common.RibbonBar[${index}].description`, {
+            latestTag: tags.value.latest,
+            previousTag: tags.value.previous
+          }),
+          links: (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map((link) => ({
             ...link,
             url: rt(link.url, { latestTag: tags.value.latest, previousTag: tags.value.previous })
-          }
-        }
-      )
-
-      return {
-        ...item,
-        links: itemLinks
-      }
-    })
+          }))
+        }))
+      })
+    )
 
     const currentIndex = ref(0)
-    const totalItems = ref(itemsWithLinks.length)
+    const totalItems = ref(baseItems.value.length)
     const isTransitioning = ref(false)
     const scrollDirection = ref('right')
-    const displayItems = ref([...itemsWithLinks])
+    const displayItems = ref([...baseItems.value])
 
     const fetchTags = async () => {
       const [latest, previous] = await listRepositoryTags({
@@ -104,14 +105,6 @@ export default defineComponent({
       )
     })
 
-    return {
-      itemsWithLinks,
-      totalItems,
-      displayItems,
-      tags,
-      scrollContent,
-      transformStyle,
-      isTransitioning
-    }
+    return { totalItems, displayItems, tags, scrollContent, transformStyle, isTransitioning }
   }
 })
