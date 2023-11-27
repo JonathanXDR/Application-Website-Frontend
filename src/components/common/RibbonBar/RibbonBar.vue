@@ -9,14 +9,32 @@
           <div class="rc-ribbon-content with-paddlenav">
             <div class="rc-inline-gallery rc-ribbon-content-autoscroll">
               <div class="rc-ribbon-content-gallery">
-                <div class="rc-ribbon-content-scroller" :style="transformStyle">
+                <div
+                  class="rc-ribbon-content-scroller"
+                  :style="[transformStyle, totalItems <= 2 && 'justify-content: center; gap: 16px']"
+                >
                   <div
                     v-for="(item, index) in displayItems"
                     :key="index"
                     class="rc-ribbon-gallery-item rc-inline-gallery-item"
+                    :style="totalItems <= 2 && 'width: unset !important'"
                   >
-                    <div class="rc-ribbon-content-item-base rc-ribbon-content-item">
-                      {{ item }}
+                    <div
+                      class="rc-ribbon-content-item-base rc-ribbon-content-item"
+                      :style="totalItems <= 2 && 'width: 100% !important'"
+                    >
+                      {{
+                        $t(`components.common.RibbonBar[${index}].description`, {
+                          latestTag: tags.latest,
+                          previousTag: tags.previous
+                        })
+                      }}&ensp;
+
+                      <LinkCollection
+                        ref="ribbon-link"
+                        class="ribbon-link ribbon-link-animation icon-after-ribbon"
+                        :links="item.links"
+                      />
                     </div>
                   </div>
                 </div>
