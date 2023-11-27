@@ -85,7 +85,7 @@ export default defineComponent({
     watch(currentIndex, () => {
       setTimeout(() => {
         isTransitioning.value = false
-        const start = currentIndex.value % totalItems.value
+        const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value
         displayItems.value = Array.from(
           { length: totalItems.value },
           (_, i) => baseItems.value[(start + i) % totalItems.value]
@@ -93,8 +93,15 @@ export default defineComponent({
       }, 1000)
     })
 
-    onMounted(fetchTags)
+    onMounted(() => {
+      fetchTags()
+      const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value
+      displayItems.value = Array.from(
+        { length: totalItems.value },
+        (_, i) => baseItems.value[(start + i) % totalItems.value]
+      )
+    })
 
-    return { displayItems, links, tags, scrollContent, transformStyle, isTransitioning }
+    return { totalItems, displayItems, links, tags, scrollContent, transformStyle, isTransitioning }
   }
 })
