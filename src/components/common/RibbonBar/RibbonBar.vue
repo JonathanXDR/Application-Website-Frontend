@@ -14,7 +14,7 @@
                   :style="[transformStyle, totalItems <= 2 && 'justify-content: center; gap: 16px']"
                 >
                   <div
-                    v-for="(item, index) in displayItems"
+                    v-for="(item, index) in baseItems"
                     :key="index"
                     class="rc-ribbon-gallery-item rc-inline-gallery-item"
                     :style="totalItems <= 2 && 'width: unset !important'"
@@ -24,8 +24,8 @@
                       :style="totalItems <= 2 && 'width: 100% !important'"
                     >
                       {{ item.description }}&ensp;
+
                       <LinkCollection
-                        ref="ribbon-link"
                         class="ribbon-link ribbon-link-animation icon-after-ribbon"
                         :links="item.links"
                       />

@@ -15,7 +15,7 @@ export default defineComponent({
     LinkCollection
   },
   setup() {
-    const { tm, rt } = useI18n()
+    const { t, tm, rt } = useI18n()
     const tags = ref({ latest: undefined, previous: undefined }) as Ref<{
       latest: string | undefined
       previous: string | undefined
@@ -24,7 +24,7 @@ export default defineComponent({
       computed(() => {
         const items = tm('components.common.RibbonBar') as RibbonBar[]
         return items.map((item, index) => ({
-          description: rt(`components.common.RibbonBar[${index}].description`, {
+          description: t(`components.common.RibbonBar[${index}].description`, {
             latestTag: tags.value.latest,
             previousTag: tags.value.previous
           }),
@@ -105,6 +105,14 @@ export default defineComponent({
       )
     })
 
-    return { totalItems, displayItems, tags, scrollContent, transformStyle, isTransitioning }
+    return {
+      baseItems,
+      totalItems,
+      displayItems,
+      tags,
+      scrollContent,
+      transformStyle,
+      isTransitioning
+    }
   }
 })
