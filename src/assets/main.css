@@ -64,18 +64,32 @@ body {
   --color-card-shadow: rgba(0, 0, 0, 0.04);
 
   /* Default Colors */
-  --color-red: rgb(255, 59, 48);
-  --color-orange: rgb(255, 149, 0);
-  --color-yellow: rgb(255, 204, 0);
-  --color-green: rgb(52, 199, 89);
-  --color-mint: rgb(0, 199, 190);
-  --color-teal: rgb(48, 176, 199);
-  --color-cyan: rgb(50, 173, 230);
-  --color-blue: rgb(0, 122, 255);
-  --color-indigo: rgb(88, 86, 214);
-  --color-purple: rgb(175, 82, 222);
-  --color-pink: rgb(255, 45, 85);
-  --color-brown: rgb(162, 132, 94);
+  --color-default-red: rgb(255, 59, 48);
+  --color-default-orange: rgb(255, 149, 0);
+  --color-default-yellow: rgb(255, 204, 0);
+  --color-default-green: rgb(52, 199, 89);
+  --color-default-mint: rgb(0, 199, 190);
+  --color-default-teal: rgb(48, 176, 199);
+  --color-default-cyan: rgb(50, 173, 230);
+  --color-default-blue: rgb(0, 122, 255);
+  --color-default-indigo: rgb(88, 86, 214);
+  --color-default-purple: rgb(175, 82, 222);
+  --color-default-pink: rgb(255, 45, 85);
+  --color-default-brown: rgb(162, 132, 94);
+
+  /* Accessible Colors */
+  --color-accessible-red: rgb(215, 0, 21);
+  --color-accessible-orange: rgb(201, 52, 0);
+  --color-accessible-yellow: rgb(178, 80, 0);
+  --color-accessible-green: rgb(36, 138, 61);
+  --color-accessible-mint: rgb(12, 129, 123);
+  --color-accessible-teal: rgb(0, 130, 153);
+  --color-accessible-cyan: rgb(0, 113, 164);
+  --color-accessible-blue: rgb(0, 64, 221);
+  --color-accessible-indigo: rgb(54, 52, 163);
+  --color-accessible-purple: rgb(137, 68, 171);
+  --color-accessible-pink: rgb(211, 15, 69);
+  --color-accessible-brown: rgb(127, 101, 69);
 
   /* Dev Colors */
   --color-fill: #fff;
@@ -224,18 +238,32 @@ body {
   --color-card-shadow: hsla(0, 0%, 100%, 0.04);
 
   /* Default Colors */
-  --color-red: rgb(255, 69, 58);
-  --color-orange: rgb(255, 159, 10);
-  --color-yellow: rgb(255, 214, 10);
-  --color-green: rgb(48, 209, 88);
-  --color-mint: rgb(102, 212, 207);
-  --color-teal: rgb(64, 200, 224);
-  --color-cyan: rgb(100, 210, 255);
-  --color-blue: rgb(10, 132, 255);
-  --color-indigo: rgb(94, 92, 230);
-  --color-purple: rgb(191, 90, 242);
-  --color-pink: rgb(255, 55, 95);
-  --color-brown: rgb(172, 142, 104);
+  --color-default-red: rgb(255, 69, 58);
+  --color-default-orange: rgb(255, 159, 10);
+  --color-default-yellow: rgb(255, 214, 10);
+  --color-default-green: rgb(48, 209, 88);
+  --color-default-mint: rgb(99, 230, 226);
+  --color-default-teal: rgb(64, 200, 224);
+  --color-default-cyan: rgb(100, 210, 255);
+  --color-default-blue: rgb(10, 132, 255);
+  --color-default-indigo: rgb(94, 92, 230);
+  --color-default-purple: rgb(191, 90, 242);
+  --color-default-pink: rgb(255, 55, 95);
+  --color-default-brown: rgb(172, 142, 104);
+
+  /* Accessible Colors */
+  --color-accessible-red: rgb(255, 105, 97);
+  --color-accessible-orange: rgb(255, 179, 64);
+  --color-accessible-yellow: rgb(255, 212, 38);
+  --color-accessible-green: rgb(48, 219, 91);
+  --color-accessible-mint: rgb(102, 212, 207);
+  --color-accessible-teal: rgb(93, 230, 255);
+  --color-accessible-cyan: rgb(112, 215, 255);
+  --color-accessible-blue: rgb(64, 156, 255);
+  --color-accessible-indigo: rgb(125, 122, 255);
+  --color-accessible-purple: rgb(218, 143, 255);
+  --color-accessible-pink: rgb(255, 100, 130);
+  --color-accessible-brown: rgb(181, 148, 105);
 
   /* Dev Colors */
   --color-fill: #000;
