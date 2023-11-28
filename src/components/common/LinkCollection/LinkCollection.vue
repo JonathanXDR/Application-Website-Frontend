@@ -1,6 +1,14 @@
 <template>
   <a class="links">
-    <a v-for="(link, index) in links" :key="index" :href="link.url" class="link" target="_blank">
+    <component
+      :is="link.url.startsWith('#') || link.url.startsWith('/') ? 'router-link' : 'a'"
+      v-for="(link, index) in links"
+      :key="index"
+      :to="(link.url.startsWith('#') || link.url.startsWith('/')) && link.url"
+      :href="!(link.url.startsWith('#') || link.url.startsWith('/')) && link.url"
+      :target="link.url.startsWith('#') || link.url.startsWith('/') ? '_self' : '_blank'"
+      class="link"
+    >
       {{ link.title
       }}<Icon
         v-if="link.icon"
@@ -9,7 +17,7 @@
         :colors="link.icon.colors"
         class="icon icon-small"
       />
-    </a>
+    </component>
   </a>
 </template>
 

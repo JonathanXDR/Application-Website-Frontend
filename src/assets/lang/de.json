@@ -37,18 +37,44 @@
           "route": "/#projects"
         }
       ],
-      "RibbonBar": {
-        "description": "Was ist neu in {latestTag}?",
-        "links": [
-          {
-            "title": "Mehr erfahren",
-            "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/{previousTag}...{latestTag}",
-            "icon": {
-              "name": "chevron.right"
+      "RibbonBar": [
+        {
+          "description": "Was ist neu in {latestTag}?",
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/{previousTag}...{latestTag}",
+              "icon": {
+                "name": "chevron.right"
+              }
             }
-          }
-        ]
-      },
+          ]
+        },
+        {
+          "description": "Erkunde meine neusten Projekte bei Swisscom - {latestProject}!",
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "#{latestProjectUrl}",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Diese Technologie habe ich zuletzt gelernt - {latestTechnology}!",
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "#{latestTechnologyUrl}",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        }
+      ],
       "CardTile": {
         "firstEncounter": "Erstbegegnung",
         "enhanced": "Erweitert"
@@ -241,7 +267,7 @@
           "links": [
             {
               "title": "Mehr erfahren",
-              "url": "https://nickzimmermann.com/",
+              "url": "https://nickzimmermann.com",
               "icon": {
                 "name": "chevron.right"
               }
@@ -297,7 +323,7 @@
           "links": [
             {
               "title": "Mehr erfahren",
-              "url": "https://tbz.ch/",
+              "url": "https://tbz.ch",
               "icon": {
                 "name": "chevron.right"
               }
@@ -320,7 +346,7 @@
           "links": [
             {
               "title": "Mehr erfahren",
-              "url": "https://bms-zuerich.ch/",
+              "url": "https://bms-zuerich.ch",
               "icon": {
                 "name": "chevron.right"
               }

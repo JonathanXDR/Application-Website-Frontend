@@ -24,6 +24,7 @@
   color: white;
   animation: animate-color-fff-06c 1s ease-in-out 1.8s forwards;
 }
+
 @keyframes animate-color-fff-06c {
   0% {
     color: white;

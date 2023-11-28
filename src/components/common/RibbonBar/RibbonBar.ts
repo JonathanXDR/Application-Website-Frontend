@@ -2,6 +2,7 @@ import Icon from '@/components/common/Icons/Icon.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import { listRepositoryTags } from '@/helpers/github-helper'
+import type { CardItemType } from '@/types/common/CardItem'
 import type { LinkType } from '@/types/common/Link'
 import type { RibbonBar } from '@/types/common/RibbonBar'
 import { computed, defineComponent, nextTick, onMounted, ref, watch, type Ref } from 'vue'
@@ -20,6 +21,11 @@ export default defineComponent({
       latest: string | undefined
       previous: string | undefined
     }>
+    const projects: Ref<CardItemType[]> = computed(() => tm('components.containers.projects'))
+    const technologies: Ref<CardItemType[]> = computed(() =>
+      tm('components.containers.technologies')
+    )
+
     const baseItems: Ref<RibbonBar[]> = ref([])
     const currentIndex = ref(0)
     const totalItems = ref(0)
@@ -45,16 +51,30 @@ export default defineComponent({
           item.description &&
           t(`components.common.RibbonBar[${index}].description`, {
             latestTag: tags.value.latest,
-            previousTag: tags.value.previous
+            previousTag: tags.value.previous,
+            latestProject: projects.value[projects.value.length - 1].title,
+            latestTechnology: technologies.value[technologies.value.length - 1].title
           }),
         links:
           item.links &&
           (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map((link) => ({
             ...link,
-            url: rt(link.url, { latestTag: tags.value.latest, previousTag: tags.value.previous })
+            url: rt(link.url, {
+              latestTag: tags.value.latest,
+              previousTag: tags.value.previous,
+              latestProjectUrl: projects.value[projects.value.length - 1].title
+                ?.toLowerCase()
+                .toLowerCase()
+                .replace(/ /g, '-'),
+              latestTechnologyUrl: technologies.value[technologies.value.length - 1].title
+                ?.toLowerCase()
+                .toLowerCase()
+                .replace(/ /g, '-')
+            })
           }))
       }))
       totalItems.value = baseItems.value.length
+
       updateDisplayItems()
     }
 

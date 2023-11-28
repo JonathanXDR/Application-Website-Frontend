@@ -1,6 +1,6 @@
 <template>
-  <component
-    :is="variant === 'card' ? 'a' : 'div'"
+  <a
+    :id="card.title?.toLowerCase().replace(/ /g, '-')"
     :href="applyHover && card.links ? card.links[0].url : card.html_url"
     :class="['scroll-animation scroll-animation--off', variant, size]"
     v-animation="{
@@ -140,7 +140,7 @@
         />
       </div>
     </div>
-  </component>
+  </a>
 </template>
 
 <script lang="ts" src="./CardItem.ts"></script>
