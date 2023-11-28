@@ -318,153 +318,115 @@
           "title": "HTML",
           "progress": 85,
           "learned": "NexCC",
-          "enhanced": "M293",
-          "color1": "var(--color-orange)",
-          "color2": "var(--color-red)"
+          "enhanced": "M293"
         },
         {
           "title": "CSS",
           "progress": 85,
           "learned": "NexCC",
-          "enhanced": "M293",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "enhanced": "M293"
         },
         {
           "title": "JavaScript",
           "progress": 70,
           "learned": "NexCC",
-          "enhanced": "Apps Team Frontend, ÜK294",
-          "color1": "var(--color-yellow)",
-          "color2": "var(--color-green)"
+          "enhanced": "Apps Team Frontend, ÜK294"
         },
         {
           "title": "SDX",
           "progress": 70,
           "learned": "NexCC",
-          "enhanced": "Apps Team Frontend",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "enhanced": "Apps Team Frontend"
         },
         {
           "title": "Node.js",
           "progress": 60,
           "learned": "NexCC",
-          "enhanced": "-",
-          "color1": "var(--color-yellow)",
-          "color2": "var(--color-green)"
+          "enhanced": "-"
         },
         {
           "title": "SQL",
           "progress": 70,
           "learned": "NexCC",
-          "enhanced": "ÜK106, M164",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "enhanced": "ÜK106, M164"
         },
         {
           "title": "Express.js",
           "progress": 70,
           "learned": "NexCC",
-          "enhanced": "ÜK295",
-          "color1": "var(--color-yellow)",
-          "color2": "var(--color-green)"
+          "enhanced": "ÜK295"
         },
         {
           "title": "Vue.js",
           "progress": 80,
           "learned": "NexCC",
-          "enhanced": "Apps Team Frontend",
-          "color1": "var(--color-yellow)",
-          "color2": "var(--color-green)"
+          "enhanced": "Apps Team Frontend"
         },
         {
           "title": "TypeScript",
           "progress": 75,
           "learned": "NexCC",
-          "enhanced": "Apps Team Frontend, ÜK294",
-          "color1": "var(--color-yellow)",
-          "color2": "var(--color-green)"
+          "enhanced": "Apps Team Frontend, ÜK294"
         },
         {
           "title": "C#",
           "progress": 25,
           "learned": "Projets d'automatisation dans le domaine bancaire",
-          "enhanced": "-",
-          "color1": "var(--color-pink)",
-          "color2": "var(--color-purple)"
+          "enhanced": "-"
         },
         {
           "title": "Java",
           "progress": 10,
           "learned": "M319",
-          "enhanced": "-",
-          "color1": "var(--color-yellow)",
-          "color2": "var(--color-green)"
+          "enhanced": "-"
         },
         {
           "title": "Bash",
           "progress": 50,
           "learned": "NexCC",
-          "enhanced": "M122",
-          "color1": "var(--color-pink)",
-          "color2": "var(--color-purple)"
+          "enhanced": "M122"
         },
         {
           "title": "React",
           "progress": 60,
           "learned": "ÜK294, Apps Team Frontend",
-          "enhanced": "-",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "enhanced": "-"
         },
         {
           "title": "Next.js",
           "progress": 50,
           "learned": "Apps Team Frontend",
-          "enhanced": "-",
-          "color1": "var(--color-yellow)",
-          "color2": "var(--color-green)"
+          "enhanced": "-"
         },
         {
           "title": "Docker",
           "progress": 50,
           "learned": "ÜK210",
-          "enhanced": "M347",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "enhanced": "M347"
         },
         {
           "title": "Kubernetes",
           "progress": 50,
           "learned": "ÜK210",
-          "enhanced": "M347",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "enhanced": "M347"
         },
         {
           "title": "Nest.js",
           "progress": 70,
           "learned": "Apps Team Backend",
-          "enhanced": "-",
-          "color1": "var(--color-orange)",
-          "color2": "var(--color-red)"
+          "enhanced": "-"
         },
         {
           "title": "Prisma",
           "progress": 60,
           "learned": "Apps Team Backend",
-          "enhanced": "-",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "enhanced": "-"
         },
         {
           "title": "TypeORM",
           "progress": 60,
           "learned": "Apps Team Backend",
-          "enhanced": "-",
-          "color1": "var(--color-cyan)",
-          "color2": "var(--color-indigo)"
+          "enhanced": "-"
         }
       ],
       "projects": [
@@ -548,7 +510,7 @@
         "name": "exclamationmark.triangle.fill",
         "colors": {
           "primary": "var(--color-fill)",
-          "tertiary": "var(--color-yellow)"
+          "tertiary": "var(--color-default-yellow)"
         }
       }
     },
@@ -559,7 +521,7 @@
         "name": "exclamationmark.octagon.fill",
         "colors": {
           "primary": "var(--color-fill)",
-          "tertiary": "var(--color-red)"
+          "tertiary": "var(--color-default-red)"
         }
       }
     },
@@ -569,7 +531,7 @@
       "icon": {
         "name": "wrench.and.screwdriver.fill",
         "colors": {
-          "secondary": "var(--color-blue)"
+          "secondary": "var(--color-default-blue)"
         }
       }
     }
