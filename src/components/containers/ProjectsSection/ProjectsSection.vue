@@ -10,7 +10,7 @@
     <ul ref="ul" class="timeline">
       <CardItem
         variant="article"
-        size="small"
+        :size="window.innerWidth < 900 ? 'small' : 'medium'"
         v-for="(project, index) in currentProjects"
         :key="index"
         :card="project"

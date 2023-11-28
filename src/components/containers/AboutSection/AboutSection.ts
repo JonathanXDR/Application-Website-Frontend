@@ -52,6 +52,7 @@ export default defineComponent({
     })
 
     return {
+      window,
       props,
       tm,
       links,

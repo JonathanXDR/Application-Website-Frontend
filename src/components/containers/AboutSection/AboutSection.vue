@@ -21,7 +21,7 @@
 
     <CardItem
       variant="article"
-      size="large"
+      :size="window.innerWidth < 900 ? 'small' : window.innerWidth < 1250 ? 'medium' : 'large'"
       :card="{
         eyebrow: $t('components.containers.about.eyebrow'),
         title: $t('components.containers.about.title'),

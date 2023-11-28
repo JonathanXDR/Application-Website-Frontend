@@ -31,6 +31,7 @@ export default defineComponent({
     const articles: Ref<CardItemType[]> = computed(() => tm('components.containers.other'))
 
     return {
+      window,
       props,
       tm,
       articles
