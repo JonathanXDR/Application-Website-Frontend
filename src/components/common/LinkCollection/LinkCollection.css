@@ -4,18 +4,6 @@
   gap: 12px;
 }
 
-.links p:first-of-type {
-  margin-top: 0.8em;
-}
-
-.links p {
-  margin-top: 0.5em;
-}
-
-.links p .link {
-  width: fit-content;
-}
-
 /* ---------------------------------- card ---------------------------------- */
 
 .card.color .link {
@@ -30,50 +18,17 @@
   margin-left: 0.3em;
 }
 
-/* --------------------------------- ribbon --------------------------------- */
-
-.ribbon .links p {
-  margin: 0 !important;
-}
-
 /* ------------------------------- ribbon-link ------------------------------ */
 
-.ribbon-link a.link,
-.ribbon-link a.link path {
-  color: var(--color-figure-blue);
-  fill: var(--color-figure-blue);
+.ribbon-blue-to-default .ribbon-link .link {
+  color: white;
+  animation: animate-color-fff-06c 1s ease-in-out 1.8s forwards;
 }
-
-/* -------------------------- ribbon-link-animation ------------------------- */
-
-@keyframes animate-color-white-0066cc {
+@keyframes animate-color-fff-06c {
   0% {
-    color: var(--color-fill);
-    fill: var(--color-fill);
+    color: white;
   }
-
   to {
     color: var(--color-figure-blue);
-    fill: var(--color-figure-blue);
-  }
-}
-
-.ribbon-link-animation a.link,
-.ribbon-link-animation a.link path {
-  color: var(--color-fill);
-  fill: var(--color-fill);
-  animation: animate-color-white-0066cc 1s ease-in-out 1.8s forwards;
-}
-
-/* ---------------------------------- about --------------------------------- */
-
-#about .links p {
-  display: flex;
-  justify-content: center;
-}
-
-@media screen and (min-width: 1250px) {
-  #about .links p {
-    justify-content: flex-start !important;
   }
 }

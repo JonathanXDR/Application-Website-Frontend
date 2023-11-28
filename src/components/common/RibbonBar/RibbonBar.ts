@@ -41,14 +41,18 @@ export default defineComponent({
     const updateBaseItems = () => {
       const items = tm('components.common.RibbonBar') as RibbonBar[]
       baseItems.value = items.map((item, index) => ({
-        description: t(`components.common.RibbonBar[${index}].description`, {
-          latestTag: tags.value.latest,
-          previousTag: tags.value.previous
-        }),
-        links: (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map((link) => ({
-          ...link,
-          url: rt(link.url, { latestTag: tags.value.latest, previousTag: tags.value.previous })
-        }))
+        description:
+          item.description &&
+          t(`components.common.RibbonBar[${index}].description`, {
+            latestTag: tags.value.latest,
+            previousTag: tags.value.previous
+          }),
+        links:
+          item.links &&
+          (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map((link) => ({
+            ...link,
+            url: rt(link.url, { latestTag: tags.value.latest, previousTag: tags.value.previous })
+          }))
       }))
       totalItems.value = baseItems.value.length
       updateDisplayItems()

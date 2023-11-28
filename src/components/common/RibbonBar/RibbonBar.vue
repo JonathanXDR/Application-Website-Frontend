@@ -23,10 +23,11 @@
                       class="rc-ribbon-content-item-base rc-ribbon-content-item"
                       :style="totalItems <= 2 && 'width: 100% !important'"
                     >
-                      {{ item.description }}&ensp;
+                      {{ item.description && item.description + '&ensp;' }}
 
                       <LinkCollection
-                        class="ribbon-link ribbon-link-animation icon-after-ribbon"
+                        v-if="item.links.length"
+                        class="ribbon-link"
                         :links="item.links"
                       />
                     </div>
