@@ -17,10 +17,6 @@
   }
 }
 
-#copyright {
-  white-space: nowrap;
-}
-
 @media screen and (min-width: 900px) {
   .sharesheet-options {
     margin: 0;

@@ -955,6 +955,14 @@ fieldset {
   gap: 20px;
 }
 
+.card-container:has(.card.medium, .article.medium) {
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.card-container:has(.card.large, .article.large) {
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+
 @media screen and (min-width: 900px) {
   .card-container {
     width: 82.5%;

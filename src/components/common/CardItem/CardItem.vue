@@ -2,7 +2,12 @@
   <a
     :id="card.title?.toLowerCase().replace(/ /g, '-')"
     :href="applyHover && card.links ? card.links[0].url : card.html_url"
-    :class="['scroll-animation scroll-animation--off', variant, size]"
+    :class="[
+      'scroll-animation scroll-animation--off',
+      variant,
+      size,
+      { medium: size === 'small' && window.innerWidth > 900 }
+    ]"
     v-animation="{
       add: ['scroll-animation--on'],
       remove: ['scroll-animation--off']

@@ -117,7 +117,8 @@ export default defineComponent({
     return {
       applyHover,
       getFlexDirection,
-      getAlignItems
+      getAlignItems,
+      window
     }
   }
 })
