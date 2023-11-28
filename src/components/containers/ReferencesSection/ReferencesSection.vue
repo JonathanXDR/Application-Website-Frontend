@@ -7,6 +7,7 @@
       v-for="(article, index) in articles"
       :key="index"
       :card="article"
+      :iconPosition="window.innerWidth < 900 ? 'top' : 'left'"
       :dateFormatOptions="{
         year: 'numeric',
         month: 'long'

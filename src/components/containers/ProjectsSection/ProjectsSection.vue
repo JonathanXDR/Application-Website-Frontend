@@ -14,6 +14,7 @@
         v-for="(project, index) in currentProjects"
         :key="index"
         :card="project"
+        :iconPosition="window.innerWidth < 900 ? 'top' : 'left'"
         :dateFormatOptions="{
           year: 'numeric',
           month: 'long'

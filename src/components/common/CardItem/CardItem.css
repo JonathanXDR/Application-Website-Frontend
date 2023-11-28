@@ -142,7 +142,7 @@
   height: 100%;
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 12px;
   z-index: 1;
   /* background-color: var(--color-fill); */
   padding: 20px;
@@ -162,6 +162,7 @@
 }
 
 .medium .details {
+  gap: 24px;
   padding: 32px;
   font-size: 17px;
   line-height: 1.4705882353;
