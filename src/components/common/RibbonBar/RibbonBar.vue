@@ -14,7 +14,7 @@
                   :style="[transformStyle, totalItems <= 2 && 'justify-content: center; gap: 16px']"
                 >
                   <div
-                    v-for="(item, index) in baseItems"
+                    v-for="(item, index) in displayItems"
                     :key="index"
                     class="rc-ribbon-gallery-item rc-inline-gallery-item"
                     :style="totalItems <= 2 && 'width: unset !important'"

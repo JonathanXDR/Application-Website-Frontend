@@ -20,27 +20,12 @@ export default defineComponent({
       latest: string | undefined
       previous: string | undefined
     }>
-    const baseItems = ref(
-      computed(() => {
-        const items = tm('components.common.RibbonBar') as RibbonBar[]
-        return items.map((item, index) => ({
-          description: t(`components.common.RibbonBar[${index}].description`, {
-            latestTag: tags.value.latest,
-            previousTag: tags.value.previous
-          }),
-          links: (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map((link) => ({
-            ...link,
-            url: rt(link.url, { latestTag: tags.value.latest, previousTag: tags.value.previous })
-          }))
-        }))
-      })
-    )
-
+    const baseItems: Ref<RibbonBar[]> = ref([])
     const currentIndex = ref(0)
-    const totalItems = ref(baseItems.value.length)
+    const totalItems = ref(0)
     const isTransitioning = ref(false)
     const scrollDirection = ref('right')
-    const displayItems = ref([...baseItems.value])
+    const displayItems: Ref<RibbonBar[]> = ref([])
 
     const fetchTags = async () => {
       const [latest, previous] = await listRepositoryTags({
@@ -50,6 +35,31 @@ export default defineComponent({
       })
 
       tags.value = { latest: latest.name, previous: previous.name }
+      updateBaseItems()
+    }
+
+    const updateBaseItems = () => {
+      const items = tm('components.common.RibbonBar') as RibbonBar[]
+      baseItems.value = items.map((item, index) => ({
+        description: t(`components.common.RibbonBar[${index}].description`, {
+          latestTag: tags.value.latest,
+          previousTag: tags.value.previous
+        }),
+        links: (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map((link) => ({
+          ...link,
+          url: rt(link.url, { latestTag: tags.value.latest, previousTag: tags.value.previous })
+        }))
+      }))
+      totalItems.value = baseItems.value.length
+      updateDisplayItems()
+    }
+
+    const updateDisplayItems = () => {
+      const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value
+      displayItems.value = Array.from(
+        { length: totalItems.value },
+        (_, i) => baseItems.value[(start + i) % totalItems.value]
+      )
     }
 
     const scrollContent = (direction: 'left' | 'right') => {
@@ -88,22 +98,15 @@ export default defineComponent({
     watch(currentIndex, () => {
       setTimeout(() => {
         isTransitioning.value = false
-        const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value
-        displayItems.value = Array.from(
-          { length: totalItems.value },
-          (_, i) => baseItems.value[(start + i) % totalItems.value]
-        )
+        updateDisplayItems()
       }, 1000)
     })
 
-    onMounted(() => {
-      fetchTags()
-      const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value
-      displayItems.value = Array.from(
-        { length: totalItems.value },
-        (_, i) => baseItems.value[(start + i) % totalItems.value]
-      )
+    watch(tags, () => {
+      updateBaseItems()
     })
+
+    onMounted(fetchTags)
 
     return {
       baseItems,
