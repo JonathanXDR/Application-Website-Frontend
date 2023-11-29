@@ -48,7 +48,7 @@ const props = defineProps({
 const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`);
 
 const getSpriteUrl = (size: 'small' | 'medium' | 'large') => {
-  return new URL(`/src/assets/icons/${size}/symbol/sprite.svg`, import.meta.url)
+  return new URL(`/assets/icons/${size}/symbol/sprite.svg`, import.meta.url)
     .href;
 };
 
