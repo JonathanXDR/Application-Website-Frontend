@@ -29,4 +29,13 @@ export default defineNuxtConfig({
       title: 'Jonathan Russ',
     },
   },
+  components: {
+    dirs: [
+      {
+        path: '~/components/containers',
+        global: true,
+      },
+      '~/components/common',
+    ],
+  },
 });
