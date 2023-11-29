@@ -185,14 +185,14 @@
 .rs-tracker .rs-tracker-bar {
   box-sizing: border-box;
   border-radius: 5px;
-  background-color: #d2d2d7;
+  background-color: var(--color-fill-gray-tertiary);
 }
 .rs-tracker .rs-tracker-fill {
   height: 6px;
   border-radius: inherit;
   overflow: hidden;
   transition: width 1s ease-in-out;
-  background-color: #008009;
+  background-color: var(--color-figure-green);
 }
 .rs-tracker .rs-tracker-status {
   font-size: 12px;
@@ -207,7 +207,7 @@
     Helvetica,
     Arial,
     sans-serif;
-  color: #6e6e73;
+  color: var(--color-figure-gray-secondary);
   margin: 12px 0;
   width: inherit;
   position: relative;
@@ -230,7 +230,7 @@
 }
 .rs-tracker .rs-tracker-status .rs-status-current {
   font-weight: 600;
-  color: #1d1d1f;
+  color: var(--color-fill-gray);
 }
 .rs-tracker .rs-tracker-status .rs-status-a11y {
   position: absolute;
@@ -270,36 +270,6 @@
     padding: 6px 0 2px;
     display: block;
   }
-}
-h2,
-li,
-ol {
-  margin: 0;
-  padding: 0;
-}
-:focus {
-  outline: 2px solid #0071e3;
-  outline-offset: 0;
-}
-html.as-mouseuser :focus:not(input):not(textarea):not(select) {
-  outline: none;
-}
-h2 {
-  font-weight: 600;
-  color: #1d1d1f;
-}
-h2 + * {
-  margin-top: 0.8em;
-}
-ol {
-  margin-left: 1.17647em;
-}
-ul ol {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-li li {
-  font-size: 1em;
 }
 .row {
   display: flex;

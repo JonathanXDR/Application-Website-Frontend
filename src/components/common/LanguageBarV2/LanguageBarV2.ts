@@ -9,5 +9,12 @@ export default defineComponent({
       required: true,
       default: () => ({})
     }
+  },
+  setup() {
+    const status = ['Order Placed', 'Processing', 'Preparing to Ship', 'Shipped', 'Delivered']
+
+    return {
+      status
+    }
   }
 })

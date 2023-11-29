@@ -1,4 +1,5 @@
 import LanguageBar from '@/components/common/LanguageBar/LanguageBar.vue'
+import LanguageBarV2 from '@/components/common/LanguageBarV2/LanguageBarV2.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
 import TabList from '@/components/common/TabList/TabList.vue'
 import type { LanguageBarType } from '@/types/common/LanguageBar'
@@ -10,7 +11,8 @@ export default defineComponent({
   components: {
     LoadingSpinner,
     TabList,
-    LanguageBar
+    LanguageBar,
+    LanguageBarV2
   },
   props: {
     title: {
