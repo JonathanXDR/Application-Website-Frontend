@@ -3,9 +3,9 @@
     <path
       ref="path"
       class="path-timeline"
-      :d="pathD"
       stroke="var(--color-fill-gray)"
       stroke-width="5"
+      :d="pathD"
       :stroke-dashoffset="strokeDashoffset"
       :stroke-dasharray="strokeDasharray"
     ></path>

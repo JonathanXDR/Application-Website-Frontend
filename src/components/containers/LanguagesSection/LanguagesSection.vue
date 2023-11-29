@@ -3,7 +3,7 @@
 
   <TabList />
 
-  <LanguageBar v-for="(language, index) in languages" :key="index" :language="language" />
+  <LanguageBarV2 v-for="(language, index) in languages" :key="index" :language="language" />
 
   <!-- <div class="graph-gallery-container">
     <ul class="tabnav-items">

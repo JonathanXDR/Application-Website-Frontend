@@ -192,7 +192,8 @@
   border-radius: inherit;
   overflow: hidden;
   transition: width 1s ease-in-out;
-  background-color: var(--color-figure-green);
+  /* background-color: var(--color-figure-green); */
+  background-color: var(--color-fill-gray);
 }
 .rs-tracker .rs-tracker-status {
   font-size: 12px;
