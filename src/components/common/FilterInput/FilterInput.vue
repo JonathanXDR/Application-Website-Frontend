@@ -62,7 +62,8 @@
               </button>
             </div>
           </div>
-          <TagBar v-if="open" :tags="options.forEach((option) => option.label)" />
+          <!-- deepcode ignore PureMethodReturnValueIgnored: false positive -->
+          <TagBar v-if="open && options.length" :tags="options.map((option) => option.label)" />
         </div>
       </div>
     </div>
