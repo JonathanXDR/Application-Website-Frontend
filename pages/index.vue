@@ -1,6 +1,6 @@
 <template>
   <section
-    v-for="(section, index) in ($tm('components.common.NavBar') as SectionType[])"
+    v-for="(section, index) in sections"
     :name="section.name"
     :key="section.id"
     :id="section.id"
@@ -15,7 +15,13 @@
 </template>
 
 <script setup lang="ts">
+import '~/assets/css/main.css';
 import type { SectionType } from '~/types/common/Section';
+
+const { tm } = useI18n();
+const sections: Ref<SectionType[]> = computed(() =>
+  tm('components.common.NavBar')
+);
 </script>
 
 <style scoped>
