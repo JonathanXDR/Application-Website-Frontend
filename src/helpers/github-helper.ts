@@ -1,3 +1,4 @@
+import type { ListRepoIssuesResponse } from '@/types/GitHub/Issue'
 import type {
   GetRepoResponse,
   ListPublicReposResponse,
@@ -118,6 +119,63 @@ export async function listRepositoryTags(params: {
   }
 }
 
+export async function listRepositoryIssues(params: {
+  owner: string
+  repo: string
+  milestone?: string
+  state?: 'open' | 'closed' | 'all'
+  assignee?: string
+  creator?: string
+  mentioned?: string
+  labels?: string
+  sort?: 'created' | 'updated' | 'comments'
+  direction?: 'asc' | 'desc'
+  since?: string
+  perPage?: number
+  page?: number
+}): Promise<ListRepoIssuesResponse> {
+  const {
+    owner,
+    repo,
+    milestone,
+    state = 'open',
+    assignee,
+    creator,
+    mentioned,
+    labels,
+    sort = 'created',
+    direction = 'desc',
+    since,
+    perPage = 30,
+    page = 1
+  } = params
+
+  try {
+    const response = await octokit.request('GET /repos/{owner}/{repo}/issues', {
+      owner,
+      repo,
+      milestone,
+      state,
+      assignee,
+      creator,
+      mentioned,
+      labels,
+      sort,
+      direction,
+      since,
+      per_page: perPage,
+      page,
+      headers: {
+        accept: 'application/vnd.github+json'
+      }
+    })
+    return response.data
+  } catch (error) {
+    console.error(`Error fetching issues for repository ${repo}:`, error)
+    throw error
+  }
+}
+
 export async function listPinnedRepositories(params: {
   username: string
   perPage?: number
@@ -143,19 +201,47 @@ export async function listPinnedRepositories(params: {
                   }
                 }
               }
-              updatedAt
-              primaryLanguage {
-                name
-              }
-              licenseInfo {
-                name
+            primaryLanguage {
+              name
+            }
+            licenseInfo {
+              name
+            }
+            forks(first: ${perPage}) {
+              edges {
+                node {
+                  forkCount
+                }
               }
             }
+            stargazers(first: ${perPage}) {
+              edges {
+                node {
+                  id
+                }
+              }
+            }
+            issues(first: ${perPage}) {
+              edges {
+                node {
+                  id
+                }
+              }
+            }
+            pullRequests(first: ${perPage}) {
+              edges {
+                node {
+                  id
+                }
+              }
+            }
+            updatedAt
           }
         }
       }
     }
   }
+}
   `
 
   const remapProps = (item: any) => {

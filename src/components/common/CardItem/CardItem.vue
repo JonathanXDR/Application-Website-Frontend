@@ -126,12 +126,18 @@
           />
         </div>
         <InfoBar
-          v-if="card.info || card.created_at || card.updated_at || card.language || card.license"
+          v-if="card.info || card.created_at || card.updated_at || card.language || card.license || card.forks_count || card.network_count || card.watchers_count || card.stargazers_count || card.open_issues_count || card.subscribers_count"
           :info="
             card.info || {
-              date: card.updated_at,
               language: card.language,
-              license: card.license?.name
+              license: card.license?.name,
+              forks: card.forks_count,
+              networks: card.network_count,
+              watchers: card.watchers_count,
+              stars: card.stargazers_count,
+              issues: card.open_issues_count,
+              subscribers: card.subscribers_count,
+              date: card.updated_at,
             }
           "
           :date="card.updated_at"

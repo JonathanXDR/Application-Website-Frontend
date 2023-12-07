@@ -4,9 +4,10 @@ import Icon from '@/components/common/Icons/Icon.vue'
 import InfoBar from '@/components/common/InfoBar/InfoBar.vue'
 import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
 import TagBar from '@/components/common/TagBar/TagBar.vue'
+import { listRepositoryIssues } from '@/helpers/github-helper'
 import type { CardItemType } from '@/types/common/CardItem'
 import type { ListUserReposResponse } from '@/types/GitHub/Repository'
-import { computed, defineComponent, type PropType } from 'vue'
+import { computed, defineComponent, onMounted, type PropType } from 'vue'
 export default defineComponent({
   name: 'CardTile',
   components: {
@@ -88,6 +89,17 @@ export default defineComponent({
       )
     })
 
+    const fetchIssues = async () => {
+      const issues = await listRepositoryIssues({
+        owner: 'JonathanXDR',
+        repo: props.card.title
+      })
+
+      console.log(issues)
+
+      return issues
+    }
+
     const getFlexDirection = () => {
       switch (props.iconPosition) {
         case 'top':
@@ -113,6 +125,12 @@ export default defineComponent({
           return 'flex-start'
       }
     }
+
+    
+
+    onMounted(() => {
+      fetchIssues()
+    })
 
     return {
       applyHover,
