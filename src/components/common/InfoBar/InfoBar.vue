@@ -36,11 +36,11 @@
       <Icon name="star.fill" class="info-icon" />
       {{ info?.stars }}
     </div>
-    {{ info?.issues  }}
-    <!-- <div v-if="info?.issues.length" class="info-item">
+    
+    <div v-if="info?.issues?.length" class="info-item">
       <Icon name="smallcircle.filled.circle" class="info-icon" />
-      {{ info?.issues.length }}
-    </div> -->
+      {{ info?.issues?.length }}
+    </div>
     <div v-if="info?.subscribers" class="info-item">
       <Icon name="bell.fill" class="info-icon" />
       {{ info?.subscribers }}

@@ -12,7 +12,7 @@ export type InfoType = {
   networks?: number
   watchers?: number
   stars?: number
-  issues: ListRepoIssuesResponse[]
+  issues?: ListRepoIssuesResponse[]
   subscribers?: number
   date?: DateType
 }

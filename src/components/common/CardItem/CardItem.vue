@@ -127,7 +127,7 @@
           />
         </div>
         <InfoBar
-          v-if="card.info || card.created_at || card.updated_at || card.language || card.license || card.forks_count || card.network_count || card.watchers_count || card.stargazers_count || card.issues || card.subscribers_count"
+          v-if="card.info || card.created_at || card.updated_at || card.language || card.license || card.forks_count || card.network_count || card.watchers_count || card.stargazers_count ||  card.open_issues_count || card.subscribers_count"
           :info="
             card.info || {
               language: card.language,
@@ -136,7 +136,7 @@
               networks: card.network_count,
               watchers: card.watchers_count,
               stars: card.stargazers_count,
-              issues: card.issues,
+              issues: card.open_issues_count,
               subscribers: card.subscribers_count,
               date: card.updated_at,
             }

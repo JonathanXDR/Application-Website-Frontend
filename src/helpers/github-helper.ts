@@ -133,7 +133,7 @@ export async function listRepositoryIssues(params: {
   since?: string
   perPage?: number
   page?: number
-}): Promise<ListRepoIssuesResponse> {
+}): Promise<ListRepoIssuesResponse[]> {
   const {
     owner,
     repo,
