@@ -183,56 +183,52 @@ export async function listPinnedRepositories(params: {
   const { username, perPage = 30 } = params
 
   const query = `
-  {
-    user(login: "${username}") {
-      pinnedItems(first: ${perPage}, types: REPOSITORY) {
-        edges {
-          node {
-            ... on Repository {
-              name
-              description
-              url
-              repositoryTopics(first: ${perPage}) {
-                edges {
-                  node {
-                    topic {
-                      name
-                    }
-                  }
+{
+  user(login: "${username}") {
+    pinnedItems(first: ${perPage}, types: REPOSITORY) {
+      edges {
+        node {
+          ... on Repository {
+            name
+            description
+            url
+            repositoryTopics(first: ${perPage}) {
+              nodes {
+                topic {
+                  name
                 }
+                url
               }
+            }
             primaryLanguage {
+              color
               name
             }
             licenseInfo {
               name
+              nickname
+              url
             }
             forks(first: ${perPage}) {
-              edges {
-                node {
-                  forkCount
-                }
+              nodes {
+                url
               }
             }
             stargazers(first: ${perPage}) {
-              edges {
-                node {
-                  id
-                }
+              nodes {
+                url
               }
             }
             issues(first: ${perPage}) {
-              edges {
-                node {
-                  id
-                }
+              nodes {
+                closed
+                url
               }
             }
             pullRequests(first: ${perPage}) {
-              edges {
-                node {
-                  id
-                }
+              nodes {
+                closed
+                url
               }
             }
             updatedAt
@@ -245,16 +241,34 @@ export async function listPinnedRepositories(params: {
   `
 
   const remapProps = (item: any) => {
-    const { name, description, url, repositoryTopics, updatedAt, primaryLanguage, licenseInfo } =
-      item
+    const {
+      name,
+      description,
+      url,
+      repositoryTopics,
+      primaryLanguage,
+      licenseInfo,
+      forks,
+      stargazers,
+      issues,
+      pullRequests,
+      updatedAt
+    } = item
+
     return {
       name,
       description,
       html_url: url,
-      topics: repositoryTopics.edges.map((edge: any) => edge.node.topic.name),
-      updated_at: updatedAt,
+      topics: repositoryTopics.nodes.map((node: any) => node.topic.name),
       language: primaryLanguage?.name,
-      license: licenseInfo
+      license: licenseInfo,
+      forks: forks.nodes.map((node: any) => node.url),
+      stars: stargazers.nodes.map((node: any) => node.url),
+      issues: issues.nodes.filter((node: any) => !node.closed).map((node: any) => node.url),
+      pullRequests: pullRequests.nodes
+        .filter((node: any) => !node.closed)
+        .map((node: any) => node.url),
+      updated_at: updatedAt
     }
   }
 
