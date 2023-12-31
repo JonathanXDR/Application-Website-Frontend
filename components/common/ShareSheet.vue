@@ -18,7 +18,7 @@ import type { FaLinkType } from "~/types/common/FaLink";
 
 const { tm } = useI18n();
 const links = computed(
-  () => tm("components.common.ShareSheet.links") as FaLinkType[],
+  () => tm("components.common.ShareSheet.links") as FaLinkType[]
 );
 </script>
 

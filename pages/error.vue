@@ -47,7 +47,7 @@ const splitDescription = (description: string): string[] => {
 
 const colors = computed(() => tm(`views.${props.name}.icon.colors`) as Object);
 const entireDescription = computed(
-  () => tm(`views.${props.name}.description`) as string,
+  () => tm(`views.${props.name}.description`) as string
 );
 const description = splitDescription(entireDescription.value);
 </script>
@@ -161,14 +161,8 @@ body {
 .icon:after,
 .more:before,
 .more:after {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -595,8 +589,7 @@ html[dir="rtl"] .icon-copy {
   bottom: 0;
   opacity: 0;
   transform: translateY(20px);
-  transition:
-    opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1) 0.05s,
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1) 0.05s,
     transform 0.5s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
@@ -607,8 +600,7 @@ html[dir="rtl"] .icon-copy {
 .rc-videoplayer:not(.rc-videoplayer-touched) .rc-videoplayer-controls-center {
   transform: translateY(0);
   opacity: 1;
-  transition:
-    opacity 0.4s cubic-bezier(0, 0, 0.2, 1) 0.25s,
+  transition: opacity 0.4s cubic-bezier(0, 0, 0.2, 1) 0.25s,
     transform 0.5s cubic-bezier(0, 0, 0.2, 1) 0.2s;
 }
 
@@ -620,9 +612,7 @@ html[dir="rtl"] .icon-copy {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   opacity: 0.8;
-  transition:
-    transform 0.2s ease,
-    opacity 0.3s ease;
+  transition: transform 0.2s ease, opacity 0.3s ease;
   padding: 0 3px;
 }
 
@@ -678,8 +668,7 @@ html[dir="rtl"] .icon-copy {
   display: flex;
   box-sizing: border-box;
   transform: translateY(20px);
-  transition:
-    opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1) 0.05s,
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1) 0.05s,
     transform 0.5s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
@@ -698,8 +687,7 @@ html[dir="rtl"] .icon-copy {
 .rc-videoplayer:not(.rc-videoplayer-touched) .rc-videoplayer-controls-bottom {
   opacity: 1;
   transform: translateY(0);
-  transition:
-    opacity 0.4s cubic-bezier(0, 0, 0.2, 1) 0.05s,
+  transition: opacity 0.4s cubic-bezier(0, 0, 0.2, 1) 0.05s,
     transform 0.5s cubic-bezier(0, 0, 0.2, 1);
 }
 
@@ -1240,14 +1228,8 @@ html[dir="rtl"] .icon-copy {
   line-height: 1.42859;
   font-weight: 400;
   letter-spacing: -0.016em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   display: block;
   color: #06c;
   padding-top: 10px;
@@ -1679,14 +1661,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 html {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   font-size: 106.25%;
   quotes: "“" "”";
   --sk-link-disabled-opacity: 0.42;
@@ -1697,14 +1673,8 @@ body {
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   background-color: #fff;
   color: #1d1d1f;
   font-style: normal;
@@ -3386,14 +3356,8 @@ a[role="button"] {
 .icon:before,
 .more:after,
 .more:before {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -3476,8 +3440,7 @@ html[dir="rtl"] .icon-copy {
   font-style: normal;
   font-weight: 400;
   src: url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.eot);
-  src:
-    url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.eot#iefix)
+  src: url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.eot#iefix)
       format("embedded-opentype"),
     url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.woff)
       format("woff"),
@@ -3897,14 +3860,8 @@ body {
   line-height: 1.05;
   font-weight: 600;
   letter-spacing: -0.015em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   padding-top: 50px;
 }
 
@@ -3914,14 +3871,8 @@ body {
     line-height: 1.08349;
     font-weight: 600;
     letter-spacing: -0.003em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
   }
 }
 
@@ -3931,14 +3882,8 @@ body {
     line-height: 1.0625;
     font-weight: 600;
     letter-spacing: -0.009em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
   }
 }
 
@@ -3948,14 +3893,8 @@ body {
     line-height: 1.08349;
     font-weight: 600;
     letter-spacing: -0.003em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
   }
 }
 
@@ -3965,14 +3904,8 @@ body {
     line-height: 1.1;
     font-weight: 600;
     letter-spacing: 0;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
   }
 }
 
@@ -3991,14 +3924,8 @@ body {
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   font-weight: 500;
   padding: 19px 0 48px;
   margin: 0 auto;

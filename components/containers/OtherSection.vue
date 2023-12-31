@@ -22,6 +22,6 @@ defineProps({
 
 const { tm } = useI18n();
 const articles = computed(
-  () => tm("components.containers.other") as ArticleItemType[],
+  () => tm("components.containers.other") as ArticleItemType[]
 );
 </script>

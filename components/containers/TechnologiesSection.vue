@@ -18,7 +18,7 @@ defineProps({
 
 const { tm } = useI18n();
 const cards = computed(
-  () => tm("components.containers.technologies") as CardTileType[],
+  () => tm("components.containers.technologies") as CardTileType[]
 );
 </script>
 

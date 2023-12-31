@@ -107,9 +107,7 @@ const cardOpen = ref(false);
   position: relative;
   background-color: var(--color-fill);
   border-radius: 18px;
-  transition:
-    box-shadow,
-    transform 0.16s ease-out;
+  transition: box-shadow, transform 0.16s ease-out;
 }
 
 .tile:hover {
@@ -167,14 +165,8 @@ const cardOpen = ref(false);
   line-height: 1.1666666667;
   font-weight: 600;
   /* letter-spacing: 0.009em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
 }
 
 @media screen and (min-width: 900px) {

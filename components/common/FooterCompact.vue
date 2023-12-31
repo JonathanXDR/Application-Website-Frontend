@@ -16,14 +16,8 @@ const currentYear = ref(new Date().getFullYear());
   line-height: 1.33337;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   color: var(--color-figure-gray-secondary);
   display: flex;
   align-items: center;

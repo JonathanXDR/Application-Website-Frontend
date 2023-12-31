@@ -29,7 +29,7 @@ import type { LinkType } from "~/types/common/Link";
 
 const { tm } = useI18n();
 const links = computed(
-  () => tm("components.common.RibbonBar.links") as LinkType[],
+  () => tm("components.common.RibbonBar.links") as LinkType[]
 );
 </script>
 
@@ -73,14 +73,8 @@ const links = computed(
   line-height: 1.4285914286;
   font-weight: 400;
   /* letter-spacing: -0.016em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
 }
 
 @media screen and (min-width: 900px) {
