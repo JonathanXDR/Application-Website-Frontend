@@ -35,7 +35,7 @@ const props = defineProps({
   },
 });
 
-const { locale } = useI18n({ useScope: "global" });
+const { locale } = useI18n();
 const languages = reactive([
   { title: "Deutsch", key: "de", abbr: "DE" },
   { title: "English", key: "en", abbr: "EN" },
