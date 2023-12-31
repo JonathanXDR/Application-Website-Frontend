@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { CardTileType } from '~/types/common/CardTile';
+import type { CardTileType } from "~/types/common/CardTile";
 
 defineProps({
   title: {
@@ -18,7 +18,7 @@ defineProps({
 
 const { tm } = useI18n();
 const cards = computed(
-  () => tm('components.containers.technologies') as CardTileType[]
+  () => tm("components.containers.technologies") as CardTileType[],
 );
 </script>
 

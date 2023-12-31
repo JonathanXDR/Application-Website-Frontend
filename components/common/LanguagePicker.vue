@@ -1,7 +1,7 @@
 <template>
   <section class="lang-switcher-container">
     <span v-if="introText" class="language-switcher-text">
-      {{ $t('components.common.FooterItem.chooseYourLanguage') }}:
+      {{ $t("components.common.FooterItem.chooseYourLanguage") }}:
     </span>
     <ul class="locale-lang language-picker-wrapper">
       <li v-for="lang in languages" :key="lang.key">
@@ -35,19 +35,19 @@ const props = defineProps({
   },
 });
 
-const { locale } = useI18n({ useScope: 'global' });
+const { locale } = useI18n({ useScope: "global" });
 const languages = reactive([
-  { title: 'Deutsch', key: 'de', abbr: 'DE' },
-  { title: 'English', key: 'en', abbr: 'EN' },
-  { title: 'Français', key: 'fr', abbr: 'FR' },
-  { title: 'Italiano', key: 'it', abbr: 'IT' },
+  { title: "Deutsch", key: "de", abbr: "DE" },
+  { title: "English", key: "en", abbr: "EN" },
+  { title: "Français", key: "fr", abbr: "FR" },
+  { title: "Italiano", key: "it", abbr: "IT" },
 ]);
 
 const changeLang = (lang: string) => {
-  const localStorageLocale = ['de', 'en', 'fr', 'it'].includes(lang)
+  const localStorageLocale = ["de", "en", "fr", "it"].includes(lang)
     ? lang
-    : 'de';
-  localStorage.setItem('language', localStorageLocale);
+    : "de";
+  localStorage.setItem("language", localStorageLocale);
   locale.value = localStorageLocale;
 };
 
@@ -56,11 +56,11 @@ const getLabel = (lang: { abbr: string; title: string }) => {
 };
 
 onMounted(() => {
-  if (localStorage.getItem('language') === null) {
+  if (localStorage.getItem("language") === null) {
     const preferredLanguage = window.navigator.language;
     changeLang(preferredLanguage);
   } else {
-    changeLang(localStorage.getItem('language') as string);
+    changeLang(localStorage.getItem("language") as string);
   }
 });
 </script>
@@ -109,7 +109,7 @@ onMounted(() => {
 
 /* ---------------------------------- label --------------------------------- */
 
-input[name='language']:checked ~ label {
+input[name="language"]:checked ~ label {
   color: var(--color-fill-gray-secondary) !important;
   pointer-events: none;
 }

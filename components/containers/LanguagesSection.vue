@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { LanguageBarType } from '~/types/common/LanguageBar';
+import type { LanguageBarType } from "~/types/common/LanguageBar";
 
 defineProps({
   title: {
@@ -34,7 +34,7 @@ defineProps({
 
 const { tm } = useI18n();
 const languages = computed(
-  () => tm('components.containers.languages') as LanguageBarType[]
+  () => tm("components.containers.languages") as LanguageBarType[],
 );
 </script>
 <style scoped>
@@ -95,8 +95,14 @@ const languages = computed(
   font-size: 19px;
   line-height: 1.14286;
   /* letter-spacing: 0.007em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   font-weight: 700;
   color: #888;
   margin: 0;

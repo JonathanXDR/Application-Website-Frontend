@@ -1,5 +1,5 @@
-import type { ArticleItemType } from './ArticleItem'
+import type { ArticleItemType } from "./ArticleItem";
 
 export type LanguageBarType = ArticleItemType & {
-  progress: string
-}
+  progress: string;
+};

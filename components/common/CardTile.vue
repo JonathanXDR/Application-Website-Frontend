@@ -73,11 +73,11 @@
 
         <p>
           <strong>
-            {{ $t('components.common.CardTile.firstEncounter') }}:</strong
+            {{ $t("components.common.CardTile.firstEncounter") }}:</strong
           >
           {{ card.learned }}
           <br />
-          <strong> {{ $t('components.common.CardTile.enhanced') }}:</strong>
+          <strong> {{ $t("components.common.CardTile.enhanced") }}:</strong>
           {{ card.enhanced }}
         </p>
       </div>
@@ -86,7 +86,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { CardTileType } from '~/types/common/CardTile';
+import type { CardTileType } from "~/types/common/CardTile";
 
 defineProps({
   card: {
@@ -107,7 +107,9 @@ const cardOpen = ref(false);
   position: relative;
   background-color: var(--color-fill);
   border-radius: 18px;
-  transition: box-shadow, transform 0.16s ease-out;
+  transition:
+    box-shadow,
+    transform 0.16s ease-out;
 }
 
 .tile:hover {
@@ -132,7 +134,7 @@ const cardOpen = ref(false);
 .tile-content {
   height: 100%;
   display: grid;
-  grid-template-areas: 'tile-body' 'tile-header';
+  grid-template-areas: "tile-body" "tile-header";
   grid-template-rows: auto 58px;
   transition: opacity 0.5s ease-in-out;
 }
@@ -165,8 +167,14 @@ const cardOpen = ref(false);
   line-height: 1.1666666667;
   font-weight: 600;
   /* letter-spacing: 0.009em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 @media screen and (min-width: 900px) {

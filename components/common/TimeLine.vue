@@ -65,11 +65,11 @@ onMounted(() => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        window.addEventListener('scroll', animateLine);
-        window.addEventListener('resize', initPath);
+        window.addEventListener("scroll", animateLine);
+        window.addEventListener("resize", initPath);
       } else {
-        window.removeEventListener('scroll', animateLine);
-        window.removeEventListener('resize', initPath);
+        window.removeEventListener("scroll", animateLine);
+        window.removeEventListener("resize", initPath);
       }
     });
   });

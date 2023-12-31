@@ -26,15 +26,15 @@
 </template>
 
 <script setup lang="ts">
-import i18n from '@nuxtjs/i18n/dist/runtime/plugins/i18n';
+import i18n from "@nuxtjs/i18n/dist/runtime/plugins/i18n";
 
 const props = defineProps({
   name: {
     type: String,
     required: false,
-    default: 'error',
+    default: "error",
     validator: (value: string): boolean => {
-      const viewKeys = Object.keys(i18n.global.tm('views'));
+      const viewKeys = Object.keys(i18n.global.tm("views"));
       return viewKeys.includes(value);
     },
   },
@@ -42,12 +42,12 @@ const props = defineProps({
 
 const { tm } = useI18n();
 const splitDescription = (description: string): string[] => {
-  return description.split('. ');
+  return description.split(". ");
 };
 
 const colors = computed(() => tm(`views.${props.name}.icon.colors`) as Object);
 const entireDescription = computed(
-  () => tm(`views.${props.name}.description`) as string
+  () => tm(`views.${props.name}.description`) as string,
 );
 const description = splitDescription(entireDescription.value);
 </script>
@@ -161,8 +161,14 @@ body {
 .icon:after,
 .more:before,
 .more:after {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -172,7 +178,7 @@ body {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: '';
+  alt: "";
 }
 
 .icon:before,
@@ -233,11 +239,11 @@ a.icon-wrapper:hover .icon-copy {
   text-decoration: underline;
 }
 
-html[dir='rtl'] .icon-wrapper {
+html[dir="rtl"] .icon-wrapper {
   unicode-bidi: bidi-override;
 }
 
-html[dir='rtl'] .icon-copy {
+html[dir="rtl"] .icon-copy {
   unicode-bidi: embed;
 }
 
@@ -589,7 +595,8 @@ html[dir='rtl'] .icon-copy {
   bottom: 0;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1) 0.05s,
+  transition:
+    opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1) 0.05s,
     transform 0.5s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
@@ -600,7 +607,8 @@ html[dir='rtl'] .icon-copy {
 .rc-videoplayer:not(.rc-videoplayer-touched) .rc-videoplayer-controls-center {
   transform: translateY(0);
   opacity: 1;
-  transition: opacity 0.4s cubic-bezier(0, 0, 0.2, 1) 0.25s,
+  transition:
+    opacity 0.4s cubic-bezier(0, 0, 0.2, 1) 0.25s,
     transform 0.5s cubic-bezier(0, 0, 0.2, 1) 0.2s;
 }
 
@@ -612,7 +620,9 @@ html[dir='rtl'] .icon-copy {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   opacity: 0.8;
-  transition: transform 0.2s ease, opacity 0.3s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.3s ease;
   padding: 0 3px;
 }
 
@@ -668,7 +678,8 @@ html[dir='rtl'] .icon-copy {
   display: flex;
   box-sizing: border-box;
   transform: translateY(20px);
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1) 0.05s,
+  transition:
+    opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1) 0.05s,
     transform 0.5s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
@@ -687,7 +698,8 @@ html[dir='rtl'] .icon-copy {
 .rc-videoplayer:not(.rc-videoplayer-touched) .rc-videoplayer-controls-bottom {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.4s cubic-bezier(0, 0, 0.2, 1) 0.05s,
+  transition:
+    opacity 0.4s cubic-bezier(0, 0, 0.2, 1) 0.05s,
     transform 0.5s cubic-bezier(0, 0, 0.2, 1);
 }
 
@@ -832,7 +844,7 @@ html[dir='rtl'] .icon-copy {
 }
 
 .rc-videoplayer-volume-slider-box:after {
-  content: '';
+  content: "";
   top: 20px;
   left: 14px;
   max-height: 55px;
@@ -901,7 +913,7 @@ html[dir='rtl'] .icon-copy {
   font-weight: 600;
   font-size: 11px;
   font-variant-numeric: tabular-nums;
-  font-feature-settings: 'tnum';
+  font-feature-settings: "tnum";
   line-height: 1;
   letter-spacing: -0.11px;
   color: #fff;
@@ -1228,8 +1240,14 @@ html[dir='rtl'] .icon-copy {
   line-height: 1.42859;
   font-weight: 400;
   letter-spacing: -0.016em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   display: block;
   color: #06c;
   padding-top: 10px;
@@ -1646,12 +1664,12 @@ input::-ms-clear {
   display: none;
 }
 
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -1661,10 +1679,16 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 html {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   font-size: 106.25%;
-  quotes: '“' '”';
+  quotes: "“" "”";
   --sk-link-disabled-opacity: 0.42;
 }
 
@@ -1673,8 +1697,14 @@ body {
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   background-color: #fff;
   color: #1d1d1f;
   font-style: normal;
@@ -1686,7 +1716,7 @@ input,
 select,
 textarea {
   font-synthesis: none;
-  -moz-font-feature-settings: 'kern';
+  -moz-font-feature-settings: "kern";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: ltr;
@@ -1940,7 +1970,7 @@ sub.footnote-reduced {
 .footnote-diamond {
   position: relative;
   vertical-align: baseline;
-  font-feature-settings: 'numr';
+  font-feature-settings: "numr";
   font-size: 1em;
 }
 
@@ -1965,7 +1995,7 @@ sub.footnote-diamond.footnote-reduced {
 .footnote-number {
   position: relative;
   vertical-align: baseline;
-  font-feature-settings: 'numr';
+  font-feature-settings: "numr";
   font-size: 1em;
 }
 
@@ -1991,7 +2021,7 @@ abbr {
   border: 0;
 }
 
-a[role='button'] {
+a[role="button"] {
   cursor: pointer;
 }
 
@@ -2243,7 +2273,7 @@ a[role='button'] {
 
 .selfclear:after,
 .selfclear:before {
-  content: ' ';
+  content: " ";
   display: table;
 }
 
@@ -3356,8 +3386,14 @@ a[role='button'] {
 .icon:before,
 .more:after,
 .more:before {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -3367,7 +3403,7 @@ a[role='button'] {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: '';
+  alt: "";
   text-decoration: none;
 }
 
@@ -3404,7 +3440,7 @@ a[role='button'] {
 
 .icon-apple:after,
 .icon-apple:before {
-  content: '';
+  content: "";
 }
 
 .more-block {
@@ -3427,11 +3463,11 @@ a.icon-wrapper:hover .icon-copy {
   text-decoration: underline;
 }
 
-html[dir='rtl'] .icon-wrapper {
+html[dir="rtl"] .icon-wrapper {
   unicode-bidi: bidi-override;
 }
 
-html[dir='rtl'] .icon-copy {
+html[dir="rtl"] .icon-copy {
   unicode-bidi: embed;
 }
 
@@ -3440,12 +3476,13 @@ html[dir='rtl'] .icon-copy {
   font-style: normal;
   font-weight: 400;
   src: url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.eot);
-  src: url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.eot#iefix)
-      format('embedded-opentype'),
+  src:
+    url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.eot#iefix)
+      format("embedded-opentype"),
     url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.woff)
-      format('woff'),
+      format("woff"),
     url(https://store.storeimages.cdn-apple.com/dist/assets/as-icons/fonts/aosicons_regular.ttf)
-      format('truetype');
+      format("truetype");
 }
 
 body {
@@ -3554,19 +3591,19 @@ body {
 }
 
 #rr-viewport:before {
-  content: 'large';
+  content: "large";
 }
 
 @media only screen and (min-width: 1441px) {
   #rr-viewport:before {
-    content: 'xlarge';
+    content: "xlarge";
   }
 }
 
 @media only screen and (max-width: 1068px) {
   #rr-viewport:before {
-    content: 'medium';
-    content: 'small';
+    content: "medium";
+    content: "small";
   }
 }
 
@@ -3860,8 +3897,14 @@ body {
   line-height: 1.05;
   font-weight: 600;
   letter-spacing: -0.015em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   padding-top: 50px;
 }
 
@@ -3871,8 +3914,14 @@ body {
     line-height: 1.08349;
     font-weight: 600;
     letter-spacing: -0.003em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 
@@ -3882,8 +3931,14 @@ body {
     line-height: 1.0625;
     font-weight: 600;
     letter-spacing: -0.009em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 
@@ -3893,8 +3948,14 @@ body {
     line-height: 1.08349;
     font-weight: 600;
     letter-spacing: -0.003em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 
@@ -3904,8 +3965,14 @@ body {
     line-height: 1.1;
     font-weight: 600;
     letter-spacing: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 
@@ -3924,8 +3991,14 @@ body {
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   font-weight: 500;
   padding: 19px 0 48px;
   margin: 0 auto;

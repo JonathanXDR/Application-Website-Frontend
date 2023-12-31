@@ -72,24 +72,24 @@
 </template>
 
 <script lang="ts" setup>
-import type { AnimationItemType } from '~/types/common/AnimationItem';
-import type { SectionType } from '~/types/common/Section';
+import type { AnimationItemType } from "~/types/common/AnimationItem";
+import type { SectionType } from "~/types/common/Section";
 
 const { tm } = useI18n();
-const items = computed(() => tm('components.common.NavBar') as SectionType[]);
+const items = computed(() => tm("components.common.NavBar") as SectionType[]);
 const themeDark = ref<boolean>(false);
 const navOpen = ref<boolean>(false);
 const navDisabled = ref<boolean>(false);
 
 const nodeEnv = computed(() => process.env.NODE_ENV);
 const currentSectionIndex = computed(
-  () => useSection().state.currentSectionIndex
+  () => useSection().state.currentSectionIndex,
 );
 const colorBadge = computed(() => useColor().randomizeColor());
 const headerAnimations: ComputedRef<AnimationItemType[]> = computed(() => {
   useAnimation().setHeaderAnimation({
-    element: document.querySelector('.ac-ln-background') as HTMLElement,
-    class: 'ac-ln-background-transition',
+    element: document.querySelector(".ac-ln-background") as HTMLElement,
+    class: "ac-ln-background-transition",
     timeout: 500,
   });
 
@@ -108,13 +108,13 @@ const updateAnimations = () => {
 
 const toggleTheme = () => {
   themeDark.value = !themeDark.value;
-  storeTheme(themeDark.value ? 'dark' : 'light');
+  storeTheme(themeDark.value ? "dark" : "light");
   updateAnimations();
 };
 
 const storeTheme = (themeName: string) => {
-  themeDark.value = themeName === 'dark';
-  localStorage.setItem('theme', themeName);
+  themeDark.value = themeName === "dark";
+  localStorage.setItem("theme", themeName);
   document.documentElement.className = themeName;
 };
 
@@ -137,12 +137,12 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener("scroll", handleScroll);
 
-  const storedTheme = localStorage.getItem('theme');
+  const storedTheme = localStorage.getItem("theme");
   if (storedTheme === null) {
-    const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)');
-    storeTheme(preferredTheme.matches ? 'dark' : 'light');
+    const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    storeTheme(preferredTheme.matches ? "dark" : "light");
   } else {
     storeTheme(storedTheme);
   }
@@ -164,7 +164,7 @@ onMounted(() => {
 }
 
 .item::before {
-  content: ' ';
+  content: " ";
   position: absolute;
   top: 0;
   left: 0;
@@ -268,8 +268,14 @@ onMounted(() => {
   line-height: 1.16667;
   font-weight: 600;
   letter-spacing: 0.009em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   padding-left: 10px;
   -webkit-transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
   -o-transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
@@ -283,8 +289,14 @@ onMounted(() => {
     line-height: 1.19048;
     font-weight: 600;
     letter-spacing: 0.011em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 
@@ -351,7 +363,7 @@ onMounted(() => {
 .ac-ln-background:after {
   margin-left: -490px;
   left: 50%;
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   top: 100%;
@@ -392,8 +404,14 @@ onMounted(() => {
   line-height: 1;
   font-weight: 600;
   /* letter-spacing: -0.02em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   float: right;
   display: flex;
   align-items: center;
@@ -424,7 +442,8 @@ onMounted(() => {
     width: 100%;
     padding-top: 0;
     max-height: 0;
-    transition: max-height 0.5s cubic-bezier(0.28, 0.11, 0.32, 1) 0.4s,
+    transition:
+      max-height 0.5s cubic-bezier(0.28, 0.11, 0.32, 1) 0.4s,
       visibility 0s linear 1s;
   }
 
@@ -465,7 +484,8 @@ onMounted(() => {
     opacity: 0;
     padding: 10px 24px 24px;
     transform: translate3d(0, -150px, 0);
-    transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1) 0.5s,
+    transition:
+      transform 1s cubic-bezier(0.23, 1, 0.32, 1) 0.5s,
       opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
     flex-direction: column;
     gap: 0px;
@@ -639,7 +659,8 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   z-index: 1;
-  transition: transform 1s cubic-bezier(0.86, 0, 0.07, 1),
+  transition:
+    transform 1s cubic-bezier(0.86, 0, 0.07, 1),
     transform-origin 1s cubic-bezier(0.86, 0, 0.07, 1);
   transform: translateY(0);
   opacity: 0.8;
@@ -647,14 +668,15 @@ onMounted(() => {
 
 .ac-ln-menucta-chevron::before,
 .ac-ln-menucta-chevron::after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   top: 13px;
   width: 11px;
   height: 1px;
   z-index: 1;
-  transition: transform 1s cubic-bezier(0.86, 0, 0.07, 1),
+  transition:
+    transform 1s cubic-bezier(0.86, 0, 0.07, 1),
     transform-origin 1s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
@@ -729,7 +751,10 @@ a:disabled {
 
 @media only screen and (max-width: 1250px) {
   #ac-ln-curtain {
-    transition: opacity 1s ease 0.2s, width 0s ease 1.2s, height 0s ease 1.2s;
+    transition:
+      opacity 1s ease 0.2s,
+      width 0s ease 1.2s,
+      height 0s ease 1.2s;
   }
 }
 
@@ -774,7 +799,7 @@ a:disabled {
   z-index: 2;
 }
 
-input[type='checkbox']#active {
+input[type="checkbox"]#active {
   width: 0;
   height: 0;
 }
@@ -789,18 +814,22 @@ input[type='checkbox']#active {
   opacity: 1;
   background: #fff;
   border-radius: 40px;
-  transition: 0.2s ease background, 0.2s ease opacity;
+  transition:
+    0.2s ease background,
+    0.2s ease opacity;
 }
 
 .theme-button span:after,
 .theme-button span:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 8px;
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  transition: 0.5s ease transform, 0.2s ease background;
+  transition:
+    0.5s ease transform,
+    0.2s ease background;
 }
 
 .theme-button span:before {
@@ -815,20 +844,20 @@ input[type='checkbox']#active {
   z-index: 0;
 }
 
-.theme-button input[type='checkbox']:checked + span {
+.theme-button input[type="checkbox"]:checked + span {
   background: #000;
 }
 
-.theme-button input[type='checkbox']:active + span {
+.theme-button input[type="checkbox"]:active + span {
   opacity: 0.5;
 }
 
-.theme-button input[type='checkbox']:checked + span:before {
+.theme-button input[type="checkbox"]:checked + span:before {
   background: #000;
   transform: translate(56px, -19px);
 }
 
-.theme-button input[type='checkbox']:checked + span:after {
+.theme-button input[type="checkbox"]:checked + span:after {
   background: #fff;
   transform: translate(79px, 0);
 }

@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { ArticleItemType } from '~/types/common/ArticleItem';
+import type { ArticleItemType } from "~/types/common/ArticleItem";
 
 defineProps({
   article: {

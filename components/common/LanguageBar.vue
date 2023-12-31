@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { LanguageBarType } from '~/types/common/LanguageBar';
+import type { LanguageBarType } from "~/types/common/LanguageBar";
 
 defineProps({
   language: {
@@ -82,7 +82,7 @@ defineProps({
 }
 
 .graph-bar:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -139,8 +139,14 @@ defineProps({
   line-height: 1.47059;
   font-weight: 400;
   /* letter-spacing: -0.022em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 @media screen and (min-width: 900px) {
@@ -156,8 +162,14 @@ defineProps({
   line-height: 1.14286;
   font-weight: 600;
   /* letter-spacing: 0.007em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 @media screen and (min-width: 900px) {

@@ -22,13 +22,13 @@
     <div>
       <h1>
         <span class="eyebrow">{{
-          $t('components.containers.about.eyebrow')
+          $t("components.containers.about.eyebrow")
         }}</span
-        >{{ $t('components.containers.about.title') }}
+        >{{ $t("components.containers.about.title") }}
       </h1>
       <p class="typography-intro">
         {{
-          $t('components.containers.about.description', {
+          $t("components.containers.about.description", {
             age: dates.age,
             apprenticeshipYear: dates.apprenticeshipYear + 1,
           })
@@ -43,8 +43,8 @@
 </template>
 
 <script lang="ts" setup>
-import type { DateItemType } from '~/types/common/DateItem';
-import type { LinkType } from '~/types/common/Link';
+import type { DateItemType } from "~/types/common/DateItem";
+import type { LinkType } from "~/types/common/Link";
 
 defineProps({
   title: {
@@ -56,12 +56,12 @@ defineProps({
 
 const { tm } = useI18n();
 const links = computed(
-  () => tm('components.containers.about.links') as LinkType[]
+  () => tm("components.containers.about.links") as LinkType[],
 );
-const dateItems = tm('components.containers.about.dates') as DateItemType[];
+const dateItems = tm("components.containers.about.dates") as DateItemType[];
 const dates = ref<{ age: string; apprenticeshipYear: string }>({
-  age: '',
-  apprenticeshipYear: '',
+  age: "",
+  apprenticeshipYear: "",
 });
 
 const calculateYears = (date: string) => {
@@ -75,7 +75,7 @@ const calculateYears = (date: string) => {
 onMounted(async () => {
   dateItems.forEach((item) => {
     dates.value[item.key as keyof typeof dates.value] = String(
-      calculateYears(item.date)
+      calculateYears(item.date),
     );
   });
 });

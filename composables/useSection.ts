@@ -1,4 +1,4 @@
-import { reactive } from 'vue';
+import { reactive } from "vue";
 
 export const useSection = () => {
   const state = reactive({
@@ -8,7 +8,7 @@ export const useSection = () => {
 
   const setCurrentSection = (sectionName: string, sectionIndex: number) => {
     const modifiedSectionName = sectionName.replace(/^\w/, (c) =>
-      c.toUpperCase()
+      c.toUpperCase(),
     );
     state.currentSectionName = modifiedSectionName;
     state.currentSectionIndex = sectionIndex;

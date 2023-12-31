@@ -1,5 +1,5 @@
-import { ref } from 'vue';
-import type { AnimationItemType } from '~/types/common/AnimationItem';
+import { ref } from "vue";
+import type { AnimationItemType } from "~/types/common/AnimationItem";
 
 export const useAnimation = () => {
   const headerAnimations = ref<AnimationItemType[]>([]);

@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
   devtools: {
     enabled: true,
     timeline: {
@@ -13,29 +13,29 @@ export default defineNuxtConfig({
   app: {
     head: {
       meta: [
-        { charset: 'utf-8' },
+        { charset: "utf-8" },
         {
-          'http-equiv': 'X-UA-Compatible',
-          content: 'IE=edge',
+          "http-equiv": "X-UA-Compatible",
+          content: "IE=edge",
         },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
         {
-          hid: 'description',
-          name: 'description',
+          hid: "description",
+          name: "description",
           content:
-            'Discover the work of Jonathan Russ and learn more about him, including his projects at Swisscom.',
+            "Discover the work of Jonathan Russ and learn more about him, including his projects at Swisscom.",
         },
       ],
-      title: 'Jonathan Russ',
+      title: "Jonathan Russ",
     },
   },
   components: {
     dirs: [
       {
-        path: '~/components/containers',
+        path: "~/components/containers",
         global: true,
       },
-      '~/components/common',
+      "~/components/common",
     ],
   },
 });

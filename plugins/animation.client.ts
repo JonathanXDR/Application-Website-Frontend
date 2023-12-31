@@ -1,7 +1,7 @@
-import { defineNuxtPlugin } from '#app';
+import { defineNuxtPlugin } from "#app";
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.directive('animation', {
+  nuxtApp.vueApp.directive("animation", {
     mounted(el, binding) {
       const observer = new IntersectionObserver(
         (entries) => {
@@ -29,8 +29,8 @@ export default defineNuxtPlugin((nuxtApp) => {
         },
         {
           threshold: 1,
-          rootMargin: '-52px 0px 0px 0px',
-        }
+          rootMargin: "-52px 0px 0px 0px",
+        },
       );
 
       observer.observe(el);

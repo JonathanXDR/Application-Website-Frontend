@@ -1,7 +1,7 @@
-import type { ArticleItemType } from '../common/ArticleItem'
-import type { DateItemType } from '../common/DateItem'
+import type { ArticleItemType } from "../common/ArticleItem";
+import type { DateItemType } from "../common/DateItem";
 
 export type About = ArticleItemType & {
-  eyebrow: string
-  dates: DateItemType[]
-}
+  eyebrow: string;
+  dates: DateItemType[];
+};

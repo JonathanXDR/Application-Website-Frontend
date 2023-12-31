@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { ArticleItemType } from '~/types/common/ArticleItem';
+import type { ArticleItemType } from "~/types/common/ArticleItem";
 
 defineProps({
   title: {
@@ -22,7 +22,7 @@ defineProps({
 
 const { tm } = useI18n();
 const articles = computed(
-  () => tm('components.containers.references') as ArticleItemType[]
+  () => tm("components.containers.references") as ArticleItemType[],
 );
 </script>
 <style scoped></style>

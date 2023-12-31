@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { PropType } from 'vue';
+import type { PropType } from "vue";
 
 const props = defineProps({
   name: {
@@ -14,19 +14,19 @@ const props = defineProps({
     default: undefined,
   },
   size: {
-    type: String as PropType<'small' | 'medium' | 'large'>,
+    type: String as PropType<"small" | "medium" | "large">,
     required: false,
-    default: 'medium',
+    default: "medium",
     validator: (value: string): boolean =>
-      ['small', 'medium', 'large'].includes(value),
+      ["small", "medium", "large"].includes(value),
   },
   colors: {
     type: Object,
     required: false,
     default: () => ({
-      primary: 'currentColor',
-      secondary: 'currentColor',
-      tertiary: 'currentColor',
+      primary: "currentColor",
+      secondary: "currentColor",
+      tertiary: "currentColor",
     }),
     validator(value: {
       primary?: string;
@@ -34,7 +34,7 @@ const props = defineProps({
       tertiary?: string;
     }): boolean {
       const isValidColor = (color: string | undefined): boolean => {
-        return typeof color === 'string' || color === undefined;
+        return typeof color === "string" || color === undefined;
       };
       return (
         isValidColor(value.primary) &&
@@ -47,15 +47,15 @@ const props = defineProps({
 
 const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`);
 
-const getSpriteUrl = (size: 'small' | 'medium' | 'large') => {
+const getSpriteUrl = (size: "small" | "medium" | "large") => {
   return new URL(`/assets/icons/${size}/symbol/sprite.svg`, import.meta.url)
     .href;
 };
 
 const styles = reactive({
-  '--color-primary': props.colors.primary || 'currentColor',
-  '--color-secondary': props.colors.secondary || 'currentColor',
-  '--color-tertiary': props.colors.tertiary || 'currentColor',
+  "--color-primary": props.colors.primary || "currentColor",
+  "--color-secondary": props.colors.secondary || "currentColor",
+  "--color-tertiary": props.colors.tertiary || "currentColor",
 });
 </script>
 

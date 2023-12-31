@@ -15,9 +15,9 @@ body {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   font-style: normal;
   background-color: var(--color-fill);
@@ -36,9 +36,11 @@ body {
 
   /* Special Colors */
   --color-sub-text: #666;
-  --color-tutorials-overview-background: radial-gradient(circle at center 70%,
-      #242424 0%,
-      #0c0c0c 100%);
+  --color-tutorials-overview-background: radial-gradient(
+    circle at center 70%,
+    #242424 0%,
+    #0c0c0c 100%
+  );
 
   /* Infobar */
   --ribbon-background-color: #f5f5f7;
@@ -139,7 +141,9 @@ body {
   --color-changes-deprecated-hover: rgba(191, 72, 0, 0.05);
   --color-changes-modified: var(--color-figure-purple);
   --color-changes-modified-hover: var(--color-fill-purple-secondary);
-  --color-changes-modified-previous-background: var(--color-fill-purple-secondary);
+  --color-changes-modified-previous-background: var(
+    --color-fill-purple-secondary
+  );
   --color-code-background: var(--color-fill-tertiary);
   --color-code-collapsible-background: var(--color-fill-gray-quaternary);
   --color-code-line-highlight: var(--color-fill-light-blue-secondary);
@@ -173,9 +177,11 @@ body {
 
   /* Special Colors */
   --color-sub-text: #aaa;
-  --color-tutorials-overview-background: radial-gradient(circle at center 70%,
-      #242424 0%,
-      #0c0c0c 100%);
+  --color-tutorials-overview-background: radial-gradient(
+    circle at center 70%,
+    #242424 0%,
+    #0c0c0c 100%
+  );
 
   /* Infobar */
   --ribbon-background-color: #1d1d1f;
@@ -254,7 +260,9 @@ body {
   --color-not-found-input-background: var(--color-fill-gray-quaternary);
   --color-step-background: var(--color-fill-gray-quaternary);
   --color-svg-icon: #6e6e73;
-  --color-tutorial-navbar-dropdown-background: var(--color-nav-dark-solid-background);
+  --color-tutorial-navbar-dropdown-background: var(
+    --color-nav-dark-solid-background
+  );
   --color-tutorial-navbar-dropdown-border: var(--color-fill-gray-tertiary);
 }
 
@@ -265,14 +273,14 @@ body {
   margin-right: auto !important;
 }
 
-.section-separated~.section-separated {
+.section-separated ~ .section-separated {
   border-top: 1px solid var(--color-fill-gray-tertiary);
 }
 
-.typography-headline+.intro,
-.typography-headline+.typography-intro,
-h1+.intro,
-h1+.typography-intro {
+.typography-headline + .intro,
+.typography-headline + .typography-intro,
+h1 + .intro,
+h1 + .typography-intro {
   margin-top: 1.2em;
 }
 
@@ -285,9 +293,9 @@ h1 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -300,9 +308,9 @@ h2 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -315,9 +323,9 @@ h3 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -330,9 +338,9 @@ h4 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -345,9 +353,9 @@ h5 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -360,9 +368,9 @@ h6 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -377,9 +385,9 @@ h6 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -392,8 +400,8 @@ a {
   color: var(--ribbon-link-color);
 }
 
-h2+p:not(.article-date),
-h4+p:not(.article-date) {
+h2 + p:not(.article-date),
+h4 + p:not(.article-date) {
   margin-top: 0.8em;
 }
 
@@ -418,9 +426,9 @@ li {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -433,9 +441,9 @@ li {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -448,9 +456,9 @@ li {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   left: -2px;
   display: block;
@@ -468,9 +476,9 @@ li {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   left: 0;
   color: #333;
@@ -490,9 +498,9 @@ li {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -505,9 +513,9 @@ li {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -520,9 +528,9 @@ li {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   font-weight: 700;
   color: #111;
@@ -538,9 +546,9 @@ li {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   font-weight: 500;
   color: #888;
@@ -556,9 +564,9 @@ li {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   text-align: center;
 }
@@ -739,7 +747,11 @@ li {
 @keyframes nr-scroll-animation {
   from {
     opacity: 0;
-    transform: translate(var(--nr-animation-transform-x), var(--nr-animation-transform-y)) scale(var(--nr-animation-transform-scale));
+    transform: translate(
+        var(--nr-animation-transform-x),
+        var(--nr-animation-transform-y)
+      )
+      scale(var(--nr-animation-transform-scale));
   }
 
   to {
