@@ -30,7 +30,7 @@
         {{
           $t("components.containers.about.description", {
             age: dates.age,
-            apprenticeshipYear: dates.apprenticeshipYear + 1,
+            apprenticeshipYear: (Number(dates?.apprenticeshipYear) ?? 0) + 1,
           })
         }}
       </p>
@@ -54,28 +54,41 @@ defineProps({
   },
 });
 
-const { tm } = useI18n();
+const { locale, tm } = useI18n();
 const links = computed(
-  () => tm("components.containers.about.links") as LinkType[],
+  () => tm("components.containers.about.links") as LinkType[]
 );
 const dateItems = tm("components.containers.about.dates") as DateItemType[];
-const dates = ref<{ age: string; apprenticeshipYear: string }>({
-  age: "",
-  apprenticeshipYear: "",
+const dates = ref<{
+  age: string | undefined;
+  apprenticeshipYear: string | undefined;
+}>({
+  age: undefined,
+  apprenticeshipYear: undefined,
 });
 
 const calculateYears = (date: string) => {
+  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const regionCode = navigator.language.split("-")[1];
+  const customLocale = `${locale.value}-${regionCode}`;
   const currentDate = new Date(Date.now());
-  const birthDate = new Date(date);
-  const difference = new Date(currentDate.getTime() - birthDate.getTime());
-  const years = Math.abs(difference.getUTCFullYear() - 1970);
+
+  const currentLocaleDate = currentDate.toLocaleDateString(customLocale, {
+    timeZone: timeZone,
+  });
+
+  const startDate = new Date(date);
+  const difference = new Date(currentDate.getTime() - startDate.getTime());
+  const years = Math.abs(
+    difference.getUTCFullYear() - new Date(0).getUTCFullYear()
+  );
   return years;
 };
 
 onMounted(async () => {
   dateItems.forEach((item) => {
     dates.value[item.key as keyof typeof dates.value] = String(
-      calculateYears(item.date),
+      calculateYears(item.date)
     );
   });
 });
