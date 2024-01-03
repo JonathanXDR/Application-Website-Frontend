@@ -19,7 +19,7 @@
   flex-wrap: wrap;
 }
 
-.language-picker-wrapper li > input[type='radio'] {
+.language-picker-wrapper li > input[type="radio"] {
   display: none;
 }
 
@@ -39,7 +39,7 @@
 
 /* ---------------------------------- label --------------------------------- */
 
-input[name='language']:checked ~ label {
+input[name="language"]:checked ~ label {
   color: var(--color-fill-gray-secondary) !important;
   pointer-events: none;
 }

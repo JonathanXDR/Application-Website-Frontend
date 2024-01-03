@@ -30,10 +30,10 @@ export default defineComponent({
       previous: string | undefined;
     }>;
     const projects: Ref<CardItemType[]> = computed(() =>
-      tm("components.containers.projects")
+      tm("components.containers.projects"),
     );
     const technologies: Ref<CardItemType[]> = computed(() =>
-      tm("components.containers.technologies")
+      tm("components.containers.technologies"),
     );
 
     const baseItems: Ref<RibbonBar[]> = ref([]);
@@ -87,7 +87,7 @@ export default defineComponent({
                   .toLowerCase()
                   .replace(/ /g, "-"),
               }),
-            })
+            }),
           ),
       }));
       totalItems.value = baseItems.value.length;
@@ -100,7 +100,7 @@ export default defineComponent({
         (currentIndex.value - 1 + totalItems.value) % totalItems.value;
       displayItems.value = Array.from(
         { length: totalItems.value },
-        (_, i) => baseItems.value[(start + i) % totalItems.value]
+        (_, i) => baseItems.value[(start + i) % totalItems.value],
       );
     };
 

@@ -29,7 +29,7 @@
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: '';
+  alt: "";
   text-decoration: none;
 }
 .more:before {
@@ -41,7 +41,7 @@
 }
 .more:after,
 .more:before {
-  content: '';
+  content: "";
 }
 
 .rc-ribbon-content-gallery {
@@ -120,7 +120,7 @@
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: '';
+  alt: "";
   text-decoration: none;
 }
 .paddlenav .paddlenav-arrow-next:before {
@@ -143,7 +143,7 @@
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: '';
+  alt: "";
   text-decoration: none;
 }
 .paddlenav .paddlenav-arrow-previous:before {
@@ -199,7 +199,7 @@
     text-decoration: underline;
     position: relative;
     z-index: 1;
-    alt: '';
+    alt: "";
     text-decoration: none;
   }
   .paddlenav .paddlenav-arrow-next:before {
@@ -222,7 +222,7 @@
     text-decoration: underline;
     position: relative;
     z-index: 1;
-    alt: '';
+    alt: "";
     text-decoration: none;
   }
   .paddlenav .paddlenav-arrow-previous:before {
@@ -258,7 +258,7 @@
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: '';
+  alt: "";
   text-decoration: none;
 }
 .paddlenav-compact .paddlenav-arrow-next:before {
@@ -281,7 +281,7 @@
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: '';
+  alt: "";
   text-decoration: none;
 }
 .paddlenav-compact .paddlenav-arrow-previous:before {
@@ -335,9 +335,9 @@
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 .ribbon .ribbon-content-wrapper {
@@ -386,9 +386,9 @@
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   color: #86868b;
 }
@@ -402,9 +402,9 @@
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -464,7 +464,7 @@
 }
 .with-paddlenav .rc-ribbon-content-autoscroll:after,
 .with-paddlenav .rc-ribbon-content-autoscroll:before {
-  content: '';
+  content: "";
   display: block;
   width: 41px;
   height: 100%;
@@ -482,20 +482,36 @@
 }
 .with-paddlenav .rc-ribbon-content-autoscroll:before {
   left: 0;
-  background-image: linear-gradient(90deg, var(--color-fill-tertiary) 16px, hsla(0, 0%, 100%, 0));
+  background-image: linear-gradient(
+    90deg,
+    var(--color-fill-tertiary) 16px,
+    hsla(0, 0%, 100%, 0)
+  );
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .with-paddlenav .rc-ribbon-content-autoscroll:before {
-    background-image: linear-gradient(90deg, var(--color-fill-tertiary), hsla(0, 0%, 100%, 0));
+    background-image: linear-gradient(
+      90deg,
+      var(--color-fill-tertiary),
+      hsla(0, 0%, 100%, 0)
+    );
   }
 }
 .with-paddlenav .rc-ribbon-content-autoscroll:after {
   right: 0;
-  background-image: linear-gradient(270deg, var(--color-fill-tertiary) 16px, hsla(0, 0%, 100%, 0));
+  background-image: linear-gradient(
+    270deg,
+    var(--color-fill-tertiary) 16px,
+    hsla(0, 0%, 100%, 0)
+  );
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .with-paddlenav .rc-ribbon-content-autoscroll:after {
-    background-image: linear-gradient(270deg, var(--color-fill-tertiary), hsla(0, 0%, 100%, 0));
+    background-image: linear-gradient(
+      270deg,
+      var(--color-fill-tertiary),
+      hsla(0, 0%, 100%, 0)
+    );
   }
 }
 .ribbon-blue-to-default
@@ -524,7 +540,7 @@
 .rc-ribbon-content-gallery {
   min-height: auto;
 }
-.rc-ribbon-gallery-item[aria-hidden='true'] a {
+.rc-ribbon-gallery-item[aria-hidden="true"] a {
   visibility: hidden;
 }
 .rc-ribbon-content-item {

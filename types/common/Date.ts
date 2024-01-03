@@ -1,4 +1,4 @@
 export type DateType = {
-  from?: string
-  to?: string
-}
+  from?: string;
+  to?: string;
+};

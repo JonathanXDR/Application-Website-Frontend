@@ -9,7 +9,7 @@
 .footnote-number {
   position: relative;
   vertical-align: initial;
-  font-feature-settings: 'numr';
+  font-feature-settings: "numr";
   font-size: 1em;
 }
 sup.footnote-number {
@@ -69,9 +69,9 @@ br.small {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 .badge .badge-caption {
@@ -83,9 +83,9 @@ br.small {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 sup.footnote-number {
@@ -119,9 +119,9 @@ sup.footnote-number {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 @media only screen and (max-width: 1068px) {
@@ -134,9 +134,9 @@ sup.footnote-number {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -213,9 +213,9 @@ sup.footnote-number {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   display: inline-block;
   padding-top: 12px;
@@ -256,9 +256,9 @@ sup.footnote-number {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   display: inline-block;
 }
@@ -273,9 +273,9 @@ sup.footnote-number {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -360,9 +360,9 @@ hr {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 @media only screen and (max-width: 1068px) {
@@ -376,9 +376,9 @@ hr {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -393,9 +393,9 @@ hr {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }

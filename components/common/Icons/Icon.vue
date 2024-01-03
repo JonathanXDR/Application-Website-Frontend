@@ -5,47 +5,54 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, reactive, type PropType } from 'vue'
+import { computed, defineComponent, reactive, type PropType } from "vue";
 
 export default defineComponent({
-  name: 'Icon',
+  name: "Icon",
   props: {
     name: {
       type: String as PropType<string>,
       required: true,
-      default: undefined
+      default: undefined,
     },
     size: {
-      type: String as PropType<'small' | 'large' | 'full'>,
+      type: String as PropType<"small" | "large" | "full">,
       required: false,
-      default: 'medium'
+      default: "medium",
     },
     colors: {
-      type: Object as PropType<{ primary?: string; secondary?: string; tertiary?: string }>,
+      type: Object as PropType<{
+        primary?: string;
+        secondary?: string;
+        tertiary?: string;
+      }>,
       required: false,
       default: () => ({
-        primary: 'currentColor',
-        secondary: 'currentColor',
-        tertiary: 'currentColor'
-      })
-    }
+        primary: "currentColor",
+        secondary: "currentColor",
+        tertiary: "currentColor",
+      }),
+    },
   },
   setup(props) {
-    const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`)
+    const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`);
 
-    const getSpriteUrl = (size: 'small' | 'large' | 'full') => {
-      return new URL(`/src/assets/icons/${size}/symbol/sprite.svg`, import.meta.url).href
-    }
+    const getSpriteUrl = (size: "small" | "large" | "full") => {
+      return new URL(
+        `/src/assets/icons/${size}/symbol/sprite.svg`,
+        import.meta.url,
+      ).href;
+    };
 
     const styles = reactive({
-      '--color-primary': props.colors.primary || 'currentColor',
-      '--color-secondary': props.colors.secondary || 'currentColor',
-      '--color-tertiary': props.colors.tertiary || 'currentColor'
-    })
+      "--color-primary": props.colors.primary || "currentColor",
+      "--color-secondary": props.colors.secondary || "currentColor",
+      "--color-tertiary": props.colors.tertiary || "currentColor",
+    });
 
-    return { icon, styles }
-  }
-})
+    return { icon, styles };
+  },
+});
 </script>
 
 <style>

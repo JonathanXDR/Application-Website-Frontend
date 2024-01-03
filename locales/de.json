@@ -378,11 +378,7 @@
           "title": "HTML",
           "description": "Ich habe HTML beim Erstellen dieser Webseite gelernt und fühle mich damit sehr sicher, da ich es in fast allen bisherigen Projekten verwendet habe.",
           "progress": 90,
-          "tags": [
-            "Markup",
-            "Web",
-            "Frontend"
-          ],
+          "tags": ["Markup", "Web", "Frontend"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -405,12 +401,7 @@
           "title": "CSS",
           "description": "CSS habe ich ebenfalls während dem Aufbau dieser Webseite gelernt. Da CSS genau wie HTML in fast jedem Projekt verwendet wird, habe ich auch hier schon viel Erfahrung gesammelt.",
           "progress": 90,
-          "tags": [
-            "Styling",
-            "Web",
-            "Frontend",
-            "Design"
-          ],
+          "tags": ["Styling", "Web", "Frontend", "Design"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -432,12 +423,7 @@
           "eyebrow": "Language",
           "title": "JavaScript",
           "description": "Das ist wahrscheinlich meine meist verwendete Programmiersprache. Ich habe damit schon bei vielen Projekten gearbeitet und auch schon mit Frameworks und Libraries, wie Vue.js, React oder Express.js angewendet, die ja darauf aufbauen.",
-          "tags": [
-            "Scripting",
-            "Web",
-            "Frontend",
-            "Backend"
-          ],
+          "tags": ["Scripting", "Web", "Frontend", "Backend"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -456,11 +442,7 @@
           "title": "SDX",
           "description": "Mit dieser Library bin ich schon mehrmals während meiner Ausbildung in Kontakt gekommen. Ich habe damit z.B. beim Entwickeln der Apps Team Webseite, der Medienkurse und noch vielen weiteren Swisscom-Applikationen gearbeitet.",
           "progress": 70,
-          "tags": [
-            "Swisscom",
-            "Design",
-            "UI"
-          ],
+          "tags": ["Swisscom", "Design", "UI"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -476,11 +458,7 @@
           "title": "Node.js",
           "description": "Diese Technologie habe ich im NexCC das allererste mal gelernt und angewendet. Dabei habe ich zuerst kennengelernt was Node.js überhaupt ist und auch wie man dependencies mit NPM installiert und verwaltet.",
           "progress": 60,
-          "tags": [
-            "Javascript",
-            "Server",
-            "Backend"
-          ],
+          "tags": ["Javascript", "Server", "Backend"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -503,11 +481,7 @@
           "title": "SQL",
           "description": "SQL habe ich erstmals während der Entwicklung meiner CRUD-App im NexCC verwendent, dabei habe ich die Basics gelernt. Später gab es auch noch die beiden Berufsschulmodule 162 und 164 und den ÜK-106, der auch fortgeschrittene Abfragen beinhaltete.",
           "progress": 70,
-          "tags": [
-            "Database",
-            "Query",
-            "Backend"
-          ],
+          "tags": ["Database", "Query", "Backend"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -526,11 +500,7 @@
           "title": "Express.js",
           "description": "Meine CRUD-App im NexCC habe ich damit erstellt, was sehr lehrreich für mich war. Später hatte ich auch noch einen entsprechenden ÜK, welcher darum ging ein Backend mit Express.js zu erstellen.",
           "progress": 70,
-          "tags": [
-            "Node.js",
-            "Web",
-            "Backend"
-          ],
+          "tags": ["Node.js", "Web", "Backend"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -549,11 +519,7 @@
           "title": "Vue.js",
           "description": "Diese Webseite ist mit Vue.js erstellt worden und ich habe damit auch anderweitig gearbeitet. Beispiele sind meine Memory App im Apps Team oder das Zukunftstagstool und die Berufsschulapp, welche ich wiederrum im NexCC erstellt habe.",
           "progress": 80,
-          "tags": [
-            "Javascript",
-            "Frontend",
-            "Web"
-          ],
+          "tags": ["Javascript", "Frontend", "Web"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -576,12 +542,7 @@
           "title": "TypeScript",
           "description": "Diese Technologie habe ich das erste mal bei meiner Memory-App im Apps Team verwendet und benutze seither wenn möglich nur noch TypeScript anstelle von JavaScript. Projekte, bei denen ich TypeScript gearbeitet habe, sind z.B. die Apps Team Webseite, die CRUD-App im Apps Team oder auch das Fleetmanagement Tool.",
           "progress": 75,
-          "tags": [
-            "Javascript",
-            "Typed",
-            "Frontend",
-            "Backend"
-          ],
+          "tags": ["Javascript", "Typed", "Frontend", "Backend"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -604,11 +565,7 @@
           "title": "C#",
           "description": "Ich habe C# bereits in der 3. Oberstufe kennengelernt, als ich ein eigenes Spiel mit Unity als Abschlussarbeit erstellt habe. Bei den Automatisierungsprojekten im Banking Bereich habe ich dann noch ein wenig mehr darüber gelernt.",
           "progress": 25,
-          "tags": [
-            "Microsoft",
-            "Backend",
-            "Object-Oriented"
-          ],
+          "tags": ["Microsoft", "Backend", "Object-Oriented"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -631,11 +588,7 @@
           "title": "Java",
           "description": "Java kenne ich hauptsächlich vom Berufsschulmodul 319, wo wir damit gearbeitet haben und kleinere Aufgaben programmieren mussten. Im Modul 320 kam dann auch noch OOP dazu, was ich sehr interessant fand. Ausserdem habe ich auch noch den ÜK-223 besucht, bei dem es darum ging Multi-User-Applikationen objektorientiert zu realisieren. Das haben wir mit einem Java-Backend und einem ORM gemacht.",
           "progress": 10,
-          "tags": [
-            "Backend",
-            "Object-Oriented",
-            "Enterprise"
-          ],
+          "tags": ["Backend", "Object-Oriented", "Enterprise"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -658,11 +611,7 @@
           "title": "Bash",
           "description": "Ich habe schon oft mit Bash gearbeitet und bin damit mittlerweile auch einigermassen vertraut. Ich habe damit z.B. schon ein paar kleine Skripte geschrieben, um mir die Arbeit zu erleichtern. Zudem gab es auch das Modul 122 in der Berufsschule, bei dem wir ebenfalls mit Bash gearbeitet haben.",
           "progress": 50,
-          "tags": [
-            "Scripting",
-            "Shell",
-            "Linux"
-          ],
+          "tags": ["Scripting", "Shell", "Linux"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -681,12 +630,7 @@
           "title": "React",
           "description": "React selbst habe ich erst gelernt, nachdem ich bereits mit Next.js gearbeitet habe, daher war die Lernkurve nicht mehr so steil. Beispiele für Projekte, bei denen ich React verwendet habe, sind z.B. die Medienkurse, das Fleetmanagement Tool oder auch die neuen Webfrontends.",
           "progress": 60,
-          "tags": [
-            "Javascript",
-            "Frontend",
-            "Web",
-            "UI"
-          ],
+          "tags": ["Javascript", "Frontend", "Web", "UI"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -705,12 +649,7 @@
           "title": "Next.js",
           "description": "Das erste mal kennenlernen durte ich Next.js im Apps Team, wo ich damit die neue Apps Team Webseite erstellt habe. Dort habe ich gleichzeitig auch sehr viel über React gelernt und konnte so meine Kenntnisse gleich in beiden Frameworks verbessern.",
           "progress": 50,
-          "tags": [
-            "React",
-            "Frontend",
-            "Web",
-            "SSR"
-          ],
+          "tags": ["React", "Frontend", "Web", "SSR"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -728,11 +667,7 @@
           "eyebrow": "Container Management",
           "title": "Docker",
           "description": "Richtig verstanden und mich damit beschäftigt habe ich Docker im Berufsschulmodul 347, wo wir eine Applikation mittels CI/CD deployen mussten. Dazu gab es den ÜK 210, bei dem es um das Thema Cloud ging und wir auch dort nochmal mit Docker gearbeitet haben.",
-          "tags": [
-            "Container",
-            "Devops",
-            "Cloud"
-          ],
+          "tags": ["Container", "Devops", "Cloud"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -750,11 +685,7 @@
           "eyebrow": "Container Management",
           "title": "Kubernetes",
           "description": "Auch Kubernetes habe ich im Berufsschulmodul 347 kennengelernt und dort verwendet, um eine Applikation mittels CI/CD zu deployen. Der ÜK 210 hat mir dann nochmal einen tieferen Einblick in die Container-Orchestrierung gegeben, da er sich mehr damit beschäftigt hat.",
-          "tags": [
-            "Container",
-            "Orchestration",
-            "Devops"
-          ],
+          "tags": ["Container", "Orchestration", "Devops"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -772,11 +703,7 @@
           "eyebrow": "Framework",
           "title": "Nest.js",
           "description": "Dieses Backend-Framework habe ich im Apps Team kennengelernt und habe damit meine CRUD-App erstellt. Dabei habe ich viel über die Architektur und die verschiedenen Module gelernt. Ausserdem habe ich auch in produktiven Projekten im Apps Team, wie z.B. dem Fleetmanagement Tool oder den neuen Webfrontends damit gearbeitet.",
-          "tags": [
-            "Node.js",
-            "Backend",
-            "Typescript"
-          ],
+          "tags": ["Node.js", "Backend", "Typescript"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -794,11 +721,7 @@
           "eyebrow": "ORM",
           "title": "Prisma",
           "description": "Das habe ich verwendet um meine CRUD-App zu erstellen und ich bin dabei das erste mal mit einem ORM in Berührung gekommen. Später habe ich auch beim Fleetmanagement Tool mit Prisma gearbeiet.",
-          "tags": [
-            "Database",
-            "Typescript",
-            "ORM"
-          ],
+          "tags": ["Database", "Typescript", "ORM"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -816,11 +739,7 @@
           "eyebrow": "ORM",
           "title": "TypeORM",
           "description": "Als Alternative zu Prisma habe ich meine CRUD-App, nachdem ich sie fertiggestellt habe, auch noch mit TypeORM umgesetzt, da auch dieses ORM in diversen Projekten im Apps Team verwendet wird.",
-          "tags": [
-            "Database",
-            "Typescript",
-            "ORM"
-          ],
+          "tags": ["Database", "Typescript", "ORM"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -838,12 +757,7 @@
           "eyebrow": "Library",
           "title": "GitHub Primer",
           "description": "Ich habe GitHub Primer benutzt, um ein Frontend zusammen mit React für meine CRUD-App im Apps Team zu erstellen.",
-          "tags": [
-            "React",
-            "Frontend",
-            "Design",
-            "UI"
-          ],
+          "tags": ["React", "Frontend", "Design", "UI"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -861,12 +775,7 @@
           "eyebrow": "Library",
           "title": "Tailwind CSS",
           "description": "Tailwind CSS wurde zusammen mit SDX in vielen Projekten im Apps Team verwendet. Das Fleetmanagement Tool und die neuen Webfrontends sind zwei Beispiele dafür.",
-          "tags": [
-            "Css",
-            "Frontend",
-            "Design",
-            "UI"
-          ],
+          "tags": ["Css", "Frontend", "Design", "UI"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -888,11 +797,7 @@
           "eyebrow": "Language",
           "title": "Python",
           "description": "Diese Programmiersprache habe ich im Security Journey gelernt und sie für die Entwicklung des DAM Log Scanners verwendet, ein Tool, welches Datenbankaktivitäten aufzeichnet.",
-          "tags": [
-            "Scripting",
-            "Backend",
-            "Object-Oriented"
-          ],
+          "tags": ["Scripting", "Backend", "Object-Oriented"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -912,12 +817,7 @@
           "eyebrow": "Introduction",
           "title": "NEX First Steps",
           "description": "In den First Steps hat meine Lehre begonnen. Dort habe ich alles rund um Swisscom kennengelernt, also z.B. wie man die verschieden Tools verwendet, wie man richtig zusammenarbeitet und auch andere Dinge, wie beispielsweise die Arbeitssicherheit.",
-          "tags": [
-            "Introduction",
-            "Swisscom Tools",
-            "Teamwork",
-            "Work Safety"
-          ],
+          "tags": ["Introduction", "Swisscom Tools", "Teamwork", "Work Safety"],
           "info": {
             "date": {
               "from": "2021-08-01"
@@ -963,13 +863,7 @@
           "eyebrow": "Automation",
           "title": "Automatisierungsprojekte im Banking Bereich",
           "description": "Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld erhalten. Ich war aktiv dabei und habe die einzelnen Banken gelernt zu testen bzw. zu automatisieren. Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr über das .Net Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu verbessern!",
-          "tags": [
-            "Automation",
-            "Banking",
-            "Testing",
-            "C#",
-            ".Net Framework"
-          ],
+          "tags": ["Automation", "Banking", "Testing", "C#", ".Net Framework"],
           "info": {
             "date": {
               "from": "2022-02-01",

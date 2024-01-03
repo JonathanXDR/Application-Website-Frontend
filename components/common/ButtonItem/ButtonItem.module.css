@@ -22,18 +22,24 @@
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   background: var(--color-code-plain);
   color: var(--sk-button-color);
-  padding-block: calc(var(--sk-button-padding-vertical) - var(--sk-button-border-width));
-  padding-inline: calc(var(--sk-button-padding-horizontal) - var(--sk-button-border-width));
+  padding-block: calc(
+    var(--sk-button-padding-vertical) - var(--sk-button-border-width)
+  );
+  padding-inline: calc(
+    var(--sk-button-padding-horizontal) - var(--sk-button-border-width)
+  );
   border-radius: var(--sk-button-border-radius);
   border: var(--sk-button-border-width) solid var(--sk-button-border-color);
   width: var(--sk-button-width);
-  min-width: calc(var(--sk-button-min-width-basis) - var(--sk-button-padding-horizontal) * 2);
+  min-width: calc(
+    var(--sk-button-min-width-basis) - var(--sk-button-padding-horizontal) * 2
+  );
   cursor: pointer;
   display: var(--sk-button-display);
   box-sizing: var(--sk-button-box-sizing);
@@ -61,9 +67,9 @@
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   min-width: 28px;
   padding: 8px 16px;
@@ -114,14 +120,17 @@
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
 .button-cta {
-  background: var(--colors-button-light-background, var(--color-button-background));
+  background: var(
+    --colors-button-light-background,
+    var(--color-button-background)
+  );
   border-color: var(--color-button-border, currentcolor);
   border-radius: var(--button-border-radius, 18px);
   border-style: var(--button-border-style, none);
@@ -141,19 +150,25 @@
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
 .button-cta:active {
-  background: var(--colors-button-light-backgroundActive, var(--color-button-background-active));
+  background: var(
+    --colors-button-light-backgroundActive,
+    var(--color-button-background-active)
+  );
   outline: none;
 }
 
 .button-cta:hover:not([disabled]) {
-  background: var(--colors-button-light-backgroundHover, var(--color-button-background-hover));
+  background: var(
+    --colors-button-light-backgroundHover,
+    var(--color-button-background-hover)
+  );
   text-decoration: none;
 }
 
@@ -183,7 +198,7 @@ button:disabled {
 }
 button {
   font-synthesis: none;
-  -moz-font-feature-settings: 'kern';
+  -moz-font-feature-settings: "kern";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: ltr;
@@ -203,7 +218,8 @@ button:focus {
   line-height: 1.17648;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 30px;
@@ -255,7 +271,8 @@ button:focus {
   line-height: 1.17648;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 30px;
@@ -341,7 +358,7 @@ button:disabled {
 }
 button {
   font-synthesis: none;
-  -moz-font-feature-settings: 'kern';
+  -moz-font-feature-settings: "kern";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: ltr;
@@ -361,7 +378,8 @@ button:focus {
   line-height: 1.17648;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 30px;
@@ -440,7 +458,8 @@ button:focus {
   line-height: 1.17648;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 28px;
@@ -514,7 +533,8 @@ button:focus {
   line-height: 1.17648;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 30px;
@@ -593,7 +613,8 @@ button:focus {
   line-height: 1.17648;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 28px;

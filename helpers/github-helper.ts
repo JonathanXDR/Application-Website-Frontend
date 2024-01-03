@@ -277,13 +277,13 @@ export async function listPinnedRepositories(params: {
   try {
     const response = await graphqlInstance<GraphQlQueryResponseData>(query);
     const pinnedRepositories = response.user.pinnedItems.edges.map(
-      (edge: any) => remapProps(edge.node)
+      (edge: any) => remapProps(edge.node),
     );
     return pinnedRepositories;
   } catch (error) {
     console.error(
       `Error fetching pinned repositories for user ${username}:`,
-      error
+      error,
     );
     throw error;
   }

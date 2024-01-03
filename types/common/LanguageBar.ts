@@ -1,7 +1,7 @@
-import type { CardItemType } from './CardItem'
+import type { CardItemType } from "./CardItem";
 
 export type LanguageBarType = CardItemType & {
-  progress: string
-  badge?: string
-  status?: string[]
-}
+  progress: string;
+  badge?: string;
+  status?: string[];
+};

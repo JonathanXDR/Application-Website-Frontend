@@ -7,9 +7,9 @@
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -24,11 +24,11 @@
   padding: 0.176em;
 }
 
-.segmentnav-item input[type='radio'] {
+.segmentnav-item input[type="radio"] {
   display: none;
 }
 
-.segmentnav-item input[type='radio'] ~ label {
+.segmentnav-item input[type="radio"] ~ label {
   cursor: pointer;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .segmentnav-item:not(:first-of-type)::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   top: 0;
@@ -83,13 +83,13 @@
   transition: transform 350ms;
 }
 
-.segmentnav-item:has(input[type='radio']:checked) {
+.segmentnav-item:has(input[type="radio"]:checked) {
   color: var(--color-fill-tertiary);
   cursor: default;
 }
 
-.segmentnav-item:has(input[type='radio']:checked)::before,
-.segmentnav-item:has(input[type='radio']:checked) + .segmentnav-item::before {
+.segmentnav-item:has(input[type="radio"]:checked)::before,
+.segmentnav-item:has(input[type="radio"]:checked) + .segmentnav-item::before {
   transform: scale(0);
 }
 
@@ -125,7 +125,7 @@
 .segmentnav-container:before {
   height: 56px;
   display: block;
-  content: '';
+  content: "";
   width: 1px;
   background-color: var(--color-fill-gray-tertiary);
 }

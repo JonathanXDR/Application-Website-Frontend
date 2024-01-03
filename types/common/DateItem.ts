@@ -1,5 +1,5 @@
 export type DateItemType = {
-  title: string
-  key: string
-  date: string
-}
+  title: string;
+  key: string;
+  date: string;
+};

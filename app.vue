@@ -40,7 +40,7 @@ watch(
       document.title = newTitle;
     }
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 useHead({

@@ -15,7 +15,7 @@ export default defineComponent({
   setup() {
     const { tm } = useI18n();
     const items: Ref<SectionType[]> = computed(() =>
-      tm("components.common.NavBar")
+      tm("components.common.NavBar"),
     );
     const themeDark: Ref<boolean> = ref(false);
     const navOpen: Ref<boolean> = ref(false);
@@ -23,7 +23,7 @@ export default defineComponent({
 
     const nodeEnv = computed(() => process.env.NODE_ENV);
     const currentSectionIndex = computed(
-      () => useSection().state.currentSectionIndex
+      () => useSection().state.currentSectionIndex,
     );
     const colorBadge = computed(() => useColor().randomizeColor());
     const headerAnimations = computed(() => {
@@ -82,7 +82,7 @@ export default defineComponent({
       const storedTheme = localStorage.getItem("theme");
       if (storedTheme === null) {
         const preferredTheme = window.matchMedia(
-          "(prefers-color-scheme: dark)"
+          "(prefers-color-scheme: dark)",
         );
         storeTheme(preferredTheme.matches ? "dark" : "light");
       } else {

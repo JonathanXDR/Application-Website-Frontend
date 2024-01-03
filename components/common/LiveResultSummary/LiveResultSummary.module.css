@@ -108,9 +108,9 @@
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   color: var(--color-figure-gray-secondary);
   margin-right: 20px;

@@ -180,9 +180,9 @@
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   color: var(--color-text);
   width: 100%;
@@ -204,9 +204,9 @@
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }

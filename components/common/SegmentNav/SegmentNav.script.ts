@@ -23,10 +23,10 @@ export default defineComponent({
   setup(props, { emit }) {
     const { tm } = useI18n();
     const segmentNavItems: Ref<OptionType[]> = computed(() =>
-      tm("components.common.SegmentNav.items")
+      tm("components.common.SegmentNav.items"),
     );
     const sortOptions: Ref<OptionType[]> = computed(() =>
-      tm("components.common.SegmentNav.sorts")
+      tm("components.common.SegmentNav.sorts"),
     );
     const currentIndex: Ref<number> = ref(props.index);
     const loading: Ref<boolean> = ref(true);
