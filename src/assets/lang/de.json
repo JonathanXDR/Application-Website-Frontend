@@ -251,8 +251,9 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Lernbegleiter & Vorgesetzter",
+          "eyebrow": "Vorgesetzter",
           "title": "Steve Hess",
+          "description": "Lernbegleiter",
           "info": {
             "location": "Wor-Ati6",
             "department": "GHR-POD-NEX"
@@ -264,6 +265,7 @@
           },
           "eyebrow": "Projektanbieter",
           "title": "Nick Zimmermann",
+          "description": "DevOps I Engineer",
           "links": [
             {
               "title": "Mehr erfahren",
@@ -284,6 +286,7 @@
           },
           "eyebrow": "Projektanbieter",
           "title": "Alessio Iantosca",
+          "description": "Automation Engineer",
           "info": {
             "location": "Zür-Pfi51",
             "department": "B2B-BAN-COB-ASO-AUT"
@@ -295,6 +298,7 @@
           },
           "eyebrow": "Projektanbieter",
           "title": "Carlo Schmid",
+          "description": "Professional - Fullstack Developer",
           "info": {
             "location": "Itt-Ey10",
             "department": "GHR-POD-LES-APP"
@@ -306,6 +310,7 @@
           },
           "eyebrow": "Projektanbieter",
           "title": "Kim Eggler",
+          "description": "Professional - Fullstack Developer",
           "info": {
             "location": "Itt-Ey10",
             "department": "GHR-POD-LES-APP"
