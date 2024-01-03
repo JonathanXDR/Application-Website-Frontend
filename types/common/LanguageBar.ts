@@ -1,5 +1,7 @@
-import type { ArticleItemType } from "./ArticleItem";
+import type { CardItemType } from './CardItem'
 
-export type LanguageBarType = ArticleItemType & {
-  progress: string;
-};
+export type LanguageBarType = CardItemType & {
+  progress: string
+  badge?: string
+  status?: string[]
+}

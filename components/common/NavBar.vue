@@ -568,7 +568,7 @@ onMounted(() => {
 }
 
 .ac-ln-menu-link:hover {
-  color: var(--ribbon-link-color);
+  color: var(--color-figure-blue);
   opacity: 1;
   text-decoration: none;
 }

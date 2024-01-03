@@ -1,6 +1,6 @@
-import type { ArticleItemType } from "../common/ArticleItem";
-import type { LanguageBarType } from "../common/LanguageBar";
+import type { CardItemType } from '../common/CardItem'
+import type { LanguageBarType } from '../common/LanguageBar'
 
-export type Languages = ArticleItemType & {
-  languages: LanguageBarType[];
-};
+export type Languages = CardItemType & {
+  languages: LanguageBarType[]
+}

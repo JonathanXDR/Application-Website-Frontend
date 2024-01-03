@@ -36,12 +36,16 @@ const articles = computed(
 /* ---------------------------- timeline-wrapper ---------------------------- */
 
 .timeline-wrapper {
-  padding: 100px 0 50px 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  padding-top: 50px;
 }
 
 @media screen and (min-width: 900px) {
   .timeline-wrapper {
-    padding: 150px 0 100px 0;
+    width: 82.5%;
+    padding: 100px 0 50px 0;
   }
 }
 
@@ -55,6 +59,7 @@ const articles = computed(
 /* -------------------------------- timeline -------------------------------- */
 
 .timeline {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -77,16 +82,16 @@ const articles = computed(
 
 /* ------------------------------- timeline li ------------------------------ */
 
-.timeline li {
+.timeline .article {
   width: 90%;
 }
 
 @media screen and (min-width: 1250px) {
-  .timeline li {
+  .timeline .article {
     width: 40%;
   }
 
-  .timeline li:nth-child(even) {
+  .timeline .article:nth-child(even) {
     align-self: flex-end;
   }
 }

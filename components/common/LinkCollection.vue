@@ -33,39 +33,33 @@ const { links } = toRefs(props);
   margin-top: 0.8em;
 }
 
-.links p {
-  margin-top: 0.5em;
+/* ---------------------------------- card ---------------------------------- */
+
+.card.color .link {
+  color: var(--color-fill-gray) !important;
 }
 
-.links p .link {
-  width: fit-content;
+.card:hover .link {
+  text-decoration: underline !important;
 }
 
-/* --------------------------------- ribbon --------------------------------- */
-
-.ribbon .links p {
-  margin: 0 !important;
+.icon {
+  margin-left: 0.3em;
 }
 
 /* ------------------------------- ribbon-link ------------------------------ */
 
-.ribbon-link a.link,
-.ribbon-link a.link path {
-  color: var(--ribbon-link-color);
-  fill: var(--ribbon-link-color);
+.ribbon-blue-to-default .ribbon-link .link {
+  color: white;
+  animation: animate-color-fff-06c 1s ease-in-out 1.8s forwards;
 }
 
-/* -------------------------- ribbon-link-animation ------------------------- */
-
-@keyframes animate-color-white-0066cc {
+@keyframes animate-color-fff-06c {
   0% {
-    color: var(--ribbon-link-color-initial);
-    fill: var(--ribbon-link-color-initial);
+    color: white;
   }
-
   to {
-    color: var(--ribbon-link-color);
-    fill: var(--ribbon-link-color);
+    color: var(--color-figure-blue);
   }
 }
 

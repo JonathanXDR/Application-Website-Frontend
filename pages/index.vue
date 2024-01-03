@@ -99,11 +99,24 @@ const sections: Ref<SectionType[]> = computed(() =>
   }
 }
 
+/* ---------------------------------- music --------------------------------- */
+
+#music {
+  padding: 100px 0;
+  margin: 0 auto 0 auto;
+}
+
+@media screen and (min-width: 900px) {
+  #music {
+    padding: 150px 0 100px 0;
+  }
+}
+
 /* ------------------------------ technologies ------------------------------ */
 
 #technologies {
   padding: 100px 0;
-  background: var(--color-fill-tertiary);
+  /* background: var(--color-fill-tertiary); */
 }
 
 @media screen and (min-width: 900px) {
@@ -116,14 +129,12 @@ const sections: Ref<SectionType[]> = computed(() =>
 
 #projects {
   padding-top: 100px;
-  width: 90%;
   margin: 0 auto 0 auto;
 }
 
 @media screen and (min-width: 900px) {
   #projects {
     padding-top: 150px;
-    width: 82.5%;
   }
 }
 </style>
