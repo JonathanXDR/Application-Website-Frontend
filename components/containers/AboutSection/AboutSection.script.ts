@@ -1,11 +1,4 @@
-import {
-  computed,
-  defineComponent,
-  onMounted,
-  ref,
-  type PropType,
-  type Ref,
-} from "vue";
+import { computed, defineComponent, onMounted, type PropType } from "vue";
 import { useI18n } from "vue-i18n";
 import CardItem from "~/components/common/CardItem/CardItem.vue";
 import LinkCollection from "~/components/common/LinkCollection/LinkCollection.vue";
@@ -34,39 +27,46 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const { tm } = useI18n();
+    const { locale, tm } = useI18n();
     const links: Ref<LinkType[]> = computed(() =>
-      tm("components.containers.about.links"),
+      tm("components.containers.about.links")
     );
-    const dateItems: Ref<DateItemType[]> = computed(() =>
-      tm("components.containers.about.dates"),
+    const dateItems: Ref<DateItemType[]> = tm(
+      "components.containers.about.dates"
     );
     const dates: Ref<{
-      age: number | undefined;
-      apprenticeshipYear: number | undefined;
+      age: string | undefined;
+      apprenticeshipYear: string | undefined;
     }> = ref({
       age: undefined,
       apprenticeshipYear: undefined,
     });
 
     const calculateYears = (date: string) => {
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const regionCode = navigator.language.split("-")[1];
+      const customLocale = `${locale.value}-${regionCode}`;
       const currentDate = new Date(Date.now());
-      const birthDate = new Date(date);
-      const difference = new Date(currentDate.getTime() - birthDate.getTime());
-      const years = Math.abs(difference.getUTCFullYear() - 1970);
+
+      const currentLocaleDate = currentDate.toLocaleDateString(customLocale, {
+        timeZone: timeZone,
+      });
+
+      const startDate = new Date(date);
+      const difference = new Date(currentDate.getTime() - startDate.getTime());
+      const years = Math.abs(
+        difference.getUTCFullYear() - new Date(0).getUTCFullYear()
+      );
       return years;
     };
 
     onMounted(async () => {
-      dateItems.value.forEach((item: DateItemType) => {
-        if (item.key in dates.value) {
-          dates.value[item.key as keyof typeof dates.value] = calculateYears(
-            item.date,
-          );
-        }
+      dateItems.value.forEach((item) => {
+        dates.value[item.key as keyof typeof dates.value] = String(
+          calculateYears(item.date)
+        );
       });
     });
-
     return {
       window,
       props,
