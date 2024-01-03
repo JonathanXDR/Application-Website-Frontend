@@ -7,7 +7,7 @@
           name="pin.fill"
           size="small"
           :colors="{
-            primary: randomColor
+            primary: randomColor,
           }"
           class="icon icon-medium"
         />
@@ -27,5 +27,5 @@
   </div>
 </template>
 
-<script lang="ts" src="./LiveResultSummary.ts"></script>
-<style scoped src="./LiveResultSummary.css"></style>
+<script lang="ts" src="./LiveResultSummary.script.ts"></script>
+<style scoped src="./LiveResultSummary.module.css"></style>

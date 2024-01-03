@@ -6,7 +6,7 @@
     target="_blank"
     v-animation="{
       add: ['scroll-animation--on'],
-      remove: ['scroll-animation--off']
+      remove: ['scroll-animation--off'],
     }"
   >
     <div v-if="cover || donutGraph || barGraph" class="card-cover-wrap">
@@ -74,7 +74,7 @@
       class="details"
       :style="{
         'flex-direction': getFlexDirection(),
-        'align-items': getAlignItems()
+        'align-items': getAlignItems(),
       }"
     >
       <Icon
@@ -85,14 +85,14 @@
         :class="[
           'icon',
           {
-            'icon-large': variant === 'article' && size === 'large'
+            'icon-large': variant === 'article' && size === 'large',
           },
           {
-            'icon-xlarge': size === 'medium' || size === 'small'
+            'icon-xlarge': size === 'medium' || size === 'small',
           },
           {
-            'icon-xxlarge': variant === 'card' && size === 'large'
-          }
+            'icon-xxlarge': variant === 'card' && size === 'large',
+          },
         ]"
       />
       <div class="body">
@@ -103,7 +103,10 @@
             {{ card.description }}
           </div>
         </div>
-        <TagBar v-if="card.tags?.length || card.topics?.length" :tags="card.tags || card.topics" />
+        <TagBar
+          v-if="card.tags?.length || card.topics?.length"
+          :tags="card.tags || card.topics"
+        />
         <div v-if="card.links?.length || card.html_url" class="ctas-wrapper">
           <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
           <!-- <a href="photos://" class="icon-wrapper button button-reduced button-neutral">
@@ -118,16 +121,28 @@
                   title: 'Mehr erfahren',
                   url: card.html_url,
                   icon: {
-                    name: 'chevron.right'
-                  }
-                }
+                    name: 'chevron.right',
+                  },
+                },
               ]
             "
             :class="{ link: applyHover }"
           />
         </div>
         <InfoBar
-          v-if="card.info || card.created_at || card.updated_at || card.language || card.license || card.forks_count || card.network_count || card.watchers_count || card.stargazers_count ||  card.open_issues_count || card.subscribers_count"
+          v-if="
+            card.info ||
+            card.created_at ||
+            card.updated_at ||
+            card.language ||
+            card.license ||
+            card.forks_count ||
+            card.network_count ||
+            card.watchers_count ||
+            card.stargazers_count ||
+            card.open_issues_count ||
+            card.subscribers_count
+          "
           :info="
             card.info || {
               language: card.language,
@@ -150,5 +165,5 @@
   </a>
 </template>
 
-<script lang="ts" src="./CardItem.ts"></script>
-<style scoped src="./CardItem.css"></style>
+<script lang="ts" src="./CardItem.script.ts"></script>
+<style scoped src="./CardItem.module.css"></style>

@@ -13,7 +13,10 @@
     >
       <div class="as-l-container-mobileoverflow-content">
         <div class="rs-tracker-bar">
-          <div class="rs-tracker-fill" :style="`width: ${language.progress}%`"></div>
+          <div
+            class="rs-tracker-fill"
+            :style="`width: ${language.progress}%`"
+          ></div>
         </div>
         <ol class="rs-tracker-status">
           <li
@@ -37,5 +40,5 @@
   </div>
 </template>
 
-<script lang="ts" src="./LanguageBarV2.ts"></script>
-<style scoped src="./LanguageBarV2.css"></style>
+<script lang="ts" src="./LanguageBarV2.script.ts"></script>
+<style scoped src="./LanguageBarV2.module.css"></style>

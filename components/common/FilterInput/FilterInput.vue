@@ -29,7 +29,11 @@
               </svg>
             </button>
             <div class="filter-input-box-wrapper">
-              <label id="filter-label" for="filter-input" class="filter-input-label">
+              <label
+                id="filter-label"
+                for="filter-input"
+                class="filter-input-label"
+              >
                 <input
                   id="filter-input"
                   placeholder="Filter on this page"
@@ -63,7 +67,10 @@
             </div>
           </div>
           <!-- deepcode ignore PureMethodReturnValueIgnored: false positive -->
-          <TagBar v-if="open && options.length" :tags="options.map((option) => option.label)" />
+          <TagBar
+            v-if="open && options.length"
+            :tags="options.map((option) => option.label)"
+          />
         </div>
       </div>
     </div>
@@ -73,5 +80,5 @@
   </div>
 </template>
 
-<script lang="ts" src="./FilterInput.ts"></script>
-<style scoped src="./FilterInput.css"></style>
+<script lang="ts" src="./FilterInput.script.ts"></script>
+<style scoped src="./FilterInput.module.css"></style>

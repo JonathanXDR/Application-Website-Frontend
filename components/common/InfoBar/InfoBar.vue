@@ -45,11 +45,14 @@
       {{ info?.subscribers }}
     </div> -->
     <div v-if="info?.date" class="info-item">
-      <Icon :name="updatedYesterday ? 'clock.fill' : 'calendar'" class="info-icon" />
+      <Icon
+        :name="updatedYesterday ? 'clock.fill' : 'calendar'"
+        class="info-icon"
+      />
       {{ dateTitle || `${info?.date?.from} - ${info?.date?.to}` }}
     </div>
   </div>
 </template>
 
-<script lang="ts" src="./InfoBar.ts"></script>
-<style scoped src="./InfoBar.css"></style>
+<script lang="ts" src="./InfoBar.script.ts"></script>
+<style scoped src="./InfoBar.module.css"></style>

@@ -10,11 +10,11 @@
       :card="article"
       :iconPosition="window.innerWidth < 900 ? 'top' : 'left'"
       :dateFormatOptions="{
-        weekday: 'long'
+        weekday: 'long',
       }"
     />
   </ul>
 </template>
 
-<script lang="ts" src="./OtherSection.ts"></script>
-<style scoped src="./OtherSection.css"></style>
+<script lang="ts" src="./OtherSection.script.ts"></script>
+<style scoped src="./OtherSection.module.css"></style>

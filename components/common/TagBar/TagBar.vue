@@ -10,5 +10,5 @@
   </div>
 </template>
 
-<script lang="ts" src="./TagBar.ts"></script>
-<style scoped src="./TagBar.css"></style>
+<script lang="ts" src="./TagBar.script.ts"></script>
+<style scoped src="./TagBar.module.css"></style>

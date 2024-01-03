@@ -19,5 +19,5 @@
   </div>
 </template>
 
-<script lang="ts" src="./TabList.ts"></script>
-<style scoped src="./TabList.css"></style>
+<script lang="ts" src="./TabList.script.ts"></script>
+<style scoped src="./TabList.module.css"></style>

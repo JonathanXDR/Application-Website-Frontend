@@ -4,5 +4,5 @@
   </div>
 </template>
 
-<script lang="ts" src="./AnchorButton.ts"></script>
-<style scoped src="./AnchorButton.css"></style>
+<script lang="ts" src="./AnchorButton.script.ts"></script>
+<style scoped src="./AnchorButton.module.css"></style>

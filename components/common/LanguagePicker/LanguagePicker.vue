@@ -1,7 +1,7 @@
 <template>
   <section class="lang-switcher-container">
     <span v-if="introText" class="language-switcher-text">
-      {{ $t('components.common.FooterItem.chooseYourLanguage') }}:
+      {{ $t("components.common.FooterItem.chooseYourLanguage") }}:
     </span>
     <ul class="locale-lang language-picker-wrapper">
       <li v-for="lang in languages" :key="lang.key">
@@ -20,5 +20,5 @@
   </section>
 </template>
 
-<script lang="ts" src="./LanguagePicker.ts"></script>
-<style scoped src="./LanguagePicker.css"></style>
+<script lang="ts" src="./LanguagePicker.script.ts"></script>
+<style scoped src="./LanguagePicker.module.css"></style>

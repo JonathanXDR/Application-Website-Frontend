@@ -1,5 +1,11 @@
 <template>
-  <svg ref="svg" class="svg-timeline" :viewBox="viewBox" :xmlns="xmlns" :height="ulHeight">
+  <svg
+    ref="svg"
+    class="svg-timeline"
+    :viewBox="viewBox"
+    :xmlns="xmlns"
+    :height="ulHeight"
+  >
     <path
       ref="path"
       class="path-timeline"
@@ -12,5 +18,5 @@
   </svg>
 </template>
 
-<script lang="ts" src="./TimeLine.ts"></script>
-<style scoped src="./TimeLine.css"></style>
+<script lang="ts" src="./TimeLine.script.ts"></script>
+<style scoped src="./TimeLine.module.css"></style>

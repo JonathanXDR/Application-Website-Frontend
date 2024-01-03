@@ -8,5 +8,5 @@
   </div>
 </template>
 
-<script lang="ts" src="./NavBarExtension.ts"></script>
-<style scoped src="./NavBarExtension.css"></style>
+<script lang="ts" src="./NavBarExtension.script.ts"></script>
+<style scoped src="./NavBarExtension.module.css"></style>

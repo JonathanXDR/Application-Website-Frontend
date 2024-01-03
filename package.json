@@ -25,5 +25,8 @@
     "vue": "^3.4.3",
     "vue-router": "^4.2.5",
     "vue-tsc": "^1.8.27"
+  },
+  "dependencies": {
+    "@octokit/types": "^12.4.0"
   }
 }

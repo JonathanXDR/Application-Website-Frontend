@@ -4,5 +4,5 @@
   </component>
 </template>
 
-<script lang="ts" src="./ButtonItem.ts"></script>
-<style scoped src="./ButtonItem.css"></style>
+<script lang="ts" src="./ButtonItem.script.ts"></script>
+<style scoped src="./ButtonItem.module.css"></style>

@@ -21,15 +21,22 @@
 
     <CardItem
       variant="article"
-      :size="window.innerWidth < 900 ? 'small' : window.innerWidth < 1250 ? 'medium' : 'large'"
+      :size="
+        window.innerWidth < 900
+          ? 'small'
+          : window.innerWidth < 1250
+          ? 'medium'
+          : 'large'
+      "
       :card="{
         eyebrow: $t('components.containers.about.eyebrow'),
         title: $t('components.containers.about.title'),
         description: $t('components.containers.about.description', {
           age: dates.age,
-          apprenticeshipYear: dates.apprenticeshipYear && dates.apprenticeshipYear + 1
+          apprenticeshipYear:
+            dates.apprenticeshipYear && dates.apprenticeshipYear + 1,
         }),
-        links: links
+        links: links,
       }"
     />
   </div>
@@ -37,5 +44,5 @@
   <ShareSheet />
 </template>
 
-<script lang="ts" src="./AboutSection.ts"></script>
-<style scoped src="./AboutSection.css"></style>
+<script lang="ts" src="./AboutSection.script.ts"></script>
+<style scoped src="./AboutSection.module.css"></style>

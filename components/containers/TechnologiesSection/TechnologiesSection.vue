@@ -1,5 +1,7 @@
 <template>
-  <h3 class="typography-magical-headline" style="padding-bottom: 50px">{{ props.title }}</h3>
+  <h3 class="typography-magical-headline" style="padding-bottom: 50px">
+    {{ props.title }}
+  </h3>
   <NavBarExtension>
     <FilterInput />
   </NavBarExtension>
@@ -18,5 +20,5 @@
   </ul>
 </template>
 
-<script lang="ts" src="./TechnologiesSection.ts"></script>
-<style scoped src="./TechnologiesSection.css"></style>
+<script lang="ts" src="./TechnologiesSection.script.ts"></script>
+<style scoped src="./TechnologiesSection.module.css"></style>

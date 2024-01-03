@@ -11,7 +11,10 @@
               <div class="rc-ribbon-content-gallery">
                 <div
                   class="rc-ribbon-content-scroller"
-                  :style="[transformStyle, totalItems <= 2 && 'justify-content: center; gap: 16px']"
+                  :style="[
+                    transformStyle,
+                    totalItems <= 2 && 'justify-content: center; gap: 16px',
+                  ]"
                 >
                   <div
                     v-for="(item, index) in displayItems"
@@ -23,7 +26,7 @@
                       class="rc-ribbon-content-item-base rc-ribbon-content-item"
                       :style="totalItems <= 2 && 'width: 100% !important'"
                     >
-                      {{ item.description && item.description + '&ensp;' }}
+                      {{ item.description && item.description + "&ensp;" }}
 
                       <LinkCollection
                         v-if="item.links.length"
@@ -34,7 +37,10 @@
                   </div>
                 </div>
               </div>
-              <div v-if="totalItems > 2" class="rc-gallery-paddlenav paddlenav paddlenav-compact">
+              <div
+                v-if="totalItems > 2"
+                class="rc-gallery-paddlenav paddlenav paddlenav-compact"
+              >
                 <button
                   class="paddlenav-arrow paddlenav-arrow-previous"
                   @click="scrollContent('left')"
@@ -58,5 +64,5 @@
   </div>
 </template>
 
-<script lang="ts" src="./RibbonBar.ts"></script>
-<style scoped src="./RibbonBar.css"></style>
+<script lang="ts" src="./RibbonBar.script.ts"></script>
+<style scoped src="./RibbonBar.module.css"></style>

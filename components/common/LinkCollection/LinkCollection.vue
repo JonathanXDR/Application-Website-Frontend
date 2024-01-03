@@ -1,12 +1,22 @@
 <template>
   <a class="links">
     <component
-      :is="link.url.startsWith('#') || link.url.startsWith('/') ? 'router-link' : 'a'"
+      :is="
+        link.url.startsWith('#') || link.url.startsWith('/')
+          ? 'router-link'
+          : 'a'
+      "
       v-for="(link, index) in links"
       :key="index"
       :to="(link.url.startsWith('#') || link.url.startsWith('/')) && link.url"
-      :href="!(link.url.startsWith('#') || link.url.startsWith('/')) && link.url"
-      :target="link.url.startsWith('#') || link.url.startsWith('/') ? '_self' : '_blank'"
+      :href="
+        !(link.url.startsWith('#') || link.url.startsWith('/')) && link.url
+      "
+      :target="
+        link.url.startsWith('#') || link.url.startsWith('/')
+          ? '_self'
+          : '_blank'
+      "
       class="link"
     >
       {{ link.title
@@ -21,5 +31,5 @@
   </a>
 </template>
 
-<script lang="ts" src="./LinkCollection.ts"></script>
-<style scoped src="./LinkCollection.css"></style>
+<script lang="ts" src="./LinkCollection.script.ts"></script>
+<style scoped src="./LinkCollection.module.css"></style>

@@ -12,7 +12,10 @@
         <div class="bars-container">
           <div class="bar-content-container bar-mx">
             <div class="bar-mask" :style="`width: ${language.progress}%`">
-              <hr class="bar bar-1" style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1" />
+              <hr
+                class="bar bar-1"
+                style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1"
+              />
             </div>
             <span class="bar-caption">
               {{ language.description }}
@@ -33,5 +36,5 @@
   </div>
 </template>
 
-<script lang="ts" src="./LanguageBar.ts"></script>
-<style scoped src="./LanguageBar.css"></style>
+<script lang="ts" src="./LanguageBar.script.ts"></script>
+<style scoped src="./LanguageBar.module.css"></style>

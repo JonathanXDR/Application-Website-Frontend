@@ -19,5 +19,5 @@
   </div>
 </template>
 
-<script lang="ts" src="./DropDown.ts"></script>
-<style scoped src="./DropDown.css"></style>
+<script lang="ts" src="./DropDown.script.ts"></script>
+<style scoped src="./DropDown.module.css"></style>

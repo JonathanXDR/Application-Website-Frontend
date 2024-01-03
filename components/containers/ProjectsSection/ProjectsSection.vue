@@ -3,7 +3,10 @@
     {{ props.title }}
   </h3>
   <NavBarExtension>
-    <SegmentNav :index="currentIndex" @update:currentIndex="updateCurrentIndex" />
+    <SegmentNav
+      :index="currentIndex"
+      @update:currentIndex="updateCurrentIndex"
+    />
   </NavBarExtension>
   <div class="timeline-wrapper" v-if="currentIndex === 0">
     <TimeLine />
@@ -17,7 +20,7 @@
         :iconPosition="window.innerWidth < 900 ? 'top' : 'left'"
         :dateFormatOptions="{
           year: 'numeric',
-          month: 'long'
+          month: 'long',
         }"
       />
     </ul>
@@ -51,9 +54,13 @@
         <ResultBlankState v-if="!currentProjects" />
       </ul>
     </div>
-    <LoadingSpinner v-else class="center-horizontal center-vertical" style="padding-top: 100px" />
+    <LoadingSpinner
+      v-else
+      class="center-horizontal center-vertical"
+      style="padding-top: 100px"
+    />
   </div>
 </template>
 
-<script lang="ts" src="./ProjectsSection.ts"></script>
-<style scoped src="./ProjectsSection.css"></style>
+<script lang="ts" src="./ProjectsSection.script.ts"></script>
+<style scoped src="./ProjectsSection.module.css"></style>

@@ -10,11 +10,11 @@
       :iconPosition="window.innerWidth < 900 ? 'top' : 'left'"
       :dateFormatOptions="{
         year: 'numeric',
-        month: 'long'
+        month: 'long',
       }"
     />
   </ul>
 </template>
 
-<script lang="ts" src="./ReferencesSection.ts"></script>
-<style scoped src="./ReferencesSection.css"></style>
+<script lang="ts" src="./ReferencesSection.script.ts"></script>
+<style scoped src="./ReferencesSection.module.css"></style>
