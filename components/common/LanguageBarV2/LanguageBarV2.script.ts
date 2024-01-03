@@ -1,24 +1,30 @@
-import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
-import type { LanguageBarType } from '@/types/common/LanguageBar'
-import { defineComponent, type PropType } from 'vue'
+import { defineComponent, type PropType } from "vue";
+import LinkCollection from "~/components/common/LinkCollection/LinkCollection.vue";
+import type { LanguageBarType } from "~/types/common/LanguageBar";
 
 export default defineComponent({
-  name: 'LanguageBarV2',
+  name: "LanguageBarV2",
   components: {
-    LinkCollection
+    LinkCollection,
   },
   props: {
     language: {
       type: Object as PropType<LanguageBarType>,
       required: true,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   setup() {
-    const status = ['Order Placed', 'Processing', 'Preparing to Ship', 'Shipped', 'Delivered']
+    const status = [
+      "Order Placed",
+      "Processing",
+      "Preparing to Ship",
+      "Shipped",
+      "Delivered",
+    ];
 
     return {
-      status
-    }
-  }
-})
+      status,
+    };
+  },
+});

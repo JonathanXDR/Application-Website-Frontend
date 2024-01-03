@@ -1,24 +1,24 @@
-import Icon from '@/components/common/Icons/Icon.vue'
-import { defineComponent, reactive } from 'vue'
+import { defineComponent, reactive } from "vue";
+import Icon from "~/components/common/Icons/Icon.vue";
 
 export default defineComponent({
-  name: 'TabList',
+  name: "TabList",
   components: {
-    Icon
+    Icon,
   },
   setup() {
     const items = reactive([
-      { id: 'productivity', label: 'Productivity' },
-      { id: 'gaming', label: 'Gaming' },
-      { id: 'production', label: 'Audio and video production' },
-      { id: 'development', label: 'Software development' }
-    ])
+      { id: "productivity", label: "Productivity" },
+      { id: "gaming", label: "Gaming" },
+      { id: "production", label: "Audio and video production" },
+      { id: "development", label: "Software development" },
+    ]);
 
     return {
-      items
-    }
-  }
-})
+      items,
+    };
+  },
+});
 
 // function (e, t, i) {
 //   'use strict';

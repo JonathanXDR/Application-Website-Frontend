@@ -1,30 +1,30 @@
-import Icon from '@/components/common/Icons/Icon.vue'
-import { useColorStore } from '@/stores/color'
-import { defineComponent, ref, type PropType } from 'vue'
+import Icon from "~/components/common/Icons/Icon.vue";
+
+import { defineComponent, ref, type PropType } from "vue";
 
 export default defineComponent({
-  name: 'LiveResultSummary',
+  name: "LiveResultSummary",
   components: {
-    Icon
+    Icon,
   },
   props: {
     totalResults: {
       type: Number as PropType<number>,
       required: true,
-      default: 0
+      default: 0,
     },
     pinnedResults: {
       type: Number as PropType<number>,
       required: false,
-      default: 0
-    }
+      default: 0,
+    },
   },
   setup(props) {
-    const colorStore = useColorStore()
-    const randomColor = ref(colorStore.randomizeColor().colorVar)
+    const colorStore = useColor();
+    const randomColor = ref(colorStore.randomizeColor().colorVar);
     return {
       randomColor,
-      props
-    }
-  }
-})
+      props,
+    };
+  },
+});

@@ -1,125 +1,127 @@
-import AnchorButton from '@/components/common/AnchorButton/AnchorButton.vue'
-import ButtonItem from '@/components/common/ButtonItem/ButtonItem.vue'
-import Icon from '@/components/common/Icons/Icon.vue'
-import InfoBar from '@/components/common/InfoBar/InfoBar.vue'
-import LinkCollection from '@/components/common/LinkCollection/LinkCollection.vue'
-import TagBar from '@/components/common/TagBar/TagBar.vue'
-import type { CardItemType } from '@/types/common/CardItem'
-import type { ListUserReposResponse } from '@/types/GitHub/Repository'
-import { computed, defineComponent, type PropType } from 'vue'
+import { computed, defineComponent, type PropType } from "vue";
+import AnchorButton from "~/components/common/AnchorButton/AnchorButton.vue";
+import ButtonItem from "~/components/common/ButtonItem/ButtonItem.vue";
+import Icon from "~/components/common/Icons/Icon.vue";
+import InfoBar from "~/components/common/InfoBar/InfoBar.vue";
+import LinkCollection from "~/components/common/LinkCollection/LinkCollection.vue";
+import TagBar from "~/components/common/TagBar/TagBar.vue";
+import type { CardItemType } from "~/types/common/CardItem";
+import type { ListUserReposResponse } from "~/types/GitHub/Repository";
 
 export default defineComponent({
-  name: 'CardTile',
+  name: "CardTile",
   components: {
     Icon,
     ButtonItem,
     TagBar,
     InfoBar,
     AnchorButton,
-    LinkCollection
+    LinkCollection,
   },
   props: {
     card: {
       type: Object as PropType<CardItemType & ListUserReposResponse>,
       required: true,
-      default: () => {}
+      default: () => {},
     },
     variant: {
-      type: String as PropType<'card' | 'article'>,
+      type: String as PropType<"card" | "article">,
       required: false,
-      default: 'card'
+      default: "card",
     },
     dateFormatOptions: {
       type: Object as PropType<Intl.DateTimeFormatOptions>,
       required: false,
       default: () => {
         return {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        }
-      }
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        };
+      },
     },
     dateNowKey: {
-      type: String as PropType<'created' | 'updated'>,
+      type: String as PropType<"created" | "updated">,
       required: false,
-      default: 'updated'
+      default: "updated",
     },
     iconPosition: {
-      type: String as PropType<'top' | 'right' | 'bottom' | 'left'>,
+      type: String as PropType<"top" | "right" | "bottom" | "left">,
       required: false,
-      default: 'left'
+      default: "left",
     },
     iconAlignment: {
-      type: String as PropType<'start' | 'center' | 'end'>,
+      type: String as PropType<"start" | "center" | "end">,
       required: false,
-      default: 'top'
+      default: "top",
     },
     size: {
-      type: String as PropType<'small' | 'medium' | 'large' | 'full'>,
+      type: String as PropType<"small" | "medium" | "large" | "full">,
       required: false,
-      default: 'medium'
+      default: "medium",
     },
     hover: {
-      type: String as PropType<'auto' | 'true' | 'false'>,
+      type: String as PropType<"auto" | "true" | "false">,
       required: false,
-      default: 'auto'
+      default: "auto",
     },
     cover: {
       type: String as PropType<string>,
       required: false,
-      default: undefined
+      default: undefined,
     },
     donutGraph: {
       type: Boolean as PropType<boolean>,
       required: false,
-      default: false
+      default: false,
     },
     barGraph: {
       type: Boolean as PropType<boolean>,
       required: false,
-      default: false
-    }
+      default: false,
+    },
   },
   setup(props) {
     const applyHover = computed(() => {
       return (
-        (props.hover === 'auto' && props.card.links && props.card.links.length === 1) ||
-        props.hover === 'true'
-      )
-    })
+        (props.hover === "auto" &&
+          props.card.links &&
+          props.card.links.length === 1) ||
+        props.hover === "true"
+      );
+    });
 
     const getFlexDirection = () => {
       switch (props.iconPosition) {
-        case 'top':
-          return 'column'
-        case 'right':
-          return 'row-reverse'
-        case 'bottom':
-          return 'column-reverse'
-        case 'left':
+        case "top":
+          return "column";
+        case "right":
+          return "row-reverse";
+        case "bottom":
+          return "column-reverse";
+        case "left":
         default:
-          return 'row'
+          return "row";
       }
-    }
+    };
 
     const getAlignItems = () => {
       switch (props.iconAlignment) {
-        case 'start':
-        case 'center':
-          return 'center'
-        case 'end':
-          return 'flex-end'
+        case "start":
+        case "center":
+          return "center";
+        case "end":
+          return "flex-end";
         default:
-          return 'flex-start'
+          return "flex-start";
       }
-    }
+    };
 
     return {
       applyHover,
       getFlexDirection,
       getAlignItems,
-      window
-    }
-  }
-})
+      window,
+    };
+  },
+});

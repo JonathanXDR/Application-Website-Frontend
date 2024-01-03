@@ -1,24 +1,24 @@
-import Icon from '@/components/common/Icons/Icon.vue'
-import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner.vue'
-import TabList from '@/components/common/TabList/TabList.vue'
-import { defineComponent } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { defineComponent } from "vue";
+import { useI18n } from "vue-i18n";
+import Icon from "~/components/common/Icons/Icon.vue";
+import LoadingSpinner from "~/components/common/LoadingSpinner/LoadingSpinner.vue";
+import TabList from "~/components/common/TabList/TabList.vue";
 
 export default defineComponent({
-  name: 'MusicSection',
+  name: "MusicSection",
   components: {
     LoadingSpinner,
     Icon,
-    TabList
+    TabList,
   },
   setup() {
-    const { tm } = useI18n()
+    const { tm } = useI18n();
 
     return {
-      tm
-    }
-  }
-})
+      tm,
+    };
+  },
+});
 
 // function (t, e, i) {
 //   'use strict';

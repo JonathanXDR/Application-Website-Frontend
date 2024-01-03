@@ -1,53 +1,63 @@
-import DropDown from '@/components/common/DropDown/DropDown.vue'
-import type { OptionType } from '@/types/common/Option'
-import { computed, defineComponent, onMounted, ref, type PropType, type Ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import {
+  computed,
+  defineComponent,
+  onMounted,
+  ref,
+  type PropType,
+  type Ref,
+} from "vue";
+import { useI18n } from "vue-i18n";
+import DropDown from "~/components/common/DropDown/DropDown.vue";
+import type { OptionType } from "~/types/common/Option";
 
 export default defineComponent({
-  name: 'SegmentNav',
+  name: "SegmentNav",
   components: { DropDown },
   props: {
     index: {
       type: Number as PropType<number>,
       required: true,
-      default: 0
-    }
+      default: 0,
+    },
   },
   setup(props, { emit }) {
-    const { tm } = useI18n()
+    const { tm } = useI18n();
     const segmentNavItems: Ref<OptionType[]> = computed(() =>
-      tm('components.common.SegmentNav.items')
-    )
-    const sortOptions: Ref<OptionType[]> = computed(() => tm('components.common.SegmentNav.sorts'))
-    const currentIndex: Ref<number> = ref(props.index)
-    const loading: Ref<boolean> = ref(true)
-    const segmentNavEl: Ref<HTMLUListElement | null> = ref(null)
-    const segments: Ref<Map<number, HTMLElement>> = ref(new Map())
+      tm("components.common.SegmentNav.items")
+    );
+    const sortOptions: Ref<OptionType[]> = computed(() =>
+      tm("components.common.SegmentNav.sorts")
+    );
+    const currentIndex: Ref<number> = ref(props.index);
+    const loading: Ref<boolean> = ref(true);
+    const segmentNavEl: Ref<HTMLUListElement | null> = ref(null);
+    const segments: Ref<Map<number, HTMLElement>> = ref(new Map());
 
     const selectionStyle = computed(() => {
-      const segment = segments.value.get(currentIndex.value)
+      const segment = segments.value.get(currentIndex.value);
       return (
         segment && {
           width: `${segment.offsetWidth}px`,
-          transform: `translateX(${segment.offsetLeft}px)`
+          transform: `translateX(${segment.offsetLeft}px)`,
         }
-      )
-    })
+      );
+    });
 
     const updateSegments = () => {
       if (segmentNavEl.value) {
-        const segmentNavItems = segmentNavEl.value.querySelectorAll('.segmentnav-item')
+        const segmentNavItems =
+          segmentNavEl.value.querySelectorAll(".segmentnav-item");
         segmentNavItems.forEach((item, index) => {
-          segments.value.set(index, item as HTMLElement)
-        })
-        emit('update:currentIndex', currentIndex.value)
+          segments.value.set(index, item as HTMLElement);
+        });
+        emit("update:currentIndex", currentIndex.value);
       }
-    }
+    };
 
     onMounted(() => {
-      updateSegments()
-      loading.value = false
-    })
+      updateSegments();
+      loading.value = false;
+    });
 
     return {
       segmentNavItems,
@@ -56,7 +66,7 @@ export default defineComponent({
       loading,
       selectionStyle,
       segmentNavEl,
-      updateSegments
-    }
-  }
-})
+      updateSegments,
+    };
+  },
+});

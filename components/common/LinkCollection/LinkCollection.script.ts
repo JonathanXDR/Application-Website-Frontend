@@ -1,23 +1,23 @@
-import Icon from '@/components/common/Icons/Icon.vue'
-import type { LinkType } from '@/types/common/Link'
-import { defineComponent, toRefs, type PropType } from 'vue'
+import { defineComponent, toRefs, type PropType } from "vue";
+import Icon from "~/components/common/Icons/Icon.vue";
+import type { LinkType } from "~/types/common/Link";
 
 export default defineComponent({
-  name: 'LinkCollection',
+  name: "LinkCollection",
   components: {
-    Icon
+    Icon,
   },
   props: {
     links: {
       type: Array as PropType<LinkType[]>,
       required: true,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   setup(props) {
-    const { links } = toRefs(props)
+    const { links } = toRefs(props);
     return {
-      links
-    }
-  }
-})
+      links,
+    };
+  },
+});

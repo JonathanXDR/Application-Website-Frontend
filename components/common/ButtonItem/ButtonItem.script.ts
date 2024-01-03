@@ -1,38 +1,38 @@
-import type { IconType } from '@/types/common/Icon'
-import { defineComponent, type PropType } from 'vue'
+import { defineComponent, type PropType } from "vue";
+import type { IconType } from "~/types/common/Icon";
 
 export default defineComponent({
-  name: 'ButtonItem',
+  name: "ButtonItem",
   props: {
     as: {
       type: String as PropType<keyof HTMLElementTagNameMap>,
       required: false,
-      default: 'button'
+      default: "button",
     },
     variant: {
-      type: String as PropType<'primary' | 'secondary' | 'tertiary'>,
+      type: String as PropType<"primary" | "secondary" | "tertiary">,
       required: false,
-      default: 'primary'
+      default: "primary",
     },
     size: {
-      type: String as PropType<'small' | 'medium' | 'large'>,
+      type: String as PropType<"small" | "medium" | "large">,
       required: false,
-      default: 'medium'
+      default: "medium",
     },
     borderRadius: {
-      type: String as PropType<'reduced' | 'full'>,
+      type: String as PropType<"reduced" | "full">,
       required: false,
-      default: 'reduced'
+      default: "reduced",
     },
     label: {
       type: String as PropType<string>,
       required: true,
-      default: undefined
+      default: undefined,
     },
     icon: {
       type: Object as PropType<IconType>,
       required: false,
-      default: undefined
-    }
-  }
-})
+      default: undefined,
+    },
+  },
+});

@@ -1,9 +1,9 @@
-import Icon from '@/components/common/Icons/Icon.vue'
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
+import Icon from "~/components/common/Icons/Icon.vue";
 
 export default defineComponent({
-  name: 'AnchorButton',
+  name: "AnchorButton",
   components: {
-    Icon
-  }
-})
+    Icon,
+  },
+});
