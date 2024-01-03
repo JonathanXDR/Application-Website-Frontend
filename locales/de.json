@@ -884,7 +884,14 @@
           "eyebrow": "Frontend",
           "title": "Apps Team Frontend",
           "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
-          "tags": ["Frontend Development", "Memory App", "Vue.js", "TypeScript", "SDX", "Next.js"],
+          "tags": [
+            "Frontend Development",
+            "Memory App",
+            "Vue.js",
+            "TypeScript",
+            "SDX",
+            "Next.js"
+          ],
           "links": [
             {
               "title": "Mehr erfahren",
