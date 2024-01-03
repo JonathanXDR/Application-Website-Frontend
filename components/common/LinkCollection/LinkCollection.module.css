@@ -1,0 +1,35 @@
+.links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ---------------------------------- card ---------------------------------- */
+
+.card.color .link {
+  color: var(--color-fill-gray) !important;
+}
+
+.card:hover .link {
+  text-decoration: underline !important;
+}
+
+.icon {
+  margin-left: 0.3em;
+}
+
+/* ------------------------------- ribbon-link ------------------------------ */
+
+.ribbon-blue-to-default .ribbon-link .link {
+  color: white;
+  animation: animate-color-fff-06c 1s ease-in-out 1.8s forwards;
+}
+
+@keyframes animate-color-fff-06c {
+  0% {
+    color: white;
+  }
+  to {
+    color: var(--color-figure-blue);
+  }
+}
