@@ -153,7 +153,7 @@
               stars: card.stargazers_count,
               issues: card.open_issues_count,
               subscribers: card.subscribers_count,
-              date: card.updated_at,
+              date: card.updated_at
             }
           "
           :date="card.updated_at"
