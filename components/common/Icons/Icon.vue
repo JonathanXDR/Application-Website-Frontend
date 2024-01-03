@@ -16,9 +16,11 @@ export default defineComponent({
       default: undefined,
     },
     size: {
-      type: String as PropType<"small" | "large" | "full">,
+      type: String as PropType<"small" | "medium" | "large">,
       required: false,
       default: "medium",
+      validator: (value: string): boolean =>
+        ["small", "medium", "large"].includes(value),
     },
     colors: {
       type: Object as PropType<{
@@ -32,16 +34,29 @@ export default defineComponent({
         secondary: "currentColor",
         tertiary: "currentColor",
       }),
+      validator(value: {
+        primary?: string;
+        secondary?: string;
+        tertiary?: string;
+      }): boolean {
+        const isValidColor = (color: string | undefined): boolean => {
+          return typeof color === "string" || color === undefined;
+        };
+        return (
+          isValidColor(value.primary) &&
+          isValidColor(value.secondary) &&
+          isValidColor(value.tertiary)
+        );
+      },
     },
   },
+
   setup(props) {
     const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`);
 
-    const getSpriteUrl = (size: "small" | "large" | "full") => {
-      return new URL(
-        `/src/assets/icons/${size}/symbol/sprite.svg`,
-        import.meta.url,
-      ).href;
+    const getSpriteUrl = (size: "small" | "medium" | "large") => {
+      return new URL(`/assets/icons/${size}/symbol/sprite.svg`, import.meta.url)
+        .href;
     };
 
     const styles = reactive({
@@ -56,36 +71,6 @@ export default defineComponent({
 </script>
 
 <style>
-.icon.icon-xsmall {
-  width: 0.5em;
-  height: 0.5em;
-}
-
-.icon.icon-small {
-  width: 0.75em;
-  height: 0.75em;
-}
-
-.icon.icon-medium {
-  width: 1em;
-  height: 1em;
-}
-
-.icon.icon-large {
-  width: 1.25em;
-  height: 1.25em;
-}
-
-.icon.icon-xlarge {
-  width: 1.5em;
-  height: 1.5em;
-}
-
-.icon.icon-xxlarge {
-  width: 1.75em;
-  height: 1.75em;
-}
-
 .apple-logo {
   width: 100%;
   height: 330px;
@@ -107,5 +92,36 @@ export default defineComponent({
     width: 10em;
     height: 10em;
   }
+}
+
+.icon-article {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+#projects .icon-article {
+  width: 1.5em !important;
+  height: 1.5em !important;
+}
+
+.link .link-icon {
+  /* height: 0.6em;
+  width: 0.6em; */
+  height: 0.75em;
+  width: 0.75em;
+  margin-left: 0.3em;
+}
+
+.svg-icon {
+  fill: var(--colors-svg-icon-fill-light, var(--color-svg-icon));
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  overflow: visible;
+}
+
+.svg-icon.icon-inline {
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
 }
 </style>
