@@ -1,8 +1,12 @@
-import moment from "moment";
+import dayjs from "dayjs";
+import "dayjs/locale/en";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { computed, defineComponent, type PropType } from "vue";
 import { useI18n } from "vue-i18n";
 import Icon from "~/components/common/Icons/Icon.vue";
 import type { InfoType } from "~/types/common/Info";
+
+dayjs.extend(relativeTime);
 
 export default defineComponent({
   name: "InfoBar",
@@ -23,13 +27,11 @@ export default defineComponent({
     dateFormatOptions: {
       type: Object as PropType<Intl.DateTimeFormatOptions>,
       required: false,
-      default: () => {
-        return {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        };
-      },
+      default: () => ({
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
     },
     dateNowKey: {
       type: String as PropType<"created" | "updated">,
@@ -41,9 +43,9 @@ export default defineComponent({
     const { locale } = useI18n({ useScope: "global" });
     const updatedYesterday = computed(() => {
       if (!props.date) return false;
-      const updatedDate = moment(props.date);
-      const currentDate = moment();
-      return currentDate.diff(updatedDate, "days") <= 1;
+      const updatedDate = dayjs(props.date);
+      const currentDate = dayjs();
+      return currentDate.diff(updatedDate, "day") <= 1;
     });
 
     const formatDate = (
@@ -70,7 +72,7 @@ export default defineComponent({
       } else if (props.date) {
         return `${dateVariant.charAt(0).toUpperCase()}${dateVariant.slice(
           1
-        )} ${moment(props.date).locale(locale.value).fromNow()}`;
+        )} ${dayjs(props.date).locale(locale.value).fromNow()}`;
       }
     };
 

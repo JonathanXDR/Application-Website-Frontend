@@ -67,12 +67,12 @@ export default defineComponent({
     };
 
     const updateAnimations = () => {
-      headerAnimations.value.forEach((element) => {
-        element.element.classList.remove(element.class);
+      headerAnimations.value.forEach((item) => {
+        item.element.classList.remove(item.class);
 
         setTimeout(() => {
-          element.element.classList.add(element.class);
-        }, element.timeout);
+          item.element.classList.add(item.class);
+        }, item.timeout);
       });
     };
 

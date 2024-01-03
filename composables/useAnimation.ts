@@ -1,10 +1,19 @@
 import { ref } from "vue";
-import type { AnimationItemType } from "~/types/common/AnimationItem";
 
 export const useAnimation = () => {
-  const headerAnimations = ref<AnimationItemType[]>([]);
+  const headerAnimations = ref<
+    {
+      element: HTMLElement;
+      class: string;
+      timeout: number;
+    }[]
+  >([]);
 
-  function setHeaderAnimation(headerAnimation: AnimationItemType) {
+  function setHeaderAnimation(headerAnimation: {
+    element: HTMLElement;
+    class: string;
+    timeout: number;
+  }) {
     headerAnimations.value.push(headerAnimation);
   }
 
