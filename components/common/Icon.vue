@@ -17,6 +17,8 @@ export default defineComponent({
       type: String as PropType<"small" | "medium" | "large">,
       required: false,
       default: "medium",
+      validator: (value: string): boolean =>
+        ["small", "medium", "large"].includes(value),
     },
     colors: {
       type: Object as PropType<{
@@ -30,16 +32,29 @@ export default defineComponent({
         secondary: "currentColor",
         tertiary: "currentColor",
       }),
+      validator(value: {
+        primary?: string;
+        secondary?: string;
+        tertiary?: string;
+      }): boolean {
+        const isValidColor = (color: string | undefined): boolean => {
+          return typeof color === "string" || color === undefined;
+        };
+        return (
+          isValidColor(value.primary) &&
+          isValidColor(value.secondary) &&
+          isValidColor(value.tertiary)
+        );
+      },
     },
   },
+
   setup(props) {
     const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`);
 
     const getSpriteUrl = (size: "small" | "medium" | "large") => {
-      return new URL(
-        `/src/assets/icons/${size}/symbol/sprite.svg`,
-        import.meta.url
-      ).href;
+      return new URL(`/assets/icons/${size}/symbol/sprite.svg`, import.meta.url)
+        .href;
     };
 
     const styles = reactive({
@@ -48,7 +63,10 @@ export default defineComponent({
       "--color-tertiary": props.colors.tertiary || "currentColor",
     });
 
-    return { icon, styles };
+    return {
+      icon,
+      styles,
+    };
   },
 });
 </script>
