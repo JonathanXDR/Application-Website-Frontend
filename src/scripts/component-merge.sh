@@ -36,18 +36,18 @@ for vue_file in ./*/*/*.vue; do
       # Append TypeScript content
       echo "<script lang=\"ts\">" >"$temp_ts"
       cat "$ts_file" >>"$temp_ts"
-      echo -e "\n</script>" >>"$temp_ts"
+      echo "</script>" >>"$temp_ts"
 
       # Append CSS content
-      echo -e "\n<style scoped>" >"$temp_css"
+      echo "<style scoped>" >"$temp_css"
       cat "$css_file" >>"$temp_css"
       echo "</style>" >>"$temp_css"
 
       # Merge into final Vue file
       cat "$temp_vue" >"$grandparent_dir/$base_name.vue"
-      echo -e "\n" >>"$grandparent_dir/$base_name.vue"
+      echo "" >>"$grandparent_dir/$base_name.vue"
       cat "$temp_ts" >>"$grandparent_dir/$base_name.vue"
-      echo -e "\n" >>"$grandparent_dir/$base_name.vue"
+      echo "" >>"$grandparent_dir/$base_name.vue"
       cat "$temp_css" >>"$grandparent_dir/$base_name.vue"
 
       # Remove original Vue file, TypeScript, and CSS files
