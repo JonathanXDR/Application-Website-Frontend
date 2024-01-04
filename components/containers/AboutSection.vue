@@ -25,8 +25,8 @@
         window.innerWidth < 900
           ? 'small'
           : window.innerWidth < 1250
-          ? 'medium'
-          : 'large'
+            ? 'medium'
+            : 'large'
       "
       :card="{
         eyebrow: $t('components.containers.about.eyebrow'),
@@ -76,10 +76,10 @@ export default defineComponent({
   setup(props) {
     const { locale, tm } = useI18n();
     const links: Ref<LinkType[]> = computed(() =>
-      tm("components.containers.about.links")
+      tm("components.containers.about.links"),
     );
     const dateItems: Ref<DateItemType[]> = tm(
-      "components.containers.about.dates"
+      "components.containers.about.dates",
     );
     const dates: Ref<{
       age: string | undefined;
@@ -102,7 +102,7 @@ export default defineComponent({
       const startDate = new Date(date);
       const difference = new Date(currentDate.getTime() - startDate.getTime());
       const years = Math.abs(
-        difference.getUTCFullYear() - new Date(0).getUTCFullYear()
+        difference.getUTCFullYear() - new Date(0).getUTCFullYear(),
       );
       return years;
     };
@@ -110,7 +110,7 @@ export default defineComponent({
     onMounted(async () => {
       dateItems.value.forEach((item) => {
         dates.value[item.key as keyof typeof dates.value] = String(
-          calculateYears(item.date)
+          calculateYears(item.date),
         );
       });
     });

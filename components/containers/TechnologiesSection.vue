@@ -60,7 +60,7 @@ export default defineComponent({
   setup(props) {
     const { tm } = useI18n();
     const cards: Ref<CardItemType[]> = computed(() =>
-      tm("components.containers.technologies")
+      tm("components.containers.technologies"),
     );
 
     return {

@@ -25,8 +25,14 @@ export default defineComponent({
   line-height: 1.4211;
   font-weight: 400;
   letter-spacing: 0.012em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   align-items: center;
   border-radius: 50%;
   cursor: pointer;
@@ -50,8 +56,14 @@ export default defineComponent({
     line-height: 1.47059;
     font-weight: 400;
     letter-spacing: -0.022em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .cta-circular-icon {

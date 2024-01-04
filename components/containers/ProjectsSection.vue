@@ -73,16 +73,16 @@ import {
   type Ref,
 } from "vue";
 import { useI18n } from "vue-i18n";
-import CardItem from "~/components/common/CardItem/CardItem.vue";
+import CardItem from "~/components/common/CardItem.vue";
 import LinkCollection from "~/components/common/LinkCollection.vue";
-import LiveResultSummary from "~/components/common/LiveResultSummary/LiveResultSummary.vue";
+import LiveResultSummary from "~/components/common/LiveResultSummary.vue";
 import LoadingSpinner from "~/components/common/LoadingSpinner.vue";
-import NavBarExtension from "~/components/common/NavBarExtension/NavBarExtension.vue";
-import ResultBlankState from "~/components/common/ResultBlankState/ResultBlankState.vue";
+import NavBarExtension from "~/components/common/NavBarExtension.vue";
+import ResultBlankState from "~/components/common/ResultBlankState.vue";
 import RibbonBar from "~/components/common/RibbonBar.vue";
-import SegmentNav from "~/components/common/SegmentNav/SegmentNav.vue";
+import SegmentNav from "~/components/common/SegmentNav.vue";
 import ShareSheet from "~/components/common/ShareSheet.vue";
-import TimeLine from "~/components/common/TimeLine/TimeLine.vue";
+import TimeLine from "~/components/common/TimeLine.vue";
 import {
   listPinnedRepositories,
   listUserRepositories,
@@ -125,7 +125,7 @@ export default defineComponent({
     const { tm } = useI18n();
     const colorStore = useColor();
     const articles: Ref<CardItemType[]> = computed(() =>
-      tm("components.containers.projects")
+      tm("components.containers.projects"),
     );
     const projects: Projects = reactive({
       swisscom: computed(() => tm("components.containers.projects")) as Ref<
@@ -139,7 +139,7 @@ export default defineComponent({
       () =>
         projects[
           Object.keys(projects)[currentIndex.value] as keyof typeof projects
-        ]
+        ],
     );
 
     const currentIndex: Ref<number> = ref(0);
@@ -181,8 +181,8 @@ export default defineComponent({
       const filteredProjects = allProjects.filter(
         (project) =>
           !pinnedProjects.find(
-            (pinnedProject) => pinnedProject.name === project.name
-          )
+            (pinnedProject) => pinnedProject.name === project.name,
+          ),
       );
 
       pinned.value = pinnedProjects;
@@ -190,7 +190,8 @@ export default defineComponent({
       filteredProjects.map(categorizeProject).forEach((project) => {
         const category = project.category as keyof Projects;
         projects[category].push(
-          project as ListUserReposResponse & CardItemType & { category: string }
+          project as ListUserReposResponse &
+            CardItemType & { category: string },
         );
       });
     };
