@@ -25,7 +25,7 @@ import CardItem from "~/components/common/CardItem.vue";
 
 import { computed, defineComponent, type PropType, type Ref } from "vue";
 import { useI18n } from "vue-i18n";
-import FilterInput from "~/components/common/FilterInput/FilterInput.vue";
+import FilterInput from "~/components/common/FilterInput.vue";
 import LinkCollection from "~/components/common/LinkCollection.vue";
 import LiveResultSummary from "~/components/common/LiveResultSummary.vue";
 import LoadingSpinner from "~/components/common/LoadingSpinner.vue";
@@ -60,7 +60,7 @@ export default defineComponent({
   setup(props) {
     const { tm } = useI18n();
     const cards: Ref<CardItemType[]> = computed(() =>
-      tm("components.containers.technologies"),
+      tm("components.containers.technologies")
     );
 
     return {
