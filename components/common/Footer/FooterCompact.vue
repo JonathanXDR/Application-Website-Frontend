@@ -7,16 +7,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import LanguagePicker from "~/components/common/LanguagePicker.vue";
-import ShareSheet from "~/components/common/ShareSheet.vue";
-
 export default defineComponent({
   name: "FooterItem",
-  components: {
-    LanguagePicker,
-    ShareSheet,
-  },
   setup() {
     const currentYear = ref(new Date().getFullYear());
 
@@ -33,14 +25,8 @@ export default defineComponent({
   line-height: 1.33337;
   font-weight: 400;
   /* letter-spacing: -0.01em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   color: var(--color-figure-gray-secondary);
   display: flex;
   align-items: center;

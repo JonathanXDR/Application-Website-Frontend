@@ -11,8 +11,6 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, type PropType } from "vue";
-
 export default defineComponent({
   name: "TagBar",
   props: {
@@ -38,14 +36,8 @@ export default defineComponent({
   line-height: 1.2857742857;
   font-weight: 400;
   /* letter-spacing: -0.016em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   border-radius: 14px;
   padding: 4px 10px;
   white-space: nowrap;
@@ -54,9 +46,7 @@ export default defineComponent({
 
 @media (hover: hover) {
   .tag a:hover {
-    transition:
-      background-color 0.2s,
-      color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
     background-color: var(--color-fill-blue);
     color: #fff;
   }
@@ -67,11 +57,7 @@ export default defineComponent({
   margin: 0;
   list-style: none;
   box-sizing: border-box;
-  transition:
-    padding-right 0.8s,
-    padding-bottom 0.8s,
-    max-height 1s,
-    opacity 1s;
+  transition: padding-right 0.8s, padding-bottom 0.8s, max-height 1s, opacity 1s;
   padding: 0;
 }
 

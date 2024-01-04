@@ -23,22 +23,10 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, type PropType, type Ref } from "vue";
-import { useI18n } from "vue-i18n";
-import LanguageBar from "~/components/common/LanguageBar.vue";
-import LanguageBarV2 from "~/components/common/LanguageBarV2.vue";
-import LoadingSpinner from "~/components/common/LoadingSpinner.vue";
-import TabList from "~/components/common/TabList.vue";
 import type { LanguageBarType } from "~/types/common/LanguageBar";
 
 export default defineComponent({
   name: "LanguagesSection",
-  components: {
-    LoadingSpinner,
-    TabList,
-    LanguageBar,
-    LanguageBarV2,
-  },
   props: {
     title: {
       type: String as PropType<string>,
@@ -49,7 +37,7 @@ export default defineComponent({
   setup(props) {
     const { tm } = useI18n();
     const languages: Ref<LanguageBarType[]> = computed(() =>
-      tm("components.containers.languages"),
+      tm("components.containers.languages")
     );
 
     return {

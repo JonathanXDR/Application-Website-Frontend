@@ -21,35 +21,10 @@
 </template>
 
 <script lang="ts">
-import CardItem from "~/components/common/CardItem.vue";
-
-import { computed, defineComponent, type PropType, type Ref } from "vue";
-import { useI18n } from "vue-i18n";
-import FilterInput from "~/components/common/FilterInput.vue";
-import LinkCollection from "~/components/common/LinkCollection.vue";
-import LiveResultSummary from "~/components/common/LiveResultSummary.vue";
-import LoadingSpinner from "~/components/common/LoadingSpinner.vue";
-import NavBarExtension from "~/components/common/NavBarExtension.vue";
-import ResultBlankState from "~/components/common/ResultBlankState.vue";
-import RibbonBar from "~/components/common/RibbonBar.vue";
-import ShareSheet from "~/components/common/ShareSheet.vue";
-import TimeLine from "~/components/common/TimeLine.vue";
 import type { CardItemType } from "~/types/common/CardItem";
 
 export default defineComponent({
   name: "TechnologiesSection",
-  components: {
-    LoadingSpinner,
-    RibbonBar,
-    NavBarExtension,
-    LinkCollection,
-    ShareSheet,
-    TimeLine,
-    FilterInput,
-    CardItem,
-    LiveResultSummary,
-    ResultBlankState,
-  },
   props: {
     title: {
       type: String as PropType<string>,

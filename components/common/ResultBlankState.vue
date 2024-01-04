@@ -5,8 +5,6 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-
 export default defineComponent({
   name: "ResultBlankState",
 });
@@ -18,14 +16,8 @@ export default defineComponent({
   line-height: 1.381002381;
   font-weight: 400;
   /* letter-spacing: 0.011em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -41,14 +33,8 @@ export default defineComponent({
     line-height: 1.4211026316;
     font-weight: 400;
     /* letter-spacing: 0.012em; */
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
   }
 }
 </style>

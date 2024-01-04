@@ -19,14 +19,6 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  getCurrentInstance,
-  onMounted,
-  ref,
-  type Ref,
-} from "vue";
-
 export default defineComponent({
   name: "TimeLine",
   setup() {

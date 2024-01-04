@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, type PropType } from "vue";
 import type { IconType } from "~/types/common/Icon";
 
 export default defineComponent({

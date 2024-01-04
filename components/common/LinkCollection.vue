@@ -32,15 +32,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, type PropType } from "vue";
-import Icon from "~/components/common/Icon.vue";
 import type { LinkType } from "~/types/common/Link";
 
 export default defineComponent({
   name: "LinkCollection",
-  components: {
-    Icon,
-  },
   props: {
     links: {
       type: Array as PropType<LinkType[]>,
