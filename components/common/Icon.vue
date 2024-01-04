@@ -14,7 +14,7 @@ export default defineComponent({
       default: undefined,
     },
     size: {
-      type: String as PropType<"small" | "large" | "full">,
+      type: String as PropType<"small" | "medium" | "large">,
       required: false,
       default: "medium",
     },
@@ -35,7 +35,7 @@ export default defineComponent({
   setup(props) {
     const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`);
 
-    const getSpriteUrl = (size: "small" | "large" | "full") => {
+    const getSpriteUrl = (size: "small" | "medium" | "large") => {
       return new URL(
         `/src/assets/icons/${size}/symbol/sprite.svg`,
         import.meta.url
