@@ -20,7 +20,7 @@ import type { SectionType } from "~/types/common/Section";
 
 const { tm } = useI18n();
 const sections: Ref<SectionType[]> = computed(() =>
-  tm("components.common.NavBar"),
+  tm("components.common.NavBar")
 );
 </script>
 
@@ -35,7 +35,7 @@ const sections: Ref<SectionType[]> = computed(() =>
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(img/lines.jpg);
+  background: url(~/assets/img/lines.jpg);
   z-index: 10;
   background-size: 7px auto;
   mix-blend-mode: overlay;
@@ -66,7 +66,7 @@ const sections: Ref<SectionType[]> = computed(() =>
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(img/vignette.png);
+  background: url(~/assets/img/vignette.png);
   z-index: 11;
   background-size: 100% 100%;
   mix-blend-mode: overlay;
