@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Icon from "~/components/common//Icon.vue";
+import Icon from "~/components/common/Icon.vue";
 
 export default defineComponent({
   name: "AnchorButton",

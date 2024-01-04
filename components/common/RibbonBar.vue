@@ -75,7 +75,7 @@ import {
   type Ref,
 } from "vue";
 import { useI18n } from "vue-i18n";
-import Icon from "~/components/common//Icon.vue";
+import Icon from "~/components/common/Icon.vue";
 import LinkCollection from "~/components/common/LinkCollection.vue";
 import LoadingSpinner from "~/components/common/LoadingSpinner.vue";
 import { listRepositoryTags } from "~/helpers/github-helper";

@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import Icon from "~/components/common//Icon.vue";
+import Icon from "~/components/common/Icon.vue";
 
 import { defineComponent, ref, type PropType } from "vue";
 

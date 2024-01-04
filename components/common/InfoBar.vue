@@ -60,7 +60,7 @@ import "dayjs/locale/en";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { computed, defineComponent, type PropType } from "vue";
 import { useI18n } from "vue-i18n";
-import Icon from "~/components/common//Icon.vue";
+import Icon from "~/components/common/Icon.vue";
 import type { InfoType } from "~/types/common/Info";
 
 dayjs.extend(relativeTime);

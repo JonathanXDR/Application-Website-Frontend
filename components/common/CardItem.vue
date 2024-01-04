@@ -167,10 +167,10 @@
 
 <script lang="ts">
 import { computed, defineComponent, type PropType } from "vue";
-import Icon from "~/components/common//Icon.vue";
 import AnchorButton from "~/components/common/AnchorButton.vue";
 import ButtonItem from "~/components/common/ButtonItem.vue";
-import InfoBar from "~/components/common/InfoBar/InfoBar.vue";
+import Icon from "~/components/common/Icon.vue";
+import InfoBar from "~/components/common/InfoBar.vue";
 import LinkCollection from "~/components/common/LinkCollection.vue";
 import TagBar from "~/components/common/TagBar.vue";
 import type { CardItemType } from "~/types/common/CardItem";

@@ -47,12 +47,12 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted, type PropType } from "vue";
 import { useI18n } from "vue-i18n";
-import CardItem from "~/components/common/CardItem/CardItem.vue";
+import CardItem from "~/components/common/CardItem.vue";
 import LinkCollection from "~/components/common/LinkCollection.vue";
 import LoadingSpinner from "~/components/common/LoadingSpinner.vue";
 import RibbonBar from "~/components/common/RibbonBar.vue";
 import ShareSheet from "~/components/common/ShareSheet.vue";
-import TimeLine from "~/components/common/TimeLine/TimeLine.vue";
+import TimeLine from "~/components/common/TimeLine.vue";
 import type { DateItemType } from "~/types/common/DateItem";
 import type { LinkType } from "~/types/common/Link";
 

@@ -873,9 +873,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useI18n } from "vue-i18n";
-import Icon from "~/components/common//Icon.vue";
+import Icon from "~/components/common/Icon.vue";
 import LoadingSpinner from "~/components/common/LoadingSpinner.vue";
-import TabList from "~/components/common/TabList/TabList.vue";
+import TabList from "~/components/common/TabList.vue";
 
 export default defineComponent({
   name: "MusicSection",

@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from "vue";
-import Icon from "~/components/common//Icon.vue";
+import Icon from "~/components/common/Icon.vue";
 
 export default defineComponent({
   name: "TabList",
