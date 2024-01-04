@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
     "icon:cleanup": "sh ./src/scripts/icon-cleanup.sh",
-    "sprite:generate": "sh ./src/scripts/sprite-generate.sh"
+    "sprite:generate": "sh ./src/scripts/sprite-generate.sh",
+    "component:merge": "sh ./src/scripts/component-merge.sh"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
