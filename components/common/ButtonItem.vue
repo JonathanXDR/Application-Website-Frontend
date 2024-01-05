@@ -65,8 +65,14 @@ export default defineComponent({
   line-height: 1.2857742857;
   font-weight: 400;
   letter-spacing: -0.016em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   background: var(--color-code-plain);
   color: var(--sk-button-color);
   padding-block: calc(
@@ -104,8 +110,14 @@ export default defineComponent({
   line-height: 1.1764805882;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   min-width: 28px;
   padding: 8px 16px;
   border-radius: 980px;
@@ -151,8 +163,14 @@ export default defineComponent({
   line-height: 1.3333733333 !important;
   font-weight: 400 !important;
   letter-spacing: -0.01em !important;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .button-cta {
@@ -175,8 +193,14 @@ export default defineComponent({
   line-height: 1.4705882353;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .button-cta:active {
@@ -274,7 +298,9 @@ button:focus {
   border-color: transparent;
 }
 .button:focus {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .button:active {
@@ -316,7 +342,9 @@ button:focus {
   border-color: transparent;
 }
 .theme-dark .button:focus {
-  box-shadow: 0 0 0 3px #000, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #000,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .theme-dark .button:active {
@@ -430,7 +458,9 @@ button:focus {
   border-color: transparent;
 }
 .button:focus {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .button:active {
@@ -455,7 +485,9 @@ button:focus {
   border-color: transparent;
 }
 .button-secondary-alpha:focus {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .button-secondary-alpha:active {
@@ -497,7 +529,9 @@ button:focus {
   border-color: transparent;
 }
 .theme-dark .button:focus {
-  box-shadow: 0 0 0 3px #000, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #000,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .theme-dark .button:active {
@@ -522,7 +556,9 @@ button:focus {
   border-color: transparent;
 }
 .theme-dark .button-secondary-alpha:focus {
-  box-shadow: 0 0 0 3px #000, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #000,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .theme-dark .button-secondary-alpha:active {
@@ -577,7 +613,9 @@ button:focus {
   border-color: transparent;
 }
 .button:focus {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .button:active {
@@ -602,7 +640,9 @@ button:focus {
   border-color: transparent;
 }
 .button-secondary-alpha:focus {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .button-secondary-alpha:active {

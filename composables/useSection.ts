@@ -6,7 +6,7 @@ export const useSection = () => {
 
   const setCurrentSection = (sectionName: string, sectionIndex: number) => {
     const modifiedSectionName = sectionName.replace(/^\w/, (c) =>
-      c.toUpperCase()
+      c.toUpperCase(),
     );
     currentSection.value.name = modifiedSectionName;
     currentSection.value.index = sectionIndex;

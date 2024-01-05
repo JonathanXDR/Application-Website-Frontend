@@ -1629,8 +1629,14 @@ export default defineComponent({
   line-height: 1.1428571429;
   font-weight: 700;
   /* letter-spacing: 0em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   min-width: 26px;
   padding: 12px 22px;
   background: var(--color-fill);
@@ -1678,8 +1684,14 @@ export default defineComponent({
     line-height: 1.1428571429;
     font-weight: 700;
     /* letter-spacing: 0em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
     min-width: 28px;
     padding: 8px 10px 8px 11px;
   }
@@ -1785,8 +1797,14 @@ export default defineComponent({
   line-height: 1.2857742857;
   font-weight: 400;
   /* letter-spacing: -0.016em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   margin-top: 10px;
 }
 
@@ -1796,8 +1814,14 @@ export default defineComponent({
     line-height: 1.3333733333;
     font-weight: 400;
     /* letter-spacing: -0.01em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 

@@ -25,7 +25,7 @@ export const useColor = () => {
 
   const randomizeColor = () => {
     const randomColor = Math.floor(
-      Math.random() * colorBadgeArray.value.length
+      Math.random() * colorBadgeArray.value.length,
     );
     colorBadge.value = colorBadgeArray.value[randomColor];
     return colorBadge.value;

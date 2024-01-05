@@ -103,11 +103,11 @@ export default defineComponent({
 
     const formatDate = (
       dateString: string,
-      formatOptions: Intl.DateTimeFormatOptions
+      formatOptions: Intl.DateTimeFormatOptions,
     ) => {
       return new Date(dateString).toLocaleDateString(
         locale.value,
-        formatOptions
+        formatOptions,
       );
     };
 
@@ -118,13 +118,13 @@ export default defineComponent({
       if (props.info?.date?.from && props.info?.date?.to) {
         return `${formatDate(
           props.info?.date.from,
-          formatOptions
+          formatOptions,
         )} - ${formatDate(props.info?.date.to, formatOptions)}`;
       } else if (props.info?.date?.from) {
         return formatDate(props.info?.date.from, formatOptions);
       } else if (props.date) {
         return `${dateVariant.charAt(0).toUpperCase()}${dateVariant.slice(
-          1
+          1,
         )} ${dayjs(props.date).locale(locale.value).fromNow()}`;
       }
     };
@@ -148,8 +148,14 @@ export default defineComponent({
   line-height: 1.28577;
   font-weight: 600;
   /* letter-spacing: -0.016em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   display: flex;
   justify-content: flex-start;
   align-items: center;

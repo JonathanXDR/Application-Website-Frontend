@@ -1,4 +1,3 @@
-import { defineNuxtPlugin } from "#app";
 import { useSection } from "~/composables/useSection";
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -9,14 +8,14 @@ export default defineNuxtPlugin((nuxtApp) => {
           if (entry.isIntersecting) {
             useSection().setCurrentSection(
               el.getAttribute("name"),
-              binding.value
+              binding.value,
             );
           }
         });
       },
       {
         rootMargin: "-52px 0px -94% 0px",
-      }
+      },
     );
     observer.observe(el);
   });

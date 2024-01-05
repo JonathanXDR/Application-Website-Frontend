@@ -50,10 +50,10 @@ export default defineComponent({
   setup(props, { emit }) {
     const { tm } = useI18n();
     const segmentNavItems: Ref<OptionType[]> = computed(() =>
-      tm("components.common.SegmentNav.items")
+      tm("components.common.SegmentNav.items"),
     );
     const sortOptions: Ref<OptionType[]> = computed(() =>
-      tm("components.common.SegmentNav.sorts")
+      tm("components.common.SegmentNav.sorts"),
     );
     const currentIndex: Ref<number> = ref(props.index);
     const loading: Ref<boolean> = ref(true);
@@ -105,8 +105,14 @@ export default defineComponent({
   line-height: 1.28577;
   font-weight: 600;
   /* letter-spacing: -0.016em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .segmentnav {

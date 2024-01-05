@@ -21,7 +21,7 @@ export default defineComponent({
   setup() {
     const { tm } = useI18n();
     const links: Ref<FaLinkType[]> = computed(() =>
-      tm("components.common.ShareSheet.links")
+      tm("components.common.ShareSheet.links"),
     );
 
     return {
