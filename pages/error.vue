@@ -26,16 +26,11 @@
 </template>
 
 <script setup lang="ts">
-const { tm } = useI18n();
 const props = defineProps({
   name: {
     type: String,
     required: false,
     default: "error",
-    validator: (value: string): boolean => {
-      const viewKeys = Object.keys(tm("pages"));
-      return viewKeys.includes(value);
-    },
   },
 });
 
@@ -43,6 +38,7 @@ const splitDescription = (description: string): string[] => {
   return description.split(". ");
 };
 
+const { tm } = useI18n();
 const colors = computed(() => tm(`pages.${props.name}.icon.colors`) as Object);
 const entireDescription = computed(
   () => tm(`pages.${props.name}.description`) as string,
