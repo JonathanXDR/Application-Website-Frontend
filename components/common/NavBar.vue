@@ -24,7 +24,7 @@
           </router-link>
           <small
             v-if="nodeEnv === 'development'"
-            :style="{ color: colorBadge.colorVar }"
+            :style="{ color: colorBadge?.colorVar }"
             class="dev-badge"
             data-tag-name="Dev"
           ></small>
@@ -87,10 +87,10 @@ export default defineComponent({
 
     const nodeEnv = computed(() => process.env.NODE_ENV);
 
+    const { colorBadge } = useColor();
     const { currentSection } = useSection();
     const currentSectionIndex = computed(() => currentSection.value.index);
 
-    const colorBadge = computed(() => useColor().randomizeColor());
     const headerAnimations = computed(() => {
       useAnimation().setHeaderAnimation({
         element: document.querySelector(".ac-ln-background") as HTMLElement,

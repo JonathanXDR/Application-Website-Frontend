@@ -1,22 +1,8 @@
 <template>
   <ClientOnly>
-    <header v-if="route.meta.header !== false">
-      <NavBar v-if="route.meta.nav !== false" />
-      <RibbonBar v-if="route.meta.ribbon !== false" />
-    </header>
-
     <NuxtLayout>
-      <main>
-        <NuxtPage />
-      </main>
+      <NuxtPage />
     </NuxtLayout>
-
-    <footer id="footer-full" v-if="route.meta.footerFull !== false">
-      <FooterFull />
-    </footer>
-    <footer id="footer-compact" v-if="route.meta.footerCompact !== false">
-      <FooterCompact />
-    </footer>
   </ClientOnly>
 </template>
 
