@@ -6,14 +6,14 @@
       >
         <div class="rs-covers-media-container">
           <Icon
-            :name="$t(`views.${props.name}.icon.name`)"
+            :name="$t(`pages.${props.name}.icon.name`)"
             :colors="colors"
             class="media-icon"
           />
         </div>
         <div class="rs-covers-content-container">
           <h1 class="rs-covers-heading">
-            <span>{{ $t(`views.${props.name}.title`) }}</span>
+            <span>{{ $t(`pages.${props.name}.title`) }}</span>
           </h1>
           <div class="rs-covers-desc">
             {{ description[0] }}.
@@ -26,28 +26,26 @@
 </template>
 
 <script setup lang="ts">
-import i18n from "@nuxtjs/i18n/dist/runtime/plugins/i18n";
-
+const { tm } = useI18n();
 const props = defineProps({
   name: {
     type: String,
     required: false,
     default: "error",
     validator: (value: string): boolean => {
-      const viewKeys = Object.keys(i18n.global.tm("views"));
+      const viewKeys = Object.keys(tm("pages"));
       return viewKeys.includes(value);
     },
   },
 });
 
-const { tm } = useI18n();
 const splitDescription = (description: string): string[] => {
   return description.split(". ");
 };
 
-const colors = computed(() => tm(`views.${props.name}.icon.colors`) as Object);
+const colors = computed(() => tm(`pages.${props.name}.icon.colors`) as Object);
 const entireDescription = computed(
-  () => tm(`views.${props.name}.description`) as string,
+  () => tm(`pages.${props.name}.description`) as string,
 );
 const description = splitDescription(entireDescription.value);
 </script>

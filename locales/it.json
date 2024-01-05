@@ -502,7 +502,7 @@
       ]
     }
   },
-  "views": {
+  "pages": {
     "notFound": {
       "title": "Not Found.",
       "description": "La pagina che stai cercando non può essere trovata. Controlla e prova di nuovo.",
