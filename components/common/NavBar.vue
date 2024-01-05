@@ -131,7 +131,7 @@ export default defineComponent({
     };
 
     const updateAnimations = () => {
-      headerAnimations.value.forEach((element) => {
+      headerAnimations.value.value.forEach((element) => {
         element.element.classList.remove(element.class);
 
         setTimeout(() => {
