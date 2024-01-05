@@ -1,4 +1,5 @@
 <template>
+  <SpeedInsights />
   <header v-if="route.meta.header !== false">
     <NavBar v-if="route.meta.nav !== false" />
     <RibbonBar v-if="route.meta.ribbon !== false" />
@@ -15,6 +16,7 @@
 </template>
 
 <script setup lang="ts">
+import { SpeedInsights } from "@vercel/speed-insights/vue";
 const route = useRoute();
 const { randomizeColor, colorBadge } = useColor();
 const { currentSection } = useSection();
@@ -38,7 +40,7 @@ watch(
       document.title = newTitle;
     }
   },
-  { immediate: true },
+  { immediate: true }
 );
 
 useHead({
