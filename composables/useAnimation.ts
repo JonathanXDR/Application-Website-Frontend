@@ -1,13 +1,11 @@
-import { ref } from "vue";
-
 export const useAnimation = () => {
-  const headerAnimations = ref<
+  const headerAnimations = useState<
     {
       element: HTMLElement;
       class: string;
       timeout: number;
     }[]
-  >([]);
+  >("headerAnimations", () => []);
 
   function setHeaderAnimation(headerAnimation: {
     element: HTMLElement;

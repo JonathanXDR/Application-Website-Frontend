@@ -1,7 +1,5 @@
-import { reactive, ref } from "vue";
-
 export const useColor = () => {
-  const colorBadgeArray = reactive([
+  const colorBadgeArray = useState("colorBadgeArray", () => [
     {
       colorName: "orange",
       colorVar: "var(--color-figure-orange)",
@@ -19,18 +17,17 @@ export const useColor = () => {
     },
   ]);
 
-  const colorBadge = ref<{
+  const colorBadge = useState<null | {
     colorName: string;
     colorVar: string;
     colorHex: string;
-  } | null>(null);
+  }>("colorBadge", () => null);
 
   const randomizeColor = () => {
-    const randomColor = Math.floor(Math.random() * colorBadgeArray.length);
-
-    if (colorBadge.value === null) {
-      colorBadge.value = colorBadgeArray[randomColor];
-    }
+    const randomColor = Math.floor(
+      Math.random() * colorBadgeArray.value.length
+    );
+    colorBadge.value = colorBadgeArray.value[randomColor];
     return colorBadge.value;
   };
 

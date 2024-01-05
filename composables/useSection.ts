@@ -1,21 +1,19 @@
-import { reactive } from "vue";
-
 export const useSection = () => {
-  const state = reactive({
-    currentSectionName: null as string | null,
-    currentSectionIndex: null as number | null,
-  });
+  const currentSection = useState("currentSection", () => ({
+    name: null as string | null,
+    index: null as number | null,
+  }));
 
   const setCurrentSection = (sectionName: string, sectionIndex: number) => {
     const modifiedSectionName = sectionName.replace(/^\w/, (c) =>
-      c.toUpperCase(),
+      c.toUpperCase()
     );
-    state.currentSectionName = modifiedSectionName;
-    state.currentSectionIndex = sectionIndex;
+    currentSection.value.name = modifiedSectionName;
+    currentSection.value.index = sectionIndex;
   };
 
   return {
-    state,
+    currentSection,
     setCurrentSection,
   };
 };
