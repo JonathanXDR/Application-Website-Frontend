@@ -27,6 +27,16 @@ export default defineNuxtConfig({
             "Discover the work of Jonathan Russ and learn more about him, including his projects at Swisscom.",
         },
       ],
+      script:
+        process.env.NODE_ENV === "production"
+          ? []
+          : [
+              {
+                src: "https://snippet.meticulous.ai/v1/meticulous.js",
+                ["data-project-id"]: "3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w",
+                ["data-is-production-environment"]: false,
+              },
+            ],
       title: "Jonathan Russ",
     },
   },
