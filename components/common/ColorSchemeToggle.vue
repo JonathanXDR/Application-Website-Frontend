@@ -18,16 +18,13 @@
       <label>
         <input type="radio" value="auto" autocomplete="off"
           onchange="window.setPreferredColorScheme(event.target.value)" />
-
         <div class="text">Auto</div>
       </label>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-
-</script>
+<script lang="ts"></script>
 
 <style scoped>
 .color-scheme-toggle {
@@ -48,9 +45,6 @@
   color: -internal-light-dark(white, black);
 }
 
-
-
-/*! CSS Used from: https://developer.apple.com/assets/styles/footer.dist.css?23182355271 */
 .content {
   --toggle-border-radius-outer: 12px;
   --toggle-border-radius-inner: 10px;
@@ -63,8 +57,9 @@
   font-size: 12px;
   line-height: 1.33337;
   font-weight: 400;
-  letter-spacing: -.01em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  letter-spacing: -0.01em;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
   border: 1px solid var(--toggle-color-fill);
   border-radius: var(--toggle-border-radius-outer, 2px);
   display: inline-flex;
