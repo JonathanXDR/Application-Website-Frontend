@@ -119,7 +119,7 @@ export default defineComponent({
 
     const categorizeProject = (project: ListUserReposResponse) => {
       const schoolProjectPattern =
-        /^(M\d+|UEK-\d+)-Portfolio$|^(TBZ|UEK)-Modules$/i;
+        /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/;
       const category = schoolProjectPattern.test(project.name)
         ? "school"
         : "personal";
