@@ -3,7 +3,7 @@
     <div class="color-scheme-toggle" role="radiogroup" tabindex="0" aria-label="Select a color scheme preference">
       <label v-for="(item, index) in items" :key="index" :for="item.id">
         <input :id="item.id" type="radio" autocomplete="off" name="color-scheme"
-          :onchange="`window.setPreferredColorScheme(${item.id})`" :value="item.id" />
+          :onchange="`window.setPreferredColorScheme(${item.id})`" :value="item.id" :checked="item.checked" />
         <div class="text">{{ item.label }}</div>
       </label>
     </div>
@@ -15,9 +15,9 @@ export default defineComponent({
   name: "ColorSchemeToggle",
   setup() {
     const items = reactive([
-      { id: "light", label: "Light" },
-      { id: "dark", label: "Dark" },
-      { id: "auto", label: "Auto" },
+      { id: "light", label: "Light", checked: false },
+      { id: "dark", label: "Dark", checked: false },
+      { id: "auto", label: "Auto", checked: true },
     ]);
 
     return {
