@@ -38,7 +38,6 @@ export default defineComponent({
 
 <style scoped>
 .badge {
-  height: 100%;
   display: flex;
   align-items: center;
   font-size: 11px;
