@@ -30,10 +30,10 @@
               </label>
             </div>
             <ColorSchemeToggle />
-            <div class="theme-button">
+            <!-- <div class="theme-button">
               <input @input="toggleTheme()" v-model="themeDark" type="checkbox" class="btn-input" />
               <span></span>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

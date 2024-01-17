@@ -1,30 +1,31 @@
 <template>
   <div class="content">
     <div class="color-scheme-toggle" role="radiogroup" tabindex="0" aria-label="Select a color scheme preference">
-      <label>
-        <input type="radio" value="light" autocomplete="off"
-          onchange="window.setPreferredColorScheme(event.target.value)" />
-
-        <div class="text">Light</div>
-      </label>
-
-      <label>
-        <input type="radio" value="dark" autocomplete="off"
-          onchange="window.setPreferredColorScheme(event.target.value)" />
-
-        <div class="text">Dark</div>
-      </label>
-
-      <label>
-        <input type="radio" value="auto" autocomplete="off"
-          onchange="window.setPreferredColorScheme(event.target.value)" />
-        <div class="text">Auto</div>
+      <label v-for="(item, index) in items" :key="index" :for="item.id">
+        <input :id="item.id" type="radio" autocomplete="off" name="color-scheme"
+          :onchange="`window.setPreferredColorScheme(${item.id})`" :value="item.id" />
+        <div class="text">{{ item.label }}</div>
       </label>
     </div>
   </div>
 </template>
 
-<script lang="ts"></script>
+<script lang="ts">
+export default defineComponent({
+  name: "ColorSchemeToggle",
+  setup() {
+    const items = reactive([
+      { id: "light", label: "Light" },
+      { id: "dark", label: "Dark" },
+      { id: "auto", label: "Auto" },
+    ]);
+
+    return {
+      items,
+    };
+  },
+});
+</script>
 
 <style scoped>
 .color-scheme-toggle {
