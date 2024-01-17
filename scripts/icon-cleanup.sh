@@ -23,11 +23,11 @@ process_svgs() {
       "$file"
 
     sed -i '' \
-      -e 's/fill="#ffffff" fill-opacity="0.55"/fill="var(--color-secondary)"/g' \
+      -e 's/fill="#ffffff" fill-opacity="0.425"/fill="var(--color-secondary)"/g' \
       "$file"
 
     sed -i '' \
-      -e 's/fill="#ffffff" fill-opacity="0.25"/fill="var(--color-tertiary)"/g' \
+      -e 's/fill="#ffffff" fill-opacity="0.2125"/fill="var(--color-tertiary)"/g' \
       "$file"
 
     width=$(grep -m1 -o 'width="[0-9.]*"' "$file" | awk -F'"' '{print $2}')
