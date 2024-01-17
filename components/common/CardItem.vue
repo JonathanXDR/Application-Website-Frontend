@@ -1,15 +1,10 @@
 <template>
-  <component
-    :is="variant === 'article' ? 'div' : 'a'"
-    :id="card.title?.toLowerCase().replace(/ /g, '-')"
+  <component :is="variant === 'article' ? 'div' : 'a'" :id="card.title?.toLowerCase().replace(/ /g, '-')"
     :href="applyHover && card.links ? card.links[0].url : card.html_url"
-    :class="['scroll-animation scroll-animation--off', variant, size]"
-    target="_blank"
-    v-animation="{
+    :class="['scroll-animation scroll-animation--off', variant, size]" target="_blank" v-animation="{
       add: ['scroll-animation--on'],
       remove: ['scroll-animation--off'],
-    }"
-  >
+    }">
     <div v-if="cover || donutGraph || barGraph" class="card-cover-wrap">
       <picture v-if="cover" class="card-cover">
         <img decoding="async" loading="lazy" :src="cover" />
@@ -38,20 +33,15 @@
         <div class="donut-container">
           <figure class="donut">
             <svg class="ac-graph-svg ac-graph-donut">
-              <path
-                class="ac-graph-path donut-wedge wedge-1"
-                d="M 113.99911851558227 0.07271925905595822 A 110 110 0 0 1 106.00088148441777 219.92728074094404 A 110 110 0 0 1 25.14997985191927 180.00338621002766 L 32.09225422767132 174.27583642920723 A 101 101 0 0 0 106.32808209023814 210.93323049850318 A 101 101 0 0 0 113.6719179097619 9.066769501496836 Z"
-              ></path>
-              <path
-                class="ac-graph-path donut-wedge wedge-2"
-                d="M 20.287609232531437 173.6528628011735 A 110 110 0 0 1 105.31027149295572 0.10001616683369718 L 105.69397655262298 9.09183302591093 A 101 101 0 0 0 27.62771393168795 168.44490129925933 Z"
-              ></path>
+              <path class="ac-graph-path donut-wedge wedge-1"
+                d="M 113.99911851558227 0.07271925905595822 A 110 110 0 0 1 106.00088148441777 219.92728074094404 A 110 110 0 0 1 25.14997985191927 180.00338621002766 L 32.09225422767132 174.27583642920723 A 101 101 0 0 0 106.32808209023814 210.93323049850318 A 101 101 0 0 0 113.6719179097619 9.066769501496836 Z">
+              </path>
+              <path class="ac-graph-path donut-wedge wedge-2"
+                d="M 20.287609232531437 173.6528628011735 A 110 110 0 0 1 105.31027149295572 0.10001616683369718 L 105.69397655262298 9.09183302591093 A 101 101 0 0 0 27.62771393168795 168.44490129925933 Z">
+              </path>
             </svg>
           </figure>
-          <h4
-            class="sector-labels typography-donut-label"
-            style="color: var(--color-fill-tertiary) !important"
-          >
+          <h4 class="sector-labels typography-donut-label" style="color: var(--color-fill-tertiary) !important">
             <span>Global</span>
           </h4>
         </div>
@@ -71,96 +61,74 @@
         </div>
       </div>
     </div>
-    <div
-      class="details"
-      :style="{
-        'flex-direction': getFlexDirection(),
-        'align-items': getAlignItems(),
-      }"
-    >
-      <Icon
-        v-if="card.icon"
-        :name="card.icon?.name"
-        :size="card.icon?.size"
-        :colors="card.icon?.colors"
-        :class="[
-          'icon',
-          {
-            'icon-large': variant === 'article' && size === 'large',
-          },
-          {
-            'icon-xlarge': size === 'medium' || size === 'small',
-          },
-          {
-            'icon-xxlarge': variant === 'card' && size === 'large',
-          },
-        ]"
-      />
+    <div class="details" :style="{
+      'flex-direction': getFlexDirection(),
+      'align-items': getAlignItems(),
+    }">
+      <Icon v-if="card.icon" :name="card.icon?.name" :size="card.icon?.size" :colors="card.icon?.colors" :class="[
+        'icon',
+        {
+          'icon-large': variant === 'article' && size === 'large',
+        },
+        {
+          'icon-xlarge': size === 'medium' || size === 'small',
+        },
+        {
+          'icon-xxlarge': variant === 'card' && size === 'large',
+        },
+      ]" />
       <div class="body">
         <div v-if="card.eyebrow" class="eyebrow">{{ card.eyebrow }}</div>
-        <div class="title">{{ card.title || card.name }}</div>
+        <div class="title-wrapper">
+          <div class="title">{{ card.title || card.name }}</div>
+          <Badge title="Public archive" color="yellow" />
+        </div>
         <div v-if="card.description" class="card-content">
           <div class="content">
             {{ card.description }}
           </div>
         </div>
-        <TagBar
-          v-if="card.tags?.length || card.topics?.length"
-          :tags="card.tags || card.topics"
-        />
+        <TagBar v-if="card.tags?.length || card.topics?.length" :tags="card.tags || card.topics" />
         <div v-if="card.links?.length || card.html_url" class="ctas-wrapper">
           <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
           <!-- <a href="photos://" class="icon-wrapper button button-reduced button-neutral">
             <span class="icon-copy"> Open</span>
           </a> -->
 
-          <LinkCollection
-            v-if="card.links?.length || card.html_url"
-            :links="
-              card.links || [
-                {
-                  title: 'Mehr erfahren',
-                  url: card.html_url,
-                  icon: {
-                    name: 'chevron.right',
-                  },
-                },
-              ]
-            "
-            :class="{ link: applyHover }"
-          />
+          <LinkCollection v-if="card.links?.length || card.html_url" :links="card.links || [
+            {
+              title: 'Mehr erfahren',
+              url: card.html_url,
+              icon: {
+                name: 'chevron.right',
+              },
+            },
+          ]
+            " :class="{ link: applyHover }" />
         </div>
-        <InfoBar
-          v-if="
-            card.info ||
-            card.created_at ||
-            card.updated_at ||
-            card.language ||
-            card.license ||
-            card.forks_count ||
-            card.network_count ||
-            card.watchers_count ||
-            card.stargazers_count ||
-            card.open_issues_count ||
-            card.subscribers_count
-          "
-          :info="
-            card.info || {
-              language: card.language,
-              license: card.license?.name,
-              forks: card.forks_count,
-              networks: card.network_count,
-              watchers: card.watchers_count,
-              stars: card.stargazers_count,
-              issues: card.open_issues_count,
-              subscribers: card.subscribers_count,
-              date: card.updated_at,
-            }
-          "
-          :date="card.updated_at"
-          :dateFormatOptions="dateFormatOptions"
-          :dateNowKey="dateNowKey"
-        />
+        <InfoBar v-if="card.info ||
+          card.created_at ||
+          card.updated_at ||
+          card.language ||
+          card.license ||
+          card.forks_count ||
+          card.network_count ||
+          card.watchers_count ||
+          card.stargazers_count ||
+          card.open_issues_count ||
+          card.subscribers_count
+          " :info="card.info || {
+    language: card.language,
+    license: card.license?.name,
+    forks: card.forks_count,
+    networks: card.network_count,
+    watchers: card.watchers_count,
+    stars: card.stargazers_count,
+    issues: card.open_issues_count,
+    subscribers: card.subscribers_count,
+    date: card.updated_at,
+  }
+    " :date="card.updated_at" :dateFormatOptions="dateFormatOptions" :dateNowKey="dateNowKey" />
       </div>
     </div>
   </component>
@@ -173,7 +141,7 @@ export default defineComponent({
     card: {
       type: Object as PropType<any>,
       required: true,
-      default: () => {},
+      default: () => { },
     },
     variant: {
       type: String as PropType<"card" | "article">,
@@ -543,6 +511,13 @@ export default defineComponent({
 
 /* ---------------------------------- title --------------------------------- */
 
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .title {
   color: var(--color-card-content-text);
   font-size: 17px;
@@ -819,6 +794,7 @@ br.medium {
 }
 
 @media only screen and (min-width: 1069px) {
+
   br.medium.medium,
   br.medium.medium {
     display: block !important;
@@ -826,6 +802,7 @@ br.medium {
 }
 
 @media only screen and (min-width: 735px) and (max-width: 1068px) {
+
   br.medium.medium,
   br.medium.medium {
     display: block !important;
