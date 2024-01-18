@@ -239,7 +239,7 @@
           "title": "Englisch",
           "eyebrow": "Fliessend",
           "progress": 60,
-           "links": [
+          "links": [
             {
               "title": "English B1",
               "url": "https://nickzimmermann.com",
@@ -825,6 +825,72 @@
             {
               "title": "Mehr erfahren",
               "url": "https://python.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "text.bubble.fill",
+            "colors": {
+              "primary": "var(--color-fill-tertiary)",
+              "tertiary": "var(--color-fill-gray)"
+            }
+          },
+          "eyebrow": "Language",
+          "title": "Kotlin",
+          "description": "Kotlin habe ich im ÜK 335 gelernt, wo wir als Projektarbeit eine Android App erstellt haben. Dabei konnten wir selbst entscheiden, ob wir Java oder Kotlin verwenden. Ich habe mich für Kotlin entschieden, da ich es interessant fand und es auch eine moderne Programmiersprache ist.",
+          "tags": ["Android", "Mobile", "Object-Oriented"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://kotlinlang.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "text.bubble.fill",
+            "colors": {
+              "primary": "var(--color-fill-tertiary)",
+              "tertiary": "var(--color-fill-gray)"
+            }
+          },
+          "eyebrow": "Language",
+          "title": "Jetpack Compose",
+          "description": "Ich habe Jetpack Compose das erste mal zusammen mit Kotlin im ÜK 335 verwendet, wo wir eine Android App erstellt haben.",
+          "tags": ["Android", "Mobile", "UI"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://kotlinlang.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "building.columns.fill",
+            "colors": {
+              "primary": "var(--color-fill-tertiary)",
+              "tertiary": "var(--color-fill-gray)"
+            }
+          },
+          "eyebrow": "Library",
+          "title": "Material Design 3",
+          "description": "Während meiner Projektarbeit im ÜK 335 habe ich Material Design 3 verwendet, um die Android App zu gestalten.",
+          "tags": ["Android", "Mobile", "UI"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://kotlinlang.org",
               "icon": {
                 "name": "chevron.right"
               }

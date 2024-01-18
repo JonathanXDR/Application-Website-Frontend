@@ -1,9 +1,21 @@
 <template>
   <div class="content">
-    <div class="color-scheme-toggle" role="radiogroup" tabindex="0" aria-label="Select a color scheme preference">
+    <div
+      class="color-scheme-toggle"
+      role="radiogroup"
+      tabindex="0"
+      aria-label="Select a color scheme preference"
+    >
       <label v-for="(item, index) in items" :key="index" :for="item.id">
-        <input :id="item.id" type="radio" autocomplete="off" name="color-scheme"
-          :onchange="`window.setPreferredColorScheme(${item.id})`" :value="item.id" :checked="item.checked" />
+        <input
+          :id="item.id"
+          type="radio"
+          autocomplete="off"
+          name="color-scheme"
+          :onchange="`window.setPreferredColorScheme(${item.id})`"
+          :value="item.id"
+          :checked="item.checked"
+        />
         <div class="text">{{ item.label }}</div>
       </label>
     </div>
@@ -36,7 +48,7 @@ export default defineComponent({
   color: var(--toggle-color-text);
 }
 
-.color-scheme-toggle input:checked+.text {
+.color-scheme-toggle input:checked + .text {
   color: var(--color-button-text);
   background: var(--color-button-background);
   border-color: var(--color-button-background);
@@ -104,7 +116,7 @@ export default defineComponent({
   cursor: pointer;
 }
 
-.content input[type="radio"]:checked+.text {
+.content input[type="radio"]:checked + .text {
   --toggle-color-text: var(--color-button-text);
   background: var(--toggle-color-fill);
   border-color: var(--toggle-color-fill);

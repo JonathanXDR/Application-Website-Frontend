@@ -1,12 +1,20 @@
 <template>
-  <span class="badge" :style="`--color-figure: var(--color-figure-${props.color})`">
-    <Icon v-if="props.icon" :name="props.icon.name" :size="props.icon.size" :colors="props.icon.colors" />
+  <span
+    class="badge"
+    :style="`--color-figure: var(--color-figure-${props.color})`"
+  >
+    <Icon
+      v-if="props.icon"
+      :name="props.icon.name"
+      :size="props.icon.size"
+      :colors="props.icon.colors"
+    />
     {{ props.title }}
   </span>
 </template>
 
 <script lang="ts">
-import type { IconType } from '~/types/common/Icon';
+import type { IconType } from "~/types/common/Icon";
 
 export default defineComponent({
   name: "Badge",
@@ -33,7 +41,6 @@ export default defineComponent({
     };
   },
 });
-
 </script>
 
 <style scoped>
@@ -43,9 +50,15 @@ export default defineComponent({
   font-size: 11px;
   line-height: 1.3333733333;
   font-weight: 400;
-  letter-spacing: -.01em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  letter-spacing: -0.01em;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   padding-inline: 10px;
   white-space: nowrap;
   background: none;
