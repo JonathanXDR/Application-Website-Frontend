@@ -2,7 +2,7 @@
   <section id="copyright">
     <p>Copyright © {{ currentYear }} Jonathan Russ. All rights reserved.</p>
   </section>
-  <LanguagePicker />
+  <LanguagePickerBar />
   <ShareSheet />
 </template>
 

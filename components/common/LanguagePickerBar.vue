@@ -5,13 +5,8 @@
     </span>
     <ul class="locale-lang language-picker-wrapper">
       <li v-for="lang in languages" :key="lang.key">
-        <input
-          type="radio"
-          @click="changeLang(lang.key)"
-          name="language"
-          :id="lang.key"
-          :checked="$i18n.locale === lang.key"
-        />
+        <input type="radio" @click="changeLang(lang.key)" name="language" :id="lang.key"
+          :checked="$i18n.locale === lang.key" />
         <label :for="lang.key" class="link">
           {{ getLabel(lang) }}
         </label>
@@ -22,7 +17,7 @@
 
 <script lang="ts">
 export default defineComponent({
-  name: "LanguagePicker",
+  name: "LanguagePickerBar",
   props: {
     introText: {
       type: Boolean as PropType<boolean>,
@@ -96,7 +91,7 @@ export default defineComponent({
   flex-wrap: wrap;
 }
 
-.language-picker-wrapper li > input[type="radio"] {
+.language-picker-wrapper li>input[type="radio"] {
   display: none;
 }
 
@@ -116,7 +111,7 @@ export default defineComponent({
 
 /* ---------------------------------- label --------------------------------- */
 
-input[name="language"]:checked ~ label {
+input[name="language"]:checked~label {
   color: var(--color-fill-gray-secondary) !important;
   pointer-events: none;
 }

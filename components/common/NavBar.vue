@@ -1,51 +1,26 @@
 <template>
-  <input
-    @input="toggleNav()"
-    v-model="navOpen"
-    type="checkbox"
-    id="ac-ln-menustate"
-    :disabled="navDisabled"
-  />
+  <input @input="toggleNav()" v-model="navOpen" type="checkbox" id="ac-ln-menustate" :disabled="navDisabled" />
   <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking"></div>
-  <nav
-    id="ac-localnav"
-    class="ac-localnav-dark ac-localnav-noborder ac-ln-sticking"
-    :class="{ 'nav-open': navOpen }"
-  >
+  <nav id="ac-localnav" class="ac-localnav-dark ac-localnav-noborder ac-ln-sticking" :class="{ 'nav-open': navOpen }">
     <div class="ac-ln-wrapper">
-      <div
-        ref="ac-ln-background"
-        class="ac-ln-background ac-ln-background-transition"
-      ></div>
+      <div ref="ac-ln-background" class="ac-ln-background ac-ln-background-transition"></div>
       <div class="ac-ln-content">
         <div class="ac-ln-title">
           <router-link to="/" class="ac-ln-title">
             <Logo />
           </router-link>
-          <small
-            v-if="nodeEnv === 'development'"
-            :style="{ color: colorBadge?.colorVar }"
-            class="dev-badge"
-            data-tag-name="Dev"
-          ></small>
+          <small v-if="nodeEnv === 'development'" :style="{ color: colorBadge?.colorVar }" class="dev-badge"
+            data-tag-name="Dev"></small>
         </div>
         <div class="ac-ln-menu">
           <div class="ac-ln-menu-tray">
             <ul class="ac-ln-menu-items">
-              <li
-                v-for="(item, index) in items"
-                :key="index"
-                class="ac-ln-menu-item"
-              >
-                <router-link
-                  :to="item.route"
-                  :class="{ current: index === currentSectionIndex }"
-                  class="ac-ln-menu-link"
-                >
+              <li v-for="(item, index) in items" :key="index" class="ac-ln-menu-item">
+                <router-link :to="item.route" :class="{ current: index === currentSectionIndex }" class="ac-ln-menu-link">
                   {{ item.name }}
                 </router-link>
               </li>
-              <!-- <LanguagePicker :introText="false" :shortForm="true" /> -->
+              <!-- <LanguagePickerBar :introText="false" :shortForm="true" /> -->
             </ul>
           </div>
           <div class="ac-ln-actions">
@@ -539,45 +514,27 @@ export default defineComponent({
     transition-delay: 0.42s;
   }
 
-  #ac-ln-menustate:checked
-    ~ #ac-localnav
-    .ac-ln-menu-item:nth-child(1)
-    .ac-ln-menu-link {
+  #ac-ln-menustate:checked~#ac-localnav .ac-ln-menu-item:nth-child(1) .ac-ln-menu-link {
     transition-delay: 0.56s;
   }
 
-  #ac-ln-menustate:checked
-    ~ #ac-localnav
-    .ac-ln-menu-item:nth-child(2)
-    .ac-ln-menu-link {
+  #ac-ln-menustate:checked~#ac-localnav .ac-ln-menu-item:nth-child(2) .ac-ln-menu-link {
     transition-delay: 0.49s;
   }
 
-  #ac-ln-menustate:checked
-    ~ #ac-localnav
-    .ac-ln-menu-item:nth-child(3)
-    .ac-ln-menu-link {
+  #ac-ln-menustate:checked~#ac-localnav .ac-ln-menu-item:nth-child(3) .ac-ln-menu-link {
     transition-delay: 0.42s;
   }
 
-  #ac-ln-menustate:checked
-    ~ #ac-localnav
-    .ac-ln-menu-item:nth-child(4)
-    .ac-ln-menu-link {
+  #ac-ln-menustate:checked~#ac-localnav .ac-ln-menu-item:nth-child(4) .ac-ln-menu-link {
     transition-delay: 0.35s;
   }
 
-  #ac-ln-menustate:checked
-    ~ #ac-localnav
-    .ac-ln-menu-item:nth-child(5)
-    .ac-ln-menu-link {
+  #ac-ln-menustate:checked~#ac-localnav .ac-ln-menu-item:nth-child(5) .ac-ln-menu-link {
     transition-delay: 0.28s;
   }
 
-  #ac-ln-menustate:checked
-    ~ #ac-localnav
-    .ac-ln-menu-item:nth-child(6)
-    .ac-ln-menu-link {
+  #ac-ln-menustate:checked~#ac-localnav .ac-ln-menu-item:nth-child(6) .ac-ln-menu-link {
     transition-delay: 0.21s;
   }
 }
@@ -631,9 +588,7 @@ export default defineComponent({
   pointer-events: none;
 }
 
-#ac-ln-menustate:checked
-  ~ .ac-localnav-dark#ac-localnav
-  .ac-ln-menu-link.current {
+#ac-ln-menustate:checked~.ac-localnav-dark#ac-localnav .ac-ln-menu-link.current {
   opacity: 0.56;
 }
 
@@ -762,12 +717,12 @@ a:disabled {
   }
 }
 
-.nav-open ~ #ac-ln-curtain {
+.nav-open~#ac-ln-curtain {
   transition: opacity 1s ease 0.1s !important;
 }
 
 @media only screen and (max-width: 1250px) {
-  .nav-open ~ #ac-ln-curtain {
+  .nav-open~#ac-ln-curtain {
     opacity: 1 !important;
     right: 0 !important;
     bottom: 0 !important;
@@ -848,20 +803,20 @@ input[type="checkbox"]#active {
   z-index: 0;
 }
 
-.theme-button input[type="checkbox"]:checked + span {
+.theme-button input[type="checkbox"]:checked+span {
   background: #000;
 }
 
-.theme-button input[type="checkbox"]:active + span {
+.theme-button input[type="checkbox"]:active+span {
   opacity: 0.5;
 }
 
-.theme-button input[type="checkbox"]:checked + span:before {
+.theme-button input[type="checkbox"]:checked+span:before {
   background: #000;
   transform: translate(56px, -19px);
 }
 
-.theme-button input[type="checkbox"]:checked + span:after {
+.theme-button input[type="checkbox"]:checked+span:after {
   background: #fff;
   transform: translate(79px, 0);
 }
