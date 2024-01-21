@@ -33,6 +33,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.link:hover {
+  color: var(--color-figure-blue) !important;
+}
+
 /* --------------------------- sharesheet-options --------------------------- */
 
 .sharesheet-options {
