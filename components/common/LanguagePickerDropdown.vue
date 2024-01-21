@@ -1,10 +1,12 @@
 <template>
-  <div class="DeveloperLanguagePicker DeveloperLanguagePicker_DeveloperLanguagePicker__RV16Y">
-    <div class="language-dropdown dropdown-container legacy-form">
-      <select class="I18nLanguageSelect_I18nLanguageSelect__f3ZyV">
-        <option v-for="lang in languages" :key="lang.key" :value="lang.key">{{ lang.title }}</option>
+  <div class="language-picker-dropdown">
+    <div class="dropdown-container legacy-form">
+      <select class="dropdown-select">
+        <option v-for="lang in languages" :key="lang.key" :value="lang.key">
+          {{ lang.title }}
+        </option>
       </select>
-      <span class="DeveloperLanguagePicker_DropdownArrow__r29TD icon icon-chevrondown"></span>
+      <Icon name="chevron.down" class="icon icon-xsmall" />
     </div>
   </div>
 </template>
@@ -64,86 +66,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-/*! CSS Used from: https://developer.apple.com/assets/styles/dark-mode.css */
-html body[data-color-scheme='dark'] .dropdown-container select,
-html body[data-color-scheme='dark'] .dropdown-container {
-  color: var(--glyph-blue);
-}
-
-html body[data-color-scheme='dark'] .dropdown-container select,
-html body[data-color-scheme='dark'] .dropdown-container:hover * {
-  color: var(--glyph-blue);
-}
-
-html body.dmf select {
-  color: var(--glyph-gray);
-}
-
-html body.dmf .dropdown-container select,
-html body.dmf .dropdown-container:hover * {
-  color: var(--glyph-blue);
-}
-
-/*! CSS Used from: https://developer.apple.com/account/_next/static/css/f148b6570a351e02.css */
-/*! @import https://developer.apple.com/assets/styles/globalnav.css */
-select {
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga", "kern";
-}
-
-/*! end @import */
-/*! @import https://developer.apple.com/assets/styles/global.dist.css */
-:focus {
-  outline: 4px solid rgba(0, 125, 250, 0.6);
-  outline-offset: 1px;
-}
-
-select {
-  font-synthesis: none;
-  -moz-font-feature-settings: 'kern';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  direction: ltr;
-  text-align: left;
-}
-
-.icon::before,
-.icon::after {
-  font-family: "SF Pro Icons";
-  color: inherit;
-  display: inline-block;
-  font-style: normal;
-  font-weight: inherit;
-  font-size: inherit;
-  line-height: 1;
-  text-decoration: underline;
-  position: relative;
-  z-index: 1;
-  alt: '';
-}
-
-.icon::before,
-.icon::after {
-  text-decoration: none;
-}
-
-.icon::before {
-  display: none;
-}
-
-.icon-chevrondown::before,
-.icon-chevrondown::after {
-  content: "";
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
 .legacy-form select {
   background: transparent;
   width: 100%;
@@ -159,135 +81,52 @@ select {
   cursor: pointer;
 }
 
-.legacy-form select,
-.legacy-form select:focus {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.legacy-form select:focus {
-  border-color: #0088cc;
-  outline: 0;
-  box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.3);
-  z-index: 9;
-}
-
-/*! end @import */
-/*! CSS Used from: https://developer.apple.com/account/_next/static/css/1f42f4c7b0eeb9b3.css */
-.I18nLanguageSelect_I18nLanguageSelect__f3ZyV {
-  color: #06c;
+.dropdown-select {
+  color: var(--color-figure-blue);
   font-weight: 600;
   line-height: 1.333333;
   display: inline;
   direction: rtl;
   width: auto;
   height: auto;
-  padding: 0 .75rem 0 0;
+  padding: 0 0.75rem 0 0;
   border-radius: 0;
   -webkit-appearance: none;
   appearance: none;
   outline: none;
 }
 
-.DeveloperLanguagePicker_DeveloperLanguagePicker__RV16Y {
+.language-picker-dropdown {
   display: inline-block;
   font-size: 12px;
 }
 
-.DeveloperLanguagePicker_DeveloperLanguagePicker__RV16Y>div {
-  display: inline;
-  position: relative;
-  float: right;
-  z-index: 2;
-}
-
-.DeveloperLanguagePicker_DeveloperLanguagePicker__RV16Y select {
-  color: #06c;
+.language-picker-dropdown select {
+  color: var(--color-figure-blue);
   font-weight: 600;
   line-height: 1.333333;
   display: inline;
   direction: rtl;
   width: auto;
   height: auto;
-  padding: 0 .75rem 0 0;
+  padding: 0 0.75rem 0 0;
   border-radius: 0;
   -webkit-appearance: none;
   appearance: none;
   outline: none;
 }
 
-.DeveloperLanguagePicker_DropdownArrow__r29TD {
+.dropdown-arrow {
   position: absolute;
   right: 0;
   line-height: 1.3;
   pointer-events: none;
 }
 
-/*! CSS Used from: https://developer.apple.com/account/_next/static/css/135353ed80c5a988.css */
-.I18nLanguageSelect_I18nLanguageSelect__f3ZyV {
-  color: #06c;
-  font-weight: 600;
-  line-height: 1.333333;
-  display: inline;
-  direction: rtl;
-  width: auto;
-  height: auto;
-  padding: 0 .75rem 0 0;
-  border-radius: 0;
-  -webkit-appearance: none;
-  appearance: none;
-  outline: none;
-}
-
-.DeveloperLanguagePicker_DeveloperLanguagePicker__RV16Y {
-  display: inline-block;
-  font-size: 12px;
-}
-
-.DeveloperLanguagePicker_DeveloperLanguagePicker__RV16Y>div {
-  display: inline;
-  position: relative;
-  float: right;
-  z-index: 2;
-}
-
-.DeveloperLanguagePicker_DeveloperLanguagePicker__RV16Y select {
-  color: #06c;
-  font-weight: 600;
-  line-height: 1.333333;
-  display: inline;
-  direction: rtl;
-  width: auto;
-  height: auto;
-  padding: 0 .75rem 0 0;
-  border-radius: 0;
-  -webkit-appearance: none;
-  appearance: none;
-  outline: none;
-}
-
-.DeveloperLanguagePicker_DropdownArrow__r29TD {
-  position: absolute;
-  right: 0;
-  line-height: 1.3;
-  pointer-events: none;
-}
-
-/*! CSS Used from: https://developer.apple.com/assets/styles/globalnav.css?23182355271 */
-select {
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga", "kern";
-}
-
-/*! CSS Used from: https://developer.apple.com/assets/styles/language-dropdown.css?23182355271 */
 .dropdown-container {
-  display: inline;
-  position: relative;
-  float: right;
-  z-index: 2;
+  display: flex;
+  align-items: center;
+  color: var(--color-figure-blue);
 }
 
 @media only screen and (max-width: 767px) {
@@ -297,7 +136,7 @@ select {
 }
 
 .dropdown-container select {
-  color: #0066CC;
+  color: var(--color-figure-blue);
   font-weight: 600;
   line-height: 1.333333;
   display: inline;
@@ -322,15 +161,9 @@ select {
     transform: scale(0.719);
   }
 
-  .dropdown-container select:active+span {
+  .dropdown-container select:active + span {
     display: none;
   }
-}
-
-.dropdown-container select:active,
-.dropdown-container select:focus {
-  border: none;
-  outline: none;
 }
 
 .dropdown-container option {
@@ -339,7 +172,6 @@ select {
 
 .dropdown-container:hover * {
   text-decoration: underline;
-  color: #000;
 }
 
 .dropdown-container span {
