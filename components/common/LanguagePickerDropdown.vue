@@ -129,12 +129,6 @@ export default defineComponent({
   color: var(--color-figure-blue);
 }
 
-@media only screen and (max-width: 767px) {
-  .dropdown-container {
-    padding-top: 12px;
-  }
-}
-
 .dropdown-container select {
   color: var(--color-figure-blue);
   font-weight: 600;
@@ -151,31 +145,15 @@ export default defineComponent({
 }
 
 @media (max-width: 850px) {
-  .dropdown-container select {
-    direction: ltr;
-  }
 
   .dropdown-container select:active {
     font-size: 16px;
     transform-origin: top left;
     transform: scale(0.719);
   }
-
-  .dropdown-container select:active + span {
-    display: none;
-  }
-}
-
-.dropdown-container option {
-  direction: ltr;
 }
 
 .dropdown-container:hover * {
   text-decoration: underline;
-}
-
-.dropdown-container span {
-  pointer-events: none;
-  position: absolute;
 }
 </style>
