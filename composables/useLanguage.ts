@@ -1,27 +1,22 @@
 export const useLanguage = () => {
-  const { locale, setLocale, locales } = useI18n();
+  const { locale, locales, setLocale } = useI18n();
   const currentLanguage = useState<string>("currentLanguage", () =>
     detectInitialLanguage()
   );
 
-  const availableLanguages = computed(() =>
-    locales.value.map((l) => (typeof l === "string" ? l : l.code))
-  );
+  const availableLanguages = () => {
+    return locales.value.map((l) => ({ code: l, name: l }));
+  };
 
-  function detectInitialLanguage(): string {
+  const detectInitialLanguage = () => {
     const storedLang = localStorage.getItem("userLanguage");
     return storedLang || locale.value;
-  }
+  };
 
-  function setLanguage(lang: string) {
-    currentLanguage.value = lang;
+  const setLanguage = (lang: string) => {
     setLocale(lang);
-    updateStorage(lang);
-  }
-
-  function updateStorage(lang: string) {
     localStorage.setItem("userLanguage", lang);
-  }
+  };
 
   return {
     currentLanguage,
