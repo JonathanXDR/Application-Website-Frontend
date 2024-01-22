@@ -1,41 +1,100 @@
-import { useState } from "#app";
+import { useI18n } from "vue-i18n";
 
 export const useLanguage = () => {
-  const currentLanguage = useState("currentLanguage", () => "en");
-  const availableLanguages = useState("availableLanguages", () => ({
-    en: "English",
-    de: "Deutsch",
-    fr: "Français",
-    it: "Italiano",
-  }));
+  const { locale, setLocale } = useI18n();
+  const currentLanguage = useState<string>("currentLanguage", () =>
+    detectInitialLanguage()
+  );
+  const availableLanguages = useState<{ [key: string]: string }>(
+    "availableLanguages",
+    () => languageNames
+  );
 
-  const languageLocales = {
-    en: ["en", "en-US", "en-GB"],
-    de: ["de", "de-DE"],
-    fr: ["fr", "fr-FR"],
-    it: ["it", "it-IT"],
+  const languageLocales: { [key: string]: string[] } = {
+    en: [
+      "en",
+      "en-au",
+      "en-ca",
+      "en-in",
+      "en-nz",
+      "en-za",
+      "en-gb-oxendict",
+      "en-gb",
+      "en-us",
+    ],
+    zh_CN: ["zh-cn"],
+    zh_TW: ["zh-tw"],
+    ja_JP: ["ja", "ja-jp"],
+    ko_KR: ["ko", "ko-kr"],
+    de_DE: ["de", "de-at", "de-de", "de-li", "de-ch"],
+    es_lamr: [
+      "es",
+      "es-ar",
+      "es-cl",
+      "es-co",
+      "es-cr",
+      "es-hn",
+      "es-419",
+      "es-lamr",
+      "es-mx",
+      "es-pe",
+      "es-es",
+      "es-us",
+      "es-uy",
+      "es-ve",
+    ],
+    fr_FR: ["fr", "fr-ca", "fr-fr", "fr-ch"],
+    it_IT: ["it", "it-it", "it-ch"],
+    pt_BR: ["pt", "pt-br", "pt-pt"],
   };
 
-  function setLanguage(lang: string) {
-    currentLanguage.value = lang;
-    const { i18n } = useNuxtApp();
+  const languageNames: { [key: string]: string } = {
+    en: "English",
+    "zh-CN": "简体中文",
+    "zh-TW": "繁體中文",
+    "ja-JP": "日本語",
+    "ko-KR": "한국어",
+    "de-DE": "Deutsch",
+    "es-lamr": "Español",
+    "fr-FR": "Français",
+    "it-IT": "Italiano",
+    "pt-BR": "Português",
+  };
 
-    if (i18n) {
-      i18n.locale = lang;
+  function detectInitialLanguage(): string {
+    try {
+      const storedLang = localStorage.getItem("userLanguage");
+      const browserLang = navigator.language.slice(0, 2);
+      return storedLang || (languageLocales[browserLang] ? browserLang : "en");
+    } catch (error) {
+      console.error("Error detecting initial language:", error);
+      return "en";
     }
   }
 
-  function suggestLanguage() {
-    const browserLang = navigator.language.slice(0, 2);
-    if (Object.keys(languageLocales).includes(browserLang)) {
-      setLanguage(browserLang);
+  function setLanguage(lang: string) {
+    try {
+      currentLanguage.value = lang;
+      locale.value = lang;
+      setLocale(lang);
+      localStorage.setItem("userLanguage", lang);
+      document.documentElement.lang = lang;
+    } catch (error) {
+      console.error("Error setting language:", error);
     }
+  }
+
+  function generateLanguageOptions() {
+    const pageLang = document.documentElement.lang;
+    return Object.keys(languageNames)
+      .filter((lang) => lang !== pageLang)
+      .map((lang) => ({ lang, name: languageNames[lang] }));
   }
 
   return {
     currentLanguage,
     availableLanguages,
     setLanguage,
-    suggestLanguage,
+    generateLanguageOptions,
   };
 };

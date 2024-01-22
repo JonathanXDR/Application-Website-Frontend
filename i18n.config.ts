@@ -8,6 +8,11 @@ export default {
   legacy: false,
   locale: "en",
   fallbackLocale: "de",
+  detectBrowserLanguage: {
+    useCookie: true,
+    cookieKey: "i18n_redirected",
+    redirectOn: "root",
+  },
   messages: {
     en,
     de,
