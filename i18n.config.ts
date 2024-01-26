@@ -1,13 +1,31 @@
-import de from "~/locales/de.json";
-import en from "~/locales/en.json";
-import fr from "~/locales/fr.json";
-import it from "~/locales/it.json";
+import de from "~/lang/de-DE.json";
+import en from "~/lang/en-US.json";
+import fr from "~/lang/fr-FR.json";
+import it from "~/lang/it-IT.json";
 
 /** @type {import('i18n').Config} */
 export default {
   legacy: false,
-  locale: "en",
-  fallbackLocale: "de",
+  locales: [
+    {
+      code: "de",
+      name: "Deutsch",
+    },
+    {
+      code: "en",
+      name: "English",
+    },
+    {
+      code: "fr",
+      name: "Français",
+    },
+    {
+      code: "it",
+      name: "Italiano",
+    },
+  ],
+  defaultLocale: "de",
+  fallbackLocale: "en",
   detectBrowserLanguage: {
     useCookie: true,
     cookieKey: "i18n_redirected",
