@@ -57,7 +57,12 @@ export default defineComponent({
 
     watch(currentTheme, (newTheme) => {
       items.forEach((item) => {
-        item.checked = item.id === newTheme;
+        item.checked = Boolean(item.checked);
+        newTheme === "auto"
+          ? window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light" === item.id
+          : item.id === newTheme;
       });
     });
 

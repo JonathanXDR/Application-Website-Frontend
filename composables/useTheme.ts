@@ -2,23 +2,33 @@ export const useTheme = () => {
   const colorMode = useColorMode();
   const themeCookie = useCookie("theme");
 
-  if (process.server) {
-    colorMode.preference = themeCookie.value || "system";
-  }
-
   const setTheme = (theme: string) => {
-    colorMode.preference = theme;
-    themeCookie.value = theme;
-
     if (theme === "auto") {
-      document.documentElement.className =
-        colorMode.value === "dark" ? "dark-mode" : "light-mode";
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light";
+      document.documentElement.className = `${systemTheme}-mode`;
+      colorMode.preference = systemTheme;
+    } else {
+      document.documentElement.className = `${theme}-mode`;
+      colorMode.preference = theme;
     }
+    themeCookie.value = theme;
   };
 
   const getTheme = () => {
-    return colorMode.preference;
+    return themeCookie.value || "auto";
   };
+
+  const initializeTheme = () => {
+    const savedTheme = themeCookie.value || "auto";
+    setTheme(savedTheme);
+  };
+
+  if (process.client) {
+    initializeTheme();
+  }
 
   return { getTheme, setTheme };
 };
