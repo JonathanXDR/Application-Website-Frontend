@@ -74,11 +74,11 @@ const items: Ref<SectionType[]> = computed(() =>
 const themeDark: Ref<boolean> = ref(false);
 const navOpen: Ref<boolean> = ref(false);
 const navDisabled: Ref<boolean> = ref(false);
-
 const nodeEnv = computed(() => process.env.NODE_ENV);
 
 const { colorBadge } = useColor();
 const { currentSection } = useSection();
+const { getTheme } = useTheme();
 const currentSectionIndex = computed(() => currentSection.value.index);
 
 const headerAnimations = computed(() => {
@@ -121,6 +121,12 @@ const updateAnimations = () => {
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
+
+  watch(getTheme, (newTheme, oldTheme) => {
+    if (newTheme !== oldTheme) {
+      updateAnimations();
+    }
+  });
 });
 </script>
 
