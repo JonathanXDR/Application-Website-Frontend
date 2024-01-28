@@ -4,16 +4,16 @@
       {{ $t("components.common.FooterItem.chooseYourLanguage") }}:
     </span>
     <ul class="locale-lang language-picker-wrapper">
-      <li v-for="lang in languages" :key="lang.key">
+      <li v-for="locale in computedLocales" :key="locale.code">
         <input
           type="radio"
-          @click="changeLang(lang.key)"
+          @click="changeLanguage(locale.code)"
           name="language"
-          :id="lang.key"
-          :checked="$i18n.locale === lang.key"
+          :id="locale.code"
+          :checked="currentLocale === locale.code"
         />
-        <label :for="lang.key" class="link">
-          {{ getLabel(lang) }}
+        <label :for="locale.code" class="link">
+          {{ getLabel(locale) }}
         </label>
       </li>
     </ul>
@@ -29,36 +29,30 @@ const props = withDefaults(
   {
     introText: () => true,
     shortForm: () => false,
-  },
+  }
 );
 
-const { locale } = useI18n({ useScope: "global" });
-const languages = reactive([
-  { title: "Deutsch", key: "de", abbr: "DE" },
-  { title: "English", key: "en", abbr: "EN" },
-  { title: "Français", key: "fr", abbr: "FR" },
-  { title: "Italiano", key: "it", abbr: "IT" },
-]);
+const { changeLanguage, initializeLanguage } = useLanguage();
+const { locale: currentLocale, locales } = useI18n({ useScope: "global" });
 
-const changeLang = (lang: string) => {
-  const localStorageLocale = ["de", "en", "fr", "it"].includes(lang)
-    ? lang
-    : "de";
-  localStorage.setItem("language", localStorageLocale);
-  locale.value = localStorageLocale;
-};
+console.log("Locales from i18n:", locales.value);
 
-const getLabel = (lang: { abbr: string; title: string }) => {
-  return props.shortForm ? lang.abbr : lang.title;
+const computedLocales = computed(() =>
+  locales.value.map((locale) => {
+    if (typeof locale === "string") {
+      return { code: locale, name: locale };
+    }
+    return locale;
+  })
+);
+
+const getLabel = (locale: { code: string; name?: string }) => {
+  const label = locale.name || locale.code;
+  return props.shortForm ? locale.code.toUpperCase() : label;
 };
 
 onMounted(() => {
-  if (localStorage.getItem("language") === undefined) {
-    const preferredLanguage = window.navigator.language;
-    changeLang(preferredLanguage);
-  } else {
-    changeLang(localStorage.getItem("language") as string);
-  }
+  initializeLanguage();
 });
 </script>
 

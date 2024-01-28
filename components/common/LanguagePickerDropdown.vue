@@ -1,9 +1,13 @@
 <template>
   <div class="language-picker-dropdown">
     <div class="dropdown-container legacy-form">
-      <select class="dropdown-select">
-        <option v-for="lang in languages" :key="lang.key" :value="lang.key">
-          {{ lang.title }}
+      <select class="dropdown-select" v-model="currentLocale">
+        <option
+          v-for="locale in computedLocales"
+          :key="locale.code"
+          :value="locale.code"
+        >
+          {{ locale.name }}
         </option>
       </select>
       <Icon name="chevron.down" class="icon icon-xsmall" />
@@ -11,45 +15,25 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-const props = withDefaults(
-  defineProps<{
-    introText?: boolean;
-    shortForm?: boolean;
-  }>(),
-  {
-    introText: () => true,
-    shortForm: () => false,
-  },
+<script setup lang="ts">
+const { changeLanguage, initializeLanguage } = useLanguage();
+const { locale: currentLocale, locales } = useI18n({ useScope: "global" });
+
+const computedLocales = computed(() =>
+  locales.value.map((locale) => {
+    if (typeof locale === "string") {
+      return { code: locale, name: locale };
+    }
+    return locale;
+  })
 );
 
-const { locale } = useI18n({ useScope: "global" });
-const languages = reactive([
-  { title: "Deutsch", key: "de", abbr: "DE" },
-  { title: "English", key: "en", abbr: "EN" },
-  { title: "Français", key: "fr", abbr: "FR" },
-  { title: "Italiano", key: "it", abbr: "IT" },
-]);
-
-const changeLang = (lang: string) => {
-  const localStorageLocale = ["de", "en", "fr", "it"].includes(lang)
-    ? lang
-    : "de";
-  localStorage.setItem("language", localStorageLocale);
-  locale.value = localStorageLocale;
-};
-
-const getLabel = (lang: { abbr: string; title: string }) => {
-  return props.shortForm ? lang.abbr : lang.title;
-};
+watch(currentLocale, (newLocale) => {
+  changeLanguage(newLocale);
+});
 
 onMounted(() => {
-  if (localStorage.getItem("language") === undefined) {
-    const preferredLanguage = window.navigator.language;
-    changeLang(preferredLanguage);
-  } else {
-    changeLang(localStorage.getItem("language") as string);
-  }
+  initializeLanguage();
 });
 </script>
 

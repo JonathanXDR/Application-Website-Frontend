@@ -1,13 +1,13 @@
-import de_DE from "~/lang/de-DE.json";
-import en_US from "~/lang/en-US.json";
-import fr_FR from "~/lang/fr-FR.json";
-import it_IT from "~/lang/it-IT.json";
+import de_DE from "./lang/de-DE.json";
+import en_US from "./lang/en-US.json";
+import fr_FR from "./lang/fr-FR.json";
+import it_IT from "./lang/it-IT.json";
 
-/** @type {import('i18n').Config} */
 export default {
   legacy: false,
   lazy: true,
-  langDir: "lang",
+  globalInjection: true,
+  langDir: "lang/",
   defaultLocale: "de",
   fallbackLocale: "en",
   detectBrowserLanguage: {
@@ -20,21 +20,25 @@ export default {
       code: "de",
       iso: "de-DE",
       name: "Deutsch",
+      file: "de-DE.json",
     },
     {
       code: "en",
       iso: "en-US",
       name: "English",
+      file: "en-US.json",
     },
     {
       code: "fr",
       iso: "fr-FR",
       name: "Français",
+      file: "fr-FR.json",
     },
     {
       code: "it",
       iso: "it-IT",
       name: "Italiano",
+      file: "it-IT.json",
     },
   ],
   messages: {
