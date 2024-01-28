@@ -61,80 +61,67 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import type { InfoType } from "~/types/common/Info";
 
 dayjs.extend(relativeTime);
+</script>
 
-export default defineComponent({
-  name: "InfoBar",
-  props: {
-    info: {
-      type: Object as PropType<InfoType>,
-      required: true,
-      default: () => {},
+<script lang="ts" setup>
+const props = withDefaults(
+  defineProps<{
+    info: InfoType;
+    date?: string;
+    dateFormatOptions?: Intl.DateTimeFormatOptions;
+    dateNowKey?: "created" | "updated";
+  }>(),
+  {
+    info: (): InfoType => {
+      return {};
     },
-    date: {
-      type: String as PropType<string>,
-      required: false,
-      default: undefined,
+
+    dateFormatOptions: () => {
+      return {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
     },
-    dateFormatOptions: {
-      type: Object as PropType<Intl.DateTimeFormatOptions>,
-      required: false,
-      default: () => {
-        return {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        };
-      },
-    },
-    dateNowKey: {
-      type: String as PropType<"created" | "updated">,
-      required: false,
-      default: "updated",
-    },
-  },
-  setup(props) {
-    const { locale } = useI18n({ useScope: "global" });
-    const updatedYesterday = computed(() => {
-      if (!props.date) return false;
-      const updatedDate = dayjs(props.date);
-      const currentDate = dayjs();
-      return currentDate.diff(updatedDate, "day") <= 1;
-    });
 
-    const formatDate = (
-      dateString: string,
-      formatOptions: Intl.DateTimeFormatOptions,
-    ) => {
-      return new Date(dateString).toLocaleDateString(
-        locale.value,
-        formatOptions,
-      );
-    };
+    dateNowKey: "updated",
+  }
+);
 
-    const getDate = () => {
-      const formatOptions = props.dateFormatOptions;
-      const dateVariant = props.dateNowKey;
-
-      if (props.info?.date?.from && props.info?.date?.to) {
-        return `${formatDate(
-          props.info?.date.from,
-          formatOptions,
-        )} - ${formatDate(props.info?.date.to, formatOptions)}`;
-      } else if (props.info?.date?.from) {
-        return formatDate(props.info?.date.from, formatOptions);
-      } else if (props.date) {
-        return `${dateVariant.charAt(0).toUpperCase()}${dateVariant.slice(
-          1,
-        )} ${dayjs(props.date).locale(locale.value).fromNow()}`;
-      }
-    };
-
-    return {
-      updatedYesterday,
-      dateTitle: getDate(),
-    };
-  },
+const { locale } = useI18n({ useScope: "global" });
+const updatedYesterday = computed(() => {
+  if (!props.date) return false;
+  const updatedDate = dayjs(props.date);
+  const currentDate = dayjs();
+  return currentDate.diff(updatedDate, "day") <= 1;
 });
+
+const formatDate = (
+  dateString: string,
+  formatOptions: Intl.DateTimeFormatOptions
+) => {
+  return new Date(dateString).toLocaleDateString(locale.value, formatOptions);
+};
+
+const getDate = () => {
+  const formatOptions = props.dateFormatOptions;
+  const dateVariant = props.dateNowKey;
+
+  if (props.info?.date?.from && props.info?.date?.to) {
+    return `${formatDate(props.info?.date.from, formatOptions)} - ${formatDate(
+      props.info?.date.to,
+      formatOptions
+    )}`;
+  } else if (props.info?.date?.from) {
+    return formatDate(props.info?.date.from, formatOptions);
+  } else if (props.date) {
+    return `${dateVariant.charAt(0).toUpperCase()}${dateVariant.slice(
+      1
+    )} ${dayjs(props.date).locale(locale.value).fromNow()}`;
+  }
+};
+
+const dateTitle = getDate();
 </script>
 
 <style scoped>
@@ -148,14 +135,8 @@ export default defineComponent({
   line-height: 1.28577;
   font-weight: 600;
   /* letter-spacing: -0.016em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   display: flex;
   justify-content: flex-start;
   align-items: center;

@@ -13,23 +13,13 @@
   </ul>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import type { FaLinkType } from "~/types/common/FaLink";
 
-export default defineComponent({
-  name: "ShareSheet",
-  setup() {
-    const { tm } = useI18n();
-    const links: Ref<FaLinkType[]> = computed(() =>
-      tm("components.common.ShareSheet.links"),
-    );
-
-    return {
-      tm,
-      links,
-    };
-  },
-});
+const { tm } = useI18n();
+const links: Ref<FaLinkType[]> = computed(() =>
+  tm("components.common.ShareSheet.links"),
+);
 </script>
 
 <style scoped>

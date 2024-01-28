@@ -169,119 +169,80 @@
   </component>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import type { ListUserReposResponse } from "~/types/GitHub/Repository";
 import type { CardItemType } from "~/types/common/CardItem";
 
-export default defineComponent({
-  name: "CardTile",
-  props: {
-    card: {
-      type: Object as PropType<CardItemType | ListUserReposResponse | any>,
-      required: true,
-      default: () => {},
-    },
-    variant: {
-      type: String as PropType<"card" | "article">,
-      required: false,
-      default: "card",
-    },
-    dateFormatOptions: {
-      type: Object as PropType<Intl.DateTimeFormatOptions>,
-      required: false,
-      default: () => {
-        return {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        };
-      },
-    },
-    dateNowKey: {
-      type: String as PropType<"created" | "updated">,
-      required: false,
-      default: "updated",
-    },
-    iconPosition: {
-      type: String as PropType<"top" | "right" | "bottom" | "left">,
-      required: false,
-      default: "left",
-    },
-    iconAlignment: {
-      type: String as PropType<"start" | "center" | "end">,
-      required: false,
-      default: "top",
-    },
-    size: {
-      type: String as PropType<"small" | "medium" | "large" | "full">,
-      required: false,
-      default: "medium",
-    },
-    hover: {
-      type: String as PropType<"auto" | "true" | "false">,
-      required: false,
-      default: "auto",
-    },
-    cover: {
-      type: String as PropType<string>,
-      required: false,
-      default: undefined,
-    },
-    donutGraph: {
-      type: Boolean as PropType<boolean>,
-      required: false,
-      default: false,
-    },
-    barGraph: {
-      type: Boolean as PropType<boolean>,
-      required: false,
-      default: false,
-    },
-  },
-  setup(props) {
-    const applyHover = computed(() => {
-      return (
-        (props.hover === "auto" &&
-          props.card.links &&
-          props.card.links.length === 1) ||
-        props.hover === "true"
-      );
-    });
+const props = withDefaults(
+  defineProps<{
+    card: CardItemType | ListUserReposResponse | any;
+    variant?: "card" | "article";
+    dateFormatOptions?: Intl.DateTimeFormatOptions;
+    dateNowKey?: "created" | "updated";
+    iconPosition?: "top" | "right" | "bottom" | "left";
+    iconAlignment?: "start" | "center" | "end";
+    size?: "small" | "medium" | "large" | "full";
+    hover?: "auto" | "true" | "false";
+    cover?: string;
+    donutGraph?: boolean;
+    barGraph?: boolean;
+  }>(),
+  {
+    card: () => {},
+    variant: "card",
 
-    const getFlexDirection = () => {
-      switch (props.iconPosition) {
-        case "top":
-          return "column";
-        case "right":
-          return "row-reverse";
-        case "bottom":
-          return "column-reverse";
-        case "left":
-        default:
-          return "row";
-      }
-    };
+    dateFormatOptions: () => {
+      return {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+    },
 
-    const getAlignItems = () => {
-      switch (props.iconAlignment) {
-        case "start":
-        case "center":
-          return "center";
-        case "end":
-          return "flex-end";
-        default:
-          return "flex-start";
-      }
-    };
+    dateNowKey: "updated",
+    iconPosition: "left",
+    iconAlignment: "start",
+    size: "medium",
+    hover: "auto",
+    donutGraph: false,
+    barGraph: false,
+  }
+);
 
-    return {
-      applyHover,
-      getFlexDirection,
-      getAlignItems,
-      window,
-    };
-  },
+const applyHover = computed(() => {
+  return (
+    (props.hover === "auto" &&
+      props.card.links &&
+      props.card.links.length === 1) ||
+    props.hover === "true"
+  );
 });
+
+const getFlexDirection = () => {
+  switch (props.iconPosition) {
+    case "top":
+      return "column";
+    case "right":
+      return "row-reverse";
+    case "bottom":
+      return "column-reverse";
+    case "left":
+    default:
+      return "row";
+  }
+};
+
+const getAlignItems = () => {
+  switch (props.iconAlignment) {
+    case "start":
+    case "center":
+      return "center";
+    case "end":
+      return "flex-end";
+    default:
+      return "flex-start";
+  }
+};
 </script>
 
 <style scoped>

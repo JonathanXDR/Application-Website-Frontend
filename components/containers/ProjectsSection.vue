@@ -1,6 +1,6 @@
 <template>
   <h3 class="typography-magical-headline" style="padding-bottom: 50px">
-    {{ props.title }}
+    {{ title }}
   </h3>
   <NavBarExtension>
     <SegmentNav
@@ -13,11 +13,11 @@
     <ul ref="ul" class="timeline">
       <CardItem
         variant="article"
-        :size="window.innerWidth < 900 ? 'small' : 'medium'"
+        :size="windowObject.innerWidth < 900 ? 'small' : 'medium'"
         v-for="(project, index) in currentProjects"
         :key="index"
         :card="project"
-        :iconPosition="window.innerWidth < 900 ? 'top' : 'left'"
+        :iconPosition="windowObject.innerWidth < 900 ? 'top' : 'left'"
         :dateFormatOptions="{
           year: 'numeric',
           month: 'long',
@@ -79,108 +79,87 @@ type Projects = {
   personal: ListUserReposResponse[];
   school: ListUserReposResponse[];
 };
+</script>
 
-export default defineComponent({
-  name: "ProjectsSection",
-  props: {
-    title: {
-      type: String as PropType<string>,
-      required: true,
-      default: undefined,
-    },
-  },
-  async setup(props) {
-    const { tm } = useI18n();
-    const colorStore = useColor();
-    const articles: Ref<CardItemType[]> = computed(() =>
-      tm("components.containers.projects"),
+<script lang="ts" setup>
+defineProps<{
+  title: string;
+}>();
+
+const { tm } = useI18n();
+const colorStore = useColor();
+const articles: Ref<CardItemType[]> = computed(() =>
+  tm("components.containers.projects")
+);
+const projects: Projects = reactive({
+  swisscom: computed(() => tm("components.containers.projects")) as Ref<
+    CardItemType[]
+  >,
+  personal: [] as ListUserReposResponse[],
+  school: [] as ListUserReposResponse[],
+});
+const pinned: Ref<ListUserPinnedReposResponse[]> = ref([]);
+const currentProjects = computed(
+  () =>
+    projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
+);
+
+const currentIndex: Ref<number> = ref(0);
+const randomColor = ref(colorStore.randomizeColor().colorName);
+const windowObject = computed(() => window);
+
+const updateCurrentIndex = (index: number) => {
+  currentIndex.value = index;
+};
+
+const categorizeProject = (project: ListUserReposResponse) => {
+  const schoolProjectPattern =
+    /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/;
+  const category = schoolProjectPattern.test(project.name)
+    ? "school"
+    : "personal";
+  return { ...project, category };
+};
+
+const fetchProjects = async () => {
+  const allProjects = await listUserRepositories({
+    username: "JonathanXDR",
+    perPage: 100,
+  });
+
+  const pinnedProjects = await listPinnedRepositories({
+    username: "JonathanXDR",
+    perPage: 100,
+  });
+
+  pinnedProjects.forEach((project: ListUserPinnedReposResponse) => {
+    project.icon = {
+      name: "pin.fill",
+      colors: {
+        primary: `var(--color-figure-${randomColor.value})`,
+      },
+    };
+  });
+
+  const filteredProjects = allProjects.filter(
+    (project) =>
+      !pinnedProjects.find(
+        (pinnedProject) => pinnedProject.name === project.name
+      )
+  );
+
+  pinned.value = pinnedProjects;
+
+  filteredProjects.map(categorizeProject).forEach((project) => {
+    const category = project.category as keyof Projects;
+    projects[category].push(
+      project as ListUserReposResponse & CardItemType & { category: string }
     );
-    const projects: Projects = reactive({
-      swisscom: computed(() => tm("components.containers.projects")) as Ref<
-        CardItemType[]
-      >,
-      personal: [] as ListUserReposResponse[],
-      school: [] as ListUserReposResponse[],
-    });
-    const pinned: Ref<ListUserPinnedReposResponse[]> = ref([]);
-    const currentProjects = computed(
-      () =>
-        projects[
-          Object.keys(projects)[currentIndex.value] as keyof typeof projects
-        ],
-    );
+  });
+};
 
-    const currentIndex: Ref<number> = ref(0);
-    const randomColor = ref(colorStore.randomizeColor().colorName);
-
-    const updateCurrentIndex = (index: number) => {
-      currentIndex.value = index;
-    };
-
-    const categorizeProject = (project: ListUserReposResponse) => {
-      const schoolProjectPattern =
-        /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/;
-      const category = schoolProjectPattern.test(project.name)
-        ? "school"
-        : "personal";
-      return { ...project, category };
-    };
-
-    const fetchProjects = async () => {
-      const allProjects = await listUserRepositories({
-        username: "JonathanXDR",
-        perPage: 100,
-      });
-
-      const pinnedProjects = await listPinnedRepositories({
-        username: "JonathanXDR",
-        perPage: 100,
-      });
-
-      pinnedProjects.forEach((project: ListUserPinnedReposResponse) => {
-        project.icon = {
-          name: "pin.fill",
-          colors: {
-            primary: `var(--color-figure-${randomColor.value})`,
-          },
-        };
-      });
-
-      const filteredProjects = allProjects.filter(
-        (project) =>
-          !pinnedProjects.find(
-            (pinnedProject) => pinnedProject.name === project.name,
-          ),
-      );
-
-      pinned.value = pinnedProjects;
-
-      filteredProjects.map(categorizeProject).forEach((project) => {
-        const category = project.category as keyof Projects;
-        projects[category].push(
-          project as ListUserReposResponse &
-            CardItemType & { category: string },
-        );
-      });
-    };
-
-    onMounted(() => {
-      fetchProjects();
-    });
-
-    return {
-      window,
-      props,
-      tm,
-      randomColor,
-      articles,
-      projects,
-      currentProjects,
-      pinned,
-      updateCurrentIndex,
-      currentIndex,
-    };
-  },
+onMounted(() => {
+  fetchProjects();
 });
 </script>
 

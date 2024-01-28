@@ -47,32 +47,27 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import type { LanguageBarType } from "~/types/common/LanguageBar";
 
-export default defineComponent({
-  name: "LanguageBarV2",
-  props: {
-    language: {
-      type: Object as PropType<LanguageBarType>,
-      required: true,
-      default: () => ({}),
+withDefaults(
+  defineProps<{
+    language: LanguageBarType;
+  }>(),
+  {
+    language: () => {
+      return {} as LanguageBarType;
     },
-  },
-  setup() {
-    const status = [
-      "Order Placed",
-      "Processing",
-      "Preparing to Ship",
-      "Shipped",
-      "Delivered",
-    ];
+  }
+);
 
-    return {
-      status,
-    };
-  },
-});
+const status = [
+  "Order Placed",
+  "Processing",
+  "Preparing to Ship",
+  "Shipped",
+  "Delivered",
+];
 </script>
 
 <style scoped>
@@ -129,14 +124,8 @@ export default defineComponent({
   line-height: 1.42859;
   font-weight: 400;
   letter-spacing: -0.016em;
-  font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    AOS Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
+  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
+    Arial, sans-serif;
   margin: auto 0;
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
@@ -162,28 +151,16 @@ export default defineComponent({
   line-height: 1.33337;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    AOS Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
+  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
+    Arial, sans-serif;
 }
 .rs-od-itemstatus {
   font-size: 32px;
   line-height: 1.125;
   font-weight: 600;
   letter-spacing: 0.004em;
-  font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    AOS Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
+  font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue,
+    Helvetica, Arial, sans-serif;
   display: block;
   padding-top: 6px;
 }
@@ -193,14 +170,8 @@ export default defineComponent({
     line-height: 1.14286;
     font-weight: 600;
     letter-spacing: 0.007em;
-    font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      AOS Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
+    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue,
+      Helvetica, Arial, sans-serif;
   }
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
@@ -209,14 +180,8 @@ export default defineComponent({
     line-height: 1.16667;
     font-weight: 600;
     letter-spacing: 0.009em;
-    font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      AOS Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
+    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue,
+      Helvetica, Arial, sans-serif;
   }
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
@@ -237,14 +202,8 @@ export default defineComponent({
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    AOS Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
+  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
+    Arial, sans-serif;
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rs-od-itemdesc-wrapper .rs-od-itemdesc {
@@ -278,14 +237,8 @@ export default defineComponent({
   line-height: 1.33337;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    AOS Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
+  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
+    Arial, sans-serif;
   color: var(--color-figure-gray-secondary);
   margin: 12px 0;
   width: inherit;
@@ -327,14 +280,8 @@ export default defineComponent({
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    AOS Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
+  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
+    Arial, sans-serif;
   display: flex;
   align-items: flex-end;
   padding: 8px 0 2px;

@@ -22,9 +22,9 @@
     <CardItem
       variant="article"
       :size="
-        window.innerWidth < 900
+        windowObject.innerWidth < 900
           ? 'small'
-          : window.innerWidth < 1250
+          : windowObject.innerWidth < 1250
           ? 'medium'
           : 'large'
       "
@@ -44,62 +44,46 @@
   <ShareSheet />
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import type { DateItemType } from "~/types/common/DateItem";
 import type { LinkType } from "~/types/common/Link";
 
-export default defineComponent({
-  name: "AboutSection",
-  props: {
-    title: {
-      type: String as PropType<string>,
-      required: true,
-      default: undefined,
-    },
-  },
-  setup(props) {
-    const { tm } = useI18n();
-    const links: Ref<LinkType[]> = computed(() =>
-      tm("components.containers.about.links")
-    );
-    const dateItems: Ref<DateItemType[]> = computed(() =>
-      tm("components.containers.about.dates")
-    );
-    const dates: Ref<{
-      age: number | undefined;
-      apprenticeshipYear: number | undefined;
-    }> = ref({
-      age: undefined,
-      apprenticeshipYear: undefined,
-    });
+defineProps<{
+  title: string;
+}>();
 
-    const calculateYears = (date: string) => {
-      const currentDate = new Date(Date.now());
-      const birthDate = new Date(date);
-      const difference = new Date(currentDate.getTime() - birthDate.getTime());
-      const years = Math.abs(difference.getUTCFullYear() - 1970);
-      return years;
-    };
+const { tm } = useI18n();
+const links: Ref<LinkType[]> = computed(() =>
+  tm("components.containers.about.links")
+);
+const dateItems: Ref<DateItemType[]> = computed(() =>
+  tm("components.containers.about.dates")
+);
+const dates: Ref<{
+  age: number | undefined;
+  apprenticeshipYear: number | undefined;
+}> = ref({
+  age: undefined,
+  apprenticeshipYear: undefined,
+});
+const windowObject = computed(() => window);
 
-    onMounted(async () => {
-      dateItems.value.forEach((item: DateItemType) => {
-        if (item.key in dates.value) {
-          dates.value[item.key as keyof typeof dates.value] = calculateYears(
-            item.date
-          );
-        }
-      });
-    });
+const calculateYears = (date: string) => {
+  const currentDate = new Date(Date.now());
+  const birthDate = new Date(date);
+  const difference = new Date(currentDate.getTime() - birthDate.getTime());
+  const years = Math.abs(difference.getUTCFullYear() - 1970);
+  return years;
+};
 
-    return {
-      window,
-      props,
-      tm,
-      links,
-      dates,
-      calculateYears,
-    };
-  },
+onMounted(async () => {
+  dateItems.value.forEach((item: DateItemType) => {
+    if (item.key in dates.value) {
+      dates.value[item.key as keyof typeof dates.value] = calculateYears(
+        item.date
+      );
+    }
+  });
 });
 </script>
 

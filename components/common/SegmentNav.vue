@@ -35,67 +35,56 @@
   </fieldset>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import type { OptionType } from "~/types/common/Option";
 
-export default defineComponent({
-  name: "SegmentNav",
-  props: {
-    index: {
-      type: Number as PropType<number>,
-      required: true,
-      default: 0,
-    },
-  },
-  setup(props, { emit }) {
-    const { tm } = useI18n();
-    const segmentNavItems: Ref<OptionType[]> = computed(() =>
-      tm("components.common.SegmentNav.items"),
-    );
-    const sortOptions: Ref<OptionType[]> = computed(() =>
-      tm("components.common.SegmentNav.sorts"),
-    );
-    const currentIndex: Ref<number> = ref(props.index);
-    const loading: Ref<boolean> = ref(true);
-    const segmentNavEl: Ref<HTMLUListElement | null> = ref(null);
-    const segments: Ref<Map<number, HTMLElement>> = ref(new Map());
+const props = withDefaults(
+  defineProps<{
+    index: number;
+  }>(),
+  {
+    index: 0,
+  }
+);
+const emit = defineEmits(["update:currentIndex"]);
 
-    const selectionStyle = computed(() => {
-      const segment = segments.value.get(currentIndex.value);
-      return (
-        segment && {
-          width: `${segment.offsetWidth}px`,
-          transform: `translateX(${segment.offsetLeft}px)`,
-        }
-      );
+const { tm } = useI18n();
+const segmentNavItems: Ref<OptionType[]> = computed(() =>
+  tm("components.common.SegmentNav.items")
+);
+const sortOptions: Ref<OptionType[]> = computed(() =>
+  tm("components.common.SegmentNav.sorts")
+);
+const currentIndex: Ref<number> = ref(props.index);
+const loading: Ref<boolean> = ref(true);
+const segmentNavEl: Ref<HTMLUListElement | null> = ref(null);
+const segments: Ref<Map<number, HTMLElement>> = ref(new Map());
+
+const selectionStyle = computed(() => {
+  const segment = segments.value.get(currentIndex.value);
+  return (
+    segment && {
+      width: `${segment.offsetWidth}px`,
+      transform: `translateX(${segment.offsetLeft}px)`,
+    }
+  );
+});
+
+const updateSegments = () => {
+  if (segmentNavEl.value) {
+    const segmentNavItems =
+      segmentNavEl.value.querySelectorAll(".segmentnav-item");
+    segmentNavItems.forEach((item, index) => {
+      segments.value.set(index, item as HTMLElement);
     });
 
-    const updateSegments = () => {
-      if (segmentNavEl.value) {
-        const segmentNavItems =
-          segmentNavEl.value.querySelectorAll(".segmentnav-item");
-        segmentNavItems.forEach((item, index) => {
-          segments.value.set(index, item as HTMLElement);
-        });
-        emit("update:currentIndex", currentIndex.value);
-      }
-    };
+    emit("update:currentIndex", currentIndex.value);
+  }
+};
 
-    onMounted(() => {
-      updateSegments();
-      loading.value = false;
-    });
-
-    return {
-      segmentNavItems,
-      sortOptions,
-      currentIndex,
-      loading,
-      selectionStyle,
-      segmentNavEl,
-      updateSegments,
-    };
-  },
+onMounted(() => {
+  updateSegments();
+  loading.value = false;
 });
 </script>
 
@@ -105,14 +94,8 @@ export default defineComponent({
   line-height: 1.28577;
   font-weight: 600;
   /* letter-spacing: -0.016em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
 }
 
 .segmentnav {

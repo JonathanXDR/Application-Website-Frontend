@@ -34,5 +34,3 @@ const languages: Ref<LanguageBarType[]> = computed(() =>
   tm("components.containers.languages")
 );
 </script>
-
-<style scoped></style>
