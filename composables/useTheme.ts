@@ -1,5 +1,3 @@
-import { useColorMode, useCookie } from "#imports";
-
 export const useTheme = () => {
   const colorMode = useColorMode();
   const themeCookie = useCookie("theme");

@@ -45,26 +45,10 @@ export default defineComponent({
     const currentTheme = computed(() => getTheme());
 
     const items = reactive([
-      { id: "light", label: "Light", icon: "sun.max.fill", checked: false },
-      { id: "dark", label: "Dark", icon: "moon.fill", checked: false },
-      {
-        id: "auto",
-        label: "Auto",
-        icon: "circle.lefthalf.filled",
-        checked: true,
-      },
+      { id: "light", label: "Light", icon: "sun.max.fill" },
+      { id: "dark", label: "Dark", icon: "moon.fill" },
+      { id: "auto", label: "Auto", icon: "circle.lefthalf.filled" },
     ]);
-
-    watch(currentTheme, (newTheme) => {
-      items.forEach((item) => {
-        item.checked = Boolean(item.checked);
-        newTheme === "auto"
-          ? window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light" === item.id
-          : item.id === newTheme;
-      });
-    });
 
     return {
       items,
