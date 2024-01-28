@@ -1,10 +1,7 @@
-import { useCookie } from "#app";
 import { useI18n } from "vue-i18n";
 
 export const useLanguage = () => {
   const { locale, locales, setLocale } = useI18n();
-  const languageCookie = useCookie("i18n_redirected");
-  const switchLocalePath = useSwitchLocalePath();
 
   const availableLocales = computed(() => {
     return locales.value.filter((i) => {
@@ -29,18 +26,10 @@ export const useLanguage = () => {
   const changeLanguage = (newLocale: string) => {
     if (isLocaleAvailable(newLocale)) {
       setLocale(newLocale);
-      languageCookie.value = newLocale;
     }
-  };
-
-  const initializeLanguage = () => {
-    const preferredLanguage =
-      languageCookie.value || window.navigator.language.split("-")[0];
-    changeLanguage(preferredLanguage);
   };
 
   return {
     changeLanguage,
-    initializeLanguage,
   };
 };

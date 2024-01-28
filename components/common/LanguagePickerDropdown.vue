@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-const { changeLanguage, initializeLanguage } = useLanguage();
+const { changeLanguage } = useLanguage();
 const { locale: currentLocale, locales } = useI18n({ useScope: "global" });
 
 const computedLocales = computed(() =>
@@ -30,10 +30,6 @@ const computedLocales = computed(() =>
 
 watch(currentLocale, (newLocale) => {
   changeLanguage(newLocale);
-});
-
-onMounted(() => {
-  initializeLanguage();
 });
 </script>
 

@@ -32,7 +32,7 @@ const props = withDefaults(
   }
 );
 
-const { changeLanguage, initializeLanguage } = useLanguage();
+const { changeLanguage } = useLanguage();
 const { locale: currentLocale, locales } = useI18n({ useScope: "global" });
 
 console.log("Locales from i18n:", locales.value);
@@ -50,10 +50,6 @@ const getLabel = (locale: { code: string; name?: string }) => {
   const label = locale.name || locale.code;
   return props.shortForm ? locale.code.toUpperCase() : label;
 };
-
-onMounted(() => {
-  initializeLanguage();
-});
 </script>
 
 <style scoped>
