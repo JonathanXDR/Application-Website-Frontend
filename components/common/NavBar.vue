@@ -56,10 +56,6 @@
             </div>
             <ColorSchemeToggle />
             <LanguagePickerDropdown />
-            <!-- <div class="theme-button">
-              <input @input="toggleTheme()" v-model="themeDark" type="checkbox" class="btn-input" />
-              <span></span>
-            </div> -->
           </div>
         </div>
       </div>
@@ -98,18 +94,6 @@ export default defineComponent({
       return useAnimation().headerAnimations;
     });
 
-    const toggleTheme = () => {
-      themeDark.value = !themeDark.value;
-      storeTheme(themeDark.value ? "dark" : "light");
-      updateAnimations();
-    };
-
-    const storeTheme = (themeName: string) => {
-      themeDark.value = themeName === "dark";
-      localStorage.setItem("theme", themeName);
-      document.documentElement.className = themeName;
-    };
-
     const toggleNav = () => {
       navOpen.value = !navOpen.value;
       checkboxTimeout();
@@ -140,16 +124,6 @@ export default defineComponent({
 
     onMounted(() => {
       window.addEventListener("scroll", handleScroll);
-
-      const storedTheme = localStorage.getItem("theme");
-      if (storedTheme === null) {
-        const preferredTheme = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        );
-        storeTheme(preferredTheme.matches ? "dark" : "light");
-      } else {
-        storeTheme(storedTheme);
-      }
     });
 
     return {
@@ -162,7 +136,6 @@ export default defineComponent({
       currentSectionIndex,
       colorBadge,
       headerAnimations,
-      toggleTheme,
       toggleNav,
       handleScroll,
       updateAnimations,

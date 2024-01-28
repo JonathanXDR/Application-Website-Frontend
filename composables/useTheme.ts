@@ -13,8 +13,6 @@ export const useTheme = () => {
     if (theme === "auto") {
       document.documentElement.className =
         colorMode.value === "dark" ? "dark-mode" : "light-mode";
-    } else {
-      document.documentElement.className = `${theme}-mode`;
     }
   };
 
