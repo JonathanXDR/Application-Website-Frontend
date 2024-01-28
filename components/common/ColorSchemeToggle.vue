@@ -12,9 +12,9 @@
           type="radio"
           autocomplete="off"
           name="color-scheme"
-          :onchange="`window.setPreferredColorScheme(${item.id})`"
+          @change="setTheme(item.id)"
           :value="item.id"
-          :checked="item.checked"
+          :checked="currentTheme === item.id"
         />
         <div class="text">
           <Icon
@@ -41,6 +41,9 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const { getTheme, setTheme } = useTheme();
+    const currentTheme = computed(() => getTheme());
+
     const items = reactive([
       { id: "light", label: "Light", icon: "sun.max.fill", checked: false },
       { id: "dark", label: "Dark", icon: "moon.fill", checked: false },
@@ -52,9 +55,17 @@ export default defineComponent({
       },
     ]);
 
+    watch(currentTheme, (newTheme) => {
+      items.forEach((item) => {
+        item.checked = item.id === newTheme;
+      });
+    });
+
     return {
       items,
       props,
+      setTheme,
+      currentTheme,
     };
   },
 });

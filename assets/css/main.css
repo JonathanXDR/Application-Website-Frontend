@@ -33,7 +33,7 @@ body {
   hyphens: auto;
 }
 
-.light {
+.light-mode {
   /* Menu */
   --color-menu: rgba(255, 255, 255, 0.72);
   --color-menu-border: rgba(0, 0, 0, 0.16);
@@ -207,7 +207,7 @@ body {
   --color-standard-gray: #afafaf;
 }
 
-.dark {
+.dark-mode {
   /* Menu */
   --color-menu: rgba(0, 0, 0, 0.72);
   --color-menu-border: rgba(255, 255, 255, 0.24);
