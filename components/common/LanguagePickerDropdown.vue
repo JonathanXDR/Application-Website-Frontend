@@ -11,57 +11,45 @@
   </div>
 </template>
 
-<script lang="ts">
-export default defineComponent({
-  name: "LanguagePickerDropdown",
-  props: {
-    introText: {
-      type: Boolean as PropType<boolean>,
-      required: false,
-      default: () => true,
-    },
-    shortForm: {
-      type: Boolean as PropType<boolean>,
-      required: false,
-      default: () => false,
-    },
-  },
-  setup(props) {
-    const { locale } = useI18n({ useScope: "global" });
-    const languages = reactive([
-      { title: "Deutsch", key: "de", abbr: "DE" },
-      { title: "English", key: "en", abbr: "EN" },
-      { title: "Français", key: "fr", abbr: "FR" },
-      { title: "Italiano", key: "it", abbr: "IT" },
-    ]);
+<script lang="ts" setup>
+const props = withDefaults(
+  defineProps<{
+    introText?: boolean;
+    shortForm?: boolean;
+  }>(),
+  {
+    introText: () => true,
+    shortForm: () => false,
+  }
+);
 
-    const changeLang = (lang: string) => {
-      const localStorageLocale = ["de", "en", "fr", "it"].includes(lang)
-        ? lang
-        : "de";
-      localStorage.setItem("language", localStorageLocale);
-      locale.value = localStorageLocale;
-    };
+const { locale } = useI18n({ useScope: "global" });
+const languages = reactive([
+  { title: "Deutsch", key: "de", abbr: "DE" },
+  { title: "English", key: "en", abbr: "EN" },
+  { title: "Français", key: "fr", abbr: "FR" },
+  { title: "Italiano", key: "it", abbr: "IT" },
+]);
 
-    const getLabel = (lang: { abbr: string; title: string }) => {
-      return props.shortForm ? lang.abbr : lang.title;
-    };
+const changeLang = (lang: string) => {
+  const localStorageLocale = ["de", "en", "fr", "it"].includes(lang)
+    ? lang
+    : "de";
+  localStorage.setItem("language", localStorageLocale);
+  locale.value = localStorageLocale;
+};
 
-    onMounted(() => {
-      if (localStorage.getItem("language") === undefined) {
-        const preferredLanguage = window.navigator.language;
-        changeLang(preferredLanguage);
-      } else {
-        changeLang(localStorage.getItem("language") as string);
-      }
-    });
+const getLabel = (lang: { abbr: string; title: string }) => {
+  return props.shortForm ? lang.abbr : lang.title;
+};
 
-    return {
-      languages,
-      changeLang,
-      getLabel,
-    };
-  },
+onMounted(() => {
+  if (localStorage.getItem("language") === undefined) {
+    const preferredLanguage = window.navigator.language;
+    changeLang(preferredLanguage);
+  } else {
+    changeLang(localStorage.getItem("language") as string);
+  }
 });
 </script>
 
@@ -145,7 +133,6 @@ export default defineComponent({
 }
 
 @media (max-width: 850px) {
-
   .dropdown-container select:active {
     font-size: 16px;
     transform-origin: top left;

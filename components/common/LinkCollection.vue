@@ -31,25 +31,19 @@
   </a>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import type { LinkType } from "~/types/common/Link";
 
-export default defineComponent({
-  name: "LinkCollection",
-  props: {
-    links: {
-      type: Array as PropType<LinkType[]>,
-      required: true,
-      default: () => [],
-    },
-  },
-  setup(props) {
-    const { links } = toRefs(props);
-    return {
-      links,
-    };
-  },
-});
+const props = withDefaults(
+  defineProps<{
+    links: LinkType[];
+  }>(),
+  {
+    links: () => [],
+  }
+);
+
+const { links } = toRefs(props);
 </script>
 
 <style scoped>

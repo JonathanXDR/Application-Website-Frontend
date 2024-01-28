@@ -1,6 +1,6 @@
 <template>
   <h3 class="typography-magical-headline" style="padding-bottom: 50px">
-    {{ props.title }}
+    {{ title }}
   </h3>
   <NavBarExtension>
     <FilterInput />
@@ -20,31 +20,17 @@
   </ul>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import type { CardItemType } from "~/types/common/CardItem";
 
-export default defineComponent({
-  name: "TechnologiesSection",
-  props: {
-    title: {
-      type: String as PropType<string>,
-      required: true,
-      default: undefined,
-    },
-  },
-  setup(props) {
-    const { tm } = useI18n();
-    const cards: Ref<CardItemType[]> = computed(() =>
-      tm("components.containers.technologies"),
-    );
+defineProps<{
+  title: string;
+}>();
 
-    return {
-      props,
-      tm,
-      cards,
-    };
-  },
-});
+const { tm } = useI18n();
+const cards: Ref<CardItemType[]> = computed(() =>
+  tm("components.containers.technologies")
+);
 </script>
 
 <style scoped>

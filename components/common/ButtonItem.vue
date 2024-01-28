@@ -4,44 +4,25 @@
   </component>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import type { IconType } from "~/types/common/Icon";
 
-export default defineComponent({
-  name: "ButtonItem",
-  props: {
-    as: {
-      type: String as PropType<keyof HTMLElementTagNameMap>,
-      required: false,
-      default: "button",
-    },
-    variant: {
-      type: String as PropType<"primary" | "secondary" | "tertiary">,
-      required: false,
-      default: "primary",
-    },
-    size: {
-      type: String as PropType<"small" | "medium" | "large">,
-      required: false,
-      default: "medium",
-    },
-    borderRadius: {
-      type: String as PropType<"reduced" | "full">,
-      required: false,
-      default: "reduced",
-    },
-    label: {
-      type: String as PropType<string>,
-      required: true,
-      default: undefined,
-    },
-    icon: {
-      type: Object as PropType<IconType>,
-      required: false,
-      default: undefined,
-    },
+withDefaults(
+  defineProps<{
+    as?: keyof HTMLElementTagNameMap;
+    variant?: "primary" | "secondary" | "tertiary";
+    size?: "small" | "medium" | "large";
+    borderRadius?: "reduced" | "full";
+    label: string;
+    icon?: IconType;
+  }>(),
+  {
+    as: "button",
+    variant: "primary",
+    size: "medium",
+    borderRadius: "reduced",
   },
-});
+);
 </script>
 
 <style scoped>

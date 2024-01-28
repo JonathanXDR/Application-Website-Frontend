@@ -1,7 +1,7 @@
 <template>
   <div id="live-result-summary" class="results">
-    <div class="number-results">Showing {{ props.totalResults }} results</div>
-    <div class="changesnav-totals" v-if="props.pinnedResults">
+    <div class="number-results">Showing {{ totalResults }} results</div>
+    <div class="changesnav-totals" v-if="pinnedResults">
       <div class="changed-total">
         <Icon
           name="pin.fill"
@@ -12,7 +12,7 @@
           class="icon icon-medium"
         />
         <span>Pinned</span>
-        <span class="total"> ({{ props.pinnedResults }})</span>
+        <span class="total"> ({{ pinnedResults }})</span>
       </div>
       <!-- <div class="changed-total changed-total-modified">
         <span>Modified</span><span class="total"> (4)</span>
@@ -27,30 +27,20 @@
   </div>
 </template>
 
-<script lang="ts">
-export default defineComponent({
-  name: "LiveResultSummary",
-  props: {
-    totalResults: {
-      type: Number as PropType<number>,
-      required: true,
-      default: 0,
-    },
-    pinnedResults: {
-      type: Number as PropType<number>,
-      required: false,
-      default: 0,
-    },
-  },
-  setup(props) {
-    const colorStore = useColor();
-    const randomColor = ref(colorStore.randomizeColor().colorVar);
-    return {
-      randomColor,
-      props,
-    };
-  },
-});
+<script lang="ts" setup>
+withDefaults(
+  defineProps<{
+    totalResults: number;
+    pinnedResults?: number;
+  }>(),
+  {
+    totalResults: 0,
+    pinnedResults: 0,
+  }
+);
+
+const colorStore = useColor();
+const randomColor = ref(colorStore.randomizeColor().colorVar);
 </script>
 
 <style scoped>
@@ -160,14 +150,8 @@ export default defineComponent({
   line-height: 1.4285914286;
   font-weight: 400;
   /* letter-spacing: -0.016em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   color: var(--color-figure-gray-secondary);
   margin-right: 20px;
 }

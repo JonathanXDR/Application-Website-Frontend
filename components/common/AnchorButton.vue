@@ -4,12 +4,6 @@
   </div>
 </template>
 
-<script lang="ts">
-export default defineComponent({
-  name: "AnchorButton",
-});
-</script>
-
 <style scoped>
 .cta-circular-icon {
   height: 44px;

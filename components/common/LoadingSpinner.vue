@@ -6,12 +6,6 @@
   </div>
 </template>
 
-<script lang="ts">
-export default defineComponent({
-  name: "LoadingSpinner",
-});
-</script>
-
 <style scoped>
 .center-horizontal {
   display: flex;

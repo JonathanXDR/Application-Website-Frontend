@@ -64,83 +64,63 @@
   <label id="ac-ln-curtain" for="ac-ln-menustate"></label>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { type SectionType } from "~/types/common/Section";
 
-export default defineComponent({
-  name: "NavBar",
-  setup() {
-    const { tm } = useI18n();
-    const items: Ref<SectionType[]> = computed(() =>
-      tm("components.common.NavBar")
-    );
-    const themeDark: Ref<boolean> = ref(false);
-    const navOpen: Ref<boolean> = ref(false);
-    const navDisabled: Ref<boolean> = ref(false);
+const { tm } = useI18n();
+const items: Ref<SectionType[]> = computed(() =>
+  tm("components.common.NavBar")
+);
+const themeDark: Ref<boolean> = ref(false);
+const navOpen: Ref<boolean> = ref(false);
+const navDisabled: Ref<boolean> = ref(false);
 
-    const nodeEnv = computed(() => process.env.NODE_ENV);
+const nodeEnv = computed(() => process.env.NODE_ENV);
 
-    const { colorBadge } = useColor();
-    const { currentSection } = useSection();
-    const currentSectionIndex = computed(() => currentSection.value.index);
+const { colorBadge } = useColor();
+const { currentSection } = useSection();
+const currentSectionIndex = computed(() => currentSection.value.index);
 
-    const headerAnimations = computed(() => {
-      useAnimation().setHeaderAnimation({
-        element: document.querySelector(".ac-ln-background") as HTMLElement,
-        class: "ac-ln-background-transition",
-        timeout: 500,
-      });
+const headerAnimations = computed(() => {
+  useAnimation().setHeaderAnimation({
+    element: document.querySelector(".ac-ln-background") as HTMLElement,
+    class: "ac-ln-background-transition",
+    timeout: 500,
+  });
 
-      return useAnimation().headerAnimations;
-    });
+  return useAnimation().headerAnimations;
+});
 
-    const toggleNav = () => {
-      navOpen.value = !navOpen.value;
-      checkboxTimeout();
-    };
+const toggleNav = () => {
+  navOpen.value = !navOpen.value;
+  checkboxTimeout();
+};
 
-    const checkboxTimeout = () => {
-      navDisabled.value = true;
-      setTimeout(() => {
-        navDisabled.value = false;
-      }, 1000);
-    };
+const checkboxTimeout = () => {
+  navDisabled.value = true;
+  setTimeout(() => {
+    navDisabled.value = false;
+  }, 1000);
+};
 
-    const handleScroll = () => {
-      if (navOpen.value && window.scrollY > 0) {
-        navOpen.value = false;
-      }
-    };
+const handleScroll = () => {
+  if (navOpen.value && window.scrollY > 0) {
+    navOpen.value = false;
+  }
+};
 
-    const updateAnimations = () => {
-      headerAnimations.value.value.forEach((element) => {
-        element.element.classList.remove(element.class);
+const updateAnimations = () => {
+  headerAnimations.value.value.forEach((element) => {
+    element.element.classList.remove(element.class);
 
-        setTimeout(() => {
-          element.element.classList.add(element.class);
-        }, element.timeout);
-      });
-    };
+    setTimeout(() => {
+      element.element.classList.add(element.class);
+    }, element.timeout);
+  });
+};
 
-    onMounted(() => {
-      window.addEventListener("scroll", handleScroll);
-    });
-
-    return {
-      tm,
-      items,
-      themeDark,
-      navOpen,
-      navDisabled,
-      nodeEnv,
-      currentSectionIndex,
-      colorBadge,
-      headerAnimations,
-      toggleNav,
-      handleScroll,
-      updateAnimations,
-    };
-  },
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
 });
 </script>
 

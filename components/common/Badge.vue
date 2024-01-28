@@ -1,46 +1,28 @@
 <template>
-  <span
-    class="badge"
-    :style="`--color-figure: var(--color-figure-${props.color})`"
-  >
+  <span class="badge" :style="`--color-figure: var(--color-figure-${color})`">
     <Icon
-      v-if="props.icon"
-      :name="props.icon.name"
-      :size="props.icon.size"
-      :colors="props.icon.colors"
+      v-if="icon"
+      :name="icon.name"
+      :size="icon.size"
+      :colors="icon.colors"
     />
-    {{ props.title }}
+    {{ title }}
   </span>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import type { IconType } from "~/types/common/Icon";
 
-export default defineComponent({
-  name: "Badge",
-  props: {
-    title: {
-      type: String as PropType<string>,
-      required: true,
-      default: undefined,
-    },
-    color: {
-      type: String as PropType<string>,
-      required: false,
-      default: "blue",
-    },
-    icon: {
-      type: Object as PropType<IconType>,
-      required: false,
-      default: undefined,
-    },
-  },
-  setup(props) {
-    return {
-      props,
-    };
-  },
-});
+withDefaults(
+  defineProps<{
+    title: string;
+    color?: string;
+    icon?: IconType;
+  }>(),
+  {
+    color: "blue",
+  }
+);
 </script>
 
 <style scoped>

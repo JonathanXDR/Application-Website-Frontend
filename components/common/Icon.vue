@@ -4,70 +4,39 @@
   </svg>
 </template>
 
-<script lang="ts">
-export default defineComponent({
-  name: "Icon",
-  props: {
-    name: {
-      type: String as PropType<string>,
-      required: true,
-      default: undefined,
-    },
-    size: {
-      type: String as PropType<"small" | "medium" | "large">,
-      required: false,
-      default: "medium",
-      validator: (value: string): boolean =>
-        ["small", "medium", "large"].includes(value),
-    },
-    colors: {
-      type: Object as PropType<{
-        primary?: string;
-        secondary?: string;
-        tertiary?: string;
-      }>,
-      required: false,
-      default: () => ({
-        primary: "currentColor",
-        secondary: "currentColor",
-        tertiary: "currentColor",
-      }),
-      validator(value: {
-        primary?: string;
-        secondary?: string;
-        tertiary?: string;
-      }): boolean {
-        const isValidColor = (color: string | undefined): boolean => {
-          return typeof color === "string" || color === undefined;
-        };
-        return (
-          isValidColor(value.primary) &&
-          isValidColor(value.secondary) &&
-          isValidColor(value.tertiary)
-        );
-      },
-    },
-  },
-
-  setup(props) {
-    const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`);
-
-    const getSpriteUrl = (size: "small" | "medium" | "large") => {
-      return new URL(`/assets/icons/${size}/symbol/sprite.svg`, import.meta.url)
-        .href;
+<script lang="ts" setup>
+const props = withDefaults(
+  defineProps<{
+    name: string;
+    size?: "small" | "medium" | "large";
+    colors?: {
+      primary?: string;
+      secondary?: string;
+      tertiary?: string;
     };
+  }>(),
+  {
+    size: "medium",
 
-    const styles = reactive({
-      "--color-primary": props.colors.primary || "currentColor",
-      "--color-secondary": props.colors.secondary || "currentColor",
-      "--color-tertiary": props.colors.tertiary || "currentColor",
-    });
+    colors: () => ({
+      primary: "currentColor",
+      secondary: "currentColor",
+      tertiary: "currentColor",
+    }),
+  }
+);
 
-    return {
-      icon,
-      styles,
-    };
-  },
+const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`);
+
+const getSpriteUrl = (size: "small" | "medium" | "large") => {
+  return new URL(`/assets/icons/${size}/symbol/sprite.svg`, import.meta.url)
+    .href;
+};
+
+const styles = reactive({
+  "--color-primary": props.colors.primary || "currentColor",
+  "--color-secondary": props.colors.secondary || "currentColor",
+  "--color-tertiary": props.colors.tertiary || "currentColor",
 });
 </script>
 

@@ -6,17 +6,8 @@
   </div>
 </template>
 
-<script lang="ts">
-export default defineComponent({
-  name: "FooterItem",
-  setup() {
-    const currentYear = ref(new Date().getFullYear());
-
-    return {
-      currentYear,
-    };
-  },
-});
+<script lang="ts" setup>
+const currentYear = ref(new Date().getFullYear());
 </script>
 
 <style scoped>

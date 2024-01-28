@@ -4,12 +4,6 @@
   </div>
 </template>
 
-<script lang="ts">
-export default defineComponent({
-  name: "ResultBlankState",
-});
-</script>
-
 <style scoped>
 .no-results {
   font-size: 21px;

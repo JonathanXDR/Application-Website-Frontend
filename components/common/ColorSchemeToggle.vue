@@ -18,11 +18,11 @@
         />
         <div class="text">
           <Icon
-            v-if="props.variant !== 'label'"
+            v-if="variant !== 'label'"
             :name="item.icon"
             class="icon icon-large"
           />
-          <div v-if="props.variant !== 'icon'">
+          <div v-if="variant !== 'icon'">
             {{ item.label }}
           </div>
         </div>
@@ -31,33 +31,24 @@
   </div>
 </template>
 
-<script lang="ts">
-export default defineComponent({
-  name: "ColorSchemeToggle",
-  props: {
-    variant: {
-      type: String as PropType<"icon" | "label" | "combination">,
-      default: "label",
-    },
-  },
-  setup(props) {
-    const { getTheme, setTheme } = useTheme();
-    const currentTheme = computed(() => getTheme());
+<script lang="ts" setup>
+withDefaults(
+  defineProps<{
+    variant?: "icon" | "label" | "combination";
+  }>(),
+  {
+    variant: "label",
+  }
+);
 
-    const items = reactive([
-      { id: "light", label: "Light", icon: "sun.max.fill" },
-      { id: "dark", label: "Dark", icon: "moon.fill" },
-      { id: "auto", label: "Auto", icon: "circle.lefthalf.filled" },
-    ]);
+const { getTheme, setTheme } = useTheme();
+const currentTheme = computed(() => getTheme());
 
-    return {
-      items,
-      props,
-      setTheme,
-      currentTheme,
-    };
-  },
-});
+const items = reactive([
+  { id: "light", label: "Light", icon: "sun.max.fill" },
+  { id: "dark", label: "Dark", icon: "moon.fill" },
+  { id: "auto", label: "Auto", icon: "circle.lefthalf.filled" },
+]);
 </script>
 
 <style scoped>

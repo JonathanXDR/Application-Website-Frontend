@@ -19,24 +19,18 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import type { OptionType } from "~/types/common/Option";
 
-export default defineComponent({
-  name: "DropDown",
-  props: {
-    options: {
-      type: Array as PropType<OptionType[]>,
-      required: true,
-      default: () => [],
-    },
-    label: {
-      type: String as PropType<string>,
-      required: false,
-      default: undefined,
-    },
-  },
-});
+withDefaults(
+  defineProps<{
+    options: OptionType[];
+    label?: string;
+  }>(),
+  {
+    options: () => [],
+  }
+);
 </script>
 
 <style scoped>
@@ -49,14 +43,8 @@ export default defineComponent({
   line-height: 1.2353641176;
   font-weight: 400;
   /* letter-spacing: -0.022em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,14 +92,8 @@ export default defineComponent({
   line-height: 1.75;
   font-weight: 400;
   /* letter-spacing: -0.01em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   position: absolute;
   top: 8px;
   left: 17px;

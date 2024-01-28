@@ -8,12 +8,6 @@
   </div>
 </template>
 
-<script lang="ts">
-export default defineComponent({
-  name: "NavBarExtension",
-});
-</script>
-
 <style scoped>
 .filter-input-sticky-wrapper {
   position: -webkit-sticky;

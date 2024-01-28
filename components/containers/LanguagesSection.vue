@@ -1,5 +1,5 @@
 <template>
-  <h2>{{ props.title }}</h2>
+  <h2>{{ title }}</h2>
 
   <TabList />
 
@@ -22,31 +22,17 @@
   </div> -->
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import type { LanguageBarType } from "~/types/common/LanguageBar";
 
-export default defineComponent({
-  name: "LanguagesSection",
-  props: {
-    title: {
-      type: String as PropType<string>,
-      required: true,
-      default: undefined,
-    },
-  },
-  setup(props) {
-    const { tm } = useI18n();
-    const languages: Ref<LanguageBarType[]> = computed(() =>
-      tm("components.containers.languages"),
-    );
+defineProps<{
+  title: string;
+}>();
 
-    return {
-      props,
-      tm,
-      languages,
-    };
-  },
-});
+const { tm } = useI18n();
+const languages: Ref<LanguageBarType[]> = computed(() =>
+  tm("components.containers.languages")
+);
 </script>
 
 <style scoped></style>
