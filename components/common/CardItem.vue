@@ -12,7 +12,7 @@
   >
     <div v-if="cover || donutGraph || barGraph" class="card-cover-wrap">
       <picture v-if="cover" class="card-cover">
-        <img decoding="async" loading="lazy" :src="cover" />
+        <NuxtImg decoding="async" loading="lazy" :src="cover" />
       </picture>
       <div v-if="barGraph">
         <div class="group group-hispanic typography-body-tight">

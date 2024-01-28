@@ -6,6 +6,15 @@ import it_IT from "~/lang/it-IT.json";
 /** @type {import('i18n').Config} */
 export default {
   legacy: false,
+  lazy: true,
+  langDir: "lang",
+  defaultLocale: "de",
+  fallbackLocale: "en",
+  detectBrowserLanguage: {
+    useCookie: true,
+    cookieKey: "i18n_redirected",
+    redirectOn: "root",
+  },
   locales: [
     {
       code: "de",
@@ -28,15 +37,6 @@ export default {
       name: "Italiano",
     },
   ],
-  lazy: true,
-  langDir: "lang",
-  defaultLocale: "de",
-  fallbackLocale: "en",
-  detectBrowserLanguage: {
-    useCookie: true,
-    cookieKey: "i18n_redirected",
-    redirectOn: "root",
-  },
   messages: {
     de: de_DE,
     en: en_US,

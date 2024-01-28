@@ -32,7 +32,7 @@
                     class="marquee-picture"
                     style="background-color: #131314"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/cf/6c/ea/cf6cead6-c787-8582-834d-706733af4dca/73853971-969b-44bb-a796-775558a9ed5d.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="Rap Life - Apple Music Hip-Hop"
@@ -67,7 +67,7 @@
                     class="marquee-picture"
                     style="background-color: #4b0601"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/c6/32/10/c63210e5-b74c-42ae-9771-959d77e7f11f/26cf9150-966d-4650-8a50-16cd57f37c04.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="¡Dale Play! - Apple Music Pop Latino"
@@ -99,7 +99,7 @@
                     class="marquee-picture"
                     style="background-color: #0439c0"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/38/ef/8f/38ef8f5e-b876-d1e4-a926-7de81cedc556/0079e905-7fb7-4417-81fb-eb3cafc74511.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="A-List Pop - Apple Music Pop"
@@ -131,7 +131,7 @@
                     class="marquee-picture"
                     style="background-color: #010101"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/ad/b5/f0/adb5f013-db4d-3784-6cda-d59017381b27/f6c0c55b-75d6-4bcc-8abf-daed8e938bc4.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="R&amp;B Now - Apple Music R&amp;B"
@@ -163,7 +163,7 @@
                     class="marquee-picture"
                     style="background-color: #000000"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/87/42/2a/87422af4-71b6-8860-9585-7b3a57f78ad7/e9d76023-64e0-41d1-ada4-d9fa1b1b60ba.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="danceXL - Apple Music Dance"
@@ -197,7 +197,7 @@
                     class="marquee-picture"
                     style="background-color: #131314"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/cf/6c/ea/cf6cead6-c787-8582-834d-706733af4dca/73853971-969b-44bb-a796-775558a9ed5d.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="Rap Life - Apple Music Hip-Hop"
@@ -229,7 +229,7 @@
                     class="marquee-picture"
                     style="background-color: #4b0601"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/c6/32/10/c63210e5-b74c-42ae-9771-959d77e7f11f/26cf9150-966d-4650-8a50-16cd57f37c04.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="¡Dale Play! - Apple Music Pop Latino"
@@ -261,7 +261,7 @@
                     class="marquee-picture"
                     style="background-color: #0439c0"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/38/ef/8f/38ef8f5e-b876-d1e4-a926-7de81cedc556/0079e905-7fb7-4417-81fb-eb3cafc74511.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="A-List Pop - Apple Music Pop"
@@ -293,7 +293,7 @@
                     class="marquee-picture"
                     style="background-color: #010101"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/ad/b5/f0/adb5f013-db4d-3784-6cda-d59017381b27/f6c0c55b-75d6-4bcc-8abf-daed8e938bc4.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="R&amp;B Now - Apple Music R&amp;B"
@@ -325,7 +325,7 @@
                     class="marquee-picture"
                     style="background-color: #000000"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/87/42/2a/87422af4-71b6-8860-9585-7b3a57f78ad7/e9d76023-64e0-41d1-ada4-d9fa1b1b60ba.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="danceXL - Apple Music Dance"
@@ -357,7 +357,7 @@
                     class="marquee-picture"
                     style="background-color: #e52a56"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/3e/a3/7e/3ea37ed4-945e-7937-0791-dc0c9c9df9c3/U0MtTVMtV1ctUHVyZV9NZWRpdGF0aW9uLUFEQU1fSUQ9OTc2NDQ3NjgzLnBuZw.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="Pure Meditation - Apple Music Wellbeing"
@@ -389,7 +389,7 @@
                     class="marquee-picture"
                     style="background-color: #2e292b"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/da/34/d2/da34d21d-f543-001b-4450-a294ca4f0ee7/fcb03152-be89-4eaf-a1a8-6be107f22e6d.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="ALT CTRL - Apple Music Alternative"
@@ -421,7 +421,7 @@
                     class="marquee-picture"
                     style="background-color: #fae11d"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/cf/40/62/cf406282-492f-c243-11a5-7143d1af96e5/deab0b3f-b9ea-4904-a707-465a9f752f02.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="Puro Pop - Apple Music Pop Latino"
@@ -453,7 +453,7 @@
                     class="marquee-picture"
                     style="background-color: #fc4308"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/b8/e5/39/b8e53971-6fce-6f27-8631-6ae236f5eade/930a942c-ccfa-4011-bba1-de6714468ff8.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="Superbloom - Apple Music Pop"
@@ -485,7 +485,7 @@
                     class="marquee-picture"
                     style="background-color: #af6746"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/3e/17/87/3e178780-d6f1-85a1-e342-9577a9ba965b/U0MtTVMtV1ctSGlnaF9NYWludGVuYW5jZS1hZGFtPTE1MDA3MjMxODMtTm9fTG9nby5wbmc.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="High Maintenance - Apple Music"
@@ -517,7 +517,7 @@
                     class="marquee-picture"
                     style="background-color: #e4a864"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/0f/9e/58/0f9e5842-bf86-324d-6de8-2e4b35ec2235/77777270-f4ee-45b9-b103-d3df147eb75a.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="Africa Now - Apple Music African"
@@ -549,7 +549,7 @@
                     class="marquee-picture"
                     style="background-color: #b98740"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/03/86/dd/0386ddd4-711a-c7fb-7446-34433b78512e/26c526e3-ed70-45e0-9157-089471a7673b.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="Today’s Hits - Apple Music Hits"
@@ -581,7 +581,7 @@
                     class="marquee-picture"
                     style="background-color: #7400e4"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/af/81/df/af81df78-c9a8-9689-12ab-889e82d5d8ba/7233fc40-2c3b-492c-8c31-ad91d8328eee.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="The A-List: K-Pop - Apple Music K-Pop"
@@ -613,7 +613,7 @@
                     class="marquee-picture"
                     style="background-color: #f399ac"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/97/b7/f3/97b7f335-4930-61da-1561-7222d62e3bbf/U0MtTVMtV1ctRmFtaWx5X1BvcC1BREFNX0lEPTk3NjQ1MTcwNi5wbmc.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="Family Pop - Apple Music Family"
@@ -645,7 +645,7 @@
                     class="marquee-picture"
                     style="background-color: #d9d9d9"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/5f/76/0e/5f760e1d-b095-a3ac-1d94-2786b102e129/d03ee1a8-6888-4055-83e8-97df33539acd.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="Punjabi Hits - Apple Music Punjabi"
@@ -677,7 +677,7 @@
                     class="marquee-picture"
                     style="background-color: #0027ec"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/48/eb/c6/48ebc68b-c5b5-e250-5eeb-6712f890fbb7/1493454c-120a-4e3e-a529-c19e137e4976.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="La Oficial - Apple Music Música Mexicana"
@@ -709,7 +709,7 @@
                     class="marquee-picture"
                     style="background-color: #efece7"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/0a/c2/78/0ac27819-0452-fe87-b159-a17849c312f9/95d2017e-b13f-4270-959b-150ad25c59a7.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="Today’s Country - Apple Music Country"
@@ -741,7 +741,7 @@
                     class="marquee-picture"
                     style="background-color: #000000"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/d3/40/3c/d3403caa-ce41-011c-da48-c8edd692c16a/39cf2216-3c5c-45a4-b687-0350abe4d4a4.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="#OnRepeat - Apple Music Hip-Hop"
@@ -773,7 +773,7 @@
                     class="marquee-picture"
                     style="background-color: #373737"
                   >
-                    <img
+                    <NuxtImg
                       class="marquee-picture-img"
                       src="https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/4b/32/f5/4b32f58d-0a7b-3783-bd22-2fa278771657/2e05ed3e-7df0-4a28-af26-543a9ecc18a1.png/3744x3744SC.DN01.jpg?l=en-US"
                       alt="New Music Daily - Apple Music"
@@ -1349,7 +1349,7 @@ export default defineComponent({
 //                   );
 //                 },
 //                 ''
-//               )}\n\t\t\t<img class="marquee-picture-img" src="${c(
+//               )}\n\t\t\t<NuxtImg class="marquee-picture-img" src="${c(
 //                 t,
 //                 d,
 //                 s[u]
@@ -1629,14 +1629,8 @@ export default defineComponent({
   line-height: 1.1428571429;
   font-weight: 700;
   /* letter-spacing: 0em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   min-width: 26px;
   padding: 12px 22px;
   background: var(--color-fill);
@@ -1684,14 +1678,8 @@ export default defineComponent({
     line-height: 1.1428571429;
     font-weight: 700;
     /* letter-spacing: 0em; */
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
     min-width: 28px;
     padding: 8px 10px 8px 11px;
   }
@@ -1797,14 +1785,8 @@ export default defineComponent({
   line-height: 1.2857742857;
   font-weight: 400;
   /* letter-spacing: -0.016em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   margin-top: 10px;
 }
 
@@ -1814,14 +1796,8 @@ export default defineComponent({
     line-height: 1.3333733333;
     font-weight: 400;
     /* letter-spacing: -0.01em; */
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
   }
 }
 
