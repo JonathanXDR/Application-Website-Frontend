@@ -40,7 +40,7 @@ const props = withDefaults(
   }>(),
   {
     links: () => [],
-  }
+  },
 );
 
 const { links } = toRefs(props);

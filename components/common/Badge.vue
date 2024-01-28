@@ -21,7 +21,7 @@ withDefaults(
   }>(),
   {
     color: "blue",
-  }
+  },
 );
 </script>
 
@@ -33,8 +33,14 @@ withDefaults(
   line-height: 1.3333733333;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   padding-inline: 10px;
   white-space: nowrap;
   background: none;

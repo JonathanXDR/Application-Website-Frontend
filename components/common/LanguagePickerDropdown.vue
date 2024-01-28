@@ -20,7 +20,7 @@ const props = withDefaults(
   {
     introText: () => true,
     shortForm: () => false,
-  }
+  },
 );
 
 const { locale } = useI18n({ useScope: "global" });

@@ -76,10 +76,10 @@ const tags = ref({ latest: undefined, previous: undefined }) as Ref<{
   previous: string | undefined;
 }>;
 const projects: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.projects")
+  tm("components.containers.projects"),
 );
 const technologies: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.technologies")
+  tm("components.containers.technologies"),
 );
 
 const baseItems: Ref<RibbonBar[]> = ref([]);
@@ -131,7 +131,7 @@ const updateBaseItems = () => {
               .toLowerCase()
               .replace(/ /g, "-"),
           }),
-        })
+        }),
       ),
   }));
   totalItems.value = baseItems.value.length;
@@ -143,7 +143,7 @@ const updateDisplayItems = () => {
   const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value;
   displayItems.value = Array.from(
     { length: totalItems.value },
-    (_, i) => baseItems.value[(start + i) % totalItems.value]
+    (_, i) => baseItems.value[(start + i) % totalItems.value],
   );
 };
 
@@ -220,7 +220,9 @@ onMounted(fetchTags);
 
 .more:after,
 .more:before {
-  font-family: SF Pro Icons, AOS Icons;
+  font-family:
+    SF Pro Icons,
+    AOS Icons;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -274,7 +276,9 @@ onMounted(fetchTags);
   overflow: hidden;
   position: absolute;
   text-align: center;
-  transition: background-color 0.1s linear, color 0.1s linear,
+  transition:
+    background-color 0.1s linear,
+    color 0.1s linear,
     opacity 0.1s linear;
 }
 .paddlenav .paddlenav-arrow .icon {
@@ -307,7 +311,9 @@ onMounted(fetchTags);
 }
 .paddlenav .paddlenav-arrow-next:after,
 .paddlenav .paddlenav-arrow-next:before {
-  font-family: SF Pro Icons, AOS Icons;
+  font-family:
+    SF Pro Icons,
+    AOS Icons;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -328,7 +334,9 @@ onMounted(fetchTags);
 }
 .paddlenav .paddlenav-arrow-previous:after,
 .paddlenav .paddlenav-arrow-previous:before {
-  font-family: SF Pro Icons, AOS Icons;
+  font-family:
+    SF Pro Icons,
+    AOS Icons;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -382,7 +390,9 @@ onMounted(fetchTags);
   }
   .paddlenav .paddlenav-arrow-next:after,
   .paddlenav .paddlenav-arrow-next:before {
-    font-family: SF Pro Icons, AOS Icons;
+    font-family:
+      SF Pro Icons,
+      AOS Icons;
     color: inherit;
     display: inline-block;
     font-style: normal;
@@ -403,7 +413,9 @@ onMounted(fetchTags);
   }
   .paddlenav .paddlenav-arrow-previous:after,
   .paddlenav .paddlenav-arrow-previous:before {
-    font-family: SF Pro Icons, AOS Icons;
+    font-family:
+      SF Pro Icons,
+      AOS Icons;
     color: inherit;
     display: inline-block;
     font-style: normal;
@@ -437,7 +449,9 @@ onMounted(fetchTags);
 }
 .paddlenav-compact .paddlenav-arrow-next:after,
 .paddlenav-compact .paddlenav-arrow-next:before {
-  font-family: SF Pro Icons, AOS Icons;
+  font-family:
+    SF Pro Icons,
+    AOS Icons;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -458,7 +472,9 @@ onMounted(fetchTags);
 }
 .paddlenav-compact .paddlenav-arrow-previous:after,
 .paddlenav-compact .paddlenav-arrow-previous:before {
-  font-family: SF Pro Icons, AOS Icons;
+  font-family:
+    SF Pro Icons,
+    AOS Icons;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -518,8 +534,14 @@ onMounted(fetchTags);
   line-height: 1.42859;
   font-weight: 400;
   /* letter-spacing: -0.016em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 .ribbon .ribbon-content-wrapper {
   background-color: var(--color-fill-tertiary);
@@ -563,8 +585,14 @@ onMounted(fetchTags);
   line-height: 1.33341;
   font-weight: 400;
   /* letter-spacing: 0.009em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: #86868b;
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
@@ -573,8 +601,14 @@ onMounted(fetchTags);
     line-height: 1.381;
     font-weight: 400;
     /* letter-spacing: 0.011em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous {

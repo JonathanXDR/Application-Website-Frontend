@@ -38,7 +38,7 @@ withDefaults(
   }>(),
   {
     variant: "label",
-  }
+  },
 );
 
 const { getTheme, setTheme } = useTheme();

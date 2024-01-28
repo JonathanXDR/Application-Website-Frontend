@@ -23,7 +23,7 @@ const props = withDefaults(
       secondary: "currentColor",
       tertiary: "currentColor",
     }),
-  }
+  },
 );
 
 const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`);

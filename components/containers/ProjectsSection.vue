@@ -89,7 +89,7 @@ defineProps<{
 const { tm } = useI18n();
 const colorStore = useColor();
 const articles: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.projects")
+  tm("components.containers.projects"),
 );
 const projects: Projects = reactive({
   swisscom: computed(() => tm("components.containers.projects")) as Ref<
@@ -101,7 +101,9 @@ const projects: Projects = reactive({
 const pinned: Ref<ListUserPinnedReposResponse[]> = ref([]);
 const currentProjects = computed(
   () =>
-    projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
+    projects[
+      Object.keys(projects)[currentIndex.value] as keyof typeof projects
+    ],
 );
 
 const currentIndex: Ref<number> = ref(0);
@@ -144,8 +146,8 @@ const fetchProjects = async () => {
   const filteredProjects = allProjects.filter(
     (project) =>
       !pinnedProjects.find(
-        (pinnedProject) => pinnedProject.name === project.name
-      )
+        (pinnedProject) => pinnedProject.name === project.name,
+      ),
   );
 
   pinned.value = pinnedProjects;
@@ -153,7 +155,7 @@ const fetchProjects = async () => {
   filteredProjects.map(categorizeProject).forEach((project) => {
     const category = project.category as keyof Projects;
     projects[category].push(
-      project as ListUserReposResponse & CardItemType & { category: string }
+      project as ListUserReposResponse & CardItemType & { category: string },
     );
   });
 };

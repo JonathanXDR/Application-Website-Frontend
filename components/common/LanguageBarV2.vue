@@ -58,7 +58,7 @@ withDefaults(
     language: () => {
       return {} as LanguageBarType;
     },
-  }
+  },
 );
 
 const status = [
@@ -124,8 +124,14 @@ const status = [
   line-height: 1.42859;
   font-weight: 400;
   letter-spacing: -0.016em;
-  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
-    Arial, sans-serif;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   margin: auto 0;
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
@@ -151,16 +157,28 @@ const status = [
   line-height: 1.33337;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
-    Arial, sans-serif;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 .rs-od-itemstatus {
   font-size: 32px;
   line-height: 1.125;
   font-weight: 600;
   letter-spacing: 0.004em;
-  font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue,
-    Helvetica, Arial, sans-serif;
+  font-family:
+    SF Pro Display,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   display: block;
   padding-top: 6px;
 }
@@ -170,8 +188,14 @@ const status = [
     line-height: 1.14286;
     font-weight: 600;
     letter-spacing: 0.007em;
-    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue,
-      Helvetica, Arial, sans-serif;
+    font-family:
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
@@ -180,8 +204,14 @@ const status = [
     line-height: 1.16667;
     font-weight: 600;
     letter-spacing: 0.009em;
-    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue,
-      Helvetica, Arial, sans-serif;
+    font-family:
+      SF Pro Display,
+      SF Pro Icons,
+      AOS Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
   }
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
@@ -202,8 +232,14 @@ const status = [
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
-    Arial, sans-serif;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rs-od-itemdesc-wrapper .rs-od-itemdesc {
@@ -237,8 +273,14 @@ const status = [
   line-height: 1.33337;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
-    Arial, sans-serif;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   color: var(--color-figure-gray-secondary);
   margin: 12px 0;
   width: inherit;
@@ -280,8 +322,14 @@ const status = [
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
-    Arial, sans-serif;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    AOS Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
   display: flex;
   align-items: flex-end;
   padding: 8px 0 2px;

@@ -25,7 +25,7 @@ defineProps<{
 
 const { tm } = useI18n();
 const articles: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.references")
+  tm("components.containers.references"),
 );
 const windowObject = computed(() => window);
 </script>

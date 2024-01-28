@@ -20,8 +20,6 @@
 </template>
 
 <script lang="ts" setup>
-
-
 const items = reactive([
   { id: "productivity", label: "Productivity" },
   { id: "gaming", label: "Gaming" },

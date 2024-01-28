@@ -31,6 +31,6 @@ defineProps<{
 
 const { tm } = useI18n();
 const languages: Ref<LanguageBarType[]> = computed(() =>
-  tm("components.containers.languages")
+  tm("components.containers.languages"),
 );
 </script>
