@@ -36,8 +36,8 @@ export default defineComponent({
   name: "ColorSchemeToggle",
   props: {
     variant: {
-      type: String as PropType<"icon" | "label" | "both">,
-      default: "icon",
+      type: String as PropType<"icon" | "label" | "combination">,
+      default: "label",
     },
   },
   setup(props) {
