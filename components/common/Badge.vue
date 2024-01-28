@@ -10,7 +10,7 @@
   </span>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { IconType } from "~/types/common/Icon";
 
 withDefaults(

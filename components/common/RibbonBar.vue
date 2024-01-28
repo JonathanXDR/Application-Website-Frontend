@@ -64,7 +64,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { listRepositoryTags } from "~/helpers/github-helper";
 import type { CardItemType } from "~/types/common/CardItem";
 import type { LinkType } from "~/types/common/Link";

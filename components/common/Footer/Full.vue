@@ -6,7 +6,7 @@
   <ShareSheet />
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 const currentYear = ref(new Date().getFullYear());
 </script>
 

@@ -13,7 +13,7 @@
   </ul>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { FaLinkType } from "~/types/common/FaLink";
 
 const { tm } = useI18n();

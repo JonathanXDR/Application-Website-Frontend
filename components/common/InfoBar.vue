@@ -63,7 +63,7 @@ import type { InfoType } from "~/types/common/Info";
 dayjs.extend(relativeTime);
 </script>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 const props = withDefaults(
   defineProps<{
     info: InfoType;

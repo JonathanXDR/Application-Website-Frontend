@@ -4,7 +4,7 @@
   </svg>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 const props = withDefaults(
   defineProps<{
     name: string;

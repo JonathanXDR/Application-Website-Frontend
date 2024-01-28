@@ -22,7 +22,7 @@
   </div> -->
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { LanguageBarType } from "~/types/common/LanguageBar";
 
 defineProps<{

@@ -64,7 +64,7 @@
   <label id="ac-ln-curtain" for="ac-ln-menustate"></label>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { type SectionType } from "~/types/common/Section";
 
 const { tm } = useI18n();

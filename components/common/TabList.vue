@@ -19,7 +19,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 const items = reactive([
   { id: "productivity", label: "Productivity" },
   { id: "gaming", label: "Gaming" },

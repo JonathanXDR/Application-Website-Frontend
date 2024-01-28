@@ -44,7 +44,7 @@
   <ShareSheet />
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { DateItemType } from "~/types/common/DateItem";
 import type { LinkType } from "~/types/common/Link";
 

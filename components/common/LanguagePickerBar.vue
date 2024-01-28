@@ -20,7 +20,7 @@
   </section>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 const props = withDefaults(
   defineProps<{
     introText?: boolean;

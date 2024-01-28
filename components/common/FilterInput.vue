@@ -80,7 +80,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { OptionType } from "~/types/common/Option";
 
 const { tm } = useI18n();

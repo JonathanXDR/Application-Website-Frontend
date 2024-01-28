@@ -870,7 +870,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 const { tm } = useI18n();
 </script>
 

@@ -20,7 +20,7 @@
   </ul>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { CardItemType } from "~/types/common/CardItem";
 
 defineProps<{

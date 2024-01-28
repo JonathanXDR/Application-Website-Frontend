@@ -169,7 +169,7 @@
   </component>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { ListUserReposResponse } from "~/types/GitHub/Repository";
 import type { CardItemType } from "~/types/common/CardItem";
 

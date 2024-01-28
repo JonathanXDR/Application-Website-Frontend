@@ -18,7 +18,7 @@
   </svg>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 const pathD: Ref<string | undefined> = ref(undefined);
 const ulHeight: Ref<number | undefined> = ref(undefined);
 const viewBox: Ref<string | undefined> = ref(undefined);
