@@ -4,16 +4,16 @@
       {{ $t("components.common.FooterItem.chooseYourLanguage") }}:
     </span>
     <ul class="locale-lang language-picker-wrapper">
-      <li v-for="locale in computedLocales" :key="locale.code">
+      <li v-for="computedLocale in computedLocales" :key="computedLocale.code">
         <input
           type="radio"
-          @click="changeLanguage(locale.code)"
+          @click="changeLanguage(computedLocale.code)"
           name="language"
-          :id="locale.code"
-          :checked="currentLocale === locale.code"
+          :id="computedLocale.code"
+          :checked="locale === computedLocale.code"
         />
-        <label :for="locale.code" class="link">
-          {{ getLabel(locale) }}
+        <label :for="computedLocale.code" class="link">
+          {{ getLabel(computedLocale) }}
         </label>
       </li>
     </ul>
@@ -33,9 +33,7 @@ const props = withDefaults(
 );
 
 const { changeLanguage } = useLanguage();
-const { locale: currentLocale, locales } = useI18n({ useScope: "global" });
-
-console.log("Locales from i18n:", locales.value);
+const { locale, locales } = useI18n({ useScope: "global" });
 
 const computedLocales = computed(() =>
   locales.value.map((locale) => {

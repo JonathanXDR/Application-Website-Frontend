@@ -1,7 +1,7 @@
 <template>
   <div class="language-picker-dropdown">
     <div class="dropdown-container legacy-form">
-      <select class="dropdown-select" v-model="currentLocale">
+      <select class="dropdown-select" v-model="locale">
         <option
           v-for="locale in computedLocales"
           :key="locale.code"
@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 const { changeLanguage } = useLanguage();
-const { locale: currentLocale, locales } = useI18n({ useScope: "global" });
+const { locale, locales } = useI18n({ useScope: "global" });
 
 const computedLocales = computed(() =>
   locales.value.map((locale) => {
@@ -28,7 +28,7 @@ const computedLocales = computed(() =>
   })
 );
 
-watch(currentLocale, (newLocale) => {
+watch(locale, (newLocale) => {
   changeLanguage(newLocale);
 });
 </script>
