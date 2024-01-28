@@ -9,6 +9,13 @@ export const useTheme = () => {
   const setTheme = (theme: string) => {
     colorMode.preference = theme;
     themeCookie.value = theme;
+
+    if (theme === "auto") {
+      document.documentElement.className =
+        colorMode.value === "dark" ? "dark-mode" : "light-mode";
+    } else {
+      document.documentElement.className = `${theme}-mode`;
+    }
   };
 
   const getTheme = () => {
