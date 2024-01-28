@@ -16,7 +16,16 @@
           :value="item.id"
           :checked="item.checked"
         />
-        <div class="text">{{ item.label }}</div>
+        <div class="text">
+          <Icon
+            v-if="props.variant !== 'label'"
+            :name="item.icon"
+            class="icon icon-large"
+          />
+          <div v-if="props.variant !== 'icon'">
+            {{ item.label }}
+          </div>
+        </div>
       </label>
     </div>
   </div>
@@ -25,15 +34,27 @@
 <script lang="ts">
 export default defineComponent({
   name: "ColorSchemeToggle",
-  setup() {
+  props: {
+    variant: {
+      type: String as PropType<"icon" | "label" | "both">,
+      default: "icon",
+    },
+  },
+  setup(props) {
     const items = reactive([
-      { id: "light", label: "Light", checked: false },
-      { id: "dark", label: "Dark", checked: false },
-      { id: "auto", label: "Auto", checked: true },
+      { id: "light", label: "Light", icon: "sun.max.fill", checked: false },
+      { id: "dark", label: "Dark", icon: "moon.fill", checked: false },
+      {
+        id: "auto",
+        label: "Auto",
+        icon: "circle.lefthalf.filled",
+        checked: true,
+      },
     ]);
 
     return {
       items,
+      props,
     };
   },
 });
@@ -75,7 +96,7 @@ export default defineComponent({
     "Arial", sans-serif;
   border: 1px solid var(--toggle-color-fill);
   border-radius: var(--toggle-border-radius-outer, 2px);
-  display: inline-flex;
+  display: flex;
   padding: 1px;
 }
 
@@ -102,10 +123,11 @@ export default defineComponent({
 }
 
 .content .text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   box-sizing: border-box;
-  display: inline-block;
   padding: 1px 6px;
-  min-width: 42px;
   border: 1px solid transparent;
   border-radius: var(--toggle-border-radius-inner, 2px);
   text-align: center;
