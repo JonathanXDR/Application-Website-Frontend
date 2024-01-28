@@ -42,9 +42,9 @@ export default {
     },
   ],
   messages: {
-    de: de_DE,
-    en: en_US,
-    fr: fr_FR,
-    it: it_IT,
+    de_DE,
+    en_US,
+    fr_FR,
+    it_IT,
   },
 };
