@@ -51,14 +51,8 @@ export default defineComponent({
   line-height: 1.3333733333;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   padding-inline: 10px;
   white-space: nowrap;
   background: none;
@@ -75,12 +69,12 @@ export default defineComponent({
 }
 
 .medium .badge {
-  font-size: 17px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .large .badge {
-  font-size: 21px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 400;
 }
 </style>
