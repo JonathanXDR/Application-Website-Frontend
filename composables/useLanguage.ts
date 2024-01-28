@@ -1,7 +1,7 @@
 export const useLanguage = () => {
   const { locale, locales, setLocale } = useI18n();
   const currentLanguage = useState<string>("currentLanguage", () =>
-    detectInitialLanguage()
+    detectInitialLanguage(),
   );
 
   const availableLanguages = () => {
