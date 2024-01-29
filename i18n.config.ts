@@ -1,15 +1,13 @@
-import de_DE from "./lang/de-DE.json";
-import en_US from "./lang/en-US.json";
-import fr_FR from "./lang/fr-FR.json";
-import it_IT from "./lang/it-IT.json";
+import de from "./lang/de.json";
+import en from "./lang/en.json";
+import fr from "./lang/fr.json";
+import it from "./lang/it.json";
 
 export default {
-  legacy: false,
   lazy: true,
-  globalInjection: true,
-  langDir: "lang/",
+  langDir: "lang",
+  strategy: "prefix_and_default",
   defaultLocale: "de",
-  fallbackLocale: "en",
   detectBrowserLanguage: {
     useCookie: true,
     cookieKey: "i18n_redirected",
@@ -18,33 +16,29 @@ export default {
   locales: [
     {
       code: "de",
-      iso: "de-DE",
       name: "Deutsch",
-      file: "de-DE.json",
+      file: "de.json",
     },
     {
       code: "en",
-      iso: "en-US",
       name: "English",
-      file: "en-US.json",
+      file: "en.json",
     },
     {
       code: "fr",
-      iso: "fr-FR",
       name: "Français",
-      file: "fr-FR.json",
+      file: "fr.json",
     },
     {
       code: "it",
-      iso: "it-IT",
       name: "Italiano",
-      file: "it-IT.json",
+      file: "it.json",
     },
   ],
   messages: {
-    de_DE,
-    en_US,
-    fr_FR,
-    it_IT,
+    de,
+    en,
+    fr,
+    it,
   },
 };
