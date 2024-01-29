@@ -20,20 +20,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-
 const { changeLanguage } = useLanguage();
 const { locale, locales } = useI18n({ useScope: "global" });
 const selectedLocale = ref(locale.value);
 
 const computedLocales = computed(() =>
-  locales.value.map((locale) => {
-    if (typeof locale === "string") {
-      return { code: locale, name: locale };
-    }
-    return locale;
+  locales.value.map((l) => {
+    return typeof l === "string" ? { code: l, name: l } : l;
   })
 );
+
+watch(locale, (newLocale) => {
+  selectedLocale.value = newLocale;
+});
 </script>
 
 <style scoped>
