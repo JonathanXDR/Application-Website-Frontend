@@ -7,11 +7,11 @@
         @change="handleLocaleChange"
       >
         <option
-          v-for="localeOption in computedLocales"
-          :key="localeOption.code"
-          :value="localeOption.code"
+          v-for="locale in computedLocales"
+          :key="locale.code"
+          :value="locale.code"
         >
-          {{ localeOption.name }}
+          {{ locale.name }}
         </option>
       </select>
       <Icon name="chevron.down" class="icon icon-xsmall" />
@@ -26,11 +26,11 @@ const { changeLanguage } = useLanguage();
 const { locale, locales } = useI18n({ useScope: "global" });
 
 const computedLocales = computed(() =>
-  locales.value.map((localeOption) => {
-    if (typeof localeOption === "string") {
-      return { code: localeOption, name: localeOption };
+  locales.value.map((locale) => {
+    if (typeof locale === "string") {
+      return { code: locale, name: locale };
     }
-    return localeOption;
+    return locale;
   })
 );
 
