@@ -4,7 +4,7 @@
       <select
         class="dropdown-select"
         v-model="selectedLocale"
-        @change="handleLocaleChange"
+        @change="changeLanguage(selectedLocale)"
       >
         <option
           v-for="locale in computedLocales"
@@ -20,10 +20,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref } from "vue";
 
 const { changeLanguage } = useLanguage();
 const { locale, locales } = useI18n({ useScope: "global" });
+const selectedLocale = ref(locale.value);
 
 const computedLocales = computed(() =>
   locales.value.map((locale) => {
@@ -33,16 +34,6 @@ const computedLocales = computed(() =>
     return locale;
   })
 );
-
-const selectedLocale = ref(locale.value);
-
-const handleLocaleChange = () => {
-  changeLanguage(selectedLocale.value);
-};
-
-watch(locale, (newLocale) => {
-  selectedLocale.value = newLocale;
-});
 </script>
 
 <style scoped>
