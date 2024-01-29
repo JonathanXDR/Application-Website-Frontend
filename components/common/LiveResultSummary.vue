@@ -36,7 +36,7 @@ withDefaults(
   {
     totalResults: 0,
     pinnedResults: 0,
-  },
+  }
 );
 
 const colorStore = useColor();
@@ -120,7 +120,7 @@ const randomColor = ref(colorStore.randomizeColor().colorVar);
   margin-left: auto;
   margin-right: auto;
   width: 980px;
-  color: var(--color-figure-gray-secondary-alt);
+  color: var(--color-figure-gray-secondary);
   display: flex;
   flex-flow: row wrap;
   margin-top: 10px;
@@ -150,14 +150,8 @@ const randomColor = ref(colorStore.randomizeColor().colorVar);
   line-height: 1.4285914286;
   font-weight: 400;
   /* letter-spacing: -0.016em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   color: var(--color-figure-gray-secondary);
   margin-right: 20px;
 }

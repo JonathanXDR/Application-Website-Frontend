@@ -56,14 +56,8 @@ const items = reactive([
   line-height: 1.7647058824;
   font-weight: 300;
   /* letter-spacing: 0em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   border: 0 solid var(--color-fill-gray-tertiary);
   border-radius: 0;
   color: var(--color-fill-gray);
@@ -214,14 +208,8 @@ const items = reactive([
   line-height: 1;
   font-weight: 400;
   /* letter-spacing: -0.021em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   padding: 9px 0 11px;
   margin-top: 2px;
   margin-bottom: 4px;
@@ -237,14 +225,8 @@ const items = reactive([
   line-height: 1.381002381;
   font-weight: 600;
   /* letter-spacing: 0.011em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   color: var(--color-figure-gray-secondary);
 }
 
@@ -273,14 +255,8 @@ const items = reactive([
     line-height: 1.4211026316;
     font-weight: 600;
     /* letter-spacing: 0.012em; */
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
   }
 }
 
@@ -290,14 +266,8 @@ const items = reactive([
     line-height: 1.2353641176;
     font-weight: 600;
     /* letter-spacing: -0.022em; */
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
   }
 }
 

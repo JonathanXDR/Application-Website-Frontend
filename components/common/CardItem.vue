@@ -470,7 +470,7 @@ const getAlignItems = () => {
 /* --------------------------------- eyebrow -------------------------------- */
 
 .eyebrow {
-  color: var(--color-figure-gray-secondary-alt);
+  color: var(--color-figure-gray-secondary);
   display: block;
   margin: 0;
   font-size: 14px;
@@ -1003,7 +1003,7 @@ svg.ac-graph-svg {
 /* ----------------------------- tile-category ----------------------------- */
 
 .tile-category {
-  color: var(--color-figure-gray-secondary-alt);
+  color: var(--color-figure-gray-secondary);
 }
 
 .tile-category {
