@@ -276,7 +276,7 @@
           },
           "eyebrow": "Vorgesetzter",
           "title": "Steve Hess",
-          "description": "Lernbegleiter",
+          "description": "Coach Next Generation",
           "info": {
             "location": "Wor-Ati6",
             "department": "GHR-POD-NEX"
@@ -309,7 +309,7 @@
           },
           "eyebrow": "Projektanbieter",
           "title": "Alessio Iantosca",
-          "description": "Automation Engineer",
+          "description": "Test Automation Engineer",
           "info": {
             "location": "Zür-Pfi51",
             "department": "B2B-BAN-COB-ASO-AUT"
@@ -321,7 +321,7 @@
           },
           "eyebrow": "Projektanbieter",
           "title": "Carlo Schmid",
-          "description": "Professional - Fullstack Developer",
+          "description": "Fullstack Developer",
           "info": {
             "location": "Itt-Ey10",
             "department": "GHR-POD-LES-APP"
@@ -333,10 +333,22 @@
           },
           "eyebrow": "Projektanbieter",
           "title": "Kim Eggler",
-          "description": "Professional - Fullstack Developer",
+          "description": "Fullstack Developer",
           "info": {
             "location": "Itt-Ey10",
             "department": "GHR-POD-LES-APP"
+          }
+        },
+        {
+          "icon": {
+            "name": "person.fill"
+          },
+          "eyebrow": "Projektanbieter",
+          "title": "Radu Margineanu",
+          "description": "Enterprise & System Achitect EAS",
+          "info": {
+            "location": "Zür-För181",
+            "department": "INI-EAI-EAV"
           }
         }
       ],
