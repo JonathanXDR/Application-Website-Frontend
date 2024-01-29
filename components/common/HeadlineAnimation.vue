@@ -1,14 +1,77 @@
+<template>
+  <header class="section-header large-span-12">
+    <h2
+      class="section-header-headline typography-section-headline-bold large-12 animated-headline"
+    >
+      <template
+        v-for="(word, wordIndex) in title.split(' ')"
+        :key="`word-${wordIndex}`"
+      >
+        <span class="word">
+          <span
+            v-for="(char, charIndex) in word.split('')"
+            :key="`char-${wordIndex}-${charIndex}`"
+            :style="{
+              '--letter-opacity':
+                charIndex + totalChars(wordIndex) <= letterIndex ? 1 : 0,
+              '--cursor-opacity': 0,
+            }"
+            class="letter"
+          >
+            {{ char }}<span class="cursor"></span>
+          </span>
+        </span>
+        <span
+          v-if="wordIndex < title.split(' ').length - 1"
+          style="--letter-opacity: 1; --cursor-opacity: 0"
+          class="letter"
+        >
+          &nbsp;<span class="cursor"></span>
+        </span>
+      </template>
+    </h2>
+  </header>
+</template>
+
+<script lang="ts" setup>
+const props = defineProps<{
+  title: string;
+}>();
+
+const letterIndex = ref(0);
+let lastScrollY = window.scrollY;
+
+function totalChars(upToWordIndex: number): number {
+  const words = props.title.split(" ").slice(0, upToWordIndex);
+  return words.reduce((total, word) => total + word.length, 0);
+}
+
+function handleScroll() {
+  const totalLetters = [...props.title].filter((char) => char !== " ").length;
+  if (window.scrollY > lastScrollY && letterIndex.value < totalLetters) {
+    letterIndex.value += 1;
+  } else if (window.scrollY < lastScrollY && letterIndex.value > 0) {
+    letterIndex.value -= 1;
+  }
+  lastScrollY = window.scrollY;
+}
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+</script>
+
+<style scoped>
 .typography-section-headline-bold {
   font-size: 80px;
   line-height: 1;
   font-weight: 700;
   letter-spacing: -0.013em;
-  font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
     sans-serif;
 }
 
@@ -18,12 +81,7 @@
     line-height: 1.037037037;
     font-weight: 700;
     letter-spacing: -0.013em;
-    font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
       sans-serif;
   }
 }
@@ -34,12 +92,7 @@
     line-height: 1.125;
     font-weight: 700;
     letter-spacing: -0.013em;
-    font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
       sans-serif;
   }
 }
@@ -143,3 +196,4 @@ html.overview-parallax .visuallyhidden--enhanced {
     opacity: 0;
   }
 }
+</style>
