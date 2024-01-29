@@ -14,7 +14,7 @@
           {{ locale.name }}
         </option>
       </select>
-      <Icon name="chevron.down" class="icon icon-xsmall" />
+      <Icon name="chevron.down" class="icon icon-small" />
     </div>
   </div>
 </template>

@@ -38,7 +38,7 @@ withDefaults(
   }>(),
   {
     variant: "label",
-  },
+  }
 );
 
 const { getTheme, setTheme } = useTheme();
@@ -53,29 +53,17 @@ const items = reactive([
 
 <style scoped>
 .color-scheme-toggle {
-  border: 1px solid var(--toggle-color-text);
+  border: 1px solid var(--color-figure-blue);
 }
 
 .color-scheme-toggle .text {
-  color: var(--toggle-color-text);
+  color: var(--color-figure-blue);
 }
 
 .color-scheme-toggle input:checked + .text {
-  color: var(--color-button-text);
+  color: var(--color-fill-gray);
   background: var(--color-button-background);
   border-color: var(--color-button-background);
-}
-
-.dmf input {
-  color: -internal-light-dark(white, black);
-}
-
-.content {
-  --toggle-border-radius-outer: 12px;
-  --toggle-border-radius-inner: 10px;
-  --toggle-color-fill: var(--color-button-background-active);
-  --toggle-color-text: var(--color-fill-blue);
-  flex-shrink: 0;
 }
 
 .content .color-scheme-toggle {
@@ -85,16 +73,10 @@ const items = reactive([
   letter-spacing: -0.01em;
   font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
     "Arial", sans-serif;
-  border: 1px solid var(--toggle-color-fill);
-  border-radius: var(--toggle-border-radius-outer, 2px);
+  border: 1px solid var(--color-fill-blue);
+  border-radius: 25px;
   display: flex;
   padding: 1px;
-}
-
-@media screen {
-  [data-color-scheme="dark"] .content .color-scheme-toggle {
-    --toggle-color-text: var(--color-figure-blue);
-  }
 }
 
 .content [role="radiogroup"]:focus {
@@ -120,9 +102,9 @@ const items = reactive([
   box-sizing: border-box;
   padding: 1px 6px;
   border: 1px solid transparent;
-  border-radius: var(--toggle-border-radius-inner, 2px);
+  border-radius: 25px;
   text-align: center;
-  color: var(--toggle-color-text);
+  color: var(--color-figure-blue);
 }
 
 .content .text:hover {
@@ -130,8 +112,7 @@ const items = reactive([
 }
 
 .content input[type="radio"]:checked + .text {
-  --toggle-color-text: var(--color-button-text);
-  background: var(--toggle-color-fill);
-  border-color: var(--toggle-color-fill);
+  background: var(--color-fill-blue);
+  border-color: var(--color-fill-blue);
 }
 </style>
