@@ -61,7 +61,7 @@ const items = reactive([
 }
 
 .color-scheme-toggle input:checked + .text {
-  color: var(--color-fill-gray);
+  color: white;
   background: var(--color-button-background);
   border-color: var(--color-button-background);
 }
