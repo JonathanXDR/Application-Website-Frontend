@@ -1,13 +1,17 @@
 <template>
   <div class="language-picker-dropdown">
     <div class="dropdown-container legacy-form">
-      <select class="dropdown-select" v-model="locale">
+      <select
+        class="dropdown-select"
+        v-model="selectedLocale"
+        @change="handleLocaleChange"
+      >
         <option
-          v-for="locale in computedLocales"
-          :key="locale.code"
-          :value="locale.code"
+          v-for="localeOption in computedLocales"
+          :key="localeOption.code"
+          :value="localeOption.code"
         >
-          {{ locale.name }}
+          {{ localeOption.name }}
         </option>
       </select>
       <Icon name="chevron.down" class="icon icon-xsmall" />
@@ -16,20 +20,28 @@
 </template>
 
 <script setup lang="ts">
+import { ref, watch } from "vue";
+
 const { changeLanguage } = useLanguage();
 const { locale, locales } = useI18n({ useScope: "global" });
 
 const computedLocales = computed(() =>
-  locales.value.map((locale) => {
-    if (typeof locale === "string") {
-      return { code: locale, name: locale };
+  locales.value.map((localeOption) => {
+    if (typeof localeOption === "string") {
+      return { code: localeOption, name: localeOption };
     }
-    return locale;
+    return localeOption;
   })
 );
 
+const selectedLocale = ref(locale.value);
+
+const handleLocaleChange = () => {
+  changeLanguage(selectedLocale.value);
+};
+
 watch(locale, (newLocale) => {
-  changeLanguage(newLocale);
+  selectedLocale.value = newLocale;
 });
 </script>
 
