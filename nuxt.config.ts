@@ -1,10 +1,7 @@
-import tailwindConfig from "./tailwind.config";
-import i18nConfig from "./i18n.config";
-
 export default defineNuxtConfig({
   modules: [
-    ["@nuxtjs/tailwindcss", tailwindConfig],
-    ["@nuxtjs/i18n", i18nConfig],
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/i18n",
     "@nuxtjs/color-mode",
     "@nuxt/image",
   ],
@@ -55,6 +52,40 @@ export default defineNuxtConfig({
         global: true,
       },
       "~/components/common",
+    ],
+  },
+  i18n: {
+    vueI18n: "~/i18n.config.ts",
+    // lazy: true,
+    // langDir: "lang",
+    strategy: "prefix_and_default",
+    defaultLocale: "de",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      redirectOn: "root",
+    },
+    locales: [
+      {
+        code: "de",
+        name: "Deutsch",
+        // file: "de.json",
+      },
+      {
+        code: "en",
+        name: "English",
+        // file: "en.json",
+      },
+      {
+        code: "fr",
+        name: "Français",
+        // file: "fr.json",
+      },
+      {
+        code: "it",
+        name: "Italiano",
+        // file: "it.json",
+      },
     ],
   },
 });
