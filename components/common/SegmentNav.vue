@@ -1,37 +1,34 @@
 <template>
   <fieldset class="tile">
-    <DropDown :options="sortOptions" />
-    <div class="segmentnav-container">
-      <ul ref="segmentNavEl" class="segmentnav">
-        <div class="segmentnav-wrapper">
-          <li
-            v-for="(item, index) in segmentNavItems"
-            :key="index"
-            class="segmentnav-item"
-          >
-            <input
-              :id="'segment-' + item.id"
-              type="radio"
-              name="category"
-              v-model="currentIndex"
-              :value="index"
-              @change="updateSegments"
-            />
-            <label
-              :for="'segment-' + item.id"
-              class="typography-segmentnav-item"
-            >
-              {{ item.label }}
-            </label>
-          </li>
-          <div
-            v-if="!loading"
-            class="segmentnav-selection-background"
-            :style="selectionStyle"
-          ></div>
-        </div>
-      </ul>
-    </div>
+    <!-- <DropDown :options="sortOptions" /> -->
+    <!-- <div class="segmentnav-container"> -->
+    <ul ref="segmentNavEl" class="segmentnav">
+      <div class="segmentnav-wrapper">
+        <li
+          v-for="(item, index) in segmentNavItems"
+          :key="index"
+          class="segmentnav-item"
+        >
+          <input
+            :id="'segment-' + item.id"
+            type="radio"
+            name="category"
+            v-model="currentIndex"
+            :value="index"
+            @change="updateSegments"
+          />
+          <label :for="'segment-' + item.id" class="typography-segmentnav-item">
+            {{ item.label }}
+          </label>
+        </li>
+        <div
+          v-if="!loading"
+          class="segmentnav-selection-background"
+          :style="selectionStyle"
+        ></div>
+      </div>
+    </ul>
+    <!-- </div> -->
   </fieldset>
 </template>
 
@@ -44,16 +41,16 @@ const props = withDefaults(
   }>(),
   {
     index: 0,
-  },
+  }
 );
 const emit = defineEmits(["update:currentIndex"]);
 
 const { tm } = useI18n();
 const segmentNavItems: Ref<OptionType[]> = computed(() =>
-  tm("components.common.SegmentNav.items"),
+  tm("components.common.SegmentNav.items")
 );
 const sortOptions: Ref<OptionType[]> = computed(() =>
-  tm("components.common.SegmentNav.sorts"),
+  tm("components.common.SegmentNav.sorts")
 );
 const currentIndex: Ref<number> = ref(props.index);
 const loading: Ref<boolean> = ref(true);
@@ -94,14 +91,8 @@ onMounted(() => {
   line-height: 1.28577;
   font-weight: 600;
   /* letter-spacing: -0.016em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
 }
 
 .segmentnav {

@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col filter-column large-8 medium-7 small-12">
+    <div class="col filter-column w-full">
       <div class="filter" :class="{ focus: open }">
         <div class="filter-wrapper">
           <div class="filter-top-wrapper">
@@ -74,9 +74,9 @@
         </div>
       </div>
     </div>
-    <div class="col large-4 medium-5 small-12">
+    <!-- <div class="col large-4 medium-5 small-12">
       <DropDown :options="options" />
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -86,7 +86,7 @@ import type { OptionType } from "~/types/common/Option";
 const { tm } = useI18n();
 const items: Ref<OptionType[]> = ref(tm("components.common.FilterInput.items"));
 const options: Ref<OptionType[]> = ref(
-  tm("components.common.FilterInput.sorts"),
+  tm("components.common.FilterInput.sorts")
 );
 const open: Ref<boolean> = ref(false);
 
@@ -278,14 +278,8 @@ const onBlur = () => {
   line-height: 1.381002381;
   font-weight: 400;
   /* letter-spacing: 0.011em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
   color: var(--color-text);
   width: 100%;
   height: 100%;
@@ -302,14 +296,8 @@ const onBlur = () => {
     line-height: 1.4211026316;
     font-weight: 400;
     /* letter-spacing: 0.012em; */
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
   }
 }
 
