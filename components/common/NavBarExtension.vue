@@ -10,7 +10,7 @@
 
 <style scoped>
 .filter-input-sticky-wrapper {
-  position: -webkit-sticky;
+  width: 100%;
   position: sticky;
   top: 52px;
   z-index: 5;
