@@ -24,10 +24,12 @@ export const useColor = () => {
   }>("colorBadge", () => null);
 
   const randomizeColor = () => {
-    const randomColor = Math.floor(
-      Math.random() * colorBadgeArray.value.length,
-    );
-    colorBadge.value = colorBadgeArray.value[randomColor];
+    if (!colorBadge.value) {
+      const randomColor = Math.floor(
+        Math.random() * colorBadgeArray.value.length
+      );
+      colorBadge.value = colorBadgeArray.value[randomColor];
+    }
     return colorBadge.value;
   };
 

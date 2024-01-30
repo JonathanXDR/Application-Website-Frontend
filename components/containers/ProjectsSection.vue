@@ -1,64 +1,63 @@
 <template>
-  <h3 class="typography-magical-headline" style="padding-bottom: 50px">
-    {{ title }}
-  </h3>
-  <NavBarExtension>
-    <SegmentNav
-      :index="currentIndex"
-      @update:currentIndex="updateCurrentIndex"
+  <div class="flex flex-col items-center">
+    <HeadlineAnimation
+      :title="title"
+      class="typography-magical-headline pb-12"
     />
-  </NavBarExtension>
-  <div class="timeline-wrapper" v-if="currentIndex === 0">
-    <TimeLine />
-    <ul ref="ul" class="timeline">
-      <CardItem
-        variant="article"
-        :size="windowObject.innerWidth < 900 ? 'small' : 'medium'"
-        v-for="(project, index) in currentProjects"
-        :key="index"
-        :card="project"
-        :iconPosition="windowObject.innerWidth < 900 ? 'top' : 'left'"
-        :dateFormatOptions="{
-          year: 'numeric',
-          month: 'long',
-        }"
+    <NavBarExtension>
+      <SegmentNav
+        :index="currentIndex"
+        @update:currentIndex="updateCurrentIndex"
       />
-    </ul>
-  </div>
-  <div v-else>
-    <div v-if="projects.personal.length && projects.school.length">
-      <LiveResultSummary
-        :totalResults="currentProjects.length + pinned.length"
-        :pinnedResults="pinned.length"
-      />
-      <ul v-if="pinned" class="card-container pinned-items">
+    </NavBarExtension>
+    <div class="timeline-wrapper" v-if="currentIndex === 0">
+      <TimeLine />
+      <ul ref="ul" class="timeline">
         <CardItem
-          v-for="(card, index) in pinned"
+          variant="article"
+          :size="windowObject.innerWidth < 900 ? 'small' : 'medium'"
+          v-for="(project, index) in currentProjects"
           :key="index"
-          :card="card"
-          size="small"
-          iconPosition="right"
-          class="color"
-          :style="`--color-figure: var(--color-figure-${randomColor});
-          --color-fill: var(--color-fill-${randomColor}-secondary)`"
+          :card="project"
+          :iconPosition="windowObject.innerWidth < 900 ? 'top' : 'left'"
+          :dateFormatOptions="{
+            year: 'numeric',
+            month: 'long',
+          }"
         />
-      </ul>
-      <ul class="card-container">
-        <CardItem
-          v-for="(card, index) in currentProjects"
-          :key="index"
-          :card="card"
-          size="small"
-          iconPosition="right"
-        />
-        <ResultBlankState v-if="!currentProjects" />
       </ul>
     </div>
-    <LoadingSpinner
-      v-else
-      class="center-horizontal center-vertical"
-      style="padding-top: 100px"
-    />
+    <div v-else class="w-full">
+      <div v-if="projects.personal.length && projects.school.length">
+        <LiveResultSummary
+          :totalResults="currentProjects.length + pinned.length"
+          :pinnedResults="pinned.length"
+        />
+        <ul v-if="pinned" class="card-container pinned-items">
+          <CardItem
+            v-for="(card, index) in pinned"
+            :key="index"
+            :card="card"
+            size="small"
+            iconPosition="right"
+            class="color"
+            :style="`--color-figure: var(--color-figure-${randomColor});
+          --color-fill: var(--color-fill-${randomColor}-secondary)`"
+          />
+        </ul>
+        <ul class="card-container">
+          <CardItem
+            v-for="(card, index) in currentProjects"
+            :key="index"
+            :card="card"
+            size="small"
+            iconPosition="right"
+          />
+          <ResultBlankState v-if="!currentProjects" />
+        </ul>
+      </div>
+      <LoadingSpinner v-else class="center-horizontal center-vertical pt-24" />
+    </div>
   </div>
 </template>
 
@@ -89,7 +88,7 @@ defineProps<{
 const { tm } = useI18n();
 const colorStore = useColor();
 const articles: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.projects"),
+  tm("components.containers.projects")
 );
 const projects: Projects = reactive({
   swisscom: computed(() => tm("components.containers.projects")) as Ref<
@@ -101,9 +100,7 @@ const projects: Projects = reactive({
 const pinned: Ref<ListUserPinnedReposResponse[]> = ref([]);
 const currentProjects = computed(
   () =>
-    projects[
-      Object.keys(projects)[currentIndex.value] as keyof typeof projects
-    ],
+    projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
 );
 
 const currentIndex: Ref<number> = ref(0);
@@ -146,8 +143,8 @@ const fetchProjects = async () => {
   const filteredProjects = allProjects.filter(
     (project) =>
       !pinnedProjects.find(
-        (pinnedProject) => pinnedProject.name === project.name,
-      ),
+        (pinnedProject) => pinnedProject.name === project.name
+      )
   );
 
   pinned.value = pinnedProjects;
@@ -155,7 +152,7 @@ const fetchProjects = async () => {
   filteredProjects.map(categorizeProject).forEach((project) => {
     const category = project.category as keyof Projects;
     projects[category].push(
-      project as ListUserReposResponse & CardItemType & { category: string },
+      project as ListUserReposResponse & CardItemType & { category: string }
     );
   });
 };

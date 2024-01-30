@@ -1,23 +1,26 @@
 <template>
-  <h3 class="typography-magical-headline" style="padding-bottom: 50px">
-    {{ title }}
-  </h3>
-  <NavBarExtension>
-    <FilterInput />
-  </NavBarExtension>
-
-  <LiveResultSummary :totalResults="cards.length" />
-
-  <ul class="card-container">
-    <CardItem
-      v-for="(card, index) in cards"
-      :key="index"
-      :card="card"
-      size="small"
-      iconPosition="right"
+  <div class="flex flex-col items-center">
+    <HeadlineAnimation
+      :title="title"
+      class="typography-magical-headline pb-12"
     />
-    <ResultBlankState v-if="!cards" />
-  </ul>
+    <NavBarExtension>
+      <FilterInput />
+    </NavBarExtension>
+
+    <LiveResultSummary :totalResults="cards.length" />
+
+    <ul class="card-container">
+      <CardItem
+        v-for="(card, index) in cards"
+        :key="index"
+        :card="card"
+        size="small"
+        iconPosition="right"
+      />
+      <ResultBlankState v-if="!cards" />
+    </ul>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -29,7 +32,7 @@ defineProps<{
 
 const { tm } = useI18n();
 const cards: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.technologies"),
+  tm("components.containers.technologies")
 );
 </script>
 
