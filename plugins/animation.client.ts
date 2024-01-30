@@ -6,29 +6,37 @@ export default defineNuxtPlugin((nuxtApp) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const operations = binding.value;
+
               if (operations.add) {
-                for (const className of operations.add) {
-                  entry.target.classList.add(className);
-                }
+                operations.add.forEach((className: string) => {
+                  el.classList.add(className);
+                });
               }
               if (operations.remove) {
-                for (const className of operations.remove) {
-                  entry.target.classList.remove(className);
-                }
+                operations.remove.forEach((className: string) => {
+                  el.classList.remove(className);
+                });
               }
               if (operations.toggle) {
-                for (const className of operations.toggle) {
-                  entry.target.classList.toggle(className);
-                }
+                operations.toggle.forEach((className: string) => {
+                  el.classList.toggle(className);
+                });
               }
-              observer.unobserve(entry.target);
+
+              if (operations.onViewportChange) {
+                operations.onViewportChange(true, el);
+              }
+            } else {
+              if (binding.value.onViewportChange) {
+                binding.value.onViewportChange(false, el);
+              }
             }
           });
         },
         {
           threshold: 1,
           rootMargin: "-52px 0px 0px 0px",
-        },
+        }
       );
 
       observer.observe(el);

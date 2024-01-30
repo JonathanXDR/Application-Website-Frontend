@@ -2,6 +2,7 @@
   <h2
     class="section-header-headline typography-section-headline-bold large-12 animated-headline"
     :class="{ 'cursor-blink': isCursorBlinking }"
+    v-animation="animationConfig"
     ref="headline"
   >
     <span
@@ -44,8 +45,6 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, onUnmounted, ref, watch } from "vue";
-
 const props = defineProps<{ title: string }>();
 const words = computed(() =>
   props.title
@@ -61,6 +60,19 @@ const originalStringLength = computed(
 );
 const headline = ref<HTMLElement | null>(null);
 let cursorBlinkTimeout: number | NodeJS.Timeout | null = null;
+
+const animationConfig = {
+  onViewportChange: (isInViewport: boolean) => {
+    if (isInViewport) {
+      window.addEventListener("scroll", updateLetterCount);
+      console.log("Event listener added");
+    } else {
+      window.removeEventListener("scroll", updateLetterCount);
+      clearTimeout(cursorBlinkTimeout as NodeJS.Timeout);
+      console.log("Event listener removed");
+    }
+  },
+};
 
 const getLetterStyle = (index: number) => ({
   "--letter-opacity": index < currentLetterCount.value ? "1" : "0",
@@ -120,15 +132,6 @@ const setCursorBlink = (state: boolean) => {
     }, 1);
   }
 };
-
-onMounted(() => {
-  window.addEventListener("scroll", updateLetterCount);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("scroll", updateLetterCount);
-  clearTimeout(cursorBlinkTimeout as NodeJS.Timeout);
-});
 </script>
 
 <style scoped>
