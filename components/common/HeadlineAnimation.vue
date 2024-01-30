@@ -137,8 +137,8 @@ onUnmounted(() => {
   line-height: 1;
   font-weight: 700;
   letter-spacing: -0.013em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -147,8 +147,8 @@ onUnmounted(() => {
     line-height: 1.037037037;
     font-weight: 700;
     letter-spacing: -0.013em;
-    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
   }
 }
 
@@ -158,8 +158,8 @@ onUnmounted(() => {
     line-height: 1.125;
     font-weight: 700;
     letter-spacing: -0.013em;
-    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
   }
 }
 
