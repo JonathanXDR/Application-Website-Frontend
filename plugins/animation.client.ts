@@ -1,44 +1,37 @@
+type AnimationOperations = {
+  add?: string[];
+  remove?: string[];
+  toggle?: string[];
+  onViewportChange?: (isInViewport: boolean, el: Element) => void;
+};
+
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive("animation", {
-    mounted(el, binding) {
+    mounted(el: Element, binding: { value: AnimationOperations }) {
+      const observerCallback = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          const { add, remove, toggle, onViewportChange } = binding.value;
+          const isInViewport = entry.isIntersecting;
+
+          if (isInViewport) {
+            add?.forEach((className) => el.classList.add(className));
+            remove?.forEach((className) => el.classList.remove(className));
+            toggle?.forEach((className) => el.classList.toggle(className));
+          }
+
+          onViewportChange?.(isInViewport, el);
+        });
+      };
+
+      const observerOptions = {
+        threshold: 1,
+        rootMargin: "-52px 0px 0px 0px",
+      };
+
       const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const operations = binding.value;
-
-              if (operations.add) {
-                operations.add.forEach((className: string) => {
-                  el.classList.add(className);
-                });
-              }
-              if (operations.remove) {
-                operations.remove.forEach((className: string) => {
-                  el.classList.remove(className);
-                });
-              }
-              if (operations.toggle) {
-                operations.toggle.forEach((className: string) => {
-                  el.classList.toggle(className);
-                });
-              }
-
-              if (operations.onViewportChange) {
-                operations.onViewportChange(true, el);
-              }
-            } else {
-              if (binding.value.onViewportChange) {
-                binding.value.onViewportChange(false, el);
-              }
-            }
-          });
-        },
-        {
-          threshold: 1,
-          rootMargin: "-52px 0px 0px 0px",
-        }
+        observerCallback,
+        observerOptions
       );
-
       observer.observe(el);
     },
   });

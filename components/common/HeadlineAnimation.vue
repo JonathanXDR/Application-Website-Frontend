@@ -65,11 +65,9 @@ const animationConfig = {
   onViewportChange: (isInViewport: boolean) => {
     if (isInViewport) {
       window.addEventListener("scroll", updateLetterCount);
-      console.log("Event listener added");
     } else {
       window.removeEventListener("scroll", updateLetterCount);
       clearTimeout(cursorBlinkTimeout as NodeJS.Timeout);
-      console.log("Event listener removed");
     }
   },
 };
