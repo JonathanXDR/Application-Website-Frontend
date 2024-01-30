@@ -594,14 +594,14 @@ onMounted(fetchTags);
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous {
     width: 24px;
-    left: -12px;
+    /* left: -12px; */
   }
 }
-@media only screen and (max-width: 1023px) and (max-device-width: 736px) and (orientation: landscape) {
+/* @media only screen and (max-width: 1023px) and (max-device-width: 736px) and (orientation: landscape) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous {
     left: -6px;
   }
-}
+} */
 .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous:after {
   width: 10px;
   margin-left: -18px;
@@ -621,14 +621,14 @@ onMounted(fetchTags);
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next {
     width: 24px;
-    right: -12px;
+    /* right: -12px; */
   }
 }
-@media only screen and (max-width: 1023px) and (max-device-width: 736px) and (orientation: landscape) {
+/* @media only screen and (max-width: 1023px) and (max-device-width: 736px) and (orientation: landscape) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next {
     right: -6px;
   }
-}
+} */
 .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next:after {
   width: 10px;
   margin-right: -18px;
