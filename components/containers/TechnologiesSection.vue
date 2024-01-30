@@ -1,7 +1,9 @@
 <template>
-  <h3 class="typography-magical-headline" style="padding-bottom: 50px">
-    {{ title }}
-  </h3>
+  <HeadlineAnimation
+    :title="title"
+    class="typography-magical-headline"
+    style="padding-bottom: 50px"
+  />
   <NavBarExtension>
     <FilterInput />
   </NavBarExtension>
@@ -29,7 +31,7 @@ defineProps<{
 
 const { tm } = useI18n();
 const cards: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.technologies"),
+  tm("components.containers.technologies")
 );
 </script>
 

@@ -1,17 +1,19 @@
 <template>
-  <header class="section-header large-span-12">
-    <h2
-      class="section-header-headline typography-section-headline-bold large-12 animated-headline"
-      :class="{ 'cursor-blink': isCursorBlinking }"
+  <h2
+    class="section-header-headline typography-section-headline-bold large-12 animated-headline"
+    :class="{ 'cursor-blink': isCursorBlinking }"
+    ref="headline"
+  >
+    <span
+      class="letter"
+      :style="{ '--cursor-opacity': initialCursorOpacity }"
+      data-initial-cursor
     >
-      <span
-        class="letter"
-        :style="{ '--cursor-opacity': initialCursorOpacity }"
-        data-initial-cursor
-      >
-        <span class="cursor"></span>
-      </span>
-      <span class="word" v-for="(word, wordIndex) in words" :key="wordIndex">
+      <span class="cursor"></span>
+    </span>
+
+    <template v-for="(word, wordIndex) in words" :key="wordIndex">
+      <span class="word">
         <span
           v-for="(char, letterIndex) in word"
           :key="letterIndex"
@@ -27,17 +29,18 @@
             "
           ></span>
         </span>
-        <span
-          v-if="wordIndex < words.length - 1"
-          class="letter"
-          :style="getLetterStyle(getGlobalIndex(wordIndex, word.length))"
-          :data-letter-index="getGlobalIndex(wordIndex, word.length)"
-        >
-          &nbsp;<span class="cursor"></span>
-        </span>
       </span>
-    </h2>
-  </header>
+
+      <span
+        v-if="wordIndex < words.length - 1"
+        class="letter"
+        :style="getLetterStyle(getGlobalIndex(wordIndex, word.length))"
+        :data-letter-index="getGlobalIndex(wordIndex, word.length)"
+      >
+        {{ "&nbsp;" }}<span class="cursor"></span>
+      </span>
+    </template>
+  </h2>
 </template>
 
 <script lang="ts" setup>
@@ -56,52 +59,67 @@ const currentLetterCount = ref(0);
 const originalStringLength = computed(
   () => props.title.trim().replace(/ /g, "").length + words.value.length - 1
 );
+const headline = ref<HTMLElement | null>(null);
+let cursorBlinkTimeout: number | NodeJS.Timeout | null = null;
 
-const getLetterStyle = (index: number) => {
-  const letterOpacity = index < currentLetterCount.value ? 1 : 0;
-  const cursorOpacity = index === currentLetterCount.value - 1 ? "1" : "0";
-  return {
-    "--letter-opacity": letterOpacity.toString(),
-    "--cursor-opacity": cursorOpacity,
-  };
-};
+const getLetterStyle = (index: number) => ({
+  "--letter-opacity": index < currentLetterCount.value ? "1" : "0",
+  "--cursor-opacity": index === currentLetterCount.value - 1 ? "1" : "0",
+});
 
 const getGlobalIndex = (wordIndex: number, letterIndex: number) => {
   let globalIndex = 0;
   for (let i = 0; i < wordIndex; i++) {
-    globalIndex += words.value[i].length + 1; // +1 for space
+    globalIndex += words.value[i].length + 1;
   }
   return globalIndex + letterIndex;
 };
 
 let lastScrollY = 0;
 
-function updateLetterCount() {
+const updateLetterCount = () => {
+  const scrollY = window.scrollY;
+  const scrollThreshold = 20;
+
   if (
-    window.scrollY > lastScrollY &&
+    scrollY > lastScrollY + scrollThreshold &&
     currentLetterCount.value < originalStringLength.value
   ) {
     currentLetterCount.value++;
-    isCursorBlinking.value = false;
+    setCursorBlink(false);
     initialCursorOpacity.value = "0";
-  } else if (window.scrollY < lastScrollY && currentLetterCount.value > 0) {
+    lastScrollY = scrollY;
+  } else if (
+    scrollY < lastScrollY - scrollThreshold &&
+    currentLetterCount.value > 0
+  ) {
     currentLetterCount.value--;
-    isCursorBlinking.value = false;
+    setCursorBlink(false);
+    lastScrollY = scrollY;
   } else {
-    isCursorBlinking.value = true;
+    setCursorBlink(true);
   }
-  lastScrollY = window.scrollY;
-}
+};
 
 watch(currentLetterCount, (newCount, oldCount) => {
   if (newCount === 0) {
     initialCursorOpacity.value = "1";
   } else if (newCount === originalStringLength.value) {
-    isCursorBlinking.value = true;
+    setCursorBlink(true);
   } else if (newCount < oldCount) {
-    isCursorBlinking.value = false;
+    setCursorBlink(false);
   }
 });
+
+const setCursorBlink = (state: boolean) => {
+  clearTimeout(cursorBlinkTimeout as NodeJS.Timeout);
+  isCursorBlinking.value = state;
+  if (!state) {
+    cursorBlinkTimeout = setTimeout(() => {
+      isCursorBlinking.value = true;
+    }, 1);
+  }
+};
 
 onMounted(() => {
   window.addEventListener("scroll", updateLetterCount);
@@ -109,6 +127,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener("scroll", updateLetterCount);
+  clearTimeout(cursorBlinkTimeout as NodeJS.Timeout);
 });
 </script>
 
@@ -144,59 +163,8 @@ onUnmounted(() => {
   }
 }
 
-/*! CSS Used from: https://www.apple.com/v/icloud/af/built/styles/overview.built.css */
-@media only screen and (max-width: 734px) {
-  .icloud-update .section .section-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 100%;
-  }
-}
-
-.section-header {
-  text-align: left;
-  margin-bottom: 70px;
-}
-
-@media only screen and (max-width: 1068px) {
-  .section-header {
-    margin-bottom: 50px;
-  }
-}
-
-.section-header {
-  align-items: start;
-  position: relative;
-  width: 980px;
-  margin: 0 auto 70px;
-  padding-right: 6px;
-  max-width: calc(100% - var(--grid-gutter-width) * 2);
-}
-
-@media only screen and (max-width: 1068px) {
-  .section-header {
-    grid-column: span 12;
-    margin: 0 0 50px;
-    padding-left: 40px;
-    padding-right: unset;
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 734px) {
-  .section-header {
-    padding-left: 14px;
-  }
-}
-
 .animated-headline {
-  position: absolute;
-  width: -moz-fit-content;
   width: fit-content;
-  display: inline;
-  margin-top: 0;
-  top: 0;
 }
 
 html.overview-parallax .visuallyhidden--enhanced {

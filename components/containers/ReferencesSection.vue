@@ -1,5 +1,5 @@
 <template>
-  <HeadlineAnimation :title="title" />
+  <h2>{{ title }}</h2>
   <ul class="grid">
     <CardItem
       variant="article"
