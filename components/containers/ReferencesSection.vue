@@ -1,5 +1,5 @@
 <template>
-  <h2>{{ title }}</h2>
+  <HeadlineAnimation :title="title" />
   <ul class="grid">
     <CardItem
       variant="article"
@@ -25,7 +25,7 @@ defineProps<{
 
 const { tm } = useI18n();
 const articles: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.references"),
+  tm("components.containers.references")
 );
 const windowObject = computed(() => window);
 </script>
