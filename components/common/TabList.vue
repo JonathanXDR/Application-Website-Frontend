@@ -21,10 +21,9 @@
 
 <script setup lang="ts">
 const items = reactive([
-  { id: "productivity", label: "Productivity" },
-  { id: "gaming", label: "Gaming" },
-  { id: "production", label: "Audio and video production" },
-  { id: "development", label: "Software development" },
+  { id: "german", label: "Deutsch" },
+  { id: "english", label: "Englisch" },
+  { id: "french", label: "Französisch" },
 ]);
 
 // function (e, t, i) {

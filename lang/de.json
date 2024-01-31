@@ -137,6 +137,21 @@
           }
         ]
       },
+      "LiveResultSummary": {
+        "description": "Showing {count} results",
+        "items": [
+          {
+            "icon": {
+              "name": "pin.fill",
+              "colors": {
+                "primary": "{randomColor}"
+              }
+            },
+            "title": "Angepinnt",
+            "description": "({count})"
+          }
+        ]
+      },
       "SegmentNav": {
         "items": [
           {
