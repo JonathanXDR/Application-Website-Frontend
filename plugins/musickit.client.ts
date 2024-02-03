@@ -1,38 +1,40 @@
-import { MusicKitHelper } from "~/helpers/musickit-helper";
+import { MusicKitHelper } from "../helpers/musickit-helper";
 
 export default defineNuxtPlugin(async (nuxtApp) => {
   if (process.client) {
     await loadMusicKitSDK();
 
-    const musicKitInstance = window.MusicKit.getInstance();
-    const musicKitHelper = new MusicKitHelper(musicKitInstance);
+    try {
+      const musicKitInstance = window.MusicKit.getInstance();
+      const musicKitHelper = new MusicKitHelper(musicKitInstance);
 
-    const developerToken = import.meta.env.VITE_APPLE_DEVELOPER_TOKEN;
-    const appConfiguration = {
-      name: "Application-Website",
-      build: "1.0.0",
-      version: "1.0.0",
-      icon: "App Icon URL",
-    };
+      const developerToken = import.meta.env.VITE_APPLE_DEVELOPER_TOKEN;
+      const appConfiguration = {
+        name: "Application-Website",
+        build: "1.0.0",
+        version: "1.0.0",
+        icon: "App Icon URL",
+      };
 
-    musicKitHelper.configureMusicKit(developerToken, appConfiguration);
+      musicKitHelper.configureMusicKit(developerToken, appConfiguration);
+    } catch (error) {
+      console.error("MusicKit initialization error:", error);
+    }
   }
 });
 
-async function loadMusicKitSDK(): Promise<void> {
+async function loadMusicKitSDK() {
   return new Promise((resolve, reject) => {
-    if (typeof window.MusicKit !== "undefined") {
-      resolve();
-      return;
+    if (window.MusicKit) {
+      resolve(window.MusicKit);
+    } else {
+      let script = document.createElement("script");
+      script.src = "https://js-cdn.music.apple.com/musickit/v1/musickit.js";
+      script.async = true;
+      script.onload = () => resolve(window.MusicKit);
+      script.onerror = () =>
+        reject(new Error("Failed to load MusicKit JS SDK"));
+      document.head.appendChild(script);
     }
-
-    const script = document.createElement("script");
-    script.src = "https://js-cdn.music.apple.com/musickit/v1/musickit.js";
-    script.onload = () => {
-      console.log("MusicKit SDK Loaded");
-      resolve();
-    };
-    script.onerror = reject;
-    document.head.appendChild(script);
   });
 }

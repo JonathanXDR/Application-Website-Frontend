@@ -1,4 +1,8 @@
-interface MusicKitInstance {
+import type { MusicKitAPI } from "./MusicKitAPI";
+import type { MusicKitPlayer } from "./MusicKitPlayer";
+import type { SetQueueOptions } from "./SetQueueOptions";
+
+export type MusicKitInstance = {
   api: MusicKitAPI;
   player: MusicKitPlayer;
   isAuthorized: boolean;
@@ -10,4 +14,4 @@ interface MusicKitInstance {
   addEventListener: (event: string, callback: Function) => void;
   removeEventListener: (event: string, callback: Function) => void;
   setQueue: (options: SetQueueOptions) => Promise<void>;
-}
+};
