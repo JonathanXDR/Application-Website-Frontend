@@ -2,20 +2,16 @@
   <div class="tablist-wrapper">
     <div class="tabnav">
       <ul role="tablist" class="tabnav-items">
-        <li
-          v-for="(item, index) in items"
-          :key="index"
-          class="tabnav-item"
-        >
+        <li v-for="(item, index) in items" :key="index" class="tabnav-item">
           <input
-            :id="item.id"
+            :id="`tab-${item.id}`"
             type="radio"
             name="category"
             :value="item.id"
             v-model="selectedTab"
             @change="() => emitChange(item.id)"
           />
-          <label :for="item.id" class="tabnav-link">
+          <label :for="`tab-${item.id}`" class="tabnav-link">
             {{ item.label }}
           </label>
         </li>
