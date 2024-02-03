@@ -20,12 +20,9 @@
 </template>
 
 <script setup lang="ts">
-const items = reactive([
-  { id: "productivity", label: "Productivity" },
-  { id: "gaming", label: "Gaming" },
-  { id: "production", label: "Audio and video production" },
-  { id: "development", label: "Software development" },
-]);
+defineProps<{
+  items: { id: string; label: string }[];
+}>();
 
 // function (e, t, i) {
 //   'use strict';
