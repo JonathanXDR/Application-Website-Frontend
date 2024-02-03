@@ -1,3 +1,5 @@
+declare const MusicKit: any;
+
 interface MusicKitInstance {
   api: MusicKitAPI;
   player: MusicKitPlayer;
@@ -7,6 +9,9 @@ interface MusicKitInstance {
   developerToken: string;
   authorize: () => Promise<string>;
   unauthorize: () => Promise<void>;
+  addEventListener: (event: string, callback: Function) => void;
+  removeEventListener: (event: string, callback: Function) => void;
+  setQueue: (options: SetQueueOptions) => Promise<void>;
 }
 
 interface MusicKitConfiguration {
@@ -83,6 +88,7 @@ interface MusicKitAPI {
   playlist: (id: string) => Promise<Playlist>;
   song: (id: string) => Promise<Song>;
   search: (term: string, options: SearchOptions) => Promise<SearchResults>;
+  addToLibrary: (options: any) => Promise<void>;
 }
 
 interface Album {
@@ -151,10 +157,8 @@ type PlaybackState = "none" | "loading" | "playing" | "paused" | "stopped";
 type PlayerRepeatMode = "none" | "one" | "all";
 type PlayerShuffleMode = "off" | "songs";
 
-declare const MusicKit: any;
-
 class MusicKitHelper {
-  musicKitInstance: any;
+  musicKitInstance: MusicKitInstance;
 
   constructor() {
     this.musicKitInstance = MusicKit.getInstance();
@@ -162,13 +166,15 @@ class MusicKitHelper {
 
   async configureMusicKit(
     developerToken: string,
-    app: MusicKit.AppConfiguration
-  ) {
+    app: AppConfiguration
+  ): Promise<MusicKitConfiguration> {
     MusicKit.configure({
       developerToken: developerToken,
       app: app,
     });
     this.musicKitInstance = MusicKit.getInstance();
+
+    return MusicKit.getInstance().config;
   }
 
   async authorizeUser() {
@@ -180,42 +186,42 @@ class MusicKitHelper {
   }
 
   play() {
-    this.musicKitInstance.play();
+    this.musicKitInstance.player.play();
   }
 
   pause() {
-    this.musicKitInstance.pause();
+    this.musicKitInstance.player.pause();
   }
 
   stop() {
-    this.musicKitInstance.stop();
+    this.musicKitInstance.player.stop();
   }
 
   next() {
-    this.musicKitInstance.skipToNextItem();
+    this.musicKitInstance.player.skipToNextItem();
   }
 
   previous() {
-    this.musicKitInstance.skipToPreviousItem();
+    this.musicKitInstance.player.skipToPreviousItem();
   }
 
-  async setQueue(options: MusicKit.SetQueueOptions) {
+  async setQueue(options: SetQueueOptions) {
     await this.musicKitInstance.setQueue(options);
   }
 
   async playAlbum(albumId: string) {
     await this.musicKitInstance.setQueue({ album: albumId });
-    this.musicKitInstance.play();
+    this.musicKitInstance.player.play();
   }
 
   async playPlaylist(playlistId: string) {
     await this.musicKitInstance.setQueue({ playlist: playlistId });
-    this.musicKitInstance.play();
+    this.musicKitInstance.player.play();
   }
 
   async playSong(songId: string) {
     await this.musicKitInstance.setQueue({ song: songId });
-    this.musicKitInstance.play();
+    this.musicKitInstance.player.play();
   }
 
   async getAlbum(albumId: string) {
@@ -236,8 +242,9 @@ class MusicKitHelper {
     limit: number = 10
   ): Promise<SearchResults> {
     const results = await this.musicKitInstance.api.search(term, {
-      types: types.join(","),
-      limit,
+      types: types,
+      limit: limit,
+      term: term,
     });
     return results;
   }
@@ -249,14 +256,14 @@ class MusicKitHelper {
     await this.musicKitInstance.api.addToLibrary({ [itemType]: [itemId] });
   }
 
-  onPlaybackStateChanged(callback: (state: MusicKit.PlaybackStates) => void) {
+  onPlaybackStateChanged(callback: (state: PlaybackState) => void) {
     this.musicKitInstance.addEventListener(
       MusicKit.Events.playbackStateDidChange,
       callback
     );
   }
 
-  offPlaybackStateChanged(callback: (state: MusicKit.PlaybackStates) => void) {
+  offPlaybackStateChanged(callback: (state: PlaybackState) => void) {
     this.musicKitInstance.removeEventListener(
       MusicKit.Events.playbackStateDidChange,
       callback
