@@ -1,4 +1,5 @@
 export type PlaylistType = {
+  playlistId: number;
   link: string;
   imageSrc: string;
   altText: string;
