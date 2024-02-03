@@ -1,25 +1,38 @@
-import { listRepositoryTags } from "~/helpers/github-helper";
+import { MusicKitHelper } from "~/helpers/musickit-helper";
 
-export default defineNuxtPlugin((nuxtApp) => {
-  const tags = ref({ latest: undefined, previous: undefined }) as Ref<{
-    latest: string | undefined;
-    previous: string | undefined;
-  }>;
-  const developerToken = import.meta.env.VITE_APPLE_DEVELOPER_TOKEN;
-  const appConfiguration = {
-    name: "Application-Website",
-    build: tags.value.latest,
-    version: tags.value.latest,
-    icon: "App Icon URL",
-  };
+export default defineNuxtPlugin(async (nuxtApp) => {
+  if (process.client) {
+    await loadMusicKitSDK();
 
-  const fetchTags = async () => {
-    const [latest, previous] = await listRepositoryTags({
-      owner: "JonathanXDR",
-      repo: "Application-Website-Frontend",
-      perPage: 2,
-    });
+    const musicKitInstance = window.MusicKit.getInstance();
+    const musicKitHelper = new MusicKitHelper(musicKitInstance);
 
-    tags.value = { latest: latest.name, previous: previous.name };
-  };
+    const developerToken = import.meta.env.VITE_APPLE_DEVELOPER_TOKEN;
+    const appConfiguration = {
+      name: "Application-Website",
+      build: "1.0.0",
+      version: "1.0.0",
+      icon: "App Icon URL",
+    };
+
+    musicKitHelper.configureMusicKit(developerToken, appConfiguration);
+  }
 });
+
+async function loadMusicKitSDK(): Promise<void> {
+  return new Promise((resolve, reject) => {
+    if (typeof window.MusicKit !== "undefined") {
+      resolve();
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://js-cdn.music.apple.com/musickit/v1/musickit.js";
+    script.onload = () => {
+      console.log("MusicKit SDK Loaded");
+      resolve();
+    };
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+}

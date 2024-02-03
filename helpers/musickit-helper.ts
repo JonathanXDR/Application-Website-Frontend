@@ -157,11 +157,17 @@ type PlaybackState = "none" | "loading" | "playing" | "paused" | "stopped";
 type PlayerRepeatMode = "none" | "one" | "all";
 type PlayerShuffleMode = "off" | "songs";
 
-class MusicKitHelper {
+export class MusicKitHelper {
   musicKitInstance: MusicKitInstance;
 
-  constructor() {
-    this.musicKitInstance = MusicKit.getInstance();
+  constructor(musicKitInstance?: MusicKitInstance) {
+    if (musicKitInstance) {
+      this.musicKitInstance = musicKitInstance;
+    } else {
+      throw new Error(
+        "MusicKit instance is not available. Make sure to load the MusicKit SDK before creating a MusicKitHelper instance."
+      );
+    }
   }
 
   async configureMusicKit(
@@ -271,4 +277,18 @@ class MusicKitHelper {
   }
 }
 
-export const musicKitHelper = new MusicKitHelper();
+export async function loadMusicKitSDK(): Promise<void> {
+  return new Promise((resolve, reject) => {
+    if (typeof (window as any).MusicKit !== "undefined") {
+      resolve();
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://js-cdn.music.apple.com/musickit/v1/musickit.js";
+    script.onload = () => resolve();
+    script.onerror = (error) =>
+      reject(new Error(`MusicKit SDK loading error: ${error}`));
+    document.head.appendChild(script);
+  });
+}
