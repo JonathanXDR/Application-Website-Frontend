@@ -1,78 +1,119 @@
-import MusicKit from "musickit-js";
+interface SearchResults {
+  albums: any[];
+  artists: any[];
+  songs: any[];
+}
+
+declare const MusicKit: any;
 
 class MusicKitHelper {
   musicKitInstance: any;
 
   constructor() {
-    this.musicKitInstance = null;
+    this.musicKitInstance = MusicKit.getInstance();
   }
 
-  async configureMusicKit() {
-    const configuration = {
-      developerToken: "YOUR_DEVELOPER_TOKEN",
-      app: {
-        name: "Your App Name",
-        build: "Your App Build Version",
-      },
-    };
-    MusicKit.configure(configuration);
+  async configureMusicKit(
+    developerToken: string,
+    app: MusicKit.AppConfiguration
+  ) {
+    MusicKit.configure({
+      developerToken: developerToken,
+      app: app,
+    });
     this.musicKitInstance = MusicKit.getInstance();
   }
 
   async authorizeUser() {
-    if (!this.musicKitInstance) {
-      console.error("MusicKit not initialized");
-      return;
-    }
-    try {
-      await this.musicKitInstance.authorize();
-      console.log("User authorized");
-    } catch (error) {
-      console.error("Authorization error:", error);
-    }
+    await this.musicKitInstance.authorize();
+  }
+
+  async unauthorizeUser() {
+    await this.musicKitInstance.unauthorize();
+  }
+
+  play() {
+    this.musicKitInstance.play();
+  }
+
+  pause() {
+    this.musicKitInstance.pause();
+  }
+
+  stop() {
+    this.musicKitInstance.stop();
+  }
+
+  next() {
+    this.musicKitInstance.skipToNextItem();
+  }
+
+  previous() {
+    this.musicKitInstance.skipToPreviousItem();
+  }
+
+  async setQueue(options: MusicKit.SetQueueOptions) {
+    await this.musicKitInstance.setQueue(options);
   }
 
   async playAlbum(albumId: string) {
-    if (!this.musicKitInstance) {
-      console.error("MusicKit not initialized");
-      return;
-    }
-    try {
-      await this.musicKitInstance.setQueue({ album: albumId });
-      this.musicKitInstance.play();
-    } catch (error) {
-      console.error("Error playing album:", error);
-    }
+    await this.musicKitInstance.setQueue({ album: albumId });
+    this.musicKitInstance.play();
   }
 
   async playPlaylist(playlistId: string) {
-    if (!this.musicKitInstance) {
-      console.error("MusicKit not initialized");
-      return;
-    }
-    try {
-      await this.musicKitInstance.setQueue({ playlist: playlistId });
-      this.musicKitInstance.play();
-    } catch (error) {
-      console.error("Error playing playlist:", error);
-    }
+    await this.musicKitInstance.setQueue({ playlist: playlistId });
+    this.musicKitInstance.play();
   }
 
-  async search(term: string) {
-    if (!this.musicKitInstance) {
-      console.error("MusicKit not initialized");
-      return;
-    }
-    try {
-      const results = await this.musicKitInstance.api.search(term, {
-        limit: 10,
-        types: "albums,artists,songs",
-      });
-      console.log("Search results:", results);
-      return results;
-    } catch (error) {
-      console.error("Search error:", error);
-    }
+  async playSong(songId: string) {
+    await this.musicKitInstance.setQueue({ song: songId });
+    this.musicKitInstance.play();
+  }
+
+  async getAlbum(albumId: string) {
+    return await this.musicKitInstance.api.album(albumId);
+  }
+
+  async getPlaylist(playlistId: string) {
+    return await this.musicKitInstance.api.playlist(playlistId);
+  }
+
+  async getSong(songId: string) {
+    return await this.musicKitInstance.api.song(songId);
+  }
+
+  async search(
+    term: string,
+    types: string[] = ["albums", "artists", "songs"],
+    limit: number = 10
+  ): Promise<SearchResults> {
+    const results = await this.musicKitInstance.api.search(term, {
+      types: types.join(","),
+      limit,
+    });
+    return results;
+  }
+
+  async addToLibrary(
+    itemId: string,
+    itemType: "songs" | "albums" | "playlists"
+  ) {
+    await this.musicKitInstance.api.addToLibrary({ [itemType]: [itemId] });
+  }
+
+  onPlaybackStateChanged(callback: (state: MusicKit.PlaybackStates) => void) {
+    this.musicKitInstance.addEventListener(
+      MusicKit.Events.playbackStateDidChange,
+      callback
+    );
+  }
+
+  offPlaybackStateChanged(callback: (state: MusicKit.PlaybackStates) => void) {
+    this.musicKitInstance.removeEventListener(
+      MusicKit.Events.playbackStateDidChange,
+      callback
+    );
   }
 }
 
