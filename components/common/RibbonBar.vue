@@ -71,10 +71,10 @@ import type { LinkType } from "~/types/common/Link";
 import type { RibbonBar } from "~/types/common/RibbonBar";
 
 const { t, tm, rt } = useI18n();
-const tags = ref({ latest: undefined, previous: undefined }) as Ref<{
+const tags: Ref<{
   latest: string | undefined;
   previous: string | undefined;
-}>;
+}> = ref({ latest: undefined, previous: undefined });
 const projects: Ref<CardItemType[]> = computed(() =>
   tm("components.containers.projects")
 );

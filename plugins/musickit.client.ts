@@ -2,10 +2,37 @@ import { listRepositoryTags } from "~/helpers/github-helper";
 import { MusicKitHelper } from "../helpers/musickit-helper";
 
 export default defineNuxtPlugin(async (nuxtApp) => {
-  const tags = ref({ latest: undefined, previous: undefined }) as Ref<{
+  const tags: Ref<{
     latest: string | undefined;
     previous: string | undefined;
-  }>;
+  }> = ref({ latest: undefined, previous: undefined });
+
+  const fetchTags = async () => {
+    const [latest, previous] = await listRepositoryTags({
+      owner: "JonathanXDR",
+      repo: "Application-Website-Frontend",
+      perPage: 2,
+    });
+
+    tags.value = { latest: latest.name, previous: previous.name };
+  };
+
+  async function loadMusicKitSDK() {
+    fetchTags();
+    return new Promise((resolve, reject) => {
+      if (window.MusicKit) {
+        resolve(window.MusicKit);
+      } else {
+        let script = document.createElement("script");
+        script.src = "https://js-cdn.music.apple.com/musickit/v1/musickit.js";
+        script.async = true;
+        script.onload = () => resolve(window.MusicKit);
+        script.onerror = () =>
+          reject(new Error("Failed to load MusicKit JS SDK"));
+        document.head.appendChild(script);
+      }
+    });
+  }
 
   if (process.client) {
     await loadMusicKitSDK();
@@ -27,30 +54,4 @@ export default defineNuxtPlugin(async (nuxtApp) => {
       console.error("MusicKit initialization error:", error);
     }
   }
-
-  const fetchTags = async () => {
-    const [latest, previous] = await listRepositoryTags({
-      owner: "JonathanXDR",
-      repo: "Application-Website-Frontend",
-      perPage: 2,
-    });
-
-    tags.value = { latest: latest.name, previous: previous.name };
-  };
 });
-
-async function loadMusicKitSDK() {
-  return new Promise((resolve, reject) => {
-    if (window.MusicKit) {
-      resolve(window.MusicKit);
-    } else {
-      let script = document.createElement("script");
-      script.src = "https://js-cdn.music.apple.com/musickit/v1/musickit.js";
-      script.async = true;
-      script.onload = () => resolve(window.MusicKit);
-      script.onerror = () =>
-        reject(new Error("Failed to load MusicKit JS SDK"));
-      document.head.appendChild(script);
-    }
-  });
-}
