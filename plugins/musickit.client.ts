@@ -1,6 +1,12 @@
+import { listRepositoryTags } from "~/helpers/github-helper";
 import { MusicKitHelper } from "../helpers/musickit-helper";
 
 export default defineNuxtPlugin(async (nuxtApp) => {
+  const tags = ref({ latest: undefined, previous: undefined }) as Ref<{
+    latest: string | undefined;
+    previous: string | undefined;
+  }>;
+
   if (process.client) {
     await loadMusicKitSDK();
 
@@ -11,9 +17,9 @@ export default defineNuxtPlugin(async (nuxtApp) => {
       const developerToken = import.meta.env.VITE_APPLE_DEVELOPER_TOKEN;
       const appConfiguration = {
         name: "Application-Website",
-        build: "1.0.0",
-        version: "1.0.0",
-        icon: "App Icon URL",
+        build: tags.value.latest || "1.0.0",
+        version: tags.value.latest || "1.0.0",
+        icon: "~/assets/img/favicon.png",
       };
 
       musicKitHelper.configureMusicKit(developerToken, appConfiguration);
@@ -21,6 +27,16 @@ export default defineNuxtPlugin(async (nuxtApp) => {
       console.error("MusicKit initialization error:", error);
     }
   }
+
+  const fetchTags = async () => {
+    const [latest, previous] = await listRepositoryTags({
+      owner: "JonathanXDR",
+      repo: "Application-Website-Frontend",
+      perPage: 2,
+    });
+
+    tags.value = { latest: latest.name, previous: previous.name };
+  };
 });
 
 async function loadMusicKitSDK() {
