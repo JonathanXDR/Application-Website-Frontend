@@ -71,10 +71,10 @@ useHead({
             href: "img/favicon.png",
           },
         ],
-  meta: [
+  script: [
     {
-      property: "apple-all-token",
-      content: appleDeveloperToken,
+      src: "https://js-cdn.music.apple.com/musickit/v1/musickit.js",
+      async: true,
     },
   ],
 });
