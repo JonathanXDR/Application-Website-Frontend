@@ -4,4 +4,5 @@ export type PlaylistType = {
   altText: string;
   title: string;
   subtitle: string;
+  bgColor: string;
 };

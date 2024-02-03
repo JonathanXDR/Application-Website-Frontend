@@ -31,7 +31,7 @@
                     class="marquee-picture"
                     :style="{ backgroundColor: playlist.bgColor }"
                   >
-                    <NuxtImg
+                    <img
                       class="marquee-picture-img"
                       :src="playlist.imageSrc"
                       :alt="playlist.altText"
@@ -134,10 +134,55 @@
 <script setup lang="ts">
 import type { PlaylistType } from "~/types/common/Playlist";
 
+defineProps<{
+  title: string;
+}>();
+
 const { tm } = useI18n();
 const playlists: Ref<PlaylistType[]> = computed(() =>
   tm("components.containers.languages")
 );
+
+const gallery = ref<HTMLElement | null>(null);
+const playlistContainer = ref<HTMLElement | null>(null);
+
+onMounted(() => {
+  if (playlistContainer.value) {
+    const container = playlistContainer.value;
+    let scrollPosition = 0;
+    const speed = 2;
+    let animationFrameId: number;
+
+    function scrollContainer() {
+      if (!container) return;
+
+      scrollPosition += speed;
+      if (scrollPosition >= container.scrollWidth / 2) {
+        scrollPosition = 0;
+      }
+      container.scrollLeft = scrollPosition;
+      animationFrameId = requestAnimationFrame(scrollContainer);
+    }
+
+    let isHovering = false;
+
+    container.addEventListener("mouseenter", () => {
+      isHovering = true;
+    });
+
+    container.addEventListener("mouseleave", () => {
+      isHovering = false;
+    });
+
+    scrollContainer();
+
+    onUnmounted(() => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    });
+  }
+});
 </script>
 
 <style scoped>
