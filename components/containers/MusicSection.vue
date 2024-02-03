@@ -144,16 +144,16 @@ defineProps<{
 }>();
 
 const { tm } = useI18n();
-const allPlaylists: Ref<PlaylistType[]> = computed(() =>
-  tm("components.containers.music")
-);
+const allPlaylists = ref<PlaylistType[]>([]);
+onMounted(async () => {
+  allPlaylists.value = await tm("components.containers.music");
+});
 
 const tabs = ref([
   { id: "1", label: "Playlist 1" },
   { id: "2", label: "Playlist 2" },
   { id: "3", label: "Playlist 3" },
 ]);
-
 const activeTabId = ref(tabs.value[0].id);
 
 const filteredPlaylists = computed(() =>
@@ -188,7 +188,7 @@ watch(isPlaying, (newState) => {
   }
 });
 
-const handleTabChange = (selectedId: any) => {
+const handleTabChange = (selectedId: string) => {
   activeTabId.value = selectedId;
   translateX.value = 0;
   nextTick(() => {
