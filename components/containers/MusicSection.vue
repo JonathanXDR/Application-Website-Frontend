@@ -14,10 +14,9 @@
       <div id="dynamic-gallery-item-a" class="dynamic-gallery-item">
         <div
           class="marquee images-loading"
-          style="
-            will-change: transform;
-            transform: matrix(1, 0, 0, 1, -909.553, 0);
-          "
+          :style="{ transform: `translateX(${translateX}px)` }"
+          @mouseenter="pauseMarquee"
+          @mouseleave="playMarquee"
         >
           <ul class="marquee-list">
             <li
@@ -62,7 +61,9 @@
 
     <div class="control-container mediaobject-enhanced">
       <button
-        class="play-pause-button play-pause-marquees-button has-background playing"
+        class="play-pause-button play-pause-marquees-button has-background"
+        :class="{ playing: isPlaying }"
+        @click="togglePlayPause"
       >
         <span class="control-icon play-icon">
           <svg
@@ -132,57 +133,60 @@
 </template>
 
 <script setup lang="ts">
+import { computed, onMounted, ref, watch } from "vue";
 import type { PlaylistType } from "~/types/common/Playlist";
 
 defineProps<{
   title: string;
+  playlists: PlaylistType[];
 }>();
 
+const isPlaying = ref(true);
+const translateX = ref(0);
+const speed = ref(1);
 const { tm } = useI18n();
+
 const playlists: Ref<PlaylistType[]> = computed(() =>
-  tm("components.containers.languages")
+  tm("components.containers.music")
 );
 
-const gallery = ref<HTMLElement | null>(null);
-const playlistContainer = ref<HTMLElement | null>(null);
+const visiblePlaylists = computed(() => [
+  ...playlists.value,
+  ...playlists.value,
+]);
+
+let animationFrameId: number | null = null;
+
+const updateMarquee = () => {
+  if (!isPlaying.value) return;
+  translateX.value -= speed.value;
+  if (Math.abs(translateX.value) >= 100 * playlists.value.length)
+    translateX.value = 0;
+  animationFrameId = requestAnimationFrame(updateMarquee);
+};
 
 onMounted(() => {
-  if (playlistContainer.value) {
-    const container = playlistContainer.value;
-    let scrollPosition = 0;
-    const speed = 2;
-    let animationFrameId: number;
+  animationFrameId = requestAnimationFrame(updateMarquee);
+});
 
-    function scrollContainer() {
-      if (!container) return;
-
-      scrollPosition += speed;
-      if (scrollPosition >= container.scrollWidth / 2) {
-        scrollPosition = 0;
-      }
-      container.scrollLeft = scrollPosition;
-      animationFrameId = requestAnimationFrame(scrollContainer);
-    }
-
-    let isHovering = false;
-
-    container.addEventListener("mouseenter", () => {
-      isHovering = true;
-    });
-
-    container.addEventListener("mouseleave", () => {
-      isHovering = false;
-    });
-
-    scrollContainer();
-
-    onUnmounted(() => {
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-    });
+watch(isPlaying, (newState) => {
+  if (newState) {
+    animationFrameId = requestAnimationFrame(updateMarquee);
+  } else if (animationFrameId) {
+    cancelAnimationFrame(animationFrameId);
   }
 });
+
+const togglePlayPause = () => {
+  isPlaying.value = !isPlaying.value;
+};
+
+const playMarquee = () => {
+  isPlaying.value = true;
+};
+const pauseMarquee = () => {
+  isPlaying.value = false;
+};
 </script>
 
 <style scoped>
