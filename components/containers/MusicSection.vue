@@ -69,7 +69,7 @@
         :class="{ playing: isPlaying }"
         @click="togglePlayPause"
       >
-        <span class="control-icon play-icon">
+        <span v-if="!isPlaying" class="control-icon play-icon">
           <svg
             xmlns:xlink="http://www.w3.org/1999/xlink"
             xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +97,7 @@
             </g>
           </svg>
         </span>
-        <span class="control-icon pause-icon">
+        <span v-else class="control-icon pause-icon">
           <svg
             xmlns:xlink="http://www.w3.org/1999/xlink"
             xmlns="http://www.w3.org/2000/svg"
@@ -286,14 +286,6 @@ const pauseMarquee = () => {
     fill: var(--color-code-plain);
   }
 } */
-
-.play-pause-button.playing .play-icon {
-  opacity: 0;
-}
-
-.play-pause-button.playing .pause-icon {
-  opacity: 1;
-}
 
 .play-pause-button .control-icon {
   display: block;
