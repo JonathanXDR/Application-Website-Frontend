@@ -22,6 +22,7 @@ const { randomizeColor, colorBadge } = useColor();
 const { currentSection } = useSection();
 
 const nodeEnv = ref(process.env.NODE_ENV);
+const appleDeveloperToken = import.meta.env.VITE_APPLE_DEVELOPER_TOKEN;
 
 onMounted(() => {
   randomizeColor();
@@ -40,7 +41,7 @@ watch(
       document.title = newTitle;
     }
   },
-  { immediate: true },
+  { immediate: true }
 );
 
 useHead({
@@ -70,6 +71,12 @@ useHead({
             href: "img/favicon.png",
           },
         ],
+  meta: [
+    {
+      property: "apple-all-token",
+      content: appleDeveloperToken,
+    },
+  ],
 });
 </script>
 
