@@ -1,7 +1,7 @@
 <template>
   <h2>{{ title }}</h2>
 
-  <TabList />
+  <TabList :items="items" />
 
   <LanguageBarV2
     v-for="(language, index) in languages"
@@ -29,8 +29,15 @@ defineProps<{
   title: string;
 }>();
 
+const items = reactive([
+  { id: "productivity", label: "Productivity" },
+  { id: "gaming", label: "Gaming" },
+  { id: "production", label: "Audio and video production" },
+  { id: "development", label: "Software development" },
+]);
+
 const { tm } = useI18n();
 const languages: Ref<LanguageBarType[]> = computed(() =>
-  tm("components.containers.languages"),
+  tm("components.containers.languages")
 );
 </script>

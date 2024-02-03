@@ -5,10 +5,7 @@
       class="typography-magical-headline pb-12"
     />
     <NavBarExtension>
-      <SegmentNav
-        :index="currentIndex"
-        @update:currentIndex="updateCurrentIndex"
-      />
+      <SegmentNav :index="currentIndex" @change="updateCurrentIndex" />
     </NavBarExtension>
     <div class="timeline-wrapper" v-if="currentIndex === 0">
       <TimeLine />

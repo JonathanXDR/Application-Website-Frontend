@@ -3,8 +3,17 @@
     <div class="tabnav">
       <ul role="tablist" class="tabnav-items">
         <li v-for="(item, index) in items" :key="index" class="tabnav-item">
-          <input :id="item.id" type="radio" name="category" :value="index" />
-          <label :for="item.id" class="tabnav-link">{{ item.label }}</label>
+          <input
+            :id="`tab-${item.id}`"
+            type="radio"
+            name="category"
+            :value="item.id"
+            v-model="selectedTab"
+            @change="() => emitChange(item.id)"
+          />
+          <label :for="`tab-${item.id}`" class="tabnav-link">
+            {{ item.label }}
+          </label>
         </li>
       </ul>
       <div class="tabnav-paddles">
@@ -19,12 +28,27 @@
   </div>
 </template>
 
-<script setup lang="ts">
-const items = reactive([
-  { id: "german", label: "Deutsch" },
-  { id: "english", label: "Englisch" },
-  { id: "french", label: "Französisch" },
-]);
+<script setup>
+import { defineEmits, defineProps, ref, watch } from "vue";
+
+const props = defineProps({
+  items: Array,
+  activeTabId: String,
+});
+
+const emit = defineEmits(["change"]);
+const selectedTab = ref(props.activeTabId);
+
+watch(
+  () => props.activeTabId,
+  (newVal) => {
+    selectedTab.value = newVal;
+  }
+);
+
+const emitChange = (id) => {
+  emit("change", id);
+};
 
 // function (e, t, i) {
 //   'use strict';

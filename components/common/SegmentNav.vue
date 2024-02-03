@@ -10,14 +10,14 @@
           class="segmentnav-item"
         >
           <input
-            :id="'segment-' + item.id"
+            :id="`segment-${item.id}`"
             type="radio"
             name="category"
             v-model="currentIndex"
             :value="index"
             @change="updateSegments"
           />
-          <label :for="'segment-' + item.id" class="typography-segmentnav-item">
+          <label :for="`segment-${item.id}`" class="typography-segmentnav-item">
             {{ item.label }}
           </label>
         </li>
@@ -43,7 +43,7 @@ const props = withDefaults(
     index: 0,
   }
 );
-const emit = defineEmits(["update:currentIndex"]);
+const emit = defineEmits(["change"]);
 
 const { tm } = useI18n();
 const segmentNavItems: Ref<OptionType[]> = computed(() =>
@@ -75,7 +75,7 @@ const updateSegments = () => {
       segments.value.set(index, item as HTMLElement);
     });
 
-    emit("update:currentIndex", currentIndex.value);
+    emit("change", currentIndex.value);
   }
 };
 
