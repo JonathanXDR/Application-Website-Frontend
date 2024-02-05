@@ -29,8 +29,6 @@
 </template>
 
 <script setup>
-import { defineEmits, defineProps, ref, watch } from "vue";
-
 const props = defineProps({
   items: Array,
   activeTabId: String,
