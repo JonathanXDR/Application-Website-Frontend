@@ -22,11 +22,11 @@
     <CardItem
       variant="article"
       :size="
-        windowObject.innerWidth < 900
+        windowObject && windowObject.innerWidth < 900
           ? 'small'
-          : windowObject.innerWidth < 1250
-            ? 'medium'
-            : 'large'
+          : windowObject && windowObject.innerWidth < 1250
+          ? 'medium'
+          : 'large'
       "
       :card="{
         eyebrow: $t('components.containers.about.eyebrow'),
@@ -54,10 +54,10 @@ defineProps<{
 
 const { tm } = useI18n();
 const links: Ref<LinkType[]> = computed(() =>
-  tm("components.containers.about.links"),
+  tm("components.containers.about.links")
 );
 const dateItems: Ref<DateItemType[]> = computed(() =>
-  tm("components.containers.about.dates"),
+  tm("components.containers.about.dates")
 );
 const dates: Ref<{
   age: number | undefined;
@@ -80,7 +80,7 @@ onMounted(async () => {
   dateItems.value.forEach((item: DateItemType) => {
     if (item.key in dates.value) {
       dates.value[item.key as keyof typeof dates.value] = calculateYears(
-        item.date,
+        item.date
       );
     }
   });

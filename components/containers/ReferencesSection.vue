@@ -3,11 +3,13 @@
   <ul class="grid">
     <CardItem
       variant="article"
-      :size="windowObject.innerWidth < 900 ? 'small' : 'medium'"
+      :size="windowObject && windowObject.innerWidth < 900 ? 'small' : 'medium'"
       v-for="(article, index) in articles"
       :key="index"
       :card="article"
-      :iconPosition="windowObject.innerWidth < 900 ? 'top' : 'left'"
+      :iconPosition="
+        windowObject && windowObject.innerWidth < 900 ? 'top' : 'left'
+      "
       :dateFormatOptions="{
         year: 'numeric',
         month: 'long',
