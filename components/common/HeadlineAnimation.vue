@@ -91,33 +91,37 @@ const updateLetterCount = () => {
   const scrollY = window.scrollY;
   const scrollThreshold = 20;
 
-  if (
-    scrollY > lastScrollY + scrollThreshold &&
-    currentLetterCount.value < originalStringLength.value
-  ) {
-    currentLetterCount.value++;
-    setCursorBlink(false);
-    initialCursorOpacity.value = "0";
-    lastScrollY = scrollY;
-  } else if (
-    scrollY < lastScrollY - scrollThreshold &&
-    currentLetterCount.value > 0
-  ) {
-    currentLetterCount.value--;
-    setCursorBlink(false);
-    lastScrollY = scrollY;
-  } else {
-    setCursorBlink(true);
+  switch (true) {
+    case scrollY > lastScrollY + scrollThreshold &&
+      currentLetterCount.value < originalStringLength.value:
+      currentLetterCount.value++;
+      setCursorBlink(false);
+      initialCursorOpacity.value = "0";
+      lastScrollY = scrollY;
+      break;
+    case scrollY < lastScrollY - scrollThreshold &&
+      currentLetterCount.value > 0:
+      currentLetterCount.value--;
+      setCursorBlink(false);
+      lastScrollY = scrollY;
+      break;
+    default:
+      setCursorBlink(true);
+      break;
   }
 };
 
 watch(currentLetterCount, (newCount, oldCount) => {
-  if (newCount === 0) {
-    initialCursorOpacity.value = "1";
-  } else if (newCount === originalStringLength.value) {
-    setCursorBlink(true);
-  } else if (newCount < oldCount) {
-    setCursorBlink(false);
+  switch (true) {
+    case newCount === 0:
+      initialCursorOpacity.value = "1";
+      break;
+    case newCount === originalStringLength.value:
+      setCursorBlink(true);
+      break;
+    case newCount < oldCount:
+      setCursorBlink(false);
+      break;
   }
 });
 
