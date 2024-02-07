@@ -26,6 +26,14 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  header: false,
+  nav: false,
+  ribbon: false,
+  footerFull: false,
+  footerCompact: true,
+});
+
 const props = defineProps({
   name: {
     type: String,

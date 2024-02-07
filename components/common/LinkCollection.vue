@@ -32,7 +32,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, toRefs } from "vue";
 import type { LinkType } from "~/types/common/Link";
 
 const props = defineProps({

@@ -18,6 +18,14 @@
 import "~/assets/css/main.css";
 import type { SectionType } from "~/types/common/Section";
 
+definePageMeta({
+  header: true,
+  nav: true,
+  ribbon: true,
+  footerFull: true,
+  footerCompact: false,
+});
+
 const { tm } = useI18n();
 const sections: Ref<SectionType[]> = computed(() =>
   tm("components.common.NavBar"),
