@@ -7,7 +7,11 @@
       v-animation="{ toggle: ['visible'] }"
     >
       <a class="link" :href="link.url" :title="link.title" target="_blank">
-        <font-awesome-icon :icon="`fa-${link.category} fa-${link.icon.name}`" />
+        <ClientOnly>
+          <font-awesome-icon
+            :icon="`fa-${link.category} fa-${link.icon.name}`"
+          />
+        </ClientOnly>
       </a>
     </li>
   </ul>
@@ -18,7 +22,7 @@ import type { FaLinkType } from "~/types/common/FaLink";
 
 const { tm } = useI18n();
 const links: Ref<FaLinkType[]> = computed(() =>
-  tm("components.common.ShareSheet.links"),
+  tm("components.common.ShareSheet.links")
 );
 </script>
 

@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     typeCheck: true,
     strict: true,
   },
+  ssr: false,
   app: {
     head: {
       meta: [
