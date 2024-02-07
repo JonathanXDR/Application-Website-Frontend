@@ -7,8 +7,15 @@
   <main>
     <slot />
   </main>
-  <footer :class="footerClass">
-    <component :is="footerComponent" />
+  <footer
+    :class="{
+      'footer-full': route.meta.footerFull !== false,
+      'footer-compact': route.meta.footerCompact !== false,
+    }"
+  >
+    <component
+      :is="route.meta.footerFull !== false ? FooterFull : FooterCompact"
+    />
   </footer>
 </template>
 
@@ -23,17 +30,6 @@ const { currentSection } = useSection();
 
 const nodeEnv = ref(process.env.NODE_ENV);
 const appleDeveloperToken = import.meta.env.VITE_APPLE_DEVELOPER_TOKEN;
-
-const footerComponent = computed(() => {
-  return route.meta.footerFull !== false ? FooterFull : FooterCompact;
-});
-
-const footerClass = computed(() => {
-  return {
-    "footer-full": route.meta.footerFull !== false,
-    "footer-compact": route.meta.footerCompact !== false,
-  };
-});
 
 onMounted(() => {
   randomizeColor();
