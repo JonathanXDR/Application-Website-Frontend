@@ -75,7 +75,7 @@ const { links } = toRefs(props);
   0% {
     color: white;
   }
-  100% {
+  to {
     color: var(--color-figure-blue);
   }
 }
