@@ -17,10 +17,10 @@
           ? '_self'
           : '_blank'
       "
-      class="link"
+      :class="['link', { 'animate-color': shouldAnimate }]"
     >
-      {{ link.title
-      }}<Icon
+      {{ link.title }}
+      <Icon
         v-if="link.icon"
         :name="link.icon.name"
         :size="link.icon.size"
@@ -32,16 +32,13 @@
 </template>
 
 <script setup lang="ts">
+import { defineProps, toRefs } from "vue";
 import type { LinkType } from "~/types/common/Link";
 
-const props = withDefaults(
-  defineProps<{
-    links: LinkType[];
-  }>(),
-  {
-    links: () => [],
-  },
-);
+const props = defineProps({
+  links: Array as () => LinkType[],
+  shouldAnimate: Boolean,
+});
 
 const { links } = toRefs(props);
 </script>
@@ -69,7 +66,7 @@ const { links } = toRefs(props);
 
 /* ------------------------------- ribbon-link ------------------------------ */
 
-.ribbon-blue-to-default .ribbon-link .link {
+.ribbon-blue-to-default .ribbon-link .link.animate-color {
   color: white;
   animation: animate-color-fff-06c 1s ease-in-out 1.8s forwards;
 }
@@ -78,7 +75,7 @@ const { links } = toRefs(props);
   0% {
     color: white;
   }
-  to {
+  100% {
     color: var(--color-figure-blue);
   }
 }

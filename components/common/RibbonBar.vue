@@ -32,6 +32,7 @@
                         v-if="item.links.length"
                         class="ribbon-link"
                         :links="item.links"
+                        :should-animate="!initialAnimationPlayed"
                       />
                     </div>
                   </div>
@@ -88,6 +89,7 @@ const totalItems = ref(0);
 const isTransitioning = ref(false);
 const scrollDirection = ref("right");
 const displayItems: Ref<RibbonBar[]> = ref([]);
+const initialAnimationPlayed = ref(false);
 
 const fetchTags = async () => {
   const [latest, previous] = await listRepositoryTags({
@@ -98,6 +100,10 @@ const fetchTags = async () => {
 
   tags.value = { latest: latest.name, previous: previous.name };
   updateBaseItems();
+
+  setTimeout(() => {
+    initialAnimationPlayed.value = true;
+  }, 2800);
 };
 
 const updateBaseItems = () => {

@@ -31,6 +31,7 @@ body {
   background-color: var(--color-fill);
   overflow-wrap: break-word;
   hyphens: auto;
+  transition: background-color 0.25s;
 }
 
 .light {
