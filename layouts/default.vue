@@ -7,22 +7,33 @@
   <main>
     <slot />
   </main>
-  <footer id="footer-full" v-if="route.meta.footerFull !== false">
-    <FooterFull />
-  </footer>
-  <footer id="footer-compact" v-if="route.meta.footerCompact !== false">
-    <FooterCompact />
+  <footer :class="footerClass">
+    <component :is="footerComponent" />
   </footer>
 </template>
 
 <script setup lang="ts">
 import { SpeedInsights } from "@vercel/speed-insights/vue";
+import FooterCompact from "~/components/common/Footer/Compact.vue";
+import FooterFull from "~/components/common/Footer/Full.vue";
+
 const route = useRoute();
 const { randomizeColor, colorBadge } = useColor();
 const { currentSection } = useSection();
 
 const nodeEnv = ref(process.env.NODE_ENV);
 const appleDeveloperToken = import.meta.env.VITE_APPLE_DEVELOPER_TOKEN;
+
+const footerComponent = computed(() => {
+  return route.meta.footerFull !== false ? FooterFull : FooterCompact;
+});
+
+const footerClass = computed(() => {
+  return {
+    "footer-full": route.meta.footerFull !== false,
+    "footer-compact": route.meta.footerCompact !== false,
+  };
+});
 
 onMounted(() => {
   randomizeColor();
@@ -81,11 +92,11 @@ useHead({
 </script>
 
 <style>
-#footer-compact {
+.footer-compact {
   text-align: center;
 }
 
-#footer-full {
+.footer-full {
   width: 90%;
   margin: 100px auto 0 auto;
   border-top: 1px solid var(--color-fill-gray-tertiary);
@@ -98,7 +109,7 @@ useHead({
 }
 
 @media screen and (min-width: 900px) {
-  #footer-full {
+  .footer-full {
     width: 82.5%;
     flex-direction: row !important;
   }
