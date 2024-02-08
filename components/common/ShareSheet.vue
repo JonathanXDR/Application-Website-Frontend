@@ -6,13 +6,13 @@
       :key="index"
       v-animation="{ toggle: ['visible'] }"
     >
-      <a class="link" :href="link.url" :title="link.title" target="_blank">
+      <NuxtLink class="link" :href="link.url" :title="link.title" target="_blank">
         <ClientOnly>
           <font-awesome-icon
             :icon="`fa-${link.category} fa-${link.icon.name}`"
           />
         </ClientOnly>
-      </a>
+      </NuxtLink>
     </li>
   </ul>
 </template>

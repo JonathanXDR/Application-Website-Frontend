@@ -3,7 +3,7 @@
     <div class="scroll-wrapper">
       <ul id="suggested-tags-tags">
         <li v-for="(tag, index) in tags" :key="index" class="tag">
-          <a :href="`https://github.com/topics/${tag}`">{{ tag }}</a>
+          <NuxtLink :href="`https://github.com/topics/${tag}`">{{ tag }}</NuxtLink>
         </li>
       </ul>
     </div>

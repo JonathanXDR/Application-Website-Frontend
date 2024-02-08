@@ -19,9 +19,9 @@
       ></div>
       <div class="ac-ln-content">
         <div class="ac-ln-title">
-          <router-link to="/" class="ac-ln-title">
+          <NuxtLink to="/" class="ac-ln-title">
             <Logo />
-          </router-link>
+          </NuxtLink>
           <small
             v-if="nodeEnv === 'development'"
             :style="{ color: colorBadge?.colorVar }"
@@ -37,13 +37,13 @@
                 :key="index"
                 class="ac-ln-menu-item"
               >
-                <router-link
+                <NuxtLink
                   :to="item.route"
                   :class="{ current: index === currentSectionIndex }"
                   class="ac-ln-menu-link"
                 >
                   {{ item.name }}
-                </router-link>
+                </NuxtLink>
               </li>
               <!-- <LanguagePickerBar :introText="false" :shortForm="true" /> -->
             </ul>

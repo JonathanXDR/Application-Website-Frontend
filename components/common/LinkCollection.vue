@@ -1,10 +1,8 @@
 <template>
-  <a class="links">
+  <NuxtLink class="links">
     <component
       :is="
-        link.url.startsWith('#') || link.url.startsWith('/')
-          ? 'router-link'
-          : 'a'
+        link.url.startsWith('#') || link.url.startsWith('/') ? 'NuxtLink' : 'a'
       "
       v-for="(link, index) in links"
       :key="index"
@@ -28,7 +26,7 @@
         class="icon icon-small"
       />
     </component>
-  </a>
+  </NuxtLink>
 </template>
 
 <script setup lang="ts">

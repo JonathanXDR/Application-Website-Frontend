@@ -113,9 +113,9 @@
         />
         <div v-if="card.links?.length || card.html_url" class="ctas-wrapper">
           <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
-          <!-- <a href="photos://" class="icon-wrapper button button-reduced button-neutral">
+          <!-- <NuxtLink href="photos://" class="icon-wrapper button button-reduced button-neutral">
             <span class="icon-copy"> Open</span>
-          </a> -->
+          </NuxtLink> -->
 
           <LinkCollection
             v-if="card.links?.length || card.html_url"

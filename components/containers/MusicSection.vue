@@ -28,7 +28,7 @@
               v-for="(playlist, index) in filteredPlaylists"
               :key="`playlist-${index}`"
             >
-              <a class="marquee-link" :href="playlist.link">
+              <NuxtLink class="marquee-link" :href="playlist.link">
                 <div class="marquee-hover-container">
                   <picture
                     class="marquee-picture"
@@ -56,7 +56,7 @@
                   <p class="marquee-title">{{ playlist.title }}</p>
                   <p class="marquee-subtitle">{{ playlist.subtitle }}</p>
                 </div>
-              </a>
+              </NuxtLink>
             </li>
           </ul>
         </div>
