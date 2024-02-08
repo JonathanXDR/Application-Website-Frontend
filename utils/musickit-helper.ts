@@ -1,16 +1,7 @@
-import type { AppConfiguration } from "~/types/MusicKit/AppConfiguration";
-import type { MusicKitConfiguration } from "~/types/MusicKit/MusicKitConfiguration";
-import type { MusicKitInstance } from "~/types/MusicKit/MusicKitInstance";
-import type { PlaybackState } from "~/types/MusicKit/PlaybackState";
-import type { SearchResults } from "~/types/MusicKit/SearchResults";
-import type { SetQueueOptions } from "~/types/MusicKit/SetQueueOptions";
-
-declare const MusicKit: any;
-
 export class MusicKitHelper {
-  musicKitInstance: MusicKitInstance;
+  musicKitInstance: MusicKit.MusicKitInstance;
 
-  constructor(musicKitInstance?: MusicKitInstance) {
+  constructor(musicKitInstance?: MusicKit.MusicKitInstance) {
     if (musicKitInstance) {
       this.musicKitInstance = musicKitInstance;
     } else {
@@ -22,15 +13,15 @@ export class MusicKitHelper {
 
   async configureMusicKit(
     developerToken: string,
-    app: AppConfiguration
-  ): Promise<MusicKitConfiguration> {
+    app: MusicKit.AppConfiguration
+  ): Promise<MusicKit.Configuration> {
     MusicKit.configure({
       developerToken: developerToken,
       app: app,
     });
     this.musicKitInstance = MusicKit.getInstance();
 
-    return MusicKit.getInstance().config;
+    return MusicKit.getInstance();
   }
 
   async authorizeUser() {
@@ -61,7 +52,7 @@ export class MusicKitHelper {
     this.musicKitInstance.player.skipToPreviousItem();
   }
 
-  async setQueue(options: SetQueueOptions) {
+  async setQueue(options: MusicKit.SetQueueOptions) {
     await this.musicKitInstance.setQueue(options);
   }
 
@@ -92,18 +83,18 @@ export class MusicKitHelper {
     return await this.musicKitInstance.api.song(songId);
   }
 
-  async search(
-    term: string,
-    types: string[] = ["albums", "artists", "songs"],
-    limit: number = 10
-  ): Promise<SearchResults> {
-    const results = await this.musicKitInstance.api.search(term, {
-      types: types,
-      limit: limit,
-      term: term,
-    });
-    return results;
-  }
+  // async search(
+  //   term: string,
+  //   types: string[] = ["albums", "artists", "songs"],
+  //   limit: number = 10
+  // ): Promise<MusicKit.SearchResult> {
+  //   const results = await this.musicKitInstance.api.search(term, {
+  //     types: types,
+  //     limit: limit,
+  //     term: term,
+  //   });
+  //   return results;
+  // }
 
   async addToLibrary(
     itemId: string,
@@ -112,19 +103,19 @@ export class MusicKitHelper {
     await this.musicKitInstance.api.addToLibrary({ [itemType]: [itemId] });
   }
 
-  onPlaybackStateChanged(callback: (state: PlaybackState) => void) {
-    this.musicKitInstance.addEventListener(
-      MusicKit.Events.playbackStateDidChange,
-      callback
-    );
-  }
+  // onPlaybackStateChanged(callback: (state: MusicKit.PlaybackStates) => void) {
+  //   this.musicKitInstance.addEventListener(
+  //     MusicKit.Events.playbackStateDidChange,
+  //     callback
+  //   );
+  // }
 
-  offPlaybackStateChanged(callback: (state: PlaybackState) => void) {
-    this.musicKitInstance.removeEventListener(
-      MusicKit.Events.playbackStateDidChange,
-      callback
-    );
-  }
+  // offPlaybackStateChanged(callback: (state: MusicKit.PlaybackStates) => void) {
+  //   this.musicKitInstance.removeEventListener(
+  //     MusicKit.Events.playbackStateDidChange,
+  //     callback
+  //   );
+  // }
 }
 
 export async function loadMusicKitSDK(): Promise<void> {
