@@ -20,14 +20,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       meta: [
-        { charset: "utf-8" },
         {
-          "http-equiv": "X-UA-Compatible",
-          content: "IE=edge",
-        },
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
-        {
-          hid: "description",
           name: "description",
           content:
             "Discover the work of Jonathan Russ and learn more about him, including his projects at Swisscom.",
@@ -45,6 +38,10 @@ export default defineNuxtConfig({
             ],
       title: "Jonathan Russ",
     },
+  },
+  runtimeConfig: {
+    githubToken: process.env.GITHUB_TOKEN,
+    appleDeveloperToken: process.env.APPLE_DEVELOPER_TOKEN,
   },
   components: {
     dirs: [

@@ -8,13 +8,16 @@ import type {
 } from "~/types/GitHub/Repository";
 import type { ListRepoTagsResponse } from "~/types/GitHub/Tag";
 
+// const { githubToken } = useRuntimeConfig();
+const githubToken = import.meta.env.VITE_GITHUB_TOKEN;
+
 const octokit = new Octokit({
-  auth: import.meta.env.VITE_GITHUB_TOKEN,
+  auth: githubToken,
 });
 
 const graphqlInstance = graphql.defaults({
   headers: {
-    authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`,
+    authorization: `token ${githubToken}`,
   },
 });
 
