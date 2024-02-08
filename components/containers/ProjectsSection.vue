@@ -63,10 +63,6 @@
 </template>
 
 <script lang="ts">
-import {
-  listPinnedRepositories,
-  listUserRepositories,
-} from "~/helpers/github-helper";
 import type { ListUserReposResponse } from "~/types/GitHub/Repository";
 import type { CardItemType } from "~/types/common/CardItem";
 

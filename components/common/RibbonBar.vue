@@ -66,7 +66,6 @@
 </template>
 
 <script setup lang="ts">
-import { listRepositoryTags } from "~/helpers/github-helper";
 import type { CardItemType } from "~/types/common/CardItem";
 import type { LinkType } from "~/types/common/Link";
 import type { RibbonBar } from "~/types/common/RibbonBar";

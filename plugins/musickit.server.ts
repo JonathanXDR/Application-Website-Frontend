@@ -1,6 +1,3 @@
-import { listRepositoryTags } from "~/helpers/github-helper";
-import { MusicKitHelper } from "../helpers/musickit-helper";
-
 export default defineNuxtPlugin(async (nuxtApp) => {
   const tags: Ref<{
     latest: string | undefined;
