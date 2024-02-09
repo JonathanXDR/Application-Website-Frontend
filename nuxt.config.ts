@@ -5,7 +5,10 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxt/image",
   ],
-  css: ["@fortawesome/fontawesome-svg-core/styles.css"],
+  css: [
+    "~/assets/css/main.css",
+    "@fortawesome/fontawesome-svg-core/styles.css",
+  ],
   devtools: {
     enabled: true,
     timeline: {
