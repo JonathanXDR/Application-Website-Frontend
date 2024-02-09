@@ -54,16 +54,12 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import dayjs from "dayjs";
 import "dayjs/locale/en";
 import relativeTime from "dayjs/plugin/relativeTime";
 import type { InfoType } from "~/types/common/Info";
 
-dayjs.extend(relativeTime);
-</script>
-
-<script setup lang="ts">
 const props = withDefaults(
   defineProps<{
     info: InfoType;
@@ -87,6 +83,8 @@ const props = withDefaults(
     dateNowKey: "updated",
   }
 );
+
+dayjs.extend(relativeTime);
 
 const { locale } = useI18n({ useScope: "global" });
 const updatedYesterday = computed(() => {
