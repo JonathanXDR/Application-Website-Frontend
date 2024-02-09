@@ -34,10 +34,6 @@ definePageMeta({
   footerCompact: true,
 });
 
-const splitDescription = (description: string): string[] => {
-  return description.split(". ");
-};
-
 const error = useError();
 const { tm } = useI18n();
 const pages = {
@@ -55,13 +51,15 @@ const currentKey = computed(() => {
   );
 });
 
-const colors = computed(
-  () => tm(`pages.${currentKey.value}.icon.colors`) as Object
+const colors: Ref<Object> = computed(() =>
+  tm(`pages.${currentKey.value}.icon.colors`)
 );
-const entireDescription = computed(
-  () => tm(`pages.${currentKey.value}.description`) as string
+const entireDescription: Ref<string> = computed(() =>
+  tm(`pages.${currentKey.value}.description`)
 );
-const description = splitDescription(entireDescription.value);
+const description: Ref<string[]> = computed(() =>
+  entireDescription.value.split(". ")
+);
 </script>
 
 <style scoped>

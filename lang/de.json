@@ -1746,14 +1746,14 @@
     }
   },
   "pages": {
-    "icon": {
-      "name": "exclamationmark.triangle.fill",
-      "colors": {
-        "primary": "var(--color-fill)",
-        "tertiary": "var(--color-default-yellow)"
-      }
-    },
     "notFound": {
+      "icon": {
+        "name": "exclamationmark.triangle.fill",
+        "colors": {
+          "primary": "var(--color-fill)",
+          "tertiary": "var(--color-default-yellow)"
+        }
+      },
       "title": "Not Found.",
       "description": "Die Seite, die du suchst, kann nicht gefunden werden. Bitte überprüfe sie und versuche es erneut.",
       "links": []
