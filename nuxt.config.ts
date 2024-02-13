@@ -1,3 +1,5 @@
+import routerOptions from "./router.options";
+
 export default defineNuxtConfig({
   modules: [
     "@nuxtjs/tailwindcss",
@@ -41,6 +43,9 @@ export default defineNuxtConfig({
             ],
       title: "Jonathan Russ",
     },
+  },
+  router: {
+    options: routerOptions,
   },
   runtimeConfig: {
     githubToken: process.env.GITHUB_TOKEN,
