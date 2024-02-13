@@ -22,6 +22,7 @@ import FooterFull from "~/components/common/Footer/Full.vue";
 const route = useRoute();
 const { colorBadge, randomizeColor } = useColor();
 const { currentSection } = useSection();
+const { locale } = useI18n();
 
 onMounted(randomizeColor);
 
@@ -71,7 +72,7 @@ const pageTitle = computed(() =>
 );
 
 useHead({
-  htmlAttrs: { lang: "de" },
+  htmlAttrs: { lang: locale.value },
   title: pageTitle,
   script: [
     {
