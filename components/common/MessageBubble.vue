@@ -1,18 +1,28 @@
 <template>
-  <div class="message-item message-item--left active">
-    <div class="message message--grey">
+  <div
+    :class="`message-item--${direction} message-item--${direction[0]} active`"
+  >
+    <div :class="`message message--${color}`">
       <p class="typography-imessage-text message-copy">
-        <span class="visuallyhidden">Text message reading:&nbsp;</span> Hey, you
-        still there?
+        <span class="visuallyhidden">Text message reading:&nbsp;</span> One sec.
+        <br class="small" />Moving to my iPhone.
       </p>
       <svg
-        class="message-tail message-tail--1"
+        :class="`message-tail message-tail--${
+          direction === 'left' ? '1' : '2'
+        }`"
         viewBox="0 0 87 106"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
+          v-if="direction === 'left'"
           d="m32.84 55v-55h54v25.13c0 20.56-3.25 33.65-9.35 45.05-6.1 11.41-15.05 20.36-26.46 26.46s-24.5 9.35-45.05 9.35h-5.98c19.37-8.81 32.84-28.33 32.84-51z"
           fill="#e9e9eb"
+        ></path>
+        <path
+          v-else
+          d="m54 55v-55h-54v25.13c0 20.56 3.25 33.65 9.35 45.05 6.1 11.41 15.05 20.36 26.46 26.46s24.5 9.35 45.05 9.35h5.98c-19.37-8.81-32.84-28.33-32.84-51z"
+          fill="#037eff"
         ></path>
       </svg>
     </div>
@@ -66,13 +76,26 @@ p + * {
   padding: 0;
   border: 0;
 }
+br.small {
+  display: none;
+}
+@media only screen and (max-width: 1068px) {
+  br.small {
+    display: none;
+  }
+}
+@media only screen and (max-width: 734px) {
+  br.small {
+    display: block;
+  }
+}
 .typography-imessage-text {
   font-size: 49px;
   line-height: 1.2448979592;
   font-weight: 400;
   letter-spacing: 0.013em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
 }
 @media only screen and (max-width: 1068px) {
   .typography-imessage-text {
@@ -80,8 +103,8 @@ p + * {
     line-height: 1.1176470588;
     font-weight: 400;
     letter-spacing: 0.013em;
-    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -90,8 +113,8 @@ p + * {
     line-height: 1.1053231579;
     font-weight: 400;
     letter-spacing: 0.013em;
-    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
   }
 }
 /*! CSS Used from: https://www.apple.com/v/icloud/af/built/styles/overview.built.css */
@@ -163,6 +186,45 @@ html.overview-parallax .section-always-with-you .message-item {
 .section-always-with-you .message-item--left {
   padding-right: var(--half-pseudoelement-height);
 }
+.section-always-with-you .message-item--right {
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  margin-top: 30px;
+  padding-left: var(--half-pseudoelement-height);
+}
+@media only screen and (max-width: 734px) {
+  .section-always-with-you .message-item--right {
+    padding-left: 0;
+  }
+}
+html.overview-parallax .section-always-with-you .message-item--right {
+  margin-top: 0px;
+  position: absolute;
+  top: 0;
+}
+.section-always-with-you .message-item--right .memoji {
+  --memoji-enter-translate-x: 50%;
+}
+@media only screen and (max-width: 734px) {
+  .section-always-with-you .message-item--right .memoji {
+    --memoji-enter-translate-x: 15px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .section-always-with-you .message-item--right .memoji {
+    --memoji-enter-translate-x: 5px;
+  }
+}
+.section-always-with-you .message-item--right .message {
+  transform-origin: right;
+  margin-right: var(--message-memoji-gap);
+  margin-left: 0;
+}
+@media only screen and (max-width: 734px) {
+  .section-always-with-you .message-item--right .message {
+    --message-memoji-gap: 5px;
+  }
+}
 .section-always-with-you .message {
   --message-flex-scale: 1.1;
   position: relative;
@@ -186,13 +248,39 @@ html.overview-parallax .section-always-with-you .message-item {
 .section-always-with-you .message--grey {
   --bg-color: #e9e9eb;
 }
+.section-always-with-you .message--blue {
+  --bg-color: #037eff;
+}
+@media only screen and (max-width: 734px) {
+  .section-always-with-you .message--blue {
+    border-radius: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  html.overview-parallax .section-always-with-you .message--blue {
+    z-index: auto;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .section-always-with-you .message--blue {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
 @media only screen and (max-width: 734px) {
   .section-always-with-you .message--grey {
     min-height: 50px;
   }
+  .section-always-with-you .message--blue:after,
+  .section-always-with-you .message--blue:before {
+    display: none;
+  }
 }
 .section-always-with-you .message--grey p {
   color: #000;
+}
+.section-always-with-you .message--blue p {
+  color: #fff;
 }
 .section-always-with-you .message:after,
 .section-always-with-you .message:before {
@@ -253,27 +341,25 @@ html.overview-parallax .section-always-with-you .message-item {
   left: var(--tail-x-pos);
   transform: matrix(1, 0, 0, 1, 0.2, 0);
 }
+.section-always-with-you .message-tail--2 {
+  right: var(--tail-x-pos);
+}
 @media only screen and (max-width: 734px) {
   .section-always-with-you .message-tail--1 {
     transform: matrix(1, 0, 0, 1, -13.7, 0);
   }
+  .section-always-with-you .message-tail--2 {
+    transform: matrix(1, 0, 0, 1, -1.4, 0);
+    margin-top: 1px;
+  }
+}
+@media only screen and (max-width: 1068px) {
+  .section-always-with-you .message-tail--2 {
+    transform: matrix(1, 0, 0, 1, -0.1, 0);
+  }
 }
 html.overview-parallax .section-always-with-you .message-item.active {
   opacity: 1;
-}
-.section-always-with-you .message-item.active:not(.message-item--right) {
-  --message-item-exit-distance: -100px;
-  animation: message-item-exit 0.75s ease-in-out 1.9s 1 normal forwards;
-}
-@media only screen and (max-width: 734px) {
-  .section-always-with-you .message-item.active:not(.message-item--right) {
-    --message-item-exit-distance: -15px;
-  }
-}
-@media only screen and (max-width: 350px) {
-  .section-always-with-you .message-item.active:not(.message-item--right) {
-    --message-item-exit-distance: -5px;
-  }
 }
 .section-always-with-you .message-item.active .memoji {
   animation: memoji-enter 0.5s ease-in-out 0s 1;
@@ -281,7 +367,8 @@ html.overview-parallax .section-always-with-you .message-item.active {
 .section-always-with-you .message-item.active .message {
   animation: message-flex 0.5s ease-in-out 0.4s 1 normal backwards;
 }
-.overview-awy-messages-memoji-1 {
+.overview-awy-messages-memoji-1,
+.overview-awy-messages-memoji-2 {
   display: block;
   width: var(--p-width);
   height: var(--p-height);
@@ -289,13 +376,15 @@ html.overview-parallax .section-always-with-you .message-item.active {
   --p-height: 108px;
 }
 @media only screen and (max-width: 1068px) and (max-width: 1068px) {
-  .overview-awy-messages-memoji-1 {
+  .overview-awy-messages-memoji-1,
+  .overview-awy-messages-memoji-2 {
     --p-width: 76px;
     --p-height: 76px;
   }
 }
 @media only screen and (max-width: 734px) and (max-width: 734px) {
-  .overview-awy-messages-memoji-1 {
+  .overview-awy-messages-memoji-1,
+  .overview-awy-messages-memoji-2 {
     --p-width: 72px;
     --p-height: 82px;
   }
