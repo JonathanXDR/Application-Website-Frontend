@@ -54,15 +54,23 @@ watchEffect(() => {
   });
 });
 
-const shouldShow = (component: string) => route.meta[component] !== false;
+const shouldShow = (component: string) =>
+  route.meta[component] ??
+  {
+    header: false,
+    nav: false,
+    ribbon: false,
+    footerFull: false,
+    footerCompact: true,
+  }[component];
 
 const footerClass = computed(() => ({
-  "footer-full": route.meta.footerFull !== false,
-  "footer-compact": !route.meta.footerFull,
+  "footer-full": shouldShow("footerFull"),
+  "footer-compact": shouldShow("footerCompact"),
 }));
 
 const footerComponent = computed(() =>
-  route.meta.footerFull !== false ? FooterFull : FooterCompact
+  shouldShow("footerFull") ? FooterFull : FooterCompact
 );
 
 const pageTitle = computed(() =>
