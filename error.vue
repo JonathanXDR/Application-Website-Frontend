@@ -28,14 +28,6 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  header: false,
-  nav: false,
-  ribbon: false,
-  footerFull: false,
-  footerCompact: true,
-});
-
 const error = useError();
 const { tm } = useI18n();
 const pages = {
