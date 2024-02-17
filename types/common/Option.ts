@@ -1,4 +1,4 @@
-export type OptionType = {
+export interface OptionType {
   id: string;
   label: string;
-};
+}

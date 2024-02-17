@@ -2,7 +2,7 @@ import type { IconType } from "./Icon";
 import type { InfoType } from "./Info";
 import type { LinkType } from "./Link";
 
-export type CardItemType = {
+export interface CardItemType {
   icon?: IconType;
   eyebrow?: string;
   title: string;
@@ -10,4 +10,4 @@ export type CardItemType = {
   tags?: string[];
   links?: LinkType[];
   info?: InfoType;
-};
+}

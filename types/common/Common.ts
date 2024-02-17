@@ -3,7 +3,7 @@ import type { RibbonBar } from "./RibbonBar";
 import type { SectionType } from "./Section";
 import type { ShareSheet } from "./ShareSheet";
 
-export type CommonComponents = {
+export interface CommonComponents {
   NavBar: SectionType[];
   RibbonBar: RibbonBar;
   CardTile: CardItemType;
@@ -11,4 +11,4 @@ export type CommonComponents = {
   FooterItem: {
     chooseYourLanguage: string;
   };
-};
+}

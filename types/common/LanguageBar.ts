@@ -1,7 +1,7 @@
 import type { CardItemType } from "./CardItem";
 
-export type LanguageBarType = CardItemType & {
+export interface LanguageBarType extends CardItemType {
   progress: string;
   badge?: string;
   status?: string[];
-};
+}

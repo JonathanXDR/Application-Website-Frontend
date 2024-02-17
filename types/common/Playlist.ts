@@ -1,4 +1,4 @@
-export type PlaylistType = {
+export interface PlaylistType {
   playlistId: number;
   link: string;
   imageSrc: string;
@@ -6,4 +6,4 @@ export type PlaylistType = {
   title: string;
   subtitle: string;
   bgColor: string;
-};
+}

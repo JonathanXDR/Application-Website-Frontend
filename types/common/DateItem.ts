@@ -1,5 +1,5 @@
-export type DateItemType = {
+export interface DateItemType {
   title: string;
   key: string;
   date: string;
-};
+}

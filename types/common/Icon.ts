@@ -1,4 +1,4 @@
-export type IconType = {
+export interface IconType {
   name: string;
   size?: "small" | "medium" | "large";
   colors?: {
@@ -6,4 +6,4 @@ export type IconType = {
     secondary?: string;
     tertiary?: string;
   };
-};
+}

@@ -1,5 +1,5 @@
 import type { LinkType } from "./Link";
 
-export type FaLinkType = LinkType & {
+export interface FaLinkType extends LinkType {
   category: string;
-};
+}

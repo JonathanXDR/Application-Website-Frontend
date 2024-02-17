@@ -1,6 +1,6 @@
 import type { LinkType } from "./Link";
 
-export type RibbonBar = {
+export interface RibbonBar {
   description: string;
   links: LinkType[];
-};
+}

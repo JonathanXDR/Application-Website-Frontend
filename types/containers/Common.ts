@@ -1,4 +1,4 @@
-export type CommonContainers = {
+export interface CommonContainers {
   about: string;
   languages: string;
   references: string;
@@ -6,4 +6,4 @@ export type CommonContainers = {
   technologies: string;
   projects: string;
   projectsAtSwisscom: string;
-};
+}

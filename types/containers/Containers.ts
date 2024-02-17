@@ -7,7 +7,7 @@ import type { Projects } from "./Projects";
 import type { References } from "./References";
 import type { Technologies } from "./Technologies";
 
-export type Containers = CardItemType & {
+export interface Containers extends CardItemType {
   common: CommonContainers;
   about: About;
   languages: Languages;
@@ -15,4 +15,4 @@ export type Containers = CardItemType & {
   other: Other;
   technologies: Technologies;
   projects: Projects;
-};
+}

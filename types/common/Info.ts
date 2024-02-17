@@ -1,7 +1,7 @@
 import type { ListRepoIssuesResponse } from "../GitHub/Issue";
 import type { DateType } from "./Date";
 
-export type InfoType = {
+export interface InfoType {
   location?: string;
   supervisor?: string;
   department?: string;
@@ -15,4 +15,4 @@ export type InfoType = {
   issues?: ListRepoIssuesResponse[];
   subscribers?: number;
   date?: DateType;
-};
+}

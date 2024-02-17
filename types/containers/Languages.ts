@@ -1,6 +1,6 @@
 import type { CardItemType } from "../common/CardItem";
 import type { LanguageBarType } from "../common/LanguageBar";
 
-export type Languages = CardItemType & {
+export interface Languages extends CardItemType {
   languages: LanguageBarType[];
-};
+}
