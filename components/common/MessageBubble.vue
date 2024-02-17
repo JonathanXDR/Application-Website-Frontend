@@ -228,6 +228,7 @@ br.small {
 }
 .message {
   --message-flex-scale: 1.1;
+  --message-height-en: 100px;
   position: relative;
   z-index: 1;
   display: flex;
