@@ -99,6 +99,6 @@ const links: Ref<FaLinkType[]> = computed(() =>
 /* ------------------------------------ a ----------------------------------- */
 
 .sharesheet-options .social-option a {
-  color: #666;
+  color: var(--color-fill-gray-secondary);
 }
 </style>
