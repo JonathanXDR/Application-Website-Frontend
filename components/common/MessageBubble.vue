@@ -18,12 +18,12 @@
         <path
           v-if="direction === 'left'"
           d="m32.84 55v-55h54v25.13c0 20.56-3.25 33.65-9.35 45.05-6.1 11.41-15.05 20.36-26.46 26.46s-24.5 9.35-45.05 9.35h-5.98c19.37-8.81 32.84-28.33 32.84-51z"
-          :fill="color === 'grey' ? '#e9e9eb' : '#037eff'"
+          fill="var(--bg-color)"
         ></path>
         <path
           v-else
           d="m54 55v-55h-54v25.13c0 20.56 3.25 33.65 9.35 45.05 6.1 11.41 15.05 20.36 26.46 26.46s24.5 9.35 45.05 9.35h5.98c-19.37-8.81-32.84-28.33-32.84-51z"
-          :fill="color === 'grey' ? '#e9e9eb' : '#037eff'"
+          fill="var(--bg-color)"
         ></path>
       </svg>
     </div>
@@ -33,11 +33,11 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    color?: 'blue' | 'grey';
+    color?: 'gray' | 'blue' | 'green';
     direction?: 'left' | 'right';
   }>(),
   {
-    color: 'grey',
+    color: 'gray',
     direction: 'left',
   }
 );
@@ -126,6 +126,7 @@ br.small {
   --first-item-total-duration: 2.65s;
   --second-item-total-duration: 1.9s;
   --half-pseudoelement-height: 30px;
+  --content-wrapper-tile-width: 1120px;
   display: flex;
   align-items: center;
   max-width: var(--content-wrapper-tile-width);
@@ -247,41 +248,50 @@ br.small {
     --message-flex-scale: 1.05;
   }
 }
-.message--grey {
-  --bg-color: #e9e9eb;
+.message--gray {
+  --bg-color: var(--color-system-gray-5);
 }
 .message--blue {
-  --bg-color: #037eff;
+  --bg-color: var(--color-system-blue);
+}
+.message--green {
+  --bg-color: var(--color-system-green);
 }
 @media only screen and (max-width: 734px) {
-  .message--blue {
+  .message--blue,
+  .message--green {
     border-radius: 18px;
     padding-left: 20px;
     padding-right: 20px;
   }
-  .message--blue {
+  .message--blue,
+  .message--green {
     z-index: auto;
   }
 }
 @media only screen and (max-width: 350px) {
-  .message--blue {
+  .message--blue,
+  .message--green {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 @media only screen and (max-width: 734px) {
-  .message--grey {
+  .message--gray {
     min-height: 50px;
   }
   .message--blue:after,
-  .message--blue:before {
+  .message--green:after,
+  .message--blue:before,
+  .message--green:before {
     display: none;
   }
 }
-.message--grey p {
-  color: #000;
+.message--gray p {
+  color: var(--color-code-plain);
 }
-.message--blue p {
+.message--blue p,
+.message--green p {
   color: #fff;
 }
 .message:after,
@@ -304,12 +314,12 @@ br.small {
   transform: translate(30%, -50%);
 }
 @media only screen and (max-width: 734px) {
-  .message--grey p {
+  .message--gray p {
     margin: 0 10px;
   }
 }
 @media only screen and (max-width: 350px) {
-  .message--grey p {
+  .message--gray p {
     margin: 0;
   }
 }
