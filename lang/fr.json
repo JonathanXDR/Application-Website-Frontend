@@ -510,7 +510,7 @@
         "name": "exclamationmark.triangle.fill",
         "colors": {
           "primary": "var(--color-fill)",
-          "tertiary": "var(--color-default-yellow)"
+          "tertiary": "var(--color-system-yellow)"
         }
       }
     },
@@ -521,7 +521,7 @@
         "name": "exclamationmark.octagon.fill",
         "colors": {
           "primary": "var(--color-fill)",
-          "tertiary": "var(--color-default-red)"
+          "tertiary": "var(--color-system-red)"
         }
       }
     },
@@ -531,7 +531,7 @@
       "icon": {
         "name": "wrench.and.screwdriver.fill",
         "colors": {
-          "secondary": "var(--color-default-blue)"
+          "secondary": "var(--color-system-blue)"
         }
       }
     }
