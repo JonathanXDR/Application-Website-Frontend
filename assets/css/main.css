@@ -79,18 +79,18 @@ body {
   --color-system-pink-accessible: rgb(211, 15, 69);
   --color-system-brown: rgb(162, 132, 94);
   --color-system-brown-accessible: rgb(127, 101, 69);
-  --color-system-system-gray: rgb(142, 142, 147);
-  --color-system-system-gray-accessible: rgb(108, 108, 112);
-  --color-system-system-gray-2: rgb(174, 174, 178);
-  --color-system-system-gray-2-accessible: rgb(142, 142, 147);
-  --color-system-system-gray-3: rgb(199, 199, 204);
-  --color-system-system-gray-3-accessible: rgb(174, 174, 178);
-  --color-system-system-gray-4: rgb(209, 209, 214);
-  --color-system-system-gray-4-accessible: rgb(188, 188, 192);
-  --color-system-system-gray-5: rgb(229, 229, 234);
-  --color-system-system-gray-5-accessible: rgb(216, 216, 220);
-  --color-system-system-gray-6: rgb(242, 242, 247);
-  --color-system-system-gray-6-accessible: rgb(235, 235, 240);
+  --color-system-gray: rgb(142, 142, 147);
+  --color-system-gray-accessible: rgb(108, 108, 112);
+  --color-system-gray-2: rgb(174, 174, 178);
+  --color-system-gray-2-accessible: rgb(142, 142, 147);
+  --color-system-gray-3: rgb(199, 199, 204);
+  --color-system-gray-3-accessible: rgb(174, 174, 178);
+  --color-system-gray-4: rgb(209, 209, 214);
+  --color-system-gray-4-accessible: rgb(188, 188, 192);
+  --color-system-gray-5: rgb(229, 229, 234);
+  --color-system-gray-5-accessible: rgb(216, 216, 220);
+  --color-system-gray-6: rgb(242, 242, 247);
+  --color-system-gray-6-accessible: rgb(235, 235, 240);
 
   /* Dev Colors */
   --color-fill: #fff;
