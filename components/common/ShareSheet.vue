@@ -1,12 +1,17 @@
 <template>
   <ul class="sharesheet-options">
     <li
-      class="social-option"
+      class="social-option invisible"
       v-for="(link, index) in links"
       :key="index"
-      v-animation="{ toggle: ['visible'] }"
+      v-animation="{ add: 'visible', remove: 'invisible' }"
     >
-      <NuxtLink class="link" :href="link.url" :title="link.title" target="_blank">
+      <NuxtLink
+        class="link"
+        :href="link.url"
+        :title="link.title"
+        target="_blank"
+      >
         <ClientOnly>
           <font-awesome-icon
             :icon="`fa-${link.category} fa-${link.icon.name}`"
@@ -18,11 +23,11 @@
 </template>
 
 <script setup lang="ts">
-import type { FaLinkType } from "~/types/common/FaLink";
+import type { FaLinkType } from '~/types/common/FaLink';
 
 const { tm } = useI18n();
 const links: Ref<FaLinkType[]> = computed(() =>
-  tm("components.common.ShareSheet.links")
+  tm('components.common.ShareSheet.links')
 );
 </script>
 
@@ -56,11 +61,15 @@ const links: Ref<FaLinkType[]> = computed(() =>
   margin-left: 19px;
 }
 
-.sharesheet-options .social-option {
+.sharesheet-options .social-option.invisible {
+  opacity: 0;
+}
+
+.sharesheet-options .social-option.visible {
   opacity: 1;
 }
 
-.sharesheet-options .social-option {
+.sharesheet-options .social-option.visible {
   animation: FadeIn 0.2s linear;
   -webkit-animation: FadeIn 0.2s linear;
   animation-fill-mode: both;
