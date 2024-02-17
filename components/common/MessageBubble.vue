@@ -32,12 +32,12 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    color?: "blue" | "gray";
-    direction?: "left" | "right";
+    color?: 'blue' | 'grey';
+    direction?: 'left' | 'right';
   }>(),
   {
-    color: "gray",
-    direction: "left",
+    color: 'grey',
+    direction: 'left',
   }
 );
 </script>
@@ -94,8 +94,8 @@ br.small {
   line-height: 1.2448979592;
   font-weight: 400;
   letter-spacing: 0.013em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 @media only screen and (max-width: 1068px) {
   .typography-imessage-text {
@@ -103,8 +103,8 @@ br.small {
     line-height: 1.1176470588;
     font-weight: 400;
     letter-spacing: 0.013em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -113,15 +113,15 @@ br.small {
     line-height: 1.1053231579;
     font-weight: 400;
     letter-spacing: 0.013em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 /*! CSS Used from: https://www.apple.com/v/icloud/af/built/styles/overview.built.css */
-.section-always-with-you .awy-messages p {
+.awy-messages p {
   color: #6e6e73;
 }
-.section-always-with-you .message-item {
+.message-item {
   --first-item-total-duration: 2.65s;
   --second-item-total-duration: 1.9s;
   --half-pseudoelement-height: 30px;
@@ -129,103 +129,103 @@ br.small {
   align-items: center;
   max-width: var(--content-wrapper-tile-width);
 }
-html.overview-parallax .section-always-with-you .message-item {
+.message-item {
   opacity: 0;
   will-change: transform, opacity;
 }
 @media only screen and (max-width: 1068px) {
-  .section-always-with-you .message-item {
+  .message-item {
     --half-pseudoelement-height: 22px;
   }
 }
 @media only screen and (max-width: 734px) {
-  .section-always-with-you .message-item {
+  .message-item {
     --half-pseudoelement-height: 15px;
   }
-  html.overview-parallax .section-always-with-you .message-item {
+  .message-item {
     position: absolute;
     top: 0;
   }
 }
-.section-always-with-you .message-item .memoji {
+.message-item .memoji {
   --memoji-enter-translate-x: -50%;
 }
 @media only screen and (max-width: 734px) {
-  .section-always-with-you .message-item .memoji {
+  .message-item .memoji {
     --memoji-enter-translate-x: -15px;
   }
 }
 @media only screen and (max-width: 350px) {
-  .section-always-with-you .message-item .memoji,
-  .section-always-with-you .message-item .memoji img {
+  .message-item .memoji,
+  .message-item .memoji img {
     max-width: calc(var(--p-width) - 20px);
     height: auto;
     display: flex;
   }
 }
-.section-always-with-you .message-item .message {
+.message-item .message {
   transform-origin: left;
   --message-memoji-gap: 60px;
   margin-left: var(--message-memoji-gap);
 }
 @media only screen and (max-width: 1068px) {
-  .section-always-with-you .message-item .message {
+  .message-item .message {
     --message-memoji-gap: 40px;
   }
 }
 @media only screen and (max-width: 734px) {
-  .section-always-with-you .message-item .message {
+  .message-item .message {
     --message-memoji-gap: 30px;
   }
 }
 @media only screen and (max-width: 350px) {
-  .section-always-with-you .message-item .message {
+  .message-item .message {
     --message-memoji-gap: 20px;
   }
 }
-.section-always-with-you .message-item--left {
+.message-item--left {
   padding-right: var(--half-pseudoelement-height);
 }
-.section-always-with-you .message-item--right {
+.message-item--right {
   justify-content: flex-end;
   flex-direction: row-reverse;
   margin-top: 30px;
   padding-left: var(--half-pseudoelement-height);
 }
 @media only screen and (max-width: 734px) {
-  .section-always-with-you .message-item--right {
+  .message-item--right {
     padding-left: 0;
   }
 }
-html.overview-parallax .section-always-with-you .message-item--right {
+.message-item--right {
   margin-top: 0px;
   position: absolute;
   top: 0;
 }
-.section-always-with-you .message-item--right .memoji {
+.message-item--right .memoji {
   --memoji-enter-translate-x: 50%;
 }
 @media only screen and (max-width: 734px) {
-  .section-always-with-you .message-item--right .memoji {
+  .message-item--right .memoji {
     --memoji-enter-translate-x: 15px;
   }
 }
 @media only screen and (max-width: 350px) {
-  .section-always-with-you .message-item--right .memoji {
+  .message-item--right .memoji {
     --memoji-enter-translate-x: 5px;
   }
 }
-.section-always-with-you .message-item--right .message {
+.message-item--right .message {
   transform-origin: right;
   margin-right: var(--message-memoji-gap);
   margin-left: 0;
 }
 @media only screen and (max-width: 734px) {
-  .section-always-with-you .message-item--right .message {
+  .message-item--right .message {
     --message-memoji-gap: 5px;
   }
 }
-.section-always-with-you .message {
+.message {
   --message-flex-scale: 1.1;
   position: relative;
   z-index: 1;
@@ -236,55 +236,55 @@ html.overview-parallax .section-always-with-you .message-item--right {
   min-height: var(--message-height-en);
 }
 @media only screen and (max-width: 1068px) {
-  .section-always-with-you .message {
+  .message {
     border-radius: 15px;
   }
 }
 @media only screen and (max-width: 734px) {
-  .section-always-with-you .message {
+  .message {
     --message-flex-scale: 1.05;
   }
 }
-.section-always-with-you .message--grey {
+.message--grey {
   --bg-color: #e9e9eb;
 }
-.section-always-with-you .message--blue {
+.message--blue {
   --bg-color: #037eff;
 }
 @media only screen and (max-width: 734px) {
-  .section-always-with-you .message--blue {
+  .message--blue {
     border-radius: 18px;
     padding-left: 20px;
     padding-right: 20px;
   }
-  html.overview-parallax .section-always-with-you .message--blue {
+  .message--blue {
     z-index: auto;
   }
 }
 @media only screen and (max-width: 350px) {
-  .section-always-with-you .message--blue {
+  .message--blue {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 @media only screen and (max-width: 734px) {
-  .section-always-with-you .message--grey {
+  .message--grey {
     min-height: 50px;
   }
-  .section-always-with-you .message--blue:after,
-  .section-always-with-you .message--blue:before {
+  .message--blue:after,
+  .message--blue:before {
     display: none;
   }
 }
-.section-always-with-you .message--grey p {
+.message--grey p {
   color: #000;
 }
-.section-always-with-you .message--blue p {
+.message--blue p {
   color: #fff;
 }
-.section-always-with-you .message:after,
-.section-always-with-you .message:before {
-  content: "";
+.message:after,
+.message:before {
+  content: '';
   position: absolute;
   top: 50%;
   aspect-ratio: 1/1;
@@ -293,28 +293,28 @@ html.overview-parallax .section-always-with-you .message-item--right {
   background: var(--bg-color);
   z-index: -1;
 }
-.section-always-with-you .message:before {
+.message:before {
   left: 0;
   transform: translate(-30%, -50%);
 }
-.section-always-with-you .message:after {
+.message:after {
   right: 0;
   transform: translate(30%, -50%);
 }
 @media only screen and (max-width: 734px) {
-  .section-always-with-you .message--grey p {
+  .message--grey p {
     margin: 0 10px;
   }
 }
 @media only screen and (max-width: 350px) {
-  .section-always-with-you .message--grey p {
+  .message--grey p {
     margin: 0;
   }
 }
-.section-always-with-you .message p {
+.message p {
   white-space: nowrap;
 }
-.section-always-with-you .message-tail {
+.message-tail {
   margin: 0;
   position: absolute;
   bottom: 0px;
@@ -324,47 +324,66 @@ html.overview-parallax .section-always-with-you .message-item--right {
   width: 42px;
 }
 @media only screen and (max-width: 1068px) {
-  .section-always-with-you .message-tail {
+  .message-tail {
     height: 32px;
     width: 26px;
     --tail-x-pos: -31px;
   }
 }
 @media only screen and (max-width: 734px) {
-  .section-always-with-you .message-tail {
+  .message-tail {
     height: 25px;
     width: 22px;
     --tail-x-pos: -10px;
   }
 }
-.section-always-with-you .message-tail--1 {
+.message-tail--1 {
   left: var(--tail-x-pos);
   transform: matrix(1, 0, 0, 1, 0.2, 0);
 }
-.section-always-with-you .message-tail--2 {
+.message-tail--2 {
   right: var(--tail-x-pos);
 }
+@media only screen and (max-width: 1068px) {
+  .message-tail--2 {
+    transform: matrix(1, 0, 0, 1, -0.1, 0);
+  }
+}
 @media only screen and (max-width: 734px) {
-  .section-always-with-you .message-tail--1 {
+  .message-tail--1 {
     transform: matrix(1, 0, 0, 1, -13.7, 0);
   }
-  .section-always-with-you .message-tail--2 {
+  .message-tail--2 {
     transform: matrix(1, 0, 0, 1, -1.4, 0);
     margin-top: 1px;
   }
 }
 @media only screen and (max-width: 1068px) {
-  .section-always-with-you .message-tail--2 {
+  .message-tail--2 {
     transform: matrix(1, 0, 0, 1, -0.1, 0);
   }
 }
-html.overview-parallax .section-always-with-you .message-item.active {
+.message-item.active {
   opacity: 1;
 }
-.section-always-with-you .message-item.active .memoji {
+.message-item.active:not(.message-item--right) {
+  --message-item-exit-distance: -100px;
+  animation: message-item-exit 0.75s ease-in-out 1.9s 1 normal forwards;
+}
+@media only screen and (max-width: 734px) {
+  .message-item.active:not(.message-item--right) {
+    --message-item-exit-distance: -15px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .message-item.active:not(.message-item--right) {
+    --message-item-exit-distance: -5px;
+  }
+}
+.message-item.active .memoji {
   animation: memoji-enter 0.5s ease-in-out 0s 1;
 }
-.section-always-with-you .message-item.active .message {
+.message-item.active .message {
   animation: message-flex 0.5s ease-in-out 0.4s 1 normal backwards;
 }
 .overview-awy-messages-memoji-1,
