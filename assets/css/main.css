@@ -38,18 +38,8 @@ body {
   /* Menu */
   --color-menu: rgba(255, 255, 255, 0.72);
   --color-menu-border: rgba(0, 0, 0, 0.16);
-  --color-mobile: rgba(255, 255, 255, 0.9);
   --color-mobile-border: rgba(0, 0, 0, 0.181818);
   --color-mobile-border-opacity: rgba(0, 0, 0, 0.285714);
-  --color-tile-button: rgba(0, 0, 0, 0.8);
-
-  /* Special Colors */
-  --color-sub-text: #666;
-  --color-tutorials-overview-background: radial-gradient(
-    circle at center 70%,
-    #242424 0%,
-    #0c0c0c 100%
-  );
 
   /* Cards */
   --color-nav-background: rgba(0, 0, 0, 0.08);
@@ -64,33 +54,43 @@ body {
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-card-shadow: rgba(0, 0, 0, 0.04);
 
-  /* Default Colors */
-  --color-default-red: rgb(255, 59, 48);
-  --color-default-orange: rgb(255, 149, 0);
-  --color-default-yellow: rgb(255, 204, 0);
-  --color-default-green: rgb(52, 199, 89);
-  --color-default-mint: rgb(0, 199, 190);
-  --color-default-teal: rgb(48, 176, 199);
-  --color-default-cyan: rgb(50, 173, 230);
-  --color-default-blue: rgb(0, 122, 255);
-  --color-default-indigo: rgb(88, 86, 214);
-  --color-default-purple: rgb(175, 82, 222);
-  --color-default-pink: rgb(255, 45, 85);
-  --color-default-brown: rgb(162, 132, 94);
-
-  /* Accessible Colors */
-  --color-accessible-red: rgb(215, 0, 21);
-  --color-accessible-orange: rgb(201, 52, 0);
-  --color-accessible-yellow: rgb(178, 80, 0);
-  --color-accessible-green: rgb(36, 138, 61);
-  --color-accessible-mint: rgb(12, 129, 123);
-  --color-accessible-teal: rgb(0, 130, 153);
-  --color-accessible-cyan: rgb(0, 113, 164);
-  --color-accessible-blue: rgb(0, 64, 221);
-  --color-accessible-indigo: rgb(54, 52, 163);
-  --color-accessible-purple: rgb(137, 68, 171);
-  --color-accessible-pink: rgb(211, 15, 69);
-  --color-accessible-brown: rgb(127, 101, 69);
+  /* System Colors */
+  --color-system-red: rgb(255, 59, 48);
+  --color-system-red-accessible: rgb(215, 0, 21);
+  --color-system-orange: rgb(255, 149, 0);
+  --color-system-orange-accessible: rgb(201, 52, 0);
+  --color-system-yellow: rgb(255, 204, 0);
+  --color-system-yellow-accessible: rgb(178, 80, 0);
+  --color-system-green: rgb(52, 199, 89);
+  --color-system-green-accessible: rgb(36, 138, 61);
+  --color-system-mint: rgb(0, 199, 190);
+  --color-system-mint-accessible: rgb(12, 129, 123);
+  --color-system-teal: rgb(48, 176, 199);
+  --color-system-teal-accessible: rgb(0, 130, 153);
+  --color-system-cyan: rgb(50, 173, 230);
+  --color-system-cyan-accessible: rgb(0, 113, 164);
+  --color-system-blue: rgb(0, 122, 255);
+  --color-system-blue-accessible: rgb(0, 64, 221);
+  --color-system-indigo: rgb(88, 86, 214);
+  --color-system-indigo-accessible: rgb(54, 52, 163);
+  --color-system-purple: rgb(175, 82, 222);
+  --color-system-purple-accessible: rgb(137, 68, 171);
+  --color-system-pink: rgb(255, 45, 85);
+  --color-system-pink-accessible: rgb(211, 15, 69);
+  --color-system-brown: rgb(162, 132, 94);
+  --color-system-brown-accessible: rgb(127, 101, 69);
+  --color-system-system-gray: rgb(142, 142, 147);
+  --color-system-system-gray-accessible: rgb(108, 108, 112);
+  --color-system-system-gray-2: rgb(174, 174, 178);
+  --color-system-system-gray-2-accessible: rgb(142, 142, 147);
+  --color-system-system-gray-3: rgb(199, 199, 204);
+  --color-system-system-gray-3-accessible: rgb(174, 174, 178);
+  --color-system-system-gray-4: rgb(209, 209, 214);
+  --color-system-system-gray-4-accessible: rgb(188, 188, 192);
+  --color-system-system-gray-5: rgb(229, 229, 234);
+  --color-system-system-gray-5-accessible: rgb(216, 216, 220);
+  --color-system-system-gray-6: rgb(242, 242, 247);
+  --color-system-system-gray-6-accessible: rgb(235, 235, 240);
 
   /* Dev Colors */
   --color-fill: #fff;
@@ -179,11 +179,7 @@ body {
   --color-svg-icon: #86868b;
   --color-tabnav-item-border-color: var(--color-fill-gray-tertiary);
   --color-tutorial-navbar-dropdown-border: var(--color-dropdown-border);
-  --color-tutorials-overview-background: radial-gradient(
-    circle at center 70%,
-    #242424 0%,
-    #0c0c0c 100%
-  );
+  --color-tutorials-overview-background: radial-gradient(circle at center 70%, #242424 0%, #0c0c0c 100%);
   --color-tutorials-overview-content: #f5f5f7;
   --color-tutorials-overview-content-alt: #a1a1a6;
   --color-tutorials-overview-eyebrow: #a1a1a6;
@@ -212,18 +208,8 @@ body {
   /* Menu */
   --color-menu: rgba(0, 0, 0, 0.72);
   --color-menu-border: rgba(255, 255, 255, 0.24);
-  --color-mobile: #1d1d1f;
   --color-mobile-border: rgba(255, 255, 255, 0.26087);
   --color-mobile-border-opacity: rgba(255, 255, 255, 0.428571);
-  --color-tile-button: rgba(255, 255, 255, 0.8);
-
-  /* Special Colors */
-  --color-sub-text: #aaa;
-  --color-tutorials-overview-background: radial-gradient(
-    circle at center 70%,
-    #242424 0%,
-    #0c0c0c 100%
-  );
 
   /* Cards */
   --color-nav-background: rgba(255, 255, 255, 0.08);
@@ -238,33 +224,43 @@ body {
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-card-shadow: hsla(0, 0%, 100%, 0.04);
 
-  /* Default Colors */
-  --color-default-red: rgb(255, 69, 58);
-  --color-default-orange: rgb(255, 159, 10);
-  --color-default-yellow: rgb(255, 214, 10);
-  --color-default-green: rgb(48, 209, 88);
-  --color-default-mint: rgb(99, 230, 226);
-  --color-default-teal: rgb(64, 200, 224);
-  --color-default-cyan: rgb(100, 210, 255);
-  --color-default-blue: rgb(10, 132, 255);
-  --color-default-indigo: rgb(94, 92, 230);
-  --color-default-purple: rgb(191, 90, 242);
-  --color-default-pink: rgb(255, 55, 95);
-  --color-default-brown: rgb(172, 142, 104);
-
-  /* Accessible Colors */
-  --color-accessible-red: rgb(255, 105, 97);
-  --color-accessible-orange: rgb(255, 179, 64);
-  --color-accessible-yellow: rgb(255, 212, 38);
-  --color-accessible-green: rgb(48, 219, 91);
-  --color-accessible-mint: rgb(102, 212, 207);
-  --color-accessible-teal: rgb(93, 230, 255);
-  --color-accessible-cyan: rgb(112, 215, 255);
-  --color-accessible-blue: rgb(64, 156, 255);
-  --color-accessible-indigo: rgb(125, 122, 255);
-  --color-accessible-purple: rgb(218, 143, 255);
-  --color-accessible-pink: rgb(255, 100, 130);
-  --color-accessible-brown: rgb(181, 148, 105);
+  /* System Colors */
+  --color-system-red: rgb(255, 69, 58);
+  --color-system-red-accessible: rgb(255, 105, 97);
+  --color-system-orange: rgb(255, 159, 10);
+  --color-system-orange-accessible: rgb(255, 179, 64);
+  --color-system-yellow: rgb(255, 214, 10);
+  --color-system-yellow-accessible: rgb(255, 212, 38);
+  --color-system-green: rgb(48, 209, 88);
+  --color-system-green-accessible: rgb(48, 219, 91);
+  --color-system-mint: rgb(99, 230, 226);
+  --color-system-mint-accessible: rgb(102, 212, 207);
+  --color-system-teal: rgb(64, 200, 224);
+  --color-system-teal-accessible: rgb(93, 230, 255);
+  --color-system-cyan: rgb(100, 210, 255);
+  --color-system-cyan-accessible: rgb(112, 215, 255);
+  --color-system-blue: rgb(10, 132, 255);
+  --color-system-blue-accessible: rgb(64, 156, 255);
+  --color-system-indigo: rgb(94, 92, 230);
+  --color-system-indigo-accessible: rgb(125, 122, 255);
+  --color-system-purple: rgb(191, 90, 242);
+  --color-system-purple-accessible: rgb(218, 143, 255);
+  --color-system-pink: rgb(255, 55, 95);
+  --color-system-pink-accessible: rgb(255, 100, 130);
+  --color-system-brown: rgb(172, 142, 104);
+  --color-system-brown-accessible: rgb(181, 148, 105);
+  --color-system-gray: rgb(142, 142, 147);
+  --color-system-gray-accessible: rgb(174, 174, 178);
+  --color-system-gray-2: rgb(99, 99, 102);
+  --color-system-gray-2-accessible: rgb(124, 124, 128);
+  --color-system-gray-3: rgb(72, 72, 74);
+  --color-system-gray-3-accessible: rgb(84, 84, 86);
+  --color-system-gray-4: rgb(58, 58, 60);
+  --color-system-gray-4-accessible: rgb(68, 68, 70);
+  --color-system-gray-5: rgb(44, 44, 46);
+  --color-system-gray-5-accessible: rgb(54, 54, 56);
+  --color-system-gray-6: rgb(28, 28, 30);
+  --color-system-gray-6-accessible: rgb(36, 36, 38);
 
   /* Dev Colors */
   --color-fill: #000;
@@ -300,24 +296,16 @@ body {
   --color-nav-color: var(--color-nav-dark-color);
   --color-nav-current-link: var(--color-nav-dark-current-link);
   --color-nav-expanded: var(--color-nav-dark-expanded);
-  --color-nav-hierarchy-collapse-background: var(
-    --color-nav-dark-hierarchy-collapse-background
-  );
-  --color-nav-hierarchy-collapse-borders: var(
-    --color-nav-dark-hierarchy-collapse-borders
-  );
-  --color-nav-hierarchy-item-borders: var(
-    --color-nav-dark-hierarchy-item-borders
-  );
+  --color-nav-hierarchy-collapse-background: var(--color-nav-dark-hierarchy-collapse-background);
+  --color-nav-hierarchy-collapse-borders: var(--color-nav-dark-hierarchy-collapse-borders);
+  --color-nav-hierarchy-item-borders: var(--color-nav-dark-hierarchy-item-borders);
   --color-nav-keyline: var(--color-nav-dark-keyline);
   --color-nav-link-color: var(--color-nav-dark-link-color);
   --color-nav-link-color-hover: var(--color-nav-dark-link-color-hover);
   --color-nav-outlines: var(--color-nav-dark-outlines);
   --color-nav-rule: var(--color-nav-dark-rule);
   --color-nav-solid-background: var(--color-nav-dark-solid-background);
-  --color-nav-sticking-expanded-keyline: var(
-    --color-nav-dark-sticking-expanded-keyline
-  );
+  --color-nav-sticking-expanded-keyline: var(--color-nav-dark-sticking-expanded-keyline);
   --color-nav-stuck: var(--color-nav-dark-stuck);
   --color-nav-uiblur-expanded: var(--color-nav-dark-uiblur-expanded);
   --color-nav-uiblur-stuck: var(--color-nav-dark-uiblur-stuck);
@@ -385,24 +373,16 @@ body {
   --color-nav-color: var(--color-nav-dark-color);
   --color-nav-current-link: var(--color-nav-dark-current-link);
   --color-nav-expanded: var(--color-nav-dark-expanded);
-  --color-nav-hierarchy-collapse-background: var(
-    --color-nav-dark-hierarchy-collapse-background
-  );
-  --color-nav-hierarchy-collapse-borders: var(
-    --color-nav-dark-hierarchy-collapse-borders
-  );
-  --color-nav-hierarchy-item-borders: var(
-    --color-nav-dark-hierarchy-item-borders
-  );
+  --color-nav-hierarchy-collapse-background: var(--color-nav-dark-hierarchy-collapse-background);
+  --color-nav-hierarchy-collapse-borders: var(--color-nav-dark-hierarchy-collapse-borders);
+  --color-nav-hierarchy-item-borders: var(--color-nav-dark-hierarchy-item-borders);
   --color-nav-keyline: var(--color-nav-dark-keyline);
   --color-nav-link-color: var(--color-nav-dark-link-color);
   --color-nav-link-color-hover: var(--color-nav-dark-link-color-hover);
   --color-nav-outlines: var(--color-nav-dark-outlines);
   --color-nav-rule: var(--color-nav-dark-rule);
   --color-nav-solid-background: var(--color-nav-dark-solid-background);
-  --color-nav-sticking-expanded-keyline: var(
-    --color-nav-dark-sticking-expanded-keyline
-  );
+  --color-nav-sticking-expanded-keyline: var(--color-nav-dark-sticking-expanded-keyline);
   --color-nav-stuck: var(--color-nav-dark-stuck);
   --color-nav-uiblur-expanded: var(--color-nav-dark-uiblur-expanded);
   --color-nav-uiblur-stuck: var(--color-nav-dark-uiblur-stuck);
@@ -480,9 +460,7 @@ body {
   --color-not-found-input-background: var(--color-fill-gray-quaternary);
   --color-step-background: var(--color-fill-gray-quaternary);
   --color-svg-icon: #6e6e73;
-  --color-tutorial-navbar-dropdown-background: var(
-    --color-nav-dark-solid-background
-  );
+  --color-tutorial-navbar-dropdown-background: var(--color-nav-dark-solid-background);
   --color-tutorial-navbar-dropdown-border: var(--color-fill-gray-tertiary);
   --color-navigator-item-hover: rgba(0, 113, 227, 0.6) --color-fill: #000;
   --color-fill-secondary: #161617;
@@ -527,9 +505,7 @@ body {
   --color-not-found-input-background: var(--color-fill-gray-quaternary);
   --color-step-background: var(--color-fill-gray-quaternary);
   --color-svg-icon: #6e6e73;
-  --color-tutorial-navbar-dropdown-background: var(
-    --color-nav-dark-solid-background
-  );
+  --color-tutorial-navbar-dropdown-background: var(--color-nav-dark-solid-background);
   --color-tutorial-navbar-dropdown-border: var(--color-fill-gray-tertiary);
   --color-navigator-item-hover: rgba(0, 113, 227, 0.6);
 }
@@ -1047,10 +1023,7 @@ fieldset {
 @keyframes scroll-animation {
   from {
     opacity: 0;
-    transform: translate(
-        var(--animation-transform-x),
-        var(--animation-transform-y)
-      )
+    transform: translate(var(--animation-transform-x), var(--animation-transform-y))
       scale(var(--animation-transform-scale));
   }
 
