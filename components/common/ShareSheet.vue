@@ -1,10 +1,10 @@
 <template>
   <ul class="sharesheet-options">
     <li
-      class="social-option invisible"
+      class="social-option"
       v-for="(link, index) in links"
       :key="index"
-      v-animation="{ add: 'visible', remove: 'invisible' }"
+      v-animation="{ add: 'visible' }"
     >
       <NuxtLink
         class="link"
@@ -61,7 +61,7 @@ const links: Ref<FaLinkType[]> = computed(() =>
   margin-left: 19px;
 }
 
-.sharesheet-options .social-option.invisible {
+.sharesheet-options .social-option {
   opacity: 0;
 }
 

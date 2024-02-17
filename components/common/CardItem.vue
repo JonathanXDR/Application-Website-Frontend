@@ -6,8 +6,8 @@
     :class="['scroll-animation scroll-animation--off', variant, size]"
     target="_blank"
     v-animation="{
-      add: ['scroll-animation--on'],
-      remove: ['scroll-animation--off'],
+      add: 'scroll-animation--on',
+      remove: 'scroll-animation--off',
     }"
   >
     <div v-if="cover || donutGraph || barGraph" class="card-cover-wrap">
@@ -170,40 +170,40 @@
 </template>
 
 <script setup lang="ts">
-import type { ListUserReposResponse } from "~/types/GitHub/Repository";
-import type { CardItemType } from "~/types/common/CardItem";
+import type { ListUserReposResponse } from '~/types/GitHub/Repository';
+import type { CardItemType } from '~/types/common/CardItem';
 
 const props = withDefaults(
   defineProps<{
     card: CardItemType | ListUserReposResponse | any;
-    variant?: "card" | "article";
+    variant?: 'card' | 'article';
     dateFormatOptions?: Intl.DateTimeFormatOptions;
-    dateNowKey?: "created" | "updated";
-    iconPosition?: "top" | "right" | "bottom" | "left";
-    iconAlignment?: "start" | "center" | "end";
-    size?: "small" | "medium" | "large" | "full";
-    hover?: "auto" | "true" | "false";
+    dateNowKey?: 'created' | 'updated';
+    iconPosition?: 'top' | 'right' | 'bottom' | 'left';
+    iconAlignment?: 'start' | 'center' | 'end';
+    size?: 'small' | 'medium' | 'large' | 'full';
+    hover?: 'auto' | 'true' | 'false';
     cover?: string;
     donutGraph?: boolean;
     barGraph?: boolean;
   }>(),
   {
     card: () => {},
-    variant: "card",
+    variant: 'card',
 
     dateFormatOptions: () => {
       return {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
       };
     },
 
-    dateNowKey: "updated",
-    iconPosition: "left",
-    iconAlignment: "start",
-    size: "medium",
-    hover: "auto",
+    dateNowKey: 'updated',
+    iconPosition: 'left',
+    iconAlignment: 'start',
+    size: 'medium',
+    hover: 'auto',
     donutGraph: false,
     barGraph: false,
   }
@@ -211,37 +211,37 @@ const props = withDefaults(
 
 const applyHover = computed(() => {
   return (
-    (props.hover === "auto" &&
+    (props.hover === 'auto' &&
       props.card.links &&
       props.card.links.length === 1) ||
-    props.hover === "true"
+    props.hover === 'true'
   );
 });
 
 const getFlexDirection = () => {
   switch (props.iconPosition) {
-    case "top":
-      return "column";
-    case "right":
-      return "row-reverse";
-    case "bottom":
-      return "column-reverse";
-    case "left":
+    case 'top':
+      return 'column';
+    case 'right':
+      return 'row-reverse';
+    case 'bottom':
+      return 'column-reverse';
+    case 'left':
     default:
-      return "row";
+      return 'row';
   }
 };
 
 const getAlignItems = () => {
   switch (props.iconAlignment) {
-    case "start":
-      return "flex-start";
-    case "center":
-      return "center";
-    case "end":
-      return "flex-end";
+    case 'start':
+      return 'flex-start';
+    case 'center':
+      return 'center';
+    case 'end':
+      return 'flex-end';
     default:
-      return "flex-start";
+      return 'flex-start';
   }
 };
 </script>
@@ -396,8 +396,8 @@ const getAlignItems = () => {
   line-height: 1.2857742857;
   font-weight: 400;
   /* letter-spacing: -0.016em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .medium .details {
@@ -407,8 +407,8 @@ const getAlignItems = () => {
   line-height: 1.4705882353;
   font-weight: 400;
   /* letter-spacing: -0.022em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .large .details {
@@ -417,8 +417,8 @@ const getAlignItems = () => {
   line-height: 1.6470588235;
   font-weight: 400;
   /* letter-spacing: -0.028em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .full .details {
@@ -426,8 +426,8 @@ const getAlignItems = () => {
   line-height: 1.4705882353;
   font-weight: 400;
   /* letter-spacing: -0.022em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -447,8 +447,8 @@ const getAlignItems = () => {
   line-height: 1.2857742857;
   font-weight: 400;
   /* letter-spacing: -0.016em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 /* ---------------------------------- body ---------------------------------- */
@@ -477,8 +477,8 @@ const getAlignItems = () => {
   line-height: 1.2857742857;
   font-weight: 600;
   /* letter-spacing: -0.016em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .medium .eyebrow {
@@ -486,8 +486,8 @@ const getAlignItems = () => {
   line-height: 1.2353641176;
   font-weight: 600;
   /* letter-spacing: -0.024em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .large .eyebrow {
@@ -495,8 +495,8 @@ const getAlignItems = () => {
   line-height: 1.4705882353;
   font-weight: 600;
   /* letter-spacing: -0.032em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .full .eyebrow {
@@ -504,8 +504,8 @@ const getAlignItems = () => {
   line-height: 1.2353641176;
   font-weight: 600;
   /* letter-spacing: -0.024em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: var(--color-welcome-featured-card-eyebrow-text);
 }
 
@@ -524,8 +524,8 @@ const getAlignItems = () => {
   line-height: 1.2353641176;
   font-weight: 600;
   /* letter-spacing: -0.024em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .title {
@@ -534,8 +534,8 @@ const getAlignItems = () => {
   line-height: 1.2353641176;
   font-weight: 600;
   /* letter-spacing: -0.024em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .title {
@@ -544,8 +544,8 @@ const getAlignItems = () => {
   line-height: 1.2857742857;
   font-weight: 600;
   /* letter-spacing: -0.016em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .medium .title {
@@ -554,8 +554,8 @@ const getAlignItems = () => {
   line-height: 1.1904761905;
   font-weight: 600;
   /* letter-spacing: 0.011em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .large .title {
@@ -563,8 +563,8 @@ const getAlignItems = () => {
   line-height: 1.0947058824;
   font-weight: 600;
   /* letter-spacing: 0.032em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 
   /* Styles without cover */
   color: var(--color-card-content-text);
@@ -575,8 +575,8 @@ const getAlignItems = () => {
   line-height: 1.1904761905;
   font-weight: 600;
   /* letter-spacing: 0.011em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 /* ---------------------------------- link ---------------------------------- */
@@ -663,8 +663,8 @@ const getAlignItems = () => {
   line-height: 1.2353641176;
   font-weight: 400;
   /* letter-spacing: 0em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .group {
@@ -685,8 +685,8 @@ const getAlignItems = () => {
     line-height: 1.2857742857;
     font-weight: 400;
     /* letter-spacing: -0.016em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 
@@ -762,8 +762,8 @@ br.medium {
   line-height: 1.2353641176;
   font-weight: 600;
   /* letter-spacing: 0em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -772,8 +772,8 @@ br.medium {
     line-height: 1.2353641176;
     font-weight: 600;
     /* letter-spacing: 0em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 
@@ -783,8 +783,8 @@ br.medium {
     line-height: 1.2857742857;
     font-weight: 600;
     /* letter-spacing: -0.016em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 
@@ -812,8 +812,8 @@ br.medium {
   line-height: 1.2353641176;
   font-weight: 600;
   /* letter-spacing: 0em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -822,8 +822,8 @@ br.medium {
     line-height: 1.2353641176;
     font-weight: 600;
     /* letter-spacing: 0em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 
@@ -833,8 +833,8 @@ br.medium {
     line-height: 1.2857742857;
     font-weight: 600;
     /* letter-spacing: -0.016em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 
@@ -889,7 +889,7 @@ svg.ac-graph-svg {
 
 .wedge-legend:before {
   display: inline-block;
-  content: "";
+  content: '';
   width: var(--size);
   height: var(--size);
   border-radius: 50%;
@@ -1011,8 +1011,8 @@ svg.ac-graph-svg {
   line-height: 1.33337;
   font-weight: 700;
   /* letter-spacing: -0.01em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .tile-2up .tile-category {

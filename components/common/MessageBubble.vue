@@ -1,6 +1,7 @@
 <template>
   <div
-    :class="`message-item--${direction} message-item--${direction[0]} active`"
+    :class="`message-item message-item--${direction}`"
+    v-animation="{ add: 'active' }"
   >
     <div :class="`message message--${color}`">
       <p class="typography-imessage-text message-copy">
@@ -17,12 +18,12 @@
         <path
           v-if="direction === 'left'"
           d="m32.84 55v-55h54v25.13c0 20.56-3.25 33.65-9.35 45.05-6.1 11.41-15.05 20.36-26.46 26.46s-24.5 9.35-45.05 9.35h-5.98c19.37-8.81 32.84-28.33 32.84-51z"
-          fill="#e9e9eb"
+          :fill="color === 'grey' ? '#e9e9eb' : '#037eff'"
         ></path>
         <path
           v-else
           d="m54 55v-55h-54v25.13c0 20.56 3.25 33.65 9.35 45.05 6.1 11.41 15.05 20.36 26.46 26.46s24.5 9.35 45.05 9.35h5.98c-19.37-8.81-32.84-28.33-32.84-51z"
-          fill="#037eff"
+          :fill="color === 'grey' ? '#e9e9eb' : '#037eff'"
         ></path>
       </svg>
     </div>
@@ -366,10 +367,10 @@ br.small {
 .message-item.active {
   opacity: 1;
 }
-.message-item.active:not(.message-item--right) {
+/* .message-item.active:not(.message-item--right) {
   --message-item-exit-distance: -100px;
   animation: message-item-exit 0.75s ease-in-out 1.9s 1 normal forwards;
-}
+} */
 @media only screen and (max-width: 734px) {
   .message-item.active:not(.message-item--right) {
     --message-item-exit-distance: -15px;
