@@ -1,77 +1,44 @@
 <template>
   <div
+    ref="themeNavContainer"
     class="viewer-sizenav all-access-pass__background"
-    style="
-      pointer-events: all;
-      position: absolute;
-      width: 110px;
-      --sizenav-width: 110px;
-      --bubble-position: 57px;
-      --bubble-width: 48px;
-      --bubble-hint-position: 0;
-      --aap-offset: 0;
-      transform: matrix(1, 0, 0, 1, 50, 0);
-    "
+    :style="containerStyle"
   >
     <div class="viewer-sizenav__bubble">
-      <div class="viewer-sizenav__bubble-inner" style="opacity: 1"></div>
+      <div class="viewer-sizenav__bubble-inner" :style="bubbleStyle"></div>
     </div>
-    <ul class="viewer-sizenav-items" role="radiogroup" aria-label="Select size">
+    <ul class="viewer-sizenav-items" role="radiogroup">
       <li
+        v-for="(item, index) in items"
+        :key="index"
         class="viewer-sizenav-item"
-        style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1"
+        :ref="(setItemRef as unknown as VNodeRef)"
       >
         <input
-          id="viewer-sizenav-value-small"
+          :id="`viewer-sizenav-value-${item.id}`"
           type="radio"
           name="viewer-sizenav-value"
           class="viewer-sizenav-value"
-          value="macbook-pro-14"
-          data-aria-map='{"Dark":"MacBook Pro 14” in Space&nbsp;Black with M3&nbsp;Pro or M3&nbsp;Max Footnote 2"}'
-          data-viewer-value="small"
-          data-analytics-click="prop3:size select - macbook pro 14"
-          data-analytics-title="size select - macbook pro 14"
-          data-analytics-intrapage-link=""
-          checked
-          aria-label="MacBook Pro 14” in Space&nbsp;Black with M3&nbsp;Pro or M3&nbsp;Max Footnote 2"
-          style="--option-offset: 5px; --option-width: 48px"
+          :value="item.id"
+          v-model="selectedTheme"
         />
         <label
-          for="viewer-sizenav-value-small"
+          :for="`viewer-sizenav-value-${item.id}`"
           class="viewer-sizenav-link"
-          aria-hidden="true"
         >
-          <span class="viewer-sizenav-swatch viewer-sizenav-swatch-small">
-            <span class="viewer-sizenav-label"> 14” </span>
-          </span>
-        </label>
-      </li>
-      <li
-        class="viewer-sizenav-item"
-        style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1"
-      >
-        <input
-          id="viewer-sizenav-value-large"
-          type="radio"
-          name="viewer-sizenav-value"
-          class="viewer-sizenav-value"
-          value="macbook-pro-16"
-          data-aria-map='{"Dark":"MacBook Pro 16” in Space&nbsp;Black with M3&nbsp;Pro or M3&nbsp;Max Footnote 2"}'
-          data-viewer-value="large"
-          data-default-size="true"
-          data-analytics-click="prop3:size select - macbook pro 16"
-          data-analytics-title="size select - macbook pro 16"
-          data-analytics-intrapage-link=""
-          aria-label="MacBook Pro 16” in Space&nbsp;Black with M3&nbsp;Pro or M3&nbsp;Max Footnote 2"
-          style="--option-offset: 57px; --option-width: 48px"
-        />
-        <label
-          for="viewer-sizenav-value-large"
-          class="viewer-sizenav-link"
-          aria-hidden="true"
-        >
-          <span class="viewer-sizenav-swatch viewer-sizenav-swatch-large">
-            <span class="viewer-sizenav-label"> 16” </span>
+          <span
+            :class="`viewer-sizenav-swatch viewer-sizenav-swatch-${item.id}`"
+          >
+            <span class="viewer-sizenav-label">
+              <Icon
+                v-if="labelVariant !== 'text'"
+                :name="item.icon"
+                class="icon icon-large"
+              />
+              <div v-if="labelVariant !== 'icon'">
+                {{ item.label }}
+              </div>
+            </span>
           </span>
         </label>
       </li>
@@ -80,47 +47,86 @@
 </template>
 
 <script setup lang="ts">
-withDefaults(
+import type { VNodeRef } from 'vue'
+
+const props = withDefaults(
   defineProps<{
-    variant?: 'icon' | 'label' | 'combination';
+    size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
+    labelVariant?: 'icon' | 'text' | 'combination'
+    separator?: boolean
   }>(),
   {
-    variant: 'label',
+    size: 'medium',
+    labelVariant: 'text',
+    separator: false
   }
-);
+)
 
-const { getTheme, setTheme } = useTheme();
-const currentTheme = computed(() => getTheme());
+const { getTheme, setTheme } = useTheme()
+const currentTheme = computed(() => getTheme())
 
-const items = reactive([
+const themeNavContainer: Ref<HTMLElement | null> = ref(null)
+const itemElements: Ref<HTMLElement[]> = ref([])
+const selectedTheme = ref(currentTheme.value)
+const bubbleStyle = ref<Record<string, string>>({})
+
+const items = [
   { id: 'light', label: 'Light', icon: 'sun.max.fill' },
   { id: 'dark', label: 'Dark', icon: 'moon.fill' },
-  { id: 'auto', label: 'Auto', icon: 'circle.lefthalf.filled' },
-]);
+  { id: 'auto', label: 'Auto', icon: 'circle.lefthalf.filled' }
+]
+
+const height = computed(() => {
+  switch (props.size) {
+    case 'xsmall':
+      return '32px'
+    case 'small':
+      return '40px'
+    case 'medium':
+      return '48px'
+    case 'large':
+      return '56px'
+    case 'xlarge':
+      return '64px'
+  }
+})
+
+const setItemRef = (el: HTMLElement) => {
+  if (el) itemElements.value.push(el)
+}
+
+const updateBubblePosition = () => {
+  const selectedItemIndex = items.findIndex(
+    item => item.id === selectedTheme.value
+  )
+  const selectedItemElement = itemElements.value[selectedItemIndex]
+  if (selectedItemElement) {
+    bubbleStyle.value = {
+      '--bubble-position': `${selectedItemElement.offsetLeft}px`,
+      '--bubble-width': `${selectedItemElement.offsetWidth}px`,
+      opacity: '1'
+    }
+  }
+}
+
+const containerStyle = computed(() => ({
+  '--sizenav-width': `${themeNavContainer.value?.offsetWidth}px`,
+  '--aap-min-height': `${height.value}`
+}))
+
+watch(
+  selectedTheme,
+  newTheme => {
+    setTheme(newTheme)
+    updateBubblePosition()
+  },
+  { immediate: true }
+)
+
+onMounted(updateBubblePosition)
 </script>
 
 <style scoped>
-/*! CSS Used from: https://www.apple.com/v/macbook-pro/aj/built/styles/main.built.css */
-input,
-li,
-ul {
-  margin: 0;
-  padding: 0;
-}
-:focus-visible {
-  outline: 2px solid var(--sk-focus-color, #0071e3);
-  outline-offset: var(--sk-focus-offset, 1px);
-}
-input {
-  font-synthesis: none;
-  -moz-font-feature-settings: 'kern';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-ul {
-  margin-inline-start: 1.1764705882em;
-}
-/*! CSS Used from: https://www.apple.com/v/macbook-pro/aj/built/styles/overview.built.css */
 .all-access-pass__background {
   -webkit-backdrop-filter: blur(var(--aap-blur));
   backdrop-filter: blur(var(--aap-blur));
@@ -136,10 +142,9 @@ ul {
 .all-access-pass__background.viewer-sizenav {
   --sizenav-width: 0px;
   --ltr: 1;
-  display: none;
   margin-inline-start: 12px;
 }
-html.enhanced .all-access-pass__background.viewer-sizenav {
+.all-access-pass__background.viewer-sizenav {
   margin-inline-start: 0;
 }
 .viewer-loaded .all-access-pass__background.viewer-sizenav {
@@ -153,6 +158,16 @@ html.enhanced .all-access-pass__background.viewer-sizenav {
   --sizenav-width: 0px;
   --toggle-color: 0;
   --ltr: 1;
+
+  --aap-blur: 7px;
+  --aap-font-size: 17px;
+  --aap-font-weight: 600;
+  --aap-mobile-font-size: 14px;
+  --aap-hint-scale: 1;
+  --aap-hint-opacity: 0;
+  --aap-margin: 30px;
+  --aap-margin-bottom: 100px;
+  --aap-background-transition-duration: 250ms;
   -webkit-user-select: none;
   user-select: none;
 }
@@ -200,11 +215,11 @@ html.enhanced .all-access-pass__background.viewer-sizenav {
   transform-origin: center center;
   width: 100%;
 }
-html.enhanced .viewer-sizenav {
+.viewer-sizenav {
   --bubble-scale: 0;
   background-color: var(--aap-background-color);
 }
-html.enhanced .viewer-sizenav .viewer-sizenav__bubble-inner {
+.viewer-sizenav .viewer-sizenav__bubble-inner {
   opacity: 0;
 }
 .viewer-sizenav-items {
@@ -228,7 +243,7 @@ html.enhanced .viewer-sizenav .viewer-sizenav__bubble-inner {
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
-  height: 48px;
+  height: calc(var(--aap-min-height) - 8px);
   justify-content: center;
   min-width: 48px;
   transition: background-color 0.25s ease, box-shadow 0.3s ease;
@@ -244,7 +259,8 @@ html.enhanced .viewer-sizenav .viewer-sizenav__bubble-inner {
   align-items: center;
   color: var(--aap-icon-color);
   display: flex;
-  font-size: 16px;
+  /* font-size: 16px; */
+  font-size: 12px;
   font-weight: 600;
   height: 100%;
   justify-content: center;
@@ -253,6 +269,7 @@ html.enhanced .viewer-sizenav .viewer-sizenav__bubble-inner {
   padding: 0 8px;
   transition: color 200ms cubic-bezier(0.53, -0.01, 0.17, 1);
   width: auto;
+  gap: 5px;
 }
 .viewer-sizenav-value {
   clip: rect(0 0 0 0);
@@ -282,3 +299,4 @@ html.enhanced .viewer-sizenav .viewer-sizenav__bubble-inner {
   --mx-teal: #43b9b9;
 }
 </style>
+style
