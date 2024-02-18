@@ -12,6 +12,7 @@
         v-for="(item, index) in items"
         :key="index"
         class="viewer-sizenav-item"
+        :class="{ 'with-separator': props.separator }"
         :ref="(setItemRef as unknown as VNodeRef)"
       >
         <input
@@ -54,6 +55,9 @@ const props = withDefaults(
     size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
     labelVariant?: 'icon' | 'text' | 'combination'
     separator?: boolean
+    colorUnselectedGray?: boolean
+    horizontalPaddingSize?: 'none' | 'small' | 'medium' | 'large'
+    verticalPaddingSize?: 'none' | 'small' | 'medium' | 'large'
   }>(),
   {
     size: 'medium',
@@ -110,6 +114,7 @@ const updateBubblePosition = () => {
 }
 
 const containerStyle = computed(() => ({
+  width: `${themeNavContainer.value?.offsetWidth}px`,
   '--sizenav-width': `${themeNavContainer.value?.offsetWidth}px`,
   '--aap-min-height': `${height.value}`
 }))
@@ -127,6 +132,39 @@ onMounted(updateBubblePosition)
 </script>
 
 <style scoped>
+.viewer-sizenav-item {
+  position: relative;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.viewer-sizenav-item:not(:first-child)::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -7px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 100%;
+  background-color: var(--color-code-plain);
+  transition: transform 350ms;
+}
+.viewer-sizenav-item:first-child {
+  padding-left: 0;
+}
+.viewer-sizenav-item:last-child {
+  padding-right: 0;
+}
+.viewer-sizenav-item:has(.viewer-sizenav-value:checked)
+  + .viewer-sizenav-item::before,
+.viewer-sizenav-item:has(.viewer-sizenav-value:checked)::before {
+  transform: translate(-50%, -50%) scale(0);
+}
+
 .all-access-pass__background {
   -webkit-backdrop-filter: blur(var(--aap-blur));
   backdrop-filter: blur(var(--aap-blur));
@@ -165,11 +203,13 @@ onMounted(updateBubblePosition)
   --aap-mobile-font-size: 14px;
   --aap-hint-scale: 1;
   --aap-hint-opacity: 0;
+  --aap-offset: 0;
   --aap-margin: 30px;
   --aap-margin-bottom: 100px;
   --aap-background-transition-duration: 250ms;
   -webkit-user-select: none;
   user-select: none;
+  pointer-events: all;
 }
 .viewer-sizenav__bubble {
   --abs-calc: max(var(--bubble-hint-position), -1 * var(--bubble-hint-position)) /
@@ -231,6 +271,7 @@ onMounted(updateBubblePosition)
   margin-inline-start: 0;
   padding: 0 3px;
   pointer-events: auto;
+  gap: 10px;
 }
 .viewer-sizenav-item {
   margin-left: 2px;
@@ -299,4 +340,3 @@ onMounted(updateBubblePosition)
   --mx-teal: #43b9b9;
 }
 </style>
-style
