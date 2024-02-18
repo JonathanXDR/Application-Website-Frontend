@@ -54,6 +54,23 @@ body {
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-card-shadow: rgba(0, 0, 0, 0.04);
 
+  /* All Access Pass */
+  --aap-background-color: rgb(232 232 237/70%);
+  --aap-inner-glow-color: rgb(0 0 0/11%);
+  --aap-text-color: rgb(29, 29, 31);
+  --aap-accent-color: var(--color-fill-blue);
+  --aap-icon-color: var(--color-fill-gray);
+  --aap-icon-color-alt: rgb(245, 245, 247);
+  --aap-active-fill-color: #29292a;
+  --aap-inactive-fill-color: #a1a1a2;
+  --aap-button-hover: rgb(223 223 227/69.8%);
+  --aap-button-active: rgb(193 193 198/65.4%);
+  --aap-dotnav-background: rgb(29 29 31/60%);
+  --aap-dotnav-background-hover: rgb(0 0 0/54%);
+  --aap-paddlenav-arrow-color: rgb(110, 110, 115);
+  --aap-paddlenav-arrow-color-hover: rgb(0 0 0/64%);
+  --aap-paddlenav-background-hover: rgb(0 0 0/4.48%);
+
   /* System Colors */
   --color-system-red: rgb(255, 59, 48);
   --color-system-red-accessible: rgb(215, 0, 21);
@@ -223,6 +240,23 @@ body {
   --color-tutorials-overview-navigation-link-hover: #a1a1a6;
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-card-shadow: hsla(0, 0%, 100%, 0.04);
+
+  /* All Access Pass */
+  --aap-background-color: rgb(23 23 28/70%);
+  --aap-inner-glow-color: rgb(255 255 255/11%);
+  --aap-text-color: rgb(226, 226, 234);
+  --aap-accent-color: var(--color-fill-blue);
+  --aap-icon-color: var(--color-fill-gray);
+  --aap-icon-color-alt: rgb(10, 10, 12);
+  --aap-active-fill-color: #676769;
+  --aap-inactive-fill-color: #585859;
+  --aap-button-hover: rgb(32 32 36/69.8%);
+  --aap-button-active: rgb(53 53 58/65.4%);
+  --aap-dotnav-background: rgb(226 226 234/60%);
+  --aap-dotnav-background-hover: rgb(255 255 255/54%);
+  --aap-paddlenav-arrow-color: rgb(145, 145, 150);
+  --aap-paddlenav-arrow-color-hover: rgb(255 255 255/64%);
+  --aap-paddlenav-background-hover: rgb(255 255 255/4.48%);
 
   /* System Colors */
   --color-system-red: rgb(255, 69, 58);
