@@ -15,5 +15,5 @@
   },
   "plugins": ["vue"],
   "rules": {},
-  "ignorePatterns": ["node_modules/*", ".nuxt/*", ".out/*", ".build/"]
+  "ignorePatterns": ["node_modules/*", ".nuxt/*", ".output/*"]
 }
