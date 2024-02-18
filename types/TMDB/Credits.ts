@@ -1,5 +1,5 @@
-import type { Media } from './Media';
+import type { Media } from './Media'
 
 export interface Credits {
-  cast: Media[];
+  cast: Media[]
 }

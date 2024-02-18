@@ -1,5 +1,5 @@
-import type { CardItemType } from "../common/CardItem";
+import type { CardItemType } from '../common/CardItem'
 
 export interface References extends CardItemType {
-  references: CardItemType[];
+  references: CardItemType[]
 }

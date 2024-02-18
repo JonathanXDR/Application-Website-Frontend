@@ -1,64 +1,64 @@
-import { graphql, type GraphQlQueryResponseData } from "@octokit/graphql";
-import { Octokit } from "octokit";
-import type { ListRepoIssuesResponse } from "~/types/GitHub/Issue";
+import { graphql, type GraphQlQueryResponseData } from '@octokit/graphql'
+import { Octokit } from 'octokit'
+import type { ListRepoIssuesResponse } from '~/types/GitHub/Issue'
 import type {
   GetRepoResponse,
   ListPublicReposResponse,
-  ListUserReposResponse,
-} from "~/types/GitHub/Repository";
-import type { ListRepoTagsResponse } from "~/types/GitHub/Tag";
+  ListUserReposResponse
+} from '~/types/GitHub/Repository'
+import type { ListRepoTagsResponse } from '~/types/GitHub/Tag'
 
 // const { githubToken } = useRuntimeConfig();
-const githubToken = import.meta.env.VITE_GITHUB_TOKEN;
+const githubToken = import.meta.env.VITE_GITHUB_TOKEN
 
 const octokit = new Octokit({
-  auth: githubToken,
-});
+  auth: githubToken
+})
 
 const graphqlInstance = graphql.defaults({
   headers: {
-    authorization: `token ${githubToken}`,
-  },
-});
+    authorization: `token ${githubToken}`
+  }
+})
 
-export async function listPublicRepositories(params: {
-  since?: number;
+export async function listPublicRepositories (params: {
+  since?: number
 }): Promise<ListPublicReposResponse[]> {
-  const { since } = params;
+  const { since } = params
 
   try {
-    const response = await octokit.request("GET /repositories", {
+    const response = await octokit.request('GET /repositories', {
       since,
       headers: {
-        accept: "application/vnd.github+json",
-      },
-    });
-    return response.data;
+        accept: 'application/vnd.github+json'
+      }
+    })
+    return response.data
   } catch (error) {
-    console.error("Error fetching public repositories:", error);
-    throw error;
+    console.error('Error fetching public repositories:', error)
+    throw error
   }
 }
 
-export async function listUserRepositories(params: {
-  username: string;
-  type?: "all" | "owner" | "member" | undefined;
-  sort?: "full_name" | "created" | "updated" | "pushed" | undefined;
-  direction?: "asc" | "desc" | undefined;
-  perPage?: number;
-  page?: number;
+export async function listUserRepositories (params: {
+  username: string
+  type?: 'all' | 'owner' | 'member' | undefined
+  sort?: 'full_name' | 'created' | 'updated' | 'pushed' | undefined
+  direction?: 'asc' | 'desc' | undefined
+  perPage?: number
+  page?: number
 }): Promise<ListUserReposResponse[]> {
   const {
     username,
-    type = "owner",
-    sort = "full_name",
-    direction = "asc",
+    type = 'owner',
+    sort = 'full_name',
+    direction = 'asc',
     perPage = 30,
-    page = 1,
-  } = params;
+    page = 1
+  } = params
 
   try {
-    const response = await octokit.request("GET /users/{username}/repos", {
+    const response = await octokit.request('GET /users/{username}/repos', {
       username,
       type,
       sort,
@@ -66,95 +66,95 @@ export async function listUserRepositories(params: {
       per_page: perPage,
       page,
       headers: {
-        accept: "application/vnd.github+json",
-      },
-    });
-    return response.data;
+        accept: 'application/vnd.github+json'
+      }
+    })
+    return response.data
   } catch (error) {
-    console.error(`Error fetching repositories for user ${username}:`, error);
-    throw error;
+    console.error(`Error fetching repositories for user ${username}:`, error)
+    throw error
   }
 }
 
-export async function getRepository(params: {
-  owner: string;
-  repo: string;
+export async function getRepository (params: {
+  owner: string
+  repo: string
 }): Promise<GetRepoResponse> {
-  const { owner, repo } = params;
+  const { owner, repo } = params
 
   try {
-    const response = await octokit.request("GET /repos/{owner}/{repo}", {
+    const response = await octokit.request('GET /repos/{owner}/{repo}', {
       owner,
       repo,
       headers: {
-        accept: "application/vnd.github+json",
-      },
-    });
-    return response.data;
+        accept: 'application/vnd.github+json'
+      }
+    })
+    return response.data
   } catch (error) {
-    console.error(`Error fetching repository for owner ${owner}:`, error);
-    throw error;
+    console.error(`Error fetching repository for owner ${owner}:`, error)
+    throw error
   }
 }
 
-export async function listRepositoryTags(params: {
-  owner: string;
-  repo: string;
-  perPage?: number;
-  page?: number;
+export async function listRepositoryTags (params: {
+  owner: string
+  repo: string
+  perPage?: number
+  page?: number
 }): Promise<ListRepoTagsResponse> {
-  const { owner, repo, perPage = 30, page = 1 } = params;
+  const { owner, repo, perPage = 30, page = 1 } = params
 
   try {
-    const response = await octokit.request("GET /repos/{owner}/{repo}/tags", {
+    const response = await octokit.request('GET /repos/{owner}/{repo}/tags', {
       owner,
       repo,
       per_page: perPage,
       page,
       headers: {
-        accept: "application/vnd.github+json",
-      },
-    });
-    return response.data;
+        accept: 'application/vnd.github+json'
+      }
+    })
+    return response.data
   } catch (error) {
-    console.error(`Error fetching tags for repository ${repo}:`, error);
-    throw error;
+    console.error(`Error fetching tags for repository ${repo}:`, error)
+    throw error
   }
 }
 
-export async function listRepositoryIssues(params: {
-  owner: string;
-  repo: string;
-  milestone?: string;
-  state?: "open" | "closed" | "all";
-  assignee?: string;
-  creator?: string;
-  mentioned?: string;
-  labels?: string;
-  sort?: "created" | "updated" | "comments";
-  direction?: "asc" | "desc";
-  since?: string;
-  perPage?: number;
-  page?: number;
+export async function listRepositoryIssues (params: {
+  owner: string
+  repo: string
+  milestone?: string
+  state?: 'open' | 'closed' | 'all'
+  assignee?: string
+  creator?: string
+  mentioned?: string
+  labels?: string
+  sort?: 'created' | 'updated' | 'comments'
+  direction?: 'asc' | 'desc'
+  since?: string
+  perPage?: number
+  page?: number
 }): Promise<ListRepoIssuesResponse[]> {
   const {
     owner,
     repo,
     milestone,
-    state = "open",
+    state = 'open',
     assignee,
     creator,
     mentioned,
     labels,
-    sort = "created",
-    direction = "desc",
+    sort = 'created',
+    direction = 'desc',
     since,
     perPage = 30,
-    page = 1,
-  } = params;
+    page = 1
+  } = params
 
   try {
-    const response = await octokit.request("GET /repos/{owner}/{repo}/issues", {
+    const response = await octokit.request('GET /repos/{owner}/{repo}/issues', {
       owner,
       repo,
       milestone,
@@ -169,21 +169,21 @@ export async function listRepositoryIssues(params: {
       per_page: perPage,
       page,
       headers: {
-        accept: "application/vnd.github+json",
-      },
-    });
-    return response.data;
+        accept: 'application/vnd.github+json'
+      }
+    })
+    return response.data
   } catch (error) {
-    console.error(`Error fetching issues for repository ${repo}:`, error);
-    throw error;
+    console.error(`Error fetching issues for repository ${repo}:`, error)
+    throw error
   }
 }
 
-export async function listPinnedRepositories(params: {
-  username: string;
-  perPage?: number;
+export async function listPinnedRepositories (params: {
+  username: string
+  perPage?: number
 }): Promise<ListUserReposResponse[]> {
-  const { username, perPage = 30 } = params;
+  const { username, perPage = 30 } = params
 
   const query = `
 {
@@ -241,7 +241,7 @@ export async function listPinnedRepositories(params: {
     }
   }
 }
-  `;
+  `
 
   const remapProps = (item: any) => {
     const {
@@ -255,8 +255,8 @@ export async function listPinnedRepositories(params: {
       stargazers,
       issues,
       pullRequests,
-      updatedAt,
-    } = item;
+      updatedAt
+    } = item
 
     return {
       name,
@@ -273,21 +273,21 @@ export async function listPinnedRepositories(params: {
       pullRequests: pullRequests.nodes
         .filter((node: any) => !node.closed)
         .map((node: any) => node.url),
-      updated_at: updatedAt,
-    };
-  };
+      updated_at: updatedAt
+    }
+  }
 
   try {
-    const response = await graphqlInstance<GraphQlQueryResponseData>(query);
+    const response = await graphqlInstance<GraphQlQueryResponseData>(query)
     const pinnedRepositories = response.user.pinnedItems.edges.map(
-      (edge: any) => remapProps(edge.node),
-    );
-    return pinnedRepositories;
+      (edge: any) => remapProps(edge.node)
+    )
+    return pinnedRepositories
   } catch (error) {
     console.error(
       `Error fetching pinned repositories for user ${username}:`,
-      error,
-    );
-    throw error;
+      error
+    )
+    throw error
   }
 }

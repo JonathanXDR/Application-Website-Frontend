@@ -1,4 +1,4 @@
 export interface DateType {
-  from?: string;
-  to?: string;
+  from?: string
+  to?: string
 }
