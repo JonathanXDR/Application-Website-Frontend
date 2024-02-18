@@ -2,7 +2,7 @@ export class MusicKitHelper {
   musicKitInstance: MusicKit.MusicKitInstance
 
   constructor (musicKitInstance?: MusicKit.MusicKitInstance) {
-    if (musicKitInstance) {
+    if (musicKitInstance !== null && musicKitInstance !== undefined) {
       this.musicKitInstance = musicKitInstance
     } else {
       throw new Error(
@@ -11,6 +11,7 @@ export class MusicKitHelper {
     }
   }
 
+  // eslint-disable-next-line require-await
   async configureMusicKit (
     developerToken: string,
     app: MusicKit.AppConfiguration
@@ -24,62 +25,27 @@ export class MusicKitHelper {
     return MusicKit.getInstance()
   }
 
-  async authorizeUser () {
-    await this.musicKitInstance.authorize()
-  }
-
-  async unauthorizeUser () {
+  async unauthorizeUser (): Promise<void> {
     await this.musicKitInstance.unauthorize()
   }
 
-  play () {
-    this.musicKitInstance.player.play()
+  async play (): Promise<void> {
+    await this.musicKitInstance.player.play()
   }
 
-  pause () {
+  pause (): void {
     this.musicKitInstance.player.pause()
   }
 
-  stop () {
+  stop (): void {
     this.musicKitInstance.player.stop()
   }
 
-  next () {
-    this.musicKitInstance.player.skipToNextItem()
-  }
-
-  previous () {
-    this.musicKitInstance.player.skipToPreviousItem()
-  }
-
-  async setQueue (options: MusicKit.SetQueueOptions) {
-    await this.musicKitInstance.setQueue(options)
-  }
-
-  async playAlbum (albumId: string) {
-    await this.musicKitInstance.setQueue({ album: albumId })
-    this.musicKitInstance.player.play()
-  }
-
-  async playPlaylist (playlistId: string) {
-    await this.musicKitInstance.setQueue({ playlist: playlistId })
-    this.musicKitInstance.player.play()
-  }
-
-  async playSong (songId: string) {
-    await this.musicKitInstance.setQueue({ song: songId })
-    this.musicKitInstance.player.play()
-  }
-
-  async getAlbum (albumId: string) {
-    return await this.musicKitInstance.api.album(albumId)
-  }
-
-  async getPlaylist (playlistId: string) {
+  async getPlaylist (playlistId: string): Promise<MusicKit.Playlists> {
     return await this.musicKitInstance.api.playlist(playlistId)
   }
 
-  async getSong (songId: string) {
+  async getSong (songId: string): Promise<MusicKit.Songs> {
     return await this.musicKitInstance.api.song(songId)
   }
 
@@ -99,7 +65,7 @@ export class MusicKitHelper {
   async addToLibrary (
     itemId: string,
     itemType: 'songs' | 'albums' | 'playlists'
-  ) {
+  ): Promise<void> {
     await this.musicKitInstance.api.addToLibrary({ [itemType]: [itemId] })
   }
 
@@ -119,7 +85,7 @@ export class MusicKitHelper {
 }
 
 export async function loadMusicKitSDK (): Promise<void> {
-  await new Promise((resolve, reject) => {
+  await new Promise<void>((resolve, reject) => {
     if (typeof (window as any).MusicKit !== 'undefined') {
       resolve()
       return
@@ -128,7 +94,7 @@ export async function loadMusicKitSDK (): Promise<void> {
     const script = document.createElement('script')
     script.src = 'https://js-cdn.music.apple.com/musickit/v1/musickit.js'
     script.onload = () => { resolve() }
-    script.onerror = (error) => { reject(new Error(`MusicKit SDK loading error: ${error}`)) }
+    script.onerror = (error: Event | string) => { reject(new Error(`MusicKit SDK loading error: ${String(error)}`)) }
     document.head.appendChild(script)
   })
 }
