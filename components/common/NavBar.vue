@@ -54,7 +54,8 @@
                 <span class="ac-ln-menucta-chevron"></span>
               </label>
             </div>
-            <ColorSchemeToggle />
+            <!-- <ColorSchemeToggle /> -->
+            <ThemeNav size="xsmall" />
             <LanguagePickerDropdown />
           </div>
         </div>

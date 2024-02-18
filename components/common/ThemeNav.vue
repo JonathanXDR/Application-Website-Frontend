@@ -7,13 +7,13 @@
     <div class="viewer-sizenav__bubble">
       <div class="viewer-sizenav__bubble-inner" :style="bubbleStyle"></div>
     </div>
-    <ul class="viewer-sizenav-items" role="radiogroup">
+    <ul class="viewer-sizenav-items" role="radiogroup" :style="{ gap: gap }">
       <li
         v-for="(item, index) in items"
         :key="index"
         class="viewer-sizenav-item"
-        :class="{ 'with-separator': props.separator }"
-        :ref="(setItemRef as unknown as VNodeRef)"
+        :class="{ separator: separator }"
+        :ref="(setItemRef as any)"
       >
         <input
           :id="`viewer-sizenav-value-${item.id}`"
@@ -26,19 +26,20 @@
         <label
           :for="`viewer-sizenav-value-${item.id}`"
           class="viewer-sizenav-link"
+          :style="{
+            'min-width': props.label !== 'icon' ? '48px' : `${height - 8}px`,
+          }"
         >
           <span
             :class="`viewer-sizenav-swatch viewer-sizenav-swatch-${item.id}`"
           >
-            <span class="viewer-sizenav-label">
+            <span class="viewer-sizenav-label" :style="{ padding: padding }">
               <Icon
-                v-if="labelVariant !== 'text'"
+                v-if="label !== 'text'"
                 :name="item.icon"
                 class="icon icon-large"
               />
-              <div v-if="labelVariant !== 'icon'">
-                {{ item.label }}
-              </div>
+              <div v-if="label !== 'icon'">{{ item.label }}</div>
             </span>
           </span>
         </label>
@@ -48,91 +49,92 @@
 </template>
 
 <script setup lang="ts">
-import type { VNodeRef } from 'vue'
-
 const props = withDefaults(
   defineProps<{
-    size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
-    labelVariant?: 'icon' | 'text' | 'combination'
-    separator?: boolean
-    colorUnselectedGray?: boolean
-    horizontalPaddingSize?: 'none' | 'small' | 'medium' | 'large'
-    verticalPaddingSize?: 'none' | 'small' | 'medium' | 'large'
+    size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+    label?: 'icon' | 'text' | 'combination';
+    separator?: boolean;
+    gap?: string;
+    padding?: string;
   }>(),
   {
     size: 'medium',
-    labelVariant: 'text',
-    separator: false
+    label: 'text',
+    separator: false,
+    gap: '0',
+    padding: (props) => {
+      return props.label !== 'icon' ? '0 8px' : '0';
+    },
   }
-)
+);
 
-const { getTheme, setTheme } = useTheme()
-const currentTheme = computed(() => getTheme())
-
-const themeNavContainer: Ref<HTMLElement | null> = ref(null)
-const itemElements: Ref<HTMLElement[]> = ref([])
-const selectedTheme = ref(currentTheme.value)
-const bubbleStyle = ref<Record<string, string>>({})
+const { getTheme, setTheme } = useTheme();
+const selectedTheme = ref<string>(getTheme());
+const isTransitioning = ref<boolean>(false);
 
 const items = [
   { id: 'light', label: 'Light', icon: 'sun.max.fill' },
   { id: 'dark', label: 'Dark', icon: 'moon.fill' },
-  { id: 'auto', label: 'Auto', icon: 'circle.lefthalf.filled' }
-]
+  { id: 'auto', label: 'Auto', icon: 'circle.lefthalf.filled' },
+];
 
-const height = computed(() => {
-  switch (props.size) {
-    case 'xsmall':
-      return '32px'
-    case 'small':
-      return '40px'
-    case 'medium':
-      return '48px'
-    case 'large':
-      return '56px'
-    case 'xlarge':
-      return '64px'
-  }
-})
+const themeNavContainer = ref<HTMLElement | null>(null);
+const itemElements = ref<Array<HTMLElement>>([]);
 
-const setItemRef = (el: HTMLElement) => {
-  if (el) itemElements.value.push(el)
-}
+const setItemRef = (el: HTMLElement | null) => {
+  if (el) itemElements.value.push(el);
+};
 
 const updateBubblePosition = () => {
+  isTransitioning.value = true;
   const selectedItemIndex = items.findIndex(
-    item => item.id === selectedTheme.value
-  )
-  const selectedItemElement = itemElements.value[selectedItemIndex]
+    (item) => item.id === selectedTheme.value
+  );
+  const selectedItemElement = itemElements.value[selectedItemIndex];
   if (selectedItemElement) {
     bubbleStyle.value = {
       '--bubble-position': `${selectedItemElement.offsetLeft}px`,
       '--bubble-width': `${selectedItemElement.offsetWidth}px`,
-      opacity: '1'
-    }
+      opacity: '1',
+    };
   }
-}
+
+  setTimeout(() => (isTransitioning.value = false), 400);
+};
+
+const bubbleStyle = ref<Record<string, string>>({});
+
+const height = computed(() => {
+  const sizes: Record<string, number> = {
+    xsmall: 32,
+    small: 40,
+    medium: 48,
+    large: 56,
+    xlarge: 64,
+  };
+  return sizes[props.size || 'medium'];
+});
 
 const containerStyle = computed(() => ({
   width: `${themeNavContainer.value?.offsetWidth}px`,
   '--sizenav-width': `${themeNavContainer.value?.offsetWidth}px`,
-  '--aap-min-height': `${height.value}`
-}))
+  '--aap-min-height': `${height.value}px`,
+}));
 
 watch(
   selectedTheme,
-  newTheme => {
-    setTheme(newTheme)
-    updateBubblePosition()
+  (newTheme) => {
+    setTheme(newTheme);
+    updateBubblePosition();
   },
   { immediate: true }
-)
+);
 
-onMounted(updateBubblePosition)
+onMounted(updateBubblePosition);
 </script>
 
 <style scoped>
-.viewer-sizenav-item {
+.viewer-sizenav-item.separator {
   position: relative;
   padding: 0;
   display: flex;
@@ -140,7 +142,7 @@ onMounted(updateBubblePosition)
   justify-content: center;
   text-align: center;
 }
-.viewer-sizenav-item:not(:first-child)::before {
+.viewer-sizenav-item.separator:not(:first-child)::before {
   content: '';
   display: block;
   position: absolute;
@@ -153,22 +155,23 @@ onMounted(updateBubblePosition)
   background-color: var(--color-code-plain);
   transition: transform 350ms;
 }
-.viewer-sizenav-item:first-child {
+.viewer-sizenav-item.separator:first-child {
   padding-left: 0;
 }
-.viewer-sizenav-item:last-child {
+.viewer-sizenav-item.separator:last-child {
   padding-right: 0;
 }
-.viewer-sizenav-item:has(.viewer-sizenav-value:checked)
-  + .viewer-sizenav-item::before,
-.viewer-sizenav-item:has(.viewer-sizenav-value:checked)::before {
+.viewer-sizenav-item.separator:has(.viewer-sizenav-value:checked)
+  + .viewer-sizenav-item.separator::before,
+.viewer-sizenav-item.separator:has(.viewer-sizenav-value:checked)::before {
   transform: translate(-50%, -50%) scale(0);
 }
 
 .all-access-pass__background {
   -webkit-backdrop-filter: blur(var(--aap-blur));
   backdrop-filter: blur(var(--aap-blur));
-  background-color: var(--aap-background-color);
+  /* background-color: var(--aap-background-color); */
+  background-color: var(--color-fill-tertiary);
   border-radius: 32px;
   box-shadow: inset 0 0 1px var(--aap-inner-glow-color);
   color: var(--aap-text-color);
@@ -190,7 +193,7 @@ onMounted(updateBubblePosition)
 }
 .viewer-sizenav {
   --bubble-position: 0;
-  --bubble-scale: 1;
+  --bubble-scale: 0;
   --bubble-width: calc(var(--aap-min-height) - 8px);
   --bubble-hint-position: 0;
   --sizenav-width: 0px;
@@ -240,7 +243,8 @@ onMounted(updateBubblePosition)
 }
 .viewer-sizenav__bubble-inner,
 .viewer-sizenav__bubble-inner:before {
-  background-color: var(--aap-icon-color);
+  /* background-color: var(--aap-icon-color); */
+  background-color: var(--color-fill-gray);
   border-radius: 28px;
   left: 0;
   position: absolute;
@@ -255,10 +259,6 @@ onMounted(updateBubblePosition)
   transform-origin: center center;
   width: 100%;
 }
-.viewer-sizenav {
-  --bubble-scale: 0;
-  background-color: var(--aap-background-color);
-}
 .viewer-sizenav .viewer-sizenav__bubble-inner {
   opacity: 0;
 }
@@ -271,7 +271,6 @@ onMounted(updateBubblePosition)
   margin-inline-start: 0;
   padding: 0 3px;
   pointer-events: auto;
-  gap: 10px;
 }
 .viewer-sizenav-item {
   margin-left: 2px;
@@ -286,7 +285,6 @@ onMounted(updateBubblePosition)
   display: flex;
   height: calc(var(--aap-min-height) - 8px);
   justify-content: center;
-  min-width: 48px;
   transition: background-color 0.25s ease, box-shadow 0.3s ease;
   width: auto;
 }
@@ -298,7 +296,8 @@ onMounted(updateBubblePosition)
 }
 .viewer-sizenav-label {
   align-items: center;
-  color: var(--aap-icon-color);
+  /* color: var(--aap-icon-color); */
+  color: var(--color-fill-gray-secondary);
   display: flex;
   /* font-size: 16px; */
   font-size: 12px;
@@ -307,7 +306,6 @@ onMounted(updateBubblePosition)
   justify-content: center;
   letter-spacing: -0.35px;
   line-height: 21px;
-  padding: 0 8px;
   transition: color 200ms cubic-bezier(0.53, -0.01, 0.17, 1);
   width: auto;
   gap: 5px;
@@ -328,7 +326,8 @@ onMounted(updateBubblePosition)
   ~ .viewer-sizenav-link
   .viewer-sizenav-swatch
   .viewer-sizenav-label {
-  color: var(--aap-icon-color-alt);
+  /* color: var(--aap-icon-color-alt); */
+  color: var(--color-fill-tertiary);
   transition: color 400ms cubic-bezier(0.53, -0.01, 0.17, 1);
 }
 .viewer-sizenav-value:focus ~ .viewer-sizenav-link {
