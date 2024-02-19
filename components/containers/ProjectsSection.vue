@@ -158,6 +158,16 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.highlight {
+  display: inline;
+}
+
+.highlight .match {
+  font-weight: 600;
+  /* color: var(--color-figure-gray-secondary-alt); */
+  background: var(--color-fill-light-blue-secondary);
+}
+
 /* ---------------------------- timeline-wrapper ---------------------------- */
 
 .timeline-wrapper {
