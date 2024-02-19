@@ -51,7 +51,7 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
+    size?: 'xsmall' | 'small' | 'medium' | 'large'
     label?: 'icon' | 'text' | 'combination'
     separator?: boolean
     gap?: string
@@ -109,8 +109,7 @@ const height = computed(() => {
     xsmall: 32,
     small: 40,
     medium: 48,
-    large: 56,
-    xlarge: 64
+    large: 56
   }
   return sizes[props.size || 'medium']
 })
