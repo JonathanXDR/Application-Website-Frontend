@@ -3,7 +3,9 @@
     <div class="scroll-wrapper">
       <ul id="suggested-tags-tags">
         <li v-for="(tag, index) in tags" :key="index" class="tag">
-          <NuxtLink :href="`https://github.com/topics/${tag}`">{{ tag }}</NuxtLink>
+          <NuxtLink :href="`https://github.com/topics/${tag}`">
+            {{ tag }}
+          </NuxtLink>
         </li>
       </ul>
     </div>
@@ -13,12 +15,12 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    tags: string[];
+    tags: string[]
   }>(),
   {
-    tags: () => [],
-  },
-);
+    tags: () => []
+  }
+)
 </script>
 
 <style scoped>

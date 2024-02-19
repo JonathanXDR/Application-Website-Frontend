@@ -6,7 +6,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     previous: string | undefined
   }> = ref({ latest: undefined, previous: undefined })
 
-  const fetchTags = async () => {
+  const fetchTags = async (): Promise<void> => {
     const [latest, previous] = await listRepositoryTags({
       owner: 'JonathanXDR',
       repo: 'Application-Website-Frontend',
@@ -16,23 +16,19 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     tags.value = { latest: latest.name, previous: previous.name }
   }
 
-  async function loadMusicKitSDK () {
-    fetchTags()
+  const loadMusicKitSDK = async (): Promise<any> => {
+    await fetchTags()
     return await new Promise((resolve, reject) => {
-      if (window.MusicKit) {
-        resolve(window.MusicKit)
-      } else {
-        const script = document.createElement('script')
-        script.src = 'https://js-cdn.music.apple.com/musickit/v1/musickit.js'
-        script.async = true
-        script.onload = () => { resolve(window.MusicKit) }
-        script.onerror = () => { reject(new Error('Failed to load MusicKit JS SDK')) }
-        document.head.appendChild(script)
-      }
+      const script = document.createElement('script')
+      script.src = 'https://js-cdn.music.apple.com/musickit/v1/musickit.js'
+      script.async = true
+      script.onload = () => { resolve(window.MusicKit) }
+      script.onerror = () => { reject(new Error('Failed to load MusicKit JS SDK')) }
+      document.head.appendChild(script)
     })
   }
 
-  if (process.client) {
+  if (process.client ?? false) {
     await loadMusicKitSDK()
 
     try {
@@ -41,14 +37,14 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
       const appConfiguration = {
         name: 'Application-Website',
-        build: tags.value.latest || '1.0.0',
-        version: tags.value.latest || '1.0.0',
+        build: tags.value.latest ?? '1.0.0',
+        version: tags.value.latest ?? '1.0.0',
         icon: '~/assets/img/favicon.png'
       }
 
-      musicKitHelper.configureMusicKit(appleDeveloperToken, appConfiguration)
-    } catch (error) {
-      console.error('MusicKit initialization error:', error)
+      await musicKitHelper.configureMusicKit(appleDeveloperToken as string, appConfiguration)
+    } catch (error: any) {
+      throw new Error(`MusicKit initialization error: ${error}`)
     }
   }
 })

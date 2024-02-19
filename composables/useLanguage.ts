@@ -1,6 +1,8 @@
 import { useI18n } from 'vue-i18n'
 
-export const useLanguage = () => {
+export const useLanguage = (): {
+  changeLanguage: (newLocale: string) => void
+} => {
   const { locale, locales, setLocale } = useI18n()
 
   const availableLocales = computed(() =>
@@ -9,14 +11,14 @@ export const useLanguage = () => {
     )
   )
 
-  const isLocaleAvailable = (localeCode: string) =>
+  const isLocaleAvailable = (localeCode: string): boolean =>
     availableLocales.value.some(
       l => (typeof l === 'string' ? l : l.code) === localeCode
     )
 
-  const changeLanguage = (newLocale: string) => {
+  const changeLanguage = async (newLocale: string): Promise<void> => {
     if (isLocaleAvailable(newLocale)) {
-      setLocale(newLocale)
+      await setLocale(newLocale)
     }
   }
 

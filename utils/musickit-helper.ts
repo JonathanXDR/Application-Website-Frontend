@@ -84,7 +84,7 @@ export class MusicKitHelper {
   // }
 }
 
-export async function loadMusicKitSDK (): Promise<void> {
+export const loadMusicKitSDK = async (): Promise<void> => {
   await new Promise<void>((resolve, reject) => {
     if (typeof (window as any).MusicKit !== 'undefined') {
       resolve()

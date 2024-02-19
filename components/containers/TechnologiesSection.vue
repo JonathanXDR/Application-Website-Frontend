@@ -8,7 +8,7 @@
       <FilterInput />
     </NavBarExtension>
 
-    <LiveResultSummary :totalResults="cards.length" />
+    <LiveResultSummary :total-results="cards.length" />
 
     <ul class="card-container">
       <CardItem
@@ -16,7 +16,7 @@
         :key="index"
         :card="card"
         size="small"
-        iconPosition="right"
+        icon-position="right"
       />
       <ResultBlankState v-if="!cards" />
     </ul>
@@ -24,16 +24,16 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from "~/types/common/CardItem";
+import type { CardItemType } from '~/types/common/CardItem';
 
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const cards: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.technologies")
-);
+  tm('components.containers.technologies')
+)
 </script>
 
 <style scoped>

@@ -6,17 +6,9 @@ import type { Person } from '~/types/TMDB/Person'
 // const apiBaseUrl = 'http://localhost:3001'
 const apiBaseUrl = 'https://movies-proxy.vercel.app'
 
-function generateCacheKey (
-  url: string,
-  params: Record<string, any> = {}
-): string {
-  return JSON.stringify({ url, params })
-}
+const generateCacheKey = (url: string, params: Record<string, any> = {}): string => JSON.stringify({ url, params })
 
-async function _fetchTMDB (
-  url: string,
-  params: Record<string, string | number | boolean | undefined> = {}
-) {
+const _fetchTMDB = async (url: string, params: Record<string, string | number | boolean | undefined> = {}): Promise<any> => {
   if (params.language == null) {
     const locale = useNuxtApp().$i18n.locale
     params.language = unref(locale)
@@ -28,15 +20,12 @@ async function _fetchTMDB (
   })
 }
 
-export async function fetchTMDB (
-  url: string,
-  params: Record<string, string | number | boolean | undefined> = {}
-): Promise<any> {
+export const fetchTMDB = async (url: string, params: Record<string, string | number | boolean | undefined> = {}): Promise<any> => {
   const key = generateCacheKey(url, params)
 
   const cache = useState<any>(`tmdb-cache-${key}`, () => null)
 
-  if (cache.value) {
+  if (cache.value !== null && cache.value !== undefined) {
     return await Promise.resolve(cache.value)
   }
 
@@ -55,69 +44,32 @@ export async function fetchTMDB (
   return await promise
 }
 
-export async function listMedia (
-  type: MediaType,
-  query: string,
-  page: number
-): Promise<PageResult<Media>> {
-  return await fetchTMDB(`${type}/${query}`, { page })
-}
+export const listMedia = async (type: MediaType, query: string, page: number): Promise<PageResult<Media>> => await fetchTMDB(`${type}/${query}`, { page })
 
-export async function getMedia (type: MediaType, id: string): Promise<Media> {
-  return await fetchTMDB(`${type}/${id}`, {
-    append_to_response:
+export const getMedia = async (type: MediaType, id: string): Promise<Media> => await fetchTMDB(`${type}/${id}`, {
+  append_to_response:
       'videos,credits,images,external_ids,release_dates,combined_credits',
-    include_image_language: 'en'
-  })
-}
+  include_image_language: 'en'
+})
 
-export async function getRecommendations (
-  type: MediaType,
-  id: string,
-  page = 1
-): Promise<PageResult<Media>> {
-  return await fetchTMDB(`${type}/${id}/recommendations`, { page })
-}
+export const getRecommendations = async (type: MediaType, id: string, page = 1): Promise<PageResult<Media>> => await fetchTMDB(`${type}/${id}/recommendations`, { page })
 
-export async function getTvShowEpisodes (id: string, season: string) {
-  return await fetchTMDB(`tv/${id}/season/${season}`)
-}
+export const getTvShowEpisodes = async (id: string, season: string): Promise<any> => await fetchTMDB(`tv/${id}/season/${season}`)
 
-export async function getTrending (media: string, page = 1) {
-  return await fetchTMDB(`trending/${media}/week`, { page })
-}
+export const getTrending = async (media: string, page = 1): Promise<PageResult<Media>> => await fetchTMDB(`trending/${media}/week`, { page })
 
-export async function getMediaByGenre (
-  media: string,
-  genre: string,
-  page = 1
-): Promise<PageResult<Media>> {
-  return await fetchTMDB(`discover/${media}`, {
-    with_genres: genre,
-    page
-  })
-}
+export const getMediaByGenre = async (media: string, genre: string, page = 1): Promise<PageResult<Media>> => await fetchTMDB(`discover/${media}`, {
+  with_genres: genre,
+  page
+})
 
-export async function getCredits (
-  id: string | number,
-  type: string
-): Promise<Credits> {
-  return await fetchTMDB(`person/${id}/${type}`)
-}
+export const getCredits = async (id: string | number, type: string): Promise<Credits> => await fetchTMDB(`person/${id}/${type}`)
 
-export async function getGenreList (
-  media: string
-): Promise<Array<{ name: string, id: number }>> {
-  return await fetchTMDB(`genre/${media}/list`).then(res => res.genres)
-}
+export const getGenreList = async (media: string): Promise<Array<{ name: string, id: number }>> => await fetchTMDB(`genre/${media}/list`).then(res => res.genres)
 
-export async function getPerson (id: string): Promise<Person> {
-  return await fetchTMDB(`person/${id}`, {
-    append_to_response: 'images,combined_credits,external_ids',
-    include_image_language: 'en'
-  })
-}
+export const getPerson = async (id: string): Promise<Person> => await fetchTMDB(`person/${id}`, {
+  append_to_response: 'images,combined_credits,external_ids',
+  include_image_language: 'en'
+})
 
-export async function searchShows (query: string, page = 1) {
-  return await fetchTMDB('search/multi', { query, page, include_adult: false })
-}
+export const searchShows = async (query: string, page = 1): Promise<any> => await fetchTMDB('search/multi', { query, page, include_adult: false })

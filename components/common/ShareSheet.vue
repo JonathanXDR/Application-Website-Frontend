@@ -1,10 +1,10 @@
 <template>
   <ul class="sharesheet-options">
     <li
-      class="social-option"
       v-for="(link, index) in links"
       :key="index"
       v-animation="{ add: 'visible' }"
+      class="social-option"
     >
       <NuxtLink
         class="link"
@@ -25,10 +25,10 @@
 <script setup lang="ts">
 import type { FaLinkType } from '~/types/common/FaLink';
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const links: Ref<FaLinkType[]> = computed(() =>
   tm('components.common.ShareSheet.links')
-);
+)
 </script>
 
 <style scoped>

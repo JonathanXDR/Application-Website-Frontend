@@ -1,7 +1,9 @@
 <template>
   <div id="live-result-summary" class="results">
-    <div class="number-results">Showing {{ totalResults }} results</div>
-    <div class="changesnav-totals" v-if="pinnedResults">
+    <div class="number-results">
+      Showing {{ totalResults }} results
+    </div>
+    <div v-if="pinnedResults" class="changesnav-totals">
       <div class="changed-total">
         <Icon
           name="pin.fill"
@@ -30,17 +32,17 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    totalResults: number;
-    pinnedResults?: number;
+    totalResults: number
+    pinnedResults?: number
   }>(),
   {
     totalResults: 0,
-    pinnedResults: 0,
+    pinnedResults: 0
   }
-);
+)
 
-const colorStore = useColor();
-const randomColor = ref(colorStore.randomizeColor().colorVar);
+const colorStore = useColor()
+const randomColor = ref(colorStore.randomizeColor().colorVar)
 </script>
 
 <style scoped>

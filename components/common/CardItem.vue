@@ -2,13 +2,13 @@
   <component
     :is="variant === 'article' ? 'div' : 'a'"
     :id="card.title?.toLowerCase().replace(/ /g, '-')"
-    :href="applyHover && card.links ? card.links[0].url : card.html_url"
-    :class="['scroll-animation scroll-animation--off', variant, size]"
-    target="_blank"
     v-animation="{
       add: 'scroll-animation--on',
       remove: 'scroll-animation--off',
     }"
+    :href="applyHover && card.links ? card.links[0].url : card.html_url"
+    :class="['scroll-animation scroll-animation--off', variant, size]"
+    target="_blank"
   >
     <div v-if="cover || donutGraph || barGraph" class="card-cover-wrap">
       <picture v-if="cover" class="card-cover">
@@ -21,7 +21,7 @@
             <span>Hispanic/Latinx</span>
           </p>
           <div class="bar-container">
-            <div class="bar" data-bar style="width: 27.1%"></div>
+            <div class="bar" data-bar style="width: 27.1%" />
           </div>
         </div>
         <div class="group group-white typography-body-tight">
@@ -30,7 +30,7 @@
             <span>White</span>
           </p>
           <div class="bar-container">
-            <div class="bar" data-bar style="width: 39.7%"></div>
+            <div class="bar" data-bar style="width: 39.7%" />
           </div>
         </div>
       </div>
@@ -41,11 +41,11 @@
               <path
                 class="ac-graph-path donut-wedge wedge-1"
                 d="M 113.99911851558227 0.07271925905595822 A 110 110 0 0 1 106.00088148441777 219.92728074094404 A 110 110 0 0 1 25.14997985191927 180.00338621002766 L 32.09225422767132 174.27583642920723 A 101 101 0 0 0 106.32808209023814 210.93323049850318 A 101 101 0 0 0 113.6719179097619 9.066769501496836 Z"
-              ></path>
+              />
               <path
                 class="ac-graph-path donut-wedge wedge-2"
                 d="M 20.287609232531437 173.6528628011735 A 110 110 0 0 1 105.31027149295572 0.10001616683369718 L 105.69397655262298 9.09183302591093 A 101 101 0 0 0 27.62771393168795 168.44490129925933 Z"
-              ></path>
+              />
             </svg>
           </figure>
           <h4
@@ -58,14 +58,14 @@
         <div class="wedge-legend typography-donut-label female">
           <span>
             <span class="semibold">Female</span>
-            <br />
+            <br>
             <span data-value>35.3</span>%
           </span>
         </div>
         <div class="wedge-legend typography-donut-label male">
           <span>
             <span class="semibold">Male</span>
-            <br />
+            <br>
             <span data-value>64.6</span>%
           </span>
         </div>
@@ -97,9 +97,13 @@
         ]"
       />
       <div class="body">
-        <div v-if="card.eyebrow" class="eyebrow">{{ card.eyebrow }}</div>
+        <div v-if="card.eyebrow" class="eyebrow">
+          {{ card.eyebrow }}
+        </div>
         <div class="title-wrapper">
-          <div class="title">{{ card.title || card.name }}</div>
+          <div class="title">
+            {{ card.title || card.name }}
+          </div>
           <Badge v-if="card.archived" title="Public archive" color="yellow" />
         </div>
         <div v-if="card.description" class="card-content">
@@ -136,16 +140,16 @@
         <InfoBar
           v-if="
             card.info ||
-            card.created_at ||
-            card.updated_at ||
-            card.language ||
-            card.license ||
-            card.forks_count ||
-            card.network_count ||
-            card.watchers_count ||
-            card.stargazers_count ||
-            card.open_issues_count ||
-            card.subscribers_count
+              card.created_at ||
+              card.updated_at ||
+              card.language ||
+              card.license ||
+              card.forks_count ||
+              card.network_count ||
+              card.watchers_count ||
+              card.stargazers_count ||
+              card.open_issues_count ||
+              card.subscribers_count
           "
           :info="
             card.info || {
@@ -161,8 +165,8 @@
             }
           "
           :date="card.updated_at"
-          :dateFormatOptions="dateFormatOptions"
-          :dateNowKey="dateNowKey"
+          :date-format-options="dateFormatOptions"
+          :date-now-key="dateNowKey"
         />
       </div>
     </div>
@@ -175,17 +179,17 @@ import type { CardItemType } from '~/types/common/CardItem';
 
 const props = withDefaults(
   defineProps<{
-    card: CardItemType | ListUserReposResponse | any;
-    variant?: 'card' | 'article';
-    dateFormatOptions?: Intl.DateTimeFormatOptions;
-    dateNowKey?: 'created' | 'updated';
-    iconPosition?: 'top' | 'right' | 'bottom' | 'left';
-    iconAlignment?: 'start' | 'center' | 'end';
-    size?: 'small' | 'medium' | 'large' | 'full';
-    hover?: 'auto' | 'true' | 'false';
-    cover?: string;
-    donutGraph?: boolean;
-    barGraph?: boolean;
+    card: CardItemType | ListUserReposResponse | any
+    variant?: 'card' | 'article'
+    dateFormatOptions?: Intl.DateTimeFormatOptions
+    dateNowKey?: 'created' | 'updated'
+    iconPosition?: 'top' | 'right' | 'bottom' | 'left'
+    iconAlignment?: 'start' | 'center' | 'end'
+    size?: 'small' | 'medium' | 'large' | 'full'
+    hover?: 'auto' | 'true' | 'false'
+    cover?: string
+    donutGraph?: boolean
+    barGraph?: boolean
   }>(),
   {
     card: () => {},
@@ -195,8 +199,8 @@ const props = withDefaults(
       return {
         year: 'numeric',
         month: 'long',
-        day: 'numeric',
-      };
+        day: 'numeric'
+      }
     },
 
     dateNowKey: 'updated',
@@ -205,9 +209,9 @@ const props = withDefaults(
     size: 'medium',
     hover: 'auto',
     donutGraph: false,
-    barGraph: false,
+    barGraph: false
   }
-);
+)
 
 const applyHover = computed(() => {
   return (
@@ -215,35 +219,35 @@ const applyHover = computed(() => {
       props.card.links &&
       props.card.links.length === 1) ||
     props.hover === 'true'
-  );
-});
+  )
+})
 
 const getFlexDirection = () => {
   switch (props.iconPosition) {
     case 'top':
-      return 'column';
+      return 'column'
     case 'right':
-      return 'row-reverse';
+      return 'row-reverse'
     case 'bottom':
-      return 'column-reverse';
+      return 'column-reverse'
     case 'left':
     default:
-      return 'row';
+      return 'row'
   }
-};
+}
 
 const getAlignItems = () => {
   switch (props.iconAlignment) {
     case 'start':
-      return 'flex-start';
+      return 'flex-start'
     case 'center':
-      return 'center';
+      return 'center'
     case 'end':
-      return 'flex-end';
+      return 'flex-end'
     default:
-      return 'flex-start';
+      return 'flex-start'
   }
-};
+}
 </script>
 
 <style scoped>

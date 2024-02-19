@@ -21,9 +21,9 @@ const graphqlInstance = graphql.defaults({
   }
 })
 
-export async function listPublicRepositories (params: {
+export const listPublicRepositories = async (params: {
   since?: number
-}): Promise<ListPublicReposResponse[]> {
+}): Promise<ListPublicReposResponse[]> => {
   const { since } = params
 
   try {
@@ -34,20 +34,19 @@ export async function listPublicRepositories (params: {
       }
     })
     return response.data
-  } catch (error) {
-    console.error('Error fetching public repositories:', error)
-    throw error
+  } catch (error: any) {
+    throw new Error(`Error fetching public repositories: ${error}`)
   }
 }
 
-export async function listUserRepositories (params: {
+export const listUserRepositories = async (params: {
   username: string
   type?: 'all' | 'owner' | 'member' | undefined
   sort?: 'full_name' | 'created' | 'updated' | 'pushed' | undefined
   direction?: 'asc' | 'desc' | undefined
   perPage?: number
   page?: number
-}): Promise<ListUserReposResponse[]> {
+}): Promise<ListUserReposResponse[]> => {
   const {
     username,
     type = 'owner',
@@ -70,16 +69,17 @@ export async function listUserRepositories (params: {
       }
     })
     return response.data
-  } catch (error) {
-    console.error(`Error fetching repositories for user ${username}:`, error)
-    throw error
+  } catch (error: any) {
+    throw new Error(
+      `Error fetching repositories for user ${username}: ${error}`
+    )
   }
 }
 
-export async function getRepository (params: {
+export const getRepository = async (params: {
   owner: string
   repo: string
-}): Promise<GetRepoResponse> {
+}): Promise<GetRepoResponse> => {
   const { owner, repo } = params
 
   try {
@@ -91,18 +91,17 @@ export async function getRepository (params: {
       }
     })
     return response.data
-  } catch (error) {
-    console.error(`Error fetching repository for owner ${owner}:`, error)
-    throw error
+  } catch (error: any) {
+    throw new Error(`Error fetching repository for owner ${owner}: ${error}`)
   }
 }
 
-export async function listRepositoryTags (params: {
+export const listRepositoryTags = async (params: {
   owner: string
   repo: string
   perPage?: number
   page?: number
-}): Promise<ListRepoTagsResponse> {
+}): Promise<ListRepoTagsResponse> => {
   const { owner, repo, perPage = 30, page = 1 } = params
 
   try {
@@ -116,13 +115,12 @@ export async function listRepositoryTags (params: {
       }
     })
     return response.data
-  } catch (error) {
-    console.error(`Error fetching tags for repository ${repo}:`, error)
-    throw error
+  } catch (error: any) {
+    throw new Error(`Error fetching tags for repository ${repo}: ${error}`)
   }
 }
 
-export async function listRepositoryIssues (params: {
+export const listRepositoryIssues = async (params: {
   owner: string
   repo: string
   milestone?: string
@@ -136,7 +134,7 @@ export async function listRepositoryIssues (params: {
   since?: string
   perPage?: number
   page?: number
-}): Promise<ListRepoIssuesResponse[]> {
+}): Promise<ListRepoIssuesResponse[]> => {
   const {
     owner,
     repo,
@@ -173,16 +171,15 @@ export async function listRepositoryIssues (params: {
       }
     })
     return response.data
-  } catch (error) {
-    console.error(`Error fetching issues for repository ${repo}:`, error)
-    throw error
+  } catch (error: any) {
+    throw new Error(`Error fetching issues for repository ${repo}: ${error}`)
   }
 }
 
-export async function listPinnedRepositories (params: {
+export const listPinnedRepositories = async (params: {
   username: string
   perPage?: number
-}): Promise<ListUserReposResponse[]> {
+}): Promise<ListUserReposResponse[]> => {
   const { username, perPage = 30 } = params
 
   const query = `
@@ -243,7 +240,7 @@ export async function listPinnedRepositories (params: {
 }
   `
 
-  const remapProps = (item: any) => {
+  const remapProps = (item: any): any => {
     const {
       name,
       description,
@@ -268,10 +265,10 @@ export async function listPinnedRepositories (params: {
       forks: forks.nodes.map((node: any) => node.url),
       stars: stargazers.nodes.map((node: any) => node.url),
       issues: issues.nodes
-        .filter((node: any) => !node.closed)
+        .filter((node: any) => node.closed === false)
         .map((node: any) => node.url),
       pullRequests: pullRequests.nodes
-        .filter((node: any) => !node.closed)
+        .filter((node: any) => node.closed === false)
         .map((node: any) => node.url),
       updated_at: updatedAt
     }
@@ -283,11 +280,9 @@ export async function listPinnedRepositories (params: {
       (edge: any) => remapProps(edge.node)
     )
     return pinnedRepositories
-  } catch (error) {
-    console.error(
-      `Error fetching pinned repositories for user ${username}:`,
-      error
+  } catch (error: any) {
+    throw new Error(
+      `Error fetching pinned repositories for user ${username}: ${error}`
     )
-    throw error
   }
 }

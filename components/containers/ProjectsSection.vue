@@ -7,21 +7,21 @@
     <NavBarExtension>
       <SegmentNav :index="currentIndex" @change="updateCurrentIndex" />
     </NavBarExtension>
-    <div class="timeline-wrapper" v-if="currentIndex === 0">
+    <div v-if="currentIndex === 0" class="timeline-wrapper">
       <TimeLine />
       <ul ref="ul" class="timeline">
         <CardItem
+          v-for="(project, index) in currentProjects"
+          :key="index"
           variant="article"
           :size="
             windowObject && windowObject.innerWidth < 900 ? 'small' : 'medium'
           "
-          v-for="(project, index) in currentProjects"
-          :key="index"
           :card="project"
-          :iconPosition="
+          :icon-position="
             windowObject && windowObject.innerWidth < 900 ? 'top' : 'left'
           "
-          :dateFormatOptions="{
+          :date-format-options="{
             year: 'numeric',
             month: 'long',
           }"
@@ -31,8 +31,8 @@
     <div v-else class="w-full">
       <div v-if="projects.personal.length && projects.school.length">
         <LiveResultSummary
-          :totalResults="currentProjects.length + pinned.length"
-          :pinnedResults="pinned.length"
+          :total-results="currentProjects.length + pinned.length"
+          :pinned-results="pinned.length"
         />
         <ul v-if="pinned" class="card-container pinned-items">
           <CardItem
@@ -40,7 +40,7 @@
             :key="index"
             :card="card"
             size="small"
-            iconPosition="right"
+            icon-position="right"
             class="color"
             :style="`--color-figure: var(--color-figure-${randomColor});
           --color-fill: var(--color-fill-${randomColor}-secondary)`"
@@ -52,7 +52,7 @@
             :key="index"
             :card="card"
             size="small"
-            iconPosition="right"
+            icon-position="right"
           />
           <ResultBlankState v-if="!currentProjects" />
         </ul>
@@ -63,100 +63,100 @@
 </template>
 
 <script lang="ts">
-import type { ListUserReposResponse } from "~/types/GitHub/Repository";
-import type { CardItemType } from "~/types/common/CardItem";
+import type { ListUserReposResponse } from '~/types/GitHub/Repository'
+import type { CardItemType } from '~/types/common/CardItem'
 
 type ListUserPinnedReposResponse = ListUserReposResponse & {
-  icon?: CardItemType["icon"];
-};
+  icon?: CardItemType['icon']
+}
 
-type Projects = {
-  swisscom: CardItemType[];
-  personal: ListUserReposResponse[];
-  school: ListUserReposResponse[];
-};
+interface Projects {
+  swisscom: CardItemType[]
+  personal: ListUserReposResponse[]
+  school: ListUserReposResponse[]
+}
 </script>
 
 <script setup lang="ts">
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
-const { tm } = useI18n();
-const colorStore = useColor();
+const { tm } = useI18n()
+const colorStore = useColor()
 const articles: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.projects")
-);
+  tm('components.containers.projects')
+)
 const projects: Projects = reactive({
-  swisscom: computed(() => tm("components.containers.projects")) as Ref<
-    CardItemType[]
+  swisscom: computed(() => tm('components.containers.projects')) as Ref<
+  CardItemType[]
   >,
   personal: [] as ListUserReposResponse[],
-  school: [] as ListUserReposResponse[],
-});
-const pinned: Ref<ListUserPinnedReposResponse[]> = ref([]);
+  school: [] as ListUserReposResponse[]
+})
+const pinned: Ref<ListUserPinnedReposResponse[]> = ref([])
 const currentProjects = computed(
   () =>
     projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
-);
+)
 
-const currentIndex: Ref<number> = ref(0);
-const randomColor = ref(colorStore.randomizeColor().colorName);
-const windowObject = computed(() => window);
+const currentIndex: Ref<number> = ref(0)
+const randomColor = ref(colorStore.randomizeColor().colorName)
+const windowObject = computed(() => window)
 
 const updateCurrentIndex = (index: number) => {
-  currentIndex.value = index;
-};
+  currentIndex.value = index
+}
 
 const categorizeProject = (project: ListUserReposResponse) => {
   const schoolProjectPattern =
-    /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/;
+    /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/
   const category = schoolProjectPattern.test(project.name)
-    ? "school"
-    : "personal";
-  return { ...project, category };
-};
+    ? 'school'
+    : 'personal'
+  return { ...project, category }
+}
 
 const fetchProjects = async () => {
   const allProjects = await listUserRepositories({
-    username: "JonathanXDR",
-    perPage: 100,
-  });
+    username: 'JonathanXDR',
+    perPage: 100
+  })
 
   const pinnedProjects = await listPinnedRepositories({
-    username: "JonathanXDR",
-    perPage: 100,
-  });
+    username: 'JonathanXDR',
+    perPage: 100
+  })
 
   pinnedProjects.forEach((project: ListUserPinnedReposResponse) => {
     project.icon = {
-      name: "pin.fill",
+      name: 'pin.fill',
       colors: {
-        primary: `var(--color-figure-${randomColor.value})`,
-      },
-    };
-  });
+        primary: `var(--color-figure-${randomColor.value})`
+      }
+    }
+  })
 
   const filteredProjects = allProjects.filter(
-    (project) =>
+    project =>
       !pinnedProjects.find(
-        (pinnedProject) => pinnedProject.name === project.name
+        pinnedProject => pinnedProject.name === project.name
       )
-  );
+  )
 
-  pinned.value = pinnedProjects;
+  pinned.value = pinnedProjects
 
   filteredProjects.map(categorizeProject).forEach((project) => {
-    const category = project.category as keyof Projects;
+    const category = project.category as keyof Projects
     projects[category].push(
       project as ListUserReposResponse & CardItemType & { category: string }
-    );
-  });
-};
+    )
+  })
+}
 
 onMounted(() => {
-  fetchProjects();
-});
+  fetchProjects()
+})
 </script>
 
 <style scoped>

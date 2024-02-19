@@ -11,18 +11,18 @@
 </template>
 
 <script setup lang="ts">
-import type { IconType } from "~/types/common/Icon";
+import type { IconType } from '~/types/common/Icon';
 
 withDefaults(
   defineProps<{
-    title: string;
-    color?: string;
-    icon?: IconType;
+    title: string
+    color?: string
+    icon?: IconType
   }>(),
   {
-    color: "blue",
-  },
-);
+    color: 'blue'
+  }
+)
 </script>
 
 <style scoped>

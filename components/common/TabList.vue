@@ -5,12 +5,12 @@
         <li v-for="(item, index) in items" :key="index" class="tabnav-item">
           <input
             :id="`tab-${item.id}`"
+            v-model="selectedTab"
             type="radio"
             name="category"
             :value="item.id"
-            v-model="selectedTab"
             @change="() => emitChange(item.id)"
-          />
+          >
           <label :for="`tab-${item.id}`" class="tabnav-link">
             {{ item.label }}
           </label>
@@ -31,22 +31,22 @@
 <script setup>
 const props = defineProps({
   items: Array,
-  activeTabId: String,
-});
+  activeTabId: String
+})
 
-const emit = defineEmits(["change"]);
-const selectedTab = ref(props.activeTabId);
+const emit = defineEmits(['change'])
+const selectedTab = ref(props.activeTabId)
 
 watch(
   () => props.activeTabId,
   (newVal) => {
-    selectedTab.value = newVal;
+    selectedTab.value = newVal
   }
-);
+)
 
 const emitChange = (id) => {
-  emit("change", id);
-};
+  emit('change', id)
+}
 
 // function (e, t, i) {
 //   'use strict';

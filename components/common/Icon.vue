@@ -7,37 +7,37 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    name: string;
-    size?: "small" | "medium" | "large";
+    name: string
+    size?: 'small' | 'medium' | 'large'
     colors?: {
-      primary?: string;
-      secondary?: string;
-      tertiary?: string;
-    };
+      primary?: string
+      secondary?: string
+      tertiary?: string
+    }
   }>(),
   {
-    size: "medium",
+    size: 'medium',
 
     colors: () => ({
-      primary: "currentColor",
-      secondary: "currentColor",
-      tertiary: "currentColor",
-    }),
-  },
-);
+      primary: 'currentColor',
+      secondary: 'currentColor',
+      tertiary: 'currentColor'
+    })
+  }
+)
 
-const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`);
+const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`)
 
-const getSpriteUrl = (size: "small" | "medium" | "large") => {
+const getSpriteUrl = (size: 'small' | 'medium' | 'large') => {
   return new URL(`/assets/icons/${size}/symbol/sprite.svg`, import.meta.url)
-    .href;
-};
+    .href
+}
 
 const styles = reactive({
-  "--color-primary": props.colors.primary || "currentColor",
-  "--color-secondary": props.colors.secondary || "currentColor",
-  "--color-tertiary": props.colors.tertiary || "currentColor",
-});
+  '--color-primary': props.colors.primary || 'currentColor',
+  '--color-secondary': props.colors.secondary || 'currentColor',
+  '--color-tertiary': props.colors.tertiary || 'currentColor'
+})
 </script>
 
 <style>

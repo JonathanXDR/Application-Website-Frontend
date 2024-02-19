@@ -1,12 +1,12 @@
 <template>
   <input
-    @input="toggleNav()"
+    id="ac-ln-menustate"
     v-model="navOpen"
     type="checkbox"
-    id="ac-ln-menustate"
     :disabled="navDisabled"
-  />
-  <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking"></div>
+    @input="toggleNav()"
+  >
+  <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking" />
   <nav
     id="ac-localnav"
     class="ac-localnav-dark ac-localnav-noborder ac-ln-sticking"
@@ -16,7 +16,7 @@
       <div
         ref="ac-ln-background"
         class="ac-ln-background ac-ln-background-transition"
-      ></div>
+      />
       <div class="ac-ln-content">
         <div class="ac-ln-title">
           <NuxtLink to="/" class="ac-ln-title">
@@ -27,7 +27,7 @@
             :style="{ color: colorBadge?.colorVar }"
             class="dev-badge"
             data-tag-name="Dev"
-          ></small>
+          />
         </div>
         <div class="ac-ln-menu">
           <div class="ac-ln-menu-tray">
@@ -51,7 +51,7 @@
           <div class="ac-ln-actions">
             <div class="ac-ln-action ac-ln-action-menucta">
               <label for="ac-ln-menustate" class="ac-ln-menucta">
-                <span class="ac-ln-menucta-chevron"></span>
+                <span class="ac-ln-menucta-chevron" />
               </label>
             </div>
             <!-- <ColorSchemeToggle /> -->
@@ -62,73 +62,73 @@
       </div>
     </div>
   </nav>
-  <label id="ac-ln-curtain" for="ac-ln-menustate"></label>
+  <label id="ac-ln-curtain" for="ac-ln-menustate" />
 </template>
 
 <script setup lang="ts">
 import { type SectionType } from '~/types/common/Section';
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const items: Ref<SectionType[]> = computed(() =>
   tm('components.common.NavBar')
-);
-const themeDark: Ref<boolean> = ref(false);
-const navOpen: Ref<boolean> = ref(false);
-const navDisabled: Ref<boolean> = ref(false);
-const nodeEnv = computed(() => process.env.NODE_ENV);
+)
+const themeDark: Ref<boolean> = ref(false)
+const navOpen: Ref<boolean> = ref(false)
+const navDisabled: Ref<boolean> = ref(false)
+const nodeEnv = computed(() => process.env.NODE_ENV)
 
-const { colorBadge } = useColor();
-const { currentSection } = useSection();
-const { getTheme } = useTheme();
-const currentSectionIndex = computed(() => currentSection.value.index);
+const { colorBadge } = useColor()
+const { currentSection } = useSection()
+const { getTheme } = useTheme()
+const currentSectionIndex = computed(() => currentSection.value.index)
 
 const headerAnimations = computed(() => {
   useAnimation().setHeaderAnimation({
-    element: document.querySelector('.ac-ln-background') as HTMLElement,
+    element: document.querySelector('.ac-ln-background')!,
     class: 'ac-ln-background-transition',
-    timeout: 500,
-  });
+    timeout: 500
+  })
 
-  return useAnimation().headerAnimations;
-});
+  return useAnimation().headerAnimations
+})
 
 const toggleNav = () => {
-  navOpen.value = !navOpen.value;
-  checkboxTimeout();
-};
+  navOpen.value = !navOpen.value
+  checkboxTimeout()
+}
 
 const checkboxTimeout = () => {
-  navDisabled.value = true;
+  navDisabled.value = true
   setTimeout(() => {
-    navDisabled.value = false;
-  }, 1000);
-};
+    navDisabled.value = false
+  }, 1000)
+}
 
 const handleScroll = () => {
   if (navOpen.value && window.scrollY > 0) {
-    navOpen.value = false;
+    navOpen.value = false
   }
-};
+}
 
 const updateAnimations = () => {
   headerAnimations.value.value.forEach((element) => {
-    element.element.classList.remove(element.class);
+    element.element.classList.remove(element.class)
 
     setTimeout(() => {
-      element.element.classList.add(element.class);
-    }, element.timeout);
-  });
-};
+      element.element.classList.add(element.class)
+    }, element.timeout)
+  })
+}
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('scroll', handleScroll)
 
   watch(getTheme, (newTheme, oldTheme) => {
     if (newTheme !== oldTheme) {
-      updateAnimations();
+      updateAnimations()
     }
-  });
-});
+  })
+})
 </script>
 
 <style scoped>

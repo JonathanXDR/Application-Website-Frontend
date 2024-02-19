@@ -1,8 +1,11 @@
-export const useTheme = () => {
+export const useTheme = (): {
+  getTheme: () => string
+  setTheme: (theme: string) => void
+} => {
   const colorMode = useColorMode()
   const themeCookie = useCookie('theme')
 
-  const setTheme = (theme: string) => {
+  const setTheme = (theme: string): void => {
     if (theme === 'auto') {
       colorMode.preference = 'system'
     } else {
@@ -11,11 +14,13 @@ export const useTheme = () => {
     themeCookie.value = theme
   }
 
-  const getTheme = () => themeCookie.value || 'auto'
+  const getTheme = (): string => themeCookie.value ?? 'auto'
 
-  const initializeTheme = () => { setTheme(getTheme()) }
+  const initializeTheme = (): void => {
+    setTheme(getTheme())
+  }
 
-  if (process.client) {
+  if (process.client !== null && process.client !== undefined) {
     initializeTheme()
   }
 

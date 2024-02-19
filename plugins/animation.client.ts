@@ -7,7 +7,7 @@ interface AnimationOperations {
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive('animation', {
-    mounted (el: Element, binding: { value: AnimationOperations }) {
+    mounted: (el: Element, binding: { value: AnimationOperations }) => {
       const toArray = (input: string | string[] | undefined): string[] => {
         if (Array.isArray(input)) {
           return input
@@ -18,18 +18,19 @@ export default defineNuxtPlugin((nuxtApp) => {
         }
       }
 
-      const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      const observerCallback = (entries: IntersectionObserverEntry[]): void => {
         entries.forEach((entry) => {
           const { add, remove, toggle, onViewportChange } = binding.value
           const isInViewport = entry.isIntersecting
 
           if (isInViewport) {
-            toArray(add).forEach((className) => { el.classList.add(className) })
-            toArray(remove).forEach((className) => { el.classList.remove(className) }
-            )
-            toArray(toggle).forEach(className =>
-              el.classList.toggle(className)
-            )
+            toArray(add).forEach((className) => {
+              el.classList.add(className)
+            })
+            toArray(remove).forEach((className) => {
+              el.classList.remove(className)
+            })
+            toArray(toggle).forEach(className => el.classList.toggle(className))
           }
 
           onViewportChange?.(isInViewport, el)

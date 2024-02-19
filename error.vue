@@ -28,32 +28,32 @@
 </template>
 
 <script setup lang="ts">
-const error = useError();
-const { tm } = useI18n();
+const error = useError()
+const { tm } = useI18n()
 const pages = {
   notFound: 404,
-  error: 500 || error.value?.statusCode,
-  maintenance: 503,
-};
+  error: error.value?.statusCode ?? 500,
+  maintenance: 503
+}
 
 const currentKey = computed(() => {
   return (
     Object.keys(pages).find(
       (key: string) =>
         pages[key as keyof typeof pages] === error.value?.statusCode
-    ) || "error"
-  );
-});
+    ) ?? 'error'
+  )
+})
 
-const colors: Ref<Object> = computed(() =>
+const colors: Ref<Record<string, unknown>> = computed(() =>
   tm(`pages.${currentKey.value}.icon.colors`)
-);
+)
 const entireDescription: Ref<string> = computed(() =>
   tm(`pages.${currentKey.value}.description`)
-);
+)
 const description: Ref<string[]> = computed(() =>
-  entireDescription.value.split(". ")
-);
+  entireDescription.value.split('. ')
+)
 </script>
 
 <style scoped>

@@ -17,7 +17,7 @@
           <div
             class="rs-tracker-fill"
             :style="`width: ${language.progress}%`"
-          ></div>
+          />
         </div>
         <ol class="rs-tracker-status">
           <!-- <li
@@ -48,26 +48,26 @@
 </template>
 
 <script setup lang="ts">
-import type { LanguageBarType } from "~/types/common/LanguageBar";
+import type { LanguageBarType } from '~/types/common/LanguageBar';
 
 withDefaults(
   defineProps<{
-    language: LanguageBarType;
+    language: LanguageBarType
   }>(),
   {
     language: () => {
-      return {} as LanguageBarType;
-    },
+      return {} as LanguageBarType
+    }
   }
-);
+)
 
 const status = [
-  "Order Placed",
-  "Processing",
-  "Preparing to Ship",
-  "Shipped",
-  "Delivered",
-];
+  'Order Placed',
+  'Processing',
+  'Preparing to Ship',
+  'Shipped',
+  'Delivered'
+]
 </script>
 
 <style scoped>

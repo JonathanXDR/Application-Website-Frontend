@@ -1,17 +1,16 @@
-export const useAnimation = () => {
-  const headerAnimations = useState<
-  Array<{
-    element: HTMLElement
-    class: string
-    timeout: number
-  }>
-  >('headerAnimations', () => [])
+interface Animation {
+  element: HTMLElement
+  class: string
+  timeout: number
+}
 
-  function setHeaderAnimation (headerAnimation: {
-    element: HTMLElement
-    class: string
-    timeout: number
-  }) {
+export const useAnimation = (): {
+  headerAnimations: Ref<Animation[]>
+  setHeaderAnimation: (headerAnimation: Animation) => void
+} => {
+  const headerAnimations = useState<Animation[]>('headerAnimations', () => [])
+
+  const setHeaderAnimation = (headerAnimation: Animation): void => {
     headerAnimations.value.push(headerAnimation)
   }
 

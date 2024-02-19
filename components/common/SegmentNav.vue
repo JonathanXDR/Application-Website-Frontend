@@ -11,12 +11,12 @@
         >
           <input
             :id="`segment-${item.id}`"
+            v-model="currentIndex"
             type="radio"
             name="category"
-            v-model="currentIndex"
             :value="index"
             @change="updateSegments"
-          />
+          >
           <label :for="`segment-${item.id}`" class="typography-segmentnav-item">
             {{ item.label }}
           </label>
@@ -25,7 +25,7 @@
           v-if="!loading"
           class="segmentnav-selection-background"
           :style="selectionStyle"
-        ></div>
+        />
       </div>
     </ul>
     <!-- </div> -->
@@ -33,56 +33,56 @@
 </template>
 
 <script setup lang="ts">
-import type { OptionType } from "~/types/common/Option";
+import type { OptionType } from '~/types/common/Option';
 
 const props = withDefaults(
   defineProps<{
-    index: number;
+    index: number
   }>(),
   {
-    index: 0,
+    index: 0
   }
-);
-const emit = defineEmits(["change"]);
+)
+const emit = defineEmits(['change'])
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const segmentNavItems: Ref<OptionType[]> = computed(() =>
-  tm("components.common.SegmentNav.items")
-);
+  tm('components.common.SegmentNav.items')
+)
 const sortOptions: Ref<OptionType[]> = computed(() =>
-  tm("components.common.SegmentNav.sorts")
-);
-const currentIndex: Ref<number> = ref(props.index);
-const loading: Ref<boolean> = ref(true);
-const segmentNavEl: Ref<HTMLUListElement | null> = ref(null);
-const segments: Ref<Map<number, HTMLElement>> = ref(new Map());
+  tm('components.common.SegmentNav.sorts')
+)
+const currentIndex: Ref<number> = ref(props.index)
+const loading: Ref<boolean> = ref(true)
+const segmentNavEl: Ref<HTMLUListElement | null> = ref(null)
+const segments: Ref<Map<number, HTMLElement>> = ref(new Map())
 
 const selectionStyle = computed(() => {
-  const segment = segments.value.get(currentIndex.value);
+  const segment = segments.value.get(currentIndex.value)
   return (
     segment && {
       width: `${segment.offsetWidth}px`,
-      transform: `translateX(${segment.offsetLeft}px)`,
+      transform: `translateX(${segment.offsetLeft}px)`
     }
-  );
-});
+  )
+})
 
 const updateSegments = () => {
   if (segmentNavEl.value) {
     const segmentNavItems =
-      segmentNavEl.value.querySelectorAll(".segmentnav-item");
+      segmentNavEl.value.querySelectorAll('.segmentnav-item')
     segmentNavItems.forEach((item, index) => {
-      segments.value.set(index, item as HTMLElement);
-    });
+      segments.value.set(index, item as HTMLElement)
+    })
 
-    emit("change", currentIndex.value);
+    emit('change', currentIndex.value)
   }
-};
+}
 
 onMounted(() => {
-  updateSegments();
-  loading.value = false;
-});
+  updateSegments()
+  loading.value = false
+})
 </script>
 
 <style scoped>

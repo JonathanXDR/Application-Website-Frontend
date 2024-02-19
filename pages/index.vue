@@ -1,31 +1,31 @@
 <template>
   <section
     v-for="(section, index) in sections"
-    :name="section.name"
-    :key="section.id"
     :id="section.id"
-    :class="section.class"
+    :key="section.id"
     v-section="(section.id, index)"
+    :name="section.name"
+    :class="section.class"
   >
-    <component :title="section.name" :is="`${section.id}Section`" />
+    <component :is="`${section.id}Section`" :title="section.name" />
   </section>
 </template>
 
 <script setup lang="ts">
-import type { SectionType } from "~/types/common/Section";
+import type { SectionType } from '~/types/common/Section'
 
 definePageMeta({
   header: true,
   nav: true,
   ribbon: true,
   footerFull: true,
-  footerCompact: false,
-});
+  footerCompact: false
+})
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const sections: Ref<SectionType[]> = computed(() =>
-  tm("components.common.NavBar")
-);
+  tm('components.common.NavBar')
+)
 </script>
 
 <style scoped>

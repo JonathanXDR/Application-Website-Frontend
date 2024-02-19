@@ -12,10 +12,10 @@
           type="radio"
           autocomplete="off"
           name="color-scheme"
-          @change="setTheme(item.id)"
           :value="item.id"
           :checked="currentTheme === item.id"
-        />
+          @change="setTheme(item.id)"
+        >
         <div class="text">
           <Icon
             v-if="variant !== 'label'"
@@ -34,21 +34,21 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    variant?: "icon" | "label" | "combination";
+    variant?: 'icon' | 'label' | 'combination'
   }>(),
   {
-    variant: "label",
+    variant: 'label'
   }
-);
+)
 
-const { getTheme, setTheme } = useTheme();
-const currentTheme = computed(() => getTheme());
+const { getTheme, setTheme } = useTheme()
+const currentTheme = computed(() => getTheme())
 
 const items = reactive([
-  { id: "light", label: "Light", icon: "sun.max.fill" },
-  { id: "dark", label: "Dark", icon: "moon.fill" },
-  { id: "auto", label: "Auto", icon: "circle.lefthalf.filled" },
-]);
+  { id: 'light', label: 'Light', icon: 'sun.max.fill' },
+  { id: 'dark', label: 'Dark', icon: 'moon.fill' },
+  { id: 'auto', label: 'Auto', icon: 'circle.lefthalf.filled' }
+])
 </script>
 
 <style scoped>

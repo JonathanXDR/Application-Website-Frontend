@@ -6,12 +6,12 @@
     <ul class="locale-lang language-picker-wrapper">
       <li v-for="computedLocale in computedLocales" :key="computedLocale.code">
         <input
-          type="radio"
-          @click="changeLanguage(computedLocale.code)"
-          name="language"
           :id="computedLocale.code"
+          type="radio"
+          name="language"
           :checked="locale === computedLocale.code"
-        />
+          @click="changeLanguage(computedLocale.code)"
+        >
         <label :for="computedLocale.code" class="link">
           {{ getLabel(computedLocale) }}
         </label>
@@ -23,28 +23,28 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    introText?: boolean;
-    shortForm?: boolean;
+    introText?: boolean
+    shortForm?: boolean
   }>(),
   {
     introText: () => true,
-    shortForm: () => false,
+    shortForm: () => false
   }
-);
+)
 
-const { changeLanguage } = useLanguage();
-const { locale, locales } = useI18n({ useScope: "global" });
+const { changeLanguage } = useLanguage()
+const { locale, locales } = useI18n({ useScope: 'global' })
 
 const computedLocales = computed(() =>
   locales.value.map((l) => {
-    return typeof l === "string" ? { code: l, name: l } : l;
+    return typeof l === 'string' ? { code: l, name: l } : l
   })
-);
+)
 
-const getLabel = (locale: { code: string; name?: string }) => {
-  const label = locale.name || locale.code;
-  return props.shortForm ? locale.code.toUpperCase() : label;
-};
+const getLabel = (locale: { code: string, name?: string }) => {
+  const label = locale.name || locale.code
+  return props.shortForm ? locale.code.toUpperCase() : label
+}
 </script>
 
 <style scoped>

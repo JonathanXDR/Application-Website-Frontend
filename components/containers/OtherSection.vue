@@ -3,15 +3,15 @@
   <ul class="grid">
     <!-- <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" /> -->
     <CardItem
-      variant="article"
-      :size="windowObject && windowObject.innerWidth < 900 ? 'small' : 'medium'"
       v-for="(article, index) in articles"
       :key="index"
+      variant="article"
+      :size="windowObject && windowObject.innerWidth < 900 ? 'small' : 'medium'"
       :card="article"
-      :iconPosition="
+      :icon-position="
         windowObject && windowObject.innerWidth < 900 ? 'top' : 'left'
       "
-      :dateFormatOptions="{
+      :date-format-options="{
         weekday: 'long',
       }"
     />
@@ -19,15 +19,15 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from "~/types/common/CardItem";
+import type { CardItemType } from '~/types/common/CardItem';
 
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const articles: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.other")
-);
-const windowObject = computed(() => window);
+  tm('components.containers.other')
+)
+const windowObject = computed(() => window)
 </script>

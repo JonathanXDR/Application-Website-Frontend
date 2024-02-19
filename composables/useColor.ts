@@ -1,4 +1,14 @@
-export const useColor = () => {
+interface Color {
+  colorName: string
+  colorVar: string
+  colorHex: string
+}
+
+export const useColor = (): {
+  colorBadgeArray: Ref<Color[]>
+  colorBadge: Ref<Color | null>
+  randomizeColor: () => Color
+} => {
   const colorBadgeArray = useState('colorBadgeArray', () => [
     {
       colorName: 'orange',
@@ -17,20 +27,15 @@ export const useColor = () => {
     }
   ])
 
-  const colorBadge = useState<null | {
-    colorName: string
-    colorVar: string
-    colorHex: string
-  }>('colorBadge', () => null)
+  const colorBadge = useState<null | Color>(' colorBadge', () => null)
 
-  const randomizeColor = () => {
-    if (!colorBadge.value) {
-      const randomColor = Math.floor(
-        Math.random() * colorBadgeArray.value.length
-      )
-      colorBadge.value = colorBadgeArray.value[randomColor]
+  const randomizeColor = (): Color => {
+    if (colorBadge.value != null) {
+      return colorBadge.value
     }
-    return colorBadge.value
+
+    const randomColor = Math.floor(Math.random() * colorBadgeArray.value.length)
+    return (colorBadge.value = colorBadgeArray.value[randomColor])
   }
 
   return {

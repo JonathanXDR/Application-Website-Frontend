@@ -2,15 +2,15 @@
   <h2>{{ title }}</h2>
   <ul class="grid">
     <CardItem
-      variant="article"
-      :size="windowObject && windowObject.innerWidth < 900 ? 'small' : 'medium'"
       v-for="(article, index) in articles"
       :key="index"
+      variant="article"
+      :size="windowObject && windowObject.innerWidth < 900 ? 'small' : 'medium'"
       :card="article"
-      :iconPosition="
+      :icon-position="
         windowObject && windowObject.innerWidth < 900 ? 'top' : 'left'
       "
-      :dateFormatOptions="{
+      :date-format-options="{
         year: 'numeric',
         month: 'long',
       }"
@@ -19,15 +19,15 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from "~/types/common/CardItem";
+import type { CardItemType } from '~/types/common/CardItem';
 
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const articles: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.references")
-);
-const windowObject = computed(() => window);
+  tm('components.containers.references')
+)
+const windowObject = computed(() => window)
 </script>
