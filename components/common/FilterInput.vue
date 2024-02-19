@@ -69,7 +69,7 @@
           <!-- deepcode ignore PureMethodReturnValueIgnored: false positive -->
           <TagBar
             v-if="open && options.length"
-            :tags="options.map((option) => option.label)"
+            :tags="options.map(option => option.label)"
           />
         </div>
       </div>
@@ -81,22 +81,22 @@
 </template>
 
 <script setup lang="ts">
-import type { OptionType } from "~/types/common/Option";
+import type { OptionType } from '~/types/common/Option'
 
-const { tm } = useI18n();
-const items: Ref<OptionType[]> = ref(tm("components.common.FilterInput.items"));
+const { tm } = useI18n()
+const items: Ref<OptionType[]> = ref(tm('components.common.FilterInput.items'))
 const options: Ref<OptionType[]> = ref(
-  tm("components.common.FilterInput.sorts")
-);
-const open: Ref<boolean> = ref(false);
+  tm('components.common.FilterInput.sorts')
+)
+const open: Ref<boolean> = ref(false)
 
 const onFocus = () => {
-  open.value = true;
-};
+  open.value = true
+}
 
 const onBlur = () => {
-  open.value = false;
-};
+  open.value = false
+}
 </script>
 
 <style scoped>
@@ -278,8 +278,8 @@ const onBlur = () => {
   line-height: 1.381002381;
   font-weight: 400;
   /* letter-spacing: 0.011em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: var(--color-text);
   width: 100%;
   height: 100%;
@@ -296,8 +296,8 @@ const onBlur = () => {
     line-height: 1.4211026316;
     font-weight: 400;
     /* letter-spacing: 0.012em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 

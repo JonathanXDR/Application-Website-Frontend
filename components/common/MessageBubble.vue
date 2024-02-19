@@ -33,14 +33,14 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    color?: 'gray' | 'blue' | 'green';
-    direction?: 'left' | 'right';
+    color?: 'gray' | 'blue' | 'green'
+    direction?: 'left' | 'right'
   }>(),
   {
     color: 'gray',
-    direction: 'left',
+    direction: 'left'
   }
-);
+)
 </script>
 
 <style scoped>

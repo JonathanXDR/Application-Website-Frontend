@@ -31,22 +31,22 @@
 <script setup>
 const props = defineProps({
   items: Array,
-  activeTabId: String,
-});
+  activeTabId: String
+})
 
-const emit = defineEmits(["change"]);
-const selectedTab = ref(props.activeTabId);
+const emit = defineEmits(['change'])
+const selectedTab = ref(props.activeTabId)
 
 watch(
   () => props.activeTabId,
-  (newVal) => {
-    selectedTab.value = newVal;
+  newVal => {
+    selectedTab.value = newVal
   }
-);
+)
 
-const emitChange = (id) => {
-  emit("change", id);
-};
+const emitChange = id => {
+  emit('change', id)
+}
 
 // function (e, t, i) {
 //   'use strict';
@@ -343,8 +343,8 @@ const emitChange = (id) => {
   line-height: 1.7647058824;
   font-weight: 300;
   /* letter-spacing: 0em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   border: 0 solid var(--color-fill-gray-tertiary);
   border-radius: 0;
   color: var(--color-fill-gray);
@@ -446,11 +446,11 @@ const emitChange = (id) => {
   border-bottom-color: var(--color-figure-gray-secondary);
 }
 
-.tabnav-item > input[type="radio"] {
+.tabnav-item > input[type='radio'] {
   display: none;
 }
 
-.tabnav-item > input[type="radio"]:checked ~ label.tabnav-link {
+.tabnav-item > input[type='radio']:checked ~ label.tabnav-link {
   color: var(--color-fill-gray);
   pointer-events: none;
   text-decoration: none;
@@ -458,15 +458,15 @@ const emitChange = (id) => {
   z-index: 10;
 }
 
-#music .tabnav-item > input[type="radio"]:checked ~ label.tabnav-link {
+#music .tabnav-item > input[type='radio']:checked ~ label.tabnav-link {
   color: #e85f82 !important;
 }
 
-.tabnav-item > input[type="radio"]:checked ~ label.tabnav-link:after {
+.tabnav-item > input[type='radio']:checked ~ label.tabnav-link:after {
   border-bottom-color: var(--color-fill-gray);
 }
 
-#music .tabnav-item > input[type="radio"]:checked ~ label.tabnav-link:after {
+#music .tabnav-item > input[type='radio']:checked ~ label.tabnav-link:after {
   border-bottom-width: 2px !important;
   border-bottom-color: #e85f82 !important;
 }
@@ -495,8 +495,8 @@ const emitChange = (id) => {
   line-height: 1;
   font-weight: 400;
   /* letter-spacing: -0.021em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   padding: 9px 0 11px;
   margin-top: 2px;
   margin-bottom: 4px;
@@ -512,8 +512,8 @@ const emitChange = (id) => {
   line-height: 1.381002381;
   font-weight: 600;
   /* letter-spacing: 0.011em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: var(--color-figure-gray-secondary);
 }
 
@@ -533,7 +533,7 @@ const emitChange = (id) => {
   bottom: -5px;
   width: 100%;
   border-bottom: 1px solid transparent;
-  content: "";
+  content: '';
 }
 
 @media only screen and (max-width: 1068px) {
@@ -542,8 +542,8 @@ const emitChange = (id) => {
     line-height: 1.4211026316;
     font-weight: 600;
     /* letter-spacing: 0.012em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 
@@ -553,8 +553,8 @@ const emitChange = (id) => {
     line-height: 1.2353641176;
     font-weight: 600;
     /* letter-spacing: -0.022em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 

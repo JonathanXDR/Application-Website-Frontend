@@ -23,12 +23,12 @@
 </template>
 
 <script setup lang="ts">
-import type { FaLinkType } from '~/types/common/FaLink';
+import type { FaLinkType } from '~/types/common/FaLink'
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const links: Ref<FaLinkType[]> = computed(() =>
   tm('components.common.ShareSheet.links')
-);
+)
 </script>
 
 <style scoped>

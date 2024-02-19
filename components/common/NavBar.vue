@@ -66,69 +66,67 @@
 </template>
 
 <script setup lang="ts">
-import { type SectionType } from '~/types/common/Section';
+import { type SectionType } from '~/types/common/Section'
 
-const { tm } = useI18n();
-const items: Ref<SectionType[]> = computed(() =>
-  tm('components.common.NavBar')
-);
-const themeDark: Ref<boolean> = ref(false);
-const navOpen: Ref<boolean> = ref(false);
-const navDisabled: Ref<boolean> = ref(false);
-const nodeEnv = computed(() => process.env.NODE_ENV);
+const { tm } = useI18n()
+const items: Ref<SectionType[]> = computed(() => tm('components.common.NavBar'))
+const themeDark: Ref<boolean> = ref(false)
+const navOpen: Ref<boolean> = ref(false)
+const navDisabled: Ref<boolean> = ref(false)
+const nodeEnv = computed(() => process.env.NODE_ENV)
 
-const { colorBadge } = useColor();
-const { currentSection } = useSection();
-const { getTheme } = useTheme();
-const currentSectionIndex = computed(() => currentSection.value.index);
+const { colorBadge } = useColor()
+const { currentSection } = useSection()
+const { getTheme } = useTheme()
+const currentSectionIndex = computed(() => currentSection.value.index)
 
 const headerAnimations = computed(() => {
   useAnimation().setHeaderAnimation({
     element: document.querySelector('.ac-ln-background') as HTMLElement,
     class: 'ac-ln-background-transition',
-    timeout: 500,
-  });
+    timeout: 500
+  })
 
-  return useAnimation().headerAnimations;
-});
+  return useAnimation().headerAnimations
+})
 
 const toggleNav = () => {
-  navOpen.value = !navOpen.value;
-  checkboxTimeout();
-};
+  navOpen.value = !navOpen.value
+  checkboxTimeout()
+}
 
 const checkboxTimeout = () => {
-  navDisabled.value = true;
+  navDisabled.value = true
   setTimeout(() => {
-    navDisabled.value = false;
-  }, 1000);
-};
+    navDisabled.value = false
+  }, 1000)
+}
 
 const handleScroll = () => {
   if (navOpen.value && window.scrollY > 0) {
-    navOpen.value = false;
+    navOpen.value = false
   }
-};
+}
 
 const updateAnimations = () => {
-  headerAnimations.value.value.forEach((element) => {
-    element.element.classList.remove(element.class);
+  headerAnimations.value.value.forEach(element => {
+    element.element.classList.remove(element.class)
 
     setTimeout(() => {
-      element.element.classList.add(element.class);
-    }, element.timeout);
-  });
-};
+      element.element.classList.add(element.class)
+    }, element.timeout)
+  })
+}
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('scroll', handleScroll)
 
   watch(getTheme, (newTheme, oldTheme) => {
     if (newTheme !== oldTheme) {
-      updateAnimations();
+      updateAnimations()
     }
-  });
-});
+  })
+})
 </script>
 
 <style scoped>

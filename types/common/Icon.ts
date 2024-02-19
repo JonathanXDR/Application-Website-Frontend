@@ -1,9 +1,9 @@
 export interface IconType {
-  name: string;
-  size?: "small" | "medium" | "large";
+  name: string
+  size?: 'small' | 'medium' | 'large'
   colors?: {
-    primary?: string;
-    secondary?: string;
-    tertiary?: string;
-  };
+    primary?: string
+    secondary?: string
+    tertiary?: string
+  }
 }

@@ -33,56 +33,56 @@
 </template>
 
 <script setup lang="ts">
-import type { OptionType } from "~/types/common/Option";
+import type { OptionType } from '~/types/common/Option'
 
 const props = withDefaults(
   defineProps<{
-    index: number;
+    index: number
   }>(),
   {
-    index: 0,
+    index: 0
   }
-);
-const emit = defineEmits(["change"]);
+)
+const emit = defineEmits(['change'])
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const segmentNavItems: Ref<OptionType[]> = computed(() =>
-  tm("components.common.SegmentNav.items")
-);
+  tm('components.common.SegmentNav.items')
+)
 const sortOptions: Ref<OptionType[]> = computed(() =>
-  tm("components.common.SegmentNav.sorts")
-);
-const currentIndex: Ref<number> = ref(props.index);
-const loading: Ref<boolean> = ref(true);
-const segmentNavEl: Ref<HTMLUListElement | null> = ref(null);
-const segments: Ref<Map<number, HTMLElement>> = ref(new Map());
+  tm('components.common.SegmentNav.sorts')
+)
+const currentIndex: Ref<number> = ref(props.index)
+const loading: Ref<boolean> = ref(true)
+const segmentNavEl: Ref<HTMLUListElement | null> = ref(null)
+const segments: Ref<Map<number, HTMLElement>> = ref(new Map())
 
 const selectionStyle = computed(() => {
-  const segment = segments.value.get(currentIndex.value);
+  const segment = segments.value.get(currentIndex.value)
   return (
     segment && {
       width: `${segment.offsetWidth}px`,
-      transform: `translateX(${segment.offsetLeft}px)`,
+      transform: `translateX(${segment.offsetLeft}px)`
     }
-  );
-});
+  )
+})
 
 const updateSegments = () => {
   if (segmentNavEl.value) {
     const segmentNavItems =
-      segmentNavEl.value.querySelectorAll(".segmentnav-item");
+      segmentNavEl.value.querySelectorAll('.segmentnav-item')
     segmentNavItems.forEach((item, index) => {
-      segments.value.set(index, item as HTMLElement);
-    });
+      segments.value.set(index, item as HTMLElement)
+    })
 
-    emit("change", currentIndex.value);
+    emit('change', currentIndex.value)
   }
-};
+}
 
 onMounted(() => {
-  updateSegments();
-  loading.value = false;
-});
+  updateSegments()
+  loading.value = false
+})
 </script>
 
 <style scoped>
@@ -91,8 +91,8 @@ onMounted(() => {
   line-height: 1.28577;
   font-weight: 600;
   /* letter-spacing: -0.016em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .segmentnav {
@@ -106,11 +106,11 @@ onMounted(() => {
   padding: 0.176em;
 }
 
-.segmentnav-item input[type="radio"] {
+.segmentnav-item input[type='radio'] {
   display: none;
 }
 
-.segmentnav-item input[type="radio"] ~ label {
+.segmentnav-item input[type='radio'] ~ label {
   cursor: pointer;
 }
 
@@ -151,7 +151,7 @@ onMounted(() => {
 }
 
 .segmentnav-item:not(:first-of-type)::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 0;
@@ -165,13 +165,13 @@ onMounted(() => {
   transition: transform 350ms;
 }
 
-.segmentnav-item:has(input[type="radio"]:checked) {
+.segmentnav-item:has(input[type='radio']:checked) {
   color: var(--color-fill-tertiary);
   cursor: default;
 }
 
-.segmentnav-item:has(input[type="radio"]:checked)::before,
-.segmentnav-item:has(input[type="radio"]:checked) + .segmentnav-item::before {
+.segmentnav-item:has(input[type='radio']:checked)::before,
+.segmentnav-item:has(input[type='radio']:checked) + .segmentnav-item::before {
   transform: scale(0);
 }
 
@@ -207,7 +207,7 @@ onMounted(() => {
 .segmentnav-container:before {
   height: 56px;
   display: block;
-  content: "";
+  content: '';
   width: 1px;
   background-color: var(--color-fill-gray-tertiary);
 }

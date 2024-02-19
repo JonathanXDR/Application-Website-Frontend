@@ -13,46 +13,46 @@
 </template>
 
 <script setup lang="ts">
-import { SpeedInsights } from "@vercel/speed-insights/vue";
-import svgFaviconDev from "~/assets/img/dev/favicon-dev.svg?raw";
-import svgFavicon from "~/assets/img/favicon.svg?raw";
-import FooterCompact from "~/components/common/Footer/Compact.vue";
-import FooterFull from "~/components/common/Footer/Full.vue";
+import { SpeedInsights } from '@vercel/speed-insights/vue'
+import svgFaviconDev from '~/assets/img/dev/favicon-dev.svg?raw'
+import svgFavicon from '~/assets/img/favicon.svg?raw'
+import FooterCompact from '~/components/common/Footer/Compact.vue'
+import FooterFull from '~/components/common/Footer/Full.vue'
 
-const route = useRoute();
-const { colorBadge, randomizeColor } = useColor();
-const { currentSection } = useSection();
-const { locale } = useI18n();
+const route = useRoute()
+const { colorBadge, randomizeColor } = useColor()
+const { currentSection } = useSection()
+const { locale } = useI18n()
 
-onMounted(randomizeColor);
+onMounted(randomizeColor)
 
-const isDevelopment = ref(process.env.NODE_ENV === "development");
+const isDevelopment = ref(process.env.NODE_ENV === 'development')
 
 const faviconBase = computed(() =>
   isDevelopment.value ? svgFaviconDev : svgFavicon
-);
+)
 const appleTouchIconBase = computed(
   () =>
     `~/assets/img/${
       isDevelopment.value
         ? `dev/favicon-dev-${colorBadge.value?.colorName}.png`
-        : "favicon.png"
+        : 'favicon.png'
     }`
-);
+)
 
 watchEffect(() => {
-  const faviconColor = colorBadge.value?.colorHex ?? "000000";
+  const faviconColor = colorBadge.value?.colorHex ?? '000000'
   const faviconData = `data:image/svg+xml,${encodeURIComponent(
-    faviconBase.value.replace("#color", `#${faviconColor}`)
-  )}`;
+    faviconBase.value.replace('#color', `#${faviconColor}`)
+  )}`
 
   useHead({
     link: [
-      { rel: "icon", type: "image/svg+xml", href: faviconData },
-      { rel: "apple-touch-icon", href: appleTouchIconBase.value },
-    ],
-  });
-});
+      { rel: 'icon', type: 'image/svg+xml', href: faviconData },
+      { rel: 'apple-touch-icon', href: appleTouchIconBase.value }
+    ]
+  })
+})
 
 const shouldShow = (component: string) =>
   route.meta[component] ??
@@ -61,34 +61,34 @@ const shouldShow = (component: string) =>
     nav: false,
     ribbon: false,
     footerFull: false,
-    footerCompact: true,
-  }[component];
+    footerCompact: true
+  }[component]
 
 const footerClass = computed(() => ({
-  "footer-full": shouldShow("footerFull"),
-  "footer-compact": shouldShow("footerCompact"),
-}));
+  'footer-full': shouldShow('footerFull'),
+  'footer-compact': shouldShow('footerCompact')
+}))
 
 const footerComponent = computed(() =>
-  shouldShow("footerFull") ? FooterFull : FooterCompact
-);
+  shouldShow('footerFull') ? FooterFull : FooterCompact
+)
 
 const pageTitle = computed(() =>
   currentSection.value.name
     ? `JR | ${currentSection.value.name}`
-    : "Jonathan Russ"
-);
+    : 'Jonathan Russ'
+)
 
 useHead({
   htmlAttrs: { lang: locale.value },
   title: pageTitle,
   script: [
     {
-      src: "https://js-cdn.music.apple.com/musickit/v1/musickit.js",
-      async: true,
-    },
-  ],
-});
+      src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
+      async: true
+    }
+  ]
+})
 </script>
 
 <style>

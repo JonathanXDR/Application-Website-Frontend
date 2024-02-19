@@ -7,7 +7,7 @@
     target="_blank"
     v-animation="{
       add: 'scroll-animation--on',
-      remove: 'scroll-animation--off',
+      remove: 'scroll-animation--off'
     }"
   >
     <div v-if="cover || donutGraph || barGraph" class="card-cover-wrap">
@@ -75,7 +75,7 @@
       class="details"
       :style="{
         'flex-direction': getFlexDirection(),
-        'align-items': getAlignItems(),
+        'align-items': getAlignItems()
       }"
     >
       <Icon
@@ -86,14 +86,14 @@
         :class="[
           'icon',
           {
-            'icon-large': variant === 'article' && size === 'large',
+            'icon-large': variant === 'article' && size === 'large'
           },
           {
-            'icon-xlarge': size === 'medium' || size === 'small',
+            'icon-xlarge': size === 'medium' || size === 'small'
           },
           {
-            'icon-xxlarge': variant === 'card' && size === 'large',
-          },
+            'icon-xxlarge': variant === 'card' && size === 'large'
+          }
         ]"
       />
       <div class="body">
@@ -125,9 +125,9 @@
                   title: 'Mehr erfahren',
                   url: card.html_url,
                   icon: {
-                    name: 'chevron.right',
-                  },
-                },
+                    name: 'chevron.right'
+                  }
+                }
               ]
             "
             :class="{ link: applyHover }"
@@ -157,7 +157,7 @@
               stars: card.stargazers_count,
               issues: card.open_issues_count,
               subscribers: card.subscribers_count,
-              date: card.updated_at,
+              date: card.updated_at
             }
           "
           :date="card.updated_at"
@@ -170,22 +170,22 @@
 </template>
 
 <script setup lang="ts">
-import type { ListUserReposResponse } from '~/types/GitHub/Repository';
-import type { CardItemType } from '~/types/common/CardItem';
+import type { ListUserReposResponse } from '~/types/GitHub/Repository'
+import type { CardItemType } from '~/types/common/CardItem'
 
 const props = withDefaults(
   defineProps<{
-    card: CardItemType | ListUserReposResponse | any;
-    variant?: 'card' | 'article';
-    dateFormatOptions?: Intl.DateTimeFormatOptions;
-    dateNowKey?: 'created' | 'updated';
-    iconPosition?: 'top' | 'right' | 'bottom' | 'left';
-    iconAlignment?: 'start' | 'center' | 'end';
-    size?: 'small' | 'medium' | 'large' | 'full';
-    hover?: 'auto' | 'true' | 'false';
-    cover?: string;
-    donutGraph?: boolean;
-    barGraph?: boolean;
+    card: CardItemType | ListUserReposResponse | any
+    variant?: 'card' | 'article'
+    dateFormatOptions?: Intl.DateTimeFormatOptions
+    dateNowKey?: 'created' | 'updated'
+    iconPosition?: 'top' | 'right' | 'bottom' | 'left'
+    iconAlignment?: 'start' | 'center' | 'end'
+    size?: 'small' | 'medium' | 'large' | 'full'
+    hover?: 'auto' | 'true' | 'false'
+    cover?: string
+    donutGraph?: boolean
+    barGraph?: boolean
   }>(),
   {
     card: () => {},
@@ -195,8 +195,8 @@ const props = withDefaults(
       return {
         year: 'numeric',
         month: 'long',
-        day: 'numeric',
-      };
+        day: 'numeric'
+      }
     },
 
     dateNowKey: 'updated',
@@ -205,9 +205,9 @@ const props = withDefaults(
     size: 'medium',
     hover: 'auto',
     donutGraph: false,
-    barGraph: false,
+    barGraph: false
   }
-);
+)
 
 const applyHover = computed(() => {
   return (
@@ -215,35 +215,35 @@ const applyHover = computed(() => {
       props.card.links &&
       props.card.links.length === 1) ||
     props.hover === 'true'
-  );
-});
+  )
+})
 
 const getFlexDirection = () => {
   switch (props.iconPosition) {
     case 'top':
-      return 'column';
+      return 'column'
     case 'right':
-      return 'row-reverse';
+      return 'row-reverse'
     case 'bottom':
-      return 'column-reverse';
+      return 'column-reverse'
     case 'left':
     default:
-      return 'row';
+      return 'row'
   }
-};
+}
 
 const getAlignItems = () => {
   switch (props.iconAlignment) {
     case 'start':
-      return 'flex-start';
+      return 'flex-start'
     case 'center':
-      return 'center';
+      return 'center'
     case 'end':
-      return 'flex-end';
+      return 'flex-end'
     default:
-      return 'flex-start';
+      return 'flex-start'
   }
-};
+}
 </script>
 
 <style scoped>

@@ -34,21 +34,21 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    variant?: "icon" | "label" | "combination";
+    variant?: 'icon' | 'label' | 'combination'
   }>(),
   {
-    variant: "label",
+    variant: 'label'
   }
-);
+)
 
-const { getTheme, setTheme } = useTheme();
-const currentTheme = computed(() => getTheme());
+const { getTheme, setTheme } = useTheme()
+const currentTheme = computed(() => getTheme())
 
 const items = reactive([
-  { id: "light", label: "Light", icon: "sun.max.fill" },
-  { id: "dark", label: "Dark", icon: "moon.fill" },
-  { id: "auto", label: "Auto", icon: "circle.lefthalf.filled" },
-]);
+  { id: 'light', label: 'Light', icon: 'sun.max.fill' },
+  { id: 'dark', label: 'Dark', icon: 'moon.fill' },
+  { id: 'auto', label: 'Auto', icon: 'circle.lefthalf.filled' }
+])
 </script>
 
 <style scoped>
@@ -71,19 +71,19 @@ const items = reactive([
   line-height: 1.33337;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   border: 1px solid var(--color-fill-blue);
   border-radius: 25px;
   display: flex;
   padding: 1px;
 }
 
-.content [role="radiogroup"]:focus {
+.content [role='radiogroup']:focus {
   outline: none;
 }
 
-.content input[type="radio"] {
+.content input[type='radio'] {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(0px 0px 99.9% 99.9%);
@@ -111,7 +111,7 @@ const items = reactive([
   cursor: pointer;
 }
 
-.content input[type="radio"]:checked + .text {
+.content input[type='radio']:checked + .text {
   background: var(--color-fill-blue);
   border-color: var(--color-fill-blue);
 }

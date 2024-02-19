@@ -20,19 +20,19 @@
 </template>
 
 <script setup lang="ts">
-const { changeLanguage } = useLanguage();
-const { locale, locales } = useI18n({ useScope: "global" });
-const selectedLocale = ref(locale.value);
+const { changeLanguage } = useLanguage()
+const { locale, locales } = useI18n({ useScope: 'global' })
+const selectedLocale = ref(locale.value)
 
 const computedLocales = computed(() =>
-  locales.value.map((l) => {
-    return typeof l === "string" ? { code: l, name: l } : l;
+  locales.value.map(l => {
+    return typeof l === 'string' ? { code: l, name: l } : l
   })
-);
+)
 
-watch(locale, (newLocale) => {
-  selectedLocale.value = newLocale;
-});
+watch(locale, newLocale => {
+  selectedLocale.value = newLocale
+})
 </script>
 
 <style scoped>

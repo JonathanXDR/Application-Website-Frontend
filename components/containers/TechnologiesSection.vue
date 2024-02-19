@@ -24,16 +24,16 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from "~/types/common/CardItem";
+import type { CardItemType } from '~/types/common/CardItem'
 
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const cards: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.technologies")
-);
+  tm('components.containers.technologies')
+)
 </script>
 
 <style scoped>

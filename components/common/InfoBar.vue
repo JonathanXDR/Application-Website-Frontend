@@ -55,71 +55,71 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from "dayjs";
-import "dayjs/locale/en";
-import relativeTime from "dayjs/plugin/relativeTime";
-import type { InfoType } from "~/types/common/Info";
+import dayjs from 'dayjs'
+import 'dayjs/locale/en'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import type { InfoType } from '~/types/common/Info'
 
 const props = withDefaults(
   defineProps<{
-    info: InfoType;
-    date?: string;
-    dateFormatOptions?: Intl.DateTimeFormatOptions;
-    dateNowKey?: "created" | "updated";
+    info: InfoType
+    date?: string
+    dateFormatOptions?: Intl.DateTimeFormatOptions
+    dateNowKey?: 'created' | 'updated'
   }>(),
   {
     info: (): InfoType => {
-      return {};
+      return {}
     },
 
     dateFormatOptions: () => {
       return {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      };
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }
     },
 
-    dateNowKey: "updated",
+    dateNowKey: 'updated'
   }
-);
+)
 
-dayjs.extend(relativeTime);
+dayjs.extend(relativeTime)
 
-const { locale } = useI18n({ useScope: "global" });
+const { locale } = useI18n({ useScope: 'global' })
 const updatedYesterday = computed(() => {
-  if (!props.date) return false;
-  const updatedDate = dayjs(props.date);
-  const currentDate = dayjs();
-  return currentDate.diff(updatedDate, "day") <= 1;
-});
+  if (!props.date) return false
+  const updatedDate = dayjs(props.date)
+  const currentDate = dayjs()
+  return currentDate.diff(updatedDate, 'day') <= 1
+})
 
 const formatDate = (
   dateString: string,
   formatOptions: Intl.DateTimeFormatOptions
 ) => {
-  return new Date(dateString).toLocaleDateString(locale.value, formatOptions);
-};
+  return new Date(dateString).toLocaleDateString(locale.value, formatOptions)
+}
 
 const getDate = () => {
-  const formatOptions = props.dateFormatOptions;
-  const dateVariant = props.dateNowKey;
+  const formatOptions = props.dateFormatOptions
+  const dateVariant = props.dateNowKey
 
   if (props.info?.date?.from && props.info?.date?.to) {
     return `${formatDate(props.info?.date.from, formatOptions)} - ${formatDate(
       props.info?.date.to,
       formatOptions
-    )}`;
+    )}`
   } else if (props.info?.date?.from) {
-    return formatDate(props.info?.date.from, formatOptions);
+    return formatDate(props.info?.date.from, formatOptions)
   } else if (props.date) {
     return `${dateVariant.charAt(0).toUpperCase()}${dateVariant.slice(
       1
-    )} ${dayjs(props.date).locale(locale.value).fromNow()}`;
+    )} ${dayjs(props.date).locale(locale.value).fromNow()}`
   }
-};
+}
 
-const dateTitle = getDate();
+const dateTitle = getDate()
 </script>
 
 <style scoped>
@@ -133,8 +133,8 @@ const dateTitle = getDate();
   line-height: 1.28577;
   font-weight: 600;
   /* letter-spacing: -0.016em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   display: flex;
   justify-content: flex-start;
   align-items: center;

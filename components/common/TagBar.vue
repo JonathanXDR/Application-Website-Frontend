@@ -3,7 +3,9 @@
     <div class="scroll-wrapper">
       <ul id="suggested-tags-tags">
         <li v-for="(tag, index) in tags" :key="index" class="tag">
-          <NuxtLink :href="`https://github.com/topics/${tag}`">{{ tag }}</NuxtLink>
+          <NuxtLink :href="`https://github.com/topics/${tag}`">{{
+            tag
+          }}</NuxtLink>
         </li>
       </ul>
     </div>
@@ -13,12 +15,12 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    tags: string[];
+    tags: string[]
   }>(),
   {
-    tags: () => [],
-  },
-);
+    tags: () => []
+  }
+)
 </script>
 
 <style scoped>
@@ -34,14 +36,8 @@ withDefaults(
   line-height: 1.2857742857;
   font-weight: 400;
   /* letter-spacing: -0.016em; */
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   border-radius: 14px;
   padding: 4px 10px;
   white-space: nowrap;
@@ -50,9 +46,7 @@ withDefaults(
 
 @media (hover: hover) {
   .tag a:hover {
-    transition:
-      background-color 0.2s,
-      color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
     background-color: var(--color-fill-blue);
     color: #fff;
   }
@@ -63,11 +57,7 @@ withDefaults(
   margin: 0;
   list-style: none;
   box-sizing: border-box;
-  transition:
-    padding-right 0.8s,
-    padding-bottom 0.8s,
-    max-height 1s,
-    opacity 1s;
+  transition: padding-right 0.8s, padding-bottom 0.8s, max-height 1s, opacity 1s;
   padding: 0;
 }
 

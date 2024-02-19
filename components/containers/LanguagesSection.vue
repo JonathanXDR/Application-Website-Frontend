@@ -23,21 +23,21 @@
 </template>
 
 <script setup lang="ts">
-import type { LanguageBarType } from "~/types/common/LanguageBar";
+import type { LanguageBarType } from '~/types/common/LanguageBar'
 
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
 const items = reactive([
-  { id: "productivity", label: "Productivity" },
-  { id: "gaming", label: "Gaming" },
-  { id: "production", label: "Audio and video production" },
-  { id: "development", label: "Software development" },
-]);
+  { id: 'productivity', label: 'Productivity' },
+  { id: 'gaming', label: 'Gaming' },
+  { id: 'production', label: 'Audio and video production' },
+  { id: 'development', label: 'Software development' }
+])
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const languages: Ref<LanguageBarType[]> = computed(() =>
-  tm("components.containers.languages")
-);
+  tm('components.containers.languages')
+)
 </script>

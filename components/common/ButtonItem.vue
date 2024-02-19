@@ -5,24 +5,24 @@
 </template>
 
 <script setup lang="ts">
-import type { IconType } from "~/types/common/Icon";
+import type { IconType } from '~/types/common/Icon'
 
 withDefaults(
   defineProps<{
-    as?: keyof HTMLElementTagNameMap;
-    variant?: "primary" | "secondary" | "tertiary";
-    size?: "small" | "medium" | "large";
-    borderRadius?: "reduced" | "full";
-    label: string;
-    icon?: IconType;
+    as?: keyof HTMLElementTagNameMap
+    variant?: 'primary' | 'secondary' | 'tertiary'
+    size?: 'small' | 'medium' | 'large'
+    borderRadius?: 'reduced' | 'full'
+    label: string
+    icon?: IconType
   }>(),
   {
-    as: "button",
-    variant: "primary",
-    size: "medium",
-    borderRadius: "reduced",
+    as: 'button',
+    variant: 'primary',
+    size: 'medium',
+    borderRadius: 'reduced'
   }
-);
+)
 </script>
 
 <style scoped>
@@ -46,8 +46,8 @@ withDefaults(
   line-height: 1.2857742857;
   font-weight: 400;
   letter-spacing: -0.016em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   background: var(--color-code-plain);
   color: var(--sk-button-color);
   padding-block: calc(
@@ -85,8 +85,8 @@ withDefaults(
   line-height: 1.1764805882;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   min-width: 28px;
   padding: 8px 16px;
   border-radius: 980px;
@@ -132,8 +132,8 @@ withDefaults(
   line-height: 1.3333733333 !important;
   font-weight: 400 !important;
   letter-spacing: -0.01em !important;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .button-cta {
@@ -156,8 +156,8 @@ withDefaults(
   line-height: 1.4705882353;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .button-cta:active {
@@ -202,7 +202,7 @@ button:disabled {
 }
 button {
   font-synthesis: none;
-  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: 'kern';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: ltr;
@@ -222,8 +222,8 @@ button:focus {
   line-height: 1.17648;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 30px;
@@ -273,8 +273,8 @@ button:focus {
   line-height: 1.17648;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 30px;
@@ -358,7 +358,7 @@ button:disabled {
 }
 button {
   font-synthesis: none;
-  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: 'kern';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: ltr;
@@ -378,8 +378,8 @@ button:focus {
   line-height: 1.17648;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 30px;
@@ -454,8 +454,8 @@ button:focus {
   line-height: 1.17648;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 28px;
@@ -525,8 +525,8 @@ button:focus {
   line-height: 1.17648;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 30px;
@@ -601,8 +601,8 @@ button:focus {
   line-height: 1.17648;
   font-weight: 400;
   letter-spacing: -0.022em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 28px;

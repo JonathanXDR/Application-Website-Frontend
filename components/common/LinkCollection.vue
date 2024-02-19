@@ -30,14 +30,14 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkType } from "~/types/common/Link";
+import type { LinkType } from '~/types/common/Link'
 
 const props = defineProps({
   links: Array as () => LinkType[],
-  shouldAnimate: Boolean,
-});
+  shouldAnimate: Boolean
+})
 
-const { links } = toRefs(props);
+const { links } = toRefs(props)
 </script>
 
 <style scoped>

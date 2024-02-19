@@ -12,22 +12,22 @@
       "
       :dateFormatOptions="{
         year: 'numeric',
-        month: 'long',
+        month: 'long'
       }"
     />
   </ul>
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from "~/types/common/CardItem";
+import type { CardItemType } from '~/types/common/CardItem'
 
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const articles: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.references")
-);
-const windowObject = computed(() => window);
+  tm('components.containers.references')
+)
+const windowObject = computed(() => window)
 </script>

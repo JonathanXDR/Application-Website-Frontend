@@ -13,7 +13,7 @@
                   class="rc-ribbon-content-scroller"
                   :style="[
                     transformStyle,
-                    totalItems <= 2 && 'justify-content: center; gap: 16px',
+                    totalItems <= 2 && 'justify-content: center; gap: 16px'
                   ]"
                 >
                   <div
@@ -26,7 +26,7 @@
                       class="rc-ribbon-content-item-base rc-ribbon-content-item"
                       :style="totalItems <= 2 && 'width: 100% !important'"
                     >
-                      {{ item.description && item.description + "&ensp;" }}
+                      {{ item.description && item.description + '&ensp;' }}
 
                       <LinkCollection
                         v-if="item.links.length"
@@ -66,47 +66,47 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from "~/types/common/CardItem";
-import type { LinkType } from "~/types/common/Link";
-import type { RibbonBar } from "~/types/common/RibbonBar";
+import type { CardItemType } from '~/types/common/CardItem'
+import type { LinkType } from '~/types/common/Link'
+import type { RibbonBar } from '~/types/common/RibbonBar'
 
-const { t, tm, rt } = useI18n();
+const { t, tm, rt } = useI18n()
 const tags: Ref<{
-  latest: string | undefined;
-  previous: string | undefined;
-}> = ref({ latest: undefined, previous: undefined });
+  latest: string | undefined
+  previous: string | undefined
+}> = ref({ latest: undefined, previous: undefined })
 const projects: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.projects")
-);
+  tm('components.containers.projects')
+)
 const technologies: Ref<CardItemType[]> = computed(() =>
-  tm("components.containers.technologies")
-);
+  tm('components.containers.technologies')
+)
 
-const baseItems: Ref<RibbonBar[]> = ref([]);
-const currentIndex = ref(0);
-const totalItems = ref(0);
-const isTransitioning = ref(false);
-const scrollDirection = ref("right");
-const displayItems: Ref<RibbonBar[]> = ref([]);
-const initialAnimationPlayed = ref(false);
+const baseItems: Ref<RibbonBar[]> = ref([])
+const currentIndex = ref(0)
+const totalItems = ref(0)
+const isTransitioning = ref(false)
+const scrollDirection = ref('right')
+const displayItems: Ref<RibbonBar[]> = ref([])
+const initialAnimationPlayed = ref(false)
 
 const fetchTags = async () => {
   const [latest, previous] = await listRepositoryTags({
-    owner: "JonathanXDR",
-    repo: "Application-Website-Frontend",
-    perPage: 2,
-  });
+    owner: 'JonathanXDR',
+    repo: 'Application-Website-Frontend',
+    perPage: 2
+  })
 
-  tags.value = { latest: latest.name, previous: previous.name };
-  updateBaseItems();
+  tags.value = { latest: latest.name, previous: previous.name }
+  updateBaseItems()
 
   setTimeout(() => {
-    initialAnimationPlayed.value = true;
-  }, 2800);
-};
+    initialAnimationPlayed.value = true
+  }, 2800)
+}
 
 const updateBaseItems = () => {
-  const items = tm("components.common.RibbonBar") as RibbonBar[];
+  const items = tm('components.common.RibbonBar') as RibbonBar[]
   baseItems.value = items.map((item, index) => ({
     description:
       item.description &&
@@ -115,12 +115,12 @@ const updateBaseItems = () => {
         previousTag: tags.value.previous,
         latestProject: projects.value[projects.value.length - 1].title,
         latestTechnology:
-          technologies.value[technologies.value.length - 1].title,
+          technologies.value[technologies.value.length - 1].title
       }),
     links:
       item.links &&
       (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map(
-        (link) => ({
+        link => ({
           ...link,
           url: rt(link.url, {
             latestTag: tags.value.latest,
@@ -128,81 +128,81 @@ const updateBaseItems = () => {
             latestProjectUrl: projects.value[projects.value.length - 1].title
               ?.toLowerCase()
               .toLowerCase()
-              .replace(/ /g, "-"),
+              .replace(/ /g, '-'),
             latestTechnologyUrl: technologies.value[
               technologies.value.length - 1
             ].title
               ?.toLowerCase()
               .toLowerCase()
-              .replace(/ /g, "-"),
-          }),
+              .replace(/ /g, '-')
+          })
         })
-      ),
-  }));
-  totalItems.value = baseItems.value.length;
+      )
+  }))
+  totalItems.value = baseItems.value.length
 
-  updateDisplayItems();
-};
+  updateDisplayItems()
+}
 
 const updateDisplayItems = () => {
-  const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value;
+  const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value
   displayItems.value = Array.from(
     { length: totalItems.value },
     (_, i) => baseItems.value[(start + i) % totalItems.value]
-  );
-};
+  )
+}
 
-const scrollContent = (direction: "left" | "right") => {
+const scrollContent = (direction: 'left' | 'right') => {
   if (!isTransitioning.value && totalItems.value > 2) {
-    isTransitioning.value = true;
-    scrollDirection.value = direction;
+    isTransitioning.value = true
+    scrollDirection.value = direction
 
     nextTick(() => {
-      if (direction === "left") {
+      if (direction === 'left') {
         currentIndex.value =
           currentIndex.value === 0
             ? totalItems.value - 1
-            : currentIndex.value - 1;
+            : currentIndex.value - 1
       } else {
-        currentIndex.value = (currentIndex.value + 1) % totalItems.value;
+        currentIndex.value = (currentIndex.value + 1) % totalItems.value
       }
-    });
+    })
   }
-};
+}
 
 const transformStyle = computed(() => {
   if (totalItems.value > 2) {
-    let translateXValue = -100 / totalItems.value;
-    if (scrollDirection.value === "left") {
-      translateXValue = Math.abs(translateXValue);
+    let translateXValue = -100 / totalItems.value
+    if (scrollDirection.value === 'left') {
+      translateXValue = Math.abs(translateXValue)
     }
 
     return {
       transform: `translateX(${
-        isTransitioning.value ? translateXValue + "%" : "0px"
+        isTransitioning.value ? translateXValue + '%' : '0px'
       })`,
       width: `${100 * totalItems.value}%`,
-      left: "-100%",
+      left: '-100%',
       transition: isTransitioning.value
-        ? "transform 1000ms ease 0s"
-        : "none 0s ease 0s",
-    };
+        ? 'transform 1000ms ease 0s'
+        : 'none 0s ease 0s'
+    }
   }
-  return {};
-});
+  return {}
+})
 
 watch(currentIndex, () => {
   setTimeout(() => {
-    isTransitioning.value = false;
-    updateDisplayItems();
-  }, 1000);
-});
+    isTransitioning.value = false
+    updateDisplayItems()
+  }, 1000)
+})
 
 watch(tags, () => {
-  updateBaseItems();
-});
+  updateBaseItems()
+})
 
-onMounted(fetchTags);
+onMounted(fetchTags)
 </script>
 
 <style scoped>
@@ -225,8 +225,8 @@ onMounted(fetchTags);
 
 .more:after,
 .more:before {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -236,7 +236,7 @@ onMounted(fetchTags);
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: "";
+  alt: '';
   text-decoration: none;
 }
 .more:before {
@@ -248,7 +248,7 @@ onMounted(fetchTags);
 }
 .more:after,
 .more:before {
-  content: "";
+  content: '';
 }
 
 .rc-ribbon-content-gallery {
@@ -313,8 +313,8 @@ onMounted(fetchTags);
 }
 .paddlenav .paddlenav-arrow-next:after,
 .paddlenav .paddlenav-arrow-next:before {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -324,7 +324,7 @@ onMounted(fetchTags);
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: "";
+  alt: '';
   text-decoration: none;
 }
 .paddlenav .paddlenav-arrow-next:before {
@@ -335,8 +335,8 @@ onMounted(fetchTags);
 }
 .paddlenav .paddlenav-arrow-previous:after,
 .paddlenav .paddlenav-arrow-previous:before {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -346,7 +346,7 @@ onMounted(fetchTags);
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: "";
+  alt: '';
   text-decoration: none;
 }
 .paddlenav .paddlenav-arrow-previous:before {
@@ -390,8 +390,8 @@ onMounted(fetchTags);
   }
   .paddlenav .paddlenav-arrow-next:after,
   .paddlenav .paddlenav-arrow-next:before {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
     color: inherit;
     display: inline-block;
     font-style: normal;
@@ -401,7 +401,7 @@ onMounted(fetchTags);
     text-decoration: underline;
     position: relative;
     z-index: 1;
-    alt: "";
+    alt: '';
     text-decoration: none;
   }
   .paddlenav .paddlenav-arrow-next:before {
@@ -412,8 +412,8 @@ onMounted(fetchTags);
   }
   .paddlenav .paddlenav-arrow-previous:after,
   .paddlenav .paddlenav-arrow-previous:before {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
     color: inherit;
     display: inline-block;
     font-style: normal;
@@ -423,7 +423,7 @@ onMounted(fetchTags);
     text-decoration: underline;
     position: relative;
     z-index: 1;
-    alt: "";
+    alt: '';
     text-decoration: none;
   }
   .paddlenav .paddlenav-arrow-previous:before {
@@ -447,8 +447,8 @@ onMounted(fetchTags);
 }
 .paddlenav-compact .paddlenav-arrow-next:after,
 .paddlenav-compact .paddlenav-arrow-next:before {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -458,7 +458,7 @@ onMounted(fetchTags);
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: "";
+  alt: '';
   text-decoration: none;
 }
 .paddlenav-compact .paddlenav-arrow-next:before {
@@ -469,8 +469,8 @@ onMounted(fetchTags);
 }
 .paddlenav-compact .paddlenav-arrow-previous:after,
 .paddlenav-compact .paddlenav-arrow-previous:before {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -480,7 +480,7 @@ onMounted(fetchTags);
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: "";
+  alt: '';
   text-decoration: none;
 }
 .paddlenav-compact .paddlenav-arrow-previous:before {
@@ -530,8 +530,8 @@ onMounted(fetchTags);
   line-height: 1.42859;
   font-weight: 400;
   /* letter-spacing: -0.016em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 .ribbon .ribbon-content-wrapper {
   background-color: var(--color-fill-tertiary);
@@ -575,8 +575,8 @@ onMounted(fetchTags);
   line-height: 1.33341;
   font-weight: 400;
   /* letter-spacing: 0.009em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Helvetica", "Arial", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: #86868b;
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
@@ -585,8 +585,8 @@ onMounted(fetchTags);
     line-height: 1.381;
     font-weight: 400;
     /* letter-spacing: 0.011em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous {
@@ -645,7 +645,7 @@ onMounted(fetchTags);
 }
 .with-paddlenav .rc-ribbon-content-autoscroll:after,
 .with-paddlenav .rc-ribbon-content-autoscroll:before {
-  content: "";
+  content: '';
   display: block;
   width: 41px;
   height: 100%;
@@ -721,7 +721,7 @@ onMounted(fetchTags);
 .rc-ribbon-content-gallery {
   min-height: auto;
 }
-.rc-ribbon-gallery-item[aria-hidden="true"] a {
+.rc-ribbon-gallery-item[aria-hidden='true'] a {
   visibility: hidden;
 }
 .rc-ribbon-content-item {

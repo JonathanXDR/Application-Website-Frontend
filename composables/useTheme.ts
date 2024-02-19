@@ -1,23 +1,23 @@
 export const useTheme = () => {
-  const colorMode = useColorMode();
-  const themeCookie = useCookie("theme");
+  const colorMode = useColorMode()
+  const themeCookie = useCookie('theme')
 
   const setTheme = (theme: string) => {
-    if (theme === "auto") {
-      colorMode.preference = "system";
+    if (theme === 'auto') {
+      colorMode.preference = 'system'
     } else {
-      colorMode.preference = theme;
+      colorMode.preference = theme
     }
-    themeCookie.value = theme;
-  };
-
-  const getTheme = () => themeCookie.value || "auto";
-
-  const initializeTheme = () => setTheme(getTheme());
-
-  if (process.client) {
-    initializeTheme();
+    themeCookie.value = theme
   }
 
-  return { getTheme, setTheme };
-};
+  const getTheme = () => themeCookie.value || 'auto'
+
+  const initializeTheme = () => setTheme(getTheme())
+
+  if (process.client) {
+    initializeTheme()
+  }
+
+  return { getTheme, setTheme }
+}

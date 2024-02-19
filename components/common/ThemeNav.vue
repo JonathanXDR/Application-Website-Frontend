@@ -27,7 +27,7 @@
           :for="`viewer-sizenav-value-${item.id}`"
           class="viewer-sizenav-link"
           :style="{
-            'min-width': props.label !== 'icon' ? '48px' : `${height - 8}px`,
+            'min-width': props.label !== 'icon' ? '48px' : `${height - 8}px`
           }"
         >
           <span
@@ -51,58 +51,58 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
-    label?: 'icon' | 'text' | 'combination';
-    separator?: boolean;
-    gap?: string;
-    padding?: string;
+    size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
+    label?: 'icon' | 'text' | 'combination'
+    separator?: boolean
+    gap?: string
+    padding?: string
   }>(),
   {
     size: 'medium',
     label: 'text',
     separator: false,
     gap: '0',
-    padding: (props) => {
-      return props.label !== 'icon' ? '0 8px' : '0';
-    },
+    padding: props => {
+      return props.label !== 'icon' ? '0 8px' : '0'
+    }
   }
-);
+)
 
-const { getTheme, setTheme } = useTheme();
-const selectedTheme = ref<string>(getTheme());
-const isTransitioning = ref<boolean>(false);
+const { getTheme, setTheme } = useTheme()
+const selectedTheme = ref<string>(getTheme())
+const isTransitioning = ref<boolean>(false)
 
 const items = [
   { id: 'light', label: 'Light', icon: 'sun.max.fill' },
   { id: 'dark', label: 'Dark', icon: 'moon.fill' },
-  { id: 'auto', label: 'Auto', icon: 'circle.lefthalf.filled' },
-];
+  { id: 'auto', label: 'Auto', icon: 'circle.lefthalf.filled' }
+]
 
-const themeNavContainer = ref<HTMLElement | null>(null);
-const itemElements = ref<Array<HTMLElement>>([]);
+const themeNavContainer = ref<HTMLElement | null>(null)
+const itemElements = ref<Array<HTMLElement>>([])
 
 const setItemRef = (el: HTMLElement | null) => {
-  if (el) itemElements.value.push(el);
-};
+  if (el) itemElements.value.push(el)
+}
 
 const updateBubblePosition = () => {
-  isTransitioning.value = true;
+  isTransitioning.value = true
   const selectedItemIndex = items.findIndex(
-    (item) => item.id === selectedTheme.value
-  );
-  const selectedItemElement = itemElements.value[selectedItemIndex];
+    item => item.id === selectedTheme.value
+  )
+  const selectedItemElement = itemElements.value[selectedItemIndex]
   if (selectedItemElement) {
     bubbleStyle.value = {
       '--bubble-position': `${selectedItemElement.offsetLeft}px`,
       '--bubble-width': `${selectedItemElement.offsetWidth}px`,
-      opacity: '1',
-    };
+      opacity: '1'
+    }
   }
 
-  setTimeout(() => (isTransitioning.value = false), 400);
-};
+  setTimeout(() => (isTransitioning.value = false), 400)
+}
 
-const bubbleStyle = ref<Record<string, string>>({});
+const bubbleStyle = ref<Record<string, string>>({})
 
 const height = computed(() => {
   const sizes: Record<string, number> = {
@@ -110,27 +110,27 @@ const height = computed(() => {
     small: 40,
     medium: 48,
     large: 56,
-    xlarge: 64,
-  };
-  return sizes[props.size || 'medium'];
-});
+    xlarge: 64
+  }
+  return sizes[props.size || 'medium']
+})
 
 const containerStyle = computed(() => ({
   width: `${themeNavContainer.value?.offsetWidth}px`,
   '--sizenav-width': `${themeNavContainer.value?.offsetWidth}px`,
-  '--aap-min-height': `${height.value}px`,
-}));
+  '--aap-min-height': `${height.value}px`
+}))
 
 watch(
   selectedTheme,
-  (newTheme) => {
-    setTheme(newTheme);
-    updateBubblePosition();
+  newTheme => {
+    setTheme(newTheme)
+    updateBubblePosition()
   },
   { immediate: true }
-);
+)
 
-onMounted(updateBubblePosition);
+onMounted(updateBubblePosition)
 </script>
 
 <style scoped>

@@ -11,18 +11,18 @@
 </template>
 
 <script setup lang="ts">
-import type { IconType } from "~/types/common/Icon";
+import type { IconType } from '~/types/common/Icon'
 
 withDefaults(
   defineProps<{
-    title: string;
-    color?: string;
-    icon?: IconType;
+    title: string
+    color?: string
+    icon?: IconType
   }>(),
   {
-    color: "blue",
-  },
-);
+    color: 'blue'
+  }
+)
 </script>
 
 <style scoped>
@@ -33,14 +33,8 @@ withDefaults(
   line-height: 1.3333733333;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   padding-inline: 10px;
   white-space: nowrap;
   background: none;
