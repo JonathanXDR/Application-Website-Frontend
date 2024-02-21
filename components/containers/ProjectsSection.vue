@@ -12,15 +12,11 @@
       <ul ref="ul" class="timeline">
         <CardItem
           variant="article"
-          :size="
-            windowObject && windowObject.innerWidth < 900 ? 'small' : 'medium'
-          "
+          :size="windowWidth < 900 ? 'small' : 'medium'"
           v-for="(project, index) in currentProjects"
           :key="index"
           :card="project"
-          :iconPosition="
-            windowObject && windowObject.innerWidth < 900 ? 'top' : 'left'
-          "
+          :iconPosition="windowWidth < 900 ? 'top' : 'left'"
           :dateFormatOptions="{
             year: 'numeric',
             month: 'long'
@@ -102,7 +98,7 @@ const currentProjects = computed(
 
 const currentIndex: Ref<number> = ref(0)
 const randomColor = ref(colorStore.randomizeColor().colorName)
-const windowObject = computed(() => window)
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 
 const updateCurrentIndex = (index: number) => {
   currentIndex.value = index

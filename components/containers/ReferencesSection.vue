@@ -3,13 +3,11 @@
   <ul class="grid">
     <CardItem
       variant="article"
-      :size="windowObject && windowObject.innerWidth < 900 ? 'small' : 'medium'"
+      windowWidth
       v-for="(article, index) in articles"
       :key="index"
       :card="article"
-      :iconPosition="
-        windowObject && windowObject.innerWidth < 900 ? 'top' : 'left'
-      "
+      :iconPosition="windowWidth < 900 ? 'top' : 'left'"
       :dateFormatOptions="{
         year: 'numeric',
         month: 'long'
@@ -29,5 +27,5 @@ const { tm } = useI18n()
 const articles: Ref<CardItemType[]> = computed(() =>
   tm('components.containers.references')
 )
-const windowObject = computed(() => window)
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 </script>

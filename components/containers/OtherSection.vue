@@ -4,13 +4,11 @@
     <!-- <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" /> -->
     <CardItem
       variant="article"
-      :size="windowObject && windowObject.innerWidth < 900 ? 'small' : 'medium'"
+      :size="windowWidth < 900 ? 'small' : 'medium'"
       v-for="(article, index) in articles"
       :key="index"
       :card="article"
-      :iconPosition="
-        windowObject && windowObject.innerWidth < 900 ? 'top' : 'left'
-      "
+      :iconPosition="windowWidth < 900 ? 'top' : 'left'"
       :dateFormatOptions="{
         weekday: 'long'
       }"
@@ -29,5 +27,5 @@ const { tm } = useI18n()
 const articles: Ref<CardItemType[]> = computed(() =>
   tm('components.containers.other')
 )
-const windowObject = computed(() => window)
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 </script>

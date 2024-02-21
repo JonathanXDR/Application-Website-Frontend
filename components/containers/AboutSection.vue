@@ -22,11 +22,7 @@
     <CardItem
       variant="article"
       :size="
-        windowObject && windowObject.innerWidth < 900
-          ? 'small'
-          : windowObject && windowObject.innerWidth < 1250
-          ? 'medium'
-          : 'large'
+        windowWidth < 900 ? 'small' : windowWidth < 1250 ? 'medium' : 'large'
       "
       :card="{
         eyebrow: $t('components.containers.about.eyebrow'),
@@ -66,7 +62,7 @@ const dates: Ref<{
   age: undefined,
   apprenticeshipYear: undefined
 })
-const windowObject = computed(() => window)
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 
 const calculateYears = (date: string) => {
   const currentDate = new Date(Date.now())
