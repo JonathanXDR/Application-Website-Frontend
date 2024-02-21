@@ -28,6 +28,7 @@
     "@types/musickit-js": "^1.0.9",
     "@vercel/analytics": "^1.2.0",
     "@vercel/speed-insights": "^1.0.10",
+    "@vueuse/nuxt": "^10.8.0",
     "dayjs": "^1.11.10",
     "nuxt": "^3.10.2",
     "octokit": "^3.1.2",
