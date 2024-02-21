@@ -22,12 +22,7 @@
           <NuxtLink to="/" class="ac-ln-title">
             <Logo />
           </NuxtLink>
-          <small
-            v-if="nodeEnv === 'development'"
-            :style="{ color: colorBadge?.colorVar }"
-            class="dev-badge"
-            data-tag-name="Dev"
-          ></small>
+          <DevBadge />
         </div>
         <div class="ac-ln-menu">
           <div class="ac-ln-menu-tray">
@@ -70,12 +65,9 @@ import { type SectionType } from '~/types/common/Section'
 
 const { tm } = useI18n()
 const items: Ref<SectionType[]> = computed(() => tm('components.common.NavBar'))
-const themeDark: Ref<boolean> = ref(false)
 const navOpen: Ref<boolean> = ref(false)
 const navDisabled: Ref<boolean> = ref(false)
-const nodeEnv = computed(() => process.env.NODE_ENV)
 
-const { colorBadge } = useColor()
 const { currentSection } = useSection()
 const { getTheme } = useTheme()
 const currentSectionIndex = computed(() => currentSection.value.index)
@@ -239,26 +231,6 @@ onMounted(() => {
     display: block;
     height: 48px;
   }
-}
-
-/* ------------------------------- Dev Badge ------------------------------- */
-
-.dev-badge {
-  font-size: 22.588px;
-  line-height: 1.16667;
-  font-weight: 600;
-  /* letter-spacing: 0.009em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
-  padding-left: 10px;
-  -webkit-transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
-  -o-transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
-  -moz-transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
-  transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
-}
-
-.dev-badge:before {
-  content: attr(data-tag-name);
 }
 
 /* ------------------------------ ac-ln-actions ----------------------------- */
