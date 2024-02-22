@@ -33,7 +33,13 @@
           <span
             :class="`viewer-sizenav-swatch viewer-sizenav-swatch-${item.id}`"
           >
-            <span class="viewer-sizenav-label" :style="{ padding: padding }">
+            <span
+              class="viewer-sizenav-label"
+              :style="{
+                width: `${selectedItemElement?.offsetWidth}px`,
+                padding: padding
+              }"
+            >
               <Icon
                 v-if="label !== 'text'"
                 :name="item.icon"
@@ -80,6 +86,7 @@ const items = [
 
 const themeNavContainer = ref<HTMLElement | null>(null)
 const itemElements = ref<Array<HTMLElement>>([])
+let selectedItemElement = ref<HTMLElement | null>(null)
 
 const setItemRef = (el: HTMLElement | null) => {
   if (el) itemElements.value.push(el)
@@ -90,11 +97,11 @@ const updateBubblePosition = () => {
   const selectedItemIndex = items.findIndex(
     item => item.id === selectedTheme.value
   )
-  const selectedItemElement = itemElements.value[selectedItemIndex]
+  selectedItemElement.value = itemElements.value[selectedItemIndex]
   if (selectedItemElement) {
     bubbleStyle.value = {
-      '--bubble-position': `${selectedItemElement.offsetLeft}px`,
-      '--bubble-width': `${selectedItemElement.offsetWidth}px`,
+      '--bubble-position': `${selectedItemElement?.value?.offsetLeft}px`,
+      '--bubble-width': `${selectedItemElement?.value?.offsetWidth}px`,
       opacity: '1'
     }
   }
@@ -115,7 +122,6 @@ const height = computed(() => {
 })
 
 const containerStyle = computed(() => ({
-  width: `${themeNavContainer.value?.offsetWidth}px`,
   '--sizenav-width': `${themeNavContainer.value?.offsetWidth}px`,
   '--aap-min-height': `${height.value}px`
 }))
@@ -123,6 +129,8 @@ const containerStyle = computed(() => ({
 watch(
   selectedTheme,
   newTheme => {
+    console.log(themeNavContainer.value?.offsetWidth)
+
     setTheme(newTheme)
     updateBubblePosition()
   },
