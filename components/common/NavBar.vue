@@ -50,7 +50,17 @@
               </label>
             </div>
             <!-- <ColorSchemeToggle /> -->
-            <ThemeNav gap="10px" padding="0 10px" size="xsmall" separator />
+            <!-- <SegmentNavV2
+              :items="[
+                { id: 'light', label: 'Light', icon: 'sun.max.fill' },
+                { id: 'dark', label: 'Dark', icon: 'moon.fill' },
+                { id: 'auto', label: 'Auto', icon: 'circle.lefthalf.filled' }
+              ]"
+              gap="10px"
+              padding="0 50px"
+              size="xsmall"
+              separator
+            /> -->
             <LanguagePickerDropdown />
           </div>
         </div>

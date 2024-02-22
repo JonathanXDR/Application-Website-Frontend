@@ -20,6 +20,7 @@
           type="radio"
           name="viewer-sizenav-value"
           class="viewer-sizenav-value"
+          :class="focus ? 'focus' : ''"
           :value="item.id"
           v-model="selectedTheme"
         />
@@ -37,7 +38,18 @@
               class="viewer-sizenav-label"
               :style="{
                 width: `${selectedItemElement?.offsetWidth}px`,
-                padding: padding
+                padding: padding,
+                color: grayLabels
+                  ? 'var(--color-fill-gray-secondary)'
+                  : 'var(--aap-icon-color)',
+                'font-size':
+                  size === 'xsmall'
+                    ? '12px'
+                    : size === 'small'
+                    ? '14px'
+                    : size === 'medium'
+                    ? '16px'
+                    : '18px'
               }"
             >
               <Icon
@@ -57,16 +69,23 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
+    items: { id: string; label: string; icon: string }[]
     size?: 'xsmall' | 'small' | 'medium' | 'large'
     label?: 'icon' | 'text' | 'combination'
+    focus?: boolean
     separator?: boolean
+    grayLabels?: boolean
     gap?: string
     padding?: string
+
+    outerPadding?: string
   }>(),
   {
     size: 'medium',
     label: 'text',
+    focus: true,
     separator: false,
+    grayLabels: false,
     gap: '0',
     padding: props => {
       return props.label !== 'icon' ? '0 8px' : '0'
@@ -78,12 +97,6 @@ const { getTheme, setTheme } = useTheme()
 const selectedTheme = ref<string>(getTheme())
 const isTransitioning = ref<boolean>(false)
 
-const items = [
-  { id: 'light', label: 'Light', icon: 'sun.max.fill' },
-  { id: 'dark', label: 'Dark', icon: 'moon.fill' },
-  { id: 'auto', label: 'Auto', icon: 'circle.lefthalf.filled' }
-]
-
 const themeNavContainer = ref<HTMLElement | null>(null)
 const itemElements = ref<Array<HTMLElement>>([])
 let selectedItemElement = ref<HTMLElement | null>(null)
@@ -94,7 +107,7 @@ const setItemRef = (el: HTMLElement | null) => {
 
 const updateBubblePosition = () => {
   isTransitioning.value = true
-  const selectedItemIndex = items.findIndex(
+  const selectedItemIndex = props.items.findIndex(
     item => item.id === selectedTheme.value
   )
   selectedItemElement.value = itemElements.value[selectedItemIndex]
@@ -122,6 +135,7 @@ const height = computed(() => {
 })
 
 const containerStyle = computed(() => ({
+  width: `fit-content`,
   '--sizenav-width': `${themeNavContainer.value?.offsetWidth}px`,
   '--aap-min-height': `${height.value}px`
 }))
@@ -304,10 +318,10 @@ onMounted(updateBubblePosition)
 .viewer-sizenav-label {
   align-items: center;
   /* color: var(--aap-icon-color); */
-  color: var(--color-fill-gray-secondary);
+  /* color: var(--color-fill-gray-secondary); */
   display: flex;
   /* font-size: 16px; */
-  font-size: 12px;
+  /* font-size: 12px; */
   font-weight: 600;
   height: 100%;
   justify-content: center;
@@ -334,10 +348,10 @@ onMounted(updateBubblePosition)
   .viewer-sizenav-swatch
   .viewer-sizenav-label {
   /* color: var(--aap-icon-color-alt); */
-  color: var(--color-fill-tertiary);
+  color: var(--color-fill-tertiary) !important;
   transition: color 400ms cubic-bezier(0.53, -0.01, 0.17, 1);
 }
-.viewer-sizenav-value:focus ~ .viewer-sizenav-link {
+.viewer-sizenav-value.focus:focus ~ .viewer-sizenav-link {
   box-shadow: 0 0 0 3px #fff, 0 0 0 5px #0071e3;
 }
 * {

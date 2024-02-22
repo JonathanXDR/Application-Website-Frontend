@@ -5,6 +5,18 @@
       class="typography-magical-headline pb-12"
     />
     <NavBarExtension>
+      <SegmentNavV2
+        :items="[
+          { id: 'light', label: 'Swisscom', icon: 'sun.max.fill' },
+          { id: 'dark', label: 'Persönlich', icon: 'moon.fill' },
+          { id: 'auto', label: 'Schule', icon: 'circle.lefthalf.filled' }
+        ]"
+        padding="0 21px"
+        size="small"
+        separator
+        gray-labels
+        :focus="false"
+      />
       <SegmentNav :index="currentIndex" @change="updateCurrentIndex" />
     </NavBarExtension>
     <div class="timeline-wrapper" v-if="currentIndex === 0">
