@@ -5,19 +5,21 @@
       class="typography-magical-headline pb-12"
     />
     <NavBarExtension>
-      <SegmentNavV2
-        :items="[
-          { id: 'light', label: 'Swisscom', icon: 'sun.max.fill' },
-          { id: 'dark', label: 'Persönlich', icon: 'moon.fill' },
-          { id: 'auto', label: 'Schule', icon: 'circle.lefthalf.filled' }
-        ]"
-        padding="0 21px"
-        size="small"
-        separator
-        gray-labels
-        :outer-padding="3"
-      />
-      <SegmentNav :index="currentIndex" @change="updateCurrentIndex" />
+      <div class="flex flex-col items-center gap-2">
+        <SegmentNavV2
+          :items="[
+            { id: 'light', label: 'Swisscom', icon: 'sun.max.fill' },
+            { id: 'dark', label: 'Persönlich', icon: 'moon.fill' },
+            { id: 'auto', label: 'Schule', icon: 'circle.lefthalf.filled' }
+          ]"
+          padding="0 21px"
+          size="small"
+          separator
+          gray-labels
+          :outer-padding="2"
+        />
+        <SegmentNav :index="currentIndex" @change="updateCurrentIndex" />
+      </div>
     </NavBarExtension>
     <div class="timeline-wrapper" v-if="currentIndex === 0">
       <TimeLine />

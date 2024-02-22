@@ -2,6 +2,7 @@
   <div
     ref="themeNavContainer"
     class="viewer-sizenav all-access-pass__background"
+    :class="{ shadow: shadow }"
     :style="containerStyle"
   >
     <div class="viewer-sizenav__bubble">
@@ -43,14 +44,7 @@
                 color: grayLabels
                   ? 'var(--color-fill-gray-secondary)'
                   : 'var(--aap-icon-color)',
-                'font-size':
-                  size === 'xsmall'
-                    ? '12px'
-                    : size === 'small'
-                    ? '14px'
-                    : size === 'medium'
-                    ? '16px'
-                    : '18px'
+                'font-size': `${fontSize}px`
               }"
             >
               <Icon
@@ -137,6 +131,16 @@ const height = computed(() => {
   return sizes[props.size || 'medium']
 })
 
+const fontSize = computed(() => {
+  const sizes: Record<string, number> = {
+    xsmall: 12,
+    small: 14,
+    medium: 16,
+    large: 18
+  }
+  return sizes[props.size || 'medium']
+})
+
 const containerStyle = computed(() => ({
   width: `fit-content`,
   '--sizenav-width': `${themeNavContainer.value?.offsetWidth}px`,
@@ -198,12 +202,14 @@ onMounted(updateBubblePosition)
   /* background-color: var(--aap-background-color); */
   background-color: var(--color-fill-tertiary);
   border-radius: 32px;
-  box-shadow: inset 0 0 1px var(--aap-inner-glow-color);
   color: var(--aap-text-color);
   display: flex;
   will-change: transform;
   z-index: 1;
   transition: linear var(--aap-background-transition-duration) background-color;
+}
+.all-access-pass__background.shadow {
+  box-shadow: inset 0 0 1px var(--aap-inner-glow-color);
 }
 .all-access-pass__background.viewer-sizenav {
   --sizenav-width: 0px;
