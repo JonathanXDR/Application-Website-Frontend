@@ -28,7 +28,8 @@
           :for="`viewer-sizenav-value-${item.id}`"
           class="viewer-sizenav-link"
           :style="{
-            'min-width': props.label !== 'icon' ? '48px' : `${height - 8}px`
+            'min-width':
+              props.label !== 'icon' ? '48px' : `${height - outerPadding * 2}px`
           }"
         >
           <span
@@ -74,22 +75,24 @@ const props = withDefaults(
     label?: 'icon' | 'text' | 'combination'
     focus?: boolean
     separator?: boolean
+    shadow?: boolean
     grayLabels?: boolean
     gap?: string
     padding?: string
-
-    outerPadding?: string
+    outerPadding?: number
   }>(),
   {
     size: 'medium',
     label: 'text',
     focus: true,
     separator: false,
+    shadow: false,
     grayLabels: false,
     gap: '0',
     padding: props => {
       return props.label !== 'icon' ? '0 8px' : '0'
-    }
+    },
+    outerPadding: 4
   }
 )
 
@@ -137,6 +140,7 @@ const height = computed(() => {
 const containerStyle = computed(() => ({
   width: `fit-content`,
   '--sizenav-width': `${themeNavContainer.value?.offsetWidth}px`,
+  '--sizenav-outer-padding': `${props?.outerPadding}px`,
   '--aap-min-height': `${height.value}px`
 }))
 
@@ -215,9 +219,12 @@ onMounted(updateBubblePosition)
 .viewer-sizenav {
   --bubble-position: 0;
   --bubble-scale: 0;
-  --bubble-width: calc(var(--aap-min-height) - 8px);
+  --bubble-width: calc(
+    var(--aap-min-height) - calc(var(--sizenav-outer-padding) * 2)
+  );
   --bubble-hint-position: 0;
   --sizenav-width: 0px;
+  --sizenav-outer-padding: 0px;
   --toggle-color: 0;
   --ltr: 1;
 
@@ -240,24 +247,28 @@ onMounted(updateBubblePosition)
     10;
   border-radius: 28px;
   box-sizing: border-box;
-  height: calc(100% - 8px);
-  left: 4px;
+  height: calc(100% - calc(var(--sizenav-outer-padding) * 2));
+  left: var(--sizenav-outer-padding);
   pointer-events: none;
   position: absolute;
-  top: 4px;
+  top: var(--sizenav-outer-padding);
   transform: translateX(
       calc(var(--bubble-hint-position) * 1px + var(--aap-offset) * 1px)
     )
     scaleY(calc(1 - var(--abs-calc) * 0.15));
   transform-origin: center center;
   transition: transform 200ms ease-out;
-  width: calc(100% - 8px);
+  width: calc(100% - calc(var(--sizenav-outer-padding) * 2));
 }
 .viewer-sizenav__bubble-inner {
-  height: calc(var(--aap-min-height) - 8px);
-  min-width: calc(var(--aap-min-height) - 8px);
+  height: calc(var(--aap-min-height) - calc(var(--sizenav-outer-padding) * 2));
+  min-width: calc(
+    var(--aap-min-height) - calc(var(--sizenav-outer-padding) * 2)
+  );
   opacity: 1;
-  transform: translateX(calc(var(--bubble-position) - 4px));
+  transform: translateX(
+    calc(var(--bubble-position) - var(--sizenav-outer-padding))
+  );
   transition: transform 400ms ease, width 400ms ease;
   width: var(--bubble-width);
   will-change: transform;
@@ -290,12 +301,12 @@ onMounted(updateBubblePosition)
   justify-content: center;
   list-style: none;
   margin-inline-start: 0;
-  padding: 0 3px;
+  padding: 0 calc(var(--sizenav-outer-padding) / 1.33333333333);
   pointer-events: auto;
 }
 .viewer-sizenav-item {
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-left: calc(var(--sizenav-outer-padding) / 2);
+  margin-right: calc(var(--sizenav-outer-padding) / 2);
 }
 .viewer-sizenav-link {
   align-items: center;
@@ -304,7 +315,7 @@ onMounted(updateBubblePosition)
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
-  height: calc(var(--aap-min-height) - 8px);
+  height: calc(var(--aap-min-height) - calc(var(--sizenav-outer-padding) * 2));
   justify-content: center;
   transition: background-color 0.25s ease, box-shadow 0.3s ease;
   width: auto;

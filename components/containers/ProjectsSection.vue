@@ -15,7 +15,7 @@
         size="small"
         separator
         gray-labels
-        :focus="false"
+        :outer-padding="3"
       />
       <SegmentNav :index="currentIndex" @change="updateCurrentIndex" />
     </NavBarExtension>
