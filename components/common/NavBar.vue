@@ -50,17 +50,17 @@
               </label>
             </div>
             <!-- <ColorSchemeToggle /> -->
-            <!-- <SegmentNavV2
+            <SegmentNavV2
               :items="[
                 { id: 'light', label: 'Light', icon: 'sun.max.fill' },
                 { id: 'dark', label: 'Dark', icon: 'moon.fill' },
                 { id: 'auto', label: 'Auto', icon: 'circle.lefthalf.filled' }
               ]"
-              gap="10px"
-              padding="0 50px"
+              gap="5px"
               size="xsmall"
-              separator
-            /> -->
+              :label="windowWidth < 900 ? 'icon' : 'combination'"
+              :separator="windowWidth < 900 ? false : true"
+            />
             <LanguagePickerDropdown />
           </div>
         </div>
@@ -81,6 +81,7 @@ const navDisabled: Ref<boolean> = ref(false)
 const { currentSection } = useSection()
 const { getTheme } = useTheme()
 const currentSectionIndex = computed(() => currentSection.value.index)
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 
 const headerAnimations = computed(() => {
   useAnimation().setHeaderAnimation({
