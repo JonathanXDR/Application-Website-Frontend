@@ -1,5 +1,8 @@
 <template>
-  <div class="language-picker-dropdown">
+  <div
+    class="language-picker-dropdown"
+    :style="{ 'font-size': `${fontSize}px` }"
+  >
     <div class="dropdown-container legacy-form">
       <select
         class="dropdown-select"
@@ -11,7 +14,7 @@
           :key="locale.code"
           :value="locale.code"
         >
-          {{ locale.name }}
+          {{ windowWidth < 900 ? locale.code : locale.name }}
         </option>
       </select>
       <Icon name="chevron.down" class="icon icon-small" />
@@ -20,15 +23,36 @@
 </template>
 
 <script setup lang="ts">
+const props = withDefaults(
+  defineProps<{
+    // items: { id: string; label: string; icon: string }[]
+    size?: 'xsmall' | 'small' | 'medium' | 'large'
+  }>(),
+  {
+    size: 'small'
+  }
+)
+
 const { changeLanguage } = useLanguage()
 const { locale, locales } = useI18n({ useScope: 'global' })
 const selectedLocale = ref(locale.value)
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 
 const computedLocales = computed(() =>
   locales.value.map(l => {
     return typeof l === 'string' ? { code: l, name: l } : l
   })
 )
+
+const fontSize = computed(() => {
+  const sizes: Record<string, number> = {
+    xsmall: 12,
+    small: 14,
+    medium: 16,
+    large: 18
+  }
+  return sizes[props.size || 'medium']
+})
 
 watch(locale, newLocale => {
   selectedLocale.value = newLocale
@@ -68,7 +92,6 @@ watch(locale, newLocale => {
 
 .language-picker-dropdown {
   display: inline-block;
-  font-size: 12px;
 }
 
 .language-picker-dropdown select {
