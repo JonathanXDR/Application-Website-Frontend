@@ -1,6 +1,6 @@
 <template>
   <div
-    ref="themeNavContainer"
+    ref="navContainer"
     class="viewer-sizenav all-access-pass__background"
     :class="{ shadow: shadow }"
     :style="containerStyle"
@@ -23,7 +23,7 @@
           class="viewer-sizenav-value"
           :class="focus ? 'focus' : ''"
           :value="item.id"
-          v-model="selectedTheme"
+          v-model="selectedItem"
         />
         <label
           :for="`viewer-sizenav-value-${item.id}`"
@@ -74,6 +74,8 @@ const props = withDefaults(
     gap?: string
     padding?: string
     outerPadding?: number
+    selectedItem?: string
+    onAction?: (id: string) => void
   }>(),
   {
     size: 'medium',
@@ -86,15 +88,16 @@ const props = withDefaults(
     padding: props => {
       return props.label !== 'icon' ? '0 8px' : '0'
     },
-    outerPadding: 4
+    outerPadding: 4,
+    selectedItem: '',
+    onAction: () => {}
   }
 )
 
-const { getTheme, setTheme } = useTheme()
-const selectedTheme = ref<string>(getTheme())
+const selectedItem = ref<string>(props.selectedItem)
 const isTransitioning = ref<boolean>(false)
 
-const themeNavContainer = ref<HTMLElement | null>(null)
+const navContainer = ref<HTMLElement | null>(null)
 const itemElements = ref<Array<HTMLElement>>([])
 let selectedItemElement = ref<HTMLElement | null>(null)
 
@@ -105,7 +108,7 @@ const setItemRef = (el: HTMLElement | null) => {
 const updateBubblePosition = () => {
   isTransitioning.value = true
   const selectedItemIndex = props.items.findIndex(
-    item => item.id === selectedTheme.value
+    item => item.id === selectedItem.value
   )
   selectedItemElement.value = itemElements.value[selectedItemIndex]
   if (selectedItemElement) {
@@ -143,17 +146,15 @@ const fontSize = computed(() => {
 
 const containerStyle = computed(() => ({
   width: `fit-content`,
-  '--sizenav-width': `${themeNavContainer.value?.offsetWidth}px`,
+  '--sizenav-width': `${navContainer.value?.offsetWidth}px`,
   '--sizenav-outer-padding': `${props?.outerPadding}px`,
   '--aap-min-height': `${height.value}px`
 }))
 
 watch(
-  selectedTheme,
-  newTheme => {
-    console.log(themeNavContainer.value?.offsetWidth)
-
-    setTheme(newTheme)
+  selectedItem,
+  newItem => {
+    props.onAction(newItem)
     updateBubblePosition()
   },
   { immediate: true }

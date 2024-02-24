@@ -60,6 +60,8 @@
               size="xsmall"
               :label="windowWidth < 900 ? 'icon' : 'combination'"
               :separator="windowWidth < 900 ? false : true"
+              :selectedItem="getTheme()"
+              :onAction="newTheme => setTheme(newTheme)"
             />
             <LanguagePickerDropdown />
           </div>
@@ -79,7 +81,7 @@ const navOpen: Ref<boolean> = ref(false)
 const navDisabled: Ref<boolean> = ref(false)
 
 const { currentSection } = useSection()
-const { getTheme } = useTheme()
+const { getTheme, setTheme } = useTheme()
 const currentSectionIndex = computed(() => currentSection.value.index)
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 
