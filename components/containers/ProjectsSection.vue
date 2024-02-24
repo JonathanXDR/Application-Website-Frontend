@@ -10,8 +10,8 @@
           :items="segmentNavItems"
           padding="0 21px"
           size="small"
-          :separator="true"
-          :grayLabels="true"
+          separator
+          grayLabels
           :outerPadding="2"
           :selectedItem="segmentNavItems[currentIndex]?.id"
           :onAction="
@@ -75,7 +75,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import type { ListUserReposResponse } from '~/types/GitHub/Repository'
 import type { CardItemType } from '~/types/common/CardItem'
 import type { ItemType } from '~/types/common/Option'
@@ -89,9 +89,7 @@ type Projects = {
   personal: ListUserReposResponse[]
   school: ListUserReposResponse[]
 }
-</script>
 
-<script setup lang="ts">
 defineProps<{
   title: string
 }>()
