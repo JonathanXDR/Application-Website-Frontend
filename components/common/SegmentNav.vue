@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import type { OptionType } from '~/types/common/Option'
+import type { ItemType } from '~/types/common/Option'
 
 const props = withDefaults(
   defineProps<{
@@ -46,10 +46,10 @@ const props = withDefaults(
 const emit = defineEmits(['change'])
 
 const { tm } = useI18n()
-const segmentNavItems: Ref<OptionType[]> = computed(() =>
+const segmentNavItems: Ref<ItemType[]> = computed(() =>
   tm('components.common.SegmentNav.items')
 )
-const sortOptions: Ref<OptionType[]> = computed(() =>
+const sortOptions: Ref<ItemType[]> = computed(() =>
   tm('components.common.SegmentNav.sorts')
 )
 const currentIndex: Ref<number> = ref(props.index)

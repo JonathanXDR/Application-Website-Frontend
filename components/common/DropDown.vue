@@ -20,11 +20,11 @@
 </template>
 
 <script setup lang="ts">
-import type { OptionType } from '~/types/common/Option'
+import type { ItemType } from '~/types/common/Option'
 
 withDefaults(
   defineProps<{
-    options: OptionType[]
+    options: ItemType[]
     label?: string
   }>(),
   {

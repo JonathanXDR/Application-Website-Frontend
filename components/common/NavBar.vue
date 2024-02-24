@@ -51,11 +51,7 @@
             </div>
             <!-- <ColorSchemeToggle /> -->
             <SegmentNavV2
-              :items="[
-                { id: 'light', label: 'Light', icon: 'sun.max.fill' },
-                { id: 'dark', label: 'Dark', icon: 'moon.fill' },
-                { id: 'auto', label: 'Auto', icon: 'circle.lefthalf.filled' }
-              ]"
+              :items="themeItems"
               gap="5px"
               size="xsmall"
               :label="windowWidth < 900 ? 'icon' : 'combination'"
@@ -73,6 +69,7 @@
 </template>
 
 <script setup lang="ts">
+import type { ItemType } from '~/types/common/Option'
 import { type SectionType } from '~/types/common/Section'
 
 const { tm } = useI18n()
@@ -84,6 +81,12 @@ const { currentSection } = useSection()
 const { getTheme, setTheme } = useTheme()
 const currentSectionIndex = computed(() => currentSection.value.index)
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
+
+const themeItems: Ref<ItemType[]> = computed(() => [
+  { id: 'light', label: 'Light', icon: { name: 'sun.max.fill' } },
+  { id: 'dark', label: 'Dark', icon: { name: 'moon.fill' } },
+  { id: 'auto', label: 'Auto', icon: { name: 'circle.lefthalf.filled' } }
+])
 
 const headerAnimations = computed(() => {
   useAnimation().setHeaderAnimation({

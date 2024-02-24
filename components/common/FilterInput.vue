@@ -81,13 +81,11 @@
 </template>
 
 <script setup lang="ts">
-import type { OptionType } from '~/types/common/Option'
+import type { ItemType } from '~/types/common/Option'
 
 const { tm } = useI18n()
-const items: Ref<OptionType[]> = ref(tm('components.common.FilterInput.items'))
-const options: Ref<OptionType[]> = ref(
-  tm('components.common.FilterInput.sorts')
-)
+const items: Ref<ItemType[]> = ref(tm('components.common.FilterInput.items'))
+const options: Ref<ItemType[]> = ref(tm('components.common.FilterInput.sorts'))
 const open: Ref<boolean> = ref(false)
 
 const onFocus = () => {

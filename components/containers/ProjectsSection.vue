@@ -7,16 +7,19 @@
     <NavBarExtension>
       <div class="flex flex-col items-center gap-2">
         <SegmentNavV2
-          :items="[
-            { id: 'light', label: 'Swisscom', icon: 'sun.max.fill' },
-            { id: 'dark', label: 'Persönlich', icon: 'moon.fill' },
-            { id: 'auto', label: 'Schule', icon: 'circle.lefthalf.filled' }
-          ]"
+          :items="segmentNavItems"
           padding="0 21px"
           size="small"
-          separator
-          gray-labels
-          :outer-padding="2"
+          :separator="true"
+          :grayLabels="true"
+          :outerPadding="2"
+          :selectedItem="segmentNavItems[currentIndex]?.id"
+          :onAction="
+            id =>
+              updateCurrentIndex(
+                segmentNavItems.findIndex(item => item.id === id)
+              )
+          "
         />
         <SegmentNav :index="currentIndex" @change="updateCurrentIndex" />
       </div>
@@ -75,6 +78,7 @@
 <script lang="ts">
 import type { ListUserReposResponse } from '~/types/GitHub/Repository'
 import type { CardItemType } from '~/types/common/CardItem'
+import type { ItemType } from '~/types/common/Option'
 
 type ListUserPinnedReposResponse = ListUserReposResponse & {
   icon?: CardItemType['icon']
@@ -109,6 +113,11 @@ const currentProjects = computed(
   () =>
     projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
 )
+const segmentNavItems: Ref<ItemType[]> = computed(() => [
+  { id: 'swisscom', label: 'Swisscom', icon: { name: 'sun.max.fill' } },
+  { id: 'personal', label: 'Persönlich', icon: { name: 'moon.fill' } },
+  { id: 'school', label: 'Schule', icon: { name: 'circle.lefthalf.filled' } }
+])
 
 const currentIndex: Ref<number> = ref(0)
 const randomColor = ref(colorStore.randomizeColor().colorName)

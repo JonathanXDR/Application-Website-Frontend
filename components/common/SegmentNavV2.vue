@@ -48,8 +48,8 @@
               }"
             >
               <Icon
-                v-if="label !== 'text'"
-                :name="item.icon"
+                v-if="item.icon && label !== 'text'"
+                :name="item.icon.name"
                 class="icon icon-large"
               />
               <div v-if="label !== 'icon'">{{ item.label }}</div>
@@ -62,9 +62,11 @@
 </template>
 
 <script setup lang="ts">
+import type { ItemType } from '~/types/common/Option'
+
 const props = withDefaults(
   defineProps<{
-    items: { id: string; label: string; icon: string }[]
+    items: ItemType[]
     size?: 'xsmall' | 'small' | 'medium' | 'large'
     label?: 'icon' | 'text' | 'combination'
     focus?: boolean
