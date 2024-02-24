@@ -14,10 +14,10 @@
           :key="locale.code"
           :value="locale.code"
         >
-          {{ windowWidth < 900 ? locale.code : locale.name }}
+          {{ windowWidth < 900 ? locale.code.toUpperCase() : locale.name }}
         </option>
       </select>
-      <Icon name="chevron.down" class="icon icon-small" />
+      <Icon name="chevron.down" :class="`icon icon-${size}`" />
     </div>
   </div>
 </template>
