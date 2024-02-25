@@ -12,7 +12,7 @@
           size="small"
           separator
           grayLabels
-          :outerPadding="2"
+          :outerPadding="3"
           :selectedItem="segmentNavItems[currentIndex]?.id"
           :onAction="
             id =>

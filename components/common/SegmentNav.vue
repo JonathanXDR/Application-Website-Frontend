@@ -103,7 +103,7 @@ onMounted(() => {
   background: var(--color-fill-tertiary);
   height: 40px;
   border-radius: 100px;
-  padding: 0.176em;
+  padding: 3px;
 }
 
 .segmentnav-item input[type='radio'] {

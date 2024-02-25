@@ -39,7 +39,7 @@
             <span
               class="viewer-sizenav-label"
               :style="{
-                width: `${selectedItemElement?.offsetWidth}px`,
+                // width: `${selectedItemElement?.offsetWidth}px`,
                 padding: padding,
                 color: grayLabels
                   ? 'var(--color-fill-gray-secondary)'
@@ -354,7 +354,7 @@ onMounted(updateBubblePosition)
   /* letter-spacing: -0.35px; */
   line-height: 21px;
   transition: color 200ms cubic-bezier(0.53, -0.01, 0.17, 1);
-  width: auto;
+  width: fit-content;
   gap: 5px;
 }
 .viewer-sizenav-value {
