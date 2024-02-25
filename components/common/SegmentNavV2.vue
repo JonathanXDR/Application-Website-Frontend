@@ -178,13 +178,14 @@ onMounted(updateBubblePosition)
   content: '';
   display: block;
   position: absolute;
-  left: -7px;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  bottom: 0;
+  left: -3.5px;
+  margin: auto;
   width: 3px;
   height: 3px;
-  border-radius: 100%;
-  background-color: var(--color-code-plain);
+  border-radius: 100px;
+  background: var(--color-code-plain);
   transition: transform 350ms;
 }
 .viewer-sizenav-item.separator:first-child {
@@ -196,7 +197,7 @@ onMounted(updateBubblePosition)
 .viewer-sizenav-item.separator:has(.viewer-sizenav-value:checked)
   + .viewer-sizenav-item.separator::before,
 .viewer-sizenav-item.separator:has(.viewer-sizenav-value:checked)::before {
-  transform: translate(-50%, -50%) scale(0);
+  transform: scale(0);
 }
 
 .all-access-pass__background {
