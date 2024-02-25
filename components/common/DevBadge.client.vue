@@ -17,8 +17,8 @@ const { colorBadge } = useColor()
 .dev-badge {
   font-size: 22.588px;
   line-height: 1.16667;
-  font-weight: 600; /*
-letter-spacing: 0.009em; */
+  font-weight: 600;
+  /* letter-spacing: 0.009em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   padding-left: 10px;

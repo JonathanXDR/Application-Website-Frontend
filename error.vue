@@ -783,7 +783,7 @@ html[dir='rtl'] .icon-copy {
   font-variant-numeric: tabular-nums;
   font-feature-settings: 'tnum';
   line-height: 1;
-  letter-spacing: -0.11px;
+  /* letter-spacing: -0.11px; */
   color: #fff;
 }
 
@@ -1107,7 +1107,7 @@ html[dir='rtl'] .icon-copy {
   font-size: 14px;
   line-height: 1.42859;
   font-weight: 400;
-  letter-spacing: -0.016em;
+  /* letter-spacing: -0.016em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   display: block;
@@ -1465,7 +1465,7 @@ body {
   font-size: 17px;
   line-height: 1.47059;
   font-weight: 400;
-  letter-spacing: -0.022em;
+  /* letter-spacing: -0.022em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   background-color: #fff;
@@ -1598,7 +1598,7 @@ li li {
 .link,
 a {
   color: #06c;
-  letter-spacing: inherit;
+  /* letter-spacing: inherit; */
 }
 
 .link:link,
@@ -3549,7 +3549,7 @@ body {
   font-size: 80px;
   line-height: 1.05;
   font-weight: 600;
-  letter-spacing: -0.015em;
+  /* letter-spacing: -0.015em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   padding-top: 50px;
@@ -3560,7 +3560,7 @@ body {
     font-size: 48px;
     line-height: 1.08349;
     font-weight: 600;
-    letter-spacing: -0.003em;
+    /* letter-spacing: -0.003em; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }
@@ -3571,7 +3571,7 @@ body {
     font-size: 64px;
     line-height: 1.0625;
     font-weight: 600;
-    letter-spacing: -0.009em;
+    /* letter-spacing: -0.009em; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }
@@ -3582,7 +3582,7 @@ body {
     font-size: 48px;
     line-height: 1.08349;
     font-weight: 600;
-    letter-spacing: -0.003em;
+    /* letter-spacing: -0.003em; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }
@@ -3593,7 +3593,7 @@ body {
     font-size: 40px;
     line-height: 1.1;
     font-weight: 600;
-    letter-spacing: 0;
+    /* letter-spacing: 0; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }
@@ -3603,7 +3603,7 @@ body {
   font-size: 17px;
   line-height: 1.47059;
   font-weight: 400;
-  letter-spacing: -0.022em;
+  /* letter-spacing: -0.022em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   font-weight: 500;
