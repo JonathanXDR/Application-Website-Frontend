@@ -310,13 +310,19 @@ onMounted(updateBubblePosition)
   justify-content: center;
   list-style: none;
   margin-inline-start: 0;
-  padding: 0 calc(var(--sizenav-outer-padding) / 1.33333333333);
+  /* padding: 0 calc(var(--sizenav-outer-padding) / 1.33333333333); */
   pointer-events: auto;
 }
-.viewer-sizenav-item {
+/* .viewer-sizenav-item {
   margin-left: calc(var(--sizenav-outer-padding) / 2);
   margin-right: calc(var(--sizenav-outer-padding) / 2);
+} */
+
+.viewer-sizenav-item {
+  margin-left: calc(var(--sizenav-outer-padding));
+  margin-right: calc(var(--sizenav-outer-padding));
 }
+
 .viewer-sizenav-link {
   align-items: center;
   background-color: rgba(0, 0, 0, 0);
