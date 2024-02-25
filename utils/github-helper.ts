@@ -1,12 +1,12 @@
 import { graphql, type GraphQlQueryResponseData } from '@octokit/graphql'
 import { Octokit } from 'octokit'
-import type { ListRepoIssuesResponse } from '~/types/GitHub/Issue'
+import type { ListRepoIssuesResponse } from '~/types/services/github/Issue'
 import type {
   GetRepoResponse,
   ListPublicReposResponse,
   ListUserReposResponse
-} from '~/types/GitHub/Repository'
-import type { ListRepoTagsResponse } from '~/types/GitHub/Tag'
+} from '~/types/services/github/Repository'
+import type { ListRepoTagsResponse } from '~/types/services/github/Tag'
 
 // const { githubToken } = useRuntimeConfig();
 const githubToken = import.meta.env.VITE_GITHUB_TOKEN

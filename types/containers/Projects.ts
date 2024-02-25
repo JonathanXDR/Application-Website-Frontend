@@ -1,5 +1,5 @@
-import type { CardItemType } from '../common/ExtendedProps'
+import type { ExtendedPropsType } from '../common/ExtendedProps'
 
-export interface Projects extends CardItemType {
-  projects: CardItemType[]
+export interface Projects extends ExtendedPropsType {
+  projects: ExtendedPropsType[]
 }

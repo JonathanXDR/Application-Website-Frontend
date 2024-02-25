@@ -1,6 +1,8 @@
+import type { SizeType } from './Size'
+
 export interface IconType {
   name: string
-  size?: 'small' | 'medium' | 'large'
+  size?: Omit<SizeType, 'xsmall' & 'xlarge'>
   colors?: {
     primary?: string
     secondary?: string

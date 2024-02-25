@@ -75,7 +75,7 @@
           ]
         }
       ],
-      "CardTile": {
+      "CardItem": {
         "firstEncounter": "Erstbegegnung",
         "enhanced": "Erweitert"
       },

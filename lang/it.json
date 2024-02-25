@@ -54,7 +54,7 @@
           }
         ]
       },
-      "CardTile": {
+      "CardItem": {
         "firstEncounter": "Primo incontro",
         "enhanced": "Esteso"
       },

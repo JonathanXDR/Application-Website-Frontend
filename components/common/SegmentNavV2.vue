@@ -63,11 +63,12 @@
 
 <script setup lang="ts">
 import type { ItemType } from '~/types/common/Item'
+import type { SizeType } from '~/types/common/Size'
 
 const props = withDefaults(
   defineProps<{
     items: ItemType[]
-    size?: 'xsmall' | 'small' | 'medium' | 'large'
+    size?: Omit<SizeType, 'xlarge'>
     label?: 'icon' | 'text' | 'combination'
     focus?: boolean
     separator?: boolean

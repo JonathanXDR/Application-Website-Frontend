@@ -5,10 +5,12 @@
 </template>
 
 <script setup lang="ts">
+import type { SizeType } from '~/types/common/Size'
+
 const props = withDefaults(
   defineProps<{
     name: string
-    size?: 'small' | 'medium' | 'large'
+    size?: Omit<SizeType, 'xsmall' & 'xlarge'>
     colors?: {
       primary?: string
       secondary?: string

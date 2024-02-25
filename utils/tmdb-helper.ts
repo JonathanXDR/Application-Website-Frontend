@@ -1,7 +1,7 @@
-import type { Credits } from '~/types/TMDB/Credits'
-import type { Media, MediaType } from '~/types/TMDB/Media'
-import type { PageResult } from '~/types/TMDB/PageResult'
-import type { Person } from '~/types/TMDB/Person'
+import type { Credits } from '~/types/services/tmdb/Credits'
+import type { Media, MediaType } from '~/types/services/tmdb/Media'
+import type { PageResult } from '~/types/services/tmdb/PageResult'
+import type { Person } from '~/types/services/tmdb/Person'
 
 // const apiBaseUrl = 'http://localhost:3001'
 const apiBaseUrl = 'https://movies-proxy.vercel.app'

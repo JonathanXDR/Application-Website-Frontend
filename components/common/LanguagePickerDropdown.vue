@@ -20,10 +20,12 @@
 </template>
 
 <script setup lang="ts">
+import type { SizeType } from '~/types/common/Size'
+
 const props = withDefaults(
   defineProps<{
     // items: { id: string; label: string; icon: string }[]
-    size?: 'xsmall' | 'small' | 'medium' | 'large'
+    size?: Omit<SizeType, 'xlarge'>
   }>(),
   {
     size: 'small'

@@ -1,4 +1,4 @@
-import type { ListRepoIssuesResponse } from '../GitHub/Issue'
+import type { ListRepoIssuesResponse } from '../services/github/Issue'
 import type { DateType } from './Date'
 
 export interface InfoType {

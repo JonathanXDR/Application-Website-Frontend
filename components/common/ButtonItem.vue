@@ -6,12 +6,13 @@
 
 <script setup lang="ts">
 import type { IconType } from '~/types/common/Icon'
+import type { SizeType } from '~/types/common/Size'
 
 withDefaults(
   defineProps<{
     as?: keyof HTMLElementTagNameMap
     variant?: 'primary' | 'secondary' | 'tertiary'
-    size?: 'small' | 'medium' | 'large'
+    size?: Omit<SizeType, 'xsmall' & 'xlarge'>
     borderRadius?: 'reduced' | 'full'
     label: string
     icon?: IconType

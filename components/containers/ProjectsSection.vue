@@ -248,4 +248,3 @@ onMounted(() => {
   }
 }
 </style>
-~/types/common/ExtendedProps
