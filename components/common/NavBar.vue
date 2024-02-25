@@ -50,7 +50,7 @@
               </label>
             </div>
             <!-- <ColorSchemeToggle /> -->
-            <SegmentNavV2
+            <SegmentNav
               :items="themeItems"
               gap="5px"
               size="xsmall"

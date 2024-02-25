@@ -6,7 +6,7 @@
     />
     <NavBarExtension>
       <div class="flex flex-col items-center gap-2">
-        <SegmentNavV2
+        <SegmentNav
           :items="segmentNavItems"
           padding="0 21px"
           size="small"
@@ -21,7 +21,6 @@
               )
           "
         />
-        <SegmentNav :index="currentIndex" @change="updateCurrentIndex" />
       </div>
     </NavBarExtension>
     <div class="timeline-wrapper" v-if="currentIndex === 0">
