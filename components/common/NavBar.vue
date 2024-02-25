@@ -54,7 +54,13 @@
               :items="themeItems"
               gap="5px"
               size="xsmall"
-              :label="windowWidth < 900 ? 'icon' : 'combination'"
+              :label="
+                windowWidth < 1250
+                  ? windowWidth < 900
+                    ? 'icon'
+                    : 'text'
+                  : 'combination'
+              "
               :separator="windowWidth < 900 ? false : true"
               :selectedItem="getTheme()"
               :onAction="newTheme => setTheme(newTheme)"
