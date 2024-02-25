@@ -49,7 +49,6 @@
                 <span class="ac-ln-menucta-chevron"></span>
               </label>
             </div>
-            <!-- <ColorSchemeToggle /> -->
             <SegmentNav
               :items="themeItems"
               gap="5px"
