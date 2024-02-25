@@ -29,7 +29,7 @@
           :for="`viewer-sizenav-value-${item.id}`"
           class="viewer-sizenav-link"
           :style="{
-            'min-width':
+            minWidth:
               props.label !== 'icon' ? '48px' : `${height - outerPadding * 2}px`
           }"
         >
@@ -44,7 +44,7 @@
                 color: grayLabels
                   ? 'var(--color-fill-gray-secondary)'
                   : 'var(--aap-icon-color)',
-                'font-size': `${fontSize}px`
+                fontSize: `${fontSize}px`
               }"
             >
               <Icon
@@ -62,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Option'
+import type { ItemType } from '~/types/common/Item'
 
 const props = withDefaults(
   defineProps<{

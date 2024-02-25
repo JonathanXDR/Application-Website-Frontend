@@ -789,3 +789,4 @@ onMounted(fetchTags)
   }
 }
 </style>
+~/types/common/ExtendedProps

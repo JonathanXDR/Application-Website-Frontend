@@ -1,4 +1,4 @@
-import type { CardItemType } from '../common/CardItem'
+import type { CardItemType } from '../common/ExtendedProps'
 import type { About } from './About'
 import type { CommonContainers } from './Common'
 import type { Languages } from './Languages'

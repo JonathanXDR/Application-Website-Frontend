@@ -21,6 +21,7 @@
 
     <CardItem
       variant="article"
+      :alignment="windowWidth < 1250 ? 'center' : 'start'"
       :size="
         windowWidth < 900 ? 'small' : windowWidth < 1250 ? 'medium' : 'large'
       "

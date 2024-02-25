@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="language-picker-dropdown"
-    :style="{ 'font-size': `${fontSize}px` }"
-  >
+  <div class="language-picker-dropdown" :style="{ fontSize: `${fontSize}px` }">
     <div class="dropdown-container legacy-form">
       <select
         class="dropdown-select"

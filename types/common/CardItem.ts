@@ -1,13 +1,17 @@
-import type { IconType } from './Icon'
-import type { InfoType } from './Info'
-import type { LinkType } from './Link'
+import type { ExtendedPropsType } from './ExtendedProps'
 
-export interface CardItemType {
-  icon?: IconType
-  eyebrow?: string
-  title: string
-  description?: string
-  tags?: string[]
-  links?: LinkType[]
-  info?: InfoType
+export interface CardItemType extends ExtendedPropsType {
+  variant?: 'card' | 'article'
+  size?: 'small' | 'medium' | 'large' | 'full'
+  alignment?: 'start' | 'center' | 'end'
+  hover?: 'auto' | 'true' | 'false'
+  cover?: string
+  graphs?: {
+    donut?: boolean
+    bar?: boolean
+  }
+  date?: {
+    formatOptions: Intl.DateTimeFormatOptions
+    nowKey: 'created' | 'updated'
+  }
 }

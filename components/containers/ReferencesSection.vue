@@ -29,3 +29,4 @@ const articles: Ref<CardItemType[]> = computed(() =>
 )
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 </script>
+~/types/common/ExtendedProps

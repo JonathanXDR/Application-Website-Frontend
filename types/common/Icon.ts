@@ -6,4 +6,6 @@ export interface IconType {
     secondary?: string
     tertiary?: string
   }
+  position?: 'top' | 'right' | 'bottom' | 'left'
+  alignment?: 'start' | 'center' | 'end'
 }

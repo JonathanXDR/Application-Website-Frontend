@@ -1,4 +1,4 @@
-import type { CardItemType } from './CardItem'
+import type { CardItemType } from './ExtendedProps'
 import type { RibbonBar } from './RibbonBar'
 import type { SectionType } from './Section'
 import type { ShareSheet } from './ShareSheet'

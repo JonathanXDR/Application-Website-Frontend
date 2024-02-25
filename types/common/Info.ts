@@ -12,7 +12,7 @@ export interface InfoType {
   networks?: number
   watchers?: number
   stars?: number
-  issues?: ListRepoIssuesResponse[]
+  issues?: ListRepoIssuesResponse[] | number
   subscribers?: number
   date?: DateType
 }

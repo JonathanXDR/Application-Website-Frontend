@@ -78,7 +78,7 @@
 <script lang="ts" setup>
 import type { ListUserReposResponse } from '~/types/GitHub/Repository'
 import type { CardItemType } from '~/types/common/CardItem'
-import type { ItemType } from '~/types/common/Option'
+import type { ItemType } from '~/types/common/Item'
 
 type ListUserPinnedReposResponse = ListUserReposResponse & {
   icon?: CardItemType['icon']
@@ -248,3 +248,4 @@ onMounted(() => {
   }
 }
 </style>
+~/types/common/ExtendedProps

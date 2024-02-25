@@ -58,3 +58,4 @@ const cards: Ref<CardItemType[]> = computed(() =>
   margin-top: 0.8em;
 }
 </style>
+~/types/common/ExtendedProps

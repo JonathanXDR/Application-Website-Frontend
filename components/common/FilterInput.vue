@@ -81,7 +81,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Option'
+import type { ItemType } from '~/types/common/Item'
 
 const { tm } = useI18n()
 const items: Ref<ItemType[]> = ref(tm('components.common.FilterInput.items'))
