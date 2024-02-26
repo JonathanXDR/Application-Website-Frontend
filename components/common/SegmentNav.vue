@@ -5,7 +5,7 @@
     :class="{ shadow: shadow }"
     :style="containerStyle"
   >
-    <div class="viewer-sizenav__bubble">
+    <div class="viewer-sizenav__bubble" v-if="selectedItemElement">
       <div class="viewer-sizenav__bubble-inner" :style="bubbleStyle"></div>
     </div>
     <ul class="viewer-sizenav-items" role="radiogroup" :style="{ gap: gap }">
@@ -39,7 +39,6 @@
             <span
               class="viewer-sizenav-label"
               :style="{
-                // width: `${selectedItemElement?.offsetWidth}px`,
                 padding: padding,
                 color: grayLabels
                   ? 'var(--color-fill-gray-secondary)'
@@ -101,7 +100,7 @@ const isTransitioning = ref<boolean>(false)
 
 const navContainer = ref<HTMLElement | null>(null)
 const itemElements = ref<Array<HTMLElement>>([])
-let selectedItemElement = ref<HTMLElement | null>(null)
+const selectedItemElement = ref<HTMLElement | null>(null)
 
 const setItemRef = (el: HTMLElement | null) => {
   if (el) itemElements.value.push(el)
@@ -163,6 +162,12 @@ watch(
 )
 
 onMounted(updateBubblePosition)
+
+useResizeObserver(navContainer, () => {
+  nextTick(() => {
+    updateBubblePosition()
+  })
+})
 </script>
 
 <style scoped>
