@@ -44,9 +44,7 @@ withDefaults(
   --sk-button-width: auto;
   --sk-button-display: inline-block;
   font-size: 14px;
-  line-height: 1.2857742857;
   font-weight: 400;
-  letter-spacing: -0.016em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   background: var(--color-code-plain);
@@ -83,9 +81,7 @@ withDefaults(
   text-align: center;
   white-space: nowrap;
   font-size: 17px;
-  line-height: 1.1764805882;
   font-weight: 400;
-  letter-spacing: -0.022em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   min-width: 28px;
@@ -130,9 +126,7 @@ withDefaults(
   --sk-button-margin-horizontal: 10px !important;
   --sk-button-margin-vertical: 10px !important;
   font-size: 12px !important;
-  line-height: 1.3333733333 !important;
   font-weight: 400 !important;
-  letter-spacing: -0.01em !important;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
@@ -154,9 +148,7 @@ withDefaults(
   white-space: nowrap;
   display: inline-block;
   font-size: 17px;
-  line-height: 1.4705882353;
   font-weight: 400;
-  letter-spacing: -0.022em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
@@ -182,7 +174,6 @@ withDefaults(
   cursor: default;
 }
 
-/*! CSS Used from: https://getsupport.apple.com/static/css/main.6e27f020.css */
 button {
   margin: 0;
   padding: 0;
@@ -194,7 +185,6 @@ button {
   color: inherit;
   cursor: pointer;
   font: inherit;
-  line-height: inherit;
   overflow: visible;
   vertical-align: inherit;
 }
@@ -213,16 +203,13 @@ button:focus {
   box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.6);
   outline: none;
 }
-/*! CSS Used from: https://getsupport.apple.com/static/css/SymptomsCategory.5b5b6591.chunk.css */
 .button {
   cursor: pointer;
   display: inline-block;
   text-align: center;
   white-space: nowrap;
   font-size: 17px;
-  line-height: 1.17648;
   font-weight: 400;
-  letter-spacing: -0.022em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   border-style: solid;
@@ -271,9 +258,7 @@ button:focus {
 }
 .large.button {
   font-size: 17px;
-  line-height: 1.17648;
   font-weight: 400;
-  letter-spacing: -0.022em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   border-style: solid;
@@ -338,7 +323,7 @@ button:focus {
     margin-top: 23px;
   }
 }
-/*! CSS Used from: https://getsupport.apple.com/static/css/main.6e27f020.css */
+
 button {
   margin: 0;
   padding: 0;
@@ -350,7 +335,6 @@ button {
   color: inherit;
   cursor: pointer;
   font: inherit;
-  line-height: inherit;
   overflow: visible;
   vertical-align: inherit;
 }
@@ -369,16 +353,14 @@ button:focus {
   box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.6);
   outline: none;
 }
-/*! CSS Used from: https://getsupport.apple.com/static/css/ActivityAndCaseLookup.0731d21e.chunk.css */
+
 .button {
   cursor: pointer;
   display: inline-block;
   text-align: center;
   white-space: nowrap;
   font-size: 17px;
-  line-height: 1.17648;
   font-weight: 400;
-  letter-spacing: -0.022em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   border-style: solid;
@@ -452,9 +434,7 @@ button:focus {
 }
 .button-elevated {
   font-size: 17px;
-  line-height: 1.17648;
   font-weight: 400;
-  letter-spacing: -0.022em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   border-style: solid;
@@ -523,9 +503,7 @@ button:focus {
   text-align: center;
   white-space: nowrap;
   font-size: 17px;
-  line-height: 1.17648;
   font-weight: 400;
-  letter-spacing: -0.022em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   border-style: solid;
@@ -599,9 +577,7 @@ button:focus {
 }
 .button-elevated {
   font-size: 17px;
-  line-height: 1.17648;
   font-weight: 400;
-  letter-spacing: -0.022em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   border-style: solid;

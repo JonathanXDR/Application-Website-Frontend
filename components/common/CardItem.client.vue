@@ -326,6 +326,7 @@ const iconClasses = computed(() => ({
 }
 
 .details {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -333,12 +334,21 @@ const iconClasses = computed(() => ({
   gap: 12px;
   z-index: 1;
   /* background-color: var(--color-fill); */
+}
+
+.xsmall .details {
   padding: 20px;
-  position: relative;
+
   font-size: 14px;
-  line-height: 1.2857742857;
   font-weight: 400;
-  /* letter-spacing: -0.016em; */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
+}
+
+.small .details {
+  padding: 22px;
+  font-size: 15px;
+  font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
@@ -347,9 +357,7 @@ const iconClasses = computed(() => ({
   gap: 24px;
   padding: 32px;
   font-size: 17px;
-  line-height: 1.4705882353;
   font-weight: 400;
-  /* letter-spacing: -0.022em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
@@ -357,18 +365,14 @@ const iconClasses = computed(() => ({
 .large .details {
   padding: 44px;
   font-size: 20px;
-  line-height: 1.6470588235;
   font-weight: 400;
-  /* letter-spacing: -0.028em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
 
 .full .details {
   font-size: 17px;
-  line-height: 1.4705882353;
   font-weight: 400;
-  /* letter-spacing: -0.022em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   width: 100%;
@@ -387,9 +391,7 @@ const iconClasses = computed(() => ({
 
 .full .details {
   font-size: 14px;
-  line-height: 1.2857742857;
   font-weight: 400;
-  /* letter-spacing: -0.016em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
@@ -416,37 +418,39 @@ const iconClasses = computed(() => ({
   color: var(--color-figure-gray-secondary);
   display: block;
   margin: 0;
+}
+
+.xsmall .eyebrow {
   font-size: 14px;
-  line-height: 1.2857742857;
   font-weight: 600;
-  /* letter-spacing: -0.016em; */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
+}
+
+.small .eyebrow {
+  font-size: 15px;
+  font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
 
 .medium .eyebrow {
   font-size: 17px;
-  line-height: 1.2353641176;
   font-weight: 600;
-  /* letter-spacing: -0.024em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
 
 .large .eyebrow {
   font-size: 20px;
-  line-height: 1.4705882353;
   font-weight: 600;
-  /* letter-spacing: -0.032em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
 
 .full .eyebrow {
   font-size: 17px;
-  line-height: 1.2353641176;
   font-weight: 600;
-  /* letter-spacing: -0.024em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   color: var(--color-welcome-featured-card-eyebrow-text);
@@ -461,32 +465,16 @@ const iconClasses = computed(() => ({
   gap: 10px;
 }
 
-.title {
-  color: var(--color-card-content-text);
-  font-size: 17px;
-  line-height: 1.2353641176;
-  font-weight: 600;
-  /* letter-spacing: -0.024em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
-}
-
-.title {
-  color: var(--color-card-content-text);
-  font-size: 17px;
-  line-height: 1.2353641176;
-  font-weight: 600;
-  /* letter-spacing: -0.024em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
-}
-
-.title {
+.xsmall .title {
   font-size: 14px;
-  /* 21.8581628569 */
-  line-height: 1.2857742857;
   font-weight: 600;
-  /* letter-spacing: -0.016em; */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
+}
+
+.small .title {
+  font-size: 17px;
+  font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
@@ -494,18 +482,14 @@ const iconClasses = computed(() => ({
 .medium .title {
   font-size: 21px;
   /* 20.2380952385px */
-  line-height: 1.1904761905;
   font-weight: 600;
-  /* letter-spacing: 0.011em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
 
 .large .title {
   font-size: 28px;
-  line-height: 1.0947058824;
   font-weight: 600;
-  /* letter-spacing: 0.032em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 
@@ -515,9 +499,7 @@ const iconClasses = computed(() => ({
 
 .full .title {
   font-size: 21px;
-  line-height: 1.1904761905;
   font-weight: 600;
-  /* letter-spacing: 0.011em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
@@ -607,9 +589,7 @@ const iconClasses = computed(() => ({
 
 .tile-category {
   font-size: 12px;
-  line-height: 1.33337;
   font-weight: 700;
-  /* letter-spacing: -0.01em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }

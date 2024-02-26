@@ -24,7 +24,6 @@ import type { SizeType } from '~/types/common/Size'
 
 const props = withDefaults(
   defineProps<{
-    // items: { id: string; label: string; icon: string }[]
     size?: Omit<SizeType, 'xlarge'>
   }>(),
   {
@@ -77,7 +76,6 @@ watch(locale, newLocale => {
 .dropdown-select {
   color: var(--color-figure-blue);
   font-weight: 600;
-  line-height: 1.333333;
   display: inline;
   direction: rtl;
   width: auto;
@@ -96,7 +94,6 @@ watch(locale, newLocale => {
 .language-picker-dropdown select {
   color: var(--color-figure-blue);
   font-weight: 600;
-  line-height: 1.333333;
   display: inline;
   direction: rtl;
   width: auto;
@@ -111,7 +108,6 @@ watch(locale, newLocale => {
 .dropdown-arrow {
   position: absolute;
   right: 0;
-  line-height: 1.3;
   pointer-events: none;
 }
 
@@ -124,7 +120,6 @@ watch(locale, newLocale => {
 .dropdown-container select {
   color: var(--color-figure-blue);
   font-weight: 600;
-  line-height: 1.333333;
   display: inline;
   direction: rtl;
   width: initial;

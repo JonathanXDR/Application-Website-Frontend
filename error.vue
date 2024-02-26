@@ -71,8 +71,7 @@ body {
   display: inline-block;
   font-style: normal;
   font-weight: inherit;
-  font-size: inherit;
-  line-height: 1;
+  font-size: inherit;  
   text-decoration: underline;
   position: relative;
   z-index: 1;
@@ -781,9 +780,7 @@ html[dir='rtl'] .icon-copy {
   font-weight: 600;
   font-size: 11px;
   font-variant-numeric: tabular-nums;
-  font-feature-settings: 'tnum';
-  line-height: 1;
-  letter-spacing: -0.11px;
+  font-feature-settings: 'tnum';  
   color: #fff;
 }
 
@@ -1104,10 +1101,8 @@ html[dir='rtl'] .icon-copy {
 }
 
 .rc-videoplayer-transcript-btn {
-  font-size: 14px;
-  line-height: 1.42859;
+  font-size: 14px;  
   font-weight: 400;
-  letter-spacing: -0.016em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   display: block;
@@ -1462,10 +1457,8 @@ html {
 }
 
 body {
-  font-size: 17px;
-  line-height: 1.47059;
+  font-size: 17px;  
   font-weight: 400;
-  letter-spacing: -0.022em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   background-color: #fff;
@@ -1598,7 +1591,6 @@ li li {
 .link,
 a {
   color: #06c;
-  letter-spacing: inherit;
 }
 
 .link:link,
@@ -3152,8 +3144,7 @@ a[role='button'] {
   display: inline-block;
   font-style: normal;
   font-weight: inherit;
-  font-size: inherit;
-  line-height: 1;
+  font-size: inherit;  
   text-decoration: underline;
   position: relative;
   z-index: 1;
@@ -3546,10 +3537,8 @@ body {
 }
 
 .rs-covers-heading {
-  font-size: 80px;
-  line-height: 1.05;
+  font-size: 80px;  
   font-weight: 600;
-  letter-spacing: -0.015em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   padding-top: 50px;
@@ -3557,10 +3546,8 @@ body {
 
 @media only screen and (max-width: 1068px) {
   .rs-covers-heading {
-    font-size: 48px;
-    line-height: 1.08349;
+    font-size: 48px;    
     font-weight: 600;
-    letter-spacing: -0.003em;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }
@@ -3568,10 +3555,8 @@ body {
 
 @media only screen and (max-width: 1068px) {
   .rs-covers-heading {
-    font-size: 64px;
-    line-height: 1.0625;
+    font-size: 64px;    
     font-weight: 600;
-    letter-spacing: -0.009em;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }
@@ -3579,10 +3564,8 @@ body {
 
 @media only screen and (max-width: 1068px) and (max-width: 1068px) {
   .rs-covers-heading {
-    font-size: 48px;
-    line-height: 1.08349;
+    font-size: 48px;    
     font-weight: 600;
-    letter-spacing: -0.003em;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }
@@ -3590,20 +3573,16 @@ body {
 
 @media only screen and (max-width: 1068px) and (max-width: 1068px) {
   .rs-covers-heading {
-    font-size: 40px;
-    line-height: 1.1;
+    font-size: 40px;    
     font-weight: 600;
-    letter-spacing: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }
 }
 
 .rs-covers-desc {
-  font-size: 17px;
-  line-height: 1.47059;
+  font-size: 17px;  
   font-weight: 400;
-  letter-spacing: -0.022em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   font-weight: 500;

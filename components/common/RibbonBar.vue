@@ -232,7 +232,6 @@ onMounted(fetchTags)
   font-style: normal;
   font-weight: inherit;
   font-size: inherit;
-  line-height: 1;
   text-decoration: underline;
   position: relative;
   z-index: 1;
@@ -305,7 +304,6 @@ onMounted(fetchTags)
   height: 90px;
   border-radius: 90px;
   font-size: 53px;
-  line-height: 90px;
 }
 .paddlenav .paddlenav-arrow-next,
 .paddlenav .paddlenav-arrow-previous {
@@ -320,7 +318,6 @@ onMounted(fetchTags)
   font-style: normal;
   font-weight: inherit;
   font-size: inherit;
-  line-height: 1;
   text-decoration: underline;
   position: relative;
   z-index: 1;
@@ -342,7 +339,6 @@ onMounted(fetchTags)
   font-style: normal;
   font-weight: inherit;
   font-size: inherit;
-  line-height: 1;
   text-decoration: underline;
   position: relative;
   z-index: 1;
@@ -382,7 +378,6 @@ onMounted(fetchTags)
     height: 52px;
     border-radius: 52px;
     font-size: 53px;
-    line-height: 52px;
   }
   .paddlenav .paddlenav-arrow-next,
   .paddlenav .paddlenav-arrow-previous {
@@ -397,7 +392,6 @@ onMounted(fetchTags)
     font-style: normal;
     font-weight: inherit;
     font-size: inherit;
-    line-height: 1;
     text-decoration: underline;
     position: relative;
     z-index: 1;
@@ -419,7 +413,6 @@ onMounted(fetchTags)
     font-style: normal;
     font-weight: inherit;
     font-size: inherit;
-    line-height: 1;
     text-decoration: underline;
     position: relative;
     z-index: 1;
@@ -439,7 +432,6 @@ onMounted(fetchTags)
   height: 52px;
   border-radius: 52px;
   font-size: 53px;
-  line-height: 52px;
 }
 .paddlenav-compact .paddlenav-arrow-next,
 .paddlenav-compact .paddlenav-arrow-previous {
@@ -454,7 +446,6 @@ onMounted(fetchTags)
   font-style: normal;
   font-weight: inherit;
   font-size: inherit;
-  line-height: 1;
   text-decoration: underline;
   position: relative;
   z-index: 1;
@@ -476,7 +467,6 @@ onMounted(fetchTags)
   font-style: normal;
   font-weight: inherit;
   font-size: inherit;
-  line-height: 1;
   text-decoration: underline;
   position: relative;
   z-index: 1;
@@ -527,9 +517,7 @@ onMounted(fetchTags)
 }
 .ribbon .ribbon-content {
   font-size: 14px;
-  line-height: 1.42859;
   font-weight: 400;
-  /* letter-spacing: -0.016em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
@@ -572,9 +560,7 @@ onMounted(fetchTags)
 }
 .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
   font-size: 24px;
-  line-height: 1.33341;
   font-weight: 400;
-  /* letter-spacing: 0.009em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   color: #86868b;
@@ -582,9 +568,7 @@ onMounted(fetchTags)
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
     font-size: 21px;
-    line-height: 1.381;
     font-weight: 400;
-    /* letter-spacing: 0.011em; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }

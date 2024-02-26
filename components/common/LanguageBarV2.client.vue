@@ -121,9 +121,7 @@ const status = [
 
 .rs-od-item .rs-od-iteminfo {
   font-size: 14px;
-  line-height: 1.42859;
   font-weight: 400;
-  letter-spacing: -0.016em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   margin: auto 0;
@@ -144,21 +142,16 @@ const status = [
   }
 }
 .rs-od-itemtitle {
-  line-height: 0.5;
 }
 .rs-od-itemshortname {
   font-size: 12px;
-  line-height: 1.33337;
   font-weight: 400;
-  letter-spacing: -0.01em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
 .rs-od-itemstatus {
   font-size: 32px;
-  line-height: 1.125;
   font-weight: 600;
-  letter-spacing: 0.004em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   display: block;
@@ -167,9 +160,7 @@ const status = [
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rs-od-itemstatus {
     font-size: 28px;
-    line-height: 1.14286;
     font-weight: 600;
-    letter-spacing: 0.007em;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }
@@ -177,9 +168,7 @@ const status = [
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rs-od-itemstatus {
     font-size: 24px;
-    line-height: 1.16667;
     font-weight: 600;
-    letter-spacing: 0.009em;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }
@@ -199,9 +188,7 @@ const status = [
 }
 .rs-od-itemdesc-wrapper .rs-od-itemdesc {
   font-size: 17px;
-  line-height: 1.47059;
   font-weight: 400;
-  letter-spacing: -0.022em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
@@ -234,9 +221,7 @@ const status = [
 }
 .rs-tracker .rs-tracker-status {
   font-size: 12px;
-  line-height: 1.33337;
   font-weight: 400;
-  letter-spacing: -0.01em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   color: var(--color-figure-gray-secondary);
@@ -277,9 +262,7 @@ const status = [
 }
 .rs-od-delivery-actions {
   font-size: 17px;
-  line-height: 1.47059;
   font-weight: 400;
-  letter-spacing: -0.022em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   display: flex;

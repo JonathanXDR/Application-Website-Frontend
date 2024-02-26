@@ -6,13 +6,13 @@
     />
     <NavBarExtension>
       <div class="flex flex-col items-center gap-2">
-        <SegmentNavV2
+        <SegmentNav
           :items="segmentNavItems"
           padding="0 21px"
           size="small"
           separator
           grayLabels
-          :outerPadding="2"
+          :outerPadding="3"
           :selectedItem="segmentNavItems[currentIndex]?.id"
           :onAction="
             id =>
@@ -21,7 +21,6 @@
               )
           "
         />
-        <SegmentNav :index="currentIndex" @change="updateCurrentIndex" />
       </div>
     </NavBarExtension>
     <div class="timeline-wrapper" v-if="currentIndex === 0">
@@ -112,9 +111,30 @@ const currentProjects = computed(
     projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
 )
 const segmentNavItems: Ref<ItemType[]> = computed(() => [
-  { id: 'swisscom', label: 'Swisscom', icon: { name: 'sun.max.fill' } },
-  { id: 'personal', label: 'Persönlich', icon: { name: 'moon.fill' } },
-  { id: 'school', label: 'Schule', icon: { name: 'circle.lefthalf.filled' } }
+  {
+    id: 'swisscom',
+    category: 'projects',
+    label: 'Swisscom',
+    icon: {
+      name: 'sun.max.fill'
+    }
+  },
+  {
+    id: 'personal',
+    category: 'projects',
+    label: 'Persönlich',
+    icon: {
+      name: 'moon.fill'
+    }
+  },
+  {
+    id: 'school',
+    category: 'projects',
+    label: 'Schule',
+    icon: {
+      name: 'circle.lefthalf.filled'
+    }
+  }
 ])
 
 const currentIndex: Ref<number> = ref(0)

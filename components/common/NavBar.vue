@@ -49,13 +49,17 @@
                 <span class="ac-ln-menucta-chevron"></span>
               </label>
             </div>
-            <!-- <ColorSchemeToggle /> -->
-            <SegmentNavV2
+            <SegmentNav
               :items="themeItems"
               gap="5px"
               size="xsmall"
-              :label="windowWidth < 900 ? 'icon' : 'combination'"
-              :separator="windowWidth < 900 ? false : true"
+              :label="
+                windowWidth < 1250
+                  ? windowWidth < 900
+                    ? 'icon'
+                    : 'text'
+                  : 'combination'
+              "
               :selectedItem="getTheme()"
               :onAction="newTheme => setTheme(newTheme)"
             />
@@ -81,22 +85,44 @@ const { currentSection } = useSection()
 const { getTheme, setTheme } = useTheme()
 const currentSectionIndex = computed(() => currentSection.value.index)
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
+const { headerAnimations } = useAnimation()
 
 const themeItems: Ref<ItemType[]> = computed(() => [
-  { id: 'light', label: 'Light', icon: { name: 'sun.max.fill' } },
-  { id: 'dark', label: 'Dark', icon: { name: 'moon.fill' } },
-  { id: 'auto', label: 'Auto', icon: { name: 'circle.lefthalf.filled' } }
+  {
+    id: 'light',
+    category: 'theme',
+    label: 'Light',
+    icon: {
+      name: 'sun.max.fill'
+    }
+  },
+  {
+    id: 'dark',
+    category: 'theme',
+    label: 'Dark',
+    icon: {
+      name: 'moon.fill'
+    }
+  },
+  {
+    id: 'auto',
+    category: 'theme',
+    label: 'Auto',
+    icon: {
+      name: 'circle.lefthalf.filled'
+    }
+  }
 ])
 
-const headerAnimations = computed(() => {
-  useAnimation().setHeaderAnimation({
+const initHeaderAnimations = () => {
+  const animation = {
     element: document.querySelector('.ac-ln-background') as HTMLElement,
     class: 'ac-ln-background-transition',
     timeout: 500
-  })
-
-  return useAnimation().headerAnimations
-})
+  }
+  const { setHeaderAnimation } = useAnimation()
+  setHeaderAnimation(animation)
+}
 
 const toggleNav = () => {
   navOpen.value = !navOpen.value
@@ -117,7 +143,7 @@ const handleScroll = () => {
 }
 
 const updateAnimations = () => {
-  headerAnimations.value.value.forEach(element => {
+  headerAnimations.value.forEach(element => {
     element.element.classList.remove(element.class)
 
     setTimeout(() => {
@@ -127,6 +153,7 @@ const updateAnimations = () => {
 }
 
 onMounted(() => {
+  initHeaderAnimations()
   window.addEventListener('scroll', handleScroll)
 
   watch(getTheme, (newTheme, oldTheme) => {
@@ -349,9 +376,7 @@ onMounted(() => {
 .ac-ln-menu {
   height: 100%;
   font-size: 14px;
-  line-height: 1;
   font-weight: 600;
-  /* letter-spacing: -0.02em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   float: right;
@@ -522,7 +547,6 @@ onMounted(() => {
 
 .ac-ln-menu-link {
   display: inline-block;
-  line-height: 22px;
   white-space: nowrap;
   opacity: 0.92;
 }
@@ -539,7 +563,6 @@ onMounted(() => {
     display: flex;
     align-items: center;
     height: 100%;
-    line-height: 1.3;
     opacity: 0;
     transform: translate3d(0, -25px, 0);
     transition: 0.5s ease;
@@ -705,91 +728,5 @@ a:disabled {
     width: 100% !important;
     height: 100% !important;
   }
-}
-
-/* ------------------------------ Theme Button ------------------------------ */
-
-.theme-button {
-  min-width: 145px;
-  min-height: 74px;
-  border-radius: 40px;
-  transform: scale(0.3);
-  border: solid var(--color-menu-border);
-  border-width: 3px;
-  box-sizing: content-box;
-  margin: -26px -52px;
-}
-
-.btn-input {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0;
-  cursor: pointer;
-  opacity: 0;
-  z-index: 2;
-}
-
-input[type='checkbox']#active {
-  width: 0;
-  height: 0;
-}
-
-.theme-button span {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-  opacity: 1;
-  background: #fff;
-  border-radius: 40px;
-  transition: 0.2s ease background, 0.2s ease opacity;
-}
-
-.theme-button span:after,
-.theme-button span:before {
-  content: '';
-  position: absolute;
-  top: 8px;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  transition: 0.5s ease transform, 0.2s ease background;
-}
-
-.theme-button span:before {
-  background: #fff;
-  transform: translate(-58px, 0);
-  z-index: 1;
-}
-
-.theme-button span:after {
-  background: #000;
-  transform: translate(8px, 0);
-  z-index: 0;
-}
-
-.theme-button input[type='checkbox']:checked + span {
-  background: #000;
-}
-
-.theme-button input[type='checkbox']:active + span {
-  opacity: 0.5;
-}
-
-.theme-button input[type='checkbox']:checked + span:before {
-  background: #000;
-  transform: translate(56px, -19px);
-}
-
-.theme-button input[type='checkbox']:checked + span:after {
-  background: #fff;
-  transform: translate(79px, 0);
 }
 </style>

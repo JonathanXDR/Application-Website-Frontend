@@ -273,9 +273,7 @@ const onBlur = () => {
 
 .filter-input {
   font-size: 21px;
-  line-height: 1.381002381;
   font-weight: 400;
-  /* letter-spacing: 0.011em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   color: var(--color-text);
@@ -291,9 +289,7 @@ const onBlur = () => {
 @media only screen and (max-width: 735px) {
   .filter-input {
     font-size: 19px;
-    line-height: 1.4211026316;
     font-weight: 400;
-    /* letter-spacing: 0.012em; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }

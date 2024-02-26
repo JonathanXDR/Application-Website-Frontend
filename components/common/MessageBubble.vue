@@ -44,7 +44,6 @@ withDefaults(
 </script>
 
 <style scoped>
-/*! CSS Used from: https://www.apple.com/api-www/global-elements/global-header/v1/assets/globalheader.css */
 .visuallyhidden {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
@@ -55,7 +54,7 @@ withDefaults(
   padding: 0;
   border: 0;
 }
-/*! CSS Used from: https://www.apple.com/v/icloud/af/built/styles/main.built.css */
+
 p {
   margin: 0;
   padding: 0;
@@ -92,18 +91,14 @@ br.small {
 }
 .typography-imessage-text {
   font-size: 49px;
-  line-height: 1.2448979592;
   font-weight: 400;
-  letter-spacing: 0.013em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
 @media only screen and (max-width: 1068px) {
   .typography-imessage-text {
     font-size: 34px;
-    line-height: 1.1176470588;
     font-weight: 400;
-    letter-spacing: 0.013em;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }
@@ -111,14 +106,12 @@ br.small {
 @media only screen and (max-width: 734px) {
   .typography-imessage-text {
     font-size: 19px;
-    line-height: 1.1053231579;
     font-weight: 400;
-    letter-spacing: 0.013em;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }
 }
-/*! CSS Used from: https://www.apple.com/v/icloud/af/built/styles/overview.built.css */
+
 .awy-messages p {
   color: #6e6e73;
 }
@@ -420,7 +413,7 @@ br.small {
     --p-height: 82px;
   }
 }
-/*! CSS Used keyframes */
+
 @keyframes message-item-exit {
   0% {
     transform: translateX(0);

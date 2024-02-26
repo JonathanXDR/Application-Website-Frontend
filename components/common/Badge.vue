@@ -30,9 +30,7 @@ withDefaults(
   display: flex;
   align-items: center;
   font-size: 11px;
-  line-height: 1.3333733333;
   font-weight: 400;
-  letter-spacing: -0.01em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   padding-inline: 10px;

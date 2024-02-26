@@ -5,7 +5,7 @@
     :class="{ shadow: shadow }"
     :style="containerStyle"
   >
-    <div class="viewer-sizenav__bubble">
+    <div class="viewer-sizenav__bubble" v-if="selectedItemElement">
       <div class="viewer-sizenav__bubble-inner" :style="bubbleStyle"></div>
     </div>
     <ul class="viewer-sizenav-items" role="radiogroup" :style="{ gap: gap }">
@@ -19,7 +19,7 @@
         <input
           :id="`viewer-sizenav-value-${item.id}`"
           type="radio"
-          name="viewer-sizenav-value"
+          :name="`viewer-sizenav-value-${item.category}`"
           class="viewer-sizenav-value"
           :class="focus ? 'focus' : ''"
           :value="item.id"
@@ -39,7 +39,6 @@
             <span
               class="viewer-sizenav-label"
               :style="{
-                width: `${selectedItemElement?.offsetWidth}px`,
                 padding: padding,
                 color: grayLabels
                   ? 'var(--color-fill-gray-secondary)'
@@ -102,7 +101,7 @@ const isTransitioning = ref<boolean>(false)
 
 const navContainer = ref<HTMLElement | null>(null)
 const itemElements = ref<Array<HTMLElement>>([])
-let selectedItemElement = ref<HTMLElement | null>(null)
+const selectedItemElement = ref<HTMLElement | null>(null)
 
 const setItemRef = (el: HTMLElement | null) => {
   if (el) itemElements.value.push(el)
@@ -164,6 +163,12 @@ watch(
 )
 
 onMounted(updateBubblePosition)
+
+useResizeObserver(navContainer, () => {
+  nextTick(() => {
+    updateBubblePosition()
+  })
+})
 </script>
 
 <style scoped>
@@ -179,13 +184,14 @@ onMounted(updateBubblePosition)
   content: '';
   display: block;
   position: absolute;
-  left: -7px;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  bottom: 0;
+  left: -3.5px;
+  margin: auto;
   width: 3px;
   height: 3px;
-  border-radius: 100%;
-  background-color: var(--color-code-plain);
+  border-radius: 100px;
+  background: var(--color-code-plain);
   transition: transform 350ms;
 }
 .viewer-sizenav-item.separator:first-child {
@@ -197,7 +203,7 @@ onMounted(updateBubblePosition)
 .viewer-sizenav-item.separator:has(.viewer-sizenav-value:checked)
   + .viewer-sizenav-item.separator::before,
 .viewer-sizenav-item.separator:has(.viewer-sizenav-value:checked)::before {
-  transform: translate(-50%, -50%) scale(0);
+  transform: scale(0);
 }
 
 .all-access-pass__background {
@@ -318,6 +324,7 @@ onMounted(updateBubblePosition)
   margin-left: calc(var(--sizenav-outer-padding) / 2);
   margin-right: calc(var(--sizenav-outer-padding) / 2);
 }
+
 .viewer-sizenav-link {
   align-items: center;
   background-color: rgba(0, 0, 0, 0);
@@ -346,10 +353,8 @@ onMounted(updateBubblePosition)
   font-weight: 600;
   height: 100%;
   justify-content: center;
-  letter-spacing: -0.35px;
-  line-height: 21px;
   transition: color 200ms cubic-bezier(0.53, -0.01, 0.17, 1);
-  width: auto;
+  width: fit-content;
   gap: 5px;
 }
 .viewer-sizenav-value {
