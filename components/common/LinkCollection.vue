@@ -1,20 +1,12 @@
 <template>
   <NuxtLink class="links">
     <component
-      :is="
-        link.url.startsWith('#') || link.url.startsWith('/') ? 'NuxtLink' : 'a'
-      "
-      v-for="(link, index) in links"
+      :is="getLinkComponentType(link)"
+      v-for="(link, index) in enhancedLinks"
       :key="index"
-      :to="(link.url.startsWith('#') || link.url.startsWith('/')) && link.url"
-      :href="
-        !(link.url.startsWith('#') || link.url.startsWith('/')) && link.url
-      "
-      :target="
-        link.url.startsWith('#') || link.url.startsWith('/')
-          ? '_self'
-          : '_blank'
-      "
+      :to="link.to"
+      :href="link.href"
+      :target="link.target"
       :class="['link', { 'animate-color': shouldAnimate }]"
     >
       {{ link.title }}
@@ -38,6 +30,24 @@ const props = defineProps({
 })
 
 const { links } = toRefs(props)
+
+const getLinkComponentType = (link: LinkType) => {
+  return link.url.startsWith('#') || link.url.startsWith('/')
+    ? 'router-link'
+    : 'a'
+}
+
+const enhancedLinks = computed(() => {
+  return links?.value?.map(link => ({
+    ...link,
+    to: link.url.startsWith('#') || link.url.startsWith('/') ? link.url : null,
+    href: !(link.url.startsWith('#') || link.url.startsWith('/'))
+      ? link.url
+      : null,
+    target:
+      link.url.startsWith('#') || link.url.startsWith('/') ? '_self' : '_blank'
+  }))
+})
 </script>
 
 <style scoped>
