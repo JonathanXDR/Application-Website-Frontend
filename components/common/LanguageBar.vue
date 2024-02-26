@@ -116,14 +116,12 @@ br.small {
 }
 .badge .badge-value {
   font-size: 48px;
-  line-height: 1;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
 .badge .badge-caption {
   font-size: 14px;
-  line-height: 1.2857742857;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -152,7 +150,6 @@ sup.footnote-number {
 }
 .item-container .disclaimer {
   font-size: 28px;
-  line-height: 1.1428571429;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -160,7 +157,6 @@ sup.footnote-number {
 @media only screen and (max-width: 1068px) {
   .item-container .disclaimer {
     font-size: 21px;
-    line-height: 1.1904761905;
     font-weight: 600;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
@@ -232,7 +228,6 @@ sup.footnote-number {
 }
 .item-container .gallery-item .bars-container .bar-caption {
   font-size: 17px;
-  line-height: 1.2353641176;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -268,7 +263,6 @@ sup.footnote-number {
 .item-container .gallery-item .bars-container .badge-unit,
 .item-container .gallery-item .bars-container .badge-value {
   font-size: 48px;
-  line-height: 1.0834933333;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -278,7 +272,6 @@ sup.footnote-number {
   .item-container .gallery-item .bars-container .badge-unit,
   .item-container .gallery-item .bars-container .badge-value {
     font-size: 28px;
-    line-height: 1.1428571429;
     font-weight: 600;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
@@ -358,7 +351,6 @@ hr {
 .item-container .bars-container .badge-unit,
 .item-container .bars-container .badge-value {
   font-size: 56px !important;
-  line-height: 1.0714285714 !important;
   font-weight: 600 !important;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -367,7 +359,6 @@ hr {
   .item-container .bars-container .badge-unit,
   .item-container .bars-container .badge-value {
     font-size: 48px !important;
-    line-height: 1.0834933333 !important;
     font-weight: 600 !important;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
@@ -377,7 +368,6 @@ hr {
   .item-container .bars-container .badge-unit,
   .item-container .bars-container .badge-value {
     font-size: 28px !important;
-    line-height: 1.1428571429 !important;
     font-weight: 600 !important;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;

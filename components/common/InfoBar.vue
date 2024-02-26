@@ -130,7 +130,6 @@ const dateTitle = getDate()
 .info {
   margin-top: 12px;
   font-size: 12px;
-  line-height: 1.28577;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;

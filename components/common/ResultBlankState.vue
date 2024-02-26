@@ -7,7 +7,6 @@
 <style scoped>
 .no-results {
   font-size: 21px;
-  line-height: 1.381002381;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -23,7 +22,6 @@
 @media only screen and (max-width: 735px) {
   .no-results {
     font-size: 19px;
-    line-height: 1.4211026316;
     font-weight: 400;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;

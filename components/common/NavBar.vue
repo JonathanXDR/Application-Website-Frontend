@@ -376,7 +376,6 @@ onMounted(() => {
 .ac-ln-menu {
   height: 100%;
   font-size: 14px;
-  line-height: 1;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -548,7 +547,6 @@ onMounted(() => {
 
 .ac-ln-menu-link {
   display: inline-block;
-  line-height: 22px;
   white-space: nowrap;
   opacity: 0.92;
 }
@@ -565,7 +563,6 @@ onMounted(() => {
     display: flex;
     align-items: center;
     height: 100%;
-    line-height: 1.3;
     opacity: 0;
     transform: translate3d(0, -25px, 0);
     transition: 0.5s ease;

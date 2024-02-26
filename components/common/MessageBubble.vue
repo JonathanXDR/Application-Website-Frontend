@@ -92,7 +92,6 @@ br.small {
 }
 .typography-imessage-text {
   font-size: 49px;
-  line-height: 1.2448979592;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -100,7 +99,6 @@ br.small {
 @media only screen and (max-width: 1068px) {
   .typography-imessage-text {
     font-size: 34px;
-    line-height: 1.1176470588;
     font-weight: 400;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
@@ -109,7 +107,6 @@ br.small {
 @media only screen and (max-width: 734px) {
   .typography-imessage-text {
     font-size: 19px;
-    line-height: 1.1053231579;
     font-weight: 400;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;

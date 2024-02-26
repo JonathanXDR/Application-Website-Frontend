@@ -357,7 +357,6 @@ useResizeObserver(navContainer, () => {
   font-weight: 600;
   height: 100%;
   justify-content: center;
-  line-height: 21px;
   transition: color 200ms cubic-bezier(0.53, -0.01, 0.17, 1);
   width: fit-content;
   gap: 5px;
