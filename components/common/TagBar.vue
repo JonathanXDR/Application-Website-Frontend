@@ -35,7 +35,6 @@ withDefaults(
   font-size: 14px;
   line-height: 1.2857742857;
   font-weight: 400;
-  /* letter-spacing: -0.016em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   border-radius: 14px;

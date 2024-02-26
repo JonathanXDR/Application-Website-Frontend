@@ -149,7 +149,6 @@ const randomColor = ref(colorStore.randomizeColor().colorVar)
   font-size: 14px;
   line-height: 1.4285914286;
   font-weight: 400;
-  /* letter-spacing: -0.016em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   color: var(--color-figure-gray-secondary);
