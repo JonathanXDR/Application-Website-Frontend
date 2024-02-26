@@ -173,7 +173,6 @@ withDefaults(
   cursor: default;
 }
 
-/*! CSS Used from: https://getsupport.apple.com/static/css/main.6e27f020.css */
 button {
   margin: 0;
   padding: 0;
@@ -203,7 +202,6 @@ button:focus {
   box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.6);
   outline: none;
 }
-/*! CSS Used from: https://getsupport.apple.com/static/css/SymptomsCategory.5b5b6591.chunk.css */
 .button {
   cursor: pointer;
   display: inline-block;
@@ -324,7 +322,7 @@ button:focus {
     margin-top: 23px;
   }
 }
-/*! CSS Used from: https://getsupport.apple.com/static/css/main.6e27f020.css */
+
 button {
   margin: 0;
   padding: 0;
@@ -354,7 +352,7 @@ button:focus {
   box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.6);
   outline: none;
 }
-/*! CSS Used from: https://getsupport.apple.com/static/css/ActivityAndCaseLookup.0731d21e.chunk.css */
+
 .button {
   cursor: pointer;
   display: inline-block;

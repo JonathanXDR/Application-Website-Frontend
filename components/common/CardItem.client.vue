@@ -383,6 +383,7 @@ const getAlignItems = () => {
 }
 
 .details {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -394,7 +395,7 @@ const getAlignItems = () => {
 
 .xsmall .details {
   padding: 20px;
-  position: relative;
+
   font-size: 14px;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
@@ -402,7 +403,7 @@ const getAlignItems = () => {
 }
 
 .small .details {
-  padding: 24px;
+  padding: 22px;
   font-size: 15px;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
@@ -523,7 +524,6 @@ const getAlignItems = () => {
 
 .xsmall .title {
   font-size: 14px;
-  /* 21.8581628569 */
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
