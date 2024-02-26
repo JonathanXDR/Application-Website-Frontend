@@ -1,6 +1,7 @@
 <template>
   <span class="badge" :style="`--color-figure: var(--color-figure-${color})`">
     <Icon
+      class="icon icon-medium mr-1"
       v-if="icon"
       :name="icon.name"
       :size="icon.size"

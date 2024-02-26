@@ -1,15 +1,17 @@
 <template>
   <h2>{{ title }}</h2>
 
-  <CardItem
-    v-for="(language, index) in languages"
-    :key="index"
-    :card="language"
-    iconAlignment="center"
-    :badge="language.badge"
-  >
-    <LanguageBarV2 :key="index" :language="language" style="width: 100%" />
-  </CardItem>
+  <ul class="cardItemList">
+    <CardItem
+      v-for="(language, index) in languages"
+      :key="index"
+      :card="language"
+      iconAlignment="center"
+      :badge="language.badge"
+    >
+      <LanguageBarV2 :key="index" :language="language" style="width: 100%" />
+    </CardItem>
+  </ul>
 
   <!-- <div class="graph-gallery-container">
     <ul class="tabnav-items">
@@ -43,3 +45,14 @@ const languages: Ref<LanguageBarType[]> = computed(() =>
   tm('components.containers.languages')
 )
 </script>
+
+<style scoped>
+.cardItemList {
+  margin-top: 3em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* gap: 24px; */
+  gap: 24px;
+}
+</style>

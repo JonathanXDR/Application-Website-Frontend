@@ -262,7 +262,10 @@
           },
           "badge": {
             "title": "Certified",
-            "color": "orange"
+            "color": "orange",
+            "icon": {
+              "name": "plus.circle"
+            }
           },
           "links": [
             {
