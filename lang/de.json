@@ -270,24 +270,15 @@
           "links": [
             {
               "title": "B1 Preliminary",
-              "url": "https://www.cambridgeenglish.org/de/exams-and-tests/preliminary",
-              "icon": {
-                "name": "scroll"
-              }
+              "url": "https://www.cambridgeenglish.org/de/exams-and-tests/preliminary"
             },
             {
               "title": "B2 First",
-              "url": "https://www.cambridgeenglish.org/de/exams-and-tests/first",
-              "icon": {
-                "name": "scroll"
-              }
+              "url": "https://www.cambridgeenglish.org/de/exams-and-tests/first"
             },
             {
               "title": "C1 Advanced",
-              "url": "https://www.cambridgeenglish.org/de/exams-and-tests/advanced",
-              "icon": {
-                "name": "scroll"
-              }
+              "url": "https://www.cambridgeenglish.org/de/exams-and-tests/advanced"
             }
           ]
         },
