@@ -8,9 +8,8 @@
       :card="language"
       iconAlignment="center"
       :badge="language.badge"
-    >
-      <LanguageBarV2 :key="index" :language="language" style="width: 100%" />
-    </CardItem>
+      :language="language"
+    />
   </ul>
 
   <!-- <div class="graph-gallery-container">

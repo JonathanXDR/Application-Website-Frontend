@@ -30,8 +30,8 @@ import type { LinkType } from '~/types/common/Link'
 const props = withDefaults(
   defineProps<{
     links: LinkType[]
-    divider: boolean
-    shouldAnimate: boolean
+    divider?: boolean
+    shouldAnimate?: boolean
   }>(),
   {
     links: () => [],
