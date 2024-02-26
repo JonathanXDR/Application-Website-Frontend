@@ -2,12 +2,12 @@ type AnimationOperations = {
   add?: string | string[]
   remove?: string | string[]
   toggle?: string | string[]
-  onViewportChange?: (isInViewport: boolean, el: Element) => void
+  onViewportChange?: (isInViewport: boolean, el: HTMLElement) => void
 }
 
 export default defineNuxtPlugin(nuxtApp => {
   nuxtApp.vueApp.directive('animation', {
-    mounted (el: Element, binding: { value: AnimationOperations }) {
+    mounted (el: HTMLElement, binding: { value: AnimationOperations }) {
       const toArray = (input: string | string[] | undefined): string[] => {
         if (Array.isArray(input)) {
           return input
