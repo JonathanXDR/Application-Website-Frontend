@@ -101,6 +101,11 @@
         <div class="title-wrapper">
           <div class="title">{{ card.title || card.name }}</div>
           <Badge v-if="card.archived" title="Public archive" color="yellow" />
+          <Badge
+            v-if="card.badge"
+            :title="card.badge.title"
+            :color="card.badge.color"
+          />
         </div>
         <div v-if="card.description" class="card-content">
           <div class="content">
@@ -165,12 +170,14 @@
           :dateNowKey="dateNowKey"
         />
       </div>
+      <slot />
     </div>
   </component>
 </template>
 
 <script setup lang="ts">
 import type { ListUserReposResponse } from '~/types/GitHub/Repository'
+import type { BadgeType } from '~/types/common/Badge'
 import type { CardItemType } from '~/types/common/CardItem'
 
 const props = withDefaults(
@@ -184,6 +191,7 @@ const props = withDefaults(
     size?: 'small' | 'medium' | 'large' | 'full'
     hover?: 'auto' | 'true' | 'false'
     cover?: string
+    badge?: BadgeType
     donutGraph?: boolean
     barGraph?: boolean
   }>(),

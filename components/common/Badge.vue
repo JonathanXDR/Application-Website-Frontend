@@ -11,18 +11,11 @@
 </template>
 
 <script setup lang="ts">
-import type { IconType } from '~/types/common/Icon'
+import type { BadgeType } from '~/types/common/Badge'
 
-withDefaults(
-  defineProps<{
-    title: string
-    color?: string
-    icon?: IconType
-  }>(),
-  {
-    color: 'blue'
-  }
-)
+withDefaults(defineProps<BadgeType>(), {
+  color: 'blue'
+})
 </script>
 
 <style scoped>

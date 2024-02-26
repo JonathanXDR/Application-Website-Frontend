@@ -248,12 +248,22 @@
         {
           "title": "Deutsch",
           "eyebrow": "Muttersprache",
-          "progress": 100
+          "progress": 100,
+          "icon": {
+            "name": "checkmark"
+          }
         },
         {
           "title": "Englisch",
           "eyebrow": "Fliessend",
           "progress": 60,
+          "icon": {
+            "name": "checkmark"
+          },
+          "badge": {
+            "title": "Certified",
+            "color": "orange"
+          },
           "links": [
             {
               "title": "English B1",
@@ -281,7 +291,10 @@
         {
           "title": "Französisch",
           "eyebrow": "Gut",
-          "progress": 30
+          "progress": 30,
+          "icon": {
+            "name": "checkmark"
+          }
         }
       ],
       "references": [

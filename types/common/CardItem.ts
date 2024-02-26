@@ -1,3 +1,4 @@
+import type { BadgeType } from './Badge'
 import type { IconType } from './Icon'
 import type { InfoType } from './Info'
 import type { LinkType } from './Link'
@@ -10,4 +11,5 @@ export interface CardItemType {
   tags?: string[]
   links?: LinkType[]
   info?: InfoType
+  badge?: BadgeType
 }
