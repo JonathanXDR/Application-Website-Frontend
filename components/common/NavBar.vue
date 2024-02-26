@@ -88,9 +88,30 @@ const currentSectionIndex = computed(() => currentSection.value.index)
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 
 const themeItems: Ref<ItemType[]> = computed(() => [
-  { id: 'light', label: 'Light', icon: { name: 'sun.max.fill' } },
-  { id: 'dark', label: 'Dark', icon: { name: 'moon.fill' } },
-  { id: 'auto', label: 'Auto', icon: { name: 'circle.lefthalf.filled' } }
+  {
+    id: 'light',
+    category: 'theme',
+    label: 'Light',
+    icon: {
+      name: 'sun.max.fill'
+    }
+  },
+  {
+    id: 'dark',
+    category: 'theme',
+    label: 'Dark',
+    icon: {
+      name: 'moon.fill'
+    }
+  },
+  {
+    id: 'auto',
+    category: 'theme',
+    label: 'Auto',
+    icon: {
+      name: 'circle.lefthalf.filled'
+    }
+  }
 ])
 
 const headerAnimations = computed(() => {

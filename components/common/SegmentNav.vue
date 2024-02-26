@@ -19,7 +19,7 @@
         <input
           :id="`viewer-sizenav-value-${item.id}`"
           type="radio"
-          name="viewer-sizenav-value"
+          :name="`viewer-sizenav-value-${item.category}`"
           class="viewer-sizenav-value"
           :class="focus ? 'focus' : ''"
           :value="item.id"

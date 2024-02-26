@@ -111,9 +111,30 @@ const currentProjects = computed(
     projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
 )
 const segmentNavItems: Ref<ItemType[]> = computed(() => [
-  { id: 'swisscom', label: 'Swisscom', icon: { name: 'sun.max.fill' } },
-  { id: 'personal', label: 'Persönlich', icon: { name: 'moon.fill' } },
-  { id: 'school', label: 'Schule', icon: { name: 'circle.lefthalf.filled' } }
+  {
+    id: 'swisscom',
+    category: 'projects',
+    label: 'Swisscom',
+    icon: {
+      name: 'sun.max.fill'
+    }
+  },
+  {
+    id: 'personal',
+    category: 'projects',
+    label: 'Persönlich',
+    icon: {
+      name: 'moon.fill'
+    }
+  },
+  {
+    id: 'school',
+    category: 'projects',
+    label: 'Schule',
+    icon: {
+      name: 'circle.lefthalf.filled'
+    }
+  }
 ])
 
 const currentIndex: Ref<number> = ref(0)
