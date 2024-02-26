@@ -1,5 +1,9 @@
 <template>
-  <span class="badge" :style="`--color-figure: var(--color-figure-${color})`">
+  <span
+    class="badge"
+    :class="{ hover: hover }"
+    :style="`--color-figure: var(--color-figure-${color})`"
+  >
     <Icon
       class="icon icon-medium mr-1"
       v-if="icon"
@@ -15,7 +19,8 @@
 import type { BadgeType } from '~/types/common/Badge'
 
 withDefaults(defineProps<BadgeType>(), {
-  color: 'blue'
+  color: 'blue',
+  hover: false
 })
 </script>
 
@@ -35,6 +40,12 @@ withDefaults(defineProps<BadgeType>(), {
   border-width: 1px;
   border-color: var(--color-figure);
   color: var(--color-figure);
+}
+
+.badge.hover:hover {
+  background-color: var(--color-figure);
+  color: var(--color-fill-white);
+  cursor: pointer;
 }
 
 .small .badge {

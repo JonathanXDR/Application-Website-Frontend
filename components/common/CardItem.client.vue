@@ -106,6 +106,7 @@
             :title="card.badge.title"
             :color="card.badge.color"
             :icon="card.badge.icon"
+            hover
           />
         </div>
         <div v-if="card.description" class="card-content">
@@ -177,9 +178,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ListUserReposResponse } from '~/types/GitHub/Repository'
-import type { BadgeType } from '~/types/common/Badge'
-import type { CardItemType } from '~/types/common/CardItem'
+import type { ListUserReposResponse } from '~/types/GitHub/Repository';
+import type { BadgeType } from '~/types/common/Badge';
+import type { CardItemType } from '~/types/common/CardItem';
 
 const props = withDefaults(
   defineProps<{
