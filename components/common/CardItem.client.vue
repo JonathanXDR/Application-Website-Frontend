@@ -396,7 +396,6 @@ const getAlignItems = () => {
   padding: 20px;
   position: relative;
   font-size: 14px;
-  line-height: 1.2857742857;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -405,7 +404,6 @@ const getAlignItems = () => {
 .small .details {
   padding: 24px;
   font-size: 15px;
-  line-height: 1.333;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -415,7 +413,6 @@ const getAlignItems = () => {
   gap: 24px;
   padding: 32px;
   font-size: 17px;
-  line-height: 1.4705882353;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -424,7 +421,6 @@ const getAlignItems = () => {
 .large .details {
   padding: 44px;
   font-size: 20px;
-  line-height: 1.6470588235;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -432,7 +428,6 @@ const getAlignItems = () => {
 
 .full .details {
   font-size: 17px;
-  line-height: 1.4705882353;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -452,7 +447,6 @@ const getAlignItems = () => {
 
 .full .details {
   font-size: 14px;
-  line-height: 1.2857742857;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -484,7 +478,6 @@ const getAlignItems = () => {
 
 .xsmall .eyebrow {
   font-size: 14px;
-  line-height: 1.2857742857;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -492,7 +485,6 @@ const getAlignItems = () => {
 
 .small .eyebrow {
   font-size: 16px;
-  line-height: 1.3;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -500,7 +492,6 @@ const getAlignItems = () => {
 
 .medium .eyebrow {
   font-size: 17px;
-  line-height: 1.2353641176;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -508,7 +499,6 @@ const getAlignItems = () => {
 
 .large .eyebrow {
   font-size: 20px;
-  line-height: 1.4705882353;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -516,7 +506,6 @@ const getAlignItems = () => {
 
 .full .eyebrow {
   font-size: 17px;
-  line-height: 1.2353641176;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -535,7 +524,6 @@ const getAlignItems = () => {
 .xsmall .title {
   font-size: 14px;
   /* 21.8581628569 */
-  line-height: 1.2857742857;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -543,7 +531,6 @@ const getAlignItems = () => {
 
 .small .title {
   font-size: 18px;
-  line-height: 1.25;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -552,7 +539,6 @@ const getAlignItems = () => {
 .medium .title {
   font-size: 21px;
   /* 20.2380952385px */
-  line-height: 1.1904761905;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -560,7 +546,6 @@ const getAlignItems = () => {
 
 .large .title {
   font-size: 28px;
-  line-height: 1.0947058824;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -571,7 +556,6 @@ const getAlignItems = () => {
 
 .full .title {
   font-size: 21px;
-  line-height: 1.1904761905;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -658,7 +642,6 @@ const getAlignItems = () => {
 
 .typography-body-tight {
   font-size: 17px;
-  line-height: 1.2353641176;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -679,7 +662,6 @@ const getAlignItems = () => {
   .group {
     padding: 0;
     font-size: 14px;
-    line-height: 1.2857742857;
     font-weight: 400;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
@@ -755,7 +737,6 @@ br.medium {
 
 .typography-donut-label {
   font-size: 17px;
-  line-height: 1.2353641176;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -764,7 +745,6 @@ br.medium {
 @media only screen and (max-width: 1068px) {
   .typography-donut-label {
     font-size: 17px;
-    line-height: 1.2353641176;
     font-weight: 600;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
@@ -774,7 +754,6 @@ br.medium {
 @media only screen and (max-width: 734px) {
   .typography-donut-label {
     font-size: 14px;
-    line-height: 1.2857742857;
     font-weight: 600;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
@@ -802,7 +781,6 @@ br.medium {
 
 .typography-donut-label {
   font-size: 17px;
-  line-height: 1.2353641176;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -811,7 +789,6 @@ br.medium {
 @media only screen and (max-width: 1068px) {
   .typography-donut-label {
     font-size: 17px;
-    line-height: 1.2353641176;
     font-weight: 600;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
@@ -821,7 +798,6 @@ br.medium {
 @media only screen and (max-width: 734px) {
   .typography-donut-label {
     font-size: 14px;
-    line-height: 1.2857742857;
     font-weight: 600;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
@@ -998,7 +974,6 @@ svg.ac-graph-svg {
 
 .tile-category {
   font-size: 12px;
-  line-height: 1.33337;
   font-weight: 700;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;

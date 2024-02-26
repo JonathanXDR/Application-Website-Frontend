@@ -40,7 +40,6 @@ withDefaults(
 
 .form-dropdown {
   font-size: 17px;
-  line-height: 1.2353641176;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -88,7 +87,6 @@ withDefaults(
 
 .form-dropdown ~ .form-label {
   font-size: 12px;
-  line-height: 1.75;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;

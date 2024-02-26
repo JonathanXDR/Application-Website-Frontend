@@ -33,7 +33,6 @@ withDefaults(
   color: var(--color-figure-gray);
   background-color: var(--color-fill-tertiary);
   font-size: 14px;
-  line-height: 1.2857742857;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
