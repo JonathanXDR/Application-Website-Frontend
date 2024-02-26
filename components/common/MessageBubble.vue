@@ -44,7 +44,6 @@ withDefaults(
 </script>
 
 <style scoped>
-/*! CSS Used from: https://www.apple.com/api-www/global-elements/global-header/v1/assets/globalheader.css */
 .visuallyhidden {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
@@ -55,7 +54,7 @@ withDefaults(
   padding: 0;
   border: 0;
 }
-/*! CSS Used from: https://www.apple.com/v/icloud/af/built/styles/main.built.css */
+
 p {
   margin: 0;
   padding: 0;
@@ -112,7 +111,7 @@ br.small {
       'Helvetica', 'Arial', sans-serif;
   }
 }
-/*! CSS Used from: https://www.apple.com/v/icloud/af/built/styles/overview.built.css */
+
 .awy-messages p {
   color: #6e6e73;
 }
@@ -414,7 +413,7 @@ br.small {
     --p-height: 82px;
   }
 }
-/*! CSS Used keyframes */
+
 @keyframes message-item-exit {
   0% {
     transform: translateX(0);
