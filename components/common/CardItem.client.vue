@@ -172,7 +172,7 @@
           :dateNowKey="dateNowKey"
         />
       </div>
-      <slot />
+      <LanguageBarV2 v-if="language" :language="language" style="width: 100%" />
     </div>
   </component>
 </template>
@@ -181,6 +181,7 @@
 import type { ListUserReposResponse } from '~/types/GitHub/Repository'
 import type { BadgeType } from '~/types/common/Badge'
 import type { CardItemType } from '~/types/common/CardItem'
+import type { LanguageBarType } from '~/types/common/LanguageBar'
 
 const props = withDefaults(
   defineProps<{
@@ -194,6 +195,7 @@ const props = withDefaults(
     hover?: 'auto' | 'true' | 'false'
     cover?: string
     badge?: BadgeType
+    language?: LanguageBarType
     donutGraph?: boolean
     barGraph?: boolean
   }>(),
@@ -399,6 +401,7 @@ const getAlignItems = () => {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 12px;
   z-index: 1;
@@ -472,7 +475,6 @@ const getAlignItems = () => {
 }
 
 .body {
-  width: 100%;
   height: 100%;
   overflow: hidden;
   display: flex;
