@@ -485,7 +485,7 @@ const getAlignItems = () => {
 }
 
 .small .eyebrow {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -530,7 +530,7 @@ const getAlignItems = () => {
 }
 
 .small .title {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
