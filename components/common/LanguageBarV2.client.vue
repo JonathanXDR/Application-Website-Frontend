@@ -1,12 +1,12 @@
 <template>
   <div class="rs-od-iteminfo">
-    <h2 class="rs-od-itemtitle">
+    <!-- <h2 class="rs-od-itemtitle">
       <span class="rs-od-itemshortname">{{ language.eyebrow }} </span>
       <span class="rs-od-itemstatus">{{ language.title }}</span>
     </h2>
     <div class="rs-od-delivery-actions">
       <LinkCollection :links="language.links" />
-    </div>
+    </div> -->
     <InfoBar :info="language.info" />
     <div
       id="rs-tracker-orderDetail.orderItems.orderItem-0000101.orderItemStatusTracker"
@@ -37,13 +37,13 @@
         </ol>
       </div>
     </div>
-    <div class="row rs-od-itemdesc-wrapper">
+    <!-- <div class="row rs-od-itemdesc-wrapper">
       <div class="rs-od-itemdesc column large-12 small-12">
         <div class="rs-od-itemdesc-content">
           {{ language.description }}
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

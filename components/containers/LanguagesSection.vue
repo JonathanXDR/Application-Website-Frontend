@@ -1,13 +1,15 @@
 <template>
   <h2>{{ title }}</h2>
 
-  <TabList :items="items" />
-
-  <LanguageBarV2
+  <CardItem
     v-for="(language, index) in languages"
     :key="index"
-    :language="language"
-  />
+    :card="language"
+    iconAlignment="center"
+    :badge="language.badge"
+  >
+    <LanguageBarV2 :key="index" :language="language" style="width: 100%" />
+  </CardItem>
 
   <!-- <div class="graph-gallery-container">
     <ul class="tabnav-items">

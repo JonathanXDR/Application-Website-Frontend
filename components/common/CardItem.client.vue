@@ -25,8 +25,13 @@
       <div class="body" :style="{ alignItems: alignItems }">
         <div v-if="eyebrow" class="eyebrow">{{ eyebrow }}</div>
         <div class="title-wrapper">
-          <div class="title">{{ title || name }}</div>
-          <Badge v-if="archived" title="Public archive" color="yellow" />
+          <div class="title">{{ card.title || card.name }}</div>
+          <Badge v-if="card.archived" title="Public archive" color="yellow" />
+          <Badge
+            v-if="card.badge"
+            :title="card.badge.title"
+            :color="card.badge.color"
+          />
         </div>
         <div v-if="description" class="card-content">
           <div class="content">{{ description }}</div>
@@ -46,6 +51,7 @@
           :dateNowKey="date.nowKey"
         />
       </div>
+      <slot />
     </div>
   </component>
 </template>
