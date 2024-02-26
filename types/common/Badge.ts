@@ -4,4 +4,5 @@ export interface BadgeType {
   icon?: IconType
   title: string
   color?: string
+  hover?: boolean
 }

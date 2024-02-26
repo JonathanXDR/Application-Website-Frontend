@@ -31,6 +31,8 @@
             v-if="card.badge"
             :title="card.badge.title"
             :color="card.badge.color"
+            :icon="card.badge.icon"
+            hover
           />
         </div>
         <div v-if="description" class="card-content">
