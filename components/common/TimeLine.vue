@@ -30,8 +30,8 @@ const initPath = () => {
   const instance = getCurrentInstance()
   const ul = instance?.parent?.refs.ul as HTMLElement
 
-  ulHeightValue.value = ul.getBoundingClientRect().height
-  ulHeightRounded.value = Math.round(ulHeightValue.value)
+  ulHeightValue.value = ul?.getBoundingClientRect().height
+  ulHeightRounded.value = Math.round(ulHeightValue.value) || 0
 }
 
 const animateLine = () => {
