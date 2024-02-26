@@ -1,5 +1,8 @@
 <template>
-  <NuxtLink :class="['links', { divider: divider }]">
+  <NuxtLink
+    :class="['links', { divider: divider }]"
+    :style="{ gap: !divider ? '12px' : '0' }"
+  >
     <component
       :is="getLinkComponentType(link)"
       v-for="(link, index) in enhancedLinks"
@@ -62,7 +65,6 @@ const enhancedLinks = computed(() => {
 .links {
   display: flex;
   align-items: center;
-  gap: 12px;
 }
 
 .links.divider .link {
