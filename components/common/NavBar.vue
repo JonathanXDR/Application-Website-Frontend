@@ -60,7 +60,6 @@
                     : 'text'
                   : 'combination'
               "
-              :separator="windowWidth < 900 ? false : true"
               :selectedItem="getTheme()"
               :onAction="newTheme => setTheme(newTheme)"
             />
@@ -86,6 +85,7 @@ const { currentSection } = useSection()
 const { getTheme, setTheme } = useTheme()
 const currentSectionIndex = computed(() => currentSection.value.index)
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
+const { headerAnimations } = useAnimation()
 
 const themeItems: Ref<ItemType[]> = computed(() => [
   {
@@ -114,15 +114,15 @@ const themeItems: Ref<ItemType[]> = computed(() => [
   }
 ])
 
-const headerAnimations = computed(() => {
-  useAnimation().setHeaderAnimation({
+const initHeaderAnimations = () => {
+  const animation = {
     element: document.querySelector('.ac-ln-background') as HTMLElement,
     class: 'ac-ln-background-transition',
     timeout: 500
-  })
-
-  return useAnimation().headerAnimations
-})
+  }
+  const { setHeaderAnimation } = useAnimation()
+  setHeaderAnimation(animation)
+}
 
 const toggleNav = () => {
   navOpen.value = !navOpen.value
@@ -143,7 +143,7 @@ const handleScroll = () => {
 }
 
 const updateAnimations = () => {
-  headerAnimations.value.value.forEach(element => {
+  headerAnimations.value.forEach(element => {
     element.element.classList.remove(element.class)
 
     setTimeout(() => {
@@ -153,6 +153,7 @@ const updateAnimations = () => {
 }
 
 onMounted(() => {
+  initHeaderAnimations()
   window.addEventListener('scroll', handleScroll)
 
   watch(getTheme, (newTheme, oldTheme) => {
