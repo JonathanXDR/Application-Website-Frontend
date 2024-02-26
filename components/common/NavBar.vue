@@ -378,7 +378,6 @@ onMounted(() => {
   font-size: 14px;
   line-height: 1;
   font-weight: 600;
-  /* letter-spacing: -0.02em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   float: right;

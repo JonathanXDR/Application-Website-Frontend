@@ -529,7 +529,6 @@ onMounted(fetchTags)
   font-size: 14px;
   line-height: 1.42859;
   font-weight: 400;
-  /* letter-spacing: -0.016em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
@@ -574,7 +573,6 @@ onMounted(fetchTags)
   font-size: 24px;
   line-height: 1.33341;
   font-weight: 400;
-  /* letter-spacing: 0.009em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   color: #86868b;
@@ -584,7 +582,6 @@ onMounted(fetchTags)
     font-size: 21px;
     line-height: 1.381;
     font-weight: 400;
-    /* letter-spacing: 0.011em; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }

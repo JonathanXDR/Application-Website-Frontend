@@ -132,7 +132,6 @@ const dateTitle = getDate()
   font-size: 12px;
   line-height: 1.28577;
   font-weight: 600;
-  /* letter-spacing: -0.016em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   display: flex;

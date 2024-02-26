@@ -141,7 +141,6 @@ const setCursorBlink = (state: boolean) => {
   font-size: 80px;
   line-height: 1;
   font-weight: 700;
-  /* letter-spacing: -0.013em; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
 }
@@ -151,7 +150,6 @@ const setCursorBlink = (state: boolean) => {
     font-size: 54px;
     line-height: 1.037037037;
     font-weight: 700;
-    /* letter-spacing: -0.013em; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }
@@ -162,7 +160,6 @@ const setCursorBlink = (state: boolean) => {
     font-size: 32px;
     line-height: 1.125;
     font-weight: 700;
-    /* letter-spacing: -0.013em; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
   }
