@@ -25,7 +25,6 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    // items: { id: string; label: string; icon: string }[]
     size?: 'xsmall' | 'small' | 'medium' | 'large'
   }>(),
   {
