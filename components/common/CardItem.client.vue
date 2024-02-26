@@ -105,6 +105,7 @@
             v-if="card.badge"
             :title="card.badge.title"
             :color="card.badge.color"
+            :icon="card.badge.icon"
           />
         </div>
         <div v-if="card.description" class="card-content">
