@@ -104,7 +104,7 @@
           <Badge
             v-if="card.badge"
             :title="card.badge.title"
-            :color="card.badge.color"
+            :color="colorBadge?.colorName"
             :icon="card.badge.icon"
             hover
           />
@@ -178,9 +178,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ListUserReposResponse } from '~/types/GitHub/Repository';
-import type { BadgeType } from '~/types/common/Badge';
-import type { CardItemType } from '~/types/common/CardItem';
+import type { ListUserReposResponse } from '~/types/GitHub/Repository'
+import type { BadgeType } from '~/types/common/Badge'
+import type { CardItemType } from '~/types/common/CardItem'
 
 const props = withDefaults(
   defineProps<{
@@ -218,6 +218,8 @@ const props = withDefaults(
     barGraph: false
   }
 )
+
+const { colorBadge } = useColor()
 
 const applyHover = computed(() => {
   return (
