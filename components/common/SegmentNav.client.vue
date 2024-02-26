@@ -1,8 +1,7 @@
 <template>
   <div
     ref="navContainer"
-    class="viewer-sizenav all-access-pass__background"
-    :class="{ shadow: shadow }"
+    :class="['viewer-sizenav all-access-pass__background', { shadow: shadow }]"
     :style="containerStyle"
   >
     <div class="viewer-sizenav__bubble" v-if="selectedItemElement">
@@ -12,16 +11,14 @@
       <li
         v-for="(item, index) in items"
         :key="index"
-        class="viewer-sizenav-item"
-        :class="{ separator: separator }"
+        :class="['viewer-sizenav-item', { separator: separator }]"
         :ref="(setItemRef as any)"
       >
         <input
           :id="`viewer-sizenav-value-${item.id}`"
           type="radio"
           :name="`viewer-sizenav-value-${item.category}`"
-          class="viewer-sizenav-value"
-          :class="focus ? 'focus' : ''"
+          :class="['viewer-sizenav-value', { focus: focus }]"
           :value="item.id"
           v-model="selectedItem"
         />

@@ -269,22 +269,22 @@
           },
           "links": [
             {
-              "title": "English B1",
-              "url": "https://nickzimmermann.com",
+              "title": "B1 Preliminary",
+              "url": "https://www.cambridgeenglish.org/de/exams-and-tests/preliminary",
               "icon": {
                 "name": "scroll"
               }
             },
             {
-              "title": "English B2",
-              "url": "https://nickzimmermann.com",
+              "title": "B2 First",
+              "url": "https://www.cambridgeenglish.org/de/exams-and-tests/first",
               "icon": {
                 "name": "scroll"
               }
             },
             {
-              "title": "English C1",
-              "url": "https://nickzimmermann.com",
+              "title": "C1 Advanced",
+              "url": "https://www.cambridgeenglish.org/de/exams-and-tests/advanced",
               "icon": {
                 "name": "scroll"
               }

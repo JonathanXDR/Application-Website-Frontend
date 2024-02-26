@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink class="links">
+  <NuxtLink :class="['links', { divider: divider }]">
     <component
       :is="getLinkComponentType(link)"
       v-for="(link, index) in enhancedLinks"
@@ -24,10 +24,18 @@
 <script setup lang="ts">
 import type { LinkType } from '~/types/common/Link'
 
-const props = defineProps({
-  links: Array as () => LinkType[],
-  shouldAnimate: Boolean
-})
+const props = withDefaults(
+  defineProps<{
+    links: LinkType[]
+    divider: boolean
+    shouldAnimate: boolean
+  }>(),
+  {
+    links: () => [],
+    divider: true,
+    shouldAnimate: false
+  }
+)
 
 const { links } = toRefs(props)
 
@@ -55,6 +63,18 @@ const enhancedLinks = computed(() => {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.links.divider .link {
+  padding-right: 10px;
+  margin-right: 10px;
+  border-right: 1px solid var(--color-fill-gray-secondary);
+}
+
+.links.divider .link:last-of-type {
+  border-right: none;
+  padding-right: 10px;
+  margin-right: 20px;
 }
 
 /* ---------------------------------- card ---------------------------------- */

@@ -1,7 +1,9 @@
 <template>
   <h2
-    class="section-header-headline typography-section-headline-bold large-12 animated-headline"
-    :class="{ 'cursor-blink': isCursorBlinking }"
+    :class="[
+      'section-header-headline typography-section-headline-bold large-12 animated-headline',
+      { 'cursor-blink': isCursorBlinking }
+    ]"
     v-animation="animationConfig"
     ref="headline"
   >
