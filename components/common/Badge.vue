@@ -1,5 +1,7 @@
 <template>
-  <span
+  <component
+    :is="variant"
+    :href="url"
     :class="['badge', size, { hover: hover }]"
     :style="{
       '--color-figure': colors?.primary,
@@ -16,14 +18,15 @@
       :colors="icon.colors"
     />
     {{ title }}
-  </span>
+  </component>
 </template>
 
 <script setup lang="ts">
 import type { BadgeType } from '~/types/common/Badge'
 
 withDefaults(defineProps<BadgeType>(), {
-  size: 'small',
+  variant: 'a',
+  size: 'medium',
   colors: () => ({
     primary: 'var(--color-fill-gray)',
     secondary: 'var(--color-fill-tertiary)',
