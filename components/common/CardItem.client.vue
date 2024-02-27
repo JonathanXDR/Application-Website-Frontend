@@ -107,9 +107,13 @@
           <Badge
             v-if="card.badge"
             :title="card.badge.title"
-            :color="colorBadge?.colorName"
             :icon="card.badge.icon"
+            :colors="{
+              primary: `var(--color-figure-${colorBadge?.colorName})`,
+              tertiary: `var(--color-figure-${colorBadge?.colorName})`
+            }"
             hover
+            border
           />
         </div>
         <div v-if="card.description" class="card-content">
