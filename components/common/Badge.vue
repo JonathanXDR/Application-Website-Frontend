@@ -34,7 +34,7 @@ withDefaults(defineProps<BadgeType>(), {
     tertiary: 'var(--color-figure-blue)'
   }),
   border: false,
-  hover: false,
+  hover: true,
   onClick: () => {}
 })
 </script>

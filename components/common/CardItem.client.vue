@@ -121,9 +121,9 @@
             {{ card.description }}
           </div>
         </div>
-        <TagBar
+        <BadgeBar
           v-if="card.tags?.length || card.topics?.length"
-          :tags="card.tags || card.topics"
+          :badges="card.tags || card.topics"
         />
         <div v-if="card.links?.length || card.html_url" class="ctas-wrapper">
           <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
