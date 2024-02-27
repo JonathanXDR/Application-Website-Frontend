@@ -3,6 +3,7 @@
     :is="variant"
     :href="url"
     :class="['badge', size, { hover: hover }]"
+    @click="onClick"
     :style="{
       '--color-figure': colors?.primary,
       '--color-figure-background': colors?.secondary,
@@ -33,7 +34,8 @@ withDefaults(defineProps<BadgeType>(), {
     tertiary: 'var(--color-figure-blue)'
   }),
   border: false,
-  hover: false
+  hover: false,
+  onClick: () => {}
 })
 </script>
 
