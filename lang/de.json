@@ -1664,11 +1664,7 @@
         },
         {
           "icon": {
-            "name": "building.columns.fill",
-            "colors": {
-              "primary": "var(--color-fill-tertiary)",
-              "tertiary": "var(--color-fill-gray)"
-            }
+            "name": "building.columns.fill"
           },
           "eyebrow": "Library",
           "title": "Material Design 3",
@@ -1682,6 +1678,30 @@
             {
               "title": "Mehr erfahren",
               "url": "https://kotlinlang.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "wrench.and.screwdriver.fill"
+          },
+          "eyebrow": "Framework",
+          "title": "Nuxt",
+          "description": "Nuxt habe ich mir selbst beigebracht, da ich es interessant fand und auch gerne mit Vue programmiere, worauf Nuxt aufbaut. Bisher habe ich es allerdings bei keinen Projeken ausser dieser Webseite verwendet.",
+          "progress": 50,
+          "tags": [
+            "Vue",
+            "Frontend",
+            "Web",
+            "SSR"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://nextjs.org",
               "icon": {
                 "name": "chevron.right"
               }
