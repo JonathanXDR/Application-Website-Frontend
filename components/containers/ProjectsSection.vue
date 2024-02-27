@@ -54,8 +54,10 @@
             size="small"
             iconPosition="right"
             class="color"
-            :style="`--color-figure: var(--color-figure-${randomColor});
-          --color-fill: var(--color-fill-${randomColor}-secondary)`"
+            :style="{
+              '--color-figure': `var(--color-figure-${randomColor})`,
+              '--color-fill': `var(--color-fill-${randomColor}-secondary)`
+            }"
           />
         </ul>
         <ul class="card-container">
