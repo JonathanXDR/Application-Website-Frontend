@@ -14,7 +14,7 @@
           grayLabels
           :outerPadding="3"
           :selectedItem="segmentNavItems[currentIndex]?.id"
-          :onAction="
+          :onSelect="
             id =>
               updateCurrentIndex(
                 segmentNavItems.findIndex(item => item.id === id)

@@ -7,4 +7,5 @@ export interface BadgeType extends LinkType {
   colors?: ColorType
   border?: boolean
   hover?: boolean
+  onClick?: () => void
 }
