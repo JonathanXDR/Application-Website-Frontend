@@ -74,7 +74,7 @@ const props = withDefaults(
     padding?: string
     outerPadding?: number
     selectedItem?: string
-    onAction?: (id: string) => void
+    onSelect?: (id: string) => void
   }>(),
   {
     size: 'medium',
@@ -89,7 +89,7 @@ const props = withDefaults(
     },
     outerPadding: 4,
     selectedItem: '',
-    onAction: () => {}
+    onSelect: () => {}
   }
 )
 
@@ -153,7 +153,7 @@ const containerStyle = computed(() => ({
 watch(
   selectedItem,
   newItem => {
-    props.onAction(newItem)
+    props.onSelect(newItem)
     updateBubblePosition()
   },
   { immediate: true }

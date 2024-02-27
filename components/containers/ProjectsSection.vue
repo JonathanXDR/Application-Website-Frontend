@@ -14,7 +14,7 @@
           grayLabels
           :outerPadding="3"
           :selectedItem="segmentNavItems[currentIndex]?.id"
-          :onAction="
+          :onSelect="
             id =>
               updateCurrentIndex(
                 segmentNavItems.findIndex(item => item.id === id)
@@ -54,8 +54,10 @@
             size="small"
             iconPosition="right"
             class="color"
-            :style="`--color-figure: var(--color-figure-${randomColor});
-          --color-fill: var(--color-fill-${randomColor}-secondary)`"
+            :style="{
+              '--color-figure': `var(--color-figure-${randomColor})`,
+              '--color-fill': `var(--color-fill-${randomColor}-secondary)`
+            }"
           />
         </ul>
         <ul class="card-container">

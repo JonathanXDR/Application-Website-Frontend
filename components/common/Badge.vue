@@ -1,7 +1,15 @@
 <template>
-  <span
-    :class="['badge', { hover: hover }]"
-    :style="`--color-figure: var(--color-figure-${color})`"
+  <component
+    :is="variant"
+    :href="url"
+    :class="['badge', size, { hover: hover }]"
+    @click="onClick"
+    :style="{
+      '--color-figure': colors?.primary,
+      '--color-figure-background': colors?.secondary,
+      '--color-figure-background-hover': colors?.tertiary,
+      '--color-figure-border': border ? colors?.tertiary : 'transparent'
+    }"
   >
     <Icon
       class="icon icon-medium mr-1"
@@ -11,15 +19,23 @@
       :colors="icon.colors"
     />
     {{ title }}
-  </span>
+  </component>
 </template>
 
 <script setup lang="ts">
 import type { BadgeType } from '~/types/common/Badge'
 
 withDefaults(defineProps<BadgeType>(), {
-  color: 'blue',
-  hover: false
+  variant: 'a',
+  size: 'medium',
+  colors: () => ({
+    primary: 'var(--color-fill-gray)',
+    secondary: 'var(--color-fill-tertiary)',
+    tertiary: 'var(--color-figure-blue)'
+  }),
+  border: false,
+  hover: false,
+  onClick: () => {}
 })
 </script>
 
@@ -31,33 +47,37 @@ withDefaults(defineProps<BadgeType>(), {
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
-  padding-inline: 10px;
   white-space: nowrap;
-  background: none;
+  background: var(--color-figure-background);
   border-radius: 18px;
   border-style: solid;
   border-width: 1px;
-  border-color: var(--color-figure);
+  border-color: var(--color-figure-border);
   color: var(--color-figure);
 }
 
 .badge.hover:hover {
-  background-color: var(--color-figure);
-  color: var(--color-fill-white);
+  transition: background-color 0.2s, color 0.2s;
+  border-color: var(--color-figure-border);
+  background-color: var(--color-figure-background-hover);
+  color: white;
   cursor: pointer;
 }
 
-.small .badge {
+.badge.small {
+  padding: 2px 6px;
   font-size: 12px;
   font-weight: 400;
 }
 
-.medium .badge {
+.badge.medium {
+  padding: 4px 10px;
   font-size: 14px;
   font-weight: 400;
 }
 
-.large .badge {
+.badge.large {
+  padding: 6px 14px;
   font-size: 16px;
   font-weight: 400;
 }

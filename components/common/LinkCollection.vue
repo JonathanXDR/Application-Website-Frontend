@@ -43,7 +43,7 @@ const props = withDefaults(
 const { links } = toRefs(props)
 
 const getLinkComponentType = (link: LinkType) => {
-  return link.url.startsWith('#') || link.url.startsWith('/')
+  return link.url?.startsWith('#') || link.url?.startsWith('/')
     ? 'router-link'
     : 'a'
 }
@@ -51,12 +51,15 @@ const getLinkComponentType = (link: LinkType) => {
 const enhancedLinks = computed(() => {
   return links?.value?.map(link => ({
     ...link,
-    to: link.url.startsWith('#') || link.url.startsWith('/') ? link.url : null,
-    href: !(link.url.startsWith('#') || link.url.startsWith('/'))
+    to:
+      link.url?.startsWith('#') || link.url?.startsWith('/') ? link.url : null,
+    href: !(link.url?.startsWith('#') || link.url?.startsWith('/'))
       ? link.url
       : null,
     target:
-      link.url.startsWith('#') || link.url.startsWith('/') ? '_self' : '_blank'
+      link.url?.startsWith('#') || link.url?.startsWith('/')
+        ? '_self'
+        : '_blank'
   }))
 })
 </script>
