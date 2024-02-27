@@ -65,7 +65,7 @@
                   : 'combination'
               "
               :selectedItem="getTheme()"
-              :onAction="newTheme => setTheme(newTheme)"
+              :onSelect="newTheme => setTheme(newTheme)"
             />
             <LanguagePickerDropdown />
           </div>
