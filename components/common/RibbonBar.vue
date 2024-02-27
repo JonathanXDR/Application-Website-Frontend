@@ -122,20 +122,22 @@ const updateBaseItems = () => {
       (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map(
         link => ({
           ...link,
-          url: rt(link.url, {
-            latestTag: tags.value.latest,
-            previousTag: tags.value.previous,
-            latestProjectUrl: projects.value[projects.value.length - 1].title
-              ?.toLowerCase()
-              .toLowerCase()
-              .replace(/ /g, '-'),
-            latestTechnologyUrl: technologies.value[
-              technologies.value.length - 1
-            ].title
-              ?.toLowerCase()
-              .toLowerCase()
-              .replace(/ /g, '-')
-          })
+          url: link.url
+            ? rt(link.url, {
+                latestTag: tags.value.latest,
+                previousTag: tags.value.previous,
+                latestProjectUrl: projects.value[
+                  projects.value.length - 1
+                ].title
+                  ?.toLowerCase()
+                  .replace(/ /g, '-'),
+                latestTechnologyUrl: technologies.value[
+                  technologies.value.length - 1
+                ].title
+                  ?.toLowerCase()
+                  .replace(/ /g, '-')
+              })
+            : undefined
         })
       )
   }))
