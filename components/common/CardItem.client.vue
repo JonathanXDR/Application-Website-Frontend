@@ -86,6 +86,7 @@ const props = withDefaults(defineProps<Props>(), {
     nowKey: 'updated'
   },
   icon: {
+    absolute: false,
     position: 'left',
     alignment: 'start'
   }
