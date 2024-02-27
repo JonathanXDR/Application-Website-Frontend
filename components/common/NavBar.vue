@@ -44,7 +44,6 @@
                   {{ item.name }}
                 </NuxtLink>
               </li>
-              <!-- <LanguagePickerBar :introText="false" :shortForm="true" /> -->
             </ul>
           </div>
           <div class="ac-ln-actions">

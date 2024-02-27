@@ -103,7 +103,17 @@
         <div v-if="card.eyebrow" class="eyebrow">{{ card.eyebrow }}</div>
         <div class="title-wrapper">
           <div class="title">{{ card.title || card.name }}</div>
-          <Badge v-if="card.archived" title="Public archive" color="yellow" />
+          <Badge
+            v-if="card.archived"
+            title="Public archive"
+            size="xsmall"
+            :colors="{
+              primary: 'var(--color-figure-yellow)',
+              tertiary: 'var(--color-figure-yellow)'
+            }"
+            border
+            :hover="false"
+          />
           <Badge
             v-if="card.badge"
             :title="card.badge.title"
