@@ -95,6 +95,9 @@
             'icon-xxlarge': variant === 'card' && size === 'large'
           }
         ]"
+        :style="{
+          position: props.iconAbsolute ? 'absolute' : 'relative'
+        }"
       />
       <div class="body">
         <div v-if="card.eyebrow" class="eyebrow">{{ card.eyebrow }}</div>
@@ -191,6 +194,7 @@ const props = withDefaults(
     dateNowKey?: 'created' | 'updated'
     iconPosition?: 'top' | 'right' | 'bottom' | 'left'
     iconAlignment?: 'start' | 'center' | 'end'
+    iconAbsolute?: boolean
     size?: 'small' | 'medium' | 'large' | 'full'
     hover?: 'auto' | 'true' | 'false'
     cover?: string
@@ -212,8 +216,9 @@ const props = withDefaults(
     },
 
     dateNowKey: 'updated',
-    iconPosition: 'left',
+    iconPosition: 'top',
     iconAlignment: 'start',
+    iconAbsolute: false,
     size: 'medium',
     hover: 'auto',
     donutGraph: false,
