@@ -17,6 +17,7 @@
         :card="card"
         size="small"
         iconPosition="right"
+        iconAbsolute
       />
       <ResultBlankState v-if="!cards" />
     </ul>

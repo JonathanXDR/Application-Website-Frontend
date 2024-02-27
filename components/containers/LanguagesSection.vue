@@ -6,7 +6,8 @@
       v-for="(language, index) in languages"
       :key="index"
       :card="language"
-      iconAlignment="center"
+      iconAlignment="start"
+      iconPosition="top"
       :badge="language.badge"
       :language="language"
     />
