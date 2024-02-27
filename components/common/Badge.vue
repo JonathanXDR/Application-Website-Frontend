@@ -76,28 +76,4 @@ withDefaults(defineProps<BadgeType>(), {
   font-size: 16px;
   font-weight: 400;
 }
-
-.tag {
-  display: inline-block;
-  padding-right: 10px;
-}
-.tag a {
-  color: var(--color-figure-gray);
-  background-color: var(--color-fill-tertiary);
-  font-size: 14px;
-  font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
-  border-radius: 14px;
-  padding: 4px 10px;
-  white-space: nowrap;
-  border: 1px solid transparent;
-}
-@media (hover: hover) {
-  .tag a:hover {
-    transition: background-color 0.2s, color 0.2s;
-    background-color: var(--color-fill-blue);
-    color: #fff;
-  }
-}
 </style>
