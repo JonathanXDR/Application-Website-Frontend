@@ -68,6 +68,7 @@ const enhancedLinks = computed(() => {
 .links {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .links.divider .link {

@@ -484,7 +484,7 @@ const getAlignItems = () => {
 }
 
 .body {
-  height: 100%;
+  width: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
