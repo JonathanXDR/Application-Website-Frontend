@@ -9,8 +9,10 @@
   <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking"></div>
   <nav
     id="ac-localnav"
-    class="ac-localnav-dark ac-localnav-noborder ac-ln-sticking"
-    :class="{ 'nav-open': navOpen }"
+    :class="[
+      'ac-localnav-dark ac-localnav-noborder ac-ln-sticking',
+      { 'nav-open': navOpen }
+    ]"
   >
     <div class="ac-ln-wrapper">
       <div
@@ -34,8 +36,10 @@
               >
                 <NuxtLink
                   :to="item.route"
-                  :class="{ current: index === currentSectionIndex }"
-                  class="ac-ln-menu-link"
+                  :class="[
+                    'ac-ln-menu-link',
+                    { current: index === currentSectionIndex }
+                  ]"
                 >
                   {{ item.name }}
                 </NuxtLink>

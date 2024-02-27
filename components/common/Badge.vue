@@ -1,7 +1,6 @@
 <template>
   <span
-    class="badge"
-    :class="{ hover: hover }"
+    :class="['badge', { hover: hover }]"
     :style="`--color-figure: var(--color-figure-${color})`"
   >
     <Icon

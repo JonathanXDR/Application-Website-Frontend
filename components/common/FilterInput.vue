@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col filter-column w-full">
-      <div class="filter" :class="{ focus: open }">
+      <div :class="['filter', { focus: open }]">
         <div class="filter-wrapper">
           <div class="filter-top-wrapper">
             <button class="filter-filter-button">

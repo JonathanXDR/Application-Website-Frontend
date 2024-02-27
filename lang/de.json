@@ -269,25 +269,16 @@
           },
           "links": [
             {
-              "title": "English B1",
-              "url": "https://nickzimmermann.com",
-              "icon": {
-                "name": "scroll"
-              }
+              "title": "B1 Preliminary",
+              "url": "https://www.cambridgeenglish.org/de/exams-and-tests/preliminary"
             },
             {
-              "title": "English B2",
-              "url": "https://nickzimmermann.com",
-              "icon": {
-                "name": "scroll"
-              }
+              "title": "B2 First",
+              "url": "https://www.cambridgeenglish.org/de/exams-and-tests/first"
             },
             {
-              "title": "English C1",
-              "url": "https://nickzimmermann.com",
-              "icon": {
-                "name": "scroll"
-              }
+              "title": "C1 Advanced",
+              "url": "https://www.cambridgeenglish.org/de/exams-and-tests/advanced"
             }
           ]
         },

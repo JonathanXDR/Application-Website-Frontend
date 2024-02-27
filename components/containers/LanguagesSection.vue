@@ -6,11 +6,11 @@
       v-for="(language, index) in languages"
       :key="index"
       :card="language"
-      iconAlignment="center"
+      iconAlignment="start"
+      iconPosition="top"
       :badge="language.badge"
-    >
-      <LanguageBarV2 :key="index" :language="language" style="width: 100%" />
-    </CardItem>
+      :language="language"
+    />
   </ul>
 
   <!-- <div class="graph-gallery-container">

@@ -21,6 +21,9 @@
         :size="icon.size"
         :colors="icon.colors"
         :class="iconClasses"
+        :style="{
+          position: props.iconAbsolute ? 'absolute' : 'relative'
+        }"
       />
       <div class="body" :style="{ alignItems: alignItems }">
         <div v-if="eyebrow" class="eyebrow">{{ eyebrow }}</div>
@@ -30,7 +33,7 @@
           <Badge
             v-if="card.badge"
             :title="card.badge.title"
-            :color="card.badge.color"
+            :color="colorBadge?.colorName"
             :icon="card.badge.icon"
             hover
           />
@@ -53,7 +56,7 @@
           :dateNowKey="date.nowKey"
         />
       </div>
-      <slot />
+      <LanguageBarV2 v-if="language" :language="language" style="width: 100%" />
     </div>
   </component>
 </template>
@@ -87,6 +90,8 @@ const props = withDefaults(defineProps<Props>(), {
     alignment: 'start'
   }
 })
+
+const { colorBadge } = useColor()
 
 const applyHover = computed(
   () =>
@@ -338,6 +343,7 @@ const iconClasses = computed(() => ({
   width: 100%;
   height: 100%;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 12px;
   z-index: 1;
@@ -411,7 +417,6 @@ const iconClasses = computed(() => ({
 }
 
 .body {
-  width: 100%;
   height: 100%;
   overflow: hidden;
   display: flex;
