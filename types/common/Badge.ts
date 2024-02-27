@@ -1,9 +1,8 @@
 import type { ColorType } from './Color'
-import type { IconType } from './Icon'
+import type { LinkType } from './Link'
 
-export interface BadgeType {
-  icon?: IconType
-  title: string
+export interface BadgeType extends LinkType {
+  variant?: keyof HTMLElementTagNameMap
   size?: 'small' | 'medium' | 'large'
   colors?: ColorType
   border?: boolean

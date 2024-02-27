@@ -7,6 +7,7 @@
             tag
           }}</NuxtLink>
         </li>
+        <Badge title="Scripting" hover />
       </ul>
     </div>
   </div>
