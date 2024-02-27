@@ -43,15 +43,12 @@ withDefaults(defineProps<BadgeType>(), {
 .badge {
   display: flex;
   align-items: center;
-  font-size: 11px;
-  font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   white-space: nowrap;
   background: var(--color-figure-background);
-  border-radius: 18px;
+  border-radius: 25px;
   border-style: solid;
-  border-width: 1px;
   border-color: var(--color-figure-border);
   color: var(--color-figure);
 }
@@ -64,21 +61,38 @@ withDefaults(defineProps<BadgeType>(), {
   cursor: pointer;
 }
 
+.badge.xsmall {
+  border-width: 0.5px;
+  padding: 2px 10px;
+  font-size: 11px;
+  font-weight: 400;
+}
+
 .badge.small {
-  padding: 2px 6px;
+  border-width: 1px;
+  padding: 3px 11px;
   font-size: 12px;
   font-weight: 400;
 }
 
 .badge.medium {
-  padding: 4px 10px;
-  font-size: 14px;
-  font-weight: 400;
+  border-width: 1px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 450;
 }
 
 .badge.large {
+  border-width: 1.5px;
   padding: 6px 14px;
+  font-size: 15px;
+  font-weight: 450;
+}
+
+.badge.xlarge {
+  border-width: 2px;
+  padding: 8px 16px;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
 }
 </style>

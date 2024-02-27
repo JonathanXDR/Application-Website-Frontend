@@ -32,7 +32,8 @@
           <Badge v-if="card.archived" title="Public archive" color="yellow" />
           <Badge
             v-if="card.badge"
-            title="Scripting"
+            :title="card.badge.title"
+            :icon="card.badge.icon"
             :colors="{
               primary: `var(--color-figure-${colorBadge?.colorName})`,
               tertiary: `var(--color-figure-${colorBadge?.colorName})`

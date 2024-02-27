@@ -4,7 +4,7 @@ import type { SizeType } from './Size'
 
 export interface BadgeType extends LinkType {
   variant?: keyof HTMLElementTagNameMap
-  size?: Omit<SizeType, 'xsmall' & 'xlarge'>
+  size?: SizeType
   colors?: ColorType
   border?: boolean
   hover?: boolean
