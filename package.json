@@ -10,7 +10,8 @@
     "postinstall": "nuxt prepare",
     "icon:cleanup": "sh ./scripts/icon-cleanup.sh",
     "sprite:generate": "sh ./scripts/sprite-generate.sh",
-    "component:merge": "sh ./scripts/component-merge.sh"
+    "component:merge": "sh ./scripts/component-merge.sh",
+    "build:trigger": "sh ./scripts/build-trigger.sh"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
