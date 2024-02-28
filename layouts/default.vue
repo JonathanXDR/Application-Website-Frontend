@@ -27,12 +27,21 @@ const { locale } = useI18n()
 onMounted(randomizeColor)
 
 const isDevelopment = ref(process.env.NODE_ENV === 'development')
+
+const pageTitle = computed(() =>
+  currentSection.value.name
+    ? `JR | ${currentSection.value.name}`
+    : 'Jonathan Russ'
+)
+
 const description = ref(
   'Discover the work of Jonathan Russ and learn more about him, including his projects at Swisscom.'
 )
+
 const faviconGraphic = computed(() =>
   isDevelopment.value ? svgFaviconDev : svgFavicon
 )
+
 const faviconImage = computed(
   () =>
     `~/assets/img/${
@@ -84,12 +93,6 @@ const footerClass = computed(() => ({
 
 const footerComponent = computed(() =>
   shouldShow('footerFull') ? FooterFull : FooterCompact
-)
-
-const pageTitle = computed(() =>
-  currentSection.value.name
-    ? `JR | ${currentSection.value.name}`
-    : 'Jonathan Russ'
 )
 
 useHead({
