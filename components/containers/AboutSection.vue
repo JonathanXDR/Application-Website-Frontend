@@ -14,7 +14,7 @@
         width="100%"
         x="0"
         y="10"
-        href="~/assets/img/portrait.jpg"
+        href="/img/portrait.jpg"
         preserveAspectRatio="xMidYMin slice"
       ></image>
     </svg>

@@ -48,7 +48,7 @@ export default defineNuxtPlugin(async nuxtApp => {
         name: appName,
         build: tags.value.latest || '1.0.0',
         version: tags.value.latest || '1.0.0',
-        icon: '~/assets/img/favicon.png'
+        icon: '/img/favicon.png'
       }
 
       musicKitHelper.configureMusicKit(appleDeveloperToken, appConfiguration)
