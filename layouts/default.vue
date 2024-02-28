@@ -27,11 +27,13 @@ const { locale } = useI18n()
 onMounted(randomizeColor)
 
 const isDevelopment = ref(process.env.NODE_ENV === 'development')
-
-const faviconBase = computed(() =>
+const description = ref(
+  'Discover the work of Jonathan Russ and learn more about him, including his projects at Swisscom.'
+)
+const faviconGraphic = computed(() =>
   isDevelopment.value ? svgFaviconDev : svgFavicon
 )
-const appleTouchIconBase = computed(
+const faviconImage = computed(
   () =>
     `~/assets/img/${
       isDevelopment.value
@@ -42,14 +44,25 @@ const appleTouchIconBase = computed(
 
 watchEffect(() => {
   const faviconColor = colorBadge.value?.colorHex ?? '000000'
-  const faviconData = `data:image/svg+xml,${encodeURIComponent(
-    faviconBase.value.replace('#color', `#${faviconColor}`)
+  const faviconGraphicData = `data:image/svg+xml,${encodeURIComponent(
+    faviconGraphic.value.replace('#color', `#${faviconColor}`)
   )}`
 
   useHead({
     link: [
-      { rel: 'icon', type: 'image/svg+xml', href: faviconData },
-      { rel: 'apple-touch-icon', href: appleTouchIconBase.value }
+      { rel: 'icon', type: 'image/svg+xml', href: faviconGraphicData },
+      { rel: 'apple-touch-icon', href: faviconImage.value }
+    ],
+    meta: [
+      { property: 'twitter:image', content: faviconImage.value },
+      { property: 'twitter:card', content: 'summary_large_image' },
+      { property: 'twitter:title', content: pageTitle.value },
+      { property: 'twitter:description', content: description.value },
+      { property: 'og:image', content: faviconImage.value },
+      { property: 'og:title', content: pageTitle.value },
+      { property: 'og:description', content: description.value },
+      { property: 'og:url', content: 'https://jonathan-russ.com/en' },
+      { name: 'description', content: description.value }
     ]
   })
 })
