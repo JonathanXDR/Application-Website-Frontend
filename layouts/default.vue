@@ -58,6 +58,8 @@ watchEffect(() => {
   )}`
 
   useHead({
+    htmlAttrs: { lang: locale.value },
+    title: pageTitle,
     link: [
       { rel: 'icon', type: 'image/svg+xml', href: faviconGraphicData },
       { rel: 'apple-touch-icon', href: faviconImage.value }
@@ -72,6 +74,12 @@ watchEffect(() => {
       { property: 'og:description', content: description.value },
       { property: 'og:url', content: 'https://jonathan-russ.com/en' },
       { name: 'description', content: description.value }
+    ],
+    script: [
+      {
+        src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
+        async: true
+      }
     ]
   })
 })
@@ -94,17 +102,6 @@ const footerClass = computed(() => ({
 const footerComponent = computed(() =>
   shouldShow('footerFull') ? FooterFull : FooterCompact
 )
-
-useHead({
-  htmlAttrs: { lang: locale.value },
-  title: pageTitle,
-  script: [
-    {
-      src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
-      async: true
-    }
-  ]
-})
 </script>
 
 <style>

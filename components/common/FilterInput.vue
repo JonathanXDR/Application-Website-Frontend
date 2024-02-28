@@ -67,7 +67,7 @@
             </div>
           </div>
           <!-- deepcode ignore PureMethodReturnValueIgnored: false positive -->
-          <TagBar
+          <BadgeBar
             v-if="open && options.length"
             :tags="options.map(option => option.label)"
           />
