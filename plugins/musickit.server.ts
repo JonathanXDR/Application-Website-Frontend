@@ -1,6 +1,10 @@
 export default defineNuxtPlugin(async nuxtApp => {
   // const { appleDeveloperToken } = useRuntimeConfig();
+  const appName = import.meta.env.VITE_APP_NAME
+  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
+  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
   const appleDeveloperToken = import.meta.env.VITE_APPLE_DEVELOPER_TOKEN
+
   const tags: Ref<{
     latest: string | undefined
     previous: string | undefined
@@ -8,8 +12,8 @@ export default defineNuxtPlugin(async nuxtApp => {
 
   const fetchTags = async () => {
     const [latest, previous] = await listRepositoryTags({
-      owner: 'JonathanXDR',
-      repo: 'Application-Website-Frontend',
+      owner: repoOwner,
+      repo: repoName,
       perPage: 2
     })
 
@@ -41,7 +45,7 @@ export default defineNuxtPlugin(async nuxtApp => {
       const musicKitHelper = new MusicKitHelper(musicKitInstance)
 
       const appConfiguration = {
-        name: 'Application-Website',
+        name: appName,
         build: tags.value.latest || '1.0.0',
         version: tags.value.latest || '1.0.0',
         icon: '~/assets/img/favicon.png'

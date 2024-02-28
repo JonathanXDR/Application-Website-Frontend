@@ -1,7 +1,6 @@
 #!/bin/bash
 
-GITHUB_REPO="your_username/your_repo"
-GITHUB_TOKEN=$GITHUB_TOKEN
+GITHUB_TOKEN=$VITE_GITHUB_TOKEN
 BUILD_INTERVAL_MINUTES=${BUILD_INTERVAL_MINUTES:-30}
 MANUAL_TRIGGER_KEYWORD="force-build"
 
@@ -16,7 +15,7 @@ minutes_diff=$((($current_unix - $latest_commit_unix) / 60))
 echo "Time since last commit: $minutes_diff minutes"
 
 commit_message=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
-    "https://api.github.com/repos/$GITHUB_REPO/commits?per_page=1" |
+    "https://api.github.com/repos/$VITE_GITHUB_REPO_OWNER/$VITE_GITHUB_REPO_NAME/commits?per_page=1" |
     jq -r '.[0].commit.message')
 
 if [[ "$commit_message" == *"$MANUAL_TRIGGER_KEYWORD"* ]]; then

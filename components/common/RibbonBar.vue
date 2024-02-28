@@ -89,11 +89,13 @@ const isTransitioning = ref(false)
 const scrollDirection = ref('right')
 const displayItems: Ref<RibbonBar[]> = ref([])
 const initialAnimationPlayed = ref(false)
+const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
+const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
 
 const fetchTags = async () => {
   const [latest, previous] = await listRepositoryTags({
-    owner: 'JonathanXDR',
-    repo: 'Application-Website-Frontend',
+    owner: repoOwner,
+    repo: repoName,
     perPage: 2
   })
 
