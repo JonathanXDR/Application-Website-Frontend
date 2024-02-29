@@ -21,7 +21,7 @@
     "@vueuse/motion": "^2.0.0",
     "pinia": "^2.1.7",
     "svg-sprite": "^2.0.2",
-    "vue": "^3.4.15",
+    "vue": "^3.4.16",
     "vue-i18n": "^9.9.0",
     "vue-meta": "^3.0.0-alpha.10",
     "vue-router": "^4.2.5"
