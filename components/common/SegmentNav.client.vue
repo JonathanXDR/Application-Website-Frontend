@@ -7,7 +7,11 @@
     <div class="viewer-sizenav__bubble" v-if="selectedItemElement">
       <div class="viewer-sizenav__bubble-inner" :style="bubbleStyle"></div>
     </div>
-    <ul class="viewer-sizenav-items" role="radiogroup" :style="{ gap: gap }">
+    <ul
+      class="viewer-sizenav-items"
+      role="radiogroup"
+      :style="{ '--viewer-sizenav-items-gap': gap }"
+    >
       <li
         v-for="(item, index) in items"
         :key="index"
@@ -82,7 +86,7 @@ const props = withDefaults(
     separator: false,
     shadow: false,
     grayLabels: false,
-    gap: '0',
+    gap: '0px',
     padding: props => {
       return props.label !== 'icon' ? '0 8px' : '0'
     },
@@ -182,10 +186,13 @@ useResizeObserver(navContainer, () => {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: -3.5px;
+  left: calc(
+    0px - (var(--viewer-sizenav-items-separator) / 2) -
+      (var(--viewer-sizenav-items-gap) / 2) - (var(--sizenav-outer-padding) / 2)
+  );
   margin: auto;
-  width: 3px;
-  height: 3px;
+  width: var(--viewer-sizenav-items-separator);
+  height: var(--viewer-sizenav-items-separator);
   border-radius: 100px;
   background: var(--color-code-plain);
   transition: transform 350ms;
@@ -250,6 +257,7 @@ useResizeObserver(navContainer, () => {
   --aap-margin: 30px;
   --aap-margin-bottom: 100px;
   --aap-background-transition-duration: 250ms;
+  --viewer-sizenav-items-separator: 3px;
   -webkit-user-select: none;
   user-select: none;
   pointer-events: all;
@@ -315,6 +323,7 @@ useResizeObserver(navContainer, () => {
   margin-inline-start: 0;
   padding: 0 calc(var(--sizenav-outer-padding) / 1.33333333333);
   pointer-events: auto;
+  gap: var(--viewer-sizenav-items-gap);
 }
 .viewer-sizenav-item {
   margin-left: calc(var(--sizenav-outer-padding) / 2);
