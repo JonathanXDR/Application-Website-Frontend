@@ -2054,7 +2054,6 @@ a[role='button'] {
 .nowrap {
   display: inline-block;
   text-decoration: inherit;
-  white-space: nowrap;
 }
 
 .clear {
