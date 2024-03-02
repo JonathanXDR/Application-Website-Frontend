@@ -23,16 +23,11 @@ const currentYear = ref(new Date().getFullYear())
   min-height: 36px;
 }
 
-.nojs .rs-covers-footercontent {
-  padding-top: 20px;
-}
-
 .as-l-container {
   margin-left: auto;
   margin-right: auto;
   width: 980px;
 }
-
 @media only screen and (min-width: 1441px) {
   .as-l-container {
     margin-left: auto;
@@ -40,12 +35,17 @@ const currentYear = ref(new Date().getFullYear())
     width: 980px;
   }
 }
-
 @media only screen and (max-width: 1068px) {
   .as-l-container {
     margin-left: auto;
     margin-right: auto;
-    width: 94.14966%;
+    width: 692px;
+  }
+}
+@media only screen and (max-width: 734px) {
+  .as-l-container {
+    margin-left: auto;
+    margin-right: auto;
     width: 87.5%;
   }
 }
