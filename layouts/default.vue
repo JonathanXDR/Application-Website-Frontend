@@ -23,6 +23,7 @@ const route = useRoute()
 const { colorBadge, randomizeColor } = useColor()
 const { currentSection } = useSection()
 const { locale } = useI18n()
+const hasError = inject('hasError', false)
 
 onMounted(randomizeColor)
 
@@ -85,14 +86,15 @@ watchEffect(() => {
 })
 
 const shouldShow = (component: string) =>
-  route.meta[component] ??
-  {
-    header: false,
-    nav: false,
-    ribbon: false,
-    footerFull: false,
-    footerCompact: true
-  }[component]
+  hasError
+    ? {
+        header: false,
+        nav: false,
+        ribbon: false,
+        footerFull: false,
+        footerCompact: true
+      }[component]
+    : route.meta[component]
 
 const footerClass = computed(() => ({
   'footer-full': shouldShow('footerFull'),
