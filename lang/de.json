@@ -1885,8 +1885,31 @@
           "tertiary": "var(--color-system-yellow)"
         }
       },
-      "title": "Not Found.",
+      "title": "{statusCode} Not Found",
       "description": "Die Seite, die du suchst, kann nicht gefunden werden. Bitte überprüfe sie und versuche es erneut.",
+      "links": []
+    },
+    "internalServerError": {
+      "icon": {
+        "name": "exclamationmark.octagon.fill",
+        "colors": {
+          "primary": "var(--color-fill)",
+          "tertiary": "var(--color-system-red)"
+        }
+      },
+      "title": "{statusCode} Internal Server Error",
+      "description": "Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem weiterhin besteht.",
+      "links": []
+    },
+    "serviceUnavailable": {
+      "icon": {
+        "name": "wrench.and.screwdriver.fill",
+        "colors": {
+          "secondary": "var(--color-system-blue)"
+        }
+      },
+      "title": "Be right back.",
+      "description": "Ich führe Aktualisierungen auf der Seite durch. Schau bald wieder vorbei.",
       "links": []
     },
     "error": {
@@ -1897,19 +1920,8 @@
           "tertiary": "var(--color-system-red)"
         }
       },
-      "title": "Error.",
+      "title": "Error {statusCode}",
       "description": "Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem weiterhin besteht.",
-      "links": []
-    },
-    "maintenance": {
-      "icon": {
-        "name": "wrench.and.screwdriver.fill",
-        "colors": {
-          "secondary": "var(--color-system-blue)"
-        }
-      },
-      "title": "Be right back.",
-      "description": "Ich führe Aktualisierungen auf der Seite durch. Schau bald wieder vorbei.",
       "links": []
     }
   }

@@ -80,16 +80,4 @@ const styles = reactive({
   stroke: var(--color-fill-gray);
   stroke-width: 0.2;
 }
-
-.media-icon {
-  width: 5em;
-  height: 5em;
-}
-
-@media screen and (min-width: 1069px) {
-  .media-icon {
-    width: 10em;
-    height: 10em;
-  }
-}
 </style>
