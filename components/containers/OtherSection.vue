@@ -7,10 +7,14 @@
       :size="windowWidth < 900 ? 'small' : 'medium'"
       v-for="(article, index) in articles"
       :key="index"
-      :card="article"
-      :iconPosition="windowWidth < 900 ? 'top' : 'left'"
-      :dateFormatOptions="{
-        weekday: 'long'
+      :icon="{
+        name: article.icon?.name,
+        position: windowWidth < 900 ? 'top' : 'left'
+      }"
+      :date="{
+        formatOptions: {
+          weekday: 'long'
+        }
       }"
     />
   </ul>
