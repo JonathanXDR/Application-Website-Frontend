@@ -51,11 +51,11 @@
           ]
         },
         {
-          "description": "Erkunde meine neusten Projekte bei Swisscom - {latestProject}!",
+          "description": "Erkunde meine neusten Projekte bei Swisscom!",
           "links": [
             {
               "title": "Mehr erfahren",
-              "url": "#{latestProjectUrl}",
+              "url": "#projects",
               "icon": {
                 "name": "chevron.right"
               }
@@ -63,11 +63,11 @@
           ]
         },
         {
-          "description": "Diese Technologie habe ich zuletzt gelernt - {latestTechnology}!",
+          "description": "Entdecke alle Technologien, mit denen ich bisher gearbeitet habe!",
           "links": [
             {
               "title": "Mehr erfahren",
-              "url": "#{latestTechnologyUrl}",
+              "url": "#technologies",
               "icon": {
                 "name": "chevron.right"
               }
