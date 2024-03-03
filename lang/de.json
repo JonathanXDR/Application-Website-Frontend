@@ -1784,7 +1784,7 @@
             }
           },
           "eyebrow": "Frontend",
-          "title": "Apps Team Frontend",
+          "title": "Apps Team - Frontend",
           "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
           "tags": [
             "Frontend Development",
@@ -1818,7 +1818,7 @@
             "name": "gear"
           },
           "eyebrow": "Backend",
-          "title": "Apps Team Backend",
+          "title": "Apps Team - Backend",
           "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt. Danach habe ich dann beim Tool für Medienkurse mitgeholfen und konnte dort einige Features hinzufügen und Fehler beheben. Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen Webfrontends mitwirken, was mir sehr gefallen hat :)",
           "tags": [
             "Backend Development",
@@ -1855,8 +1855,8 @@
             "name": "shield.lefthalf.filled"
           },
           "eyebrow": "Security",
-          "title": "Security Journey - Development Stream",
-          "description": "In diesem Projekt habe ich mit ein paar Trainings zu Cloud & Security begonnen, was ziemlich lehrreich für mich war. Danach durfte ich bereits an meinem momentanen Projekt arbeiten, einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring). Dort verwende ich Python, Docker und Kubernetes, wobei Python für mich neu ist.",
+          "title": "Security Journey - Security & Compliance Services ART",
+          "description": "In diesem Projekt habe ich mit ein paar Trainings zu Cloud, Security und DevOps begonnen, was ziemlich lehrreich für mich war. Danach durfte ich bereits am DAM Log Scanner Projekt arbeiten, einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring). Dort habe ich hauptsächlich Python, Docker und Kubernetes verwendet, wobei Python für mich neu war.",
           "tags": [
             "Cloud Security",
             "Database Activity Monitoring",
@@ -1867,10 +1867,33 @@
           "info": {
             "date": {
               "from": "2023-09-01",
-              "to": "2024-08-01"
+              "to": "2024-03-01"
             },
+            "supervisor": "Radu Margineanu",
             "location": "Zür-Mas10",
-            "department": "INI-CIT-EAS"
+            "department": "INI-CIT-MCS"
+          }
+        },
+        {
+          "icon": {
+            "name": "shield.lefthalf.filled"
+          },
+          "eyebrow": "Security",
+          "title": "Security Journey - Piz Tofana Tooling Team",
+          "description": "",
+          "tags": [
+            "Cloud Security",
+            "Docker",
+            "Kubernetes",
+            "Java"
+          ],
+          "info": {
+            "date": {
+              "from": "2024-03-01",
+              "to": "2024-07-01"
+            },
+            "location": "Zür-För181",
+            "department": "INI-DOS-TDE"
           }
         }
       ]
