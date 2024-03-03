@@ -23,7 +23,7 @@ const route = useRoute()
 const { colorBadge, randomizeColor } = useColor()
 const { currentSection } = useSection()
 const { locale } = useI18n()
-const hasError = inject('hasError', false)
+const error = useError()
 
 onMounted(randomizeColor)
 
@@ -85,8 +85,10 @@ watchEffect(() => {
   })
 })
 
+console.log(error.value)
+
 const shouldShow = (component: string) =>
-  hasError
+  error.value
     ? {
         header: false,
         nav: false,
