@@ -420,7 +420,7 @@ const getAlignItems = () => {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   align-items: center;
   gap: 12px;
   z-index: 1;
