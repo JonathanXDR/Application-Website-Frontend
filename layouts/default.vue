@@ -85,8 +85,6 @@ watchEffect(() => {
   })
 })
 
-console.log(error.value)
-
 const shouldShow = (component: string) =>
   error.value
     ? {
