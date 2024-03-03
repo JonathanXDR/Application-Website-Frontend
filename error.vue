@@ -293,7 +293,7 @@ h1 + * {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 37px auto 40px auto;
+  margin: 37px 0 40px 0;
 }
 @media only screen and (max-width: 734px) {
   .rs-covers-preorder .rs-covers-media-wrapper {
@@ -307,7 +307,7 @@ h1 + * {
     height: 180px;
   }
   .rs-covers-media-icon {
-    margin: 57px auto 60px auto;
+    margin: 57px 0 60px 0;
   }
   .media-icon {
     width: 83px;
@@ -327,7 +327,7 @@ h1 + * {
     height: 157.5px;
   }
   .rs-covers-media-icon {
-    margin: 33px auto 34px auto;
+    margin: 33px 0 34px 0;
   }
   .media-icon {
     width: 73px;
