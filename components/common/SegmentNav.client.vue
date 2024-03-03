@@ -92,7 +92,9 @@ const props = withDefaults(
       return props.label !== 'icon' ? '0 8px' : '0'
     },
     outerPadding: 4,
-    selectedItem: '',
+    selectedItem: props => {
+      return props.items[0].id
+    },
     onSelect: () => {}
   }
 )
