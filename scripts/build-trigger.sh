@@ -3,34 +3,30 @@
 GITHUB_TOKEN=$VITE_GITHUB_TOKEN
 GITHUB_REPO_BRANCH=${GITHUB_REPO_BRANCH:-develop}
 BUILD_INTERVAL_MINUTES=${BUILD_INTERVAL_MINUTES:-30}
-MANUAL_TRIGGER_KEYWORD="force-build"
 
-latest_commit_info=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
-    "https://api.github.com/repos/$VITE_GITHUB_REPO_OWNER/$VITE_GITHUB_REPO_NAME/commits/$GITHUB_REPO_BRANCH?per_page=1")
+commits_info=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+    "https://api.github.com/repos/$VITE_GITHUB_REPO_OWNER/$VITE_GITHUB_REPO_NAME/commits?sha=$GITHUB_REPO_BRANCH&per_page=2")
 
-# curl -L \
-#     -H "Accept: application/vnd.github+json" \
-#     -H "Authorization: Bearer $GITHUB_TOKEN" \
-#     -H "X-GitHub-Api-Version: 2022-11-28" \
-#     https://api.github.com/repos/$VITE_GITHUB_REPO_OWNER/$VITE_GITHUB_REPO_NAME/commits/$GITHUB_REPO_BRANCH?per_page=1
+echo -e "$commits_info\n"
 
-latest_commit_timestamp=$(echo "$latest_commit_info" | grep -oP '"date": "\K[^"]+' | head -1)
+commit_timestamps=$(echo "$commits_info" | grep '"date":' | cut -d '"' -f 4 | awk 'NR % 2 == 1')
 
-latest_commit_unix=$(date -d "$latest_commit_timestamp" +%s)
-current_unix=$(date +%s)
-minutes_diff=$((($current_unix - $latest_commit_unix) / 60))
+readarray -t timestamps <<<"$commit_timestamps"
 
-echo "Time since last commit: $minutes_diff minutes"
+echo -e "Latest Commit Timestamp: ${timestamps[0]}"
+echo -e "Previous Commit Timestamp: ${timestamps[1]}\n"
 
-commit_message=$(echo "$latest_commit_info" | grep -oP '"message": "\K[^"]+' | head -1)
+latest_commit_unix=$(date -d "${timestamps[0]}" +%s)
+second_latest_commit_unix=$(date -d "${timestamps[1]}" +%s)
 
-if [[ "$commit_message" == *"$MANUAL_TRIGGER_KEYWORD"* ]]; then
-    echo "✅ - Build triggered manually"
-    exit 1
-elif [ $minutes_diff -ge $BUILD_INTERVAL_MINUTES ]; then
-    echo "✅ - More than $BUILD_INTERVAL_MINUTES minutes since last commit, proceeding with build"
+minutes_diff=$((($latest_commit_unix - $second_latest_commit_unix) / 60))
+
+echo -e "Time difference between the last two commits: $minutes_diff minutes\n"
+
+if [ $minutes_diff -ge $BUILD_INTERVAL_MINUTES ]; then
+    echo -e "✅ - More than $BUILD_INTERVAL_MINUTES minutes between the last two commits, proceeding with build\n"
     exit 1
 else
-    echo "🛑 - Less than $BUILD_INTERVAL_MINUTES minutes since last commit, skipping build"
+    echo -e "🛑 - Less than $BUILD_INTERVAL_MINUTES minutes between the last two commits, skipping build\n"
     exit 0
 fi
