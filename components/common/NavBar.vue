@@ -56,13 +56,7 @@
               :items="themeItems"
               gap="5px"
               size="xsmall"
-              :label="
-                windowWidth < 1250
-                  ? windowWidth < 900
-                    ? 'icon'
-                    : 'text'
-                  : 'combination'
-              "
+              :label="windowWidth < 900 ? 'icon' : 'text'"
               :selectedItem="getTheme()"
               :onSelect="newTheme => setTheme(newTheme)"
             />
