@@ -4,7 +4,7 @@
       <!-- NavBar -->
       <div
         data-core-fade-transition-wrapper
-        class="rs-covers-transtion theme-dark r-fade-transition-enter-done"
+        class="rs-covers-transtion r-fade-transition-enter-done"
       >
         <div class="rs-covers-container rs-covers-media-default as-l-container">
           <div class="rs-covers-media-container">
@@ -96,12 +96,6 @@ const description: Ref<string[]> = computed(() =>
 </script>
 
 <style scoped>
-.theme-dark {
-  --sk-body-background-color: rgb(0, 0, 0);
-  --sk-body-text-color: rgb(245, 245, 247);
-  --sk-headline-text-color: rgb(245, 245, 247);
-  --sk-body-link-color: rgb(41, 151, 255);
-}
 .visuallyhidden {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
@@ -162,47 +156,8 @@ const description: Ref<string[]> = computed(() =>
   width: 100%;
   height: auto;
 }
-button,
-h1,
-p {
-  margin: 0;
-  padding: 0;
-}
-video {
-  vertical-align: baseline;
-}
-button {
-  background: none;
-  border: 0;
-  box-sizing: content-box;
-  color: inherit;
-  cursor: pointer;
-  font: inherit;
-  line-height: inherit;
-  overflow: visible;
-  vertical-align: inherit;
-}
-button:disabled {
-  cursor: default;
-}
-:focus {
-  outline: 2px solid #0071e3;
-  outline-offset: 0;
-}
-html.as-mouseuser :focus:not(input):not(textarea):not(select) {
-  outline: none;
-}
-button {
-  font-synthesis: none;
-  -moz-font-feature-settings: 'kern';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  direction: ltr;
-  text-align: left;
-}
 h1 {
   font-weight: 600;
-  color: #1d1d1f;
 }
 h1 + * {
   margin-top: 0.8em;
@@ -272,14 +227,6 @@ h1 + * {
     margin-right: auto;
     width: 87.5%;
   }
-}
-.theme-dark {
-  --sk-link-disabled-opacity: 0.36;
-  background-color: #000;
-}
-.theme-dark,
-.theme-dark h1 {
-  color: #f5f5f7;
 }
 .rs-covers {
   text-align: center;
