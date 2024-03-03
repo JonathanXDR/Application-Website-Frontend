@@ -85,15 +85,17 @@ watchEffect(() => {
   })
 })
 
+const errorConfig = {
+  header: false,
+  nav: false,
+  ribbon: false,
+  footerFull: false,
+  footerCompact: true
+}
+
 const shouldShow = (component: string) =>
   error.value
-    ? {
-        header: false,
-        nav: false,
-        ribbon: false,
-        footerFull: false,
-        footerCompact: true
-      }[component]
+    ? errorConfig[component as keyof typeof errorConfig]
     : route.meta[component]
 
 const footerClass = computed(() => ({
