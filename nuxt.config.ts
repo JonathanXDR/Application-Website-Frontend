@@ -45,7 +45,10 @@ export default defineNuxtConfig({
     appleDeveloperToken: process.env.APPLE_DEVELOPER_TOKEN,
 
     public: {
-      environment: process.env.NODE_ENV
+      environment: process.env.NODE_ENV,
+      appName: process.env.APP_NAME,
+      githubRepoName: process.env.GITHUB_REPO_NAME,
+      githubRepoOwner: process.env.GITHUB_REPO_OWNER
     }
   },
   components: {
