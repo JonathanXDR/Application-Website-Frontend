@@ -1,8 +1,6 @@
 export default defineNuxtPlugin(async nuxtApp => {
+  const { appName, githubRepoName, githubRepoOwner } = useRuntimeConfig().public
   // const { appleDeveloperToken } = useRuntimeConfig();
-  const appName = import.meta.env.VITE_APP_NAME
-  const repoName = import.meta.env.VITE_GITHUB_REPO_NAME
-  const repoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
   const appleDeveloperToken = import.meta.env.VITE_APPLE_DEVELOPER_TOKEN
 
   const tags: Ref<{
@@ -12,8 +10,8 @@ export default defineNuxtPlugin(async nuxtApp => {
 
   const fetchTags = async () => {
     const [latest, previous] = await listRepositoryTags({
-      owner: repoOwner,
-      repo: repoName,
+      owner: githubRepoOwner,
+      repo: githubRepoName,
       perPage: 2
     })
 

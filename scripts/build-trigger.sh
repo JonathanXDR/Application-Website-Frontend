@@ -1,11 +1,11 @@
 #!/bin/bash
 
-GITHUB_TOKEN=$VITE_GITHUB_TOKEN
+GITHUB_TOKEN=$GITHUB_TOKEN
 GITHUB_REPO_BRANCH=${GITHUB_REPO_BRANCH:-develop}
 BUILD_INTERVAL_MINUTES=${BUILD_INTERVAL_MINUTES:-30}
 
 commits_info=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
-    "https://api.github.com/repos/$VITE_GITHUB_REPO_OWNER/$VITE_GITHUB_REPO_NAME/commits?sha=$GITHUB_REPO_BRANCH&per_page=2")
+    "https://api.github.com/repos/$GITHUB_REPO_OWNER/$GITHUB_REPO_NAME/commits?sha=$GITHUB_REPO_BRANCH&per_page=2")
 
 echo -e "$commits_info\n"
 
