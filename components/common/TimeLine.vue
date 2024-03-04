@@ -2,26 +2,30 @@
   <svg
     ref="svg"
     class="svg-timeline"
-    :viewBox="`0 0 8 ${ulHeightRounded}`"
-    :xmlns="`http://www.w3.org/${ulHeightRounded}/svg`"
-    :height="ulHeightValue"
+    :viewBox="viewBox"
+    :xmlns="xmlns"
+    :height="ulHeight"
   >
     <path
       ref="path"
       class="path-timeline"
       stroke="var(--color-fill-gray)"
       stroke-width="5"
-      :d="`M 4 0 L 4 ${ulHeightRounded}`"
-      :stroke-dashoffset="ulHeightValue"
-      :stroke-dasharray="ulHeightValue"
+      :d="pathD"
+      :stroke-dashoffset="strokeDashoffset"
+      :stroke-dasharray="strokeDasharray"
     ></path>
   </svg>
 </template>
 
 <script setup lang="ts">
-const ulHeight: Ref<number> = ref(0)
-const ulHeightValue: Ref<number> = ref(0)
-const ulHeightRounded: Ref<number> = ref(0)
+const pathD: Ref<string | undefined> = ref(undefined)
+const ulHeight: Ref<number | undefined> = ref(undefined)
+const viewBox: Ref<string | undefined> = ref(undefined)
+const xmlns: Ref<string | undefined> = ref(undefined)
+
+const strokeDasharray: Ref<number | undefined> = ref(undefined)
+const strokeDashoffset: Ref<number | undefined> = ref(undefined)
 
 const svg: Ref<SVGElement | undefined> = ref(undefined)
 const path: Ref<SVGPathElement | undefined> = ref(undefined)
@@ -30,20 +34,29 @@ const initPath = () => {
   const instance = getCurrentInstance()
   const ul = instance?.parent?.refs.ul as HTMLElement
 
-  ulHeightValue.value = ul?.getBoundingClientRect().height
-  ulHeightRounded.value = Math.round(ulHeightValue.value) || 0
+  const ulHeightValue = ul.getBoundingClientRect().height
+  const ulHeightRounded = Math.round(ulHeightValue)
+
+  pathD.value = `M 4 0 L 4 ${ulHeightRounded}`
+  ulHeight.value = ulHeightValue
+  viewBox.value = `0 0 8 ${ulHeightRounded}`
+  xmlns.value = `http://www.w3.org/${ulHeightRounded}/svg`
+
+  strokeDasharray.value = ulHeightValue
+  strokeDashoffset.value = ulHeightValue
 }
 
 const animateLine = () => {
-  const height = ulHeight.value || 0
+  const ulHeightValue = ulHeight.value || 0
   const center = window.innerHeight / 2
   const boundaries = path.value?.getBoundingClientRect()
 
   const percentage =
     (center - (boundaries?.top || 0)) / (boundaries?.height || 1)
-  const drawLength = percentage > 0 ? height * percentage : 0
+  const drawLength = percentage > 0 ? ulHeightValue * percentage : 0
 
-  ulHeightValue.value = drawLength < height ? height - drawLength : 0
+  strokeDashoffset.value =
+    drawLength < ulHeightValue ? ulHeightValue - drawLength : 0
 }
 
 onMounted(() => {
@@ -66,9 +79,13 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* ------------------------------ svg-timeline ------------------------------ */
+
 .svg-timeline {
   position: absolute;
 }
+
+/* ------------------------------ path-timeline ----------------------------- */
 
 .path-timeline {
   transition: stroke-dashoffset 1s ease;
