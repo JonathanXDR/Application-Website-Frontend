@@ -41,15 +41,14 @@ export default defineNuxtConfig({
     options: routerOptions
   },
   runtimeConfig: {
-    githubToken: process.env.GITHUB_TOKEN,
-    appleDeveloperToken: process.env.APPLE_DEVELOPER_TOKEN,
+    appName: process.env.APP_NAME,
+    appEnvironment: process.env.NODE_ENV,
 
-    public: {
-      environment: process.env.NODE_ENV,
-      appName: process.env.APP_NAME,
-      githubRepoName: process.env.GITHUB_REPO_NAME,
-      githubRepoOwner: process.env.GITHUB_REPO_OWNER
-    }
+    githubRepoName: process.env.GITHUB_REPO_NAME,
+    githubRepoOwner: process.env.GITHUB_REPO_OWNER,
+    githubToken: process.env.GITHUB_TOKEN,
+
+    appleDeveloperToken: process.env.APPLE_DEVELOPER_TOKEN
   },
   components: {
     dirs: [

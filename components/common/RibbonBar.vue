@@ -83,7 +83,7 @@ const scrollDirection = ref('right')
 const displayItems: Ref<RibbonBar[]> = ref([])
 const initialAnimationPlayed = ref(false)
 
-const { githubRepoName, githubRepoOwner } = useRuntimeConfig().public
+const { githubRepoName, githubRepoOwner } = useRuntimeConfig()
 
 const fetchTags = async () => {
   const [latest, previous] = await listRepositoryTags({

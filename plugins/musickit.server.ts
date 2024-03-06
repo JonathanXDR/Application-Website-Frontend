@@ -1,7 +1,6 @@
 export default defineNuxtPlugin(async nuxtApp => {
-  const { appName, githubRepoName, githubRepoOwner } = useRuntimeConfig().public
-  // const { appleDeveloperToken } = useRuntimeConfig();
-  const appleDeveloperToken = import.meta.env.VITE_APPLE_DEVELOPER_TOKEN
+  const { appName, githubRepoName, githubRepoOwner, appleDeveloperToken } =
+    useRuntimeConfig()
 
   const tags: Ref<{
     latest: string | undefined
@@ -43,7 +42,7 @@ export default defineNuxtPlugin(async nuxtApp => {
       const musicKitHelper = new MusicKitHelper(musicKitInstance)
 
       const appConfiguration = {
-        name: appName,
+        name: appName as string,
         build: tags.value.latest || '1.0.0',
         version: tags.value.latest || '1.0.0',
         icon: '/img/favicon.png'
