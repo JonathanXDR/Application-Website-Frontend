@@ -1,12 +1,13 @@
 import { graphql, type GraphQlQueryResponseData } from '@octokit/graphql'
 import { Octokit } from 'octokit'
-import type { ListRepoIssuesResponse } from '~/types/services/github/Issue'
+import type { GetRepositoryIssues } from '~/types/services/GitHub/Issue'
 import type {
-  GetRepoResponse,
-  ListPublicReposResponse,
-  ListUserReposResponse
-} from '~/types/services/github/Repository'
-import type { ListRepoTagsResponse } from '~/types/services/github/Tag'
+  GetOwnerRepositories,
+  GetPublicRepositories,
+  GetUserRepositories
+} from '~/types/services/GitHub/Repository'
+import type { GetRepositoryTags } from '~/types/services/GitHub/Tag'
+import type { GetRepositoryTopics } from '~/types/services/GitHub/Topic'
 
 const { githubToken } = useRuntimeConfig()
 
@@ -20,9 +21,9 @@ const graphqlInstance = graphql.defaults({
   }
 })
 
-export async function listPublicRepositories (params: {
+export async function getPublicRepositories (params: {
   since?: number
-}): Promise<ListPublicReposResponse[]> {
+}): Promise<GetPublicRepositories> {
   const { since } = params
 
   try {
@@ -39,14 +40,14 @@ export async function listPublicRepositories (params: {
   }
 }
 
-export async function listUserRepositories (params: {
+export async function getUserRepositories (params: {
   username: string
   type?: 'all' | 'owner' | 'member' | undefined
   sort?: 'full_name' | 'created' | 'updated' | 'pushed' | undefined
   direction?: 'asc' | 'desc' | undefined
   perPage?: number
   page?: number
-}): Promise<ListUserReposResponse[]> {
+}): Promise<GetUserRepositories> {
   const {
     username,
     type = 'owner',
@@ -75,10 +76,10 @@ export async function listUserRepositories (params: {
   }
 }
 
-export async function getRepository (params: {
+export async function getOwnerRepositories (params: {
   owner: string
   repo: string
-}): Promise<GetRepoResponse> {
+}): Promise<GetOwnerRepositories> {
   const { owner, repo } = params
 
   try {
@@ -96,12 +97,12 @@ export async function getRepository (params: {
   }
 }
 
-export async function listRepositoryTags (params: {
+export async function getRepositoryTags (params: {
   owner: string
   repo: string
   perPage?: number
   page?: number
-}): Promise<ListRepoTagsResponse> {
+}): Promise<GetRepositoryTags> {
   const { owner, repo, perPage = 30, page = 1 } = params
 
   try {
@@ -121,7 +122,7 @@ export async function listRepositoryTags (params: {
   }
 }
 
-export async function listRepositoryIssues (params: {
+export async function getRepositoryIssues (params: {
   owner: string
   repo: string
   milestone?: string
@@ -135,7 +136,7 @@ export async function listRepositoryIssues (params: {
   since?: string
   perPage?: number
   page?: number
-}): Promise<ListRepoIssuesResponse[]> {
+}): Promise<GetRepositoryIssues> {
   const {
     owner,
     repo,
@@ -178,10 +179,35 @@ export async function listRepositoryIssues (params: {
   }
 }
 
-export async function listPinnedRepositories (params: {
+export async function getRepositoryTopics (params: {
+  owner: string
+  repo: string
+  perPage?: number
+  page?: number
+}): Promise<GetRepositoryTopics> {
+  const { owner, repo, perPage = 30, page = 1 } = params
+
+  try {
+    const response = await octokit.request('GET /repos/{owner}/{repo}/topics', {
+      owner,
+      repo,
+      per_page: perPage,
+      page,
+      headers: {
+        accept: 'application/vnd.github+json'
+      }
+    })
+    return response.data
+  } catch (error) {
+    console.error(`Error fetching topics for repository ${repo}:`, error)
+    throw error
+  }
+}
+
+export async function getUserPinnedRepositories (params: {
   username: string
   perPage?: number
-}): Promise<ListUserReposResponse[]> {
+}): Promise<GetUserRepositories> {
   const { username, perPage = 30 } = params
 
   const query = `

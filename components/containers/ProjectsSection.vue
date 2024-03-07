@@ -80,18 +80,22 @@
 </template>
 
 <script lang="ts" setup>
-import type { ListUserReposResponse } from '~/types/GitHub/Repository'
 import type { CardItemType } from '~/types/common/CardItem'
 import type { ItemType } from '~/types/common/Item'
+import type { GetUserRepositories } from '~/types/services/GitHub/Repository'
+import {
+  getUserPinnedRepositories,
+  getUserRepositories
+} from '~/utils/github-helper'
 
-type ListUserPinnedReposResponse = ListUserReposResponse & {
+type GetUserPinnedRepositories = GetUserRepositories[0] & {
   icon?: CardItemType['icon']
 }
 
 type Projects = {
   swisscom: CardItemType[]
-  personal: ListUserReposResponse[]
-  school: ListUserReposResponse[]
+  personal: GetUserRepositories
+  school: GetUserRepositories
 }
 
 defineProps<{
@@ -107,10 +111,10 @@ const projects: Projects = reactive({
   swisscom: computed(() => tm('components.containers.projects')) as Ref<
     CardItemType[]
   >,
-  personal: [] as ListUserReposResponse[],
-  school: [] as ListUserReposResponse[]
+  personal: [] as GetUserRepositories[],
+  school: [] as GetUserRepositories[]
 })
-const pinned: Ref<ListUserPinnedReposResponse[]> = ref([])
+const pinned: Ref<GetUserPinnedRepositories> = ref([])
 const currentProjects = computed(
   () =>
     projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
@@ -150,7 +154,7 @@ const updateCurrentIndex = (index: number) => {
   currentIndex.value = index
 }
 
-const categorizeProject = (project: ListUserReposResponse) => {
+const categorizeProject = (project: GetUserRepositories[0]) => {
   const schoolProjectPattern =
     /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/
   const category = schoolProjectPattern.test(project.name)
@@ -160,17 +164,17 @@ const categorizeProject = (project: ListUserReposResponse) => {
 }
 
 const fetchProjects = async () => {
-  const allProjects = await listUserRepositories({
+  const allProjects = await getUserRepositories({
     username: 'JonathanXDR',
     perPage: 100
   })
 
-  const pinnedProjects = await listPinnedRepositories({
+  const pinnedProjects = await getUserPinnedRepositories({
     username: 'JonathanXDR',
     perPage: 100
   })
 
-  pinnedProjects.forEach((project: ListUserPinnedReposResponse) => {
+  pinnedProjects.forEach((project: GetUserPinnedRepositories[0]) => {
     project.icon = {
       name: 'pin.fill',
       colors: {
@@ -189,7 +193,7 @@ const fetchProjects = async () => {
   filteredProjects.map(categorizeProject).forEach(project => {
     const category = project.category as keyof Projects
     projects[category].push(
-      project as ListUserReposResponse & CardItemType & { category: string }
+      project as GetUserRepositories[0] & CardItemType & { category: string }
     )
   })
 }

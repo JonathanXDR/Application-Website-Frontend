@@ -1,4 +1,4 @@
-import type { ListRepoIssuesResponse } from '../services/github/Issue'
+import type { GetRepositoryIssues } from '../GitHub/Issue'
 import type { DateType } from './Date'
 
 export interface InfoType {
@@ -12,7 +12,7 @@ export interface InfoType {
   networks?: number
   watchers?: number
   stars?: number
-  issues?: ListRepoIssuesResponse[] | number
+  issues?: GetRepositoryIssues[]
   subscribers?: number
   date?: DateType
 }

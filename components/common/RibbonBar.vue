@@ -68,6 +68,7 @@
 <script setup lang="ts">
 import type { LinkType } from '~/types/common/Link'
 import type { RibbonBar } from '~/types/common/RibbonBar'
+import { getRepositoryTags } from '~/utils/github-helper'
 
 const { t, tm, rt } = useI18n()
 const tags: Ref<{
@@ -86,7 +87,7 @@ const initialAnimationPlayed = ref(false)
 const { githubRepoName, githubRepoOwner } = useRuntimeConfig()
 
 const fetchTags = async () => {
-  const [latest, previous] = await listRepositoryTags({
+  const [latest, previous] = await getRepositoryTags({
     owner: githubRepoOwner,
     repo: githubRepoName,
     perPage: 2

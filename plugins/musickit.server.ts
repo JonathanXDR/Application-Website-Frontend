@@ -1,3 +1,5 @@
+import { getRepositoryTags } from '~/utils/github-helper'
+
 export default defineNuxtPlugin(async nuxtApp => {
   const { appName, githubRepoName, githubRepoOwner, appleDeveloperToken } =
     useRuntimeConfig()
@@ -8,7 +10,7 @@ export default defineNuxtPlugin(async nuxtApp => {
   }> = ref({ latest: undefined, previous: undefined })
 
   const fetchTags = async () => {
-    const [latest, previous] = await listRepositoryTags({
+    const [latest, previous] = await getRepositoryTags({
       owner: githubRepoOwner,
       repo: githubRepoName,
       perPage: 2
