@@ -25,13 +25,6 @@ export default defineNuxtConfig({
   ssr: true,
   app: {
     head: {
-      meta: [
-        {
-          name: 'description',
-          content:
-            'Discover the work of Jonathan Russ and learn more about him, including his projects at Swisscom.'
-        }
-      ],
       script:
         process.env.NODE_ENV === 'production'
           ? []
@@ -41,20 +34,21 @@ export default defineNuxtConfig({
                 ['data-project-id']: '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
                 ['data-is-production-environment']: false
               }
-            ],
-      title: 'Jonathan Russ'
+            ]
     }
   },
   router: {
     options: routerOptions
   },
   runtimeConfig: {
-    githubToken: process.env.GITHUB_TOKEN,
-    appleDeveloperToken: process.env.APPLE_DEVELOPER_TOKEN,
+    appName: process.env.APP_NAME,
+    appEnvironment: process.env.NODE_ENV,
 
-    public: {
-      environment: process.env.NODE_ENV
-    }
+    githubRepoName: process.env.GITHUB_REPO_NAME,
+    githubRepoOwner: process.env.GITHUB_REPO_OWNER,
+    githubToken: process.env.GITHUB_TOKEN,
+
+    appleDeveloperToken: process.env.APPLE_DEVELOPER_TOKEN
   },
   components: {
     dirs: [

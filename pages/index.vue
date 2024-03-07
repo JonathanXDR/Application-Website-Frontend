@@ -39,7 +39,7 @@ const sections: Ref<SectionType[]> = computed(() =>
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(~/assets/img/lines.jpg);
+  background: url(/img/lines.jpg);
   z-index: 10;
   background-size: 7px auto;
   mix-blend-mode: overlay;
@@ -70,7 +70,7 @@ const sections: Ref<SectionType[]> = computed(() =>
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(~/assets/img/vignette.png);
+  background: url(/img/vignette.png);
   z-index: 11;
   background-size: 100% 100%;
   mix-blend-mode: overlay;

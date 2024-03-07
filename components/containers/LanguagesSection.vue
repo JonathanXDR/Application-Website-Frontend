@@ -7,7 +7,7 @@
       :key="index"
       :card="language"
       iconAlignment="start"
-      iconPosition="top"
+      :iconPosition="windowWidth < 930 ? 'top' : 'left'"
       :badge="language.badge"
       :language="language"
     />
@@ -41,6 +41,7 @@ const items = reactive([
 ])
 
 const { tm } = useI18n()
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 const languages: Ref<LanguageBarType[]> = computed(() =>
   tm('components.containers.languages')
 )

@@ -8,8 +8,7 @@ import type {
 } from '~/types/services/github/Repository'
 import type { ListRepoTagsResponse } from '~/types/services/github/Tag'
 
-// const { githubToken } = useRuntimeConfig();
-const githubToken = import.meta.env.VITE_GITHUB_TOKEN
+const { githubToken } = useRuntimeConfig()
 
 const octokit = new Octokit({
   auth: githubToken

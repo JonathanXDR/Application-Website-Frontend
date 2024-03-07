@@ -14,26 +14,38 @@
 
 <script setup lang="ts">
 import { SpeedInsights } from '@vercel/speed-insights/vue'
-import svgFaviconDev from '~/assets/img/dev/favicon-dev.svg?raw'
-import svgFavicon from '~/assets/img/favicon.svg?raw'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterFull from '~/components/common/Footer/Full.vue'
+import svgFaviconDev from '/img/dev/favicon-dev.svg?raw'
+import svgFavicon from '/img/favicon.svg?raw'
 
 const route = useRoute()
 const { colorBadge, randomizeColor } = useColor()
 const { currentSection } = useSection()
 const { locale } = useI18n()
+const error = useError()
 
 onMounted(randomizeColor)
 
 const isDevelopment = ref(process.env.NODE_ENV === 'development')
 
-const faviconBase = computed(() =>
+const pageTitle = computed(() =>
+  currentSection.value.name
+    ? `JR | ${currentSection.value.name}`
+    : 'Jonathan Russ'
+)
+
+const description = ref(
+  'Discover the work of Jonathan Russ and learn more about him, including his projects at Swisscom.'
+)
+
+const faviconGraphic = computed(() =>
   isDevelopment.value ? svgFaviconDev : svgFavicon
 )
-const appleTouchIconBase = computed(
+
+const faviconImage = computed(
   () =>
-    `~/assets/img/${
+    `/img/${
       isDevelopment.value
         ? `dev/favicon-dev-${colorBadge.value?.colorName}.png`
         : 'favicon.png'
@@ -42,27 +54,49 @@ const appleTouchIconBase = computed(
 
 watchEffect(() => {
   const faviconColor = colorBadge.value?.colorHex ?? '000000'
-  const faviconData = `data:image/svg+xml,${encodeURIComponent(
-    faviconBase.value.replace('#color', `#${faviconColor}`)
+  const faviconGraphicData = `data:image/svg+xml,${encodeURIComponent(
+    faviconGraphic.value.replace('#color', `#${faviconColor}`)
   )}`
 
   useHead({
+    htmlAttrs: { lang: locale.value },
+    title: pageTitle,
     link: [
-      { rel: 'icon', type: 'image/svg+xml', href: faviconData },
-      { rel: 'apple-touch-icon', href: appleTouchIconBase.value }
+      { rel: 'icon', type: 'image/svg+xml', href: faviconGraphicData },
+      { rel: 'apple-touch-icon', href: faviconImage.value }
+    ],
+    meta: [
+      { property: 'twitter:image', content: faviconImage.value },
+      { property: 'twitter:card', content: 'summary_large_image' },
+      { property: 'twitter:title', content: pageTitle.value },
+      { property: 'twitter:description', content: description.value },
+      { property: 'og:image', content: faviconImage.value },
+      { property: 'og:title', content: pageTitle.value },
+      { property: 'og:description', content: description.value },
+      { property: 'og:url', content: 'https://jonathan-russ.com/en' },
+      { name: 'description', content: description.value }
+    ],
+    script: [
+      {
+        src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
+        async: true
+      }
     ]
   })
 })
 
+const errorConfig = {
+  header: false,
+  nav: false,
+  ribbon: false,
+  footerFull: false,
+  footerCompact: true
+}
+
 const shouldShow = (component: string) =>
-  route.meta[component] ??
-  {
-    header: false,
-    nav: false,
-    ribbon: false,
-    footerFull: false,
-    footerCompact: true
-  }[component]
+  error.value
+    ? errorConfig[component as keyof typeof errorConfig]
+    : route.meta[component]
 
 const footerClass = computed(() => ({
   'footer-full': shouldShow('footerFull'),
@@ -72,23 +106,6 @@ const footerClass = computed(() => ({
 const footerComponent = computed(() =>
   shouldShow('footerFull') ? FooterFull : FooterCompact
 )
-
-const pageTitle = computed(() =>
-  currentSection.value.name
-    ? `JR | ${currentSection.value.name}`
-    : 'Jonathan Russ'
-)
-
-useHead({
-  htmlAttrs: { lang: locale.value },
-  title: pageTitle,
-  script: [
-    {
-      src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
-      async: true
-    }
-  ]
-})
 </script>
 
 <style>

@@ -29,7 +29,17 @@
         <div v-if="eyebrow" class="eyebrow">{{ eyebrow }}</div>
         <div class="title-wrapper">
           <div class="title">{{ card.title || card.name }}</div>
-          <Badge v-if="card.archived" title="Public archive" color="yellow" />
+          <Badge
+            v-if="card.archived"
+            title="Public archive"
+            size="xsmall"
+            :colors="{
+              primary: 'var(--color-figure-yellow)',
+              tertiary: 'var(--color-figure-yellow)'
+            }"
+            border
+            :hover="false"
+          />
           <Badge
             v-if="card.badge"
             :title="card.badge.title"
@@ -45,8 +55,16 @@
         <div v-if="description" class="card-content">
           <div class="content">{{ description }}</div>
         </div>
-        <TagBar v-if="hasTagsOrTopics" :tags="tagsOrTopics" />
-        <div v-if="hasLinksOrHtmlUrl" class="ctas-wrapper">
+        <BadgeBar
+          v-if="card.tags?.length || card.topics?.length"
+          :badges="card.tags || card.topics"
+        />
+        <div v-if="card.links?.length || card.html_url" class="ctas-wrapper">
+          <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
+          <!-- <NuxtLink href="photos://" class="icon-wrapper button button-reduced button-neutral">
+            <span class="icon-copy"> Open</span>
+          </NuxtLink> -->
+
           <LinkCollection
             :links="linkCollectionLinks"
             :class="{ link: applyHover }"
@@ -68,6 +86,7 @@
 <script setup lang="ts">
 import type { ListUserRepoResponse } from '~/types/GitHub/Repository'
 import type { CardItemType } from '~/types/common/CardItem'
+import type { LanguageBarType } from '~/types/common/LanguageBar'
 
 type Props = Partial<CardItemType> & Partial<ListUserRepoResponse>
 
@@ -348,7 +367,7 @@ const iconClasses = computed(() => ({
   width: 100%;
   height: 100%;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   align-items: center;
   gap: 12px;
   z-index: 1;
@@ -422,7 +441,7 @@ const iconClasses = computed(() => ({
 }
 
 .body {
-  height: 100%;
+  width: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;

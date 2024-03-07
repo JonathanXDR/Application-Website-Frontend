@@ -66,7 +66,6 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from '~/types/common/CardItem'
 import type { LinkType } from '~/types/common/Link'
 import type { RibbonBar } from '~/types/common/RibbonBar'
 
@@ -75,12 +74,6 @@ const tags: Ref<{
   latest: string | undefined
   previous: string | undefined
 }> = ref({ latest: undefined, previous: undefined })
-const projects: Ref<CardItemType[]> = computed(() =>
-  tm('components.containers.projects')
-)
-const technologies: Ref<CardItemType[]> = computed(() =>
-  tm('components.containers.technologies')
-)
 
 const baseItems: Ref<RibbonBar[]> = ref([])
 const currentIndex = ref(0)
@@ -90,10 +83,12 @@ const scrollDirection = ref('right')
 const displayItems: Ref<RibbonBar[]> = ref([])
 const initialAnimationPlayed = ref(false)
 
+const { githubRepoName, githubRepoOwner } = useRuntimeConfig()
+
 const fetchTags = async () => {
   const [latest, previous] = await listRepositoryTags({
-    owner: 'JonathanXDR',
-    repo: 'Application-Website-Frontend',
+    owner: githubRepoOwner,
+    repo: githubRepoName,
     perPage: 2
   })
 
@@ -112,10 +107,7 @@ const updateBaseItems = () => {
       item.description &&
       t(`components.common.RibbonBar[${index}].description`, {
         latestTag: tags.value.latest,
-        previousTag: tags.value.previous,
-        latestProject: projects.value[projects.value.length - 1].title,
-        latestTechnology:
-          technologies.value[technologies.value.length - 1].title
+        previousTag: tags.value.previous
       }),
     links:
       item.links &&
@@ -125,17 +117,7 @@ const updateBaseItems = () => {
           url: link.url
             ? rt(link.url, {
                 latestTag: tags.value.latest,
-                previousTag: tags.value.previous,
-                latestProjectUrl: projects.value[
-                  projects.value.length - 1
-                ].title
-                  ?.toLowerCase()
-                  .replace(/ /g, '-'),
-                latestTechnologyUrl: technologies.value[
-                  technologies.value.length - 1
-                ].title
-                  ?.toLowerCase()
-                  .replace(/ /g, '-')
+                previousTag: tags.value.previous
               })
             : undefined
         })

@@ -55,6 +55,7 @@
             :card="card"
             size="small"
             iconPosition="right"
+            iconAbsolute
             class="color"
             :style="{
               '--color-figure': `var(--color-figure-${randomColor})`,

@@ -51,11 +51,11 @@
           ]
         },
         {
-          "description": "Erkunde meine neusten Projekte bei Swisscom - {latestProject}!",
+          "description": "Erkunde meine neusten Projekte bei Swisscom!",
           "links": [
             {
               "title": "Mehr erfahren",
-              "url": "#{latestProjectUrl}",
+              "url": "#projects",
               "icon": {
                 "name": "chevron.right"
               }
@@ -63,11 +63,11 @@
           ]
         },
         {
-          "description": "Diese Technologie habe ich zuletzt gelernt - {latestTechnology}!",
+          "description": "Entdecke alle Technologien, mit denen ich bisher gearbeitet habe!",
           "links": [
             {
               "title": "Mehr erfahren",
-              "url": "#{latestTechnologyUrl}",
+              "url": "#technologies",
               "icon": {
                 "name": "chevron.right"
               }
@@ -190,7 +190,7 @@
         "links": [
           {
             "title": "Mail",
-            "url": "mailto:{account}{'@'}{domain}",
+            "url": "mailto:contact@jonathan-russ.com",
             "category": "solid",
             "icon": {
               "name": "envelope"
@@ -257,9 +257,6 @@
           "title": "Englisch",
           "eyebrow": "Fliessend",
           "progress": 60,
-          "icon": {
-            "name": "checkmark"
-          },
           "badge": {
             "title": "Certified",
             "color": "orange",
@@ -1664,11 +1661,7 @@
         },
         {
           "icon": {
-            "name": "building.columns.fill",
-            "colors": {
-              "primary": "var(--color-fill-tertiary)",
-              "tertiary": "var(--color-fill-gray)"
-            }
+            "name": "building.columns.fill"
           },
           "eyebrow": "Library",
           "title": "Material Design 3",
@@ -1682,6 +1675,30 @@
             {
               "title": "Mehr erfahren",
               "url": "https://kotlinlang.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "wrench.and.screwdriver.fill"
+          },
+          "eyebrow": "Framework",
+          "title": "Nuxt",
+          "description": "Nuxt habe ich mir selbst beigebracht, da ich es interessant fand und auch gerne mit Vue programmiere, worauf Nuxt aufbaut. Bisher habe ich es allerdings bei keinen Projeken ausser dieser Webseite verwendet.",
+          "progress": 50,
+          "tags": [
+            "Vue",
+            "Frontend",
+            "Web",
+            "SSR"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://nextjs.org",
               "icon": {
                 "name": "chevron.right"
               }
@@ -1773,7 +1790,7 @@
             }
           },
           "eyebrow": "Frontend",
-          "title": "Apps Team Frontend",
+          "title": "Apps Team - Frontend",
           "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
           "tags": [
             "Frontend Development",
@@ -1807,7 +1824,7 @@
             "name": "gear"
           },
           "eyebrow": "Backend",
-          "title": "Apps Team Backend",
+          "title": "Apps Team - Backend",
           "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt. Danach habe ich dann beim Tool für Medienkurse mitgeholfen und konnte dort einige Features hinzufügen und Fehler beheben. Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen Webfrontends mitwirken, was mir sehr gefallen hat :)",
           "tags": [
             "Backend Development",
@@ -1844,8 +1861,8 @@
             "name": "shield.lefthalf.filled"
           },
           "eyebrow": "Security",
-          "title": "Security Journey - Development Stream",
-          "description": "In diesem Projekt habe ich mit ein paar Trainings zu Cloud & Security begonnen, was ziemlich lehrreich für mich war. Danach durfte ich bereits an meinem momentanen Projekt arbeiten, einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring). Dort verwende ich Python, Docker und Kubernetes, wobei Python für mich neu ist.",
+          "title": "Security Journey - Security & Compliance Services ART",
+          "description": "In diesem Projekt habe ich mit ein paar Trainings zu Cloud, Security und DevOps begonnen, was ziemlich lehrreich für mich war. Danach durfte ich bereits am DAM Log Scanner Projekt arbeiten, einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring). Dort habe ich hauptsächlich Python, Docker und Kubernetes verwendet, wobei Python für mich neu war.",
           "tags": [
             "Cloud Security",
             "Database Activity Monitoring",
@@ -1856,10 +1873,33 @@
           "info": {
             "date": {
               "from": "2023-09-01",
-              "to": "2024-08-01"
+              "to": "2024-03-01"
             },
+            "supervisor": "Radu Margineanu",
             "location": "Zür-Mas10",
-            "department": "INI-CIT-EAS"
+            "department": "INI-CIT-MCS"
+          }
+        },
+        {
+          "icon": {
+            "name": "shield.lefthalf.filled"
+          },
+          "eyebrow": "Security",
+          "title": "Security Journey - Piz Tofana Tooling Team",
+          "description": "",
+          "tags": [
+            "Cloud Security",
+            "Docker",
+            "Kubernetes",
+            "Java"
+          ],
+          "info": {
+            "date": {
+              "from": "2024-03-01",
+              "to": "2024-07-01"
+            },
+            "location": "Zür-För181",
+            "department": "INI-DOS-TDE"
           }
         }
       ]
@@ -1874,8 +1914,31 @@
           "tertiary": "var(--color-system-yellow)"
         }
       },
-      "title": "Not Found.",
+      "title": "{statusCode} Not Found",
       "description": "Die Seite, die du suchst, kann nicht gefunden werden. Bitte überprüfe sie und versuche es erneut.",
+      "links": []
+    },
+    "internalServerError": {
+      "icon": {
+        "name": "exclamationmark.octagon.fill",
+        "colors": {
+          "primary": "var(--color-fill)",
+          "tertiary": "var(--color-system-red)"
+        }
+      },
+      "title": "{statusCode} Internal Server Error",
+      "description": "Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem weiterhin besteht.",
+      "links": []
+    },
+    "serviceUnavailable": {
+      "icon": {
+        "name": "wrench.and.screwdriver.fill",
+        "colors": {
+          "secondary": "var(--color-system-blue)"
+        }
+      },
+      "title": "Be right back.",
+      "description": "Ich führe Aktualisierungen auf der Seite durch. Schau bald wieder vorbei.",
       "links": []
     },
     "error": {
@@ -1886,19 +1949,8 @@
           "tertiary": "var(--color-system-red)"
         }
       },
-      "title": "Error.",
+      "title": "Error {statusCode}",
       "description": "Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem weiterhin besteht.",
-      "links": []
-    },
-    "maintenance": {
-      "icon": {
-        "name": "wrench.and.screwdriver.fill",
-        "colors": {
-          "secondary": "var(--color-system-blue)"
-        }
-      },
-      "title": "Be right back.",
-      "description": "Ich führe Aktualisierungen auf der Seite durch. Schau bald wieder vorbei.",
       "links": []
     }
   }
