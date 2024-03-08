@@ -1,6 +1,10 @@
 export default defineNuxtPlugin(async nuxtApp => {
-  const { appName, githubRepoName, githubRepoOwner, appleDeveloperToken } =
-    useRuntimeConfig()
+  // const { appName, githubRepoName, githubRepoOwner, appleDeveloperToken } =
+  //   useRuntimeConfig()
+  const appName = import.meta.env.VITE_APP_NAME
+  const githubRepoName = import.meta.env.VITE_GITHUB_REPO_NAME
+  const githubRepoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
+  const appleDeveloperToken = import.meta.env.VITE_APPLE_DEVELOPER_TOKEN
 
   const tags: Ref<{
     latest: string | undefined
