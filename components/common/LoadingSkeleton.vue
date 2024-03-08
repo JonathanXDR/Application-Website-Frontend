@@ -1,8 +1,5 @@
 <template>
-  <span
-    class="react-loading-skeleton"
-    style="width: 175px; --base-color: #1d1d1f; --highlight-color: #262628"
-  ></span>
+  <span class="react-loading-skeleton" style="width: 175px"></span>
 </template>
 
 <style scoped>
@@ -37,8 +34,6 @@ body main ::-webkit-scrollbar-track {
 @import */ /*! CSS Used from:
 https://developer.apple.com/account/_next/static/css/381b1f1850fab148.css */
 .react-loading-skeleton {
-  --base-color: #ebebeb;
-  --highlight-color: #f5f5f5;
   --animation-duration: 1.5s;
   --animation-direction: normal;
   --pseudo-element-display: block;

@@ -46,6 +46,10 @@ body {
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-card-shadow: rgba(0, 0, 0, 0.04);
 
+  /* Skeleton */
+  --base-color: #ebebeb;
+  --highlight-color: #f5f5f5;
+
   /* All Access Pass */
   --aap-background-color: rgb(232 232 237/70%);
   --aap-inner-glow-color: rgb(0 0 0/11%);
@@ -261,6 +265,10 @@ body {
   --color-tutorials-overview-navigation-link-hover: #a1a1a6;
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-card-shadow: hsla(0, 0%, 100%, 0.04);
+
+  /* Skeleton */
+  --base-color: #1d1d1f;
+  --highlight-color: #262628;
 
   /* All Access Pass */
   --aap-background-color: rgb(23 23 28/70%);
