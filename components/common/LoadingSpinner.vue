@@ -1,7 +1,7 @@
 <template>
-  <div class="gears-loading">
+  <div class="loading-spinner">
     <div class="loading">
-      <span aria-live="assertive" class="visuallyhidden">Loading...</span>
+      <span class="visuallyhidden">Loading...</span>
     </div>
   </div>
 </template>
@@ -17,29 +17,29 @@
   align-items: center;
 }
 
-.full-screen.gears-loading {
+.full-screen.loading-spinner {
   margin: 0;
 }
 
-.no-margin.gears-loading {
+.no-margin.loading-spinner {
   margin: 0;
 }
 
-.reduced-margin.gears-loading {
+.reduced-margin.loading-spinner {
   margin: 0;
 }
 
-.reduced-margin.gears-loading .loading {
+.reduced-margin.loading-spinner .loading {
   margin-block: 1.2em;
 }
 
-.gears-loading {
+.loading-spinner {
   width: 100%;
   height: 100%;
   margin-block: 1.2em;
 }
 
-.small.gears-loading .loading {
+.small.loading-spinner .loading {
   height: 20px;
   width: 20px;
   border-top: 1px solid #06c;
@@ -48,7 +48,7 @@
   border-left: 1px solid transparent;
 }
 
-.medium.gears-loading .loading {
+.medium.loading-spinner .loading {
   height: 30px;
   width: 30px;
   border-top: 1.5px solid #06c;
@@ -57,18 +57,18 @@
   border-left: 1.5px solid transparent;
 }
 
-.gears-loading .loading,
-.gears-loading .loading:after {
+.loading-spinner .loading,
+.loading-spinner .loading:after {
   border-radius: 50%;
   width: 40px;
   height: 40px;
 }
 
-.full-screen.gears-loading .loading {
+.full-screen.loading-spinner .loading {
   margin: 216px auto;
 }
 
-.gears-loading .loading {
+.loading-spinner .loading {
   font-size: 10px;
   position: relative;
   /* text-indent: -99990px; */
@@ -78,8 +78,8 @@
   border-left: 2px solid transparent;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
-  -webkit-animation: load 0.8s infinite linear;
-  animation: load 0.8s infinite linear;
+  -webkit-animation: loading-spinner 0.8s infinite linear;
+  animation: loading-spinner 0.8s infinite linear;
 }
 
 .visuallyhidden {
@@ -94,7 +94,7 @@
   border: 0;
 }
 
-@-webkit-keyframes load {
+@-webkit-keyframes loading-spinner {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -106,7 +106,7 @@
   }
 }
 
-@keyframes load {
+@keyframes loading-spinner {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
