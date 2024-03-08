@@ -44,9 +44,6 @@
 </template>
 
 <style scoped>
-/*! CSS Used from:
-https://developer.apple.com/account/_next/static/css/f148b6570a351e02.css */ /*!
-@import https://developer.apple.com/assets/styles/global.dist.css */
 :focus {
   outline: 4px solid rgba(0, 125, 250, 0.6);
   outline-offset: 1px;
@@ -74,16 +71,13 @@ body main ::-webkit-scrollbar-thumb:hover {
 }
 body main ::-webkit-scrollbar-track {
   background: var(--system-primary);
-} /*! end
-@import */ /*! CSS Used from:
-https://developer.apple.com/account/_next/static/css/45bb825bfb9cd467.css */
+}
 .dmf[data-color-scheme='dark'] .Loader_Loader__V2eds {
   filter: invert(100%);
 }
 .Loader_PulseLoader__qJgQO {
   opacity: 0.35;
-} /*! CSS Used from:
-https://developer.apple.com/account/_next/static/css/381b1f1850fab148.css */
+}
 .dmf[data-color-scheme='dark'] .Loader_Loader__V2eds {
   filter: invert(100%);
 }

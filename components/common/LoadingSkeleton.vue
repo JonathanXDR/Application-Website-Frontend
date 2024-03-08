@@ -3,9 +3,6 @@
 </template>
 
 <style scoped>
-/*! CSS Used from:
-https://developer.apple.com/account/_next/static/css/f148b6570a351e02.css */ /*!
-@import https://developer.apple.com/assets/styles/global.dist.css */
 :focus {
   outline: 4px solid rgba(0, 125, 250, 0.6);
   outline-offset: 1px;
@@ -30,9 +27,7 @@ body main ::-webkit-scrollbar-thumb:hover {
 }
 body main ::-webkit-scrollbar-track {
   background: var(--system-primary);
-} /*! end
-@import */ /*! CSS Used from:
-https://developer.apple.com/account/_next/static/css/381b1f1850fab148.css */
+}
 .react-loading-skeleton {
   --animation-duration: 1.5s;
   --animation-direction: normal;
@@ -68,7 +63,6 @@ https://developer.apple.com/account/_next/static/css/381b1f1850fab148.css */
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
-/*! CSS Used keyframes */
 @keyframes react-loading-skeleton {
   to {
     transform: translateX(100%);
