@@ -1,87 +1,49 @@
 <template>
-  <div class="Loader_Loader__V2eds text-center">
-    <div class="Loader_PulseLoader__qJgQO">
-      <span style="display: inherit"
-        ><span
-          style="
-            background-color: rgb(0, 0, 0);
-            width: 8px;
-            height: 8px;
-            margin: 2px;
-            border-radius: 100%;
-            display: inline-block;
-            animation: 0.75s cubic-bezier(0.2, 0.68, 0.18, 1.08) 0.12s infinite
-              normal both running react-spinners-PulseLoader-pulse;
-          "
-        ></span
-        ><span
-          style="
-            background-color: rgb(0, 0, 0);
-            width: 8px;
-            height: 8px;
-            margin: 2px;
-            border-radius: 100%;
-            display: inline-block;
-            animation: 0.75s cubic-bezier(0.2, 0.68, 0.18, 1.08) 0.24s infinite
-              normal both running react-spinners-PulseLoader-pulse;
-          "
-        ></span
-        ><span
-          style="
-            background-color: rgb(0, 0, 0);
-            width: 8px;
-            height: 8px;
-            margin: 2px;
-            border-radius: 100%;
-            display: inline-block;
-            animation: 0.75s cubic-bezier(0.2, 0.68, 0.18, 1.08) 0.36s infinite
-              normal both running react-spinners-PulseLoader-pulse;
-          "
-        ></span
-      ></span>
+  <div class="loader text-center">
+    <div class="loading-dots">
+      <span style="display: inherit">
+        <span v-for="index in 3" :key="index" class="loading-dots-span"></span>
+      </span>
     </div>
   </div>
 </template>
 
 <style scoped>
-:focus {
-  outline: 4px solid rgba(0, 125, 250, 0.6);
-  outline-offset: 1px;
-}
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
 .text-center {
   text-align: center;
 }
-body main ::-webkit-scrollbar {
-  width: 16px;
+.loading-dots-span {
+  background-color: var(--color-fill-gray-secondary);
+  width: 8px;
+  height: 8px;
+  margin: 2px;
+  border-radius: 100%;
+  display: inline-block;
 }
-body main ::-webkit-scrollbar-thumb {
-  border: 4px solid transparent;
-  border-radius: 9px;
-  background-clip: content-box;
-  border-color: var(--system-primary);
-  background: var(--system-secondary);
+.loading-dots-span:nth-child(1) {
+  animation: 0.75s cubic-bezier(0.2, 0.68, 0.18, 1.08) 0.12s infinite normal
+    both running loading-dots;
 }
-body main ::-webkit-scrollbar-thumb:hover {
-  background: var(--system-tertiary);
+.loading-dots-span:nth-child(2) {
+  animation: 0.75s cubic-bezier(0.2, 0.68, 0.18, 1.08) 0.24s infinite normal
+    both running loading-dots;
 }
-body main ::-webkit-scrollbar-track {
-  background: var(--system-primary);
+.loading-dots-span:nth-child(3) {
+  animation: 0.75s cubic-bezier(0.2, 0.68, 0.18, 1.08) 0.36s infinite normal
+    both running loading-dots;
 }
-.dmf[data-color-scheme='dark'] .Loader_Loader__V2eds {
-  filter: invert(100%);
-}
-.Loader_PulseLoader__qJgQO {
-  opacity: 0.35;
-}
-.dmf[data-color-scheme='dark'] .Loader_Loader__V2eds {
-  filter: invert(100%);
-}
-.Loader_PulseLoader__qJgQO {
-  opacity: 0.35;
+@keyframes loading-dots {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  45% {
+    transform: scale(0.1);
+    opacity: 0.7;
+  }
+  80% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 </style>
