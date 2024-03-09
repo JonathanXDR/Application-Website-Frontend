@@ -1225,7 +1225,7 @@
           "description": "Meine CRUD-App im NexCC habe ich damit erstellt, was sehr lehrreich für mich war. Später hatte ich auch noch einen entsprechenden ÜK, welcher darum ging ein Backend mit Express.js zu erstellen.",
           "progress": 70,
           "tags": [
-            "Node.js",
+            "Node",
             "Web",
             "Backend"
           ],
@@ -1428,7 +1428,7 @@
           "description": "Richtig verstanden und mich damit beschäftigt habe ich Docker im Berufsschulmodul 347, wo wir eine Applikation mittels CI/CD deployen mussten. Dazu gab es den ÜK 210, bei dem es um das Thema Cloud ging und wir auch dort nochmal mit Docker gearbeitet haben.",
           "tags": [
             "Container",
-            "Devops",
+            "DevOps",
             "Cloud"
           ],
           "links": [
@@ -1451,7 +1451,7 @@
           "tags": [
             "Container",
             "Orchestration",
-            "Devops"
+            "DevOps"
           ],
           "links": [
             {
@@ -1471,9 +1471,9 @@
           "title": "Nest.js",
           "description": "Dieses Backend-Framework habe ich im Apps Team kennengelernt und habe damit meine CRUD-App erstellt. Dabei habe ich viel über die Architektur und die verschiedenen Module gelernt. Ausserdem habe ich auch in produktiven Projekten im Apps Team, wie z.B. dem Fleetmanagement Tool oder den neuen Webfrontends damit gearbeitet.",
           "tags": [
-            "Node.js",
+            "Node",
             "Backend",
-            "Typescript"
+            "TypeScript"
           ],
           "links": [
             {
@@ -1494,7 +1494,7 @@
           "description": "Das habe ich verwendet um meine CRUD-App zu erstellen und ich bin dabei das erste mal mit einem ORM in Berührung gekommen. Später habe ich auch beim Fleetmanagement Tool mit Prisma gearbeiet.",
           "tags": [
             "Database",
-            "Typescript",
+            "TypeScript",
             "ORM"
           ],
           "links": [
@@ -1516,7 +1516,7 @@
           "description": "Als Alternative zu Prisma habe ich meine CRUD-App, nachdem ich sie fertiggestellt habe, auch noch mit TypeORM umgesetzt, da auch dieses ORM in diversen Projekten im Apps Team verwendet wird.",
           "tags": [
             "Database",
-            "Typescript",
+            "TypeScript",
             "ORM"
           ],
           "links": [
@@ -1560,7 +1560,7 @@
           "title": "Tailwind CSS",
           "description": "Tailwind CSS wurde zusammen mit SDX in vielen Projekten im Apps Team verwendet. Das Fleetmanagement Tool und die neuen Webfrontends sind zwei Beispiele dafür.",
           "tags": [
-            "Css",
+            "CSS",
             "Frontend",
             "Design",
             "UI"
@@ -1663,7 +1663,9 @@
           "tags": [
             "Android",
             "Mobile",
-            "UI"
+            "UI",
+            "Design",
+            "Google"
           ],
           "links": [
             {
@@ -1710,9 +1712,10 @@
           "description": "In den First Steps hat meine Lehre begonnen. Dort habe ich alles rund um Swisscom kennengelernt, also z.B. wie man die verschieden Tools verwendet, wie man richtig zusammenarbeitet und auch andere Dinge, wie beispielsweise die Arbeitssicherheit.",
           "tags": [
             "Introduction",
-            "Swisscom Tools",
+            "Swisscom",
             "Teamwork",
-            "Work Safety"
+            "Work Safety",
+            "Next Generation"
           ],
           "info": {
             "date": {
@@ -1732,15 +1735,16 @@
           "description": "Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei viele neue Programmiersprachen gelernt. Darunter HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App erstellen, welche ich mit einer SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend hinzugefügt und so ein eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte Programmiersprachen, wie Node.js, Express.js oder Vue.js neu dazugelernt.",
           "tags": [
             "Web Development",
+            "Frontend",
             "HTML",
             "CSS",
             "JavaScript",
-            "CRUD App",
-            "SQL Database",
+            "CRUD",
+            "SQL",
             "Backend",
-            "Node.js",
-            "Express.js",
-            "Vue.js"
+            "Node",
+            "Express",
+            "Vue"
           ],
           "info": {
             "date": {
@@ -1758,13 +1762,15 @@
           },
           "eyebrow": "Automation",
           "title": "Automatisierungsprojekte im Banking Bereich",
-          "description": "Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld erhalten. Ich war aktiv dabei und habe die einzelnen Banken gelernt zu testen bzw. zu automatisieren. Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr über das .Net Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu verbessern!",
+          "description": "Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld erhalten. Ich war aktiv dabei und habe die einzelnen Banken mittls Ranorex & UiPath gelernt zu testen bzw. zu automatisieren. Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr über das .NET Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu verbessern!",
           "tags": [
             "Automation",
             "Banking",
             "Testing",
+            "Ranorex",
+            "UiPath",
             "C#",
-            ".Net Framework"
+            ".NET"
           ],
           "info": {
             "date": {
@@ -1787,12 +1793,12 @@
           "title": "Apps Team - Frontend",
           "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
           "tags": [
-            "Frontend Development",
-            "Memory App",
-            "Vue.js",
+            "Frontend",
+            "Memory",
+            "Vue",
             "TypeScript",
             "SDX",
-            "Next.js"
+            "Next"
           ],
           "links": [
             {
@@ -1821,15 +1827,13 @@
           "title": "Apps Team - Backend",
           "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt. Danach habe ich dann beim Tool für Medienkurse mitgeholfen und konnte dort einige Features hinzufügen und Fehler beheben. Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen Webfrontends mitwirken, was mir sehr gefallen hat :)",
           "tags": [
-            "Backend Development",
-            "CRUD App",
-            "Nest.js",
+            "Backend",
+            "CRUD",
+            "Nest",
             "ORM",
             "Prisma",
             "TypeORM",
-            "GitHub Primer",
-            "Fleet Management",
-            "Web Frontends"
+            "GitHub Primer"
           ],
           "links": [
             {
@@ -1856,13 +1860,17 @@
           },
           "eyebrow": "Security",
           "title": "Security Journey - Security & Compliance Services ART",
-          "description": "In diesem Projekt habe ich mit ein paar Trainings zu Cloud, Security und DevOps begonnen, was ziemlich lehrreich für mich war. Danach durfte ich bereits am DAM Log Scanner Projekt arbeiten, einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring). Dort habe ich hauptsächlich Python, Docker und Kubernetes verwendet, wobei Python für mich neu war.",
+          "description": "In diesem Projekt habe ich mit ein paar Trainings zu Cloud, Security und DevOps begonnen, was ziemlich lehrreich für mich war. Danach durfte ich bereits am DAM Log Scanner Projekt arbeiten, einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring) und nach spezifischen Richtlinien handelt. Diese wurden primär mit OPA (Open Policy Agent) umgsetzt, womit ich allerdings nicht allzu viel zu tun hatte. Ich habe nämlich hauptsächlich Python, Docker und Kubernetes verwendet, wobei Python für mich neu war. Gegen Ende des Projekts habe ich dann auch noch begonnen Elasticsearch zu implementieren, um die Daten zu visualisieren und zu analysieren.",
           "tags": [
-            "Cloud Security",
+            "Security",
+            "Cloud",
             "Database Activity Monitoring",
             "Python",
             "Docker",
-            "Kubernetes"
+            "Kubernetes",
+            "OPA",
+            "DevOps",
+            "Elastic"
           ],
           "info": {
             "date": {
