@@ -35,7 +35,11 @@
                 class="ac-ln-menu-item"
               >
                 <NuxtLink
-                  :to="item.route"
+                  :to="
+                    rt(item.route, {
+                      locale
+                    })
+                  "
                   :class="[
                     'ac-ln-menu-link',
                     { current: index === currentSectionIndex }
@@ -73,7 +77,7 @@
 import type { ItemType } from '~/types/common/Option'
 import { type SectionType } from '~/types/common/Section'
 
-const { tm } = useI18n()
+const { locale, tm, rt } = useI18n()
 const items: Ref<SectionType[]> = computed(() => tm('components.common.NavBar'))
 const navOpen: Ref<boolean> = ref(false)
 const navDisabled: Ref<boolean> = ref(false)
