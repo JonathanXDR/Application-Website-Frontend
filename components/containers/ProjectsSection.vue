@@ -24,7 +24,7 @@
       </div>
     </NavBarExtension>
     <div class="timeline-wrapper" v-if="currentIndex === 0">
-      <TimeLine />
+      <TimeLine :height="ulHeight" />
       <ul ref="ul" class="timeline">
         <CardItem
           variant="article"
@@ -101,6 +101,16 @@ const colorStore = useColor()
 const articles: Ref<CardItemType[]> = computed(() =>
   tm('components.containers.projects')
 )
+
+const ul: Ref<HTMLElement | null> = ref(null)
+const { height: ulHeight } = useElementSize(ul.value)
+// const ulHeight = ul.value?.getBoundingClientRect().height
+
+const pinned: Ref<ListUserPinnedReposResponse[]> = ref([])
+const currentIndex: Ref<number> = ref(0)
+const randomColor = ref(colorStore.randomizeColor().colorName)
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
+
 const projects: Projects = reactive({
   swisscom: computed(() => tm('components.containers.projects')) as Ref<
     CardItemType[]
@@ -108,11 +118,12 @@ const projects: Projects = reactive({
   personal: [] as ListUserReposResponse[],
   school: [] as ListUserReposResponse[]
 })
-const pinned: Ref<ListUserPinnedReposResponse[]> = ref([])
+
 const currentProjects = computed(
   () =>
     projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
 )
+
 const segmentNavItems: Ref<ItemType[]> = computed(() => [
   {
     id: 'swisscom',
@@ -139,10 +150,6 @@ const segmentNavItems: Ref<ItemType[]> = computed(() => [
     }
   }
 ])
-
-const currentIndex: Ref<number> = ref(0)
-const randomColor = ref(colorStore.randomizeColor().colorName)
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 
 const updateCurrentIndex = (index: number) => {
   currentIndex.value = index
