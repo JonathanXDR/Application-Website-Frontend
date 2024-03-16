@@ -7,6 +7,7 @@ export default defineNuxtPlugin(nuxtApp => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             useSection().setCurrentSection(
+              el.getAttribute('id'),
               el.getAttribute('name'),
               binding.value
             )
