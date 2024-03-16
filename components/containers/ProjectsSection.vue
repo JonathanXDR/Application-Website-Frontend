@@ -24,7 +24,7 @@
       </div>
     </NavBarExtension>
     <div class="timeline-wrapper" v-if="currentIndex === 0">
-      <TimeLine :height="ulHeight" />
+      <TimeLineV2 />
       <ul ref="ul" class="timeline">
         <CardItem
           variant="article"
