@@ -38,11 +38,11 @@
         }
       ],
       "RibbonBar": {
-        "description": "Quoi de neuf dans la version 2.2.4?",
+        "description": "Quoi de neuf dans la version 2.2.5?",
         "links": [
           {
             "title": "En savoir plus",
-            "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/v2.2.3...v2.2.4",
+            "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/v2.2.4...v2.2.5",
             "icon": {
               "name": "chevron.right"
             }
