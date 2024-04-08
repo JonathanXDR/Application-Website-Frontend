@@ -16,8 +16,8 @@
 import { SpeedInsights } from '@vercel/speed-insights/vue'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterFull from '~/components/common/Footer/Full.vue'
-import svgFaviconDev from '/img/dev/favicon-dev.svg?raw'
-import svgFavicon from '/img/favicon.svg?raw'
+import svgFaviconDev from '~/public/img/dev/favicon-dev.svg?raw'
+import svgFavicon from '~/public/img/favicon.svg?raw'
 
 const route = useRoute()
 const { colorBadge, randomizeColor } = useColor()
