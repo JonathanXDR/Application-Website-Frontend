@@ -23,7 +23,11 @@
         />
       </div>
     </NavBarExtension>
-    <div class="timeline-wrapper" v-if="currentIndex === 0">
+    <div
+      class="timeline-wrapper"
+      v-if="currentIndex === 0"
+      style="display: flex"
+    >
       <TimeLineV2 />
       <ul ref="ul" class="timeline">
         <CardItem

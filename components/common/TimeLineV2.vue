@@ -5,15 +5,25 @@
       data-color-mode="dark"
       data-light-theme="light"
       data-dark-theme="dark"
+      :style="{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }"
     >
-      <div class="px-3 home-campaign-hero">
-        <div
-          class="position-relative pt-3 pt-sm-8 pt-lg-12 js-build-in-trigger build-in-animate"
-        >
-          <div class="d-flex pt-sm-9">
+      <div
+        class="px-3 home-campaign-hero"
+        :style="{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }"
+      >
+        <div class="position-relative">
+          <div class="d-flex">
             <div
-              class="col-1 d-flex flex-column events-none position-relative"
-              style="height: 628px"
+              class="d-flex flex-column events-none position-relative"
+              style="height: 630px"
             >
               <div class="mx-auto">
                 <div
@@ -27,6 +37,9 @@
                   height: 72%;
                 "
                 class="home-campaign-git-line rounded mx-auto"
+                v-animation="{
+                  add: 'build-in-animate'
+                }"
               ></div>
 
               <div class="mx-auto my-3 home-campaign-glowing-icon">
@@ -58,33 +71,51 @@
                   background: linear-gradient(#7c72ff, #2da44e 80%, #3fb950);
                 "
                 class="home-campaign-git-line height-full rounded mx-auto"
+                v-animation="{
+                  add: 'build-in-animate'
+                }"
               ></div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="position-absolute">
+      <div
+        class="position-absolute"
+        :style="{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }"
+      >
         <div
-          class="sub-nav-mktg js-toggler-container z-3 js-position-sticky top-0 width-full init-hidden scrollnav is-placeholder"
+          class="sub-nav-mktg z-3 top-0 width-full init-hidden scrollnav is-placeholder"
           style="
             visibility: hidden;
-            display: none;
-            height: 80.5px;
+            display: block;
+            height: 64.5px;
             top: 0px !important;
           "
         ></div>
         <div
-          class="sub-nav-mktg js-toggler-container z-3 js-sticky js-position-sticky top-0 width-full init-hidden scrollnav"
-          style="top: -14px; position: static; left: 0px; width: 861.914px"
+          class="sub-nav-mktg z-3 top-0 width-full init-hidden scrollnav is-stuck"
+          style="
+            top: -2439px;
+            position: fixed;
+            left: 0px;
+            width: 204.164px;
+            margin-top: 0px;
+          "
         >
           <div
             class="sub-nav-mktg-wrapper d-flex flex-items-center py-3 p-responsive"
           >
             <button
               type="button"
-              class="btn-octicon sub-nav-mktg-toggle d-lg-none p-1 flex-order-1 float-right js-toggler-target mr-n1"
-              aria-label="Toggle page navigation"
+              class="btn-octicon sub-nav-mktg-toggle d-lg-none p-1 flex-order-1 float-right mr-n1"
+              aria-controls="sub-nav-dropdown"
+              aria-label="Page navigation"
+              aria-expanded="false"
             >
               <svg
                 aria-hidden="true"
@@ -104,31 +135,32 @@
                 viewBox="0 0 24 24"
                 version="1.1"
                 width="24"
-                class="octicon octicon-x on-visible"
+                class="octicon octicon-chevron-up on-visible"
               >
                 <path
-                  d="M5.72 5.72a.75.75 0 0 1 1.06 0L12 10.94l5.22-5.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L13.06 12l5.22 5.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L12 13.06l-5.22 5.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L10.94 12 5.72 6.78a.75.75 0 0 1 0-1.06Z"
+                  d="M18.78 15.78a.749.749 0 0 1-1.06 0L12 10.061 6.28 15.78a.749.749 0 1 1-1.06-1.06l6.25-6.25a.749.749 0 0 1 1.06 0l6.25 6.25a.749.749 0 0 1 0 1.06Z"
                 ></path>
               </svg>
             </button>
 
             <div
               class="sub-nav-mktg-links flex-auto f4-mktg d-flex flex-column flex-lg-row gap-4"
+              id="sub-nav-dropdown"
             >
               <a
-                class="sub-nav-mktg-link Link--primary no-underline py-1 py-lg-2 js-scrollnav-item js-smoothscroll-anchor selected"
+                class="sub-nav-mktg-link Link--primary no-underline py-1 py-lg-2"
                 href="#productivity"
                 >Productivity</a
               >
               <a
-                class="sub-nav-mktg-link Link--primary no-underline py-1 py-lg-2 js-scrollnav-item js-smoothscroll-anchor"
-                href="#collaboration"
-                >Collaboration</a
-              >
-              <a
-                class="sub-nav-mktg-link Link--primary no-underline py-1 py-lg-2 js-scrollnav-item js-smoothscroll-anchor"
+                class="sub-nav-mktg-link Link--primary no-underline py-1 py-lg-2"
                 href="#security"
                 >Security</a
+              >
+              <a
+                class="sub-nav-mktg-link Link--primary no-underline py-1 py-lg-2"
+                href="#collaboration"
+                >Collaboration</a
               >
             </div>
 
@@ -193,140 +225,36 @@
       </div>
 
       <div
-        class="home-campaign-productivity js-section overflow-hidden px-3 pb-8 pt-5"
+        class="home-campaign-productivity overflow-hidden px-3 pb-8 pt-5"
         data-color-mode="dark"
         data-light-theme="light"
         data-dark-theme="dark"
         id="productivity"
+        :style="{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }"
       >
-        <div>
-          <div class="d-flex js-build-in-trigger position-relative">
-            <div
-              class="col-1 d-flex flex-column flex-items-center"
-              style="height: 284px"
-            >
-              <div class="mb-4 position-relative home-campaign-glowing-icon">
-                <svg
-                  aria-hidden="true"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  version="1.1"
-                  width="24"
-                  class="octicon octicon-briefcase"
-                >
-                  <path
-                    d="M7.5 1.75C7.5.784 8.284 0 9.25 0h5.5c.966 0 1.75.784 1.75 1.75V4h4.75c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 21.25 22H2.75A1.75 1.75 0 0 1 1 20.25V5.75C1 4.784 1.784 4 2.75 4H7.5Zm-5 10.24v8.26c0 .138.112.25.25.25h18.5a.25.25 0 0 0 .25-.25v-8.26A4.235 4.235 0 0 1 18.75 13H5.25a4.235 4.235 0 0 1-2.75-1.01Zm19-3.24v-3a.25.25 0 0 0-.25-.25H2.75a.25.25 0 0 0-.25.25v3a2.75 2.75 0 0 0 2.75 2.75h13.5a2.75 2.75 0 0 0 2.75-2.75Zm-6.5-7a.25.25 0 0 0-.25-.25h-5.5a.25.25 0 0 0-.25.25V4h6Z"
-                  ></path>
-                </svg>
-                <span
-                  class="position-absolute left-0 top-0 height-full width-full home-campaign-glowing-icon-glow circle z-n1"
-                  style="
-                    background-color: var(--mktg-accent-primary);
-                    filter: blur(18px);
-                  "
-                ></span>
-              </div>
-              <div
-                class="home-campaign-git-line height-full rounded js-build-in-item build-in-scale-top"
-                v-animation="{
-                  add: 'build-in-animate'
-                }"
-                style="
-                  background: linear-gradient(
-                    rgb(63, 185, 80),
-                    rgb(46, 160, 67),
-                    transparent
-                  );
-                  transition-delay: 500ms;
-                "
-              ></div>
-            </div>
-          </div>
-
-          <div class="d-flex js-build-in-trigger position-relative">
-            <div
-              class="col-1 d-flex flex-column flex-items-center position-relative"
-              style="height: 737px"
-            >
-              <div
-                class="home-campaign-git-line height-full position-relative z-1 js-build-in-item build-in-scale-top"
-                v-animation="{
-                  add: 'build-in-animate'
-                }"
-                style="
-                  transition-duration: 900ms;
-                  background: linear-gradient(
-                    transparent,
-                    rgb(63, 185, 80),
-                    rgb(63, 185, 80),
-                    transparent
-                  );
-                  transition-delay: 0ms;
-                "
-              ></div>
-              <img
-                alt=""
-                aria-hidden="true"
-                width="81"
-                height="485"
-                style="
-                  left: calc(50% - 2px);
-                  height: auto;
-                  max-width: 9vw;
-                  transition-delay: 100ms;
-                "
-                class="d-none d-md-block position-absolute bottom-4 js-build-in-item build-in-scale-fade"
-                loading="lazy"
-                decoding="async"
-                src="https://github.githubassets.com/assets/git-branch-productivity-c304b83d09c7.svg"
-              />
-            </div>
-          </div>
-
+        <div
+          class="d-flex position-relative"
+          v-animation="{ add: 'build-in-animate' }"
+        >
           <div
-            class="col-1 d-flex flex-column flex-items-center js-build-in-trigger"
+            class="d-flex flex-column flex-items-center"
+            style="height: 208px"
           >
-            <div
-              class="home-campaign-git-line mt-n3 mt-md-n4 mb-n8 rounded js-build-in-item build-in-scale-top"
-              v-animation="{
-                add: 'build-in-animate'
-              }"
-              style="
-                height: 160px;
-                background: linear-gradient(transparent, #33b3ae 40%);
-              "
-            ></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="home-campaign-security js-section overflow-hidden px-3 pb-8 pt-5"
-      data-color-mode="dark"
-      data-light-theme="light"
-      data-dark-theme="dark"
-      id="security"
-    >
-      <div>
-        <div class="d-flex js-build-in-trigger position-relative">
-          <div
-            class="col-1 d-flex flex-column flex-items-center"
-            style="height: 232px"
-          >
-            <div
-              class="mb-4 position-relative home-campaign-glowing-icon js-build-in-item build-in-scale-fade"
-              style="transition-delay: 0ms"
-            >
+            <div class="mb-4 position-relative home-campaign-glowing-icon">
               <svg
                 aria-hidden="true"
                 height="24"
                 viewBox="0 0 24 24"
                 version="1.1"
                 width="24"
-                class="octicon octicon-lock"
+                class="octicon octicon-briefcase"
               >
                 <path
-                  d="M6 9V7.25C6 3.845 8.503 1 12 1s6 2.845 6 6.25V9h.5a2.5 2.5 0 0 1 2.5 2.5v8a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 19.5v-8A2.5 2.5 0 0 1 5.5 9Zm-1.5 2.5v8a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-13a1 1 0 0 0-1 1Zm3-4.25V9h9V7.25c0-2.67-1.922-4.75-4.5-4.75-2.578 0-4.5 2.08-4.5 4.75Z"
+                  d="M7.5 1.75C7.5.784 8.284 0 9.25 0h5.5c.966 0 1.75.784 1.75 1.75V4h4.75c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 21.25 22H2.75A1.75 1.75 0 0 1 1 20.25V5.75C1 4.784 1.784 4 2.75 4H7.5Zm-5 10.24v8.26c0 .138.112.25.25.25h18.5a.25.25 0 0 0 .25-.25v-8.26A4.235 4.235 0 0 1 18.75 13H5.25a4.235 4.235 0 0 1-2.75-1.01Zm19-3.24v-3a.25.25 0 0 0-.25-.25H2.75a.25.25 0 0 0-.25.25v3a2.75 2.75 0 0 0 2.75 2.75h13.5a2.75 2.75 0 0 0 2.75-2.75Zm-6.5-7a.25.25 0 0 0-.25-.25h-5.5a.25.25 0 0 0-.25.25V4h6Z"
                 ></path>
               </svg>
               <span
@@ -337,183 +265,295 @@
                 "
               ></span>
             </div>
-
             <div
-              class="home-campaign-git-line height-full rounded js-build-in-item build-in-scale-top"
-              v-animation="{
-                add: 'build-in-animate'
-              }"
+              class="home-campaign-git-line height-full rounded build-in-scale-top"
+              v-animation="{ add: 'build-in-animate' }"
               style="
-                background: linear-gradient(rgb(51, 179, 174) 40%, transparent);
+                background: linear-gradient(
+                  rgb(63, 185, 80),
+                  rgb(46, 160, 67),
+                  transparent
+                );
                 transition-delay: 500ms;
               "
             ></div>
           </div>
         </div>
 
-        <div class="d-flex js-build-in-trigger position-relative">
+        <div
+          class="d-flex position-relative"
+          v-animation="{ add: 'build-in-animate' }"
+        >
           <div
-            class="col-1 d-flex flex-column flex-items-center position-relative"
-            style="height: 709px"
+            class="d-flex flex-column flex-items-center position-relative"
+            style="height: 613px"
           >
             <div
-              class="home-campaign-git-line height-full position-relative z-1 js-build-in-item build-in-scale-top"
-              v-animation="{
-                add: 'build-in-animate'
-              }"
+              class="home-campaign-git-line height-full position-relative z-1 build-in-scale-top"
+              v-animation="{ add: 'build-in-animate' }"
               style="
+                transition-duration: 900ms;
                 background: linear-gradient(
                   transparent,
-                  rgb(51, 179, 174),
-                  rgb(51, 179, 174),
+                  rgb(63, 185, 80),
+                  rgb(63, 185, 80),
                   transparent
                 );
                 transition-delay: 0ms;
               "
             ></div>
-
-            <img
-              alt=""
-              aria-hidden="true"
-              width="81"
-              height="612"
-              style="
-                left: calc(50% - 2px);
-                height: auto;
-                max-width: 9vw;
-                transition-delay: 100ms;
-              "
-              class="d-none d-md-block position-absolute bottom-4 js-build-in-item build-in-scale-fade"
-              loading="lazy"
-              decoding="async"
-              src="https://github.githubassets.com/assets/git-branch-security-2-f6a799957581.svg"
-            />
           </div>
         </div>
 
         <div
-          class="col-1 d-flex flex-column flex-items-center js-build-in-trigger"
+          class="d-flex flex-column flex-items-center"
+          v-animation="{ add: 'build-in-animate' }"
         >
           <div
-            class="home-campaign-git-line mt-n3 mt-md-n4 mb-n8 rounded js-build-in-item build-in-scale-top"
-            v-animation="{
-              add: 'build-in-animate'
-            }"
+            class="home-campaign-git-line mt-n3 mt-md-n4 mb-n8 rounded build-in-scale-top"
+            v-animation="{ add: 'build-in-animate' }"
             style="
               height: 160px;
-              background: linear-gradient(transparent, #f778ba 40%);
+              background: linear-gradient(transparent, #33b3ae 40%);
             "
           ></div>
         </div>
       </div>
     </div>
+
     <div
-      class="home-campaign-collaboration js-section pt-5 px-3 overflow-hidden"
+      class="home-campaign-security overflow-hidden px-3 pb-8 pt-5"
+      data-color-mode="dark"
+      data-light-theme="light"
+      data-dark-theme="dark"
+      id="security"
+      :style="{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }"
+    >
+      <div
+        class="d-flex position-relative"
+        v-animation="{ add: 'build-in-animate' }"
+        :style="{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }"
+      >
+        <div class="d-flex flex-column flex-items-center" style="height: 176px">
+          <div
+            class="mb-4 position-relative home-campaign-glowing-icon build-in-scale-fade"
+            style="transition-delay: 0ms"
+            v-animation="{ add: 'build-in-animate' }"
+          >
+            <svg
+              aria-hidden="true"
+              height="24"
+              viewBox="0 0 24 24"
+              version="1.1"
+              width="24"
+              class="octicon octicon-lock"
+            >
+              <path
+                d="M6 9V7.25C6 3.845 8.503 1 12 1s6 2.845 6 6.25V9h.5a2.5 2.5 0 0 1 2.5 2.5v8a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 19.5v-8A2.5 2.5 0 0 1 5.5 9Zm-1.5 2.5v8a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-13a1 1 0 0 0-1 1Zm3-4.25V9h9V7.25c0-2.67-1.922-4.75-4.5-4.75-2.578 0-4.5 2.08-4.5 4.75Z"
+              ></path>
+            </svg>
+            <span
+              class="position-absolute left-0 top-0 height-full width-full home-campaign-glowing-icon-glow circle z-n1"
+              style="
+                background-color: var(--mktg-accent-primary);
+                filter: blur(18px);
+              "
+            ></span>
+          </div>
+
+          <div
+            class="home-campaign-git-line height-full rounded build-in-scale-top"
+            v-animation="{ add: 'build-in-animate' }"
+            style="
+              background: linear-gradient(rgb(51, 179, 174) 40%, transparent);
+              transition-delay: 500ms;
+            "
+          ></div>
+        </div>
+      </div>
+
+      <div
+        class="d-flex position-relative"
+        v-animation="{ add: 'build-in-animate' }"
+        :style="{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }"
+      >
+        <div
+          class="d-flex flex-column flex-items-center position-relative"
+          style="height: 618px"
+        >
+          <div
+            class="home-campaign-git-line height-full position-relative z-1 build-in-scale-top"
+            v-animation="{ add: 'build-in-animate' }"
+            style="
+              background: linear-gradient(
+                transparent,
+                rgb(51, 179, 174),
+                rgb(51, 179, 174),
+                transparent
+              );
+              transition-delay: 0ms;
+            "
+          ></div>
+        </div>
+      </div>
+
+      <div
+        class="d-flex flex-column flex-items-center"
+        v-animation="{ add: 'build-in-animate' }"
+        :style="{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }"
+      >
+        <div
+          class="home-campaign-git-line mt-n3 mt-md-n4 mb-n8 rounded build-in-scale-top"
+          v-animation="{ add: 'build-in-animate' }"
+          style="
+            height: 160px;
+            background: linear-gradient(transparent, #f778ba 40%);
+          "
+        ></div>
+      </div>
+    </div>
+
+    <div
+      class="home-campaign-collaboration pt-5 px-3 overflow-hidden"
       data-color-mode="dark"
       data-light-theme="light"
       data-dark-theme="dark"
       id="collaboration"
+      :style="{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }"
     >
-      <div>
-        <div class="d-flex js-build-in-trigger position-relative">
+      <div
+        class="d-flex position-relative"
+        v-animation="{ add: 'build-in-animate' }"
+        :style="{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }"
+      >
+        <div class="d-flex flex-column flex-items-center" style="height: 208px">
           <div
-            class="col-1 d-flex flex-column flex-items-center"
-            style="height: 232px"
+            class="mb-4 position-relative home-campaign-glowing-icon build-in-scale-fade"
+            style="transition-delay: 0ms"
+            v-animation="{ add: 'build-in-animate' }"
           >
-            <div
-              class="mb-4 position-relative home-campaign-glowing-icon js-build-in-item build-in-scale-fade"
-              style="transition-delay: 0ms"
-            >
-              <svg
-                aria-hidden="true"
-                height="24"
-                viewBox="0 0 24 24"
-                version="1.1"
-                width="24"
-                class="octicon octicon-code-of-conduct"
-              >
-                <path
-                  d="M2.828 4.328C5.26 1.896 9.5 1.881 11.935 4.317c.024.024.046.05.067.076 1.391-1.078 2.993-1.886 4.777-1.89a6.22 6.22 0 0 1 4.424 1.825c.559.56 1.023 1.165 1.34 1.922.318.756.47 1.617.468 2.663 0 2.972-2.047 5.808-4.269 8.074-2.098 2.14-4.507 3.924-5.974 5.009l-.311.23a.752.752 0 0 1-.897 0l-.312-.23c-1.466-1.085-3.875-2.869-5.973-5.009-2.22-2.263-4.264-5.095-4.27-8.063a6.216 6.216 0 0 1 1.823-4.596Zm8.033 1.042c-1.846-1.834-5.124-1.823-6.969.022a4.712 4.712 0 0 0-1.382 3.52c0 2.332 1.65 4.79 3.839 7.022 1.947 1.986 4.184 3.66 5.66 4.752a78.214 78.214 0 0 0 2.159-1.645l-2.14-1.974a.752.752 0 0 1 1.02-1.106l2.295 2.118c.616-.52 1.242-1.08 1.85-1.672l-2.16-1.992a.753.753 0 0 1 1.021-1.106l2.188 2.02a18.963 18.963 0 0 0 1.528-1.877l-.585-.586-1.651-1.652c-1.078-1.074-2.837-1.055-3.935.043-.379.38-.76.758-1.132 1.126-1.14 1.124-2.96 1.077-4.07-.043-.489-.495-.98-.988-1.475-1.482a.752.752 0 0 1-.04-1.019c.234-.276.483-.576.745-.893.928-1.12 2.023-2.442 3.234-3.576Zm9.725 6.77c.579-1.08.92-2.167.92-3.228.002-.899-.128-1.552-.35-2.08-.22-.526-.551-.974-1.017-1.44a4.71 4.71 0 0 0-3.356-1.384c-1.66.004-3.25.951-4.77 2.346-1.18 1.084-2.233 2.353-3.188 3.506l-.351.423c.331.332.663.664.993.998a1.375 1.375 0 0 0 1.943.03c.37-.365.748-.74 1.125-1.118 1.662-1.663 4.373-1.726 6.06-.045.56.558 1.12 1.12 1.658 1.658Z"
-                ></path>
-              </svg>
-              <span
-                class="position-absolute left-0 top-0 height-full width-full home-campaign-glowing-icon-glow circle z-n1"
-                style="
-                  background-color: var(--mktg-accent-primary);
-                  filter: blur(18px);
-                "
-              ></span>
-            </div>
-
-            <div
-              class="home-campaign-git-line height-full rounded js-build-in-item build-in-scale-top"
-              v-animation="{
-                add: 'build-in-animate'
-              }"
-              style="
-                background: linear-gradient(
-                  rgb(247, 120, 186) 40%,
-                  transparent
-                );
-                transition-delay: 500ms;
-              "
-            ></div>
-          </div>
-        </div>
-
-        <div class="d-flex position-relative">
-          <div
-            class="col-1 d-flex flex-column flex-items-center position-relative js-build-in-trigger"
-            style="height: 765px"
-          >
-            <div
-              class="home-campaign-git-line height-full position-relative z-1 js-build-in-item build-in-scale-top"
-              v-animation="{
-                add: 'build-in-animate'
-              }"
-              style="
-                transition-duration: 1100ms;
-                background: linear-gradient(
-                  transparent,
-                  #f778ba,
-                  #f778ba,
-                  transparent
-                );
-              "
-            ></div>
-            <img
-              alt=""
+            <svg
               aria-hidden="true"
-              width="81"
-              height="612"
-              style="left: calc(50% - 2px); height: auto; max-width: 9vw"
-              class="d-none d-md-block position-absolute bottom-4 js-build-in-item build-in-scale-fade"
-              loading="lazy"
-              decoding="async"
-              src="https://github.githubassets.com/assets/git-branch-collaboration-2-e46b1fb1d363.svg"
-            />
+              height="24"
+              viewBox="0 0 24 24"
+              version="1.1"
+              width="24"
+              class="octicon octicon-code-of-conduct"
+            >
+              <path
+                d="M2.828 4.328C5.26 1.896 9.5 1.881 11.935 4.317c.024.024.046.05.067.076 1.391-1.078 2.993-1.886 4.777-1.89a6.22 6.22 0 0 1 4.424 1.825c.559.56 1.023 1.165 1.34 1.922.318.756.47 1.617.468 2.663 0 2.972-2.047 5.808-4.269 8.074-2.098 2.14-4.507 3.924-5.974 5.009l-.311.23a.752.752 0 0 1-.897 0l-.312-.23c-1.466-1.085-3.875-2.869-5.973-5.009-2.22-2.263-4.264-5.095-4.27-8.063a6.216 6.216 0 0 1 1.823-4.596Zm8.033 1.042c-1.846-1.834-5.124-1.823-6.969.022a4.712 4.712 0 0 0-1.382 3.52c0 2.332 1.65 4.79 3.839 7.022 1.947 1.986 4.184 3.66 5.66 4.752a78.214 78.214 0 0 0 2.159-1.645l-2.14-1.974a.752.752 0 0 1 1.02-1.106l2.295 2.118c.616-.52 1.242-1.08 1.85-1.672l-2.16-1.992a.753.753 0 0 1 1.021-1.106l2.188 2.02a18.963 18.963 0 0 0 1.528-1.877l-.585-.586-1.651-1.652c-1.078-1.074-2.837-1.055-3.935.043-.379.38-.76.758-1.132 1.126-1.14 1.124-2.96 1.077-4.07-.043-.489-.495-.98-.988-1.475-1.482a.752.752 0 0 1-.04-1.019c.234-.276.483-.576.745-.893.928-1.12 2.023-2.442 3.234-3.576Zm9.725 6.77c.579-1.08.92-2.167.92-3.228.002-.899-.128-1.552-.35-2.08-.22-.526-.551-.974-1.017-1.44a4.71 4.71 0 0 0-3.356-1.384c-1.66.004-3.25.951-4.77 2.346-1.18 1.084-2.233 2.353-3.188 3.506l-.351.423c.331.332.663.664.993.998a1.375 1.375 0 0 0 1.943.03c.37-.365.748-.74 1.125-1.118 1.662-1.663 4.373-1.726 6.06-.045.56.558 1.12 1.12 1.658 1.658Z"
+              ></path>
+            </svg>
+            <span
+              class="position-absolute left-0 top-0 height-full width-full home-campaign-glowing-icon-glow circle z-n1"
+              style="
+                background-color: var(--mktg-accent-primary);
+                filter: blur(18px);
+              "
+            ></span>
           </div>
+
+          <div
+            class="home-campaign-git-line height-full rounded build-in-scale-top"
+            v-animation="{ add: 'build-in-animate' }"
+            style="
+              background: linear-gradient(rgb(247, 120, 186) 40%, transparent);
+              transition-delay: 500ms;
+            "
+          ></div>
+        </div>
+      </div>
+
+      <div
+        class="d-flex position-relative"
+        :style="{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }"
+      >
+        <div
+          class="d-flex flex-column flex-items-center position-relative"
+          style="height: 702px"
+          v-animation="{ add: 'build-in-animate' }"
+        >
+          <div
+            class="home-campaign-git-line height-full position-relative z-1 build-in-scale-top"
+            v-animation="{ add: 'build-in-animate' }"
+            style="
+              transition-duration: 1100ms;
+              background: linear-gradient(
+                transparent,
+                #f778ba,
+                #f778ba,
+                transparent
+              );
+            "
+          ></div>
         </div>
       </div>
     </div>
 
     <div
-      class="home-campaign-footer position-relative js-section overflow-hidden"
+      class="home-campaign-footer position-relative overflow-hidden"
       data-color-mode="dark"
       data-light-theme="light"
       data-dark-theme="dark"
+      :style="{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }"
     >
-      <div class="position-relative z-2 px-3">
-        <div class="d-flex js-build-in-trigger">
+      <div
+        class="position-relative z-2 px-3"
+        :style="{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }"
+      >
+        <div
+          class="d-flex"
+          v-animation="{ add: 'build-in-animate' }"
+          :style="{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
+          }"
+        >
           <div
-            class="col-1 d-flex flex-column flex-items-center js-build-in-trigger"
-            style="height: 514px"
+            class="d-flex flex-column flex-items-center"
+            style="height: 515px"
+            v-animation="{ add: 'build-in-animate' }"
           >
             <div
-              class="home-campaign-git-line rounded js-build-in-item build-in-scale-top"
-              v-animation="{
-                add: 'build-in-animate'
-              }"
+              class="home-campaign-git-line rounded build-in-scale-top"
+              v-animation="{ add: 'build-in-animate' }"
               style="
                 height: 100%;
                 background: linear-gradient(
