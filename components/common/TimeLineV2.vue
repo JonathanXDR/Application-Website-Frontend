@@ -22,7 +22,7 @@
         <div class="position-relative">
           <div class="d-flex">
             <div
-              class="d-flex flex-column events-none position-relative"
+              class="col-1 d-flex flex-column events-none position-relative"
               style="height: 630px"
             >
               <div class="mx-auto">
@@ -97,7 +97,7 @@
           v-animation="{ add: 'build-in-animate' }"
         >
           <div
-            class="d-flex flex-column flex-items-center"
+            class="col-1 d-flex flex-column flex-items-center"
             style="height: 208px"
           >
             <div class="mb-4 position-relative home-campaign-glowing-icon">
@@ -141,7 +141,7 @@
           v-animation="{ add: 'build-in-animate' }"
         >
           <div
-            class="d-flex flex-column flex-items-center position-relative"
+            class="col-1 d-flex flex-column flex-items-center position-relative"
             style="height: 613px"
           >
             <div
@@ -162,7 +162,7 @@
         </div>
 
         <div
-          class="d-flex flex-column flex-items-center"
+          class="col-1 d-flex flex-column flex-items-center"
           v-animation="{ add: 'build-in-animate' }"
         >
           <div
@@ -246,7 +246,7 @@
         }"
       >
         <div
-          class="d-flex flex-column flex-items-center position-relative"
+          class="col-1 d-flex flex-column flex-items-center position-relative"
           style="height: 618px"
         >
           <div
@@ -266,7 +266,7 @@
       </div>
 
       <div
-        class="d-flex flex-column flex-items-center"
+        class="col-1 d-flex flex-column flex-items-center"
         v-animation="{ add: 'build-in-animate' }"
         :style="{
           display: 'flex',
@@ -306,7 +306,10 @@
           alignItems: 'center'
         }"
       >
-        <div class="d-flex flex-column flex-items-center" style="height: 208px">
+        <div
+          class="col-1 d-flex flex-column flex-items-center"
+          style="height: 208px"
+        >
           <div
             class="mb-4 position-relative home-campaign-glowing-icon build-in-scale-fade"
             style="transition-delay: 0ms"
@@ -353,7 +356,7 @@
         }"
       >
         <div
-          class="d-flex flex-column flex-items-center position-relative"
+          class="col-1 d-flex flex-column flex-items-center position-relative"
           style="height: 702px"
           v-animation="{ add: 'build-in-animate' }"
         >
@@ -403,7 +406,7 @@
           }"
         >
           <div
-            class="d-flex flex-column flex-items-center"
+            class="col-1 d-flex flex-column flex-items-center"
             style="height: 515px"
             v-animation="{ add: 'build-in-animate' }"
           >
