@@ -234,6 +234,22 @@
             "
           ></div>
         </div>
+
+        <div class="col-lg-7 ml-2 ml-md-0 mb-6 mb-md-10 pr-lg-3">
+          <h3
+            class="h5-mktg mb-4 text-medium build-in-slideX-left build-in-animate"
+            style="transition-delay: 200ms"
+          >
+            Application security
+          </h3>
+          <h2
+            class="h3-mktg mb-4 text-medium build-in-slideX-left build-in-animate"
+            style="transition-delay: 300ms"
+          >
+            <span class="text-accent-primary d-block">Empower developers</span>
+            With GitHub, you can secure code in minutes.
+          </h2>
+        </div>
       </div>
 
       <div
@@ -1796,5 +1812,266 @@ button:focus:not(:focus-visible) {
 
 [data-color-mode='dark'] {
   --mark-bg: var(--mark-bg-dark);
+}
+
+/*! CSS Used from:
+https://github.githubassets.com/assets/primer-44fa1513ddd0.css ; media=all */
+@media all {
+  img {
+    border-style: none;
+  }
+  svg:not(:root) {
+    overflow: hidden;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  ::placeholder {
+    color: var(--fgColor-muted, var(--color-fg-subtle));
+    opacity: 1;
+  }
+  @media (forced-colors: active) {
+    *:focus {
+      outline: solid 1px transparent;
+    }
+  }
+  h2,
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  h2 {
+    font-size: var(--h2-size, 24px);
+    font-weight: var(--base-text-weight-semibold, 600);
+  }
+  h3 {
+    font-size: var(--h3-size, 20px);
+    font-weight: var(--base-text-weight-semibold, 600);
+  }
+  .octicon {
+    vertical-align: text-bottom;
+  }
+  .octicon {
+    display: inline-block;
+    overflow: visible !important;
+    vertical-align: text-bottom;
+    fill: currentColor;
+  }
+  .col-1 {
+    width: 8.33333333%;
+  }
+  .col-8 {
+    width: 66.66666664%;
+  }
+  .col-11 {
+    width: 91.66666663%;
+  }
+  @media (min-width: 1012px) {
+    .col-lg-7 {
+      width: 58.33333331%;
+    }
+  }
+  .rounded {
+    border-radius: var(--borderRadius-medium, 6px) !important;
+  }
+  .circle {
+    border-radius: var(--borderRadius-full, 50%) !important;
+  }
+  .flex-column {
+    flex-direction: column !important;
+  }
+  .flex-items-center {
+    align-items: center !important;
+  }
+  .position-relative {
+    position: relative !important;
+  }
+  .position-absolute {
+    position: absolute !important;
+  }
+  .top-0 {
+    top: 0 !important;
+  }
+  .left-0 {
+    left: 0 !important;
+  }
+  .width-full {
+    width: 100% !important;
+  }
+  .height-full {
+    height: 100% !important;
+  }
+  .ml-2 {
+    margin-left: var(--base-size-8, 8px) !important;
+  }
+  .mb-4 {
+    margin-bottom: var(--base-size-24, 24px) !important;
+  }
+  .mb-6 {
+    margin-bottom: var(--base-size-40, 40px) !important;
+  }
+  @media (min-width: 768px) {
+    .ml-md-0 {
+      margin-left: 0 !important;
+    }
+    .mb-md-10 {
+      margin-bottom: var(--base-size-96, 96px) !important;
+    }
+  }
+  @media (min-width: 1012px) {
+    .pr-lg-3 {
+      padding-right: var(--base-size-16, 16px) !important;
+    }
+  }
+  .d-block {
+    display: block !important;
+  }
+  .d-flex {
+    display: flex !important;
+  }
+  .d-none {
+    display: none !important;
+  }
+  @media (min-width: 768px) {
+    .d-md-block {
+      display: block !important;
+    }
+  }
+} /*! CSS Used from:
+https://github.githubassets.com/assets/global-7a5e80eb7443.css ; media=all */
+@media all {
+  [data-color-mode='dark'][data-dark-theme*='dark'] ::selection {
+    background-color: var(--selection-bgColor, var(--color-accent-muted));
+  }
+} /*! CSS Used from:
+https://github.githubassets.com/assets/site-059d3213fd4f.css ; media=all */
+@media all {
+  .h3-mktg,
+  .h5-mktg {
+    font-feature-settings: 'ss02' on, 'ss01' on;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+  }
+  .h3-mktg {
+    font-size: 28px !important;
+    line-height: 32px !important;
+    font-weight: 800 !important;
+  }
+  @media (min-width: 768px) {
+    .h3-mktg {
+      font-size: 40px !important;
+      line-height: 44px !important;
+    }
+  }
+  @media (min-width: 1012px) {
+    .h3-mktg {
+      font-size: 48px !important;
+      line-height: 52px !important;
+      letter-spacing: -0.03em !important;
+    }
+  }
+  .h5-mktg {
+    font-size: 20px !important;
+    line-height: 24px !important;
+  }
+  @media (min-width: 768px) {
+    .h5-mktg {
+      font-size: 24px !important;
+      line-height: 28px !important;
+      font-weight: 800 !important;
+    }
+  }
+  .text-medium {
+    font-weight: 500 !important;
+  }
+  .height-auto {
+    height: auto !important;
+  }
+  .z-n1 {
+    z-index: -1 !important;
+  }
+  .events-none {
+    pointer-events: none;
+  }
+  .h3-mktg,
+  .h5-mktg {
+    font-feature-settings: unset;
+  }
+  .text-medium {
+    font-weight: 500 !important;
+  }
+  .build-in-slideX-left {
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateX(-15px);
+  }
+  .build-in-slideX-left.build-in-animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .build-in-scale-fade {
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(0.96);
+  }
+  .build-in-scale-fade.build-in-animate {
+    opacity: 1;
+    transform: scale(1);
+  }
+} /*! CSS
+Used from: https://github.githubassets.com/assets/home-993d2c38b2c1.css ;
+media=all */
+@media all {
+  .home-campaign-git-line {
+    width: 2px;
+  }
+  @media (min-width: 768px) {
+    .home-campaign-git-line {
+      width: 3px;
+    }
+  }
+  .text-accent-primary {
+    color: var(--mktg-accent-primary);
+  }
+  .build-in-scale-top {
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scaleY(0);
+    transform-origin: 0 0;
+  }
+  .build-in-scale-top.build-in-animate {
+    transform: scaleY(1);
+  }
+  .home-campaign-glowing-icon,
+  .home-campaign-glowing-icon-glow {
+    transform: translateZ(0);
+  }
+} /*! CSS Used from:
+https://github.githubassets.com/assets/home-993d2c38b2c1.css ; media=all */
+@media all {
+  .home-campaign-git-line {
+    width: 2px;
+  }
+  @media (min-width: 768px) {
+    .home-campaign-git-line {
+      width: 3px;
+    }
+  }
+  .text-accent-primary {
+    color: var(--mktg-accent-primary);
+  }
+  .build-in-scale-top {
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scaleY(0);
+    transform-origin: 0 0;
+  }
+  .build-in-scale-top.build-in-animate {
+    transform: scaleY(1);
+  }
+  .home-campaign-glowing-icon,
+  .home-campaign-glowing-icon-glow {
+    transform: translateZ(0);
+  }
 }
 </style>
