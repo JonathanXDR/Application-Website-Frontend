@@ -27,6 +27,8 @@ export default defineNuxtPlugin(nuxtApp => {
             toArray(add).forEach(className => el.classList.add(className))
             toArray(remove).forEach(className => el.classList.remove(className))
             toArray(toggle).forEach(className => el.classList.toggle(className))
+          } else {
+            toArray(toggle).forEach(className => el.classList.toggle(className))
           }
 
           onViewportChange?.(isInViewport, el)
@@ -34,8 +36,8 @@ export default defineNuxtPlugin(nuxtApp => {
       }
 
       const observerOptions = {
-        threshold: 1,
-        rootMargin: '-52px 0px 0px 0px'
+        threshold: 0.5,
+        rootMargin: '-100px 0px -200px 0px'
       }
 
       const observer = new IntersectionObserver(
