@@ -37,9 +37,7 @@
                   height: 72%;
                 "
                 class="home-campaign-git-line rounded mx-auto"
-                v-animation="{
-                  toggle: 'build-in-animate'
-                }"
+                v-animation="{ add: 'build-in-animate' }"
               ></div>
 
               <div class="mx-auto my-3 home-campaign-glowing-icon">
@@ -71,9 +69,7 @@
                   background: linear-gradient(#7c72ff, #2da44e 80%, #3fb950);
                 "
                 class="home-campaign-git-line height-full rounded mx-auto"
-                v-animation="{
-                  toggle: 'build-in-animate'
-                }"
+                v-animation="{ add: 'build-in-animate' }"
               ></div>
             </div>
           </div>
@@ -94,7 +90,7 @@
       >
         <div
           class="d-flex position-relative"
-          v-animation="{ toggle: 'build-in-animate' }"
+          v-animation="{ add: 'build-in-animate' }"
         >
           <div
             class="col-1 d-flex flex-column flex-items-center"
@@ -123,7 +119,7 @@
             </div>
             <div
               class="home-campaign-git-line height-full rounded build-in-scale-top"
-              v-animation="{ toggle: 'build-in-animate' }"
+              v-animation="{ add: 'build-in-animate' }"
               style="
                 background: linear-gradient(
                   rgb(63, 185, 80),
@@ -138,7 +134,7 @@
 
         <div
           class="d-flex position-relative"
-          v-animation="{ toggle: 'build-in-animate' }"
+          v-animation="{ add: 'build-in-animate' }"
         >
           <div
             class="col-1 d-flex flex-column flex-items-center position-relative"
@@ -146,7 +142,7 @@
           >
             <div
               class="home-campaign-git-line height-full position-relative z-1 build-in-scale-top"
-              v-animation="{ toggle: 'build-in-animate' }"
+              v-animation="{ add: 'build-in-animate' }"
               style="
                 transition-duration: 900ms;
                 background: linear-gradient(
@@ -163,11 +159,11 @@
 
         <div
           class="col-1 d-flex flex-column flex-items-center"
-          v-animation="{ toggle: 'build-in-animate' }"
+          v-animation="{ add: 'build-in-animate' }"
         >
           <div
             class="home-campaign-git-line mt-n3 mt-md-n4 mb-n8 rounded build-in-scale-top"
-            v-animation="{ toggle: 'build-in-animate' }"
+            v-animation="{ add: 'build-in-animate' }"
             style="
               height: 160px;
               background: linear-gradient(transparent, #33b3ae 40%);
@@ -191,7 +187,7 @@
     >
       <div
         class="d-flex position-relative"
-        v-animation="{ toggle: 'build-in-animate' }"
+        v-animation="{ add: 'build-in-animate' }"
         :style="{
           display: 'flex',
           flexDirection: 'column',
@@ -202,7 +198,7 @@
           <div
             class="mb-4 position-relative home-campaign-glowing-icon build-in-scale-fade"
             style="transition-delay: 0ms"
-            v-animation="{ toggle: 'build-in-animate' }"
+            v-animation="{ add: 'build-in-animate' }"
           >
             <svg
               aria-hidden="true"
@@ -227,7 +223,7 @@
 
           <div
             class="home-campaign-git-line height-full rounded build-in-scale-top"
-            v-animation="{ toggle: 'build-in-animate' }"
+            v-animation="{ add: 'build-in-animate' }"
             style="
               background: linear-gradient(rgb(51, 179, 174) 40%, transparent);
               transition-delay: 500ms;
@@ -254,7 +250,7 @@
 
       <div
         class="d-flex position-relative"
-        v-animation="{ toggle: 'build-in-animate' }"
+        v-animation="{ add: 'build-in-animate' }"
         :style="{
           display: 'flex',
           flexDirection: 'column',
@@ -267,7 +263,7 @@
         >
           <div
             class="home-campaign-git-line height-full position-relative z-1 build-in-scale-top"
-            v-animation="{ toggle: 'build-in-animate' }"
+            v-animation="{ add: 'build-in-animate' }"
             style="
               background: linear-gradient(
                 transparent,
@@ -283,7 +279,7 @@
 
       <div
         class="col-1 d-flex flex-column flex-items-center"
-        v-animation="{ toggle: 'build-in-animate' }"
+        v-animation="{ add: 'build-in-animate' }"
         :style="{
           display: 'flex',
           flexDirection: 'column',
@@ -292,7 +288,7 @@
       >
         <div
           class="home-campaign-git-line mt-n3 mt-md-n4 mb-n8 rounded build-in-scale-top"
-          v-animation="{ toggle: 'build-in-animate' }"
+          v-animation="{ add: 'build-in-animate' }"
           style="
             height: 160px;
             background: linear-gradient(transparent, #f778ba 40%);
@@ -315,7 +311,7 @@
     >
       <div
         class="d-flex position-relative"
-        v-animation="{ toggle: 'build-in-animate' }"
+        v-animation="{ add: 'build-in-animate' }"
         :style="{
           display: 'flex',
           flexDirection: 'column',
@@ -329,7 +325,7 @@
           <div
             class="mb-4 position-relative home-campaign-glowing-icon build-in-scale-fade"
             style="transition-delay: 0ms"
-            v-animation="{ toggle: 'build-in-animate' }"
+            v-animation="{ add: 'build-in-animate' }"
           >
             <svg
               aria-hidden="true"
@@ -354,7 +350,7 @@
 
           <div
             class="home-campaign-git-line height-full rounded build-in-scale-top"
-            v-animation="{ toggle: 'build-in-animate' }"
+            v-animation="{ add: 'build-in-animate' }"
             style="
               background: linear-gradient(rgb(247, 120, 186) 40%, transparent);
               transition-delay: 500ms;
@@ -374,11 +370,11 @@
         <div
           class="col-1 d-flex flex-column flex-items-center position-relative"
           style="height: 702px"
-          v-animation="{ toggle: 'build-in-animate' }"
+          v-animation="{ add: 'build-in-animate' }"
         >
           <div
             class="home-campaign-git-line height-full position-relative z-1 build-in-scale-top"
-            v-animation="{ toggle: 'build-in-animate' }"
+            v-animation="{ add: 'build-in-animate' }"
             style="
               transition-duration: 1100ms;
               background: linear-gradient(
@@ -414,7 +410,7 @@
       >
         <div
           class="d-flex"
-          v-animation="{ toggle: 'build-in-animate' }"
+          v-animation="{ add: 'build-in-animate' }"
           :style="{
             display: 'flex',
             flexDirection: 'column',
@@ -424,11 +420,11 @@
           <div
             class="col-1 d-flex flex-column flex-items-center"
             style="height: 515px"
-            v-animation="{ toggle: 'build-in-animate' }"
+            v-animation="{ add: 'build-in-animate' }"
           >
             <div
               class="home-campaign-git-line rounded build-in-scale-top"
-              v-animation="{ toggle: 'build-in-animate' }"
+              v-animation="{ add: 'build-in-animate' }"
               style="
                 height: 100%;
                 background: linear-gradient(

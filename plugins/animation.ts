@@ -26,9 +26,9 @@ export default defineNuxtPlugin(nuxtApp => {
           if (isInViewport) {
             toArray(add).forEach(className => el.classList.add(className))
             toArray(remove).forEach(className => el.classList.remove(className))
-            toArray(toggle).forEach(className => el.classList.toggle(className))
+            toArray(toggle).forEach(className => el.classList.add(className))
           } else {
-            toArray(toggle).forEach(className => el.classList.toggle(className))
+            toArray(toggle).forEach(className => el.classList.remove(className))
           }
 
           onViewportChange?.(isInViewport, el)
