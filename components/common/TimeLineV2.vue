@@ -40,7 +40,10 @@
                 v-animation="{ add: 'build-in-animate' }"
               ></div>
 
-              <div class="mx-auto my-3 home-campaign-glowing-icon">
+              <div
+                v-if="windowWidth < 900"
+                class="mx-auto my-3 home-campaign-glowing-icon"
+              >
                 <div class="position-relative d-inline-block z-1">
                   <svg
                     aria-hidden="true"
@@ -96,7 +99,10 @@
             class="col-1 d-flex flex-column flex-items-center"
             style="height: 208px"
           >
-            <div class="mb-4 position-relative home-campaign-glowing-icon">
+            <div
+              v-if="windowWidth < 900"
+              class="mb-4 position-relative home-campaign-glowing-icon"
+            >
               <svg
                 aria-hidden="true"
                 height="24"
@@ -196,6 +202,7 @@
       >
         <div class="d-flex flex-column flex-items-center" style="height: 176px">
           <div
+            v-if="windowWidth < 900"
             class="mb-4 position-relative home-campaign-glowing-icon build-in-scale-fade"
             style="transition-delay: 0ms"
             v-animation="{ add: 'build-in-animate' }"
@@ -323,9 +330,12 @@
           style="height: 208px"
         >
           <div
+            v-if="windowWidth < 900"
             class="mb-4 position-relative home-campaign-glowing-icon build-in-scale-fade"
             style="transition-delay: 0ms"
-            v-animation="{ add: 'build-in-animate' }"
+            v-animation="{
+              add: 'build-in-animate'
+            }"
           >
             <svg
               aria-hidden="true"
@@ -437,7 +447,10 @@
               "
             ></div>
 
-            <div class="mx-auto my-3 home-campaign-glowing-icon">
+            <div
+              v-if="windowWidth < 900"
+              class="mx-auto my-3 home-campaign-glowing-icon"
+            >
               <div class="position-relative d-inline-block z-1">
                 <svg
                   aria-hidden="true"
@@ -467,7 +480,9 @@
   </main>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
+</script>
 
 <style scoped>
 [data-color-mode='dark'][data-dark-theme='dark'],
