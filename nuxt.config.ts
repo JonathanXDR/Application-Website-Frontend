@@ -70,7 +70,11 @@ export default defineNuxtConfig({
     defaultLocale: 'de',
     detectBrowserLanguage: {
       useCookie: true,
+      cookieCrossOrigin: true,
+      cookieDomain: 'jonathan-russ.com',
       cookieKey: 'i18n_redirected',
+      cookieSecure: true,
+      fallbackLocale: 'en',
       redirectOn: 'root'
     },
     locales: [
