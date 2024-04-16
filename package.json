@@ -25,11 +25,11 @@
     "@nuxt/devtools": "^1.1.5",
     "@nuxt/eslint": "^0.3.7",
     "@nuxt/image": "^1.5.0",
-    "@nuxtjs/color-mode": "^3.3.3",
+    "@nuxtjs/color-mode": "^3.4.0",
     "@nuxtjs/i18n": "^8.3.0",
     "@nuxtjs/tailwindcss": "^6.11.4",
-    "@octokit/graphql": "^8.1.0",
-    "@octokit/types": "^13.1.0",
+    "@octokit/graphql": "^8.1.1",
+    "@octokit/types": "^13.4.1",
     "@types/musickit-js": "^1.0.9",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
@@ -41,7 +41,7 @@
     "octokit": "^3.2.0",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.7.0",
-    "vue": "^3.4.21",
+    "vue": "^3.4.23",
     "vue-router": "^4.3.0",
     "vue-tsc": "^1.8.27"
   }
