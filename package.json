@@ -20,6 +20,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.6",
     "@nuxt/devtools": "^1.1.5",
+    "@nuxt/eslint": "^0.3.7",
     "@nuxt/image": "^1.5.0",
     "@nuxtjs/color-mode": "^3.3.3",
     "@nuxtjs/i18n": "^8.3.0",

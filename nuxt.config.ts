@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
     '@nuxtjs/color-mode',
-    '@nuxt/image'
+    '@nuxt/image',
+    "@nuxt/eslint"
   ],
   css: [
     '~/assets/css/main.css',
