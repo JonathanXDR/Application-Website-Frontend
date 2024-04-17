@@ -69,6 +69,7 @@
 import type { LinkType } from '~/types/common/Link'
 import type { RibbonBar } from '~/types/common/RibbonBar'
 
+const { $listRepositoryTags } = useNuxtApp()
 const { t, tm, rt } = useI18n()
 const tags: Ref<{
   latest: string | undefined
@@ -83,12 +84,10 @@ const scrollDirection = ref('right')
 const displayItems: Ref<RibbonBar[]> = ref([])
 const initialAnimationPlayed = ref(false)
 
-// const { githubRepoName, githubRepoOwner } = useRuntimeConfig()
-const githubRepoName = import.meta.env.VITE_GITHUB_REPO_NAME
-const githubRepoOwner = import.meta.env.VITE_GITHUB_REPO_OWNER
+const { githubRepoName, githubRepoOwner } = useRuntimeConfig().public
 
 const fetchTags = async () => {
-  const [latest, previous] = await listRepositoryTags({
+  const [latest, previous] = await $listRepositoryTags({
     owner: githubRepoOwner,
     repo: githubRepoName,
     perPage: 2

@@ -23,7 +23,7 @@ minutes_diff=$((($latest_commit_unix - $second_latest_commit_unix) / 60))
 
 echo -e "Time difference between the last two commits: $minutes_diff minutes\n"
 
-if [ $minutes_diff -ge $BUILD_INTERVAL_MINUTES ]; then
+if [ $minutes_diff -ge "$BUILD_INTERVAL_MINUTES" ]; then
     echo -e "✅ - More than $BUILD_INTERVAL_MINUTES minutes between the last two commits, proceeding with build\n"
     exit 1
 else
