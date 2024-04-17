@@ -8,6 +8,11 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/image'
   ],
+  plugins: [
+    '~/plugins/api/github.server',
+    '~/plugins/api/musickit.server',
+    '~/plugins/api/tmdb.server'
+  ],
   css: [
     '~/assets/css/main.css',
     '@fortawesome/fontawesome-svg-core/styles.css'

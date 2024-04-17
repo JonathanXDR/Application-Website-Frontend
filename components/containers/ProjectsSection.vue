@@ -96,6 +96,7 @@ defineProps<{
   title: string
 }>()
 
+const { $listUserRepositories, $listPinnedRepositories } = useNuxtApp()
 const { tm } = useI18n()
 const colorStore = useColor()
 const articles: Ref<CardItemType[]> = computed(() =>
@@ -165,12 +166,12 @@ const categorizeProject = (project: ListUserReposResponse) => {
 }
 
 const fetchProjects = async () => {
-  const allProjects = await listUserRepositories({
+  const allProjects = await $listUserRepositories({
     username: 'JonathanXDR',
     perPage: 100
   })
 
-  const pinnedProjects = await listPinnedRepositories({
+  const pinnedProjects = await $listPinnedRepositories({
     username: 'JonathanXDR',
     perPage: 100
   })

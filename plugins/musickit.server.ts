@@ -1,4 +1,5 @@
-export default defineNuxtPlugin(async nuxtApp => {
+export default defineNuxtPlugin(async () => {
+  const { $listRepositoryTags, $MusicKitHelper } = useNuxtApp()
   const { appName, githubRepoName, githubRepoOwner } = useRuntimeConfig().public
   const { appleDeveloperToken } = useRuntimeConfig()
 
@@ -8,7 +9,7 @@ export default defineNuxtPlugin(async nuxtApp => {
   }> = ref({ latest: undefined, previous: undefined })
 
   const fetchTags = async () => {
-    const [latest, previous] = await listRepositoryTags({
+    const [latest, previous] = await $listRepositoryTags({
       owner: githubRepoOwner,
       repo: githubRepoName,
       perPage: 2
@@ -39,7 +40,7 @@ export default defineNuxtPlugin(async nuxtApp => {
 
     try {
       const musicKitInstance = window.MusicKit.getInstance()
-      const musicKitHelper = new MusicKitHelper(musicKitInstance)
+      const musicKitHelper = new $MusicKitHelper(musicKitInstance)
 
       const appConfiguration = {
         name: appName as string,
