@@ -1,7 +1,7 @@
 // import js from '@eslint/js';
 // import standard from 'eslint-config-standard';
 // import ts from 'typescript-eslint';
-import nuxt from './.nuxt/eslint.config.mjs';
+// import nuxt from './.nuxt/eslint.config.mjs';
 
 // const baseConfigurations = {
 //   ...standard,
@@ -10,6 +10,7 @@ import nuxt from './.nuxt/eslint.config.mjs';
 // };
 
 const nuxtRules = nuxt([
+  // baseConfigurations,
   {
     stylistic: true,
     typescript: {
