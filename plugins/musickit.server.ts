@@ -1,7 +1,9 @@
 export default defineNuxtPlugin(async () => {
+  const config = useRuntimeConfig()
   const { $listRepositoryTags, $MusicKitHelper } = useNuxtApp()
-  const { appName, githubRepoName, githubRepoOwner } = useRuntimeConfig().public
-  const { appleDeveloperToken } = useRuntimeConfig()
+
+  const { appName, githubRepoName, githubRepoOwner } = config.public
+  const { appleDeveloperToken } = config
 
   const tags: Ref<{
     latest: string | undefined
