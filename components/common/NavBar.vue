@@ -35,11 +35,7 @@
                 class="ac-ln-menu-item"
               >
                 <NuxtLink
-                  :to="
-                    rt(item.route, {
-                      locale
-                    })
-                  "
+                  :to="item.route"
                   :class="[
                     'ac-ln-menu-link',
                     { current: index === currentSectionIndex }
