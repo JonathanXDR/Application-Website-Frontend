@@ -78,7 +78,6 @@
 </template>
 
 <script setup lang="ts">
-import { useAsyncData } from 'nuxt/app'
 import type { ListUserReposResponse } from '~/types/GitHub/Repository'
 import type { CardItemType } from '~/types/common/CardItem'
 import type { ItemType } from '~/types/common/Option'
@@ -102,20 +101,23 @@ const { tm } = useI18n()
 const colorStore = useColor()
 const config = useRuntimeConfig()
 
-const ul: Ref<HTMLElement | null> = ref(null)
-const { height: ulHeight } = useElementSize(ul)
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
+const ul = ref<HTMLElement | null>(null)
+const ulHeight = useElementSize(ul).height
+const windowWidth = useWindowSize().width
 const randomColor = ref(colorStore.randomizeColor().colorName)
 
 const {
   data: userRepositories,
   pending: pendingUserRepos,
   refresh: refreshUserRepos
-} = useAsyncData('userRepositories', () =>
-  $listUserRepositories({
-    username: config.public.githubRepoOwner,
-    perPage: 100
-  })
+} = useAsyncData(
+  'userRepositories',
+  () =>
+    $listUserRepositories({
+      username: config.public.githubRepoOwner,
+      perPage: 100
+    }),
+  { server: true }
 )
 
 const { data: pinnedProjects, refresh: refreshPinnedProjects } = useAsyncData(
@@ -124,10 +126,9 @@ const { data: pinnedProjects, refresh: refreshPinnedProjects } = useAsyncData(
     $listPinnedRepositories({
       username: config.public.githubRepoOwner,
       perPage: 100
-    })
+    }),
+  { server: true }
 )
-
-console.log(pinnedProjects.value)
 
 const projects: Projects = reactive({
   swisscom: [],
@@ -135,7 +136,7 @@ const projects: Projects = reactive({
   school: []
 })
 
-const segmentNavItems: Ref<ItemType[]> = computed(() => [
+const segmentNavItems = computed<ItemType[]>(() => [
   {
     id: 'swisscom',
     category: 'projects',
@@ -162,18 +163,18 @@ const segmentNavItems: Ref<ItemType[]> = computed(() => [
   }
 ])
 
-const currentIndex: Ref<number> = ref(0)
+const currentIndex = ref(0)
 const updateCurrentIndex = (index: number) => {
   currentIndex.value = index
 }
 
 watchEffect(() => {
   projects.personal =
-    userRepositories?.value?.filter(
+    userRepositories.value?.filter(
       p => !pinnedProjects.value?.some(pin => pin.id === p.id)
     ) || []
   projects.school =
-    userRepositories?.value?.filter(p => /school_pattern/.test(p.name)) || []
+    userRepositories.value?.filter(p => /school_pattern/.test(p.name)) || []
 })
 
 const currentProjects = computed(
