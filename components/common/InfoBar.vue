@@ -86,7 +86,7 @@ const props = withDefaults(
 
 dayjs.extend(relativeTime)
 
-const { locale } = useI18n({ useScope: 'global' })
+const { locale } = useI18n()
 const updatedYesterday = computed(() => {
   if (!props.date) return false
   const updatedDate = dayjs(props.date)
