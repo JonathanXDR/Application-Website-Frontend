@@ -1108,7 +1108,7 @@
         },
         {
           "icon": {
-            "name": "book.closed.fill"
+            "name": "books.vertical.fill"
           },
           "eyebrow": "Library",
           "title": "SDX",
@@ -1463,7 +1463,7 @@
         },
         {
           "icon": {
-            "name": "book.closed.fill"
+            "name": "books.vertical.fill"
           },
           "eyebrow": "Library",
           "title": "GitHub Primer",
@@ -1486,7 +1486,7 @@
         },
         {
           "icon": {
-            "name": "book.closed.fill"
+            "name": "books.vertical.fill"
           },
           "eyebrow": "Library",
           "title": "Tailwind CSS",
@@ -1575,7 +1575,7 @@
         },
         {
           "icon": {
-            "name": "book.closed.fill"
+            "name": "books.vertical.fill"
           },
           "eyebrow": "Library",
           "title": "Material Design 3",
