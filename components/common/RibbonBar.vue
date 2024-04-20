@@ -66,11 +66,12 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkType } from '~/types/common/Link'
-import type { RibbonBar } from '~/types/common/RibbonBar'
+import type { LinkType } from '~/types/common/Link';
+import type { RibbonBar } from '~/types/common/RibbonBar';
 
 const { $listRepositoryTags } = useNuxtApp()
 const { t, tm, rt } = useI18n()
+const config = useRuntimeConfig()
 const tags: Ref<{
   latest: string | undefined
   previous: string | undefined
@@ -84,7 +85,7 @@ const scrollDirection = ref('right')
 const displayItems: Ref<RibbonBar[]> = ref([])
 const initialAnimationPlayed = ref(false)
 
-const { githubRepoName, githubRepoOwner } = useRuntimeConfig().public
+const { githubRepoName, githubRepoOwner } = config.public
 
 const fetchTags = async () => {
   const [latest, previous] = await $listRepositoryTags({

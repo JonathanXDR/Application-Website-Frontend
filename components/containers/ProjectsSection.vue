@@ -43,12 +43,12 @@
     <div v-else class="w-full">
       <div v-if="projects.personal.length && projects.school.length">
         <LiveResultSummary
-          :totalResults="currentProjects.length + pinned.length"
-          :pinnedResults="pinned.length"
+          :totalResults="currentProjects.length + (pinnedProjects?.length ?? 0)"
+          :pinnedResults="pinnedProjects ? pinnedProjects.length : 0"
         />
-        <ul v-if="pinned" class="card-container pinned-items">
+        <ul v-if="pinnedProjects" class="card-container pinned-items">
           <CardItem
-            v-for="(card, index) in pinned"
+            v-for="(card, index) in pinnedProjects"
             :key="index"
             :card="card"
             size="small"
@@ -69,7 +69,7 @@
             size="small"
             iconPosition="right"
           />
-          <ResultBlankState v-if="!currentProjects" />
+          <ResultBlankState v-if="!currentProjects.length" />
         </ul>
       </div>
       <LoadingSpinner v-else class="center-horizontal center-vertical pt-24" />
@@ -77,7 +77,8 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
+import { useAsyncData } from 'nuxt/app'
 import type { ListUserReposResponse } from '~/types/GitHub/Repository'
 import type { CardItemType } from '~/types/common/CardItem'
 import type { ItemType } from '~/types/common/Option'
@@ -99,31 +100,40 @@ defineProps<{
 const { $listUserRepositories, $listPinnedRepositories } = useNuxtApp()
 const { tm } = useI18n()
 const colorStore = useColor()
-const articles: Ref<CardItemType[]> = computed(() =>
-  tm('components.containers.projects')
-)
+const config = useRuntimeConfig()
 
 const ul: Ref<HTMLElement | null> = ref(null)
-const { height: ulHeight } = useElementSize(ul.value)
-// const ulHeight = ul.value?.getBoundingClientRect().height
-
-const pinned: Ref<ListUserPinnedReposResponse[]> = ref([])
-const currentIndex: Ref<number> = ref(0)
-const randomColor = ref(colorStore.randomizeColor().colorName)
+const { height: ulHeight } = useElementSize(ul)
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
+const randomColor = ref(colorStore.randomizeColor().colorName)
+
+const {
+  data: userRepositories,
+  pending: pendingUserRepos,
+  refresh: refreshUserRepos
+} = useAsyncData('userRepositories', () =>
+  $listUserRepositories({
+    username: config.public.githubRepoOwner,
+    perPage: 100
+  })
+)
+
+const { data: pinnedProjects, refresh: refreshPinnedProjects } = useAsyncData(
+  'pinnedProjects',
+  () =>
+    $listPinnedRepositories({
+      username: config.public.githubRepoOwner,
+      perPage: 100
+    })
+)
+
+console.log(pinnedProjects.value)
 
 const projects: Projects = reactive({
-  swisscom: computed(() => tm('components.containers.projects')) as Ref<
-    CardItemType[]
-  >,
-  personal: [] as ListUserReposResponse[],
-  school: [] as ListUserReposResponse[]
+  swisscom: [],
+  personal: [],
+  school: []
 })
-
-const currentProjects = computed(
-  () =>
-    projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
-)
 
 const segmentNavItems: Ref<ItemType[]> = computed(() => [
   {
@@ -131,7 +141,7 @@ const segmentNavItems: Ref<ItemType[]> = computed(() => [
     category: 'projects',
     label: 'Swisscom',
     icon: {
-      name: 'sun.max.fill'
+      name: 'building.2.fill'
     }
   },
   {
@@ -139,7 +149,7 @@ const segmentNavItems: Ref<ItemType[]> = computed(() => [
     category: 'projects',
     label: 'Persönlich',
     icon: {
-      name: 'moon.fill'
+      name: 'person.fill'
     }
   },
   {
@@ -147,62 +157,29 @@ const segmentNavItems: Ref<ItemType[]> = computed(() => [
     category: 'projects',
     label: 'Schule',
     icon: {
-      name: 'circle.lefthalf.filled'
+      name: 'graduationcap.fill'
     }
   }
 ])
 
+const currentIndex: Ref<number> = ref(0)
 const updateCurrentIndex = (index: number) => {
   currentIndex.value = index
 }
 
-const categorizeProject = (project: ListUserReposResponse) => {
-  const schoolProjectPattern =
-    /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/
-  const category = schoolProjectPattern.test(project.name)
-    ? 'school'
-    : 'personal'
-  return { ...project, category }
-}
-
-const fetchProjects = async () => {
-  const allProjects = await $listUserRepositories({
-    username: 'JonathanXDR',
-    perPage: 100
-  })
-
-  const pinnedProjects = await $listPinnedRepositories({
-    username: 'JonathanXDR',
-    perPage: 100
-  })
-
-  pinnedProjects.forEach((project: ListUserPinnedReposResponse) => {
-    project.icon = {
-      name: 'pin.fill',
-      colors: {
-        primary: `var(--color-figure-${randomColor.value})`
-      }
-    }
-  })
-
-  const filteredProjects = allProjects.filter(
-    project =>
-      !pinnedProjects.find(pinnedProject => pinnedProject.name === project.name)
-  )
-
-  pinned.value = pinnedProjects
-
-  filteredProjects.map(categorizeProject).forEach(project => {
-    const category = project.category as keyof Projects
-    projects[category].push(
-      project as ListUserReposResponse & CardItemType & { category: string }
-    )
-  })
-}
-
-onMounted(() => {
-  fetchProjects()
+watchEffect(() => {
+  projects.personal =
+    userRepositories?.value?.filter(
+      p => !pinnedProjects.value?.some(pin => pin.id === p.id)
+    ) || []
+  projects.school =
+    userRepositories?.value?.filter(p => /school_pattern/.test(p.name)) || []
 })
+
+const currentProjects = computed(
+  () =>
+    projects[segmentNavItems.value[currentIndex.value]?.id as keyof Projects]
+)
 </script>
 
 <style scoped>

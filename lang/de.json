@@ -75,10 +75,6 @@
           ]
         }
       ],
-      "CardTile": {
-        "firstEncounter": "Erstbegegnung",
-        "enhanced": "Erweitert"
-      },
       "FilterInput": {
         "items": [
           {
@@ -149,40 +145,6 @@
             },
             "title": "Angepinnt",
             "description": "({count})"
-          }
-        ]
-      },
-      "SegmentNav": {
-        "items": [
-          {
-            "id": "swisscom",
-            "label": "Swisscom"
-          },
-          {
-            "id": "personal",
-            "label": "Persönlich"
-          },
-          {
-            "id": "school",
-            "label": "Schule"
-          }
-        ],
-        "sorts": [
-          {
-            "id": "newest",
-            "label": "Neueste"
-          },
-          {
-            "id": "oldest",
-            "label": "Älteste"
-          },
-          {
-            "id": "asc",
-            "label": "Aufsteigend"
-          },
-          {
-            "id": "desc",
-            "label": "Absteigend"
           }
         ]
       },
