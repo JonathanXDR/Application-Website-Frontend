@@ -42,7 +42,7 @@ const items = reactive([
 
 const { tm } = useI18n()
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
-const languages: Ref<LanguageBarType[]> = computed(() =>
+const languages = computed<LanguageBarType[]>(() =>
   tm('components.containers.languages')
 )
 </script>

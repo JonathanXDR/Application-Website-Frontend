@@ -24,7 +24,7 @@ defineProps<{
 }>()
 
 const { tm } = useI18n()
-const articles: Ref<CardItemType[]> = computed(() =>
+const articles = computed<CardItemType[]>(() =>
   tm('components.containers.other')
 )
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })

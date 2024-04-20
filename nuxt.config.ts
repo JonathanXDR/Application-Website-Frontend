@@ -52,6 +52,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       appName: process.env.APP_NAME,
+      appUrl: process.env.APP_URL,
+      appDomain: process.env.APP_DOMAIN,
       appEnvironment: process.env.NODE_ENV,
 
       githubRepoName: process.env.GITHUB_REPO_NAME,
@@ -74,6 +76,7 @@ export default defineNuxtConfig({
     classSuffix: ''
   },
   i18n: {
+    baseUrl: process.env.APP_URL,
     vueI18n: '~/i18n.config.ts',
     // lazy: true,
     // langDir: 'lang',
@@ -91,21 +94,25 @@ export default defineNuxtConfig({
     locales: [
       {
         code: 'de',
+        iso: 'de-DE',
         name: 'Deutsch'
         // file: 'de.json'
       },
       {
         code: 'en',
+        iso: 'en-US',
         name: 'English'
         // file: 'en.json'
       },
       {
         code: 'fr',
+        iso: 'fr-FR',
         name: 'Français'
         // file: 'fr.json'
       },
       {
         code: 'it',
+        iso: 'it-IT',
         name: 'Italiano'
         // file: 'it.json'
       }

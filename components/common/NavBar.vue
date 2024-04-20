@@ -35,11 +35,7 @@
                 class="ac-ln-menu-item"
               >
                 <NuxtLink
-                  :to="
-                    rt(item.route, {
-                      locale
-                    })
-                  "
+                  :to="item.route"
                   :class="[
                     'ac-ln-menu-link',
                     { current: index === currentSectionIndex }
@@ -78,9 +74,9 @@ import type { ItemType } from '~/types/common/Option'
 import { type SectionType } from '~/types/common/Section'
 
 const { locale, tm, rt } = useI18n()
-const items: Ref<SectionType[]> = computed(() => tm('components.common.NavBar'))
-const navOpen: Ref<boolean> = ref(false)
-const navDisabled: Ref<boolean> = ref(false)
+const items = computed<SectionType[]>(() => tm('components.common.NavBar'))
+const navOpen = ref(false)
+const navDisabled = ref(false)
 
 const { currentSection } = useSection()
 const { getTheme, setTheme } = useTheme()
@@ -88,7 +84,7 @@ const currentSectionIndex = computed(() => currentSection.value.index)
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 const { headerAnimations } = useAnimation()
 
-const themeItems: Ref<ItemType[]> = computed(() => [
+const themeItems = computed<ItemType[]>(() => [
   {
     id: 'light',
     category: 'theme',

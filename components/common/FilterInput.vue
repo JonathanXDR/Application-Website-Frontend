@@ -84,9 +84,13 @@
 import type { ItemType } from '~/types/common/Option'
 
 const { tm } = useI18n()
-const items: Ref<ItemType[]> = ref(tm('components.common.FilterInput.items'))
-const options: Ref<ItemType[]> = ref(tm('components.common.FilterInput.sorts'))
-const open: Ref<boolean> = ref(false)
+const items = computed<ItemType[]>(() =>
+  tm('components.common.FilterInput.items')
+)
+const options = computed<ItemType[]>(() =>
+  tm('components.common.FilterInput.sorts')
+)
+const open = ref(false)
 
 const onFocus = () => {
   open.value = true
