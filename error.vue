@@ -84,13 +84,13 @@ const currentKey = computed(() => {
 const title = t(`pages.${currentKey.value}.title`, {
   statusCode: error.value?.statusCode
 })
-const colors: Ref<Object> = computed(() =>
+const colors = computed<Object>(() =>
   tm(`pages.${currentKey.value}.icon.colors`)
 )
-const entireDescription: Ref<string> = computed(() =>
+const entireDescription = computed<string>(() =>
   tm(`pages.${currentKey.value}.description`)
 )
-const description: Ref<string[]> = computed(() =>
+const description = computed<string[]>(() =>
   entireDescription.value.split('. ')
 )
 </script>

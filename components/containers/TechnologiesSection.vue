@@ -32,7 +32,7 @@ defineProps<{
 }>()
 
 const { tm } = useI18n()
-const cards: Ref<CardItemType[]> = computed(() =>
+const cards = computed<CardItemType[]>(() =>
   tm('components.containers.technologies')
 )
 </script>

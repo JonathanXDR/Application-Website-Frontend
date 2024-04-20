@@ -49,10 +49,10 @@ defineProps<{
 }>()
 
 const { tm } = useI18n()
-const links: Ref<LinkType[]> = computed(() =>
+const links = computed<LinkType[]>(() =>
   tm('components.containers.about.links')
 )
-const dateItems: Ref<DateItemType[]> = computed(() =>
+const dateItems = computed<DateItemType[]>(() =>
   tm('components.containers.about.dates')
 )
 const dates: Ref<{
