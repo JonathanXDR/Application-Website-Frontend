@@ -5,10 +5,10 @@ export default defineNuxtPlugin(async () => {
   const { appName, githubRepoName, githubRepoOwner } = config.public
   const { appleDeveloperToken } = config
 
-  const tags: Ref<{
+  const tags = ref<{
     latest: string | undefined
     previous: string | undefined
-  }> = ref({ latest: undefined, previous: undefined })
+  }>({ latest: undefined, previous: undefined })
 
   const fetchTags = async () => {
     const [latest, previous] = await $listRepositoryTags({

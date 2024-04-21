@@ -55,10 +55,10 @@ const links = computed<LinkType[]>(() =>
 const dateItems = computed<DateItemType[]>(() =>
   tm('components.containers.about.dates')
 )
-const dates: Ref<{
+const dates = ref<{
   age: number | undefined
   apprenticeshipYear: number | undefined
-}> = ref({
+}>({
   age: undefined,
   apprenticeshipYear: undefined
 })
