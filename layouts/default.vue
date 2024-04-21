@@ -17,7 +17,6 @@ import { SpeedInsights } from '@vercel/speed-insights/vue'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterFull from '~/components/common/Footer/Full.vue'
 import svgFaviconDev from '~/public/img/dev/favicon-dev.svg?raw'
-import svgFavicon from '~/public/img/favicon.svg?raw'
 
 const route = useRoute()
 const { colorBadge, randomizeColor } = useColor()
@@ -26,64 +25,40 @@ const { locale } = useI18n()
 const error = useError()
 const config = useRuntimeConfig()
 
+const faviconColor = colorBadge.value?.colorHex ?? '000000'
+const faviconGraphicData = `data:image/svg+xml,${encodeURIComponent(
+  svgFaviconDev.replace('#color', `#${faviconColor}`)
+)}`
+
 onMounted(randomizeColor)
 
-const isDevelopment = ref(config.public.appEnvironment === 'development')
-
-const pageTitle = computed(() =>
-  currentSection.value.name
-    ? `JR | ${currentSection.value.name}`
-    : 'Jonathan Russ'
-)
-
-const description = ref(
-  'Discover the work of Jonathan Russ and learn more about him, including his projects at Swisscom.'
-)
-
-const faviconGraphic = computed(() =>
-  isDevelopment.value ? svgFaviconDev : svgFavicon
-)
-
-const faviconImage = computed(
-  () =>
-    `/img/${
-      isDevelopment.value
-        ? `dev/favicon-dev-${colorBadge.value?.colorName}.png`
-        : 'favicon.png'
-    }`
-)
-
 watchEffect(() => {
-  const faviconColor = colorBadge.value?.colorHex ?? '000000'
-  const faviconGraphicData = `data:image/svg+xml,${encodeURIComponent(
-    faviconGraphic.value.replace('#color', `#${faviconColor}`)
-  )}`
-
   useHead({
     htmlAttrs: { lang: locale.value },
-    title: pageTitle,
-    link: [
-      { rel: 'icon', type: 'image/svg+xml', href: faviconGraphicData },
-      { rel: 'apple-touch-icon', href: faviconImage.value }
-    ],
-    meta: [
-      { property: 'twitter:image', content: faviconImage.value },
-      { property: 'twitter:card', content: 'summary_large_image' },
-      { property: 'twitter:title', content: pageTitle.value },
-      { property: 'twitter:description', content: description.value },
-      { property: 'og:image', content: faviconImage.value },
-      { property: 'og:title', content: pageTitle.value },
-      { property: 'og:description', content: description.value },
-      { property: 'og:url', content: 'https://jonathan-russ.com/en' },
-      { name: 'description', content: description.value }
-    ],
-    script: [
-      {
-        src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
-        async: true
-      }
-    ]
+    title: currentSection.value.name
   })
+
+  if (config.public.appEnvironment === 'development') {
+    useHead({
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: faviconGraphicData },
+        {
+          rel: 'apple-touch-icon',
+          href: `/img/dev/favicon-dev-${colorBadge.value?.colorName}.png`
+        }
+      ],
+      meta: [
+        {
+          property: 'twitter:image',
+          content: `/img/dev/favicon-dev-${colorBadge.value?.colorName}.png`
+        },
+        {
+          property: 'og:image',
+          content: `/img/dev/favicon-dev-${colorBadge.value?.colorName}.png`
+        }
+      ]
+    })
+  }
 })
 
 const errorConfig = {
