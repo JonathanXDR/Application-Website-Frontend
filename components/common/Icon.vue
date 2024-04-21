@@ -1,7 +1,8 @@
 <template>
-  <svg :style="styles">
-    <use :href="icon" />
-  </svg>
+  <template v-if="!loading">
+    <svg :style="styles">
+      <use :href="icon" /></svg
+  ></template>
 </template>
 
 <script setup lang="ts">
@@ -9,6 +10,7 @@ const props = withDefaults(
   defineProps<{
     name: string
     size?: 'small' | 'medium' | 'large'
+    loading?: boolean
     colors?: {
       primary?: string
       secondary?: string
@@ -17,7 +19,7 @@ const props = withDefaults(
   }>(),
   {
     size: 'medium',
-
+    loading: false,
     colors: () => ({
       primary: 'currentColor',
       secondary: 'currentColor',

@@ -26,11 +26,17 @@
                       class="rc-ribbon-content-item-base rc-ribbon-content-item"
                       :style="totalItems <= 2 && 'width: 100% !important'"
                     >
-                      {{ item.description && item.description + '&ensp;' }}
+                      <template v-if="!loading">
+                        {{ item.description && item.description + '&ensp;' }}
+                      </template>
+                      <template v-else>
+                        <LoadingSkeleton width="200px" height="15px" />
+                      </template>
 
                       <LinkCollection
                         v-if="item.links.length"
                         class="ribbon-link"
+                        :loading="loading"
                         :links="item.links"
                         :should-animate="!initialAnimationPlayed"
                       />
@@ -47,14 +53,24 @@
                   @click="scrollContent('left')"
                   :disabled="isTransitioning"
                 >
-                  <Icon name="chevron.left" size="small" class="icon" />
+                  <Icon
+                    :loading="loading"
+                    name="chevron.left"
+                    size="small"
+                    class="icon"
+                  />
                 </button>
                 <button
                   class="paddlenav-arrow paddlenav-arrow-next"
                   @click="scrollContent('right')"
                   :disabled="isTransitioning"
                 >
-                  <Icon name="chevron.right" size="small" class="icon" />
+                  <Icon
+                    :loading="loading"
+                    name="chevron.right"
+                    size="small"
+                    class="icon"
+                  />
                 </button>
               </div>
             </div>
@@ -69,38 +85,46 @@
 import type { LinkType } from '~/types/common/Link';
 import type { RibbonBar } from '~/types/common/RibbonBar';
 
+withDefaults(
+  defineProps<{
+    loading?: boolean
+  }>(),
+  {
+    loading: false
+  }
+)
+
 const { $listRepositoryTags } = useNuxtApp()
 const { t, tm, rt } = useI18n()
 const config = useRuntimeConfig()
-const tags: Ref<{
+
+const tags = ref<{
   latest: string | undefined
   previous: string | undefined
-}> = ref({ latest: undefined, previous: undefined })
+}>({ latest: undefined, previous: undefined })
 
-const baseItems: Ref<RibbonBar[]> = ref([])
+const baseItems = ref<RibbonBar[]>([])
 const currentIndex = ref(0)
 const totalItems = ref(0)
 const isTransitioning = ref(false)
 const scrollDirection = ref('right')
-const displayItems: Ref<RibbonBar[]> = ref([])
+const displayItems = ref<RibbonBar[]>([])
 const initialAnimationPlayed = ref(false)
 
-const { githubRepoName, githubRepoOwner } = config.public
-
-const fetchTags = async () => {
-  const [latest, previous] = await $listRepositoryTags({
-    owner: githubRepoOwner,
-    repo: githubRepoName,
-    perPage: 2
-  })
-
-  tags.value = { latest: latest.name, previous: previous.name }
-  updateBaseItems()
-
-  setTimeout(() => {
-    initialAnimationPlayed.value = true
-  }, 2800)
-}
+const {
+  data: repositoryTags,
+  pending: tagsLoading,
+  refresh: refreshTags
+} = useAsyncData(
+  'repositoryTags',
+  () =>
+    $listRepositoryTags({
+      owner: config.public.githubRepoOwner,
+      repo: config.public.githubRepoName,
+      perPage: 2
+    }),
+  { server: true }
+)
 
 const updateBaseItems = () => {
   const items = tm('components.common.RibbonBar') as RibbonBar[]
@@ -126,7 +150,6 @@ const updateBaseItems = () => {
       )
   }))
   totalItems.value = baseItems.value.length
-
   updateDisplayItems()
 }
 
@@ -184,11 +207,26 @@ watch(currentIndex, () => {
   }, 1000)
 })
 
-watch(tags, () => {
-  updateBaseItems()
-})
+watch(
+  repositoryTags,
+  newTags => {
+    if (newTags && newTags.length >= 2) {
+      tags.value = { latest: newTags[0].name, previous: newTags[1].name }
+      updateBaseItems()
 
-onMounted(fetchTags)
+      setTimeout(() => {
+        initialAnimationPlayed.value = true
+      }, 2800)
+    }
+  },
+  { immediate: true }
+)
+
+onMounted(() => {
+  if (repositoryTags.value && repositoryTags.value.length === 0) {
+    refreshTags()
+  }
+})
 </script>
 
 <style scoped>

@@ -5,6 +5,7 @@
         <Badge
           class="badge"
           v-for="(badge, index) in badges"
+          :loading="loading"
           :key="index"
           :title="badge"
           size="small"
@@ -19,9 +20,11 @@
 withDefaults(
   defineProps<{
     badges: string[]
+    loading: boolean
   }>(),
   {
-    badges: () => []
+    badges: () => [],
+    loading: false
   }
 )
 </script>

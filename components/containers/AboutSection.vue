@@ -24,6 +24,7 @@
       :size="
         windowWidth < 900 ? 'small' : windowWidth < 1250 ? 'medium' : 'large'
       "
+      :loading="false"
       :card="{
         eyebrow: $t('components.containers.about.eyebrow'),
         title: $t('components.containers.about.title'),
@@ -55,10 +56,10 @@ const links = computed<LinkType[]>(() =>
 const dateItems = computed<DateItemType[]>(() =>
   tm('components.containers.about.dates')
 )
-const dates: Ref<{
+const dates = ref<{
   age: number | undefined
   apprenticeshipYear: number | undefined
-}> = ref({
+}>({
   age: undefined,
   apprenticeshipYear: undefined
 })

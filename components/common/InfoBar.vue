@@ -1,55 +1,34 @@
 <template>
   <div class="info">
-    <div v-if="info?.location" class="info-item">
-      <Icon name="location.fill" class="info-icon" />
-      {{ info.location }}
-    </div>
-    <div v-if="info?.supervisor" class="info-item">
-      <Icon name="person.fill" class="info-icon" />
-      {{ info.supervisor }}
-    </div>
-    <div v-if="info?.department" class="info-item">
-      <Icon name="tag.fill" class="info-icon" />
-      {{ info.department }}
-    </div>
-    <div v-if="info?.language" class="info-item">
-      <Icon name="bubble.left.fill" class="info-icon" />
-      {{ info?.language }}
-    </div>
-    <div v-if="info?.license" class="info-item">
-      <Icon name="scroll.fill" class="info-icon" />
-      {{ info?.license }}
-    </div>
-    <!-- <div v-if="info?.forks" class="info-item">
-      <Icon name="doc.on.doc.fill" class="info-icon" />
-      {{ info?.forks }}
-    </div>
-    <div v-if="info?.networks" class="info-item">
-      <Icon name="network" class="info-icon" />
-      {{ info?.networks }}
-    </div>
-    <div v-if="info?.watchers" class="info-item">
-      <Icon name="eye.fill" class="info-icon" />
-      {{ info?.watchers }}
-    </div>
-    <div v-if="info?.stars" class="info-item">
-      <Icon name="star.fill" class="info-icon" />
-      {{ info?.stars }}
-    </div>
-    <div v-if="info?.issues?.length" class="info-item">
-      <Icon name="smallcircle.filled.circle" class="info-icon" />
-      {{ info?.issues?.length }}
-    </div>
-    <div v-if="info?.subscribers" class="info-item">
-      <Icon name="bell.fill" class="info-icon" />
-      {{ info?.subscribers }}
-    </div> -->
+    <template v-for="item in infoItems" :key="item.id">
+      <div v-if="info[item.id]" class="info-item">
+        <Icon
+          v-if="item.icon"
+          :name="item.icon?.name"
+          :loading="loading"
+          class="info-icon"
+        />
+        <template v-if="!loading">
+          {{ info[item.id] }}
+        </template>
+        <template v-else>
+          <LoadingSkeleton width="100px" height="15px" />
+        </template>
+      </div>
+    </template>
+
     <div v-if="info?.date" class="info-item">
       <Icon
+        :loading="loading"
         :name="updatedYesterday ? 'clock.fill' : 'calendar'"
         class="info-icon"
       />
-      {{ dateTitle || `${info?.date?.from} - ${info?.date?.to}` }}
+      <template v-if="!loading">
+        {{ dateTitle || `${info?.date?.from} - ${info?.date?.to}` }}
+      </template>
+      <template v-else>
+        <LoadingSkeleton width="100px" height="15px" />
+      </template>
     </div>
   </div>
 </template>
@@ -59,6 +38,7 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/en'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import type { InfoType } from '~/types/common/Info'
+import type { ItemType } from '~/types/common/Option'
 
 const props = withDefaults(
   defineProps<{
@@ -66,6 +46,7 @@ const props = withDefaults(
     date?: string
     dateFormatOptions?: Intl.DateTimeFormatOptions
     dateNowKey?: 'created' | 'updated'
+    loading?: boolean
   }>(),
   {
     info: (): InfoType => {
@@ -80,13 +61,36 @@ const props = withDefaults(
       }
     },
 
-    dateNowKey: 'updated'
+    dateNowKey: 'updated',
+    loading: false
   }
 )
 
 dayjs.extend(relativeTime)
 
 const { locale } = useI18n()
+const infoItems: ItemType[] = [
+  { id: 'location', icon: { name: 'location.fill' } },
+  { id: 'supervisor', icon: { name: 'person.fill' } },
+  { id: 'department', icon: { name: 'tag.fill' } },
+  { id: 'language', icon: { name: 'bubble.left.fill' } },
+  { id: 'license', icon: { name: 'scroll.fill' } }
+  // {
+  //   id: 'forks',
+  //   icon: {
+  //     name: 'doc.on.doc.fill'
+  //   }
+  // },
+  // { id: 'networks', icon: { name: 'network' } },
+  // {
+  //   id: 'watchers',
+  //   icon: { name: 'eye.fill' }
+  // },
+  // { id: 'stars', icon: { name: 'star.fill' } },
+  // { id: 'issues', icon: { name: 'smallcircle.filled.circle' } },
+  // { id: 'subscribers', icon: { name: 'bell.fill' } }
+]
+
 const updatedYesterday = computed(() => {
   if (!props.date) return false
   const updatedDate = dayjs(props.date)

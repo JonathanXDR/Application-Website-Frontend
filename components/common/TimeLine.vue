@@ -23,16 +23,16 @@ const props = defineProps<{
   height: number | undefined
 }>()
 
-const pathD: Ref<string | undefined> = ref(undefined)
-const ulHeight: Ref<number | undefined> = ref(undefined)
-const viewBox: Ref<string | undefined> = ref(undefined)
-const xmlns: Ref<string | undefined> = ref(undefined)
+const pathD = ref<string | undefined>(undefined)
+const ulHeight = ref<number | undefined>(undefined)
+const viewBox = ref<string | undefined>(undefined)
+const xmlns = ref<string | undefined>(undefined)
 
-const strokeDasharray: Ref<number | undefined> = ref(undefined)
-const strokeDashoffset: Ref<number | undefined> = ref(undefined)
+const strokeDasharray = ref<number | undefined>(undefined)
+const strokeDashoffset = ref<number | undefined>(undefined)
 
-const svg: Ref<SVGElement | undefined> = ref(undefined)
-const path: Ref<SVGPathElement | undefined> = ref(undefined)
+const svg = ref<SVGElement | undefined>(undefined)
+const path = ref<SVGPathElement | undefined>(undefined)
 
 const initPath = () => {
   const ulHeightRounded = Math.round(props.height || 0)

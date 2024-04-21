@@ -3,6 +3,7 @@
   <ul class="grid">
     <CardItem
       variant="article"
+      :loading="false"
       :size="windowWidth < 900 ? 'small' : 'medium'"
       v-for="(article, index) in articles"
       :key="index"

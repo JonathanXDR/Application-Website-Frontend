@@ -10,6 +10,7 @@
       :iconPosition="windowWidth < 930 ? 'top' : 'left'"
       :badge="language.badge"
       :language="language"
+      :loading="false"
     />
   </ul>
 

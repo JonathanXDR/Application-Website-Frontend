@@ -1,6 +1,19 @@
 <template>
-  <span class="loading-skeleton" style="width: 175px"></span>
+  <span
+    class="loading-skeleton"
+    :style="{
+      width: width,
+      height: height
+    }"
+  ></span>
 </template>
+
+<script setup lang="ts">
+defineProps<{
+  width: string
+  height: string
+}>()
+</script>
 
 <style scoped>
 .loading-skeleton {

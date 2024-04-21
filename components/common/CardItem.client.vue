@@ -80,6 +80,7 @@
     >
       <Icon
         v-if="card.icon"
+        :loading="loading"
         :name="card.icon?.name"
         :size="card.icon?.size"
         :colors="card.icon?.colors"
@@ -100,13 +101,29 @@
         }"
       />
       <div class="body">
-        <div v-if="card.eyebrow" class="eyebrow">{{ card.eyebrow }}</div>
+        <div class="eyebrow">
+          <template v-if="!loading">
+            {{ card.eyebrow }}
+          </template>
+          <template v-else>
+            <LoadingSkeleton width="150px" height="15px" />
+          </template>
+        </div>
         <div class="title-wrapper">
-          <div class="title">{{ card.title || card.name }}</div>
+          <div class="title">
+            <template v-if="!loading">
+              {{ card.title || card.name }}
+            </template>
+            <template v-else>
+              <LoadingSkeleton width="200px" height="15px" />
+            </template>
+          </div>
+
           <Badge
             v-if="card.archived"
             title="Public archive"
             size="xsmall"
+            :loading="loading"
             :colors="{
               primary: 'var(--color-figure-yellow)',
               tertiary: 'var(--color-figure-yellow)'
@@ -118,6 +135,7 @@
             v-if="card.badge"
             :title="card.badge.title"
             :icon="card.badge.icon"
+            :loading="loading"
             :colors="{
               primary: `var(--color-figure-${colorBadge?.colorName})`,
               tertiary: `var(--color-figure-${colorBadge?.colorName})`
@@ -126,14 +144,22 @@
             border
           />
         </div>
-        <div v-if="card.description" class="card-content">
+        <div class="card-content">
           <div class="content">
-            {{ card.description }}
+            <template v-if="!loading">
+              {{ card.description }}
+            </template>
+            <template v-else>
+              <LoadingSkeleton width="300px" height="15px" />
+              <LoadingSkeleton width="300px" height="15px" />
+              <LoadingSkeleton width="250px" height="15px" />
+            </template>
           </div>
         </div>
         <BadgeBar
           v-if="card.tags?.length || card.topics?.length"
           :badges="card.tags || card.topics"
+          :loading="loading"
         />
         <div v-if="card.links?.length || card.html_url" class="ctas-wrapper">
           <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
@@ -154,6 +180,7 @@
                 }
               ]
             "
+            :loading="loading"
             :class="{ link: applyHover }"
           />
         </div>
@@ -187,6 +214,7 @@
           :date="card.updated_at"
           :dateFormatOptions="dateFormatOptions"
           :dateNowKey="dateNowKey"
+          :loading="loading"
         />
       </div>
       <LanguageBarV2 v-if="language" :language="language" style="width: 100%" />
@@ -216,6 +244,7 @@ const props = withDefaults(
     language?: LanguageBarType
     donutGraph?: boolean
     barGraph?: boolean
+    loading?: boolean
   }>(),
   {
     card: () => {},
@@ -236,7 +265,8 @@ const props = withDefaults(
     size: 'medium',
     hover: 'auto',
     donutGraph: false,
-    barGraph: false
+    barGraph: false,
+    loading: false
   }
 )
 

@@ -48,6 +48,15 @@
   border-left: 1px solid transparent;
 }
 
+.xsmall.loading-spinner .loading {
+  height: 15px;
+  width: 15px;
+  border-top: 1px solid #06c;
+  border-right: 1px solid #06c;
+  border-bottom: 1px solid #06c;
+  border-left: 1px solid transparent;
+}
+
 .medium.loading-spinner .loading {
   height: 30px;
   width: 30px;

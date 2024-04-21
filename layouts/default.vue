@@ -2,7 +2,7 @@
   <SpeedInsights />
   <header v-if="shouldShow('header')">
     <NavBar v-if="shouldShow('nav')" />
-    <RibbonBar v-if="shouldShow('ribbon')" />
+    <RibbonBar :loading="false" v-if="shouldShow('ribbon')" />
   </header>
   <main>
     <slot />
@@ -24,10 +24,11 @@ const { colorBadge, randomizeColor } = useColor()
 const { currentSection } = useSection()
 const { locale } = useI18n()
 const error = useError()
+const config = useRuntimeConfig()
 
 onMounted(randomizeColor)
 
-const isDevelopment = ref(process.env.NODE_ENV === 'development')
+const isDevelopment = ref(config.public.appEnvironment === 'development')
 
 const pageTitle = computed(() =>
   currentSection.value.name
