@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
-    :class="['links', { divider: divider }]"
-    :style="{ gap: !divider ? '12px' : '0' }"
+    :class="['links', { divider }, { loading }]"
+    :style="{ columnGap: !divider ? '12px' : '0' }"
   >
     <component
       :is="getLinkComponentType(link)"
@@ -12,9 +12,16 @@
       :target="link.target"
       :class="['link', { 'animate-color': shouldAnimate }]"
     >
-      {{ link.title }}
+      <template v-if="!loading">
+        {{ link.title }}
+      </template>
+      <template v-else>
+        <LoadingSkeleton width="200px" height="15px" />
+      </template>
+
       <Icon
         v-if="link.icon"
+        :loading="loading"
         :name="link.icon.name"
         :size="link.icon.size"
         :colors="link.icon.colors"
@@ -26,17 +33,18 @@
 
 <script setup lang="ts">
 import type { LinkType } from '~/types/common/Link'
-
 const props = withDefaults(
   defineProps<{
     links: LinkType[]
     divider?: boolean
     shouldAnimate?: boolean
+    loading?: boolean
   }>(),
   {
     links: () => [],
     divider: true,
-    shouldAnimate: false
+    shouldAnimate: false,
+    loading: false
   }
 )
 
@@ -65,10 +73,15 @@ const enhancedLinks = computed(() => {
 </script>
 
 <style scoped>
+.links.divider.loading .link {
+  border: none !important;
+}
+
 .links {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  row-gap: 10px;
 }
 
 .links.divider .link {

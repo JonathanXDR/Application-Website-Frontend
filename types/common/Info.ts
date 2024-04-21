@@ -2,6 +2,7 @@ import type { ListRepoIssuesResponse } from '../GitHub/Issue'
 import type { DateType } from './Date'
 
 export interface InfoType {
+  [key: string]: any
   location?: string
   supervisor?: string
   department?: string

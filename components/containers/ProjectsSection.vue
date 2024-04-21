@@ -29,6 +29,7 @@
         <CardItem
           variant="article"
           :size="windowWidth < 900 ? 'small' : 'medium'"
+          :loading="false"
           v-for="(project, index) in currentProjects"
           :key="index"
           :card="project"
@@ -49,6 +50,7 @@
         <ul v-if="pinned" class="card-container pinned-items">
           <CardItem
             v-for="(card, index) in pinned"
+            :loading="false"
             :key="index"
             :card="card"
             size="small"
@@ -64,6 +66,7 @@
         <ul class="card-container">
           <CardItem
             v-for="(card, index) in currentProjects"
+            :loading="false"
             :key="index"
             :card="card"
             size="small"

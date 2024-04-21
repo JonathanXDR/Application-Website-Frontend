@@ -2,30 +2,31 @@
   <component
     :is="variant"
     :href="url"
-    :class="['badge', size, { hover: hover }]"
+    :class="['badge', size, { hover }, { loading }]"
     @click="onClick"
-    :style="{
-      '--color-figure': colors?.primary,
-      '--color-figure-background': colors?.secondary,
-      '--color-figure-background-hover': colors?.tertiary,
-      '--color-figure-border': border ? colors?.tertiary : 'transparent'
-    }"
+    :style="computedStyle"
   >
     <Icon
       class="icon icon-medium mr-1"
       v-if="icon"
+      :loading="loading"
       :name="icon.name"
       :size="icon.size"
       :colors="icon.colors"
     />
-    {{ title }}
+    <template v-if="!loading">
+      {{ title }}
+    </template>
+    <template v-else>
+      <LoadingSkeleton width="80px" height="15px" />
+    </template>
   </component>
 </template>
 
 <script setup lang="ts">
 import type { BadgeType } from '~/types/common/Badge'
 
-withDefaults(defineProps<BadgeType>(), {
+const props = withDefaults(defineProps<BadgeType>(), {
   variant: 'a',
   size: 'medium',
   colors: () => ({
@@ -35,11 +36,36 @@ withDefaults(defineProps<BadgeType>(), {
   }),
   border: false,
   hover: true,
+  loading: false,
   onClick: () => {}
 })
+
+const defaultColors = {
+  primary: 'var(--color-fill-gray)',
+  secondary: 'var(--color-fill-tertiary)',
+  tertiary: 'var(--color-figure-blue)'
+}
+
+const computedStyle = computed(() => ({
+  '--color-figure': props.loading
+    ? defaultColors.primary
+    : props.colors?.primary,
+  '--color-figure-background': props.loading
+    ? defaultColors.secondary
+    : props.colors?.secondary,
+  '--color-figure-background-hover': props.loading
+    ? defaultColors.secondary
+    : props.colors?.tertiary,
+  '--color-figure-border':
+    props.loading || !props.border ? 'transparent' : props.colors?.tertiary
+}))
 </script>
 
 <style scoped>
+.loading {
+  pointer-events: none !important;
+}
+
 .badge {
   display: flex;
   align-items: center;

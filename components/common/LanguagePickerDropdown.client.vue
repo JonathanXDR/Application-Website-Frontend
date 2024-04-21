@@ -33,7 +33,7 @@ const props = withDefaults(
 )
 
 const { changeLanguage } = useLanguage()
-const { locale, locales } = useI18n({ useScope: 'global' })
+const { locale, locales } = useI18n()
 const selectedLocale = ref(locale.value)
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 

@@ -24,6 +24,7 @@
       :size="
         windowWidth < 900 ? 'small' : windowWidth < 1250 ? 'medium' : 'large'
       "
+      :loading="false"
       :card="{
         eyebrow: $t('components.containers.about.eyebrow'),
         title: $t('components.containers.about.title'),

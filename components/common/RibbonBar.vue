@@ -26,11 +26,17 @@
                       class="rc-ribbon-content-item-base rc-ribbon-content-item"
                       :style="totalItems <= 2 && 'width: 100% !important'"
                     >
-                      {{ item.description && item.description + '&ensp;' }}
+                      <template v-if="!loading">
+                        {{ item.description && item.description + '&ensp;' }}
+                      </template>
+                      <template v-else>
+                        <LoadingSkeleton width="200px" height="15px" />
+                      </template>
 
                       <LinkCollection
                         v-if="item.links.length"
                         class="ribbon-link"
+                        :loading="loading"
                         :links="item.links"
                         :should-animate="!initialAnimationPlayed"
                       />
@@ -47,14 +53,24 @@
                   @click="scrollContent('left')"
                   :disabled="isTransitioning"
                 >
-                  <Icon name="chevron.left" size="small" class="icon" />
+                  <Icon
+                    :loading="loading"
+                    name="chevron.left"
+                    size="small"
+                    class="icon"
+                  />
                 </button>
                 <button
                   class="paddlenav-arrow paddlenav-arrow-next"
                   @click="scrollContent('right')"
                   :disabled="isTransitioning"
                 >
-                  <Icon name="chevron.right" size="small" class="icon" />
+                  <Icon
+                    :loading="loading"
+                    name="chevron.right"
+                    size="small"
+                    class="icon"
+                  />
                 </button>
               </div>
             </div>
@@ -68,6 +84,15 @@
 <script setup lang="ts">
 import type { LinkType } from '~/types/common/Link'
 import type { RibbonBar } from '~/types/common/RibbonBar'
+
+withDefaults(
+  defineProps<{
+    loading?: boolean
+  }>(),
+  {
+    loading: false
+  }
+)
 
 const { $listRepositoryTags } = useNuxtApp()
 const { t, tm, rt } = useI18n()
