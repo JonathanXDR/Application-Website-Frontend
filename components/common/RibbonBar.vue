@@ -72,6 +72,7 @@ import type { RibbonBar } from '~/types/common/RibbonBar'
 const { $listRepositoryTags } = useNuxtApp()
 const { t, tm, rt } = useI18n()
 const config = useRuntimeConfig()
+
 const tags = ref<{
   latest: string | undefined
   previous: string | undefined
@@ -85,22 +86,20 @@ const scrollDirection = ref('right')
 const displayItems = ref<RibbonBar[]>([])
 const initialAnimationPlayed = ref(false)
 
-const { githubRepoName, githubRepoOwner } = config.public
-
-const fetchTags = async () => {
-  const [latest, previous] = await $listRepositoryTags({
-    owner: githubRepoOwner,
-    repo: githubRepoName,
-    perPage: 2
-  })
-
-  tags.value = { latest: latest.name, previous: previous.name }
-  updateBaseItems()
-
-  setTimeout(() => {
-    initialAnimationPlayed.value = true
-  }, 2800)
-}
+const {
+  data: repositoryTags,
+  pending: tagsLoading,
+  refresh: refreshTags
+} = useAsyncData(
+  'repositoryTags',
+  () =>
+    $listRepositoryTags({
+      owner: config.public.githubRepoOwner,
+      repo: config.public.githubRepoName,
+      perPage: 2
+    }),
+  { server: true }
+)
 
 const updateBaseItems = () => {
   const items = tm('components.common.RibbonBar') as RibbonBar[]
@@ -126,7 +125,6 @@ const updateBaseItems = () => {
       )
   }))
   totalItems.value = baseItems.value.length
-
   updateDisplayItems()
 }
 
@@ -184,11 +182,26 @@ watch(currentIndex, () => {
   }, 1000)
 })
 
-watch(tags, () => {
-  updateBaseItems()
-})
+watch(
+  repositoryTags,
+  newTags => {
+    if (newTags && newTags.length >= 2) {
+      tags.value = { latest: newTags[0].name, previous: newTags[1].name }
+      updateBaseItems()
 
-onMounted(fetchTags)
+      setTimeout(() => {
+        initialAnimationPlayed.value = true
+      }, 2800)
+    }
+  },
+  { immediate: true }
+)
+
+onMounted(() => {
+  if (repositoryTags.value && repositoryTags.value.length === 0) {
+    refreshTags()
+  }
+})
 </script>
 
 <style scoped>
