@@ -4,6 +4,7 @@
     <!-- <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" /> -->
     <CardItem
       variant="article"
+      :loading="false"
       :size="windowWidth < 900 ? 'small' : 'medium'"
       v-for="(article, index) in articles"
       :key="index"
@@ -28,7 +29,7 @@ defineProps<{
 }>()
 
 const { tm } = useI18n()
-const articles: Ref<CardItemType[]> = computed(() =>
+const articles = computed<CardItemType[]>(() =>
   tm('components.containers.other')
 )
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })

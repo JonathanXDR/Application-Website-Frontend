@@ -7,7 +7,7 @@ export default defineI18nConfig(() => ({
   legacy: false,
   globalInjection: true,
   locale: 'de',
-  fallBackLocale: 'de',
+  fallbackLocale: 'en',
   messages: {
     de,
     en,

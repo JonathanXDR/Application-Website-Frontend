@@ -1,18 +1,16 @@
-import { getRepositoryTags } from '~/utils/github-helper'
+export default defineNuxtPlugin(async () => {
+  const config = useRuntimeConfig()
+  const { $listRepositoryTags, $MusicKitHelper } = useNuxtApp()
 
-export default defineNuxtPlugin(async nuxtApp => {
-  const { appName, githubRepoName, githubRepoOwner, appleDeveloperToken } =
-    useRuntimeConfig()
-
-  const tags: Ref<{
+  const tags = ref<{
     latest: string | undefined
     previous: string | undefined
-  }> = ref({ latest: undefined, previous: undefined })
+  }>({ latest: undefined, previous: undefined })
 
   const fetchTags = async () => {
-    const [latest, previous] = await getRepositoryTags({
-      owner: githubRepoOwner,
-      repo: githubRepoName,
+    const [latest, previous] = await $listRepositoryTags({
+      owner: config.public.githubRepoOwner,
+      repo: config.public.githubRepoName,
       perPage: 2
     })
 
@@ -41,16 +39,19 @@ export default defineNuxtPlugin(async nuxtApp => {
 
     try {
       const musicKitInstance = window.MusicKit.getInstance()
-      const musicKitHelper = new MusicKitHelper(musicKitInstance)
+      const musicKitHelper = new $MusicKitHelper(musicKitInstance)
 
       const appConfiguration = {
-        name: appName as string,
+        name: config.public.appName as string,
         build: tags.value.latest || '1.0.0',
         version: tags.value.latest || '1.0.0',
         icon: '/img/favicon.png'
       }
 
-      musicKitHelper.configureMusicKit(appleDeveloperToken, appConfiguration)
+      musicKitHelper.configureMusicKit(
+        config.appleDeveloperToken,
+        appConfiguration
+      )
     } catch (error) {
       console.error('MusicKit initialization error:', error)
     }

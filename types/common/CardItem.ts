@@ -1,6 +1,6 @@
+import type { BadgeType } from './Badge'
 import type { ExtendedPropsType } from './ExtendedProps'
 import type { SizeType } from './Size'
-import type { BadgeType } from './Badge'
 
 export interface CardItemType extends ExtendedPropsType {
   variant?: 'card' | 'article'
@@ -9,6 +9,7 @@ export interface CardItemType extends ExtendedPropsType {
   hover?: 'auto' | 'true' | 'false'
   cover?: string
   badge?: BadgeType
+  loading?: boolean
   graphs?: {
     donut?: boolean
     bar?: boolean

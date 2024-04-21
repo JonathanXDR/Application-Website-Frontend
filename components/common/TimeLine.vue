@@ -19,31 +19,43 @@
 </template>
 
 <script setup lang="ts">
-const ulHeight: Ref<number> = ref(0)
-const ulHeightValue: Ref<number> = ref(0)
-const ulHeightRounded: Ref<number> = ref(0)
+const props = defineProps<{
+  height: number | undefined
+}>()
 
-const svg: Ref<SVGElement | undefined> = ref(undefined)
-const path: Ref<SVGPathElement | undefined> = ref(undefined)
+const pathD = ref<string | undefined>(undefined)
+const ulHeight = ref<number | undefined>(undefined)
+const viewBox = ref<string | undefined>(undefined)
+const xmlns = ref<string | undefined>(undefined)
+
+const strokeDasharray = ref<number | undefined>(undefined)
+const strokeDashoffset = ref<number | undefined>(undefined)
+
+const svg = ref<SVGElement | undefined>(undefined)
+const path = ref<SVGPathElement | undefined>(undefined)
 
 const initPath = () => {
-  const instance = getCurrentInstance()
-  const ul = instance?.parent?.refs.ul as HTMLElement
+  const ulHeightRounded = Math.round(props.height || 0)
 
-  ulHeightValue.value = ul?.getBoundingClientRect().height
-  ulHeightRounded.value = Math.round(ulHeightValue.value) || 0
+  pathD.value = `M 4 0 L 4 ${ulHeightRounded}`
+  ulHeight.value = props.height
+  viewBox.value = `0 0 8 ${ulHeightRounded}`
+  xmlns.value = `http://www.w3.org/${ulHeightRounded}/svg`
+
+  strokeDasharray.value = props.height
+  strokeDashoffset.value = props.height
 }
 
 const animateLine = () => {
-  const height = ulHeight.value || 0
   const center = window.innerHeight / 2
   const boundaries = path.value?.getBoundingClientRect()
 
   const percentage =
     (center - (boundaries?.top || 0)) / (boundaries?.height || 1)
-  const drawLength = percentage > 0 ? height * percentage : 0
+  const drawLength = percentage > 0 ? (props.height ?? 0) * percentage : 0
 
-  ulHeightValue.value = drawLength < height ? height - drawLength : 0
+  strokeDashoffset.value =
+    drawLength < (props.height ?? 0) ? (props.height ?? 0) - drawLength : 0
 }
 
 onMounted(() => {

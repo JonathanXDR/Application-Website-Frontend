@@ -8,5 +8,6 @@ export interface BadgeType extends LinkType {
   colors?: ColorType
   border?: boolean
   hover?: boolean
+  loading?: boolean
   onClick?: () => void
 }

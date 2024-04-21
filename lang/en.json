@@ -5,41 +5,41 @@
         {
           "id": "about",
           "name": "About",
-          "route": "/#about",
+          "route": "#about",
           "class": "section-separated"
         },
         {
           "id": "languages",
           "name": "Languages",
-          "route": "/#languages",
+          "route": "#languages",
           "class": "section-separated"
         },
         {
           "id": "references",
           "name": "References",
-          "route": "/#references",
+          "route": "#references",
           "class": "section-separated"
         },
         {
           "id": "other",
           "name": "Other",
-          "route": "/#other",
+          "route": "#other",
           "class": "section-separated"
         },
         {
           "id": "music",
           "name": "Music",
-          "route": "/#music"
+          "route": "#music"
         },
         {
           "id": "technologies",
           "name": "Technologies",
-          "route": "/#technologies"
+          "route": "#technologies"
         },
         {
           "id": "projects",
           "name": "Projects",
-          "route": "/#projects"
+          "route": "#projects"
         }
       ],
       "RibbonBar": {

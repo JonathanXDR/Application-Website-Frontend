@@ -10,6 +10,7 @@
       :iconPosition="windowWidth < 930 ? 'top' : 'left'"
       :badge="language.badge"
       :language="language"
+      :loading="false"
     />
   </ul>
 
@@ -42,7 +43,7 @@ const items = reactive([
 
 const { tm } = useI18n()
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
-const languages: Ref<LanguageBarType[]> = computed(() =>
+const languages = computed<LanguageBarType[]>(() =>
   tm('components.containers.languages')
 )
 </script>

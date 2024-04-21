@@ -7,6 +7,7 @@ export default defineNuxtPlugin(nuxtApp => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             useSection().setCurrentSection(
+              el.getAttribute('id'),
               el.getAttribute('name'),
               binding.value
             )
@@ -14,7 +15,7 @@ export default defineNuxtPlugin(nuxtApp => {
         })
       },
       {
-        rootMargin: '-52px 0px -94% 0px'
+        rootMargin: `-${window.innerWidth < 1250 ? 48 : 52}px 0px -95% 0px`
       }
     )
     observer.observe(el)

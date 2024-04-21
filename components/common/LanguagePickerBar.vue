@@ -33,7 +33,7 @@ const props = withDefaults(
 )
 
 const { changeLanguage } = useLanguage()
-const { locale, locales } = useI18n({ useScope: 'global' })
+const { locale, locales } = useI18n()
 
 const computedLocales = computed(() =>
   locales.value.map(l => {

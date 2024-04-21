@@ -8,6 +8,11 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/image'
   ],
+  plugins: [
+    '~/plugins/api/github.server',
+    '~/plugins/api/musickit.server',
+    '~/plugins/api/tmdb.server'
+  ],
   css: [
     '~/assets/css/main.css',
     '@fortawesome/fontawesome-svg-core/styles.css'
@@ -41,13 +46,17 @@ export default defineNuxtConfig({
     options: routerOptions
   },
   runtimeConfig: {
-    appName: process.env.APP_NAME,
-    appEnvironment: process.env.NODE_ENV,
+    public: {
+      appName: process.env.APP_NAME,
+      appUrl: process.env.APP_URL,
+      appDomain: process.env.APP_DOMAIN,
+      appEnvironment: process.env.NODE_ENV,
 
-    githubRepoName: process.env.GITHUB_REPO_NAME,
-    githubRepoOwner: process.env.GITHUB_REPO_OWNER,
+      githubRepoName: process.env.GITHUB_REPO_NAME,
+      githubRepoOwner: process.env.GITHUB_REPO_OWNER
+    },
+
     githubToken: process.env.GITHUB_TOKEN,
-
     appleDeveloperToken: process.env.APPLE_DEVELOPER_TOKEN
   },
   components: {
@@ -63,36 +72,45 @@ export default defineNuxtConfig({
     classSuffix: ''
   },
   i18n: {
+    baseUrl: process.env.APP_URL,
     vueI18n: '~/i18n.config.ts',
     // lazy: true,
-    // langDir: "lang",
+    // langDir: 'lang',
     strategy: 'prefix_and_default',
     defaultLocale: 'de',
     detectBrowserLanguage: {
       useCookie: true,
+      cookieCrossOrigin: true,
+      cookieDomain: 'jonathan-russ.com',
       cookieKey: 'i18n_redirected',
+      cookieSecure: true,
+      fallbackLocale: 'en',
       redirectOn: 'root'
     },
     locales: [
       {
         code: 'de',
+        iso: 'de-DE',
         name: 'Deutsch'
-        // file: "de.json",
+        // file: 'de.json'
       },
       {
         code: 'en',
+        iso: 'en-US',
         name: 'English'
-        // file: "en.json",
+        // file: 'en.json'
       },
       {
         code: 'fr',
+        iso: 'fr-FR',
         name: 'Français'
-        // file: "fr.json",
+        // file: 'fr.json'
       },
       {
         code: 'it',
+        iso: 'it-IT',
         name: 'Italiano'
-        // file: "it.json",
+        // file: 'it.json'
       }
     ]
   }

@@ -25,6 +25,7 @@
       :size="
         windowWidth < 900 ? 'small' : windowWidth < 1250 ? 'medium' : 'large'
       "
+      :loading="false"
       :card="{
         eyebrow: $t('components.containers.about.eyebrow'),
         title: $t('components.containers.about.title'),
@@ -50,16 +51,16 @@ defineProps<{
 }>()
 
 const { tm } = useI18n()
-const links: Ref<LinkType[]> = computed(() =>
+const links = computed<LinkType[]>(() =>
   tm('components.containers.about.links')
 )
-const dateItems: Ref<DateItemType[]> = computed(() =>
+const dateItems = computed<DateItemType[]>(() =>
   tm('components.containers.about.dates')
 )
-const dates: Ref<{
+const dates = ref<{
   age: number | undefined
   apprenticeshipYear: number | undefined
-}> = ref({
+}>({
   age: undefined,
   apprenticeshipYear: undefined
 })

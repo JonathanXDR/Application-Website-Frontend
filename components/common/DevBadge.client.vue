@@ -1,6 +1,6 @@
 <template>
   <small
-    v-if="nodeEnv === 'development'"
+    v-if="config.public.appEnvironment === 'development'"
     :style="{ color: colorBadge?.colorVar }"
     class="dev-badge"
     data-tag-name="Dev"
@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-const nodeEnv = computed(() => process.env.NODE_ENV)
+const config = useRuntimeConfig()
 const { colorBadge } = useColor()
 </script>
 

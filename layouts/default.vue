@@ -2,7 +2,7 @@
   <SpeedInsights />
   <header v-if="shouldShow('header')">
     <NavBar v-if="shouldShow('nav')" />
-    <RibbonBar v-if="shouldShow('ribbon')" />
+    <RibbonBar :loading="false" v-if="shouldShow('ribbon')" />
   </header>
   <main>
     <slot />
@@ -16,18 +16,19 @@
 import { SpeedInsights } from '@vercel/speed-insights/vue'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterFull from '~/components/common/Footer/Full.vue'
-import svgFaviconDev from '/img/dev/favicon-dev.svg?raw'
-import svgFavicon from '/img/favicon.svg?raw'
+import svgFaviconDev from '~/public/img/dev/favicon-dev.svg?raw'
+import svgFavicon from '~/public/img/favicon.svg?raw'
 
 const route = useRoute()
 const { colorBadge, randomizeColor } = useColor()
 const { currentSection } = useSection()
 const { locale } = useI18n()
 const error = useError()
+const config = useRuntimeConfig()
 
 onMounted(randomizeColor)
 
-const isDevelopment = ref(process.env.NODE_ENV === 'development')
+const isDevelopment = ref(config.public.appEnvironment === 'development')
 
 const pageTitle = computed(() =>
   currentSection.value.name

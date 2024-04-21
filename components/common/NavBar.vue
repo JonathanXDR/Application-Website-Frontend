@@ -73,10 +73,10 @@
 import type { ItemType } from '~/types/common/Item'
 import { type SectionType } from '~/types/common/Section'
 
-const { tm } = useI18n()
-const items: Ref<SectionType[]> = computed(() => tm('components.common.NavBar'))
-const navOpen: Ref<boolean> = ref(false)
-const navDisabled: Ref<boolean> = ref(false)
+const { locale, tm, rt } = useI18n()
+const items = computed<SectionType[]>(() => tm('components.common.NavBar'))
+const navOpen = ref(false)
+const navDisabled = ref(false)
 
 const { currentSection } = useSection()
 const { getTheme, setTheme } = useTheme()
@@ -84,7 +84,7 @@ const currentSectionIndex = computed(() => currentSection.value.index)
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 const { headerAnimations } = useAnimation()
 
-const themeItems: Ref<ItemType[]> = computed(() => [
+const themeItems = computed<ItemType[]>(() => [
   {
     id: 'light',
     category: 'theme',

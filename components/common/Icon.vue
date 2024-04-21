@@ -1,7 +1,8 @@
 <template>
-  <svg :style="styles">
-    <use :href="icon" />
-  </svg>
+  <template v-if="!loading">
+    <svg :style="styles">
+      <use :href="icon" /></svg
+  ></template>
 </template>
 
 <script setup lang="ts">
@@ -10,7 +11,8 @@ import type { SizeType } from '~/types/common/Size'
 const props = withDefaults(
   defineProps<{
     name: string
-    size?: Omit<SizeType, 'xsmall' & 'xlarge'>
+    size?: 'small' | 'medium' | 'large'
+    loading?: boolean
     colors?: {
       primary?: string
       secondary?: string
@@ -19,7 +21,7 @@ const props = withDefaults(
   }>(),
   {
     size: 'medium',
-
+    loading: false,
     colors: () => ({
       primary: 'currentColor',
       secondary: 'currentColor',

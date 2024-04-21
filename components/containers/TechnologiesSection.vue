@@ -13,6 +13,7 @@
     <ul class="card-container">
       <CardItem
         v-for="(card, index) in cards"
+        :loading="false"
         :key="index"
         :card="card"
         size="small"
@@ -32,7 +33,7 @@ defineProps<{
 }>()
 
 const { tm } = useI18n()
-const cards: Ref<CardItemType[]> = computed(() =>
+const cards = computed<CardItemType[]>(() =>
   tm('components.containers.technologies')
 )
 </script>

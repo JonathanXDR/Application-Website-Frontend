@@ -26,7 +26,7 @@
 import type { FaLinkType } from '~/types/common/FaLink'
 
 const { tm } = useI18n()
-const links: Ref<FaLinkType[]> = computed(() =>
+const links = computed<FaLinkType[]>(() =>
   tm('components.common.ShareSheet.links')
 )
 </script>

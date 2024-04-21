@@ -5,41 +5,41 @@
         {
           "id": "about",
           "name": "About",
-          "route": "/#about",
+          "route": "#about",
           "class": "section-separated"
         },
         {
           "id": "languages",
           "name": "Le lingue",
-          "route": "/#languages",
+          "route": "#languages",
           "class": "section-separated"
         },
         {
           "id": "references",
           "name": "Riferimenti",
-          "route": "/#references",
+          "route": "#references",
           "class": "section-separated"
         },
         {
           "id": "other",
           "name": "Altro",
-          "route": "/#other",
+          "route": "#other",
           "class": "section-separated"
         },
         {
           "id": "music",
           "name": "Musica",
-          "route": "/#music"
+          "route": "#music"
         },
         {
           "id": "technologies",
           "name": "Tecnologie",
-          "route": "/#technologies"
+          "route": "#technologies"
         },
         {
           "id": "projects",
           "name": "Progetti",
-          "route": "/#projects"
+          "route": "#projects"
         }
       ],
       "RibbonBar": {

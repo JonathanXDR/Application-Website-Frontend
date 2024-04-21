@@ -23,9 +23,7 @@ definePageMeta({
 })
 
 const { tm } = useI18n()
-const sections: Ref<SectionType[]> = computed(() =>
-  tm('components.common.NavBar')
-)
+const sections = computed<SectionType[]>(() => tm('components.common.NavBar'))
 </script>
 
 <style scoped>
