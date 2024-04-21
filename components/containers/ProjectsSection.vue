@@ -43,12 +43,12 @@
     <div v-else class="w-full">
       <div v-if="projects.personal.length && projects.school.length">
         <LiveResultSummary
-          :totalResults="currentProjects.length + (pinnedProjects?.length ?? 0)"
-          :pinnedResults="pinnedProjects ? pinnedProjects.length : 0"
+          :totalResults="currentProjects.length + pinned.length"
+          :pinnedResults="pinned.length"
         />
-        <ul v-if="pinnedProjects" class="card-container pinned-items">
+        <ul v-if="pinned" class="card-container pinned-items">
           <CardItem
-            v-for="(card, index) in pinnedProjects"
+            v-for="(card, index) in pinned"
             :key="index"
             :card="card"
             size="small"
@@ -69,7 +69,7 @@
             size="small"
             iconPosition="right"
           />
-          <ResultBlankState v-if="!currentProjects.length" />
+          <ResultBlankState v-if="!currentProjects" />
         </ul>
       </div>
       <LoadingSpinner v-else class="center-horizontal center-vertical pt-24" />
@@ -77,7 +77,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import type { ListUserReposResponse } from '~/types/GitHub/Repository'
 import type { CardItemType } from '~/types/common/CardItem'
 import type { ItemType } from '~/types/common/Option'
@@ -103,14 +103,13 @@ const config = useRuntimeConfig()
 
 const ul = ref<HTMLElement | null>(null)
 const ulHeight = useElementSize(ul).height
-const windowWidth = useWindowSize().width
-const randomColor = ref(colorStore.randomizeColor().colorName)
 
-const {
-  data: userRepositories,
-  pending: pendingUserRepos,
-  refresh: refreshUserRepos
-} = useAsyncData(
+const pinned = ref<ListUserPinnedReposResponse[]>([])
+const currentIndex = ref(0)
+const randomColor = ref(colorStore.randomizeColor().colorName)
+const windowWidth = useWindowSize({ initialWidth: 0 }).width
+
+const { data: userRepositories } = useAsyncData(
   'userRepositories',
   () =>
     $listUserRepositories({
@@ -120,7 +119,7 @@ const {
   { server: true }
 )
 
-const { data: pinnedProjects, refresh: refreshPinnedProjects } = useAsyncData(
+const { data: pinnedProjects } = useAsyncData(
   'pinnedProjects',
   () =>
     $listPinnedRepositories({
@@ -131,10 +130,25 @@ const { data: pinnedProjects, refresh: refreshPinnedProjects } = useAsyncData(
 )
 
 const projects: Projects = reactive({
-  swisscom: [],
+  swisscom: computed<CardItemType[]>(() =>
+    tm('components.containers.projects')
+  ),
   personal: [],
   school: []
 })
+
+const allProjects = computed(() => [...(userRepositories.value || [])])
+const filteredProjects = computed(() =>
+  allProjects.value.filter(
+    project =>
+      !pinned.value.find(pinnedProject => pinnedProject.name === project.name)
+  )
+)
+
+const currentProjects = computed(
+  () =>
+    projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
+)
 
 const segmentNavItems = computed<ItemType[]>(() => [
   {
@@ -163,24 +177,45 @@ const segmentNavItems = computed<ItemType[]>(() => [
   }
 ])
 
-const currentIndex = ref(0)
 const updateCurrentIndex = (index: number) => {
   currentIndex.value = index
 }
 
-watchEffect(() => {
-  projects.personal =
-    userRepositories.value?.filter(
-      p => !pinnedProjects.value?.some(pin => pin.id === p.id)
-    ) || []
-  projects.school =
-    userRepositories.value?.filter(p => /school_pattern/.test(p.name)) || []
-})
+const categorizeProject = (project: ListUserReposResponse) => {
+  const schoolProjectPattern =
+    /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/
+  const category = schoolProjectPattern.test(project.name)
+    ? 'school'
+    : 'personal'
+  return { ...project, category }
+}
 
-const currentProjects = computed(
-  () =>
-    projects[segmentNavItems.value[currentIndex.value]?.id as keyof Projects]
+watch(
+  pinnedProjects,
+  newPinnedProjects => {
+    newPinnedProjects?.forEach((project: ListUserPinnedReposResponse) => {
+      project.icon = {
+        name: 'pin.fill',
+        colors: {
+          primary: `var(--color-figure-${randomColor.value})`
+        }
+      }
+    })
+    pinned.value = newPinnedProjects || []
+  },
+  { immediate: true }
 )
+
+watchEffect(() => {
+  projects.personal = []
+  projects.school = []
+  filteredProjects.value.map(categorizeProject).forEach(project => {
+    const category = project.category as keyof Projects
+    projects[category].push(
+      project as ListUserReposResponse & CardItemType & { category: string }
+    )
+  })
+})
 </script>
 
 <style scoped>
