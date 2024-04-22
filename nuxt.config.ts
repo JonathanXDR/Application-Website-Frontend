@@ -29,7 +29,13 @@ export default defineNuxtConfig({
     strict: true
   },
   eslint: {
-    checker: true
+    checker: true,
+    config: {
+      stylistic: true, 
+      typescript: {
+        strict: true
+      }
+    }
   },
   ssr: true,
   app: {
