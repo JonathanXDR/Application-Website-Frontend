@@ -14,7 +14,10 @@
     >
       <div class="as-l-container-mobileoverflow-content">
         <div class="rs-tracker-bar">
-          <div class="rs-tracker-fill" :style="`width: ${progress}%`"></div>
+          <div
+            class="rs-tracker-fill"
+            :style="`width: ${language.progress}%`"
+          />
         </div>
         <ol class="rs-tracker-status">
           <!-- <li

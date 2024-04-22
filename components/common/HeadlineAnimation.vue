@@ -1,18 +1,18 @@
 <template>
   <h2
+    ref="headline"
+    v-animation="animationConfig"
     :class="[
       'section-header-headline typography-section-headline-bold large-12 animated-headline',
       { 'cursor-blink': isCursorBlinking }
     ]"
-    v-animation="animationConfig"
-    ref="headline"
   >
     <span
       class="letter"
       :style="{ '--cursor-opacity': initialCursorOpacity }"
       data-initial-cursor
     >
-      <span class="cursor"></span>
+      <span class="cursor"/>
     </span>
 
     <template v-for="(word, wordIndex) in words" :key="wordIndex">
@@ -26,11 +26,11 @@
         >
           {{ char }}
           <span
-            class="cursor"
             v-if="
               getGlobalIndex(wordIndex, letterIndex) === currentLetterCount - 1
             "
-          ></span>
+            class="cursor"
+          />
         </span>
       </span>
 
@@ -40,7 +40,7 @@
         :style="getLetterStyle(getGlobalIndex(wordIndex, word.length))"
         :data-letter-index="getGlobalIndex(wordIndex, word.length)"
       >
-        {{ '&nbsp;' }}<span class="cursor"></span>
+        {{ '&nbsp;' }}<span class="cursor"/>
       </span>
     </template>
   </h2>

@@ -14,7 +14,7 @@
       :d="pathD"
       :stroke-dashoffset="strokeDashoffset"
       :stroke-dasharray="strokeDasharray"
-    ></path>
+    />
   </svg>
 </template>
 

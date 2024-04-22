@@ -2,7 +2,7 @@
   <div class="filter-input-sticky-wrapper is-sticky">
     <div class="filter-input-container">
       <div class="container">
-        <slot></slot>
+        <slot/>
       </div>
     </div>
   </div>

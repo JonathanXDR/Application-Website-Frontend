@@ -15,7 +15,7 @@
               <hr
                 class="bar bar-1"
                 style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1"
-              />
+              >
             </div>
             <span class="bar-caption">
               {{ language.description }}
@@ -27,7 +27,7 @@
                 <span class="badge-value">7.6</span>
                 <span class="badge-unit">%</span>
               </div>
-              <span class="badge-caption"></span>
+              <span class="badge-caption"/>
             </div>
           </figure>
         </div>

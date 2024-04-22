@@ -5,12 +5,12 @@
         <li v-for="(item, index) in items" :key="index" class="tabnav-item">
           <input
             :id="`tab-${item.id}`"
+            v-model="selectedTab"
             type="radio"
             name="category"
             :value="item.id"
-            v-model="selectedTab"
             @change="() => emitChange(item.id)"
-          />
+          >
           <label :for="`tab-${item.id}`" class="tabnav-link">
             {{ item.label }}
           </label>

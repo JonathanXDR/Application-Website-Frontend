@@ -4,8 +4,8 @@
     :class="['viewer-sizenav all-access-pass__background', { shadow }]"
     :style="containerStyle"
   >
-    <div class="viewer-sizenav__bubble" v-if="selectedItemElement">
-      <div class="viewer-sizenav__bubble-inner" :style="bubbleStyle"></div>
+    <div v-if="selectedItemElement" class="viewer-sizenav__bubble">
+      <div class="viewer-sizenav__bubble-inner" :style="bubbleStyle"/>
     </div>
     <ul
       class="viewer-sizenav-items"
@@ -15,18 +15,18 @@
       <li
         v-for="(item, index) in items"
         :key="index"
-        :class="['viewer-sizenav-item', { separator }]"
         :ref="(setItemRef as any)"
+        :class="['viewer-sizenav-item', { separator }]"
       >
         <input
           :id="`viewer-sizenav-value-${item.id}`"
+          v-model="selectedItem"
           type="radio"
           :name="`viewer-sizenav-value-${item.category}`"
           :class="['viewer-sizenav-value', { focus }]"
           :value="item.id"
-          v-model="selectedItem"
           :disabled="item.id !== selectedItem && isTransitioning"
-        />
+        >
         <label
           :for="`viewer-sizenav-value-${item.id}`"
           class="viewer-sizenav-link"
@@ -117,7 +117,7 @@ const updateBubblePosition = () => {
     item => item.id === selectedItem.value
   )
   selectedItemElement.value = itemElements.value[selectedItemIndex]
-  if (selectedItemElement) {
+  if (selectedItemElement.value) {
     bubbleStyle.value = {
       '--bubble-position': `${selectedItemElement?.value?.offsetLeft}px`,
       '--bubble-width': `${selectedItemElement?.value?.offsetWidth}px`,

@@ -2,11 +2,11 @@
   <h2>{{ title }}</h2>
   <ul class="grid">
     <CardItem
+      v-for="(article, index) in articles"
+      :key="index"
       variant="article"
       :loading="false"
       :size="windowWidth < 900 ? 'small' : 'medium'"
-      v-for="(article, index) in articles"
-      :key="index"
       :card="article"
       :icon="{ position: windowWidth < 900 ? 'top' : 'left' }"
       :date="{
