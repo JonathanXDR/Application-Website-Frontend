@@ -116,6 +116,7 @@ export default defineNuxtConfig({
       appName: process.env.APP_NAME,
       appUrl: process.env.APP_URL,
       appDomain: process.env.APP_DOMAIN,
+      appDescription: process.env.APP_DESCRIPTION,
       appEnvironment: process.env.NODE_ENV,
 
       githubRepoName: process.env.GITHUB_REPO_NAME,
