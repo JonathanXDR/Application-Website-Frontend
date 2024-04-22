@@ -1,12 +1,12 @@
 <template>
   <input
-    @input="toggleNav()"
+    id="ac-ln-menustate"
     v-model="navOpen"
     type="checkbox"
-    id="ac-ln-menustate"
     :disabled="navDisabled"
-  />
-  <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking"></div>
+    @input="toggleNav()"
+  >
+  <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking"/>
   <nav
     id="ac-localnav"
     :class="[
@@ -18,7 +18,7 @@
       <div
         ref="ac-ln-background"
         class="ac-ln-background ac-ln-background-transition"
-      ></div>
+      />
       <div class="ac-ln-content">
         <div class="ac-ln-title">
           <NuxtLink to="/" class="ac-ln-title">
@@ -49,7 +49,7 @@
           <div class="ac-ln-actions">
             <div class="ac-ln-action ac-ln-action-menucta">
               <label for="ac-ln-menustate" class="ac-ln-menucta">
-                <span class="ac-ln-menucta-chevron"></span>
+                <span class="ac-ln-menucta-chevron"/>
               </label>
             </div>
             <SegmentNav
@@ -57,8 +57,8 @@
               gap="5px"
               size="xsmall"
               :label="windowWidth < 900 ? 'icon' : 'text'"
-              :selectedItem="getTheme()"
-              :onSelect="newTheme => setTheme(newTheme)"
+              :selected-item="getTheme()"
+              :on-select="newTheme => setTheme(newTheme)"
             />
             <LanguagePickerDropdown />
           </div>
@@ -66,7 +66,7 @@
       </div>
     </div>
   </nav>
-  <label id="ac-ln-curtain" for="ac-ln-menustate"></label>
+  <label id="ac-ln-curtain" for="ac-ln-menustate"/>
 </template>
 
 <script setup lang="ts">

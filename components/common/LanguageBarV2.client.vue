@@ -17,7 +17,7 @@
           <div
             class="rs-tracker-fill"
             :style="`width: ${language.progress}%`"
-          ></div>
+          />
         </div>
         <ol class="rs-tracker-status">
           <!-- <li

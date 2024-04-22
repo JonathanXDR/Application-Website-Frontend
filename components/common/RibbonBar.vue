@@ -50,8 +50,8 @@
               >
                 <button
                   class="paddlenav-arrow paddlenav-arrow-previous"
-                  @click="scrollContent('left')"
                   :disabled="isTransitioning"
+                  @click="scrollContent('left')"
                 >
                   <Icon
                     :loading="loading"
@@ -62,8 +62,8 @@
                 </button>
                 <button
                   class="paddlenav-arrow paddlenav-arrow-next"
-                  @click="scrollContent('right')"
                   :disabled="isTransitioning"
+                  @click="scrollContent('right')"
                 >
                   <Icon
                     :loading="loading"

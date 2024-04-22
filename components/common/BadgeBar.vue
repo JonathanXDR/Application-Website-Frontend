@@ -3,10 +3,10 @@
     <div class="scroll-wrapper">
       <ul class="suggested-badges-badges">
         <Badge
-          class="badge"
           v-for="(badge, index) in badges"
-          :loading="loading"
           :key="index"
+          class="badge"
+          :loading="loading"
           :title="badge"
           size="small"
           :url="`https://github.com/topics/${badge}`"

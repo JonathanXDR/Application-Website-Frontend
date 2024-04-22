@@ -1,10 +1,10 @@
 <template>
   <ul class="sharesheet-options">
     <li
-      class="social-option"
       v-for="(link, index) in links"
       :key="index"
       v-animation="{ add: 'visible' }"
+      class="social-option"
     >
       <NuxtLink
         class="link"

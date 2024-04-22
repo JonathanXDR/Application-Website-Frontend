@@ -23,7 +23,7 @@ export default defineNuxtPlugin(async () => {
       if (window.MusicKit) {
         resolve(window.MusicKit)
       } else {
-        let script = document.createElement('script')
+        const script = document.createElement('script')
         script.src = 'https://js-cdn.music.apple.com/musickit/v1/musickit.js'
         script.async = true
         script.onload = () => resolve(window.MusicKit)
@@ -34,7 +34,7 @@ export default defineNuxtPlugin(async () => {
     })
   }
 
-  if (process.client) {
+  if (import.meta.client) {
     await loadMusicKitSDK()
 
     try {
