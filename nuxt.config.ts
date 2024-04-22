@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
     '@nuxtjs/color-mode',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@nuxt/eslint'
   ],
   plugins: [
     '~/plugins/api/github.server',
@@ -26,6 +27,9 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
     strict: true
+  },
+  eslint: {
+    checker: true
   },
   ssr: true,
   app: {

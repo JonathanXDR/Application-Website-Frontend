@@ -7,7 +7,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     preserveAspectRatio="none"
   >
-    <defs></defs>
+    <defs/>
     <g opacity="1" transform="rotate(0 632.2063 405.7416)">
       <svg
         width="226.7937"

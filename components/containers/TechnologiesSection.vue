@@ -8,17 +8,17 @@
       <FilterInput />
     </NavBarExtension>
 
-    <LiveResultSummary :totalResults="cards.length" />
+    <LiveResultSummary :total-results="cards.length" />
 
     <ul class="card-container">
       <CardItem
         v-for="(card, index) in cards"
-        :loading="false"
         :key="index"
+        :loading="false"
         :card="card"
         size="small"
-        iconPosition="right"
-        iconAbsolute
+        icon-position="right"
+        icon-absolute
       />
       <ResultBlankState v-if="!cards" />
     </ul>

@@ -15,7 +15,7 @@ export const useTheme = () => {
 
   const initializeTheme = () => setTheme(getTheme())
 
-  if (process.client) {
+  if (import.meta.client) {
     initializeTheme()
   }
 

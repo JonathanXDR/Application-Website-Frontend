@@ -1,13 +1,13 @@
 <template>
   <section
     v-for="(section, index) in sections"
-    :name="section.name"
-    :key="section.id"
     :id="section.id"
-    :class="section.class"
+    :key="section.id"
     v-section="(section.id, index)"
+    :name="section.name"
+    :class="section.class"
   >
-    <component :title="section.name" :is="`${section.id}Section`" />
+    <component :is="`${section.id}Section`" :title="section.name" />
   </section>
 </template>
 

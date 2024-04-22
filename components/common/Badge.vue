@@ -3,12 +3,12 @@
     :is="variant"
     :href="url"
     :class="['badge', size, { hover }, { loading }]"
-    @click="onClick"
     :style="computedStyle"
+    @click="onClick"
   >
     <Icon
-      class="icon icon-medium mr-1"
       v-if="icon"
+      class="icon icon-medium mr-1"
       :loading="loading"
       :name="icon.name"
       :size="icon.size"

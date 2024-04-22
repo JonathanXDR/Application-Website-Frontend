@@ -6,12 +6,12 @@
     <ul class="locale-lang language-picker-wrapper">
       <li v-for="computedLocale in computedLocales" :key="computedLocale.code">
         <input
-          type="radio"
-          @click="changeLanguage(computedLocale.code)"
-          name="language"
           :id="computedLocale.code"
+          type="radio"
+          name="language"
           :checked="locale === computedLocale.code"
-        />
+          @click="changeLanguage(computedLocale.code)"
+        >
         <label :for="computedLocale.code" class="link">
           {{ getLabel(computedLocale) }}
         </label>

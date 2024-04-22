@@ -5,7 +5,7 @@
       width: width,
       height: height
     }"
-  ></span>
+  />
 </template>
 
 <script setup lang="ts">

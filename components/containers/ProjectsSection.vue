@@ -11,10 +11,10 @@
           padding="0 21px"
           size="small"
           separator
-          grayLabels
-          :outerPadding="3"
-          :selectedItem="segmentNavItems[currentIndex]?.id"
-          :onSelect="
+          gray-labels
+          :outer-padding="3"
+          :selected-item="segmentNavItems[currentIndex]?.id"
+          :on-select="
             id =>
               updateCurrentIndex(
                 segmentNavItems.findIndex(item => item.id === id)
@@ -23,18 +23,18 @@
         />
       </div>
     </NavBarExtension>
-    <div class="timeline-wrapper" v-if="currentIndex === 0">
+    <div v-if="currentIndex === 0" class="timeline-wrapper">
       <TimeLine :height="ulHeight" />
       <ul ref="ul" class="timeline">
         <CardItem
+          v-for="(project, index) in currentProjects"
+          :key="index"
           variant="article"
           :size="windowWidth < 900 ? 'small' : 'medium'"
           :loading="false"
-          v-for="(project, index) in currentProjects"
-          :key="index"
           :card="project"
-          :iconPosition="windowWidth < 900 ? 'top' : 'left'"
-          :dateFormatOptions="{
+          :icon-position="windowWidth < 900 ? 'top' : 'left'"
+          :date-format-options="{
             year: 'numeric',
             month: 'long'
           }"
@@ -44,18 +44,18 @@
     <div v-else class="w-full">
       <div v-if="projects.personal.length && projects.school.length">
         <LiveResultSummary
-          :totalResults="currentProjects.length + pinned.length"
-          :pinnedResults="pinned.length"
+          :total-results="currentProjects.length + (pinnedProjects?.length ?? 0)"
+          :pinned-results="pinnedProjects ? pinnedProjects.length : 0"
         />
-        <ul v-if="pinned" class="card-container pinned-items">
+        <ul v-if="pinnedProjects" class="card-container pinned-items">
           <CardItem
             v-for="(card, index) in pinned"
-            :loading="false"
             :key="index"
+            :loading="false"
             :card="card"
             size="small"
-            iconPosition="right"
-            iconAbsolute
+            icon-position="right"
+            icon-absolute
             class="color"
             :style="{
               '--color-figure': `var(--color-figure-${randomColor})`,
@@ -66,13 +66,13 @@
         <ul class="card-container">
           <CardItem
             v-for="(card, index) in currentProjects"
-            :loading="false"
             :key="index"
+            :loading="false"
             :card="card"
             size="small"
-            iconPosition="right"
+            icon-position="right"
           />
-          <ResultBlankState v-if="!currentProjects" />
+          <ResultBlankState v-if="!currentProjects.length" />
         </ul>
       </div>
       <LoadingSpinner v-else class="center-horizontal center-vertical pt-24" />
@@ -80,7 +80,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { ListUserReposResponse } from '~/types/GitHub/Repository'
 import type { CardItemType } from '~/types/common/CardItem'
 import type { ItemType } from '~/types/common/Option'
@@ -150,7 +150,11 @@ const filteredProjects = computed(() =>
 
 const currentProjects = computed(
   () =>
-    projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
+    $listPinnedRepositories({
+      username: config.public.githubRepoOwner,
+      perPage: 100
+    }),
+  { server: true }
 )
 
 const segmentNavItems = computed<ItemType[]>(() => [
@@ -180,6 +184,7 @@ const segmentNavItems = computed<ItemType[]>(() => [
   }
 ])
 
+const currentIndex = ref(0)
 const updateCurrentIndex = (index: number) => {
   currentIndex.value = index
 }
@@ -219,6 +224,11 @@ watchEffect(() => {
     )
   })
 })
+
+const currentProjects = computed(
+  () =>
+    projects[segmentNavItems.value[currentIndex.value]?.id as keyof Projects]
+)
 </script>
 
 <style scoped>

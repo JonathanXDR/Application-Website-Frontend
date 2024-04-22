@@ -4,8 +4,7 @@
     :style="{ color: colorBadge?.colorVar }"
     class="dev-badge"
     data-tag-name="Dev"
-  >
-  </small>
+  />
 </template>
 
 <script setup lang="ts">

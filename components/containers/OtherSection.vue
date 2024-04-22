@@ -3,14 +3,14 @@
   <ul class="grid">
     <!-- <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" /> -->
     <CardItem
+      v-for="(article, index) in articles"
+      :key="index"
       variant="article"
       :loading="false"
       :size="windowWidth < 900 ? 'small' : 'medium'"
-      v-for="(article, index) in articles"
-      :key="index"
       :card="article"
-      :iconPosition="windowWidth < 900 ? 'top' : 'left'"
-      :dateFormatOptions="{
+      :icon-position="windowWidth < 900 ? 'top' : 'left'"
+      :date-format-options="{
         weekday: 'long'
       }"
     />

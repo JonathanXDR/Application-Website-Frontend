@@ -1,12 +1,12 @@
 <template>
   <div
-    :class="`message-item message-item--${direction}`"
     v-animation="{ add: 'active' }"
+    :class="`message-item message-item--${direction}`"
   >
     <div :class="`message message--${color}`">
       <p class="typography-imessage-text message-copy">
         <span class="visuallyhidden">Text message reading:&nbsp;</span> One sec.
-        <br class="small" />Moving to my iPhone.
+        <br class="small" >Moving to my iPhone.
       </p>
       <svg
         :class="`message-tail message-tail--${
@@ -19,12 +19,12 @@
           v-if="direction === 'left'"
           d="m32.84 55v-55h54v25.13c0 20.56-3.25 33.65-9.35 45.05-6.1 11.41-15.05 20.36-26.46 26.46s-24.5 9.35-45.05 9.35h-5.98c19.37-8.81 32.84-28.33 32.84-51z"
           fill="var(--bg-color)"
-        ></path>
+        />
         <path
           v-else
           d="m54 55v-55h-54v25.13c0 20.56 3.25 33.65 9.35 45.05 6.1 11.41 15.05 20.36 26.46 26.46s24.5 9.35 45.05 9.35h5.98c-19.37-8.81-32.84-28.33-32.84-51z"
           fill="var(--bg-color)"
-        ></path>
+        />
       </svg>
     </div>
   </div>

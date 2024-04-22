@@ -5,8 +5,8 @@
   >
     <div class="dropdown-container legacy-form">
       <select
-        class="dropdown-select"
         v-model="selectedLocale"
+        class="dropdown-select"
         @change="changeLanguage(selectedLocale)"
       >
         <option
