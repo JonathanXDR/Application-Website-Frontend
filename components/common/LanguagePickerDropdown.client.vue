@@ -27,7 +27,7 @@ const props = withDefaults(
     size?: Omit<SizeType, 'xlarge'>
   }>(),
   {
-    size: 'small'
+    size: 'small' as SizeType
   }
 )
 

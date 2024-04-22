@@ -86,10 +86,6 @@
 import type { CardItemType } from '~/types/common/CardItem'
 import type { ItemType } from '~/types/common/Item'
 import type { GetUserRepositories } from '~/types/services/GitHub/Repository'
-import {
-  getUserPinnedRepositories,
-  getUserRepositories
-} from '~/utils/github-helper'
 
 type GetUserPinnedRepositories = GetUserRepositories[0] & {
   icon?: CardItemType['icon']
@@ -113,7 +109,7 @@ const config = useRuntimeConfig()
 const ul = ref<HTMLElement | null>(null)
 const ulHeight = useElementSize(ul).height
 
-const pinned = ref<ListUserPinnedReposResponse[]>([])
+const pinned = ref<GetUserPinnedRepositories[]>([])
 const currentIndex = ref(0)
 const randomColor = ref(colorStore.randomizeColor().colorName)
 const windowWidth = useWindowSize({ initialWidth: 0 }).width

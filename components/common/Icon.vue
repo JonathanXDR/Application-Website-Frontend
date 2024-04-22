@@ -1,38 +1,28 @@
 <template>
   <template v-if="!loading">
     <svg :style="styles">
-      <use :href="icon" /></svg
-  ></template>
+      <use :href="icon" />
+    </svg>
+  </template>
 </template>
 
 <script setup lang="ts">
+import type { IconType } from '~/types/common/Icon'
 import type { SizeType } from '~/types/common/Size'
 
-const props = withDefaults(
-  defineProps<{
-    name: string
-    size?: 'small' | 'medium' | 'large'
-    loading?: boolean
-    colors?: {
-      primary?: string
-      secondary?: string
-      tertiary?: string
-    }
-  }>(),
-  {
-    size: 'medium',
-    loading: false,
-    colors: () => ({
-      primary: 'currentColor',
-      secondary: 'currentColor',
-      tertiary: 'currentColor'
-    })
-  }
-)
+const props = withDefaults(defineProps<IconType>(), {
+  size: 'medium' as SizeType,
+  loading: false,
+  colors: () => ({
+    primary: 'currentColor',
+    secondary: 'currentColor',
+    tertiary: 'currentColor'
+  })
+})
 
 const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`)
 
-const getSpriteUrl = (size: 'small' | 'medium' | 'large') => {
+const getSpriteUrl = (size: Omit<SizeType, 'xsmall' & 'xlarge'>) => {
   return `/icons/${size}/symbol/sprite.svg`
 }
 

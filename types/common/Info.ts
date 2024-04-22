@@ -1,4 +1,4 @@
-import type { GetRepositoryIssues } from '../GitHub/Issue'
+import type { GetRepositoryIssues } from '../services/GitHub/Issue'
 import type { DateType } from './Date'
 
 export interface InfoType {

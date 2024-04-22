@@ -1,7 +1,8 @@
-import type { Credits } from '~/types/TMDB/Credits'
-import type { Media, MediaType } from '~/types/TMDB/Media'
-import type { PageResult } from '~/types/TMDB/PageResult'
-import type { Person } from '~/types/TMDB/Person'
+import type { Credits } from '~/types/services/TMDB/Credits'
+import type { Media, MediaType } from '~/types/services/TMDB/Media'
+import type { PageResult } from '~/types/services/TMDB/PageResult'
+import type { Person } from '~/types/services/TMDB/Person'
+
 export default defineNuxtPlugin(() => {
   // const apiBaseUrl = 'http://localhost:3001'
   const apiBaseUrl = 'https://movies-proxy.vercel.app'

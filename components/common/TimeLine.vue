@@ -2,18 +2,18 @@
   <svg
     ref="svg"
     class="svg-timeline"
-    :viewBox="`0 0 8 ${ulHeightRounded}`"
-    :xmlns="`http://www.w3.org/${ulHeightRounded}/svg`"
-    :height="ulHeightValue"
+    :viewBox="viewBox"
+    :xmlns="xmlns"
+    :height="ulHeight"
   >
     <path
       ref="path"
       class="path-timeline"
       stroke="var(--color-fill-gray)"
       stroke-width="5"
-      :d="`M 4 0 L 4 ${ulHeightRounded}`"
-      :stroke-dashoffset="ulHeightValue"
-      :stroke-dasharray="ulHeightValue"
+      :d="pathD"
+      :stroke-dashoffset="strokeDashoffset"
+      :stroke-dasharray="strokeDasharray"
     ></path>
   </svg>
 </template>

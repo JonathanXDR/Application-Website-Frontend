@@ -1,12 +1,12 @@
 import { graphql, type GraphQlQueryResponseData } from '@octokit/graphql'
 import { Octokit } from 'octokit'
-import type { ListRepoIssuesResponse } from '~/types/GitHub/Issue'
+import type { GetRepositoryIssues } from '~/types/services/GitHub/Issue'
 import type {
-  GetRepoResponse,
-  ListPublicReposResponse,
-  ListUserReposResponse
-} from '~/types/GitHub/Repository'
-import type { ListRepoTagsResponse } from '~/types/GitHub/Tag'
+  GetOwnerRepository,
+  GetPublicRepositories,
+  GetUserRepositories
+} from '~/types/services/GitHub/Repository'
+import type { GetRepositoryTags } from '~/types/services/GitHub/Tag'
 
 export default defineNuxtPlugin(() => {
   const { githubToken } = useRuntimeConfig()
@@ -23,7 +23,7 @@ export default defineNuxtPlugin(() => {
 
   const listPublicRepositories = async (params: {
     since?: number
-  }): Promise<ListPublicReposResponse[]> => {
+  }): Promise<GetPublicRepositories> => {
     const { since } = params
 
     try {
@@ -47,7 +47,7 @@ export default defineNuxtPlugin(() => {
     direction?: 'asc' | 'desc' | undefined
     perPage?: number
     page?: number
-  }): Promise<ListUserReposResponse[]> => {
+  }): Promise<GetUserRepositories> => {
     const {
       username,
       type = 'owner',
@@ -79,7 +79,7 @@ export default defineNuxtPlugin(() => {
   const getRepository = async (params: {
     owner: string
     repo: string
-  }): Promise<GetRepoResponse> => {
+  }): Promise<GetOwnerRepository> => {
     const { owner, repo } = params
 
     try {
@@ -102,7 +102,7 @@ export default defineNuxtPlugin(() => {
     repo: string
     perPage?: number
     page?: number
-  }): Promise<ListRepoTagsResponse> => {
+  }): Promise<GetRepositoryTags> => {
     const { owner, repo, perPage = 30, page = 1 } = params
 
     try {
@@ -136,7 +136,7 @@ export default defineNuxtPlugin(() => {
     since?: string
     perPage?: number
     page?: number
-  }): Promise<ListRepoIssuesResponse[]> => {
+  }): Promise<GetRepositoryIssues> => {
     const {
       owner,
       repo,
@@ -185,7 +185,7 @@ export default defineNuxtPlugin(() => {
   const listPinnedRepositories = async (params: {
     username: string
     perPage?: number
-  }): Promise<ListUserReposResponse[]> => {
+  }): Promise<GetUserRepositories> => {
     const { username, perPage = 30 } = params
 
     const query = `

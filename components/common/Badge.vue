@@ -25,10 +25,11 @@
 
 <script setup lang="ts">
 import type { BadgeType } from '~/types/common/Badge'
+import type { SizeType } from '~/types/common/Size'
 
 const props = withDefaults(defineProps<BadgeType>(), {
   variant: 'a',
-  size: 'medium',
+  size: 'medium' as SizeType,
   colors: () => ({
     primary: 'var(--color-fill-gray)',
     secondary: 'var(--color-fill-tertiary)',

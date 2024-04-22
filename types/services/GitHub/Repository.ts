@@ -1,12 +1,16 @@
 import type { Endpoints } from '@octokit/types'
 
-// No authentication required
 export type GetPublicRepositories =
   Endpoints['GET /repositories']['response']['data']
+
+export type GetPublicRepository =
+  Endpoints['GET /repositories']['response']['data'][number]
 
 export type GetUserRepositories =
   Endpoints['GET /users/{username}/repos']['response']['data']
 
-// Authentication required
-export type GetOwnerRepositories =
+export type GetUserRepository =
+  Endpoints['GET /users/{username}/repos']['response']['data'][number]
+
+export type GetOwnerRepository =
   Endpoints['GET /repos/{owner}/{repo}']['response']['data']

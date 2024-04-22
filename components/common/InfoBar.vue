@@ -38,7 +38,7 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/en'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import type { InfoType } from '~/types/common/Info'
-import type { ItemType } from '~/types/common/Option'
+import type { ItemType } from '~/types/common/Item'
 
 const props = withDefaults(
   defineProps<{

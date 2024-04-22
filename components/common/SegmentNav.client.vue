@@ -82,7 +82,7 @@ const props = withDefaults(
     onSelect?: (id: string) => void
   }>(),
   {
-    size: 'medium',
+    size: 'medium' as SizeType,
     label: 'text',
     focus: true,
     separator: false,

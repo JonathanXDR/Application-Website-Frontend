@@ -114,10 +114,10 @@
 </template>
 
 <script setup lang="ts">
-import type { ListUserRepoResponse } from '~/types/GitHub/Repository'
 import type { CardItemType } from '~/types/common/CardItem'
+import type { GetUserRepository } from '~/types/services/GitHub/Repository'
 
-type Props = Partial<CardItemType> & Partial<ListUserRepoResponse>
+type Props = Partial<CardItemType> & Partial<GetUserRepository>
 
 const props = withDefaults(defineProps<Props>(), {
   variant: 'card',

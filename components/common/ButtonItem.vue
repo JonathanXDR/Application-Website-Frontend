@@ -20,7 +20,7 @@ withDefaults(
   {
     as: 'button',
     variant: 'primary',
-    size: 'medium',
+    size: 'medium' as SizeType,
     borderRadius: 'reduced'
   }
 )

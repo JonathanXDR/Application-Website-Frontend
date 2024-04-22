@@ -84,16 +84,10 @@
 <script setup lang="ts">
 import type { LinkType } from '~/types/common/Link'
 import type { RibbonBar } from '~/types/common/RibbonBar'
-import { getRepositoryTags } from '~/utils/github-helper'
 
-withDefaults(
-  defineProps<{
-    loading?: boolean
-  }>(),
-  {
-    loading: false
-  }
-)
+withDefaults(defineProps<RibbonBar>(), {
+  loading: false
+})
 
 const { $listRepositoryTags } = useNuxtApp()
 const { t, tm, rt } = useI18n()
@@ -112,11 +106,7 @@ const scrollDirection = ref('right')
 const displayItems = ref<RibbonBar[]>([])
 const initialAnimationPlayed = ref(false)
 
-const {
-  data: repositoryTags,
-  pending: tagsLoading,
-  refresh: refreshTags
-} = useAsyncData(
+const { data: repositoryTags, refresh: refreshTags } = useAsyncData(
   'repositoryTags',
   () =>
     $listRepositoryTags({
