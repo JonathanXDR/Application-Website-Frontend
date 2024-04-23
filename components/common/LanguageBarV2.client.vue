@@ -16,18 +16,18 @@
         <div class="rs-tracker-bar">
           <div
             class="rs-tracker-fill"
-            :style="`width: ${language.progress}%`"
+            :style="`width: ${progress}%`"
           />
         </div>
         <ol class="rs-tracker-status">
-          <!-- <li
+          <li
             v-for="(item, index) in status"
             :key="index"
             class="rs-status-tracker-status-list-item"
             style="width: 20%"
           >
             <span class="rs-status rs-status-current">{{ item }}</span>
-          </li> -->
+          </li>
           <li
             class="rs-status-tracker-status-list-item"
             :style="`width: ${progress}%`"

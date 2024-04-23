@@ -84,7 +84,7 @@ const currentKey = computed(() => {
 const title = t(`pages.${currentKey.value}.title`, {
   statusCode: error.value?.statusCode,
 })
-const colors = computed<Object>(() =>
+const colors = computed<object>(() =>
   tm(`pages.${currentKey.value}.icon.colors`),
 )
 const entireDescription = computed<string>(() =>

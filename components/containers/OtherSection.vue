@@ -3,15 +3,13 @@
   <ul class="grid">
     <!-- <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" /> -->
     <CardItem
-      v-for="(article, index) in articles"
-      v-for="(article, index) in articles"
-      :key="index"
+      v-for="(card, index) in cards"
       :key="index"
       variant="article"
       :loading="false"
       :size="windowWidth < 900 ? 'small' : 'medium'"
       :icon="{
-        name: article.icon?.name,
+        name: card.icon?.name,
         position: windowWidth < 900 ? 'top' : 'left',
       }"
       :date="{
@@ -31,7 +29,7 @@ defineProps<{
 }>()
 
 const { tm } = useI18n()
-const articles = computed<CardItemType[]>(() =>
+const cards = computed<CardItemType[]>(() =>
   tm('components.containers.other'),
 )
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })

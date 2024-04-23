@@ -45,7 +45,7 @@
       >
         <div class="eyebrow">
           <template v-if="!loading">
-            {{ card.eyebrow }}
+            {{ eyebrow }}
           </template>
           <template v-else>
             <LoadingSkeleton
@@ -57,7 +57,7 @@
         <div class="title-wrapper">
           <div class="title">
             <template v-if="!loading">
-              {{ card.title || card.name }}
+              {{ title || name }}
             </template>
             <template v-else>
               <LoadingSkeleton
@@ -68,7 +68,7 @@
           </div>
 
           <Badge
-            v-if="card.archived"
+            v-if="archived"
             title="Public archive"
             size="xsmall"
             :loading="loading"
@@ -80,9 +80,9 @@
             :hover="false"
           />
           <Badge
-            v-if="card.badge"
-            :title="card.badge.title"
-            :icon="card.badge.icon"
+            v-if="badge"
+            :title="badge.title"
+            :icon="badge.icon"
             :loading="loading"
             :colors="{
               primary: `var(--color-figure-${colorBadge?.colorName})`,
@@ -95,7 +95,7 @@
         <div class="card-content">
           <div class="content">
             <template v-if="!loading">
-              {{ card.description }}
+              {{ description }}
             </template>
             <template v-else>
               <LoadingSkeleton
@@ -114,12 +114,13 @@
           </div>
         </div>
         <BadgeBar
-          v-if="card.tags?.length || card.topics?.length"
-          :badges="card.tags || card.topics"
+          v-if="hasTagsOrTopics"
+          :badges="tagsOrTopics"
           :loading="loading"
         />
+
         <div
-          v-if="card.links?.length || card.html_url"
+          v-if="hasLinksOrHtmlUrl"
           class="ctas-wrapper"
         >
           <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
@@ -142,11 +143,7 @@
           :loading="loading"
         />
       </div>
-      <LanguageBarV2
-        v-if="language"
-        :language="language"
-        style="width: 100%"
-      />
+      <v-slot />
     </div>
   </component>
 </template>
@@ -214,7 +211,7 @@ const hasCoverOrGraphs = computed(
   () => props.cover || props.graphs?.donut || props.graphs?.bar,
 )
 const hasTagsOrTopics = computed(
-  () => props.tags?.length || props.topics?.length,
+  () => props.badges?.length || props.topics?.length,
 )
 const tagsOrTopics = computed(() => props.tags || props.topics)
 const hasLinksOrHtmlUrl = computed(() => props.links?.length || props.html_url)

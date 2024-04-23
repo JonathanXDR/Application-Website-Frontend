@@ -2,7 +2,7 @@ import type { GetRepositoryIssues } from '../services/GitHub/Issue'
 import type { DateType } from './Date'
 
 export interface InfoType {
-  [key: string]: any
+  [key: string]: undefined | string | number | GetRepositoryIssues[] | DateType
   location?: string
   supervisor?: string
   department?: string

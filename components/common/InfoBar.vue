@@ -58,7 +58,7 @@ import type { ItemType } from '~/types/common/Item'
 const props = withDefaults(
   defineProps<{
     info: InfoType
-    date?: string
+    date?: string | null
     dateFormatOptions?: Intl.DateTimeFormatOptions
     dateNowKey?: 'created' | 'updated'
     loading?: boolean

@@ -8,10 +8,17 @@
       :card="language"
       icon-alignment="start"
       :icon-position="windowWidth < 930 ? 'top' : 'left'"
-      :badge="language.badge"
-      :language="language"
+      :badges="language.badges"
       :loading="false"
-    />
+    >
+      <LanguageBarV2
+        v-if="language"
+        :title="language.title"
+        :progress="language.progress"
+        :status="language.status"
+        style="width: 100%"
+      />
+    </CardItem>
   </ul>
 
   <!-- <div class="graph-gallery-container">
@@ -34,12 +41,12 @@ defineProps<{
   title: string
 }>()
 
-const items = reactive([
-  { id: 'productivity', label: 'Productivity' },
-  { id: 'gaming', label: 'Gaming' },
-  { id: 'production', label: 'Audio and video production' },
-  { id: 'development', label: 'Software development' },
-])
+// const items = reactive([
+//   { id: 'productivity', label: 'Productivity' },
+//   { id: 'gaming', label: 'Gaming' },
+//   { id: 'production', label: 'Audio and video production' },
+//   { id: 'development', label: 'Software development' },
+// ])
 
 const { tm } = useI18n()
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })

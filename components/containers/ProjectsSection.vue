@@ -213,7 +213,7 @@ const categorizeProject = (project: GetUserRepositories[0]) => {
 watch(
   pinnedProjects,
   (newPinnedProjects) => {
-    newPinnedProjects?.forEach((project: ListUserPinnedReposResponse) => {
+    newPinnedProjects?.forEach((project: GetUserPinnedRepositories) => {
       project.icon = {
         name: 'pin.fill',
         colors: {

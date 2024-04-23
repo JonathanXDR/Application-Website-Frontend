@@ -10,11 +10,11 @@
         @change="changeLanguage(selectedLocale)"
       >
         <option
-          v-for="locale in computedLocales"
-          :key="locale.code"
-          :value="locale.code"
+          v-for="computedLocale in computedLocales"
+          :key="computedLocale.code"
+          :value="computedLocale.code"
         >
-          {{ windowWidth < 900 ? locale.code.toUpperCase() : locale.name }}
+          {{ windowWidth < 900 ? computedLocale.code.toUpperCase() : computedLocale.name }}
         </option>
       </select>
       <Icon

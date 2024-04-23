@@ -16,6 +16,6 @@ export interface CardItemType extends ExtendedPropsType {
   }
   date?: {
     formatOptions: Intl.DateTimeFormatOptions
-    nowKey: 'created' | 'updated'
+    nowKey?: 'created' | 'updated'
   }
 }

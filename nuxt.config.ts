@@ -9,9 +9,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/eslint',
   ],
-  plugins: [
-    '~/plugins/api/github.server',
-  ],
+  plugins: ['~/plugins/api/github.server'],
   css: [
     '~/assets/css/main.css',
     '@fortawesome/fontawesome-svg-core/styles.css',

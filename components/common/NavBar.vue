@@ -85,7 +85,7 @@
 import type { ItemType } from '~/types/common/Item'
 import { type SectionType } from '~/types/common/Section'
 
-const { locale, tm, rt } = useI18n()
+const { tm } = useI18n()
 const items = computed<SectionType[]>(() => tm('components.common.NavBar'))
 const navOpen = ref(false)
 const navDisabled = ref(false)

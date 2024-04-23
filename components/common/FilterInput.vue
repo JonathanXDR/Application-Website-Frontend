@@ -87,9 +87,6 @@
 import type { ItemType } from '~/types/common/Item'
 
 const { tm } = useI18n()
-const items = computed<ItemType[]>(() =>
-  tm('components.common.FilterInput.items'),
-)
 const options = computed<ItemType[]>(() =>
   tm('components.common.FilterInput.sorts'),
 )
