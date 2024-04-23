@@ -16,7 +16,10 @@
         {{ link.title }}
       </template>
       <template v-else>
-        <LoadingSkeleton width="200px" height="15px" />
+        <LoadingSkeleton
+          width="200px"
+          height="15px"
+        />
       </template>
 
       <Icon
@@ -33,6 +36,7 @@
 
 <script setup lang="ts">
 import type { LinkType } from '~/types/common/Link'
+
 const props = withDefaults(
   defineProps<{
     links: LinkType[]
@@ -44,8 +48,8 @@ const props = withDefaults(
     links: () => [],
     divider: true,
     shouldAnimate: false,
-    loading: false
-  }
+    loading: false,
+  },
 )
 
 const { links } = toRefs(props)
@@ -67,7 +71,7 @@ const enhancedLinks = computed(() => {
     target:
       link.url?.startsWith('#') || link.url?.startsWith('/')
         ? '_self'
-        : '_blank'
+        : '_blank',
   }))
 })
 </script>

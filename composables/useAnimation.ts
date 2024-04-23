@@ -7,7 +7,7 @@ export const useAnimation = () => {
     }[]
   >('headerAnimations', () => [])
 
-  function setHeaderAnimation (headerAnimation: {
+  function setHeaderAnimation(headerAnimation: {
     element: HTMLElement
     class: string
     timeout: number
@@ -17,6 +17,6 @@ export const useAnimation = () => {
 
   return {
     headerAnimations,
-    setHeaderAnimation
+    setHeaderAnimation,
   }
 }

@@ -4,7 +4,7 @@ import type { ListRepoIssuesResponse } from '~/types/GitHub/Issue'
 import type {
   GetRepoResponse,
   ListPublicReposResponse,
-  ListUserReposResponse
+  ListUserReposResponse,
 } from '~/types/GitHub/Repository'
 import type { ListRepoTagsResponse } from '~/types/GitHub/Tag'
 
@@ -12,13 +12,13 @@ export default defineNuxtPlugin(() => {
   const { githubToken } = useRuntimeConfig()
 
   const octokit = new Octokit({
-    auth: githubToken
+    auth: githubToken,
   })
 
   const graphqlInstance = graphql.defaults({
     headers: {
-      authorization: `token ${githubToken}`
-    }
+      authorization: `token ${githubToken}`,
+    },
   })
 
   const listPublicRepositories = async (params: {
@@ -30,11 +30,12 @@ export default defineNuxtPlugin(() => {
       const response = await octokit.request('GET /repositories', {
         since,
         headers: {
-          accept: 'application/vnd.github+json'
-        }
+          accept: 'application/vnd.github+json',
+        },
       })
       return response.data
-    } catch (error) {
+    }
+    catch (error) {
       console.error('Error fetching public repositories:', error)
       throw error
     }
@@ -54,7 +55,7 @@ export default defineNuxtPlugin(() => {
       sort = 'full_name',
       direction = 'asc',
       perPage = 30,
-      page = 1
+      page = 1,
     } = params
 
     try {
@@ -66,11 +67,12 @@ export default defineNuxtPlugin(() => {
         per_page: perPage,
         page,
         headers: {
-          accept: 'application/vnd.github+json'
-        }
+          accept: 'application/vnd.github+json',
+        },
       })
       return response.data
-    } catch (error) {
+    }
+    catch (error) {
       console.error(`Error fetching repositories for user ${username}:`, error)
       throw error
     }
@@ -87,11 +89,12 @@ export default defineNuxtPlugin(() => {
         owner,
         repo,
         headers: {
-          accept: 'application/vnd.github+json'
-        }
+          accept: 'application/vnd.github+json',
+        },
       })
       return response.data
-    } catch (error) {
+    }
+    catch (error) {
       console.error(`Error fetching repository for owner ${owner}:`, error)
       throw error
     }
@@ -112,11 +115,12 @@ export default defineNuxtPlugin(() => {
         per_page: perPage,
         page,
         headers: {
-          accept: 'application/vnd.github+json'
-        }
+          accept: 'application/vnd.github+json',
+        },
       })
       return response.data
-    } catch (error) {
+    }
+    catch (error) {
       console.error(`Error fetching tags for repository ${repo}:`, error)
       throw error
     }
@@ -150,7 +154,7 @@ export default defineNuxtPlugin(() => {
       direction = 'desc',
       since,
       perPage = 30,
-      page = 1
+      page = 1,
     } = params
 
     try {
@@ -171,12 +175,13 @@ export default defineNuxtPlugin(() => {
           per_page: perPage,
           page,
           headers: {
-            accept: 'application/vnd.github+json'
-          }
-        }
+            accept: 'application/vnd.github+json',
+          },
+        },
       )
       return response.data
-    } catch (error) {
+    }
+    catch (error) {
       console.error(`Error fetching issues for repository ${repo}:`, error)
       throw error
     }
@@ -258,7 +263,7 @@ export default defineNuxtPlugin(() => {
         stargazers,
         issues,
         pullRequests,
-        updatedAt
+        updatedAt,
       } = item
 
       return {
@@ -276,20 +281,21 @@ export default defineNuxtPlugin(() => {
         pullRequests: pullRequests.nodes
           .filter((node: any) => !node.closed)
           .map((node: any) => node.url),
-        updated_at: updatedAt
+        updated_at: updatedAt,
       }
     }
 
     try {
       const response = await graphqlInstance<GraphQlQueryResponseData>(query)
       const pinnedRepositories = response.user.pinnedItems.edges.map(
-        (edge: any) => remapProps(edge.node)
+        (edge: any) => remapProps(edge.node),
       )
       return pinnedRepositories
-    } catch (error) {
+    }
+    catch (error) {
       console.error(
         `Error fetching pinned repositories for user ${username}:`,
-        error
+        error,
       )
       throw error
     }
@@ -302,7 +308,7 @@ export default defineNuxtPlugin(() => {
       getRepository,
       listRepositoryTags,
       listRepositoryIssues,
-      listPinnedRepositories
-    }
+      listPinnedRepositories,
+    },
   }
 })

@@ -1,8 +1,8 @@
 <template>
   <template v-if="!loading">
     <svg :style="styles">
-      <use :href="icon" /></svg
-  ></template>
+      <use :href="icon" /></svg>
+  </template>
 </template>
 
 <script setup lang="ts">
@@ -23,9 +23,9 @@ const props = withDefaults(
     colors: () => ({
       primary: 'currentColor',
       secondary: 'currentColor',
-      tertiary: 'currentColor'
-    })
-  }
+      tertiary: 'currentColor',
+    }),
+  },
 )
 
 const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`)
@@ -37,7 +37,7 @@ const getSpriteUrl = (size: 'small' | 'medium' | 'large') => {
 const styles = reactive({
   '--color-primary': props.colors.primary || 'currentColor',
   '--color-secondary': props.colors.secondary || 'currentColor',
-  '--color-tertiary': props.colors.tertiary || 'currentColor'
+  '--color-tertiary': props.colors.tertiary || 'currentColor',
 })
 </script>
 

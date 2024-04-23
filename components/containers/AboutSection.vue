@@ -1,6 +1,10 @@
 <template>
   <div class="info-container">
-    <svg xmlns="http://www.w3.org/2000/svg" width="411" height="411">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="411"
+      height="411"
+    >
       <defs>
         <clipPath id="image">
           <path
@@ -31,9 +35,9 @@
         description: $t('components.containers.about.description', {
           age: dates.age,
           apprenticeshipYear:
-            dates.apprenticeshipYear && dates.apprenticeshipYear + 1
+            dates.apprenticeshipYear && dates.apprenticeshipYear + 1,
         }),
-        links: links
+        links: links,
       }"
     />
   </div>
@@ -51,17 +55,17 @@ defineProps<{
 
 const { tm } = useI18n()
 const links = computed<LinkType[]>(() =>
-  tm('components.containers.about.links')
+  tm('components.containers.about.links'),
 )
 const dateItems = computed<DateItemType[]>(() =>
-  tm('components.containers.about.dates')
+  tm('components.containers.about.dates'),
 )
 const dates = ref<{
   age: number | undefined
   apprenticeshipYear: number | undefined
 }>({
   age: undefined,
-  apprenticeshipYear: undefined
+  apprenticeshipYear: undefined,
 })
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 
@@ -77,7 +81,7 @@ onMounted(async () => {
   dateItems.value.forEach((item: DateItemType) => {
     if (item.key in dates.value) {
       dates.value[item.key as keyof typeof dates.value] = calculateYears(
-        item.date
+        item.date,
       )
     }
   })

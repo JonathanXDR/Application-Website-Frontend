@@ -11,7 +11,7 @@
       :card="article"
       :icon-position="windowWidth < 900 ? 'top' : 'left'"
       :date-format-options="{
-        weekday: 'long'
+        weekday: 'long',
       }"
     />
   </ul>
@@ -26,7 +26,7 @@ defineProps<{
 
 const { tm } = useI18n()
 const articles = computed<CardItemType[]>(() =>
-  tm('components.containers.other')
+  tm('components.containers.other'),
 )
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 </script>

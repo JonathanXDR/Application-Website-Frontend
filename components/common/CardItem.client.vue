@@ -4,15 +4,25 @@
     :id="card.title?.toLowerCase().replace(/ /g, '-')"
     v-animation="{
       add: 'scroll-animation--on',
-      remove: 'scroll-animation--off'
+      remove: 'scroll-animation--off',
     }"
     :href="applyHover && card.links ? card.links[0].url : card.html_url"
     :class="['scroll-animation scroll-animation--off', variant, size]"
     target="_blank"
   >
-    <div v-if="cover || donutGraph || barGraph" class="card-cover-wrap">
-      <picture v-if="cover" class="card-cover">
-        <NuxtImg decoding="async" loading="lazy" :src="cover" />
+    <div
+      v-if="cover || donutGraph || barGraph"
+      class="card-cover-wrap"
+    >
+      <picture
+        v-if="cover"
+        class="card-cover"
+      >
+        <NuxtImg
+          decoding="async"
+          loading="lazy"
+          :src="cover"
+        />
       </picture>
       <div v-if="barGraph">
         <div class="group group-hispanic typography-body-tight">
@@ -21,7 +31,11 @@
             <span>Hispanic/Latinx</span>
           </p>
           <div class="bar-container">
-            <div class="bar" data-bar style="width: 27.1%"/>
+            <div
+              class="bar"
+              data-bar
+              style="width: 27.1%"
+            />
           </div>
         </div>
         <div class="group group-white typography-body-tight">
@@ -30,11 +44,18 @@
             <span>White</span>
           </p>
           <div class="bar-container">
-            <div class="bar" data-bar style="width: 39.7%"/>
+            <div
+              class="bar"
+              data-bar
+              style="width: 39.7%"
+            />
           </div>
         </div>
       </div>
-      <div v-if="donutGraph" class="container">
+      <div
+        v-if="donutGraph"
+        class="container"
+      >
         <div class="donut-container">
           <figure class="donut">
             <svg class="ac-graph-svg ac-graph-donut">
@@ -58,14 +79,14 @@
         <div class="wedge-legend typography-donut-label female">
           <span>
             <span class="semibold">Female</span>
-            <br >
+            <br>
             <span data-value>35.3</span>%
           </span>
         </div>
         <div class="wedge-legend typography-donut-label male">
           <span>
             <span class="semibold">Male</span>
-            <br >
+            <br>
             <span data-value>64.6</span>%
           </span>
         </div>
@@ -75,7 +96,7 @@
       class="details"
       :style="{
         'flex-direction': getFlexDirection(),
-        'align-items': getAlignItems()
+        'align-items': getAlignItems(),
       }"
     >
       <Icon
@@ -87,17 +108,17 @@
         :class="[
           'icon',
           {
-            'icon-large': variant === 'article' && size === 'large'
+            'icon-large': variant === 'article' && size === 'large',
           },
           {
-            'icon-xlarge': size === 'medium' || size === 'small'
+            'icon-xlarge': size === 'medium' || size === 'small',
           },
           {
-            'icon-xxlarge': variant === 'card' && size === 'large'
-          }
+            'icon-xxlarge': variant === 'card' && size === 'large',
+          },
         ]"
         :style="{
-          position: props.iconAbsolute ? 'absolute' : 'relative'
+          position: props.iconAbsolute ? 'absolute' : 'relative',
         }"
       />
       <div class="body">
@@ -106,7 +127,10 @@
             {{ card.eyebrow }}
           </template>
           <template v-else>
-            <LoadingSkeleton width="150px" height="15px" />
+            <LoadingSkeleton
+              width="150px"
+              height="15px"
+            />
           </template>
         </div>
         <div class="title-wrapper">
@@ -115,7 +139,10 @@
               {{ card.title || card.name }}
             </template>
             <template v-else>
-              <LoadingSkeleton width="200px" height="15px" />
+              <LoadingSkeleton
+                width="200px"
+                height="15px"
+              />
             </template>
           </div>
 
@@ -126,7 +153,7 @@
             :loading="loading"
             :colors="{
               primary: 'var(--color-figure-yellow)',
-              tertiary: 'var(--color-figure-yellow)'
+              tertiary: 'var(--color-figure-yellow)',
             }"
             border
             :hover="false"
@@ -138,7 +165,7 @@
             :loading="loading"
             :colors="{
               primary: `var(--color-figure-${colorBadge?.colorName})`,
-              tertiary: `var(--color-figure-${colorBadge?.colorName})`
+              tertiary: `var(--color-figure-${colorBadge?.colorName})`,
             }"
             hover
             border
@@ -150,9 +177,18 @@
               {{ card.description }}
             </template>
             <template v-else>
-              <LoadingSkeleton width="300px" height="15px" />
-              <LoadingSkeleton width="300px" height="15px" />
-              <LoadingSkeleton width="250px" height="15px" />
+              <LoadingSkeleton
+                width="300px"
+                height="15px"
+              />
+              <LoadingSkeleton
+                width="300px"
+                height="15px"
+              />
+              <LoadingSkeleton
+                width="250px"
+                height="15px"
+              />
             </template>
           </div>
         </div>
@@ -161,7 +197,10 @@
           :badges="card.tags || card.topics"
           :loading="loading"
         />
-        <div v-if="card.links?.length || card.html_url" class="ctas-wrapper">
+        <div
+          v-if="card.links?.length || card.html_url"
+          class="ctas-wrapper"
+        >
           <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
           <!-- <NuxtLink href="photos://" class="icon-wrapper button button-reduced button-neutral">
             <span class="icon-copy"> Open</span>
@@ -175,9 +214,9 @@
                   title: 'Mehr erfahren',
                   url: card.html_url,
                   icon: {
-                    name: 'chevron.right'
-                  }
-                }
+                    name: 'chevron.right',
+                  },
+                },
               ]
             "
             :loading="loading"
@@ -186,17 +225,17 @@
         </div>
         <InfoBar
           v-if="
-            card.info ||
-            card.created_at ||
-            card.updated_at ||
-            card.language ||
-            card.license ||
-            card.forks_count ||
-            card.network_count ||
-            card.watchers_count ||
-            card.stargazers_count ||
-            card.open_issues_count ||
-            card.subscribers_count
+            card.info
+              || card.created_at
+              || card.updated_at
+              || card.language
+              || card.license
+              || card.forks_count
+              || card.network_count
+              || card.watchers_count
+              || card.stargazers_count
+              || card.open_issues_count
+              || card.subscribers_count
           "
           :info="
             card.info || {
@@ -208,7 +247,7 @@
               stars: card.stargazers_count,
               issues: card.open_issues_count,
               subscribers: card.subscribers_count,
-              date: card.updated_at
+              date: card.updated_at,
             }
           "
           :date="card.updated_at"
@@ -217,7 +256,11 @@
           :loading="loading"
         />
       </div>
-      <LanguageBarV2 v-if="language" :language="language" style="width: 100%" />
+      <LanguageBarV2
+        v-if="language"
+        :language="language"
+        style="width: 100%"
+      />
     </div>
   </component>
 </template>
@@ -254,7 +297,7 @@ const props = withDefaults(
       return {
         year: 'numeric',
         month: 'long',
-        day: 'numeric'
+        day: 'numeric',
       }
     },
 
@@ -266,18 +309,18 @@ const props = withDefaults(
     hover: 'auto',
     donutGraph: false,
     barGraph: false,
-    loading: false
-  }
+    loading: false,
+  },
 )
 
 const { colorBadge } = useColor()
 
 const applyHover = computed(() => {
   return (
-    (props.hover === 'auto' &&
-      props.card.links &&
-      props.card.links.length === 1) ||
-    props.hover === 'true'
+    (props.hover === 'auto'
+    && props.card.links
+    && props.card.links.length === 1)
+    || props.hover === 'true'
   )
 })
 

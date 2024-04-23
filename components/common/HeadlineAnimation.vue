@@ -4,7 +4,7 @@
     v-animation="animationConfig"
     :class="[
       'section-header-headline typography-section-headline-bold large-12 animated-headline',
-      { 'cursor-blink': isCursorBlinking }
+      { 'cursor-blink': isCursorBlinking },
     ]"
   >
     <span
@@ -12,10 +12,13 @@
       :style="{ '--cursor-opacity': initialCursorOpacity }"
       data-initial-cursor
     >
-      <span class="cursor"/>
+      <span class="cursor" />
     </span>
 
-    <template v-for="(word, wordIndex) in words" :key="wordIndex">
+    <template
+      v-for="(word, wordIndex) in words"
+      :key="wordIndex"
+    >
       <span class="word">
         <span
           v-for="(char, letterIndex) in word"
@@ -40,7 +43,7 @@
         :style="getLetterStyle(getGlobalIndex(wordIndex, word.length))"
         :data-letter-index="getGlobalIndex(wordIndex, word.length)"
       >
-        {{ '&nbsp;' }}<span class="cursor"/>
+        {{ '&nbsp;' }}<span class="cursor" />
       </span>
     </template>
   </h2>
@@ -52,13 +55,13 @@ const words = computed(() =>
   props.title
     .trim()
     .split(' ')
-    .map(word => word.split(''))
+    .map(word => word.split('')),
 )
 const isCursorBlinking = ref(false)
 const initialCursorOpacity = ref('1')
 const currentLetterCount = ref(0)
 const originalStringLength = computed(
-  () => props.title.trim().replace(/ /g, '').length + words.value.length - 1
+  () => props.title.trim().replace(/ /g, '').length + words.value.length - 1,
 )
 const headline = ref<HTMLElement | null>(null)
 let cursorBlinkTimeout: number | NodeJS.Timeout | null = null
@@ -67,16 +70,17 @@ const animationConfig = {
   onViewportChange: (isInViewport: boolean) => {
     if (isInViewport) {
       window.addEventListener('scroll', updateLetterCount)
-    } else {
+    }
+    else {
       window.removeEventListener('scroll', updateLetterCount)
       clearTimeout(cursorBlinkTimeout as NodeJS.Timeout)
     }
-  }
+  },
 }
 
 const getLetterStyle = (index: number) => ({
   '--letter-opacity': index < currentLetterCount.value ? '1' : '0',
-  '--cursor-opacity': index === currentLetterCount.value - 1 ? '1' : '0'
+  '--cursor-opacity': index === currentLetterCount.value - 1 ? '1' : '0',
 })
 
 const getGlobalIndex = (wordIndex: number, letterIndex: number) => {
@@ -94,15 +98,15 @@ const updateLetterCount = () => {
   const scrollThreshold = 20
 
   switch (true) {
-    case scrollY > lastScrollY + scrollThreshold &&
-      currentLetterCount.value < originalStringLength.value:
+    case scrollY > lastScrollY + scrollThreshold
+      && currentLetterCount.value < originalStringLength.value:
       currentLetterCount.value++
       setCursorBlink(false)
       initialCursorOpacity.value = '0'
       lastScrollY = scrollY
       break
-    case scrollY < lastScrollY - scrollThreshold &&
-      currentLetterCount.value > 0:
+    case scrollY < lastScrollY - scrollThreshold
+      && currentLetterCount.value > 0:
       currentLetterCount.value--
       setCursorBlink(false)
       lastScrollY = scrollY

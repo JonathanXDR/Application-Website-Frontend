@@ -2,7 +2,11 @@
   <div class="text-center">
     <div class="loading-dots">
       <span style="display: inherit">
-        <span v-for="index in 3" :key="index" class="dot"/>
+        <span
+          v-for="index in 3"
+          :key="index"
+          class="dot"
+        />
       </span>
     </div>
   </div>

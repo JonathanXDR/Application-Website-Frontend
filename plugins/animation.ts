@@ -5,21 +5,23 @@ type AnimationOperations = {
   onViewportChange?: (isInViewport: boolean, el: HTMLElement) => void
 }
 
-export default defineNuxtPlugin(nuxtApp => {
+export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive('animation', {
-    mounted (el: HTMLElement, binding: { value: AnimationOperations }) {
+    mounted(el: HTMLElement, binding: { value: AnimationOperations }) {
       const toArray = (input: string | string[] | undefined): string[] => {
         if (Array.isArray(input)) {
           return input
-        } else if (typeof input === 'string') {
+        }
+        else if (typeof input === 'string') {
           return [input]
-        } else {
+        }
+        else {
           return []
         }
       }
 
       const observerCallback = (entries: IntersectionObserverEntry[]) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           const { add, remove, toggle, onViewportChange } = binding.value
           const isInViewport = entry.isIntersecting
 
@@ -27,7 +29,8 @@ export default defineNuxtPlugin(nuxtApp => {
             toArray(add).forEach(className => el.classList.add(className))
             toArray(remove).forEach(className => el.classList.remove(className))
             toArray(toggle).forEach(className => el.classList.add(className))
-          } else {
+          }
+          else {
             toArray(toggle).forEach(className => el.classList.remove(className))
           }
 
@@ -37,14 +40,14 @@ export default defineNuxtPlugin(nuxtApp => {
 
       const observerOptions = {
         threshold: 0.5,
-        rootMargin: '-100px 0px -200px 0px'
+        rootMargin: '-100px 0px -200px 0px',
       }
 
       const observer = new IntersectionObserver(
         observerCallback,
-        observerOptions
+        observerOptions,
       )
       observer.observe(el)
-    }
+    },
   })
 })

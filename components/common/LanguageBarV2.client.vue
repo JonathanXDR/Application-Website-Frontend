@@ -57,8 +57,8 @@ withDefaults(
   {
     language: () => {
       return {} as LanguageBarType
-    }
-  }
+    },
+  },
 )
 
 const status = [
@@ -66,7 +66,7 @@ const status = [
   'Processing',
   'Preparing to Ship',
   'Shipped',
-  'Delivered'
+  'Delivered',
 ]
 </script>
 

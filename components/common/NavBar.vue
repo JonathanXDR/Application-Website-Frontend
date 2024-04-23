@@ -6,12 +6,15 @@
     :disabled="navDisabled"
     @input="toggleNav()"
   >
-  <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking"/>
+  <div
+    id="ac-ln-sticky-placeholder"
+    class="ac-ln-sticking"
+  />
   <nav
     id="ac-localnav"
     :class="[
       'ac-localnav-dark ac-localnav-noborder ac-ln-sticking',
-      { 'nav-open': navOpen }
+      { 'nav-open': navOpen },
     ]"
   >
     <div class="ac-ln-wrapper">
@@ -21,7 +24,10 @@
       />
       <div class="ac-ln-content">
         <div class="ac-ln-title">
-          <NuxtLink to="/" class="ac-ln-title">
+          <NuxtLink
+            to="/"
+            class="ac-ln-title"
+          >
             <Logo />
           </NuxtLink>
           <DevBadge />
@@ -38,7 +44,7 @@
                   :to="item.route"
                   :class="[
                     'ac-ln-menu-link',
-                    { current: index === currentSectionIndex }
+                    { current: index === currentSectionIndex },
                   ]"
                 >
                   {{ item.name }}
@@ -48,8 +54,11 @@
           </div>
           <div class="ac-ln-actions">
             <div class="ac-ln-action ac-ln-action-menucta">
-              <label for="ac-ln-menustate" class="ac-ln-menucta">
-                <span class="ac-ln-menucta-chevron"/>
+              <label
+                for="ac-ln-menustate"
+                class="ac-ln-menucta"
+              >
+                <span class="ac-ln-menucta-chevron" />
               </label>
             </div>
             <SegmentNav
@@ -66,7 +75,10 @@
       </div>
     </div>
   </nav>
-  <label id="ac-ln-curtain" for="ac-ln-menustate"/>
+  <label
+    id="ac-ln-curtain"
+    for="ac-ln-menustate"
+  />
 </template>
 
 <script setup lang="ts">
@@ -90,32 +102,32 @@ const themeItems = computed<ItemType[]>(() => [
     category: 'theme',
     label: 'Light',
     icon: {
-      name: 'sun.max.fill'
-    }
+      name: 'sun.max.fill',
+    },
   },
   {
     id: 'dark',
     category: 'theme',
     label: 'Dark',
     icon: {
-      name: 'moon.fill'
-    }
+      name: 'moon.fill',
+    },
   },
   {
     id: 'auto',
     category: 'theme',
     label: 'Auto',
     icon: {
-      name: 'circle.lefthalf.filled'
-    }
-  }
+      name: 'circle.lefthalf.filled',
+    },
+  },
 ])
 
 const initHeaderAnimations = () => {
   const animation = {
     element: document.querySelector('.ac-ln-background') as HTMLElement,
     class: 'ac-ln-background-transition',
-    timeout: 500
+    timeout: 500,
   }
   const { setHeaderAnimation } = useAnimation()
   setHeaderAnimation(animation)
@@ -140,7 +152,7 @@ const handleScroll = () => {
 }
 
 const updateAnimations = () => {
-  headerAnimations.value.forEach(element => {
+  headerAnimations.value.forEach((element) => {
     element.element.classList.remove(element.class)
 
     setTimeout(() => {
