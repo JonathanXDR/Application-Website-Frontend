@@ -89,7 +89,7 @@ import type { LinkType } from '~/types/common/Link'
 import type { RibbonBar } from '~/types/common/RibbonBar'
 
 withDefaults(defineProps<RibbonBar>(), {
-  loading: false
+  loading: false,
 })
 
 const { $listRepositoryTags } = useNuxtApp()

@@ -38,7 +38,7 @@
           class="viewer-sizenav-link"
           :style="{
             minWidth:
-              props.label !== 'icon' ? '48px' : `${height - outerPadding * 2}px`
+              props.label !== 'icon' ? '48px' : `${height - outerPadding * 2}px`,
           }"
         >
           <span
@@ -47,11 +47,11 @@
             <span
               class="viewer-sizenav-label"
               :style="{
-                'padding': padding,
-                'color': grayLabels
+                padding: padding,
+                color: grayLabels
                   ? 'var(--color-fill-gray-secondary)'
                   : 'var(--aap-icon-color)',
-                fontSize: `${fontSize}px`
+                fontSize: `${fontSize}px`,
               }"
             >
               <Icon

@@ -43,8 +43,8 @@
           :date="{
             formatOptions: {
               year: 'numeric',
-              month: 'long'
-            }
+              month: 'long',
+            },
           }"
         />
       </ul>
@@ -202,8 +202,8 @@ const updateCurrentIndex = (index: number) => {
 }
 
 const categorizeProject = (project: GetUserRepositories[0]) => {
-  const schoolProjectPattern =
-    /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/
+  const schoolProjectPattern
+    = /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/
   const category = schoolProjectPattern.test(project.name)
     ? 'school'
     : 'personal'
@@ -232,7 +232,7 @@ watchEffect(() => {
   filteredProjects.value.map(categorizeProject).forEach((project) => {
     const category = project.category as keyof Projects
     projects[category].push(
-      project as GetUserRepositories[0] & CardItemType & { category: string }
+      project as GetUserRepositories[0] & CardItemType & { category: string },
     )
   })
 })

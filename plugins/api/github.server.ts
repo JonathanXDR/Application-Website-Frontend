@@ -4,7 +4,7 @@ import type { GetRepositoryIssues } from '~/types/services/GitHub/Issue'
 import type {
   GetOwnerRepository,
   GetPublicRepositories,
-  GetUserRepositories
+  GetUserRepositories,
 } from '~/types/services/GitHub/Repository'
 import type { GetRepositoryTags } from '~/types/services/GitHub/Tag'
 

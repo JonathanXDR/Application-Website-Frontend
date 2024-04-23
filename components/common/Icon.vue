@@ -16,8 +16,8 @@ const props = withDefaults(defineProps<IconType>(), {
   colors: () => ({
     primary: 'currentColor',
     secondary: 'currentColor',
-    tertiary: 'currentColor'
-  })
+    tertiary: 'currentColor',
+  }),
 })
 
 const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`)

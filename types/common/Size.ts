@@ -3,5 +3,5 @@ export enum SizeType {
   small = 'small',
   medium = 'medium',
   large = 'large',
-  xlarge = 'xlarge'
+  xlarge = 'xlarge',
 }

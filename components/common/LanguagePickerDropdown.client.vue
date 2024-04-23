@@ -1,5 +1,8 @@
 <template>
-  <div class="language-picker-dropdown" :style="{ fontSize: `${fontSize}px` }">
+  <div
+    class="language-picker-dropdown"
+    :style="{ fontSize: `${fontSize}px` }"
+  >
     <div class="dropdown-container legacy-form">
       <select
         v-model="selectedLocale"
@@ -30,8 +33,8 @@ const props = withDefaults(
     size?: Omit<SizeType, 'xlarge'>
   }>(),
   {
-    size: 'small' as SizeType
-  }
+    size: 'small' as SizeType,
+  },
 )
 
 const { changeLanguage } = useLanguage()

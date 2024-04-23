@@ -4,20 +4,20 @@
     <!-- <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" /> -->
     <CardItem
       v-for="(article, index) in articles"
+      v-for="(article, index) in articles"
+      :key="index"
       :key="index"
       variant="article"
       :loading="false"
       :size="windowWidth < 900 ? 'small' : 'medium'"
-      v-for="(article, index) in articles"
-      :key="index"
       :icon="{
         name: article.icon?.name,
-        position: windowWidth < 900 ? 'top' : 'left'
+        position: windowWidth < 900 ? 'top' : 'left',
       }"
       :date="{
         formatOptions: {
-          weekday: 'long'
-        }
+          weekday: 'long',
+        },
       }"
     />
   </ul>

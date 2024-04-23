@@ -12,8 +12,8 @@
       :date="{
         formatOptions: {
           year: 'numeric',
-          month: 'long'
-        }
+          month: 'long',
+        },
       }"
     />
   </ul>

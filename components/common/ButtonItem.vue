@@ -24,8 +24,8 @@ withDefaults(
     as: 'button',
     variant: 'primary',
     size: 'medium' as SizeType,
-    borderRadius: 'reduced'
-  }
+    borderRadius: 'reduced',
+  },
 )
 </script>
 

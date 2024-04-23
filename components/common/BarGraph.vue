@@ -6,7 +6,11 @@
         <span>Hispanic/Latinx</span>
       </p>
       <div class="bar-container">
-        <div class="bar" data-bar style="width: 27.1%"></div>
+        <div
+          class="bar"
+          data-bar
+          style="width: 27.1%"
+        />
       </div>
     </div>
     <div class="group group-white typography-body-tight">
@@ -15,7 +19,11 @@
         <span>White</span>
       </p>
       <div class="bar-container">
-        <div class="bar" data-bar style="width: 39.7%"></div>
+        <div
+          class="bar"
+          data-bar
+          style="width: 39.7%"
+        />
       </div>
     </div>
   </div>
