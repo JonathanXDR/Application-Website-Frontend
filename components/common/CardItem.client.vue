@@ -23,7 +23,7 @@
         :colors="icon.colors"
         :class="iconClasses"
         :style="{
-          position: props.iconAbsolute ? 'absolute' : 'relative'
+          position: props.iconAbsolute ? 'absolute' : 'relative',
         }"
       />
       <div class="body" :style="{ alignItems: alignItems }">
@@ -32,7 +32,10 @@
             {{ card.eyebrow }}
           </template>
           <template v-else>
-            <LoadingSkeleton width="150px" height="15px" />
+            <LoadingSkeleton
+              width="150px"
+              height="15px"
+            />
           </template>
         </div>
         <div class="title-wrapper">
@@ -41,7 +44,10 @@
               {{ card.title || card.name }}
             </template>
             <template v-else>
-              <LoadingSkeleton width="200px" height="15px" />
+              <LoadingSkeleton
+                width="200px"
+                height="15px"
+              />
             </template>
           </div>
 
@@ -52,7 +58,7 @@
             :loading="loading"
             :colors="{
               primary: 'var(--color-figure-yellow)',
-              tertiary: 'var(--color-figure-yellow)'
+              tertiary: 'var(--color-figure-yellow)',
             }"
             border
             :hover="false"
@@ -64,7 +70,7 @@
             :loading="loading"
             :colors="{
               primary: `var(--color-figure-${colorBadge?.colorName})`,
-              tertiary: `var(--color-figure-${colorBadge?.colorName})`
+              tertiary: `var(--color-figure-${colorBadge?.colorName})`,
             }"
             hover
             border
@@ -76,9 +82,18 @@
               {{ card.description }}
             </template>
             <template v-else>
-              <LoadingSkeleton width="300px" height="15px" />
-              <LoadingSkeleton width="300px" height="15px" />
-              <LoadingSkeleton width="250px" height="15px" />
+              <LoadingSkeleton
+                width="300px"
+                height="15px"
+              />
+              <LoadingSkeleton
+                width="300px"
+                height="15px"
+              />
+              <LoadingSkeleton
+                width="250px"
+                height="15px"
+              />
             </template>
           </div>
         </div>
@@ -87,7 +102,10 @@
           :badges="card.tags || card.topics"
           :loading="loading"
         />
-        <div v-if="card.links?.length || card.html_url" class="ctas-wrapper">
+        <div
+          v-if="card.links?.length || card.html_url"
+          class="ctas-wrapper"
+        >
           <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
           <!-- <NuxtLink href="photos://" class="icon-wrapper button button-reduced button-neutral">
             <span class="icon-copy"> Open</span>
@@ -108,7 +126,11 @@
           :loading="loading"
         />
       </div>
-      <LanguageBarV2 v-if="language" :language="language" style="width: 100%" />
+      <LanguageBarV2
+        v-if="language"
+        :language="language"
+        style="width: 100%"
+      />
     </div>
   </component>
 </template>

@@ -50,23 +50,24 @@ const animateLine = () => {
   const center = window.innerHeight / 2
   const boundaries = path.value?.getBoundingClientRect()
 
-  const percentage =
-    (center - (boundaries?.top || 0)) / (boundaries?.height || 1)
+  const percentage
+    = (center - (boundaries?.top || 0)) / (boundaries?.height || 1)
   const drawLength = percentage > 0 ? (props.height ?? 0) * percentage : 0
 
-  strokeDashoffset.value =
-    drawLength < (props.height ?? 0) ? (props.height ?? 0) - drawLength : 0
+  strokeDashoffset.value
+    = drawLength < (props.height ?? 0) ? (props.height ?? 0) - drawLength : 0
 }
 
 onMounted(() => {
   initPath()
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         window.addEventListener('scroll', animateLine)
         window.addEventListener('resize', initPath)
-      } else {
+      }
+      else {
         window.removeEventListener('scroll', animateLine)
         window.removeEventListener('resize', initPath)
       }

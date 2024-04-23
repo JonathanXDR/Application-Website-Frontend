@@ -4,8 +4,14 @@
     :class="['viewer-sizenav all-access-pass__background', { shadow }]"
     :style="containerStyle"
   >
-    <div v-if="selectedItemElement" class="viewer-sizenav__bubble">
-      <div class="viewer-sizenav__bubble-inner" :style="bubbleStyle"/>
+    <div
+      v-if="selectedItemElement"
+      class="viewer-sizenav__bubble"
+    >
+      <div
+        class="viewer-sizenav__bubble-inner"
+        :style="bubbleStyle"
+      />
     </div>
     <ul
       class="viewer-sizenav-items"
@@ -41,8 +47,8 @@
             <span
               class="viewer-sizenav-label"
               :style="{
-                padding: padding,
-                color: grayLabels
+                'padding': padding,
+                'color': grayLabels
                   ? 'var(--color-fill-gray-secondary)'
                   : 'var(--aap-icon-color)',
                 fontSize: `${fontSize}px`
@@ -89,15 +95,15 @@ const props = withDefaults(
     shadow: false,
     grayLabels: false,
     gap: '0px',
-    padding: props => {
+    padding: (props) => {
       return props.label !== 'icon' ? '0 8px' : '0'
     },
     outerPadding: 4,
-    selectedItem: props => {
+    selectedItem: (props) => {
       return props.items[0].id
     },
-    onSelect: () => {}
-  }
+    onSelect: () => {},
+  },
 )
 
 const selectedItem = ref<string>(props.selectedItem)
@@ -114,14 +120,14 @@ const setItemRef = (el: HTMLElement | null) => {
 const updateBubblePosition = () => {
   isTransitioning.value = true
   const selectedItemIndex = props.items.findIndex(
-    item => item.id === selectedItem.value
+    item => item.id === selectedItem.value,
   )
   selectedItemElement.value = itemElements.value[selectedItemIndex]
   if (selectedItemElement.value) {
     bubbleStyle.value = {
       '--bubble-position': `${selectedItemElement?.value?.offsetLeft}px`,
       '--bubble-width': `${selectedItemElement?.value?.offsetWidth}px`,
-      opacity: '1'
+      'opacity': '1',
     }
   }
 
@@ -135,7 +141,7 @@ const height = computed(() => {
     xsmall: 32,
     small: 40,
     medium: 48,
-    large: 56
+    large: 56,
   }
   return sizes[props.size || 'medium']
 })
@@ -145,25 +151,25 @@ const fontSize = computed(() => {
     xsmall: 12,
     small: 14,
     medium: 16,
-    large: 18
+    large: 18,
   }
   return sizes[props.size || 'medium']
 })
 
 const containerStyle = computed(() => ({
-  width: `fit-content`,
+  'width': `fit-content`,
   '--sizenav-width': `${navContainer.value?.offsetWidth}px`,
   '--sizenav-outer-padding': `${props?.outerPadding}px`,
-  '--aap-min-height': `${height.value}px`
+  '--aap-min-height': `${height.value}px`,
 }))
 
 watch(
   selectedItem,
-  newItem => {
+  (newItem) => {
     props.onSelect(newItem)
     updateBubblePosition()
   },
-  { immediate: true }
+  { immediate: true },
 )
 
 onMounted(updateBubblePosition)

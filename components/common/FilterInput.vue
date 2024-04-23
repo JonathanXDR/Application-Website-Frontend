@@ -48,7 +48,10 @@
               </label>
             </div>
             <div class="filter-delete-button-wrapper">
-              <button v-if="open" class="filter-delete-button">
+              <button
+                v-if="open"
+                class="filter-delete-button"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -85,10 +88,10 @@ import type { ItemType } from '~/types/common/Item'
 
 const { tm } = useI18n()
 const items = computed<ItemType[]>(() =>
-  tm('components.common.FilterInput.items')
+  tm('components.common.FilterInput.items'),
 )
 const options = computed<ItemType[]>(() =>
-  tm('components.common.FilterInput.sorts')
+  tm('components.common.FilterInput.sorts'),
 )
 const open = ref(false)
 

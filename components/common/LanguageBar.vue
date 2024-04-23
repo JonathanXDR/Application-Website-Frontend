@@ -11,7 +11,10 @@
       <div class="group total-column-1">
         <div class="bars-container">
           <div class="bar-content-container bar-mx">
-            <div class="bar-mask" :style="`width: ${language.progress}%`">
+            <div
+              class="bar-mask"
+              :style="`width: ${language.progress}%`"
+            >
               <hr
                 class="bar bar-1"
                 style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1"
@@ -27,7 +30,7 @@
                 <span class="badge-value">7.6</span>
                 <span class="badge-unit">%</span>
               </div>
-              <span class="badge-caption"/>
+              <span class="badge-caption" />
             </div>
           </figure>
         </div>
@@ -46,8 +49,8 @@ withDefaults(
   {
     language: () => {
       return {} as LanguageBarType
-    }
-  }
+    },
+  },
 )
 </script>
 

@@ -3,7 +3,7 @@
     class="loading-skeleton"
     :style="{
       width: width,
-      height: height
+      height: height,
     }"
   />
 </template>

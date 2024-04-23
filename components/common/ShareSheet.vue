@@ -30,7 +30,7 @@ defineProps<ShareSheet>()
 
 const { tm } = useI18n()
 const links = computed<FaLinkType[]>(() =>
-  tm('components.common.ShareSheet.links')
+  tm('components.common.ShareSheet.links'),
 )
 </script>
 

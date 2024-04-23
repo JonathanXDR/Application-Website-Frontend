@@ -32,7 +32,7 @@ defineProps<{
 
 const { tm } = useI18n()
 const articles = computed<CardItemType[]>(() =>
-  tm('components.containers.other')
+  tm('components.containers.other'),
 )
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 </script>

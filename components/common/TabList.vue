@@ -1,8 +1,15 @@
 <template>
   <div class="tablist-wrapper">
     <div class="tabnav">
-      <ul role="tablist" class="tabnav-items">
-        <li v-for="(item, index) in items" :key="index" class="tabnav-item">
+      <ul
+        role="tablist"
+        class="tabnav-items"
+      >
+        <li
+          v-for="(item, index) in items"
+          :key="index"
+          class="tabnav-item"
+        >
           <input
             :id="`tab-${item.id}`"
             v-model="selectedTab"
@@ -11,17 +18,32 @@
             :value="item.id"
             @change="() => emitChange(item.id)"
           >
-          <label :for="`tab-${item.id}`" class="tabnav-link">
+          <label
+            :for="`tab-${item.id}`"
+            class="tabnav-link"
+          >
             {{ item.label }}
           </label>
         </li>
       </ul>
       <div class="tabnav-paddles">
-        <button class="tabnav-paddle tabnav-paddle-left" disabled>
-          <Icon name="chevron.left" class="icon icon-small" />
+        <button
+          class="tabnav-paddle tabnav-paddle-left"
+          disabled
+        >
+          <Icon
+            name="chevron.left"
+            class="icon icon-small"
+          />
         </button>
-        <button class="tabnav-paddle tabnav-paddle-right" disabled>
-          <Icon name="chevron.right" class="icon icon-small" />
+        <button
+          class="tabnav-paddle tabnav-paddle-right"
+          disabled
+        >
+          <Icon
+            name="chevron.right"
+            class="icon icon-small"
+          />
         </button>
       </div>
     </div>
@@ -31,7 +53,7 @@
 <script setup>
 const props = defineProps({
   items: Array,
-  activeTabId: String
+  activeTabId: String,
 })
 
 const emit = defineEmits(['change'])
@@ -39,12 +61,12 @@ const selectedTab = ref(props.activeTabId)
 
 watch(
   () => props.activeTabId,
-  newVal => {
+  (newVal) => {
     selectedTab.value = newVal
-  }
+  },
 )
 
-const emitChange = id => {
+const emitChange = (id) => {
   emit('change', id)
 }
 
@@ -339,7 +361,7 @@ const emitChange = id => {
 /* ------------------------------ tabnav-paddle ----------------------------- */
 
 .tabnav-paddle {
-  font-size: 17px;  
+  font-size: 17px;
   font-weight: 300;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -489,7 +511,7 @@ const emitChange = id => {
 
 .tabnav-link {
   cursor: pointer;
-  font-size: 17px;  
+  font-size: 17px;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -504,7 +526,7 @@ const emitChange = id => {
 }
 
 .tabnav-link {
-  font-size: 21px;  
+  font-size: 21px;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
@@ -532,7 +554,7 @@ const emitChange = id => {
 
 @media only screen and (max-width: 1068px) {
   .tabnav-link {
-    font-size: 19px;    
+    font-size: 19px;
     font-weight: 600;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;
@@ -541,7 +563,7 @@ const emitChange = id => {
 
 @media only screen and (max-width: 734px) {
   .tabnav-link {
-    font-size: 17px;    
+    font-size: 17px;
     font-weight: 600;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
       'Helvetica', 'Arial', sans-serif;

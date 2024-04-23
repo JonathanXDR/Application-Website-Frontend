@@ -16,6 +16,6 @@ export const useLanguage = () => {
 
   return {
     availableLocales,
-    changeLanguage
+    changeLanguage,
   }
 }
