@@ -6,6 +6,7 @@
       v-if="shouldShow('ribbon')"
       :loading="false"
     />
+    <Flash />
   </header>
   <main>
     <slot />
@@ -16,10 +17,10 @@
 </template>
 
 <script setup lang="ts">
-import { SpeedInsights } from '@vercel/speed-insights/vue'
-import FooterCompact from '~/components/common/Footer/Compact.vue'
-import FooterFull from '~/components/common/Footer/Full.vue'
-import svgFaviconDev from '~/public/img/dev/favicon-dev.svg?raw'
+import { SpeedInsights } from '@vercel/speed-insights/vue';
+import FooterCompact from '~/components/common/Footer/Compact.vue';
+import FooterFull from '~/components/common/Footer/Full.vue';
+import svgFaviconDev from '~/public/img/dev/favicon-dev.svg?raw';
 
 const route = useRoute()
 const { colorBadge, randomizeColor } = useColor()
