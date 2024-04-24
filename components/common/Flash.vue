@@ -1,28 +1,32 @@
 <template>
   <aside
     data-v-0ca053f3=""
-    aria-label="important"
-    class="important"
+    :aria-label="variant"
+    :class="variant"
+    :style="{
+      backgroundColor: `var(--color-aside-${variant}-background)`,
+      borderColor: `var(--color-aside-${variant}-border)`,
+      boxShadow: `0 0 1px 0 var(--color-aside-${variant}-border) inset, 0 0 1px 0 var(--color-aside-${variant}-border)`,
+    }"
   >
     <p
       data-v-0ca053f3=""
       class="label"
+      :style="{
+        color: `var(--color-aside-${variant})`,
+      }"
     >
-      Important
+      {{ title || variant }}
     </p>
     <p data-v-0ca053f3="">
-      Using this API requires attribution. See <a
-        href="https://developer.apple.com/weatherkit/data-source-attribution/"
-        class="inline-link"
-        data-v-0ca053f3=""
-      >WeatherKit - Data Sources</a> to learn more.
+      {{ description }}
     </p>
   </aside>
 </template>
 
 <script setup lang="ts">
 withDefaults(defineProps<{
-  variant: 'deprecated' | 'experiment' | 'important' | 'note' | 'tip' | 'warning'
+  variant?: 'deprecated' | 'experiment' | 'important' | 'note' | 'tip' | 'warning'
   title?: string
   description: string
 }>(), {
@@ -91,16 +95,6 @@ aside .label[data-v-0ca053f3] {
 
 aside .label+[data-v-0ca053f3] {
   margin-top: var(--spacing-stacked-margin-small);
-}
-
-aside.important[data-v-0ca053f3] {
-  background-color: var(--color-aside-important-background);
-  border-color: var(--color-aside-important-border);
-  box-shadow: 0 0 1px 0 var(--color-aside-important-border) inset, 0 0 1px 0 var(--color-aside-important-border);
-}
-
-aside.important .label[data-v-0ca053f3] {
-  color: var(--color-aside-important);
 }
 
 /*! CSS Used from: https://developer.apple.com/tutorials/css/minimized.2cbd71d2.css */

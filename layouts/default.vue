@@ -6,7 +6,11 @@
       v-if="shouldShow('ribbon')"
       :loading="false"
     />
-    <Flash />
+    <Flash
+      variant="important"
+      title="Test"
+      description="This is a Test"
+    />
   </header>
   <main>
     <slot />
