@@ -80,9 +80,11 @@ aside .label {
 
 aside .label + .description {
   margin-top: var(--spacing-stacked-margin-small);
+  margin-inline: var(--spacing-stacked-margin-small);
 }
 
 aside {
   margin-top: var(--spacing-stacked-margin-xlarge);
+  margin-inline: var(--spacing-stacked-margin-xlarge);
 }
 </style>
