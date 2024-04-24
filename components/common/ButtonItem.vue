@@ -221,7 +221,7 @@ button:focus {
   border-radius: 980px;
   background: #0071e3;
   color: #fff;
-  border-color: transparent
+  border-color: transparent;
   --sk-button-margin-horizontal: 14px;
   --sk-button-margin-vertical: 14px;
 }
@@ -273,7 +273,7 @@ button:focus {
 .theme-dark .button {
   background: #0071e3;
   color: #fff;
-  border-color: transparent
+  border-color: transparent;
 }
 .theme-dark .button:hover,
 .theme-dark .button:focus {
@@ -372,7 +372,7 @@ button:focus {
   border-radius: 980px;
   background: #0071e3;
   color: #fff;
-  border-color: transparent
+  border-color: transparent;
   --sk-button-margin-horizontal: 14px;
   --sk-button-margin-vertical: 14px;
 }
@@ -409,7 +409,7 @@ button:focus {
 .button-secondary-alpha {
   background: rgba(0, 0, 0, 0.08);
   color: #000;
-  border-color: transparent
+  border-color: transparent;
 }
 .button-secondary-alpha:hover,
 .button-secondary-alpha:focus {
@@ -449,7 +449,7 @@ button:focus {
 .theme-dark .button {
   background: #0071e3;
   color: #fff;
-  border-color: transparent
+  border-color: transparent;
 }
 .theme-dark .button:hover,
 .theme-dark .button:focus {
@@ -474,7 +474,7 @@ button:focus {
 .theme-dark .button-secondary-alpha {
   background: rgba(255, 255, 255, 0.2);
   color: #fff;
-  border-color: transparent
+  border-color: transparent;
 }
 .theme-dark .button-secondary-alpha:hover,
 .theme-dark .button-secondary-alpha:focus {
@@ -515,7 +515,7 @@ button:focus {
   border-radius: 980px;
   background: #0071e3;
   color: #fff;
-  border-color: transparent
+  border-color: transparent;
   --sk-button-margin-horizontal: 14px;
   --sk-button-margin-vertical: 14px;
 }
@@ -552,7 +552,7 @@ button:focus {
 .button-secondary-alpha {
   background: rgba(0, 0, 0, 0.08);
   color: #000;
-  border-color: transparent
+  border-color: transparent;
 }
 .button-secondary-alpha:hover,
 .button-secondary-alpha:focus {
