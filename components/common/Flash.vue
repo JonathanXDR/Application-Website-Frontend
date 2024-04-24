@@ -1,6 +1,5 @@
 <template>
   <aside
-    data-v-0ca053f3=""
     :aria-label="variant"
     :class="variant"
     :style="{
@@ -10,7 +9,6 @@
     }"
   >
     <p
-      data-v-0ca053f3=""
       class="label"
       :style="{
         color: `var(--color-aside-${variant})`,
@@ -18,7 +16,7 @@
     >
       {{ title || variant }}
     </p>
-    <p data-v-0ca053f3="">
+    <p class="description">
       {{ description }}
     </p>
   </aside>
@@ -35,47 +33,14 @@ withDefaults(defineProps<{
 </script>
 
 <style scoped>
-a,
-  a:link,
-  a:visited {
-    color: #000;
-    text-decoration: none;
-  }
-
 p+* {
   margin-top: var(--spacing-stacked-margin-large);
 }
 
-a {
-  color: var(--colors-link, var(--color-link));
-}
-
-a:link,
-a:visited {
-  text-decoration: none;
-}
-
-a.inline-link,
-a:hover {
-  text-decoration: underline;
-  text-underline-position: under;
-}
-
-a:active {
-  text-decoration: none;
-}
-
-[data-v-21735da6] :focus:not(input):not(textarea):not(select) {
-  outline: none;
-}
-
-.fromkeyboard[data-v-21735da6] :focus:not(input):not(textarea):not(select) {
-  outline: 4px solid var(--color-focus-color);
-  outline-offset: 1px;
-}
-
-/*! CSS Used from: https://developer.apple.com/tutorials/css/624.a121bb2a.css */
-aside[data-v-0ca053f3] {
+aside {
+  --spacing-stacked-margin-small: 0.4em;
+  --spacing-stacked-margin-large: 0.8em;
+  --spacing-stacked-margin-xlarge: calc(var(--spacing-stacked-margin-large)*2);
   -moz-column-break-inside: avoid;
   break-inside: avoid;
   border-radius: var(--aside-border-radius, 15px);
@@ -85,7 +50,7 @@ aside[data-v-0ca053f3] {
   text-align: start;
 }
 
-aside .label[data-v-0ca053f3] {
+aside .label {
   font-size: 1rem;
   line-height: 1.5294417647;
   font-weight: 600;
@@ -93,12 +58,11 @@ aside .label[data-v-0ca053f3] {
   font-family: var(--typography-html-font, "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif);
 }
 
-aside .label+[data-v-0ca053f3] {
+aside .label+.description {
   margin-top: var(--spacing-stacked-margin-small);
 }
 
-/*! CSS Used from: https://developer.apple.com/tutorials/css/minimized.2cbd71d2.css */
-[data-v-15d7e6ba] *+aside {
+aside {
   margin-top: var(--spacing-stacked-margin-xlarge);
 }
 </style>
