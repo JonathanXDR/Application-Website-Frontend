@@ -1,4 +1,8 @@
 <template>
+  <DialogModal
+    title="Test"
+    description="This is a test"
+  />
   <section
     v-for="(section, index) in sections"
     :id="section.id"
@@ -15,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import type { SectionType } from '~/types/common/Section';
+import type { SectionType } from '~/types/common/Section'
 
 definePageMeta({
   header: true,
