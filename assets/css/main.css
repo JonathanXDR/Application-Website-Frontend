@@ -43,46 +43,6 @@ body main ::-webkit-scrollbar-track {
 }
 
 .light {
-  /* Menu */
-  --color-menu: rgba(255, 255, 255, 0.72);
-  --color-menu-border: rgba(0, 0, 0, 0.16);
-  --color-mobile-border: rgba(0, 0, 0, 0.181818);
-  --color-mobile-border-opacity: rgba(0, 0, 0, 0.285714);
-
-  /* Cards */
-  --color-nav-background: rgba(0, 0, 0, 0.08);
-  --color-dropdown-background: rgba(255, 255, 255, 0.8);
-  --color-dropdown-background-disabled: rgba(0, 0, 0, 0.01);
-  --color-tutorials-overview-content: #f5f5f7;
-  --color-tutorials-overview-content-alt: #a1a1a6;
-  --color-tutorials-overview-eyebrow: #a1a1a6;
-  --color-tutorials-overview-icon: #a1a1a6;
-  --color-tutorials-overview-navigation-link-active: #f5f5f7;
-  --color-tutorials-overview-navigation-link-hover: #a1a1a6;
-  --color-welcome-technologies-card-accent: var(--color-figure-blue);
-  --color-card-shadow: rgba(0, 0, 0, 0.04);
-
-  /* Skeleton */
-  --base-color: #ebebeb;
-  --highlight-color: #f5f5f5;
-
-  /* All Access Pass */
-  --aap-background-color: rgb(232 232 237/70%);
-  --aap-inner-glow-color: rgb(0 0 0/11%);
-  --aap-text-color: rgb(29, 29, 31);
-  --aap-accent-color: var(--color-fill-blue);
-  --aap-icon-color: var(--color-fill-gray);
-  --aap-icon-color-alt: rgb(245, 245, 247);
-  --aap-active-fill-color: #29292a;
-  --aap-inactive-fill-color: #a1a1a2;
-  --aap-button-hover: rgb(223 223 227/69.8%);
-  --aap-button-active: rgb(193 193 198/65.4%);
-  --aap-dotnav-background: rgb(29 29 31/60%);
-  --aap-dotnav-background-hover: rgb(0 0 0/54%);
-  --aap-paddlenav-arrow-color: rgb(110, 110, 115);
-  --aap-paddlenav-arrow-color-hover: rgb(0 0 0/64%);
-  --aap-paddlenav-background-hover: rgb(0 0 0/4.48%);
-
   /* System Colors */
   --color-system-red: rgb(255, 59, 48);
   --color-system-red-accessible: rgb(215, 0, 21);
@@ -157,6 +117,49 @@ body main ::-webkit-scrollbar-track {
   --color-highlight-green: #e4fee6;
   --color-highlight-red: #f8dddd;
   --color-tutorials-teal: #38a39c;
+
+  /* Dialog Modal */
+  --color-dialog-background: rgba(0, 0, 0, 0.478);
+
+  /* Skeleton */
+  --base-color: #ebebeb;
+  --highlight-color: #f5f5f5;
+
+  /* Menu */
+  --color-menu: rgba(255, 255, 255, 0.72);
+  --color-menu-border: rgba(0, 0, 0, 0.16);
+  --color-mobile-border: rgba(0, 0, 0, 0.181818);
+  --color-mobile-border-opacity: rgba(0, 0, 0, 0.285714);
+
+  /* Cards */
+  --color-nav-background: rgba(0, 0, 0, 0.08);
+  --color-dropdown-background: rgba(255, 255, 255, 0.8);
+  --color-dropdown-background-disabled: rgba(0, 0, 0, 0.01);
+  --color-tutorials-overview-content: #f5f5f7;
+  --color-tutorials-overview-content-alt: #a1a1a6;
+  --color-tutorials-overview-eyebrow: #a1a1a6;
+  --color-tutorials-overview-icon: #a1a1a6;
+  --color-tutorials-overview-navigation-link-active: #f5f5f7;
+  --color-tutorials-overview-navigation-link-hover: #a1a1a6;
+  --color-welcome-technologies-card-accent: var(--color-figure-blue);
+  --color-card-shadow: rgba(0, 0, 0, 0.04);
+
+  /* All Access Pass */
+  --aap-background-color: rgb(232 232 237/70%);
+  --aap-inner-glow-color: rgb(0 0 0/11%);
+  --aap-text-color: rgb(29, 29, 31);
+  --aap-accent-color: var(--color-fill-blue);
+  --aap-icon-color: var(--color-fill-gray);
+  --aap-icon-color-alt: rgb(245, 245, 247);
+  --aap-active-fill-color: #29292a;
+  --aap-inactive-fill-color: #a1a1a2;
+  --aap-button-hover: rgb(223 223 227/69.8%);
+  --aap-button-active: rgb(193 193 198/65.4%);
+  --aap-dotnav-background: rgb(29 29 31/60%);
+  --aap-dotnav-background-hover: rgb(0 0 0/54%);
+  --aap-paddlenav-arrow-color: rgb(110, 110, 115);
+  --aap-paddlenav-arrow-color-hover: rgb(0 0 0/64%);
+  --aap-paddlenav-background-hover: rgb(0 0 0/4.48%);
 
   /* Aside */
   --color-aside-deprecated: var(--color-figure-orange);
@@ -301,46 +304,6 @@ body main ::-webkit-scrollbar-track {
 }
 
 .dark {
-  /* Menu */
-  --color-menu: rgba(0, 0, 0, 0.72);
-  --color-menu-border: rgba(255, 255, 255, 0.24);
-  --color-mobile-border: rgba(255, 255, 255, 0.26087);
-  --color-mobile-border-opacity: rgba(255, 255, 255, 0.428571);
-
-  /* Cards */
-  --color-nav-background: rgba(255, 255, 255, 0.08);
-  --color-dropdown-background: rgba(0, 0, 0, 0.8);
-  --color-dropdown-background-disabled: rgba(255, 255, 255, 0.01);
-  --color-tutorials-overview-content: #f5f5f7;
-  --color-tutorials-overview-content-alt: #a1a1a6;
-  --color-tutorials-overview-eyebrow: #a1a1a6;
-  --color-tutorials-overview-icon: #a1a1a6;
-  --color-tutorials-overview-navigation-link-active: #f5f5f7;
-  --color-tutorials-overview-navigation-link-hover: #a1a1a6;
-  --color-welcome-technologies-card-accent: var(--color-figure-blue);
-  --color-card-shadow: hsla(0, 0%, 100%, 0.04);
-
-  /* Skeleton */
-  --base-color: #1d1d1f;
-  --highlight-color: #262628;
-
-  /* All Access Pass */
-  --aap-background-color: rgb(23 23 28/70%);
-  --aap-inner-glow-color: rgb(255 255 255/11%);
-  --aap-text-color: rgb(226, 226, 234);
-  --aap-accent-color: var(--color-fill-blue);
-  --aap-icon-color: var(--color-fill-gray);
-  --aap-icon-color-alt: rgb(10, 10, 12);
-  --aap-active-fill-color: #676769;
-  --aap-inactive-fill-color: #585859;
-  --aap-button-hover: rgb(32 32 36/69.8%);
-  --aap-button-active: rgb(53 53 58/65.4%);
-  --aap-dotnav-background: rgb(226 226 234/60%);
-  --aap-dotnav-background-hover: rgb(255 255 255/54%);
-  --aap-paddlenav-arrow-color: rgb(145, 145, 150);
-  --aap-paddlenav-arrow-color-hover: rgb(255 255 255/64%);
-  --aap-paddlenav-background-hover: rgb(255 255 255/4.48%);
-
   /* System Colors */
   --color-system-red: rgb(255, 69, 58);
   --color-system-red-accessible: rgb(255, 105, 97);
@@ -415,6 +378,49 @@ body main ::-webkit-scrollbar-track {
   --color-highlight-green: #032603;
   --color-highlight-red: #410606;
   --color-tutorials-teal: #54c4bc;
+
+  /* Dialog Modal */
+  --color-dialog-background: rgba(255, 255, 255, 0.478);
+
+  /* Skeleton */
+  --base-color: #1d1d1f;
+  --highlight-color: #262628;
+
+  /* Menu */
+  --color-menu: rgba(0, 0, 0, 0.72);
+  --color-menu-border: rgba(255, 255, 255, 0.24);
+  --color-mobile-border: rgba(255, 255, 255, 0.26087);
+  --color-mobile-border-opacity: rgba(255, 255, 255, 0.428571);
+
+  /* Cards */
+  --color-nav-background: rgba(255, 255, 255, 0.08);
+  --color-dropdown-background: rgba(0, 0, 0, 0.8);
+  --color-dropdown-background-disabled: rgba(255, 255, 255, 0.01);
+  --color-tutorials-overview-content: #f5f5f7;
+  --color-tutorials-overview-content-alt: #a1a1a6;
+  --color-tutorials-overview-eyebrow: #a1a1a6;
+  --color-tutorials-overview-icon: #a1a1a6;
+  --color-tutorials-overview-navigation-link-active: #f5f5f7;
+  --color-tutorials-overview-navigation-link-hover: #a1a1a6;
+  --color-welcome-technologies-card-accent: var(--color-figure-blue);
+  --color-card-shadow: hsla(0, 0%, 100%, 0.04);
+
+  /* All Access Pass */
+  --aap-background-color: rgb(23 23 28/70%);
+  --aap-inner-glow-color: rgb(255 255 255/11%);
+  --aap-text-color: rgb(226, 226, 234);
+  --aap-accent-color: var(--color-fill-blue);
+  --aap-icon-color: var(--color-fill-gray);
+  --aap-icon-color-alt: rgb(10, 10, 12);
+  --aap-active-fill-color: #676769;
+  --aap-inactive-fill-color: #585859;
+  --aap-button-hover: rgb(32 32 36/69.8%);
+  --aap-button-active: rgb(53 53 58/65.4%);
+  --aap-dotnav-background: rgb(226 226 234/60%);
+  --aap-dotnav-background-hover: rgb(255 255 255/54%);
+  --aap-paddlenav-arrow-color: rgb(145, 145, 150);
+  --aap-paddlenav-arrow-color-hover: rgb(255 255 255/64%);
+  --aap-paddlenav-background-hover: rgb(255 255 255/4.48%);
 
   /* Aside */
   --color-aside-deprecated: var(--color-figure-orange);
