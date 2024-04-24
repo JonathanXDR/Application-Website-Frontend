@@ -45,7 +45,7 @@ withDefaults(
   }
 )
 
-const open = ref(true)
+const open = ref(false)
 const toggleModal = () => {
   open.value = !open.value
 }
@@ -155,7 +155,7 @@ a.more:hover {
 .overlay-cover {
   -webkit-backface-visibility: visible;
   backface-visibility: visible;
-  background: #0000007a;
+  background: var(--color-dialog-background);
   -webkit-tap-highlight-color: transparent;
 }
 
