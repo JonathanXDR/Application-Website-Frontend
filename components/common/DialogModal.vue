@@ -15,7 +15,7 @@
             </div>
           </div>
         </div>
-        <button type="button" class="rc-overlay-close" @click="toggleModal()">
+        <button type="button" class="rc-overlay-close" @click="toggle()">
           <span class="rc-overlay-closesvg"
             ><svg
               width="21"
@@ -46,7 +46,7 @@ withDefaults(
 )
 
 const open = ref(false)
-const toggleModal = () => {
+const toggle = () => {
   open.value = !open.value
 }
 </script>
