@@ -5,35 +5,14 @@
     <RibbonBar v-if="shouldShow('ribbon')" :loading="false" />
   </header>
   <main>
-    <DialogModal title="Test" description="This is a test">
-      <h2 class="t-headline-reduced">Flexible delivery and pickup options.</h2>
-      <p class="t-body">
-        Get your new Apple products quickly and easily with a handful of
-        delivery and pickup options to choose from.
-      </p>
-      <h2 class="t-label">Two-hour delivery from an Apple Store.</h2>
-      <p class="t-body">
-        Enjoy lightning-fast courier delivery for an additional fee at checkout,
-        on eligible in-stock items in most metro areas. Delivery time windows
-        can be scheduled at checkout.
-      </p>
-      <h2 class="t-label">Convenient local pickup.</h2>
-      <p class="t-body">
-        Place your order online and pick it up at a local Apple Store.
-      </p>
-      <h2 class="t-label">Free next-day delivery.</h2>
-      <p class="t-body">
-        Most of your favorite Apple products are available for free next-day
-        delivery.
-      </p>
-      <p class="dd-modal-link">
-        <a href="/shop/shipping-pickup" class="more" target="_blank"
-          >Learn&nbsp;more<span class="a11y">about free delivery</span></a
-        >
-      </p>
-    </DialogModal>
-
-    <FlashAlert variant="important" title="Test" description="This is a Test" />
+    <FlashAlert
+      variant="important"
+      title="Veniam dolore ex nostrud fugiat velit ullamco minim non."
+      description="Excepteur officia elit voluptate laborum in sunt ad. Ad proident aliqua aute
+magna nostrud officia velit sit in proident consequat. In sit excepteur
+voluptate. Ex ea est ad anim labore.
+"
+    />
     <slot />
   </main>
   <footer :class="footerClass">

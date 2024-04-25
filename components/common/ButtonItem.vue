@@ -1,5 +1,8 @@
 <template>
-  <component :is="as" :class="['button', variant, size]">
+  <component
+    :is="as"
+    :class="['button', variant, size]"
+  >
     <slot />
   </component>
 </template>
@@ -20,8 +23,8 @@ withDefaults(
     as: 'button',
     variant: 'primary',
     size: 'medium',
-    borderRadius: 'reduced'
-  }
+    borderRadius: 'reduced',
+  },
 )
 </script>
 
