@@ -15,7 +15,6 @@
     </div>
     <ul
       class="viewer-sizenav-items"
-      role="radiogroup"
       :style="{ '--viewer-sizenav-items-gap': gap }"
     >
       <li
@@ -342,7 +341,7 @@ useResizeObserver(navContainer, () => {
 
 .viewer-sizenav-link {
   align-items: center;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   border-radius: 28px;
   box-sizing: border-box;
   cursor: pointer;

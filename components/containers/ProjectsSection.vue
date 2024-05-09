@@ -17,21 +17,15 @@
           :on-select="
             id =>
               updateCurrentIndex(
-                segmentNavItems.findIndex(item => item.id === id),
+                segmentNavItems.findIndex(item => item.id === id)
               )
           "
         />
       </div>
     </NavBarExtension>
-    <div
-      v-if="currentIndex === 0"
-      class="timeline-wrapper"
-    >
+    <div v-if="currentIndex === 0" class="timeline-wrapper">
       <TimeLine :height="ulHeight" />
-      <ul
-        ref="ul"
-        class="timeline"
-      >
+      <ul ref="ul" class="timeline">
         <CardItem
           v-for="(project, index) in currentProjects"
           :key="index"
@@ -49,19 +43,13 @@
         />
       </ul>
     </div>
-    <div
-      v-else
-      class="w-full"
-    >
+    <div v-else class="w-full">
       <div v-if="projects.personal.length && projects.school.length">
         <LiveResultSummary
           :total-results="currentProjects.length + pinned.length"
           :pinned-results="pinned.length"
         />
-        <ul
-          v-if="pinned"
-          class="card-container pinned-items"
-        >
+        <ul v-if="pinned" class="card-container pinned-items">
           <CardItem
             v-for="(card, index) in pinned"
             :key="index"
@@ -73,7 +61,7 @@
             class="color"
             :style="{
               '--color-figure': `var(--color-figure-${randomColor})`,
-              '--color-fill': `var(--color-fill-${randomColor}-secondary)`,
+              '--color-fill': `var(--color-fill-${randomColor}-secondary)`
             }"
           />
         </ul>
@@ -89,10 +77,7 @@
           <ResultBlankState v-if="!currentProjects" />
         </ul>
       </div>
-      <LoadingSpinner
-        v-else
-        class="center-horizontal center-vertical pt-24"
-      />
+      <LoadingSpinner v-else class="center-horizontal center-vertical pt-24" />
     </div>
   </div>
 </template>
@@ -134,9 +119,9 @@ const { data: userRepositories } = useAsyncData(
   () =>
     $listUserRepositories({
       username: config.public.githubRepoOwner,
-      perPage: 100,
+      perPage: 100
     }),
-  { server: true },
+  { server: true }
 )
 
 const { data: pinnedProjects } = useAsyncData(
@@ -144,30 +129,30 @@ const { data: pinnedProjects } = useAsyncData(
   () =>
     $listPinnedRepositories({
       username: config.public.githubRepoOwner,
-      perPage: 100,
+      perPage: 100
     }),
-  { server: true },
+  { server: true }
 )
 
 const projects: Projects = reactive({
   swisscom: computed<CardItemType[]>(() =>
-    tm('components.containers.projects'),
+    tm('components.containers.projects')
   ),
   personal: [],
-  school: [],
+  school: []
 })
 
 const allProjects = computed(() => [...(userRepositories.value || [])])
 const filteredProjects = computed(() =>
   allProjects.value.filter(
     project =>
-      !pinned.value.find(pinnedProject => pinnedProject.name === project.name),
-  ),
+      !pinned.value.find(pinnedProject => pinnedProject.name === project.name)
+  )
 )
 
 const currentProjects = computed(
   () =>
-    projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects],
+    projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
 )
 
 const segmentNavItems = computed<ItemType[]>(() => [
@@ -176,25 +161,25 @@ const segmentNavItems = computed<ItemType[]>(() => [
     category: 'projects',
     label: 'Swisscom',
     icon: {
-      name: 'building.2.fill',
-    },
+      name: 'building.2.fill'
+    }
   },
   {
     id: 'personal',
     category: 'projects',
     label: 'Persönlich',
     icon: {
-      name: 'person.fill',
-    },
+      name: 'person.fill'
+    }
   },
   {
     id: 'school',
     category: 'projects',
     label: 'Schule',
     icon: {
-      name: 'graduationcap.fill',
-    },
-  },
+      name: 'graduationcap.fill'
+    }
+  }
 ])
 
 const updateCurrentIndex = (index: number) => {
@@ -217,19 +202,19 @@ watch(
       project.icon = {
         name: 'pin.fill',
         colors: {
-          primary: `var(--color-figure-${randomColor.value})`,
-        },
+          primary: `var(--color-figure-${randomColor.value})`
+        }
       }
     })
     pinned.value = newPinnedProjects || []
   },
-  { immediate: true },
+  { immediate: true }
 )
 
 watchEffect(() => {
   projects.personal = []
   projects.school = []
-  filteredProjects.value.map(categorizeProject).forEach((project) => {
+  filteredProjects.value.map(categorizeProject).forEach(project => {
     const category = project.category as keyof Projects
     projects[category].push(
       project as GetUserRepositories[0] & CardItemType & { category: string },

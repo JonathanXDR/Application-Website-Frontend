@@ -167,7 +167,7 @@ const onBlur = () => {
   --input-height: 28px;
   position: relative;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
   border-radius: 13px;
 }
 

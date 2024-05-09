@@ -7,10 +7,7 @@
     :name="section.name"
     :class="section.class"
   >
-    <component
-      :is="`${section.id}Section`"
-      :title="section.name"
-    />
+    <component :is="`${section.id}Section`" :title="section.name" />
   </section>
 </template>
 
@@ -22,7 +19,7 @@ definePageMeta({
   nav: true,
   ribbon: true,
   footerFull: true,
-  footerCompact: false,
+  footerCompact: false
 })
 
 const { tm } = useI18n()

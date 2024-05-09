@@ -2,7 +2,6 @@
   <div class="tablist-wrapper">
     <div class="tabnav">
       <ul
-        role="tablist"
         class="tabnav-items"
       >
         <li

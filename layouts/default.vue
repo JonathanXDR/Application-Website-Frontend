@@ -2,12 +2,17 @@
   <SpeedInsights />
   <header v-if="shouldShow('header')">
     <NavBar v-if="shouldShow('nav')" />
-    <RibbonBar
-      v-if="shouldShow('ribbon')"
-      :loading="false"
-    />
+    <RibbonBar v-if="shouldShow('ribbon')" :loading="false" />
   </header>
   <main>
+    <FlashAlert
+      variant="important"
+      title="Veniam dolore ex nostrud fugiat velit ullamco minim non."
+      description="Excepteur officia elit voluptate laborum in sunt ad. Ad proident aliqua aute
+magna nostrud officia velit sit in proident consequat. In sit excepteur
+voluptate. Ex ea est ad anim labore.
+"
+    />
     <slot />
   </main>
   <footer :class="footerClass">
@@ -30,7 +35,7 @@ const config = useRuntimeConfig()
 
 const faviconColor = colorBadge.value?.colorHex ?? '000000'
 const faviconGraphicData = `data:image/svg+xml,${encodeURIComponent(
-  svgFaviconDev.replace('#color', `#${faviconColor}`),
+  svgFaviconDev.replace('#color', `#${faviconColor}`)
 )}`
 
 onMounted(randomizeColor)
@@ -38,7 +43,7 @@ onMounted(randomizeColor)
 watchEffect(() => {
   useHead({
     htmlAttrs: { lang: locale.value },
-    title: currentSection.value.name,
+    title: currentSection.value.name
   })
 
   if (config.public.appEnvironment === 'development') {
@@ -47,19 +52,19 @@ watchEffect(() => {
         { rel: 'icon', type: 'image/svg+xml', href: faviconGraphicData },
         {
           rel: 'apple-touch-icon',
-          href: `/img/dev/favicon-dev-${colorBadge.value?.colorName}.png`,
-        },
+          href: `/img/dev/favicon-dev-${colorBadge.value?.colorName}.png`
+        }
       ],
       meta: [
         {
           property: 'twitter:image',
-          content: `/img/dev/favicon-dev-${colorBadge.value?.colorName}.png`,
+          content: `/img/dev/favicon-dev-${colorBadge.value?.colorName}.png`
         },
         {
           property: 'og:image',
-          content: `/img/dev/favicon-dev-${colorBadge.value?.colorName}.png`,
-        },
-      ],
+          content: `/img/dev/favicon-dev-${colorBadge.value?.colorName}.png`
+        }
+      ]
     })
   }
 })
@@ -69,7 +74,7 @@ const errorConfig = {
   nav: false,
   ribbon: false,
   footerFull: false,
-  footerCompact: true,
+  footerCompact: true
 }
 
 const shouldShow = (component: string) =>
@@ -79,11 +84,11 @@ const shouldShow = (component: string) =>
 
 const footerClass = computed(() => ({
   'footer-full': shouldShow('footerFull'),
-  'footer-compact': shouldShow('footerCompact'),
+  'footer-compact': shouldShow('footerCompact')
 }))
 
 const footerComponent = computed(() =>
-  shouldShow('footerFull') ? FooterFull : FooterCompact,
+  shouldShow('footerFull') ? FooterFull : FooterCompact
 )
 </script>
 

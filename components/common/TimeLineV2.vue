@@ -653,8 +653,8 @@ const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
   --color-avatar-stack-fade: #30363d;
   --color-avatar-stack-fade-more: #21262d;
   --color-avatar-child-shadow: 0 0 0 2px #0d1117;
-  --color-topic-tag-border: rgba(0, 0, 0, 0);
-  --color-counter-border: rgba(0, 0, 0, 0);
+  --color-topic-tag-border: transparent
+  --color-counter-border: transparent
   --color-select-menu-backdrop-border: #484f58;
   --color-select-menu-tap-highlight: rgba(48, 54, 61, 0.5);
   --color-select-menu-tap-focus-bg: #0c2d6b;
@@ -757,9 +757,9 @@ const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
   --color-underlinenav-border-hover: rgba(110, 118, 129, 0.4);
   --color-action-list-item-inline-divider: rgba(48, 54, 61, 0.48);
   --color-action-list-item-default-hover-bg: rgba(177, 186, 196, 0.12);
-  --color-action-list-item-default-hover-border: rgba(0, 0, 0, 0);
+  --color-action-list-item-default-hover-border: transparent
   --color-action-list-item-default-active-bg: rgba(177, 186, 196, 0.2);
-  --color-action-list-item-default-active-border: rgba(0, 0, 0, 0);
+  --color-action-list-item-default-active-border: transparent
   --color-action-list-item-default-selected-bg: rgba(177, 186, 196, 0.08);
   --color-action-list-item-danger-hover-bg: rgba(248, 81, 73, 0.16);
   --color-action-list-item-danger-active-bg: rgba(248, 81, 73, 0.24);
@@ -770,13 +770,13 @@ const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
   --color-switch-track-disabled-bg: #21262d;
   --color-switch-track-fg: #848d97;
   --color-switch-track-disabled-fg: #010409;
-  --color-switch-track-border: rgba(0, 0, 0, 0);
+  --color-switch-track-border: transparent
   --color-switch-track-checked-bg: rgba(31, 111, 235, 0.35);
   --color-switch-track-checked-hover-bg: rgba(31, 111, 235, 0.5);
   --color-switch-track-checked-active-bg: rgba(31, 111, 235, 0.65);
   --color-switch-track-checked-fg: #ffffff;
   --color-switch-track-checked-disabled-fg: #010409;
-  --color-switch-track-checked-border: rgba(0, 0, 0, 0);
+  --color-switch-track-checked-border: transparent
   --color-switch-knob-bg: #0d1117;
   --color-switch-knob-border: #606771;
   --color-switch-knob-disabled-bg: #161b22;
@@ -1273,7 +1273,8 @@ button:focus:not(:focus-visible) {
 }
 .btn-mktg:focus:not(:focus-visible) {
   box-shadow: none;
-  outline: 1px solid #0000;
+  outline: 1px solid transparent
+;
 }
 .btn-mktg:active:before {
   opacity: 0.5 !important;

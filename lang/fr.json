@@ -154,7 +154,7 @@
         "links": [
           {
             "title": "Mail",
-            "url": "mailto:{account}{'@'}{domain}",
+            "url": "{'mailto:contact@jonathan-russ.com'}",
             "category": "solid",
             "icon": {
               "name": "envelope"

@@ -29,7 +29,7 @@ const getSpriteUrl = (size: Omit<SizeType, 'xsmall' & 'xlarge'>) => {
 const styles = reactive({
   '--color-primary': props.colors.primary || 'currentColor',
   '--color-secondary': props.colors.secondary || 'currentColor',
-  '--color-tertiary': props.colors.tertiary || 'currentColor',
+  '--color-tertiary': props.colors.tertiary || 'currentColor'
 })
 </script>
 
