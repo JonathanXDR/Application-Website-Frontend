@@ -119,7 +119,25 @@ body main ::-webkit-scrollbar-track {
   --color-tutorials-teal: #38a39c;
 
   /* Dialog Modal */
-  --color-dialog-background: rgba(0, 0, 0, 0.478);
+  --modal-overlay-background: rgb(255, 255, 255);
+
+  --modal-overlay-padding-top: 76px;
+  --modal-overlay-padding-bottom: 76px;
+  --modal-overlay-padding-inline: 76px;
+  --modal-close-button-offset-top: 16px;
+  --modal-close-button-offset-inline-start: 16px;
+  --modal-close-button-size: 44px;
+
+  --modal-close-background: rgb(232, 232, 237);
+  --modal-close-background-hover: #ececf0;
+  --modal-close-background-active: #dfdfe4;
+  --modal-close-color: rgba(0, 0, 0, 0.56);
+  --modal-close-color-hover: rgba(0, 0, 0, 0.72);
+
+  --modal-close-border-radius: 50%;
+  --modal-close-button-position: sticky;
+  --modal-close-icon-size: 36px;
+  --modal-close-icon-svg-size: 20px;
 
   /* Skeleton */
   --base-color: #ebebeb;
@@ -380,7 +398,25 @@ body main ::-webkit-scrollbar-track {
   --color-tutorials-teal: #54c4bc;
 
   /* Dialog Modal */
-  --color-dialog-background: rgba(255, 255, 255, 0.478);
+  --modal-overlay-background: rgb(29, 29, 31);
+
+  --modal-overlay-padding-top: 76px;
+  --modal-overlay-padding-bottom: 76px;
+  --modal-overlay-padding-inline: 76px;
+  --modal-close-button-offset-top: 16px;
+  --modal-close-button-offset-inline-start: 16px;
+  --modal-close-button-size: 44px;
+
+  --modal-close-background: rgb(51, 51, 54);
+  --modal-close-background-hover: #37373a;
+  --modal-close-background-active: #2f2f32;
+  --modal-close-color: rgba(255, 255, 255, 0.8);
+  --modal-close-color-hover: rgb(255, 255, 255);
+
+  --modal-close-border-radius: 50%;
+  --modal-close-button-position: sticky;
+  --modal-close-icon-size: 36px;
+  --modal-close-icon-svg-size: 20px;
 
   /* Skeleton */
   --base-color: #1d1d1f;
