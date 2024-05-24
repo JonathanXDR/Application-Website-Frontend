@@ -2,7 +2,7 @@
   <aside
     :class="[
       variant,
-      'flex items-center justify-between fade-transition-wrapper',
+      'flash flex items-center justify-between fade-transition-wrapper',
       { 'r-fade-transition-enter-done': open },
       { 'r-fade-transition-exit-done': !open }
     ]"
@@ -41,22 +41,14 @@
       </div>
     </div>
     <button
-      type="button"
-      class="rc-overlay-close"
-      :style="{
-        transform: 'scale(0.75)'
-      }"
+      class="modal-close-button"
+      :style="{ transform: 'scale(0.75)' }"
       @click="toggle()"
     >
-      <span class="rc-overlay-closesvg">
-        <svg
-          width="21"
-          height="21"
-          class="as-svgicon as-svgicon-close as-svgicon-tiny as-svgicon-closetiny"
-        >
-          <path fill="none" d="M0 0h21v21H0z" />
+      <span class="modal-close-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <path
-            d="m12.12 10 4.07-4.06a1.5 1.5 0 1 0-2.11-2.12L10 7.88 5.94 3.81a1.5 1.5 0 1 0-2.12 2.12L7.88 10l-4.07 4.06a1.5 1.5 0 0 0 0 2.12 1.51 1.51 0 0 0 2.13 0L10 12.12l4.06 4.07a1.45 1.45 0 0 0 1.06.44 1.5 1.5 0 0 0 1.06-2.56Z"
+            d="M12.12,10l4.07-4.06a1.5,1.5,0,1,0-2.11-2.12L10,7.88,5.94,3.81A1.5,1.5,0,1,0,3.82,5.93L7.88,10,3.81,14.06a1.5,1.5,0,0,0,0,2.12,1.51,1.51,0,0,0,2.13,0L10,12.12l4.06,4.07a1.45,1.45,0,0,0,1.06.44,1.5,1.5,0,0,0,1.06-2.56Z"
           />
         </svg>
       </span>
@@ -185,6 +177,18 @@ aside {
   margin-inline: var(--spacing-stacked-margin-xlarge);
 }
 
+.flash {
+  width: 90%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media screen and (min-width: 1250px) {
+  .flash {
+    width: 82.5%;
+  }
+}
+
 .fade-transition-wrapper {
   opacity: 0;
   transition-duration: 0.4s;
@@ -200,44 +204,72 @@ aside {
   display: none;
 }
 
-.rc-overlay-close {
-  align-items: center;
+.modal-close-button {
   cursor: pointer;
+  position: var(--modal-close-button-position);
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  height: 44px;
+  /* -ms-flex-item-align: end;
+  align-self: flex-end; */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
-  width: 44px;
-  z-index: 1;
-}
-
-.rc-overlay-close .rc-overlay-closesvg {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
-  background: var(--color-fill-gray-quaternary);
-  border-radius: 50%;
-  color: var(--color-figure-gray-secondary);
+  height: var(--modal-close-button-size);
+  width: var(--modal-close-button-size);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  /* -webkit-margin-end: var(--modal-close-button-offset-inline-start);
+  margin-inline-end: var(--modal-close-button-offset-inline-start);
+  margin-top: var(--modal-close-button-offset-top); */
+  top: var(--modal-close-button-offset-top);
+}
+.modal-close-button {
+  cursor: pointer;
+}
+.modal-close-button:hover .modal-close-icon {
+  background: var(--modal-close-background-hover);
+  color: var(--modal-close-color-hover);
+}
+.modal-close-button:active .modal-close-icon {
+  background: var(--modal-close-background-active);
+}
+.modal-close-button .modal-close-icon {
+  background: var(--modal-close-background);
+  border-radius: var(--modal-close-border-radius);
+  color: var(--modal-close-color);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  height: 36px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: var(--modal-close-icon-size);
+  width: var(--modal-close-icon-size);
   outline: none;
+  -webkit-transition: color 100ms linear, background 100ms linear;
+  transition: color 100ms linear, background 100ms linear;
   position: relative;
-  transition: color 0.1s linear, background 0.1s linear;
-  width: 36px;
 }
-
-.rc-overlay-close .rc-overlay-closesvg svg {
+.modal-close-button .modal-close-icon svg {
   fill: currentColor;
-  height: 20px;
-  left: 50%;
   position: absolute;
+  inset-inline-start: 50%;
+  height: var(--modal-close-icon-svg-size);
+  width: var(--modal-close-icon-svg-size);
+}
+html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  width: 20px;
 }
-
-.rc-overlay-close:hover .rc-overlay-closesvg {
-  background: var(--base-color);
-  color: var(--color-figure-gray-secondary-alt);
-}
-
-.rc-overlay-close:active .rc-overlay-closesvg {
-  background: var(--color-fill-gray-tertiary);
+.modal-close-button .modal-close-icon * {
+  pointer-events: none;
 }
 </style>
