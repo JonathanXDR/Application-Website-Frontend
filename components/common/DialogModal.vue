@@ -1,28 +1,42 @@
 <template>
   <div
     :class="[
-      'modal family-modal modal-scrim icon-card-modal delivery modal-page-overlay visually-visiable',
-      { 'modal-open': open }
+      'modal family-modal modal-scrim icon-card-modal delivery modal-page-overlay',
+      { 'modal-open visually-visiable': open },
+      { 'modal-scrim-no-blur': !blurredBackground }
     ]"
     id="icon-card-modal-delivery"
   >
     <div class="modal-overlay-container">
       <div class="modal-overlay">
         <div class="modal-content-container">
-          <div
-            id="icon-card-modal-content-delivery"
-            class="icon-card icon-card-modal-content modal-content delivery"
-          >
-            <h2 v-if="eyebrow" class="typography-site-modal-topic-label">
-              {{ eyebrow }}
-            </h2>
-            <p v-if="title" class="typography-site-modal-headline">
-              {{ title }}
-            </p>
-            <p v-if="description" class="typography-site-modal-body">
-              {{ description }}
-            </p>
-            <slot />
+          <div class="modal-content-wrapper variant-crossfade">
+            <div
+              id="modal-content-delivery"
+              class="icon-card-modal-content modal-content"
+            >
+              <h3
+                v-if="eyebrow"
+                class="typography-modal-topic-label modal-topic-label"
+              >
+                {{ eyebrow }}
+              </h3>
+              <h4 v-if="title" class="typography-modal-headline modal-headline">
+                {{ title }}
+              </h4>
+              <p
+                v-if="description"
+                class="typography-icon-card-modal-body icon-card-modal-inline-headline"
+              >
+                {{ description }}
+              </p>
+              <div class="modal-items-body">
+                <slot name="body" />
+              </div>
+              <div class="modal-ctas-container">
+                <slot name="cta" />
+              </div>
+            </div>
           </div>
         </div>
         <button class="modal-close-button" @click="toggle()">
@@ -179,24 +193,6 @@ a.icon-wrapper:hover .icon-copy {
   font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
     sans-serif;
 }
-/* @media only screen and (max-width: 734px) {
-  .typography-site-modal-inline-headline {
-    font-size: 17px;
-    line-height: 1.4705882353;
-    font-weight: 600;
-    letter-spacing: -0.022em;
-    font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-      sans-serif;
-  }
-}
-.typography-site-modal-topic-label {
-  font-size: 19px;
-  line-height: 1.4211026316;
-  font-weight: 600;
-  letter-spacing: 0.012em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
-} */
 @media only screen and (max-width: 734px) {
   .typography-modal-topic-label {
     font-size: 17px;
@@ -206,16 +202,6 @@ a.icon-wrapper:hover .icon-copy {
     font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
       sans-serif;
   }
-}
-.theme-dark .modal {
-  --modal-overlay-background: rgb(29, 29, 31);
-}
-.theme-dark .modal:not(.modal-close-button-light) {
-  --modal-close-background: rgb(51, 51, 54);
-  --modal-close-background-hover: #37373a;
-  --modal-close-background-active: #2f2f32;
-  --modal-close-color: rgba(255, 255, 255, 0.8);
-  --modal-close-color-hover: rgb(255, 255, 255);
 }
 .modal-close-button {
   cursor: auto;
@@ -271,18 +257,12 @@ html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
   pointer-events: none;
 }
 .modal {
-  --modal-overlay-background: rgb(255, 255, 255);
   --modal-overlay-padding-top: 76px;
   --modal-overlay-padding-bottom: 76px;
   --modal-overlay-padding-inline: 76px;
   --modal-close-button-offset-top: 16px;
   --modal-close-button-offset-inline-start: 16px;
   --modal-close-button-size: 44px;
-  --modal-close-background: rgb(232, 232, 237);
-  --modal-close-background-hover: #ececf0;
-  --modal-close-background-active: #dfdfe4;
-  --modal-close-color: rgba(0, 0, 0, 0.56);
-  --modal-close-color-hover: rgba(0, 0, 0, 0.72);
   --modal-close-border-radius: 50%;
   --modal-close-button-position: sticky;
   --modal-close-icon-size: 36px;
@@ -391,10 +371,6 @@ html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
   border-radius: inherit;
   mask-image: radial-gradient(white, black);
 }
-/* .icon-card {
-  position: relative;
-  height: 100%;
-} */
 .modal-topic-label + .modal-headline {
   margin-top: 12px;
 }
@@ -468,9 +444,6 @@ html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
   }
 }
 @media only screen and (max-width: 734px) {
-  /* .icon-card-modal-content h2.typography-site-modal-topic-label {
-    max-width: none;
-  } */
   .modal-page-overlay {
     --modal-overlay-width: 87.5%;
   }
@@ -489,21 +462,16 @@ html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
 }
 .modal-page-overlay .modal-close-button .modal-close-icon {
   pointer-events: none;
-  --scrim-background-color: rgb(51, 51, 54);
-  --scrim-hover-background-color: #37373a;
-  --scrim-active-background-color: #2f2f32;
-  --icon-color: rgba(255, 255, 255, 0.8);
-  --icon-interaction-color: rgb(255, 255, 255);
   transition: background-color 100ms linear, color 100ms linear;
-  background-color: var(--scrim-background-color);
-  color: var(--icon-color);
+  background-color: var(--modal-close-background);
+  color: var(--modal-close-color);
 }
 .modal-page-overlay .modal-close-button:hover .modal-close-icon {
-  background-color: var(--scrim-hover-background-color);
-  color: var(--icon-interaction-color);
+  background-color: var(--modal-close-background-hover);
+  color: var(--modal-close-color-hover);
 }
 .modal-page-overlay .modal-close-button:active .modal-close-icon {
-  background-color: var(--scrim-active-background-color);
-  color: var(--icon-interaction-color);
+  background-color: var(--modal-close-background-active);
+  color: var(--modal-close-color-hover);
 }
 </style>

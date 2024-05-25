@@ -5,10 +5,11 @@
     <RibbonBar v-if="shouldShow('ribbon')" :loading="false" />
   </header>
   <main>
-    <!-- <DialogModalV2
+    <DialogModal
       title="Veniam dolore ex nostrud fugiat velit ullamco minim non."
       description="Excepteur officia elit voluptate laborum in sunt ad. Ad proident aliqua aute magna nostrud officia velit sit in proident consequat. In sit excepteur voluptate. Ex ea est ad anim labore."
-    /> -->
+      blurred-background
+    />
     <slot />
   </main>
   <footer :class="footerClass">
