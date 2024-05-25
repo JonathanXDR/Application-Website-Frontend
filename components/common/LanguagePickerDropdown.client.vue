@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="language-picker-dropdown"
-    :style="{ fontSize: `${fontSize}px` }"
-  >
+  <div class="language-picker-dropdown" :style="{ fontSize: `${fontSize}px` }">
     <div class="dropdown-container legacy-form">
       <select
         v-model="selectedLocale"
@@ -14,13 +11,14 @@
           :key="computedLocale.code"
           :value="computedLocale.code"
         >
-          {{ windowWidth < 900 ? computedLocale.code.toUpperCase() : computedLocale.name }}
+          {{
+            windowWidth < 900
+              ? computedLocale.code.toUpperCase()
+              : computedLocale.name
+          }}
         </option>
       </select>
-      <Icon
-        name="chevron.down"
-        :class="`icon icon-${size}`"
-      />
+      <Icon name="chevron.down" :class="`icon icon-${size}`" />
     </div>
   </div>
 </template>
@@ -30,11 +28,11 @@ import type { SizeType } from '~/types/common/Size'
 
 const props = withDefaults(
   defineProps<{
-    size?: Omit<SizeType, 'xlarge'>
+    size?: Exclude<SizeType, 'xlarge'>
   }>(),
   {
-    size: 'small' as SizeType,
-  },
+    size: 'small'
+  }
 )
 
 const { changeLanguage } = useLanguage()
@@ -43,9 +41,9 @@ const selectedLocale = ref(locale.value)
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 
 const computedLocales = computed(() =>
-  locales.value.map((l) => {
+  locales.value.map(l => {
     return typeof l === 'string' ? { code: l, name: l } : l
-  }),
+  })
 )
 
 const fontSize = computed(() => {
@@ -53,12 +51,12 @@ const fontSize = computed(() => {
     xsmall: 12,
     small: 14,
     medium: 16,
-    large: 18,
+    large: 18
   }
   return sizes[props.size || 'medium']
 })
 
-watch(locale, (newLocale) => {
+watch(locale, newLocale => {
   selectedLocale.value = newLocale
 })
 </script>

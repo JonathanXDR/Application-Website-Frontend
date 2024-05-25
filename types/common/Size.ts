@@ -1,7 +1,1 @@
-export enum SizeType {
-  xsmall = 'xsmall',
-  small = 'small',
-  medium = 'medium',
-  large = 'large',
-  xlarge = 'xlarge',
-}
+export type SizeType = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'

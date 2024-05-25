@@ -17,13 +17,13 @@
       :style="{ overflowWrap: 'anywhere' }"
     >
       <Icon
-        v-if="iconVariant === 'default' || (iconVariant === 'custom' && icon)"
+        v-if="icon.variant === 'default' || (icon.variant === 'custom' && icon)"
         class="icon icon-medium m-1"
         :name="
-          iconVariant === 'custom' ? icon?.name || '' : icons[variant].name
+          icon.variant === 'custom' ? icon?.name || '' : icons[variant].name
         "
         :colors="
-          iconVariant === 'custom' ? icon?.colors : icons[variant].colors
+          icon.variant === 'custom' ? icon?.colors : icons[variant].colors
         "
       />
       <div class="w-full">
@@ -70,12 +70,14 @@ const props = withDefaults(
       | 'warning'
     title?: string
     description: string
-    iconVariant?: 'default' | 'custom' | 'none'
     icon?: IconType
   }>(),
   {
     variant: 'note',
-    iconVariant: 'default'
+    title: undefined,
+    icon: {
+      variant: 'default'
+    }
   }
 )
 

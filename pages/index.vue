@@ -1,14 +1,16 @@
 <template>
-  <section
-    v-for="(section, index) in sections"
-    :id="section.id"
-    :key="section.id"
-    v-section="(section.id, index)"
-    :name="section.name"
-    :class="section.class"
-  >
-    <component :is="`${section.id}Section`" :title="section.name" />
-  </section>
+  <div>
+    <section
+      v-for="(section, index) in sections"
+      :id="section.id"
+      :key="section.id"
+      v-section="(section.id, index)"
+      :name="section.name"
+      :class="section.class"
+    >
+      <component :is="`${section.id}Section`" :title="section.name" />
+    </section>
+  </div>
 </template>
 
 <script setup lang="ts">

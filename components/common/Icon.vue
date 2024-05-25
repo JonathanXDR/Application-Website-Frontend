@@ -11,18 +11,18 @@ import type { IconType } from '~/types/common/Icon'
 import type { SizeType } from '~/types/common/Size'
 
 const props = withDefaults(defineProps<IconType>(), {
-  size: 'medium' as SizeType,
+  size: 'medium',
   loading: false,
   colors: () => ({
     primary: 'currentColor',
     secondary: 'currentColor',
-    tertiary: 'currentColor',
-  }),
+    tertiary: 'currentColor'
+  })
 })
 
 const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`)
 
-const getSpriteUrl = (size: Omit<SizeType, 'xsmall' & 'xlarge'>) => {
+const getSpriteUrl = (size: Exclude<SizeType, 'xsmall' & 'xlarge'>) => {
   return `/icons/${size}/symbol/sprite.svg`
 }
 

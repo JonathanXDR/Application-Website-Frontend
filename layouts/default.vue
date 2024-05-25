@@ -1,19 +1,21 @@
 <template>
-  <SpeedInsights />
-  <header v-if="shouldShow('header')">
-    <NavBar v-if="shouldShow('nav')" />
-    <RibbonBar v-if="shouldShow('ribbon')" :loading="false" />
-  </header>
-  <main>
-    <!-- <DialogModal
+  <div>
+    <SpeedInsights />
+    <header v-if="shouldShow('header')">
+      <NavBar v-if="shouldShow('nav')" />
+      <RibbonBar v-if="shouldShow('ribbon')" :loading="false" />
+    </header>
+    <main>
+      <!-- <DialogModal
       title="Veniam dolore ex nostrud fugiat velit ullamco minim non."
       description="Excepteur officia elit voluptate laborum in sunt ad. Ad proident aliqua aute magna nostrud officia velit sit in proident consequat. In sit excepteur voluptate. Ex ea est ad anim labore."
     /> -->
-    <slot />
-  </main>
-  <footer :class="footerClass">
-    <component :is="footerComponent" />
-  </footer>
+      <slot />
+    </main>
+    <footer :class="footerClass">
+      <component :is="footerComponent" />
+    </footer>
+  </div>
 </template>
 
 <script setup lang="ts">

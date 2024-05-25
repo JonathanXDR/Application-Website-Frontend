@@ -24,8 +24,8 @@ withDefaults(
   }>(),
   {
     badges: () => [],
-    loading: false,
-  },
+    loading: false
+  }
 )
 </script>
 

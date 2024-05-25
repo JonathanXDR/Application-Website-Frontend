@@ -1,13 +1,7 @@
 <template>
   <div class="info">
-    <template
-      v-for="item in infoItems"
-      :key="item.id"
-    >
-      <div
-        v-if="info[item.id]"
-        class="info-item"
-      >
+    <template v-for="item in infoItems" :key="item.id">
+      <div v-if="info[item.id]" class="info-item">
         <Icon
           v-if="item.icon"
           :name="item.icon?.name"
@@ -18,18 +12,12 @@
           {{ info[item.id] }}
         </template>
         <template v-else>
-          <LoadingSkeleton
-            width="100px"
-            height="15px"
-          />
+          <LoadingSkeleton width="100px" height="15px" />
         </template>
       </div>
     </template>
 
-    <div
-      v-if="info?.date"
-      class="info-item"
-    >
+    <div v-if="info?.date" class="info-item">
       <Icon
         :loading="loading"
         :name="updatedYesterday ? 'clock.fill' : 'calendar'"
@@ -39,10 +27,7 @@
         {{ dateTitle || `${info?.date?.from} - ${info?.date?.to}` }}
       </template>
       <template v-else>
-        <LoadingSkeleton
-          width="100px"
-          height="15px"
-        />
+        <LoadingSkeleton width="100px" height="15px" />
       </template>
     </div>
   </div>
@@ -58,7 +43,7 @@ import type { ItemType } from '~/types/common/Item'
 const props = withDefaults(
   defineProps<{
     info: InfoType
-    date?: string | null
+    date?: string
     dateFormatOptions?: Intl.DateTimeFormatOptions
     dateNowKey?: 'created' | 'updated'
     loading?: boolean
@@ -67,18 +52,17 @@ const props = withDefaults(
     info: (): InfoType => {
       return {}
     },
-
+    date: undefined,
     dateFormatOptions: () => {
       return {
         year: 'numeric',
         month: 'long',
-        day: 'numeric',
+        day: 'numeric'
       }
     },
-
     dateNowKey: 'updated',
-    loading: false,
-  },
+    loading: false
+  }
 )
 
 dayjs.extend(relativeTime)
@@ -89,7 +73,7 @@ const infoItems: ItemType[] = [
   { id: 'supervisor', icon: { name: 'person.fill' } },
   { id: 'department', icon: { name: 'tag.fill' } },
   { id: 'language', icon: { name: 'bubble.left.fill' } },
-  { id: 'license', icon: { name: 'scroll.fill' } },
+  { id: 'license', icon: { name: 'scroll.fill' } }
   // {
   //   id: 'forks',
   //   icon: {
@@ -115,7 +99,7 @@ const updatedYesterday = computed(() => {
 
 const formatDate = (
   dateString: string,
-  formatOptions: Intl.DateTimeFormatOptions,
+  formatOptions: Intl.DateTimeFormatOptions
 ) => {
   return new Date(dateString).toLocaleDateString(locale.value, formatOptions)
 }
@@ -127,15 +111,13 @@ const getDate = () => {
   if (props.info?.date?.from && props.info?.date?.to) {
     return `${formatDate(props.info?.date.from, formatOptions)} - ${formatDate(
       props.info?.date.to,
-      formatOptions,
+      formatOptions
     )}`
-  }
-  else if (props.info?.date?.from) {
+  } else if (props.info?.date?.from) {
     return formatDate(props.info?.date.from, formatOptions)
-  }
-  else if (props.date) {
+  } else if (props.date) {
     return `${dateVariant.charAt(0).toUpperCase()}${dateVariant.slice(
-      1,
+      1
     )} ${dayjs(props.date).locale(locale.value).fromNow()}`
   }
 }

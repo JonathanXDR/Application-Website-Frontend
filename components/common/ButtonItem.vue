@@ -1,8 +1,5 @@
 <template>
-  <component
-    :is="as"
-    :class="['button', variant, size]"
-  >
+  <component :is="as" :class="['button', variant, size]">
     <slot />
   </component>
 </template>
@@ -15,7 +12,7 @@ withDefaults(
   defineProps<{
     as?: keyof HTMLElementTagNameMap
     variant?: 'primary' | 'secondary' | 'tertiary'
-    size?: Omit<SizeType, 'xsmall' & 'xlarge'>
+    size?: Exclude<SizeType, 'xsmall' & 'xlarge'>
     borderRadius?: 'reduced' | 'full'
     label: string
     icon?: IconType
@@ -23,9 +20,10 @@ withDefaults(
   {
     as: 'button',
     variant: 'primary',
-    size: 'medium' as SizeType,
+    size: 'medium',
     borderRadius: 'reduced',
-  },
+    icon: undefined
+  }
 )
 </script>
 

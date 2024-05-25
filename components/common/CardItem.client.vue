@@ -7,27 +7,14 @@
     :class="componentClasses"
     target="_blank"
   >
-    <div
-      v-if="hasCoverOrGraphs"
-      class="card-cover-wrap"
-    >
-      <picture
-        v-if="cover"
-        class="card-cover"
-      >
-        <NuxtImg
-          decoding="async"
-          loading="lazy"
-          :src="cover"
-        />
+    <div v-if="hasCoverOrGraphs" class="card-cover-wrap">
+      <picture v-if="cover" class="card-cover">
+        <NuxtImg decoding="async" loading="lazy" :src="cover" />
       </picture>
-      <BarGraph v-if="graphs.bar" />
-      <DonutGraph v-if="graphs.donut" />
+      <BarGraph v-if="graphs?.bar" />
+      <DonutGraph v-if="graphs?.donut" />
     </div>
-    <div
-      class="details"
-      :style="detailsStyle"
-    >
+    <div class="details" :style="detailsStyle">
       <Icon
         v-if="icon"
         :loading="loading"
@@ -36,22 +23,16 @@
         :colors="icon.colors"
         :class="iconClasses"
         :style="{
-          position: props.iconAbsolute ? 'absolute' : 'relative',
+          position: props.icon.absolute ? 'absolute' : 'relative'
         }"
       />
-      <div
-        class="body"
-        :style="{ alignItems: alignItems }"
-      >
+      <div class="body" :style="{ alignItems: alignItems }">
         <div class="eyebrow">
           <template v-if="!loading">
             {{ eyebrow }}
           </template>
           <template v-else>
-            <LoadingSkeleton
-              width="150px"
-              height="15px"
-            />
+            <LoadingSkeleton width="150px" height="15px" />
           </template>
         </div>
         <div class="title-wrapper">
@@ -60,10 +41,7 @@
               {{ title || name }}
             </template>
             <template v-else>
-              <LoadingSkeleton
-                width="200px"
-                height="15px"
-              />
+              <LoadingSkeleton width="200px" height="15px" />
             </template>
           </div>
 
@@ -74,7 +52,7 @@
             :loading="loading"
             :colors="{
               primary: 'var(--color-figure-yellow)',
-              tertiary: 'var(--color-figure-yellow)',
+              tertiary: 'var(--color-figure-yellow)'
             }"
             border
             :hover="false"
@@ -86,7 +64,7 @@
             :loading="loading"
             :colors="{
               primary: `var(--color-figure-${colorBadge?.colorName})`,
-              tertiary: `var(--color-figure-${colorBadge?.colorName})`,
+              tertiary: `var(--color-figure-${colorBadge?.colorName})`
             }"
             hover
             border
@@ -98,18 +76,9 @@
               {{ description }}
             </template>
             <template v-else>
-              <LoadingSkeleton
-                width="300px"
-                height="15px"
-              />
-              <LoadingSkeleton
-                width="300px"
-                height="15px"
-              />
-              <LoadingSkeleton
-                width="250px"
-                height="15px"
-              />
+              <LoadingSkeleton width="300px" height="15px" />
+              <LoadingSkeleton width="300px" height="15px" />
+              <LoadingSkeleton width="250px" height="15px" />
             </template>
           </div>
         </div>
@@ -119,10 +88,7 @@
           :loading="loading"
         />
 
-        <div
-          v-if="hasLinksOrHtmlUrl"
-          class="ctas-wrapper"
-        >
+        <div v-if="hasLinksOrHtmlUrl" class="ctas-wrapper">
           <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
           <!-- <NuxtLink href="photos://" class="icon-wrapper button button-reduced button-neutral">
             <span class="icon-copy"> Open</span>
@@ -138,8 +104,8 @@
           v-if="hasInfo"
           :info="infoBarInfo"
           :date="updated_at"
-          :date-format-options="date.formatOptions"
-          :date-now-key="date.nowKey"
+          :date-format-options="date?.formatOptions"
+          :date-now-key="date?.nowKey"
           :loading="loading"
         />
       </div>
@@ -163,55 +129,55 @@ const props = withDefaults(defineProps<Props>(), {
   loading: false,
   graphs: {
     donut: false,
-    bar: false,
+    bar: false
   },
   date: {
     formatOptions: () => ({
       year: 'numeric',
       month: 'long',
-      day: 'numeric',
+      day: 'numeric'
     }),
-    nowKey: 'updated',
+    nowKey: 'updated'
   },
   icon: {
     absolute: false,
     position: 'left',
-    alignment: 'start',
-  },
+    alignment: 'start'
+  }
 })
 
 const { colorBadge } = useColor()
 
 const applyHover = computed(
   () =>
-    (props.hover === 'auto' && props.links?.length === 1)
-    || props.hover === 'true',
+    (props.hover === 'auto' && props.links?.length === 1) ||
+    props.hover === 'true'
 )
 
 const componentType = computed(() =>
-  props.variant === 'article' ? 'div' : 'a',
+  props.variant === 'article' ? 'div' : 'a'
 )
 const componentId = computed(() =>
-  props.title?.toLowerCase().replace(/ /g, '-'),
+  props.title?.toLowerCase().replace(/ /g, '-')
 )
 const componentHref = computed(() =>
-  applyHover.value && props.links ? props.links[0].url : props.html_url,
+  applyHover.value && props.links ? props.links[0].url : props.html_url
 )
 const componentClasses = computed(() => [
   'scroll-animation scroll-animation--off',
   props.variant,
-  props.size,
+  props.size
 ])
 const scrollAnimation = {
   add: 'scroll-animation--on',
-  remove: 'scroll-animation--off',
+  remove: 'scroll-animation--off'
 }
 
 const hasCoverOrGraphs = computed(
-  () => props.cover || props.graphs?.donut || props.graphs?.bar,
+  () => props.cover || props.graphs?.donut || props.graphs?.bar
 )
 const hasTagsOrTopics = computed(
-  () => props.badges?.length || props.topics?.length,
+  () => props.badges?.length || props.topics?.length
 )
 const tagsOrTopics = computed(() => props.tags || props.topics)
 const hasLinksOrHtmlUrl = computed(() => props.links?.length || props.html_url)
@@ -221,9 +187,9 @@ const linkCollectionLinks = computed(
       {
         title: 'Mehr erfahren',
         url: props.html_url || '',
-        icon: { name: 'chevron.right' },
-      },
-    ],
+        icon: { name: 'chevron.right' }
+      }
+    ]
 )
 
 const hasInfo = computed(() =>
@@ -240,9 +206,9 @@ const hasInfo = computed(() =>
         'watchers_count',
         'stargazers_count',
         'open_issues_count',
-        'subscribers_count',
-      ].includes(key) && props[key],
-  ),
+        'subscribers_count'
+      ].includes(key) && props[key]
+  )
 )
 const infoBarInfo = computed(
   () =>
@@ -255,8 +221,8 @@ const infoBarInfo = computed(
       stars: props.stargazers_count,
       issues: props.open_issues_count,
       subscribers: props.subscribers_count,
-      date: props.updated_at,
-    },
+      date: props.updated_at
+    }
 )
 
 const flexDirection = computed(
@@ -265,8 +231,8 @@ const flexDirection = computed(
       top: 'column',
       right: 'row-reverse',
       bottom: 'column-reverse',
-      left: 'row',
-    }[props.icon.position]),
+      left: 'row'
+    }[props.icon.position])
 )
 
 const alignItems = computed(
@@ -274,20 +240,20 @@ const alignItems = computed(
     ({
       start: 'flex-start',
       center: 'center',
-      end: 'flex-end',
-    }[props.alignment]),
+      end: 'flex-end'
+    }[props.alignment])
 )
 
 const detailsStyle = computed(() => ({
   flexDirection: flexDirection.value,
-  alignItems: alignItems.value,
+  alignItems: alignItems.value
 }))
 
 const iconClasses = computed(() => ({
-  'icon': true,
+  icon: true,
   'icon-large': props.variant === 'article' && props.size === 'large',
   'icon-xlarge': ['medium', 'small'].includes(props.size),
-  'icon-xxlarge': props.variant === 'card' && props.size === 'large',
+  'icon-xxlarge': props.variant === 'card' && props.size === 'large'
 }))
 </script>
 
