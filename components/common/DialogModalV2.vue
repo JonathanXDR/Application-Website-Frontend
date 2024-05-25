@@ -182,7 +182,8 @@ a.icon-wrapper:hover .icon-copy {
     font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
       sans-serif;
   }
-}
+} /*! CSS Used
+from: https://www.apple.com/v/ipad-pro/ap/built/styles/overview.built.css */
 .theme-dark .modal {
   --modal-overlay-background: rgb(29, 29, 31);
 }
@@ -375,5 +376,15 @@ html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
   .icon-card-modal-content h2.typography-site-modal-topic-label {
     max-width: none;
   }
+}
+.theme-dark .modal {
+  --modal-overlay-background: rgb(29, 29, 31);
+}
+.theme-dark .modal:not(.modal-close-button-light) {
+  --modal-close-background: rgb(51, 51, 54);
+  --modal-close-background-hover: #37373a;
+  --modal-close-background-active: #2f2f32;
+  --modal-close-color: rgba(255, 255, 255, 0.8);
+  --modal-close-color-hover: rgb(255, 255, 255);
 }
 </style>

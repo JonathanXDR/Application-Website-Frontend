@@ -1,22 +1,38 @@
 <template>
-  <div :class="['modal modal-page-overlay', { 'modal-open': open }]">
+  <div
+    class="modal family-modal modal-scrim icon-card-modal delivery modal-page-overlay modal-open visually-visiable"
+    id="icon-card-modal-delivery"
+  >
     <div class="modal-overlay-container">
       <div class="modal-overlay">
         <div class="modal-content-container">
-          <div
-            id="icon-card-modal-content-delivery"
-            class="icon-card icon-card-modal-content modal-content delivery"
-          >
-            <h2 v-if="eyebrow" class="typography-site-modal-topic-label">
-              {{ eyebrow }}
-            </h2>
-            <p v-if="title" class="typography-site-modal-headline">
-              {{ title }}
-            </p>
-            <p v-if="description" class="typography-site-modal-body">
-              {{ description }}
-            </p>
-            <slot />
+          <div class="modal-content-wrapper variant-crossfade">
+            <div
+              id="modal-content-delivery"
+              class="icon-card-modal-content modal-content"
+            >
+              <h3
+                v-if="eyebrow"
+                class="typography-modal-topic-label modal-topic-label"
+              >
+                {{ eyebrow }}
+              </h3>
+              <h4 v-if="title" class="typography-modal-headline modal-headline">
+                {{ title }}
+              </h4>
+              <p
+                v-if="description"
+                class="typography-icon-card-modal-body icon-card-modal-inline-headline"
+              >
+                {{ description }}
+              </p>
+              <div class="modal-items-body">
+                <slot name="body" />
+              </div>
+              <div class="modal-ctas-container">
+                <slot name="cta" />
+              </div>
+            </div>
           </div>
         </div>
         <button class="modal-close-button" @click="toggle()">
@@ -36,11 +52,7 @@
 <script setup lang="ts">
 import type { DialogModalType } from '~/types/common/DialogModal'
 
-withDefaults(defineProps<DialogModalType>(), {
-  orientation: 'vertical',
-  full: false,
-  blurredBackground: false
-})
+defineProps<DialogModalType>()
 
 const open = ref(true)
 const toggle = () => {
@@ -82,12 +94,12 @@ const toggle = () => {
 }
 .icon-after:after,
 .more:after {
-  padding-inline-start: 0.24em;
+  padding-inline-start: 0.3em;
   top: 0;
 }
 html:not([dir='rtl']) .more:after,
 html:not([dir='rtl']) .more:before {
-  content: '';
+  content: 'ïŒ';
 }
 .icon-wrapper .icon,
 .icon-wrapper .icon-after:after,
@@ -101,7 +113,7 @@ a.icon-wrapper {
 a.icon-wrapper:hover .icon-copy {
   text-decoration: underline;
 }
-.typography-site-modal-body {
+.typography-icon-card-modal-body {
   font-size: 19px;
   line-height: 1.4211026316;
   font-weight: 400;
@@ -110,7 +122,7 @@ a.icon-wrapper:hover .icon-copy {
     sans-serif;
 }
 @media only screen and (max-width: 734px) {
-  .typography-site-modal-body {
+  .typography-icon-card-modal-body {
     font-size: 17px;
     line-height: 1.4705882353;
     font-weight: 400;
@@ -119,7 +131,25 @@ a.icon-wrapper:hover .icon-copy {
       sans-serif;
   }
 }
-.typography-site-modal-headline {
+.typography-icon-card-modal-inline-headline {
+  font-size: 19px;
+  line-height: 1.4211026316;
+  font-weight: 600;
+  letter-spacing: 0.012em;
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+}
+@media only screen and (max-width: 734px) {
+  .typography-icon-card-modal-inline-headline {
+    font-size: 17px;
+    line-height: 1.4705882353;
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+      sans-serif;
+  }
+}
+.typography-modal-headline {
   font-size: 56px;
   line-height: 1.0714285714;
   font-weight: 600;
@@ -128,7 +158,7 @@ a.icon-wrapper:hover .icon-copy {
     sans-serif;
 }
 @media only screen and (max-width: 1068px) {
-  .typography-site-modal-headline {
+  .typography-modal-headline {
     font-size: 48px;
     line-height: 1.0834933333;
     font-weight: 600;
@@ -138,16 +168,16 @@ a.icon-wrapper:hover .icon-copy {
   }
 }
 @media only screen and (max-width: 734px) {
-  .typography-site-modal-headline {
-    font-size: 40px;
-    line-height: 1.1;
+  .typography-modal-headline {
+    font-size: 32px;
+    line-height: 1.125;
     font-weight: 600;
-    letter-spacing: 0em;
+    letter-spacing: 0.004em;
     font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
       sans-serif;
   }
 }
-.typography-site-modal-inline-headline {
+.typography-modal-topic-label {
   font-size: 19px;
   line-height: 1.4211026316;
   font-weight: 600;
@@ -156,7 +186,7 @@ a.icon-wrapper:hover .icon-copy {
     sans-serif;
 }
 @media only screen and (max-width: 734px) {
-  .typography-site-modal-inline-headline {
+  .typography-modal-topic-label {
     font-size: 17px;
     line-height: 1.4705882353;
     font-weight: 600;
@@ -164,34 +194,6 @@ a.icon-wrapper:hover .icon-copy {
     font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
       sans-serif;
   }
-}
-.typography-site-modal-topic-label {
-  font-size: 19px;
-  line-height: 1.4211026316;
-  font-weight: 600;
-  letter-spacing: 0.012em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
-}
-@media only screen and (max-width: 734px) {
-  .typography-site-modal-topic-label {
-    font-size: 17px;
-    line-height: 1.4705882353;
-    font-weight: 600;
-    letter-spacing: -0.022em;
-    font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-      sans-serif;
-  }
-}
-.theme-dark .modal {
-  --modal-overlay-background: rgb(29, 29, 31);
-}
-.theme-dark .modal:not(.modal-close-button-light) {
-  --modal-close-background: rgb(51, 51, 54);
-  --modal-close-background-hover: #37373a;
-  --modal-close-background-active: #2f2f32;
-  --modal-close-color: rgba(255, 255, 255, 0.8);
-  --modal-close-color-hover: rgb(255, 255, 255);
 }
 .modal-close-button {
   cursor: auto;
@@ -367,13 +369,112 @@ html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
   border-radius: inherit;
   mask-image: radial-gradient(white, black);
 }
-.icon-card {
-  position: relative;
-  height: 100%;
+.modal-topic-label + .modal-headline {
+  margin-top: 12px;
 }
 @media only screen and (max-width: 734px) {
-  .icon-card-modal-content h2.typography-site-modal-topic-label {
-    max-width: none;
+  .modal-topic-label + .modal-headline {
+    margin-top: 8px;
   }
+}
+@media only screen and (max-width: 734px) {
+  .icon-card-modal .modal-content-container {
+    --modal-overlay-padding-inline: 60px;
+    --modal-overlay-padding-top: 60px;
+    --modal-overlay-padding-bottom: 60px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .icon-card-modal .modal-content-container {
+    --modal-overlay-padding-inline: 20px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .icon-card-modal .modal-content-container .modal-content-wrapper {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+.icon-card-modal-content {
+  position: relative;
+  height: 100%;
+  display: none;
+}
+.family-modal .icon-card-modal-content {
+  display: block;
+}
+.icon-card-modal-content .icon-card-modal-inline-headline {
+  margin-top: 20px;
+}
+@media only screen and (max-width: 734px) {
+  .icon-card-modal-content .icon-card-modal-inline-headline {
+    margin-top: 16px;
+  }
+}
+.icon-card-modal-content .modal-ctas-container {
+  margin-top: 40px;
+}
+@media only screen and (max-width: 734px) {
+  .icon-card-modal-content .modal-ctas-container {
+    margin-top: 32px;
+  }
+}
+.icon-card-modal-content .modal-items-body .icon-card-modal-inline-headline {
+  margin-top: 40px;
+}
+@media only screen and (max-width: 734px) {
+  .icon-card-modal-content .modal-items-body .icon-card-modal-inline-headline {
+    margin-top: 32px;
+  }
+}
+.modal {
+  --caption-scale-ratio: 1;
+}
+.modal-page-overlay {
+  --modal-close-timeout: 400ms;
+  color: var(--sk-body-text-color);
+  transition: opacity var(--modal-close-timeout) ease;
+  opacity: 0;
+}
+@media only screen and (min-width: 1069px) {
+  .modal-page-overlay {
+    --modal-overlay-width: 816px;
+  }
+}
+@media only screen and (max-width: 734px) {
+  .modal-page-overlay {
+    --modal-overlay-width: 87.5%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .modal-page-overlay {
+    --modal-overlay-width: 100%;
+  }
+}
+.modal-page-overlay:not(.modal-scrim-no-blur) {
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+.modal-page-overlay.visually-visiable {
+  opacity: 1;
+}
+.modal-page-overlay .modal-close-button .modal-close-icon {
+  pointer-events: none;
+  --scrim-background-color: rgb(51, 51, 54);
+  --scrim-hover-background-color: #37373a;
+  --scrim-active-background-color: #2f2f32;
+  --icon-color: rgba(255, 255, 255, 0.8);
+  --icon-interaction-color: rgb(255, 255, 255);
+  transition: background-color 100ms linear, color 100ms linear;
+  background-color: var(--scrim-background-color);
+  color: var(--icon-color);
+}
+.modal-page-overlay .modal-close-button:hover .modal-close-icon {
+  background-color: var(--scrim-hover-background-color);
+  color: var(--icon-interaction-color);
+}
+.modal-page-overlay .modal-close-button:active .modal-close-icon {
+  background-color: var(--scrim-active-background-color);
+  color: var(--icon-interaction-color);
 }
 </style>
