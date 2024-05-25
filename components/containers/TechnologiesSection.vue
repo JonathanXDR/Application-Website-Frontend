@@ -4,11 +4,11 @@
       :title="title"
       class="typography-magical-headline pb-12"
     />
-    <NavBarExtension>
+    <!-- <NavBarExtension>
       <FilterInput />
     </NavBarExtension>
 
-    <LiveResultSummary :total-results="cards.length" />
+    <LiveResultSummary :total-results="cards.length" /> -->
 
     <ul class="card-container">
       <CardItem
@@ -20,7 +20,7 @@
         icon-position="right"
         icon-absolute
       />
-      <ResultBlankState v-if="!cards" />
+      <ResultBlankState v-if="cards.length === 0" />
     </ul>
   </div>
 </template>
@@ -34,7 +34,7 @@ defineProps<{
 
 const { tm } = useI18n()
 const cards = computed<CardItemType[]>(() =>
-  tm('components.containers.technologies'),
+  tm('components.containers.technologies')
 )
 </script>
 
