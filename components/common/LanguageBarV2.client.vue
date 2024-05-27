@@ -14,10 +14,7 @@
     >
       <div class="as-l-container-mobileoverflow-content">
         <div class="rs-tracker-bar">
-          <div
-            class="rs-tracker-fill"
-            :style="`width: ${progress}%`"
-          />
+          <div class="rs-tracker-fill" :style="`width: ${progress}%`" />
         </div>
         <ol class="rs-tracker-status">
           <!-- <template v-if="status">
@@ -39,7 +36,7 @@
         </ol>
       </div>
     </div>
-    <div v-if="language.description" class="row rs-od-itemdesc-wrapper">
+    <div v-if="description" class="row rs-od-itemdesc-wrapper">
       <div class="rs-od-itemdesc column large-12 small-12">
         <div class="rs-od-itemdesc-content">
           {{ description }}
@@ -53,14 +50,6 @@
 import type { LanguageBarType } from '~/types/common/LanguageBar'
 
 defineProps<LanguageBarType>()
-
-const status = [
-  'Order Placed',
-  'Processing',
-  'Preparing to Ship',
-  'Shipped',
-  'Delivered'
-]
 </script>
 
 <style scoped>
