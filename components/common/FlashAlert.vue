@@ -57,29 +57,15 @@
 </template>
 
 <script setup lang="ts">
-import type { IconType } from '~/types/common/Icon'
+import type { FlashAlertType } from '../../types/common/FlashAlert'
 
-const props = withDefaults(
-  defineProps<{
-    variant?:
-      | 'deprecated'
-      | 'experiment'
-      | 'important'
-      | 'note'
-      | 'tip'
-      | 'warning'
-    title?: string
-    description: string
-    icon?: IconType
-  }>(),
-  {
-    variant: 'note',
-    title: undefined,
-    icon: {
-      variant: 'default'
-    }
+const props = withDefaults(defineProps<FlashAlertType>(), {
+  variant: 'note',
+  title: undefined,
+  icon: {
+    variant: 'default'
   }
-)
+})
 
 const icons = {
   deprecated: {
