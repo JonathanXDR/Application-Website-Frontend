@@ -29,9 +29,13 @@
 </template>
 
 <script setup lang="ts">
+import type { ItemType } from '~/types/common/Item'
 const props = defineProps({
-  items: array,
-  activeTabId: string
+  items: {
+    type: Array as PropType<ItemType[]>,
+    required: true
+  },
+  activeTabId: String
 })
 
 const emit = defineEmits(['change'])
@@ -44,7 +48,7 @@ watch(
   }
 )
 
-const emitChange = id => {
+const emitChange = (id: string) => {
   emit('change', id)
 }
 

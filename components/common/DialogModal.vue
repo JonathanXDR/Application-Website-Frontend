@@ -1,11 +1,11 @@
 <template>
   <div
+    id="icon-card-modal-delivery"
     :class="[
       'modal family-modal modal-scrim icon-card-modal delivery modal-page-overlay',
       { 'modal-open visually-visiable': open },
       { 'modal-scrim-no-blur': !blurredBackground }
     ]"
-    id="icon-card-modal-delivery"
   >
     <div class="modal-overlay-container">
       <div class="modal-overlay">
