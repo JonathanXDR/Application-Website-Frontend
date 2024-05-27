@@ -24,7 +24,7 @@ import { SpeedInsights } from '@vercel/speed-insights/vue'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterFull from '~/components/common/Footer/Full.vue'
 import svgFaviconDev from '~/public/img/dev/favicon-dev.svg?raw'
-import type { RibbonBar } from '~/types/common/RibbonBar'
+import type { LinkType } from '~/types/common/Link'
 
 const route = useRoute()
 const { colorBadge, randomizeColor } = useColor()
@@ -33,7 +33,10 @@ const { locale, tm } = useI18n()
 const error = useError()
 const config = useRuntimeConfig()
 
-const items = tm('components.common.RibbonBar') as RibbonBar[]
+const items = tm('components.common.RibbonBar') as {
+  description: string
+  links: LinkType[]
+}[]
 const faviconColor = colorBadge.value?.colorHex ?? '000000'
 const faviconGraphicData = `data:image/svg+xml,${encodeURIComponent(
   svgFaviconDev.replace('#color', `#${faviconColor}`)
