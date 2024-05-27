@@ -3,7 +3,7 @@
     ref="svg"
     class="svg-timeline"
     :viewBox="viewBox"
-    :xmlns="xmlns"
+    xmlns="http://www.w3.org/2000/svg"
     :height="ulHeight"
   >
     <path
@@ -19,35 +19,27 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  height: number | undefined
-}>()
+const pathD = ref<string>('')
+const ulHeight = ref<number>(0)
+const viewBox = ref<string>('0 0 8 0')
+const strokeDasharray = ref<number>(0)
+const strokeDashoffset = ref<number>(0)
 
-const pathD = ref<string | undefined>(undefined)
-const ulHeight = ref<number | undefined>(undefined)
-const viewBox = ref<string | undefined>(undefined)
-const xmlns = ref<string | undefined>(undefined)
-
-const strokeDasharray = ref<number | undefined>(undefined)
-const strokeDashoffset = ref<number | undefined>(undefined)
-
-const svg = ref<SVGElement | undefined>(undefined)
-const path = ref<SVGPathElement | undefined>(undefined)
+const svg = ref<SVGElement | null>(null)
+const path = ref<SVGPathElement | null>(null)
+const ul = ref<HTMLElement | null>(null)
 
 const initPath = () => {
-  const instance = getCurrentInstance()
-  const ul = instance?.parent?.refs.ul as HTMLElement
+  if (ul.value) {
+    const ulHeightValue = ul.value.getBoundingClientRect().height
+    const ulHeightRounded = Math.round(ulHeightValue)
 
-  const ulHeightValue = ul.getBoundingClientRect().height
-  const ulHeightRounded = Math.round(ulHeightValue)
-
-  pathD.value = `M 4 0 L 4 ${ulHeightRounded}`
-  ulHeight.value = ulHeightValue
-  viewBox.value = `0 0 8 ${ulHeightRounded}`
-  xmlns.value = `http://www.w3.org/${ulHeightRounded}/svg`
-
-  strokeDasharray.value = ulHeightValue
-  strokeDashoffset.value = ulHeightValue
+    pathD.value = `M 4 0 L 4 ${ulHeightRounded}`
+    ulHeight.value = ulHeightRounded
+    viewBox.value = `0 0 8 ${ulHeightRounded}`
+    strokeDasharray.value = ulHeightValue
+    strokeDashoffset.value = ulHeightValue
+  }
 }
 
 const animateLine = () => {
@@ -63,7 +55,11 @@ const animateLine = () => {
     drawLength < ulHeightValue ? ulHeightValue - drawLength : 0
 }
 
-onMounted(() => {
+onMounted(async () => {
+  const instance = getCurrentInstance()
+  ul.value = instance?.parent?.refs.ul as HTMLElement
+
+  await nextTick()
   initPath()
 
   const observer = new IntersectionObserver(entries => {
@@ -78,7 +74,14 @@ onMounted(() => {
     })
   })
 
-  observer.observe(svg.value as SVGElement)
+  if (svg.value) {
+    observer.observe(svg.value)
+  }
+})
+
+watchEffect(async () => {
+  await nextTick()
+  initPath()
 })
 </script>
 
