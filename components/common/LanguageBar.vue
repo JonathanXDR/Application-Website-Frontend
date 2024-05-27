@@ -11,14 +11,11 @@
       <div class="group total-column-1">
         <div class="bars-container">
           <div class="bar-content-container bar-mx">
-            <div
-              class="bar-mask"
-              :style="`width: ${language.progress}%`"
-            >
+            <div class="bar-mask" :style="`width: ${language.progress}%`">
               <hr
                 class="bar bar-1"
                 style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1"
-              >
+              />
             </div>
             <span class="bar-caption">
               {{ language.description }}
@@ -47,10 +44,8 @@ withDefaults(
     language: LanguageBarType
   }>(),
   {
-    language: () => {
-      return {} as LanguageBarType
-    },
-  },
+    language: () => ({} as LanguageBarType)
+  }
 )
 </script>
 

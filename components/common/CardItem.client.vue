@@ -127,23 +127,24 @@ const props = withDefaults(defineProps<Props>(), {
   hover: 'auto',
   cover: '',
   loading: false,
-  graphs: {
+  graphs: () => ({
     donut: false,
     bar: false
-  },
-  date: {
+  }),
+  date: () => ({
     formatOptions: () => ({
       year: 'numeric',
       month: 'long',
       day: 'numeric'
     }),
     nowKey: 'updated'
-  },
-  icon: {
+  }),
+  icon: () => ({
+    name: '',
     absolute: false,
     position: 'left',
     alignment: 'start'
-  }
+  })
 })
 
 const { colorBadge } = useColor()

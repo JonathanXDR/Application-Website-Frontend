@@ -25,7 +25,7 @@
           :class="['viewer-sizenav-value', { focus }]"
           :value="item.id"
           :disabled="item.id !== selectedItem && isTransitioning"
-        >
+        />
         <label
           :for="`viewer-sizenav-value-${item.id}`"
           class="viewer-sizenav-link"
@@ -62,42 +62,25 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Item'
-import type { SizeType } from '~/types/common/Size'
+import type { SegmentNavType } from '@/types/common/SegmentNav'
 
-const props = withDefaults(
-  defineProps<{
-    items: ItemType[]
-    size?: Exclude<SizeType, 'xlarge'>
-    label?: 'icon' | 'text' | 'combination'
-    focus?: boolean
-    separator?: boolean
-    shadow?: boolean
-    grayLabels?: boolean
-    gap?: string
-    padding?: string
-    outerPadding?: number
-    selectedItem?: string
-    onSelect?: (id: string) => void
-  }>(),
-  {
-    size: 'medium',
-    label: 'text',
-    focus: true,
-    separator: false,
-    shadow: false,
-    grayLabels: false,
-    gap: '0px',
-    padding: props => {
-      return props.label !== 'icon' ? '0 8px' : '0'
-    },
-    outerPadding: 4,
-    selectedItem: props => {
-      return props.items[0].id
-    },
-    onSelect: () => {}
-  }
-)
+const props = withDefaults(defineProps<SegmentNavType>(), {
+  size: 'medium',
+  label: 'text',
+  focus: true,
+  separator: false,
+  shadow: false,
+  grayLabels: false,
+  gap: '0px',
+  padding: props => {
+    return props.label !== 'icon' ? '0 8px' : '0'
+  },
+  outerPadding: 4,
+  selectedItem: props => {
+    return props.items[0].id
+  },
+  onSelect: () => {}
+})
 
 const selectedItem = ref<string>(props.selectedItem)
 const isTransitioning = ref<boolean>(false)

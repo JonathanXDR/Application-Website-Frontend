@@ -49,17 +49,13 @@ const props = withDefaults(
     loading?: boolean
   }>(),
   {
-    info: (): InfoType => {
-      return {}
-    },
+    info: () => ({}),
     date: undefined,
-    dateFormatOptions: () => {
-      return {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      }
-    },
+    dateFormatOptions: () => ({
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }),
     dateNowKey: 'updated',
     loading: false
   }

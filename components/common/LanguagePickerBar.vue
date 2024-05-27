@@ -1,27 +1,18 @@
 <template>
   <section class="lang-switcher-container">
-    <span
-      v-if="introText"
-      class="language-switcher-text"
-    >
+    <span v-if="introText" class="language-switcher-text">
       {{ $t('components.common.FooterItem.chooseYourLanguage') }}:
     </span>
     <ul class="locale-lang language-picker-wrapper">
-      <li
-        v-for="computedLocale in computedLocales"
-        :key="computedLocale.code"
-      >
+      <li v-for="computedLocale in computedLocales" :key="computedLocale.code">
         <input
           :id="computedLocale.code"
           type="radio"
           name="language"
           :checked="locale === computedLocale.code"
           @click="changeLanguage(computedLocale.code)"
-        >
-        <label
-          :for="computedLocale.code"
-          class="link"
-        >
+        />
+        <label :for="computedLocale.code" class="link">
           {{ getLabel(computedLocale) }}
         </label>
       </li>
@@ -36,21 +27,21 @@ const props = withDefaults(
     shortForm?: boolean
   }>(),
   {
-    introText: () => true,
-    shortForm: () => false,
-  },
+    introText: true,
+    shortForm: false
+  }
 )
 
 const { changeLanguage } = useLanguage()
 const { locale, locales } = useI18n()
 
 const computedLocales = computed(() =>
-  locales.value.map((l) => {
+  locales.value.map(l => {
     return typeof l === 'string' ? { code: l, name: l } : l
-  }),
+  })
 )
 
-const getLabel = (locale: { code: string, name?: string }) => {
+const getLabel = (locale: { code: string; name?: string }) => {
   const label = locale.name || locale.code
   return props.shortForm ? locale.code.toUpperCase() : label
 }
