@@ -1,10 +1,12 @@
 import { graphql, type GraphQlQueryResponseData } from '@octokit/graphql'
 import { Octokit } from 'octokit'
+import type { PinnedRepositoryEdge } from '~/types/services/GitHub/Edge'
 import type { GetRepositoryIssues } from '~/types/services/GitHub/Issue'
 import type {
   GetOwnerRepository,
+  GetPinnedRepository,
   GetPublicRepositories,
-  GetUserRepositories,
+  GetUserRepositories
 } from '~/types/services/GitHub/Repository'
 import type { GetRepositoryTags } from '~/types/services/GitHub/Tag'
 
@@ -12,13 +14,13 @@ export default defineNuxtPlugin(() => {
   const { githubToken } = useRuntimeConfig()
 
   const octokit = new Octokit({
-    auth: githubToken,
+    auth: githubToken
   })
 
   const graphqlInstance = graphql.defaults({
     headers: {
-      authorization: `token ${githubToken}`,
-    },
+      authorization: `token ${githubToken}`
+    }
   })
 
   const listPublicRepositories = async (params: {
@@ -30,12 +32,11 @@ export default defineNuxtPlugin(() => {
       const response = await octokit.request('GET /repositories', {
         since,
         headers: {
-          accept: 'application/vnd.github+json',
-        },
+          accept: 'application/vnd.github+json'
+        }
       })
       return response.data
-    }
-    catch (error) {
+    } catch (error) {
       console.error('Error fetching public repositories:', error)
       throw error
     }
@@ -55,7 +56,7 @@ export default defineNuxtPlugin(() => {
       sort = 'full_name',
       direction = 'asc',
       perPage = 30,
-      page = 1,
+      page = 1
     } = params
 
     try {
@@ -67,12 +68,11 @@ export default defineNuxtPlugin(() => {
         per_page: perPage,
         page,
         headers: {
-          accept: 'application/vnd.github+json',
-        },
+          accept: 'application/vnd.github+json'
+        }
       })
       return response.data
-    }
-    catch (error) {
+    } catch (error) {
       console.error(`Error fetching repositories for user ${username}:`, error)
       throw error
     }
@@ -89,12 +89,11 @@ export default defineNuxtPlugin(() => {
         owner,
         repo,
         headers: {
-          accept: 'application/vnd.github+json',
-        },
+          accept: 'application/vnd.github+json'
+        }
       })
       return response.data
-    }
-    catch (error) {
+    } catch (error) {
       console.error(`Error fetching repository for owner ${owner}:`, error)
       throw error
     }
@@ -115,12 +114,11 @@ export default defineNuxtPlugin(() => {
         per_page: perPage,
         page,
         headers: {
-          accept: 'application/vnd.github+json',
-        },
+          accept: 'application/vnd.github+json'
+        }
       })
       return response.data
-    }
-    catch (error) {
+    } catch (error) {
       console.error(`Error fetching tags for repository ${repo}:`, error)
       throw error
     }
@@ -154,7 +152,7 @@ export default defineNuxtPlugin(() => {
       direction = 'desc',
       since,
       perPage = 30,
-      page = 1,
+      page = 1
     } = params
 
     try {
@@ -175,13 +173,12 @@ export default defineNuxtPlugin(() => {
           per_page: perPage,
           page,
           headers: {
-            accept: 'application/vnd.github+json',
-          },
-        },
+            accept: 'application/vnd.github+json'
+          }
+        }
       )
       return response.data
-    }
-    catch (error) {
+    } catch (error) {
       console.error(`Error fetching issues for repository ${repo}:`, error)
       throw error
     }
@@ -190,7 +187,7 @@ export default defineNuxtPlugin(() => {
   const listPinnedRepositories = async (params: {
     username: string
     perPage?: number
-  }): Promise<GetUserRepositories> => {
+  }): Promise<GetPinnedRepository[]> => {
     const { username, perPage = 30 } = params
 
     const query = `
@@ -251,7 +248,7 @@ export default defineNuxtPlugin(() => {
 }
   `
 
-    const remapProps = (item: any) => {
+    const remapProps = (item: PinnedRepositoryEdge): GetPinnedRepository => {
       const {
         name,
         description,
@@ -263,39 +260,37 @@ export default defineNuxtPlugin(() => {
         stargazers,
         issues,
         pullRequests,
-        updatedAt,
+        updatedAt
       } = item
 
       return {
         name,
         description,
         html_url: url,
-        topics: repositoryTopics.nodes.map((node: any) => node.topic.name),
+        topics: repositoryTopics.nodes.map(node => node.topic.name),
         language: primaryLanguage?.name,
         license: licenseInfo,
-        forks: forks.nodes.map((node: any) => node.url),
-        stars: stargazers.nodes.map((node: any) => node.url),
-        issues: issues.nodes
-          .filter((node: any) => !node.closed)
-          .map((node: any) => node.url),
+        forks: forks.nodes.map(node => node.url),
+        stars: stargazers.nodes.map(node => node.url),
+        issues: issues.nodes.filter(node => !node.closed).map(node => node.url),
         pullRequests: pullRequests.nodes
-          .filter((node: any) => !node.closed)
-          .map((node: any) => node.url),
-        updated_at: updatedAt,
+          .filter(node => !node.closed)
+          .map(node => node.url),
+        updated_at: updatedAt
       }
     }
 
     try {
       const response = await graphqlInstance<GraphQlQueryResponseData>(query)
-      const pinnedRepositories = response.user.pinnedItems.edges.map(
-        (edge: any) => remapProps(edge.node),
-      )
+      const pinnedRepositories: GetPinnedRepository[] =
+        response.user.pinnedItems.edges.map(
+          (edge: { node: PinnedRepositoryEdge }) => remapProps(edge.node)
+        )
       return pinnedRepositories
-    }
-    catch (error) {
+    } catch (error) {
       console.error(
         `Error fetching pinned repositories for user ${username}:`,
-        error,
+        error
       )
       throw error
     }
@@ -308,7 +303,7 @@ export default defineNuxtPlugin(() => {
       getRepository,
       listRepositoryTags,
       listRepositoryIssues,
-      listPinnedRepositories,
-    },
+      listPinnedRepositories
+    }
   }
 })
