@@ -20,14 +20,16 @@
           />
         </div>
         <ol class="rs-tracker-status">
-          <!-- <li
-            v-for="(item, index) in status"
-            :key="index"
-            class="rs-status-tracker-status-list-item"
-            style="width: 20%"
-          >
-            <span class="rs-status rs-status-current">{{ item }}</span>
-          </li> -->
+          <!-- <template v-if="status">
+            <li
+              v-for="(item, index) in status"
+              :key="index"
+              class="rs-status-tracker-status-list-item"
+              style="width: 20%"
+            >
+              <span class="rs-status rs-status-current">{{ item }}</span>
+            </li>
+          </template> -->
           <li
             class="rs-status-tracker-status-list-item"
             :style="`width: ${language.progress}%`"
@@ -37,13 +39,13 @@
         </ol>
       </div>
     </div>
-    <!-- <div class="row rs-od-itemdesc-wrapper">
+    <div v-if="language.description" class="row rs-od-itemdesc-wrapper">
       <div class="rs-od-itemdesc column large-12 small-12">
         <div class="rs-od-itemdesc-content">
           {{ language.description }}
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -57,8 +59,8 @@ withDefaults(
   {
     language: () => {
       return {} as LanguageBarType
-    },
-  },
+    }
+  }
 )
 
 const status = [
@@ -66,7 +68,7 @@ const status = [
   'Processing',
   'Preparing to Ship',
   'Shipped',
-  'Delivered',
+  'Delivered'
 ]
 </script>
 
