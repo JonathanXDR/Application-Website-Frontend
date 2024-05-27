@@ -1,84 +1,86 @@
 <template>
   <svg
-    ref="svg"
+    ref="svgElement"
     class="svg-timeline"
     :viewBox="viewBox"
-    :xmlns="xmlns"
-    :height="ulHeight"
+    xmlns="http://www.w3.org/2000/svg"
+    :height="timelineHeight"
   >
     <path
-      ref="path"
+      ref="pathElement"
       class="path-timeline"
       stroke="var(--color-fill-gray)"
-      stroke-width="5"
-      :d="pathD"
-      :stroke-dashoffset="strokeDashoffset"
-      :stroke-dasharray="strokeDasharray"
+      :stroke-width="strokeWidth"
+      :d="pathData"
+      :stroke-dashoffset="strokeDashOffset"
+      :stroke-dasharray="strokeDashArray"
     />
   </svg>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  height: number | undefined
-}>()
+const pathData = ref<string>('')
+const timelineHeight = ref<number>(0)
+const viewBox = ref<string>('0 0 8 0')
+const strokeDashArray = ref<number>(0)
+const strokeDashOffset = ref<number>(0)
+const strokeWidth = ref<number>(5)
 
-const pathD = ref<string | undefined>(undefined)
-const ulHeight = ref<number | undefined>(undefined)
-const viewBox = ref<string | undefined>(undefined)
-const xmlns = ref<string | undefined>(undefined)
+const svgElement = ref<SVGElement | null>(null)
+const pathElement = ref<SVGPathElement | null>(null)
+const timelineList = ref<HTMLElement | null>(null)
 
-const strokeDasharray = ref<number | undefined>(undefined)
-const strokeDashoffset = ref<number | undefined>(undefined)
+const initializePath = () => {
+  if (timelineList.value) {
+    const listHeight = timelineList.value.getBoundingClientRect().height
+    const roundedHeight = Math.round(listHeight)
 
-const svg = ref<SVGElement | undefined>(undefined)
-const path = ref<SVGPathElement | undefined>(undefined)
-
-const initPath = () => {
-  const instance = getCurrentInstance()
-  const ul = instance?.parent?.refs.ul as HTMLElement
-
-  const ulHeightValue = ul.getBoundingClientRect().height
-  const ulHeightRounded = Math.round(ulHeightValue)
-
-  pathD.value = `M 4 0 L 4 ${ulHeightRounded}`
-  ulHeight.value = ulHeightValue
-  viewBox.value = `0 0 8 ${ulHeightRounded}`
-  xmlns.value = `http://www.w3.org/${ulHeightRounded}/svg`
-
-  strokeDasharray.value = ulHeightValue
-  strokeDashoffset.value = ulHeightValue
+    pathData.value = `M 4 0 L 4 ${roundedHeight}`
+    timelineHeight.value = roundedHeight
+    viewBox.value = `0 0 8 ${roundedHeight}`
+    strokeDashArray.value = listHeight
+    strokeDashOffset.value = listHeight
+  }
 }
 
-const animateLine = () => {
-  const ulHeightValue = ulHeight.value || 0
-  const center = window.innerHeight / 2
-  const boundaries = path.value?.getBoundingClientRect()
+const animatePath = () => {
+  const height = timelineHeight.value || 0
+  const centerY = window.innerHeight / 2
+  const pathBounds = pathElement.value?.getBoundingClientRect()
 
-  const percentage =
-    (center - (boundaries?.top || 0)) / (boundaries?.height || 1)
-  const drawLength = percentage > 0 ? ulHeightValue * percentage : 0
+  const scrollPercentage =
+    (centerY - (pathBounds?.top || 0)) / (pathBounds?.height || 1)
+  const drawLength = scrollPercentage > 0 ? height * scrollPercentage : 0
 
-  strokeDashoffset.value =
-    drawLength < ulHeightValue ? ulHeightValue - drawLength : 0
+  strokeDashOffset.value = drawLength < height ? height - drawLength : 0
 }
 
-onMounted(() => {
-  initPath()
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
+const setupIntersectionObserver = () => {
+  if (svgElement.value) {
+    useIntersectionObserver(svgElement, ([entry]) => {
       if (entry.isIntersecting) {
-        window.addEventListener('scroll', animateLine)
-        window.addEventListener('resize', initPath)
+        window.addEventListener('scroll', animatePath)
+        window.addEventListener('resize', initializePath)
       } else {
-        window.removeEventListener('scroll', animateLine)
-        window.removeEventListener('resize', initPath)
+        window.removeEventListener('scroll', animatePath)
+        window.removeEventListener('resize', initializePath)
       }
     })
-  })
+  }
+}
 
-  observer.observe(svg.value as SVGElement)
+onMounted(async () => {
+  const instance = getCurrentInstance()
+  timelineList.value = instance?.parent?.refs.ul as HTMLElement
+
+  await nextTick()
+  initializePath()
+  setupIntersectionObserver()
+})
+
+watch(timelineHeight, async () => {
+  await nextTick()
+  initializePath()
 })
 </script>
 

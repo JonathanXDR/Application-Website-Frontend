@@ -1,22 +1,42 @@
 <template>
-  <div :class="['modal modal-page-overlay', { 'modal-open': open }]">
+  <div
+    :class="[
+      'modal family-modal modal-scrim icon-card-modal delivery modal-page-overlay',
+      { 'modal-open visually-visiable': open },
+      { 'modal-scrim-no-blur': !blurredBackground }
+    ]"
+    id="icon-card-modal-delivery"
+  >
     <div class="modal-overlay-container">
       <div class="modal-overlay">
         <div class="modal-content-container">
-          <div
-            id="icon-card-modal-content-delivery"
-            class="icon-card icon-card-modal-content modal-content delivery"
-          >
-            <h2 v-if="eyebrow" class="typography-site-modal-topic-label">
-              {{ eyebrow }}
-            </h2>
-            <p v-if="title" class="typography-site-modal-headline">
-              {{ title }}
-            </p>
-            <p v-if="description" class="typography-site-modal-body">
-              {{ description }}
-            </p>
-            <slot />
+          <div class="modal-content-wrapper variant-crossfade">
+            <div
+              id="modal-content-delivery"
+              class="icon-card-modal-content modal-content"
+            >
+              <h3
+                v-if="eyebrow"
+                class="typography-modal-topic-label modal-topic-label"
+              >
+                {{ eyebrow }}
+              </h3>
+              <h4 v-if="title" class="typography-modal-headline modal-headline">
+                {{ title }}
+              </h4>
+              <p
+                v-if="description"
+                class="typography-icon-card-modal-body icon-card-modal-inline-headline"
+              >
+                {{ description }}
+              </p>
+              <div class="modal-items-body">
+                <slot name="body" />
+              </div>
+              <div class="modal-ctas-container">
+                <slot name="cta" />
+              </div>
+            </div>
           </div>
         </div>
         <button class="modal-close-button" @click="toggle()">
@@ -82,12 +102,12 @@ const toggle = () => {
 }
 .icon-after:after,
 .more:after {
-  padding-inline-start: 0.24em;
+  padding-inline-start: 0.3em;
   top: 0;
 }
 html:not([dir='rtl']) .more:after,
 html:not([dir='rtl']) .more:before {
-  content: 'ïŒ';
+  content: '';
 }
 .icon-wrapper .icon,
 .icon-wrapper .icon-after:after,
@@ -101,7 +121,7 @@ a.icon-wrapper {
 a.icon-wrapper:hover .icon-copy {
   text-decoration: underline;
 }
-.typography-site-modal-body {
+.typography-icon-card-modal-body {
   font-size: 19px;
   line-height: 1.4211026316;
   font-weight: 400;
@@ -110,7 +130,7 @@ a.icon-wrapper:hover .icon-copy {
     sans-serif;
 }
 @media only screen and (max-width: 734px) {
-  .typography-site-modal-body {
+  .typography-icon-card-modal-body {
     font-size: 17px;
     line-height: 1.4705882353;
     font-weight: 400;
@@ -119,7 +139,25 @@ a.icon-wrapper:hover .icon-copy {
       sans-serif;
   }
 }
-.typography-site-modal-headline {
+.typography-icon-card-modal-inline-headline {
+  font-size: 19px;
+  line-height: 1.4211026316;
+  font-weight: 600;
+  letter-spacing: 0.012em;
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+}
+@media only screen and (max-width: 734px) {
+  .typography-icon-card-modal-inline-headline {
+    font-size: 17px;
+    line-height: 1.4705882353;
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+      sans-serif;
+  }
+}
+.typography-modal-headline {
   font-size: 56px;
   line-height: 1.0714285714;
   font-weight: 600;
@@ -128,7 +166,7 @@ a.icon-wrapper:hover .icon-copy {
     sans-serif;
 }
 @media only screen and (max-width: 1068px) {
-  .typography-site-modal-headline {
+  .typography-modal-headline {
     font-size: 48px;
     line-height: 1.0834933333;
     font-weight: 600;
@@ -138,16 +176,16 @@ a.icon-wrapper:hover .icon-copy {
   }
 }
 @media only screen and (max-width: 734px) {
-  .typography-site-modal-headline {
-    font-size: 40px;
-    line-height: 1.1;
+  .typography-modal-headline {
+    font-size: 32px;
+    line-height: 1.125;
     font-weight: 600;
-    letter-spacing: 0em;
+    letter-spacing: 0.004em;
     font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
       sans-serif;
   }
 }
-.typography-site-modal-inline-headline {
+.typography-modal-topic-label {
   font-size: 19px;
   line-height: 1.4211026316;
   font-weight: 600;
@@ -156,7 +194,7 @@ a.icon-wrapper:hover .icon-copy {
     sans-serif;
 }
 @media only screen and (max-width: 734px) {
-  .typography-site-modal-inline-headline {
+  .typography-modal-topic-label {
     font-size: 17px;
     line-height: 1.4705882353;
     font-weight: 600;
@@ -165,41 +203,13 @@ a.icon-wrapper:hover .icon-copy {
       sans-serif;
   }
 }
-.typography-site-modal-topic-label {
-  font-size: 19px;
-  line-height: 1.4211026316;
-  font-weight: 600;
-  letter-spacing: 0.012em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
-}
-@media only screen and (max-width: 734px) {
-  .typography-site-modal-topic-label {
-    font-size: 17px;
-    line-height: 1.4705882353;
-    font-weight: 600;
-    letter-spacing: -0.022em;
-    font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-      sans-serif;
-  }
-} /*! CSS Used
-from: https://www.apple.com/v/ipad-air/u/built/styles/overview.built.css */
 .modal-close-button {
-  cursor: pointer;
+  cursor: auto;
   position: var(--modal-close-button-position);
-  -webkit-box-ordinal-group: 2;
-  -ms-flex-order: 1;
   order: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-item-align: end;
   align-self: flex-end;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   z-index: 9999;
   height: var(--modal-close-button-size);
@@ -207,7 +217,6 @@ from: https://www.apple.com/v/ipad-air/u/built/styles/overview.built.css */
   margin: 0;
   padding: 0;
   border: 0;
-  -webkit-margin-end: var(--modal-close-button-offset-inline-start);
   margin-inline-end: var(--modal-close-button-offset-inline-start);
   margin-top: var(--modal-close-button-offset-top);
   top: var(--modal-close-button-offset-top);
@@ -226,16 +235,11 @@ from: https://www.apple.com/v/ipad-air/u/built/styles/overview.built.css */
   background: var(--modal-close-background);
   border-radius: var(--modal-close-border-radius);
   color: var(--modal-close-color);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   height: var(--modal-close-icon-size);
   width: var(--modal-close-icon-size);
   outline: none;
-  -webkit-transition: color 100ms linear, background 100ms linear;
   transition: color 100ms linear, background 100ms linear;
   position: relative;
 }
@@ -247,13 +251,22 @@ from: https://www.apple.com/v/ipad-air/u/built/styles/overview.built.css */
   width: var(--modal-close-icon-svg-size);
 }
 html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
-  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
 .modal-close-button .modal-close-icon * {
   pointer-events: none;
 }
 .modal {
+  --modal-overlay-padding-top: 76px;
+  --modal-overlay-padding-bottom: 76px;
+  --modal-overlay-padding-inline: 76px;
+  --modal-close-button-offset-top: 16px;
+  --modal-close-button-offset-inline-start: 16px;
+  --modal-close-button-size: 44px;
+  --modal-close-border-radius: 50%;
+  --modal-close-button-position: sticky;
+  --modal-close-icon-size: 36px;
+  --modal-close-icon-svg-size: 20px;
   background: var(--modal-scrim-background, var(--modal-overlay-background));
   position: fixed;
   z-index: -1;
@@ -358,92 +371,107 @@ html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
   border-radius: inherit;
   mask-image: radial-gradient(white, black);
 }
-.icon-card {
-  position: relative;
-  height: 100%;
+.modal-topic-label + .modal-headline {
+  margin-top: 12px;
 }
 @media only screen and (max-width: 734px) {
-  .icon-card-modal-content h2.typography-site-modal-topic-label {
-    max-width: none;
+  .modal-topic-label + .modal-headline {
+    margin-top: 8px;
   }
 }
-.modal .modal-overlay-container {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  min-height: 100%;
+@media only screen and (max-width: 734px) {
+  .icon-card-modal .modal-content-container {
+    --modal-overlay-padding-inline: 60px;
+    --modal-overlay-padding-top: 60px;
+    --modal-overlay-padding-bottom: 60px;
+  }
 }
-.modal .modal-overlay {
+@media only screen and (max-width: 480px) {
+  .icon-card-modal .modal-content-container {
+    --modal-overlay-padding-inline: 20px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .icon-card-modal .modal-content-container .modal-content-wrapper {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+.icon-card-modal-content {
   position: relative;
-  z-index: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  height: 100%;
+  display: none;
 }
-.modal .modal-content-container {
-  background: var(--modal-overlay-background);
-  -webkit-box-ordinal-group: 3;
-  -ms-flex-order: 2;
-  order: 2;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-padding-start: var(--modal-overlay-padding-inline);
-  padding-inline-start: var(--modal-overlay-padding-inline);
-  -webkit-padding-end: var(--modal-overlay-padding-inline);
-  padding-inline-end: var(--modal-overlay-padding-inline);
-  padding-top: var(--modal-overlay-padding-top);
-  padding-bottom: var(--modal-overlay-padding-bottom);
-  margin-top: calc(-1 * (44px + var(--modal-close-button-offset-top)));
+.family-modal .icon-card-modal-content {
+  display: block;
+}
+.icon-card-modal-content .icon-card-modal-inline-headline {
+  margin-top: 20px;
+}
+@media only screen and (max-width: 734px) {
+  .icon-card-modal-content .icon-card-modal-inline-headline {
+    margin-top: 16px;
+  }
+}
+.icon-card-modal-content .modal-ctas-container {
+  margin-top: 40px;
+}
+@media only screen and (max-width: 734px) {
+  .icon-card-modal-content .modal-ctas-container {
+    margin-top: 32px;
+  }
+}
+.icon-card-modal-content .modal-items-body .icon-card-modal-inline-headline {
+  margin-top: 40px;
+}
+@media only screen and (max-width: 734px) {
+  .icon-card-modal-content .modal-items-body .icon-card-modal-inline-headline {
+    margin-top: 32px;
+  }
+}
+.modal {
+  --caption-scale-ratio: 1;
+}
+.modal-page-overlay {
+  --modal-close-timeout: 400ms;
+  color: var(--sk-body-text-color);
+  transition: opacity var(--modal-close-timeout) ease;
+  opacity: 0;
+}
+@media only screen and (min-width: 1069px) {
+  .modal-page-overlay {
+    --modal-overlay-width: 816px;
+  }
+}
+@media only screen and (max-width: 734px) {
+  .modal-page-overlay {
+    --modal-overlay-width: 87.5%;
+  }
 }
 @media only screen and (max-width: 480px) {
-  .modal-page-overlay .modal-overlay-container {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
+  .modal-page-overlay {
+    --modal-overlay-width: 100%;
   }
 }
-.modal-page-overlay .modal-overlay {
-  -webkit-margin-start: auto;
-  margin-inline-start: auto;
-  -webkit-margin-end: auto;
-  margin-inline-end: auto;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  border-radius: var(--modal-overlay-border-radius-top)
-    var(--modal-overlay-border-radius-top)
-    var(--modal-overlay-border-radius-bottom)
-    var(--modal-overlay-border-radius-bottom);
-  width: var(--modal-overlay-width);
-  margin-top: var(--modal-overlay-margin-top);
-  margin-bottom: var(--modal-overlay-margin-bottom);
+.modal-page-overlay:not(.modal-scrim-no-blur) {
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }
-@media only screen and (max-width: 480px) {
-  .modal-page-overlay .modal-overlay {
-    --modal-overlay-margin-top: 20px;
-    --modal-overlay-margin-bottom: 0;
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-  }
-  .modal-page-overlay .modal-overlay .modal-content-container {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-  }
+.modal-page-overlay.visually-visiable {
+  opacity: 1;
 }
-.modal-page-overlay .modal-overlay .modal-content-container {
-  border-radius: inherit;
-  -webkit-mask-image: radial-gradient(white, black);
-  mask-image: radial-gradient(white, black);
+.modal-page-overlay .modal-close-button .modal-close-icon {
+  pointer-events: none;
+  transition: background-color 100ms linear, color 100ms linear;
+  background-color: var(--modal-close-background);
+  color: var(--modal-close-color);
+}
+.modal-page-overlay .modal-close-button:hover .modal-close-icon {
+  background-color: var(--modal-close-background-hover);
+  color: var(--modal-close-color-hover);
+}
+.modal-page-overlay .modal-close-button:active .modal-close-icon {
+  background-color: var(--modal-close-background-active);
+  color: var(--modal-close-color-hover);
 }
 </style>

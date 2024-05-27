@@ -8,10 +8,12 @@
       <div class="flex flex-col items-center gap-2">
         <SegmentNav
           :items="segmentNavItems"
+          label="combination"
           padding="0 21px"
           size="small"
           separator
           gray-labels
+          :focus="false"
           :outer-padding="3"
           :selected-item="segmentNavItems[currentIndex]?.id"
           :on-select="
