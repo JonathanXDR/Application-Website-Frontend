@@ -1,98 +1,93 @@
 <template>
   <svg
-    ref="svg"
+    ref="svgElement"
     class="svg-timeline"
     :viewBox="viewBox"
     xmlns="http://www.w3.org/2000/svg"
-    :height="ulHeight"
+    :height="timelineHeight"
   >
     <path
-      ref="path"
+      ref="pathElement"
       class="path-timeline"
       stroke="var(--color-fill-gray)"
-      stroke-width="5"
-      :d="pathD"
-      :stroke-dashoffset="strokeDashoffset"
-      :stroke-dasharray="strokeDasharray"
+      :stroke-width="strokeWidth"
+      :d="pathData"
+      :stroke-dashoffset="strokeDashOffset"
+      :stroke-dasharray="strokeDashArray"
     />
   </svg>
 </template>
 
 <script setup lang="ts">
-const pathD = ref<string>('')
-const ulHeight = ref<number>(0)
+const pathData = ref<string>('')
+const timelineHeight = ref<number>(0)
 const viewBox = ref<string>('0 0 8 0')
-const strokeDasharray = ref<number>(0)
-const strokeDashoffset = ref<number>(0)
+const strokeDashArray = ref<number>(0)
+const strokeDashOffset = ref<number>(0)
+const strokeWidth = ref<number>(5)
 
-const svg = ref<SVGElement | null>(null)
-const path = ref<SVGPathElement | null>(null)
-const ul = ref<HTMLElement | null>(null)
+const svgElement = ref<SVGElement | null>(null)
+const pathElement = ref<SVGPathElement | null>(null)
+const timelineList = ref<HTMLElement | null>(null)
 
-const initPath = () => {
-  if (ul.value) {
-    const ulHeightValue = ul.value.getBoundingClientRect().height
-    const ulHeightRounded = Math.round(ulHeightValue)
+const initializePath = () => {
+  if (timelineList.value) {
+    const listHeight = timelineList.value.getBoundingClientRect().height
+    const roundedHeight = Math.round(listHeight)
 
-    pathD.value = `M 4 0 L 4 ${ulHeightRounded}`
-    ulHeight.value = ulHeightRounded
-    viewBox.value = `0 0 8 ${ulHeightRounded}`
-    strokeDasharray.value = ulHeightValue
-    strokeDashoffset.value = ulHeightValue
+    pathData.value = `M 4 0 L 4 ${roundedHeight}`
+    timelineHeight.value = roundedHeight
+    viewBox.value = `0 0 8 ${roundedHeight}`
+    strokeDashArray.value = listHeight
+    strokeDashOffset.value = listHeight
   }
 }
 
-const animateLine = () => {
-  const ulHeightValue = ulHeight.value || 0
-  const center = window.innerHeight / 2
-  const boundaries = path.value?.getBoundingClientRect()
+const animatePath = () => {
+  const height = timelineHeight.value || 0
+  const centerY = window.innerHeight / 2
+  const pathBounds = pathElement.value?.getBoundingClientRect()
 
-  const percentage =
-    (center - (boundaries?.top || 0)) / (boundaries?.height || 1)
-  const drawLength = percentage > 0 ? ulHeightValue * percentage : 0
+  const scrollPercentage =
+    (centerY - (pathBounds?.top || 0)) / (pathBounds?.height || 1)
+  const drawLength = scrollPercentage > 0 ? height * scrollPercentage : 0
 
-  strokeDashoffset.value =
-    drawLength < ulHeightValue ? ulHeightValue - drawLength : 0
+  strokeDashOffset.value = drawLength < height ? height - drawLength : 0
+}
+
+const setupIntersectionObserver = () => {
+  if (svgElement.value) {
+    useIntersectionObserver(svgElement, ([entry]) => {
+      if (entry.isIntersecting) {
+        window.addEventListener('scroll', animatePath)
+        window.addEventListener('resize', initializePath)
+      } else {
+        window.removeEventListener('scroll', animatePath)
+        window.removeEventListener('resize', initializePath)
+      }
+    })
+  }
 }
 
 onMounted(async () => {
   const instance = getCurrentInstance()
-  ul.value = instance?.parent?.refs.ul as HTMLElement
+  timelineList.value = instance?.parent?.refs.ul as HTMLElement
 
   await nextTick()
-  initPath()
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        window.addEventListener('scroll', animateLine)
-        window.addEventListener('resize', initPath)
-      } else {
-        window.removeEventListener('scroll', animateLine)
-        window.removeEventListener('resize', initPath)
-      }
-    })
-  })
-
-  if (svg.value) {
-    observer.observe(svg.value)
-  }
+  initializePath()
+  setupIntersectionObserver()
 })
 
-watchEffect(async () => {
+watch(timelineHeight, async () => {
   await nextTick()
-  initPath()
+  initializePath()
 })
 </script>
 
 <style scoped>
-/* ------------------------------ svg-timeline ------------------------------ */
-
 .svg-timeline {
   position: absolute;
 }
-
-/* ------------------------------ path-timeline ----------------------------- */
 
 .path-timeline {
   transition: stroke-dashoffset 1s ease;
