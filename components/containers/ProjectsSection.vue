@@ -123,7 +123,7 @@ const { data: userRepositories } = useAsyncData(
   () =>
     $listUserRepositories({
       username: config.public.githubRepoOwner,
-      perPage: 100
+      per_page: 100
     }),
   { server: true }
 )
@@ -133,7 +133,7 @@ const { data: pinnedProjects } = useAsyncData(
   () =>
     $listPinnedRepositories({
       username: config.public.githubRepoOwner,
-      perPage: 100
+      per_page: 100
     }),
   { server: true }
 )

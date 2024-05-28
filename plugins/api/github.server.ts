@@ -1,14 +1,29 @@
 import { graphql, type GraphQlQueryResponseData } from '@octokit/graphql'
+import type {
+  Issue,
+  Maybe,
+  PullRequest,
+  Repository,
+  RepositoryTopic,
+  User
+} from '@octokit/graphql-schema'
 import { Octokit } from 'octokit'
-import type { PinnedRepositoryEdge } from '~/types/services/GitHub/Edge'
-import type { GetRepositoryIssues } from '~/types/services/GitHub/Issue'
+import type {
+  GetRepositoryIssues,
+  GetRepositoryIssuesParameters
+} from '~/types/services/GitHub/Issue'
 import type {
   GetOwnerRepository,
-  GetPinnedRepository,
+  GetOwnerRepositoryParameters,
   GetPublicRepositories,
-  GetUserRepositories
+  GetPublicRepositoriesParameters,
+  GetUserRepositories,
+  GetUserRepositoriesParameters
 } from '~/types/services/GitHub/Repository'
-import type { GetRepositoryTags } from '~/types/services/GitHub/Tag'
+import type {
+  GetRepositoryTags,
+  GetRepositoryTagsParameters
+} from '~/types/services/GitHub/Tag'
 
 export default defineNuxtPlugin(() => {
   const { githubToken } = useRuntimeConfig()
@@ -23,9 +38,9 @@ export default defineNuxtPlugin(() => {
     }
   })
 
-  const listPublicRepositories = async (params: {
-    since?: number
-  }): Promise<GetPublicRepositories> => {
+  const listPublicRepositories = async (
+    params: GetPublicRepositoriesParameters
+  ): Promise<GetPublicRepositories> => {
     const { since } = params
 
     try {
@@ -42,20 +57,15 @@ export default defineNuxtPlugin(() => {
     }
   }
 
-  const listUserRepositories = async (params: {
-    username: string
-    type?: 'all' | 'owner' | 'member' | undefined
-    sort?: 'full_name' | 'created' | 'updated' | 'pushed' | undefined
-    direction?: 'asc' | 'desc' | undefined
-    perPage?: number
-    page?: number
-  }): Promise<GetUserRepositories> => {
+  const listUserRepositories = async (
+    params: GetUserRepositoriesParameters
+  ): Promise<GetUserRepositories> => {
     const {
       username,
       type = 'owner',
       sort = 'full_name',
       direction = 'asc',
-      perPage = 30,
+      per_page = 30,
       page = 1
     } = params
 
@@ -65,7 +75,7 @@ export default defineNuxtPlugin(() => {
         type,
         sort,
         direction,
-        per_page: perPage,
+        per_page,
         page,
         headers: {
           accept: 'application/vnd.github+json'
@@ -78,10 +88,9 @@ export default defineNuxtPlugin(() => {
     }
   }
 
-  const getRepository = async (params: {
-    owner: string
-    repo: string
-  }): Promise<GetOwnerRepository> => {
+  const getRepository = async (
+    params: GetOwnerRepositoryParameters
+  ): Promise<GetOwnerRepository> => {
     const { owner, repo } = params
 
     try {
@@ -99,19 +108,16 @@ export default defineNuxtPlugin(() => {
     }
   }
 
-  const listRepositoryTags = async (params: {
-    owner: string
-    repo: string
-    perPage?: number
-    page?: number
-  }): Promise<GetRepositoryTags> => {
-    const { owner, repo, perPage = 30, page = 1 } = params
+  const listRepositoryTags = async (
+    params: GetRepositoryTagsParameters
+  ): Promise<GetRepositoryTags> => {
+    const { owner, repo, per_page = 30, page = 1 } = params
 
     try {
       const response = await octokit.request('GET /repos/{owner}/{repo}/tags', {
         owner,
         repo,
-        per_page: perPage,
+        per_page,
         page,
         headers: {
           accept: 'application/vnd.github+json'
@@ -124,21 +130,9 @@ export default defineNuxtPlugin(() => {
     }
   }
 
-  const listRepositoryIssues = async (params: {
-    owner: string
-    repo: string
-    milestone?: string
-    state?: 'open' | 'closed' | 'all'
-    assignee?: string
-    creator?: string
-    mentioned?: string
-    labels?: string
-    sort?: 'created' | 'updated' | 'comments'
-    direction?: 'asc' | 'desc'
-    since?: string
-    perPage?: number
-    page?: number
-  }): Promise<GetRepositoryIssues> => {
+  const listRepositoryIssues = async (
+    params: GetRepositoryIssuesParameters
+  ): Promise<GetRepositoryIssues> => {
     const {
       owner,
       repo,
@@ -151,7 +145,7 @@ export default defineNuxtPlugin(() => {
       sort = 'created',
       direction = 'desc',
       since,
-      perPage = 30,
+      per_page = 30,
       page = 1
     } = params
 
@@ -170,7 +164,7 @@ export default defineNuxtPlugin(() => {
           sort,
           direction,
           since,
-          per_page: perPage,
+          per_page,
           page,
           headers: {
             accept: 'application/vnd.github+json'
@@ -186,21 +180,21 @@ export default defineNuxtPlugin(() => {
 
   const listPinnedRepositories = async (params: {
     username: string
-    perPage?: number
-  }): Promise<GetPinnedRepository[]> => {
-    const { username, perPage = 30 } = params
+    per_page?: number
+  }): Promise<Repository[]> => {
+    const { username, per_page = 30 } = params
 
     const query = `
 {
   user(login: "${username}") {
-    pinnedItems(first: ${perPage}, types: REPOSITORY) {
+    pinnedItems(first: ${per_page}, types: REPOSITORY) {
       edges {
         node {
           ... on Repository {
             name
             description
             url
-            repositoryTopics(first: ${perPage}) {
+            repositoryTopics(first: ${per_page}) {
               nodes {
                 topic {
                   name
@@ -217,23 +211,23 @@ export default defineNuxtPlugin(() => {
               nickname
               url
             }
-            forks(first: ${perPage}) {
+            forks(first: ${per_page}) {
               nodes {
                 url
               }
             }
-            stargazers(first: ${perPage}) {
+            stargazers(first: ${per_page}) {
               nodes {
                 url
               }
             }
-            issues(first: ${perPage}) {
+            issues(first: ${per_page}) {
               nodes {
                 closed
                 url
               }
             }
-            pullRequests(first: ${perPage}) {
+            pullRequests(first: ${per_page}) {
               nodes {
                 closed
                 url
@@ -248,7 +242,7 @@ export default defineNuxtPlugin(() => {
 }
   `
 
-    const remapProps = (item: PinnedRepositoryEdge): GetPinnedRepository => {
+    const remapProps = (item: Repository): any => {
       const {
         name,
         description,
@@ -267,24 +261,33 @@ export default defineNuxtPlugin(() => {
         name,
         description,
         html_url: url,
-        topics: repositoryTopics.nodes.map(node => node.topic.name),
+        topics:
+          repositoryTopics?.nodes?.map(
+            (node: Maybe<RepositoryTopic>) => node?.topic.name ?? ''
+          ) || [],
         language: primaryLanguage?.name,
         license: licenseInfo,
-        forks: forks.nodes.map(node => node.url),
-        stars: stargazers.nodes.map(node => node.url),
-        issues: issues.nodes.filter(node => !node.closed).map(node => node.url),
-        pullRequests: pullRequests.nodes
-          .filter(node => !node.closed)
-          .map(node => node.url),
+        forks:
+          forks?.nodes?.map((node: Maybe<Repository>) => node?.url ?? '') || [],
+        stars:
+          stargazers?.nodes?.map((node: Maybe<User>) => node?.url ?? '') || [],
+        issues:
+          issues?.nodes
+            ?.filter((node: Maybe<Issue>) => node != null && !node.closed)
+            .map((node: Maybe<Issue>) => node?.url ?? '') || [],
+        pullRequests:
+          pullRequests?.nodes
+            ?.filter((node: Maybe<PullRequest>) => node != null && !node.closed)
+            .map((node: Maybe<PullRequest>) => node?.url ?? '') || [],
         updated_at: updatedAt
       }
     }
 
     try {
       const response = await graphqlInstance<GraphQlQueryResponseData>(query)
-      const pinnedRepositories: GetPinnedRepository[] =
-        response.user.pinnedItems.edges.map(
-          (edge: { node: PinnedRepositoryEdge }) => remapProps(edge.node)
+      const pinnedRepositories: Repository[] =
+        response.user.pinnedItems.edges.map((edge: { node: Repository }) =>
+          remapProps(edge.node)
         )
       return pinnedRepositories
     } catch (error) {

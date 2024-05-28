@@ -5,28 +5,19 @@ export type GetPublicRepositories =
 
 export type GetPublicRepository = GetPublicRepositories[number]
 
+export type GetPublicRepositoriesParameters =
+  Endpoints['GET /repositories']['parameters']
+
 export type GetUserRepositories =
   Endpoints['GET /users/{username}/repos']['response']['data']
 
 export type GetUserRepository = GetUserRepositories[number]
 
+export type GetUserRepositoriesParameters =
+  Endpoints['GET /users/{username}/repos']['parameters']
+
+export type GetOwnerRepositoryParameters =
+  Endpoints['GET /repos/{owner}/{repo}']['parameters']
+
 export type GetOwnerRepository =
   Endpoints['GET /repos/{owner}/{repo}']['response']['data']
-
-export type GetPinnedRepository = {
-  name: string
-  description: string
-  html_url: string
-  topics: string[]
-  language?: string
-  license?: {
-    name: string
-    nickname: string
-    url: string
-  }
-  forks: string[]
-  stars: string[]
-  issues: string[]
-  pullRequests: string[]
-  updated_at: string
-}

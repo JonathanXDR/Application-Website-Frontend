@@ -112,7 +112,7 @@ const { data: repositoryTags, refresh: refreshTags } = useAsyncData(
     $listRepositoryTags({
       owner: config.public.githubRepoOwner,
       repo: config.public.githubRepoName,
-      perPage: 2
+      per_page: 2
     }),
   { server: true }
 )
