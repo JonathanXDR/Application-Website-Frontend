@@ -3,10 +3,18 @@ import type { Repository } from '@octokit/graphql-schema'
 import type { RequestParameters } from '@octokit/types'
 import { Octokit } from 'octokit'
 import type {
+  GetAuthenticatedUserGistParameters,
+  GetAuthenticatedUserGists,
+  GetUserGists,
+  GetUserGistsParameters
+} from '~/types/services/GitHub/Gist'
+import type {
   GetRepositoryIssues,
   GetRepositoryIssuesParameters
 } from '~/types/services/GitHub/Issue'
 import type {
+  GetAuthenticatedUserRepositories,
+  GetAuthenticatedUserRepositoriesParameters,
   GetOwnerRepository,
   GetOwnerRepositoryParameters,
   GetPublicRepositories,
@@ -59,6 +67,15 @@ export default defineNuxtPlugin(() => {
       `fetching repositories for user ${params.username}`
     )
 
+  const listAuthenticatedUserRepositories = (
+    params: GetAuthenticatedUserRepositoriesParameters
+  ): Promise<GetAuthenticatedUserRepositories> =>
+    fetchFromOctokit(
+      'GET /user/repos',
+      { ...params, headers: { accept: 'application/vnd.github+json' } },
+      'fetching authenticated user repositories'
+    )
+
   const getRepository = (
     params: GetOwnerRepositoryParameters
   ): Promise<GetOwnerRepository> =>
@@ -84,6 +101,24 @@ export default defineNuxtPlugin(() => {
       'GET /repos/{owner}/{repo}/issues',
       { ...params, headers: { accept: 'application/vnd.github+json' } },
       `fetching issues for repository ${params.repo}`
+    )
+
+  const listUserGists = (
+    params: GetUserGistsParameters
+  ): Promise<GetUserGists> =>
+    fetchFromOctokit(
+      'GET /users/{username}/gists',
+      { ...params, headers: { accept: 'application/vnd.github+json' } },
+      `fetching gists for user ${params.username}`
+    )
+
+  const listAuthenticatedUserGists = (
+    params: GetAuthenticatedUserGistParameters
+  ): Promise<GetAuthenticatedUserGists> =>
+    fetchFromOctokit(
+      'GET /gists',
+      { ...params, headers: { accept: 'application/vnd.github+json' } },
+      'fetching authenticated user gists'
     )
 
   const listPinnedRepositories = async (params: {
@@ -204,9 +239,12 @@ export default defineNuxtPlugin(() => {
     provide: {
       listPublicRepositories,
       listUserRepositories,
+      listAuthenticatedUserRepositories,
       getRepository,
       listRepositoryTags,
       listRepositoryIssues,
+      listUserGists,
+      listAuthenticatedUserGists,
       listPinnedRepositories
     }
   }
