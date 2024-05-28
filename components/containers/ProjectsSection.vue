@@ -89,7 +89,9 @@ import type { CardItemType } from '~/types/common/CardItem'
 import type { ItemType } from '~/types/common/Item'
 import type { GetUserRepositories } from '~/types/services/GitHub/Repository'
 
-type GetUserPinnedRepositories = GetUserRepositories[number] & {
+type GetUserRepository = GetUserRepositories[0]
+
+type GetUserPinnedRepository = GetUserRepository & {
   icon?: CardItemType['icon']
 }
 
@@ -111,7 +113,7 @@ const config = useRuntimeConfig()
 const ul = ref<HTMLElement | null>(null)
 const ulHeight = useElementSize(ul).height
 
-const pinned = ref<GetUserPinnedRepositories[]>([])
+const pinned = ref<GetUserPinnedRepository[]>([])
 const currentIndex = ref(0)
 const randomColor = ref(colorStore.randomizeColor().colorName)
 const windowWidth = useWindowSize({ initialWidth: 0 }).width
@@ -188,7 +190,7 @@ const updateCurrentIndex = (index: number) => {
   currentIndex.value = index
 }
 
-const categorizeProject = (project: GetUserRepositories[0]) => {
+const categorizeProject = (project: GetUserRepository) => {
   const schoolProjectPattern =
     /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/
   const category = schoolProjectPattern.test(project.name)
@@ -200,7 +202,7 @@ const categorizeProject = (project: GetUserRepositories[0]) => {
 watch(
   pinnedProjects,
   newPinnedProjects => {
-    newPinnedProjects?.forEach((project: GetUserPinnedRepositories) => {
+    newPinnedProjects?.forEach((project: GetUserPinnedRepository) => {
       project.icon = {
         name: 'pin.fill',
         colors: {
@@ -219,7 +221,7 @@ watchEffect(() => {
   filteredProjects.value.map(categorizeProject).forEach(project => {
     const category = project.category as keyof Projects
     projects[category].push(
-      project as GetUserRepositories[0] & CardItemType & { category: string }
+      project as GetUserRepository & CardItemType & { category: string }
     )
   })
 })
