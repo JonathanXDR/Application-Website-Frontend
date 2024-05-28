@@ -24,7 +24,10 @@
         class="info-icon"
       />
       <template v-if="!loading">
-        {{ dateTitle || `${info?.date?.from} - ${info?.date?.to}` }}
+        {{
+          dateTitle ||
+          `${info?.date?.duration?.from} - ${info?.date?.duration?.to}`
+        }}
       </template>
       <template v-else>
         <LoadingSkeleton width="100px" height="15px" />
@@ -37,26 +40,26 @@
 import dayjs from 'dayjs'
 import 'dayjs/locale/en'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import type { DateType } from '~/types/common/Date'
 import type { InfoType } from '~/types/common/Info'
 import type { ItemType } from '~/types/common/Item'
 
 const props = withDefaults(
   defineProps<{
     info: InfoType
-    date?: string
-    dateFormatOptions?: Intl.DateTimeFormatOptions
-    dateNowKey?: 'created' | 'updated'
-    loading?: boolean
+    date: DateType
+    loading: boolean
   }>(),
   {
     info: () => ({}),
-    date: undefined,
-    dateFormatOptions: () => ({
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    date: () => ({
+      formatOptions: () => ({
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }),
+      nowKey: 'updated'
     }),
-    dateNowKey: 'updated',
     loading: false
   }
 )
@@ -88,7 +91,7 @@ const infoItems: ItemType[] = [
 
 const updatedYesterday = computed(() => {
   if (!props.date) return false
-  const updatedDate = dayjs(props.date)
+  const updatedDate = dayjs(props.date.date)
   const currentDate = dayjs()
   return currentDate.diff(updatedDate, 'day') <= 1
 })
@@ -101,20 +104,20 @@ const formatDate = (
 }
 
 const getDate = () => {
-  const formatOptions = props.dateFormatOptions
-  const dateVariant = props.dateNowKey
+  const formatOptions = props.date.formatOptions
+  const dateVariant = props.date.nowKey
 
-  if (props.info?.date?.from && props.info?.date?.to) {
-    return `${formatDate(props.info?.date.from, formatOptions)} - ${formatDate(
-      props.info?.date.to,
-      formatOptions
-    )}`
-  } else if (props.info?.date?.from) {
-    return formatDate(props.info?.date.from, formatOptions)
+  if (props.info?.date?.duration?.from && props.info?.date?.duration?.to) {
+    return `${formatDate(
+      props.info?.date?.duration?.from,
+      formatOptions()
+    )} - ${formatDate(props.info?.date?.duration?.to, formatOptions())}`
+  } else if (props.info?.date?.duration?.from) {
+    return formatDate(props.info?.date?.duration?.from, formatOptions())
   } else if (props.date) {
-    return `${dateVariant.charAt(0).toUpperCase()}${dateVariant.slice(
+    return `${dateVariant?.charAt(0).toUpperCase()}${dateVariant?.slice(
       1
-    )} ${dayjs(props.date).locale(locale.value).fromNow()}`
+    )} ${dayjs(props.date.date).locale(locale.value).fromNow()}`
   }
 }
 

@@ -103,7 +103,7 @@
         <InfoBar
           v-if="hasInfo"
           :info="infoBarInfo"
-          :date="updated_at"
+          :date="{ date: updated_at, ...props.date }"
           :date-format-options="date?.formatOptions"
           :date-now-key="date?.nowKey"
           :loading="loading"
@@ -233,7 +233,7 @@ const flexDirection = computed(
       right: 'row-reverse',
       bottom: 'column-reverse',
       left: 'row'
-    }[props.icon.position])
+    }[props.icon?.position || 'left'])
 )
 
 const alignItems = computed(

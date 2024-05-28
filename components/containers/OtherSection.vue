@@ -8,14 +8,16 @@
       variant="article"
       :loading="false"
       :size="windowWidth < 900 ? 'small' : 'medium'"
-      :icon="{
-        name: card.icon?.name,
-        position: windowWidth < 900 ? 'top' : 'left',
-      }"
+      :icon="
+        () => ({
+          name: card.icon?.name || '',
+          position: windowWidth < 900 ? 'top' : 'left'
+        })
+      "
       :date="{
-        formatOptions: {
-          weekday: 'long',
-        },
+        formatOptions: () => ({
+          weekday: 'long'
+        })
       }"
     />
   </ul>
@@ -29,9 +31,7 @@ defineProps<{
 }>()
 
 const { tm } = useI18n()
-const cards = computed<CardItemType[]>(() =>
-  tm('components.containers.other'),
-)
+const cards = computed<CardItemType[]>(() => tm('components.containers.other'))
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 </script>
 ~/types/common/ExtendedProps

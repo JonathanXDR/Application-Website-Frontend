@@ -8,12 +8,12 @@
       :loading="false"
       :size="windowWidth < 900 ? 'small' : 'medium'"
       :card="article"
-      :icon="{ position: windowWidth < 900 ? 'top' : 'left' }"
+      :icon="() => ({ position: windowWidth < 900 ? 'top' : 'left' })"
       :date="{
-        formatOptions: {
+        formatOptions: () => ({
           year: 'numeric',
           month: 'long'
-        }
+        })
       }"
     />
   </ul>

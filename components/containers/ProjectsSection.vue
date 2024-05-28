@@ -35,12 +35,12 @@
           :size="windowWidth < 900 ? 'small' : 'medium'"
           :loading="false"
           :card="project"
-          :icon="{ position: windowWidth < 900 ? 'top' : 'left' }"
+          :icon="() => ({ position: windowWidth < 900 ? 'top' : 'left' })"
           :date="{
-            formatOptions: {
+            formatOptions: () => ({
               year: 'numeric',
-              month: 'long',
-            },
+              month: 'long'
+            })
           }"
         />
       </ul>
@@ -89,7 +89,7 @@ import type { CardItemType } from '~/types/common/CardItem'
 import type { ItemType } from '~/types/common/Item'
 import type { GetUserRepositories } from '~/types/services/GitHub/Repository'
 
-type GetUserPinnedRepositories = GetUserRepositories[0] & {
+type GetUserPinnedRepositories = GetUserRepositories[number] & {
   icon?: CardItemType['icon']
 }
 
@@ -189,8 +189,8 @@ const updateCurrentIndex = (index: number) => {
 }
 
 const categorizeProject = (project: GetUserRepositories[0]) => {
-  const schoolProjectPattern
-    = /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/
+  const schoolProjectPattern =
+    /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/
   const category = schoolProjectPattern.test(project.name)
     ? 'school'
     : 'personal'
@@ -199,7 +199,7 @@ const categorizeProject = (project: GetUserRepositories[0]) => {
 
 watch(
   pinnedProjects,
-  (newPinnedProjects) => {
+  newPinnedProjects => {
     newPinnedProjects?.forEach((project: GetUserPinnedRepositories) => {
       project.icon = {
         name: 'pin.fill',
@@ -219,7 +219,7 @@ watchEffect(() => {
   filteredProjects.value.map(categorizeProject).forEach(project => {
     const category = project.category as keyof Projects
     projects[category].push(
-      project as GetUserRepositories[0] & CardItemType & { category: string },
+      project as GetUserRepositories[0] & CardItemType & { category: string }
     )
   })
 })

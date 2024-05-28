@@ -1,4 +1,5 @@
 import type { BadgeType } from './Badge'
+import type { DateType } from './Date'
 import type { ExtendedPropsType } from './ExtendedProps'
 import type { GraphType } from './Graph'
 import type { IconType } from './Icon'
@@ -13,9 +14,6 @@ export interface CardItemType extends ExtendedPropsType {
   badge?: BadgeType
   loading?: boolean
   graphs?: GraphType
-  date?: {
-    formatOptions: () => Intl.DateTimeFormatOptions
-    nowKey?: 'created' | 'updated'
-  }
+  date?: DateType
   icon?: IconType
 }

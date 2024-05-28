@@ -1,4 +1,9 @@
 export interface DateType {
-  from?: string
-  to?: string
+  date?: string | null | Date
+  formatOptions: () => Intl.DateTimeFormatOptions
+  nowKey?: 'created' | 'updated'
+  duration?: {
+    from?: string
+    to?: string
+  }
 }
