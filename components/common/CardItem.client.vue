@@ -83,8 +83,8 @@
           </div>
         </div>
         <BadgeBar
-          v-if="hasTagsOrTopics"
-          :badges="tagsOrTopics"
+          v-if="hasBadgesOrTopics"
+          :badges="badgesOrTopics"
           :loading="loading"
         />
 
@@ -177,10 +177,10 @@ const scrollAnimation = {
 const hasCoverOrGraphs = computed(
   () => props.cover || props.graphs?.donut || props.graphs?.bar
 )
-const hasTagsOrTopics = computed(
+const hasBadgesOrTopics = computed(
   () => props.badges?.length || props.topics?.length
 )
-const tagsOrTopics = computed(() => props.tags || props.topics)
+const badgesOrTopics = computed(() => props?.badges || props.topics)
 const hasLinksOrHtmlUrl = computed(() => props.links?.length || props.html_url)
 const linkCollectionLinks = computed(
   () =>
