@@ -25,7 +25,7 @@
           :class="['viewer-sizenav-value', { focus }]"
           :value="item.id"
           :disabled="item.id !== selectedItem && isTransitioning"
-        />
+        >
         <label
           :for="`viewer-sizenav-value-${item.id}`"
           class="viewer-sizenav-link"

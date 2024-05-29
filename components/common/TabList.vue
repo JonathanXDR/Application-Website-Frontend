@@ -10,7 +10,7 @@
             name="category"
             :value="item.id"
             @change="() => emitChange(item.id)"
-          />
+          >
           <label :for="`tab-${item.id}`" class="tabnav-link">
             {{ item.label }}
           </label>
@@ -30,13 +30,16 @@
 
 <script setup lang="ts">
 import type { ItemType } from '~/types/common/Item'
-const props = defineProps({
-  items: {
-    type: Array as PropType<ItemType[]>,
-    required: true
-  },
-  activeTabId: String
-})
+const props = withDefaults(
+  defineProps<{
+    items: ItemType[]
+    activeTabId: string
+  }>(),
+  {
+    items: () => [],
+    activeTabId: '0'
+  }
+)
 
 const emit = defineEmits(['change'])
 const selectedTab = ref(props.activeTabId)
