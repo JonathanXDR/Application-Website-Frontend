@@ -22,9 +22,7 @@
         :size="icon.size"
         :colors="icon.colors"
         :class="iconClasses"
-        :style="{
-          position: props.icon.absolute ? 'absolute' : 'relative'
-        }"
+        :style="{ position: icon.absolute ? 'absolute' : 'relative' }"
       />
       <div class="body" :style="{ alignItems: alignItems }">
         <div class="eyebrow">
@@ -103,7 +101,7 @@
         <InfoBar
           v-if="hasInfo"
           :info="infoBarInfo"
-          :date="{ date: updated_at, ...props.date }"
+          :date="{ date: updated_at, ...date }"
           :date-format-options="date?.formatOptions"
           :date-now-key="date?.nowKey"
           :loading="loading"
@@ -154,7 +152,6 @@ const applyHover = computed(
     (props.hover === 'auto' && props.links?.length === 1) ||
     props.hover === 'true'
 )
-
 const componentType = computed(() =>
   props.variant === 'article' ? 'div' : 'a'
 )
@@ -193,26 +190,25 @@ const linkCollectionLinks = computed(
     ]
 )
 
-const hasInfo = computed(() =>
-  Object.keys(props).some(
-    key =>
-      [
-        'info',
-        'created_at',
-        'updated_at',
-        'language',
-        'license',
-        'forks_count',
-        'network_count',
-        'watchers_count',
-        'stargazers_count',
-        'open_issues_count',
-        'subscribers_count'
-      ].includes(key) && props[key]
-  )
-)
-const infoBarInfo = computed(
-  () =>
+const hasInfo = computed(() => {
+  const keys = [
+    'info',
+    'created_at',
+    'updated_at',
+    'language',
+    'license',
+    'forks_count',
+    'network_count',
+    'watchers_count',
+    'stargazers_count',
+    'open_issues_count',
+    'subscribers_count'
+  ]
+  return keys.some(key => (props as Record<string, any>)[key])
+})
+
+const infoBarInfo = computed(() => {
+  return (
     props.info || {
       language: props.language,
       license: props.license?.name,
@@ -224,7 +220,8 @@ const infoBarInfo = computed(
       subscribers: props.subscribers_count,
       date: props.updated_at
     }
-)
+  )
+})
 
 const flexDirection = computed(
   () =>

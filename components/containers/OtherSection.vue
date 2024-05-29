@@ -34,4 +34,3 @@ const { tm } = useI18n()
 const cards = computed<CardItemType[]>(() => tm('components.containers.other'))
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 </script>
-~/types/common/ExtendedProps
