@@ -1,8 +1,7 @@
-import type { GetRepositoryIssues } from '../services/GitHub/Issue'
 import type { DateType } from './Date'
 
 export interface InfoType {
-  [key: string]: undefined | string | number | GetRepositoryIssues[] | DateType
+  [key: string]: undefined | string | number | DateType
   location?: string
   supervisor?: string
   department?: string
@@ -13,7 +12,7 @@ export interface InfoType {
   networks?: number
   watchers?: number
   stars?: number
-  issues?: GetRepositoryIssues[]
+  issues?: number
   subscribers?: number
   date?: DateType
 }

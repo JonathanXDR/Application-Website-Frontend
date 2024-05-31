@@ -204,13 +204,13 @@ const hasInfo = computed(() => {
     'open_issues_count',
     'subscribers_count'
   ]
-  return keys.some(key => (props as Record<string, any>)[key])
+  return keys.some((key: string) => (props as Record<string, unknown>)[key])
 })
 
 const infoBarInfo = computed(() => {
   return (
     props.info || {
-      language: props.language,
+      language: props.language || '',
       license: props.license?.name,
       forks: props.forks_count,
       networks: props.network_count,
@@ -218,7 +218,7 @@ const infoBarInfo = computed(() => {
       stars: props.stargazers_count,
       issues: props.open_issues_count,
       subscribers: props.subscribers_count,
-      date: props.updated_at
+      date: { date: props.updated_at, ...props.date }
     }
   )
 })
@@ -242,10 +242,12 @@ const alignItems = computed(
     }[props.alignment])
 )
 
-const detailsStyle = computed(() => ({
-  flexDirection: flexDirection.value,
-  alignItems: alignItems.value
-}))
+const detailsStyle = computed((): Record<string, string> => {
+  return {
+    flexDirection: flexDirection.value,
+    alignItems: alignItems.value
+  }
+})
 
 const iconClasses = computed(() => ({
   icon: true,
