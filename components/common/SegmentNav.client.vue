@@ -65,7 +65,7 @@
 import type { SegmentNavType } from '~/types/common/SegmentNav'
 
 const props = withDefaults(defineProps<SegmentNavType>(), {
-  size: 'medium',
+  componentSize: 'medium',
   label: 'text',
   focus: true,
   separator: false,
@@ -119,7 +119,7 @@ const height = computed(() => {
     medium: 48,
     large: 56
   }
-  return sizes[props.size || 'medium']
+  return sizes[props.componentSize || 'medium']
 })
 
 const fontSize = computed(() => {
@@ -129,7 +129,7 @@ const fontSize = computed(() => {
     medium: 16,
     large: 18
   }
-  return sizes[props.size || 'medium']
+  return sizes[props.componentSize || 'medium']
 })
 
 const containerStyle = computed(() => ({

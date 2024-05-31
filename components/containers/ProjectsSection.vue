@@ -10,7 +10,7 @@
           :items="segmentNavItems"
           label="combination"
           padding="0 21px"
-          size="small"
+          component-size="small"
           separator
           gray-labels
           :focus="false"
@@ -32,7 +32,7 @@
           v-for="(project, index) in currentProjects"
           :key="index"
           variant="article"
-          :size="windowWidth < 900 ? 'small' : 'medium'"
+          :component-size="windowWidth < 900 ? 'small' : 'medium'"
           :loading="false"
           :card="project"
           :icon="() => ({ position: windowWidth < 900 ? 'top' : 'left' })"
@@ -57,7 +57,7 @@
             :key="index"
             :loading="false"
             :card="card"
-            size="small"
+            component-size="small"
             icon-position="right"
             icon-absolute
             class="color"
@@ -73,7 +73,7 @@
             :key="index"
             :loading="false"
             :card="card"
-            size="small"
+            component-size="small"
             icon-position="right"
           />
           <ResultBlankState v-if="!currentProjects" />

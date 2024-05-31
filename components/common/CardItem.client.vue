@@ -19,7 +19,7 @@
         v-if="icon"
         :loading="loading"
         :name="icon.name"
-        :size="icon.size"
+        :component-size="icon.componentSize"
         :colors="icon.colors"
         :class="iconClasses"
         :style="{ position: icon.absolute ? 'absolute' : 'relative' }"
@@ -46,7 +46,7 @@
           <Badge
             v-if="archived"
             title="Public archive"
-            size="xsmall"
+            component-size="xsmall"
             :loading="loading"
             :colors="{
               primary: 'var(--color-figure-yellow)',
@@ -87,7 +87,7 @@
         />
 
         <div v-if="hasLinksOrHtmlUrl" class="ctas-wrapper">
-          <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
+          <!-- <ButtonItem variant="secondary" componentSize="small"> Test </ButtonItem> -->
           <!-- <NuxtLink href="photos://" class="icon-wrapper button button-reduced button-neutral">
             <span class="icon-copy"> Open</span>
           </NuxtLink> -->
@@ -120,7 +120,7 @@ type Props = Partial<CardItemType> & Partial<GetUserRepository>
 
 const props = withDefaults(defineProps<Props>(), {
   variant: 'card',
-  size: 'medium',
+  componentSize: 'medium',
   alignment: 'start',
   hover: 'auto',
   cover: '',
@@ -164,7 +164,7 @@ const componentHref = computed(() =>
 const componentClasses = computed(() => [
   'scroll-animation scroll-animation--off',
   props.variant,
-  props.size
+  props.componentSize
 ])
 const scrollAnimation = {
   add: 'scroll-animation--on',
@@ -249,9 +249,9 @@ const detailsStyle = computed(() => ({
 
 const iconClasses = computed(() => ({
   icon: true,
-  'icon-large': props.variant === 'article' && props.size === 'large',
-  'icon-xlarge': ['medium', 'small'].includes(props.size),
-  'icon-xxlarge': props.variant === 'card' && props.size === 'large'
+  'icon-large': props.variant === 'article' && props.componentSize === 'large',
+  'icon-xlarge': ['medium', 'small'].includes(props.componentSize),
+  'icon-xxlarge': props.variant === 'card' && props.componentSize === 'large'
 }))
 </script>
 

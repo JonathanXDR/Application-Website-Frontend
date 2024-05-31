@@ -1,9 +1,6 @@
 <template>
   <div class="cta-circular-icon cta-open">
-    <Icon
-      name="plus"
-      size="small"
-    />
+    <Icon name="plus" component-size="small" />
   </div>
 </template>
 

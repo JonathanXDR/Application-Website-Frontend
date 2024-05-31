@@ -56,7 +56,7 @@
                   <Icon
                     :loading="loading"
                     name="chevron.left"
-                    size="small"
+                    component-size="small"
                     class="icon"
                   />
                 </button>
@@ -68,7 +68,7 @@
                   <Icon
                     :loading="loading"
                     name="chevron.right"
-                    size="small"
+                    component-size="small"
                     class="icon"
                   />
                 </button>

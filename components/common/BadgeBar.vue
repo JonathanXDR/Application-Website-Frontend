@@ -8,7 +8,7 @@
           class="badge"
           :loading="loading"
           :title="badge"
-          size="small"
+          component-size="small"
           :url="`https://github.com/topics/${badge}`"
         />
       </ul>

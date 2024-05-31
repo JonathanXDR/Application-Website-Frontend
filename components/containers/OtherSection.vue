@@ -7,7 +7,7 @@
       :key="index"
       variant="article"
       :loading="false"
-      :size="windowWidth < 900 ? 'small' : 'medium'"
+      :component-size="windowWidth < 900 ? 'small' : 'medium'"
       :icon="
         () => ({
           name: card.icon?.name || '',

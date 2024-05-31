@@ -1,10 +1,10 @@
+import type { BasicSizeType } from './BasicSize'
 import type { ColorType } from './Color'
-import type { SizeType } from './Size'
 
 export interface IconType {
   name: string
   variant?: 'default' | 'outline' | 'fill' | 'custom'
-  size?: Exclude<SizeType, 'xsmall' & 'xlarge'>
+  componentSize?: BasicSizeType
   colors?: ColorType
   loading?: boolean
   absolute?: boolean

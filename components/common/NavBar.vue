@@ -55,7 +55,7 @@
             <SegmentNav
               :items="themeItems"
               gap="5px"
-              size="xsmall"
+              component-size="xsmall"
               :focus="false"
               :label="windowWidth < 900 ? 'icon' : 'text'"
               :selected-item="getTheme()"

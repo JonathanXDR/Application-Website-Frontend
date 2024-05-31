@@ -6,7 +6,7 @@
       :key="index"
       variant="article"
       :loading="false"
-      :size="windowWidth < 900 ? 'small' : 'medium'"
+      :component-size="windowWidth < 900 ? 'small' : 'medium'"
       :card="article"
       :icon="() => ({ position: windowWidth < 900 ? 'top' : 'left' })"
       :date="{

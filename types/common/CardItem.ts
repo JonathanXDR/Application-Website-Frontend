@@ -1,13 +1,13 @@
 import type { BadgeType } from './Badge'
+import type { BasicSizeType } from './BasicSize'
 import type { DateType } from './Date'
 import type { ExtendedPropsType } from './ExtendedProps'
 import type { GraphType } from './Graph'
 import type { IconType } from './Icon'
-import type { SizeType } from './Size'
 
 export interface CardItemType extends ExtendedPropsType {
   variant?: 'card' | 'article'
-  size?: Exclude<SizeType, 'xsmall' & 'xlarge'> | 'full'
+  componentSize?: BasicSizeType | 'full'
   alignment?: 'start' | 'center' | 'end'
   hover?: 'auto' | 'true' | 'false'
   cover?: string

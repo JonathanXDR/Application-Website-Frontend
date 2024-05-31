@@ -16,7 +16,7 @@
         :key="index"
         :loading="false"
         :card="card"
-        size="small"
+        component-size="small"
         icon-position="right"
         icon-absolute
       />

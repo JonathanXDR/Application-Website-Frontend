@@ -23,7 +23,7 @@
         v-if="link.icon"
         :loading="loading"
         :name="link.icon.name"
-        :size="link.icon.size"
+        :component-size="link.icon.componentSize"
         :colors="link.icon.colors"
         class="icon icon-small"
       />

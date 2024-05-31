@@ -7,11 +7,11 @@
 </template>
 
 <script setup lang="ts">
+import type { BasicSizeType } from '~/types/common/BasicSize'
 import type { IconType } from '~/types/common/Icon'
-import type { SizeType } from '~/types/common/Size'
 
 const props = withDefaults(defineProps<IconType>(), {
-  size: 'medium',
+  componentSize: 'medium',
   loading: false,
   colors: () => ({
     primary: 'currentColor',
@@ -20,9 +20,11 @@ const props = withDefaults(defineProps<IconType>(), {
   })
 })
 
-const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`)
+const icon = computed(
+  () => `${getSpriteUrl(props.componentSize)}#${props.name}`
+)
 
-const getSpriteUrl = (size: Exclude<SizeType, 'xsmall' & 'xlarge'>) => {
+const getSpriteUrl = (size: BasicSizeType) => {
   return `/icons/${size}/symbol/sprite.svg`
 }
 
