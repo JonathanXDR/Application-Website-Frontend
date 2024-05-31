@@ -85,13 +85,15 @@
 </template>
 
 <script lang="ts" setup>
+import type { Repository } from '@octokit/graphql-schema'
 import type { CardItemType } from '~/types/common/CardItem'
 import type { ItemType } from '~/types/common/Item'
-import type { GetUserRepositories } from '~/types/services/GitHub/Repository'
+import type {
+  GetUserRepositories,
+  GetUserRepository
+} from '~/types/services/GitHub/Repository'
 
-type GetUserRepository = GetUserRepositories[0]
-
-type GetUserPinnedRepository = GetUserRepository & {
+type GetUserPinnedRepository = Repository & {
   icon?: CardItemType['icon']
 }
 
