@@ -10,19 +10,9 @@
     :class="['scroll-animation scroll-animation--off', variant, size]"
     target="_blank"
   >
-    <div
-      v-if="cover || donutGraph || barGraph"
-      class="card-cover-wrap"
-    >
-      <picture
-        v-if="cover"
-        class="card-cover"
-      >
-        <NuxtImg
-          decoding="async"
-          loading="lazy"
-          :src="cover"
-        />
+    <div v-if="cover || donutGraph || barGraph" class="card-cover-wrap">
+      <picture v-if="cover" class="card-cover">
+        <NuxtImg decoding="async" loading="lazy" :src="cover" />
       </picture>
       <div v-if="barGraph">
         <div class="group group-hispanic typography-body-tight">
@@ -31,11 +21,7 @@
             <span>Hispanic/Latinx</span>
           </p>
           <div class="bar-container">
-            <div
-              class="bar"
-              data-bar
-              style="width: 27.1%"
-            />
+            <div class="bar" data-bar style="width: 27.1%" />
           </div>
         </div>
         <div class="group group-white typography-body-tight">
@@ -44,18 +30,11 @@
             <span>White</span>
           </p>
           <div class="bar-container">
-            <div
-              class="bar"
-              data-bar
-              style="width: 39.7%"
-            />
+            <div class="bar" data-bar style="width: 39.7%" />
           </div>
         </div>
       </div>
-      <div
-        v-if="donutGraph"
-        class="container"
-      >
+      <div v-if="donutGraph" class="container">
         <div class="donut-container">
           <figure class="donut">
             <svg class="ac-graph-svg ac-graph-donut">
@@ -79,14 +58,14 @@
         <div class="wedge-legend typography-donut-label female">
           <span>
             <span class="semibold">Female</span>
-            <br>
+            <br >
             <span data-value>35.3</span>%
           </span>
         </div>
         <div class="wedge-legend typography-donut-label male">
           <span>
             <span class="semibold">Male</span>
-            <br>
+            <br >
             <span data-value>64.6</span>%
           </span>
         </div>
@@ -127,10 +106,7 @@
             {{ card.eyebrow }}
           </template>
           <template v-else>
-            <LoadingSkeleton
-              width="150px"
-              height="15px"
-            />
+            <LoadingSkeleton width="150px" height="15px" />
           </template>
         </div>
         <div class="title-wrapper">
@@ -139,10 +115,7 @@
               {{ card.title || card.name }}
             </template>
             <template v-else>
-              <LoadingSkeleton
-                width="200px"
-                height="15px"
-              />
+              <LoadingSkeleton width="200px" height="15px" />
             </template>
           </div>
 
@@ -177,18 +150,9 @@
               {{ card.description }}
             </template>
             <template v-else>
-              <LoadingSkeleton
-                width="300px"
-                height="15px"
-              />
-              <LoadingSkeleton
-                width="300px"
-                height="15px"
-              />
-              <LoadingSkeleton
-                width="250px"
-                height="15px"
-              />
+              <LoadingSkeleton width="300px" height="15px" />
+              <LoadingSkeleton width="300px" height="15px" />
+              <LoadingSkeleton width="250px" height="15px" />
             </template>
           </div>
         </div>
@@ -197,10 +161,7 @@
           :badges="card.tags || card.topics"
           :loading="loading"
         />
-        <div
-          v-if="card.links?.length || card.html_url"
-          class="ctas-wrapper"
-        >
+        <div v-if="card.links?.length || card.html_url" class="ctas-wrapper">
           <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
           <!-- <NuxtLink href="photos://" class="icon-wrapper button button-reduced button-neutral">
             <span class="icon-copy"> Open</span>
@@ -225,17 +186,17 @@
         </div>
         <InfoBar
           v-if="
-            card.info
-              || card.created_at
-              || card.updated_at
-              || card.language
-              || card.license
-              || card.forks_count
-              || card.network_count
-              || card.watchers_count
-              || card.stargazers_count
-              || card.open_issues_count
-              || card.subscribers_count
+            card.info ||
+            card.created_at ||
+            card.updated_at ||
+            card.language ||
+            card.license ||
+            card.forks_count ||
+            card.network_count ||
+            card.watchers_count ||
+            card.stargazers_count ||
+            card.open_issues_count ||
+            card.subscribers_count
           "
           :info="
             card.info || {
@@ -256,51 +217,48 @@
           :loading="loading"
         />
       </div>
-      <LanguageBarV2
-        v-if="language"
-        :language="language"
-        style="width: 100%"
-      />
+      <LanguageBarV2 v-if="language" :language="language" style="width: 100%" />
     </div>
   </component>
 </template>
 
 <script setup lang="ts">
-import type { ListUserReposResponse } from '~/types/GitHub/Repository'
-import type { BadgeType } from '~/types/common/Badge'
-import type { CardItemType } from '~/types/common/CardItem'
-import type { LanguageBarType } from '~/types/common/LanguageBar'
+import type { ListUserReposResponse } from '~/types/GitHub/Repository';
+import type { BadgeType } from '~/types/common/Badge';
+import type { CardItemType } from '~/types/common/CardItem';
+import type { LanguageBarType } from '~/types/common/LanguageBar';
 
 const props = withDefaults(
   defineProps<{
-    card: CardItemType | ListUserReposResponse | any
-    variant?: 'card' | 'article'
-    dateFormatOptions?: Intl.DateTimeFormatOptions
-    dateNowKey?: 'created' | 'updated'
-    iconPosition?: 'top' | 'right' | 'bottom' | 'left'
-    iconAlignment?: 'start' | 'center' | 'end'
-    iconAbsolute?: boolean
-    size?: 'small' | 'medium' | 'large' | 'full'
-    hover?: 'auto' | 'true' | 'false'
-    cover?: string
-    badge?: BadgeType
-    language?: LanguageBarType
-    donutGraph?: boolean
-    barGraph?: boolean
-    loading?: boolean
+    card: CardItemType | ListUserReposResponse | any;
+    variant?: 'card' | 'article';
+    dateFormatOptions?: Intl.DateTimeFormatOptions;
+    dateNowKey?: 'created' | 'updated';
+    iconPosition?: 'top' | 'right' | 'bottom' | 'left';
+    iconAlignment?: 'start' | 'center' | 'end';
+    iconAbsolute?: boolean;
+    size?: 'small' | 'medium' | 'large' | 'full';
+    hover?: 'auto' | 'true' | 'false';
+    cover?: string;
+    badge?: BadgeType;
+    language?: LanguageBarType;
+    donutGraph?: boolean;
+    barGraph?: boolean;
+    loading?: boolean;
   }>(),
   {
     card: () => {},
     variant: 'card',
-
     dateFormatOptions: () => {
       return {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
-      }
+      };
     },
-
+    cover: undefined,
+    badge: undefined,
+    language: undefined,
     dateNowKey: 'updated',
     iconPosition: 'top',
     iconAlignment: 'start',
@@ -310,46 +268,46 @@ const props = withDefaults(
     donutGraph: false,
     barGraph: false,
     loading: false,
-  },
-)
+  }
+);
 
-const { colorBadge } = useColor()
+const { colorBadge } = useColor();
 
 const applyHover = computed(() => {
   return (
-    (props.hover === 'auto'
-    && props.card.links
-    && props.card.links.length === 1)
-    || props.hover === 'true'
-  )
-})
+    (props.hover === 'auto' &&
+      props.card.links &&
+      props.card.links.length === 1) ||
+    props.hover === 'true'
+  );
+});
 
 const getFlexDirection = () => {
   switch (props.iconPosition) {
     case 'top':
-      return 'column'
+      return 'column';
     case 'right':
-      return 'row-reverse'
+      return 'row-reverse';
     case 'bottom':
-      return 'column-reverse'
+      return 'column-reverse';
     case 'left':
     default:
-      return 'row'
+      return 'row';
   }
-}
+};
 
 const getAlignItems = () => {
   switch (props.iconAlignment) {
     case 'start':
-      return 'flex-start'
+      return 'flex-start';
     case 'center':
-      return 'center'
+      return 'center';
     case 'end':
-      return 'flex-end'
+      return 'flex-end';
     default:
-      return 'flex-start'
+      return 'flex-start';
   }
-}
+};
 </script>
 
 <style scoped>

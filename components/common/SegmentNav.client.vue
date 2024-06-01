@@ -4,14 +4,8 @@
     :class="['viewer-sizenav all-access-pass__background', { shadow }]"
     :style="containerStyle"
   >
-    <div
-      v-if="selectedItemElement"
-      class="viewer-sizenav__bubble"
-    >
-      <div
-        class="viewer-sizenav__bubble-inner"
-        :style="bubbleStyle"
-      />
+    <div v-if="selectedItemElement" class="viewer-sizenav__bubble">
+      <div class="viewer-sizenav__bubble-inner" :style="bubbleStyle" />
     </div>
     <ul
       class="viewer-sizenav-items"
@@ -37,7 +31,9 @@
           class="viewer-sizenav-link"
           :style="{
             'min-width':
-              props.label !== 'icon' ? '48px' : `${height - outerPadding * 2}px`,
+              props.label !== 'icon'
+                ? '48px'
+                : `${height - outerPadding * 2}px`,
           }"
         >
           <span
@@ -46,8 +42,8 @@
             <span
               class="viewer-sizenav-label"
               :style="{
-                'padding': padding,
-                'color': grayLabels
+                padding: padding,
+                color: grayLabels
                   ? 'var(--color-fill-gray-secondary)'
                   : 'var(--aap-icon-color)',
                 'font-size': `${fontSize}px`,
@@ -68,22 +64,22 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Option'
+import type { ItemType } from '~/types/common/Option';
 
 const props = withDefaults(
   defineProps<{
-    items: ItemType[]
-    size?: 'xsmall' | 'small' | 'medium' | 'large'
-    label?: 'icon' | 'text' | 'combination'
-    focus?: boolean
-    separator?: boolean
-    shadow?: boolean
-    grayLabels?: boolean
-    gap?: string
-    padding?: string
-    outerPadding?: number
-    selectedItem?: string
-    onSelect?: (id: string) => void
+    items: ItemType[];
+    size?: 'xsmall' | 'small' | 'medium' | 'large';
+    label?: 'icon' | 'text' | 'combination';
+    focus?: boolean;
+    separator?: boolean;
+    shadow?: boolean;
+    grayLabels?: boolean;
+    gap?: string;
+    padding?: string;
+    outerPadding?: number;
+    selectedItem?: string;
+    onSelect?: (id: string) => void;
   }>(),
   {
     size: 'medium',
@@ -94,45 +90,45 @@ const props = withDefaults(
     grayLabels: false,
     gap: '0px',
     padding: (props) => {
-      return props.label !== 'icon' ? '0 8px' : '0'
+      return props.label !== 'icon' ? '0 8px' : '0';
     },
     outerPadding: 4,
     selectedItem: (props) => {
-      return props.items[0].id
+      return props.items[0].id;
     },
     onSelect: () => {},
-  },
-)
+  }
+);
 
-const selectedItem = ref<string>(props.selectedItem)
-const isTransitioning = ref<boolean>(false)
+const selectedItem = ref<string>(props.selectedItem);
+const isTransitioning = ref<boolean>(false);
 
-const navContainer = ref<HTMLElement | null>(null)
-const itemElements = ref<Array<HTMLElement>>([])
-const selectedItemElement = ref<HTMLElement | null>(null)
+const navContainer = ref<HTMLElement | null>(null);
+const itemElements = ref<Array<HTMLElement>>([]);
+const selectedItemElement = ref<HTMLElement | null>(null);
 
 const setItemRef = (el: HTMLElement | null) => {
-  if (el) itemElements.value.push(el)
-}
+  if (el) itemElements.value.push(el);
+};
 
 const updateBubblePosition = () => {
-  isTransitioning.value = true
+  isTransitioning.value = true;
   const selectedItemIndex = props.items.findIndex(
-    item => item.id === selectedItem.value,
-  )
-  selectedItemElement.value = itemElements.value[selectedItemIndex]
+    (item) => item.id === selectedItem.value
+  );
+  selectedItemElement.value = itemElements.value[selectedItemIndex];
   if (selectedItemElement.value) {
     bubbleStyle.value = {
       '--bubble-position': `${selectedItemElement?.value?.offsetLeft}px`,
       '--bubble-width': `${selectedItemElement?.value?.offsetWidth}px`,
-      'opacity': '1',
-    }
+      opacity: '1',
+    };
   }
 
-  setTimeout(() => (isTransitioning.value = false), 400)
-}
+  setTimeout(() => (isTransitioning.value = false), 400);
+};
 
-const bubbleStyle = ref<Record<string, string>>({})
+const bubbleStyle = ref<Record<string, string>>({});
 
 const height = computed(() => {
   const sizes: Record<string, number> = {
@@ -140,9 +136,9 @@ const height = computed(() => {
     small: 40,
     medium: 48,
     large: 56,
-  }
-  return sizes[props.size || 'medium']
-})
+  };
+  return sizes[props.size || 'medium'];
+});
 
 const fontSize = computed(() => {
   const sizes: Record<string, number> = {
@@ -150,33 +146,33 @@ const fontSize = computed(() => {
     small: 14,
     medium: 16,
     large: 18,
-  }
-  return sizes[props.size || 'medium']
-})
+  };
+  return sizes[props.size || 'medium'];
+});
 
 const containerStyle = computed(() => ({
-  'width': `fit-content`,
+  width: `fit-content`,
   '--sizenav-width': `${navContainer.value?.offsetWidth}px`,
   '--sizenav-outer-padding': `${props?.outerPadding}px`,
   '--aap-min-height': `${height.value}px`,
-}))
+}));
 
 watch(
   selectedItem,
   (newItem) => {
-    props.onSelect(newItem)
-    updateBubblePosition()
+    props.onSelect(newItem);
+    updateBubblePosition();
   },
-  { immediate: true },
-)
+  { immediate: true }
+);
 
-onMounted(updateBubblePosition)
+onMounted(updateBubblePosition);
 
 useResizeObserver(navContainer, () => {
   nextTick(() => {
-    updateBubblePosition()
-  })
-})
+    updateBubblePosition();
+  });
+});
 </script>
 
 <style scoped>

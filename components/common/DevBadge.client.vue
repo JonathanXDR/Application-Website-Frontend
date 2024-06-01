@@ -8,8 +8,8 @@
 </template>
 
 <script setup lang="ts">
-const config = useRuntimeConfig()
-const { colorBadge } = useColor()
+const config = useRuntimeConfig();
+const { colorBadge } = useColor();
 </script>
 
 <style scoped>

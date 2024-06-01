@@ -30,10 +30,7 @@
                         {{ item.description && item.description + '&ensp;' }}
                       </template>
                       <template v-else>
-                        <LoadingSkeleton
-                          width="200px"
-                          height="15px"
-                        />
+                        <LoadingSkeleton width="200px" height="15px" />
                       </template>
 
                       <LinkCollection
@@ -85,38 +82,38 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkType } from '~/types/common/Link'
-import type { RibbonBar } from '~/types/common/RibbonBar'
+import type { LinkType } from '~/types/common/Link';
+import type { RibbonBar } from '~/types/common/RibbonBar';
 
 withDefaults(
   defineProps<{
-    loading?: boolean
+    loading?: boolean;
   }>(),
   {
     loading: false,
-  },
-)
+  }
+);
 
-const { $listRepositoryTags } = useNuxtApp()
-const { t, tm, rt } = useI18n()
-const config = useRuntimeConfig()
+const { $listRepositoryTags } = useNuxtApp();
+const { t, tm, rt } = useI18n();
+const config = useRuntimeConfig();
 
 const tags = ref<{
-  latest: string | undefined
-  previous: string | undefined
-}>({ latest: undefined, previous: undefined })
+  latest: string | undefined;
+  previous: string | undefined;
+}>({ latest: undefined, previous: undefined });
 
-const baseItems = ref<RibbonBar[]>([])
-const currentIndex = ref(0)
-const totalItems = ref(0)
-const isTransitioning = ref(false)
-const scrollDirection = ref('right')
-const displayItems = ref<RibbonBar[]>([])
-const initialAnimationPlayed = ref(false)
+const baseItems = ref<RibbonBar[]>([]);
+const currentIndex = ref(0);
+const totalItems = ref(0);
+const isTransitioning = ref(false);
+const scrollDirection = ref('right');
+const displayItems = ref<RibbonBar[]>([]);
+const initialAnimationPlayed = ref(false);
 
 const {
   data: repositoryTags,
-  pending: tagsLoading,
+  // pending: tagsLoading,
   refresh: refreshTags,
 } = useAsyncData(
   'repositoryTags',
@@ -126,68 +123,67 @@ const {
       repo: config.public.githubRepoName,
       perPage: 2,
     }),
-  { server: true },
-)
+  { server: true }
+);
 
 const updateBaseItems = () => {
-  const items = tm('components.common.RibbonBar') as RibbonBar[]
+  const items = tm('components.common.RibbonBar') as RibbonBar[];
   baseItems.value = items.map((item, index) => ({
     description:
-      item.description
-      && t(`components.common.RibbonBar[${index}].description`, {
+      item.description &&
+      t(`components.common.RibbonBar[${index}].description`, {
         latestTag: tags.value.latest,
         previousTag: tags.value.previous,
       }),
     links:
-      item.links
-      && (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map(
-        link => ({
+      item.links &&
+      (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map(
+        (link) => ({
           ...link,
           url: link.url
             ? rt(link.url, {
-              latestTag: tags.value.latest,
-              previousTag: tags.value.previous,
-            })
+                latestTag: tags.value.latest,
+                previousTag: tags.value.previous,
+              })
             : undefined,
-        }),
+        })
       ),
-  }))
-  totalItems.value = baseItems.value.length
-  updateDisplayItems()
-}
+  }));
+  totalItems.value = baseItems.value.length;
+  updateDisplayItems();
+};
 
 const updateDisplayItems = () => {
-  const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value
+  const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value;
   displayItems.value = Array.from(
     { length: totalItems.value },
-    (_, i) => baseItems.value[(start + i) % totalItems.value],
-  )
-}
+    (_, i) => baseItems.value[(start + i) % totalItems.value]
+  );
+};
 
 const scrollContent = (direction: 'left' | 'right') => {
   if (!isTransitioning.value && totalItems.value > 2) {
-    isTransitioning.value = true
-    scrollDirection.value = direction
+    isTransitioning.value = true;
+    scrollDirection.value = direction;
 
     nextTick(() => {
       if (direction === 'left') {
-        currentIndex.value
-          = currentIndex.value === 0
+        currentIndex.value =
+          currentIndex.value === 0
             ? totalItems.value - 1
-            : currentIndex.value - 1
+            : currentIndex.value - 1;
+      } else {
+        currentIndex.value = (currentIndex.value + 1) % totalItems.value;
       }
-      else {
-        currentIndex.value = (currentIndex.value + 1) % totalItems.value
-      }
-    })
+    });
   }
-}
+};
 
 const transformStyle = computed(() => {
   if (totalItems.value > 2) {
-    let translateXValue = -100 / totalItems.value
+    let translateXValue = -100 / totalItems.value;
     if (scrollDirection.value === 'left') {
-      translateXValue = Math.abs(translateXValue)
+      translateXValue = Math.abs(translateXValue);
     }
 
     return {
@@ -199,38 +195,38 @@ const transformStyle = computed(() => {
       transition: isTransitioning.value
         ? 'transform 1000ms ease 0s'
         : 'none 0s ease 0s',
-    }
+    };
   }
-  return {}
-})
+  return {};
+});
 
 watch(currentIndex, () => {
   setTimeout(() => {
-    isTransitioning.value = false
-    updateDisplayItems()
-  }, 1000)
-})
+    isTransitioning.value = false;
+    updateDisplayItems();
+  }, 1000);
+});
 
 watch(
   repositoryTags,
   (newTags) => {
     if (newTags && newTags.length >= 2) {
-      tags.value = { latest: newTags[0].name, previous: newTags[1].name }
-      updateBaseItems()
+      tags.value = { latest: newTags[0].name, previous: newTags[1].name };
+      updateBaseItems();
 
       setTimeout(() => {
-        initialAnimationPlayed.value = true
-      }, 2800)
+        initialAnimationPlayed.value = true;
+      }, 2800);
     }
   },
-  { immediate: true },
-)
+  { immediate: true }
+);
 
 onMounted(() => {
   if (repositoryTags.value && repositoryTags.value.length === 0) {
-    refreshTags()
+    refreshTags();
   }
-})
+});
 </script>
 
 <style scoped>

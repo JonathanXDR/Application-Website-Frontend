@@ -10,17 +10,18 @@
         @change="changeLanguage(selectedLocale)"
       >
         <option
-          v-for="locale in computedLocales"
-          :key="locale.code"
-          :value="locale.code"
+          v-for="computedLocale in computedLocales"
+          :key="computedLocale.code"
+          :value="computedLocale.code"
         >
-          {{ windowWidth < 900 ? locale.code.toUpperCase() : locale.name }}
+          {{
+            windowWidth < 900
+              ? computedLocale.code.toUpperCase()
+              : computedLocale.name
+          }}
         </option>
       </select>
-      <Icon
-        name="chevron.down"
-        :class="`icon icon-${size}`"
-      />
+      <Icon name="chevron.down" :class="`icon icon-${size}`" />
     </div>
   </div>
 </template>
@@ -28,23 +29,23 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    size?: 'xsmall' | 'small' | 'medium' | 'large'
+    size?: 'xsmall' | 'small' | 'medium' | 'large';
   }>(),
   {
     size: 'small',
-  },
-)
+  }
+);
 
-const { changeLanguage } = useLanguage()
-const { locale, locales } = useI18n()
-const selectedLocale = ref(locale.value)
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
+const { changeLanguage } = useLanguage();
+const { locale, locales } = useI18n();
+const selectedLocale = ref(locale.value);
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
 
 const computedLocales = computed(() =>
   locales.value.map((l) => {
-    return typeof l === 'string' ? { code: l, name: l } : l
-  }),
-)
+    return typeof l === 'string' ? { code: l, name: l } : l;
+  })
+);
 
 const fontSize = computed(() => {
   const sizes: Record<string, number> = {
@@ -52,13 +53,13 @@ const fontSize = computed(() => {
     small: 14,
     medium: 16,
     large: 18,
-  }
-  return sizes[props.size || 'medium']
-})
+  };
+  return sizes[props.size || 'medium'];
+});
 
 watch(locale, (newLocale) => {
-  selectedLocale.value = newLocale
-})
+  selectedLocale.value = newLocale;
+});
 </script>
 
 <style scoped>

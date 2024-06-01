@@ -1,14 +1,8 @@
 <template>
   <div class="tablist-wrapper">
     <div class="tabnav">
-      <ul
-        class="tabnav-items"
-      >
-        <li
-          v-for="(item, index) in items"
-          :key="index"
-          class="tabnav-item"
-        >
+      <ul class="tabnav-items">
+        <li v-for="(item, index) in items" :key="index" class="tabnav-item">
           <input
             :id="`tab-${item.id}`"
             v-model="selectedTab"
@@ -16,33 +10,18 @@
             name="category"
             :value="item.id"
             @change="() => emitChange(item.id)"
-          >
-          <label
-            :for="`tab-${item.id}`"
-            class="tabnav-link"
-          >
+          />
+          <label :for="`tab-${item.id}`" class="tabnav-link">
             {{ item.label }}
           </label>
         </li>
       </ul>
       <div class="tabnav-paddles">
-        <button
-          class="tabnav-paddle tabnav-paddle-left"
-          disabled
-        >
-          <Icon
-            name="chevron.left"
-            class="icon icon-small"
-          />
+        <button class="tabnav-paddle tabnav-paddle-left" disabled>
+          <Icon name="chevron.left" class="icon icon-small" />
         </button>
-        <button
-          class="tabnav-paddle tabnav-paddle-right"
-          disabled
-        >
-          <Icon
-            name="chevron.right"
-            class="icon icon-small"
-          />
+        <button class="tabnav-paddle tabnav-paddle-right" disabled>
+          <Icon name="chevron.right" class="icon icon-small" />
         </button>
       </div>
     </div>
@@ -50,24 +29,30 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  items: Array,
-  activeTabId: String,
-})
+const props = withDefaults(
+  defineProps({
+    items: Array,
+    activeTabId: string,
+  }),
+  {
+    items: [],
+    activeTabId: '0',
+  }
+);
 
-const emit = defineEmits(['change'])
-const selectedTab = ref(props.activeTabId)
+const emit = defineEmits(['change']);
+const selectedTab = ref(props.activeTabId);
 
 watch(
   () => props.activeTabId,
   (newVal) => {
-    selectedTab.value = newVal
-  },
-)
+    selectedTab.value = newVal;
+  }
+);
 
 const emitChange = (id) => {
-  emit('change', id)
-}
+  emit('change', id);
+};
 
 // function (e, t, i) {
 //   'use strict';

@@ -48,10 +48,7 @@
               </label>
             </div>
             <div class="filter-delete-button-wrapper">
-              <button
-                v-if="open"
-                class="filter-delete-button"
-              >
+              <button v-if="open" class="filter-delete-button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -72,7 +69,7 @@
           <!-- deepcode ignore PureMethodReturnValueIgnored: false positive -->
           <BadgeBar
             v-if="open && options.length"
-            :tags="options.map(option => option.label)"
+            :tags="options.map((option) => option.label)"
           />
         </div>
       </div>
@@ -84,24 +81,24 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Option'
+import type { ItemType } from '~/types/common/Option';
 
-const { tm } = useI18n()
-const items = computed<ItemType[]>(() =>
-  tm('components.common.FilterInput.items'),
-)
+const { tm } = useI18n();
+// const items = computed<ItemType[]>(() =>
+//   tm('components.common.FilterInput.items'),
+// )
 const options = computed<ItemType[]>(() =>
-  tm('components.common.FilterInput.sorts'),
-)
-const open = ref(false)
+  tm('components.common.FilterInput.sorts')
+);
+const open = ref(false);
 
 const onFocus = () => {
-  open.value = true
-}
+  open.value = true;
+};
 
 const onBlur = () => {
-  open.value = false
-}
+  open.value = false;
+};
 </script>
 
 <style scoped>

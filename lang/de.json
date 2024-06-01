@@ -75,6 +75,60 @@
           ]
         }
       ],
+      "SegmentNav": {
+        "theme": [
+          {
+            "id": "light",
+            "category": "theme",
+            "label": "Light",
+            "icon": {
+              "name": "sun.max.fill"
+            }
+          },
+          {
+            "id": "dark",
+            "category": "theme",
+            "label": "Dark",
+            "icon": {
+              "name": "moon.fill"
+            }
+          },
+          {
+            "id": "auto",
+            "category": "theme",
+            "label": "Auto",
+            "icon": {
+              "name": "circle.lefthalf.filled"
+            }
+          }
+        ],
+        "projects": [
+          {
+            "id": "swisscom",
+            "category": "projects",
+            "label": "Swisscom",
+            "icon": {
+              "name": "building.2.fill"
+            }
+          },
+          {
+            "id": "personal",
+            "category": "projects",
+            "label": "Persönlich",
+            "icon": {
+              "name": "person.fill"
+            }
+          },
+          {
+            "id": "school",
+            "category": "projects",
+            "label": "Schule",
+            "icon": {
+              "name": "graduationcap.fill"
+            }
+          }
+        ]
+      },
       "FilterInput": {
         "items": [
           {
