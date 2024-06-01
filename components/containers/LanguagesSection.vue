@@ -51,7 +51,7 @@ defineProps<{
 const { tm } = useI18n()
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 const languages = computed<LanguageBarType[]>(() =>
-  tm('components.containers.languages'),
+  tm('components.containers.languages')
 )
 </script>
 

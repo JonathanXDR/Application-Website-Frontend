@@ -82,8 +82,8 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkType } from '~/types/common/Link'
-import type { RibbonBar } from '~/types/common/RibbonBar'
+import type { LinkType } from '~/types/common/Link';
+import type { RibbonBar } from '~/types/common/RibbonBar';
 
 const props = withDefaults(defineProps<RibbonBar>(), {
   loading: false

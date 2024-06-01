@@ -8,7 +8,7 @@
       :style="{
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
+        alignItems: 'center'
       }"
     >
       <div
@@ -16,7 +16,7 @@
         :style="{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
+          alignItems: 'center'
         }"
       >
         <div class="position-relative">
@@ -88,7 +88,7 @@
         :style="{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
+          alignItems: 'center'
         }"
       >
         <div
@@ -188,7 +188,7 @@
       :style="{
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
+        alignItems: 'center'
       }"
     >
       <div
@@ -197,13 +197,10 @@
         :style="{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
+          alignItems: 'center'
         }"
       >
-        <div
-          class="d-flex flex-column flex-items-center"
-          style="height: 176px"
-        >
+        <div class="d-flex flex-column flex-items-center" style="height: 176px">
           <div
             v-if="windowWidth < 900"
             v-animation="{ add: 'build-in-animate' }"
@@ -264,7 +261,7 @@
         :style="{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
+          alignItems: 'center'
         }"
       >
         <div
@@ -293,7 +290,7 @@
         :style="{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
+          alignItems: 'center'
         }"
       >
         <div
@@ -316,7 +313,7 @@
       :style="{
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
+        alignItems: 'center'
       }"
     >
       <div
@@ -325,7 +322,7 @@
         :style="{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
+          alignItems: 'center'
         }"
       >
         <div
@@ -335,7 +332,7 @@
           <div
             v-if="windowWidth < 900"
             v-animation="{
-              add: 'build-in-animate',
+              add: 'build-in-animate'
             }"
             class="mb-4 position-relative home-campaign-glowing-icon build-in-scale-fade"
             style="transition-delay: 0ms"
@@ -377,7 +374,7 @@
         :style="{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
+          alignItems: 'center'
         }"
       >
         <div
@@ -410,7 +407,7 @@
       :style="{
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
+        alignItems: 'center'
       }"
     >
       <div
@@ -418,7 +415,7 @@
         :style="{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
+          alignItems: 'center'
         }"
       >
         <div
@@ -427,7 +424,7 @@
           :style="{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
+            alignItems: 'center'
           }"
         >
           <div
