@@ -88,10 +88,7 @@
 import type { Repository } from '@octokit/graphql-schema'
 import type { CardItemType } from '~/types/common/CardItem'
 import type { ItemType } from '~/types/common/Item'
-import type {
-  GetUserRepositories,
-  GetUserRepository
-} from '~/types/services/GitHub/Repository'
+import type { GetUserRepositories } from '~/types/services/GitHub/Repository'
 
 type GetUserPinnedRepository = Repository & {
   icon?: CardItemType['icon']
@@ -192,7 +189,7 @@ const updateCurrentIndex = (index: number) => {
   currentIndex.value = index
 }
 
-const categorizeProject = (project: GetUserRepository) => {
+const categorizeProject = (project: Repository) => {
   const schoolProjectPattern =
     /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/
   const category = schoolProjectPattern.test(project.name)
@@ -223,7 +220,7 @@ watchEffect(() => {
   filteredProjects.value.map(categorizeProject).forEach(project => {
     const category = project.category as keyof Projects
     projects[category].push(
-      project as GetUserRepository & CardItemType & { category: string }
+      project as Repository & CardItemType & { category: string }
     )
   })
 })

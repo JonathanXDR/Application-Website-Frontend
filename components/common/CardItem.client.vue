@@ -114,9 +114,9 @@
 
 <script setup lang="ts">
 import type { CardItemType } from '~/types/common/CardItem'
-import type { GetUserRepository } from '~/types/services/GitHub/Repository'
+import type { GetOwnerRepository } from '~/types/services/GitHub/Repository'
 
-type Props = Partial<CardItemType> & Partial<GetUserRepository>
+type Props = Partial<CardItemType> & Partial<GetOwnerRepository>
 
 const props = withDefaults(defineProps<Props>(), {
   variant: 'card',
