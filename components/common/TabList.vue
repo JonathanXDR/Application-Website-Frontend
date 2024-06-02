@@ -10,7 +10,7 @@
             name="category"
             :value="item.id"
             @change="() => emitChange(item.id)"
-          >
+          />
           <label :for="`tab-${item.id}`" class="tabnav-link">
             {{ item.label }}
           </label>
@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Item';
+import type { ItemType } from '~/types/common/Item'
 const props = withDefaults(
   defineProps<{
     items: ItemType[]

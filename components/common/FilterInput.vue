@@ -44,7 +44,7 @@
                   class="filter-input"
                   @focus="onFocus"
                   @blur="onBlur"
-                >
+                />
               </label>
             </div>
             <div class="filter-delete-button-wrapper">

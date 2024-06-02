@@ -650,9 +650,8 @@ const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
   --color-avatar-stack-fade: #30363d;
   --color-avatar-stack-fade-more: #21262d;
   --color-avatar-child-shadow: 0 0 0 2px #0d1117;
-  --color-topic-tag-border: transparent
-  --color-counter-border: transparent
-  --color-select-menu-backdrop-border: #484f58;
+  --color-topic-tag-border: transparent --color-counter-border: transparent
+    --color-select-menu-backdrop-border: #484f58;
   --color-select-menu-tap-highlight: rgba(48, 54, 61, 0.5);
   --color-select-menu-tap-focus-bg: #0c2d6b;
   --color-overlay-shadow: 0 0 0 1px #30363d, 0 16px 32px rgba(1, 4, 9, 0.85);
@@ -755,9 +754,9 @@ const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
   --color-action-list-item-inline-divider: rgba(48, 54, 61, 0.48);
   --color-action-list-item-default-hover-bg: rgba(177, 186, 196, 0.12);
   --color-action-list-item-default-hover-border: transparent
-  --color-action-list-item-default-active-bg: rgba(177, 186, 196, 0.2);
+    --color-action-list-item-default-active-bg: rgba(177, 186, 196, 0.2);
   --color-action-list-item-default-active-border: transparent
-  --color-action-list-item-default-selected-bg: rgba(177, 186, 196, 0.08);
+    --color-action-list-item-default-selected-bg: rgba(177, 186, 196, 0.08);
   --color-action-list-item-danger-hover-bg: rgba(248, 81, 73, 0.16);
   --color-action-list-item-danger-active-bg: rgba(248, 81, 73, 0.24);
   --color-action-list-item-danger-hover-text: #ff7b72;
@@ -767,14 +766,14 @@ const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
   --color-switch-track-disabled-bg: #21262d;
   --color-switch-track-fg: #848d97;
   --color-switch-track-disabled-fg: #010409;
-  --color-switch-track-border: transparent
-  --color-switch-track-checked-bg: rgba(31, 111, 235, 0.35);
+  --color-switch-track-border: transparent --color-switch-track-checked-bg:
+    rgba(31, 111, 235, 0.35);
   --color-switch-track-checked-hover-bg: rgba(31, 111, 235, 0.5);
   --color-switch-track-checked-active-bg: rgba(31, 111, 235, 0.65);
   --color-switch-track-checked-fg: #ffffff;
   --color-switch-track-checked-disabled-fg: #010409;
-  --color-switch-track-checked-border: transparent
-  --color-switch-knob-bg: #0d1117;
+  --color-switch-track-checked-border: transparent --color-switch-knob-bg:
+    #0d1117;
   --color-switch-knob-border: #606771;
   --color-switch-knob-disabled-bg: #161b22;
   --color-switch-knob-checked-bg: #0d1117;
@@ -1233,7 +1232,9 @@ button:focus:not(:focus-visible) {
   padding: 0.9rem 1.5rem 1.1rem;
   position: relative;
   text-align: center;
-  transition: box-shadow 0.2s, outline 0.2s ease;
+  transition:
+    box-shadow 0.2s,
+    outline 0.2s ease;
   -webkit-user-select: none;
   user-select: none;
   vertical-align: middle;
@@ -1270,8 +1271,7 @@ button:focus:not(:focus-visible) {
 }
 .btn-mktg:focus:not(:focus-visible) {
   box-shadow: none;
-  outline: 1px solid transparent
-;
+  outline: 1px solid transparent;
 }
 .btn-mktg:active:before {
   opacity: 0.5 !important;
@@ -1417,10 +1417,21 @@ button:focus:not(:focus-visible) {
   --color-mktg-btn-shadow-hover-muted: white 0 0 0 2px inset;
 }
 .f4-mktg {
-  font-family: 'Mona Sans', 'Mona Sans Fallback', -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  font-feature-settings: 'ss02' on, 'ss01' on;
+  font-family:
+    'Mona Sans',
+    'Mona Sans Fallback',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Helvetica,
+    Arial,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  font-feature-settings:
+    'ss02' on,
+    'ss01' on;
   font-weight: var(--base-text-weight-normal, 400);
 }
 .f4-mktg {
@@ -1463,7 +1474,9 @@ button:focus:not(:focus-visible) {
     var(--color-mktg-btn-bg) !important;
   border: 0;
   border-radius: 0.375rem;
-  transition: box-shadow 0.2s, outline 0.2s ease;
+  transition:
+    box-shadow 0.2s,
+    outline 0.2s ease;
   -webkit-appearance: none !important;
   appearance: none !important;
 }
@@ -1599,9 +1612,18 @@ button:focus:not(:focus-visible) {
   pointer-events: none;
 }
 .font-mktg {
-  font-family: 'Mona Sans', 'Mona Sans Fallback', -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family:
+    'Mona Sans',
+    'Mona Sans Fallback',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Helvetica,
+    Arial,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol';
   word-break: keep-all;
 }
 .font-mktg [data-color-mode='dark'] {
@@ -1616,7 +1638,8 @@ button:focus:not(:focus-visible) {
 }
 .build-in-scale-fade {
   opacity: 0;
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   transform: scale(0.96);
 }
@@ -1626,7 +1649,8 @@ button:focus:not(:focus-visible) {
 }
 .sub-nav-mktg.is-stuck {
   background: var(--bgColor-default, var(--color-canvas-default));
-  box-shadow: var(--shadow-resting-medium, var(--color-shadow-medium)),
+  box-shadow:
+    var(--shadow-resting-medium, var(--color-shadow-medium)),
     0 1px 1px rgba(0, 0, 0, 0.1);
 }
 :root [data-color-mode='dark'] {
@@ -1960,7 +1984,9 @@ https://github.githubassets.com/assets/site-059d3213fd4f.css ; media=all */
 @media all {
   .h3-mktg,
   .h5-mktg {
-    font-feature-settings: 'ss02' on, 'ss01' on;
+    font-feature-settings:
+      'ss02' on,
+      'ss01' on;
     font-weight: 700 !important;
     letter-spacing: -0.01em !important;
   }
@@ -2014,7 +2040,8 @@ https://github.githubassets.com/assets/site-059d3213fd4f.css ; media=all */
   }
   .build-in-slideX-left {
     opacity: 0;
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transition:
+      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
       transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     transform: translateX(-15px);
   }
@@ -2024,7 +2051,8 @@ https://github.githubassets.com/assets/site-059d3213fd4f.css ; media=all */
   }
   .build-in-scale-fade {
     opacity: 0;
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
       transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     transform: scale(0.96);
   }

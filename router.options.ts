@@ -8,8 +8,8 @@ export default <RouterConfig>{
       return {
         el: to.hash,
         top: window.innerWidth < 1250 ? 48 : 52,
-        behavior: 'smooth',
+        behavior: 'smooth'
       }
     }
-  },
+  }
 }

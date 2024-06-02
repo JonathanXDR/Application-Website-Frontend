@@ -14,7 +14,7 @@
       <li
         v-for="(item, index) in items"
         :key="index"
-        :ref="(setItemRef as any)"
+        :ref="setItemRef as any"
         :class="['viewer-sizenav-item', { separator }]"
       >
         <input
@@ -25,7 +25,7 @@
           :class="['viewer-sizenav-value', { focus }]"
           :value="item.id"
           :disabled="item.id !== selectedItem && isTransitioning"
-        >
+        />
         <label
           :for="`viewer-sizenav-value-${item.id}`"
           class="viewer-sizenav-link"
