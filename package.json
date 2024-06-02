@@ -16,7 +16,7 @@
     "build:trigger": "sh ./scripts/build-trigger.sh"
   },
   "devDependencies": {
-    "@eslint/js": "^9.3.0",
+    "@eslint/js": "^9.4.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
