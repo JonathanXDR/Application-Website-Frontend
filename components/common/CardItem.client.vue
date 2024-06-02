@@ -50,7 +50,7 @@
             :loading="loading"
             :colors="{
               primary: 'var(--color-figure-yellow)',
-              tertiary: 'var(--color-figure-yellow)'
+              tertiary: 'var(--color-figure-yellow)',
             }"
             border
             :hover="false"
@@ -62,7 +62,7 @@
             :loading="loading"
             :colors="{
               primary: `var(--color-figure-${colorBadge?.colorName})`,
-              tertiary: `var(--color-figure-${colorBadge?.colorName})`
+              tertiary: `var(--color-figure-${colorBadge?.colorName})`,
             }"
             hover
             border
@@ -113,10 +113,10 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from '~/types/common/CardItem'
-import type { GetOwnerRepository } from '~/types/services/GitHub/Repository'
+import type { CardItemType } from '~/types/common/CardItem';
+import type { GetOwnerRepository } from '~/types/services/GitHub/Repository';
 
-type Props = Partial<CardItemType> & Partial<GetOwnerRepository>
+type Props = Partial<CardItemType> & Partial<GetOwnerRepository>;
 
 const props = withDefaults(defineProps<Props>(), {
   variant: 'card',
@@ -127,68 +127,68 @@ const props = withDefaults(defineProps<Props>(), {
   loading: false,
   graphs: () => ({
     donut: false,
-    bar: false
+    bar: false,
   }),
   date: () => ({
     formatOptions: () => ({
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     }),
-    nowKey: 'updated'
+    nowKey: 'updated',
   }),
   icon: () => ({
     name: '',
     absolute: false,
     position: 'left',
-    alignment: 'start'
-  })
-})
+    alignment: 'start',
+  }),
+});
 
-const { colorBadge } = useColor()
+const { colorBadge } = useColor();
 
 const applyHover = computed(
   () =>
     (props.hover === 'auto' && props.links?.length === 1) ||
     props.hover === 'true'
-)
+);
 const componentType = computed(() =>
   props.variant === 'article' ? 'div' : 'a'
-)
+);
 const componentId = computed(() =>
   props.title?.toLowerCase().replace(/ /g, '-')
-)
+);
 const componentHref = computed(() =>
   applyHover.value && props.links ? props.links[0].url : props.html_url
-)
+);
 const componentClasses = computed(() => [
   'scroll-animation scroll-animation--off',
   props.variant,
-  props.componentSize
-])
+  props.componentSize,
+]);
 const scrollAnimation = {
   add: 'scroll-animation--on',
-  remove: 'scroll-animation--off'
-}
+  remove: 'scroll-animation--off',
+};
 
 const hasCoverOrGraphs = computed(
   () => props.cover || props.graphs?.donut || props.graphs?.bar
-)
+);
 const hasBadgesOrTopics = computed(
   () => props.badges?.length || props.topics?.length
-)
-const badgesOrTopics = computed(() => props?.badges || props.topics)
-const hasLinksOrHtmlUrl = computed(() => props.links?.length || props.html_url)
+);
+const badgesOrTopics = computed(() => props?.badges || props.topics);
+const hasLinksOrHtmlUrl = computed(() => props.links?.length || props.html_url);
 const linkCollectionLinks = computed(
   () =>
     props.links || [
       {
         title: 'Mehr erfahren',
         url: props.html_url || '',
-        icon: { name: 'chevron.right' }
-      }
+        icon: { name: 'chevron.right' },
+      },
     ]
-)
+);
 
 const hasInfo = computed(() => {
   const keys = [
@@ -202,10 +202,10 @@ const hasInfo = computed(() => {
     'watchers_count',
     'stargazers_count',
     'open_issues_count',
-    'subscribers_count'
-  ]
-  return keys.some((key: string) => (props as Record<string, unknown>)[key])
-})
+    'subscribers_count',
+  ];
+  return keys.some((key: string) => (props as Record<string, unknown>)[key]);
+});
 
 const infoBarInfo = computed(() => {
   return (
@@ -218,10 +218,10 @@ const infoBarInfo = computed(() => {
       stars: props.stargazers_count,
       issues: props.open_issues_count,
       subscribers: props.subscribers_count,
-      date: { date: props.updated_at, ...props.date }
+      date: { date: props.updated_at, ...props.date },
     }
-  )
-})
+  );
+});
 
 const flexDirection = computed(
   () =>
@@ -229,32 +229,32 @@ const flexDirection = computed(
       top: 'column',
       right: 'row-reverse',
       bottom: 'column-reverse',
-      left: 'row'
+      left: 'row',
     }[props.icon?.position || 'left'])
-)
+);
 
 const alignItems = computed(
   () =>
     ({
       start: 'flex-start',
       center: 'center',
-      end: 'flex-end'
+      end: 'flex-end',
     }[props.alignment])
-)
+);
 
 const detailsStyle = computed((): Record<string, string> => {
   return {
     flexDirection: flexDirection.value,
-    alignItems: alignItems.value
-  }
-})
+    alignItems: alignItems.value,
+  };
+});
 
 const iconClasses = computed(() => ({
   icon: true,
   'icon-large': props.variant === 'article' && props.componentSize === 'large',
   'icon-xlarge': ['medium', 'small'].includes(props.componentSize),
-  'icon-xxlarge': props.variant === 'card' && props.componentSize === 'large'
-}))
+  'icon-xxlarge': props.variant === 'card' && props.componentSize === 'large',
+}));
 </script>
 
 <style scoped>
