@@ -5,7 +5,7 @@
     type="checkbox"
     :disabled="navDisabled"
     @input="toggleNav()"
-  >
+  />
   <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking" />
   <nav
     id="ac-localnav"
@@ -75,7 +75,10 @@ import type { ItemType } from '~/types/common/Item'
 import { type SectionType } from '~/types/common/Section'
 
 const { tm } = useI18n()
-const items = computed<SectionType[]>(() => tm('components.common.NavBar'))
+const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'))
+const themeItems = computed<ItemType[]>(() =>
+  tm('components.common.SegmentNav.theme')
+)
 const navOpen = ref(false)
 const navDisabled = ref(false)
 
