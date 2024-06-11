@@ -58,12 +58,14 @@ export default defineNuxtConfig({
           content: process.env.APP_DESCRIPTION
         }
       ],
-      script: [
-        {
-          src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
-          async: true
-        }
-      ]
+      scripts: {
+        globals: [
+          {
+            src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
+            async: true
+          }
+        ]
+      }
     }
   },
   $development: {
