@@ -17,9 +17,9 @@
           :outer-padding="3"
           :selected-item="segmentNavItems[currentIndex]?.id"
           :on-select="
-            (id) =>
+            id =>
               updateCurrentIndex(
-                segmentNavItems.findIndex((item) => item.id === id)
+                segmentNavItems.findIndex(item => item.id === id)
               )
           "
         />
@@ -38,7 +38,7 @@
           :icon-position="windowWidth < 900 ? 'top' : 'left'"
           :date-format-options="{
             year: 'numeric',
-            month: 'long',
+            month: 'long'
           }"
         />
       </ul>
@@ -61,7 +61,7 @@
             class="color"
             :style="{
               '--color-figure': `var(--color-figure-${randomColor})`,
-              '--color-fill': `var(--color-fill-${randomColor}-secondary)`,
+              '--color-fill': `var(--color-fill-${randomColor}-secondary)`
             }"
           />
         </ul>
@@ -83,121 +83,121 @@
 </template>
 
 <script lang="ts" setup>
-import type { ListUserReposResponse } from '~/types/GitHub/Repository';
-import type { CardItemType } from '~/types/common/CardItem';
-import type { ItemType } from '~/types/common/Option';
+import type { ListUserReposResponse } from '~/types/GitHub/Repository'
+import type { CardItemType } from '~/types/common/CardItem'
+import type { ItemType } from '~/types/common/Option'
 
 type ListUserPinnedReposResponse = ListUserReposResponse & {
-  icon?: CardItemType['icon'];
-};
+  icon?: CardItemType['icon']
+}
 
 type Projects = {
-  swisscom: CardItemType[];
-  personal: ListUserReposResponse[];
-  school: ListUserReposResponse[];
-};
+  swisscom: CardItemType[]
+  personal: ListUserReposResponse[]
+  school: ListUserReposResponse[]
+}
 
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
-const { $listUserRepositories, $listPinnedRepositories } = useNuxtApp();
-const { tm } = useI18n();
-const colorStore = useColor();
-const config = useRuntimeConfig();
+const { $listUserRepositories, $listPinnedRepositories } = useNuxtApp()
+const { tm } = useI18n()
+const colorStore = useColor()
+const config = useRuntimeConfig()
 
-const ul = ref<HTMLElement | null>(null);
-const ulHeight = useElementSize(ul).height;
+const ul = ref<HTMLElement | null>(null)
+const ulHeight = useElementSize(ul).height
 
-const pinned = ref<ListUserPinnedReposResponse[]>([]);
-const currentIndex = ref(0);
-const randomColor = ref(colorStore.randomizeColor().colorName);
-const windowWidth = useWindowSize({ initialWidth: 0 }).width;
+const pinned = ref<ListUserPinnedReposResponse[]>([])
+const currentIndex = ref(0)
+const randomColor = ref(colorStore.randomizeColor()?.colorName || '')
+const windowWidth = useWindowSize({ initialWidth: 0 }).width
 
 const { data: userRepositories } = useAsyncData(
   'userRepositories',
   () =>
     $listUserRepositories({
       username: config.public.githubRepoOwner,
-      perPage: 100,
+      perPage: 100
     }),
   { server: true }
-);
+)
 
 const { data: pinnedProjects } = useAsyncData(
   'pinnedProjects',
   () =>
     $listPinnedRepositories({
       username: config.public.githubRepoOwner,
-      perPage: 100,
+      perPage: 100
     }),
   { server: true }
-);
+)
 
 const projects: Projects = reactive({
   swisscom: computed<CardItemType[]>(() =>
     tm('components.containers.projects')
   ),
   personal: [],
-  school: [],
-});
+  school: []
+})
 
-const allProjects = computed(() => [...(userRepositories.value || [])]);
+const allProjects = computed(() => [...(userRepositories.value || [])])
 const filteredProjects = computed(() =>
   allProjects.value.filter(
-    (project) =>
-      !pinned.value.find((pinnedProject) => pinnedProject.name === project.name)
+    project =>
+      !pinned.value.find(pinnedProject => pinnedProject.name === project.name)
   )
-);
+)
 
 const currentProjects = computed(
   () =>
     projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
-);
+)
 
 const segmentNavItems = computed<ItemType[]>(() =>
   tm('components.common.SegmentNav.projects')
-);
+)
 
 const updateCurrentIndex = (index: number) => {
-  currentIndex.value = index;
-};
+  currentIndex.value = index
+}
 
 const categorizeProject = (project: ListUserReposResponse) => {
   const schoolProjectPattern =
-    /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/;
+    /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/
   const category = schoolProjectPattern.test(project.name)
     ? 'school'
-    : 'personal';
-  return { ...project, category };
-};
+    : 'personal'
+  return { ...project, category }
+}
 
 watch(
   pinnedProjects,
-  (newPinnedProjects) => {
+  newPinnedProjects => {
     newPinnedProjects?.forEach((project: ListUserPinnedReposResponse) => {
       project.icon = {
         name: 'pin.fill',
         colors: {
-          primary: `var(--color-figure-${randomColor.value})`,
-        },
-      };
-    });
-    pinned.value = newPinnedProjects || [];
+          primary: `var(--color-figure-${randomColor.value})`
+        }
+      }
+    })
+    pinned.value = newPinnedProjects || []
   },
   { immediate: true }
-);
+)
 
 watchEffect(() => {
-  projects.personal = [];
-  projects.school = [];
-  filteredProjects.value.map(categorizeProject).forEach((project) => {
-    const category = project.category as keyof Projects;
+  projects.personal = []
+  projects.school = []
+  filteredProjects.value.map(categorizeProject).forEach(project => {
+    const category = project.category as keyof Projects
     projects[category].push(
       project as ListUserReposResponse & CardItemType & { category: string }
-    );
-  });
-});
+    )
+  })
+})
 </script>
 
 <style scoped>

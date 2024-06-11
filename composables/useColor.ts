@@ -3,32 +3,36 @@ export const useColor = () => {
     {
       colorName: 'orange',
       colorVar: 'var(--color-figure-orange)',
-      colorHex: 'f56300',
+      colorHex: 'f56300'
     },
     {
       colorName: 'teal',
       colorVar: 'var(--color-figure-teal)',
-      colorHex: '00c2bb',
+      colorHex: '00c2bb'
     },
     {
       colorName: 'purple',
       colorVar: 'var(--color-figure-purple)',
-      colorHex: 'a95ed2',
-    },
+      colorHex: 'a95ed2'
+    }
   ])
 
-  const colorBadge = useState<null | {
+  const colorBadge = useState<{
     colorName: string
     colorVar: string
     colorHex: string
-  }>('colorBadge', () => null)
+  } | null>('colorBadge', () => null)
 
   const randomizeColor = () => {
     if (!colorBadge.value) {
       const randomColor = Math.floor(
-        Math.random() * colorBadgeArray.value.length,
+        Math.random() * colorBadgeArray.value.length
       )
-      colorBadge.value = colorBadgeArray.value[randomColor]
+      colorBadge.value = colorBadgeArray.value[randomColor] || {
+        colorName: 'orange',
+        colorVar: 'var(--color-figure-orange)',
+        colorHex: 'f56300'
+      }
     }
     return colorBadge.value
   }
@@ -36,6 +40,6 @@ export const useColor = () => {
   return {
     colorBadgeArray,
     colorBadge,
-    randomizeColor,
+    randomizeColor
   }
 }

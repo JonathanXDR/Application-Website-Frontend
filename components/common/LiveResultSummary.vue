@@ -1,21 +1,13 @@
 <template>
-  <div
-    id="live-result-summary"
-    class="results"
-  >
-    <div class="number-results">
-      Showing {{ totalResults }} results
-    </div>
-    <div
-      v-if="pinnedResults"
-      class="changesnav-totals"
-    >
+  <div id="live-result-summary" class="results">
+    <div class="number-results">Showing {{ totalResults }} results</div>
+    <div v-if="pinnedResults" class="changesnav-totals">
       <div class="changed-total">
         <Icon
           name="pin.fill"
           size="small"
           :colors="{
-            primary: randomColor,
+            primary: randomColor
           }"
           class="icon icon-medium"
         />
@@ -43,12 +35,17 @@ withDefaults(
   }>(),
   {
     totalResults: 0,
-    pinnedResults: 0,
-  },
+    pinnedResults: 0
+  }
 )
 
 const colorStore = useColor()
-const randomColor = ref(colorStore.randomizeColor().colorVar)
+const randomColor = ref('')
+
+const colorObj = colorStore.randomizeColor()
+if (colorObj) {
+  randomColor.value = colorObj.colorVar
+}
 </script>
 
 <style scoped>
