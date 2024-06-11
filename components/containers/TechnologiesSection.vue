@@ -49,7 +49,7 @@
 
 <script setup lang="ts">
 import type { CardItemType } from '~/types/common/CardItem'
-import type { ItemType } from '~/types/common/Option'
+import type { ItemType } from '~/types/common/Item'
 
 defineProps<{
   title: string
