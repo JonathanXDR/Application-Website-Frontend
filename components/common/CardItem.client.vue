@@ -4,7 +4,7 @@
     :id="card.title?.toLowerCase().replace(/ /g, '-')"
     v-animation="{
       add: 'scroll-animation--on',
-      remove: 'scroll-animation--off',
+      remove: 'scroll-animation--off'
     }"
     :href="applyHover && card.links ? card.links[0].url : card.html_url"
     :class="['scroll-animation scroll-animation--off', variant, size]"
@@ -58,14 +58,14 @@
         <div class="wedge-legend typography-donut-label female">
           <span>
             <span class="semibold">Female</span>
-            <br >
+            <br />
             <span data-value>35.3</span>%
           </span>
         </div>
         <div class="wedge-legend typography-donut-label male">
           <span>
             <span class="semibold">Male</span>
-            <br >
+            <br />
             <span data-value>64.6</span>%
           </span>
         </div>
@@ -75,7 +75,7 @@
       class="details"
       :style="{
         'flex-direction': getFlexDirection(),
-        'align-items': getAlignItems(),
+        'align-items': getAlignItems()
       }"
     >
       <Icon
@@ -87,17 +87,17 @@
         :class="[
           'icon',
           {
-            'icon-large': variant === 'article' && size === 'large',
+            'icon-large': variant === 'article' && size === 'large'
           },
           {
-            'icon-xlarge': size === 'medium' || size === 'small',
+            'icon-xlarge': size === 'medium' || size === 'small'
           },
           {
-            'icon-xxlarge': variant === 'card' && size === 'large',
-          },
+            'icon-xxlarge': variant === 'card' && size === 'large'
+          }
         ]"
         :style="{
-          position: props.iconAbsolute ? 'absolute' : 'relative',
+          position: props.iconAbsolute ? 'absolute' : 'relative'
         }"
       />
       <div class="body">
@@ -126,7 +126,7 @@
             :loading="loading"
             :colors="{
               primary: 'var(--color-figure-yellow)',
-              tertiary: 'var(--color-figure-yellow)',
+              tertiary: 'var(--color-figure-yellow)'
             }"
             border
             :hover="false"
@@ -138,7 +138,7 @@
             :loading="loading"
             :colors="{
               primary: `var(--color-figure-${colorBadge?.colorName})`,
-              tertiary: `var(--color-figure-${colorBadge?.colorName})`,
+              tertiary: `var(--color-figure-${colorBadge?.colorName})`
             }"
             hover
             border
@@ -175,9 +175,9 @@
                   title: 'Mehr erfahren',
                   url: card.html_url,
                   icon: {
-                    name: 'chevron.right',
-                  },
-                },
+                    name: 'chevron.right'
+                  }
+                }
               ]
             "
             :loading="loading"
@@ -208,7 +208,7 @@
               stars: card.stargazers_count,
               issues: card.open_issues_count,
               subscribers: card.subscribers_count,
-              date: card.updated_at,
+              date: card.updated_at
             }
           "
           :date="card.updated_at"
@@ -223,28 +223,28 @@
 </template>
 
 <script setup lang="ts">
-import type { ListUserReposResponse } from '~/types/GitHub/Repository';
-import type { BadgeType } from '~/types/common/Badge';
-import type { CardItemType } from '~/types/common/CardItem';
-import type { LanguageBarType } from '~/types/common/LanguageBar';
+import type { ListUserReposResponse } from '~/types/GitHub/Repository'
+import type { BadgeType } from '~/types/common/Badge'
+import type { CardItemType } from '~/types/common/CardItem'
+import type { LanguageBarType } from '~/types/common/LanguageBar'
 
 const props = withDefaults(
   defineProps<{
-    card: CardItemType | ListUserReposResponse | any;
-    variant?: 'card' | 'article';
-    dateFormatOptions?: Intl.DateTimeFormatOptions;
-    dateNowKey?: 'created' | 'updated';
-    iconPosition?: 'top' | 'right' | 'bottom' | 'left';
-    iconAlignment?: 'start' | 'center' | 'end';
-    iconAbsolute?: boolean;
-    size?: 'small' | 'medium' | 'large' | 'full';
-    hover?: 'auto' | 'true' | 'false';
-    cover?: string;
-    badge?: BadgeType;
-    language?: LanguageBarType;
-    donutGraph?: boolean;
-    barGraph?: boolean;
-    loading?: boolean;
+    card: CardItemType | ListUserReposResponse | any
+    variant?: 'card' | 'article'
+    dateFormatOptions?: Intl.DateTimeFormatOptions
+    dateNowKey?: 'created' | 'updated'
+    iconPosition?: 'top' | 'right' | 'bottom' | 'left'
+    iconAlignment?: 'start' | 'center' | 'end'
+    iconAbsolute?: boolean
+    size?: 'small' | 'medium' | 'large' | 'full'
+    hover?: 'auto' | 'true' | 'false'
+    cover?: string
+    badge?: BadgeType
+    language?: LanguageBarType
+    donutGraph?: boolean
+    barGraph?: boolean
+    loading?: boolean
   }>(),
   {
     card: () => {},
@@ -253,8 +253,8 @@ const props = withDefaults(
       return {
         year: 'numeric',
         month: 'long',
-        day: 'numeric',
-      };
+        day: 'numeric'
+      }
     },
     cover: undefined,
     badge: undefined,
@@ -267,11 +267,11 @@ const props = withDefaults(
     hover: 'auto',
     donutGraph: false,
     barGraph: false,
-    loading: false,
+    loading: false
   }
-);
+)
 
-const { colorBadge } = useColor();
+const { colorBadge } = useColor()
 
 const applyHover = computed(() => {
   return (
@@ -279,35 +279,35 @@ const applyHover = computed(() => {
       props.card.links &&
       props.card.links.length === 1) ||
     props.hover === 'true'
-  );
-});
+  )
+})
 
 const getFlexDirection = () => {
   switch (props.iconPosition) {
     case 'top':
-      return 'column';
+      return 'column'
     case 'right':
-      return 'row-reverse';
+      return 'row-reverse'
     case 'bottom':
-      return 'column-reverse';
+      return 'column-reverse'
     case 'left':
     default:
-      return 'row';
+      return 'row'
   }
-};
+}
 
 const getAlignItems = () => {
   switch (props.iconAlignment) {
     case 'start':
-      return 'flex-start';
+      return 'flex-start'
     case 'center':
-      return 'center';
+      return 'center'
     case 'end':
-      return 'flex-end';
+      return 'flex-end'
     default:
-      return 'flex-start';
+      return 'flex-start'
   }
-};
+}
 </script>
 
 <style scoped>

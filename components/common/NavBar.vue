@@ -5,13 +5,13 @@
     type="checkbox"
     :disabled="navDisabled"
     @input="toggleNav()"
-  >
+  />
   <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking" />
   <nav
     id="ac-localnav"
     :class="[
       'ac-localnav-dark ac-localnav-noborder ac-ln-sticking',
-      { 'nav-open': navOpen },
+      { 'nav-open': navOpen }
     ]"
   >
     <div class="ac-ln-wrapper">
@@ -38,7 +38,7 @@
                   :to="item.route"
                   :class="[
                     'ac-ln-menu-link',
-                    { current: index === currentSectionIndex },
+                    { current: index === currentSectionIndex }
                   ]"
                 >
                   {{ item.name }}
@@ -59,7 +59,7 @@
               :focus="false"
               :label="windowWidth < 900 ? 'icon' : 'text'"
               :selected-item="getTheme()"
-              :on-select="(newTheme) => setTheme(newTheme)"
+              :on-select="newTheme => setTheme(newTheme)"
             />
             <LanguagePickerDropdown />
           </div>
@@ -71,71 +71,71 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Option';
-import { type SectionType } from '~/types/common/Section';
+import type { ItemType } from '~/types/common/Option'
+import { type SectionType } from '~/types/common/Section'
 
-const { tm } = useI18n();
-const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'));
+const { tm } = useI18n()
+const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'))
 const themeItems = computed<ItemType[]>(() =>
   tm('components.common.SegmentNav.theme')
-);
-const navOpen = ref(false);
-const navDisabled = ref(false);
+)
+const navOpen = ref(false)
+const navDisabled = ref(false)
 
-const { currentSection } = useSection();
-const { getTheme, setTheme } = useTheme();
-const currentSectionIndex = computed(() => currentSection.value.index);
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
-const { headerAnimations } = useAnimation();
+const { currentSection } = useSection()
+const { getTheme, setTheme } = useTheme()
+const currentSectionIndex = computed(() => currentSection.value.index)
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
+const { headerAnimations } = useAnimation()
 
 const initHeaderAnimations = () => {
   const animation = {
     element: document.querySelector('.ac-ln-background') as HTMLElement,
     class: 'ac-ln-background-transition',
-    timeout: 500,
-  };
-  const { setHeaderAnimation } = useAnimation();
-  setHeaderAnimation(animation);
-};
+    timeout: 500
+  }
+  const { setHeaderAnimation } = useAnimation()
+  setHeaderAnimation(animation)
+}
 
 const toggleNav = () => {
-  navOpen.value = !navOpen.value;
-  checkboxTimeout();
-};
+  navOpen.value = !navOpen.value
+  checkboxTimeout()
+}
 
 const checkboxTimeout = () => {
-  navDisabled.value = true;
+  navDisabled.value = true
   setTimeout(() => {
-    navDisabled.value = false;
-  }, 1000);
-};
+    navDisabled.value = false
+  }, 1000)
+}
 
 const handleScroll = () => {
   if (navOpen.value && window.scrollY > 0) {
-    navOpen.value = false;
+    navOpen.value = false
   }
-};
+}
 
 const updateAnimations = () => {
-  headerAnimations.value.forEach((element) => {
-    element.element.classList.remove(element.class);
+  headerAnimations.value.forEach(element => {
+    element.element.classList.remove(element.class)
 
     setTimeout(() => {
-      element.element.classList.add(element.class);
-    }, element.timeout);
-  });
-};
+      element.element.classList.add(element.class)
+    }, element.timeout)
+  })
+}
 
 onMounted(() => {
-  initHeaderAnimations();
-  window.addEventListener('scroll', handleScroll);
+  initHeaderAnimations()
+  window.addEventListener('scroll', handleScroll)
 
   watch(getTheme, (newTheme, oldTheme) => {
     if (newTheme !== oldTheme) {
-      updateAnimations();
+      updateAnimations()
     }
-  });
-});
+  })
+})
 </script>
 
 <style scoped>

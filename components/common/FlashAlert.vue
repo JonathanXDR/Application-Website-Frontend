@@ -4,12 +4,12 @@
       variant,
       'flash flex items-center justify-between fade-transition-wrapper',
       { 'r-fade-transition-enter-done': open },
-      { 'r-fade-transition-exit-done': !open },
+      { 'r-fade-transition-exit-done': !open }
     ]"
     :style="{
       backgroundColor: `var(--color-aside-${variant}-background)`,
       borderColor: `var(--color-aside-${variant}-border)`,
-      boxShadow: `0 0 1px 0 var(--color-aside-${variant}-border) inset, 0 0 1px 0 var(--color-aside-${variant}-border)`,
+      boxShadow: `0 0 1px 0 var(--color-aside-${variant}-border) inset, 0 0 1px 0 var(--color-aside-${variant}-border)`
     }"
   >
     <div
@@ -30,7 +30,7 @@
         <p
           class="label"
           :style="{
-            color: `var(--color-aside-${variant})`,
+            color: `var(--color-aside-${variant})`
           }"
         >
           {{ title || variant }}
@@ -57,7 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import type { IconType } from '~/types/common/Icon';
+import type { IconType } from '~/types/common/Icon'
 
 const props = withDefaults(
   defineProps<{
@@ -67,68 +67,68 @@ const props = withDefaults(
       | 'important'
       | 'note'
       | 'tip'
-      | 'warning';
-    title?: string;
-    description: string;
-    iconVariant?: 'default' | 'custom' | 'none';
-    icon?: IconType;
+      | 'warning'
+    title?: string
+    description: string
+    iconVariant?: 'default' | 'custom' | 'none'
+    icon?: IconType
   }>(),
   {
     title: undefined,
     variant: 'note',
     iconVariant: 'default',
-    icon: undefined,
+    icon: undefined
   }
-);
+)
 
 const icons = {
   deprecated: {
     name: 'nosign',
     colors: {
-      primary: `var(--color-aside-${props.variant})`,
-    },
+      primary: `var(--color-aside-${props.variant})`
+    }
   },
   experiment: {
     name: 'flask.fill',
     colors: {
       primary: `var(--color-aside-${props.variant})`,
-      tertiary: `var(--color-aside-${props.variant})`,
-    },
+      tertiary: `var(--color-aside-${props.variant})`
+    }
   },
   important: {
     name: 'exclamationmark.triangle.fill',
     colors: {
       primary: 'var(--color-fill)',
-      tertiary: `var(--color-aside-${props.variant})`,
-    },
+      tertiary: `var(--color-aside-${props.variant})`
+    }
   },
   note: {
     name: 'info.circle.fill',
     colors: {
       primary: 'var(--color-fill)',
-      tertiary: `var(--color-aside-${props.variant})`,
-    },
+      tertiary: `var(--color-aside-${props.variant})`
+    }
   },
   tip: {
     name: 'questionmark.circle.fill',
     colors: {
       primary: 'var(--color-fill)',
-      tertiary: `var(--color-aside-${props.variant})`,
-    },
+      tertiary: `var(--color-aside-${props.variant})`
+    }
   },
   warning: {
     name: 'exclamationmark.octagon.fill',
     colors: {
       primary: 'var(--color-fill)',
-      tertiary: `var(--color-aside-${props.variant})`,
-    },
-  },
-};
+      tertiary: `var(--color-aside-${props.variant})`
+    }
+  }
+}
 
-const open = ref(true);
+const open = ref(true)
 const toggle = () => {
-  open.value = !open.value;
-};
+  open.value = !open.value
+}
 </script>
 
 <style scoped>

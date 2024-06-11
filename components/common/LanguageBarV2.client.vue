@@ -50,18 +50,18 @@
 </template>
 
 <script setup lang="ts">
-import type { LanguageBarType } from '~/types/common/LanguageBar';
+import type { LanguageBarType } from '~/types/common/LanguageBar'
 
 withDefaults(
   defineProps<{
-    language: LanguageBarType;
+    language: LanguageBarType
   }>(),
   {
     language: () => {
-      return {} as LanguageBarType;
-    },
+      return {} as LanguageBarType
+    }
   }
-);
+)
 
 // const status = [
 //   'Order Placed',

@@ -20,18 +20,18 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Option';
+import type { ItemType } from '~/types/common/Option'
 
 withDefaults(
   defineProps<{
-    options: ItemType[];
-    label?: string;
+    options: ItemType[]
+    label?: string
   }>(),
   {
     options: () => [],
-    label: undefined,
+    label: undefined
   }
-);
+)
 </script>
 
 <style scoped>

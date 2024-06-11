@@ -38,13 +38,13 @@ const items = reactive([
   { id: 'productivity', label: 'Productivity' },
   { id: 'gaming', label: 'Gaming' },
   { id: 'production', label: 'Audio and video production' },
-  { id: 'development', label: 'Software development' },
+  { id: 'development', label: 'Software development' }
 ])
 
 const { tm } = useI18n()
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 const languages = computed<LanguageBarType[]>(() =>
-  tm('components.containers.languages'),
+  tm('components.containers.languages')
 )
 </script>
 

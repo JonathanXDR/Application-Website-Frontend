@@ -14,18 +14,18 @@
 </template>
 
 <script setup lang="ts">
-import type { SectionType } from '~/types/common/Section';
+import type { SectionType } from '~/types/common/Section'
 
 definePageMeta({
   header: true,
   nav: true,
   ribbon: true,
   footerFull: true,
-  footerCompact: false,
-});
+  footerCompact: false
+})
 
-const { tm } = useI18n();
-const sections = computed<SectionType[]>(() => tm('components.common.NavBar'));
+const { tm } = useI18n()
+const sections = computed<SectionType[]>(() => tm('components.common.NavBar'))
 </script>
 
 <style scoped>

@@ -5,25 +5,25 @@
 </template>
 
 <script setup lang="ts">
-import type { IconType } from '~/types/common/Icon';
+import type { IconType } from '~/types/common/Icon'
 
 withDefaults(
   defineProps<{
-    as?: keyof HTMLElementTagNameMap;
-    variant?: 'primary' | 'secondary' | 'tertiary';
-    size?: 'small' | 'medium' | 'large';
-    borderRadius?: 'reduced' | 'full';
-    label: string;
-    icon?: IconType;
+    as?: keyof HTMLElementTagNameMap
+    variant?: 'primary' | 'secondary' | 'tertiary'
+    size?: 'small' | 'medium' | 'large'
+    borderRadius?: 'reduced' | 'full'
+    label: string
+    icon?: IconType
   }>(),
   {
     as: 'button',
     variant: 'primary',
     size: 'medium',
     borderRadius: 'reduced',
-    icon: undefined,
+    icon: undefined
   }
-);
+)
 </script>
 
 <style scoped>

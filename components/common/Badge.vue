@@ -18,10 +18,7 @@
       {{ title }}
     </template>
     <template v-else>
-      <LoadingSkeleton
-        width="80px"
-        height="15px"
-      />
+      <LoadingSkeleton width="80px" height="15px" />
     </template>
   </component>
 </template>
@@ -35,18 +32,18 @@ const props = withDefaults(defineProps<BadgeType>(), {
   colors: () => ({
     primary: 'var(--color-fill-gray)',
     secondary: 'var(--color-fill-tertiary)',
-    tertiary: 'var(--color-figure-blue)',
+    tertiary: 'var(--color-figure-blue)'
   }),
   border: false,
   hover: true,
   loading: false,
-  onClick: () => {},
+  onClick: () => {}
 })
 
 const defaultColors = {
   primary: 'var(--color-fill-gray)',
   secondary: 'var(--color-fill-tertiary)',
-  tertiary: 'var(--color-figure-blue)',
+  tertiary: 'var(--color-figure-blue)'
 }
 
 const computedStyle = computed(() => ({
@@ -60,7 +57,7 @@ const computedStyle = computed(() => ({
     ? defaultColors.secondary
     : props.colors?.tertiary,
   '--color-figure-border':
-    props.loading || !props.border ? 'transparent' : props.colors?.tertiary,
+    props.loading || !props.border ? 'transparent' : props.colors?.tertiary
 }))
 </script>
 

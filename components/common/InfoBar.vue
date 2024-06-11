@@ -34,46 +34,46 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from 'dayjs';
-import 'dayjs/locale/en';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import type { InfoType } from '~/types/common/Info';
-import type { ItemType } from '~/types/common/Option';
+import dayjs from 'dayjs'
+import 'dayjs/locale/en'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import type { InfoType } from '~/types/common/Info'
+import type { ItemType } from '~/types/common/Option'
 
 const props = withDefaults(
   defineProps<{
-    info: InfoType;
-    date?: string;
-    dateFormatOptions?: Intl.DateTimeFormatOptions;
-    dateNowKey?: 'created' | 'updated';
-    loading?: boolean;
+    info: InfoType
+    date?: string
+    dateFormatOptions?: Intl.DateTimeFormatOptions
+    dateNowKey?: 'created' | 'updated'
+    loading?: boolean
   }>(),
   {
     info: (): InfoType => {
-      return {};
+      return {}
     },
     date: undefined,
     dateFormatOptions: () => {
       return {
         year: 'numeric',
         month: 'long',
-        day: 'numeric',
-      };
+        day: 'numeric'
+      }
     },
     dateNowKey: 'updated',
-    loading: false,
+    loading: false
   }
-);
+)
 
-dayjs.extend(relativeTime);
+dayjs.extend(relativeTime)
 
-const { locale } = useI18n();
+const { locale } = useI18n()
 const infoItems: ItemType[] = [
   { id: 'location', icon: { name: 'location.fill' } },
   { id: 'supervisor', icon: { name: 'person.fill' } },
   { id: 'department', icon: { name: 'tag.fill' } },
   { id: 'language', icon: { name: 'bubble.left.fill' } },
-  { id: 'license', icon: { name: 'scroll.fill' } },
+  { id: 'license', icon: { name: 'scroll.fill' } }
   // {
   //   id: 'forks',
   //   icon: {
@@ -88,41 +88,41 @@ const infoItems: ItemType[] = [
   // { id: 'stars', icon: { name: 'star.fill' } },
   // { id: 'issues', icon: { name: 'smallcircle.filled.circle' } },
   // { id: 'subscribers', icon: { name: 'bell.fill' } }
-];
+]
 
 const updatedYesterday = computed(() => {
-  if (!props.date) return false;
-  const updatedDate = dayjs(props.date);
-  const currentDate = dayjs();
-  return currentDate.diff(updatedDate, 'day') <= 1;
-});
+  if (!props.date) return false
+  const updatedDate = dayjs(props.date)
+  const currentDate = dayjs()
+  return currentDate.diff(updatedDate, 'day') <= 1
+})
 
 const formatDate = (
   dateString: string,
   formatOptions: Intl.DateTimeFormatOptions
 ) => {
-  return new Date(dateString).toLocaleDateString(locale.value, formatOptions);
-};
+  return new Date(dateString).toLocaleDateString(locale.value, formatOptions)
+}
 
 const getDate = () => {
-  const formatOptions = props.dateFormatOptions;
-  const dateVariant = props.dateNowKey;
+  const formatOptions = props.dateFormatOptions
+  const dateVariant = props.dateNowKey
 
   if (props.info?.date?.from && props.info?.date?.to) {
     return `${formatDate(props.info?.date.from, formatOptions)} - ${formatDate(
       props.info?.date.to,
       formatOptions
-    )}`;
+    )}`
   } else if (props.info?.date?.from) {
-    return formatDate(props.info?.date.from, formatOptions);
+    return formatDate(props.info?.date.from, formatOptions)
   } else if (props.date) {
     return `${dateVariant.charAt(0).toUpperCase()}${dateVariant.slice(
       1
-    )} ${dayjs(props.date).locale(locale.value).fromNow()}`;
+    )} ${dayjs(props.date).locale(locale.value).fromNow()}`
   }
-};
+}
 
-const dateTitle = getDate();
+const dateTitle = getDate()
 </script>
 
 <style scoped>
