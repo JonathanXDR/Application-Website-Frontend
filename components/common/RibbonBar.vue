@@ -118,30 +118,27 @@ const { data: repositoryTags, refresh: refreshTags } = useAsyncData(
 )
 
 const updateBaseItems = () => {
-  const items = tm('components.common.RibbonBar') as (RibbonBar | undefined)[]
-  baseItems.value = items
-    .filter((item): item is RibbonBar => item !== undefined)
-    .map((item, index) => ({
-      description:
-        item.description &&
-        t(`components.common.RibbonBar[${index}].description`, {
-          latestTag: tags.value.latest,
-          previousTag: tags.value.previous
-        }),
-      links:
-        item.links &&
-        (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map(
-          link => ({
-            ...link,
-            url: link.url
-              ? rt(link.url, {
-                  latestTag: tags.value.latest,
-                  previousTag: tags.value.previous
-                })
-              : undefined
-          })
-        )
-    }))
+  baseItems.value = props.items.map((item, index) => ({
+    description:
+      item.description &&
+      t(`components.common.RibbonBar[${index}].description`, {
+        latestTag: tags.value.latest,
+        previousTag: tags.value.previous
+      }),
+    links:
+      item.links &&
+      (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map(
+        link => ({
+          ...link,
+          url: link.url
+            ? rt(link.url, {
+                latestTag: tags.value.latest,
+                previousTag: tags.value.previous
+              })
+            : undefined
+        })
+      )
+  }))
   totalItems.value = baseItems.value.length
   updateDisplayItems()
 }
@@ -150,11 +147,7 @@ const updateDisplayItems = () => {
   const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value
   displayItems.value = Array.from(
     { length: totalItems.value },
-    (_, i) =>
-      baseItems.value[(start + i) % totalItems.value] || {
-        description: '',
-        links: []
-      }
+    (_, i) => baseItems.value[(start + i) % totalItems.value]
   )
 }
 
@@ -208,10 +201,7 @@ watch(
   repositoryTags,
   newTags => {
     if (newTags && newTags.length >= 2) {
-      tags.value = {
-        latest: newTags[0]?.name || '',
-        previous: newTags[1]?.name || ''
-      }
+      tags.value = { latest: newTags[0].name, previous: newTags[1].name }
       updateBaseItems()
 
       setTimeout(() => {

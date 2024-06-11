@@ -25,7 +25,7 @@
           :class="['viewer-sizenav-value', { focus }]"
           :value="item.id"
           :disabled="item.id !== selectedItem && isTransitioning"
-        >
+        />
         <label
           :for="`viewer-sizenav-value-${item.id}`"
           class="viewer-sizenav-link"
@@ -62,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-import type { SegmentNavType } from '~/types/common/SegmentNav';
+import type { SegmentNavType } from '~/types/common/SegmentNav'
 
 const props = withDefaults(defineProps<SegmentNavType>(), {
   componentSize: 'medium',
@@ -98,7 +98,7 @@ const updateBubblePosition = () => {
   const selectedItemIndex = props.items.findIndex(
     item => item.id === selectedItem.value
   )
-  selectedItemElement.value = itemElements.value[selectedItemIndex] || null
+  selectedItemElement.value = itemElements.value[selectedItemIndex]
   if (selectedItemElement.value) {
     bubbleStyle.value = {
       '--bubble-position': `${selectedItemElement?.value?.offsetLeft}px`,
@@ -119,7 +119,7 @@ const height = computed(() => {
     medium: 48,
     large: 56
   }
-  return sizes[props.size || 'medium'] || 48
+  return sizes[props.componentSize || 'medium']
 })
 
 const fontSize = computed(() => {
