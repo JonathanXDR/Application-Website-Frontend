@@ -117,7 +117,7 @@ const ulHeight = useElementSize(ul).height
 
 const pinned = ref<GetUserPinnedRepository[]>([])
 const currentIndex = ref(0)
-const randomColor = ref(colorStore.randomizeColor().colorName)
+const randomColor = ref(colorStore.randomizeColor()?.colorName || '')
 const windowWidth = useWindowSize({ initialWidth: 0 }).width
 
 const { data: userRepositories } = useAsyncData(
@@ -161,32 +161,9 @@ const currentProjects = computed(
     projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
 )
 
-const segmentNavItems = computed<ItemType[]>(() => [
-  {
-    id: 'swisscom',
-    category: 'projects',
-    label: 'Swisscom',
-    icon: {
-      name: 'building.2.fill'
-    }
-  },
-  {
-    id: 'personal',
-    category: 'projects',
-    label: 'Persönlich',
-    icon: {
-      name: 'person.fill'
-    }
-  },
-  {
-    id: 'school',
-    category: 'projects',
-    label: 'Schule',
-    icon: {
-      name: 'graduationcap.fill'
-    }
-  }
-])
+const segmentNavItems = computed<ItemType[]>(() =>
+  tm('components.common.SegmentNav.projects')
+)
 
 const updateCurrentIndex = (index: number) => {
   currentIndex.value = index

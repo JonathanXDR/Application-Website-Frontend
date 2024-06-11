@@ -30,7 +30,7 @@
           <div class="ac-ln-menu-tray">
             <ul class="ac-ln-menu-items">
               <li
-                v-for="(item, index) in items"
+                v-for="(item, index) in navItems"
                 :key="index"
                 class="ac-ln-menu-item"
               >
@@ -84,33 +84,6 @@ const { getTheme, setTheme } = useTheme()
 const currentSectionIndex = computed(() => currentSection.value.index)
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 const { headerAnimations } = useAnimation()
-
-const themeItems = computed<ItemType[]>(() => [
-  {
-    id: 'light',
-    category: 'theme',
-    label: 'Light',
-    icon: {
-      name: 'sun.max.fill'
-    }
-  },
-  {
-    id: 'dark',
-    category: 'theme',
-    label: 'Dark',
-    icon: {
-      name: 'moon.fill'
-    }
-  },
-  {
-    id: 'auto',
-    category: 'theme',
-    label: 'Auto',
-    icon: {
-      name: 'circle.lefthalf.filled'
-    }
-  }
-])
 
 const initHeaderAnimations = () => {
   const animation = {

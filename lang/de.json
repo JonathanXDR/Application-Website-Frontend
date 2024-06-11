@@ -75,6 +75,110 @@
           ]
         }
       ],
+      "SegmentNav": {
+        "theme": [
+          {
+            "id": "light",
+            "category": "theme",
+            "label": "Light",
+            "icon": {
+              "name": "sun.max.fill"
+            }
+          },
+          {
+            "id": "dark",
+            "category": "theme",
+            "label": "Dark",
+            "icon": {
+              "name": "moon.fill"
+            }
+          },
+          {
+            "id": "auto",
+            "category": "theme",
+            "label": "Auto",
+            "icon": {
+              "name": "circle.lefthalf.filled"
+            }
+          }
+        ],
+        "projects": [
+          {
+            "id": "swisscom",
+            "category": "projects",
+            "label": "Swisscom",
+            "icon": {
+              "name": "building.2.fill"
+            }
+          },
+          {
+            "id": "personal",
+            "category": "projects",
+            "label": "Persönlich",
+            "icon": {
+              "name": "person.fill"
+            }
+          },
+          {
+            "id": "school",
+            "category": "projects",
+            "label": "Schule",
+            "icon": {
+              "name": "graduationcap.fill"
+            }
+          }
+        ],
+        "technologies": [
+          {
+            "id": "language",
+            "category": "technologies",
+            "label": "Language",
+            "icon": {
+              "name": "bubble.fill"
+            }
+          },
+          {
+            "id": "library",
+            "category": "technologies",
+            "label": "Library",
+            "icon": {
+              "name": "books.vertical.fill"
+            }
+          },
+          {
+            "id": "runtime",
+            "category": "technologies",
+            "label": "Runtime",
+            "icon": {
+              "name": "gear"
+            }
+          },
+          {
+            "id": "framework",
+            "category": "technologies",
+            "label": "Framework",
+            "icon": {
+              "name": "square.dashed.inset.filled"
+            }
+          },
+          {
+            "id": "container-management",
+            "category": "technologies",
+            "label": "Container Management",
+            "icon": {
+              "name": "shippingbox.fill"
+            }
+          },
+          {
+            "id": "orm",
+            "category": "technologies",
+            "label": "ORM",
+            "icon": {
+              "name": "gear"
+            }
+          }
+        ]
+      },
       "FilterInput": {
         "items": [
           {

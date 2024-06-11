@@ -23,8 +23,6 @@
 import { SpeedInsights } from '@vercel/speed-insights/vue'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterFull from '~/components/common/Footer/Full.vue'
-import svgFaviconDev from '~/public/img/dev/favicon-dev.svg?raw'
-import type { LinkType } from '~/types/common/Link'
 
 const route = useRoute()
 const { colorBadge, randomizeColor } = useColor()
@@ -38,11 +36,20 @@ const items = tm('components.common.RibbonBar') as {
   links: LinkType[]
 }[]
 const faviconColor = colorBadge.value?.colorHex ?? '000000'
-const faviconGraphicData = `data:image/svg+xml,${encodeURIComponent(
-  svgFaviconDev.replace('#color', `#${faviconColor}`)
-)}`
+const faviconGraphicData = ref('')
 
-onMounted(randomizeColor)
+const fetchSvgContent = async () => {
+  const response = await fetch('/img/dev/favicon-dev.svg')
+  const svgContent = await response.text()
+  faviconGraphicData.value = `data:image/svg+xml,${encodeURIComponent(
+    svgContent.replace('#color', `#${faviconColor}`)
+  )}`
+}
+
+onMounted(async () => {
+  await randomizeColor()
+  await fetchSvgContent()
+})
 
 watchEffect(() => {
   useHead({
@@ -53,7 +60,7 @@ watchEffect(() => {
   if (config.public.appEnvironment === 'development') {
     useHead({
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: faviconGraphicData },
+        { rel: 'icon', type: 'image/svg+xml', href: faviconGraphicData.value },
         {
           rel: 'apple-touch-icon',
           href: `/img/dev/favicon-dev-${colorBadge.value?.colorName}.png`

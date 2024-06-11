@@ -63,8 +63,8 @@
 </template>
 
 <script setup lang="ts">
-const error = useError()
-const { t, tm } = useI18n()
+const error = useError();
+const { t, tm } = useI18n();
 const pages = {
   notFound: 404,
   internalServerError: 500,
@@ -78,8 +78,8 @@ const currentKey = computed(() => {
       (key: string) =>
         pages[key as keyof typeof pages] === error.value?.statusCode
     ) || 'error'
-  )
-})
+  );
+});
 
 const title = t(`pages.${currentKey.value}.title`, {
   statusCode: error.value?.statusCode

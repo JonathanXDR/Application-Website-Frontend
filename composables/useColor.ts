@@ -17,18 +17,22 @@ export const useColor = () => {
     }
   ])
 
-  const colorBadge = useState<null | {
+  const colorBadge = useState<{
     colorName: string
     colorVar: string
     colorHex: string
-  }>('colorBadge', () => null)
+  } | null>('colorBadge', () => null)
 
   const randomizeColor = () => {
     if (!colorBadge.value) {
       const randomColor = Math.floor(
         Math.random() * colorBadgeArray.value.length
       )
-      colorBadge.value = colorBadgeArray.value[randomColor]
+      colorBadge.value = colorBadgeArray.value[randomColor] || {
+        colorName: 'orange',
+        colorVar: 'var(--color-figure-orange)',
+        colorHex: 'f56300'
+      }
     }
     return colorBadge.value
   }

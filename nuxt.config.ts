@@ -2,12 +2,14 @@ import routerOptions from './router.options'
 
 export default defineNuxtConfig({
   modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/i18n',
-    '@vueuse/nuxt',
-    '@nuxtjs/color-mode',
+    '@nuxt/eslint',
     '@nuxt/image',
-    '@nuxt/eslint'
+    '@nuxt/scripts',
+    '@nuxtjs/color-mode',
+    '@nuxtjs/i18n',
+    '@nuxtjs/seo',
+    '@nuxtjs/tailwindcss',
+    '@vueuse/nuxt'
   ],
   plugins: ['~/plugins/api/github.server'],
   css: [
@@ -34,6 +36,9 @@ export default defineNuxtConfig({
     }
   },
   ssr: true,
+  future: {
+    compatibilityVersion: 4
+  },
   app: {
     head: {
       titleTemplate: 'JR | %s',
@@ -53,12 +58,14 @@ export default defineNuxtConfig({
           content: process.env.APP_DESCRIPTION
         }
       ],
-      script: [
-        {
-          src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
-          async: true
-        }
-      ]
+      scripts: {
+        globals: [
+          {
+            src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
+            async: true
+          }
+        ]
+      }
     }
   },
   $development: {

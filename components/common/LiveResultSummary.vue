@@ -40,7 +40,12 @@ withDefaults(
 )
 
 const colorStore = useColor()
-const randomColor = ref(colorStore.randomizeColor().colorVar)
+const randomColor = ref('')
+
+const colorObj = colorStore.randomizeColor()
+if (colorObj) {
+  randomColor.value = colorObj.colorVar
+}
 </script>
 
 <style scoped>

@@ -41,8 +41,8 @@ const props = withDefaults(
   }
 )
 
-const emit = defineEmits(['change'])
-const selectedTab = ref(props.activeTabId)
+const emit = defineEmits(['change']);
+const selectedTab = ref(props.activeTabId);
 
 watch(
   () => props.activeTabId,
