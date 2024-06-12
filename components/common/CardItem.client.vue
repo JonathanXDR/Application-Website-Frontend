@@ -107,7 +107,7 @@
           :loading="loading"
         />
       </div>
-      <v-slot />
+      <slot />
     </div>
   </component>
 </template>

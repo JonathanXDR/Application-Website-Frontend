@@ -8,9 +8,10 @@
     >
       <NuxtLink
         class="link"
-        :href="link.url"
+        :to="link.url"
         :title="link.title"
         target="_blank"
+        external
       >
         <ClientOnly>
           <font-awesome-icon
