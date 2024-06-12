@@ -31,16 +31,23 @@
         <CardItem
           v-for="(project, index) in currentProjects"
           :key="index"
-          variant="article"
-          :component-size="windowWidth < 900 ? 'small' : 'medium'"
-          :loading="false"
-          :card="project"
-          :icon="() => ({ position: windowWidth < 900 ? 'top' : 'left' })"
-          :date="{
-            formatOptions: () => ({
-              year: 'numeric',
-              month: 'long'
-            })
+          v-bind="{
+            ...project,
+            variant: 'article',
+            componentSize: windowWidth < 900 ? 'small' : 'medium',
+            loading: false,
+            date: {
+              ...project.date,
+              formatOptions: () => ({
+                year: 'numeric',
+                month: 'long'
+              })
+            },
+            icon: {
+              ...project.icon,
+              name: project.icon?.name || '',
+              position: windowWidth < 900 ? 'top' : 'left'
+            }
           }"
         />
       </ul>
@@ -56,10 +63,15 @@
             v-for="(card, index) in pinned"
             :key="index"
             :loading="false"
-            :card="card"
-            component-size="small"
-            icon-position="right"
-            icon-absolute
+            v-bind="{
+              ...card,
+              componentSize: 'small',
+              icon: {
+                ...card.icon,
+                position: 'right',
+                absolute: true
+              }
+            }"
             class="color"
             :style="{
               '--color-figure': `var(--color-figure-${randomColor})`,
@@ -72,9 +84,14 @@
             v-for="(card, index) in currentProjects"
             :key="index"
             :loading="false"
-            :card="card"
-            component-size="small"
-            icon-position="right"
+            v-bind="{
+              ...card,
+              componentSize: 'small',
+              icon: {
+                ...card.icon,
+                position: 'right'
+              }
+            }"
           />
           <ResultBlankState v-if="!currentProjects" />
         </ul>
@@ -87,11 +104,12 @@
 <script lang="ts" setup>
 import type { Repository } from '@octokit/graphql-schema'
 import type { CardItemType } from '~/types/common/CardItem'
+import type { IconType } from '~/types/common/Icon'
 import type { ItemType } from '~/types/common/Item'
 import type { MinimalRepository } from '~/types/services/GitHub/Repository'
 
 type GetUserPinnedRepository = Repository & {
-  icon?: CardItemType['icon']
+  icon?: IconType
 }
 
 type CategorizedRepository = MinimalRepository &

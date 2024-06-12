@@ -36,11 +36,17 @@
       <CardItem
         v-for="(card, index) in cards"
         :key="index"
-        :loading="false"
-        :card="card"
-        component-size="small"
-        icon-position="right"
-        icon-absolute
+        v-bind="{
+          ...card,
+          loading: false,
+          componentSize: 'small',
+          icon: {
+            ...card.icon,
+            position: 'right',
+            alignment: 'start',
+            absolute: true
+          }
+        }"
       />
       <ResultBlankState v-if="cards.length === 0" />
     </ul>

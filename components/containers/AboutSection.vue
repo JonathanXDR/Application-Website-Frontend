@@ -20,13 +20,12 @@
     </svg>
 
     <CardItem
-      variant="article"
-      :alignment="windowWidth < 1250 ? 'center' : 'start'"
-      :component-size="
-        windowWidth < 900 ? 'small' : windowWidth < 1250 ? 'medium' : 'large'
-      "
-      :loading="false"
-      :card="{
+      v-bind="{
+        variant: 'article',
+        alignment: windowWidth < 1250 ? 'center' : 'start',
+        componentSize:
+          windowWidth < 900 ? 'small' : windowWidth < 1250 ? 'medium' : 'large',
+        loading: false,
         eyebrow: $t('components.containers.about.eyebrow'),
         title: $t('components.containers.about.title'),
         description: $t('components.containers.about.description', {

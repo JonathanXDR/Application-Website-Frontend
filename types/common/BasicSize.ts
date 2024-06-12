@@ -1,1 +1,1 @@
-export type BasicSizeType = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
+export type BasicSizeType = 'small' | 'medium' | 'large'

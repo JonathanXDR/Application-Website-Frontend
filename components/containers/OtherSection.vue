@@ -1,23 +1,25 @@
 <template>
   <h2>{{ title }}</h2>
   <ul class="grid">
-    <!-- <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" /> -->
     <CardItem
       v-for="(card, index) in cards"
       :key="index"
-      variant="article"
-      :loading="false"
-      :component-size="windowWidth < 900 ? 'small' : 'medium'"
-      :icon="
-        () => ({
+      v-bind="{
+        ...card,
+        variant: 'article',
+        loading: false,
+        componentSize: windowWidth < 900 ? 'small' : 'medium',
+        icon: {
+          ...card.icon,
           name: card.icon?.name || '',
           position: windowWidth < 900 ? 'top' : 'left'
-        })
-      "
-      :date="{
-        formatOptions: () => ({
-          weekday: 'long'
-        })
+        },
+        date: {
+          ...card.date,
+          formatOptions: () => ({
+            weekday: 'long'
+          })
+        }
       }"
     />
   </ul>

@@ -5,11 +5,15 @@
     <CardItem
       v-for="(language, index) in languages"
       :key="index"
-      :card="language"
-      icon-alignment="start"
-      :icon-position="windowWidth < 930 ? 'top' : 'left'"
-      :badges="language.badges"
-      :loading="false"
+      v-bind="{
+        ...language,
+        icon: {
+          ...language.icon,
+          alignment: 'start',
+          position: windowWidth < 930 ? 'top' : 'left'
+        },
+        loading: false
+      }"
     >
       <LanguageBarV2
         v-if="language"
