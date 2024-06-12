@@ -100,11 +100,16 @@
         </div>
         <InfoBar
           v-if="hasInfo"
-          :info="infoBarInfo"
-          :date="{ date: updated_at, ...date }"
-          :date-format-options="date?.formatOptions"
-          :date-now-key="date?.nowKey"
-          :loading="loading"
+          v-bind="{
+            ...infoBarInfo,
+            date: {
+              ...infoBarInfo.date,
+              formatOptions: infoBarInfo.date?.formatOptions,
+              nowKey: infoBarInfo.date?.nowKey,
+              fixed: updated_at
+            },
+            loading: loading
+          }"
         />
       </div>
       <slot />
@@ -220,7 +225,9 @@ const infoBarInfo = computed(() => {
       stars: props.stargazers_count,
       issues: props.open_issues_count,
       subscribers: props.subscribers_count,
-      date: { date: props.updated_at, ...props.date }
+      date: {
+        fixed: props.updated_at
+      }
     }
   )
 })

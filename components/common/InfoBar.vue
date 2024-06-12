@@ -1,7 +1,7 @@
 <template>
   <div class="info">
     <template v-for="item in infoItems" :key="item.id">
-      <div v-if="info[item.id]" class="info-item">
+      <div v-if="props[item.id]" class="info-item">
         <Icon
           v-if="item.icon"
           :name="item.icon?.name"
@@ -9,7 +9,7 @@
           class="info-icon"
         />
         <template v-if="!loading">
-          {{ info[item.id] }}
+          {{ props[item.id] }}
         </template>
         <template v-else>
           <LoadingSkeleton width="100px" height="15px" />
@@ -17,7 +17,7 @@
       </div>
     </template>
 
-    <div v-if="info?.date" class="info-item">
+    <div v-if="date" class="info-item">
       <Icon
         :loading="loading"
         :name="updatedYesterday ? 'clock.fill' : 'calendar'"
@@ -26,7 +26,7 @@
       <template v-if="!loading">
         {{
           dateTitle ||
-          `${info?.date?.duration?.from} - ${info?.date?.duration?.to}`
+          `${props.date?.duration?.from} - ${props.date?.duration?.to}`
         }}
       </template>
       <template v-else>
@@ -40,29 +40,20 @@
 import dayjs from 'dayjs'
 import 'dayjs/locale/en'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import type { DateType } from '~/types/common/Date'
 import type { InfoType } from '~/types/common/Info'
 import type { ItemType } from '~/types/common/Item'
 
-const props = withDefaults(
-  defineProps<{
-    info: InfoType
-    date: DateType
-    loading: boolean
-  }>(),
-  {
-    info: () => ({}),
-    date: () => ({
-      formatOptions: () => ({
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      }),
-      nowKey: 'updated'
+const props = withDefaults(defineProps<InfoType>(), {
+  loading: false,
+  date: () => ({
+    formatOptions: () => ({
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
     }),
-    loading: false
-  }
-)
+    nowKey: 'updated'
+  })
+})
 
 dayjs.extend(relativeTime)
 
@@ -91,7 +82,7 @@ const infoItems: ItemType[] = [
 
 const updatedYesterday = computed(() => {
   if (!props.date) return false
-  const updatedDate = dayjs(props.date.date)
+  const updatedDate = dayjs(props.date.fixed)
   const currentDate = dayjs()
   return currentDate.diff(updatedDate, 'day') <= 1
 })
@@ -107,17 +98,17 @@ const getDate = () => {
   const formatOptions = props.date.formatOptions
   const dateVariant = props.date.nowKey
 
-  if (props.info?.date?.duration?.from && props.info?.date?.duration?.to) {
+  if (props.date?.duration) {
     return `${formatDate(
-      props.info?.date?.duration?.from,
+      props.date?.duration.from,
       formatOptions()
-    )} - ${formatDate(props.info?.date?.duration?.to, formatOptions())}`
-  } else if (props.info?.date?.duration?.from) {
-    return formatDate(props.info?.date?.duration?.from, formatOptions())
+    )} - ${formatDate(props.date?.duration.to, formatOptions())}`
+  } else if (props.date?.fixed) {
+    return formatDate(props.date?.fixed.toString(), formatOptions())
   } else if (props.date) {
     return `${dateVariant?.charAt(0).toUpperCase()}${dateVariant?.slice(
       1
-    )} ${dayjs(props.date.date).locale(locale.value).fromNow()}`
+    )} ${dayjs(props.date.nowKey).locale(locale.value).fromNow()}`
   }
 }
 

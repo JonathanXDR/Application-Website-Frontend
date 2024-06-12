@@ -1,7 +1,10 @@
 import type { DateType } from './Date'
 
 export interface InfoType {
-  [key: string]: undefined | string | number | DateType
+  [key: string]: undefined | string | number | boolean | DateType
+  loading?: boolean
+  date?: DateType
+
   location?: string
   supervisor?: string
   department?: string
@@ -14,5 +17,4 @@ export interface InfoType {
   stars?: number
   issues?: number
   subscribers?: number
-  date?: DateType
 }
