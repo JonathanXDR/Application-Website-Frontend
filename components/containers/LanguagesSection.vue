@@ -9,6 +9,7 @@
         ...language,
         icon: {
           ...language.icon,
+          name: language.icon?.name || '',
           alignment: 'start',
           position: windowWidth < 930 ? 'top' : 'left'
         },

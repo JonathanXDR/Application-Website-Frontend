@@ -33,9 +33,10 @@
           :key="index"
           v-bind="{
             ...project,
+            description: project.description || '',
             variant: 'article',
-            componentSize: windowWidth < 900 ? 'small' : 'medium',
             loading: false,
+            componentSize: windowWidth < 900 ? 'small' : 'medium',
             date: {
               ...project.date,
               formatOptions: () => ({
@@ -60,14 +61,15 @@
         />
         <ul v-if="pinned" class="card-container pinned-items">
           <CardItem
-            v-for="(card, index) in pinned"
+            v-for="(project, index) in pinned"
             :key="index"
-            :loading="false"
             v-bind="{
-              ...card,
+              ...project,
+              loading: false,
               componentSize: 'small',
               icon: {
-                ...card.icon,
+                ...project.icon,
+                name: project.icon?.name || '',
                 position: 'right',
                 absolute: true
               }
@@ -81,14 +83,16 @@
         </ul>
         <ul class="card-container">
           <CardItem
-            v-for="(card, index) in currentProjects"
+            v-for="(project, index) in currentProjects"
             :key="index"
-            :loading="false"
             v-bind="{
-              ...card,
+              ...project,
+              description: project.description || '',
+              loading: false,
               componentSize: 'small',
               icon: {
-                ...card.icon,
+                ...project.icon,
+                name: project.icon?.name || '',
                 position: 'right'
               }
             }"
@@ -108,7 +112,7 @@ import type { IconType } from '~/types/common/Icon'
 import type { ItemType } from '~/types/common/Item'
 import type { MinimalRepository } from '~/types/services/GitHub/Repository'
 
-type GetUserPinnedRepository = Repository & {
+type PinnedRepository = Repository & {
   icon?: IconType
 }
 
@@ -133,7 +137,7 @@ const config = useRuntimeConfig()
 const ul = ref<HTMLElement | null>(null)
 const ulHeight = useElementSize(ul).height
 
-const pinned = ref<GetUserPinnedRepository[]>([])
+const pinned = ref<PinnedRepository[]>([])
 const currentIndex = ref(0)
 const randomColor = ref(colorStore.randomizeColor()?.colorName || '')
 const windowWidth = useWindowSize({ initialWidth: 0 }).width
@@ -206,7 +210,7 @@ const categorizeProject = (
 watch(
   pinnedProjects,
   newPinnedProjects => {
-    newPinnedProjects?.forEach((project: GetUserPinnedRepository) => {
+    newPinnedProjects?.forEach((project: PinnedRepository) => {
       project.icon = {
         name: 'pin.fill',
         colors: {

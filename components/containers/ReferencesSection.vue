@@ -11,6 +11,7 @@
         componentSize: windowWidth < 900 ? 'small' : 'medium',
         icon: {
           ...article.icon,
+          name: article.icon?.name || '',
           position: windowWidth < 900 ? 'top' : 'left'
         },
         date: {
