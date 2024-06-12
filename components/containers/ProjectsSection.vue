@@ -88,19 +88,19 @@
 import type { Repository } from '@octokit/graphql-schema'
 import type { CardItemType } from '~/types/common/CardItem'
 import type { ItemType } from '~/types/common/Item'
-import type {
-  GetOwnerRepository,
-  GetUserRepositories
-} from '~/types/services/GitHub/Repository'
+import type { MinimalRepository } from '~/types/services/GitHub/Repository'
 
 type GetUserPinnedRepository = Repository & {
   icon?: CardItemType['icon']
 }
 
+type CategorizedRepository = MinimalRepository &
+  CardItemType & { category: string }
+
 type Projects = {
   swisscom: CardItemType[]
-  personal: GetUserRepositories
-  school: GetUserRepositories
+  personal: MinimalRepository[]
+  school: MinimalRepository[]
 }
 
 defineProps<{
@@ -169,13 +169,20 @@ const updateCurrentIndex = (index: number) => {
   currentIndex.value = index
 }
 
-const categorizeProject = (project: GetOwnerRepository) => {
+const categorizeProject = (
+  project: MinimalRepository
+): CategorizedRepository => {
   const schoolProjectPattern =
     /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/
   const category = schoolProjectPattern.test(project.name)
     ? 'school'
     : 'personal'
-  return { ...project, category }
+  return {
+    ...project,
+    category,
+    title: project.name,
+    description: project.description || ''
+  }
 }
 
 watch(
@@ -199,9 +206,7 @@ watchEffect(() => {
   projects.school = []
   filteredProjects.value.map(categorizeProject).forEach(project => {
     const category = project.category as keyof Projects
-    projects[category].push(
-      project as GetOwnerRepository & CardItemType & { category: string }
-    )
+    projects[category].push(project)
   })
 })
 </script>

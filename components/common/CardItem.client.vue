@@ -114,9 +114,9 @@
 
 <script setup lang="ts">
 import type { CardItemType } from '~/types/common/CardItem'
-import type { GetOwnerRepository } from '~/types/services/GitHub/Repository'
+import type { MinimalRepository } from '~/types/services/GitHub/Repository'
 
-type Props = Partial<CardItemType> & Partial<GetOwnerRepository>
+type Props = Partial<CardItemType> & Partial<MinimalRepository>
 
 const props = withDefaults(defineProps<Props>(), {
   variant: 'card',
@@ -155,11 +155,13 @@ const applyHover = computed(
 const componentType = computed(() =>
   props.variant === 'article' ? 'div' : 'a'
 )
-const componentId = computed(() =>
-  props.title?.toLowerCase().replace(/ /g, '-')
+const componentId = computed(
+  () => props.title?.toLowerCase().replace(/ /g, '-') || ''
 )
 const componentHref = computed(() =>
-  applyHover.value && props.links ? props.links[0].url : props.html_url
+  applyHover.value && props.links
+    ? props.links[0]?.url || ''
+    : props.html_url || ''
 )
 const componentClasses = computed(() => [
   'scroll-animation scroll-animation--off',
@@ -177,7 +179,7 @@ const hasCoverOrGraphs = computed(
 const hasBadgesOrTopics = computed(
   () => props.badges?.length || props.topics?.length
 )
-const badgesOrTopics = computed(() => props?.badges || props.topics)
+const badgesOrTopics = computed(() => props.badges || props.topics)
 const hasLinksOrHtmlUrl = computed(() => props.links?.length || props.html_url)
 const linkCollectionLinks = computed(
   () =>

@@ -25,13 +25,15 @@
           :class="['viewer-sizenav-value', { focus }]"
           :value="item.id"
           :disabled="item.id !== selectedItem && isTransitioning"
-        />
+        >
         <label
           :for="`viewer-sizenav-value-${item.id}`"
           class="viewer-sizenav-link"
           :style="{
             minWidth:
-              props.label !== 'icon' ? '48px' : `${height - outerPadding * 2}px`
+              label !== 'icon'
+                ? '48px'
+                : `${computedHeight - outerPadding * 2}px`
           }"
         >
           <span
@@ -72,12 +74,12 @@ const props = withDefaults(defineProps<SegmentNavType>(), {
   shadow: false,
   grayLabels: false,
   gap: '0px',
-  padding: props => {
+  padding: (props: SegmentNavType) => {
     return props.label !== 'icon' ? '0 8px' : '0'
   },
   outerPadding: 4,
-  selectedItem: props => {
-    return props.items[0].id
+  selectedItem: (props: SegmentNavType) => {
+    return props.items[0]?.id || ''
   },
   onSelect: () => {}
 })
@@ -98,11 +100,11 @@ const updateBubblePosition = () => {
   const selectedItemIndex = props.items.findIndex(
     item => item.id === selectedItem.value
   )
-  selectedItemElement.value = itemElements.value[selectedItemIndex]
+  selectedItemElement.value = itemElements.value[selectedItemIndex] || null
   if (selectedItemElement.value) {
     bubbleStyle.value = {
-      '--bubble-position': `${selectedItemElement?.value?.offsetLeft}px`,
-      '--bubble-width': `${selectedItemElement?.value?.offsetWidth}px`,
+      '--bubble-position': `${selectedItemElement.value.offsetLeft}px`,
+      '--bubble-width': `${selectedItemElement.value.offsetWidth}px`,
       opacity: '1'
     }
   }
@@ -112,14 +114,14 @@ const updateBubblePosition = () => {
 
 const bubbleStyle = ref<Record<string, string>>({})
 
-const height = computed(() => {
+const computedHeight = computed(() => {
   const sizes: Record<string, number> = {
     xsmall: 32,
     small: 40,
     medium: 48,
     large: 56
   }
-  return sizes[props.componentSize || 'medium']
+  return sizes[props.componentSize || 'medium'] || 48
 })
 
 const fontSize = computed(() => {
@@ -135,8 +137,8 @@ const fontSize = computed(() => {
 const containerStyle = computed(() => ({
   width: `fit-content`,
   '--sizenav-width': `${navContainer.value?.offsetWidth}px`,
-  '--sizenav-outer-padding': `${props?.outerPadding}px`,
-  '--aap-min-height': `${height.value}px`
+  '--sizenav-outer-padding': `${props.outerPadding}px`,
+  '--aap-min-height': `${computedHeight.value}px`
 }))
 
 watch(

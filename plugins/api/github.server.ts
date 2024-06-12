@@ -204,19 +204,19 @@ export default defineNuxtPlugin(() => {
         description,
         html_url: url,
         topics:
-          repositoryTopics?.nodes?.map(node => node?.topic.name ?? '') || [],
+          repositoryTopics?.nodes?.map(node => node?.topic.name || '') || [],
         language: primaryLanguage?.name,
         license: licenseInfo,
-        forks: forks?.nodes?.map(node => node?.url ?? '') || [],
-        stars: stargazers?.nodes?.map(node => node?.url ?? '') || [],
+        forks: forks?.nodes?.map(node => node?.url || '') || [],
+        stars: stargazers?.nodes?.map(node => node?.url || '') || [],
         issues:
           issues?.nodes
             ?.filter(node => node && !node.closed)
-            .map(node => node?.url ?? '') || [],
+            .map(node => node?.url || '') || [],
         pullRequests:
           pullRequests?.nodes
             ?.filter(node => node && !node.closed)
-            .map(node => node?.url ?? '') || [],
+            .map(node => node?.url || '') || [],
         updated_at: updatedAt
       }
     }

@@ -1,4 +1,10 @@
+import type { components } from '@octokit/openapi-types'
 import type { Endpoints } from '@octokit/types'
+
+export type SimpleRepository = components['schemas']['simple-repository']
+export type MinimalRepository = components['schemas']['minimal-repository']
+export type FullRepository = components['schemas']['full-repository']
+export type Repository = components['schemas']['repository']
 
 export type GetPublicRepositories =
   Endpoints['GET /repositories']['response']['data']

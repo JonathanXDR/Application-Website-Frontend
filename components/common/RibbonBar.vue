@@ -102,7 +102,7 @@ const baseItems = ref<{ description: string; links: LinkType[] }[]>([])
 const currentIndex = ref(0)
 const totalItems = ref(0)
 const isTransitioning = ref(false)
-const scrollDirection = ref('right')
+const scrollDirection = ref<'left' | 'right'>('right')
 const displayItems = ref<{ description: string; links: LinkType[] }[]>([])
 const initialAnimationPlayed = ref(false)
 
@@ -118,6 +118,7 @@ const { data: repositoryTags, refresh: refreshTags } = useAsyncData(
 )
 
 const updateBaseItems = () => {
+  if (!tags.value.latest || !tags.value.previous) return
   baseItems.value = props.items.map((item, index) => ({
     description:
       item.description &&
@@ -147,7 +148,11 @@ const updateDisplayItems = () => {
   const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value
   displayItems.value = Array.from(
     { length: totalItems.value },
-    (_, i) => baseItems.value[(start + i) % totalItems.value]
+    (_, i) =>
+      baseItems.value[(start + i) % totalItems.value] || {
+        description: '',
+        links: []
+      }
   )
 }
 
@@ -201,7 +206,7 @@ watch(
   repositoryTags,
   newTags => {
     if (newTags && newTags.length >= 2) {
-      tags.value = { latest: newTags[0].name, previous: newTags[1].name }
+      tags.value = { latest: newTags[0]?.name, previous: newTags[1]?.name }
       updateBaseItems()
 
       setTimeout(() => {

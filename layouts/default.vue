@@ -36,7 +36,7 @@ const items = tm('components.common.RibbonBar') as {
   description: string
   links: LinkType[]
 }[]
-const faviconColor = colorBadge.value?.colorHex ?? '000000'
+const faviconColor = colorBadge.value?.colorHex || '000000'
 const faviconGraphicData = ref('')
 
 const fetchSvgContent = async () => {
