@@ -14,11 +14,14 @@
           name: card.icon?.name || '',
           position: windowWidth < 900 ? 'top' : 'left'
         },
-        date: {
-          ...card.date,
-          formatOptions: () => ({
-            weekday: 'long'
-          })
+        info: {
+          ...card?.info,
+          date: {
+            ...card?.info?.date,
+            formatOptions: () => ({
+              weekday: 'long'
+            })
+          }
         }
       }"
     />

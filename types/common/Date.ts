@@ -1,5 +1,5 @@
 export interface DateType {
-  formatOptions: () => Intl.DateTimeFormatOptions
+  formatOptions?: () => Intl.DateTimeFormatOptions
   nowKey?: 'created' | 'updated'
   fixed?: string | null | Date
   duration?: {

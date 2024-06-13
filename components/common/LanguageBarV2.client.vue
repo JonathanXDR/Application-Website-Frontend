@@ -7,7 +7,7 @@
     <div class="rs-od-delivery-actions">
       <LinkCollection :links="links" />
     </div> -->
-    <InfoBar :info="info" />
+    <InfoBar v-bind="{ ...info }" />
     <div
       id="rs-tracker-orderDetail.orderItems.orderItem-0000101.orderItemStatusTracker"
       class="rs-tracker as-l-container-full-small as-l-container-mobileoverflow"

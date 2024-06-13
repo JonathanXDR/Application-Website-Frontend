@@ -14,12 +14,8 @@
           name: article.icon?.name || '',
           position: windowWidth < 900 ? 'top' : 'left'
         },
-        date: {
-          ...article.date,
-          formatOptions: () => ({
-            year: 'numeric',
-            month: 'long'
-          })
+        info: {
+          ...article?.info
         }
       }"
     />

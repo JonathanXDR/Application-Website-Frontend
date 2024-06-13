@@ -101,11 +101,9 @@
         <InfoBar
           v-if="hasInfo"
           v-bind="{
-            ...infoBarInfo,
+            ...info,
             date: {
-              ...infoBarInfo.date,
-              formatOptions: infoBarInfo.date?.formatOptions,
-              nowKey: infoBarInfo.date?.nowKey,
+              ...info?.date,
               fixed: updated_at
             },
             loading: loading
@@ -214,7 +212,7 @@ const hasInfo = computed(() => {
   return keys.some((key: string) => (props as Record<string, unknown>)[key])
 })
 
-const infoBarInfo = computed(() => {
+const info = computed(() => {
   return (
     props.info || {
       language: props.language || '',
@@ -226,7 +224,9 @@ const infoBarInfo = computed(() => {
       issues: props.open_issues_count,
       subscribers: props.subscribers_count,
       date: {
-        fixed: props.updated_at
+        fixed: props.updated_at,
+        formatOptions: props?.info?.date.formatOptions,
+        nowKey: props?.info?.date?.nowKey
       }
     }
   )

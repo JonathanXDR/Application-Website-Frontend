@@ -37,12 +37,15 @@
             variant: 'article',
             loading: false,
             componentSize: windowWidth < 900 ? 'small' : 'medium',
-            date: {
-              ...project.date,
-              formatOptions: () => ({
-                year: 'numeric',
-                month: 'long'
-              })
+            info: {
+              ...project?.info,
+              date: {
+                ...project?.info?.date,
+                formatOptions: () => ({
+                  year: 'numeric',
+                  month: 'long'
+                })
+              }
             },
             icon: {
               ...project.icon,

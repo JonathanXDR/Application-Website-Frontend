@@ -17,7 +17,7 @@
       </div>
     </template>
 
-    <div v-if="date" class="info-item">
+    <div v-if="props.date.fixed || props.date.duration" class="info-item">
       <Icon
         :loading="loading"
         :name="updatedYesterday ? 'clock.fill' : 'calendar'"
@@ -26,7 +26,7 @@
       <template v-if="!loading">
         {{
           dateTitle ||
-          `${props.date?.duration?.from} - ${props.date?.duration?.to}`
+          `${props.date.duration?.from} - ${props.date.duration?.to}`
         }}
       </template>
       <template v-else>
@@ -95,8 +95,11 @@ const formatDate = (
 }
 
 const getDate = () => {
-  const formatOptions = props.date.formatOptions
-  const dateVariant = props.date.nowKey
+  const formatOptions =
+    props.date?.formatOptions ||
+    (() => ({ year: 'numeric', month: 'long', day: 'numeric' }))
+
+  const dateVariant = props.date?.nowKey
 
   if (props.date?.duration) {
     return `${formatDate(
