@@ -5,7 +5,7 @@
     type="checkbox"
     :disabled="navDisabled"
     @input="toggleNav()"
-  >
+  />
   <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking" />
   <nav
     id="ac-localnav"
@@ -24,7 +24,10 @@
           <NuxtLink to="/" class="ac-ln-title">
             <Logo />
           </NuxtLink>
-          <DevBadge />
+          <DevBadge
+            v-if="config.public.appEnvironment === 'development'"
+            :color="{ primary: colorBadge?.colorVar }"
+          />
         </div>
         <div class="ac-ln-menu">
           <div class="ac-ln-menu-tray">
@@ -74,6 +77,8 @@
 import type { ItemType } from '~/types/common/Item'
 import { type SectionType } from '~/types/common/Section'
 
+const config = useRuntimeConfig()
+const { colorBadge } = useColor()
 const { tm } = useI18n()
 const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'))
 const themeItems = computed<ItemType[]>(() =>
