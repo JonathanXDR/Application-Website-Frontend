@@ -50,8 +50,7 @@ const props = withDefaults(defineProps<InfoType>(), {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
-    }),
-    nowKey: 'updated'
+    })
   })
 })
 
@@ -107,11 +106,12 @@ const getDate = () => {
       formatOptions()
     )} - ${formatDate(props.date?.duration.to, formatOptions())}`
   } else if (props.date?.fixed) {
+    if (props.date?.nowKey) {
+      return `${dateVariant?.charAt(0).toUpperCase()}${dateVariant?.slice(
+        1
+      )} ${dayjs(props.date.nowKey).locale(locale.value).fromNow()}`
+    }
     return formatDate(props.date?.fixed.toString(), formatOptions())
-  } else if (props.date) {
-    return `${dateVariant?.charAt(0).toUpperCase()}${dateVariant?.slice(
-      1
-    )} ${dayjs(props.date.nowKey).locale(locale.value).fromNow()}`
   }
 }
 

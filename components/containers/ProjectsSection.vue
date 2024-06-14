@@ -38,7 +38,7 @@
             loading: false,
             componentSize: windowWidth < 900 ? 'small' : 'medium',
             info: {
-              ...project?.info,
+              ...project.info,
               date: {
                 ...project?.info?.date,
                 formatOptions: () => ({
@@ -75,6 +75,13 @@
                 name: project.icon?.name || '',
                 position: 'right',
                 absolute: true
+              },
+              info: {
+                ...project?.info,
+                date: {
+                  ...project?.info?.date,
+                  nowKey: 'updated'
+                }
               }
             }"
             class="color"
@@ -97,6 +104,13 @@
                 ...project.icon,
                 name: project.icon?.name || '',
                 position: 'right'
+              },
+              info: {
+                ...project?.info,
+                date: {
+                  ...project?.info?.date,
+                  nowKey: 'updated'
+                }
               }
             }"
           />

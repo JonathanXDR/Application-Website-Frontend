@@ -119,7 +119,7 @@
 import type { CardItemType } from '~/types/common/CardItem'
 import type { MinimalRepository } from '~/types/services/GitHub/Repository'
 
-type Props = Partial<CardItemType> & Partial<MinimalRepository>
+type Props = Partial<CardItemType & MinimalRepository>
 
 const props = withDefaults(defineProps<Props>(), {
   variant: 'card',
@@ -131,14 +131,6 @@ const props = withDefaults(defineProps<Props>(), {
   graphs: () => ({
     donut: false,
     bar: false
-  }),
-  date: () => ({
-    formatOptions: () => ({
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    }),
-    nowKey: 'updated'
   }),
   icon: () => ({
     name: '',
@@ -225,8 +217,14 @@ const info = computed(() => {
       subscribers: props.subscribers_count,
       date: {
         fixed: props.updated_at,
-        formatOptions: props?.info?.date.formatOptions,
-        nowKey: props?.info?.date?.nowKey
+        formatOptions:
+          props?.info?.date?.formatOptions ||
+          (() => ({
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })),
+        nowKey: props?.info?.date?.nowKey || 'updated'
       }
     }
   )
