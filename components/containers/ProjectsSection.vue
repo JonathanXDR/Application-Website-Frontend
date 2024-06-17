@@ -64,7 +64,7 @@
         />
         <ul v-if="pinned" class="card-container pinned-items">
           <CardItem
-            v-for="(project, index) in pinned"
+            v-for="(project, index) in (pinned as Partial<CardItemType>[])"
             :key="index"
             v-bind="{
               ...project,
@@ -106,14 +106,18 @@
                 position: 'right'
               },
               info: {
-                ...project?.info,
+                ...project.info,
                 date: {
                   ...project?.info?.date,
-                  nowKey: 'updated'
+                  formatOptions: () => ({
+                    year: 'numeric',
+                    month: 'long'
+                  })
                 }
               }
             }"
           />
+
           <ResultBlankState v-if="!currentProjects" />
         </ul>
       </div>
@@ -125,6 +129,7 @@
 <script lang="ts" setup>
 import type { Repository } from '@octokit/graphql-schema'
 import type { CardItemType } from '~/types/common/CardItem'
+import type { CardRepositoryType } from '~/types/common/CardRepository'
 import type { IconType } from '~/types/common/Icon'
 import type { ItemType } from '~/types/common/Item'
 import type { MinimalRepository } from '~/types/services/GitHub/Repository'
@@ -133,8 +138,9 @@ type PinnedRepository = Repository & {
   icon?: IconType
 }
 
-type CategorizedRepository = MinimalRepository &
-  CardItemType & { category: string }
+type CategorizedRepository = CardRepositoryType & {
+  category: string
+}
 
 type Projects = {
   swisscom: CardItemType[]
@@ -198,7 +204,7 @@ const filteredProjects = computed(() =>
 const currentProjects = computed(
   () =>
     projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
-)
+) as Ref<CardItemType[]>
 
 const segmentNavItems = computed<ItemType[]>(() =>
   tm('components.common.SegmentNav.projects')

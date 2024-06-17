@@ -116,12 +116,9 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from '~/types/common/CardItem'
-import type { MinimalRepository } from '~/types/services/GitHub/Repository'
+import type { CardRepositoryType } from '~/types/common/CardRepository'
 
-type Props = Partial<CardItemType & MinimalRepository>
-
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
   variant: 'card',
   componentSize: 'medium',
   alignment: 'start',
@@ -215,17 +212,10 @@ const info = computed(() => {
       stars: props.stargazers_count,
       issues: props.open_issues_count,
       subscribers: props.subscribers_count,
-      date: {
-        fixed: props.updated_at,
-        formatOptions:
-          props?.info?.date?.formatOptions ||
-          (() => ({
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          })),
-        nowKey: props?.info?.date?.nowKey || 'updated'
-      }
+      date: () => ({
+        ...props.info?.date,
+        fixed: props.updated_at
+      })
     }
   )
 })
