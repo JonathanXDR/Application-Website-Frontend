@@ -8,9 +8,10 @@
     >
       <NuxtLink
         class="link"
-        :href="link.url"
+        :to="link.url"
         :title="link.title"
         target="_blank"
+        external
       >
         <ClientOnly>
           <font-awesome-icon
@@ -24,6 +25,9 @@
 
 <script setup lang="ts">
 import type { FaLinkType } from '~/types/common/FaLink'
+import type { ShareSheet } from '~/types/common/ShareSheet'
+
+defineProps<ShareSheet>()
 
 const { tm } = useI18n()
 const links = computed<FaLinkType[]>(() =>

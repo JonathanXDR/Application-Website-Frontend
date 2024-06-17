@@ -15,7 +15,7 @@
               <hr
                 class="bar bar-1"
                 style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1"
-              />
+              >
             </div>
             <span class="bar-caption">
               {{ language.description }}
@@ -44,9 +44,7 @@ withDefaults(
     language: LanguageBarType
   }>(),
   {
-    language: () => {
-      return {} as LanguageBarType
-    }
+    language: () => ({} as LanguageBarType)
   }
 )
 </script>

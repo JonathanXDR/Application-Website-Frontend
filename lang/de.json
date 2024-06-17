@@ -314,7 +314,10 @@
         {
           "title": "Deutsch",
           "eyebrow": "Muttersprache",
-          "progress": 100
+          "progress": 100,
+          "icon": {
+            "name": "checkmark"
+          }
         },
         {
           "title": "Englisch",
@@ -345,7 +348,10 @@
         {
           "title": "Französisch",
           "eyebrow": "Gut",
-          "progress": 30
+          "progress": 30,
+          "icon": {
+            "name": "checkmark"
+          }
         }
       ],
       "references": [
@@ -462,7 +468,7 @@
           ],
           "info": {
             "date": {
-              "from": "2021-08-26"
+              "fixed": "2021-08-26"
             },
             "location": "Zürich"
           }
@@ -485,7 +491,7 @@
           ],
           "info": {
             "date": {
-              "from": "2021-08-27"
+              "fixed": "2021-08-27"
             },
             "location": "Zürich"
           }
@@ -1787,7 +1793,7 @@
           ],
           "info": {
             "date": {
-              "from": "2021-08-01"
+              "fixed": "2021-08-01"
             },
             "supervisor": "Steve Hess",
             "location": "Zürich & Bern",
@@ -1816,8 +1822,10 @@
           ],
           "info": {
             "date": {
-              "from": "2021-08-01",
-              "to": "2022-01-01"
+              "duration": {
+                "from": "2021-08-01",
+                "to": "2022-01-01"
+              }
             },
             "supervisor": "Nick Zimmermann",
             "location": "Zür-Har3",
@@ -1842,8 +1850,10 @@
           ],
           "info": {
             "date": {
-              "from": "2022-02-01",
-              "to": "2022-07-01"
+              "duration": {
+                "from": "2022-02-01",
+                "to": "2022-07-01"
+              }
             },
             "supervisor": "Alessio Iantosca",
             "location": "Zür-Pfi51",
@@ -1879,8 +1889,10 @@
           ],
           "info": {
             "date": {
-              "from": "2022-08-01",
-              "to": "2023-02-01"
+              "duration": {
+                "from": "2022-08-01",
+                "to": "2023-02-01"
+              }
             },
             "supervisor": "Carlo Schmid",
             "location": "Itt-Ey10",
@@ -1914,8 +1926,10 @@
           ],
           "info": {
             "date": {
-              "from": "2023-02-01",
-              "to": "2023-08-01"
+              "duration": {
+                "from": "2023-02-01",
+                "to": "2023-08-01"
+              }
             },
             "supervisor": "Kim Eggler",
             "location": "Itt-Ey10",
@@ -1942,8 +1956,10 @@
           ],
           "info": {
             "date": {
-              "from": "2023-09-01",
-              "to": "2024-03-01"
+              "duration": {
+                "from": "2023-09-01",
+                "to": "2024-03-01"
+              }
             },
             "supervisor": "Radu Margineanu",
             "location": "Zür-Mas10",
@@ -1965,8 +1981,10 @@
           ],
           "info": {
             "date": {
-              "from": "2024-03-01",
-              "to": "2024-07-01"
+              "duration": {
+                "from": "2024-03-01",
+                "to": "2024-07-01"
+              }
             },
             "supervisor": "Oliver Kramer",
             "location": "Zür-För181",

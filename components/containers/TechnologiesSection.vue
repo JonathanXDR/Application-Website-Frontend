@@ -36,11 +36,18 @@
       <CardItem
         v-for="(card, index) in cards"
         :key="index"
-        :loading="false"
-        :card="card"
-        size="small"
-        icon-position="right"
-        icon-absolute
+        v-bind="{
+          ...card,
+          loading: false,
+          componentSize: 'small',
+          icon: {
+            ...card.icon,
+            name: card.icon?.name || '',
+            position: 'right',
+            alignment: 'start',
+            absolute: true
+          }
+        }"
       />
       <ResultBlankState v-if="cards.length === 0" />
     </ul>
@@ -49,7 +56,7 @@
 
 <script setup lang="ts">
 import type { CardItemType } from '~/types/common/CardItem'
-import type { ItemType } from '~/types/common/Option'
+import type { ItemType } from '~/types/common/Item'
 
 defineProps<{
   title: string

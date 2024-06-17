@@ -82,7 +82,7 @@ const getLetterStyle = (index: number) => ({
 const getGlobalIndex = (wordIndex: number, letterIndex: number) => {
   let globalIndex = 0
   for (let i = 0; i < wordIndex; i++) {
-    globalIndex += (words.value[i]?.length ?? 0) + 1
+    globalIndex += (words.value[i]?.length || 0) + 1
   }
   return globalIndex + letterIndex
 }

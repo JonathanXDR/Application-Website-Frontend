@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="language-picker-dropdown"
-    :style="{ 'font-size': `${fontSize}px` }"
-  >
+  <div class="language-picker-dropdown" :style="{ fontSize: `${fontSize}px` }">
     <div class="dropdown-container legacy-form">
       <select
         v-model="selectedLocale"
@@ -21,18 +18,20 @@
           }}
         </option>
       </select>
-      <Icon name="chevron.down" :class="`icon icon-${size}`" />
+      <Icon name="chevron.down" :class="`icon icon-${componentSize}`" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import type { ExtendedSizeType } from '~/types/common/ExtendedSize'
+
 const props = withDefaults(
   defineProps<{
-    size?: 'xsmall' | 'small' | 'medium' | 'large'
+    componentSize?: Exclude<ExtendedSizeType, 'xlarge'>
   }>(),
   {
-    size: 'small'
+    componentSize: 'small'
   }
 )
 
@@ -54,7 +53,7 @@ const fontSize = computed(() => {
     medium: 16,
     large: 18
   }
-  return sizes[props.size || 'medium']
+  return sizes[props.componentSize || 'medium']
 })
 
 watch(locale, newLocale => {

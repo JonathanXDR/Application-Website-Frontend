@@ -1,8 +1,10 @@
-import type { ListRepoIssuesResponse } from '../GitHub/Issue'
 import type { DateType } from './Date'
 
 export interface InfoType {
-  [key: string]: any
+  [key: string]: undefined | string | number | boolean | DateType
+  loading?: boolean
+  date?: DateType
+
   location?: string
   supervisor?: string
   department?: string
@@ -13,7 +15,6 @@ export interface InfoType {
   networks?: number
   watchers?: number
   stars?: number
-  issues?: ListRepoIssuesResponse[]
+  issues?: number
   subscribers?: number
-  date?: DateType
 }

@@ -1,109 +1,33 @@
 <template>
   <component
-    :is="variant === 'article' ? 'div' : 'a'"
-    :id="card.title?.toLowerCase().replace(/ /g, '-')"
-    v-animation="{
-      add: 'scroll-animation--on',
-      remove: 'scroll-animation--off'
-    }"
-    :href="applyHover && card.links ? card.links[0].url : card.html_url"
-    :class="['scroll-animation scroll-animation--off', variant, size]"
+    :is="componentType"
+    :id="componentId"
+    v-animation="scrollAnimation"
+    :href="componentHref"
+    :class="componentClasses"
     target="_blank"
   >
-    <div v-if="cover || donutGraph || barGraph" class="card-cover-wrap">
+    <div v-if="hasCoverOrGraphs" class="card-cover-wrap">
       <picture v-if="cover" class="card-cover">
         <NuxtImg decoding="async" loading="lazy" :src="cover" />
       </picture>
-      <div v-if="barGraph">
-        <div class="group group-hispanic typography-body-tight">
-          <p>
-            <span class="semibold"> <span data-value>27.1</span>% </span>
-            <span>Hispanic/Latinx</span>
-          </p>
-          <div class="bar-container">
-            <div class="bar" data-bar style="width: 27.1%" />
-          </div>
-        </div>
-        <div class="group group-white typography-body-tight">
-          <p>
-            <span class="semibold"> <span data-value>39.7</span>% </span>
-            <span>White</span>
-          </p>
-          <div class="bar-container">
-            <div class="bar" data-bar style="width: 39.7%" />
-          </div>
-        </div>
-      </div>
-      <div v-if="donutGraph" class="container">
-        <div class="donut-container">
-          <figure class="donut">
-            <svg class="ac-graph-svg ac-graph-donut">
-              <path
-                class="ac-graph-path donut-wedge wedge-1"
-                d="M 113.99911851558227 0.07271925905595822 A 110 110 0 0 1 106.00088148441777 219.92728074094404 A 110 110 0 0 1 25.14997985191927 180.00338621002766 L 32.09225422767132 174.27583642920723 A 101 101 0 0 0 106.32808209023814 210.93323049850318 A 101 101 0 0 0 113.6719179097619 9.066769501496836 Z"
-              />
-              <path
-                class="ac-graph-path donut-wedge wedge-2"
-                d="M 20.287609232531437 173.6528628011735 A 110 110 0 0 1 105.31027149295572 0.10001616683369718 L 105.69397655262298 9.09183302591093 A 101 101 0 0 0 27.62771393168795 168.44490129925933 Z"
-              />
-            </svg>
-          </figure>
-          <h4
-            class="sector-labels typography-donut-label"
-            style="color: var(--color-fill-tertiary) !important"
-          >
-            <span>Global</span>
-          </h4>
-        </div>
-        <div class="wedge-legend typography-donut-label female">
-          <span>
-            <span class="semibold">Female</span>
-            <br />
-            <span data-value>35.3</span>%
-          </span>
-        </div>
-        <div class="wedge-legend typography-donut-label male">
-          <span>
-            <span class="semibold">Male</span>
-            <br />
-            <span data-value>64.6</span>%
-          </span>
-        </div>
-      </div>
+      <BarGraph v-if="graphs?.bar" />
+      <DonutGraph v-if="graphs?.donut" />
     </div>
-    <div
-      class="details"
-      :style="{
-        'flex-direction': getFlexDirection(),
-        'align-items': getAlignItems()
-      }"
-    >
+    <div class="details" :style="detailsStyle">
       <Icon
-        v-if="card.icon"
+        v-if="icon"
         :loading="loading"
-        :name="card.icon?.name"
-        :size="card.icon?.size"
-        :colors="card.icon?.colors"
-        :class="[
-          'icon',
-          {
-            'icon-large': variant === 'article' && size === 'large'
-          },
-          {
-            'icon-xlarge': size === 'medium' || size === 'small'
-          },
-          {
-            'icon-xxlarge': variant === 'card' && size === 'large'
-          }
-        ]"
-        :style="{
-          position: props.iconAbsolute ? 'absolute' : 'relative'
-        }"
+        :name="icon.name"
+        :component-size="icon.componentSize"
+        :colors="icon.colors"
+        :class="iconClasses"
+        :style="{ position: icon.absolute ? 'absolute' : 'relative' }"
       />
-      <div class="body">
+      <div class="body" :style="{ alignItems: alignItems }">
         <div class="eyebrow">
           <template v-if="!loading">
-            {{ card.eyebrow }}
+            {{ eyebrow }}
           </template>
           <template v-else>
             <LoadingSkeleton width="150px" height="15px" />
@@ -112,7 +36,7 @@
         <div class="title-wrapper">
           <div class="title">
             <template v-if="!loading">
-              {{ card.title || card.name }}
+              {{ title || name }}
             </template>
             <template v-else>
               <LoadingSkeleton width="200px" height="15px" />
@@ -120,9 +44,9 @@
           </div>
 
           <Badge
-            v-if="card.archived"
+            v-if="archived"
             title="Public archive"
-            size="xsmall"
+            component-size="xsmall"
             :loading="loading"
             :colors="{
               primary: 'var(--color-figure-yellow)',
@@ -132,9 +56,9 @@
             :hover="false"
           />
           <Badge
-            v-if="card.badge"
-            :title="card.badge.title"
-            :icon="card.badge.icon"
+            v-if="badge"
+            :title="badge.title"
+            :icon="badge.icon"
             :loading="loading"
             :colors="{
               primary: `var(--color-figure-${colorBadge?.colorName})`,
@@ -147,7 +71,7 @@
         <div class="card-content">
           <div class="content">
             <template v-if="!loading">
-              {{ card.description }}
+              {{ description }}
             </template>
             <template v-else>
               <LoadingSkeleton width="300px" height="15px" />
@@ -157,157 +81,177 @@
           </div>
         </div>
         <BadgeBar
-          v-if="card.tags?.length || card.topics?.length"
-          :badges="card.tags || card.topics"
+          v-if="hasBadgesOrTopics"
+          :badges="badgesOrTopics"
           :loading="loading"
         />
-        <div v-if="card.links?.length || card.html_url" class="ctas-wrapper">
-          <!-- <ButtonItem variant="secondary" size="small"> Test </ButtonItem> -->
+
+        <div v-if="hasLinksOrHtmlUrl" class="ctas-wrapper">
+          <!-- <ButtonItem variant="secondary" componentSize="small"> Test </ButtonItem> -->
           <!-- <NuxtLink href="photos://" class="icon-wrapper button button-reduced button-neutral">
             <span class="icon-copy"> Open</span>
           </NuxtLink> -->
 
           <LinkCollection
-            v-if="card.links?.length || card.html_url"
-            :links="
-              card.links || [
-                {
-                  title: 'Mehr erfahren',
-                  url: card.html_url,
-                  icon: {
-                    name: 'chevron.right'
-                  }
-                }
-              ]
-            "
+            :links="linkCollectionLinks"
             :loading="loading"
             :class="{ link: applyHover }"
           />
         </div>
         <InfoBar
-          v-if="
-            card.info ||
-            card.created_at ||
-            card.updated_at ||
-            card.language ||
-            card.license ||
-            card.forks_count ||
-            card.network_count ||
-            card.watchers_count ||
-            card.stargazers_count ||
-            card.open_issues_count ||
-            card.subscribers_count
-          "
-          :info="
-            card.info || {
-              language: card.language,
-              license: card.license?.name,
-              forks: card.forks_count,
-              networks: card.network_count,
-              watchers: card.watchers_count,
-              stars: card.stargazers_count,
-              issues: card.open_issues_count,
-              subscribers: card.subscribers_count,
-              date: card.updated_at
-            }
-          "
-          :date="card.updated_at"
-          :date-format-options="dateFormatOptions"
-          :date-now-key="dateNowKey"
-          :loading="loading"
+          v-if="hasInfo"
+          v-bind="{
+            ...info,
+            date: {
+              ...info?.date,
+              fixed: updated_at
+            },
+            loading: loading
+          }"
         />
       </div>
-      <LanguageBarV2 v-if="language" :language="language" style="width: 100%" />
+      <slot />
     </div>
   </component>
 </template>
 
 <script setup lang="ts">
-import type { ListUserReposResponse } from '~/types/GitHub/Repository'
-import type { BadgeType } from '~/types/common/Badge'
-import type { CardItemType } from '~/types/common/CardItem'
-import type { LanguageBarType } from '~/types/common/LanguageBar'
+import type { CardRepositoryType } from '~/types/common/CardRepository'
 
-const props = withDefaults(
-  defineProps<{
-    card: CardItemType | ListUserReposResponse | any
-    variant?: 'card' | 'article'
-    dateFormatOptions?: Intl.DateTimeFormatOptions
-    dateNowKey?: 'created' | 'updated'
-    iconPosition?: 'top' | 'right' | 'bottom' | 'left'
-    iconAlignment?: 'start' | 'center' | 'end'
-    iconAbsolute?: boolean
-    size?: 'small' | 'medium' | 'large' | 'full'
-    hover?: 'auto' | 'true' | 'false'
-    cover?: string
-    badge?: BadgeType
-    language?: LanguageBarType
-    donutGraph?: boolean
-    barGraph?: boolean
-    loading?: boolean
-  }>(),
-  {
-    card: () => {},
-    variant: 'card',
-    dateFormatOptions: () => {
-      return {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      }
-    },
-    cover: undefined,
-    badge: undefined,
-    language: undefined,
-    dateNowKey: 'updated',
-    iconPosition: 'top',
-    iconAlignment: 'start',
-    iconAbsolute: false,
-    size: 'medium',
-    hover: 'auto',
-    donutGraph: false,
-    barGraph: false,
-    loading: false
-  }
-)
+const props = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
+  variant: 'card',
+  componentSize: 'medium',
+  alignment: 'start',
+  hover: 'auto',
+  cover: '',
+  loading: false,
+  graphs: () => ({
+    donut: false,
+    bar: false
+  }),
+  icon: () => ({
+    name: '',
+    absolute: false,
+    position: 'left',
+    alignment: 'start'
+  })
+})
 
 const { colorBadge } = useColor()
 
-const applyHover = computed(() => {
-  return (
-    (props.hover === 'auto' &&
-      props.card.links &&
-      props.card.links.length === 1) ||
+const applyHover = computed(
+  () =>
+    (props.hover === 'auto' && props.links?.length === 1) ||
     props.hover === 'true'
+)
+const componentType = computed(() =>
+  props.variant === 'article' ? 'div' : 'a'
+)
+const componentId = computed(
+  () => props.title?.toLowerCase().replace(/ /g, '-') || ''
+)
+const componentHref = computed(() =>
+  applyHover.value && props.links
+    ? props.links[0]?.url || ''
+    : props.html_url || ''
+)
+const componentClasses = computed(() => [
+  'scroll-animation scroll-animation--off',
+  props.variant,
+  props.componentSize
+])
+const scrollAnimation = {
+  add: 'scroll-animation--on',
+  remove: 'scroll-animation--off'
+}
+
+const hasCoverOrGraphs = computed(
+  () => props.cover || props.graphs?.donut || props.graphs?.bar
+)
+const hasBadgesOrTopics = computed(
+  () => props.badges?.length || props.topics?.length
+)
+const badgesOrTopics = computed(() => props.badges || props.topics)
+const hasLinksOrHtmlUrl = computed(() => props.links?.length || props.html_url)
+const linkCollectionLinks = computed(
+  () =>
+    props.links || [
+      {
+        title: 'Mehr erfahren',
+        url: props.html_url || '',
+        icon: { name: 'chevron.right' }
+      }
+    ]
+)
+
+const hasInfo = computed(() => {
+  const keys = [
+    'info',
+    'created_at',
+    'updated_at',
+    'language',
+    'license',
+    'forks_count',
+    'network_count',
+    'watchers_count',
+    'stargazers_count',
+    'open_issues_count',
+    'subscribers_count'
+  ]
+  return keys.some((key: string) => (props as Record<string, unknown>)[key])
+})
+
+const info = computed(() => {
+  return (
+    props.info || {
+      language: props.language || '',
+      license: props.license?.name,
+      forks: props.forks_count,
+      networks: props.network_count,
+      watchers: props.watchers_count,
+      stars: props.stargazers_count,
+      issues: props.open_issues_count,
+      subscribers: props.subscribers_count,
+      date: () => ({
+        ...props.info?.date,
+        fixed: props.updated_at
+      })
+    }
   )
 })
 
-const getFlexDirection = () => {
-  switch (props.iconPosition) {
-    case 'top':
-      return 'column'
-    case 'right':
-      return 'row-reverse'
-    case 'bottom':
-      return 'column-reverse'
-    case 'left':
-    default:
-      return 'row'
-  }
-}
+const flexDirection = computed(
+  () =>
+    ({
+      top: 'column',
+      right: 'row-reverse',
+      bottom: 'column-reverse',
+      left: 'row'
+    }[props.icon?.position || 'left'])
+)
 
-const getAlignItems = () => {
-  switch (props.iconAlignment) {
-    case 'start':
-      return 'flex-start'
-    case 'center':
-      return 'center'
-    case 'end':
-      return 'flex-end'
-    default:
-      return 'flex-start'
+const alignItems = computed(
+  () =>
+    ({
+      start: 'flex-start',
+      center: 'center',
+      end: 'flex-end'
+    }[props.alignment])
+)
+
+const detailsStyle = computed((): Record<string, string> => {
+  return {
+    flexDirection: flexDirection.value,
+    alignItems: alignItems.value
   }
-}
+})
+
+const iconClasses = computed(() => ({
+  icon: true,
+  'icon-large': props.variant === 'article' && props.componentSize === 'large',
+  'icon-xlarge': ['medium', 'small'].includes(props.componentSize),
+  'icon-xxlarge': props.variant === 'card' && props.componentSize === 'large'
+}))
 </script>
 
 <style scoped>
@@ -580,6 +524,7 @@ const getAlignItems = () => {
 /* ---------------------------------- title --------------------------------- */
 
 .title-wrapper {
+  width: 90%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -700,334 +645,6 @@ const getAlignItems = () => {
     display: inline-block;
     margin-top: 10px;
   }
-}
-
-/* -------------------------------- bar ------------------------------- */
-
-.typography-body-tight {
-  font-size: 17px;
-  font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
-}
-
-.group {
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-@media only screen and (max-width: 1068px) {
-  .group {
-    padding: 20px 0;
-  }
-}
-
-@media only screen and (max-width: 734px) {
-  .group {
-    padding: 0;
-    font-size: 14px;
-    font-weight: 400;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
-  }
-}
-
-.group [data-value] {
-  font-variant-numeric: tabular-nums;
-}
-
-.bar-container {
-  position: relative;
-  height: 10px;
-  border-radius: 10px;
-  margin-top: 12px;
-}
-
-@media only screen and (max-width: 734px) {
-  .bar-container {
-    margin-top: 5px;
-  }
-}
-
-.bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  transition: width 0.5s;
-  background: var(--color-fill);
-  border-radius: 10px;
-  padding-inline-start: 5px;
-  padding-inline-end: 5px;
-}
-
-.semibold {
-  font-weight: 600;
-}
-
-/* ---------------------------------- donut --------------------------------- */
-
-br.medium {
-  display: block;
-}
-
-@media only screen and (max-width: 1068px) {
-  br.medium {
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 734px) {
-  br.medium {
-    display: none;
-  }
-}
-
-br.medium {
-  display: none;
-}
-
-@media only screen and (max-width: 1068px) {
-  br.medium {
-    display: block;
-  }
-}
-
-@media only screen and (max-width: 734px) {
-  br.medium {
-    display: none;
-  }
-}
-
-.typography-donut-label {
-  font-size: 17px;
-  font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
-}
-
-@media only screen and (max-width: 1068px) {
-  .typography-donut-label {
-    font-size: 17px;
-    font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
-  }
-}
-
-@media only screen and (max-width: 734px) {
-  .typography-donut-label {
-    font-size: 14px;
-    font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
-  }
-}
-
-br.medium,
-br.medium {
-  display: none !important;
-}
-
-@media only screen and (min-width: 1069px) {
-  br.medium.medium,
-  br.medium.medium {
-    display: block !important;
-  }
-}
-
-@media only screen and (min-width: 735px) and (max-width: 1068px) {
-  br.medium.medium,
-  br.medium.medium {
-    display: block !important;
-  }
-}
-
-.typography-donut-label {
-  font-size: 17px;
-  font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
-}
-
-@media only screen and (max-width: 1068px) {
-  .typography-donut-label {
-    font-size: 17px;
-    font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
-  }
-}
-
-@media only screen and (max-width: 734px) {
-  .typography-donut-label {
-    font-size: 14px;
-    font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
-  }
-}
-
-.ac-graph-donut .donut-wedge {
-  fill: #f56300;
-}
-
-svg.ac-graph-svg {
-  width: 100%;
-  height: 100%;
-}
-
-.container {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-
-  margin-top: 8px;
-  flex-wrap: wrap;
-  grid-row-gap: 20px;
-  row-gap: 20px;
-  grid-column-gap: 40px;
-  column-gap: 40px;
-  justify-content: center;
-}
-
-@media only screen and (max-width: 734px) {
-  .container {
-    margin-top: 8px;
-    flex-wrap: wrap;
-    grid-row-gap: 20px;
-    row-gap: 20px;
-    grid-column-gap: 40px;
-    column-gap: 40px;
-    justify-content: center;
-  }
-}
-
-.wedge-legend {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  grid-gap: 10px;
-  gap: 10px;
-}
-
-@media only screen and (min-width: 735px) {
-  .wedge-legend {
-    /* width: 120px; */
-  }
-}
-
-.wedge-legend:before {
-  display: inline-block;
-  content: '';
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50%;
-  /* --size: 10px; */
-
-  --size: 20px;
-}
-
-@media only screen and (max-width: 734px) {
-  .wedge-legend:before {
-    --size: 20px;
-  }
-}
-
-@media only screen and (min-width: 735px) {
-  .wedge-legend.female {
-    /* order: -1; */
-  }
-}
-
-.wedge-legend.female {
-  justify-content: end;
-}
-
-.wedge-legend.female:before {
-  background: var(--color-fill);
-}
-
-.wedge-legend.male {
-  justify-content: start;
-}
-
-.wedge-legend.male:before {
-  background: #cecece;
-}
-
-.wedge-legend [data-value] {
-  font-weight: 400;
-  font-variant-numeric: tabular-nums;
-}
-
-.donut-container {
-  position: relative;
-  width: var(--size);
-  height: var(--size);
-  /* --size: 360px;
-  --max-width: var(--size); */
-
-  --size: 100%;
-  --max-width: 220px;
-}
-
-@media only screen and (max-width: 1068px) {
-  .donut-container {
-    --size: 300px;
-  }
-}
-
-@media only screen and (max-width: 734px) {
-  .donut-container {
-    --size: 100%;
-    --max-width: 220px;
-  }
-}
-
-.donut-container .donut {
-  position: relative;
-  width: min(100%, var(--max-width));
-  padding-bottom: min(100%, var(--max-width));
-  height: 0;
-  margin: auto;
-}
-
-.donut-container .donut-wedge:nth-child(odd) {
-  fill: #cecece;
-}
-
-.donut-container .donut-wedge:nth-child(2n) {
-  fill: var(--color-fill);
-}
-
-.donut-container .donut svg {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.donut-container .sector-labels {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-  box-sizing: border-box;
-  text-align: center;
-  max-width: var(--max-width);
-  margin: auto;
-}
-
-.semibold {
-  font-weight: 600;
 }
 
 /* ----------------------------- tile-category ----------------------------- */

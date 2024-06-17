@@ -24,7 +24,10 @@
           <NuxtLink to="/" class="ac-ln-title">
             <Logo />
           </NuxtLink>
-          <DevBadge />
+          <DevBadge
+            v-if="config.public.appEnvironment === 'development'"
+            :color="{ primary: colorBadge?.colorVar }"
+          />
         </div>
         <div class="ac-ln-menu">
           <div class="ac-ln-menu-tray">
@@ -55,7 +58,7 @@
             <SegmentNav
               :items="themeItems"
               gap="5px"
-              size="xsmall"
+              component-size="xsmall"
               :focus="false"
               :label="windowWidth < 900 ? 'icon' : 'text'"
               :selected-item="getTheme()"
@@ -71,9 +74,11 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Option'
+import type { ItemType } from '~/types/common/Item'
 import { type SectionType } from '~/types/common/Section'
 
+const config = useRuntimeConfig()
+const { colorBadge } = useColor()
 const { tm } = useI18n()
 const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'))
 const themeItems = computed<ItemType[]>(() =>

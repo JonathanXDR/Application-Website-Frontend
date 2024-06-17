@@ -1,17 +1,28 @@
 <template>
   <h2>{{ title }}</h2>
   <ul class="grid">
-    <!-- <ArticleItem v-for="(article, index) in articles" :key="index" :article="article" /> -->
     <CardItem
-      v-for="(article, index) in articles"
+      v-for="(card, index) in cards"
       :key="index"
-      variant="article"
-      :loading="false"
-      :size="windowWidth < 900 ? 'small' : 'medium'"
-      :card="article"
-      :icon-position="windowWidth < 900 ? 'top' : 'left'"
-      :date-format-options="{
-        weekday: 'long'
+      v-bind="{
+        ...card,
+        variant: 'article',
+        loading: false,
+        componentSize: windowWidth < 900 ? 'small' : 'medium',
+        icon: {
+          ...card.icon,
+          name: card.icon?.name || '',
+          position: windowWidth < 900 ? 'top' : 'left'
+        },
+        info: {
+          ...card?.info,
+          date: {
+            ...card?.info?.date,
+            formatOptions: () => ({
+              weekday: 'long'
+            })
+          }
+        }
       }"
     />
   </ul>
@@ -25,8 +36,6 @@ defineProps<{
 }>()
 
 const { tm } = useI18n()
-const articles = computed<CardItemType[]>(() =>
-  tm('components.containers.other')
-)
+const cards = computed<CardItemType[]>(() => tm('components.containers.other'))
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
 </script>

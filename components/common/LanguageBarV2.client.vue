@@ -1,23 +1,20 @@
 <template>
   <div class="rs-od-iteminfo">
     <!-- <h2 class="rs-od-itemtitle">
-      <span class="rs-od-itemshortname">{{ language.eyebrow }} </span>
-      <span class="rs-od-itemstatus">{{ language.title }}</span>
+      <span class="rs-od-itemshortname">{{ eyebrow }} </span>
+      <span class="rs-od-itemstatus">{{ title }}</span>
     </h2>
     <div class="rs-od-delivery-actions">
-      <LinkCollection :links="language.links" />
+      <LinkCollection :links="links" />
     </div> -->
-    <InfoBar :info="language.info" />
+    <InfoBar v-bind="{ ...info }" />
     <div
       id="rs-tracker-orderDetail.orderItems.orderItem-0000101.orderItemStatusTracker"
       class="rs-tracker as-l-container-full-small as-l-container-mobileoverflow"
     >
       <div class="as-l-container-mobileoverflow-content">
         <div class="rs-tracker-bar">
-          <div
-            class="rs-tracker-fill"
-            :style="`width: ${language.progress}%`"
-          />
+          <div class="rs-tracker-fill" :style="`width: ${progress}%`" />
         </div>
         <ol class="rs-tracker-status">
           <!-- <template v-if="status">
@@ -32,17 +29,17 @@
           </template> -->
           <li
             class="rs-status-tracker-status-list-item"
-            :style="`width: ${language.progress}%`"
+            :style="`width: ${progress}%`"
           >
-            {{ language.progress }}
+            {{ progress }}
           </li>
         </ol>
       </div>
     </div>
-    <div v-if="language.description" class="row rs-od-itemdesc-wrapper">
+    <div v-if="description" class="row rs-od-itemdesc-wrapper">
       <div class="rs-od-itemdesc column large-12 small-12">
         <div class="rs-od-itemdesc-content">
-          {{ language.description }}
+          {{ description }}
         </div>
       </div>
     </div>
@@ -52,24 +49,7 @@
 <script setup lang="ts">
 import type { LanguageBarType } from '~/types/common/LanguageBar'
 
-withDefaults(
-  defineProps<{
-    language: LanguageBarType
-  }>(),
-  {
-    language: () => {
-      return {} as LanguageBarType
-    }
-  }
-)
-
-// const status = [
-//   'Order Placed',
-//   'Processing',
-//   'Preparing to Ship',
-//   'Shipped',
-//   'Delivered'
-// ]
+defineProps<LanguageBarType>()
 </script>
 
 <style scoped>

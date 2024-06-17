@@ -6,7 +6,7 @@ import type { ShareSheet } from './ShareSheet'
 export interface CommonComponents {
   NavBar: SectionType[]
   RibbonBar: RibbonBar
-  CardTile: CardItemType
+  CardItem: CardItemType
   ShareSheet: ShareSheet
   FooterItem: {
     chooseYourLanguage: string

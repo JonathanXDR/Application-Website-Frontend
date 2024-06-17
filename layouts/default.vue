@@ -3,7 +3,7 @@
     <SpeedInsights />
     <header v-if="shouldShow('header')">
       <NavBar v-if="shouldShow('nav')" />
-      <RibbonBar v-if="shouldShow('ribbon')" :loading="false" />
+      <RibbonBar v-if="shouldShow('ribbon')" :loading="false" :items="items" />
     </header>
     <main>
       <!-- <DialogModal
@@ -23,15 +23,20 @@
 import { SpeedInsights } from '@vercel/speed-insights/vue'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterFull from '~/components/common/Footer/Full.vue'
+import type { LinkType } from '~/types/common/Link'
 
 const route = useRoute()
 const { colorBadge, randomizeColor } = useColor()
 const { currentSection } = useSection()
-const { locale } = useI18n()
+const { locale, tm } = useI18n()
 const error = useError()
 const config = useRuntimeConfig()
 
-const faviconColor = colorBadge.value?.colorHex ?? '000000'
+const items = tm('components.common.RibbonBar') as {
+  description: string
+  links: LinkType[]
+}[]
+const faviconColor = colorBadge.value?.colorHex || '000000'
 const faviconGraphicData = ref('')
 
 const fetchSvgContent = async () => {

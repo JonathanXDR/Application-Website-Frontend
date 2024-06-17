@@ -1,17 +1,18 @@
 <template>
-  <component :is="as" :class="['button', variant, size]">
+  <component :is="as" :class="['button', variant, componentSize]">
     <slot />
   </component>
 </template>
 
 <script setup lang="ts">
+import type { BasicSizeType } from '~/types/common/BasicSize'
 import type { IconType } from '~/types/common/Icon'
 
 withDefaults(
   defineProps<{
     as?: keyof HTMLElementTagNameMap
     variant?: 'primary' | 'secondary' | 'tertiary'
-    size?: 'small' | 'medium' | 'large'
+    componentSize?: BasicSizeType
     borderRadius?: 'reduced' | 'full'
     label: string
     icon?: IconType
@@ -19,7 +20,7 @@ withDefaults(
   {
     as: 'button',
     variant: 'primary',
-    size: 'medium',
+    componentSize: 'medium',
     borderRadius: 'reduced',
     icon: undefined
   }

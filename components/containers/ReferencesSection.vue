@@ -4,14 +4,19 @@
     <CardItem
       v-for="(article, index) in articles"
       :key="index"
-      variant="article"
-      :loading="false"
-      :size="windowWidth < 900 ? 'small' : 'medium'"
-      :card="article"
-      :icon-position="windowWidth < 900 ? 'top' : 'left'"
-      :date-format-options="{
-        year: 'numeric',
-        month: 'long'
+      v-bind="{
+        ...article,
+        variant: 'article',
+        loading: false,
+        componentSize: windowWidth < 900 ? 'small' : 'medium',
+        icon: {
+          ...article.icon,
+          name: article.icon?.name || '',
+          position: windowWidth < 900 ? 'top' : 'left'
+        },
+        info: {
+          ...article?.info
+        }
       }"
     />
   </ul>

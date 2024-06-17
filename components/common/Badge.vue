@@ -2,7 +2,7 @@
   <component
     :is="variant"
     :href="url"
-    :class="['badge', size, { hover }, { loading }]"
+    :class="['badge', componentSize, { hover }, { loading }]"
     :style="computedStyle"
     @click="onClick"
   >
@@ -11,7 +11,7 @@
       class="icon icon-medium mr-1"
       :loading="loading"
       :name="icon.name"
-      :size="icon.size"
+      :component-size="icon.componentSize"
       :colors="icon.colors"
     />
     <template v-if="!loading">

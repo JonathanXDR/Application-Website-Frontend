@@ -7,31 +7,24 @@
 </template>
 
 <script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    name: string
-    size?: 'small' | 'medium' | 'large'
-    loading?: boolean
-    colors?: {
-      primary?: string
-      secondary?: string
-      tertiary?: string
-    }
-  }>(),
-  {
-    size: 'medium',
-    loading: false,
-    colors: () => ({
-      primary: 'currentColor',
-      secondary: 'currentColor',
-      tertiary: 'currentColor'
-    })
-  }
+import type { BasicSizeType } from '~/types/common/BasicSize'
+import type { IconType } from '~/types/common/Icon'
+
+const props = withDefaults(defineProps<IconType>(), {
+  componentSize: 'medium',
+  loading: false,
+  colors: () => ({
+    primary: 'currentColor',
+    secondary: 'currentColor',
+    tertiary: 'currentColor'
+  })
+})
+
+const icon = computed(
+  () => `${getSpriteUrl(props.componentSize)}#${props.name}`
 )
 
-const icon = computed(() => `${getSpriteUrl(props.size)}#${props.name}`)
-
-const getSpriteUrl = (size: 'small' | 'medium' | 'large') => {
+const getSpriteUrl = (size: BasicSizeType) => {
   return `/icons/${size}/symbol/sprite.svg`
 }
 

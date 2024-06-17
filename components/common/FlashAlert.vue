@@ -17,13 +17,13 @@
       :style="{ overflowWrap: 'anywhere' }"
     >
       <Icon
-        v-if="iconVariant === 'default' || (iconVariant === 'custom' && icon)"
+        v-if="icon.variant === 'default' || (icon.variant === 'custom' && icon)"
         class="icon icon-medium m-1"
         :name="
-          iconVariant === 'custom' ? icon?.name || '' : icons[variant].name
+          icon.variant === 'custom' ? icon?.name || '' : icons[variant].name
         "
         :colors="
-          iconVariant === 'custom' ? icon?.colors : icons[variant].colors
+          icon.variant === 'custom' ? icon?.colors : icons[variant].colors
         "
       />
       <div class="w-full">
@@ -57,29 +57,13 @@
 </template>
 
 <script setup lang="ts">
-import type { IconType } from '~/types/common/Icon'
+import type { FlashAlertType } from '~/types/common/FlashAlert'
 
-const props = withDefaults(
-  defineProps<{
-    variant?:
-      | 'deprecated'
-      | 'experiment'
-      | 'important'
-      | 'note'
-      | 'tip'
-      | 'warning'
-    title?: string
-    description: string
-    iconVariant?: 'default' | 'custom' | 'none'
-    icon?: IconType
-  }>(),
-  {
-    title: undefined,
-    variant: 'note',
-    iconVariant: 'default',
-    icon: undefined
-  }
-)
+const props = withDefaults(defineProps<FlashAlertType>(), {
+  variant: 'note',
+  title: undefined,
+  icon: () => ({ variant: 'default', name: '' })
+})
 
 const icons = {
   deprecated: {

@@ -1,5 +1,5 @@
-import type { CardItemType } from '../common/CardItem'
+import type { ExtendedPropsType } from '../common/ExtendedProps'
 
-export interface References extends CardItemType {
-  references: CardItemType[]
+export interface References extends ExtendedPropsType {
+  references: ExtendedPropsType[]
 }

@@ -10,7 +10,7 @@
           :items="segmentNavItems"
           label="combination"
           padding="0 21px"
-          size="small"
+          component-size="small"
           separator
           gray-labels
           :focus="false"
@@ -31,14 +31,27 @@
         <CardItem
           v-for="(project, index) in currentProjects"
           :key="index"
-          variant="article"
-          :size="windowWidth < 900 ? 'small' : 'medium'"
-          :loading="false"
-          :card="project"
-          :icon-position="windowWidth < 900 ? 'top' : 'left'"
-          :date-format-options="{
-            year: 'numeric',
-            month: 'long'
+          v-bind="{
+            ...project,
+            description: project.description || '',
+            variant: 'article',
+            loading: false,
+            componentSize: windowWidth < 900 ? 'small' : 'medium',
+            info: {
+              ...project.info,
+              date: {
+                ...project?.info?.date,
+                formatOptions: () => ({
+                  year: 'numeric',
+                  month: 'long'
+                })
+              }
+            },
+            icon: {
+              ...project.icon,
+              name: project.icon?.name || '',
+              position: windowWidth < 900 ? 'top' : 'left'
+            }
           }"
         />
       </ul>
@@ -51,13 +64,26 @@
         />
         <ul v-if="pinned" class="card-container pinned-items">
           <CardItem
-            v-for="(card, index) in pinned"
+            v-for="(project, index) in (pinned as Partial<CardItemType>[])"
             :key="index"
-            :loading="false"
-            :card="card"
-            size="small"
-            icon-position="right"
-            icon-absolute
+            v-bind="{
+              ...project,
+              loading: false,
+              componentSize: 'small',
+              icon: {
+                ...project.icon,
+                name: project.icon?.name || '',
+                position: 'right',
+                absolute: true
+              },
+              info: {
+                ...project?.info,
+                date: {
+                  ...project?.info?.date,
+                  nowKey: 'updated'
+                }
+              }
+            }"
             class="color"
             :style="{
               '--color-figure': `var(--color-figure-${randomColor})`,
@@ -67,13 +93,31 @@
         </ul>
         <ul class="card-container">
           <CardItem
-            v-for="(card, index) in currentProjects"
+            v-for="(project, index) in currentProjects"
             :key="index"
-            :loading="false"
-            :card="card"
-            size="small"
-            icon-position="right"
+            v-bind="{
+              ...project,
+              description: project.description || '',
+              loading: false,
+              componentSize: 'small',
+              icon: {
+                ...project.icon,
+                name: project.icon?.name || '',
+                position: 'right'
+              },
+              info: {
+                ...project.info,
+                date: {
+                  ...project?.info?.date,
+                  formatOptions: () => ({
+                    year: 'numeric',
+                    month: 'long'
+                  })
+                }
+              }
+            }"
           />
+
           <ResultBlankState v-if="!currentProjects" />
         </ul>
       </div>
@@ -83,18 +127,25 @@
 </template>
 
 <script lang="ts" setup>
-import type { ListUserReposResponse } from '~/types/GitHub/Repository'
+import type { Repository } from '@octokit/graphql-schema'
 import type { CardItemType } from '~/types/common/CardItem'
-import type { ItemType } from '~/types/common/Option'
+import type { CardRepositoryType } from '~/types/common/CardRepository'
+import type { IconType } from '~/types/common/Icon'
+import type { ItemType } from '~/types/common/Item'
+import type { MinimalRepository } from '~/types/services/GitHub/Repository'
 
-type ListUserPinnedReposResponse = ListUserReposResponse & {
-  icon?: CardItemType['icon']
+type PinnedRepository = Repository & {
+  icon?: IconType
+}
+
+type CategorizedRepository = CardRepositoryType & {
+  category: string
 }
 
 type Projects = {
   swisscom: CardItemType[]
-  personal: ListUserReposResponse[]
-  school: ListUserReposResponse[]
+  personal: MinimalRepository[]
+  school: MinimalRepository[]
 }
 
 defineProps<{
@@ -109,7 +160,7 @@ const config = useRuntimeConfig()
 const ul = ref<HTMLElement | null>(null)
 const ulHeight = useElementSize(ul).height
 
-const pinned = ref<ListUserPinnedReposResponse[]>([])
+const pinned = ref<PinnedRepository[]>([])
 const currentIndex = ref(0)
 const randomColor = ref(colorStore.randomizeColor()?.colorName || '')
 const windowWidth = useWindowSize({ initialWidth: 0 }).width
@@ -119,7 +170,7 @@ const { data: userRepositories } = useAsyncData(
   () =>
     $listUserRepositories({
       username: config.public.githubRepoOwner,
-      perPage: 100
+      per_page: 100
     }),
   { server: true }
 )
@@ -129,7 +180,7 @@ const { data: pinnedProjects } = useAsyncData(
   () =>
     $listPinnedRepositories({
       username: config.public.githubRepoOwner,
-      perPage: 100
+      per_page: 100
     }),
   { server: true }
 )
@@ -153,7 +204,7 @@ const filteredProjects = computed(() =>
 const currentProjects = computed(
   () =>
     projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
-)
+) as Ref<CardItemType[]>
 
 const segmentNavItems = computed<ItemType[]>(() =>
   tm('components.common.SegmentNav.projects')
@@ -163,19 +214,26 @@ const updateCurrentIndex = (index: number) => {
   currentIndex.value = index
 }
 
-const categorizeProject = (project: ListUserReposResponse) => {
+const categorizeProject = (
+  project: MinimalRepository
+): CategorizedRepository => {
   const schoolProjectPattern =
     /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/
   const category = schoolProjectPattern.test(project.name)
     ? 'school'
     : 'personal'
-  return { ...project, category }
+  return {
+    ...project,
+    category,
+    title: project.name,
+    description: project.description || ''
+  }
 }
 
 watch(
   pinnedProjects,
   newPinnedProjects => {
-    newPinnedProjects?.forEach((project: ListUserPinnedReposResponse) => {
+    newPinnedProjects?.forEach((project: PinnedRepository) => {
       project.icon = {
         name: 'pin.fill',
         colors: {
@@ -193,9 +251,7 @@ watchEffect(() => {
   projects.school = []
   filteredProjects.value.map(categorizeProject).forEach(project => {
     const category = project.category as keyof Projects
-    projects[category].push(
-      project as ListUserReposResponse & CardItemType & { category: string }
-    )
+    projects[category].push(project)
   })
 })
 </script>

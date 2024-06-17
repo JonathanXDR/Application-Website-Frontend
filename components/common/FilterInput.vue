@@ -44,7 +44,7 @@
                   class="filter-input"
                   @focus="onFocus"
                   @blur="onBlur"
-                />
+                >
               </label>
             </div>
             <div class="filter-delete-button-wrapper">
@@ -81,12 +81,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Option'
+import type { ItemType } from '~/types/common/Item'
 
 const { tm } = useI18n()
-// const items = computed<ItemType[]>(() =>
-//   tm('components.common.FilterInput.items'),
-// )
 const options = computed<ItemType[]>(() =>
   tm('components.common.FilterInput.sorts')
 )

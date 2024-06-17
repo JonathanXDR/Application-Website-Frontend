@@ -56,7 +56,7 @@
                   <Icon
                     :loading="loading"
                     name="chevron.left"
-                    size="small"
+                    component-size="small"
                     class="icon"
                   />
                 </button>
@@ -68,7 +68,7 @@
                   <Icon
                     :loading="loading"
                     name="chevron.right"
-                    size="small"
+                    component-size="small"
                     class="icon"
                   />
                 </button>
@@ -85,14 +85,9 @@
 import type { LinkType } from '~/types/common/Link'
 import type { RibbonBar } from '~/types/common/RibbonBar'
 
-withDefaults(
-  defineProps<{
-    loading?: boolean
-  }>(),
-  {
-    loading: false
-  }
-)
+const props = withDefaults(defineProps<RibbonBar>(), {
+  loading: false
+})
 
 const { $listRepositoryTags } = useNuxtApp()
 const { t, tm, rt } = useI18n()
@@ -103,54 +98,48 @@ const tags = ref<{
   previous: string | undefined
 }>({ latest: undefined, previous: undefined })
 
-const baseItems = ref<RibbonBar[]>([])
+const baseItems = ref<{ description: string; links: LinkType[] }[]>([])
 const currentIndex = ref(0)
 const totalItems = ref(0)
 const isTransitioning = ref(false)
-const scrollDirection = ref('right')
-const displayItems = ref<RibbonBar[]>([])
+const scrollDirection = ref<'left' | 'right'>('right')
+const displayItems = ref<{ description: string; links: LinkType[] }[]>([])
 const initialAnimationPlayed = ref(false)
 
-const {
-  data: repositoryTags,
-  // pending: tagsLoading,
-  refresh: refreshTags
-} = useAsyncData(
+const { data: repositoryTags, refresh: refreshTags } = useAsyncData(
   'repositoryTags',
   () =>
     $listRepositoryTags({
       owner: config.public.githubRepoOwner,
       repo: config.public.githubRepoName,
-      perPage: 2
+      per_page: 2
     }),
   { server: true }
 )
 
 const updateBaseItems = () => {
-  const items = tm('components.common.RibbonBar') as (RibbonBar | undefined)[]
-  baseItems.value = items
-    .filter((item): item is RibbonBar => item !== undefined)
-    .map((item, index) => ({
-      description:
-        item.description &&
-        t(`components.common.RibbonBar[${index}].description`, {
-          latestTag: tags.value.latest,
-          previousTag: tags.value.previous
-        }),
-      links:
-        item.links &&
-        (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map(
-          link => ({
-            ...link,
-            url: link.url
-              ? rt(link.url, {
-                  latestTag: tags.value.latest,
-                  previousTag: tags.value.previous
-                })
-              : undefined
-          })
-        )
-    }))
+  if (!tags.value.latest || !tags.value.previous) return
+  baseItems.value = props.items.map((item, index) => ({
+    description:
+      item.description &&
+      t(`components.common.RibbonBar[${index}].description`, {
+        latestTag: tags.value.latest,
+        previousTag: tags.value.previous
+      }),
+    links:
+      item.links &&
+      (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map(
+        link => ({
+          ...link,
+          url: link.url
+            ? rt(link.url, {
+                latestTag: tags.value.latest,
+                previousTag: tags.value.previous
+              })
+            : undefined
+        })
+      )
+  }))
   totalItems.value = baseItems.value.length
   updateDisplayItems()
 }
@@ -217,10 +206,7 @@ watch(
   repositoryTags,
   newTags => {
     if (newTags && newTags.length >= 2) {
-      tags.value = {
-        latest: newTags[0]?.name || '',
-        previous: newTags[1]?.name || ''
-      }
+      tags.value = { latest: newTags[0]?.name, previous: newTags[1]?.name }
       updateBaseItems()
 
       setTimeout(() => {

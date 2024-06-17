@@ -1,6 +1,6 @@
-import type { CardItemType } from './CardItem'
+import type { ExtendedPropsType } from './ExtendedProps'
 
-export interface LanguageBarType extends CardItemType {
-  progress: number
+export interface LanguageBarType extends ExtendedPropsType {
+  progress: string
   status?: string[]
 }

@@ -1,15 +1,17 @@
 import type { BadgeType } from './Badge'
+import type { BasicSizeType } from './BasicSize'
+import type { ExtendedPropsType } from './ExtendedProps'
+import type { GraphType } from './Graph'
 import type { IconType } from './Icon'
-import type { InfoType } from './Info'
-import type { LinkType } from './Link'
 
-export interface CardItemType {
-  icon?: IconType
-  eyebrow?: string
-  title: string
-  description?: string
-  tags?: string[]
-  links?: LinkType[]
-  info?: InfoType
+export interface CardItemType extends ExtendedPropsType {
+  variant?: 'card' | 'article'
+  componentSize?: BasicSizeType | 'full'
+  alignment?: 'start' | 'center' | 'end'
+  hover?: 'auto' | 'true' | 'false'
+  cover?: string
   badge?: BadgeType
+  loading?: boolean
+  graphs?: GraphType
+  icon?: IconType
 }

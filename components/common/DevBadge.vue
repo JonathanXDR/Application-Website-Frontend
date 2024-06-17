@@ -1,15 +1,24 @@
 <template>
   <small
-    v-if="config.public.appEnvironment === 'development'"
-    :style="{ color: colorBadge?.colorVar }"
+    :style="{ color: color.primary }"
     class="dev-badge"
     data-tag-name="Dev"
   />
 </template>
 
 <script setup lang="ts">
-const config = useRuntimeConfig()
-const { colorBadge } = useColor()
+import type { ColorType } from '~/types/common/Color'
+
+withDefaults(
+  defineProps<{
+    color: ColorType
+  }>(),
+  {
+    color: () => ({
+      primary: 'var(--color-figure-orange)'
+    })
+  }
+)
 </script>
 
 <style scoped>

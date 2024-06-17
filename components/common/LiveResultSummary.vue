@@ -5,7 +5,7 @@
       <div class="changed-total">
         <Icon
           name="pin.fill"
-          size="small"
+          component-size="small"
           :colors="{
             primary: randomColor
           }"

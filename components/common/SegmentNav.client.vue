@@ -14,7 +14,7 @@
       <li
         v-for="(item, index) in items"
         :key="index"
-        :ref="(setItemRef as any)"
+        :ref="setItemRef as any"
         :class="['viewer-sizenav-item', { separator }]"
       >
         <input
@@ -25,15 +25,15 @@
           :class="['viewer-sizenav-value', { focus }]"
           :value="item.id"
           :disabled="item.id !== selectedItem && isTransitioning"
-        />
+        >
         <label
           :for="`viewer-sizenav-value-${item.id}`"
           class="viewer-sizenav-link"
           :style="{
-            'min-width':
-              props.label !== 'icon'
+            minWidth:
+              label !== 'icon'
                 ? '48px'
-                : `${height - (props.outerPadding || 0) * 2}px`
+                : `${computedHeight - outerPadding * 2}px`
           }"
         >
           <span
@@ -46,7 +46,7 @@
                 color: grayLabels
                   ? 'var(--color-fill-gray-secondary)'
                   : 'var(--aap-icon-color)',
-                'font-size': `${fontSize}px`
+                fontSize: `${fontSize}px`
               }"
             >
               <Icon
@@ -64,41 +64,25 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Option'
+import type { SegmentNavType } from '~/types/common/SegmentNav'
 
-const props = withDefaults(
-  defineProps<{
-    items: ItemType[]
-    size?: 'xsmall' | 'small' | 'medium' | 'large'
-    label?: 'icon' | 'text' | 'combination'
-    focus?: boolean
-    separator?: boolean
-    shadow?: boolean
-    grayLabels?: boolean
-    gap?: string
-    padding?: string
-    outerPadding?: number
-    selectedItem?: string
-    onSelect?: (id: string) => void
-  }>(),
-  {
-    size: 'medium',
-    label: 'text',
-    focus: true,
-    separator: false,
-    shadow: false,
-    grayLabels: false,
-    gap: '0px',
-    padding: props => {
-      return props.label !== 'icon' ? '0 8px' : '0'
-    },
-    outerPadding: 4,
-    selectedItem: props => {
-      return props.items?.[0]?.id || ''
-    },
-    onSelect: () => {}
-  }
-)
+const props = withDefaults(defineProps<SegmentNavType>(), {
+  componentSize: 'medium',
+  label: 'text',
+  focus: true,
+  separator: false,
+  shadow: false,
+  grayLabels: false,
+  gap: '0px',
+  padding: (props: SegmentNavType) => {
+    return props.label !== 'icon' ? '0 8px' : '0'
+  },
+  outerPadding: 4,
+  selectedItem: (props: SegmentNavType) => {
+    return props.items[0]?.id || ''
+  },
+  onSelect: () => {}
+})
 
 const selectedItem = ref<string>(props.selectedItem)
 const isTransitioning = ref<boolean>(false)
@@ -130,14 +114,14 @@ const updateBubblePosition = () => {
 
 const bubbleStyle = ref<Record<string, string>>({})
 
-const height = computed(() => {
+const computedHeight = computed(() => {
   const sizes: Record<string, number> = {
     xsmall: 32,
     small: 40,
     medium: 48,
     large: 56
   }
-  return sizes[props.size || 'medium'] || 48 // Provide a default value
+  return sizes[props.componentSize || 'medium'] || 48
 })
 
 const fontSize = computed(() => {
@@ -147,14 +131,14 @@ const fontSize = computed(() => {
     medium: 16,
     large: 18
   }
-  return sizes[props.size || 'medium']
+  return sizes[props.componentSize || 'medium']
 })
 
 const containerStyle = computed(() => ({
   width: `fit-content`,
   '--sizenav-width': `${navContainer.value?.offsetWidth}px`,
-  '--sizenav-outer-padding': `${props?.outerPadding}px`,
-  '--aap-min-height': `${height.value}px`
+  '--sizenav-outer-padding': `${props.outerPadding}px`,
+  '--aap-min-height': `${computedHeight.value}px`
 }))
 
 watch(
