@@ -27,7 +27,6 @@ export default defineNuxtConfig({
     strict: true
   },
   eslint: {
-    checker: true,
     config: {
       // stylistic: true,
       typescript: {
