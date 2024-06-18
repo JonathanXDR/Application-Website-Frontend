@@ -13,7 +13,7 @@
                   class="rc-ribbon-content-scroller"
                   :style="[
                     transformStyle,
-                    totalItems <= 2 && 'justify-content: center; gap: 16px'
+                    totalItems <= 2 && 'justify-content: center; gap: 16px',
                   ]"
                 >
                   <div
@@ -82,29 +82,29 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkType } from '~/types/common/Link'
-import type { RibbonBar } from '~/types/common/RibbonBar'
+import type { LinkType } from '~/types/common/Link';
+import type { RibbonBar } from '~/types/common/RibbonBar';
 
 const props = withDefaults(defineProps<RibbonBar>(), {
-  loading: false
-})
+  loading: false,
+});
 
-const { $listRepositoryTags } = useNuxtApp()
-const { t, tm, rt } = useI18n()
-const config = useRuntimeConfig()
+const { $listRepositoryTags } = useNuxtApp();
+const { t, tm, rt } = useI18n();
+const config = useRuntimeConfig();
 
 const tags = ref<{
-  latest: string | undefined
-  previous: string | undefined
-}>({ latest: undefined, previous: undefined })
+  latest: string | undefined;
+  previous: string | undefined;
+}>({ latest: undefined, previous: undefined });
 
-const baseItems = ref<{ description: string; links: LinkType[] }[]>([])
-const currentIndex = ref(0)
-const totalItems = ref(0)
-const isTransitioning = ref(false)
-const scrollDirection = ref<'left' | 'right'>('right')
-const displayItems = ref<{ description: string; links: LinkType[] }[]>([])
-const initialAnimationPlayed = ref(false)
+const baseItems = ref<{ description: string; links: LinkType[] }[]>([]);
+const currentIndex = ref(0);
+const totalItems = ref(0);
+const isTransitioning = ref(false);
+const scrollDirection = ref<'left' | 'right'>('right');
+const displayItems = ref<{ description: string; links: LinkType[] }[]>([]);
+const initialAnimationPlayed = ref(false);
 
 const { data: repositoryTags, refresh: refreshTags } = useAsyncData(
   'repositoryTags',
@@ -112,73 +112,75 @@ const { data: repositoryTags, refresh: refreshTags } = useAsyncData(
     $listRepositoryTags({
       owner: config.public.githubRepoOwner,
       repo: config.public.githubRepoName,
-      per_page: 2
+      per_page: 2,
     }),
   { server: true }
-)
+);
 
 const updateBaseItems = () => {
-  if (!tags.value.latest || !tags.value.previous) return
+  const { latest: latestTag, previous: previousTag } = tags.value;
+
+  if (!tags.value.latest || !tags.value.previous) return;
   baseItems.value = props.items.map((item, index) => ({
     description:
       item.description &&
       t(`components.common.RibbonBar[${index}].description`, {
-        latestTag: tags.value.latest,
-        previousTag: tags.value.previous
+        latestTag,
+        previousTag,
       }),
     links:
       item.links &&
       (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map(
-        link => ({
+        (link) => ({
           ...link,
           url: link.url
             ? rt(link.url, {
-                latestTag: tags.value.latest,
-                previousTag: tags.value.previous
+                latestTag,
+                previousTag,
               })
-            : undefined
+            : undefined,
         })
-      )
-  }))
-  totalItems.value = baseItems.value.length
-  updateDisplayItems()
-}
+      ),
+  }));
+  totalItems.value = baseItems.value.length;
+  updateDisplayItems();
+};
 
 const updateDisplayItems = () => {
-  const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value
+  const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value;
   displayItems.value = Array.from(
     { length: totalItems.value },
     (_, i) =>
       baseItems.value[(start + i) % totalItems.value] || {
         description: '',
-        links: []
+        links: [],
       }
-  )
-}
+  );
+};
 
 const scrollContent = (direction: 'left' | 'right') => {
   if (!isTransitioning.value && totalItems.value > 2) {
-    isTransitioning.value = true
-    scrollDirection.value = direction
+    isTransitioning.value = true;
+    scrollDirection.value = direction;
 
     nextTick(() => {
       if (direction === 'left') {
         currentIndex.value =
           currentIndex.value === 0
             ? totalItems.value - 1
-            : currentIndex.value - 1
+            : currentIndex.value - 1;
       } else {
-        currentIndex.value = (currentIndex.value + 1) % totalItems.value
+        currentIndex.value = (currentIndex.value + 1) % totalItems.value;
       }
-    })
+    });
   }
-}
+};
 
 const transformStyle = computed(() => {
   if (totalItems.value > 2) {
-    let translateXValue = -100 / totalItems.value
+    let translateXValue = -100 / totalItems.value;
     if (scrollDirection.value === 'left') {
-      translateXValue = Math.abs(translateXValue)
+      translateXValue = Math.abs(translateXValue);
     }
 
     return {
@@ -189,39 +191,39 @@ const transformStyle = computed(() => {
       left: '-100%',
       transition: isTransitioning.value
         ? 'transform 1000ms ease 0s'
-        : 'none 0s ease 0s'
-    }
+        : 'none 0s ease 0s',
+    };
   }
-  return {}
-})
+  return {};
+});
 
 watch(currentIndex, () => {
   setTimeout(() => {
-    isTransitioning.value = false
-    updateDisplayItems()
-  }, 1000)
-})
+    isTransitioning.value = false;
+    updateDisplayItems();
+  }, 1000);
+});
 
 watch(
   repositoryTags,
-  newTags => {
+  (newTags) => {
     if (newTags && newTags.length >= 2) {
-      tags.value = { latest: newTags[0]?.name, previous: newTags[1]?.name }
-      updateBaseItems()
+      tags.value = { latest: newTags[0]?.name, previous: newTags[1]?.name };
+      updateBaseItems();
 
       setTimeout(() => {
-        initialAnimationPlayed.value = true
-      }, 2800)
+        initialAnimationPlayed.value = true;
+      }, 2800);
     }
   },
   { immediate: true }
-)
+);
 
 onMounted(() => {
   if (repositoryTags.value && repositoryTags.value.length === 0) {
-    refreshTags()
+    refreshTags();
   }
-})
+});
 </script>
 
 <style scoped>
