@@ -4,7 +4,7 @@
       <div v-if="props[item.id]" class="info-item">
         <Icon
           v-if="item.icon"
-          :name="item.icon?.name"
+          :name="item.icon.name"
           :loading="loading"
           class="info-icon"
         />
@@ -37,11 +37,11 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from 'dayjs'
-import 'dayjs/locale/en'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import type { InfoType } from '~/types/common/Info'
-import type { ItemType } from '~/types/common/Item'
+import dayjs from 'dayjs';
+import 'dayjs/locale/en';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import type { InfoType } from '~/types/common/Info';
+import type { ItemType } from '~/types/common/Item';
 
 const props = withDefaults(defineProps<InfoType>(), {
   loading: false,
@@ -49,20 +49,20 @@ const props = withDefaults(defineProps<InfoType>(), {
     formatOptions: () => ({
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
-    })
-  })
-})
+      day: 'numeric',
+    }),
+  }),
+});
 
-dayjs.extend(relativeTime)
+dayjs.extend(relativeTime);
 
-const { locale } = useI18n()
+const { locale } = useI18n();
 const infoItems: ItemType[] = [
   { id: 'location', icon: { name: 'location.fill' } },
   { id: 'supervisor', icon: { name: 'person.fill' } },
   { id: 'department', icon: { name: 'tag.fill' } },
   { id: 'language', icon: { name: 'bubble.left.fill' } },
-  { id: 'license', icon: { name: 'scroll.fill' } }
+  { id: 'license', icon: { name: 'scroll.fill' } },
   // {
   //   id: 'forks',
   //   icon: {
@@ -77,45 +77,67 @@ const infoItems: ItemType[] = [
   // { id: 'stars', icon: { name: 'star.fill' } },
   // { id: 'issues', icon: { name: 'smallcircle.filled.circle' } },
   // { id: 'subscribers', icon: { name: 'bell.fill' } }
-]
+];
 
 const updatedYesterday = computed(() => {
-  if (!props.date) return false
-  const updatedDate = dayjs(props.date.fixed)
-  const currentDate = dayjs()
-  return currentDate.diff(updatedDate, 'day') <= 1
-})
+  if (!props.date.fixed) return false;
+  const updatedDate = dayjs(props.date.fixed);
+  const currentDate = dayjs();
+  return currentDate.diff(updatedDate, 'day') <= 1;
+});
 
 const formatDate = (
   dateString: string,
   formatOptions: Intl.DateTimeFormatOptions
 ) => {
-  return new Date(dateString).toLocaleDateString(locale.value, formatOptions)
-}
+  return new Date(dateString).toLocaleDateString(locale.value, formatOptions);
+};
 
 const getDate = () => {
-  const formatOptions =
-    props.date?.formatOptions ||
-    (() => ({ year: 'numeric', month: 'long', day: 'numeric' }))
+  const { duration, formatOptions, fixed, nowKey } = props.date;
 
-  const dateVariant = props.date?.nowKey
-
-  if (props.date?.duration) {
-    return `${formatDate(
-      props.date?.duration.from,
+  if (duration && formatOptions) {
+    // August 2021 - February 2022
+    const formattedDuration = `${formatDate(
+      duration.from,
       formatOptions()
-    )} - ${formatDate(props.date?.duration.to, formatOptions())}`
-  } else if (props.date?.fixed) {
-    if (props.date?.nowKey) {
-      return `${dateVariant?.charAt(0).toUpperCase()}${dateVariant?.slice(
-        1
-      )} ${dayjs(props.date.nowKey).locale(locale.value).fromNow()}`
-    }
-    return formatDate(props.date?.fixed.toString(), formatOptions())
-  }
-}
+    )} - ${formatDate(duration.to, formatOptions())}`;
 
-const dateTitle = getDate()
+    return formattedDuration;
+  } else if (fixed && nowKey) {
+    // Updated ... ago
+    const formattedNowKey = `${nowKey?.charAt(0).toUpperCase()}${nowKey?.slice(
+      1
+    )} ${dayjs(nowKey).locale(locale.value).fromNow()}`;
+
+    return formattedNowKey;
+  } else if (fixed && formatOptions) {
+    // August 2021
+    const formattedFixedDate = formatDate(fixed.toString(), formatOptions());
+
+    return formattedFixedDate;
+  }
+};
+
+// const getDate = () => {
+//   const formatOptions = props.dateFormatOptions;
+//   const dateVariant = props.dateNowKey;
+
+//   if (props.info?.date?.from && props.info?.date?.to) {
+//     return `${formatDate(props.info?.date.from, formatOptions)} - ${formatDate(
+//       props.info?.date.to,
+//       formatOptions
+//     )}`;
+//   } else if (props.info?.date?.from) {
+//     return formatDate(props.info?.date.from, formatOptions);
+//   } else if (props.date) {
+//     return `${dateVariant.charAt(0).toUpperCase()}${dateVariant.slice(
+//       1
+//     )} ${dayjs(props.date).locale(locale.value).fromNow()}`;
+//   }
+// };
+
+const dateTitle = getDate();
 </script>
 
 <style scoped>

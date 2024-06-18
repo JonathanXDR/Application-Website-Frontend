@@ -17,9 +17,9 @@
           :outer-padding="3"
           :selected-item="segmentNavItems[currentIndex]?.id"
           :on-select="
-            id =>
+            (id) =>
               updateCurrentIndex(
-                segmentNavItems.findIndex(item => item.id === id)
+                segmentNavItems.findIndex((item) => item.id === id)
               )
           "
         />
@@ -43,15 +43,15 @@
                 ...project?.info?.date,
                 formatOptions: () => ({
                   year: 'numeric',
-                  month: 'long'
-                })
-              }
+                  month: 'long',
+                }),
+              },
             },
             icon: {
               ...project.icon,
               name: project.icon?.name || '',
-              position: windowWidth < 900 ? 'top' : 'left'
-            }
+              position: windowWidth < 900 ? 'top' : 'left',
+            },
           }"
         />
       </ul>
@@ -74,20 +74,20 @@
                 ...project.icon,
                 name: project.icon?.name || '',
                 position: 'right',
-                absolute: true
+                absolute: true,
               },
               info: {
                 ...project?.info,
                 date: {
                   ...project?.info?.date,
-                  nowKey: 'updated'
-                }
-              }
+                  nowKey: 'updated',
+                },
+              },
             }"
             class="color"
             :style="{
               '--color-figure': `var(--color-figure-${randomColor})`,
-              '--color-fill': `var(--color-fill-${randomColor}-secondary)`
+              '--color-fill': `var(--color-fill-${randomColor}-secondary)`,
             }"
           />
         </ul>
@@ -103,18 +103,15 @@
               icon: {
                 ...project.icon,
                 name: project.icon?.name || '',
-                position: 'right'
+                position: 'right',
               },
               info: {
                 ...project.info,
                 date: {
                   ...project?.info?.date,
-                  formatOptions: () => ({
-                    year: 'numeric',
-                    month: 'long'
-                  })
-                }
-              }
+                  nowKey: 'updated',
+                },
+              },
             }"
           />
 
@@ -127,133 +124,133 @@
 </template>
 
 <script lang="ts" setup>
-import type { Repository } from '@octokit/graphql-schema'
-import type { CardItemType } from '~/types/common/CardItem'
-import type { CardRepositoryType } from '~/types/common/CardRepository'
-import type { IconType } from '~/types/common/Icon'
-import type { ItemType } from '~/types/common/Item'
-import type { MinimalRepository } from '~/types/services/GitHub/Repository'
+import type { Repository } from '@octokit/graphql-schema';
+import type { CardItemType } from '~/types/common/CardItem';
+import type { CardRepositoryType } from '~/types/common/CardRepository';
+import type { IconType } from '~/types/common/Icon';
+import type { ItemType } from '~/types/common/Item';
+import type { MinimalRepository } from '~/types/services/GitHub/Repository';
 
 type PinnedRepository = Repository & {
-  icon?: IconType
-}
+  icon?: IconType;
+};
 
 type CategorizedRepository = CardRepositoryType & {
-  category: string
-}
+  category: string;
+};
 
 type Projects = {
-  swisscom: CardItemType[]
-  personal: MinimalRepository[]
-  school: MinimalRepository[]
-}
+  swisscom: CardItemType[];
+  personal: MinimalRepository[];
+  school: MinimalRepository[];
+};
 
 defineProps<{
-  title: string
-}>()
+  title: string;
+}>();
 
-const { $listUserRepositories, $listPinnedRepositories } = useNuxtApp()
-const { tm } = useI18n()
-const colorStore = useColor()
-const config = useRuntimeConfig()
+const { $listUserRepositories, $listPinnedRepositories } = useNuxtApp();
+const { tm } = useI18n();
+const colorStore = useColor();
+const config = useRuntimeConfig();
 
-const ul = ref<HTMLElement | null>(null)
-const ulHeight = useElementSize(ul).height
+const ul = ref<HTMLElement | null>(null);
+const ulHeight = useElementSize(ul).height;
 
-const pinned = ref<PinnedRepository[]>([])
-const currentIndex = ref(0)
-const randomColor = ref(colorStore.randomizeColor()?.colorName || '')
-const windowWidth = useWindowSize({ initialWidth: 0 }).width
+const pinned = ref<PinnedRepository[]>([]);
+const currentIndex = ref(0);
+const randomColor = ref(colorStore.randomizeColor()?.colorName || '');
+const windowWidth = useWindowSize({ initialWidth: 0 }).width;
 
 const { data: userRepositories } = useAsyncData(
   'userRepositories',
   () =>
     $listUserRepositories({
       username: config.public.githubRepoOwner,
-      per_page: 100
+      per_page: 100,
     }),
   { server: true }
-)
+);
 
 const { data: pinnedProjects } = useAsyncData(
   'pinnedProjects',
   () =>
     $listPinnedRepositories({
       username: config.public.githubRepoOwner,
-      per_page: 100
+      per_page: 100,
     }),
   { server: true }
-)
+);
 
 const projects: Projects = reactive({
   swisscom: computed<CardItemType[]>(() =>
     tm('components.containers.projects')
   ),
   personal: [],
-  school: []
-})
+  school: [],
+});
 
-const allProjects = computed(() => [...(userRepositories.value || [])])
+const allProjects = computed(() => [...(userRepositories.value || [])]);
 const filteredProjects = computed(() =>
   allProjects.value.filter(
-    project =>
-      !pinned.value.find(pinnedProject => pinnedProject.name === project.name)
+    (project) =>
+      !pinned.value.find((pinnedProject) => pinnedProject.name === project.name)
   )
-)
+);
 
 const currentProjects = computed(
   () =>
     projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
-) as Ref<CardItemType[]>
+) as Ref<CardItemType[]>;
 
 const segmentNavItems = computed<ItemType[]>(() =>
   tm('components.common.SegmentNav.projects')
-)
+);
 
 const updateCurrentIndex = (index: number) => {
-  currentIndex.value = index
-}
+  currentIndex.value = index;
+};
 
 const categorizeProject = (
   project: MinimalRepository
 ): CategorizedRepository => {
   const schoolProjectPattern =
-    /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/
+    /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/;
   const category = schoolProjectPattern.test(project.name)
     ? 'school'
-    : 'personal'
+    : 'personal';
   return {
     ...project,
     category,
     title: project.name,
-    description: project.description || ''
-  }
-}
+    description: project.description || '',
+  };
+};
 
 watch(
   pinnedProjects,
-  newPinnedProjects => {
+  (newPinnedProjects) => {
     newPinnedProjects?.forEach((project: PinnedRepository) => {
       project.icon = {
         name: 'pin.fill',
         colors: {
-          primary: `var(--color-figure-${randomColor.value})`
-        }
-      }
-    })
-    pinned.value = newPinnedProjects || []
+          primary: `var(--color-figure-${randomColor.value})`,
+        },
+      };
+    });
+    pinned.value = newPinnedProjects || [];
   },
   { immediate: true }
-)
+);
 
 watchEffect(() => {
-  projects.personal = []
-  projects.school = []
-  filteredProjects.value.map(categorizeProject).forEach(project => {
-    const category = project.category as keyof Projects
-    projects[category].push(project)
-  })
-})
+  projects.personal = [];
+  projects.school = [];
+  filteredProjects.value.map(categorizeProject).forEach((project) => {
+    const category = project.category as keyof Projects;
+    projects[category].push(project);
+  });
+});
 </script>
 
 <style scoped>
