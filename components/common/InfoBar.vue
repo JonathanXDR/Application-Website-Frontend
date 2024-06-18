@@ -97,7 +97,6 @@ const getDate = () => {
   const { duration, formatOptions, fixed, nowKey } = props.date;
 
   if (duration && formatOptions) {
-    // August 2021 - February 2022
     const formattedDuration = `${formatDate(
       duration.from,
       formatOptions()
@@ -105,37 +104,17 @@ const getDate = () => {
 
     return formattedDuration;
   } else if (fixed && nowKey) {
-    // Updated ... ago
     const formattedNowKey = `${nowKey?.charAt(0).toUpperCase()}${nowKey?.slice(
       1
-    )} ${dayjs(nowKey).locale(locale.value).fromNow()}`;
+    )} ${dayjs(fixed).locale(locale.value).fromNow()}`;
 
     return formattedNowKey;
   } else if (fixed && formatOptions) {
-    // August 2021
     const formattedFixedDate = formatDate(fixed.toString(), formatOptions());
 
     return formattedFixedDate;
   }
 };
-
-// const getDate = () => {
-//   const formatOptions = props.dateFormatOptions;
-//   const dateVariant = props.dateNowKey;
-
-//   if (props.info?.date?.from && props.info?.date?.to) {
-//     return `${formatDate(props.info?.date.from, formatOptions)} - ${formatDate(
-//       props.info?.date.to,
-//       formatOptions
-//     )}`;
-//   } else if (props.info?.date?.from) {
-//     return formatDate(props.info?.date.from, formatOptions);
-//   } else if (props.date) {
-//     return `${dateVariant.charAt(0).toUpperCase()}${dateVariant.slice(
-//       1
-//     )} ${dayjs(props.date).locale(locale.value).fromNow()}`;
-//   }
-// };
 
 const dateTitle = getDate();
 </script>
