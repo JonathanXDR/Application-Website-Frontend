@@ -12,7 +12,7 @@ export interface Containers extends ExtendedPropsType {
   about: About
   languages: Languages
   references: References
-  other: Other
+  school: Other
   technologies: Technologies
   projects: Projects
 }

@@ -12,30 +12,32 @@
         icon: {
           ...card.icon,
           name: card.icon?.name || '',
-          position: windowWidth < 900 ? 'top' : 'left'
+          position: windowWidth < 900 ? 'top' : 'left',
         },
         info: {
           ...card?.info,
           date: {
             ...card?.info?.date,
             formatOptions: () => ({
-              weekday: 'long'
-            })
-          }
-        }
+              weekday: 'long',
+            }),
+          },
+        },
       }"
     />
   </ul>
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from '~/types/common/CardItem'
+import type { CardItemType } from '~/types/common/CardItem';
 
 defineProps<{
-  title: string
-}>()
+  title: string;
+}>();
 
-const { tm } = useI18n()
-const cards = computed<CardItemType[]>(() => tm('components.containers.other'))
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
+const { tm } = useI18n();
+const cards = computed<CardItemType[]>(() =>
+  tm('components.containers.school')
+);
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
 </script>

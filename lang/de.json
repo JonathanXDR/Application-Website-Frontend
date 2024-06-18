@@ -21,9 +21,9 @@
           "class": "section-separated"
         },
         {
-          "id": "other",
-          "name": "Anderes",
-          "route": "#other",
+          "id": "school",
+          "name": "Schule",
+          "route": "#school",
           "class": "section-separated"
         },
         {
@@ -449,7 +449,7 @@
           }
         }
       ],
-      "other": [
+      "school": [
         {
           "icon": {
             "name": "graduationcap.fill"
