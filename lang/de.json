@@ -27,6 +27,12 @@
           "class": "section-separated"
         },
         {
+          "id": "funFacts",
+          "name": "Fun Facts",
+          "route": "#funFacts",
+          "class": "section-separated"
+        },
+        {
           "id": "technologies",
           "name": "Technologien",
           "route": "#technologies"
@@ -497,6 +503,7 @@
           }
         }
       ],
+      "funFacts": [],
       "music": [
         {
           "link": "https://music.apple.com/us/playlist/rap-life/pl.abe8ba42278f4ef490e3a9fc5ec8e8c5?itscg=10000&itsct=mus-0-mus_fam-posn1_stm-apl-avl-200130",
