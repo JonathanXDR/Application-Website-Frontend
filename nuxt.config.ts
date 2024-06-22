@@ -40,24 +40,34 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      titleTemplate: 'JR | %s',
+      templateParams: {
+        site: {
+          name: 'JR',
+          url: process.env.SITE_URL,
+          description: process.env.SITE_DESCRIPTION
+        }
+      },
+      titleTemplate: '%s %separator %siteName',
       meta: [
         { property: 'twitter:card', content: 'summary_large_image' },
         {
           property: 'twitter:description',
-          content: process.env.APP_DESCRIPTION
+          content: process.env.SITE_DESCRIPTION
         },
         {
           property: 'og:description',
-          content: process.env.APP_DESCRIPTION
+          content: process.env.SITE_DESCRIPTION
         },
         { property: 'og:url', content: 'https://jonathan-russ.com/en' },
         {
           name: 'description',
-          content: process.env.APP_DESCRIPTION
+          content: process.env.SITE_DESCRIPTION
         }
       ],
       scripts: {
+        defaultScriptOptions: {
+          bundle: true
+        },
         globals: [
           {
             src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
@@ -83,17 +93,19 @@ export default defineNuxtConfig({
             property: 'twitter:image',
             content: '/img/dev/favicon-dev-orange.png'
           },
-          { property: 'twitter:title', content: 'JR DEV' },
+          { property: 'twitter:title', content: 'Jonathan Russ | DEV' },
           { property: 'og:image', content: '/img/dev/favicon-dev-orange.png' },
-          { property: 'og:title', content: 'JR DEV' }
+          { property: 'og:title', content: 'Jonathan Russ | DEV' }
         ],
-        script: [
-          {
-            src: 'https://snippet.meticulous.ai/v1/meticulous.js',
-            ['data-project-id']: '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
-            ['data-is-production-environment']: false
-          }
-        ]
+        scripts: {
+          globals: [
+            {
+              src: 'https://snippet.meticulous.ai/v1/meticulous.js',
+              ['data-project-id']: '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
+              ['data-is-production-environment']: false
+            }
+          ]
+        }
       }
     }
   },
@@ -110,13 +122,15 @@ export default defineNuxtConfig({
           { property: 'og:image', content: '/img/favicon.png' },
           { property: 'og:title', content: 'Jonathan Russ' }
         ],
-        script: [
-          {
-            src: 'https://snippet.meticulous.ai/v1/meticulous.js',
-            ['data-project-id']: '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
-            ['data-is-production-environment']: true
-          }
-        ]
+        scripts: {
+          globals: [
+            {
+              src: 'https://snippet.meticulous.ai/v1/meticulous.js',
+              ['data-project-id']: '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
+              ['data-is-production-environment']: true
+            }
+          ]
+        }
       }
     }
   },
@@ -126,9 +140,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       appName: process.env.APP_NAME,
-      appUrl: process.env.APP_URL,
-      appDomain: process.env.APP_DOMAIN,
-      appDescription: process.env.APP_DESCRIPTION,
       appEnvironment: process.env.NODE_ENV,
 
       githubRepoName: process.env.GITHUB_REPO_NAME,
@@ -150,8 +161,16 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: ''
   },
+  seo: {
+    redirectToCanonicalSiteUrl: true
+  },
+  site: {
+    url: process.env.SITE_URL,
+    name: process.env.SITE_NAME,
+    description: process.env.SITE_DESCRIPTION
+  },
   i18n: {
-    baseUrl: process.env.APP_URL,
+    baseUrl: process.env.SITE_URL,
     vueI18n: '~/i18n.config.ts',
     // lazy: true,
     // langDir: 'lang',
