@@ -6,11 +6,6 @@
       <RibbonBar v-if="shouldShow('ribbon')" :loading="false" :items="items" />
     </header>
     <main>
-      <!-- <DialogModal
-      title="Veniam dolore ex nostrud fugiat velit ullamco minim non."
-      description="Excepteur officia elit voluptate laborum in sunt ad. Ad proident aliqua aute magna nostrud officia velit sit in proident consequat. In sit excepteur voluptate. Ex ea est ad anim labore."
-      blurred-background
-    /> -->
       <slot />
     </main>
     <footer :class="footerClass">
@@ -20,43 +15,43 @@
 </template>
 
 <script setup lang="ts">
-import { SpeedInsights } from '@vercel/speed-insights/vue'
-import FooterCompact from '~/components/common/Footer/Compact.vue'
-import FooterFull from '~/components/common/Footer/Full.vue'
-import type { LinkType } from '~/types/common/Link'
+import { SpeedInsights } from '@vercel/speed-insights/vue';
+import FooterCompact from '~/components/common/Footer/Compact.vue';
+import FooterFull from '~/components/common/Footer/Full.vue';
+import type { LinkType } from '~/types/common/Link';
 
-const route = useRoute()
-const { colorBadge, randomizeColor } = useColor()
-const { currentSection } = useSection()
-const { locale, tm } = useI18n()
-const error = useError()
-const config = useRuntimeConfig()
+const { $randomDevColor } = useNuxtApp();
+const route = useRoute();
+const { currentSection } = useSection();
+const { locale, tm } = useI18n();
+const error = useError();
+const config = useRuntimeConfig();
 
 const items = tm('components.common.RibbonBar') as {
-  description: string
-  links: LinkType[]
-}[]
-const faviconColor = colorBadge.value?.colorHex || '000000'
-const faviconGraphicData = ref('')
+  description: string;
+  links: LinkType[];
+}[];
+
+const faviconColor = $randomDevColor?.hex || '000000';
+const faviconGraphicData = ref('');
 
 const fetchSvgContent = async () => {
-  const response = await fetch('/img/dev/favicon-dev.svg')
-  const svgContent = await response.text()
+  const response = await fetch('/img/dev/favicon-dev.svg');
+  const svgContent = await response.text();
   faviconGraphicData.value = `data:image/svg+xml,${encodeURIComponent(
     svgContent.replace('#color', `#${faviconColor}`)
-  )}`
-}
+  )}`;
+};
 
 onMounted(async () => {
-  await randomizeColor()
-  await fetchSvgContent()
-})
+  await fetchSvgContent();
+});
 
 watchEffect(() => {
   useHead({
     htmlAttrs: { lang: locale.value },
-    title: currentSection.value.name
-  })
+    title: currentSection.value.name,
+  });
 
   if (config.public.appEnvironment === 'development') {
     useHead({
@@ -64,44 +59,44 @@ watchEffect(() => {
         { rel: 'icon', type: 'image/svg+xml', href: faviconGraphicData.value },
         {
           rel: 'apple-touch-icon',
-          href: `/img/dev/favicon-dev-${colorBadge.value?.colorName}.png`
-        }
+          href: `/img/dev/favicon-dev-${$randomDevColor?.name}.png`,
+        },
       ],
       meta: [
         {
           property: 'twitter:image',
-          content: `/img/dev/favicon-dev-${colorBadge.value?.colorName}.png`
+          content: `/img/dev/favicon-dev-${$randomDevColor?.name}.png`,
         },
         {
           property: 'og:image',
-          content: `/img/dev/favicon-dev-${colorBadge.value?.colorName}.png`
-        }
-      ]
-    })
+          content: `/img/dev/favicon-dev-${$randomDevColor?.name}.png`,
+        },
+      ],
+    });
   }
-})
+});
 
 const errorConfig = {
   header: false,
   nav: false,
   ribbon: false,
   footerFull: false,
-  footerCompact: true
-}
+  footerCompact: true,
+};
 
 const shouldShow = (component: string) =>
   error.value
     ? errorConfig[component as keyof typeof errorConfig]
-    : route.meta[component]
+    : route.meta[component];
 
 const footerClass = computed(() => ({
   'footer-full': shouldShow('footerFull'),
-  'footer-compact': shouldShow('footerCompact')
-}))
+  'footer-compact': shouldShow('footerCompact'),
+}));
 
 const footerComponent = computed(() =>
   shouldShow('footerFull') ? FooterFull : FooterCompact
-)
+);
 </script>
 
 <style>

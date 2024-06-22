@@ -86,8 +86,8 @@
             }"
             class="color"
             :style="{
-              '--color-figure': `var(--color-figure-${randomColor})`,
-              '--color-fill': `var(--color-fill-${randomColor}-secondary)`,
+              '--color-figure': `var(--color-figure-${$randomDevColor?.name})`,
+              '--color-fill': `var(--color-fill-${$randomDevColor?.name}-secondary)`,
             }"
           />
         </ul>
@@ -149,9 +149,9 @@ defineProps<{
   title: string;
 }>();
 
-const { $listUserRepositories, $listPinnedRepositories } = useNuxtApp();
+const { $listUserRepositories, $listPinnedRepositories, $randomDevColor } =
+  useNuxtApp();
 const { tm } = useI18n();
-const colorStore = useColor();
 const config = useRuntimeConfig();
 
 const ul = ref<HTMLElement | null>(null);
@@ -159,7 +159,6 @@ const ulHeight = useElementSize(ul).height;
 
 const pinned = ref<PinnedRepository[]>([]);
 const currentIndex = ref(0);
-const randomColor = ref(colorStore.randomizeColor()?.colorName || '');
 const windowWidth = useWindowSize({ initialWidth: 0 }).width;
 
 const { data: userRepositories } = useAsyncData(
@@ -234,7 +233,7 @@ watch(
       project.icon = {
         name: 'pin.fill',
         colors: {
-          primary: `var(--color-figure-${randomColor.value})`,
+          primary: `var(--color-figure-${$randomDevColor?.name})`,
         },
       };
     });

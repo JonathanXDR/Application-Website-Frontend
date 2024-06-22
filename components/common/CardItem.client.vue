@@ -61,8 +61,8 @@
             :icon="badge.icon"
             :loading="loading"
             :colors="{
-              primary: `var(--color-figure-${colorBadge?.colorName})`,
-              tertiary: `var(--color-figure-${colorBadge?.colorName})`,
+              primary: `var(--color-figure-${$randomDevColor?.name})`,
+              tertiary: `var(--color-figure-${$randomDevColor?.name})`,
             }"
             hover
             border
@@ -137,8 +137,7 @@ const props = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
   }),
 });
 
-const { colorBadge } = useColor();
-
+const { $randomDevColor } = useNuxtApp();
 const applyHover = computed(
   () =>
     (props.hover === 'auto' && props.links?.length === 1) ||

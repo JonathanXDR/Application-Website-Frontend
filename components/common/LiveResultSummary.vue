@@ -7,7 +7,7 @@
           name="pin.fill"
           component-size="small"
           :colors="{
-            primary: randomColor
+            primary: `var(--color-figure-${$randomDevColor?.name})`,
           }"
           class="icon icon-medium"
         />
@@ -30,22 +30,16 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    totalResults: number
-    pinnedResults?: number
+    totalResults: number;
+    pinnedResults?: number;
   }>(),
   {
     totalResults: 0,
-    pinnedResults: 0
+    pinnedResults: 0,
   }
-)
+);
 
-const colorStore = useColor()
-const randomColor = ref('')
-
-const colorObj = colorStore.randomizeColor()
-if (colorObj) {
-  randomColor.value = colorObj.colorVar
-}
+const { $randomDevColor } = useNuxtApp();
 </script>
 
 <style scoped>
