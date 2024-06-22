@@ -4,7 +4,7 @@
     :id="componentId"
     v-animation="scrollAnimation"
     :href="componentHref"
-    :class="componentClasses"
+    :class="['scroll-animation scroll-animation--off', variant, componentSize]"
     target="_blank"
   >
     <div v-if="hasCoverOrGraphs" class="card-cover-wrap">
@@ -154,11 +154,6 @@ const componentHref = computed(() =>
     ? props.links[0]?.url || ''
     : props.html_url || ''
 );
-const componentClasses = computed(() => [
-  'scroll-animation scroll-animation--off',
-  props.variant,
-  props.componentSize,
-]);
 const scrollAnimation = {
   add: 'scroll-animation--on',
   remove: 'scroll-animation--off',
