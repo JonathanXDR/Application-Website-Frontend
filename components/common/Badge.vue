@@ -24,27 +24,27 @@
 </template>
 
 <script setup lang="ts">
-import type { BadgeType } from '~/types/common/Badge'
+import type { BadgeType } from '~/types/common/Badge';
 
 const props = withDefaults(defineProps<BadgeType>(), {
   variant: 'a',
-  size: 'medium',
+  componentSize: 'medium',
   colors: () => ({
     primary: 'var(--color-fill-gray)',
     secondary: 'var(--color-fill-tertiary)',
-    tertiary: 'var(--color-figure-blue)'
+    tertiary: 'var(--color-figure-blue)',
   }),
   border: false,
   hover: true,
   loading: false,
-  onClick: () => {}
-})
+  onClick: () => {},
+});
 
 const defaultColors = {
   primary: 'var(--color-fill-gray)',
   secondary: 'var(--color-fill-tertiary)',
-  tertiary: 'var(--color-figure-blue)'
-}
+  tertiary: 'var(--color-figure-blue)',
+};
 
 const computedStyle = computed(() => ({
   '--color-figure': props.loading
@@ -57,8 +57,8 @@ const computedStyle = computed(() => ({
     ? defaultColors.secondary
     : props.colors?.tertiary,
   '--color-figure-border':
-    props.loading || !props.border ? 'transparent' : props.colors?.tertiary
-}))
+    props.loading || !props.border ? 'transparent' : props.colors?.tertiary,
+}));
 </script>
 
 <style scoped>
