@@ -11,9 +11,9 @@
           ...language.icon,
           name: language.icon?.name || '',
           alignment: 'start',
-          position: windowWidth < 930 ? 'top' : 'left'
+          position: windowWidth < 930 ? 'top' : 'left',
         },
-        loading: false
+        loading: false,
       }"
     >
       <LanguageBarV2
@@ -40,11 +40,11 @@
 </template>
 
 <script setup lang="ts">
-import type { LanguageBarType } from '~/types/common/LanguageBar'
+import type { LanguageBarType } from '~/types/common/LanguageBar';
 
 defineProps<{
-  title: string
-}>()
+  title: string;
+}>();
 
 // const items = reactive([
 //   { id: 'productivity', label: 'Productivity' },
@@ -53,11 +53,11 @@ defineProps<{
 //   { id: 'development', label: 'Software development' },
 // ])
 
-const { tm } = useI18n()
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
+const { tm } = useI18n();
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
 const languages = computed<LanguageBarType[]>(() =>
   tm('components.containers.languages')
-)
+);
 </script>
 
 <style scoped>

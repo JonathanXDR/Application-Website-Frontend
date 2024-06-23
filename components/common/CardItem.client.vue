@@ -104,7 +104,7 @@
             ...info,
             date: {
               ...info?.date,
-              fixed: props.updated_at || props.info?.date?.fixed,
+              fixed: updated_at || info?.date?.fixed,
             },
             loading: loading,
           }"
@@ -140,19 +140,17 @@ const props = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
 const { $randomDevColor } = useNuxtApp();
 const applyHover = computed(
   () =>
-    (props.hover === 'auto' && props.links?.length === 1) ||
+    (props.hover === 'auto' && props.links && props.links.length >= 1) ||
     props.hover === 'true'
 );
 const componentType = computed(() =>
   props.variant === 'article' ? 'div' : 'a'
 );
-const componentId = computed(
-  () => props.title?.toLowerCase().replace(/ /g, '-') || ''
+const componentId = computed(() =>
+  props.title?.toLowerCase().replace(/ /g, '-')
 );
 const componentHref = computed(() =>
-  applyHover.value && props.links
-    ? props.links[0]?.url || ''
-    : props.html_url || ''
+  applyHover.value && props.links ? props.links[0]?.url : props.html_url
 );
 const scrollAnimation = {
   add: 'scroll-animation--on',
@@ -172,7 +170,7 @@ const linkCollectionLinks = computed(
     props.links || [
       {
         title: 'Mehr erfahren',
-        url: props.html_url || '',
+        url: props.html_url,
         icon: { name: 'chevron.right' },
       },
     ]
@@ -198,7 +196,7 @@ const hasInfo = computed(() => {
 const info = computed(() => {
   return (
     props.info || {
-      language: props.language || '',
+      language: props.language || undefined,
       license: props.license?.name,
       forks: props.forks_count,
       networks: props.network_count,
