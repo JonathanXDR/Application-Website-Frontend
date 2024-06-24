@@ -10,8 +10,8 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "icon:cleanup": "sh ./scripts/icon-cleanup.sh",
-    "sprite:generate": "sh ./scripts/sprite-generate.sh",
+    "icon:cleanup-svgs": "sh ./scripts/icon-cleanup-svgs.sh",
+    "icon:generate-sprite": "sh ./scripts/icon-generate-sprite.sh",
     "component:merge": "sh ./scripts/component-merge.sh",
     "build:trigger": "sh ./scripts/build-trigger.sh"
   },
