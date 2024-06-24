@@ -1,9 +1,6 @@
 <template>
   <section
     class="takeover theme-dark"
-    data-analytics-section-engagement="name:takeover"
-    data-anim-scroll-group="takeover"
-    data-component-list="LocalnavTransformer Takeover"
     style="--localnav-theme-start: a0t - 100vh"
   >
     <div class="image event-branding-img" />
@@ -16,26 +13,17 @@
             <a
               href="/web/20240605132002/https://www.apple.com/newsroom/cal/apple-event-1717429718871/wwdc24.ics"
               aria-label="add to calendar: WWDC24"
-              data-analytics-intrapage-link=""
-              data-analytics-title="add to calendar | WWDC24"
               class="add-to-calendar__link icon-downloadcircle icon"
               download=""
               role="button"
               tabindex="0"
-              >Add to calendar</a
-            >
+              >Add to calendar
+              <Icon name="arrow.down.circle" class="icon icon-small" />
+            </a>
           </div>
         </div>
         <div class="event-info-interactive show-countdown">
-          <aside
-            aria-label="Countdown:WWDC24"
-            class="countdown"
-            data-days-label="Days"
-            data-hours-label="Hours"
-            data-minutes-label="Minutes"
-            data-soon-label="The event is starting soon, WWDC24"
-            data-now-label="The event is starting now, WWDC24"
-          >
+          <aside aria-label="Countdown:WWDC24" class="countdown">
             <div class="countdown-zone">
               <span class="countdown-volabel">5, Days</span>
               <div class="countdown-digitsholder" aria-hidden="true">
@@ -63,7 +51,6 @@
               href="https://web.archive.org/web/20240605132002/https://www.apple.com/apple-events/"
               class="watch-live"
               aria-label="watch live event: WWDC24"
-              data-analytics-title="watch live event | WWDC24"
               aria-hidden="true"
               tabindex="-1"
               >Watch live event</a
@@ -72,7 +59,6 @@
               href="https://web.archive.org/web/20240605132002/https://www.apple.com/apple-events/"
               class="watch-event"
               aria-label="watch event: WWDC24"
-              data-analytics-title="watch event | WWDC24"
               aria-hidden="true"
               tabindex="-1"
               >Watch event</a
