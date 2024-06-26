@@ -85,7 +85,7 @@ process_svgs() {
   done
 }
 
-for sub_dir in $(find "$abs_dir" -mindepth 1 -maxdepth 1 -type d); do
+find "$abs_dir" -mindepth 1 -maxdepth 1 -type d | while IFS= read -r sub_dir; do
   process_svgs "$(basename "$sub_dir")"
 done
 

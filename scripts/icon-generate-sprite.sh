@@ -45,9 +45,8 @@ generate_sprite() {
   svg-sprite --symbol --symbol-sprite=sprite.svg ./"$file_pattern"
 }
 
-for sub_dir in $(find "$abs_dir" -mindepth 1 -maxdepth 1 -type d); do
+find "$abs_dir" -mindepth 1 -maxdepth 1 -type d | while IFS= read -r sub_dir; do
   generate_sprite "$(basename "$sub_dir")"
 done
 
-cd - >/dev/null || exit
 echo "\nProcessing complete.\n"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd "$(dirname "$0")/../components"
+cd "$(dirname "$0")/../components" || exit
 
 if [ $? -ne 0 ]; then
   echo "Error: Unable to navigate to the components directory."
