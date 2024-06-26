@@ -29,8 +29,7 @@
         {
           "id": "funFacts",
           "name": "Fun Facts",
-          "route": "#funFacts",
-          "class": "section-separated"
+          "route": "#funFacts"
         },
         {
           "id": "technologies",

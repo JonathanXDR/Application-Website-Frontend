@@ -1,9 +1,9 @@
 <template>
-  <h2>{{ title }}</h2>
+  <Takeover />
 </template>
 
 <script setup lang="ts">
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 </script>
