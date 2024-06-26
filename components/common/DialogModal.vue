@@ -83,7 +83,8 @@ const toggle = () => {
 .icon:before,
 .more:after,
 .more:before {
-  font-family: SF Pro Icons;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -126,8 +127,8 @@ a.icon-wrapper:hover .icon-copy {
   line-height: 1.4211026316;
   font-weight: 400;
   letter-spacing: 0.012em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 @media only screen and (max-width: 734px) {
   .typography-icon-card-modal-body {
@@ -135,8 +136,8 @@ a.icon-wrapper:hover .icon-copy {
     line-height: 1.4705882353;
     font-weight: 400;
     letter-spacing: -0.022em;
-    font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 .typography-icon-card-modal-inline-headline {
@@ -144,8 +145,8 @@ a.icon-wrapper:hover .icon-copy {
   line-height: 1.4211026316;
   font-weight: 600;
   letter-spacing: 0.012em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 @media only screen and (max-width: 734px) {
   .typography-icon-card-modal-inline-headline {
@@ -153,8 +154,8 @@ a.icon-wrapper:hover .icon-copy {
     line-height: 1.4705882353;
     font-weight: 600;
     letter-spacing: -0.022em;
-    font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 .typography-modal-headline {
@@ -162,8 +163,8 @@ a.icon-wrapper:hover .icon-copy {
   line-height: 1.0714285714;
   font-weight: 600;
   letter-spacing: -0.005em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 @media only screen and (max-width: 1068px) {
   .typography-modal-headline {
@@ -171,8 +172,8 @@ a.icon-wrapper:hover .icon-copy {
     line-height: 1.0834933333;
     font-weight: 600;
     letter-spacing: -0.003em;
-    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -181,8 +182,8 @@ a.icon-wrapper:hover .icon-copy {
     line-height: 1.125;
     font-weight: 600;
     letter-spacing: 0.004em;
-    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 .typography-modal-topic-label {
@@ -190,8 +191,8 @@ a.icon-wrapper:hover .icon-copy {
   line-height: 1.4211026316;
   font-weight: 600;
   letter-spacing: 0.012em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 @media only screen and (max-width: 734px) {
   .typography-modal-topic-label {
@@ -199,8 +200,8 @@ a.icon-wrapper:hover .icon-copy {
     line-height: 1.4705882353;
     font-weight: 600;
     letter-spacing: -0.022em;
-    font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 .modal-close-button {

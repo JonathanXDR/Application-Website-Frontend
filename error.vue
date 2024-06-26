@@ -52,7 +52,7 @@
               <span>{{ title }}</span>
             </h1>
             <div class="rs-covers-desc">
-              {{ description[0] }}. <br >{{ description[1] }}
+              {{ description[0] }}. <br />{{ description[1] }}
             </div>
           </div>
         </div>
@@ -63,8 +63,8 @@
 </template>
 
 <script setup lang="ts">
-const error = useError();
-const { t, tm } = useI18n();
+const error = useError()
+const { t, tm } = useI18n()
 const pages = {
   notFound: 404,
   internalServerError: 500,
@@ -78,8 +78,8 @@ const currentKey = computed(() => {
       (key: string) =>
         pages[key as keyof typeof pages] === error.value?.statusCode
     ) || 'error'
-  );
-});
+  )
+})
 
 const title = t(`pages.${currentKey.value}.title`, {
   statusCode: error.value?.statusCode
@@ -502,8 +502,8 @@ h1 + * {
   .rs-covers-preorder .rs-covers-desc {
     font-size: 17px;
     font-weight: 400;
-    font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
-      Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 .rs-covers-footer {

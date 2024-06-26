@@ -30,9 +30,9 @@
                 >{{ value.prev }}, {{ label }}</span
               >
               <div class="countdown-digitsholder">
-                <span v-if="isTransitioning" class="countdown-prev">{{
+                <!-- <span v-if="isTransitioning" class="countdown-prev">{{
                   value.prev
-                }}</span>
+                }}</span> -->
                 <span class="countdown-current">{{ value.current }}</span>
               </div>
               <div class="countdown-label">{{ label }}</div>
@@ -252,10 +252,8 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   line-height: 1.125;
   font-weight: 700;
   letter-spacing: 0.004em;
-  font-family: 'SF
-Pro Display', 'SF Pro Icons', 'Helvetica
-Neue', 'Helvetica',
-    'Arial', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   margin-bottom: 24px;
 }
 @media only screen and (max-width: 1068px) {
@@ -264,9 +262,8 @@ Neue', 'Helvetica',
     line-height: 1.1428571429;
     font-weight: 700;
     letter-spacing: 0.007em;
-    font-family: 'SF
-Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-      'Arial', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -275,9 +272,8 @@ Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
     line-height: 1.1666666667;
     font-weight: 700;
     letter-spacing: 0.009em;
-    font-family: 'SF
-Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-      'Arial', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 @media only screen and (max-width: 1068px) {
@@ -393,9 +389,8 @@ Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
   line-height: 1.125;
   font-weight: 700;
   letter-spacing: 0.004em;
-  font-family: 'SF Pro Display', 'SF Pro
-Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -407,9 +402,8 @@ Icons', 'Helvetica Neue', 'Helvetica',
     line-height: 1.1904761905;
     font-weight: 700;
     letter-spacing: 0.011em;
-    font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica
-Neue', 'Helvetica',
-      'Arial', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -418,9 +412,8 @@ Neue', 'Helvetica',
     line-height: 1.2105263158;
     font-weight: 700;
     letter-spacing: 0.012em;
-    font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica
-Neue', 'Helvetica',
-      'Arial', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -581,10 +574,8 @@ Neue', 'Helvetica',
   line-height: 1.4285914286;
   font-weight: 700;
   letter-spacing: -0.016em;
-  font-family: 'SF
-Pro Text', 'SF Pro Icons', 'Helvetica
-Neue', 'Helvetica',
-    'Arial', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   padding: 8px 16px;
   background: #333336;
   color: #f5f5f7;
@@ -690,9 +681,8 @@ Neue', 'Helvetica',
   line-height: 1.2353641176;
   font-weight: 600;
   letter-spacing: -0.022em;
-  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica
-Neue', 'Helvetica',
-    'Arial', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   border: 2px solid;
   padding: 10px 24px 9px;
   border-color: #f5f5f7;
@@ -775,8 +765,8 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
   line-height: 1.125;
   font-weight: 700;
   letter-spacing: 0.004em;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: var(--sk-body-text-color);
   display: flex;
   position: relative;
@@ -789,9 +779,8 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
     line-height: 1.1428571429;
     font-weight: 700;
     letter-spacing: 0.007em;
-    font-family: 'SF Pro Display', 'SF Pro
-Icons', 'Helvetica Neue', 'Helvetica',
-      'Arial', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -800,9 +789,8 @@ Icons', 'Helvetica Neue', 'Helvetica',
     line-height: 1.1666666667;
     font-weight: 700;
     letter-spacing: 0.009em;
-    font-family: 'SF Pro Display', 'SF Pro
-Icons', 'Helvetica Neue', 'Helvetica',
-      'Arial', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -868,9 +856,8 @@ Icons', 'Helvetica Neue', 'Helvetica',
   line-height: 1.4285914286;
   font-weight: 700;
   letter-spacing: -0.016em;
-  font-family: 'SF Pro
-Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: #86868b;
   margin-top: 4px;
 }

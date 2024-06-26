@@ -87,8 +87,8 @@ defineProps<{
   line-height: 1.0834933333;
   font-weight: 700;
   letter-spacing: -0.003em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   max-width: 600px;
   text-align: center;
 }
@@ -98,8 +98,8 @@ defineProps<{
     line-height: 1.1428571429;
     font-weight: 700;
     letter-spacing: 0.007em;
-    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', 'Arial', sans-serif;
   }
 }
 .loader-headline:focus {
