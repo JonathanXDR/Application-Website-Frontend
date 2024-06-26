@@ -164,7 +164,7 @@
             "category": "technologies",
             "label": "Framework",
             "icon": {
-              "name": "square.dashed.inset.filled"
+              "name": "inset.filled.square.dashed"
             }
           },
           {
@@ -1291,7 +1291,7 @@
         },
         {
           "icon": {
-            "name": "square.dashed.inset.filled"
+            "name": "inset.filled.square.dashed"
           },
           "eyebrow": "Framework",
           "title": "Express.js",
@@ -1313,7 +1313,7 @@
         },
         {
           "icon": {
-            "name": "square.dashed.inset.filled"
+            "name": "inset.filled.square.dashed"
           },
           "eyebrow": "Framework",
           "title": "Vue.js",
@@ -1424,7 +1424,7 @@
         },
         {
           "icon": {
-            "name": "square.dashed.inset.filled"
+            "name": "inset.filled.square.dashed"
           },
           "eyebrow": "Framework",
           "title": "React",
@@ -1447,7 +1447,7 @@
         },
         {
           "icon": {
-            "name": "square.dashed.inset.filled"
+            "name": "inset.filled.square.dashed"
           },
           "eyebrow": "Framework",
           "title": "Next.js",
@@ -1514,7 +1514,7 @@
         },
         {
           "icon": {
-            "name": "square.dashed.inset.filled"
+            "name": "inset.filled.square.dashed"
           },
           "eyebrow": "Framework",
           "title": "Nest.js",
@@ -1716,7 +1716,7 @@
         },
         {
           "icon": {
-            "name": "square.dashed.inset.filled"
+            "name": "inset.filled.square.dashed"
           },
           "eyebrow": "Framework",
           "title": "Nuxt",
@@ -1739,7 +1739,7 @@
         },
         {
           "icon": {
-            "name": "square.dashed.inset.filled"
+            "name": "inset.filled.square.dashed"
           },
           "eyebrow": "Framework",
           "title": "Angular",
@@ -1937,7 +1937,7 @@
         },
         {
           "icon": {
-            "name": "clock.arrow.2.circlepath"
+            "name": "clock.arrow.trianglehead.2.counterclockwise.rotate.90"
           },
           "eyebrow": "Automation",
           "title": "Automatisierungsprojekte im Banking Bereich",
