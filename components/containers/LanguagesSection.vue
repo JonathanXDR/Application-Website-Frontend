@@ -22,7 +22,7 @@
         loading: false
       }"
     >
-      <LanguageBarV3
+      <LanguageBarV2
         v-if="language"
         :title="language.title"
         :progress="language.progress"

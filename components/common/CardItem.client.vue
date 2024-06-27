@@ -527,7 +527,7 @@ const iconClasses = computed(() => ({
 /* ---------------------------------- title --------------------------------- */
 
 .title-wrapper {
-  width: 90%;
+  max-width: 90%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
