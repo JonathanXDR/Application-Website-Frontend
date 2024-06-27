@@ -29,31 +29,31 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Item'
+import type { ItemType } from "~/types/common/Item";
 const props = withDefaults(
   defineProps<{
-    items: ItemType[]
-    activeTabId: string
+    items: ItemType[];
+    activeTabId: string;
   }>(),
   {
     items: () => [],
-    activeTabId: '0'
-  }
-)
+    activeTabId: "0",
+  },
+);
 
-const emit = defineEmits(['change']);
+const emit = defineEmits(["change"]);
 const selectedTab = ref(props.activeTabId);
 
 watch(
   () => props.activeTabId,
-  newVal => {
-    selectedTab.value = newVal
-  }
-)
+  (newVal) => {
+    selectedTab.value = newVal;
+  },
+);
 
 const emitChange = (id: string) => {
-  emit('change', id)
-}
+  emit("change", id);
+};
 
 // function (e, t, i) {
 //   'use strict';
@@ -348,8 +348,14 @@ const emitChange = (id: string) => {
 .tabnav-paddle {
   font-size: 17px;
   font-weight: 300;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   border: 0 solid var(--color-fill-gray-tertiary);
   border-radius: 0;
   color: var(--color-fill-gray);
@@ -451,11 +457,11 @@ const emitChange = (id: string) => {
   border-bottom-color: var(--color-figure-gray-secondary);
 }
 
-.tabnav-item > input[type='radio'] {
+.tabnav-item > input[type="radio"] {
   display: none;
 }
 
-.tabnav-item > input[type='radio']:checked ~ label.tabnav-link {
+.tabnav-item > input[type="radio"]:checked ~ label.tabnav-link {
   color: var(--color-fill-gray);
   pointer-events: none;
   text-decoration: none;
@@ -463,15 +469,15 @@ const emitChange = (id: string) => {
   z-index: 10;
 }
 
-#music .tabnav-item > input[type='radio']:checked ~ label.tabnav-link {
+#music .tabnav-item > input[type="radio"]:checked ~ label.tabnav-link {
   color: #e85f82 !important;
 }
 
-.tabnav-item > input[type='radio']:checked ~ label.tabnav-link:after {
+.tabnav-item > input[type="radio"]:checked ~ label.tabnav-link:after {
   border-bottom-color: var(--color-fill-gray);
 }
 
-#music .tabnav-item > input[type='radio']:checked ~ label.tabnav-link:after {
+#music .tabnav-item > input[type="radio"]:checked ~ label.tabnav-link:after {
   border-bottom-width: 2px !important;
   border-bottom-color: #e85f82 !important;
 }
@@ -498,8 +504,14 @@ const emitChange = (id: string) => {
   cursor: pointer;
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   padding: 9px 0 11px;
   margin-top: 2px;
   margin-bottom: 4px;
@@ -513,8 +525,14 @@ const emitChange = (id: string) => {
 .tabnav-link {
   font-size: 21px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: var(--color-figure-gray-secondary);
 }
 
@@ -534,15 +552,21 @@ const emitChange = (id: string) => {
   bottom: -5px;
   width: 100%;
   border-bottom: 1px solid transparent;
-  content: '';
+  content: "";
 }
 
 @media only screen and (max-width: 1068px) {
   .tabnav-link {
     font-size: 19px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 
@@ -550,8 +574,14 @@ const emitChange = (id: string) => {
   .tabnav-link {
     font-size: 17px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 

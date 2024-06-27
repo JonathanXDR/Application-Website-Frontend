@@ -1,17 +1,17 @@
-import { graphql, type GraphQlQueryResponseData } from '@octokit/graphql'
-import type { Repository } from '@octokit/graphql-schema'
-import type { RequestParameters } from '@octokit/types'
-import { Octokit } from 'octokit'
+import { graphql, type GraphQlQueryResponseData } from "@octokit/graphql";
+import type { Repository } from "@octokit/graphql-schema";
+import type { RequestParameters } from "@octokit/types";
+import { Octokit } from "octokit";
 import type {
   GetAuthenticatedUserGistParameters,
   GetAuthenticatedUserGists,
   GetUserGists,
-  GetUserGistsParameters
-} from '~/types/services/GitHub/Gist'
+  GetUserGistsParameters,
+} from "~/types/services/GitHub/Gist";
 import type {
   GetRepositoryIssues,
-  GetRepositoryIssuesParameters
-} from '~/types/services/GitHub/Issue'
+  GetRepositoryIssuesParameters,
+} from "~/types/services/GitHub/Issue";
 import type {
   GetAuthenticatedUserRepositories,
   GetAuthenticatedUserRepositoriesParameters,
@@ -20,112 +20,112 @@ import type {
   GetPublicRepositories,
   GetPublicRepositoriesParameters,
   GetUserRepositories,
-  GetUserRepositoriesParameters
-} from '~/types/services/GitHub/Repository'
+  GetUserRepositoriesParameters,
+} from "~/types/services/GitHub/Repository";
 import type {
   GetRepositoryTags,
-  GetRepositoryTagsParameters
-} from '~/types/services/GitHub/Tag'
+  GetRepositoryTagsParameters,
+} from "~/types/services/GitHub/Tag";
 
 export default defineNuxtPlugin(() => {
-  const { githubToken } = useRuntimeConfig()
+  const { githubToken } = useRuntimeConfig();
 
-  const octokit = new Octokit({ auth: githubToken })
+  const octokit = new Octokit({ auth: githubToken });
   const graphqlInstance = graphql.defaults({
-    headers: { authorization: `token ${githubToken}` }
-  })
+    headers: { authorization: `token ${githubToken}` },
+  });
 
   const fetchFromOctokit = async (
     endpoint: string,
     params: RequestParameters,
-    logMessage: string
+    logMessage: string,
   ) => {
     try {
-      const response = await octokit.request(endpoint, params)
-      return response.data
+      const response = await octokit.request(endpoint, params);
+      return response.data;
     } catch (error) {
-      console.error(`Error ${logMessage}:`, error)
-      throw error
+      console.error(`Error ${logMessage}:`, error);
+      throw error;
     }
-  }
+  };
 
   const listPublicRepositories = (
-    params: GetPublicRepositoriesParameters
+    params: GetPublicRepositoriesParameters,
   ): Promise<GetPublicRepositories> =>
     fetchFromOctokit(
-      'GET /repositories',
-      { ...params, headers: { accept: 'application/vnd.github+json' } },
-      'fetching public repositories'
-    )
+      "GET /repositories",
+      { ...params, headers: { accept: "application/vnd.github+json" } },
+      "fetching public repositories",
+    );
 
   const listUserRepositories = (
-    params: GetUserRepositoriesParameters
+    params: GetUserRepositoriesParameters,
   ): Promise<GetUserRepositories> =>
     fetchFromOctokit(
-      'GET /users/{username}/repos',
-      { ...params, headers: { accept: 'application/vnd.github+json' } },
-      `fetching repositories for user ${params.username}`
-    )
+      "GET /users/{username}/repos",
+      { ...params, headers: { accept: "application/vnd.github+json" } },
+      `fetching repositories for user ${params.username}`,
+    );
 
   const listAuthenticatedUserRepositories = (
-    params: GetAuthenticatedUserRepositoriesParameters
+    params: GetAuthenticatedUserRepositoriesParameters,
   ): Promise<GetAuthenticatedUserRepositories> =>
     fetchFromOctokit(
-      'GET /user/repos',
-      { ...params, headers: { accept: 'application/vnd.github+json' } },
-      'fetching authenticated user repositories'
-    )
+      "GET /user/repos",
+      { ...params, headers: { accept: "application/vnd.github+json" } },
+      "fetching authenticated user repositories",
+    );
 
   const getRepository = (
-    params: GetOwnerRepositoryParameters
+    params: GetOwnerRepositoryParameters,
   ): Promise<GetOwnerRepository> =>
     fetchFromOctokit(
-      'GET /repos/{owner}/{repo}',
-      { ...params, headers: { accept: 'application/vnd.github+json' } },
-      `fetching repository for owner ${params.owner}`
-    )
+      "GET /repos/{owner}/{repo}",
+      { ...params, headers: { accept: "application/vnd.github+json" } },
+      `fetching repository for owner ${params.owner}`,
+    );
 
   const listRepositoryTags = (
-    params: GetRepositoryTagsParameters
+    params: GetRepositoryTagsParameters,
   ): Promise<GetRepositoryTags> =>
     fetchFromOctokit(
-      'GET /repos/{owner}/{repo}/tags',
-      { ...params, headers: { accept: 'application/vnd.github+json' } },
-      `fetching tags for repository ${params.repo}`
-    )
+      "GET /repos/{owner}/{repo}/tags",
+      { ...params, headers: { accept: "application/vnd.github+json" } },
+      `fetching tags for repository ${params.repo}`,
+    );
 
   const listRepositoryIssues = (
-    params: GetRepositoryIssuesParameters
+    params: GetRepositoryIssuesParameters,
   ): Promise<GetRepositoryIssues> =>
     fetchFromOctokit(
-      'GET /repos/{owner}/{repo}/issues',
-      { ...params, headers: { accept: 'application/vnd.github+json' } },
-      `fetching issues for repository ${params.repo}`
-    )
+      "GET /repos/{owner}/{repo}/issues",
+      { ...params, headers: { accept: "application/vnd.github+json" } },
+      `fetching issues for repository ${params.repo}`,
+    );
 
   const listUserGists = (
-    params: GetUserGistsParameters
+    params: GetUserGistsParameters,
   ): Promise<GetUserGists> =>
     fetchFromOctokit(
-      'GET /users/{username}/gists',
-      { ...params, headers: { accept: 'application/vnd.github+json' } },
-      `fetching gists for user ${params.username}`
-    )
+      "GET /users/{username}/gists",
+      { ...params, headers: { accept: "application/vnd.github+json" } },
+      `fetching gists for user ${params.username}`,
+    );
 
   const listAuthenticatedUserGists = (
-    params: GetAuthenticatedUserGistParameters
+    params: GetAuthenticatedUserGistParameters,
   ): Promise<GetAuthenticatedUserGists> =>
     fetchFromOctokit(
-      'GET /gists',
-      { ...params, headers: { accept: 'application/vnd.github+json' } },
-      'fetching authenticated user gists'
-    )
+      "GET /gists",
+      { ...params, headers: { accept: "application/vnd.github+json" } },
+      "fetching authenticated user gists",
+    );
 
   const listPinnedRepositories = async (params: {
-    username: string
-    per_page?: number
+    username: string;
+    per_page?: number;
   }): Promise<Repository[]> => {
-    const { username, per_page = 30 } = params
+    const { username, per_page = 30 } = params;
 
     const query = `
       {
@@ -182,7 +182,7 @@ export default defineNuxtPlugin(() => {
             }
           }
         }
-      }`
+      }`;
 
     const remapProps = (item: Repository) => {
       const {
@@ -196,41 +196,41 @@ export default defineNuxtPlugin(() => {
         stargazers,
         issues,
         pullRequests,
-        updatedAt
-      } = item
+        updatedAt,
+      } = item;
 
       return {
         name,
         description,
         html_url: url,
-        topics: repositoryTopics?.nodes?.map(node => node?.topic.name),
+        topics: repositoryTopics?.nodes?.map((node) => node?.topic.name),
         language: primaryLanguage?.name,
         license: licenseInfo,
-        forks: forks?.nodes?.map(node => node?.url),
-        stars: stargazers?.nodes?.map(node => node?.url),
+        forks: forks?.nodes?.map((node) => node?.url),
+        stars: stargazers?.nodes?.map((node) => node?.url),
         issues: issues?.nodes
-          ?.filter(node => node && !node.closed)
-          .map(node => node?.url),
+          ?.filter((node) => node && !node.closed)
+          .map((node) => node?.url),
         pullRequests: pullRequests?.nodes
-          ?.filter(node => node && !node.closed)
-          .map(node => node?.url),
-        updated_at: updatedAt
-      }
-    }
+          ?.filter((node) => node && !node.closed)
+          .map((node) => node?.url),
+        updated_at: updatedAt,
+      };
+    };
 
     try {
-      const response = await graphqlInstance<GraphQlQueryResponseData>(query)
+      const response = await graphqlInstance<GraphQlQueryResponseData>(query);
       return response.user.pinnedItems.edges.map((edge: { node: Repository }) =>
-        remapProps(edge.node)
-      )
+        remapProps(edge.node),
+      );
     } catch (error) {
       console.error(
         `Error fetching pinned repositories for user ${username}:`,
-        error
-      )
-      throw error
+        error,
+      );
+      throw error;
     }
-  }
+  };
 
   return {
     provide: {
@@ -242,7 +242,7 @@ export default defineNuxtPlugin(() => {
       listRepositoryIssues,
       listUserGists,
       listAuthenticatedUserGists,
-      listPinnedRepositories
-    }
-  }
-})
+      listPinnedRepositories,
+    },
+  };
+});

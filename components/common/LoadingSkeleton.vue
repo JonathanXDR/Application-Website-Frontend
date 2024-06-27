@@ -3,16 +3,16 @@
     class="loading-skeleton"
     :style="{
       width: width,
-      height: height
+      height: height,
     }"
   />
 </template>
 
 <script setup lang="ts">
 defineProps<{
-  width: string
-  height: string
-}>()
+  width: string;
+  height: string;
+}>();
 </script>
 
 <style scoped>
@@ -30,7 +30,7 @@ defineProps<{
   z-index: 1;
 }
 .loading-skeleton:after {
-  content: '';
+  content: "";
   display: var(--pseudo-element-display);
   position: absolute;
   top: 0;

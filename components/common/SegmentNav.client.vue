@@ -25,7 +25,7 @@
           :class="['viewer-sizenav-value', { focus }]"
           :value="item.id"
           :disabled="item.id !== selectedItem && isTransitioning"
-        />
+        >
         <label
           :for="`viewer-sizenav-value-${item.id}`"
           class="viewer-sizenav-link"
@@ -64,22 +64,22 @@
 </template>
 
 <script setup lang="ts">
-import type { SegmentNavType } from '~/types/common/SegmentNav';
+import type { SegmentNavType } from "~/types/common/SegmentNav";
 
 const props = withDefaults(defineProps<SegmentNavType>(), {
-  componentSize: 'medium',
-  label: 'text',
+  componentSize: "medium",
+  label: "text",
   focus: true,
   separator: false,
   shadow: false,
   grayLabels: false,
-  gap: '0px',
+  gap: "0px",
   padding: (props: SegmentNavType) => {
-    return props.label !== 'icon' ? '0 8px' : '0';
+    return props.label !== "icon" ? "0 8px" : "0";
   },
   outerPadding: 4,
   selectedItem: (props: SegmentNavType) => {
-    return props.items[0]?.id || '';
+    return props.items[0]?.id || "";
   },
   onSelect: () => {},
 });
@@ -98,14 +98,14 @@ const setItemRef = (el: HTMLElement | null) => {
 const updateBubblePosition = () => {
   isTransitioning.value = true;
   const selectedItemIndex = props.items.findIndex(
-    (item) => item.id === selectedItem.value
+    (item) => item.id === selectedItem.value,
   );
   selectedItemElement.value = itemElements.value[selectedItemIndex] || null;
   if (selectedItemElement.value) {
     bubbleStyle.value = {
-      '--bubble-position': `${selectedItemElement.value.offsetLeft}px`,
-      '--bubble-width': `${selectedItemElement.value.offsetWidth}px`,
-      opacity: '1',
+      "--bubble-position": `${selectedItemElement.value.offsetLeft}px`,
+      "--bubble-width": `${selectedItemElement.value.offsetWidth}px`,
+      opacity: "1",
     };
   }
 
@@ -121,7 +121,7 @@ const computedHeight = computed(() => {
     medium: 48,
     large: 56,
   };
-  return sizes[props.componentSize || 'medium'] || 48;
+  return sizes[props.componentSize || "medium"] || 48;
 });
 
 const fontSize = computed(() => {
@@ -131,14 +131,14 @@ const fontSize = computed(() => {
     medium: 16,
     large: 18,
   };
-  return sizes[props.componentSize || 'medium'];
+  return sizes[props.componentSize || "medium"];
 });
 
 const containerStyle = computed(() => ({
   width: `fit-content`,
-  '--sizenav-width': `${navContainer.value?.offsetWidth}px`,
-  '--sizenav-outer-padding': `${props.outerPadding}px`,
-  '--aap-min-height': `${computedHeight.value}px`,
+  "--sizenav-width": `${navContainer.value?.offsetWidth}px`,
+  "--sizenav-outer-padding": `${props.outerPadding}px`,
+  "--aap-min-height": `${computedHeight.value}px`,
 }));
 
 watch(
@@ -147,7 +147,7 @@ watch(
     props.onSelect(newItem);
     updateBubblePosition();
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 onMounted(updateBubblePosition);
@@ -169,7 +169,7 @@ useResizeObserver(navContainer, () => {
   text-align: center;
 }
 .viewer-sizenav-item.separator:not(:first-child)::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   top: 0;
@@ -277,7 +277,9 @@ useResizeObserver(navContainer, () => {
   transform: translateX(
     calc(var(--bubble-position) - var(--sizenav-outer-padding))
   );
-  transition: transform 400ms ease, width 400ms ease;
+  transition:
+    transform 400ms ease,
+    width 400ms ease;
   width: var(--bubble-width);
   will-change: transform;
 }
@@ -291,7 +293,7 @@ useResizeObserver(navContainer, () => {
   top: 0;
 }
 .viewer-sizenav__bubble-inner:before {
-  content: '';
+  content: "";
   height: 100%;
   transform: translateX(calc(var(--bubble-hint-position) * 1px))
     scaleX(calc(1 + var(--abs-calc) * 0.15));
@@ -327,7 +329,9 @@ useResizeObserver(navContainer, () => {
   display: flex;
   height: calc(var(--aap-min-height) - calc(var(--sizenav-outer-padding) * 2));
   justify-content: center;
-  transition: background-color 0.25s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.3s ease;
   width: auto;
 }
 .viewer-sizenav-swatch {
@@ -371,7 +375,9 @@ useResizeObserver(navContainer, () => {
   transition: color 400ms cubic-bezier(0.53, -0.01, 0.17, 1);
 }
 .viewer-sizenav-value.focus:focus ~ .viewer-sizenav-link {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 5px #0071e3;
 }
 * {
   --mx-pro-blue: #2997ff;

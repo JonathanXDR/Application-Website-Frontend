@@ -7,31 +7,32 @@
       v-bind="{
         ...article,
         variant: 'article',
+        hover: 'false',
         loading: false,
         componentSize: windowWidth < 900 ? 'small' : 'medium',
         icon: {
           ...article.icon,
           name: article.icon?.name || '',
-          position: windowWidth < 900 ? 'top' : 'left'
+          position: windowWidth < 900 ? 'top' : 'left',
         },
         info: {
-          ...article?.info
-        }
+          ...article?.info,
+        },
       }"
     />
   </ul>
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from '~/types/common/CardItem'
+import type { CardItemType } from "~/types/common/CardItem";
 
 defineProps<{
-  title: string
-}>()
+  title: string;
+}>();
 
-const { tm } = useI18n()
+const { tm } = useI18n();
 const articles = computed<CardItemType[]>(() =>
-  tm('components.containers.references')
-)
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
+  tm("components.containers.references"),
+);
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
 </script>

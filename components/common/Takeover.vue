@@ -61,102 +61,102 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from 'dayjs'
-import duration from 'dayjs/plugin/duration'
-dayjs.extend(duration)
+import dayjs from "dayjs";
+import duration from "dayjs/plugin/duration";
+dayjs.extend(duration);
 
 const props = withDefaults(
   defineProps<{
     eventDuration?: {
-      start: Date
-      end: Date
-    }
-    showCountdown?: boolean
+      start: Date;
+      end: Date;
+    };
+    showCountdown?: boolean;
   }>(),
   {
     eventDuration: () => ({
       start: new Date(2024, 5, 30, 6, 0),
-      end: new Date(2024, 5, 30, 8, 0)
+      end: new Date(2024, 5, 30, 8, 0),
     }),
-    showCountdown: true
-  }
-)
+    showCountdown: true,
+  },
+);
 
 interface CountdownValue {
-  prev: string
-  current: string
+  prev: string;
+  current: string;
 }
 
-const eventState = ref<'pre-event' | 'live' | 'post-event'>('pre-event')
-const countdown = ref<Record<'days' | 'hours' | 'minutes', CountdownValue>>({
-  days: { prev: '00', current: '00' },
-  hours: { prev: '00', current: '00' },
-  minutes: { prev: '00', current: '00' }
-})
-const isTransitioning = ref(false)
-let timer: ReturnType<typeof setTimeout> | null = null
+const eventState = ref<"pre-event" | "live" | "post-event">("pre-event");
+const countdown = ref<Record<"days" | "hours" | "minutes", CountdownValue>>({
+  days: { prev: "00", current: "00" },
+  hours: { prev: "00", current: "00" },
+  minutes: { prev: "00", current: "00" },
+});
+const isTransitioning = ref(false);
+let timer: ReturnType<typeof setTimeout> | null = null;
 
 const updateCountdown = () => {
-  const now = dayjs()
-  const end = dayjs(props.eventDuration.end)
-  const diff = dayjs.duration(end.diff(now))
+  const now = dayjs();
+  const end = dayjs(props.eventDuration.end);
+  const diff = dayjs.duration(end.diff(now));
 
   const newCountdown = {
     days: {
       prev: countdown.value.days.current,
-      current: diff.days().toString().padStart(2, '0')
+      current: diff.days().toString().padStart(2, "0"),
     },
     hours: {
       prev: countdown.value.hours.current,
-      current: diff.hours().toString().padStart(2, '0')
+      current: diff.hours().toString().padStart(2, "0"),
     },
     minutes: {
       prev: countdown.value.minutes.current,
-      current: diff.minutes().toString().padStart(2, '0')
-    }
-  }
+      current: diff.minutes().toString().padStart(2, "0"),
+    },
+  };
 
-  isTransitioning.value = true
-  countdown.value = newCountdown
+  isTransitioning.value = true;
+  countdown.value = newCountdown;
 
   setTimeout(() => {
-    isTransitioning.value = false
-  }, 500)
-}
+    isTransitioning.value = false;
+  }, 500);
+};
 
 const calculateEventState = () => {
-  const now = dayjs()
-  const start = dayjs(props.eventDuration.start)
-  const end = dayjs(props.eventDuration.end)
+  const now = dayjs();
+  const start = dayjs(props.eventDuration.start);
+  const end = dayjs(props.eventDuration.end);
 
   if (now.isBefore(start)) {
-    eventState.value = 'pre-event'
+    eventState.value = "pre-event";
   } else if (now.isAfter(end)) {
-    eventState.value = 'post-event'
+    eventState.value = "post-event";
   } else {
-    eventState.value = 'live'
+    eventState.value = "live";
   }
-}
+};
 
 const queueNextTick = () => {
   timer = setTimeout(() => {
-    updateCountdown()
-    calculateEventState()
-    queueNextTick()
-  }, 1000)
-}
+    updateCountdown();
+    calculateEventState();
+    queueNextTick();
+  }, 1000);
+};
 
 onMounted(() => {
-  calculateEventState()
-  updateCountdown()
-  queueNextTick()
-})
+  calculateEventState();
+  updateCountdown();
+  queueNextTick();
+});
 
 onUnmounted(() => {
   if (timer) {
-    clearTimeout(timer)
+    clearTimeout(timer);
   }
-})
+});
 </script>
 
 <style scoped>
@@ -252,8 +252,14 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   line-height: 1.125;
   font-weight: 700;
   letter-spacing: 0.004em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   margin-bottom: 24px;
 }
 @media only screen and (max-width: 1068px) {
@@ -262,8 +268,14 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     line-height: 1.1428571429;
     font-weight: 700;
     letter-spacing: 0.007em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -272,8 +284,14 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     line-height: 1.1666666667;
     font-weight: 700;
     letter-spacing: 0.009em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 1068px) {
@@ -389,8 +407,14 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   line-height: 1.125;
   font-weight: 700;
   letter-spacing: 0.004em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -402,8 +426,14 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     line-height: 1.1904761905;
     font-weight: 700;
     letter-spacing: 0.011em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -412,8 +442,14 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     line-height: 1.2105263158;
     font-weight: 700;
     letter-spacing: 0.012em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -479,14 +515,16 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 }
 .takeover .event-info .countdown {
   margin-top: 0;
-  transition: margin-top 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
+  transition:
+    margin-top 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 300ms;
 }
 .takeover .event-info:not(.pre-event) .countdown {
   opacity: 0;
   margin-top: -3.5294117647rem;
   pointer-events: none;
-  transition: opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
+  transition:
+    opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     margin-top 300ms cubic-bezier(0.4, 0, 0.25, 1) 300ms;
 }
 .takeover .event-info:not(.pre-event) .add-to-calendar {
@@ -494,7 +532,8 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
+  transition:
+    opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     margin-top 300ms cubic-bezier(0.4, 0, 0.25, 1) 300ms;
 }
 @media only screen and (max-width: 734px) {
@@ -553,7 +592,8 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 }
 .takeover .event-info-heading .add-to-calendar {
   margin-top: 8px;
-  transition: opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 300ms,
+  transition:
+    opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 300ms,
     margin-top 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms;
 }
 @media only screen and (max-width: 734px) {
@@ -567,15 +607,22 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
+  transition:
+    background-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     border-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms;
   font-size: 14px;
   line-height: 1.4285914286;
   font-weight: 700;
   letter-spacing: -0.016em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   padding: 8px 16px;
   background: var(--color-fill-gray-quaternary);
   color: var(--color-fill-gray);
@@ -585,7 +632,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 }
 .takeover
   .event-info-heading
-  .add-to-calendar__link:focus[data-focus-method='key'] {
+  .add-to-calendar__link:focus[data-focus-method="key"] {
   text-decoration: none;
 }
 .takeover .event-info-heading .add-to-calendar__link::after {
@@ -598,7 +645,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 }
 .takeover
   .event-info-heading
-  .add-to-calendar__link:focus[data-focus-method='key']::after {
+  .add-to-calendar__link:focus[data-focus-method="key"]::after {
   color: inherit;
 }
 @media (hover: hover) {
@@ -610,7 +657,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 }
 .takeover
   .event-info-heading
-  .add-to-calendar__link.icon:focus[data-focus-method='key'] {
+  .add-to-calendar__link.icon:focus[data-focus-method="key"] {
   background: var(--color-fill-gray-tertiary);
   color: var(--color-fill-gray);
   text-decoration: none;
@@ -624,7 +671,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 }
 .takeover
   .event-info-heading
-  .add-to-calendar__link:focus[data-focus-method='key'] {
+  .add-to-calendar__link:focus[data-focus-method="key"] {
   background: var(--color-fill-gray-tertiary);
   color: var(--color-fill-gray);
   text-decoration: none;
@@ -674,20 +721,28 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 .takeover .event-info-cta-area .watch-event {
   border-radius: 30px;
   display: inline-block;
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
+  transition:
+    background-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     border-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms;
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
   letter-spacing: -0.022em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   border: 2px solid;
   padding: 10px 24px 9px;
   border-color: var(--color-fill-gray);
   color: var(--color-fill-gray);
-  transition: border-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
+  transition:
+    border-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     background-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 300ms;
   background: transparent;
@@ -698,8 +753,8 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 .takeover .event-info-cta-area .watch-event:hover {
   text-decoration: none;
 }
-.takeover .event-info-cta-area .watch-live:focus[data-focus-method='key'],
-.takeover .event-info-cta-area .watch-event:focus[data-focus-method='key'] {
+.takeover .event-info-cta-area .watch-live:focus[data-focus-method="key"],
+.takeover .event-info-cta-area .watch-event:focus[data-focus-method="key"] {
   text-decoration: none;
 }
 .theme-dark .takeover .event-info-cta-area .watch-live,
@@ -713,8 +768,8 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     color: var(--color-fill-tertiary);
   }
 }
-.takeover .event-info-cta-area .watch-live:focus[data-focus-method='key'],
-.takeover .event-info-cta-area .watch-event:focus[data-focus-method='key'] {
+.takeover .event-info-cta-area .watch-live:focus[data-focus-method="key"],
+.takeover .event-info-cta-area .watch-event:focus[data-focus-method="key"] {
   background: var(--color-fill-gray);
   color: var(--color-fill-tertiary);
 }
@@ -723,7 +778,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   align-items: center;
 }
 .takeover .event-info-cta-area .watch-live::before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 0.5882352941em;
   height: 0.5882352941em;
@@ -765,8 +820,14 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
   line-height: 1.125;
   font-weight: 700;
   letter-spacing: 0.004em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: var(--sk-body-text-color);
   display: flex;
   position: relative;
@@ -779,8 +840,14 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
     line-height: 1.1428571429;
     font-weight: 700;
     letter-spacing: 0.007em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -789,8 +856,14 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
     line-height: 1.1666666667;
     font-weight: 700;
     letter-spacing: 0.009em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -856,8 +929,14 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
   line-height: 1.4285914286;
   font-weight: 700;
   letter-spacing: -0.016em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: var(--color-figure-gray-secondary);
   margin-top: 4px;
 }

@@ -7,32 +7,32 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicSizeType } from '~/types/common/BasicSize'
-import type { IconType } from '~/types/common/Icon'
+import type { BasicSizeType } from "~/types/common/BasicSize";
+import type { IconType } from "~/types/common/Icon";
 
 const props = withDefaults(defineProps<IconType>(), {
-  componentSize: 'medium',
+  componentSize: "medium",
   loading: false,
   colors: () => ({
-    primary: 'currentColor',
-    secondary: 'currentColor',
-    tertiary: 'currentColor'
-  })
-})
+    primary: "currentColor",
+    secondary: "currentColor",
+    tertiary: "currentColor",
+  }),
+});
 
 const icon = computed(
-  () => `${getSpriteUrl(props.componentSize)}#${props.name}`
-)
+  () => `${getSpriteUrl(props.componentSize)}#${props.name}`,
+);
 
 const getSpriteUrl = (size: BasicSizeType) => {
-  return `/icons/${size}/symbol/sprite.svg`
-}
+  return `/icons/${size}/symbol/sprite.svg`;
+};
 
 const styles = reactive({
-  '--color-primary': props.colors.primary || 'currentColor',
-  '--color-secondary': props.colors.secondary || 'currentColor',
-  '--color-tertiary': props.colors.tertiary || 'currentColor'
-})
+  "--color-primary": props.colors.primary || "currentColor",
+  "--color-secondary": props.colors.secondary || "currentColor",
+  "--color-tertiary": props.colors.tertiary || "currentColor",
+});
 </script>
 
 <style>

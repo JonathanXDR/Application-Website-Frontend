@@ -37,16 +37,16 @@
 </template>
 
 <script setup lang="ts">
-import type { LanguageBarType } from '~/types/common/LanguageBar'
+import type { LanguageBarType } from "~/types/common/LanguageBar";
 
 withDefaults(
   defineProps<{
-    language: LanguageBarType
+    language: LanguageBarType;
   }>(),
   {
-    language: () => ({} as LanguageBarType)
-  }
-)
+    language: () => ({}) as LanguageBarType,
+  },
+);
 </script>
 
 <style scoped>
@@ -61,7 +61,7 @@ withDefaults(
 .footnote-number {
   position: relative;
   vertical-align: initial;
-  font-feature-settings: 'numr';
+  font-feature-settings: "numr";
   font-size: 1em;
 }
 sup.footnote-number {
@@ -115,14 +115,26 @@ br.small {
 .badge .badge-value {
   font-size: 48px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 .badge .badge-caption {
   font-size: 14px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 sup.footnote-number {
   font-size: 0.6em;
@@ -149,15 +161,27 @@ sup.footnote-number {
 .item-container .disclaimer {
   font-size: 28px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 @media only screen and (max-width: 1068px) {
   .item-container .disclaimer {
     font-size: 21px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .item-container .gallery-item {
@@ -227,8 +251,14 @@ sup.footnote-number {
 .item-container .gallery-item .bars-container .bar-caption {
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   display: inline-block;
   padding-top: 12px;
 }
@@ -262,8 +292,14 @@ sup.footnote-number {
 .item-container .gallery-item .bars-container .badge-value {
   font-size: 48px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   display: inline-block;
 }
 @media only screen and (max-width: 1068px) {
@@ -271,8 +307,14 @@ sup.footnote-number {
   .item-container .gallery-item .bars-container .badge-value {
     font-size: 28px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .item-container .gallery-item .bars-container .badge-caption {
@@ -350,16 +392,28 @@ hr {
 .item-container .bars-container .badge-value {
   font-size: 56px !important;
   font-weight: 600 !important;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 @media only screen and (max-width: 1068px) {
   .item-container .bars-container .badge-unit,
   .item-container .bars-container .badge-value {
     font-size: 48px !important;
     font-weight: 600 !important;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -367,8 +421,14 @@ hr {
   .item-container .bars-container .badge-value {
     font-size: 28px !important;
     font-weight: 600 !important;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .item-container .bars-container .bar:not(.bar-baseline .bar) {

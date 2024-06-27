@@ -7,15 +7,21 @@
 </template>
 
 <script setup lang="ts">
-const currentYear = ref(new Date().getFullYear())
+const currentYear = ref(new Date().getFullYear());
 </script>
 
 <style scoped>
 .rs-covers-footer {
   font-size: 12px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: var(--color-figure-gray-secondary);
   display: flex;
   align-items: center;

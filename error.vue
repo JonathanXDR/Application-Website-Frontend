@@ -52,7 +52,7 @@
               <span>{{ title }}</span>
             </h1>
             <div class="rs-covers-desc">
-              {{ description[0] }}. <br />{{ description[1] }}
+              {{ description[0] }}. <br >{{ description[1] }}
             </div>
           </div>
         </div>
@@ -63,36 +63,36 @@
 </template>
 
 <script setup lang="ts">
-const error = useError()
-const { t, tm } = useI18n()
+const error = useError();
+const { t, tm } = useI18n();
 const pages = {
   notFound: 404,
   internalServerError: 500,
   serviceUnavailable: 503,
-  error: error.value?.statusCode
-}
+  error: error.value?.statusCode,
+};
 
 const currentKey = computed(() => {
   return (
     Object.keys(pages).find(
       (key: string) =>
-        pages[key as keyof typeof pages] === error.value?.statusCode
-    ) || 'error'
-  )
-})
+        pages[key as keyof typeof pages] === error.value?.statusCode,
+    ) || "error"
+  );
+});
 
 const title = t(`pages.${currentKey.value}.title`, {
-  statusCode: error.value?.statusCode
-})
+  statusCode: error.value?.statusCode,
+});
 const colors = computed<object>(() =>
-  tm(`pages.${currentKey.value}.icon.colors`)
-)
+  tm(`pages.${currentKey.value}.icon.colors`),
+);
 const entireDescription = computed<string>(() =>
-  tm(`pages.${currentKey.value}.description`)
-)
+  tm(`pages.${currentKey.value}.description`),
+);
 const description = computed<string[]>(() =>
-  entireDescription.value.split('. ')
-)
+  entireDescription.value.split(". "),
+);
 </script>
 
 <style scoped>
@@ -175,8 +175,14 @@ h1 + * {
 }
 .icon:after,
 .icon:before {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -185,7 +191,7 @@ h1 + * {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: '';
+  alt: "";
 }
 .icon:after,
 .icon:before {
@@ -200,7 +206,7 @@ h1 + * {
 }
 .icon-thumbnailplay:after,
 .icon-thumbnailplay:before {
-  content: '';
+  content: "";
 }
 .as-l-container {
   margin-left: auto;
@@ -377,79 +383,139 @@ h1 + * {
 .rs-covers-heading {
   font-size: 80px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   padding-top: 50px;
 }
 @media only screen and (max-width: 1068px) {
   .rs-covers-heading {
     font-size: 64px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
   .rs-covers-heading {
     font-size: 48px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
   .rs-covers-heading {
     font-size: 64px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) and (max-width: 1068px) {
   .rs-covers-heading {
     font-size: 48px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) and (max-width: 734px) {
   .rs-covers-heading {
     font-size: 40px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .rs-covers-preorder .rs-covers-heading {
   font-size: 48px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   padding-top: 38px;
 }
 @media only screen and (max-width: 1068px) {
   .rs-covers-preorder .rs-covers-heading {
     font-size: 40px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
   .rs-covers-preorder .rs-covers-heading {
     font-size: 32px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
   .rs-covers-preorder .rs-covers-heading {
     font-size: 40px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
     padding-top: 42px;
   }
 }
@@ -457,23 +523,41 @@ h1 + * {
   .rs-covers-preorder .rs-covers-heading {
     font-size: 32px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) and (max-width: 734px) {
   .rs-covers-preorder .rs-covers-heading {
     font-size: 28px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .rs-covers-desc {
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   font-weight: 500;
   padding: 19px 0 48px;
   margin: 0 auto;
@@ -486,31 +570,55 @@ h1 + * {
 .rs-covers-preorder .rs-covers-desc {
   font-size: 21px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   padding-top: 16px;
 }
 @media only screen and (max-width: 734px) {
   .rs-covers-preorder .rs-covers-desc {
     font-size: 19px;
     font-weight: 400;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
   .rs-covers-preorder .rs-covers-desc {
     font-size: 17px;
     font-weight: 400;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .rs-covers-footer {
   font-size: 12px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: #86868b;
   display: flex;
   align-items: center;

@@ -20,9 +20,9 @@
 
 <script setup lang="ts">
 defineProps<{
-  title: string
-  progress: number
-}>()
+  title: string;
+  progress: number;
+}>();
 </script>
 
 <style scoped>
@@ -50,7 +50,9 @@ defineProps<{
   opacity: 0;
   position: absolute;
   top: 0;
-  transition: opacity 0.4s ease-out 0.4s, visibility 0.4s ease-out 0.4s;
+  transition:
+    opacity 0.4s ease-out 0.4s,
+    visibility 0.4s ease-out 0.4s;
   visibility: hidden;
   width: 100%;
   z-index: 3;
@@ -87,8 +89,14 @@ defineProps<{
   line-height: 1.0834933333;
   font-weight: 700;
   letter-spacing: -0.003em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   max-width: 600px;
   text-align: center;
 }
@@ -98,8 +106,14 @@ defineProps<{
     line-height: 1.1428571429;
     font-weight: 700;
     letter-spacing: 0.007em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .loader-headline:focus {

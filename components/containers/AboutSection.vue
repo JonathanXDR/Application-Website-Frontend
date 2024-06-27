@@ -22,6 +22,7 @@
     <CardItem
       v-bind="{
         variant: 'article',
+        hover: 'false',
         alignment: windowWidth < 1250 ? 'center' : 'start',
         componentSize:
           windowWidth < 900 ? 'small' : windowWidth < 1250 ? 'medium' : 'large',
@@ -31,9 +32,9 @@
         description: $t('components.containers.about.description', {
           age: dates.age,
           apprenticeshipYear:
-            dates.apprenticeshipYear && dates.apprenticeshipYear + 1
+            dates.apprenticeshipYear && dates.apprenticeshipYear + 1,
         }),
-        links: links
+        links: links,
       }"
     />
   </div>
@@ -42,46 +43,46 @@
 </template>
 
 <script setup lang="ts">
-import type { DateItemType } from '~/types/common/DateItem'
-import type { LinkType } from '~/types/common/Link'
+import type { DateItemType } from "~/types/common/DateItem";
+import type { LinkType } from "~/types/common/Link";
 
 defineProps<{
-  title: string
-}>()
+  title: string;
+}>();
 
-const { tm } = useI18n()
+const { tm } = useI18n();
 const links = computed<LinkType[]>(() =>
-  tm('components.containers.about.links')
-)
+  tm("components.containers.about.links"),
+);
 const dateItems = computed<DateItemType[]>(() =>
-  tm('components.containers.about.dates')
-)
+  tm("components.containers.about.dates"),
+);
 const dates = ref<{
-  age: number | undefined
-  apprenticeshipYear: number | undefined
+  age: number | undefined;
+  apprenticeshipYear: number | undefined;
 }>({
   age: undefined,
-  apprenticeshipYear: undefined
-})
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
+  apprenticeshipYear: undefined,
+});
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
 
 const calculateYears = (date: string) => {
-  const currentDate = new Date(Date.now())
-  const birthDate = new Date(date)
-  const difference = new Date(currentDate.getTime() - birthDate.getTime())
-  const years = Math.abs(difference.getUTCFullYear() - 1970)
-  return years
-}
+  const currentDate = new Date(Date.now());
+  const birthDate = new Date(date);
+  const difference = new Date(currentDate.getTime() - birthDate.getTime());
+  const years = Math.abs(difference.getUTCFullYear() - 1970);
+  return years;
+};
 
 onMounted(async () => {
   dateItems.value.forEach((item: DateItemType) => {
     if (item.key in dates.value) {
       dates.value[item.key as keyof typeof dates.value] = calculateYears(
-        item.date
-      )
+        item.date,
+      );
     }
-  })
-})
+  });
+});
 </script>
 
 <style scoped>

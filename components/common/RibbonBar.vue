@@ -27,7 +27,7 @@
                       :style="totalItems <= 2 && 'width: 100% !important'"
                     >
                       <template v-if="!loading">
-                        {{ item.description && item.description + '&ensp;' }}
+                        {{ item.description && item.description + "&ensp;" }}
                       </template>
                       <template v-else>
                         <LoadingSkeleton width="200px" height="15px" />
@@ -82,8 +82,8 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkType } from '~/types/common/Link';
-import type { RibbonBar } from '~/types/common/RibbonBar';
+import type { LinkType } from "~/types/common/Link";
+import type { RibbonBar } from "~/types/common/RibbonBar";
 
 const props = withDefaults(defineProps<RibbonBar>(), {
   loading: false,
@@ -102,19 +102,19 @@ const baseItems = ref<{ description: string; links: LinkType[] }[]>([]);
 const currentIndex = ref(0);
 const totalItems = ref(0);
 const isTransitioning = ref(false);
-const scrollDirection = ref<'left' | 'right'>('right');
+const scrollDirection = ref<"left" | "right">("right");
 const displayItems = ref<{ description: string; links: LinkType[] }[]>([]);
 const initialAnimationPlayed = ref(false);
 
 const { data: repositoryTags, refresh: refreshTags } = useAsyncData(
-  'repositoryTags',
+  "repositoryTags",
   () =>
     $listRepositoryTags({
       owner: config.public.githubRepoOwner,
       repo: config.public.githubRepoName,
       per_page: 2,
     }),
-  { server: true }
+  { server: true },
 );
 
 const updateBaseItems = () => {
@@ -139,7 +139,7 @@ const updateBaseItems = () => {
                 previousTag,
               })
             : undefined,
-        })
+        }),
       ),
   }));
   totalItems.value = baseItems.value.length;
@@ -152,19 +152,19 @@ const updateDisplayItems = () => {
     { length: totalItems.value },
     (_, i) =>
       baseItems.value[(start + i) % totalItems.value] || {
-        description: '',
+        description: "",
         links: [],
-      }
+      },
   );
 };
 
-const scrollContent = (direction: 'left' | 'right') => {
+const scrollContent = (direction: "left" | "right") => {
   if (!isTransitioning.value && totalItems.value > 2) {
     isTransitioning.value = true;
     scrollDirection.value = direction;
 
     nextTick(() => {
-      if (direction === 'left') {
+      if (direction === "left") {
         currentIndex.value =
           currentIndex.value === 0
             ? totalItems.value - 1
@@ -179,19 +179,19 @@ const scrollContent = (direction: 'left' | 'right') => {
 const transformStyle = computed(() => {
   if (totalItems.value > 2) {
     let translateXValue = -100 / totalItems.value;
-    if (scrollDirection.value === 'left') {
+    if (scrollDirection.value === "left") {
       translateXValue = Math.abs(translateXValue);
     }
 
     return {
       transform: `translateX(${
-        isTransitioning.value ? translateXValue + '%' : '0px'
+        isTransitioning.value ? translateXValue + "%" : "0px"
       })`,
       width: `${100 * totalItems.value}%`,
-      left: '-100%',
+      left: "-100%",
       transition: isTransitioning.value
-        ? 'transform 1000ms ease 0s'
-        : 'none 0s ease 0s',
+        ? "transform 1000ms ease 0s"
+        : "none 0s ease 0s",
     };
   }
   return {};
@@ -216,7 +216,7 @@ watch(
       }, 2800);
     }
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 onMounted(() => {
@@ -246,8 +246,14 @@ onMounted(() => {
 
 .more:after,
 .more:before {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -256,7 +262,7 @@ onMounted(() => {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: '';
+  alt: "";
   text-decoration: none;
 }
 .more:before {
@@ -268,7 +274,7 @@ onMounted(() => {
 }
 .more:after,
 .more:before {
-  content: '';
+  content: "";
 }
 
 .rc-ribbon-content-gallery {
@@ -300,7 +306,9 @@ onMounted(() => {
   overflow: hidden;
   position: absolute;
   text-align: center;
-  transition: background-color 0.1s linear, color 0.1s linear,
+  transition:
+    background-color 0.1s linear,
+    color 0.1s linear,
     opacity 0.1s linear;
 }
 .paddlenav .paddlenav-arrow .icon {
@@ -332,8 +340,14 @@ onMounted(() => {
 }
 .paddlenav .paddlenav-arrow-next:after,
 .paddlenav .paddlenav-arrow-next:before {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -342,7 +356,7 @@ onMounted(() => {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: '';
+  alt: "";
   text-decoration: none;
 }
 .paddlenav .paddlenav-arrow-next:before {
@@ -353,8 +367,14 @@ onMounted(() => {
 }
 .paddlenav .paddlenav-arrow-previous:after,
 .paddlenav .paddlenav-arrow-previous:before {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -363,7 +383,7 @@ onMounted(() => {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: '';
+  alt: "";
   text-decoration: none;
 }
 .paddlenav .paddlenav-arrow-previous:before {
@@ -406,8 +426,14 @@ onMounted(() => {
   }
   .paddlenav .paddlenav-arrow-next:after,
   .paddlenav .paddlenav-arrow-next:before {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
     color: inherit;
     display: inline-block;
     font-style: normal;
@@ -416,7 +442,7 @@ onMounted(() => {
     text-decoration: underline;
     position: relative;
     z-index: 1;
-    alt: '';
+    alt: "";
     text-decoration: none;
   }
   .paddlenav .paddlenav-arrow-next:before {
@@ -427,8 +453,14 @@ onMounted(() => {
   }
   .paddlenav .paddlenav-arrow-previous:after,
   .paddlenav .paddlenav-arrow-previous:before {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
     color: inherit;
     display: inline-block;
     font-style: normal;
@@ -437,7 +469,7 @@ onMounted(() => {
     text-decoration: underline;
     position: relative;
     z-index: 1;
-    alt: '';
+    alt: "";
     text-decoration: none;
   }
   .paddlenav .paddlenav-arrow-previous:before {
@@ -460,8 +492,14 @@ onMounted(() => {
 }
 .paddlenav-compact .paddlenav-arrow-next:after,
 .paddlenav-compact .paddlenav-arrow-next:before {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -470,7 +508,7 @@ onMounted(() => {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: '';
+  alt: "";
   text-decoration: none;
 }
 .paddlenav-compact .paddlenav-arrow-next:before {
@@ -481,8 +519,14 @@ onMounted(() => {
 }
 .paddlenav-compact .paddlenav-arrow-previous:after,
 .paddlenav-compact .paddlenav-arrow-previous:before {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -491,7 +535,7 @@ onMounted(() => {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: '';
+  alt: "";
   text-decoration: none;
 }
 .paddlenav-compact .paddlenav-arrow-previous:before {
@@ -539,8 +583,14 @@ onMounted(() => {
 .ribbon .ribbon-content {
   font-size: 14px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 .ribbon .ribbon-content-wrapper {
   background-color: var(--color-fill-tertiary);
@@ -582,16 +632,28 @@ onMounted(() => {
 .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
   font-size: 24px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: #86868b;
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
     font-size: 21px;
     font-weight: 400;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous {
@@ -650,7 +712,7 @@ onMounted(() => {
 }
 .with-paddlenav .rc-ribbon-content-autoscroll:after,
 .with-paddlenav .rc-ribbon-content-autoscroll:before {
-  content: '';
+  content: "";
   display: block;
   width: 41px;
   height: 100%;
@@ -726,7 +788,7 @@ onMounted(() => {
 .rc-ribbon-content-gallery {
   min-height: auto;
 }
-.rc-ribbon-gallery-item[aria-hidden='true'] a {
+.rc-ribbon-gallery-item[aria-hidden="true"] a {
   visibility: hidden;
 }
 .rc-ribbon-content-item {

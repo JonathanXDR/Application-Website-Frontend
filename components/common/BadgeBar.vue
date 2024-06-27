@@ -19,14 +19,14 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    badges: string[]
-    loading: boolean
+    badges: string[];
+    loading: boolean;
   }>(),
   {
     badges: () => [],
-    loading: false
-  }
-)
+    loading: false,
+  },
+);
 </script>
 
 <style scoped>
@@ -35,7 +35,11 @@ withDefaults(
   margin: 0;
   list-style: none;
   box-sizing: border-box;
-  transition: padding-right 0.8s, padding-bottom 0.8s, max-height 1s, opacity 1s;
+  transition:
+    padding-right 0.8s,
+    padding-bottom 0.8s,
+    max-height 1s,
+    opacity 1s;
   padding: 0;
 }
 

@@ -7,26 +7,32 @@
 </template>
 
 <script setup lang="ts">
-import type { ColorType } from '~/types/common/Color'
+import type { ColorType } from "~/types/common/Color";
 
 withDefaults(
   defineProps<{
-    color: ColorType
+    color: ColorType;
   }>(),
   {
     color: () => ({
-      primary: 'var(--color-figure-orange)'
-    })
-  }
-)
+      primary: "var(--color-figure-orange)",
+    }),
+  },
+);
 </script>
 
 <style scoped>
 .dev-badge {
   font-size: 22.588px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   padding-left: 10px;
   -webkit-transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
   -o-transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);

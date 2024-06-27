@@ -47,9 +47,9 @@
 </template>
 
 <script setup lang="ts">
-import type { LanguageBarType } from '~/types/common/LanguageBar'
+import type { LanguageBarType } from "~/types/common/LanguageBar";
 
-defineProps<LanguageBarType>()
+defineProps<LanguageBarType>();
 </script>
 
 <style scoped>
@@ -104,8 +104,14 @@ defineProps<LanguageBarType>()
 .rs-od-item .rs-od-iteminfo {
   font-size: 14px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   margin: auto 0;
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
@@ -128,14 +134,26 @@ defineProps<LanguageBarType>()
 .rs-od-itemshortname {
   font-size: 12px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 .rs-od-itemstatus {
   font-size: 32px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   display: block;
   padding-top: 6px;
 }
@@ -143,16 +161,28 @@ defineProps<LanguageBarType>()
   .rs-od-itemstatus {
     font-size: 28px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rs-od-itemstatus {
     font-size: 24px;
     font-weight: 600;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
@@ -171,8 +201,14 @@ defineProps<LanguageBarType>()
 .rs-od-itemdesc-wrapper .rs-od-itemdesc {
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
   .rs-od-itemdesc-wrapper .rs-od-itemdesc {
@@ -204,8 +240,14 @@ defineProps<LanguageBarType>()
 .rs-tracker .rs-tracker-status {
   font-size: 12px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: var(--color-figure-gray-secondary);
   margin: 12px 0;
   width: inherit;
@@ -245,8 +287,14 @@ defineProps<LanguageBarType>()
 .rs-od-delivery-actions {
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   display: flex;
   align-items: flex-end;
   padding: 8px 0 2px;

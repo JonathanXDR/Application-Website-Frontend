@@ -37,19 +37,19 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from 'dayjs';
-import 'dayjs/locale/en';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import type { InfoType } from '~/types/common/Info';
-import type { ItemType } from '~/types/common/Item';
+import dayjs from "dayjs";
+import "dayjs/locale/en";
+import relativeTime from "dayjs/plugin/relativeTime";
+import type { InfoType } from "~/types/common/Info";
+import type { ItemType } from "~/types/common/Item";
 
 const props = withDefaults(defineProps<InfoType>(), {
   loading: false,
   date: () => ({
     formatOptions: () => ({
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     }),
   }),
 });
@@ -58,11 +58,11 @@ dayjs.extend(relativeTime);
 
 const { locale } = useI18n();
 const infoItems: ItemType[] = [
-  { id: 'location', icon: { name: 'location.fill' } },
-  { id: 'supervisor', icon: { name: 'person.fill' } },
-  { id: 'department', icon: { name: 'tag.fill' } },
-  { id: 'language', icon: { name: 'bubble.left.fill' } },
-  { id: 'license', icon: { name: 'scroll.fill' } },
+  { id: "location", icon: { name: "location.fill" } },
+  { id: "supervisor", icon: { name: "person.fill" } },
+  { id: "department", icon: { name: "tag.fill" } },
+  { id: "language", icon: { name: "bubble.left.fill" } },
+  { id: "license", icon: { name: "scroll.fill" } },
   // {
   //   id: 'forks',
   //   icon: {
@@ -83,12 +83,12 @@ const updatedYesterday = computed(() => {
   if (!props.date.fixed) return false;
   const updatedDate = dayjs(props.date.fixed);
   const currentDate = dayjs();
-  return currentDate.diff(updatedDate, 'day') <= 1;
+  return currentDate.diff(updatedDate, "day") <= 1;
 });
 
 const formatDate = (
   dateString: string,
-  formatOptions: Intl.DateTimeFormatOptions
+  formatOptions: Intl.DateTimeFormatOptions,
 ) => {
   return new Date(dateString).toLocaleDateString(locale.value, formatOptions);
 };
@@ -99,13 +99,13 @@ const getDate = () => {
   if (duration && formatOptions) {
     const formattedDuration = `${formatDate(
       duration.from,
-      formatOptions()
+      formatOptions(),
     )} - ${formatDate(duration.to, formatOptions())}`;
 
     return formattedDuration;
   } else if (fixed && nowKey) {
     const formattedNowKey = `${nowKey?.charAt(0).toUpperCase()}${nowKey?.slice(
-      1
+      1,
     )} ${dayjs(fixed).locale(locale.value).fromNow()}`;
 
     return formattedNowKey;
@@ -128,8 +128,14 @@ const dateTitle = getDate();
   margin-top: 12px;
   font-size: 12px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   display: flex;
   justify-content: flex-start;
   align-items: center;

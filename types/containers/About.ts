@@ -1,7 +1,7 @@
-import type { DateItemType } from '../common/DateItem'
-import type { ExtendedPropsType } from '../common/ExtendedProps'
+import type { DateItemType } from "../common/DateItem";
+import type { ExtendedPropsType } from "../common/ExtendedProps";
 
 export interface About extends ExtendedPropsType {
-  eyebrow: string
-  dates: DateItemType[]
+  eyebrow: string;
+  dates: DateItemType[];
 }

@@ -26,8 +26,14 @@
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 400; /* letter-spacing: 0em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 .group {
   padding: 20px;
@@ -44,8 +50,14 @@
     font-size: 14px;
     line-height: 1.2857742857;
     font-weight: 400; /* letter-spacing: -0.016em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .group [data-value] {

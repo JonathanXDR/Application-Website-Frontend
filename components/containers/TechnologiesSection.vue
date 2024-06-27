@@ -45,8 +45,8 @@
             name: card.icon?.name || '',
             position: 'right',
             alignment: 'start',
-            absolute: true
-          }
+            absolute: true,
+          },
         }"
       />
       <ResultBlankState v-if="cards.length === 0" />
@@ -55,27 +55,27 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from '~/types/common/CardItem'
-import type { ItemType } from '~/types/common/Item'
+import type { CardItemType } from "~/types/common/CardItem";
+import type { ItemType } from "~/types/common/Item";
 
 defineProps<{
-  title: string
-}>()
+  title: string;
+}>();
 
-const { tm } = useI18n()
+const { tm } = useI18n();
 
 const cards = computed<CardItemType[]>(() =>
-  tm('components.containers.technologies')
-)
+  tm("components.containers.technologies"),
+);
 const segmentNavItems = computed<ItemType[]>(() =>
-  tm('components.common.SegmentNav.technologies')
-)
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
-const currentIndex = ref(0)
+  tm("components.common.SegmentNav.technologies"),
+);
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
+const currentIndex = ref(0);
 
 const updateCurrentIndex = (index: number) => {
-  currentIndex.value = index
-}
+  currentIndex.value = index;
+};
 </script>
 
 <style scoped>

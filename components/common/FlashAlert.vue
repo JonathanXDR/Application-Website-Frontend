@@ -4,12 +4,12 @@
       variant,
       'flash flex items-center justify-between fade-transition-wrapper',
       { 'r-fade-transition-enter-done': open },
-      { 'r-fade-transition-exit-done': !open }
+      { 'r-fade-transition-exit-done': !open },
     ]"
     :style="{
       backgroundColor: `var(--color-aside-${variant}-background)`,
       borderColor: `var(--color-aside-${variant}-border)`,
-      boxShadow: `0 0 1px 0 var(--color-aside-${variant}-border) inset, 0 0 1px 0 var(--color-aside-${variant}-border)`
+      boxShadow: `0 0 1px 0 var(--color-aside-${variant}-border) inset, 0 0 1px 0 var(--color-aside-${variant}-border)`,
     }"
   >
     <div
@@ -30,7 +30,7 @@
         <p
           class="label"
           :style="{
-            color: `var(--color-aside-${variant})`
+            color: `var(--color-aside-${variant})`,
           }"
         >
           {{ title || variant }}
@@ -57,62 +57,62 @@
 </template>
 
 <script setup lang="ts">
-import type { FlashAlertType } from '~/types/common/FlashAlert'
+import type { FlashAlertType } from "~/types/common/FlashAlert";
 
 const props = withDefaults(defineProps<FlashAlertType>(), {
-  variant: 'note',
+  variant: "note",
   title: undefined,
-  icon: () => ({ variant: 'default', name: '' })
-})
+  icon: () => ({ variant: "default", name: "" }),
+});
 
 const icons = {
   deprecated: {
-    name: 'nosign',
-    colors: {
-      primary: `var(--color-aside-${props.variant})`
-    }
-  },
-  experiment: {
-    name: 'flask.fill',
+    name: "nosign",
     colors: {
       primary: `var(--color-aside-${props.variant})`,
-      tertiary: `var(--color-aside-${props.variant})`
-    }
+    },
+  },
+  experiment: {
+    name: "flask.fill",
+    colors: {
+      primary: `var(--color-aside-${props.variant})`,
+      tertiary: `var(--color-aside-${props.variant})`,
+    },
   },
   important: {
-    name: 'exclamationmark.triangle.fill',
+    name: "exclamationmark.triangle.fill",
     colors: {
-      primary: 'var(--color-fill)',
-      tertiary: `var(--color-aside-${props.variant})`
-    }
+      primary: "var(--color-fill)",
+      tertiary: `var(--color-aside-${props.variant})`,
+    },
   },
   note: {
-    name: 'info.circle.fill',
+    name: "info.circle.fill",
     colors: {
-      primary: 'var(--color-fill)',
-      tertiary: `var(--color-aside-${props.variant})`
-    }
+      primary: "var(--color-fill)",
+      tertiary: `var(--color-aside-${props.variant})`,
+    },
   },
   tip: {
-    name: 'questionmark.circle.fill',
+    name: "questionmark.circle.fill",
     colors: {
-      primary: 'var(--color-fill)',
-      tertiary: `var(--color-aside-${props.variant})`
-    }
+      primary: "var(--color-fill)",
+      tertiary: `var(--color-aside-${props.variant})`,
+    },
   },
   warning: {
-    name: 'exclamationmark.octagon.fill',
+    name: "exclamationmark.octagon.fill",
     colors: {
-      primary: 'var(--color-fill)',
-      tertiary: `var(--color-aside-${props.variant})`
-    }
-  }
-}
+      primary: "var(--color-fill)",
+      tertiary: `var(--color-aside-${props.variant})`,
+    },
+  },
+};
 
-const open = ref(true)
+const open = ref(true);
 const toggle = () => {
-  open.value = !open.value
-}
+  open.value = !open.value;
+};
 </script>
 
 <style scoped>
@@ -140,8 +140,14 @@ aside .label {
   line-height: 1.5294417647;
   font-weight: 600;
   letter-spacing: -0.021em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 aside .label + .description {
@@ -231,8 +237,12 @@ aside {
   height: var(--modal-close-icon-size);
   width: var(--modal-close-icon-size);
   outline: none;
-  -webkit-transition: color 100ms linear, background 100ms linear;
-  transition: color 100ms linear, background 100ms linear;
+  -webkit-transition:
+    color 100ms linear,
+    background 100ms linear;
+  transition:
+    color 100ms linear,
+    background 100ms linear;
   position: relative;
 }
 .modal-close-button .modal-close-icon svg {
@@ -242,7 +252,7 @@ aside {
   height: var(--modal-close-icon-svg-size);
   width: var(--modal-close-icon-svg-size);
 }
-html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
+html:not([dir="rtl"]) .modal-close-button .modal-close-icon svg {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }

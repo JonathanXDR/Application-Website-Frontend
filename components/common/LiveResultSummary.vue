@@ -36,7 +36,7 @@ withDefaults(
   {
     totalResults: 0,
     pinnedResults: 0,
-  }
+  },
 );
 
 const { $randomDevColor } = useNuxtApp();
@@ -147,8 +147,14 @@ const { $randomDevColor } = useNuxtApp();
 .number-results {
   font-size: 14px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: var(--color-figure-gray-secondary);
   margin-right: 20px;
 }

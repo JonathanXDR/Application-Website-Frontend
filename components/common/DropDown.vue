@@ -20,18 +20,18 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Item'
+import type { ItemType } from "~/types/common/Item";
 
 withDefaults(
   defineProps<{
-    options: ItemType[]
-    label?: string
+    options: ItemType[];
+    label?: string;
   }>(),
   {
     options: () => [],
-    label: undefined
-  }
-)
+    label: undefined,
+  },
+);
 </script>
 
 <style scoped>
@@ -42,8 +42,14 @@ withDefaults(
 .form-dropdown {
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,8 +95,14 @@ withDefaults(
 .form-dropdown ~ .form-label {
   font-size: 12px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   position: absolute;
   top: 8px;
   left: 17px;

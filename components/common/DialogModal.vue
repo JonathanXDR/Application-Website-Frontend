@@ -4,7 +4,7 @@
     :class="[
       'modal family-modal modal-scrim icon-card-modal delivery modal-page-overlay',
       { 'modal-open visually-visiable': open },
-      { 'modal-scrim-no-blur': !blurredBackground }
+      { 'modal-scrim-no-blur': !blurredBackground },
     ]"
   >
     <div class="modal-overlay-container">
@@ -54,18 +54,18 @@
 </template>
 
 <script setup lang="ts">
-import type { DialogModalType } from '~/types/common/DialogModal'
+import type { DialogModalType } from "~/types/common/DialogModal";
 
 withDefaults(defineProps<DialogModalType>(), {
-  orientation: 'vertical',
+  orientation: "vertical",
   full: false,
-  blurredBackground: false
-})
+  blurredBackground: false,
+});
 
-const open = ref(true)
+const open = ref(true);
 const toggle = () => {
-  open.value = !open.value
-}
+  open.value = !open.value;
+};
 </script>
 
 <style scoped>
@@ -83,8 +83,14 @@ const toggle = () => {
 .icon:before,
 .more:after,
 .more:before {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -94,7 +100,7 @@ const toggle = () => {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: '';
+  alt: "";
   text-decoration: none;
 }
 .icon:before,
@@ -106,9 +112,9 @@ const toggle = () => {
   padding-inline-start: 0.3em;
   top: 0;
 }
-html:not([dir='rtl']) .more:after,
-html:not([dir='rtl']) .more:before {
-  content: '';
+html:not([dir="rtl"]) .more:after,
+html:not([dir="rtl"]) .more:before {
+  content: "";
 }
 .icon-wrapper .icon,
 .icon-wrapper .icon-after:after,
@@ -127,8 +133,14 @@ a.icon-wrapper:hover .icon-copy {
   line-height: 1.4211026316;
   font-weight: 400;
   letter-spacing: 0.012em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 @media only screen and (max-width: 734px) {
   .typography-icon-card-modal-body {
@@ -136,8 +148,14 @@ a.icon-wrapper:hover .icon-copy {
     line-height: 1.4705882353;
     font-weight: 400;
     letter-spacing: -0.022em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .typography-icon-card-modal-inline-headline {
@@ -145,8 +163,14 @@ a.icon-wrapper:hover .icon-copy {
   line-height: 1.4211026316;
   font-weight: 600;
   letter-spacing: 0.012em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 @media only screen and (max-width: 734px) {
   .typography-icon-card-modal-inline-headline {
@@ -154,8 +178,14 @@ a.icon-wrapper:hover .icon-copy {
     line-height: 1.4705882353;
     font-weight: 600;
     letter-spacing: -0.022em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .typography-modal-headline {
@@ -163,8 +193,14 @@ a.icon-wrapper:hover .icon-copy {
   line-height: 1.0714285714;
   font-weight: 600;
   letter-spacing: -0.005em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 @media only screen and (max-width: 1068px) {
   .typography-modal-headline {
@@ -172,8 +208,14 @@ a.icon-wrapper:hover .icon-copy {
     line-height: 1.0834933333;
     font-weight: 600;
     letter-spacing: -0.003em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -182,8 +224,14 @@ a.icon-wrapper:hover .icon-copy {
     line-height: 1.125;
     font-weight: 600;
     letter-spacing: 0.004em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .typography-modal-topic-label {
@@ -191,8 +239,14 @@ a.icon-wrapper:hover .icon-copy {
   line-height: 1.4211026316;
   font-weight: 600;
   letter-spacing: 0.012em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 @media only screen and (max-width: 734px) {
   .typography-modal-topic-label {
@@ -200,8 +254,14 @@ a.icon-wrapper:hover .icon-copy {
     line-height: 1.4705882353;
     font-weight: 600;
     letter-spacing: -0.022em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .modal-close-button {
@@ -241,7 +301,9 @@ a.icon-wrapper:hover .icon-copy {
   height: var(--modal-close-icon-size);
   width: var(--modal-close-icon-size);
   outline: none;
-  transition: color 100ms linear, background 100ms linear;
+  transition:
+    color 100ms linear,
+    background 100ms linear;
   position: relative;
 }
 .modal-close-button .modal-close-icon svg {
@@ -251,7 +313,7 @@ a.icon-wrapper:hover .icon-copy {
   height: var(--modal-close-icon-svg-size);
   width: var(--modal-close-icon-svg-size);
 }
-html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
+html:not([dir="rtl"]) .modal-close-button .modal-close-icon svg {
   transform: translateX(-50%);
 }
 .modal-close-button .modal-close-icon * {
@@ -334,7 +396,7 @@ html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
     --modal-overlay-width: 100%;
     --modal-close-button-offset-top: max(16px, env(safe-area-inset-top));
   }
-  html:not([dir='rtl']) .modal-page-overlay {
+  html:not([dir="rtl"]) .modal-page-overlay {
     --modal-close-button-offset-inline-start: max(
       16px,
       env(safe-area-inset-left)
@@ -463,7 +525,9 @@ html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
 }
 .modal-page-overlay .modal-close-button .modal-close-icon {
   pointer-events: none;
-  transition: background-color 100ms linear, color 100ms linear;
+  transition:
+    background-color 100ms linear,
+    color 100ms linear;
   background-color: var(--modal-close-background);
   color: var(--modal-close-color);
 }

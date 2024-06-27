@@ -5,26 +5,26 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicSizeType } from '~/types/common/BasicSize'
-import type { IconType } from '~/types/common/Icon'
+import type { BasicSizeType } from "~/types/common/BasicSize";
+import type { IconType } from "~/types/common/Icon";
 
 withDefaults(
   defineProps<{
-    as?: keyof HTMLElementTagNameMap
-    variant?: 'primary' | 'secondary' | 'tertiary'
-    componentSize?: BasicSizeType
-    borderRadius?: 'reduced' | 'full'
-    label: string
-    icon?: IconType
+    as?: keyof HTMLElementTagNameMap;
+    variant?: "primary" | "secondary" | "tertiary";
+    componentSize?: BasicSizeType;
+    borderRadius?: "reduced" | "full";
+    label: string;
+    icon?: IconType;
   }>(),
   {
-    as: 'button',
-    variant: 'primary',
-    componentSize: 'medium',
-    borderRadius: 'reduced',
-    icon: undefined
-  }
-)
+    as: "button",
+    variant: "primary",
+    componentSize: "medium",
+    borderRadius: "reduced",
+    icon: undefined,
+  },
+);
 </script>
 
 <style scoped>
@@ -46,8 +46,14 @@ withDefaults(
   --sk-button-display: inline-block;
   font-size: 14px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   background: var(--color-code-plain);
   color: var(--sk-button-color);
   padding-block: calc(
@@ -83,8 +89,14 @@ withDefaults(
   white-space: nowrap;
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   min-width: 28px;
   padding: 8px 16px;
   border-radius: 980px;
@@ -128,8 +140,14 @@ withDefaults(
   --sk-button-margin-vertical: 10px !important;
   font-size: 12px !important;
   font-weight: 400 !important;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .button-cta {
@@ -150,8 +168,14 @@ withDefaults(
   display: inline-block;
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .button-cta:active {
@@ -194,7 +218,7 @@ button:disabled {
 }
 button {
   font-synthesis: none;
-  -moz-font-feature-settings: 'kern';
+  -moz-font-feature-settings: "kern";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: ltr;
@@ -211,8 +235,14 @@ button:focus {
   white-space: nowrap;
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 30px;
@@ -244,7 +274,9 @@ button:focus {
   border-color: transparent;
 }
 .button:focus {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .button:active {
@@ -260,8 +292,14 @@ button:focus {
 .large.button {
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 30px;
@@ -284,7 +322,9 @@ button:focus {
   border-color: transparent;
 }
 .theme-dark .button:focus {
-  box-shadow: 0 0 0 3px #000, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #000,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .theme-dark .button:active {
@@ -344,7 +384,7 @@ button:disabled {
 }
 button {
   font-synthesis: none;
-  -moz-font-feature-settings: 'kern';
+  -moz-font-feature-settings: "kern";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: ltr;
@@ -362,8 +402,14 @@ button:focus {
   white-space: nowrap;
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 30px;
@@ -395,7 +441,9 @@ button:focus {
   border-color: transparent;
 }
 .button:focus {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .button:active {
@@ -420,7 +468,9 @@ button:focus {
   border-color: transparent;
 }
 .button-secondary-alpha:focus {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .button-secondary-alpha:active {
@@ -436,8 +486,14 @@ button:focus {
 .button-elevated {
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 28px;
@@ -460,7 +516,9 @@ button:focus {
   border-color: transparent;
 }
 .theme-dark .button:focus {
-  box-shadow: 0 0 0 3px #000, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #000,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .theme-dark .button:active {
@@ -485,7 +543,9 @@ button:focus {
   border-color: transparent;
 }
 .theme-dark .button-secondary-alpha:focus {
-  box-shadow: 0 0 0 3px #000, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #000,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .theme-dark .button-secondary-alpha:active {
@@ -505,8 +565,14 @@ button:focus {
   white-space: nowrap;
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 30px;
@@ -538,7 +604,9 @@ button:focus {
   border-color: transparent;
 }
 .button:focus {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .button:active {
@@ -563,7 +631,9 @@ button:focus {
   border-color: transparent;
 }
 .button-secondary-alpha:focus {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #0071e3;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 5px #0071e3;
   outline: none;
 }
 .button-secondary-alpha:active {
@@ -579,8 +649,14 @@ button:focus {
 .button-elevated {
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   border-style: solid;
   border-width: 1px;
   min-width: 28px;

@@ -33,14 +33,14 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    color?: 'gray' | 'blue' | 'green'
-    direction?: 'left' | 'right'
+    color?: "gray" | "blue" | "green";
+    direction?: "left" | "right";
   }>(),
   {
-    color: 'gray',
-    direction: 'left'
-  }
-)
+    color: "gray",
+    direction: "left",
+  },
+);
 </script>
 
 <style scoped>
@@ -92,23 +92,41 @@ br.small {
 .typography-imessage-text {
   font-size: 49px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 @media only screen and (max-width: 1068px) {
   .typography-imessage-text {
     font-size: 34px;
     font-weight: 400;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
   .typography-imessage-text {
     font-size: 19px;
     font-weight: 400;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 
@@ -289,7 +307,7 @@ br.small {
 }
 .message:after,
 .message:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   aspect-ratio: 1/1;

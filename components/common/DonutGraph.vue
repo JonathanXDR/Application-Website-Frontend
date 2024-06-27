@@ -69,17 +69,29 @@ br.medium {
   line-height: 1.2353641176;
   font-weight: 600; /* letter-spacing:
 0em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica
-Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica
+Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 @media only screen and (max-width: 1068px) {
   .typography-donut-label {
     font-size: 17px;
     line-height: 1.2353641176;
     font-weight: 600; /* letter-spacing: 0em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -87,8 +99,14 @@ Neue',
     font-size: 14px;
     line-height: 1.2857742857;
     font-weight: 600; /* letter-spacing: -0.016em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 br.medium,
@@ -111,16 +129,28 @@ br.medium {
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600; /* letter-spacing: 0em; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 @media only screen and (max-width: 1068px) {
   .typography-donut-label {
     font-size: 17px;
     line-height: 1.2353641176;
     font-weight: 600; /* letter-spacing: 0em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -128,8 +158,14 @@ br.medium {
     font-size: 14px;
     line-height: 1.2857742857;
     font-weight: 600; /* letter-spacing: -0.016em; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .ac-graph-donut .donut-wedge {
@@ -176,7 +212,7 @@ svg.ac-graph-svg {
 }
 .wedge-legend:before {
   display: inline-block;
-  content: '';
+  content: "";
   width: var(--size);
   height: var(--size);
   border-radius: 50%; /* --size: 10px; */

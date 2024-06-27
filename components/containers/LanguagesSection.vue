@@ -7,6 +7,8 @@
       :key="index"
       v-bind="{
         ...language,
+        variant: 'article',
+        hover: 'false',
         icon: {
           ...language.icon,
           name: language.icon?.name || '',
@@ -14,7 +16,6 @@
           position: windowWidth < 930 ? 'top' : 'left',
         },
         loading: false,
-        hover: 'false'
       }"
     >
       <LanguageBarV2
@@ -41,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import type { LanguageBarType } from '~/types/common/LanguageBar';
+import type { LanguageBarType } from "~/types/common/LanguageBar";
 
 defineProps<{
   title: string;
@@ -57,7 +58,7 @@ defineProps<{
 const { tm } = useI18n();
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
 const languages = computed<LanguageBarType[]>(() =>
-  tm('components.containers.languages')
+  tm("components.containers.languages"),
 );
 </script>
 

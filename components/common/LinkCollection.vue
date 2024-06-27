@@ -32,45 +32,45 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkType } from '~/types/common/Link'
+import type { LinkType } from "~/types/common/Link";
 
 const props = withDefaults(
   defineProps<{
-    links: LinkType[]
-    divider?: boolean
-    shouldAnimate?: boolean
-    loading?: boolean
+    links: LinkType[];
+    divider?: boolean;
+    shouldAnimate?: boolean;
+    loading?: boolean;
   }>(),
   {
     links: () => [],
     divider: true,
     shouldAnimate: false,
-    loading: false
-  }
-)
+    loading: false,
+  },
+);
 
-const { links } = toRefs(props)
+const { links } = toRefs(props);
 
 const getLinkComponentType = (link: LinkType) => {
-  return link.url?.startsWith('#') || link.url?.startsWith('/')
-    ? 'router-link'
-    : 'a'
-}
+  return link.url?.startsWith("#") || link.url?.startsWith("/")
+    ? "router-link"
+    : "a";
+};
 
 const enhancedLinks = computed(() => {
-  return links?.value?.map(link => ({
+  return links?.value?.map((link) => ({
     ...link,
     to:
-      link.url?.startsWith('#') || link.url?.startsWith('/') ? link.url : null,
-    href: !(link.url?.startsWith('#') || link.url?.startsWith('/'))
+      link.url?.startsWith("#") || link.url?.startsWith("/") ? link.url : null,
+    href: !(link.url?.startsWith("#") || link.url?.startsWith("/"))
       ? link.url
       : null,
     target:
-      link.url?.startsWith('#') || link.url?.startsWith('/')
-        ? '_self'
-        : '_blank'
-  }))
-})
+      link.url?.startsWith("#") || link.url?.startsWith("/")
+        ? "_self"
+        : "_blank",
+  }));
+});
 </script>
 
 <style scoped>

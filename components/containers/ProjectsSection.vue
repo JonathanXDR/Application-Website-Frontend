@@ -19,7 +19,7 @@
           :on-select="
             (id) =>
               updateCurrentIndex(
-                segmentNavItems.findIndex((item) => item.id === id)
+                segmentNavItems.findIndex((item) => item.id === id),
               )
           "
         />
@@ -35,6 +35,7 @@
             ...project,
             description: project.description || '',
             variant: 'article',
+            hover: 'false',
             loading: false,
             componentSize: windowWidth < 900 ? 'small' : 'medium',
             info: {
@@ -64,7 +65,7 @@
         />
         <ul v-if="pinned" class="card-container pinned-items">
           <CardItem
-            v-for="(project, index) in (pinned as Partial<CardItemType>[])"
+            v-for="(project, index) in pinned as Partial<CardItemType>[]"
             :key="index"
             v-bind="{
               ...project,
@@ -124,12 +125,12 @@
 </template>
 
 <script lang="ts" setup>
-import type { Repository } from '@octokit/graphql-schema';
-import type { CardItemType } from '~/types/common/CardItem';
-import type { CardRepositoryType } from '~/types/common/CardRepository';
-import type { IconType } from '~/types/common/Icon';
-import type { ItemType } from '~/types/common/Item';
-import type { MinimalRepository } from '~/types/services/GitHub/Repository';
+import type { Repository } from "@octokit/graphql-schema";
+import type { CardItemType } from "~/types/common/CardItem";
+import type { CardRepositoryType } from "~/types/common/CardRepository";
+import type { IconType } from "~/types/common/Icon";
+import type { ItemType } from "~/types/common/Item";
+import type { MinimalRepository } from "~/types/services/GitHub/Repository";
 
 type PinnedRepository = Repository & {
   icon?: IconType;
@@ -162,28 +163,28 @@ const currentIndex = ref(0);
 const windowWidth = useWindowSize({ initialWidth: 0 }).width;
 
 const { data: userRepositories } = useAsyncData(
-  'userRepositories',
+  "userRepositories",
   () =>
     $listUserRepositories({
       username: config.public.githubRepoOwner,
       per_page: 100,
     }),
-  { server: true }
+  { server: true },
 );
 
 const { data: pinnedProjects } = useAsyncData(
-  'pinnedProjects',
+  "pinnedProjects",
   () =>
     $listPinnedRepositories({
       username: config.public.githubRepoOwner,
       per_page: 100,
     }),
-  { server: true }
+  { server: true },
 );
 
 const projects: Projects = reactive({
   swisscom: computed<CardItemType[]>(() =>
-    tm('components.containers.projects')
+    tm("components.containers.projects"),
   ),
   personal: [],
   school: [],
@@ -193,17 +194,21 @@ const allProjects = computed(() => [...(userRepositories.value || [])]);
 const filteredProjects = computed(() =>
   allProjects.value.filter(
     (project) =>
-      !pinned.value.find((pinnedProject) => pinnedProject.name === project.name)
-  )
+      !pinned.value.find(
+        (pinnedProject) => pinnedProject.name === project.name,
+      ),
+  ),
 );
 
 const currentProjects = computed(
   () =>
-    projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
+    projects[
+      Object.keys(projects)[currentIndex.value] as keyof typeof projects
+    ],
 ) as Ref<CardItemType[]>;
 
 const segmentNavItems = computed<ItemType[]>(() =>
-  tm('components.common.SegmentNav.projects')
+  tm("components.common.SegmentNav.projects"),
 );
 
 const updateCurrentIndex = (index: number) => {
@@ -211,18 +216,18 @@ const updateCurrentIndex = (index: number) => {
 };
 
 const categorizeProject = (
-  project: MinimalRepository
+  project: MinimalRepository,
 ): CategorizedRepository => {
   const schoolProjectPattern =
     /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/;
   const category = schoolProjectPattern.test(project.name)
-    ? 'school'
-    : 'personal';
+    ? "school"
+    : "personal";
   return {
     ...project,
     category,
     title: project.name,
-    description: project.description || '',
+    description: project.description || "",
   };
 };
 
@@ -231,7 +236,7 @@ watch(
   (newPinnedProjects) => {
     newPinnedProjects?.forEach((project: PinnedRepository) => {
       project.icon = {
-        name: 'pin.fill',
+        name: "pin.fill",
         colors: {
           primary: `var(--color-figure-${$randomDevColor?.name})`,
         },
@@ -239,7 +244,7 @@ watch(
     });
     pinned.value = newPinnedProjects || [];
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 watchEffect(() => {

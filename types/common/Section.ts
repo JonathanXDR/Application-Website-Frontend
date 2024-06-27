@@ -1,9 +1,9 @@
-import type { IconType } from './Icon'
+import type { IconType } from "./Icon";
 
 export interface SectionType {
-  id: string
-  name: string
-  route: string
-  class?: string
-  icon?: IconType
+  id: string;
+  name: string;
+  route: string;
+  class?: string;
+  icon?: IconType;
 }

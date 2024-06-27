@@ -7,6 +7,7 @@
       v-bind="{
         ...card,
         variant: 'article',
+        hover: 'false',
         loading: false,
         componentSize: windowWidth < 900 ? 'small' : 'medium',
         icon: {
@@ -29,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from '~/types/common/CardItem';
+import type { CardItemType } from "~/types/common/CardItem";
 
 defineProps<{
   title: string;
@@ -37,7 +38,7 @@ defineProps<{
 
 const { tm } = useI18n();
 const cards = computed<CardItemType[]>(() =>
-  tm('components.containers.school')
+  tm("components.containers.school"),
 );
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
 </script>

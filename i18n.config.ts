@@ -1,17 +1,17 @@
-import de from './lang/de.json'
-import en from './lang/en.json'
-import fr from './lang/fr.json'
-import it from './lang/it.json'
+import de from "./lang/de.json";
+import en from "./lang/en.json";
+import fr from "./lang/fr.json";
+import it from "./lang/it.json";
 
 export default defineI18nConfig(() => ({
   legacy: false,
   globalInjection: true,
-  locale: 'de',
-  fallbackLocale: 'en',
+  locale: "de",
+  fallbackLocale: "en",
   messages: {
     de,
     en,
     fr,
-    it
-  }
-}))
+    it,
+  },
+}));

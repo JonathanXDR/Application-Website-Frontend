@@ -24,15 +24,15 @@
 </template>
 
 <script setup lang="ts">
-import type { BadgeType } from '~/types/common/Badge';
+import type { BadgeType } from "~/types/common/Badge";
 
 const props = withDefaults(defineProps<BadgeType>(), {
-  variant: 'a',
-  componentSize: 'medium',
+  variant: "a",
+  componentSize: "medium",
   colors: () => ({
-    primary: 'var(--color-fill-gray)',
-    secondary: 'var(--color-fill-tertiary)',
-    tertiary: 'var(--color-figure-blue)',
+    primary: "var(--color-fill-gray)",
+    secondary: "var(--color-fill-tertiary)",
+    tertiary: "var(--color-figure-blue)",
   }),
   border: false,
   hover: true,
@@ -41,23 +41,23 @@ const props = withDefaults(defineProps<BadgeType>(), {
 });
 
 const defaultColors = {
-  primary: 'var(--color-fill-gray)',
-  secondary: 'var(--color-fill-tertiary)',
-  tertiary: 'var(--color-figure-blue)',
+  primary: "var(--color-fill-gray)",
+  secondary: "var(--color-fill-tertiary)",
+  tertiary: "var(--color-figure-blue)",
 };
 
 const computedStyle = computed(() => ({
-  '--color-figure': props.loading
+  "--color-figure": props.loading
     ? defaultColors.primary
     : props.colors?.primary,
-  '--color-figure-background': props.loading
+  "--color-figure-background": props.loading
     ? defaultColors.secondary
     : props.colors?.secondary,
-  '--color-figure-background-hover': props.loading
+  "--color-figure-background-hover": props.loading
     ? defaultColors.secondary
     : props.colors?.tertiary,
-  '--color-figure-border':
-    props.loading || !props.border ? 'transparent' : props.colors?.tertiary,
+  "--color-figure-border":
+    props.loading || !props.border ? "transparent" : props.colors?.tertiary,
 }));
 </script>
 
@@ -69,8 +69,14 @@ const computedStyle = computed(() => ({
 .badge {
   display: flex;
   align-items: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   white-space: nowrap;
   background: var(--color-figure-background);
   border-radius: 25px;
@@ -80,7 +86,9 @@ const computedStyle = computed(() => ({
 }
 
 .badge.hover:hover {
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
   border-color: var(--color-figure-border);
   background-color: var(--color-figure-background-hover);
   color: white;

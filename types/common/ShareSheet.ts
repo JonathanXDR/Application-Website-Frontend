@@ -1,5 +1,5 @@
-import type { LinkType } from './Link'
+import type { LinkType } from "./Link";
 
 export interface ShareSheet {
-  links?: LinkType[]
+  links?: LinkType[];
 }

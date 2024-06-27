@@ -5,7 +5,7 @@
     type="checkbox"
     :disabled="navDisabled"
     @input="toggleNav()"
-  />
+  >
   <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking" />
   <nav
     id="ac-localnav"
@@ -76,15 +76,15 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Item';
-import { type SectionType } from '~/types/common/Section';
+import type { ItemType } from "~/types/common/Item";
+import { type SectionType } from "~/types/common/Section";
 
 const { $randomDevColor } = useNuxtApp();
 const config = useRuntimeConfig();
 const { tm } = useI18n();
-const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'));
+const navItems = computed<SectionType[]>(() => tm("components.common.NavBar"));
 const themeItems = computed<ItemType[]>(() =>
-  tm('components.common.SegmentNav.theme')
+  tm("components.common.SegmentNav.theme"),
 );
 const navOpen = ref(false);
 const navDisabled = ref(false);
@@ -97,8 +97,8 @@ const { headerAnimations } = useAnimation();
 
 const initHeaderAnimations = () => {
   const animation = {
-    element: document.querySelector('.ac-ln-background') as HTMLElement,
-    class: 'ac-ln-background-transition',
+    element: document.querySelector(".ac-ln-background") as HTMLElement,
+    class: "ac-ln-background-transition",
     timeout: 500,
   };
   const { setHeaderAnimation } = useAnimation();
@@ -135,7 +135,7 @@ const updateAnimations = () => {
 
 onMounted(() => {
   initHeaderAnimations();
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener("scroll", handleScroll);
 
   watch(getTheme, (newTheme, oldTheme) => {
     if (newTheme !== oldTheme) {
@@ -160,7 +160,7 @@ onMounted(() => {
 }
 
 .item::before {
-  content: ' ';
+  content: " ";
   position: absolute;
   top: 0;
   left: 0;
@@ -319,7 +319,7 @@ onMounted(() => {
 .ac-ln-background:after {
   margin-left: -490px;
   left: 50%;
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   top: 100%;
@@ -358,8 +358,14 @@ onMounted(() => {
   height: 100%;
   font-size: 14px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   float: right;
   display: flex;
   align-items: center;
@@ -390,7 +396,8 @@ onMounted(() => {
     width: 100%;
     padding-top: 0;
     max-height: 0;
-    transition: max-height 0.5s cubic-bezier(0.28, 0.11, 0.32, 1) 0.4s,
+    transition:
+      max-height 0.5s cubic-bezier(0.28, 0.11, 0.32, 1) 0.4s,
       visibility 0s linear 1s;
   }
 
@@ -431,7 +438,8 @@ onMounted(() => {
     opacity: 0;
     padding: 10px 24px 24px;
     transform: translate3d(0, -150px, 0);
-    transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1) 0.5s,
+    transition:
+      transform 1s cubic-bezier(0.23, 1, 0.32, 1) 0.5s,
       opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
     flex-direction: column;
     gap: 0px;
@@ -603,7 +611,8 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   z-index: 1;
-  transition: transform 1s cubic-bezier(0.86, 0, 0.07, 1),
+  transition:
+    transform 1s cubic-bezier(0.86, 0, 0.07, 1),
     transform-origin 1s cubic-bezier(0.86, 0, 0.07, 1);
   transform: translateY(0);
   opacity: 0.8;
@@ -611,14 +620,15 @@ onMounted(() => {
 
 .ac-ln-menucta-chevron::before,
 .ac-ln-menucta-chevron::after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   top: 13px;
   width: 11px;
   height: 1px;
   z-index: 1;
-  transition: transform 1s cubic-bezier(0.86, 0, 0.07, 1),
+  transition:
+    transform 1s cubic-bezier(0.86, 0, 0.07, 1),
     transform-origin 1s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
@@ -693,7 +703,10 @@ a:disabled {
 
 @media only screen and (max-width: 1250px) {
   #ac-ln-curtain {
-    transition: opacity 1s ease 0.2s, width 0s ease 1.2s, height 0s ease 1.2s;
+    transition:
+      opacity 1s ease 0.2s,
+      width 0s ease 1.2s,
+      height 0s ease 1.2s;
   }
 }
 

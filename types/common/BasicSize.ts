@@ -1,1 +1,1 @@
-export type BasicSizeType = 'small' | 'medium' | 'large'
+export type BasicSizeType = "small" | "medium" | "large";
