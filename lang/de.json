@@ -27,11 +27,6 @@
           "class": "section-separated"
         },
         {
-          "id": "funFacts",
-          "name": "Fun Facts",
-          "route": "#funFacts"
-        },
-        {
           "id": "technologies",
           "name": "Technologien",
           "route": "#technologies"
@@ -319,22 +314,12 @@
         {
           "title": "Deutsch",
           "eyebrow": "Muttersprache",
-          "progress": 100,
-          "icon": {
-            "name": "checkmark"
-          }
+          "progress": 100
         },
         {
           "title": "Englisch",
           "eyebrow": "Fliessend",
           "progress": 60,
-          "badge": {
-            "title": "Certified",
-            "color": "orange",
-            "icon": {
-              "name": "plus.circle"
-            }
-          },
           "links": [
             {
               "title": "B1 Preliminary",
@@ -343,20 +328,13 @@
             {
               "title": "B2 First",
               "url": "https://www.cambridgeenglish.org/de/exams-and-tests/first"
-            },
-            {
-              "title": "C1 Advanced",
-              "url": "https://www.cambridgeenglish.org/de/exams-and-tests/advanced"
             }
           ]
         },
         {
           "title": "Französisch",
           "eyebrow": "Gut",
-          "progress": 30,
-          "icon": {
-            "name": "checkmark"
-          }
+          "progress": 30
         }
       ],
       "references": [

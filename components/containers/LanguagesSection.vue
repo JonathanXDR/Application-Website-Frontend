@@ -14,6 +14,7 @@
           position: windowWidth < 930 ? 'top' : 'left',
         },
         loading: false,
+        hover: 'false'
       }"
     >
       <LanguageBarV2

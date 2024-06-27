@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink
+  <div
     :class="['links', { divider }, { loading }]"
     :style="{ columnGap: !divider ? '12px' : '0' }"
   >
@@ -28,7 +28,7 @@
         class="icon icon-small"
       />
     </component>
-  </NuxtLink>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -103,7 +103,7 @@ const enhancedLinks = computed(() => {
   color: var(--color-fill-gray) !important;
 }
 
-.card:hover .link {
+.card.hover:hover .link {
   text-decoration: underline !important;
 }
 

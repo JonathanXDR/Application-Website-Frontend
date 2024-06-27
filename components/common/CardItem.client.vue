@@ -4,7 +4,12 @@
     :id="componentId"
     v-animation="scrollAnimation"
     :href="componentHref"
-    :class="['scroll-animation scroll-animation--off', variant, componentSize]"
+    :class="[
+      'scroll-animation scroll-animation--off',
+      variant,
+      componentSize,
+      { hover: applyHover }
+    ]"
     target="_blank"
   >
     <div v-if="hasCoverOrGraphs" class="card-cover-wrap">
@@ -308,19 +313,19 @@ const iconClasses = computed(() => ({
   border: 1px solid var(--color-fill-gray-tertiary);
 }
 
-.card:hover {
+.card.hover:hover {
   text-decoration: none;
 
   /* Styles without cover */
   border-color: var(--color-figure-blue);
 }
 
-.card.color:hover {
+.card.color.hover:hover {
   background-color: var(--color-fill) !important;
   border-color: var(--color-figure) !important;
 }
 
-.card:hover {
+.card.hover:hover {
   box-shadow: 0 5px 10px var(--color-card-shadow);
   transform: scale(1.007);
 }
@@ -333,7 +338,7 @@ const iconClasses = computed(() => ({
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card:hover {
+  .card.hover:hover {
     box-shadow: none;
     transform: none;
   }
@@ -349,7 +354,7 @@ const iconClasses = computed(() => ({
   --card-cover-height: 100%;
 }
 
-.full :hover .link {
+.full .hover:hover .link {
   background: var(--color-button-background-hover);
   text-decoration: none;
 }
