@@ -71,6 +71,11 @@
               ...project,
               loading: false,
               componentSize: 'small',
+              colors: {
+                secondary: `var(--color-fill-${$randomDevColor?.name}-secondary)`,
+                tertiary: `var(--color-figure-${$randomDevColor?.name})`,
+                quaternary: `var(--color-figure-${$randomDevColor?.name})`
+              },
               icon: {
                 ...project.icon,
                 name: project.icon?.name || '',
@@ -86,11 +91,6 @@
               }
             }"
             class="color"
-            :colors="{
-              secondary: `var(--color-fill-${$randomDevColor?.name}-secondary)`,
-              tertiary: `var(--color-figure-${$randomDevColor?.name})`,
-              quaternary: `var(--color-figure-${$randomDevColor?.name})`
-            }"
           />
         </ul>
         <ul class="card-container">

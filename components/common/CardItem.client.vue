@@ -27,7 +27,7 @@
     </div>
     <div class="details" :style="detailsStyle">
       <Icon
-        v-if="icon"
+        v-if="icon.name"
         :loading="loading"
         :name="icon.name"
         :component-size="icon.componentSize"
