@@ -39,16 +39,38 @@ export default defineNuxtPlugin((nuxtApp) => {
         });
       };
 
-      const observerOptions = {
-        threshold: 0.5,
-        rootMargin: '-100px 0px -100px 0px',
+      const createObserver = (rootMargin: string) => {
+        return new IntersectionObserver(observerCallback, {
+          threshold: 0.5,
+          rootMargin: rootMargin,
+        });
       };
 
-      const observer = new IntersectionObserver(
-        observerCallback,
-        observerOptions
-      );
+      let observer = createObserver('0px 0px -200px 0px');
       observer.observe(el);
+
+      const updateObserver = () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+
+        const isAtTop = scrollTop === 0;
+        const isAtBottom = scrollTop + clientHeight >= scrollHeight;
+
+        let newRootMargin = '0px 0px -200px 0px';
+
+        if (isAtTop) {
+          newRootMargin = '0px 0px -200px 0px';
+        } else if (isAtBottom) {
+          newRootMargin = '-100px 0px 0px 0px';
+        }
+
+        observer.disconnect();
+        observer = createObserver(newRootMargin);
+        observer.observe(el);
+      };
+
+      window.addEventListener('scroll', updateObserver);
     },
   });
 });
