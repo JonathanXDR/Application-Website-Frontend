@@ -15,88 +15,87 @@
 </template>
 
 <script setup lang="ts">
-import { SpeedInsights } from "@vercel/speed-insights/vue";
-import FooterCompact from "~/components/common/Footer/Compact.vue";
-import FooterFull from "~/components/common/Footer/Full.vue";
-import type { LinkType } from "~/types/common/Link";
+import { SpeedInsights } from '@vercel/speed-insights/vue'
+import FooterCompact from '~/components/common/Footer/Compact.vue'
+import FooterFull from '~/components/common/Footer/Full.vue'
+import type { RibbonBar } from '~/types/common/RibbonBar'
 
-const { $randomDevColor } = useNuxtApp();
-const route = useRoute();
-const { currentSection } = useSection();
-const { locale, tm } = useI18n();
-const error = useError();
-const config = useRuntimeConfig();
+const { $randomDevColor } = useNuxtApp()
+const route = useRoute()
+const { currentSection } = useSection()
+const { locale, tm } = useI18n()
+const error = useError()
+const config = useRuntimeConfig()
 
-const items = tm("components.common.RibbonBar") as {
-  description: string;
-  links: LinkType[];
-}[];
+const items = computed<RibbonBar['items']>(() =>
+  tm('components.common.RibbonBar')
+)
 
-const faviconColor = $randomDevColor?.hex;
-const faviconGraphicData = ref("");
+const faviconColor = $randomDevColor?.hex
+const faviconGraphicData = ref('')
 
 const fetchSvgContent = async () => {
-  const response = await fetch("/img/dev/favicon-dev.svg");
-  const svgContent = await response.text();
+  const response = await fetch('/img/dev/favicon-dev.svg')
+  const svgContent = await response.text()
   faviconGraphicData.value = `data:image/svg+xml,${encodeURIComponent(
-    svgContent.replace("#color", `#${faviconColor}`),
-  )}`;
-};
+    svgContent.replace('#color', `#${faviconColor}`)
+  )}`
+}
 
 onMounted(async () => {
-  await fetchSvgContent();
-});
+  await fetchSvgContent()
+})
 
 watchEffect(() => {
   useHead({
     htmlAttrs: { lang: locale.value },
-    title: currentSection.value.name,
-  });
+    title: currentSection.value.name
+  })
 
-  if (config.public.appEnvironment === "development") {
+  if (config.public.appEnvironment === 'development') {
     useHead({
       link: [
-        { rel: "icon", type: "image/svg+xml", href: faviconGraphicData.value },
+        { rel: 'icon', type: 'image/svg+xml', href: faviconGraphicData.value },
         {
-          rel: "apple-touch-icon",
-          href: `/img/dev/favicon-dev-${$randomDevColor?.name}.png`,
-        },
+          rel: 'apple-touch-icon',
+          href: `/img/dev/favicon-dev-${$randomDevColor?.name}.png`
+        }
       ],
       meta: [
         {
-          property: "twitter:image",
-          content: `/img/dev/favicon-dev-${$randomDevColor?.name}.png`,
+          property: 'twitter:image',
+          content: `/img/dev/favicon-dev-${$randomDevColor?.name}.png`
         },
         {
-          property: "og:image",
-          content: `/img/dev/favicon-dev-${$randomDevColor?.name}.png`,
-        },
-      ],
-    });
+          property: 'og:image',
+          content: `/img/dev/favicon-dev-${$randomDevColor?.name}.png`
+        }
+      ]
+    })
   }
-});
+})
 
 const errorConfig = {
   header: false,
   nav: false,
   ribbon: false,
   footerFull: false,
-  footerCompact: true,
-};
+  footerCompact: true
+}
 
 const shouldShow = (component: string) =>
   error.value
     ? errorConfig[component as keyof typeof errorConfig]
-    : route.meta[component];
+    : route.meta[component]
 
 const footerClass = computed(() => ({
-  "footer-full": shouldShow("footerFull"),
-  "footer-compact": shouldShow("footerCompact"),
-}));
+  'footer-full': shouldShow('footerFull'),
+  'footer-compact': shouldShow('footerCompact')
+}))
 
 const footerComponent = computed(() =>
-  shouldShow("footerFull") ? FooterFull : FooterCompact,
-);
+  shouldShow('footerFull') ? FooterFull : FooterCompact
+)
 </script>
 
 <style>

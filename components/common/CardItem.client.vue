@@ -161,11 +161,9 @@ const applyHover = computed(
       ((props.links && props.links.length >= 1) || props.html_url)) ||
     props.hover === 'true'
 )
-console.log(applyHover.value)
 const componentType = computed(() =>
   props.variant === 'article' || !applyHover.value ? 'div' : 'a'
 )
-console.log(componentType.value)
 const componentId = computed(() =>
   props.title?.toLowerCase().replace(/ /g, '-')
 )
