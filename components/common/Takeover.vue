@@ -325,7 +325,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   }
 }
 .takeover {
-  background-color: #161617;
+  background-color: var(--color-fill-secondary);
   overflow: hidden;
   margin-top: -52px;
 }
@@ -420,7 +420,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   .takeover .tile-item.item-2up-secondary,
   .takeover .tile-item.item-3up-secondary {
     margin-top: 0;
-    border-top: 1px solid #6e6e73;
+    border-top: 1px solid var(--color-fill-gray-secondary);
     padding-top: 24px;
   }
   .takeover .tile-item.item-2up-secondary .tile__description,
@@ -437,19 +437,19 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   }
 }
 .takeover .tile {
-  background-color: #000;
+  background-color: var(--color-fill);
 }
 .takeover .tile__headline {
-  color: #f5f5f7;
+  color: var(--color-fill-gray);
 }
 .takeover .tile__category,
 .takeover .tile__timestamp {
-  color: #86868b;
+  color: var(--color-figure-gray-secondary);
 }
 @media only screen and (max-width: 734px) {
   .takeover .tile.tile-2up-secondary,
   .takeover .tile.tile-3up-secondary {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
   }
   .takeover .tile.tile-2up-secondary .tile__description,
   .takeover .tile.tile-3up-secondary .tile__description {
@@ -548,7 +548,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   }
 }
 .takeover .event-info-heading .section-head {
-  color: #fff;
+  color: var(--color-syntax-marks);
   margin-bottom: 0;
 }
 .takeover .event-info-heading .add-to-calendar {
@@ -577,8 +577,8 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
   padding: 8px 16px;
-  background: #333336;
-  color: #f5f5f7;
+  background: var(--color-fill-gray-quaternary);
+  color: var(--color-fill-gray);
 }
 .takeover .event-info-heading .add-to-calendar__link:hover {
   text-decoration: none;
@@ -603,34 +603,34 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 }
 @media (hover: hover) {
   .takeover .event-info-heading .add-to-calendar__link.icon:hover {
-    background: #424245;
-    color: #f5f5f7;
+    background: var(--color-fill-gray-tertiary);
+    color: var(--color-fill-gray);
     text-decoration: none;
   }
 }
 .takeover
   .event-info-heading
   .add-to-calendar__link.icon:focus[data-focus-method='key'] {
-  background: #424245;
-  color: #f5f5f7;
+  background: var(--color-fill-gray-tertiary);
+  color: var(--color-fill-gray);
   text-decoration: none;
 }
 @media (hover: hover) {
   .takeover .event-info-heading .add-to-calendar__link:hover {
-    background: #424245;
-    color: #f5f5f7;
+    background: var(--color-fill-gray-tertiary);
+    color: var(--color-fill-gray);
     text-decoration: none;
   }
 }
 .takeover
   .event-info-heading
   .add-to-calendar__link:focus[data-focus-method='key'] {
-  background: #424245;
-  color: #f5f5f7;
+  background: var(--color-fill-gray-tertiary);
+  color: var(--color-fill-gray);
   text-decoration: none;
 }
 .takeover .event-info-heading .add-to-calendar__link a {
-  color: #f5f5f7;
+  color: var(--color-fill-gray);
 }
 .takeover .event-info-heading .add-to-calendar__link::after {
   line-height: 1.4;
@@ -685,12 +685,12 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     'Helvetica', 'Arial', sans-serif;
   border: 2px solid;
   padding: 10px 24px 9px;
-  border-color: #f5f5f7;
-  color: #f5f5f7;
+  border-color: var(--color-fill-gray);
+  color: var(--color-fill-gray);
   transition: border-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     background-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 300ms;
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
   grid-area: 1/1/2/2;
   text-decoration: none;
 }
@@ -704,19 +704,19 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 }
 .theme-dark .takeover .event-info-cta-area .watch-live,
 .theme-dark .takeover .event-info-cta-area .watch-event {
-  color: #f5f5f7;
+  color: var(--color-fill-gray);
 }
 @media (hover: hover) {
   .takeover .event-info-cta-area .watch-live:hover,
   .takeover .event-info-cta-area .watch-event:hover {
-    background: #f5f5f7;
-    color: #1d1d1f;
+    background: var(--color-fill-gray);
+    color: var(--color-fill-tertiary);
   }
 }
 .takeover .event-info-cta-area .watch-live:focus[data-focus-method='key'],
 .takeover .event-info-cta-area .watch-event:focus[data-focus-method='key'] {
-  background: #f5f5f7;
-  color: #1d1d1f;
+  background: var(--color-fill-gray);
+  color: var(--color-fill-tertiary);
 }
 .takeover .event-info-cta-area .watch-live {
   display: flex;
@@ -728,7 +728,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   width: 0.5882352941em;
   height: 0.5882352941em;
   border-radius: 50%;
-  background-color: #ff3037;
+  background-color: var(--color-figure-red);
   margin-right: 8px;
 }
 @media only screen and (max-width: 1068px) {
@@ -858,11 +858,11 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
   letter-spacing: -0.016em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Helvetica', 'Arial', sans-serif;
-  color: #86868b;
+  color: var(--color-figure-gray-secondary);
   margin-top: 4px;
 }
 .countdown-volabel {
-  color: rgba(0, 0, 0, 0);
+  color: transparent;
   position: absolute;
   overflow: hidden;
   padding: 0;
