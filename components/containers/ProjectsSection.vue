@@ -133,9 +133,10 @@ import type { IconType } from '~/types/common/Icon'
 import type { ItemType } from '~/types/common/Item'
 import type { MinimalRepository } from '~/types/services/GitHub/Repository'
 
-type PinnedRepository = Repository & {
-  icon?: IconType
-}
+type PinnedRepository = Repository &
+  MinimalRepository & {
+    icon?: IconType
+  }
 
 type CategorizedRepository = CardRepositoryType & {
   category: string
