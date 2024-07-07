@@ -1139,7 +1139,7 @@
           "eyebrow": "Language",
           "title": "HTML",
           "description": "Ich habe HTML beim Erstellen dieser Webseite gelernt und fühle mich damit sehr sicher, da ich es in fast allen bisherigen Projekten verwendet habe.",
-          "tags": [
+          "topics": [
             "Markup",
             "Web",
             "Frontend"
@@ -1161,7 +1161,7 @@
           "eyebrow": "Language",
           "title": "CSS",
           "description": "CSS habe ich ebenfalls während dem Aufbau dieser Webseite gelernt. Da CSS genau wie HTML in fast jedem Projekt verwendet wird, habe ich auch hier schon viel Erfahrung gesammelt.",
-          "tags": [
+          "topics": [
             "Styling",
             "Web",
             "Frontend",
@@ -1184,7 +1184,7 @@
           "eyebrow": "Language",
           "title": "JavaScript",
           "description": "Das ist wahrscheinlich meine meist verwendete Programmiersprache. Ich habe damit schon bei vielen Projekten gearbeitet und auch schon mit Frameworks und Libraries, wie Vue.js, React oder Express.js angewendet, die ja darauf aufbauen.",
-          "tags": [
+          "topics": [
             "Scripting",
             "Web",
             "Frontend",
@@ -1207,7 +1207,7 @@
           "eyebrow": "Library",
           "title": "SDX",
           "description": "Mit dieser Library bin ich schon mehrmals während meiner Ausbildung in Kontakt gekommen. Ich habe damit z.B. beim Entwickeln der Apps Team Webseite, der Medienkurse und noch vielen weiteren Swisscom-Applikationen gearbeitet.",
-          "tags": [
+          "topics": [
             "Swisscom",
             "Design",
             "UI"
@@ -1229,7 +1229,7 @@
           "eyebrow": "Runtime",
           "title": "Node.js",
           "description": "Diese Technologie habe ich im NexCC das allererste mal gelernt und angewendet. Dabei habe ich zuerst kennengelernt was Node.js überhaupt ist und auch wie man dependencies mit NPM installiert und verwaltet.",
-          "tags": [
+          "topics": [
             "Javascript",
             "Server",
             "Backend"
@@ -1251,7 +1251,7 @@
           "eyebrow": "Language",
           "title": "SQL",
           "description": "SQL habe ich erstmals während der Entwicklung meiner CRUD-App im NexCC verwendent, dabei habe ich die Basics gelernt. Später gab es auch noch die beiden Berufsschulmodule 162 und 164 und den ÜK-106, der auch fortgeschrittene Abfragen beinhaltete.",
-          "tags": [
+          "topics": [
             "Database",
             "Query",
             "Backend"
@@ -1273,7 +1273,7 @@
           "eyebrow": "Framework",
           "title": "Express.js",
           "description": "Meine CRUD-App im NexCC habe ich damit erstellt, was sehr lehrreich für mich war. Später hatte ich auch noch einen entsprechenden ÜK, welcher darum ging ein Backend mit Express.js zu erstellen.",
-          "tags": [
+          "topics": [
             "Node",
             "Web",
             "Backend"
@@ -1295,7 +1295,7 @@
           "eyebrow": "Framework",
           "title": "Vue.js",
           "description": "Diese Webseite ist mit Vue.js erstellt worden und ich habe damit auch anderweitig gearbeitet. Beispiele sind meine Memory App im Apps Team oder das Zukunftstagstool und die Berufsschulapp, welche ich wiederrum im NexCC erstellt habe.",
-          "tags": [
+          "topics": [
             "Javascript",
             "Frontend",
             "Web"
@@ -1317,7 +1317,7 @@
           "eyebrow": "Language",
           "title": "TypeScript",
           "description": "Diese Technologie habe ich das erste mal bei meiner Memory-App im Apps Team verwendet und benutze seither wenn möglich nur noch TypeScript anstelle von JavaScript. Projekte, bei denen ich TypeScript gearbeitet habe, sind z.B. die Apps Team Webseite, die CRUD-App im Apps Team oder auch das Fleetmanagement Tool.",
-          "tags": [
+          "topics": [
             "Javascript",
             "Typed",
             "Frontend",
@@ -1340,7 +1340,7 @@
           "eyebrow": "Language",
           "title": "C#",
           "description": "Ich habe C# bereits in der 3. Oberstufe kennengelernt, als ich ein eigenes Spiel mit Unity als Abschlussarbeit erstellt habe. Bei den Automatisierungsprojekten im Banking Bereich habe ich dann noch ein wenig mehr darüber gelernt.",
-          "tags": [
+          "topics": [
             "Microsoft",
             "Backend",
             "Object-Oriented"
@@ -1362,7 +1362,7 @@
           "eyebrow": "Language",
           "title": "Java",
           "description": "Java kenne ich hauptsächlich vom Berufsschulmodul 319, wo wir damit gearbeitet haben und kleinere Aufgaben programmieren mussten. Im Modul 320 kam dann auch noch OOP dazu, was ich sehr interessant fand. Ausserdem habe ich auch noch den ÜK-223 besucht, bei dem es darum ging Multi-User-Applikationen objektorientiert zu realisieren. Das haben wir mit einem Java-Backend und einem ORM gemacht.",
-          "tags": [
+          "topics": [
             "Backend",
             "Object-Oriented",
             "Enterprise"
@@ -1384,7 +1384,7 @@
           "eyebrow": "Language",
           "title": "Bash",
           "description": "Ich habe schon oft mit Bash gearbeitet und bin damit mittlerweile auch einigermassen vertraut. Ich habe damit z.B. schon ein paar kleine Skripte geschrieben, um mir die Arbeit zu erleichtern. Zudem gab es auch das Modul 122 in der Berufsschule, bei dem wir ebenfalls mit Bash gearbeitet haben.",
-          "tags": [
+          "topics": [
             "Scripting",
             "Shell",
             "Linux"
@@ -1406,7 +1406,7 @@
           "eyebrow": "Framework",
           "title": "React",
           "description": "React selbst habe ich erst gelernt, nachdem ich bereits mit Next.js gearbeitet habe, daher war die Lernkurve nicht mehr so steil. Beispiele für Projekte, bei denen ich React verwendet habe, sind z.B. die Medienkurse, das Fleetmanagement Tool oder auch die neuen Webfrontends.",
-          "tags": [
+          "topics": [
             "Javascript",
             "Frontend",
             "Web",
@@ -1429,7 +1429,7 @@
           "eyebrow": "Framework",
           "title": "Next.js",
           "description": "Das erste mal kennenlernen durte ich Next.js im Apps Team, wo ich damit die neue Apps Team Webseite erstellt habe. Dort habe ich gleichzeitig auch sehr viel über React gelernt und konnte so meine Kenntnisse gleich in beiden Frameworks verbessern.",
-          "tags": [
+          "topics": [
             "React",
             "Frontend",
             "Web",
@@ -1452,7 +1452,7 @@
           "eyebrow": "Container Management",
           "title": "Docker",
           "description": "Richtig verstanden und mich damit beschäftigt habe ich Docker im Berufsschulmodul 347, wo wir eine Applikation mittels CI/CD deployen mussten. Dazu gab es den ÜK 210, bei dem es um das Thema Cloud ging und wir auch dort nochmal mit Docker gearbeitet haben.",
-          "tags": [
+          "topics": [
             "Container",
             "DevOps",
             "Cloud"
@@ -1474,7 +1474,7 @@
           "eyebrow": "Container Management",
           "title": "Kubernetes",
           "description": "Auch Kubernetes habe ich im Berufsschulmodul 347 kennengelernt und dort verwendet, um eine Applikation mittels CI/CD zu deployen. Der ÜK 210 hat mir dann nochmal einen tieferen Einblick in die Container-Orchestrierung gegeben, da er sich mehr damit beschäftigt hat.",
-          "tags": [
+          "topics": [
             "Container",
             "Orchestration",
             "DevOps"
@@ -1496,7 +1496,7 @@
           "eyebrow": "Framework",
           "title": "Nest.js",
           "description": "Dieses Backend-Framework habe ich im Apps Team kennengelernt und habe damit meine CRUD-App erstellt. Dabei habe ich viel über die Architektur und die verschiedenen Module gelernt. Ausserdem habe ich auch in produktiven Projekten im Apps Team, wie z.B. dem Fleetmanagement Tool oder den neuen Webfrontends damit gearbeitet.",
-          "tags": [
+          "topics": [
             "Node",
             "Backend",
             "TypeScript"
@@ -1518,7 +1518,7 @@
           "eyebrow": "ORM",
           "title": "Prisma",
           "description": "Das habe ich verwendet um meine CRUD-App zu erstellen und ich bin dabei das erste mal mit einem ORM in Berührung gekommen. Später habe ich auch beim Fleetmanagement Tool mit Prisma gearbeiet.",
-          "tags": [
+          "topics": [
             "Database",
             "TypeScript",
             "ORM"
@@ -1540,7 +1540,7 @@
           "eyebrow": "ORM",
           "title": "TypeORM",
           "description": "Als Alternative zu Prisma habe ich meine CRUD-App, nachdem ich sie fertiggestellt habe, auch noch mit TypeORM umgesetzt, da auch dieses ORM in diversen Projekten im Apps Team verwendet wird.",
-          "tags": [
+          "topics": [
             "Database",
             "TypeScript",
             "ORM"
@@ -1562,7 +1562,7 @@
           "eyebrow": "Library",
           "title": "GitHub Primer",
           "description": "Ich habe GitHub Primer benutzt, um ein Frontend zusammen mit React für meine CRUD-App im Apps Team zu erstellen.",
-          "tags": [
+          "topics": [
             "React",
             "Frontend",
             "Design",
@@ -1585,7 +1585,7 @@
           "eyebrow": "Library",
           "title": "Tailwind CSS",
           "description": "Tailwind CSS wurde zusammen mit SDX in vielen Projekten im Apps Team verwendet. Das Fleetmanagement Tool und die neuen Webfrontends sind zwei Beispiele dafür.",
-          "tags": [
+          "topics": [
             "CSS",
             "Frontend",
             "Design",
@@ -1608,7 +1608,7 @@
           "eyebrow": "Language",
           "title": "Python",
           "description": "Diese Programmiersprache habe ich im Security Journey gelernt und sie für die Entwicklung des DAM Log Scanners verwendet, ein Tool, welches Datenbankaktivitäten aufzeichnet.",
-          "tags": [
+          "topics": [
             "Scripting",
             "Backend",
             "Object-Oriented"
@@ -1630,7 +1630,7 @@
           "eyebrow": "Language",
           "title": "Kotlin",
           "description": "Kotlin habe ich im ÜK 335 gelernt, wo wir als Projektarbeit eine Android App erstellt haben. Dabei konnten wir selbst entscheiden, ob wir Java oder Kotlin verwenden. Ich habe mich für Kotlin entschieden, da ich es interessant fand und es auch eine moderne Programmiersprache ist.",
-          "tags": [
+          "topics": [
             "Android",
             "Mobile",
             "Object-Oriented"
@@ -1652,7 +1652,7 @@
           "eyebrow": "Language",
           "title": "Jetpack Compose",
           "description": "Ich habe Jetpack Compose das erste mal zusammen mit Kotlin im ÜK 335 verwendet, wo wir eine Android App erstellt haben.",
-          "tags": [
+          "topics": [
             "Android",
             "Mobile",
             "UI"
@@ -1674,7 +1674,7 @@
           "eyebrow": "Library",
           "title": "Material Design 3",
           "description": "Während meiner Projektarbeit im ÜK 335 habe ich Material Design 3 verwendet, um die Android App zu gestalten.",
-          "tags": [
+          "topics": [
             "Android",
             "Mobile",
             "UI",
@@ -1698,7 +1698,7 @@
           "eyebrow": "Framework",
           "title": "Nuxt",
           "description": "Nuxt habe ich mir selbst beigebracht, da ich es interessant fand und auch gerne mit Vue programmiere, worauf Nuxt aufbaut. Bisher habe ich es allerdings bei keinen Projeken ausser dieser Webseite verwendet.",
-          "tags": [
+          "topics": [
             "Vue",
             "Frontend",
             "Web",
@@ -1721,7 +1721,7 @@
           "eyebrow": "Framework",
           "title": "Angular",
           "description": "Während ich im Piz Tofana Team war, habe ich Angular kennengelernt und auch damit gearbeitet. Damit haben wir nämlich während der Entwicklung des Frontends von Daedalus gearbeitet.",
-          "tags": [
+          "topics": [
             "Javascript",
             "Frontend",
             "Web",
@@ -1744,7 +1744,7 @@
           "eyebrow": "Runtime",
           "title": "Bun",
           "description": "Ich habe Bun kennengelernt, als ich meine Webseite auf Nuxt umgestellt habe. Vorallem die Einfachheit und die Geschwindigkeit im Gegensatz zu Node.js haben mich dabei überzeugt, weswegen ich wenn möglich nur noch Bun verwende.",
-          "tags": [
+          "topics": [
             "TypeScript",
             "Server",
             "Backend"
@@ -1766,7 +1766,7 @@
           "eyebrow": "Language",
           "title": "Scala",
           "description": "Scala habe ich im Berufsschulmodul 323 kennengelernt und fand es sehr interessant, da es viele Parallelen zu Java hat, aber auch viele neue Konzepte, wie z.B. Traits oder Pattern Matching, mitbringt.",
-          "tags": [
+          "topics": [
             "Backend",
             "Object-Oriented",
             "Functional",
@@ -1791,7 +1791,7 @@
           "eyebrow": "Introduction",
           "title": "NEX First Steps",
           "description": "In den First Steps hat meine Lehre begonnen. Dort habe ich alles rund um Swisscom kennengelernt, also z.B. wie man die verschieden Tools verwendet, wie man richtig zusammenarbeitet und auch andere Dinge, wie beispielsweise die Arbeitssicherheit.",
-          "tags": [
+          "topics": [
             "Introduction",
             "Swisscom",
             "Teamwork",
@@ -1814,7 +1814,7 @@
           "eyebrow": "Full Stack",
           "title": "Competence Center NexCC",
           "description": "Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei viele neue Programmiersprachen gelernt. Darunter HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App erstellen, welche ich mit einer SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend hinzugefügt und so ein eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte Programmiersprachen, wie Node.js, Express.js oder Vue.js neu dazugelernt.",
-          "tags": [
+          "topics": [
             "Web Development",
             "Frontend",
             "HTML",
@@ -1846,7 +1846,7 @@
           "eyebrow": "Automation",
           "title": "Automatisierungsprojekte im Banking Bereich",
           "description": "Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld erhalten. Ich war aktiv dabei und habe die einzelnen Banken mittls Ranorex & UiPath gelernt zu testen bzw. zu automatisieren. Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr über das .NET Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu verbessern!",
-          "tags": [
+          "topics": [
             "Automation",
             "Banking",
             "Testing",
@@ -1877,7 +1877,7 @@
           "eyebrow": "Frontend",
           "title": "Apps Team - Frontend",
           "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
-          "tags": [
+          "topics": [
             "Frontend",
             "Memory",
             "Vue",
@@ -1913,7 +1913,7 @@
           "eyebrow": "Backend",
           "title": "Apps Team - Backend",
           "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt. Danach habe ich dann beim Tool für Medienkurse mitgeholfen und konnte dort einige Features hinzufügen und Fehler beheben. Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen Webfrontends mitwirken, was mir sehr gefallen hat :)",
-          "tags": [
+          "topics": [
             "Backend",
             "CRUD",
             "Nest",
@@ -1950,7 +1950,7 @@
           "eyebrow": "Security Journey",
           "title": "Security & Compliance Services ART",
           "description": "In diesem Projekt habe ich mit ein paar Trainings zu Cloud, Security und DevOps begonnen, was ziemlich lehrreich für mich war. Danach durfte ich bereits am DAM Log Scanner Projekt arbeiten, einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring) und nach spezifischen Richtlinien handelt. Diese wurden primär mit OPA (Open Policy Agent) umgsetzt, womit ich allerdings nicht allzu viel zu tun hatte. Ich habe nämlich hauptsächlich Python, Docker und Kubernetes verwendet, wobei Python für mich neu war. Gegen Ende des Projekts habe ich dann auch noch begonnen Elasticsearch zu implementieren, um die Daten zu visualisieren und zu analysieren.",
-          "tags": [
+          "topics": [
             "Security",
             "Cloud",
             "Database Activity Monitoring",
@@ -1980,7 +1980,7 @@
           "eyebrow": "Security Journey",
           "title": "Piz Tofana Tooling Team",
           "description": "Momentan bin ich im Piz Tofana Tooling Team, wo ich an der Daedalus Applikation arbeite. Diese bietet verschiedene Selbstbeurteilungs-Module, die von den Fachabteilungen zur Bewertung von Datenschutz, Sicherheit, Compliance, Klassifizierung und Weiterem für verknüpfte Objekte wie Anwendungen, Ressourcen, Dienste oder Angebote bereitgestellt werden. Wir verwenden Java Spring Boot für das Backend und Angular für das Frontend.",
-          "tags": [
+          "topics": [
             "Cloud Security",
             "Docker",
             "Kubernetes",
