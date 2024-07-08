@@ -19,28 +19,31 @@
 </template>
 
 <script setup lang="ts">
+const props = defineProps<{
+  initialHeight: number;
+  onUpdateHeight: (value: number) => void;
+}>();
+
 const pathData = ref<string>("");
-const timelineHeight = ref<number>(0);
+const timelineHeight = ref<number>(props.initialHeight);
 const viewBox = ref<string>("0 0 8 0");
-const strokeDashArray = ref<number>(0);
-const strokeDashOffset = ref<number>(0);
+const strokeDashArray = ref<number>(props.initialHeight);
+const strokeDashOffset = ref<number>(props.initialHeight);
 const strokeWidth = ref<number>(5);
 
 const svgElement = ref<SVGElement | null>(null);
 const pathElement = ref<SVGPathElement | null>(null);
-const timelineList = ref<HTMLElement | null>(null);
+const initialAnimationDone = ref<boolean>(false);
 
 const initializePath = () => {
-  if (timelineList.value) {
-    const listHeight = timelineList.value.getBoundingClientRect().height;
-    const roundedHeight = Math.round(listHeight);
+  const listHeight = props.initialHeight;
+  const roundedHeight = Math.round(listHeight);
 
-    pathData.value = `M 4 0 L 4 ${roundedHeight}`;
-    timelineHeight.value = roundedHeight;
-    viewBox.value = `0 0 8 ${roundedHeight}`;
-    strokeDashArray.value = listHeight;
-    strokeDashOffset.value = listHeight;
-  }
+  pathData.value = `M 4 0 L 4 ${roundedHeight}`;
+  timelineHeight.value = roundedHeight;
+  viewBox.value = `0 0 8 ${roundedHeight}`;
+  strokeDashArray.value = listHeight;
+  strokeDashOffset.value = listHeight;
 };
 
 const animatePath = () => {
@@ -48,40 +51,50 @@ const animatePath = () => {
   const centerY = window.innerHeight / 2;
   const pathBounds = pathElement.value?.getBoundingClientRect();
 
-  const scrollPercentage =
-    (centerY - (pathBounds?.top || 0)) / (pathBounds?.height || 1);
+  if (!pathBounds) return;
+
+  const scrollPercentage = (centerY - pathBounds.top) / pathBounds.height;
   const drawLength = scrollPercentage > 0 ? height * scrollPercentage : 0;
 
   strokeDashOffset.value = drawLength < height ? height - drawLength : 0;
+  props.onUpdateHeight(strokeDashOffset.value);
+};
+
+const initialAnimatePath = () => {
+  if (initialAnimationDone.value) return;
+
+  animatePath();
+  initialAnimationDone.value = true;
 };
 
 const setupIntersectionObserver = () => {
-  if (svgElement.value) {
-    useIntersectionObserver(svgElement, ([entry]) => {
-      if (entry?.isIntersecting) {
-        window.addEventListener("scroll", animatePath);
-        window.addEventListener("resize", initializePath);
-      } else {
-        window.removeEventListener("scroll", animatePath);
-        window.removeEventListener("resize", initializePath);
-      }
-    });
-  }
+  if (!svgElement.value) return;
+
+  useIntersectionObserver(svgElement, ([entry]) => {
+    if (entry?.isIntersecting) {
+      initialAnimatePath();
+      window.addEventListener("scroll", animatePath);
+      window.addEventListener("resize", initializePath);
+    } else {
+      window.removeEventListener("scroll", animatePath);
+      window.removeEventListener("resize", initializePath);
+    }
+  });
 };
 
 onMounted(async () => {
-  const instance = getCurrentInstance();
-  timelineList.value = instance?.parent?.refs.ul as HTMLElement;
-
   await nextTick();
   initializePath();
   setupIntersectionObserver();
 });
 
-watch(timelineHeight, async () => {
-  await nextTick();
-  initializePath();
-});
+watch(
+  () => props.initialHeight,
+  async () => {
+    await nextTick();
+    initializePath();
+  },
+);
 </script>
 
 <style scoped>

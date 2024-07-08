@@ -26,7 +26,7 @@
       </div>
     </NavBarExtension>
     <div v-if="currentIndex === 0" class="timeline-wrapper">
-      <TimeLine :height="ulHeight" />
+      <TimeLine :initial-height="ulHeight" :on-update-height="updateHeight" />
       <ul ref="ul" class="timeline">
         <CardItem
           v-for="(project, index) in currentProjects"
@@ -158,7 +158,12 @@ const { tm } = useI18n();
 const config = useRuntimeConfig();
 
 const ul = ref<HTMLElement | null>(null);
-const ulHeight = useElementSize(ul).height;
+const ulHeight = ref<number>(0);
+
+const updateHeight = () => {
+  if (!ul.value) return;
+  ulHeight.value = ul.value.getBoundingClientRect().height;
+};
 
 const pinned = ref<PinnedRepository[]>([]);
 const currentIndex = ref(0);
@@ -233,6 +238,16 @@ const categorizeProject = (
   };
 };
 
+const updateUlHeightAndInitializePath = async () => {
+  await nextTick();
+  updateHeight();
+};
+
+onMounted(() => {
+  updateUlHeightAndInitializePath();
+  window.addEventListener("resize", updateUlHeightAndInitializePath);
+});
+
 watch(
   pinnedProjects,
   (newPinnedProjects) => {
@@ -256,6 +271,10 @@ watchEffect(() => {
     const category = project.category as keyof Projects;
     projects[category].push(project);
   });
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", updateUlHeightAndInitializePath);
 });
 </script>
 
