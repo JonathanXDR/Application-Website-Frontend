@@ -78,12 +78,12 @@ export default defineNuxtConfig({
         defaultScriptOptions: {
           bundle: true
         },
-        globals: [
-          {
+        globals: {
+          musicKit: {
             src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
             async: true
           }
-        ]
+        }
       }
     }
   },
@@ -109,13 +109,13 @@ export default defineNuxtConfig({
           { property: 'og:title', content: 'Jonathan Russ | DEV' }
         ],
         scripts: {
-          globals: [
-            {
+          globals: {
+            meticulousAi: {
               src: 'https://snippet.meticulous.ai/v1/meticulous.js',
               ['data-project-id']: '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
               ['data-is-production-environment']: false
             }
-          ]
+          }
         }
       }
     }
@@ -139,13 +139,13 @@ export default defineNuxtConfig({
           { property: 'og:title', content: 'Jonathan Russ' }
         ],
         scripts: {
-          globals: [
-            {
+          globals: {
+            meticulousAi: {
               src: 'https://snippet.meticulous.ai/v1/meticulous.js',
               ['data-project-id']: '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
               ['data-is-production-environment']: true
             }
-          ]
+          }
         }
       }
     }
