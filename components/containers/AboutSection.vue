@@ -32,8 +32,8 @@
         description: $t('components.containers.about.description', {
           age: dates.age,
           apprenticeshipYear:
-            dates.apprenticeshipYear && dates.apprenticeshipYear + 1
-        })
+            dates.apprenticeshipYear && dates.apprenticeshipYear + 1,
+        }),
       }"
     />
   </div>
@@ -42,42 +42,42 @@
 </template>
 
 <script setup lang="ts">
-import type { DateItemType } from '~/types/common/DateItem'
+import type { DateItemType } from "~/types/common/DateItem";
 
 defineProps<{
-  title: string
-}>()
+  title: string;
+}>();
 
-const { tm } = useI18n()
+const { tm } = useI18n();
 const dateItems = computed<DateItemType[]>(() =>
-  tm('components.containers.about.dates')
-)
+  tm("components.containers.about.dates"),
+);
 const dates = ref<{
-  age: number | undefined
-  apprenticeshipYear: number | undefined
+  age: number | undefined;
+  apprenticeshipYear: number | undefined;
 }>({
   age: undefined,
-  apprenticeshipYear: undefined
-})
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 })
+  apprenticeshipYear: undefined,
+});
+const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
 
 const calculateYears = (date: string) => {
-  const currentDate = new Date(Date.now())
-  const birthDate = new Date(date)
-  const difference = new Date(currentDate.getTime() - birthDate.getTime())
-  const years = Math.abs(difference.getUTCFullYear() - 1970)
-  return years
-}
+  const currentDate = new Date(Date.now());
+  const birthDate = new Date(date);
+  const difference = new Date(currentDate.getTime() - birthDate.getTime());
+  const years = Math.abs(difference.getUTCFullYear() - 1970);
+  return years;
+};
 
 onMounted(async () => {
   dateItems.value.forEach((item: DateItemType) => {
     if (item.key in dates.value) {
       dates.value[item.key as keyof typeof dates.value] = calculateYears(
-        item.date
-      )
+        item.date,
+      );
     }
-  })
-})
+  });
+});
 </script>
 
 <style scoped>

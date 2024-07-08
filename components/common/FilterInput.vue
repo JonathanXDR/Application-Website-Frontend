@@ -68,7 +68,7 @@
           </div>
           <BadgeBar
             v-if="open && options.length"
-            :badges="options.map(option => option.label)"
+            :badges="options.map((option) => option.label)"
           />
         </div>
       </div>
@@ -80,19 +80,19 @@
 </template>
 
 <script setup lang="ts">
-const { tm } = useI18n()
+const { tm } = useI18n();
 const options = computed<ItemType[]>(() =>
-  tm('components.common.FilterInput.sorts')
-)
-const open = ref(false)
+  tm("components.common.FilterInput.sorts"),
+);
+const open = ref(false);
 
 const onFocus = () => {
-  open.value = true
-}
+  open.value = true;
+};
 
 const onBlur = () => {
-  open.value = false
-}
+  open.value = false;
+};
 </script>
 
 <style scoped>
@@ -272,8 +272,14 @@ const onBlur = () => {
 .filter-input {
   font-size: 21px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: var(--color-text);
   width: 100%;
   height: 100%;
@@ -288,8 +294,14 @@ const onBlur = () => {
   .filter-input {
     font-size: 19px;
     font-weight: 400;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-      'Helvetica', 'Arial', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 

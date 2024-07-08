@@ -6,12 +6,12 @@ type AnimationOperations = {
 };
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.directive('animation', {
+  nuxtApp.vueApp.directive("animation", {
     mounted(el: HTMLElement, binding: { value: AnimationOperations }) {
       const toArray = (input: string | string[] | undefined): string[] => {
         if (Array.isArray(input)) {
           return input;
-        } else if (typeof input === 'string') {
+        } else if (typeof input === "string") {
           return [input];
         } else {
           return [];
@@ -26,12 +26,12 @@ export default defineNuxtPlugin((nuxtApp) => {
           if (isInViewport) {
             toArray(add).forEach((className) => el.classList.add(className));
             toArray(remove).forEach((className) =>
-              el.classList.remove(className)
+              el.classList.remove(className),
             );
             toArray(toggle).forEach((className) => el.classList.add(className));
           } else {
             toArray(toggle).forEach((className) =>
-              el.classList.remove(className)
+              el.classList.remove(className),
             );
           }
 
@@ -46,7 +46,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         });
       };
 
-      let observer = createObserver('0px 0px -200px 0px');
+      let observer = createObserver("0px 0px -200px 0px");
       observer.observe(el);
 
       const updateObserver = () => {
@@ -57,12 +57,12 @@ export default defineNuxtPlugin((nuxtApp) => {
         const isAtTop = scrollTop === 0;
         const isAtBottom = scrollTop + clientHeight >= scrollHeight;
 
-        let newRootMargin = '0px 0px -200px 0px';
+        let newRootMargin = "0px 0px -200px 0px";
 
         if (isAtTop) {
-          newRootMargin = '0px 0px -200px 0px';
+          newRootMargin = "0px 0px -200px 0px";
         } else if (isAtBottom) {
-          newRootMargin = '-100px 0px 0px 0px';
+          newRootMargin = "-100px 0px 0px 0px";
         }
 
         observer.disconnect();
@@ -70,7 +70,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         observer.observe(el);
       };
 
-      window.addEventListener('scroll', updateObserver);
+      window.addEventListener("scroll", updateObserver);
     },
   });
 });

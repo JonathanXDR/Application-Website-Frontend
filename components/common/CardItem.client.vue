@@ -8,13 +8,13 @@
       'scroll-animation scroll-animation--off',
       variant,
       componentSize,
-      { hover: applyHover }
+      { hover: applyHover },
     ]"
     :style="{
       '--color-background': colors.primary,
       '--color-background-hover': colors.secondary,
       '--color-border': colors.tertiary,
-      '--color-border-hover': colors.quaternary
+      '--color-border-hover': colors.quaternary,
     }"
     target="_blank"
   >
@@ -61,7 +61,7 @@
             :loading="loading"
             :colors="{
               primary: 'var(--color-figure-yellow)',
-              tertiary: 'var(--color-figure-yellow)'
+              tertiary: 'var(--color-figure-yellow)',
             }"
             border
             :hover="false"
@@ -73,7 +73,7 @@
             :loading="loading"
             :colors="{
               primary: `var(--color-figure-${$randomDevColor?.name})`,
-              tertiary: `var(--color-figure-${$randomDevColor?.name})`
+              tertiary: `var(--color-figure-${$randomDevColor?.name})`,
             }"
             hover
             border
@@ -115,9 +115,9 @@
             ...info,
             date: {
               ...info?.date,
-              fixed: updated_at || info?.date?.fixed
+              fixed: updated_at || info?.date?.fixed,
             },
-            loading: loading
+            loading: loading,
           }"
         />
       </div>
@@ -127,89 +127,89 @@
 </template>
 
 <script setup lang="ts">
-import type { CardRepositoryType } from '~/types/common/CardRepository'
+import type { CardRepositoryType } from "~/types/common/CardRepository";
 
 const props = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
-  variant: 'card',
-  componentSize: 'medium',
+  variant: "card",
+  componentSize: "medium",
   colors: () => ({
-    primary: 'transparent',
-    secondary: 'transparent',
-    tertiary: 'var(--color-fill-gray-tertiary)',
-    quaternary: 'var(--color-figure-blue)'
+    primary: "transparent",
+    secondary: "transparent",
+    tertiary: "var(--color-fill-gray-tertiary)",
+    quaternary: "var(--color-figure-blue)",
   }),
-  alignment: 'start',
-  hover: 'auto',
-  cover: '',
+  alignment: "start",
+  hover: "auto",
+  cover: "",
   loading: false,
   graphs: () => ({
     donut: false,
-    bar: false
+    bar: false,
   }),
   icon: () => ({
-    name: '',
+    name: "",
     absolute: false,
-    position: 'left',
-    alignment: 'start'
-  })
-})
+    position: "left",
+    alignment: "start",
+  }),
+});
 
-const { $randomDevColor } = useNuxtApp()
+const { $randomDevColor } = useNuxtApp();
 const applyHover = computed(
   () =>
-    (props.hover === 'auto' &&
+    (props.hover === "auto" &&
       ((props.links && props.links.length >= 1) || props.html_url)) ||
-    props.hover === 'true'
-)
+    props.hover === "true",
+);
 const componentType = computed(() =>
-  props.variant === 'article' || !applyHover.value ? 'div' : 'a'
-)
+  props.variant === "article" || !applyHover.value ? "div" : "a",
+);
 const componentId = computed(() =>
-  props.title?.toLowerCase().replace(/ /g, '-')
-)
+  props.title?.toLowerCase().replace(/ /g, "-"),
+);
 const componentHref = computed(() =>
-  applyHover.value && props.links ? props.links[0]?.url : props.html_url
-)
+  applyHover.value && props.links ? props.links[0]?.url : props.html_url,
+);
 const scrollAnimation = {
-  add: 'scroll-animation--on',
-  remove: 'scroll-animation--off'
-}
+  add: "scroll-animation--on",
+  remove: "scroll-animation--off",
+};
 
 const hasCoverOrGraphs = computed(
-  () => props.cover || props.graphs?.donut || props.graphs?.bar
-)
+  () => props.cover || props.graphs?.donut || props.graphs?.bar,
+);
 const hasBadgesOrTopics = computed(
-  () => props.badges?.length || props.topics?.length
-)
-const badgesOrTopics = computed(() => props.badges || props.topics)
-const hasLinksOrHtmlUrl = computed(() => props.links?.length || props.html_url)
+  () => props.badges?.length || props.topics?.length,
+);
+const badgesOrTopics = computed(() => props.badges || props.topics);
+const hasLinksOrHtmlUrl = computed(() => props.links?.length || props.html_url);
 const linkCollectionLinks = computed(
   () =>
     props.links || [
       {
-        title: 'Mehr erfahren',
+        title: "Mehr erfahren",
         url: props.html_url,
-        icon: { name: 'chevron.right' }
-      }
-    ]
-)
+        icon: { name: "chevron.right" },
+      },
+    ],
+);
 
 const hasInfo = computed(() => {
   const keys = [
-    'info',
-    'created_at',
-    'updated_at',
-    'language',
-    'license',
-    'forks_count',
-    'network_count',
-    'watchers_count',
-    'stargazers_count',
-    'open_issues_count',
-    'subscribers_count'
-  ]
-  return keys.some((key: string) => (props as Record<string, unknown>)[key])
-})
+    "info",
+    "created_at",
+    "updated_at",
+    "language",
+    "license",
+    "forks_count",
+    "network_count",
+    "watchers_count",
+    "stargazers_count",
+    "open_issues_count",
+    "subscribers_count",
+  ];
+  return keys.some((key: string) => (props as Record<string, unknown>)[key]);
+});
 
 const info = computed(() => {
   return (
@@ -221,43 +221,43 @@ const info = computed(() => {
       watchers: props.watchers_count,
       stars: props.stargazers_count,
       issues: props.open_issues_count,
-      subscribers: props.subscribers_count
+      subscribers: props.subscribers_count,
     }
-  )
-})
+  );
+});
 
 const flexDirection = computed(
   () =>
     ({
-      top: 'column',
-      right: 'row-reverse',
-      bottom: 'column-reverse',
-      left: 'row'
-    }[props.icon?.position || 'left'])
-)
+      top: "column",
+      right: "row-reverse",
+      bottom: "column-reverse",
+      left: "row",
+    })[props.icon?.position || "left"],
+);
 
 const alignItems = computed(
   () =>
     ({
-      start: 'flex-start',
-      center: 'center',
-      end: 'flex-end'
-    }[props.alignment])
-)
+      start: "flex-start",
+      center: "center",
+      end: "flex-end",
+    })[props.alignment],
+);
 
 const detailsStyle = computed((): Record<string, string> => {
   return {
     flexDirection: flexDirection.value,
-    alignItems: alignItems.value
-  }
-})
+    alignItems: alignItems.value,
+  };
+});
 
 const iconClasses = computed(() => ({
   icon: true,
-  'icon-large': props.variant === 'article' && props.componentSize === 'large',
-  'icon-xlarge': ['medium', 'small'].includes(props.componentSize),
-  'icon-xxlarge': props.variant === 'card' && props.componentSize === 'large'
-}))
+  "icon-large": props.variant === "article" && props.componentSize === "large",
+  "icon-xlarge": ["medium", "small"].includes(props.componentSize),
+  "icon-xxlarge": props.variant === "card" && props.componentSize === "large",
+}));
 </script>
 
 <style scoped>
@@ -310,14 +310,18 @@ const iconClasses = computed(() => ({
   /* height: 100%; */
   overflow: hidden;
   display: block;
-  transition: box-shadow, transform 0.16s ease-out;
+  transition:
+    box-shadow,
+    transform 0.16s ease-out;
   will-change: box-shadow, transform;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 16px;
 
   /* Styles without cover */
-  transition: transform 0.16s ease-out, background-color 0.16s ease-out,
+  transition:
+    transform 0.16s ease-out,
+    background-color 0.16s ease-out,
     border-color 0.16s ease-out;
   border: 1px solid var(--color-border);
 }
@@ -408,16 +412,28 @@ const iconClasses = computed(() => ({
 
   font-size: 14px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .small .details {
   padding: 22px;
   font-size: 15px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .medium .details {
@@ -425,23 +441,41 @@ const iconClasses = computed(() => ({
   padding: 32px;
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .large .details {
   padding: 44px;
   font-size: 20px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .full .details {
   font-size: 17px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -459,8 +493,14 @@ const iconClasses = computed(() => ({
 .full .details {
   font-size: 14px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 /* ---------------------------------- body ---------------------------------- */
@@ -489,36 +529,66 @@ const iconClasses = computed(() => ({
 .xsmall .eyebrow {
   font-size: 14px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .small .eyebrow {
   font-size: 15px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .medium .eyebrow {
   font-size: 17px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .large .eyebrow {
   font-size: 20px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .full .eyebrow {
   font-size: 17px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: var(--color-welcome-featured-card-eyebrow-text);
 }
 
@@ -535,30 +605,54 @@ const iconClasses = computed(() => ({
 .xsmall .title {
   font-size: 14px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .small .title {
   font-size: 17px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .medium .title {
   font-size: 21px;
   /* 20.2380952385px */
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .large .title {
   font-size: 28px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 
   /* Styles without cover */
   color: var(--color-card-content-text);
@@ -567,8 +661,14 @@ const iconClasses = computed(() => ({
 .full .title {
   font-size: 21px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 /* ---------------------------------- link ---------------------------------- */
@@ -657,8 +757,14 @@ const iconClasses = computed(() => ({
 .tile-category {
   font-size: 12px;
   font-weight: 700;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .tile-2up .tile-category {

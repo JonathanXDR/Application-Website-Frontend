@@ -5,7 +5,7 @@
     type="checkbox"
     :disabled="navDisabled"
     @input="toggleNav()"
-  >
+  />
   <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking" />
   <nav
     id="ac-localnav"

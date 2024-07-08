@@ -10,7 +10,7 @@
             name="category"
             :value="item.id"
             @change="() => emitChange(item.id)"
-          >
+          />
           <label :for="`tab-${item.id}`" class="tabnav-link">
             {{ item.label }}
           </label>
