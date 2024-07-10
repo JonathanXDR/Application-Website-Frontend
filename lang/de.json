@@ -238,19 +238,8 @@
         ]
       },
       "LiveResultSummary": {
-        "description": "Showing {count} results",
-        "items": [
-          {
-            "icon": {
-              "name": "pin.fill",
-              "colors": {
-                "primary": "{randomColor}"
-              }
-            },
-            "title": "Angepinnt",
-            "description": "({count})"
-          }
-        ]
+        "title": "Zeige {count} Ergebnisse",
+        "description": "Angepinnt"
       },
       "ShareSheet": {
         "links": [
