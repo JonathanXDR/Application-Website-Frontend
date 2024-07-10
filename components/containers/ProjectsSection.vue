@@ -289,8 +289,6 @@ onUnmounted(() => {
   background: var(--color-fill-light-blue-secondary);
 }
 
-/* ---------------------------- timeline-wrapper ---------------------------- */
-
 .timeline-wrapper {
   margin-left: auto;
   margin-right: auto;
@@ -311,8 +309,6 @@ onUnmounted(() => {
     justify-content: center;
   }
 }
-
-/* -------------------------------- timeline -------------------------------- */
 
 .timeline {
   width: 100%;
@@ -335,8 +331,6 @@ onUnmounted(() => {
     align-items: flex-start !important;
   }
 }
-
-/* ------------------------------- timeline li ------------------------------ */
 
 .timeline .article {
   width: 90%;

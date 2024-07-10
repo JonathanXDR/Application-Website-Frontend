@@ -146,8 +146,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* ---------------------------------- Menu ---------------------------------- */
-
 .item {
   list-style: none;
   font-weight: 700;
@@ -179,8 +177,6 @@ onMounted(() => {
   background: var(--color-code-plain);
   transform: scale(1.2);
 }
-
-/* --------------------------------- Navbar --------------------------------- */
 
 #ac-ln-menustate {
   display: none;
@@ -257,8 +253,6 @@ onMounted(() => {
   }
 }
 
-/* ------------------------------ ac-ln-actions ----------------------------- */
-
 .ac-ln-actions {
   display: flex;
   align-items: center;
@@ -275,8 +269,6 @@ onMounted(() => {
     height: 100%;
   }
 }
-
-/* ---------------------------- ac-ln-background ---------------------------- */
 
 .ac-ln-background {
   position: absolute;
@@ -352,8 +344,6 @@ onMounted(() => {
   width: 100% !important;
 }
 
-/* ------------------------------- ac-ln-menu ------------------------------- */
-
 .ac-ln-menu {
   height: 100%;
   font-size: 14px;
@@ -381,8 +371,6 @@ onMounted(() => {
     display: block;
   }
 }
-
-/* ----------------------------- ac-ln-menu-tray ---------------------------- */
 
 .ac-ln-menu-tray {
   height: 100%;
@@ -423,8 +411,6 @@ onMounted(() => {
   }
 }
 
-/* ---------------------------- ac-ln-menu-items ---------------------------- */
-
 .ac-ln-menu-items {
   width: 100%;
   height: 100%;
@@ -451,8 +437,6 @@ onMounted(() => {
     transition-delay: 0.2s, 0.4s !important;
   }
 }
-
-/* ----------------------------- ac-ln-menu-item ---------------------------- */
 
 @media only screen and (max-width: 1250px) {
   .ac-ln-menu-item {
@@ -532,8 +516,6 @@ onMounted(() => {
   }
 }
 
-/* ----------------------------- ac-ln-menu-link ---------------------------- */
-
 .ac-ln-menu-link {
   display: inline-block;
   white-space: nowrap;
@@ -602,8 +584,6 @@ onMounted(() => {
   width: 20px;
   height: 20px;
 }
-
-/* -------------------------- ac-ln-menucta-chevron ------------------------- */
 
 .ac-ln-menucta-chevron {
   display: block;
@@ -675,8 +655,6 @@ onMounted(() => {
   background: var(--color-fill-gray);
 }
 
-/* ------------------------------- ac-ln-title ------------------------------ */
-
 .ac-ln-title {
   display: flex;
   align-items: center;
@@ -686,8 +664,6 @@ onMounted(() => {
 a:disabled {
   opacity: 0.32;
 }
-
-/* ----------------------------- #ac-ln-curtain ----------------------------- */
 
 #ac-ln-curtain {
   background: rgba(0, 0, 0, 0.4);

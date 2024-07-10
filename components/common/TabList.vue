@@ -323,8 +323,6 @@ const emitChange = (id: string) => {
 </script>
 
 <style scoped>
-/* --------------------------------- tabnav --------------------------------- */
-
 .tabnav {
   --scroll-container-safearea-offset: -10px;
   width: 100%;
@@ -342,8 +340,6 @@ const emitChange = (id: string) => {
   margin-bottom: 18px;
   text-align: center;
 }
-
-/* ------------------------------ tabnav-paddle ----------------------------- */
 
 .tabnav-paddle {
   font-size: 17px;
@@ -385,8 +381,6 @@ const emitChange = (id: string) => {
   opacity: 1;
 }
 
-/* --------------------------- tabnav-paddle-left --------------------------- */
-
 .tabnav-paddle-left {
   border-right-width: 1px;
   left: 0;
@@ -395,8 +389,6 @@ const emitChange = (id: string) => {
 .tabnav-paddle-left .icon {
   margin-left: -0.5px;
 }
-
-/* --------------------------- tabnav-paddle-right -------------------------- */
 
 .tabnav-paddle-right {
   border-left-width: 1px;
@@ -407,14 +399,10 @@ const emitChange = (id: string) => {
   margin-right: -0.5px;
 }
 
-/* ---------------------------------- icon ---------------------------------- */
-
 .icon {
   opacity: 0.8;
   transition: opacity 200ms linear;
 }
-
-/* ------------------------------ tabnav-items ------------------------------ */
 
 .tabnav-items {
   margin: 0 34px;
@@ -431,8 +419,6 @@ const emitChange = (id: string) => {
   justify-content: center;
   align-items: center;
 }
-
-/* ------------------------------- tabnav-item ------------------------------ */
 
 .tabnav-item {
   display: inline-block;
@@ -497,8 +483,6 @@ const emitChange = (id: string) => {
 .tabnav-item:first-child {
   padding-left: 0;
 }
-
-/* ------------------------------- tabnav-link ------------------------------ */
 
 .tabnav-link {
   cursor: pointer;
@@ -584,8 +568,6 @@ const emitChange = (id: string) => {
       sans-serif;
   }
 }
-
-/* ----------------------------- tablist-wrapper ---------------------------- */
 
 .tablist-wrapper {
   /* position: absolute;

@@ -261,8 +261,6 @@ const iconClasses = computed(() => ({
 </script>
 
 <style scoped>
-/* ------------------------------- button-cta ------------------------------- */
-
 .ctas-wrapper {
   margin-top: 12px;
   display: flex;
@@ -272,8 +270,6 @@ const iconClasses = computed(() => ({
 .ctas-wrapper .button {
   margin-right: 10px;
 }
-
-/* ------------------------------- card-cover ------------------------------- */
 
 .card-cover {
   background-color: var(--color-fill);
@@ -294,8 +290,6 @@ const iconClasses = computed(() => ({
 .card-cover img {
   height: 100%;
 }
-
-/* ---------------------------------- card ---------------------------------- */
 
 .card.medium {
   border-radius: 17px;
@@ -352,8 +346,6 @@ const iconClasses = computed(() => ({
   }
 }
 
-/* ------------------------------ featured-card ----------------------------- */
-
 .full {
   color: var(--color-fill-gray);
   margin-bottom: 15px;
@@ -380,8 +372,6 @@ const iconClasses = computed(() => ({
 .full .title {
   color: var(--color-welcome-featured-card-content);
 }
-
-/* --------------------------------- details -------------------------------- */
 
 .article {
   width: 100%;
@@ -503,8 +493,6 @@ const iconClasses = computed(() => ({
     sans-serif;
 }
 
-/* ---------------------------------- body ---------------------------------- */
-
 .full .body {
   width: 75% !important;
 }
@@ -517,8 +505,6 @@ const iconClasses = computed(() => ({
   justify-content: flex-start;
   gap: 4px;
 }
-
-/* --------------------------------- eyebrow -------------------------------- */
 
 .eyebrow {
   color: var(--color-figure-gray-secondary);
@@ -591,8 +577,6 @@ const iconClasses = computed(() => ({
     sans-serif;
   color: var(--color-welcome-featured-card-eyebrow-text);
 }
-
-/* ---------------------------------- title --------------------------------- */
 
 .title-wrapper {
   max-width: 90%;
@@ -671,8 +655,6 @@ const iconClasses = computed(() => ({
     sans-serif;
 }
 
-/* ---------------------------------- link ---------------------------------- */
-
 .link {
   /* color: var(--color-fill-gray); */
   color: var(--color-figure-blue);
@@ -747,8 +729,6 @@ const iconClasses = computed(() => ({
     margin-top: 10px;
   }
 }
-
-/* ----------------------------- tile-category ----------------------------- */
 
 .tile-category {
   color: var(--color-figure-gray-secondary);

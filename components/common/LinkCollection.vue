@@ -97,8 +97,6 @@ const enhancedLinks = computed(() => {
   margin-right: 20px;
 }
 
-/* ---------------------------------- card ---------------------------------- */
-
 .card.color .link {
   color: var(--color-fill-gray) !important;
 }
@@ -110,8 +108,6 @@ const enhancedLinks = computed(() => {
 .icon {
   margin-left: 0.3em;
 }
-
-/* ------------------------------- ribbon-link ------------------------------ */
 
 .ribbon-blue-to-default .ribbon-link .link.animate-color {
   color: white;

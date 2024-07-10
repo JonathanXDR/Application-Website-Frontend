@@ -48,21 +48,15 @@ const getLabel = (locale: { code: string; name?: string }) => {
 </script>
 
 <style scoped>
-/* ------------------------- lang-switcher-container ------------------------ */
-
 .lang-switcher-container {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
 
-/* ---------------------------------- language-switcher-text  ---------------------------------- */
-
 .lang-switcher-container .language-switcher-text {
   padding-right: 10px;
 }
-
-/* ------------------------- language-picker-wrapper ------------------------ */
 
 .lang-switcher-container .language-picker-wrapper {
   display: flex;
@@ -72,8 +66,6 @@ const getLabel = (locale: { code: string; name?: string }) => {
 .language-picker-wrapper li > input[type="radio"] {
   display: none;
 }
-
-/* ----------------------------------- li ----------------------------------- */
 
 .lang-switcher-container .language-picker-wrapper li {
   padding-right: 10px;
@@ -86,8 +78,6 @@ const getLabel = (locale: { code: string; name?: string }) => {
   padding-right: 10px;
   margin-right: 20px;
 }
-
-/* ---------------------------------- label --------------------------------- */
 
 input[name="language"]:checked ~ label {
   color: var(--color-fill-gray-secondary) !important;

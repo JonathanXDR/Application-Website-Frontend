@@ -78,8 +78,6 @@ const sections = computed<SectionType[]>(() => tm("components.common.NavBar"));
   opacity: 0.6;
 }
 
-/* ---------------------------------- about --------------------------------- */
-
 #about.section-separated {
   padding: 0 0 4em 0;
   margin-top: -2em;
@@ -103,8 +101,6 @@ const sections = computed<SectionType[]>(() => tm("components.common.NavBar"));
   }
 }
 
-/* ---------------------------------- music --------------------------------- */
-
 #music {
   padding: 100px 0;
   margin: 0 auto 0 auto;
@@ -116,8 +112,6 @@ const sections = computed<SectionType[]>(() => tm("components.common.NavBar"));
   }
 }
 
-/* ------------------------------ technologies ------------------------------ */
-
 #technologies {
   padding: 100px 0;
   /* background: var(--color-fill-tertiary); */
@@ -128,8 +122,6 @@ const sections = computed<SectionType[]>(() => tm("components.common.NavBar"));
     padding: 150px 0 100px 0;
   }
 }
-
-/* -------------------------------- projects -------------------------------- */
 
 #projects {
   padding-top: 100px;

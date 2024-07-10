@@ -1116,8 +1116,6 @@ fieldset {
   }
 }
 
-/* ----------------------------- card-container ----------------------------- */
-
 .card-container.pinned-items {
   padding: 15px 0 50px 0;
   /* border-bottom: 1px solid var(--color-fill-gray-tertiary); */
@@ -1147,8 +1145,6 @@ fieldset {
   }
 }
 
-/* ---------------------------------- grid ---------------------------------- */
-
 .grid {
   margin-top: 3em;
   display: grid;
@@ -1168,8 +1164,6 @@ fieldset {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 }
-
-/* --------------------------- scroll-animation -------------------------- */
 
 #references,
 #other .scroll-animation {

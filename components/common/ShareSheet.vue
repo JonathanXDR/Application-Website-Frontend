@@ -40,16 +40,12 @@ const links = computed<FaLinkType[]>(() =>
   color: var(--color-figure-blue) !important;
 }
 
-/* --------------------------- sharesheet-options --------------------------- */
-
 .sharesheet-options {
   display: flex;
   align-items: center;
   visibility: visible;
   margin-top: 10px;
 }
-
-/* -------------------- social-option ------------------- */
 
 @keyframes FadeIn {
   0% {
@@ -99,8 +95,6 @@ const links = computed<FaLinkType[]>(() =>
   animation-delay: 0.25s;
   -webkit-animation-delay: 0.25s;
 }
-
-/* ------------------------------------ a ----------------------------------- */
 
 .sharesheet-options .social-option a {
   color: var(--color-fill-gray-secondary);

@@ -227,8 +227,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* --------------------------------- ribbon --------------------------------- */
-
 .ribbon {
   margin-top: 48px;
 }
