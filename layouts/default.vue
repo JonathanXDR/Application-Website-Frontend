@@ -20,7 +20,7 @@ import FooterCompact from "~/components/common/Footer/Compact.vue";
 import FooterFull from "~/components/common/Footer/Full.vue";
 import type { RibbonBar } from "~/types/common/RibbonBar";
 
-const { $randomDevColor } = useNuxtApp();
+const { randomDevColor } = useColor();
 const route = useRoute();
 const { currentSection } = useSection();
 const { locale, tm } = useI18n();
@@ -31,7 +31,7 @@ const items = computed<RibbonBar["items"]>(() =>
   tm("components.common.RibbonBar"),
 );
 
-const faviconColor = $randomDevColor?.hex;
+const faviconColor = randomDevColor.value?.hex;
 const faviconGraphicData = ref("");
 
 const fetchSvgContent = async () => {
@@ -58,17 +58,17 @@ watchEffect(() => {
         { rel: "icon", type: "image/svg+xml", href: faviconGraphicData.value },
         {
           rel: "apple-touch-icon",
-          href: `/img/dev/favicon-dev-${$randomDevColor?.name}.png`,
+          href: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
         },
       ],
       meta: [
         {
           property: "twitter:image",
-          content: `/img/dev/favicon-dev-${$randomDevColor?.name}.png`,
+          content: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
         },
         {
           property: "og:image",
-          content: `/img/dev/favicon-dev-${$randomDevColor?.name}.png`,
+          content: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
         },
       ],
     });

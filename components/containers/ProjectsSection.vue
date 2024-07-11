@@ -72,9 +72,9 @@
               loading: false,
               componentSize: 'small',
               colors: {
-                secondary: `var(--color-fill-${$randomDevColor?.name}-secondary)`,
-                tertiary: `var(--color-figure-${$randomDevColor?.name})`,
-                quaternary: `var(--color-figure-${$randomDevColor?.name})`,
+                secondary: `var(--color-fill-${randomDevColor?.name}-secondary)`,
+                tertiary: `var(--color-figure-${randomDevColor?.name})`,
+                quaternary: `var(--color-figure-${randomDevColor?.name})`,
               },
               icon: {
                 ...project.icon,
@@ -151,9 +151,9 @@ defineProps<{
   title: string;
 }>();
 
-const { $listUserRepositories, $listPinnedRepositories, $randomDevColor } =
-  useNuxtApp();
+const { $listUserRepositories, $listPinnedRepositories } = useNuxtApp();
 const { tm } = useI18n();
+const { randomDevColor } = useColor();
 const config = useRuntimeConfig();
 
 const ul = ref<HTMLElement | null>(null);
@@ -254,7 +254,7 @@ watch(
       project.icon = {
         name: "pin.fill",
         colors: {
-          primary: `var(--color-figure-${$randomDevColor?.name})`,
+          primary: `var(--color-figure-${randomDevColor.value?.name})`,
         },
       };
     });

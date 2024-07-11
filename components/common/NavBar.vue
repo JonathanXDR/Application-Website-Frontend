@@ -27,7 +27,7 @@
           <DevBadge
             v-if="config.public.appEnvironment === 'development'"
             :color="{
-              primary: `var(--color-figure-${$randomDevColor?.name})`,
+              primary: `var(--color-figure-${randomDevColor?.name})`,
             }"
           />
         </div>
@@ -79,7 +79,7 @@
 import type { ItemType } from "~/types/common/Item";
 import { type SectionType } from "~/types/common/Section";
 
-const { $randomDevColor } = useNuxtApp();
+const { randomDevColor } = useColor();
 const config = useRuntimeConfig();
 const { tm } = useI18n();
 const navItems = computed<SectionType[]>(() => tm("components.common.NavBar"));

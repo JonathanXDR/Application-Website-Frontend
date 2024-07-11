@@ -11,7 +11,7 @@
           name="pin.fill"
           component-size="small"
           :colors="{
-            primary: `var(--color-figure-${$randomDevColor?.name})`,
+            primary: `var(--color-figure-${randomDevColor?.name})`,
           }"
           class="icon icon-medium"
         />
@@ -43,8 +43,8 @@ withDefaults(
   },
 );
 
-const { $randomDevColor } = useNuxtApp();
 const { t } = useI18n();
+const { randomDevColor } = useColor();
 </script>
 
 <style scoped>
