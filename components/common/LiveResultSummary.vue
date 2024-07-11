@@ -11,11 +11,11 @@
           name="pin.fill"
           component-size="small"
           :colors="{
-            primary: `var(--color-figure-${$randomDevColor?.name})`
+            primary: `var(--color-figure-${$randomDevColor?.name})`,
           }"
           class="icon icon-medium"
         />
-        <span>{{ t('components.common.LiveResultSummary.description') }}</span>
+        <span>{{ t("components.common.LiveResultSummary.description") }}</span>
         <span class="total"> ({{ pinnedResults }})</span>
       </div>
       <!-- <div class="changed-total changed-total-modified">
@@ -34,17 +34,17 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    totalResults: number
-    pinnedResults?: number
+    totalResults: number;
+    pinnedResults?: number;
   }>(),
   {
     totalResults: 0,
-    pinnedResults: 0
-  }
-)
+    pinnedResults: 0,
+  },
+);
 
-const { $randomDevColor } = useNuxtApp()
-const { t } = useI18n()
+const { $randomDevColor } = useNuxtApp();
+const { t } = useI18n();
 </script>
 
 <style scoped>
@@ -152,8 +152,14 @@ const { t } = useI18n()
 .number-results {
   font-size: 14px;
   font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: var(--color-figure-gray-secondary);
   margin-right: 20px;
 }

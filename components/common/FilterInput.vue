@@ -68,7 +68,11 @@
           </div>
           <BadgeBar
             v-if="open && options.length"
-            :badges="options.map((option) => option.label)"
+            :badges="
+              options
+                .filter((option) => option.label)
+                .map((option) => option.label!)
+            "
           />
         </div>
       </div>
