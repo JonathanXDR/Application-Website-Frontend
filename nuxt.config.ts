@@ -78,12 +78,16 @@ export default defineNuxtConfig({
         defaultScriptOptions: {
           bundle: true,
         },
-        globals: {
-          musicKit: {
-            src: "https://js-cdn.music.apple.com/musickit/v1/musickit.js",
-            async: true,
-          },
+        registry: {
+          googleAnalytics: true,
+          googleTagManager: true,
         },
+        // globals: {
+        //   musicKit: {
+        //     src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
+        //     async: true
+        //   }
+        // }
       },
     },
   },
@@ -162,6 +166,15 @@ export default defineNuxtConfig({
 
       githubRepoName: process.env.GITHUB_REPO_NAME,
       githubRepoOwner: process.env.GITHUB_REPO_OWNER,
+
+      scripts: {
+        googleTagManager: {
+          id: process.env.NUXT_PUBLIC_SCRIPTS_GOOGLE_TAG_MANAGER_ID,
+        },
+        googleAnalytics: {
+          id: process.env.NUXT_PUBLIC_SCRIPTS_GOOGLE_ANALYTICS_ID,
+        },
+      },
     },
 
     githubToken: process.env.GITHUB_TOKEN,
