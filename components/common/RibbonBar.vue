@@ -1,84 +1,85 @@
 <template>
-  <div
-    v-if="tags.latest?.length && tags.previous?.length"
-    class="rc-ribbon ribbon ribbon-blue-to-default rs-storehome-banner"
-  >
-    <div class="ribbon-drop-wrapper">
-      <div class="ribbon-content-wrapper">
-        <div class="ribbon-content rc-ribbon-content-container">
-          <div class="rc-ribbon-content with-paddlenav">
-            <div class="rc-inline-gallery rc-ribbon-content-autoscroll">
-              <div class="rc-ribbon-content-gallery">
-                <div
-                  class="rc-ribbon-content-scroller"
-                  :style="[
-                    transformStyle,
-                    totalItems <= 2 && 'justify-content: center; gap: 16px',
-                  ]"
-                >
+  <ClientOnly>
+    <div
+      v-if="tags.latest?.length && tags.previous?.length"
+      class="rc-ribbon ribbon ribbon-blue-to-default rs-storehome-banner"
+    >
+      <div class="ribbon-drop-wrapper">
+        <div class="ribbon-content-wrapper">
+          <div class="ribbon-content rc-ribbon-content-container">
+            <div class="rc-ribbon-content with-paddlenav">
+              <div class="rc-inline-gallery rc-ribbon-content-autoscroll">
+                <div class="rc-ribbon-content-gallery">
                   <div
-                    v-for="(item, index) in displayItems"
-                    :key="index"
-                    class="rc-ribbon-gallery-item rc-inline-gallery-item"
-                    :style="totalItems <= 2 && 'width: unset !important'"
+                    class="rc-ribbon-content-scroller"
+                    :style="[
+                      transformStyle,
+                      totalItems <= 2 && 'justify-content: center; gap: 16px',
+                    ]"
                   >
                     <div
-                      class="rc-ribbon-content-item-base rc-ribbon-content-item"
-                      :style="totalItems <= 2 && 'width: 100% !important'"
+                      v-for="(item, index) in displayItems"
+                      :key="index"
+                      class="rc-ribbon-gallery-item rc-inline-gallery-item"
+                      :style="totalItems <= 2 && 'width: unset !important'"
                     >
-                      <template v-if="!loading">
-                        {{ item.description && item.description + "&ensp;" }}
-                      </template>
-                      <template v-else>
-                        <LoadingSkeleton width="200px" height="15px" />
-                      </template>
+                      <div
+                        class="rc-ribbon-content-item-base rc-ribbon-content-item"
+                        :style="totalItems <= 2 && 'width: 100% !important'"
+                      >
+                        <template v-if="!loading">
+                          {{ item.description && item.description + "&ensp;" }}
+                        </template>
+                        <template v-else>
+                          <LoadingSkeleton width="200px" height="15px" />
+                        </template>
 
-                      <LinkCollection
-                        v-if="item.links.length"
-                        class="ribbon-link"
-                        :loading="loading"
-                        :links="item.links"
-                        :should-animate="!initialAnimationPlayed"
-                      />
+                        <LinkCollection
+                          v-if="item.links.length"
+                          class="ribbon-link"
+                          :loading="loading"
+                          :links="item.links"
+                          :should-animate="!initialAnimationPlayed"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div
-                v-if="totalItems > 2"
-                class="rc-gallery-paddlenav paddlenav paddlenav-compact"
-              >
-                <button
-                  class="paddlenav-arrow paddlenav-arrow-previous"
-                  :disabled="isTransitioning"
-                  @click="scrollContent('left')"
+                <div
+                  v-if="totalItems > 2"
+                  class="rc-gallery-paddlenav paddlenav paddlenav-compact"
                 >
-                  <Icon
-                    :loading="loading"
-                    name="chevron.left"
-                    component-size="small"
-                    class="icon"
-                  />
-                </button>
-                <button
-                  class="paddlenav-arrow paddlenav-arrow-next"
-                  :disabled="isTransitioning"
-                  @click="scrollContent('right')"
-                >
-                  <Icon
-                    :loading="loading"
-                    name="chevron.right"
-                    component-size="small"
-                    class="icon"
-                  />
-                </button>
+                  <button
+                    class="paddlenav-arrow paddlenav-arrow-previous"
+                    :disabled="isTransitioning"
+                    @click="scrollContent('left')"
+                  >
+                    <Icon
+                      :loading="loading"
+                      name="chevron.left"
+                      component-size="small"
+                      class="icon"
+                    />
+                  </button>
+                  <button
+                    class="paddlenav-arrow paddlenav-arrow-next"
+                    :disabled="isTransitioning"
+                    @click="scrollContent('right')"
+                  >
+                    <Icon
+                      :loading="loading"
+                      name="chevron.right"
+                      component-size="small"
+                      class="icon"
+                    />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </div></div
+  ></ClientOnly>
 </template>
 
 <script setup lang="ts">
