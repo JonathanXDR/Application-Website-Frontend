@@ -45,6 +45,8 @@
     "eslint": "^8.0.1",
     "eslint-config-standard": "^17.1.0",
     "nuxt": "^3.12.3",
+    "nuxt-schema-org": "^3.3.8",
+    "nuxt-seo-experiments": "^4.0.0-rc.10",
     "octokit": "^4.0.2",
     "typescript": "^5.5.3",
     "typescript-eslint": "^7.16.0",

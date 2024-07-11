@@ -10,6 +10,8 @@ export default defineNuxtConfig({
     "@nuxtjs/seo",
     "@nuxtjs/tailwindcss",
     "@vueuse/nuxt",
+    "nuxt-schema-org",
+    "nuxt-seo-experiments",
   ],
 
   plugins: ["~/plugins/api/github.server"],
@@ -46,6 +48,15 @@ export default defineNuxtConfig({
 
   future: {
     compatibilityVersion: 4,
+  },
+
+  schemaOrg: {
+    identity: {
+      type: "Person",
+      name: process.env.SITE_NAME || "Jonathan Russ",
+      url: process.env.SITE_URL,
+      logo: "/img/favicon.png",
+    },
   },
 
   app: {
@@ -169,10 +180,10 @@ export default defineNuxtConfig({
 
       scripts: {
         googleTagManager: {
-          id: process.env.NUXT_PUBLIC_SCRIPTS_GOOGLE_TAG_MANAGER_ID,
+          id: process.env.GOOGLE_TAG_MANAGER_ID,
         },
         googleAnalytics: {
-          id: process.env.NUXT_PUBLIC_SCRIPTS_GOOGLE_ANALYTICS_ID,
+          id: process.env.GOOGLE_ANALYTICS_ID,
         },
       },
     },
