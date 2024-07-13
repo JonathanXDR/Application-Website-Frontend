@@ -1,27 +1,15 @@
+import type { GraphQlQueryResponseData } from '@octokit/graphql'
 import { graphql } from '@octokit/graphql'
 import type { Repository } from '@octokit/graphql-schema'
-import { defineEventHandler, getQuery } from 'h3'
 
 export default defineEventHandler(async event => {
   const { githubToken } = useRuntimeConfig()
-  const query = getQuery(event)
-  const username = query.username as string | undefined
-  const per_page = (query.per_page as string)
-    ? parseInt(query.per_page as string, 10)
-    : 30
-
-  if (!username) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Username is a required parameter'
-    })
-  }
-
+  const { username, per_page = 30 } = getQuery(event)
   const graphqlInstance = graphql.defaults({
     headers: { authorization: `token ${githubToken}` }
   })
 
-  const graphqlQuery = `
+  const query = `
     {
       user(login: "${username}") {
         pinnedItems(first: ${per_page}, types: REPOSITORY) {
@@ -48,22 +36,26 @@ export default defineEventHandler(async event => {
                   nickname
                   url
                 }
-                forks {
-                  totalCount
-                }
-                stargazers {
-                  totalCount
-                }
-                issues {
-                  totalCount
+                forks(first: ${per_page}) {
                   nodes {
-                    closed
+                    url
                   }
                 }
-                pullRequests {
-                  totalCount
+                stargazers(first: ${per_page}) {
+                  nodes {
+                    url
+                  }
+                }
+                issues(first: ${per_page}) {
                   nodes {
                     closed
+                    url
+                  }
+                }
+                pullRequests(first: ${per_page}) {
+                  nodes {
+                    closed
+                    url
                   }
                 }
                 updatedAt
@@ -106,10 +98,10 @@ export default defineEventHandler(async event => {
   }
 
   try {
-    const response: {
-      user: { pinnedItems: { edges: { node: Repository }[] } }
-    } = await graphqlInstance(graphqlQuery)
-    return response.user.pinnedItems.edges.map(edge => remapProps(edge.node))
+    const response = await graphqlInstance<GraphQlQueryResponseData>(query)
+    return response.user.pinnedItems.edges.map((edge: { node: Repository }) =>
+      remapProps(edge.node)
+    )
   } catch (error) {
     console.error(
       `Error fetching pinned repositories for user ${username}:`,
@@ -117,7 +109,7 @@ export default defineEventHandler(async event => {
     )
     throw createError({
       statusCode: 500,
-      statusMessage: 'Error fetching pinned repositories'
+      statusMessage: `Failed to fetch pinned repositories for user ${username}`
     })
   }
 })

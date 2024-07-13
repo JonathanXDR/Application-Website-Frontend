@@ -1,30 +1,28 @@
-import { defineEventHandler, getQuery } from 'h3'
 import { Octokit } from 'octokit'
+import type {
+  GetUserRepositories,
+  GetUserRepositoriesParameters
+} from '~/types/services/GitHub/Repository'
 
 export default defineEventHandler(async event => {
   const { githubToken } = useRuntimeConfig()
+  const params = getQuery(event) as GetUserRepositoriesParameters
   const octokit = new Octokit({ auth: githubToken })
-  const query = getQuery(event)
-  const username = query.username as string | undefined
-
-  if (!username) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Username is a required parameter'
-    })
-  }
 
   try {
     const response = await octokit.request('GET /users/{username}/repos', {
-      username,
+      ...params,
       headers: { accept: 'application/vnd.github+json' }
     })
-    return response.data
+    return response.data as GetUserRepositories
   } catch (error) {
-    console.error(`Error fetching repositories for user ${username}:`, error)
+    console.error(
+      `Error fetching repositories for user ${params.username}:`,
+      error
+    )
     throw createError({
       statusCode: 500,
-      statusMessage: 'Error fetching repositories'
+      statusMessage: `Failed to fetch repositories for user ${params.username}`
     })
   }
 })

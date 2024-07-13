@@ -1,32 +1,25 @@
-import { defineEventHandler, getQuery } from 'h3'
 import { Octokit } from 'octokit'
+import type {
+  GetOwnerRepository,
+  GetOwnerRepositoryParameters
+} from '~/types/services/GitHub/Repository'
 
 export default defineEventHandler(async event => {
   const { githubToken } = useRuntimeConfig()
+  const params = getQuery(event) as GetOwnerRepositoryParameters
   const octokit = new Octokit({ auth: githubToken })
-  const query = getQuery(event)
-  const owner = query.owner as string | undefined
-  const repo = query.repo as string | undefined
-
-  if (!owner || !repo) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Owner and repo are required parameters'
-    })
-  }
 
   try {
     const response = await octokit.request('GET /repos/{owner}/{repo}', {
-      owner,
-      repo,
+      ...params,
       headers: { accept: 'application/vnd.github+json' }
     })
-    return response.data
+    return response.data as GetOwnerRepository
   } catch (error) {
-    console.error(`Error fetching repository for owner ${owner}:`, error)
+    console.error(`Error fetching repository for owner ${params.owner}:`, error)
     throw createError({
       statusCode: 500,
-      statusMessage: 'Error fetching repository'
+      statusMessage: `Failed to fetch repository for owner ${params.owner}`
     })
   }
 })
