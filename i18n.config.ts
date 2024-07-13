@@ -1,17 +1,29 @@
+import dayjs from "dayjs";
+import "dayjs/locale/de";
+import "dayjs/locale/en";
+import "dayjs/locale/fr";
+import "dayjs/locale/it";
 import de from "./lang/de.json";
 import en from "./lang/en.json";
 import fr from "./lang/fr.json";
 import it from "./lang/it.json";
 
-export default defineI18nConfig(() => ({
-  legacy: false,
-  globalInjection: true,
-  locale: "de",
-  fallbackLocale: "en",
-  messages: {
-    de,
-    en,
-    fr,
-    it,
-  },
-}));
+export default defineI18nConfig(() => {
+  const locale = "de";
+  const fallbackLocale = "en";
+
+  dayjs.locale(locale);
+
+  return {
+    legacy: false,
+    globalInjection: true,
+    locale: locale,
+    fallbackLocale: fallbackLocale,
+    messages: {
+      de,
+      en,
+      fr,
+      it,
+    },
+  };
+});

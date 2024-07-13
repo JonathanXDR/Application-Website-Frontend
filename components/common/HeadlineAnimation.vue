@@ -46,7 +46,7 @@
   </h2>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 const props = defineProps<{ title: string }>();
 const words = computed(() =>
   props.title

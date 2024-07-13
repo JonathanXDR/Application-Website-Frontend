@@ -38,7 +38,6 @@
 
 <script setup lang="ts">
 import dayjs from "dayjs";
-import "dayjs/locale/en";
 import relativeTime from "dayjs/plugin/relativeTime";
 import type { InfoType } from "~/types/common/Info";
 import type { ItemType } from "~/types/common/Item";
@@ -63,20 +62,12 @@ const infoItems: ItemType[] = [
   { id: "department", icon: { name: "tag.fill" } },
   { id: "language", icon: { name: "bubble.left.fill" } },
   { id: "license", icon: { name: "scroll.fill" } },
-  // {
-  //   id: 'forks',
-  //   icon: {
-  //     name: 'doc.on.doc.fill'
-  //   }
-  // },
-  // { id: 'networks', icon: { name: 'network' } },
-  // {
-  //   id: 'watchers',
-  //   icon: { name: 'eye.fill' }
-  // },
-  // { id: 'stars', icon: { name: 'star.fill' } },
-  // { id: 'issues', icon: { name: 'smallcircle.filled.circle' } },
-  // { id: 'subscribers', icon: { name: 'bell.fill' } }
+  { id: "forks", icon: { name: "doc.on.doc.fill" } },
+  { id: "networks", icon: { name: "network" } },
+  { id: "watchers", icon: { name: "eye.fill" } },
+  { id: "stars", icon: { name: "star.fill" } },
+  { id: "issues", icon: { name: "smallcircle.filled.circle" } },
+  { id: "subscribers", icon: { name: "bell.fill" } },
 ];
 
 const updatedYesterday = computed(() => {
@@ -94,7 +85,7 @@ const formatDate = (
 };
 
 const getDate = () => {
-  const { duration, formatOptions, fixed, nowKey } = props.date;
+  const { duration, formatOptions, fixed, event } = props.date;
 
   if (duration && formatOptions) {
     const formattedDuration = `${formatDate(
@@ -103,12 +94,12 @@ const getDate = () => {
     )} - ${formatDate(duration.to, formatOptions())}`;
 
     return formattedDuration;
-  } else if (fixed && nowKey) {
-    const formattedNowKey = `${nowKey?.charAt(0).toUpperCase()}${nowKey?.slice(
+  } else if (fixed && event) {
+    const formattedevent = `${event?.charAt(0).toUpperCase()}${event?.slice(
       1,
     )} ${dayjs(fixed).locale(locale.value).fromNow()}`;
 
-    return formattedNowKey;
+    return formattedevent;
   } else if (fixed && formatOptions) {
     const formattedFixedDate = formatDate(fixed.toString(), formatOptions());
 

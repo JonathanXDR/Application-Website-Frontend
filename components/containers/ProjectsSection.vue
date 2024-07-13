@@ -86,7 +86,7 @@
                 ...project?.info,
                 date: {
                   ...project?.info?.date,
-                  nowKey: 'updated',
+                  event: $t('components.common.CardItem.updated'),
                 },
               },
             }"
@@ -111,7 +111,7 @@
                 ...project.info,
                 date: {
                   ...project?.info?.date,
-                  nowKey: 'updated',
+                  event: $t('components.common.CardItem.updated'),
                 },
               },
             }"
@@ -125,7 +125,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { Repository } from "@octokit/graphql-schema";
 import type { CardItemType } from "~/types/common/CardItem";
 import type { CardRepositoryType } from "~/types/common/CardRepository";

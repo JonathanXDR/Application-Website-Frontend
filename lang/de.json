@@ -241,6 +241,10 @@
         "title": "Zeige {count} Ergebnisse",
         "description": "Angepinnt"
       },
+      "CardItem": {
+        "created": "Erstellt",
+        "updated": "Aktualisiert"
+      },
       "ShareSheet": {
         "links": [
           {

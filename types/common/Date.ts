@@ -1,6 +1,6 @@
 export interface DateType {
   formatOptions?: () => Intl.DateTimeFormatOptions;
-  nowKey?: "created" | "updated";
+  event?: string;
   fixed?: string | null | Date;
   duration?: {
     from: string;

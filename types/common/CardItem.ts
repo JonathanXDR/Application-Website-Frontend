@@ -8,7 +8,7 @@ import type { IconType } from "./Icon";
 export interface CardItemType extends ExtendedPropsType {
   variant?: "card" | "article";
   componentSize?: BasicSizeType | "full";
-  colors: ColorType;
+  colors?: ColorType;
   alignment?: "start" | "center" | "end";
   hover?: "auto" | "true" | "false";
   cover?: string;

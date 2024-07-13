@@ -238,19 +238,12 @@
         ]
       },
       "LiveResultSummary": {
-        "description": "Showing {count} results",
-        "items": [
-          {
-            "icon": {
-              "name": "pin.fill",
-              "colors": {
-                "primary": "{randomColor}"
-              }
-            },
-            "title": "Angepinnt",
-            "description": "({count})"
-          }
-        ]
+        "title": "Zeige {count} Ergebnisse",
+        "description": "Angepinnt"
+      },
+      "CardItem": {
+        "created": "Erstellt",
+        "updated": "Aktualisiert"
       },
       "ShareSheet": {
         "links": [
@@ -1866,8 +1859,7 @@
       "icon": {
         "name": "exclamationmark.triangle.fill",
         "colors": {
-          "primary": "var(--color-fill)",
-          "tertiary": "var(--color-system-yellow)"
+          "primary": "var(--color-system-yellow)"
         }
       },
       "title": "{statusCode} Not Found",
@@ -1878,8 +1870,7 @@
       "icon": {
         "name": "exclamationmark.octagon.fill",
         "colors": {
-          "primary": "var(--color-fill)",
-          "tertiary": "var(--color-system-red)"
+          "primary": "var(--color-system-red)"
         }
       },
       "title": "{statusCode} Internal Server Error",
@@ -1901,8 +1892,7 @@
       "icon": {
         "name": "exclamationmark.octagon.fill",
         "colors": {
-          "primary": "var(--color-fill)",
-          "tertiary": "var(--color-system-red)"
+          "primary": "var(--color-system-red)"
         }
       },
       "title": "Error {statusCode}",
