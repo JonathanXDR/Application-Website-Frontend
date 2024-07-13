@@ -4,7 +4,13 @@ import { Octokit } from 'octokit'
 export default defineEventHandler(async event => {
   const { githubToken } = useRuntimeConfig()
   const octokit = new Octokit({ auth: githubToken })
-  const { owner, repo, ...params } = getQuery(event)
+  const query = getQuery(event)
+  const owner = query.owner as string
+  const repo = query.repo as string
+  const params = { ...query }
+
+  delete params.owner
+  delete params.repo
 
   try {
     const response = await octokit.request('GET /repos/{owner}/{repo}/tags', {

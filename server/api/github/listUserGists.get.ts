@@ -4,7 +4,15 @@ import { Octokit } from 'octokit'
 export default defineEventHandler(async event => {
   const { githubToken } = useRuntimeConfig()
   const octokit = new Octokit({ auth: githubToken })
-  const { username, ...params } = getQuery(event)
+  const query = getQuery(event)
+  const username = query.username as string | undefined
+
+  if (!username) {
+    throw new Error('Username is a required parameter')
+  }
+
+  const params = { ...query }
+  delete params.username
 
   try {
     const response = await octokit.request('GET /users/{username}/gists', {

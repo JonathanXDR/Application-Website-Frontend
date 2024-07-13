@@ -4,7 +4,17 @@ import { Octokit } from 'octokit'
 export default defineEventHandler(async event => {
   const { githubToken } = useRuntimeConfig()
   const octokit = new Octokit({ auth: githubToken })
-  const { owner, repo, ...params } = getQuery(event)
+  const query = getQuery(event)
+  const owner = query.owner as string | undefined
+  const repo = query.repo as string | undefined
+
+  if (!owner || !repo) {
+    throw new Error('Owner and repo are required parameters')
+  }
+
+  const params = { ...query }
+  delete params.owner
+  delete params.repo
 
   try {
     const response = await octokit.request('GET /repos/{owner}/{repo}', {

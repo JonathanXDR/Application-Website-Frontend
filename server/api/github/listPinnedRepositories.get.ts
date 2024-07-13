@@ -1,15 +1,24 @@
 import { graphql } from '@octokit/graphql'
+import type { Repository } from '@octokit/graphql-schema'
 import { defineEventHandler, getQuery } from 'h3'
 
 export default defineEventHandler(async event => {
   const { githubToken } = useRuntimeConfig()
-  const { username, per_page = 30 } = getQuery(event)
+  const query = getQuery(event)
+  const username = query.username as string | undefined
+  const per_page = (query.per_page as string)
+    ? parseInt(query.per_page as string)
+    : 30
+
+  if (!username) {
+    throw new Error('Username is a required parameter')
+  }
 
   const graphqlInstance = graphql.defaults({
     headers: { authorization: `token ${githubToken}` }
   })
 
-  const query = `
+  const graphqlQuery = `
     {
       user(login: "${username}") {
         pinnedItems(first: ${per_page}, types: REPOSITORY) {
@@ -98,7 +107,9 @@ export default defineEventHandler(async event => {
   }
 
   try {
-    const response = await graphqlInstance(query)
+    const response: {
+      user: { pinnedItems: { edges: { node: Repository }[] } }
+    } = await graphqlInstance(graphqlQuery)
     return response.user.pinnedItems.edges.map(edge => remapProps(edge.node))
   } catch (error) {
     console.error(
