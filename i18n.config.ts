@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import "dayjs/locale/de";
 import "dayjs/locale/en";
 import "dayjs/locale/fr";
@@ -11,8 +10,6 @@ import it from "./lang/it.json";
 export default defineI18nConfig(() => {
   const locale = "de";
   const fallbackLocale = "en";
-
-  dayjs.locale(locale);
 
   return {
     legacy: false,

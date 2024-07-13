@@ -112,7 +112,12 @@ const getDate = () => {
   }
 };
 
-const dateTitle = getDate();
+const dateTitle = ref(getDate());
+
+watch([locale, () => props.date], () => {
+  dayjs.locale(locale.value);
+  dateTitle.value = getDate();
+});
 </script>
 
 <style scoped>
