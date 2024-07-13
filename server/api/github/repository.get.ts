@@ -1,25 +1,25 @@
-import { Octokit } from 'octokit'
-import type {
-  GetOwnerRepository,
-  GetOwnerRepositoryParameters
-} from '~/types/services/GitHub/Repository'
+import { Octokit } from "octokit";
+import type { GetOwnerRepositoryParameters } from "~/types/services/GitHub/Repository";
 
-export default defineEventHandler(async event => {
-  const { githubToken } = useRuntimeConfig()
-  const params = getQuery(event) as GetOwnerRepositoryParameters
-  const octokit = new Octokit({ auth: githubToken })
+export default defineEventHandler(async (event) => {
+  const { githubToken } = useRuntimeConfig();
+  const octokit = new Octokit({ auth: githubToken });
+  const params: GetOwnerRepositoryParameters = getQuery(event);
 
   try {
-    const response = await octokit.request('GET /repos/{owner}/{repo}', {
+    const response = await octokit.request("GET /repos/{owner}/{repo}", {
       ...params,
-      headers: { accept: 'application/vnd.github+json' }
-    })
-    return response.data as GetOwnerRepository
+      headers: { accept: "application/vnd.github+json" },
+    });
+    return response.data;
   } catch (error) {
-    console.error(`Error fetching repository for owner ${params.owner}:`, error)
+    console.error(
+      `Error fetching repository for owner ${params.owner}:`,
+      error,
+    );
     throw createError({
       statusCode: 500,
-      statusMessage: `Failed to fetch repository for owner ${params.owner}`
-    })
+      statusMessage: "Internal Server Error",
+    });
   }
-})
+});

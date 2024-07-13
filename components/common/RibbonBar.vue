@@ -90,7 +90,6 @@ const props = withDefaults(defineProps<RibbonBar>(), {
   loading: false,
 });
 
-const { $listRepositoryTags } = useNuxtApp();
 const { t, tm, rt } = useI18n();
 const config = useRuntimeConfig();
 
@@ -107,16 +106,13 @@ const scrollDirection = ref<"left" | "right">("right");
 const displayItems = ref<{ description: string; links: LinkType[] }[]>([]);
 const initialAnimationPlayed = ref(false);
 
-const { data: repositoryTags, refresh: refreshTags } = useAsyncData(
-  "repositoryTags",
-  () =>
-    $listRepositoryTags({
-      owner: config.public.githubRepoOwner,
-      repo: config.public.githubRepoName,
-      per_page: 2,
-    }),
-  { server: true },
-);
+const { data: repositoryTags } = await useFetch("/api/github/repository-tags", {
+  params: {
+    owner: config.public.githubRepoOwner,
+    repo: config.public.githubRepoName,
+    per_page: 2,
+  },
+});
 
 const updateBaseItems = () => {
   const { latest: latestTag, previous: previousTag } = tags.value;
@@ -219,12 +215,6 @@ watch(
   },
   { immediate: true },
 );
-
-onMounted(() => {
-  if (repositoryTags.value && repositoryTags.value.length === 0) {
-    refreshTags();
-  }
-});
 </script>
 
 <style scoped>

@@ -1,13 +1,14 @@
-import type { GraphQlQueryResponseData } from '@octokit/graphql'
-import { graphql } from '@octokit/graphql'
-import type { Repository } from '@octokit/graphql-schema'
+import { graphql, type GraphQlQueryResponseData } from "@octokit/graphql";
+import type { Repository } from "@octokit/graphql-schema";
 
-export default defineEventHandler(async event => {
-  const { githubToken } = useRuntimeConfig()
-  const { username, per_page = 30 } = getQuery(event)
+export default defineEventHandler(async (event) => {
+  const { githubToken } = useRuntimeConfig();
   const graphqlInstance = graphql.defaults({
-    headers: { authorization: `token ${githubToken}` }
-  })
+    headers: { authorization: `token ${githubToken}` },
+  });
+  const params: { username: string; per_page?: number } = getQuery(event);
+
+  const { username, per_page = 30 } = params;
 
   const query = `
     {
@@ -36,15 +37,11 @@ export default defineEventHandler(async event => {
                   nickname
                   url
                 }
-                forks(first: ${per_page}) {
-                  nodes {
-                    url
-                  }
+                forks {
+                  totalCount
                 }
-                stargazers(first: ${per_page}) {
-                  nodes {
-                    url
-                  }
+                stargazers {
+                  totalCount
                 }
                 issues(first: ${per_page}) {
                   nodes {
@@ -64,7 +61,7 @@ export default defineEventHandler(async event => {
           }
         }
       }
-    }`
+    }`;
 
   const remapProps = (item: Repository) => {
     const {
@@ -78,38 +75,38 @@ export default defineEventHandler(async event => {
       stargazers,
       issues,
       pullRequests,
-      updatedAt
-    } = item
+      updatedAt,
+    } = item;
 
     return {
       name,
       description,
       html_url: url,
-      topics: repositoryTopics?.nodes?.map(node => node?.topic.name),
+      topics: repositoryTopics?.nodes?.map((node) => node?.topic.name),
       language: primaryLanguage?.name,
       license: licenseInfo,
       forks: forks?.totalCount,
       stars: stargazers?.totalCount,
-      issues: issues?.nodes?.filter(node => node && !node.closed).length,
-      pullRequests: pullRequests?.nodes?.filter(node => node && !node.closed)
+      issues: issues?.nodes?.filter((node) => node && !node.closed).length,
+      pullRequests: pullRequests?.nodes?.filter((node) => node && !node.closed)
         .length,
-      updated_at: updatedAt
-    }
-  }
+      updated_at: updatedAt,
+    };
+  };
 
   try {
-    const response = await graphqlInstance<GraphQlQueryResponseData>(query)
+    const response = await graphqlInstance<GraphQlQueryResponseData>(query);
     return response.user.pinnedItems.edges.map((edge: { node: Repository }) =>
-      remapProps(edge.node)
-    )
+      remapProps(edge.node),
+    );
   } catch (error) {
     console.error(
       `Error fetching pinned repositories for user ${username}:`,
-      error
-    )
+      error,
+    );
     throw createError({
       statusCode: 500,
-      statusMessage: `Failed to fetch pinned repositories for user ${username}`
-    })
+      statusMessage: "Internal Server Error",
+    });
   }
-})
+});

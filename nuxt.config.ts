@@ -14,8 +14,6 @@ export default defineNuxtConfig({
     "nuxt-seo-experiments",
   ],
 
-  plugins: ["~/plugins/api/github.server"],
-
   css: [
     "~/assets/css/main.css",
     "@fortawesome/fontawesome-svg-core/styles.css",

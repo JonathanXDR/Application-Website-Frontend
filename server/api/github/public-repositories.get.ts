@@ -1,25 +1,22 @@
-import { Octokit } from 'octokit'
-import type {
-  GetPublicRepositories,
-  GetPublicRepositoriesParameters
-} from '~/types/services/GitHub/Repository'
+import { Octokit } from "octokit";
+import type { GetPublicRepositoriesParameters } from "~/types/services/GitHub/Repository";
 
-export default defineEventHandler(async event => {
-  const { githubToken } = useRuntimeConfig()
-  const params = getQuery(event) as GetPublicRepositoriesParameters
-  const octokit = new Octokit({ auth: githubToken })
+export default defineEventHandler(async (event) => {
+  const { githubToken } = useRuntimeConfig();
+  const octokit = new Octokit({ auth: githubToken });
+  const params: GetPublicRepositoriesParameters = getQuery(event);
 
   try {
-    const response = await octokit.request('GET /repositories', {
+    const response = await octokit.request("GET /repositories", {
       ...params,
-      headers: { accept: 'application/vnd.github+json' }
-    })
-    return response.data as GetPublicRepositories
+      headers: { accept: "application/vnd.github+json" },
+    });
+    return response.data;
   } catch (error) {
-    console.error('Error fetching public repositories:', error)
+    console.error("Error fetching public repositories:", error);
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to fetch public repositories'
-    })
+      statusMessage: "Internal Server Error",
+    });
   }
-})
+});

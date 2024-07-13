@@ -151,7 +151,6 @@ defineProps<{
   title: string;
 }>();
 
-const { $listUserRepositories, $listPinnedRepositories } = useNuxtApp();
 const { tm } = useI18n();
 const { randomDevColor } = useColor();
 const config = useRuntimeConfig();
@@ -168,24 +167,18 @@ const pinned = ref<PinnedRepository[]>([]);
 const currentIndex = ref(0);
 const windowWidth = useWindowSize({ initialWidth: 0 }).width;
 
-const { data: userRepositories } = useAsyncData(
-  "userRepositories",
-  () =>
-    $listUserRepositories({
-      username: config.public.githubRepoOwner,
-      per_page: 100,
-    }),
-  { server: true },
+const { data: userRepositories } = await useFetch(
+  "/api/github/user-repositories",
+  {
+    params: { username: config.public.githubRepoOwner, per_page: 100 },
+  },
 );
 
-const { data: pinnedProjects } = useAsyncData(
-  "pinnedProjects",
-  () =>
-    $listPinnedRepositories({
-      username: config.public.githubRepoOwner,
-      per_page: 100,
-    }),
-  { server: true },
+const { data: pinnedProjects } = await useFetch(
+  "/api/github/pinned-repositories",
+  {
+    params: { username: config.public.githubRepoOwner, per_page: 100 },
+  },
 );
 
 const projects: Projects = reactive({

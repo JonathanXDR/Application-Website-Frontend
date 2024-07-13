@@ -1,25 +1,22 @@
-import { Octokit } from 'octokit'
-import type {
-  GetUserGists,
-  GetUserGistsParameters
-} from '~/types/services/GitHub/Gist'
+import { Octokit } from "octokit";
+import type { GetUserGistsParameters } from "~/types/services/GitHub/Gist";
 
-export default defineEventHandler(async event => {
-  const { githubToken } = useRuntimeConfig()
-  const params = getQuery(event) as GetUserGistsParameters
-  const octokit = new Octokit({ auth: githubToken })
+export default defineEventHandler(async (event) => {
+  const { githubToken } = useRuntimeConfig();
+  const octokit = new Octokit({ auth: githubToken });
+  const params: GetUserGistsParameters = getQuery(event);
 
   try {
-    const response = await octokit.request('GET /users/{username}/gists', {
+    const response = await octokit.request("GET /users/{username}/gists", {
       ...params,
-      headers: { accept: 'application/vnd.github+json' }
-    })
-    return response.data as GetUserGists
+      headers: { accept: "application/vnd.github+json" },
+    });
+    return response.data;
   } catch (error) {
-    console.error(`Error fetching gists for user ${params.username}:`, error)
+    console.error(`Error fetching gists for user ${params.username}:`, error);
     throw createError({
       statusCode: 500,
-      statusMessage: `Failed to fetch gists for user ${params.username}`
-    })
+      statusMessage: "Internal Server Error",
+    });
   }
-})
+});
