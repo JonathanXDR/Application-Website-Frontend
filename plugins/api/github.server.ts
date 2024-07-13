@@ -206,14 +206,12 @@ export default defineNuxtPlugin(() => {
         topics: repositoryTopics?.nodes?.map((node) => node?.topic.name),
         language: primaryLanguage?.name,
         license: licenseInfo,
-        forks: forks?.nodes?.map((node) => node?.url),
-        stars: stargazers?.nodes?.map((node) => node?.url),
-        issues: issues?.nodes
-          ?.filter((node) => node && !node.closed)
-          .map((node) => node?.url),
-        pullRequests: pullRequests?.nodes
-          ?.filter((node) => node && !node.closed)
-          .map((node) => node?.url),
+        forks: forks?.totalCount,
+        stars: stargazers?.totalCount,
+        issues: issues?.nodes?.filter((node) => node && !node.closed).length,
+        pullRequests: pullRequests?.nodes?.filter(
+          (node) => node && !node.closed,
+        ).length,
         updated_at: updatedAt,
       };
     };
