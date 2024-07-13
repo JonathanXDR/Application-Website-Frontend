@@ -243,7 +243,8 @@
       },
       "CardItem": {
         "created": "Erstellt",
-        "updated": "Aktualisiert"
+        "updated": "Aktualisiert",
+        "learnMore": "Mehr erfahren"
       },
       "ShareSheet": {
         "links": [

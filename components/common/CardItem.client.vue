@@ -154,6 +154,7 @@ const props = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
   }),
 });
 
+const { t } = useI18n();
 const { randomDevColor } = useColor();
 const applyHover = computed(
   () =>
@@ -187,7 +188,7 @@ const linkCollectionLinks = computed(
   () =>
     props.links || [
       {
-        title: "Mehr erfahren",
+        title: t("components.common.CardItem.learnMore"),
         url: props.html_url,
         icon: { name: "chevron.right" },
       },
