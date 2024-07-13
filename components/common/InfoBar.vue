@@ -62,12 +62,17 @@ const infoItems: ItemType[] = [
   { id: "department", icon: { name: "tag.fill" } },
   { id: "language", icon: { name: "bubble.left.fill" } },
   { id: "license", icon: { name: "scroll.fill" } },
-  { id: "forks", icon: { name: "doc.on.doc.fill" } },
-  { id: "networks", icon: { name: "network" } },
-  { id: "watchers", icon: { name: "eye.fill" } },
-  { id: "stars", icon: { name: "star.fill" } },
-  { id: "issues", icon: { name: "smallcircle.filled.circle" } },
-  { id: "subscribers", icon: { name: "bell.fill" } },
+  // { id: "forks", icon: { name: "document.on.document.fill" } },
+  // { id: "networks", icon: { name: "network" } },
+  // { id: "watchers", icon: { name: "eye.fill" } },
+  // { id: "stars", icon: { name: "star.fill" } },
+  // { id: "issues", icon: { name: "smallcircle.filled.circle.fill" } },
+  // { id: "pullRequests", icon: { name: "arrow.trianglehead.pull" } },
+  // { id: "subscribers", icon: { name: "bell.fill" } },
+  // { id: "tags", icon: { name: "tag.fill" } },
+  // { id: "commits", icon: { name: "doc.text.fill" } },
+  // { id: "branches", icon: { name: "arrow.branch" } },
+  // { id: "contributors", icon: { name: "person.2.fill" } },
 ];
 
 const updatedYesterday = computed(() => {

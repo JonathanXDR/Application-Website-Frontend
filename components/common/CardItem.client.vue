@@ -212,18 +212,22 @@ const hasInfo = computed(() => {
 });
 
 const info = computed(() => {
-  return (
-    props.info || {
-      language: props.language || undefined,
-      license: props.license?.name,
-      forks: props.forks_count,
-      networks: props.network_count,
-      watchers: props.watchers_count,
-      stars: props.stargazers_count,
-      issues: props.open_issues_count,
-      subscribers: props.subscribers_count,
-    }
-  );
+  return {
+    ...props.info,
+    language: props.language || undefined,
+    license: props.license?.name,
+    // forks: props.forks_count,
+    // networks: props.network_count,
+    // watchers: props.watchers_count,
+    // stars: props.stargazers_count,
+    // issues: props.open_issues_count,
+    // pullRequests: props.pullRequests_count,
+    // subscribers: props.subscribers_count,
+    // tags: props.tags_count,
+    // commits: props.commits_count,
+    // branches: props.branches_count,
+    // contributors: props.contributors_count
+  };
 });
 
 const flexDirection = computed(

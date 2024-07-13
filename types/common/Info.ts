@@ -11,10 +11,15 @@ export interface InfoType {
 
   language?: string;
   license?: string;
-  forks?: number;
-  networks?: number;
-  watchers?: number;
-  stars?: number;
-  issues?: number;
-  subscribers?: number;
+  // forks?: number
+  // networks?: number
+  // watchers?: number
+  // stars?: number
+  // issues?: number
+  // pullRequests?: number
+  // subscribers?: number
+  // tags?: number
+  // commits?: number
+  // branches?: number
+  // contributors?: number
 }
