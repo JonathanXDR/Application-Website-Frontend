@@ -7,11 +7,14 @@ export default defineEventHandler(async event => {
   const query = getQuery(event)
   const username = query.username as string | undefined
   const per_page = (query.per_page as string)
-    ? parseInt(query.per_page as string)
+    ? parseInt(query.per_page as string, 10)
     : 30
 
   if (!username) {
-    throw new Error('Username is a required parameter')
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Username is a required parameter'
+    })
   }
 
   const graphqlInstance = graphql.defaults({
@@ -45,26 +48,22 @@ export default defineEventHandler(async event => {
                   nickname
                   url
                 }
-                forks(first: ${per_page}) {
-                  nodes {
-                    url
-                  }
+                forks {
+                  totalCount
                 }
-                stargazers(first: ${per_page}) {
-                  nodes {
-                    url
-                  }
+                stargazers {
+                  totalCount
                 }
-                issues(first: ${per_page}) {
+                issues {
+                  totalCount
                   nodes {
                     closed
-                    url
                   }
                 }
-                pullRequests(first: ${per_page}) {
+                pullRequests {
+                  totalCount
                   nodes {
                     closed
-                    url
                   }
                 }
                 updatedAt
@@ -116,6 +115,9 @@ export default defineEventHandler(async event => {
       `Error fetching pinned repositories for user ${username}:`,
       error
     )
-    throw error
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Error fetching pinned repositories'
+    })
   }
 })

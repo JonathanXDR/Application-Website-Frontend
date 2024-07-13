@@ -14,6 +14,9 @@ export default defineEventHandler(async event => {
     return response.data
   } catch (error) {
     console.error('Error fetching public repositories:', error)
-    throw error
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Error fetching public repositories'
+    })
   }
 })

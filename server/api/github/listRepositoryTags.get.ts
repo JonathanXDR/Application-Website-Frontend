@@ -5,23 +5,25 @@ export default defineEventHandler(async event => {
   const { githubToken } = useRuntimeConfig()
   const octokit = new Octokit({ auth: githubToken })
   const query = getQuery(event)
-  const owner = query.owner as string
-  const repo = query.repo as string
-  const params = { ...query }
+  const owner = query.owner as string | undefined
+  const repo = query.repo as string | undefined
 
-  delete params.owner
-  delete params.repo
+  if (!owner || !repo) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Owner and repo are required parameters'
+    })
+  }
 
   try {
     const response = await octokit.request('GET /repos/{owner}/{repo}/tags', {
       owner,
       repo,
-      ...params,
       headers: { accept: 'application/vnd.github+json' }
     })
     return response.data
   } catch (error) {
     console.error(`Error fetching tags for repository ${repo}:`, error)
-    throw error
+    throw createError({ statusCode: 500, statusMessage: 'Error fetching tags' })
   }
 })

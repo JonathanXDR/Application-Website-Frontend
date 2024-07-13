@@ -9,23 +9,24 @@ export default defineEventHandler(async event => {
   const repo = query.repo as string | undefined
 
   if (!owner || !repo) {
-    throw new Error('Owner and repo are required parameters')
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Owner and repo are required parameters'
+    })
   }
-
-  const params = { ...query }
-  delete params.owner
-  delete params.repo
 
   try {
     const response = await octokit.request('GET /repos/{owner}/{repo}', {
       owner,
       repo,
-      ...params,
       headers: { accept: 'application/vnd.github+json' }
     })
     return response.data
   } catch (error) {
     console.error(`Error fetching repository for owner ${owner}:`, error)
-    throw error
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Error fetching repository'
+    })
   }
 })
