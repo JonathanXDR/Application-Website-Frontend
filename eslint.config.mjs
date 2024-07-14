@@ -1,23 +1,24 @@
+import prettierConfig from "eslint-config-prettier";
+import prettierPlugin from "eslint-plugin-prettier";
+import neostandard from "neostandard";
 import withNuxt from "./.nuxt/eslint.config.mjs";
 
 export default withNuxt(
-  {
-    files: ["*.vue"],
-    rules: {
-      "vue/multi-word-component-names": "off",
-      "vue/no-multiple-template-root": "off",
+  ...neostandard({
+    semi: true,
+    ts: true,
+  }),
+)
+  .prepend(prettierConfig, {
+    plugins: {
+      prettier: prettierPlugin,
     },
-  },
-  {
-    files: [
-      "app.vue",
-      "error.vue",
-      "pages/**/*.vue",
-      "layouts/**/*.vue",
-      "components/**/*.vue",
-    ],
     rules: {
-      "vue/multi-word-component-names": "off",
+      "prettier/prettier": "error",
     },
-  },
-);
+  })
+  .override("nuxt/typescript", {
+    rules: {
+      "@typescript-eslint/ban-types": "off",
+    },
+  });

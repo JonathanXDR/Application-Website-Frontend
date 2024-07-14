@@ -52,7 +52,7 @@
               <span>{{ title }}</span>
             </h1>
             <div class="rs-covers-desc">
-              {{ description[0] }}. <br >{{ description[1] }}
+              {{ description[0] }}. <br />{{ description[1] }}
             </div>
           </div>
         </div>

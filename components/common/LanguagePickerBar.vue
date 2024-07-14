@@ -11,7 +11,7 @@
           name="language"
           :checked="locale === computedLocale.code"
           @click="changeLanguage(computedLocale.code)"
-        >
+        />
         <label :for="computedLocale.code" class="link">
           {{ getLabel(computedLocale) }}
         </label>

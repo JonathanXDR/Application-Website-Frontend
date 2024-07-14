@@ -32,8 +32,11 @@ export default defineNuxtConfig({
   },
 
   eslint: {
+    checker: true,
     config: {
-      // stylistic: true,
+      standalone: false,
+      autoInit: false,
+      stylistic: true,
       typescript: {
         strict: true,
       },

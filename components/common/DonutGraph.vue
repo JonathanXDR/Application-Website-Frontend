@@ -23,14 +23,14 @@
     <div class="wedge-legend typography-donut-label female">
       <span>
         <span class="semibold">Female</span>
-        <br >
+        <br />
         <span data-value>35.3</span>%
       </span>
     </div>
     <div class="wedge-legend typography-donut-label male">
       <span>
         <span class="semibold">Male</span>
-        <br >
+        <br />
         <span data-value>64.6</span>%
       </span>
     </div>
