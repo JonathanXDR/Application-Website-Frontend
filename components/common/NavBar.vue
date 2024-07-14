@@ -686,12 +686,12 @@ a:disabled {
   }
 }
 
-.nav-open ~ #ac-ln-curtain {
+.nav-open~#ac-ln-curtain {
   transition: opacity 1s ease 0.1s !important;
 }
 
 @media only screen and (max-width: 1250px) {
-  .nav-open ~ #ac-ln-curtain {
+  .nav-open~#ac-ln-curtain {
     opacity: 1 !important;
     right: 0 !important;
     bottom: 0 !important;
