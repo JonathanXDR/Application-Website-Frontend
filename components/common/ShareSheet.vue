@@ -42,7 +42,7 @@ const links = computed<FaLinkType[]>(() =>
   display: flex;
   align-items: center;
   visibility: visible;
-  margin-top: 10px;
+  margin-top: 24px;
 }
 
 @keyframes FadeIn {

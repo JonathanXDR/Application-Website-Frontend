@@ -1,6 +1,11 @@
 <template>
   <div class="info-container">
-    <svg xmlns="http://www.w3.org/2000/svg" width="411" height="411">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 411 411"
+      width="325"
+      height="325"
+    >
       <defs>
         <clipPath id="image">
           <path
@@ -93,7 +98,6 @@ onMounted(async () => {
 
 .info-container > svg {
   filter: saturate(0.9);
-  transform: scale(0.63);
   margin: 0 -32px;
 }
 
@@ -117,19 +121,22 @@ onMounted(async () => {
 
 @media screen and (min-width: 350px) {
   .info-container > svg {
-    transform: scale(0.75);
+    width: 275px;
+    height: 275px;
   }
 }
 
 @media screen and (min-width: 900px) {
   .info-container > svg {
-    transform: scale(0.85);
+    width: 300px;
+    height: 300px;
   }
 }
 
 @media screen and (min-width: 1250px) {
   .info-container > svg {
-    transform: scale(1);
+    width: 325px;
+    height: 325px;
   }
 
   .info-container div {
@@ -138,7 +145,7 @@ onMounted(async () => {
 
   .info-container {
     display: grid;
-    grid-template-columns: 411px 1fr;
+    grid-template-columns: 325px 1fr;
     align-items: center;
     text-align: left;
   }
