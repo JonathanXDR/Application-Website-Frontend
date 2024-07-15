@@ -15,7 +15,7 @@
               class="add-to-calendar__link icon-downloadcircle icon"
             >
               Add to calendar
-              <Icon name="arrow.down.circle" class="icon icon-medium" />
+              <Symbol name="arrow.down.circle" class="icon icon-medium" />
             </a>
           </div>
         </div>

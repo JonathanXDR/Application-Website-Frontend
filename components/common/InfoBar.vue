@@ -2,7 +2,7 @@
   <div class="info">
     <template v-for="item in infoItems" :key="item.id">
       <div v-if="props[item.id]" class="info-item">
-        <Icon
+        <Symbol
           v-if="item.icon"
           :name="item.icon.name"
           :loading="loading"
@@ -18,7 +18,7 @@
     </template>
 
     <div v-if="props.date.fixed || props.date.duration" class="info-item">
-      <Icon
+      <Symbol
         :loading="loading"
         :name="updatedYesterday ? 'clock.fill' : 'calendar'"
         class="info-icon"

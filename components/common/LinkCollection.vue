@@ -19,7 +19,7 @@
         <LoadingSkeleton width="200px" height="15px" />
       </template>
 
-      <Icon
+      <Symbol
         v-if="link.icon"
         :loading="loading"
         :name="link.icon.name"

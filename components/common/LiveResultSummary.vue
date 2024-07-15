@@ -7,7 +7,7 @@
     </div>
     <div v-if="pinnedResults" class="changesnav-totals">
       <div class="changed-total">
-        <Icon
+        <Symbol
           name="pin.fill"
           component-size="small"
           :colors="{

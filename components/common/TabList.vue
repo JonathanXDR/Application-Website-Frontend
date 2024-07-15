@@ -18,10 +18,10 @@
       </ul>
       <div class="tabnav-paddles">
         <button class="tabnav-paddle tabnav-paddle-left" disabled>
-          <Icon name="chevron.left" class="icon icon-small" />
+          <Symbol name="chevron.left" class="icon icon-small" />
         </button>
         <button class="tabnav-paddle tabnav-paddle-right" disabled>
-          <Icon name="chevron.right" class="icon icon-small" />
+          <Symbol name="chevron.right" class="icon icon-small" />
         </button>
       </div>
     </div>

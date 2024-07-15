@@ -19,7 +19,7 @@
           }}
         </option>
       </select>
-      <Icon name="chevron.down" :class="`icon icon-${componentSize}`" />
+      <Symbol name="chevron.down" :class="`icon icon-${componentSize}`" />
     </div>
   </div>
 </template>

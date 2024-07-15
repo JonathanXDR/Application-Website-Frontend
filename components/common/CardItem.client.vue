@@ -26,7 +26,7 @@
       <DonutGraph v-if="graphs?.donut" />
     </div>
     <div class="details" :style="detailsStyle">
-      <Icon
+      <Symbol
         v-if="icon.name"
         :loading="loading"
         :name="icon.name"

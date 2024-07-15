@@ -6,7 +6,7 @@
     :style="computedStyle"
     @click="onClick"
   >
-    <Icon
+    <Symbol
       v-if="icon"
       class="icon icon-medium mr-1"
       :loading="loading"
