@@ -14,9 +14,7 @@
         external
       >
         <ClientOnly>
-          <font-awesome-icon
-            :icon="`fa-${link.category} fa-${link.icon?.name}`"
-          />
+          <Icon :name="`fa6-${link.category}:${link.icon?.name}`" />
         </ClientOnly>
       </NuxtLink>
     </li>

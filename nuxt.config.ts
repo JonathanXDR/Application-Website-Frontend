@@ -14,10 +14,7 @@ export default defineNuxtConfig({
     "nuxt-security",
   ],
 
-  css: [
-    "~/assets/css/main.css",
-    "@fortawesome/fontawesome-svg-core/styles.css",
-  ],
+  css: ["~/assets/css/main.css"],
 
   devtools: {
     enabled: true,
