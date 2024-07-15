@@ -2,9 +2,10 @@ import routerOptions from "./router.options";
 
 export default defineNuxtConfig({
   modules: [
+    "@nuxt/scripts",
     "@nuxt/eslint",
     "@nuxt/image",
-    "@nuxt/scripts",
+    "@nuxt/icon",
     "@nuxtjs/color-mode",
     "@nuxtjs/i18n",
     "@nuxtjs/seo",
