@@ -3,8 +3,8 @@
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 411 411"
-      width="325"
-      height="325"
+      width="350"
+      height="350"
     >
       <defs>
         <clipPath id="image">
@@ -87,13 +87,13 @@ onMounted(async () => {
 
 <style scoped>
 .info-container {
-  transform: translateZ(0) scale(1);
   z-index: 8;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  gap: 16px;
 }
 
 .info-container > svg {
@@ -135,8 +135,8 @@ onMounted(async () => {
 
 @media screen and (min-width: 1250px) {
   .info-container > svg {
-    width: 325px;
-    height: 325px;
+    width: 350px;
+    height: 350px;
   }
 
   .info-container div {
@@ -145,9 +145,10 @@ onMounted(async () => {
 
   .info-container {
     display: grid;
-    grid-template-columns: 325px 1fr;
+    grid-template-columns: 350px 1fr;
     align-items: center;
     text-align: left;
+    gap: 0px;
   }
 
   .info-container div {

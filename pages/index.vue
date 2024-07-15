@@ -86,11 +86,6 @@ const sections = computed<SectionType[]>(() => tm("components.common.NavBar"));
 @media screen and (min-width: 350px) {
   #about.section-separated {
     margin: 0;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  #about.section-separated {
     padding: 2em 0 4em 0;
   }
 }
