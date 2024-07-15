@@ -86,6 +86,12 @@ export default defineNuxtConfig({
   },
 
   $development: {
+    security: {
+      headers: {
+        crossOriginEmbedderPolicy: "unsafe-none",
+      },
+    },
+
     app: {
       head: {
         link: [
@@ -122,6 +128,12 @@ export default defineNuxtConfig({
   $production: {
     seo: {
       redirectToCanonicalSiteUrl: true,
+    },
+
+    security: {
+      headers: {
+        crossOriginEmbedderPolicy: "require-corp",
+      },
     },
 
     app: {
