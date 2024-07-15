@@ -65,7 +65,7 @@ withDefaults(
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .filter-suggested-badges {
@@ -86,9 +86,16 @@ withDefaults(
 }
 
 .filter-suggested-badges .suggested-badges-badges {
-  padding-block: 12px;
+  padding-block: 8px;
   border: 1px solid transparent;
   border-bottom-left-radius: 11px;
   border-bottom-right-radius: 11px;
+}
+
+@media screen and (min-width: 900px) {
+  .suggested-badges-badges {
+    padding-block: 12px;
+    gap: 10px;
+  }
 }
 </style>

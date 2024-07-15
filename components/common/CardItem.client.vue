@@ -267,9 +267,15 @@ const iconClasses = computed(() => ({
 
 <style scoped>
 .ctas-wrapper {
-  margin-top: 12px;
+  margin-top: 8px;
   display: flex;
   align-items: center;
+}
+
+@media screen and (min-width: 900px) {
+  .ctas-wrapper {
+    margin-top: 12px;
+  }
 }
 
 .ctas-wrapper .button {

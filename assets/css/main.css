@@ -28,7 +28,6 @@ body {
   font-style: normal;
   background-color: var(--color-fill);
   overflow-wrap: break-word;
-  hyphens: auto;
   transition: background-color 400ms;
 }
 body main ::-webkit-scrollbar {
@@ -1027,12 +1026,6 @@ fieldset {
 
 .link:disabled {
   opacity: 0.32;
-}
-
-@media screen and (min-width: 350px) {
-  body {
-    hyphens: none;
-  }
 }
 
 @media screen and (min-width: 900px) {

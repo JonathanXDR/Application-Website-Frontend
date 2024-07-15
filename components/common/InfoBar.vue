@@ -126,7 +126,7 @@ watch([locale, () => props.date], () => {
 }
 
 .info {
-  margin-top: 12px;
+  margin-top: 8px;
   font-size: 12px;
   font-weight: 600;
   font-family:
@@ -141,7 +141,7 @@ watch([locale, () => props.date], () => {
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px;
 }
 
 .info-item {
@@ -150,19 +150,10 @@ watch([locale, () => props.date], () => {
   align-items: center;
 }
 
-.tile-2up .info {
-  margin-top: 12px;
-}
-
-@media only screen and (max-width: 1068px) {
-  .tile-2up .info {
-    margin-top: 8px;
-  }
-}
-
-@media only screen and (max-width: 734px) {
-  .tile-2up .info {
-    margin-top: 8px;
+@media only screen and (min-width: 900px) {
+  .info {
+    margin-top: 12px;
+    gap: 16px;
   }
 }
 

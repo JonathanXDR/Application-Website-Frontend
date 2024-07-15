@@ -68,10 +68,8 @@ const { randomDevColor } = useColor();
   margin-right: 10px;
 }
 
-@media only screen and (min-width: 320px) {
-  .changed-total:last-child {
-    margin-right: 0;
-  }
+.changed-total:last-child {
+  margin-right: 0;
 }
 
 /* .changed-total:before {
