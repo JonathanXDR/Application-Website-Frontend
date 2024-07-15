@@ -5,7 +5,7 @@ usage() {
   exit 1
 }
 
-dir="./public/icons"
+dir="./assets/icons"
 file_pattern="*.svg"
 ignore_pattern="*/symbol/*"
 
