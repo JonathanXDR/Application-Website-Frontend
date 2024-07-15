@@ -10,8 +10,6 @@ export default defineNuxtConfig({
     "@nuxtjs/seo",
     "@nuxtjs/tailwindcss",
     "@vueuse/nuxt",
-    "nuxt-schema-org",
-    "nuxt-seo-experiments",
   ],
 
   css: [
@@ -77,27 +75,12 @@ export default defineNuxtConfig({
           property: "og:description",
           content: process.env.SITE_DESCRIPTION,
         },
-        { property: "og:url", content: "https://jonathan-russ.com/en" },
+        { property: "og:url", content: `${process.env.SITE_URL}/en` },
         {
           name: "description",
           content: process.env.SITE_DESCRIPTION,
         },
       ],
-      scripts: {
-        defaultScriptOptions: {
-          bundle: true,
-        },
-        registry: {
-          googleAnalytics: true,
-          googleTagManager: true,
-        },
-        // globals: {
-        //   musicKit: {
-        //     src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
-        //     async: true
-        //   }
-        // }
-      },
     },
   },
 
@@ -121,14 +104,15 @@ export default defineNuxtConfig({
           { property: "og:image", content: "/img/dev/favicon-dev-orange.png" },
           { property: "og:title", content: "Jonathan Russ | DEV" },
         ],
-        scripts: {
-          globals: {
-            meticulousAi: {
-              src: "https://snippet.meticulous.ai/v1/meticulous.js",
-              ["data-project-id"]: "3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w",
-              ["data-is-production-environment"]: false,
-            },
-          },
+      },
+    },
+
+    scripts: {
+      globals: {
+        meticulousAi: {
+          src: "https://snippet.meticulous.ai/v1/meticulous.js",
+          ["data-project-id"]: "3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w",
+          ["data-is-production-environment"]: false,
         },
       },
     },
@@ -151,14 +135,15 @@ export default defineNuxtConfig({
           { property: "og:image", content: "/img/favicon.png" },
           { property: "og:title", content: "Jonathan Russ" },
         ],
-        scripts: {
-          globals: {
-            meticulousAi: {
-              src: "https://snippet.meticulous.ai/v1/meticulous.js",
-              ["data-project-id"]: "3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w",
-              ["data-is-production-environment"]: true,
-            },
-          },
+      },
+    },
+
+    scripts: {
+      globals: {
+        meticulousAi: {
+          src: "https://snippet.meticulous.ai/v1/meticulous.js",
+          ["data-project-id"]: "3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w",
+          ["data-is-production-environment"]: true,
         },
       },
     },
@@ -188,6 +173,22 @@ export default defineNuxtConfig({
 
     githubToken: process.env.GITHUB_TOKEN,
     appleDeveloperToken: process.env.APPLE_DEVELOPER_TOKEN,
+  },
+
+  scripts: {
+    defaultScriptOptions: {
+      bundle: true,
+    },
+    registry: {
+      googleAnalytics: true,
+      googleTagManager: true,
+    },
+    // globals: {
+    //   musicKit: {
+    //     src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
+    //     async: true
+    //   }
+    // }
   },
 
   components: {
@@ -220,7 +221,7 @@ export default defineNuxtConfig({
     detectBrowserLanguage: {
       useCookie: true,
       cookieCrossOrigin: true,
-      cookieDomain: "jonathan-russ.com",
+      cookieDomain: process.env.SITE_DOMAIN,
       cookieKey: "i18n_redirected",
       cookieSecure: true,
       fallbackLocale: "en",
