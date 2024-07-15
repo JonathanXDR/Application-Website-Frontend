@@ -1,6 +1,6 @@
 <template>
   <h2>{{ title }}</h2>
-  <ul class="grid">
+  <div class="grid">
     <CardItem
       v-for="(article, index) in articles"
       :key="index"
@@ -20,7 +20,7 @@
         },
       }"
     />
-  </ul>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -1,7 +1,7 @@
 <template>
   <h2>{{ title }}</h2>
 
-  <ul class="cardItemList">
+  <div class="cardItemList">
     <CardItem
       v-for="(language, index) in languages"
       :key="index"
@@ -30,7 +30,7 @@
         style="width: 100%"
       />
     </CardItem>
-  </ul>
+  </div>
 
   <!-- <div class="graph-gallery-container">
     <ul class="tabnav-items">

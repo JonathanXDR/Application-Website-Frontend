@@ -4,6 +4,7 @@
       <select
         v-model="selectedLocale"
         class="dropdown-select"
+        aria-label="Language Dropdown"
         @change="changeLanguage(selectedLocale)"
       >
         <option

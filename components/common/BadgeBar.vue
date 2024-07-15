@@ -1,7 +1,7 @@
 <template>
   <div class="badges filter-suggested-badges">
     <div class="scroll-wrapper">
-      <ul class="suggested-badges-badges">
+      <div class="suggested-badges-badges">
         <Badge
           v-for="(badge, index) in badges"
           :key="index"
@@ -11,7 +11,7 @@
           component-size="small"
           :url="`https://github.com/topics/${badge}`"
         />
-      </ul>
+      </div>
     </div>
   </div>
 </template>

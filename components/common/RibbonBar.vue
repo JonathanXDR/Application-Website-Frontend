@@ -51,6 +51,7 @@
                 >
                   <button
                     class="paddlenav-arrow paddlenav-arrow-previous"
+                    aria-label="Previous"
                     :disabled="isTransitioning"
                     @click="scrollContent('left')"
                   >
@@ -63,6 +64,7 @@
                   </button>
                   <button
                     class="paddlenav-arrow paddlenav-arrow-next"
+                    aria-label="Next"
                     :disabled="isTransitioning"
                     @click="scrollContent('right')"
                   >

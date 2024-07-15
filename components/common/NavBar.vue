@@ -21,7 +21,7 @@
       />
       <div class="ac-ln-content">
         <div class="ac-ln-title">
-          <NuxtLink to="/" class="ac-ln-title">
+          <NuxtLink to="/" class="ac-ln-title" aria-label="JR">
             <Logo />
           </NuxtLink>
           <DevBadge

@@ -56,7 +56,6 @@
 
 <script setup lang="ts">
 import type { CardItemType } from "~/types/common/CardItem";
-import type { ItemType } from "~/types/common/Item";
 
 defineProps<{
   title: string;
@@ -67,15 +66,15 @@ const { tm } = useI18n();
 const cards = computed<CardItemType[]>(() =>
   tm("components.containers.technologies"),
 );
-const segmentNavItems = computed<ItemType[]>(() =>
-  tm("components.common.SegmentNav.technologies"),
-);
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
-const currentIndex = ref(0);
+// const segmentNavItems = computed<ItemType[]>(() =>
+//   tm("components.common.SegmentNav.technologies"),
+// );
+// const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
+// const currentIndex = ref(0);
 
-const updateCurrentIndex = (index: number) => {
-  currentIndex.value = index;
-};
+// const updateCurrentIndex = (index: number) => {
+//   currentIndex.value = index;
+// };
 </script>
 
 <style scoped>

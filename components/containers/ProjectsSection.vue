@@ -63,7 +63,7 @@
           :total-results="currentProjects.length + pinned.length"
           :pinned-results="pinned.length"
         />
-        <ul v-if="pinned" class="card-container pinned-items">
+        <div v-if="pinned" class="card-container pinned-items">
           <CardItem
             v-for="(project, index) in pinned as Partial<CardItemType>[]"
             :key="index"
@@ -92,8 +92,8 @@
             }"
             class="color"
           />
-        </ul>
-        <ul class="card-container">
+        </div>
+        <div class="card-container">
           <CardItem
             v-for="(project, index) in currentProjects"
             :key="index"
@@ -118,7 +118,7 @@
           />
 
           <ResultBlankState v-if="!currentProjects" />
-        </ul>
+        </div>
       </div>
       <LoadingSpinner v-else class="center-horizontal center-vertical pt-24" />
     </div>
