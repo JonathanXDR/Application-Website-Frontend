@@ -25,7 +25,7 @@ withDefaults(
   {
     badges: () => [],
     loading: false,
-  },
+  }
 );
 </script>
 
@@ -35,11 +35,7 @@ withDefaults(
   margin: 0;
   list-style: none;
   box-sizing: border-box;
-  transition:
-    padding-right 0.8s,
-    padding-bottom 0.8s,
-    max-height 1s,
-    opacity 1s;
+  transition: padding-right 0.8s, padding-bottom 0.8s, max-height 1s, opacity 1s;
   padding: 0;
 }
 
@@ -55,7 +51,7 @@ withDefaults(
   height: 0;
 }
 
-.badges ul {
+.badges .suggested-badges-badges {
   margin: 0;
   padding: 0;
   display: flex;
@@ -80,12 +76,12 @@ withDefaults(
   border-top: 1px solid var(--color-fill-gray-tertiary);
 }
 
-.filter .filter-suggested-badges ul {
+.filter .filter-suggested-badges .suggested-badges-badges {
   /* padding: 12px 8px; */
   padding: 6px 4px;
 }
 
-.filter-suggested-badges ul {
+.filter-suggested-badges .suggested-badges-badges {
   padding-block: 12px;
   border: 1px solid transparent;
   border-bottom-left-radius: 11px;
