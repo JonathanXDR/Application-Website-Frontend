@@ -16,7 +16,7 @@
     "build:trigger": "sh ./scripts/build-trigger.sh"
   },
   "devDependencies": {
-    "@eslint/js": "^9.6.0",
+    "@eslint/js": "^9.7.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
@@ -25,7 +25,7 @@
     "@nuxt/devtools": "^1.3.9",
     "@nuxt/eslint": "^0.3.13",
     "@nuxt/image": "^1.7.0",
-    "@nuxt/scripts": "^0.6.3",
+    "@nuxt/scripts": "^0.6.4",
     "@nuxtjs/color-mode": "^3.4.2",
     "@nuxtjs/i18n": "^8.3.1",
     "@nuxtjs/seo": "^2.0.0-rc.12",
@@ -46,7 +46,7 @@
     "eslint-config-standard": "^17.1.0",
     "nuxt": "^3.12.3",
     "nuxt-schema-org": "^3.3.8",
-    "nuxt-seo-experiments": "^4.0.0-rc.10",
+    "nuxt-seo-experiments": "^4.0.0-rc.13",
     "octokit": "^4.0.2",
     "typescript": "^5.5.3",
     "typescript-eslint": "^7.16.0",
