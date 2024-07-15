@@ -25,7 +25,7 @@ const icon = computed(
 );
 
 const getSpriteUrl = (size: BasicSizeType) => {
-  return `/icons/${size}/symbol/sprite.svg`;
+  return `/icons/${size}.svg`;
 };
 
 const styles = reactive({
