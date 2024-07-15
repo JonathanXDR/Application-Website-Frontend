@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "@nuxtjs/seo",
     "@nuxtjs/tailwindcss",
     "@vueuse/nuxt",
+    "nuxt-security",
   ],
 
   css: [
