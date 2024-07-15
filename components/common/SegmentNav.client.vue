@@ -23,6 +23,7 @@
           type="radio"
           :name="`viewer-sizenav-value-${item.category}`"
           :class="['viewer-sizenav-value', { focus }]"
+          :aria-label="item.label"
           :value="item.id"
           :disabled="item.id !== selectedItem && isTransitioning"
         >
