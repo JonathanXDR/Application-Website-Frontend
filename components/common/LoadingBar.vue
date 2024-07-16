@@ -3,21 +3,23 @@
     class="loader-progress"
     role="img"
     aria-label="loading, please wait"
-    :style="`--color-secondary: ${colors.secondary}`"
+    :style="`
+      width: ${progress}%;
+      --color-secondary: ${colors.secondary}
+    `"
   >
     <div
       class="loader-progress-indicator"
       :style="`
-      --progress: -${progress}%;
-      --color-primary: ${colors.primary};
-    
+        --progress: -${progress}%;
+        --color-primary: ${colors.primary};
       `"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import type { ColorType } from "~/types/common/Color";
+import type { ColorType } from '~/types/common/Color';
 
 withDefaults(
   defineProps<{
@@ -26,10 +28,10 @@ withDefaults(
   }>(),
   {
     colors: () => ({
-      primary: "var(--color-fill-gray)",
-      secondary: "var(--color-fill-gray-secondary)",
+      primary: 'var(--color-fill-gray)',
+      secondary: 'var(--color-fill-gray-secondary)',
     }),
-  },
+  }
 );
 </script>
 
@@ -45,13 +47,7 @@ withDefaults(
   /* margin-top: 60px; */
   overflow: hidden;
   position: relative;
-  width: 100%;
   z-index: 2;
-}
-@media only screen and (max-width: 734px) {
-  .loader-progress {
-    width: 248px;
-  }
 }
 .loader-progress-indicator {
   background: var(--color-primary);
