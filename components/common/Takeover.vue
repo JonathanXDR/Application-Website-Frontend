@@ -456,7 +456,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   .takeover .tile-item.item-2up-secondary,
   .takeover .tile-item.item-3up-secondary {
     margin-top: 0;
-    border-top: 1px solid var(--color-fill-gray-secondary);
+    border-top: 1px solid var(--color-figure-gray-secondary);
     padding-top: 24px;
   }
   .takeover .tile-item.item-2up-secondary .tile__description,

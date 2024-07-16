@@ -45,7 +45,7 @@
               :style="{
                 padding: padding,
                 color: grayLabels
-                  ? 'var(--color-fill-gray-secondary)'
+                  ? 'var(--color-figure-gray-secondary)'
                   : 'var(--aap-icon-color)',
                 fontSize: `${fontSize}px`,
               }"

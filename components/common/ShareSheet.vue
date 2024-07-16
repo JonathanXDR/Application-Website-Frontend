@@ -95,6 +95,6 @@ const links = computed<FaLinkType[]>(() =>
 }
 
 .sharesheet-options .social-option a {
-  color: var(--color-fill-gray-secondary);
+  color: var(--color-figure-gray-secondary);
 }
 </style>

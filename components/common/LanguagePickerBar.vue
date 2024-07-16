@@ -70,7 +70,7 @@ const getLabel = (locale: { code: string; name?: string }) => {
 .lang-switcher-container .language-picker-wrapper li {
   padding-right: 10px;
   margin-right: 10px;
-  border-right: 1px solid var(--color-fill-gray-secondary);
+  border-right: 1px solid var(--color-figure-gray-secondary);
 }
 
 .lang-switcher-container .language-picker-wrapper li:last-of-type {
@@ -80,7 +80,7 @@ const getLabel = (locale: { code: string; name?: string }) => {
 }
 
 input[name="language"]:checked ~ label {
-  color: var(--color-fill-gray-secondary) !important;
+  color: var(--color-figure-gray-secondary) !important;
   pointer-events: none;
 }
 </style>

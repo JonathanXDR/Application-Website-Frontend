@@ -13,7 +13,7 @@
   text-align: center;
 }
 .dot {
-  background-color: var(--color-fill-gray-secondary);
+  background-color: var(--color-figure-gray-secondary);
   width: 8px;
   height: 8px;
   margin: 2px;

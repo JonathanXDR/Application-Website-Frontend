@@ -95,7 +95,7 @@ const enhancedLinks = computed(() => {
 .links.divider .link {
   padding-right: 10px;
   margin-right: 10px;
-  border-right: 1px solid var(--color-fill-gray-secondary);
+  border-right: 1px solid var(--color-figure-gray-secondary);
 }
 
 .links.divider .link:last-of-type {
