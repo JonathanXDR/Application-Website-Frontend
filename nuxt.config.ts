@@ -54,6 +54,11 @@ export default defineNuxtConfig({
     },
   },
 
+  sourcemap: {
+    server: true,
+    client: true,
+  },
+
   app: {
     head: {
       templateParams: {
