@@ -7,9 +7,7 @@
       :is="getLinkComponentType(link)"
       v-for="(link, index) in enhancedLinks"
       :key="index"
-      :to="link.to"
-      :href="link.href"
-      :target="link.target"
+      v-bind="getLinkAttributes(link)"
       :class="['link', { 'animate-color': shouldAnimate }]"
     >
       <template v-if="!loading">
@@ -53,18 +51,27 @@ const { links } = toRefs(props);
 
 const getLinkComponentType = (link: LinkType) => {
   return link.url?.startsWith("#") || link.url?.startsWith("/")
-    ? "router-link"
+    ? "RouterLink"
     : "a";
 };
 
+const getLinkAttributes = (link: LinkType) => {
+  if (link.url?.startsWith("#") || link.url?.startsWith("/")) {
+    return { to: link.url, target: "_self" };
+  } else {
+    return { href: link.url, target: "_blank", rel: "noopener noreferrer" };
+  }
+};
+
 const enhancedLinks = computed(() => {
-  return links?.value?.map((link) => ({
+  return links.value.map((link) => ({
     ...link,
     to:
       link.url?.startsWith("#") || link.url?.startsWith("/") ? link.url : null,
-    href: !(link.url?.startsWith("#") || link.url?.startsWith("/"))
-      ? link.url
-      : null,
+    href:
+      link.url && !(link.url.startsWith("#") || link.url.startsWith("/"))
+        ? link.url
+        : null,
     target:
       link.url?.startsWith("#") || link.url?.startsWith("/")
         ? "_self"
