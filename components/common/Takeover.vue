@@ -251,7 +251,6 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   font-size: 32px;
   line-height: 1.125;
   font-weight: 700;
-  letter-spacing: 0.004em;
   font-family:
     system-ui,
     -apple-system,
@@ -267,7 +266,6 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     font-size: 28px;
     line-height: 1.1428571429;
     font-weight: 700;
-    letter-spacing: 0.007em;
     font-family:
       system-ui,
       -apple-system,
@@ -283,7 +281,6 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     font-size: 24px;
     line-height: 1.1666666667;
     font-weight: 700;
-    letter-spacing: 0.009em;
     font-family:
       system-ui,
       -apple-system,
@@ -406,7 +403,6 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   font-size: 32px;
   line-height: 1.125;
   font-weight: 700;
-  letter-spacing: 0.004em;
   font-family:
     system-ui,
     -apple-system,
@@ -425,7 +421,6 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     font-size: 21px;
     line-height: 1.1904761905;
     font-weight: 700;
-    letter-spacing: 0.011em;
     font-family:
       system-ui,
       -apple-system,
@@ -441,7 +436,6 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     font-size: 19px;
     line-height: 1.2105263158;
     font-weight: 700;
-    letter-spacing: 0.012em;
     font-family:
       system-ui,
       -apple-system,
@@ -614,7 +608,6 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   font-size: 14px;
   line-height: 1.4285914286;
   font-weight: 700;
-  letter-spacing: -0.016em;
   font-family:
     system-ui,
     -apple-system,
@@ -728,7 +721,6 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
-  letter-spacing: -0.022em;
   font-family:
     system-ui,
     -apple-system,
@@ -819,7 +811,6 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
   font-size: 32px;
   line-height: 1.125;
   font-weight: 700;
-  letter-spacing: 0.004em;
   font-family:
     system-ui,
     -apple-system,
@@ -839,7 +830,6 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
     font-size: 28px;
     line-height: 1.1428571429;
     font-weight: 700;
-    letter-spacing: 0.007em;
     font-family:
       system-ui,
       -apple-system,
@@ -855,7 +845,6 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
     font-size: 24px;
     line-height: 1.1666666667;
     font-weight: 700;
-    letter-spacing: 0.009em;
     font-family:
       system-ui,
       -apple-system,
@@ -928,7 +917,6 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
   font-size: 14px;
   line-height: 1.4285914286;
   font-weight: 700;
-  letter-spacing: -0.016em;
   font-family:
     system-ui,
     -apple-system,

@@ -67,8 +67,7 @@ br.medium {
 .typography-donut-label {
   font-size: 17px;
   line-height: 1.2353641176;
-  font-weight: 600; /* letter-spacing:
-0em; */
+  font-weight: 600;
   font-family:
     system-ui,
     -apple-system,
@@ -83,7 +82,7 @@ Neue",
   .typography-donut-label {
     font-size: 17px;
     line-height: 1.2353641176;
-    font-weight: 600; /* letter-spacing: 0em; */
+    font-weight: 600;
     font-family:
       system-ui,
       -apple-system,
@@ -98,7 +97,7 @@ Neue",
   .typography-donut-label {
     font-size: 14px;
     line-height: 1.2857742857;
-    font-weight: 600; /* letter-spacing: -0.016em; */
+    font-weight: 600;
     font-family:
       system-ui,
       -apple-system,
@@ -128,7 +127,7 @@ br.medium {
 .typography-donut-label {
   font-size: 17px;
   line-height: 1.2353641176;
-  font-weight: 600; /* letter-spacing: 0em; */
+  font-weight: 600;
   font-family:
     system-ui,
     -apple-system,
@@ -142,7 +141,7 @@ br.medium {
   .typography-donut-label {
     font-size: 17px;
     line-height: 1.2353641176;
-    font-weight: 600; /* letter-spacing: 0em; */
+    font-weight: 600;
     font-family:
       system-ui,
       -apple-system,
@@ -157,7 +156,7 @@ br.medium {
   .typography-donut-label {
     font-size: 14px;
     line-height: 1.2857742857;
-    font-weight: 600; /* letter-spacing: -0.016em; */
+    font-weight: 600;
     font-family:
       system-ui,
       -apple-system,

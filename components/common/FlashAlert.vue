@@ -139,7 +139,6 @@ aside .label {
   font-size: 1rem;
   line-height: 1.5294417647;
   font-weight: 600;
-  letter-spacing: -0.021em;
   font-family:
     system-ui,
     -apple-system,

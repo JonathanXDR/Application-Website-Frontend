@@ -42,7 +42,7 @@ withDefaults(
   background: var(--color-loading-background);
   border-radius: 4px;
   height: 8px;
-  margin-top: 60px;
+  /* margin-top: 60px; */
   overflow: hidden;
   position: relative;
   width: 100%;

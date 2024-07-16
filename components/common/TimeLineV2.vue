@@ -1988,7 +1988,6 @@ https://github.githubassets.com/assets/site-059d3213fd4f.css ; media=all */
       "ss02" on,
       "ss01" on;
     font-weight: 700 !important;
-    letter-spacing: -0.01em !important;
   }
   .h3-mktg {
     font-size: 28px !important;
@@ -2005,7 +2004,6 @@ https://github.githubassets.com/assets/site-059d3213fd4f.css ; media=all */
     .h3-mktg {
       font-size: 48px !important;
       line-height: 52px !important;
-      letter-spacing: -0.03em !important;
     }
   }
   .h5-mktg {

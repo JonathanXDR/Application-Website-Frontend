@@ -25,7 +25,7 @@
 .typography-body-tight {
   font-size: 17px;
   line-height: 1.2353641176;
-  font-weight: 400; /* letter-spacing: 0em; */
+  font-weight: 400;
   font-family:
     system-ui,
     -apple-system,
@@ -49,7 +49,7 @@
     padding: 0;
     font-size: 14px;
     line-height: 1.2857742857;
-    font-weight: 400; /* letter-spacing: -0.016em; */
+    font-weight: 400;
     font-family:
       system-ui,
       -apple-system,

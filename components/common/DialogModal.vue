@@ -132,7 +132,6 @@ a.icon-wrapper:hover .icon-copy {
   font-size: 19px;
   line-height: 1.4211026316;
   font-weight: 400;
-  letter-spacing: 0.012em;
   font-family:
     system-ui,
     -apple-system,
@@ -147,7 +146,6 @@ a.icon-wrapper:hover .icon-copy {
     font-size: 17px;
     line-height: 1.4705882353;
     font-weight: 400;
-    letter-spacing: -0.022em;
     font-family:
       system-ui,
       -apple-system,
@@ -162,7 +160,6 @@ a.icon-wrapper:hover .icon-copy {
   font-size: 19px;
   line-height: 1.4211026316;
   font-weight: 600;
-  letter-spacing: 0.012em;
   font-family:
     system-ui,
     -apple-system,
@@ -177,7 +174,6 @@ a.icon-wrapper:hover .icon-copy {
     font-size: 17px;
     line-height: 1.4705882353;
     font-weight: 600;
-    letter-spacing: -0.022em;
     font-family:
       system-ui,
       -apple-system,
@@ -192,7 +188,6 @@ a.icon-wrapper:hover .icon-copy {
   font-size: 56px;
   line-height: 1.0714285714;
   font-weight: 600;
-  letter-spacing: -0.005em;
   font-family:
     system-ui,
     -apple-system,
@@ -207,7 +202,6 @@ a.icon-wrapper:hover .icon-copy {
     font-size: 48px;
     line-height: 1.0834933333;
     font-weight: 600;
-    letter-spacing: -0.003em;
     font-family:
       system-ui,
       -apple-system,
@@ -223,7 +217,6 @@ a.icon-wrapper:hover .icon-copy {
     font-size: 32px;
     line-height: 1.125;
     font-weight: 600;
-    letter-spacing: 0.004em;
     font-family:
       system-ui,
       -apple-system,
@@ -238,7 +231,6 @@ a.icon-wrapper:hover .icon-copy {
   font-size: 19px;
   line-height: 1.4211026316;
   font-weight: 600;
-  letter-spacing: 0.012em;
   font-family:
     system-ui,
     -apple-system,
@@ -253,7 +245,6 @@ a.icon-wrapper:hover .icon-copy {
     font-size: 17px;
     line-height: 1.4705882353;
     font-weight: 600;
-    letter-spacing: -0.022em;
     font-family:
       system-ui,
       -apple-system,

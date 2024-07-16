@@ -1,9 +1,9 @@
 <template>
-  <LoadingBar :progress="progress" />
   <div class="bar-content-container bar-chip-1 no-badge">
-    <div class="bar-mask bar-mask-1" :style="`width: ${progress}%`">
+    <LoadingBar :progress="progress" />
+    <!-- <div class="bar-mask bar-mask-1" :style="`width: ${progress}%`">
       <hr class="bar bar-1" >
-    </div>
+    </div> -->
     <span class="bar-caption typography-graph-label">
       {{ title }}
       <sup class="footnote footnote-number">
@@ -106,7 +106,6 @@ sup.footnote-number {
   font-size: 48px;
   line-height: 1.0834933333;
   font-weight: 600;
-  letter-spacing: -0.003em;
   font-family:
     system-ui,
     -apple-system,
@@ -121,7 +120,6 @@ sup.footnote-number {
     font-size: 48px;
     line-height: 1.0834933333;
     font-weight: 600;
-    letter-spacing: -0.003em;
     font-family:
       system-ui,
       -apple-system,
@@ -137,7 +135,6 @@ sup.footnote-number {
     font-size: 32px;
     line-height: 1.125;
     font-weight: 600;
-    letter-spacing: 0.004em;
     font-family:
       system-ui,
       -apple-system,
@@ -152,7 +149,6 @@ sup.footnote-number {
   font-size: 14px;
   line-height: 1.2857742857;
   font-weight: 600;
-  letter-spacing: -0.016em;
   font-family:
     system-ui,
     -apple-system,
@@ -167,7 +163,6 @@ sup.footnote-number {
     font-size: 14px;
     line-height: 1.2857742857;
     font-weight: 600;
-    letter-spacing: -0.016em;
     font-family:
       system-ui,
       -apple-system,
@@ -183,7 +178,6 @@ sup.footnote-number {
     font-size: 14px;
     line-height: 1.2857742857;
     font-weight: 600;
-    letter-spacing: -0.016em;
     font-family:
       system-ui,
       -apple-system,
@@ -231,6 +225,7 @@ sup.footnote-number {
   background: var(--color-fill-gray);
 }
 .bar-caption {
+  font-size: 17px;
   display: inline-block;
   padding-top: 12px;
   color: var(--color-fill-gray);
@@ -243,12 +238,6 @@ sup.footnote-number {
 .stat {
   margin-top: -5px;
   margin-inline-end: 0;
-}
-@media only screen and (max-width: 734px) {
-  .stat {
-    min-width: unset;
-    width: 72px;
-  }
 }
 .stat .stat-values {
   display: block;
