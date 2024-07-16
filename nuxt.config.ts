@@ -171,15 +171,6 @@ export default defineNuxtConfig({
 
       githubRepoName: process.env.GITHUB_REPO_NAME,
       githubRepoOwner: process.env.GITHUB_REPO_OWNER,
-
-      scripts: {
-        googleTagManager: {
-          id: process.env.GOOGLE_TAG_MANAGER_ID,
-        },
-        googleAnalytics: {
-          id: process.env.GOOGLE_ANALYTICS_ID,
-        },
-      },
     },
 
     githubToken: process.env.GITHUB_TOKEN,
@@ -191,8 +182,12 @@ export default defineNuxtConfig({
       bundle: true,
     },
     registry: {
-      googleAnalytics: true,
-      googleTagManager: true,
+      googleAnalytics: {
+        id: process.env.GOOGLE_ANALYTICS_ID || "",
+      },
+      googleTagManager: {
+        id: process.env.GOOGLE_TAG_MANAGER_ID || "",
+      },
     },
     // globals: {
     //   musicKit: {
