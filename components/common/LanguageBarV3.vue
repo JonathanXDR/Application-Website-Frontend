@@ -1,60 +1,27 @@
 <template>
-  <h2>{{ title }}</h2>
-
-  <!-- <div class="cardItemList">
-    <CardItem
-      v-for="(language, index) in languages"
-      :key="index"
-      v-bind="{
-        ...language,
-        colors: {
-          primary: `var(--color-fill-tertiary)`,
-          secondary: `var(--color-fill-tertiary)`,
-          tertiary: `var(--color-fill-gray-secondary)`,
-          quaternary: `var(--color-fill-gray-secondary)`,
-        },
-        icon: {
-          ...language.icon,
-          name: language.icon?.name || '',
-          alignment: 'start',
-          position: windowWidth < 930 ? 'top' : 'left',
-        },
-        loading: false,
-      }"
-    >
-      <LanguageBarV2
-        v-if="language"
-        :title="language.title"
-        :progress="language.progress"
-        :status="language.status"
-        style="width: 100%"
-      />
-    </CardItem>
-  </div> -->
-
-  <div class="graph">
-    <template v-for="(language, index) in languages" :key="index">
-      <LanguageBarV3
-        v-if="language"
-        :title="language.title"
-        :progress="language.progress"
-      />
-    </template>
+  <LoadingBar :progress="progress" />
+  <div class="bar-content-container bar-chip-1 no-badge">
+    <div class="bar-mask bar-mask-1" :style="`width: ${progress}%`">
+      <hr class="bar bar-1" >
+    </div>
+    <span class="bar-caption typography-graph-label">
+      {{ title }}
+      <sup class="footnote footnote-number">
+        <a href="#footnote-7" aria-label="Footnote 4, Close" />
+      </sup>
+    </span>
   </div>
+  <figure class="stat">
+    <!-- <span class="stat-label typography-graph-label">Up to</span> -->
+    <span class="stat-values typography-graph-stat">{{ progress }}%</span>
+    <span class="stat-label typography-graph-label">Fliessend</span>
+  </figure>
 </template>
 
 <script setup lang="ts">
 import type { LanguageBarType } from "~/types/common/LanguageBar";
 
-defineProps<{
-  title: string;
-}>();
-
-const { tm } = useI18n();
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
-const languages = computed<LanguageBarType[]>(() =>
-  tm("components.containers.languages"),
-);
+defineProps<LanguageBarType>();
 </script>
 
 <style scoped>
@@ -233,101 +200,73 @@ sup.footnote-number {
   position: relative;
 }
 .stat {
-  color: #6e6e73;
+  color: var(--color-figure-gray-secondary);
 }
 .theme-dark .stat {
-  color: #86868b;
+  color: var(--color-figure-gray-secondary);
 }
-.graph {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-auto-rows: 1fr;
-  grid-row-gap: 48px;
-  row-gap: 48px;
-  grid-column-gap: 90px;
-  column-gap: 90px;
-}
-@media only screen and (max-width: 1068px) {
-  .graph {
-    grid-row-gap: 32px;
-    row-gap: 32px;
-  }
-}
-@media only screen and (max-width: 734px) {
-  .graph {
-    grid-row-gap: 20px;
-    row-gap: 20px;
-    margin-top: 35px;
-    grid-column-gap: 20px;
-    column-gap: 20px;
-  }
-}
-.graph .bar-content-container {
+
+.bar-content-container {
   position: relative;
   width: 100%;
   grid-column-start: 1;
 }
-.graph .bar-mask {
+.bar-mask {
   position: relative;
   overflow: hidden;
   border-radius: calc(10px / 2);
   height: 10px;
   z-index: 1;
 }
-.graph .bar-mask.bar-mask-2 {
+.bar-mask.bar-mask-2 {
   margin-top: 10px;
 }
-.graph .bar {
+.bar {
   margin: 0;
   border: 0;
   height: 100%;
   width: 100%;
   transform-origin: left;
   border-radius: inherit;
+  background: var(--color-fill-gray);
 }
-.graph .bar.bar-1 {
-  background-image: linear-gradient(269deg, #9389de, #2c2270 94%);
-}
-.graph .bar.bar-2 {
-  background-image: linear-gradient(269deg, #c3c3c7, #474747 94%);
-}
-.graph .bar-caption {
+.bar-caption {
   display: inline-block;
   padding-top: 12px;
-  color: #f5f5f7;
+  color: var(--color-fill-gray);
 }
 @media only screen and (max-width: 734px) {
-  .graph .bar-caption {
+  .bar-caption {
     white-space: normal;
   }
 }
-.graph .stat {
+.stat {
   margin-top: -5px;
   margin-inline-end: 0;
 }
 @media only screen and (max-width: 734px) {
-  .graph .stat {
+  .stat {
     min-width: unset;
     width: 72px;
   }
 }
-.graph .stat .stat-values {
+.stat .stat-values {
   display: block;
-  color: #877dd1;
+  color: var(--color-fill-gray);
 }
-.graph .stat .stat-label {
+.stat .stat-label {
   display: block;
-  color: #86868b;
+  color: var(--color-figure-gray-secondary);
 }
-.graph .stat .stat-label:first-child {
+.stat .stat-label:first-child {
   margin-top: -16px;
 }
 @media only screen and (max-width: 734px) {
-  .graph .stat .stat-label:first-child {
+  .stat .stat-label:first-child {
     margin-top: -3px;
   }
 }
-.graph .stat .stat-label:last-child {
+.stat .stat-label:last-child {
   margin-top: 2px;
 }
 

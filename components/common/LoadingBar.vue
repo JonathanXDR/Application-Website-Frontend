@@ -1,16 +1,36 @@
 <template>
-  <div class="loader-progress" role="img" aria-label="loading, please wait">
+  <div
+    class="loader-progress"
+    role="img"
+    aria-label="loading, please wait"
+    :style="`--color-secondary: ${colors.secondary}`"
+  >
     <div
       class="loader-progress-indicator"
-      :style="`--progress: ${progress}%`"
+      :style="`
+      --progress: -${progress}%;
+      --color-primary: ${colors.primary};
+    
+      `"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  progress: number;
-}>();
+import type { ColorType } from "~/types/common/Color";
+
+withDefaults(
+  defineProps<{
+    progress: number;
+    colors?: ColorType;
+  }>(),
+  {
+    colors: () => ({
+      primary: "var(--color-fill-gray)",
+      secondary: "var(--color-fill-gray-secondary)",
+    }),
+  },
+);
 </script>
 
 <style scoped>
@@ -18,13 +38,14 @@ defineProps<{
   transition: transform 0.5s ease;
 }
 .loader-progress {
-  background: rgba(0, 0, 0, 0.2);
+  /* background: var(--color-secondary); */
+  background: var(--color-loading-background);
   border-radius: 4px;
   height: 8px;
   margin-top: 60px;
   overflow: hidden;
   position: relative;
-  width: 338px;
+  width: 100%;
   z-index: 2;
 }
 @media only screen and (max-width: 734px) {
@@ -33,8 +54,7 @@ defineProps<{
   }
 }
 .loader-progress-indicator {
-  --progress: -100%;
-  background: #000;
+  background: var(--color-primary);
   border-radius: 4px;
   height: 100%;
   left: 0;

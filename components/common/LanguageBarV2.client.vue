@@ -36,6 +36,7 @@
         </ol>
       </div>
     </div>
+
     <div v-if="description" class="row rs-od-itemdesc-wrapper">
       <div class="rs-od-itemdesc column large-12 small-12">
         <div class="rs-od-itemdesc-content">

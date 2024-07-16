@@ -148,6 +148,9 @@ body main ::-webkit-scrollbar-track {
   --base-color: #ebebeb;
   --highlight-color: #f5f5f5;
 
+  /* Loading bar */
+  --color-loading-background: rgba(0, 0, 0, 0.2);
+
   /* Menu */
   --color-menu: rgba(255, 255, 255, 0.72);
   --color-menu-border: rgba(0, 0, 0, 0.16);
@@ -426,6 +429,9 @@ body main ::-webkit-scrollbar-track {
   /* Skeleton */
   --base-color: #1d1d1f;
   --highlight-color: #262628;
+
+  /* Loading bar */
+  --color-loading-background: rgba(255, 255, 255, 0.2);
 
   /* Menu */
   --color-menu: rgba(0, 0, 0, 0.72);
