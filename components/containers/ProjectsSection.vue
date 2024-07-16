@@ -27,7 +27,7 @@
     </NavBarExtension>
     <div v-if="currentIndex === 0" class="timeline-wrapper">
       <TimeLine :initial-height="ulHeight" :on-update-height="updateHeight" />
-      <ul ref="ul" class="timeline">
+      <div ref="ul" class="timeline">
         <CardItem
           v-for="(project, index) in currentProjects"
           :key="index"
@@ -55,7 +55,7 @@
             },
           }"
         />
-      </ul>
+      </div>
     </div>
     <div v-else class="w-full">
       <div v-if="projects.personal.length && projects.school.length">

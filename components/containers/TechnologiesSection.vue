@@ -32,7 +32,7 @@
 
     <LiveResultSummary :total-results="cards.length" /> -->
 
-    <ul class="card-container">
+    <div class="card-container">
       <CardItem
         v-for="(card, index) in cards"
         :key="index"
@@ -50,7 +50,7 @@
         }"
       />
       <ResultBlankState v-if="cards.length === 0" />
-    </ul>
+    </div>
   </div>
 </template>
 
