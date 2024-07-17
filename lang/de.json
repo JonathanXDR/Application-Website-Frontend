@@ -329,6 +329,39 @@
           "title": "Französisch",
           "eyebrow": "Gut",
           "progress": 30
+        },
+        {
+          "icon": {
+            "name": "display",
+            "colors": {
+              "tertiary": "none"
+            }
+          },
+          "progress": 50,
+          "eyebrow": "Frontend",
+          "title": "Apps Team - Frontend",
+          "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
+          "badges": ["Frontend", "Memory", "Vue", "TypeScript", "SDX", "Next"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://appsteam.swisscom.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ],
+          "info": {
+            "date": {
+              "duration": {
+                "from": "2022-08-01",
+                "to": "2023-02-01"
+              }
+            },
+            "supervisor": "Carlo Schmid",
+            "location": "Itt-Ey10",
+            "department": "GHR-POD-LES-APP"
+          }
         }
       ],
       "references": [
@@ -362,7 +395,7 @@
           ],
           "info": {
             "location": "Zür-För181",
-            "department": "INI-DOS-TDE"
+            "department": "INI-EOG-SPA"
           }
         },
         {
@@ -422,7 +455,7 @@
           "description": "Cyber Security Specialist",
           "info": {
             "location": "Zür-För181",
-            "department": "INI-DOS-TDE"
+            "department": "INI-EOG-SPA"
           }
         }
       ],
@@ -1133,11 +1166,7 @@
           "eyebrow": "Language",
           "title": "HTML",
           "description": "Ich habe HTML beim Erstellen dieser Webseite gelernt und fühle mich damit sehr sicher, da ich es in fast allen bisherigen Projekten verwendet habe.",
-          "badges": [
-            "Markup",
-            "Web",
-            "Frontend"
-          ],
+          "badges": ["Markup", "Web", "Frontend"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1155,12 +1184,7 @@
           "eyebrow": "Language",
           "title": "CSS",
           "description": "CSS habe ich ebenfalls während dem Aufbau dieser Webseite gelernt. Da CSS genau wie HTML in fast jedem Projekt verwendet wird, habe ich auch hier schon viel Erfahrung gesammelt.",
-          "badges": [
-            "Styling",
-            "Web",
-            "Frontend",
-            "Design"
-          ],
+          "badges": ["Styling", "Web", "Frontend", "Design"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1178,12 +1202,7 @@
           "eyebrow": "Language",
           "title": "JavaScript",
           "description": "Das ist wahrscheinlich meine meist verwendete Programmiersprache. Ich habe damit schon bei vielen Projekten gearbeitet und auch schon mit Frameworks und Libraries, wie Vue.js, React oder Express.js angewendet, die ja darauf aufbauen.",
-          "badges": [
-            "Scripting",
-            "Web",
-            "Frontend",
-            "Backend"
-          ],
+          "badges": ["Scripting", "Web", "Frontend", "Backend"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1201,11 +1220,7 @@
           "eyebrow": "Library",
           "title": "SDX",
           "description": "Mit dieser Library bin ich schon mehrmals während meiner Ausbildung in Kontakt gekommen. Ich habe damit z.B. beim Entwickeln der Apps Team Webseite, der Medienkurse und noch vielen weiteren Swisscom-Applikationen gearbeitet.",
-          "badges": [
-            "Swisscom",
-            "Design",
-            "UI"
-          ],
+          "badges": ["Swisscom", "Design", "UI"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1223,11 +1238,7 @@
           "eyebrow": "Runtime",
           "title": "Node.js",
           "description": "Diese Technologie habe ich im NexCC das allererste mal gelernt und angewendet. Dabei habe ich zuerst kennengelernt was Node.js überhaupt ist und auch wie man dependencies mit NPM installiert und verwaltet.",
-          "badges": [
-            "Javascript",
-            "Server",
-            "Backend"
-          ],
+          "badges": ["Javascript", "Server", "Backend"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1245,11 +1256,7 @@
           "eyebrow": "Language",
           "title": "SQL",
           "description": "SQL habe ich erstmals während der Entwicklung meiner CRUD-App im NexCC verwendent, dabei habe ich die Basics gelernt. Später gab es auch noch die beiden Berufsschulmodule 162 und 164 und den ÜK-106, der auch fortgeschrittene Abfragen beinhaltete.",
-          "badges": [
-            "Database",
-            "Query",
-            "Backend"
-          ],
+          "badges": ["Database", "Query", "Backend"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1267,11 +1274,7 @@
           "eyebrow": "Framework",
           "title": "Express.js",
           "description": "Meine CRUD-App im NexCC habe ich damit erstellt, was sehr lehrreich für mich war. Später hatte ich auch noch einen entsprechenden ÜK, welcher darum ging ein Backend mit Express.js zu erstellen.",
-          "badges": [
-            "Node",
-            "Web",
-            "Backend"
-          ],
+          "badges": ["Node", "Web", "Backend"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1289,11 +1292,7 @@
           "eyebrow": "Framework",
           "title": "Vue.js",
           "description": "Diese Webseite ist mit Vue.js erstellt worden und ich habe damit auch anderweitig gearbeitet. Beispiele sind meine Memory App im Apps Team oder das Zukunftstagstool und die Berufsschulapp, welche ich wiederrum im NexCC erstellt habe.",
-          "badges": [
-            "Javascript",
-            "Frontend",
-            "Web"
-          ],
+          "badges": ["Javascript", "Frontend", "Web"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1311,12 +1310,7 @@
           "eyebrow": "Language",
           "title": "TypeScript",
           "description": "Diese Technologie habe ich das erste mal bei meiner Memory-App im Apps Team verwendet und benutze seither wenn möglich nur noch TypeScript anstelle von JavaScript. Projekte, bei denen ich TypeScript gearbeitet habe, sind z.B. die Apps Team Webseite, die CRUD-App im Apps Team oder auch das Fleetmanagement Tool.",
-          "badges": [
-            "Javascript",
-            "Typed",
-            "Frontend",
-            "Backend"
-          ],
+          "badges": ["Javascript", "Typed", "Frontend", "Backend"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1334,11 +1328,7 @@
           "eyebrow": "Language",
           "title": "C#",
           "description": "Ich habe C# bereits in der 3. Oberstufe kennengelernt, als ich ein eigenes Spiel mit Unity als Abschlussarbeit erstellt habe. Bei den Automatisierungsprojekten im Banking Bereich habe ich dann noch ein wenig mehr darüber gelernt.",
-          "badges": [
-            "Microsoft",
-            "Backend",
-            "Object-Oriented"
-          ],
+          "badges": ["Microsoft", "Backend", "Object-Oriented"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1356,11 +1346,7 @@
           "eyebrow": "Language",
           "title": "Java",
           "description": "Java kenne ich hauptsächlich vom Berufsschulmodul 319, wo wir damit gearbeitet haben und kleinere Aufgaben programmieren mussten. Im Modul 320 kam dann auch noch OOP dazu, was ich sehr interessant fand. Ausserdem habe ich auch noch den ÜK-223 besucht, bei dem es darum ging Multi-User-Applikationen objektorientiert zu realisieren. Das haben wir mit einem Java-Backend und einem ORM gemacht.",
-          "badges": [
-            "Backend",
-            "Object-Oriented",
-            "Enterprise"
-          ],
+          "badges": ["Backend", "Object-Oriented", "Enterprise"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1378,11 +1364,7 @@
           "eyebrow": "Language",
           "title": "Bash",
           "description": "Ich habe schon oft mit Bash gearbeitet und bin damit mittlerweile auch einigermassen vertraut. Ich habe damit z.B. schon ein paar kleine Skripte geschrieben, um mir die Arbeit zu erleichtern. Zudem gab es auch das Modul 122 in der Berufsschule, bei dem wir ebenfalls mit Bash gearbeitet haben.",
-          "badges": [
-            "Scripting",
-            "Shell",
-            "Linux"
-          ],
+          "badges": ["Scripting", "Shell", "Linux"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1400,12 +1382,7 @@
           "eyebrow": "Framework",
           "title": "React",
           "description": "React selbst habe ich erst gelernt, nachdem ich bereits mit Next.js gearbeitet habe, daher war die Lernkurve nicht mehr so steil. Beispiele für Projekte, bei denen ich React verwendet habe, sind z.B. die Medienkurse, das Fleetmanagement Tool oder auch die neuen Webfrontends.",
-          "badges": [
-            "Javascript",
-            "Frontend",
-            "Web",
-            "UI"
-          ],
+          "badges": ["Javascript", "Frontend", "Web", "UI"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1423,12 +1400,7 @@
           "eyebrow": "Framework",
           "title": "Next.js",
           "description": "Das erste mal kennenlernen durte ich Next.js im Apps Team, wo ich damit die neue Apps Team Webseite erstellt habe. Dort habe ich gleichzeitig auch sehr viel über React gelernt und konnte so meine Kenntnisse gleich in beiden Frameworks verbessern.",
-          "badges": [
-            "React",
-            "Frontend",
-            "Web",
-            "SSR"
-          ],
+          "badges": ["React", "Frontend", "Web", "SSR"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1446,11 +1418,7 @@
           "eyebrow": "Container Management",
           "title": "Docker",
           "description": "Richtig verstanden und mich damit beschäftigt habe ich Docker im Berufsschulmodul 347, wo wir eine Applikation mittels CI/CD deployen mussten. Dazu gab es den ÜK 210, bei dem es um das Thema Cloud ging und wir auch dort nochmal mit Docker gearbeitet haben.",
-          "badges": [
-            "Container",
-            "DevOps",
-            "Cloud"
-          ],
+          "badges": ["Container", "DevOps", "Cloud"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1468,11 +1436,7 @@
           "eyebrow": "Container Management",
           "title": "Kubernetes",
           "description": "Auch Kubernetes habe ich im Berufsschulmodul 347 kennengelernt und dort verwendet, um eine Applikation mittels CI/CD zu deployen. Der ÜK 210 hat mir dann nochmal einen tieferen Einblick in die Container-Orchestrierung gegeben, da er sich mehr damit beschäftigt hat.",
-          "badges": [
-            "Container",
-            "Orchestration",
-            "DevOps"
-          ],
+          "badges": ["Container", "Orchestration", "DevOps"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1490,11 +1454,7 @@
           "eyebrow": "Framework",
           "title": "Nest.js",
           "description": "Dieses Backend-Framework habe ich im Apps Team kennengelernt und habe damit meine CRUD-App erstellt. Dabei habe ich viel über die Architektur und die verschiedenen Module gelernt. Ausserdem habe ich auch in produktiven Projekten im Apps Team, wie z.B. dem Fleetmanagement Tool oder den neuen Webfrontends damit gearbeitet.",
-          "badges": [
-            "Node",
-            "Backend",
-            "TypeScript"
-          ],
+          "badges": ["Node", "Backend", "TypeScript"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1512,11 +1472,7 @@
           "eyebrow": "ORM",
           "title": "Prisma",
           "description": "Das habe ich verwendet um meine CRUD-App zu erstellen und ich bin dabei das erste mal mit einem ORM in Berührung gekommen. Später habe ich auch beim Fleetmanagement Tool mit Prisma gearbeiet.",
-          "badges": [
-            "Database",
-            "TypeScript",
-            "ORM"
-          ],
+          "badges": ["Database", "TypeScript", "ORM"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1534,11 +1490,7 @@
           "eyebrow": "ORM",
           "title": "TypeORM",
           "description": "Als Alternative zu Prisma habe ich meine CRUD-App, nachdem ich sie fertiggestellt habe, auch noch mit TypeORM umgesetzt, da auch dieses ORM in diversen Projekten im Apps Team verwendet wird.",
-          "badges": [
-            "Database",
-            "TypeScript",
-            "ORM"
-          ],
+          "badges": ["Database", "TypeScript", "ORM"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1556,12 +1508,7 @@
           "eyebrow": "Library",
           "title": "GitHub Primer",
           "description": "Ich habe GitHub Primer benutzt, um ein Frontend zusammen mit React für meine CRUD-App im Apps Team zu erstellen.",
-          "badges": [
-            "React",
-            "Frontend",
-            "Design",
-            "UI"
-          ],
+          "badges": ["React", "Frontend", "Design", "UI"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1579,12 +1526,7 @@
           "eyebrow": "Library",
           "title": "Tailwind CSS",
           "description": "Tailwind CSS wurde zusammen mit SDX in vielen Projekten im Apps Team verwendet. Das Fleetmanagement Tool und die neuen Webfrontends sind zwei Beispiele dafür.",
-          "badges": [
-            "CSS",
-            "Frontend",
-            "Design",
-            "UI"
-          ],
+          "badges": ["CSS", "Frontend", "Design", "UI"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1602,11 +1544,7 @@
           "eyebrow": "Language",
           "title": "Python",
           "description": "Diese Programmiersprache habe ich im Security Journey gelernt und sie für die Entwicklung des DAM Log Scanners verwendet, ein Tool, welches Datenbankaktivitäten aufzeichnet.",
-          "badges": [
-            "Scripting",
-            "Backend",
-            "Object-Oriented"
-          ],
+          "badges": ["Scripting", "Backend", "Object-Oriented"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1624,11 +1562,7 @@
           "eyebrow": "Language",
           "title": "Kotlin",
           "description": "Kotlin habe ich im ÜK 335 gelernt, wo wir als Projektarbeit eine Android App erstellt haben. Dabei konnten wir selbst entscheiden, ob wir Java oder Kotlin verwenden. Ich habe mich für Kotlin entschieden, da ich es interessant fand und es auch eine moderne Programmiersprache ist.",
-          "badges": [
-            "Android",
-            "Mobile",
-            "Object-Oriented"
-          ],
+          "badges": ["Android", "Mobile", "Object-Oriented"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1646,11 +1580,7 @@
           "eyebrow": "Language",
           "title": "Jetpack Compose",
           "description": "Ich habe Jetpack Compose das erste mal zusammen mit Kotlin im ÜK 335 verwendet, wo wir eine Android App erstellt haben.",
-          "badges": [
-            "Android",
-            "Mobile",
-            "UI"
-          ],
+          "badges": ["Android", "Mobile", "UI"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1668,13 +1598,7 @@
           "eyebrow": "Library",
           "title": "Material Design 3",
           "description": "Während meiner Projektarbeit im ÜK 335 habe ich Material Design 3 verwendet, um die Android App zu gestalten.",
-          "badges": [
-            "Android",
-            "Mobile",
-            "UI",
-            "Design",
-            "Google"
-          ],
+          "badges": ["Android", "Mobile", "UI", "Design", "Google"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1692,12 +1616,7 @@
           "eyebrow": "Framework",
           "title": "Nuxt",
           "description": "Nuxt habe ich mir selbst beigebracht, da ich es interessant fand und auch gerne mit Vue programmiere, worauf Nuxt aufbaut. Bisher habe ich es allerdings bei keinen Projeken ausser dieser Webseite verwendet.",
-          "badges": [
-            "Vue",
-            "Frontend",
-            "Web",
-            "SSR"
-          ],
+          "badges": ["Vue", "Frontend", "Web", "SSR"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1715,12 +1634,7 @@
           "eyebrow": "Framework",
           "title": "Angular",
           "description": "Während ich im Piz Tofana Team war, habe ich Angular kennengelernt und auch damit gearbeitet. Damit haben wir nämlich während der Entwicklung des Frontends von Daedalus gearbeitet.",
-          "badges": [
-            "Javascript",
-            "Frontend",
-            "Web",
-            "UI"
-          ],
+          "badges": ["Javascript", "Frontend", "Web", "UI"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1738,11 +1652,7 @@
           "eyebrow": "Runtime",
           "title": "Bun",
           "description": "Ich habe Bun kennengelernt, als ich meine Webseite auf Nuxt umgestellt habe. Vorallem die Einfachheit und die Geschwindigkeit im Gegensatz zu Node.js haben mich dabei überzeugt, weswegen ich wenn möglich nur noch Bun verwende.",
-          "badges": [
-            "TypeScript",
-            "Server",
-            "Backend"
-          ],
+          "badges": ["TypeScript", "Server", "Backend"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1760,12 +1670,7 @@
           "eyebrow": "Language",
           "title": "Scala",
           "description": "Scala habe ich im Berufsschulmodul 323 kennengelernt und fand es sehr interessant, da es viele Parallelen zu Java hat, aber auch viele neue Konzepte, wie z.B. Traits oder Pattern Matching, mitbringt.",
-          "badges": [
-            "Backend",
-            "Object-Oriented",
-            "Functional",
-            "Java"
-          ],
+          "badges": ["Backend", "Object-Oriented", "Functional", "Java"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1871,14 +1776,7 @@
           "eyebrow": "Frontend",
           "title": "Apps Team - Frontend",
           "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
-          "badges": [
-            "Frontend",
-            "Memory",
-            "Vue",
-            "TypeScript",
-            "SDX",
-            "Next"
-          ],
+          "badges": ["Frontend", "Memory", "Vue", "TypeScript", "SDX", "Next"],
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1974,12 +1872,7 @@
           "eyebrow": "Security Journey",
           "title": "Piz Tofana Tooling Team",
           "description": "Momentan bin ich im Piz Tofana Tooling Team, wo ich an der Daedalus Applikation arbeite. Diese bietet verschiedene Selbstbeurteilungs-Module, die von den Fachabteilungen zur Bewertung von Datenschutz, Sicherheit, Compliance, Klassifizierung und Weiterem für verknüpfte Objekte wie Anwendungen, Ressourcen, Dienste oder Angebote bereitgestellt werden. Wir verwenden Java Spring Boot für das Backend und Angular für das Frontend.",
-          "badges": [
-            "Cloud Security",
-            "Docker",
-            "Kubernetes",
-            "Java"
-          ],
+          "badges": ["Cloud Security", "Docker", "Kubernetes", "Java"],
           "info": {
             "date": {
               "duration": {
@@ -1989,7 +1882,7 @@
             },
             "supervisor": "Oliver Kramer",
             "location": "Zür-För181",
-            "department": "INI-DOS-TDE"
+            "department": "INI-EOG-SPA"
           }
         }
       ]

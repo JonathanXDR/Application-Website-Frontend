@@ -7,22 +7,22 @@
     <div class="pin-wrapper pin-length">
       <span class="image-pin" />
       <span class="pin-caption typography-hardware-label">
-        One PCIe x4 gen 3<br />
+        One PCIe x4 gen 3<br >
         <span>Apple I/O card</span>
       </span>
     </div>
     <div class="pin-wrapper pin-single-wide">
       <span class="image-pin" />
       <span class="pin-caption typography-hardware-label">
-        Four PCIe x8 gen 4<br />
-        <span>Two single height</span><br />
+        Four PCIe x8 gen 4<br >
+        <span>Two single height</span><br >
         <span> Two double height</span>
       </span>
     </div>
     <div class="pin-wrapper pin-double-wide">
       <span class="image-pin" />
       <span class="pin-caption typography-hardware-label">
-        Two PCIe x16 gen 4<br />
+        Two PCIe x16 gen 4<br >
         <span>Double height</span>
       </span>
     </div>
@@ -42,7 +42,12 @@ defineProps<{
   line-height: 1.2105263158;
   font-weight: 600;
   letter-spacing: 0.012em;
-  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+  font-family:
+    SF Pro Display,
+    SF Pro Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
     sans-serif;
 }
 @media only screen and (max-width: 1068px) {
@@ -51,7 +56,12 @@ defineProps<{
     line-height: 1.2105263158;
     font-weight: 600;
     letter-spacing: 0.012em;
-    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+    font-family:
+      SF Pro Display,
+      SF Pro Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
       sans-serif;
   }
 }
@@ -61,7 +71,12 @@ defineProps<{
     line-height: 1.4285914286;
     font-weight: 400;
     letter-spacing: -0.016em;
-    font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+    font-family:
+      SF Pro Text,
+      SF Pro Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
       sans-serif;
   }
 }
@@ -142,7 +157,7 @@ defineProps<{
   height: 72%;
 }
 .pin-single-wide .image-pin:before {
-  content: '';
+  content: "";
   position: absolute;
   top: -52%;
   left: -2%;
@@ -167,7 +182,7 @@ defineProps<{
   height: 100%;
 }
 .pin-double-wide .image-pin:before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -2%;

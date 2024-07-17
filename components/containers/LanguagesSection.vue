@@ -39,14 +39,14 @@
         v-bind="{
           ...language,
           divider: {
-            direction: 'right',
+            direction: 'left',
           },
           componentSize:
             windowWidth < 900
               ? 'small'
               : windowWidth < 1250
-              ? 'medium'
-              : 'large',
+                ? 'medium'
+                : 'large',
         }"
       />
     </template>
@@ -54,7 +54,7 @@
 </template>
 
 <script setup lang="ts">
-import type { LanguageBarType } from '~/types/common/LanguageBar';
+import type { LanguageBarType } from "~/types/common/LanguageBar";
 
 defineProps<{
   title: string;
@@ -63,7 +63,7 @@ defineProps<{
 const { tm } = useI18n();
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
 const languages = computed<LanguageBarType[]>(() =>
-  tm('components.containers.languages')
+  tm("components.containers.languages"),
 );
 </script>
 
@@ -71,12 +71,13 @@ const languages = computed<LanguageBarType[]>(() =>
 .graph {
   margin-top: 3em;
   display: grid;
-  align-items: flex-end;
-  grid-template-columns: 1fr auto;
-  grid-auto-rows: 1fr;
+  /* align-items: flex-end; */
+  /* grid-template-columns: 1fr auto; */
+  /* grid-auto-rows: 1fr; */
   grid-row-gap: 48px;
   row-gap: 48px;
   grid-column-gap: 90px;
+  -moz-column-gap: 90px;
   column-gap: 90px;
 }
 @media only screen and (max-width: 1068px) {

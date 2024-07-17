@@ -1,6 +1,6 @@
 <template>
   <h2>{{ title }}</h2>
-  <div class="grid">
+  <div class="card-grid">
     <CardItem
       v-for="(card, index) in cards"
       :key="index"

@@ -1144,7 +1144,7 @@ fieldset {
   }
 }
 
-.grid {
+.card-grid {
   margin-top: 3em;
   display: grid;
   gap: 48px;
@@ -1152,14 +1152,14 @@ fieldset {
 }
 
 @media screen and (min-width: 900px) {
-  .grid {
+  .card-grid {
     gap: 64px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 
 @media screen and (min-width: 1250px) {
-  .grid {
+  .card-grid {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 }

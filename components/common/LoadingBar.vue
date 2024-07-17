@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ColorType } from '~/types/common/Color';
+import type { ColorType } from "~/types/common/Color";
 
 withDefaults(
   defineProps<{
@@ -29,10 +29,10 @@ withDefaults(
   }>(),
   {
     colors: () => ({
-      primary: 'var(--color-fill-gray)',
-      secondary: 'var(--color-fill-gray-secondary)',
+      primary: "var(--color-fill-gray)",
+      secondary: "var(--color-fill-gray-secondary)",
     }),
-  }
+  },
 );
 </script>
 
