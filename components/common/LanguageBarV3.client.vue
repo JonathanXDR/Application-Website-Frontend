@@ -5,7 +5,7 @@
       componentSize,
     ]"
   >
-    <span v-if="title" class="bar-caption title">
+    <span v-if="title" class="bar-caption title relative top-3">
       {{ title }}
     </span>
     <div class="flex items-center gap-12">
@@ -15,7 +15,7 @@
         <span v-if="eyebrow" class="stat-label eyebrow">{{ eyebrow }}</span>
       </figure>
     </div>
-    <LinkCollection :links="links" />
+    <LinkCollection :links="links" class="relative bottom-3" />
   </div>
 </template>
 
@@ -196,16 +196,16 @@ withDefaults(defineProps<LanguageBarType>(), {
   /* top: -52%; */
   /* left: -10%;
   width: 10%; */
-  left: -20%;
-  width: 20%;
+  left: -25%;
+  width: 25%;
   height: 100%;
   border-left: none;
 }
 .divider .stat.right:before {
-  top: -15%;
+  top: -10%;
   /* left: 0%; */
-  width: 20%;
-  height: 130%;
+  width: 25%;
+  height: 120%;
   border-right: none;
 }
 </style>
