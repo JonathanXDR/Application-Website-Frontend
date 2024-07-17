@@ -1,15 +1,17 @@
 <template>
   <div
     :class="[
-      'h-full grid auto-rows-[1fr] items-center gap-8 md:gap-16 lg:gap-24',
+      'h-full items-center gap-8 md:gap-16 lg:gap-24',
       {
         'grid-cols-[100px_1fr] sm:grid-cols-[150px_1fr] lg:grid-cols-[200px_1fr]':
-          direction === 'right',
+          width === 'full' && direction === 'right',
       },
       {
         'grid-cols-[1fr_100px] sm:grid-cols-[1fr_150px] lg:grid-cols-[1fr_200px]':
-          direction === 'left',
+          width === 'full' && direction === 'left',
       },
+      { 'grid auto-rows-[1fr]': width === 'full' },
+      { flex: width === 'compact' },
       { divider },
       direction,
       componentSize,
@@ -20,11 +22,17 @@
         'bar-content-container bar-chip-1 no-badge',
         { 'order-1': direction === 'right' },
       ]"
+      :style="{
+        width: width === 'full' ? '100%' : `${progress}%`,
+      }"
     >
-      <span v-if="title" class="bar-caption title pb-3 md:pb-4 lg:pb-5">{{
-        title
-      }}</span>
-      <LoadingBar :progress="progress" />
+      <span v-if="title" class="bar-caption title pb-3 md:pb-4 lg:pb-5">
+        {{ title }}
+      </span>
+      <LoadingBar
+        :progress="width === 'full' ? progress : 100"
+        :background="width === 'full' ? true : false"
+      />
       <div class="pt-3 md:pt-4 lg:pt-5">
         <!-- CardItem start -->
         <span v-if="eyebrow" class="stat-label">
@@ -43,38 +51,34 @@
       </div>
     </div>
 
-    <figure :class="['stat', `divider-${divider.direction}`]">
+    <figure :class="['stat', `divider-${divider?.direction}`]">
       <span v-if="progress" class="stat-values title">{{ progress }}%</span>
-      <span v-if="eyebrow" class="stat-label eyebrow hyphens-auto">{{
-        eyebrow
-      }}</span>
+      <span
+        v-if="eyebrow"
+        :class="['stat-label eyebrow', { 'hyphens-auto': width === 'full' }]"
+      >
+        {{ eyebrow }}
+      </span>
     </figure>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { LanguageBarType } from '~/types/common/LanguageBar';
+import type { LanguageBarType } from "~/types/common/LanguageBar";
 
-interface V3 extends LanguageBarType {
-  loading?: boolean;
-  hover?: 'auto' | 'true' | 'false';
-  direction: 'left' | 'right';
-  divider: {
-    direction: 'left' | 'right' | 'center';
-  };
-}
-
-const props = withDefaults(defineProps<V3>(), {
+const props = withDefaults(defineProps<LanguageBarType>(), {
   progress: 0,
-  componentSize: 'medium',
+  componentSize: "medium",
   loading: false,
-  hover: 'auto',
+  width: "compact",
+  hover: "auto",
+  direction: "left",
 });
 
 const applyHover = computed(
   () =>
-    (props.hover === 'auto' && props.links && props.links.length >= 1) ||
-    props.hover === 'true'
+    (props.hover === "auto" && props.links && props.links.length >= 1) ||
+    props.hover === "true",
 );
 </script>
 
@@ -100,7 +104,6 @@ const applyHover = computed(
   color: var(--color-figure-gray-secondary);
 }
 .bar-content-container {
-  width: 100%;
   height: 100%;
   position: relative;
 }
@@ -151,73 +154,133 @@ const applyHover = computed(
 .xsmall .eyebrow {
   font-size: 14px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .small .eyebrow {
   font-size: 15px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .medium .eyebrow {
   font-size: 17px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .large .eyebrow {
   font-size: 20px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .full .eyebrow {
   font-size: 17px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: var(--color-welcome-featured-card-eyebrow-text);
 }
 
 .xsmall .title {
   font-size: 14px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .small .title {
   font-size: 17px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .medium .title {
   font-size: 21px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .large .title {
   font-size: 28px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
   color: var(--color-card-content-text);
 }
 
 .full .title {
   font-size: 21px;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 .divider .stat {
@@ -229,7 +292,7 @@ const applyHover = computed(
 }
 
 .divider .stat:before {
-  content: '';
+  content: "";
   position: absolute;
   border: 1px solid var(--color-figure-gray-secondary);
   height: 100%;

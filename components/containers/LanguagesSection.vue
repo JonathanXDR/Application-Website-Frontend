@@ -38,16 +38,13 @@
         v-if="language"
         v-bind="{
           ...language,
-          direction: 'left',
-          divider: {
-            direction: 'left',
-          },
           componentSize:
             windowWidth < 900
               ? 'small'
               : windowWidth < 1250
                 ? 'medium'
                 : 'large',
+          width: windowWidth < 900 ? 'full' : 'compact',
         }"
       />
     </template>

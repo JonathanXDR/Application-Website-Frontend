@@ -308,12 +308,18 @@
         {
           "title": "Deutsch",
           "eyebrow": "Muttersprache",
-          "progress": 100
+          "progress": 100,
+          "divider": {
+            "direction": "left"
+          }
         },
         {
           "title": "Englisch",
           "eyebrow": "Fliessend",
           "progress": 60,
+          "divider": {
+            "direction": "left"
+          },
           "links": [
             {
               "title": "B1 Preliminary",
@@ -328,7 +334,10 @@
         {
           "title": "Französisch",
           "eyebrow": "Gut",
-          "progress": 30
+          "progress": 30,
+          "divider": {
+            "direction": "left"
+          }
         },
         {
           "icon": {
