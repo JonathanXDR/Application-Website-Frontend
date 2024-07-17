@@ -1,31 +1,89 @@
 <template>
   <div
     :class="[
-      'bar-content-container bar-chip-1 no-badge divider',
+      'bar-content-container bar-chip-1 no-badge',
       componentSize,
+      { divider },
     ]"
   >
-    <span v-if="title" class="bar-caption title relative top-3">
+    <span v-if="title" class="bar-caption title pb-3">
       {{ title }}
     </span>
-    <div class="flex items-center gap-12">
-      <LoadingBar :progress="progress" />
-      <figure :class="['stat left', componentSize]">
-        <span v-if="progress" class="stat-values title">{{ progress }}%</span>
-        <span v-if="eyebrow" class="stat-label eyebrow">{{ eyebrow }}</span>
-      </figure>
+    <LoadingBar :progress="progress" />
+    <div class="pt-3">
+      <BadgeBar
+        v-if="hasBadgesOrTopics"
+        :badges="badgesOrTopics"
+        :loading="loading"
+      />
+
+      <div v-if="hasLinksOrHtmlUrl" class="ctas-wrapper">
+        <!-- <ButtonItem variant="secondary" componentSize="small"> Test </ButtonItem> -->
+        <!-- <NuxtLink href="photos://" class="icon-wrapper button button-reduced button-neutral">
+            <span class="icon-copy"> Open</span>
+          </NuxtLink> -->
+
+        <LinkCollection
+          :links="linkCollectionLinks"
+          :loading="loading"
+          :class="{ link: applyHover }"
+        />
+      </div>
+      <InfoBar
+        v-if="info"
+        v-bind="{
+          ...info,
+          date: {
+            ...info?.date,
+            fixed: info?.date?.fixed,
+          },
+          loading: loading,
+        }"
+      />
     </div>
-    <LinkCollection :links="links" class="relative bottom-3" />
+  </div>
+  <div :class="[{ divider }, componentSize]">
+    <figure :class="['stat', divider.direction]">
+      <span v-if="progress" class="stat-values title">{{ progress }}%</span>
+      <span v-if="eyebrow" class="stat-label eyebrow">{{ eyebrow }}</span>
+    </figure>
   </div>
 </template>
 
 <script setup lang="ts">
 import type { LanguageBarType } from '~/types/common/LanguageBar';
 
-withDefaults(defineProps<LanguageBarType>(), {
-  componentSize: 'medium',
+interface V3 extends LanguageBarType {
+  loading?: boolean;
+  hover?: 'auto' | 'true' | 'false';
+  divider: {
+    direction: 'left' | 'right' | 'center';
+  };
+}
+
+const props = withDefaults(defineProps<V3>(), {
   progress: 0,
+  componentSize: 'medium',
+  loading: false,
+  hover: 'auto',
 });
+
+const hasBadgesOrTopics = computed(() => props.badges?.length);
+const badgesOrTopics = computed(() => props.badges);
+const hasLinksOrHtmlUrl = computed(() => props.links?.length);
+const linkCollectionLinks = computed(() => props.links);
+
+const info = computed(() => {
+  return {
+    ...props.info,
+  };
+});
+
+const applyHover = computed(
+  () =>
+    (props.hover === 'auto' && props.links && props.links.length >= 1) ||
+    props.hover === 'true'
+);
 </script>
 
 <style scoped>
@@ -74,12 +132,12 @@ withDefaults(defineProps<LanguageBarType>(), {
   margin-inline-end: 0;
 }
 .stat .stat-values {
-  padding-left: 10px;
+  padding-left: 20px;
   display: block;
   color: var(--color-fill-gray);
 }
 .stat .stat-label {
-  padding-left: 10px;
+  padding-left: 20px;
   display: block;
   color: var(--color-figure-gray-secondary);
 }
@@ -193,19 +251,17 @@ withDefaults(defineProps<LanguageBarType>(), {
 }
 
 .divider .stat.left:before {
-  /* top: -52%; */
-  /* left: -10%;
-  width: 10%; */
+  top: -25%;
   left: -25%;
   width: 25%;
-  height: 100%;
+  height: 150%;
   border-left: none;
 }
 .divider .stat.right:before {
-  top: -10%;
+  top: -25%;
   /* left: 0%; */
   width: 25%;
-  height: 120%;
+  height: 150%;
   border-right: none;
 }
 </style>

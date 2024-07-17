@@ -38,6 +38,9 @@
         v-if="language"
         v-bind="{
           ...language,
+          divider: {
+            direction: 'right',
+          },
           componentSize:
             windowWidth < 900
               ? 'small'
@@ -48,8 +51,6 @@
       />
     </template>
   </div>
-
-  <Pin />
 </template>
 
 <script setup lang="ts">
@@ -70,7 +71,7 @@ const languages = computed<LanguageBarType[]>(() =>
 .graph {
   margin-top: 3em;
   display: grid;
-  align-items: center;
+  align-items: flex-end;
   grid-template-columns: 1fr auto;
   grid-auto-rows: 1fr;
   grid-row-gap: 48px;

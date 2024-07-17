@@ -5,13 +5,14 @@
     role="img"
     aria-label="loading, please wait"
     :style="`
-      width: ${progress}%;
+      width: 100%;
       --color-secondary: ${colors.secondary}
     `"
   >
     <div
       class="loader-progress-indicator"
       :style="`
+        --progress: -${100 - progress}%;
         --color-primary: ${colors.primary};
       `"
     />
@@ -38,7 +39,6 @@ withDefaults(
 <style scoped>
 .loader-progress.visible .loader-progress-indicator {
   transition: transform 0.5s ease;
-  --progress: 0%;
 }
 .loader-progress {
   /* background: var(--color-secondary); */
