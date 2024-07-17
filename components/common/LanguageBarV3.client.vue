@@ -10,7 +10,7 @@
     </span>
     <div class="flex items-center gap-12">
       <LoadingBar :progress="progress" />
-      <figure :class="['stat', componentSize]">
+      <figure :class="['stat left', componentSize]">
         <span v-if="progress" class="stat-values title">{{ progress }}%</span>
         <span v-if="eyebrow" class="stat-label eyebrow">{{ eyebrow }}</span>
       </figure>
@@ -74,10 +74,12 @@ withDefaults(defineProps<LanguageBarType>(), {
   margin-inline-end: 0;
 }
 .stat .stat-values {
+  padding-left: 10px;
   display: block;
   color: var(--color-fill-gray);
 }
 .stat .stat-label {
+  padding-left: 10px;
   display: block;
   color: var(--color-figure-gray-secondary);
 }
@@ -94,6 +96,7 @@ withDefaults(defineProps<LanguageBarType>(), {
 }
 
 .eyebrow {
+  /* border-top: 1px solid var(--color-figure-gray-secondary); */
   color: var(--color-figure-gray-secondary);
   display: block;
   margin: 0;
@@ -175,8 +178,34 @@ withDefaults(defineProps<LanguageBarType>(), {
 }
 
 .divider .stat {
-  padding-left: 10px;
+  /* padding-left: 10px; */
   margin-left: 10px;
+}
+
+.divider .stat.center {
   border-left: 1px solid var(--color-figure-gray-secondary);
+}
+
+.divider .stat:before {
+  content: '';
+  position: absolute;
+  border: 1px solid var(--color-figure-gray-secondary);
+}
+
+.divider .stat.left:before {
+  /* top: -52%; */
+  /* left: -10%;
+  width: 10%; */
+  left: -20%;
+  width: 20%;
+  height: 100%;
+  border-left: none;
+}
+.divider .stat.right:before {
+  top: -15%;
+  /* left: 0%; */
+  width: 20%;
+  height: 130%;
+  border-right: none;
 }
 </style>
