@@ -48,6 +48,8 @@
       />
     </template>
   </div>
+
+  <Pin />
 </template>
 
 <script setup lang="ts">

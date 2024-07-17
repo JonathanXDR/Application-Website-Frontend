@@ -6,28 +6,35 @@
   >
     <div class="pin-wrapper pin-length">
       <span class="image-pin" />
-      <span class="pin-caption typography-hardware-label"
-        >One PCIe x4 gen 3<br /><span>Apple I/O card</span></span
-      >
+      <span class="pin-caption typography-hardware-label">
+        One PCIe x4 gen 3<br />
+        <span>Apple I/O card</span>
+      </span>
     </div>
     <div class="pin-wrapper pin-single-wide">
       <span class="image-pin" />
-      <span class="pin-caption typography-hardware-label"
-        >Four PCIe x8 gen 4<br /><span>Two single height</span><br /><span
-          >Two double height</span
-        ></span
-      >
+      <span class="pin-caption typography-hardware-label">
+        Four PCIe x8 gen 4<br />
+        <span>Two single height</span><br />
+        <span> Two double height</span>
+      </span>
     </div>
     <div class="pin-wrapper pin-double-wide">
       <span class="image-pin" />
-      <span class="pin-caption typography-hardware-label"
-        >Two PCIe x16 gen 4<br /><span>Double height</span></span
-      >
+      <span class="pin-caption typography-hardware-label">
+        Two PCIe x16 gen 4<br />
+        <span>Double height</span>
+      </span>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps<{
+  title?: string;
+  description?: string;
+}>();
+</script>
 
 <style scoped>
 .typography-hardware-label {

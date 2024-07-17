@@ -1,5 +1,6 @@
 <template>
   <div
+    v-animation="{ add: 'visible' }"
     class="loader-progress"
     role="img"
     aria-label="loading, please wait"
@@ -11,7 +12,6 @@
     <div
       class="loader-progress-indicator"
       :style="`
-        --progress: -${progress}%;
         --color-primary: ${colors.primary};
       `"
     />
@@ -36,8 +36,9 @@ withDefaults(
 </script>
 
 <style scoped>
-.loader-progress-indicator {
+.loader-progress.visible .loader-progress-indicator {
   transition: transform 0.5s ease;
+  --progress: 0%;
 }
 .loader-progress {
   /* background: var(--color-secondary); */
@@ -50,6 +51,7 @@ withDefaults(
   z-index: 2;
 }
 .loader-progress-indicator {
+  --progress: -100%;
   background: var(--color-primary);
   border-radius: 4px;
   height: 100%;
