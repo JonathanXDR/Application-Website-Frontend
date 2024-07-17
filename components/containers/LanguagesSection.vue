@@ -1,40 +1,9 @@
 <template>
   <h2>{{ title }}</h2>
 
-  <!-- <div class="cardItemList">
-    <CardItem
-      v-for="(language, index) in languages"
-      :key="index"
-      v-bind="{
-        ...language,
-        colors: {
-          primary: `var(--color-fill-tertiary)`,
-          secondary: `var(--color-fill-tertiary)`,
-          tertiary: `var(--color-fill-gray-secondary)`,
-          quaternary: `var(--color-fill-gray-secondary)`,
-        },
-        icon: {
-          ...language.icon,
-          name: language.icon?.name || '',
-          alignment: 'start',
-          position: windowWidth < 930 ? 'top' : 'left',
-        },
-        loading: false,
-      }"
-    >
-      <LanguageBarV2
-        v-if="language"
-        :title="language.title"
-        :progress="language.progress"
-        :status="language.status"
-        style="width: 100%"
-      />
-    </CardItem>
-  </div> -->
-
   <div class="graph">
     <template v-for="(language, index) in languages" :key="index">
-      <LanguageBarV3
+      <LanguageBar
         v-if="language"
         v-bind="{
           ...language,
@@ -42,8 +11,8 @@
             windowWidth < 900
               ? 'small'
               : windowWidth < 1250
-                ? 'medium'
-                : 'large',
+              ? 'medium'
+              : 'large',
           width: windowWidth < 900 ? 'full' : 'compact',
         }"
       />
@@ -52,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import type { LanguageBarType } from "~/types/common/LanguageBar";
+import type { LanguageBarType } from '~/types/common/LanguageBar';
 
 defineProps<{
   title: string;
@@ -61,7 +30,7 @@ defineProps<{
 const { tm } = useI18n();
 const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
 const languages = computed<LanguageBarType[]>(() =>
-  tm("components.containers.languages"),
+  tm('components.containers.languages')
 );
 </script>
 

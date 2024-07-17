@@ -34,7 +34,6 @@
         :background="width === 'full' ? true : false"
       />
       <div class="pt-3 md:pt-4 lg:pt-5">
-        <!-- CardItem start -->
         <span v-if="eyebrow" class="stat-label">
           {{ description }}
         </span>
@@ -47,7 +46,6 @@
           />
         </div>
         <InfoBar v-if="info" v-bind="{ ...info, loading }" />
-        <!-- CardItem end -->
       </div>
     </div>
 
@@ -64,21 +62,21 @@
 </template>
 
 <script setup lang="ts">
-import type { LanguageBarType } from "~/types/common/LanguageBar";
+import type { LanguageBarType } from '~/types/common/LanguageBar';
 
 const props = withDefaults(defineProps<LanguageBarType>(), {
   progress: 0,
-  componentSize: "medium",
+  componentSize: 'medium',
   loading: false,
-  width: "compact",
-  hover: "auto",
-  direction: "left",
+  width: 'compact',
+  hover: 'false',
+  direction: 'left',
 });
 
 const applyHover = computed(
   () =>
-    (props.hover === "auto" && props.links && props.links.length >= 1) ||
-    props.hover === "true",
+    (props.hover === 'auto' && props.links && props.links.length >= 1) ||
+    props.hover === 'true'
 );
 </script>
 
@@ -154,133 +152,73 @@ const applyHover = computed(
 .xsmall .eyebrow {
   font-size: 14px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .small .eyebrow {
   font-size: 15px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .medium .eyebrow {
   font-size: 17px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .large .eyebrow {
   font-size: 20px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .full .eyebrow {
   font-size: 17px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: var(--color-welcome-featured-card-eyebrow-text);
 }
 
 .xsmall .title {
   font-size: 14px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .small .title {
   font-size: 17px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .medium .title {
   font-size: 21px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .large .title {
   font-size: 28px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
   color: var(--color-card-content-text);
 }
 
 .full .title {
   font-size: 21px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 
 .divider .stat {
@@ -292,7 +230,7 @@ const applyHover = computed(
 }
 
 .divider .stat:before {
-  content: "";
+  content: '';
   position: absolute;
   border: 1px solid var(--color-figure-gray-secondary);
   height: 100%;
