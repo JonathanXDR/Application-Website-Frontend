@@ -4,17 +4,17 @@
     class="loader-progress"
     role="img"
     aria-label="loading, please wait"
-    :style="`
-      width: 100%;
-      --color-secondary: ${colors.secondary}
-    `"
+    :style="{
+      width: `${background ? 100 : progress}%`,
+      '--color-secondary': colors.secondary,
+    }"
   >
     <div
       class="loader-progress-indicator"
-      :style="`
-        --progress: -${100 - progress}%;
-        --color-primary: ${colors.primary};
-      `"
+      :style="{
+        '--progress-updated': background ? `-${100 - progress}%` : '0%',
+        '--color-primary': colors.primary,
+      }"
     />
   </div>
 </template>
@@ -26,18 +26,21 @@ withDefaults(
   defineProps<{
     progress: number;
     colors?: ColorType;
+    background?: boolean;
   }>(),
   {
     colors: () => ({
       primary: "var(--color-fill-gray)",
       secondary: "var(--color-fill-gray-secondary)",
     }),
+    background: false,
   },
 );
 </script>
 
 <style scoped>
 .loader-progress.visible .loader-progress-indicator {
+  --progress: var(--progress-updated);
   transition: transform 0.5s ease;
 }
 .loader-progress {
