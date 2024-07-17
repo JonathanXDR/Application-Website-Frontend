@@ -38,6 +38,7 @@
         v-if="language"
         v-bind="{
           ...language,
+          direction: 'left',
           divider: {
             direction: 'left',
           },
