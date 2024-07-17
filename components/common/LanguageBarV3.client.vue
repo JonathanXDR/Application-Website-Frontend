@@ -6,40 +6,18 @@
       { divider },
     ]"
   >
-    <span v-if="title" class="bar-caption title pb-3">
-      {{ title }}
-    </span>
+    <span v-if="title" class="bar-caption title pb-3">{{ title }}</span>
     <LoadingBar :progress="progress" />
     <div class="pt-3">
-      <BadgeBar
-        v-if="hasBadgesOrTopics"
-        :badges="badgesOrTopics"
-        :loading="loading"
-      />
-
-      <div v-if="hasLinksOrHtmlUrl" class="ctas-wrapper">
-        <!-- <ButtonItem variant="secondary" componentSize="small"> Test </ButtonItem> -->
-        <!-- <NuxtLink href="photos://" class="icon-wrapper button button-reduced button-neutral">
-            <span class="icon-copy"> Open</span>
-          </NuxtLink> -->
-
+      <BadgeBar v-if="badges?.length" :badges="badges" :loading="loading" />
+      <div v-if="links?.length" class="ctas-wrapper">
         <LinkCollection
-          :links="linkCollectionLinks"
+          :links="links"
           :loading="loading"
           :class="{ link: applyHover }"
         />
       </div>
-      <InfoBar
-        v-if="info"
-        v-bind="{
-          ...info,
-          date: {
-            ...info?.date,
-            fixed: info?.date?.fixed,
-          },
-          loading: loading,
-        }"
-      />
+      <InfoBar v-if="info" v-bind="{ ...info, loading }" />
     </div>
   </div>
   <div :class="[{ divider }, componentSize]">
@@ -66,17 +44,6 @@ const props = withDefaults(defineProps<V3>(), {
   componentSize: 'medium',
   loading: false,
   hover: 'auto',
-});
-
-const hasBadgesOrTopics = computed(() => props.badges?.length);
-const badgesOrTopics = computed(() => props.badges);
-const hasLinksOrHtmlUrl = computed(() => props.links?.length);
-const linkCollectionLinks = computed(() => props.links);
-
-const info = computed(() => {
-  return {
-    ...props.info,
-  };
 });
 
 const applyHover = computed(
