@@ -49,6 +49,7 @@ onMounted(async () => {
 watchEffect(() => {
   useHead({
     htmlAttrs: { lang: locale.value },
+    titleTemplate: currentSection.value.name ? "JR %separator %s" : "%siteName",
     title: currentSection.value.name,
   });
 

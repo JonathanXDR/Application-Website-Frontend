@@ -68,7 +68,6 @@ export default defineNuxtConfig({
           description: process.env.SITE_DESCRIPTION,
         },
       },
-      titleTemplate: "%siteName %separator %s",
       meta: [
         { property: "twitter:card", content: "summary_large_image" },
         {
