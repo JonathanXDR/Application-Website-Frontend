@@ -83,7 +83,7 @@ const sections = computed<SectionType[]>(() => tm("components.common.NavBar"));
   padding: 2em 0 4em 0;
 }
 
-@media screen and (min-width: 1250px) {
+@media screen and (min-width: 1280px) {
   #about.section-separated {
     padding: 4em 0 4em 0;
   }
@@ -94,7 +94,7 @@ const sections = computed<SectionType[]>(() => tm("components.common.NavBar"));
   margin: 0 auto 0 auto;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
   #music {
     padding: 150px 0 100px 0;
   }
@@ -105,7 +105,7 @@ const sections = computed<SectionType[]>(() => tm("components.common.NavBar"));
   /* background: var(--color-fill-tertiary); */
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
   #technologies {
     padding: 150px 0 100px 0;
   }
@@ -116,7 +116,7 @@ const sections = computed<SectionType[]>(() => tm("components.common.NavBar"));
   margin: 0 auto 0 auto;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
   #projects {
     padding-top: 150px;
   }

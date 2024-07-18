@@ -50,7 +50,7 @@ defineProps<{
     Arial,
     sans-serif;
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .typography-hardware-label {
     font-size: 19px;
     line-height: 1.2105263158;
@@ -65,7 +65,7 @@ defineProps<{
       sans-serif;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .typography-hardware-label {
     font-size: 14px;
     line-height: 1.4285914286;
@@ -91,13 +91,13 @@ defineProps<{
   width: 41%;
   height: 100%;
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .pins {
     left: 80.5%;
     width: 55%;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .pins {
     left: 87%;
     width: 200px;
@@ -128,12 +128,12 @@ defineProps<{
   padding-top: 3.6%;
   text-align: right;
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .pin-caption {
     padding-top: 4.5%;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .pin-caption {
     padding-top: 6px;
     max-width: 140px;
@@ -171,7 +171,7 @@ defineProps<{
   height: 9.5%;
   transition-delay: 1s;
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .pin-double-wide {
     top: 77.7%;
   }

@@ -8,12 +8,12 @@
         v-bind="{
           ...language,
           componentSize:
-            windowWidth < 900
+            windowWidth < 769
               ? 'small'
-              : windowWidth < 1250
+              : windowWidth < 1281
                 ? 'medium'
                 : 'large',
-          width: windowWidth < 900 ? 'full' : 'compact',
+          width: windowWidth < 769 ? 'full' : 'compact',
         }"
       />
     </template>
@@ -47,13 +47,13 @@ const languages = computed<LanguageBarType[]>(() =>
   -moz-column-gap: 90px;
   column-gap: 90px;
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .graph {
     grid-row-gap: 32px;
     row-gap: 32px;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .graph {
     grid-column-gap: 20px;
     column-gap: 20px;

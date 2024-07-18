@@ -11,13 +11,13 @@ const currentYear = ref(new Date().getFullYear());
 </script>
 
 <style scoped>
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
   .sharesheet-options {
     margin: 0;
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 769px) {
   .sharesheet-options {
     margin-top: 10px;
   }

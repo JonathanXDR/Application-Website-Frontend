@@ -1034,7 +1034,7 @@ fieldset {
   opacity: 0.32;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
   body {
     font-size: 17px;
   }
@@ -1086,7 +1086,7 @@ fieldset {
   }
 }
 
-@media screen and (min-width: 1250px) {
+@media screen and (min-width: 1280px) {
   h1 {
     font-size: 48px;
   }
@@ -1138,7 +1138,7 @@ fieldset {
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
   .card-container {
     width: 82.5%;
   }
@@ -1151,14 +1151,14 @@ fieldset {
   grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
   .card-grid {
     gap: 64px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 
-@media screen and (min-width: 1250px) {
+@media screen and (min-width: 1280px) {
   .card-grid {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }

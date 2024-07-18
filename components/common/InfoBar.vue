@@ -150,7 +150,7 @@ watch([locale, () => props.date], () => {
   align-items: center;
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 768px) {
   .info {
     margin-top: 12px;
     gap: 16px;

@@ -8,10 +8,10 @@
       <div class="flex flex-col items-center gap-2">
         <SegmentNav
           :items="segmentNavItems"
-          :label="windowWidth < 900 ? 'text' : 'combination'"
+          :label="windowWidth < 769 ? 'text' : 'combination'"
           padding="0 21px"
           component-size="small"
-          :separator="windowWidth > 900"
+          :separator="windowWidth > 768"
           gray-labels
           :focus="false"
           :outer-padding="3"
@@ -37,7 +37,7 @@
             variant: 'article',
             hover: 'false',
             loading: false,
-            componentSize: windowWidth < 900 ? 'small' : 'medium',
+            componentSize: windowWidth < 769 ? 'small' : 'medium',
             info: {
               ...project.info,
               date: {
@@ -51,7 +51,7 @@
             icon: {
               ...project.icon,
               name: project.icon?.name || '',
-              position: windowWidth < 900 ? 'top' : 'left',
+              position: windowWidth < 769 ? 'top' : 'left',
             },
           }"
         />
@@ -288,14 +288,14 @@ onUnmounted(() => {
   padding-top: 50px;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
   .timeline-wrapper {
     width: 82.5%;
     padding: 100px 0 50px 0;
   }
 }
 
-@media screen and (min-width: 1250px) {
+@media screen and (min-width: 1280px) {
   .timeline-wrapper {
     display: flex;
     justify-content: center;
@@ -312,13 +312,13 @@ onUnmounted(() => {
   margin: 0 auto;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
   .timeline {
     gap: 64px;
   }
 }
 
-@media screen and (min-width: 1250px) {
+@media screen and (min-width: 1280px) {
   .timeline {
     align-items: flex-start !important;
   }
@@ -328,7 +328,7 @@ onUnmounted(() => {
   width: 90%;
 }
 
-@media screen and (min-width: 1250px) {
+@media screen and (min-width: 1280px) {
   .timeline .article {
     width: 40%;
   }

@@ -165,7 +165,7 @@ aside {
   margin-right: auto !important;
 }
 
-@media screen and (min-width: 1250px) {
+@media screen and (min-width: 1280px) {
   .flash {
     width: 82.5%;
   }

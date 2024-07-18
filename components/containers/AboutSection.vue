@@ -28,9 +28,9 @@
       v-bind="{
         variant: 'article',
         hover: 'false',
-        alignment: windowWidth < 1250 ? 'center' : 'start',
+        alignment: windowWidth < 1281 ? 'center' : 'start',
         componentSize:
-          windowWidth < 900 ? 'small' : windowWidth < 1250 ? 'medium' : 'large',
+          windowWidth < 769 ? 'small' : windowWidth < 1281 ? 'medium' : 'large',
         loading: false,
         eyebrow: $t('components.containers.about.eyebrow'),
         title: $t('components.containers.about.title'),
@@ -119,7 +119,7 @@ onMounted(async () => {
   }
 }
 
-@media screen and (min-width: 1250px) {
+@media screen and (min-width: 1280px) {
   .info-container > svg {
     width: 350px;
     height: 350px;

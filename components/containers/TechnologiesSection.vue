@@ -8,10 +8,10 @@
       <div class="flex flex-col items-center gap-2">
         <SegmentNav
           :items="segmentNavItems"
-          :label="windowWidth < 900 ? 'icon' : 'combination'"
-          :padding="windowWidth < 900 ? undefined : '0 21px'"
+          :label="windowWidth < 769 ? 'icon' : 'combination'"
+          :padding="windowWidth < 769 ? undefined : '0 21px'"
           size="small"
-          :separator="windowWidth < 900 ? false : true"
+          :separator="windowWidth < 769 ? false : true"
           gray-labels
           :focus="false"
           :outer-padding="3"

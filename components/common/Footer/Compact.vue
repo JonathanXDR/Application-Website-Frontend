@@ -34,21 +34,21 @@ const currentYear = ref(new Date().getFullYear());
   margin-right: auto;
   width: 980px;
 }
-@media only screen and (min-width: 1441px) {
+@media only screen and (min-width: 1536px) {
   .as-l-container {
     margin-left: auto;
     margin-right: auto;
     width: 980px;
   }
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .as-l-container {
     margin-left: auto;
     margin-right: auto;
     width: 692px;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .as-l-container {
     margin-left: auto;
     margin-right: auto;

@@ -213,21 +213,21 @@ h1 + * {
   margin-right: auto;
   width: 980px;
 }
-@media only screen and (min-width: 1441px) {
+@media only screen and (min-width: 1536px) {
   .as-l-container {
     margin-left: auto;
     margin-right: auto;
     width: 980px;
   }
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .as-l-container {
     margin-left: auto;
     margin-right: auto;
     width: 692px;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .as-l-container {
     margin-left: auto;
     margin-right: auto;
@@ -261,14 +261,14 @@ h1 + * {
   flex-direction: column;
   justify-content: center;
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .rs-covers-container {
     min-height: calc(100svmax - 48px - 36px);
     margin: auto;
     height: auto;
   }
 }
-@media only screen and (max-width: 734px) and (orientation: landscape) {
+@media only screen and (max-width: 769px) and (orientation: landscape) {
   .rs-covers-container {
     min-height: 0;
   }
@@ -301,13 +301,13 @@ h1 + * {
   justify-content: center;
   margin: 37px 0 40px 0;
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .rs-covers-preorder .rs-covers-media-wrapper {
     width: 320px;
     height: 180px;
   }
 }
-@media only screen and (max-width: 736px) {
+@media only screen and (max-width: 769px) {
   .rs-covers-preorder .rs-covers-media-wrapper {
     width: 320px;
     height: 180px;
@@ -327,7 +327,7 @@ h1 + * {
 .rs-covers-textovervideo .rs-covers-content {
   position: absolute;
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 321px) {
   .rs-covers-preorder .rs-covers-media-wrapper {
     width: 280px;
     height: 157.5px;
@@ -360,7 +360,7 @@ h1 + * {
   cursor: none;
   pointer-events: none;
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .rs-covers-mediabtn {
     top: 65px;
     width: 35px;
@@ -374,7 +374,7 @@ h1 + * {
   color: #888;
   padding-left: 16px;
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .icon-thumbnailplay:after,
   .icon-thumbnailplay:before {
     padding-left: 10px;
@@ -393,7 +393,7 @@ h1 + * {
     sans-serif;
   padding-top: 50px;
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .rs-covers-heading {
     font-size: 64px;
     font-weight: 600;
@@ -407,7 +407,7 @@ h1 + * {
       sans-serif;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .rs-covers-heading {
     font-size: 48px;
     font-weight: 600;
@@ -421,7 +421,7 @@ h1 + * {
       sans-serif;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .rs-covers-heading {
     font-size: 64px;
     font-weight: 600;
@@ -435,7 +435,7 @@ h1 + * {
       sans-serif;
   }
 }
-@media only screen and (max-width: 734px) and (max-width: 1068px) {
+@media only screen and (max-width: 769px) and (max-width: 1025px) {
   .rs-covers-heading {
     font-size: 48px;
     font-weight: 600;
@@ -449,7 +449,7 @@ h1 + * {
       sans-serif;
   }
 }
-@media only screen and (max-width: 734px) and (max-width: 734px) {
+@media only screen and (max-width: 769px) and (max-width: 769px) {
   .rs-covers-heading {
     font-size: 40px;
     font-weight: 600;
@@ -476,7 +476,7 @@ h1 + * {
     sans-serif;
   padding-top: 38px;
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .rs-covers-preorder .rs-covers-heading {
     font-size: 40px;
     font-weight: 600;
@@ -490,7 +490,7 @@ h1 + * {
       sans-serif;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .rs-covers-preorder .rs-covers-heading {
     font-size: 32px;
     font-weight: 600;
@@ -504,7 +504,7 @@ h1 + * {
       sans-serif;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .rs-covers-preorder .rs-covers-heading {
     font-size: 40px;
     font-weight: 600;
@@ -519,7 +519,7 @@ h1 + * {
     padding-top: 42px;
   }
 }
-@media only screen and (max-width: 734px) and (max-width: 1068px) {
+@media only screen and (max-width: 769px) and (max-width: 1025px) {
   .rs-covers-preorder .rs-covers-heading {
     font-size: 32px;
     font-weight: 600;
@@ -533,7 +533,7 @@ h1 + * {
       sans-serif;
   }
 }
-@media only screen and (max-width: 734px) and (max-width: 734px) {
+@media only screen and (max-width: 769px) and (max-width: 769px) {
   .rs-covers-preorder .rs-covers-heading {
     font-size: 28px;
     font-weight: 600;
@@ -562,7 +562,7 @@ h1 + * {
   padding: 19px 0 48px;
   margin: 0 auto;
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .rs-covers-desc {
     padding-top: 10px;
   }
@@ -580,7 +580,7 @@ h1 + * {
     sans-serif;
   padding-top: 16px;
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .rs-covers-preorder .rs-covers-desc {
     font-size: 19px;
     font-weight: 400;
@@ -594,7 +594,7 @@ h1 + * {
       sans-serif;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .rs-covers-preorder .rs-covers-desc {
     font-size: 17px;
     font-weight: 400;

@@ -15,7 +15,7 @@
           :value="computedLocale.code"
         >
           {{
-            windowWidth < 900
+            windowWidth < 769
               ? computedLocale.code.toUpperCase()
               : computedLocale.name
           }}
@@ -138,7 +138,7 @@ watch(locale, (newLocale) => {
   outline: none;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 769px) {
   .dropdown-container select:active {
     font-size: 16px;
     transform-origin: top left;

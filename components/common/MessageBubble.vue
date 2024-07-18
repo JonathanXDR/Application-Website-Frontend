@@ -79,12 +79,12 @@ p + * {
 br.small {
   display: none;
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   br.small {
     display: none;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   br.small {
     display: block;
   }
@@ -101,7 +101,7 @@ br.small {
     "Arial",
     sans-serif;
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .typography-imessage-text {
     font-size: 34px;
     font-weight: 400;
@@ -115,7 +115,7 @@ br.small {
       sans-serif;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .typography-imessage-text {
     font-size: 19px;
     font-weight: 400;
@@ -146,12 +146,12 @@ br.small {
   opacity: 0;
   will-change: transform, opacity;
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .message-item {
     --half-pseudoelement-height: 22px;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .message-item {
     --half-pseudoelement-height: 15px;
   }
@@ -163,12 +163,12 @@ br.small {
 .message-item .memoji {
   --memoji-enter-translate-x: -50%;
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .message-item .memoji {
     --memoji-enter-translate-x: -15px;
   }
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 321px) {
   .message-item .memoji,
   .message-item .memoji img {
     max-width: calc(var(--p-width) - 20px);
@@ -181,17 +181,17 @@ br.small {
   --message-memoji-gap: 60px;
   margin-left: var(--message-memoji-gap);
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .message-item .message {
     --message-memoji-gap: 40px;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .message-item .message {
     --message-memoji-gap: 30px;
   }
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 321px) {
   .message-item .message {
     --message-memoji-gap: 20px;
   }
@@ -205,7 +205,7 @@ br.small {
   margin-top: 30px;
   padding-left: var(--half-pseudoelement-height);
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .message-item--right {
     padding-left: 0;
   }
@@ -218,12 +218,12 @@ br.small {
 .message-item--right .memoji {
   --memoji-enter-translate-x: 50%;
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .message-item--right .memoji {
     --memoji-enter-translate-x: 15px;
   }
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 321px) {
   .message-item--right .memoji {
     --memoji-enter-translate-x: 5px;
   }
@@ -233,7 +233,7 @@ br.small {
   margin-right: var(--message-memoji-gap);
   margin-left: 0;
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .message-item--right .message {
     --message-memoji-gap: 5px;
   }
@@ -249,12 +249,12 @@ br.small {
   background: var(--bg-color);
   min-height: var(--message-height-en);
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .message {
     border-radius: 15px;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .message {
     --message-flex-scale: 1.05;
   }
@@ -268,7 +268,7 @@ br.small {
 .message--green {
   --bg-color: var(--color-system-green);
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .message--blue,
   .message--green {
     border-radius: 18px;
@@ -280,14 +280,14 @@ br.small {
     z-index: auto;
   }
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 321px) {
   .message--blue,
   .message--green {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .message--gray {
     min-height: 50px;
   }
@@ -324,12 +324,12 @@ br.small {
   right: 0;
   transform: translate(30%, -50%);
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .message--gray p {
     margin: 0 10px;
   }
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 321px) {
   .message--gray p {
     margin: 0;
   }
@@ -346,14 +346,14 @@ br.small {
   height: 50px;
   width: 42px;
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .message-tail {
     height: 32px;
     width: 26px;
     --tail-x-pos: -31px;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .message-tail {
     height: 25px;
     width: 22px;
@@ -367,12 +367,12 @@ br.small {
 .message-tail--2 {
   right: var(--tail-x-pos);
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .message-tail--2 {
     transform: matrix(1, 0, 0, 1, -0.1, 0);
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .message-tail--1 {
     transform: matrix(1, 0, 0, 1, -13.7, 0);
   }
@@ -381,7 +381,7 @@ br.small {
     margin-top: 1px;
   }
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .message-tail--2 {
     transform: matrix(1, 0, 0, 1, -0.1, 0);
   }
@@ -393,12 +393,12 @@ br.small {
   --message-item-exit-distance: -100px;
   animation: message-item-exit 0.75s ease-in-out 1.9s 1 normal forwards;
 } */
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .message-item.active:not(.message-item--right) {
     --message-item-exit-distance: -15px;
   }
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 321px) {
   .message-item.active:not(.message-item--right) {
     --message-item-exit-distance: -5px;
   }
@@ -417,14 +417,14 @@ br.small {
   --p-width: 108px;
   --p-height: 108px;
 }
-@media only screen and (max-width: 1068px) and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) and (max-width: 1025px) {
   .overview-awy-messages-memoji-1,
   .overview-awy-messages-memoji-2 {
     --p-width: 76px;
     --p-height: 76px;
   }
 }
-@media only screen and (max-width: 734px) and (max-width: 734px) {
+@media only screen and (max-width: 769px) and (max-width: 769px) {
   .overview-awy-messages-memoji-1,
   .overview-awy-messages-memoji-2 {
     --p-width: 72px;

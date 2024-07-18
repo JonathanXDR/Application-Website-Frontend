@@ -86,7 +86,7 @@ withDefaults(
   transform: translateY(-50%);
 }
 
-@media only screen and (max-width: 735px) {
+@media only screen and (max-width: 769px) {
   .form-dropdown ~ .form-icon {
     right: 14px;
   }

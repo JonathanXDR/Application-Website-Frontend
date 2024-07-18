@@ -39,12 +39,12 @@
   padding: 20px;
   box-sizing: border-box;
 }
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .group {
     padding: 20px 0;
   }
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .group {
     padding: 0;
     font-size: 14px;
@@ -69,7 +69,7 @@
   border-radius: 10px;
   margin-top: 12px;
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .bar-container {
     margin-top: 5px;
   }

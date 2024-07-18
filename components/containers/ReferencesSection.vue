@@ -9,11 +9,11 @@
         variant: 'article',
         hover: 'false',
         loading: false,
-        componentSize: windowWidth < 900 ? 'small' : 'medium',
+        componentSize: windowWidth < 769 ? 'small' : 'medium',
         icon: {
           ...article.icon,
           name: article.icon?.name || '',
-          position: windowWidth < 900 ? 'top' : 'left',
+          position: windowWidth < 769 ? 'top' : 'left',
         },
         info: {
           ...article?.info,

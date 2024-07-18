@@ -224,7 +224,7 @@ watch(
   margin-top: 48px;
 }
 
-@media screen and (min-width: 1250px) {
+@media screen and (min-width: 1280px) {
   .ribbon {
     margin-top: 52px;
   }
@@ -403,7 +403,7 @@ watch(
   align-items: center;
   left: 18px;
 }
-@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+@media only screen and (max-width: 1025px) and (max-device-width: 769px) {
   .paddlenav .paddlenav-arrow {
     font-weight: 300;
     width: 52px;
@@ -559,7 +559,7 @@ watch(
   margin-right: auto;
   width: 90%;
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
   .ribbon-content {
     width: 82.5%;
   }
@@ -607,7 +607,7 @@ watch(
 .ribbon-drop-wrapper {
   animation: ribbon-drop 0.8s ease-in-out forwards;
 }
-@media only screen and (max-width: 1023px) and (max-device-width: 736px) and (orientation: landscape) {
+@media only screen and (max-width: 1025px) and (max-device-width: 769px) and (orientation: landscape) {
   .rc-ribbon-content-container {
     margin-left: calc(max(22px, env(safe-area-inset-left)));
     margin-right: calc(max(22px, env(safe-area-inset-left)));
@@ -633,7 +633,7 @@ watch(
     sans-serif;
   color: #86868b;
 }
-@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+@media only screen and (max-width: 1025px) and (max-device-width: 769px) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
     font-size: 21px;
     font-weight: 400;
@@ -654,13 +654,13 @@ watch(
   animation: animate-opacity 1s ease 2.8s forwards;
   z-index: 3;
 }
-@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+@media only screen and (max-width: 1025px) and (max-device-width: 769px) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous {
     width: 24px;
     /* left: -12px; */
   }
 }
-/* @media only screen and (max-width: 1023px) and (max-device-width: 736px) and (orientation: landscape) {
+/* @media only screen and (max-width: 1025px) and (max-device-width: 769px) and (orientation: landscape) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous {
     left: -6px;
   }
@@ -669,7 +669,7 @@ watch(
   width: 10px;
   margin-left: -18px;
 }
-@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+@media only screen and (max-width: 1025px) and (max-device-width: 769px) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous:after {
     margin-left: -9px;
   }
@@ -681,13 +681,13 @@ watch(
   animation: animate-opacity 1s ease 2.8s forwards;
   z-index: 3;
 }
-@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+@media only screen and (max-width: 1025px) and (max-device-width: 769px) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next {
     width: 24px;
     /* right: -12px; */
   }
 }
-/* @media only screen and (max-width: 1023px) and (max-device-width: 736px) and (orientation: landscape) {
+/* @media only screen and (max-width: 1025px) and (max-device-width: 769px) and (orientation: landscape) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next {
     right: -6px;
   }
@@ -696,7 +696,7 @@ watch(
   width: 10px;
   margin-right: -18px;
 }
-@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+@media only screen and (max-width: 1025px) and (max-device-width: 769px) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next:after {
     margin-right: -9px;
   }
@@ -713,7 +713,7 @@ watch(
   animation: animate-opacity 1s ease 2.8s forwards;
   z-index: 2;
 }
-@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+@media only screen and (max-width: 1025px) and (max-device-width: 769px) {
   .with-paddlenav .rc-ribbon-content-autoscroll:after,
   .with-paddlenav .rc-ribbon-content-autoscroll:before {
     width: 16px;
@@ -727,7 +727,7 @@ watch(
     hsla(0, 0%, 100%, 0)
   );
 }
-@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+@media only screen and (max-width: 1025px) and (max-device-width: 769px) {
   .with-paddlenav .rc-ribbon-content-autoscroll:before {
     background-image: linear-gradient(
       90deg,
@@ -744,7 +744,7 @@ watch(
     hsla(0, 0%, 100%, 0)
   );
 }
-@media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+@media only screen and (max-width: 1025px) and (max-device-width: 769px) {
   .with-paddlenav .rc-ribbon-content-autoscroll:after {
     background-image: linear-gradient(
       270deg,
@@ -792,7 +792,7 @@ watch(
   margin-left: auto;
   margin-right: auto;
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
   .rc-ribbon-content-item {
     width: 82.5%;
   }

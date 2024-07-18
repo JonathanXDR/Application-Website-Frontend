@@ -272,7 +272,7 @@ const iconClasses = computed(() => ({
   align-items: center;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
   .ctas-wrapper {
     margin-top: 12px;
   }
@@ -343,7 +343,7 @@ const iconClasses = computed(() => ({
   transform: scale(1.007);
 }
 
-@media only screen and (max-width: 735px) {
+@media only screen and (max-width: 769px) {
   .card {
     margin-left: auto;
     margin-right: auto;
@@ -679,7 +679,7 @@ const iconClasses = computed(() => ({
   position: static;
 }
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1281px) {
   .full {
     --card-height: 307px;
     margin-bottom: 15px;
@@ -691,7 +691,7 @@ const iconClasses = computed(() => ({
   }
 }
 
-@media only screen and (max-width: 735px) {
+@media only screen and (max-width: 769px) {
   .card {
     margin-left: auto;
     margin-right: auto;
@@ -762,13 +762,13 @@ const iconClasses = computed(() => ({
   margin-bottom: 8px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1025px) {
   .tile-2up .tile-category {
     margin-bottom: 8px;
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 769px) {
   .tile-2up .tile-category {
     margin-bottom: 8px;
   }

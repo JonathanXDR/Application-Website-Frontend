@@ -92,7 +92,7 @@ withDefaults(
   border-bottom-right-radius: 11px;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
   .suggested-badges-badges {
     padding-block: 12px;
     gap: 10px;

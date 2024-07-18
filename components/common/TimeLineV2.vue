@@ -41,7 +41,7 @@
               />
 
               <div
-                v-if="windowWidth < 900"
+                v-if="windowWidth < 769"
                 class="mx-auto my-3 home-campaign-glowing-icon"
               >
                 <div class="position-relative d-inline-block z-1">
@@ -100,7 +100,7 @@
             style="height: 208px"
           >
             <div
-              v-if="windowWidth < 900"
+              v-if="windowWidth < 769"
               class="mb-4 position-relative home-campaign-glowing-icon"
             >
               <svg
@@ -202,7 +202,7 @@
       >
         <div class="d-flex flex-column flex-items-center" style="height: 176px">
           <div
-            v-if="windowWidth < 900"
+            v-if="windowWidth < 769"
             v-animation="{ add: 'build-in-animate' }"
             class="mb-4 position-relative home-campaign-glowing-icon build-in-scale-fade"
             style="transition-delay: 0ms"
@@ -330,7 +330,7 @@
           style="height: 208px"
         >
           <div
-            v-if="windowWidth < 900"
+            v-if="windowWidth < 769"
             v-animation="{
               add: 'build-in-animate',
             }"
@@ -448,7 +448,7 @@
             />
 
             <div
-              v-if="windowWidth < 900"
+              v-if="windowWidth < 769"
               class="mx-auto my-3 home-campaign-glowing-icon"
             >
               <div class="position-relative d-inline-block z-1">
@@ -1061,7 +1061,7 @@ button:focus:not(:focus-visible) {
 .flex-order-1 {
   order: 1 !important;
 }
-@media (min-width: 1012px) {
+@media (min-width: 1024px) {
   .flex-lg-row {
     flex-direction: row !important;
   }
@@ -1121,7 +1121,7 @@ button:focus:not(:focus-visible) {
     margin-top: calc(-1 * var(--base-size-24, 24px)) !important;
   }
 }
-@media (min-width: 1012px) {
+@media (min-width: 1024px) {
   .mt-lg-0 {
     margin-top: 0 !important;
   }
@@ -1156,7 +1156,7 @@ button:focus:not(:focus-visible) {
 .pb-8 {
   padding-bottom: var(--base-size-64, 64px) !important;
 }
-@media (min-width: 544px) {
+@media (min-width: 640px) {
   .pt-sm-8 {
     padding-top: var(--base-size-64, 64px) !important;
   }
@@ -1164,7 +1164,7 @@ button:focus:not(:focus-visible) {
     padding-top: var(--base-size-80, 80px) !important;
   }
 }
-@media (min-width: 1012px) {
+@media (min-width: 1024px) {
   .py-lg-2 {
     padding-top: var(--base-size-8, 8px) !important;
     padding-bottom: var(--base-size-8, 8px) !important;
@@ -1177,13 +1177,13 @@ button:focus:not(:focus-visible) {
   padding-right: var(--base-size-16, 16px) !important;
   padding-left: var(--base-size-16, 16px) !important;
 }
-@media (min-width: 544px) {
+@media (min-width: 640px) {
   .p-responsive {
     padding-right: var(--base-size-40, 40px) !important;
     padding-left: var(--base-size-40, 40px) !important;
   }
 }
-@media (min-width: 1012px) {
+@media (min-width: 1024px) {
   .p-responsive {
     padding-right: var(--base-size-16, 16px) !important;
     padding-left: var(--base-size-16, 16px) !important;
@@ -1209,7 +1209,7 @@ button:focus:not(:focus-visible) {
     display: block !important;
   }
 }
-@media (min-width: 1012px) {
+@media (min-width: 1024px) {
   .d-lg-inline-block {
     display: inline-block !important;
   }
@@ -1378,7 +1378,7 @@ button:focus:not(:focus-visible) {
   --color-checks-donut-neutral: var(--color-scale-gray-3);
   --color-text-white: var(--color-scale-white);
 }
-@media (max-width: 543px) {
+@media (max-width: 476px) {
   [data-color-mode="dark"][data-dark-theme*="dark"] {
     --color-fg-default: var(--color-scale-gray-0);
     --color-canvas-default: var(--color-scale-gray-8);
@@ -1660,12 +1660,12 @@ button:focus:not(:focus-visible) {
 .init-hidden:not(.is-stuck) {
   visibility: hidden;
 }
-@media (max-width: 1011px) {
+@media (max-width: 1025px) {
   .sub-nav-mktg-ctas {
     display: none;
   }
 }
-@media (max-width: 1011px) {
+@media (max-width: 1025px) {
   .sub-nav-mktg.scrollnav:not(.is-stuck) {
     visibility: hidden;
   }
@@ -1682,7 +1682,7 @@ button:focus:not(:focus-visible) {
     display: none;
   }
 }
-@media (min-width: 1012px) {
+@media (min-width: 1024px) {
   .sub-nav-mktg-link {
     position: relative;
   }
@@ -1902,7 +1902,7 @@ https://github.githubassets.com/assets/primer-44fa1513ddd0.css ; media=all */
   .col-11 {
     width: 91.66666663%;
   }
-  @media (min-width: 1012px) {
+  @media (min-width: 1024px) {
     .col-lg-7 {
       width: 58.33333331%;
     }
@@ -1954,7 +1954,7 @@ https://github.githubassets.com/assets/primer-44fa1513ddd0.css ; media=all */
       margin-bottom: var(--base-size-96, 96px) !important;
     }
   }
-  @media (min-width: 1012px) {
+  @media (min-width: 1024px) {
     .pr-lg-3 {
       padding-right: var(--base-size-16, 16px) !important;
     }
@@ -2000,7 +2000,7 @@ https://github.githubassets.com/assets/site-059d3213fd4f.css ; media=all */
       line-height: 44px !important;
     }
   }
-  @media (min-width: 1012px) {
+  @media (min-width: 1024px) {
     .h3-mktg {
       font-size: 48px !important;
       line-height: 52px !important;

@@ -15,7 +15,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         });
       },
       {
-        rootMargin: `-${window.innerWidth < 1250 ? 48 : 52}px 0px -95% 0px`,
+        rootMargin: `-${window.innerWidth < 1281 ? 48 : 52}px 0px -95% 0px`,
       },
     );
     observer.observe(el);

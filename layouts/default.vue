@@ -116,7 +116,7 @@ const footerComponent = computed(() =>
   gap: 10px;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
   .footer-full {
     width: 82.5%;
     flex-direction: row !important;

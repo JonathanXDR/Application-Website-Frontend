@@ -106,7 +106,7 @@ watch(
   transition: stroke-dashoffset 1s ease;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
   .path-timeline {
     stroke-width: 8px;
   }
