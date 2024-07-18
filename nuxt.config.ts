@@ -91,6 +91,9 @@ export default defineNuxtConfig({
     security: {
       headers: {
         crossOriginEmbedderPolicy: "unsafe-none",
+        contentSecurityPolicy: {
+          "upgrade-insecure-requests": false,
+        },
       },
     },
 
@@ -135,6 +138,9 @@ export default defineNuxtConfig({
     security: {
       headers: {
         crossOriginEmbedderPolicy: "require-corp",
+        contentSecurityPolicy: {
+          "upgrade-insecure-requests": true,
+        },
       },
     },
 
@@ -221,6 +227,44 @@ export default defineNuxtConfig({
     description: process.env.SITE_DESCRIPTION,
   },
 
+  security: {
+    strict: true,
+    csrf: true,
+    headers: {
+      contentSecurityPolicy: {
+        "style-src": ["'self'", "'unsafe-inline'"],
+        "script-src": [
+          "'self'",
+          "'strict-dynamic'",
+          "'nonce-{{nonce}}'",
+          "https://*.googletagmanager.com",
+          "https://snippet.meticulous.ai",
+          "https://browser.sentry-cdn.com",
+        ],
+        "img-src": [
+          "'self'",
+          "data:",
+          "https://*.google-analytics.com",
+          "https://*.analytics.google.com",
+          "https://*.googletagmanager.com",
+          "https://*.g.doubleclick.net",
+          "https://*.google.com",
+        ],
+        "connect-src": [
+          "'self'",
+          "https://*.google-analytics.com",
+          "https://*.analytics.google.com",
+          "https://*.googletagmanager.com",
+          "https://*.g.doubleclick.net",
+          "https://*.google.com",
+          "https://cognito-identity.us-west-2.amazonaws.com",
+          "https://user-events-v3.s3-accelerate.amazonaws.com",
+          "*.sentry.io",
+        ],
+      },
+    },
+  },
+
   i18n: {
     baseUrl: process.env.SITE_URL,
     vueI18n: "~/i18n.config.ts",
@@ -264,95 +308,4 @@ export default defineNuxtConfig({
       },
     ],
   },
-
-  // security: {
-  //   strict: true,
-  //   headers: {
-  //     crossOriginResourcePolicy: 'same-origin',
-  //     crossOriginOpenerPolicy: 'same-origin',
-  //     crossOriginEmbedderPolicy: 'require-corp',
-  //     contentSecurityPolicy: {
-  //       'base-uri': ["'none'"],
-  //       'font-src': ["'self'", 'https:', 'data:'],
-  //       'form-action': ["'self'"],
-  //       'frame-ancestors': ["'self'"],
-  //       'img-src': ["'self'", 'data:'],
-  //       'object-src': ["'none'"],
-  //       'script-src-attr': ["'none'"],
-  //       'style-src': ["'self'", 'https:', "'unsafe-inline'"],
-  //       'script-src': [
-  //         "'self'",
-  //         'https:',
-  //         "'unsafe-inline'",
-  //         "'strict-dynamic'",
-  //         "'nonce-{{nonce}}'",
-  //       ],
-  //       'upgrade-insecure-requests': true,
-  //     },
-  //     originAgentCluster: '?1',
-  //     referrerPolicy: 'no-referrer',
-  //     strictTransportSecurity: {
-  //       maxAge: 15552000,
-  //       includeSubdomains: true,
-  //     },
-  //     xContentTypeOptions: 'nosniff',
-  //     xDNSPrefetchControl: 'off',
-  //     xDownloadOptions: 'noopen',
-  //     xFrameOptions: 'SAMEORIGIN',
-  //     xPermittedCrossDomainPolicies: 'none',
-  //     xXSSProtection: '0',
-  //     permissionsPolicy: {
-  //       camera: [],
-  //       'display-capture': [],
-  //       fullscreen: [],
-  //       geolocation: [],
-  //       microphone: [],
-  //     },
-  //   },
-  //   requestSizeLimiter: {
-  //     maxRequestSizeInBytes: 2000000,
-  //     maxUploadFileRequestInBytes: 8000000,
-  //     throwError: true,
-  //   },
-  //   rateLimiter: {
-  //     tokensPerInterval: 150,
-  //     interval: 300000,
-  //     headers: false,
-  //     driver: {
-  //       name: 'lruCache',
-  //     },
-  //     throwError: true,
-  //   },
-  //   xssValidator: {
-  //     throwError: true,
-  //   },
-  //   corsHandler: {
-  //     origin: process.env.SITE_URL,
-  //     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-  //     preflight: {
-  //       statusCode: 204,
-  //     },
-  //   },
-  //   allowedMethodsRestricter: {
-  //     methods: '*',
-  //     throwError: true,
-  //   },
-  //   hidePoweredBy: true,
-  //   csrf: false,
-  //   nonce: true,
-  //   removeLoggers: {
-  //     external: [],
-  //     consoleType: ['log', 'debug'],
-  //     include: [/\.[jt]sx?$/, /\.vue\??/],
-  //     exclude: [/node_modules/, /\.git/],
-  //   },
-  //   ssg: {
-  //     meta: true,
-  //     hashScripts: true,
-  //     hashStyles: false,
-  //     nitroHeaders: true,
-  //     exportToPresets: true,
-  //   },
-  //   sri: true,
-  // },
 });
