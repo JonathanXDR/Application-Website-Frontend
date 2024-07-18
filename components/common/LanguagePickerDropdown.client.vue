@@ -2,8 +2,10 @@
   <div class="language-picker-dropdown" :style="{ fontSize: `${fontSize}px` }">
     <div class="dropdown-container legacy-form">
       <select
+        id="language-picker-dropdown"
         v-model="selectedLocale"
         class="dropdown-select"
+        name="language"
         aria-label="Language Dropdown"
         @change="changeLanguage(selectedLocale)"
       >
