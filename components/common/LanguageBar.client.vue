@@ -49,7 +49,10 @@
       </div>
     </div>
 
-    <figure :class="['stat', `divider-${divider?.direction}`]">
+    <figure
+      v-animation="{ add: 'visible' }"
+      :class="['stat', `divider-${divider?.direction}`]"
+    >
       <span v-if="progress" class="stat-values title">{{ progress }}%</span>
       <span
         v-if="eyebrow"
@@ -82,11 +85,17 @@ const applyHover = computed(
 
 <style scoped>
 .stat {
-  height: 100%;
-  font-size: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  height: 100%;
+  font-size: 20px;
+  color: var(--color-figure-gray-secondary);
+  opacity: 0;
+  transition: opacity 1.5s;
+  will-change: opacity;
+  z-index: 1;
 }
 .divider.left .stat {
   align-items: flex-start;
@@ -94,12 +103,8 @@ const applyHover = computed(
 .divider.right .stat {
   align-items: flex-end;
 }
-.stat {
-  position: relative;
-  z-index: 1;
-}
-.stat {
-  color: var(--color-figure-gray-secondary);
+.stat.visible {
+  opacity: 1;
 }
 .bar-content-container {
   height: 100%;
