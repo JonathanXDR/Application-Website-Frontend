@@ -38,10 +38,10 @@ const props = withDefaults(
   },
 );
 
+const { windowWidth } = useWidth();
 const { changeLanguage } = useLanguage();
 const { locale, locales } = useI18n();
 const selectedLocale = ref(locale.value);
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
 
 const computedLocales = computed(() =>
   locales.value.map((l) => {

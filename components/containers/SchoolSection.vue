@@ -37,8 +37,8 @@ defineProps<{
 }>();
 
 const { tm } = useI18n();
+const { windowWidth } = useWidth();
 const cards = computed<CardItemType[]>(() =>
   tm("components.containers.school"),
 );
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
 </script>

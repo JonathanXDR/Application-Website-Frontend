@@ -80,6 +80,10 @@ import type { ItemType } from "~/types/common/Item";
 import { type SectionType } from "~/types/common/Section";
 
 const { randomDevColor } = useColor();
+const { currentSection } = useSection();
+const { getTheme, setTheme } = useTheme();
+const { windowWidth } = useWidth();
+const { headerAnimations } = useAnimation();
 const config = useRuntimeConfig();
 const { tm } = useI18n();
 const navItems = computed<SectionType[]>(() => tm("components.common.NavBar"));
@@ -88,12 +92,7 @@ const themeItems = computed<ItemType[]>(() =>
 );
 const navOpen = ref(false);
 const navDisabled = ref(false);
-
-const { currentSection } = useSection();
-const { getTheme, setTheme } = useTheme();
 const currentSectionIndex = computed(() => currentSection.value.index);
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
-const { headerAnimations } = useAnimation();
 
 const initHeaderAnimations = () => {
   const animation = {

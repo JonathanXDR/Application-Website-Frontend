@@ -1,4 +1,4 @@
-import { useWindowSize } from '@vueuse/core';
+import { useWindowSize } from "@vueuse/core";
 
 export default function useWidth() {
   const { width: windowWidthRef } = useWindowSize({ initialWidth: 0 });

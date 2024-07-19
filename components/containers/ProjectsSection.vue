@@ -153,6 +153,7 @@ defineProps<{
 
 const { tm } = useI18n();
 const { randomDevColor } = useColor();
+const { windowWidth } = useWidth();
 const config = useRuntimeConfig();
 
 const ul = ref<HTMLElement | null>(null);
@@ -165,7 +166,6 @@ const updateHeight = () => {
 
 const pinned = ref<PinnedRepository[]>([]);
 const currentIndex = ref(0);
-const windowWidth = useWindowSize({ initialWidth: 0 }).width;
 
 const { data: userRepositories } = await useFetch(
   "/api/github/user-repositories",
