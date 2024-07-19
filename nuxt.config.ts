@@ -69,18 +69,21 @@ export default defineNuxtConfig({
         },
       },
       meta: [
-        { property: "twitter:card", content: "summary_large_image" },
+        { name: "title", content: process.env.SITE_NAME },
         {
-          property: "twitter:description",
+          name: "description",
           content: process.env.SITE_DESCRIPTION,
         },
+        { property: "og:title", content: process.env.SITE_NAME },
         {
           property: "og:description",
           content: process.env.SITE_DESCRIPTION,
         },
         { property: "og:url", content: `${process.env.SITE_URL}/en` },
+        { property: "twitter:card", content: "summary_large_image" },
+        { property: "twitter:title", content: process.env.SITE_NAME },
         {
-          name: "description",
+          property: "twitter:description",
           content: process.env.SITE_DESCRIPTION,
         },
       ],
@@ -108,13 +111,11 @@ export default defineNuxtConfig({
           { rel: "apple-touch-icon", href: "/img/dev/favicon-dev-orange.png" },
         ],
         meta: [
+          { property: "og:image", content: "/img/dev/favicon-dev-orange.png" },
           {
             property: "twitter:image",
             content: "/img/dev/favicon-dev-orange.png",
           },
-          { property: "twitter:title", content: "Jonathan Russ | DEV" },
-          { property: "og:image", content: "/img/dev/favicon-dev-orange.png" },
-          { property: "og:title", content: "Jonathan Russ | DEV" },
         ],
       },
     },
@@ -151,10 +152,8 @@ export default defineNuxtConfig({
           { rel: "apple-touch-icon", href: "/img/favicon.png" },
         ],
         meta: [
-          { property: "twitter:image", content: "/img/favicon.png" },
-          { property: "twitter:title", content: "Jonathan Russ" },
           { property: "og:image", content: "/img/favicon.png" },
-          { property: "og:title", content: "Jonathan Russ" },
+          { property: "twitter:image", content: "/img/favicon.png" },
         ],
       },
     },

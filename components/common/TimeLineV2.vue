@@ -41,8 +41,7 @@
               />
 
               <div
-                v-if="windowWidth < 769"
-                class="mx-auto my-3 home-campaign-glowing-icon"
+                class="mx-auto my-3 home-campaign-glowing-icon block md:hidden"
               >
                 <div class="position-relative d-inline-block z-1">
                   <svg
@@ -100,8 +99,7 @@
             style="height: 208px"
           >
             <div
-              v-if="windowWidth < 769"
-              class="mb-4 position-relative home-campaign-glowing-icon"
+              class="mb-4 position-relative home-campaign-glowing-icon block md:hidden"
             >
               <svg
                 aria-hidden="true"
@@ -202,9 +200,8 @@
       >
         <div class="d-flex flex-column flex-items-center" style="height: 176px">
           <div
-            v-if="windowWidth < 769"
             v-animation="{ add: 'build-in-animate' }"
-            class="mb-4 position-relative home-campaign-glowing-icon build-in-scale-fade"
+            class="mb-4 position-relative home-campaign-glowing-icon build-in-scale-fade block md:hidden"
             style="transition-delay: 0ms"
           >
             <svg
@@ -330,11 +327,10 @@
           style="height: 208px"
         >
           <div
-            v-if="windowWidth < 769"
             v-animation="{
               add: 'build-in-animate',
             }"
-            class="mb-4 position-relative home-campaign-glowing-icon build-in-scale-fade"
+            class="mb-4 position-relative home-campaign-glowing-icon build-in-scale-fade block md:hidden"
             style="transition-delay: 0ms"
           >
             <svg
@@ -448,8 +444,7 @@
             />
 
             <div
-              v-if="windowWidth < 769"
-              class="mx-auto my-3 home-campaign-glowing-icon"
+              class="mx-auto my-3 home-campaign-glowing-icon block md:hidden"
             >
               <div class="position-relative d-inline-block z-1">
                 <svg
@@ -479,10 +474,6 @@
     </div>
   </main>
 </template>
-
-<script setup lang="ts">
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
-</script>
 
 <style scoped>
 [data-color-mode="dark"][data-dark-theme="dark"],
