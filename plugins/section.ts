@@ -1,5 +1,3 @@
-import { useSection } from "~/composables/useSection";
-
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive("section", (el, binding) => {
     const observer = new IntersectionObserver(

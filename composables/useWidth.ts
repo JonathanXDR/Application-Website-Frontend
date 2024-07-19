@@ -1,11 +1,14 @@
-import { useWindowSize } from "@vueuse/core";
+import { useWindowSize } from '@vueuse/core';
 
 export default function useWidth() {
   const { width: windowWidthRef } = useWindowSize({ initialWidth: 0 });
-  const windowWidth = ref(windowWidthRef.value);
+  const windowWidth = ref(0);
 
-  watch(windowWidthRef, (newWidth) => {
-    windowWidth.value = newWidth;
+  onMounted(() => {
+    windowWidth.value = windowWidthRef.value;
+    watch(windowWidthRef, (newWidth) => {
+      windowWidth.value = newWidth;
+    });
   });
 
   return {
