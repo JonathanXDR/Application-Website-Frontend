@@ -64,7 +64,7 @@ const dates = ref<{
   age: undefined,
   apprenticeshipYear: undefined,
 });
-const { width: windowWidth } = useWindowSize({ initialWidth: 0 });
+const { windowWidth } = useWidth();
 
 const calculateYears = (date: string) => {
   const currentDate = new Date(Date.now());
