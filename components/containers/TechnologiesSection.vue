@@ -38,6 +38,7 @@
         :key="index"
         v-bind="{
           ...card,
+          hover: 'false',
           loading: false,
           componentSize: 'small',
           icon: {
@@ -66,6 +67,14 @@ const { tm } = useI18n();
 const cards = computed<CardItemType[]>(() =>
   tm("components.containers.technologies"),
 );
+
+onMounted(() => {
+  console.log(
+    cards.value.map((item: CardItemType) => {
+      return item.links;
+    }),
+  );
+});
 // const segmentNavItems = computed<ItemType[]>(() =>
 //   tm("components.common.SegmentNav.technologies"),
 // );
