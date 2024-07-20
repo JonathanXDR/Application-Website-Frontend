@@ -68,13 +68,6 @@ const cards = computed<CardItemType[]>(() =>
   tm("components.containers.technologies"),
 );
 
-onMounted(() => {
-  console.log(
-    cards.value.map((item: CardItemType) => {
-      return item.links;
-    }),
-  );
-});
 // const segmentNavItems = computed<ItemType[]>(() =>
 //   tm("components.common.SegmentNav.technologies"),
 // );

@@ -250,7 +250,7 @@
         "links": [
           {
             "title": "Mail",
-            "url": "{'mailto:contact@jonathan-russ.com'}",
+            "url": "mailto:contact@jonathan-russ.com",
             "category": "solid",
             "icon": {
               "name": "envelope"
