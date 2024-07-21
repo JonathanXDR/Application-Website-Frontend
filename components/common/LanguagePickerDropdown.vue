@@ -138,7 +138,7 @@ watch(locale, (newLocale) => {
   outline: none;
 }
 
-@media (max-width: 769px) {
+@media (max-width: 767px) {
   .dropdown-container select:active {
     font-size: 16px;
     transform-origin: top left;

@@ -115,7 +115,7 @@ const applyHover = computed(
   padding-top: 12px;
   color: var(--color-fill-gray);
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .bar-caption {
     white-space: normal;
   }
@@ -139,7 +139,7 @@ const applyHover = computed(
 .stat .stat-label:first-child {
   margin-top: -16px;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .stat .stat-label:first-child {
     margin-top: -3px;
   }

@@ -41,12 +41,12 @@
 br.medium {
   display: block;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   br.medium {
     display: none;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   br.medium {
     display: none;
   }
@@ -54,12 +54,12 @@ br.medium {
 br.medium {
   display: none;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   br.medium {
     display: block;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   br.medium {
     display: none;
   }
@@ -78,7 +78,7 @@ Neue",
     "Arial",
     sans-serif;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .typography-donut-label {
     font-size: 17px;
     line-height: 1.2353641176;
@@ -93,7 +93,7 @@ Neue",
       sans-serif;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .typography-donut-label {
     font-size: 14px;
     line-height: 1.2857742857;
@@ -118,7 +118,7 @@ br.medium {
     display: block !important;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1025px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   br.medium.medium,
   br.medium.medium {
     display: block !important;
@@ -137,7 +137,7 @@ br.medium {
     "Arial",
     sans-serif;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .typography-donut-label {
     font-size: 17px;
     line-height: 1.2353641176;
@@ -152,7 +152,7 @@ br.medium {
       sans-serif;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .typography-donut-label {
     font-size: 14px;
     line-height: 1.2857742857;
@@ -186,7 +186,7 @@ svg.ac-graph-svg {
   column-gap: 40px;
   justify-content: center;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .container {
     margin-top: 8px;
     flex-wrap: wrap;
@@ -217,7 +217,7 @@ svg.ac-graph-svg {
   border-radius: 50%; /* --size: 10px; */
   --size: 20px;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .wedge-legend:before {
     --size: 20px;
   }
@@ -251,12 +251,12 @@ svg.ac-graph-svg {
   --size: 100%;
   --max-width: 220px;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .donut-container {
     --size: 300px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .donut-container {
     --size: 100%;
     --max-width: 220px;

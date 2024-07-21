@@ -344,22 +344,22 @@ button:focus {
   margin-top: 40px;
   margin-top: 40px;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .symptoms-category .content-area .support-section .submit-button {
     margin-top: 30px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .symptoms-category .content-area .support-section .submit-button {
     margin-top: 23px;
   }
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .symptoms-category .content-area .support-section .submit-button {
     margin-top: 30px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .symptoms-category .content-area .support-section .submit-button {
     margin-top: 23px;
   }

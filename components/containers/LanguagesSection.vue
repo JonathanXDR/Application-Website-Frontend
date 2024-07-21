@@ -47,13 +47,13 @@ const languages = computed<LanguageBarType[]>(() =>
   -moz-column-gap: 90px;
   column-gap: 90px;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .graph {
     grid-row-gap: 32px;
     row-gap: 32px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .graph {
     grid-column-gap: 20px;
     column-gap: 20px;

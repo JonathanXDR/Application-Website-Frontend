@@ -153,7 +153,7 @@ const setCursorBlink = (state: boolean) => {
     sans-serif;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .typography-section-headline-bold {
     font-size: 54px;
     line-height: 1.037037037;
@@ -169,7 +169,7 @@ const setCursorBlink = (state: boolean) => {
   }
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .typography-section-headline-bold {
     font-size: 32px;
     line-height: 1.125;

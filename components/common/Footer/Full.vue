@@ -17,7 +17,7 @@ const currentYear = ref(new Date().getFullYear());
   }
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 767px) {
   .sharesheet-options {
     margin-top: 10px;
   }

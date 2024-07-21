@@ -142,7 +142,7 @@ const onBlur = () => {
   max-width: 66.6666666667%;
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .medium-5 {
     flex-basis: 41.6666666667%;
     max-width: 41.6666666667%;
@@ -154,7 +154,7 @@ const onBlur = () => {
   }
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .small-12 {
     flex-basis: 100%;
     max-width: 100%;
@@ -186,7 +186,7 @@ const onBlur = () => {
   margin-right: 3px;
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .filter-filter-button {
     margin-right: 7px;
   }
@@ -251,7 +251,7 @@ const onBlur = () => {
   text-indent: 7px;
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .filter-input-label:after {
     text-indent: 3px;
   }
@@ -296,7 +296,7 @@ const onBlur = () => {
   text-indent: 7px;
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .filter-input {
     font-size: 19px;
     font-weight: 400;
@@ -311,7 +311,7 @@ const onBlur = () => {
   }
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .filter-input {
     text-indent: 3px;
   }
@@ -326,7 +326,7 @@ const onBlur = () => {
   padding-right: 10px;
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .filter-column {
     padding-right: 0;
     padding-bottom: 10px;

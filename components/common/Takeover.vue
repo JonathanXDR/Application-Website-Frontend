@@ -175,30 +175,30 @@ onUnmounted(() => {
     background-image: url(https://www.apple.com/newsroom/images/2024/06/wwdc/Apple-WWDC24-event-branding.jpg.branding-large_2x.jpg);
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1025px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .event-branding-img {
     background-image: url(https://www.apple.com/newsroom/images/2024/06/wwdc/Apple-WWDC24-event-branding.jpg.branding-medium.jpg);
     height: 227px;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1025px) and (-webkit-min-device-pixel-ratio: 1.5),
-  only screen and (min-width: 768px) and (max-width: 1025px) and (min-resolution: 1.5dppx),
-  (min-width: 768px) and (max-width: 1025px) and (-webkit-min-device-pixel-ratio: 1.5),
-  (min-width: 768px) and (max-width: 1025px) and (min-resolution: 144dpi) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min-width: 768px) and (max-width: 1023px) and (min-resolution: 1.5dppx),
+  (min-width: 768px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 1.5),
+  (min-width: 768px) and (max-width: 1023px) and (min-resolution: 144dpi) {
   .event-branding-img {
     background-image: url(https://www.apple.com/newsroom/images/2024/06/wwdc/Apple-WWDC24-event-branding.jpg.branding-medium_2x.jpg);
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .event-branding-img {
     background-image: url(https://www.apple.com/newsroom/images/2024/06/wwdc/Apple-WWDC24-event-branding.jpg.branding-small.jpg);
     height: 210px;
   }
 }
-@media only screen and (max-width: 769px) and (-webkit-min-device-pixel-ratio: 1.5),
-  only screen and (max-width: 769px) and (min-resolution: 1.5dppx),
-  (max-width: 769px) and (-webkit-min-device-pixel-ratio: 1.5),
-  (max-width: 769px) and (min-resolution: 144dpi) {
+@media only screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (max-width: 767px) and (min-resolution: 1.5dppx),
+  (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5),
+  (max-width: 767px) and (min-resolution: 144dpi) {
   .event-branding-img {
     background-image: url(https://www.apple.com/newsroom/images/2024/06/wwdc/Apple-WWDC24-event-branding.jpg.branding-small_2x.jpg);
   }
@@ -261,7 +261,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     sans-serif;
   margin-bottom: 24px;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .section-head {
     font-size: 28px;
     line-height: 1.1428571429;
@@ -276,7 +276,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
       sans-serif;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .section-head {
     font-size: 24px;
     line-height: 1.1666666667;
@@ -291,7 +291,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
       sans-serif;
   }
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .section-head {
     margin-bottom: 16px;
   }
@@ -320,21 +320,21 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     width: 980px;
   }
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .section-content {
     margin-inline-start: auto;
     margin-inline-end: auto;
     width: 692px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .section-content {
     margin-inline-start: auto;
     margin-inline-end: auto;
     width: 87.5%;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .section-content {
     max-width: 366px;
   }
@@ -344,7 +344,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   overflow: hidden;
   margin-top: -52px;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .ac-ls-visible .takeover {
     margin-top: -48px;
   }
@@ -353,17 +353,17 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   margin-bottom: 40px;
   margin-top: 92px;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .takeover .section-content {
     margin-bottom: 36px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .section-content {
     margin-bottom: 32px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .section-content {
     margin-top: 72px;
   }
@@ -371,12 +371,12 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 .takeover .image ~ .section-content {
   margin-top: 40px;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .takeover .image ~ .section-content {
     margin-top: 36px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .image ~ .section-content {
     margin-top: 32px;
   }
@@ -387,13 +387,13 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   display: inline-flex;
   width: 100%;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .takeover .event-info ~ .section-tiles {
     margin-bottom: 28px;
     margin-top: -20px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .event-info ~ .section-tiles {
     margin-bottom: 0;
     margin-top: 0;
@@ -416,7 +416,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   display: -webkit-box;
   overflow: hidden;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .takeover .tile-item .tile-hero .tile__headline {
     font-size: 21px;
     line-height: 1.1904761905;
@@ -431,7 +431,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
       sans-serif;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .tile-item .tile-hero .tile__headline {
     font-size: 19px;
     line-height: 1.2105263158;
@@ -446,7 +446,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
       sans-serif;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .tile-item.item-2up-secondary,
   .takeover .tile-item.item-3up-secondary {
     margin-top: 0;
@@ -476,7 +476,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 .takeover .tile__timestamp {
   color: var(--color-figure-gray-secondary);
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .tile.tile-2up-secondary,
   .takeover .tile.tile-3up-secondary {
     background-color: transparent;
@@ -497,7 +497,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   flex-direction: row;
   margin-bottom: 40px;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .event-info {
     margin-bottom: 32px;
     justify-content: center;
@@ -530,26 +530,26 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     margin-top 300ms cubic-bezier(0.4, 0, 0.25, 1) 300ms;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .event-info:not(.pre-event) .event-info-interactive {
     margin-top: 4px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .event-info.pre-event .event-info-interactive,
   .takeover .event-info.post-event .event-info-interactive,
   .takeover .event-info.live .event-info-interactive {
     margin-top: 16px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .event-info.pre-event .add-to-calendar,
   .takeover .event-info.post-event .add-to-calendar,
   .takeover .event-info.live .add-to-calendar {
     margin-bottom: 0;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .event-info.post-event .add-to-calendar,
   .takeover .event-info.live .add-to-calendar {
     margin-bottom: 0;
@@ -572,7 +572,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   flex-basis: 58.3333333333%;
   max-width: 58.3333333333%;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .event-info-heading {
     justify-content: center;
     align-items: center;
@@ -590,7 +590,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 300ms,
     margin-top 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .event-info-heading .add-to-calendar {
     margin-bottom: 12px;
     margin-top: 12px;
@@ -682,7 +682,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   flex-basis: 33.3333333333%;
   max-width: 33.3333333333%;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .event-info-interactive {
     justify-items: center;
     flex-basis: 100%;
@@ -705,7 +705,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   justify-items: end;
   align-items: center;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .takeover .event-info-cta-area {
     justify-items: center;
   }
@@ -778,7 +778,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   background-color: var(--color-figure-red);
   margin-right: 8px;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .takeover .event-info-cta-area .watch-live::before {
     margin-right: 4px;
   }
@@ -802,7 +802,7 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
   flex-direction: row;
   margin-bottom: 24px;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .takeover .event-info.not-interactive {
     margin-bottom: 16px;
   }
@@ -825,7 +825,7 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
   flex-wrap: wrap;
   justify-content: flex-end;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .countdown {
     font-size: 28px;
     line-height: 1.1428571429;
@@ -840,7 +840,7 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
       sans-serif;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .countdown {
     font-size: 24px;
     line-height: 1.1666666667;
@@ -855,7 +855,7 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
       sans-serif;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .countdown {
     justify-content: center;
   }
@@ -870,12 +870,12 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
 .countdown-zone:not(:first-child) {
   margin-left: 12px;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .countdown-zone:not(:first-child) {
     margin-left: 10px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .countdown-zone:not(:first-child) {
     margin-left: 4px;
   }
@@ -886,12 +886,12 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
   overflow-y: hidden;
   position: relative;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .countdown-digitsholder {
     height: 1.1428571429em;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .countdown-digitsholder {
     height: 1.1666666667em;
   }

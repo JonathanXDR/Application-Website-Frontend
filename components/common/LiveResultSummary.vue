@@ -52,7 +52,7 @@ const { randomDevColor } = useColor();
   display: flex;
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .changesnav-totals {
     width: 100%;
     justify-content: space-between;
@@ -112,7 +112,7 @@ const { randomDevColor } = useColor();
   }
 } */
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .total {
     display: none;
   }
@@ -129,19 +129,19 @@ const { randomDevColor } = useColor();
   position: relative;
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .results {
     width: 692px;
   }
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .results {
     width: 87.5%;
   }
 }
 
-@media only screen and (max-width: 321px) {
+@media only screen and (max-width: 319px) {
   .results {
     width: 215px;
   }
@@ -162,7 +162,7 @@ const { randomDevColor } = useColor();
   margin-right: 20px;
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .number-results {
     flex: 1 1 100%;
   }
@@ -173,13 +173,13 @@ const { randomDevColor } = useColor();
   padding-left: 20px;
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .changesnav-totals {
     width: auto;
   }
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .changesnav-totals {
     margin-top: 7px;
     border-left: none;
@@ -202,14 +202,14 @@ const { randomDevColor } = useColor();
   margin-right: 20px;
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .changesnav-totals .changed-total {
     font-size: 14px;
     margin-right: 15px;
   }
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .changesnav-totals .changed-total {
     font-size: 12px;
     margin-right: 0;
@@ -221,7 +221,7 @@ const { randomDevColor } = useColor();
   margin: 0 4px 0 0;
 } */
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   /* .changesnav-totals .changed-total:before {
     margin-right: 3px;
     height: 12px;
@@ -237,7 +237,7 @@ const { randomDevColor } = useColor();
   margin-left: 4px;
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .changesnav-totals .changed-total .total {
     display: inline;
   }

@@ -1369,7 +1369,7 @@ button:focus:not(:focus-visible) {
   --color-checks-donut-neutral: var(--color-scale-gray-3);
   --color-text-white: var(--color-scale-white);
 }
-@media (max-width: 476px) {
+@media (max-width: 474px) {
   [data-color-mode="dark"][data-dark-theme*="dark"] {
     --color-fg-default: var(--color-scale-gray-0);
     --color-canvas-default: var(--color-scale-gray-8);
@@ -1651,12 +1651,12 @@ button:focus:not(:focus-visible) {
 .init-hidden:not(.is-stuck) {
   visibility: hidden;
 }
-@media (max-width: 1025px) {
+@media (max-width: 1023px) {
   .sub-nav-mktg-ctas {
     display: none;
   }
 }
-@media (max-width: 1025px) {
+@media (max-width: 1023px) {
   .sub-nav-mktg.scrollnav:not(.is-stuck) {
     visibility: hidden;
   }

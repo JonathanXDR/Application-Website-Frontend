@@ -141,7 +141,7 @@ a.icon-wrapper:hover .icon-copy {
     "Arial",
     sans-serif;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .typography-icon-card-modal-body {
     font-size: 17px;
     line-height: 1.4705882353;
@@ -169,7 +169,7 @@ a.icon-wrapper:hover .icon-copy {
     "Arial",
     sans-serif;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .typography-icon-card-modal-inline-headline {
     font-size: 17px;
     line-height: 1.4705882353;
@@ -197,7 +197,7 @@ a.icon-wrapper:hover .icon-copy {
     "Arial",
     sans-serif;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .typography-modal-headline {
     font-size: 48px;
     line-height: 1.0834933333;
@@ -212,7 +212,7 @@ a.icon-wrapper:hover .icon-copy {
       sans-serif;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .typography-modal-headline {
     font-size: 32px;
     line-height: 1.125;
@@ -240,7 +240,7 @@ a.icon-wrapper:hover .icon-copy {
     "Arial",
     sans-serif;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .typography-modal-topic-label {
     font-size: 17px;
     line-height: 1.4705882353;
@@ -331,7 +331,7 @@ html:not([dir="rtl"]) .modal-close-button .modal-close-icon svg {
   display: none;
   overflow: auto;
 }
-@media only screen and (max-width: 476px) {
+@media only screen and (max-width: 474px) {
   .modal {
     --modal-overlay-padding-inline: 6.25%;
   }
@@ -370,18 +370,18 @@ html:not([dir="rtl"]) .modal-close-button .modal-close-icon svg {
   --modal-overlay-border-radius-bottom: var(--modal-overlay-border-radius-top);
   --modal-overlay-width: 816.6666666667px;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .modal-page-overlay {
     --modal-overlay-width: 692px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .modal-page-overlay {
     --modal-overlay-width: max(87.5%, 480px);
     --modal-overlay-padding-bottom: 60px;
   }
 }
-@media only screen and (max-width: 476px) {
+@media only screen and (max-width: 474px) {
   .modal-page-overlay {
     --modal-overlay-border-radius-bottom: 0;
     --modal-overlay-width: 100%;
@@ -394,7 +394,7 @@ html:not([dir="rtl"]) .modal-close-button .modal-close-icon svg {
     );
   }
 }
-@media only screen and (max-width: 476px) {
+@media only screen and (max-width: 474px) {
   .modal-page-overlay .modal-overlay-container {
     flex-direction: column;
   }
@@ -411,7 +411,7 @@ html:not([dir="rtl"]) .modal-close-button .modal-close-icon svg {
   margin-top: var(--modal-overlay-margin-top);
   margin-bottom: var(--modal-overlay-margin-bottom);
 }
-@media only screen and (max-width: 476px) {
+@media only screen and (max-width: 474px) {
   .modal-page-overlay .modal-overlay {
     --modal-overlay-margin-top: 20px;
     --modal-overlay-margin-bottom: 0;
@@ -428,24 +428,24 @@ html:not([dir="rtl"]) .modal-close-button .modal-close-icon svg {
 .modal-topic-label + .modal-headline {
   margin-top: 12px;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .modal-topic-label + .modal-headline {
     margin-top: 8px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .icon-card-modal .modal-content-container {
     --modal-overlay-padding-inline: 60px;
     --modal-overlay-padding-top: 60px;
     --modal-overlay-padding-bottom: 60px;
   }
 }
-@media only screen and (max-width: 476px) {
+@media only screen and (max-width: 474px) {
   .icon-card-modal .modal-content-container {
     --modal-overlay-padding-inline: 20px;
   }
 }
-@media only screen and (max-width: 476px) {
+@media only screen and (max-width: 474px) {
   .icon-card-modal .modal-content-container .modal-content-wrapper {
     max-width: 420px;
     margin: 0 auto;
@@ -462,7 +462,7 @@ html:not([dir="rtl"]) .modal-close-button .modal-close-icon svg {
 .icon-card-modal-content .icon-card-modal-inline-headline {
   margin-top: 20px;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .icon-card-modal-content .icon-card-modal-inline-headline {
     margin-top: 16px;
   }
@@ -470,7 +470,7 @@ html:not([dir="rtl"]) .modal-close-button .modal-close-icon svg {
 .icon-card-modal-content .modal-ctas-container {
   margin-top: 40px;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .icon-card-modal-content .modal-ctas-container {
     margin-top: 32px;
   }
@@ -478,7 +478,7 @@ html:not([dir="rtl"]) .modal-close-button .modal-close-icon svg {
 .icon-card-modal-content .modal-items-body .icon-card-modal-inline-headline {
   margin-top: 40px;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .icon-card-modal-content .modal-items-body .icon-card-modal-inline-headline {
     margin-top: 32px;
   }
@@ -497,12 +497,12 @@ html:not([dir="rtl"]) .modal-close-button .modal-close-icon svg {
     --modal-overlay-width: 816px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .modal-page-overlay {
     --modal-overlay-width: 87.5%;
   }
 }
-@media only screen and (max-width: 476px) {
+@media only screen and (max-width: 474px) {
   .modal-page-overlay {
     --modal-overlay-width: 100%;
   }

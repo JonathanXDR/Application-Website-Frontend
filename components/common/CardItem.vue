@@ -343,7 +343,7 @@ const iconClasses = computed(() => ({
   transform: scale(1.007);
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .card {
     margin-left: auto;
     margin-right: auto;
@@ -679,7 +679,7 @@ const iconClasses = computed(() => ({
   position: static;
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .full {
     --card-height: 307px;
     margin-bottom: 15px;
@@ -691,7 +691,7 @@ const iconClasses = computed(() => ({
   }
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .card {
     margin-left: auto;
     margin-right: auto;
@@ -762,13 +762,13 @@ const iconClasses = computed(() => ({
   margin-bottom: 8px;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .tile-2up .tile-category {
     margin-bottom: 8px;
   }
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
   .tile-2up .tile-category {
     margin-bottom: 8px;
   }

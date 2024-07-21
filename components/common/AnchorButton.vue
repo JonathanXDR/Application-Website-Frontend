@@ -30,13 +30,13 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.25, 1);
   transition-delay: 0s;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .cta-circular-icon {
     height: 36px;
     width: 36px;
   }
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .cta-circular-icon {
     font-size: 17px;
     font-weight: 400;

@@ -199,7 +199,7 @@ onMounted(() => {
   z-index: 9997;
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   #ac-localnav {
     height: 48px;
   }
@@ -210,7 +210,7 @@ onMounted(() => {
   margin-bottom: -96px;
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .ac-nav-overlap #ac-localnav {
     margin-top: 48px;
     margin-bottom: -96px;
@@ -245,7 +245,7 @@ onMounted(() => {
   }
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .ac-ln-content {
     display: block;
     height: 48px;
@@ -258,7 +258,7 @@ onMounted(() => {
   gap: 17px;
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .ac-ln-actions {
     right: 0;
     position: absolute;
@@ -287,7 +287,7 @@ onMounted(() => {
   background-color: rgba(0, 0, 0, 0.16);
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .ac-ln-background {
     min-height: 48px;
   }
@@ -319,7 +319,7 @@ onMounted(() => {
   z-index: 1;
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1023px) {
   .ac-ln-background:after {
     margin-left: 0;
     left: 0;
@@ -361,7 +361,7 @@ onMounted(() => {
   gap: 24px;
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .ac-ln-menu {
     padding-top: 0;
     margin-top: 0;
@@ -375,7 +375,7 @@ onMounted(() => {
   height: 100%;
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .ac-ln-menu-tray {
     overflow: hidden !important;
     pointer-events: none;
@@ -397,14 +397,14 @@ onMounted(() => {
   }
 }
 
-@media only screen and (max-width: 1281px) and (orientation: landscape) {
+@media only screen and (max-width: 1279px) and (orientation: landscape) {
   .nav-open .ac-ln-menu-tray {
     max-height: 280px !important;
     max-height: calc(100vh - 48px - 48px) !important;
   }
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .nav-open.ac-ln-sticking .ac-ln-menu-tray {
     max-height: calc(100vh - 48px) !important;
   }
@@ -418,7 +418,7 @@ onMounted(() => {
   gap: 24px;
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .ac-ln-menu-items {
     opacity: 0;
     padding: 10px 24px 24px;
@@ -437,7 +437,7 @@ onMounted(() => {
   }
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .ac-ln-menu-item {
     display: inline-block;
     width: 100%;
@@ -527,7 +527,7 @@ onMounted(() => {
   text-decoration: none;
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .ac-ln-menu-link {
     border-top: 1px solid var(--color-mobile-border);
     display: flex;
@@ -570,7 +570,7 @@ onMounted(() => {
   display: none;
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .ac-ln-action-menucta {
     display: block;
   }
@@ -676,7 +676,7 @@ a:disabled {
   transition: opacity 0.2s ease;
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   #ac-ln-curtain {
     transition:
       opacity 1s ease 0.2s,
@@ -689,7 +689,7 @@ a:disabled {
   transition: opacity 1s ease 0.1s !important;
 }
 
-@media only screen and (max-width: 1281px) {
+@media only screen and (max-width: 1279px) {
   .nav-open ~ #ac-ln-curtain {
     opacity: 1 !important;
     right: 0 !important;
