@@ -10,39 +10,39 @@
         },
         {
           "id": "languages",
-          "name": "Sprachen",
+          "name": "Langues",
           "route": "#languages",
           "class": "section-separated"
         },
         {
           "id": "references",
-          "name": "Referenzen",
+          "name": "Références",
           "route": "#references",
           "class": "section-separated"
         },
         {
           "id": "school",
-          "name": "Schule",
+          "name": "École",
           "route": "#school",
           "class": "section-separated"
         },
         {
           "id": "technologies",
-          "name": "Technologien",
+          "name": "Technologies",
           "route": "#technologies"
         },
         {
           "id": "projects",
-          "name": "Projekte",
+          "name": "Projets",
           "route": "#projects"
         }
       ],
       "RibbonBar": [
         {
-          "description": "Was ist neu in {latestTag}?",
+          "description": "Quoi de neuf dans {latestTag}?",
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/{previousTag}...{latestTag}",
               "icon": {
                 "name": "chevron.right"
@@ -51,10 +51,10 @@
           ]
         },
         {
-          "description": "Erkunde meine neusten Projekte bei Swisscom!",
+          "description": "Découvre mes derniers projets chez Swisscom!",
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "#projects",
               "icon": {
                 "name": "chevron.right"
@@ -63,10 +63,10 @@
           ]
         },
         {
-          "description": "Entdecke alle Technologien, mit denen ich bisher gearbeitet habe!",
+          "description": "Découvre toutes les technologies avec lesquelles j'ai travaillé jusqu'à présent!",
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "#technologies",
               "icon": {
                 "name": "chevron.right"
@@ -80,7 +80,7 @@
           {
             "id": "light",
             "category": "theme",
-            "label": "Light",
+            "label": "Clair",
             "icon": {
               "name": "sun.max.fill"
             }
@@ -88,7 +88,7 @@
           {
             "id": "dark",
             "category": "theme",
-            "label": "Dark",
+            "label": "Foncé",
             "icon": {
               "name": "moon.fill"
             }
@@ -114,7 +114,7 @@
           {
             "id": "personal",
             "category": "projects",
-            "label": "Persönlich",
+            "label": "Personnel",
             "icon": {
               "name": "person.fill"
             }
@@ -122,7 +122,7 @@
           {
             "id": "school",
             "category": "projects",
-            "label": "Schule",
+            "label": "École",
             "icon": {
               "name": "graduationcap.fill"
             }
@@ -132,7 +132,7 @@
           {
             "id": "language",
             "category": "technologies",
-            "label": "Language",
+            "label": "Langue",
             "icon": {
               "name": "bubble.fill"
             }
@@ -140,7 +140,7 @@
           {
             "id": "library",
             "category": "technologies",
-            "label": "Library",
+            "label": "Bibliothèque",
             "icon": {
               "name": "books.vertical.fill"
             }
@@ -164,7 +164,7 @@
           {
             "id": "container-management",
             "category": "technologies",
-            "label": "Container Management",
+            "label": "Gestion des conteneurs",
             "icon": {
               "name": "shippingbox.fill"
             }
@@ -179,72 +179,14 @@
           }
         ]
       },
-      "FilterInput": {
-        "items": [
-          {
-            "id": "all",
-            "label": "Alle"
-          },
-          {
-            "id": "frameworks",
-            "label": "Frameworks"
-          },
-          {
-            "id": "languages",
-            "label": "Sprachen"
-          },
-          {
-            "id": "libraries",
-            "label": "Libraries"
-          },
-          {
-            "id": "tools",
-            "label": "Tools"
-          },
-          {
-            "id": "platforms",
-            "label": "Plattformen"
-          },
-          {
-            "id": "databases",
-            "label": "Datenbanken"
-          },
-          {
-            "id": "others",
-            "label": "Anderes"
-          }
-        ],
-        "sorts": [
-          {
-            "id": "experience",
-            "label": "Erfahrung"
-          },
-          {
-            "id": "newest",
-            "label": "Neueste"
-          },
-          {
-            "id": "oldest",
-            "label": "Älteste"
-          },
-          {
-            "id": "asc",
-            "label": "Aufsteigend"
-          },
-          {
-            "id": "desc",
-            "label": "Absteigend"
-          }
-        ]
-      },
       "LiveResultSummary": {
-        "title": "Zeige {count} Ergebnisse",
-        "description": "Angepinnt"
+        "title": "Afficher {count} résultats",
+        "description": "Épinglé"
       },
       "CardItem": {
-        "created": "Erstellt",
-        "updated": "Aktualisiert",
-        "learnMore": "Mehr erfahren"
+        "created": "Créé",
+        "updated": "Mis à jour",
+        "learnMore": "En savoir plus"
       },
       "ShareSheet": {
         "links": [
@@ -283,22 +225,22 @@
         ]
       },
       "FooterItem": {
-        "chooseYourLanguage": "Wähle deine Sprache"
+        "chooseYourLanguage": "Choisis ta langue"
       }
     },
     "containers": {
       "about": {
         "eyebrow": "Hey ;)",
-        "title": "I'm Jonathan",
-        "description": "Hallo mein Name ist Jonathan und ich bin {age} Jahre alt. Aktuell bin ich im {apprenticeshipYear}. Lehrjahr als Informatiker - Applikationsentwicklung. Ich wohne in Egg bei Einsiedeln im Kanton Schwyz. Das Programmieren fasziniert mich sehr und ich finde es spannend, was man damit alles erreichen kann. In meiner Freizeit spiele ich gerne Computer -und Konsolenspiele und treffe mich oft mit Freunden. Ausserdem höre ich häufig Musik und produziere sie auch manchmal selbst.",
+        "title": "Je suis Jonathan",
+        "description": "Bonjour, je m'appelle Jonathan et j'ai {age} ans. Actuellement, je suis en {apprenticeshipYear} d'apprentissage en tant qu'informaticien - développement d'applications. J'habite à Egg près d'Einsiedeln dans le canton de Schwyz. La programmation me fascine beaucoup et je trouve passionnant tout ce que l'on peut réaliser grâce à elle. Pendant mon temps libre, j'aime jouer à l'ordinateur et aux consoles et je rencontre souvent des amis. En outre, j'écoute souvent de la musique et j'en produit parfois moi-même.",
         "dates": [
           {
-            "title": "Jahre",
+            "title": "Années",
             "key": "age",
             "date": "2005-12-12"
           },
           {
-            "title": "Lehrjahr",
+            "title": "Année d'apprentissage",
             "key": "apprenticeshipYear",
             "date": "2021-08-01"
           }
@@ -306,16 +248,16 @@
       },
       "languages": [
         {
-          "title": "Deutsch",
-          "eyebrow": "Muttersprache",
+          "title": "Allemand",
+          "eyebrow": "Langue maternelle",
           "progress": 100,
           "divider": {
             "direction": "left"
           }
         },
         {
-          "title": "Englisch",
-          "eyebrow": "Fliessend",
+          "title": "Anglais",
+          "eyebrow": "Courant",
           "progress": 60,
           "divider": {
             "direction": "left"
@@ -332,8 +274,8 @@
           ]
         },
         {
-          "title": "Französisch",
-          "eyebrow": "Gut",
+          "title": "Français",
+          "eyebrow": "Bien",
           "progress": 30,
           "divider": {
             "direction": "left"
@@ -345,7 +287,7 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Vorgesetzter",
+          "eyebrow": "Supérieur hiérarchique",
           "title": "Steve Hess",
           "description": "Coach Next Generation",
           "info": {
@@ -357,12 +299,12 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Projektanbieter",
+          "eyebrow": "Fournisseur de projets",
           "title": "Nick Zimmermann",
-          "description": "DevOps I Engineer",
+          "description": "Ingénieur DevOps I",
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://nickzimmermann.com",
               "icon": {
                 "name": "chevron.right"
@@ -378,9 +320,9 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Projektanbieter",
+          "eyebrow": "Fournisseur de projets",
           "title": "Alessio Iantosca",
-          "description": "Test Automation Engineer",
+          "description": "Ingénieur en automatisation des tests",
           "info": {
             "location": "Zür-Pfi51",
             "department": "B2B-BAN-COB-ASO-AUT"
@@ -390,9 +332,9 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Projektanbieter",
+          "eyebrow": "Fournisseur de projets",
           "title": "Carlo Schmid",
-          "description": "Fullstack Developer",
+          "description": "Développeur Full-Stack",
           "info": {
             "location": "Itt-Ey10",
             "department": "GHR-POD-LES-APP"
@@ -402,9 +344,9 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Projektanbieter",
+          "eyebrow": "Fournisseur de projets",
           "title": "Kim Eggler",
-          "description": "Fullstack Developer",
+          "description": "Développeur Full-Stack",
           "info": {
             "location": "Itt-Ey10",
             "department": "GHR-POD-LES-APP"
@@ -414,9 +356,9 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Projektanbieter",
+          "eyebrow": "Fournisseur de projets",
           "title": "Radu Margineanu",
-          "description": "Enterprise & System Achitect EAS",
+          "description": "Enterprise & System Architect EAS",
           "info": {
             "location": "Zür-För181",
             "department": "INI-EAI-EAV"
@@ -426,9 +368,9 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Projektanbieter",
+          "eyebrow": "Fournisseur de projets",
           "title": "Oliver Kramer",
-          "description": "Cyber Security Specialist",
+          "description": "Spécialiste en cybersécurité",
           "info": {
             "location": "Zür-För181",
             "department": "INI-EOG-SPA"
@@ -440,12 +382,12 @@
           "icon": {
             "name": "graduationcap.fill"
           },
-          "eyebrow": "Schule",
-          "title": "Technische Berufsschule Zürich",
-          "description": "Ich gehe immer donnerstags nachmittags zur Berufsschule in Zürich.",
+          "eyebrow": "École",
+          "title": "École professionnelle technique de Zurich",
+          "description": "Je vais toujours à l'école professionnelle à Zurich le jeudi après-midi.",
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://tbz.ch",
               "icon": {
                 "name": "chevron.right"
@@ -456,19 +398,19 @@
             "date": {
               "fixed": "2021-08-26"
             },
-            "location": "Zürich"
+            "location": "Zurich"
           }
         },
         {
           "icon": {
             "name": "graduationcap.fill"
           },
-          "eyebrow": "Schule",
-          "title": "Berufsmaturitätsschule Zürich",
-          "description": "Am Freitag gehe ich jeweils zur Berufsmaturitätsschule in Zürich.",
+          "eyebrow": "École",
+          "title": "Ecole de maturité professionnelle de Zurich",
+          "description": "Le vendredi, je vais toujours à l'école de maturité professionnelle à Zurich.",
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://bms-zuerich.ch",
               "icon": {
                 "name": "chevron.right"
@@ -479,673 +421,23 @@
             "date": {
               "fixed": "2021-08-27"
             },
-            "location": "Zürich"
+            "location": "Zurich"
           }
         }
       ],
       "funFacts": [],
-      "music": [
-        {
-          "link": "https://music.apple.com/us/playlist/rap-life/pl.abe8ba42278f4ef490e3a9fc5ec8e8c5?itscg=10000&itsct=mus-0-mus_fam-posn1_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/cf/6c/ea/cf6cead6-c787-8582-834d-706733af4dca/73853971-969b-44bb-a796-775558a9ed5d.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Rap Life - Apple Music Hip-Hop",
-          "title": "Rap Life",
-          "subtitle": "Apple Music Hip-Hop",
-          "bgColor": "#131314",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/dale-play/pl.4b364b8b182f4115acbf6deb83bd5222?itscg=10000&itsct=mus-0-mus_fam-posn2_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/c6/32/10/c63210e5-b74c-42ae-9771-959d77e7f11f/26cf9150-966d-4650-8a50-16cd57f37c04.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "¡Dale Play! - Apple Music Pop Latino",
-          "title": "¡Dale Play!",
-          "subtitle": "Apple Music Pop Latino",
-          "bgColor": "#4b0601",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/a-list-pop/pl.5ee8333dbe944d9f9151e97d92d1ead9?itscg=10000&itsct=mus-0-mus_fam-posn3_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/38/ef/8f/38ef8f5e-b876-d1e4-a926-7de81cedc556/0079e905-7fb7-4417-81fb-eb3cafc74511.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "A-List Pop - Apple Music Pop",
-          "title": "A-List Pop",
-          "subtitle": "Apple Music Pop",
-          "bgColor": "#0439c0",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/r-b-now/pl.b7ae3e0a28e84c5c96c4284b6a6c70af?itscg=10000&itsct=mus-0-mus_fam-posn4_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/ad/b5/f0/adb5f013-db4d-3784-6cda-d59017381b27/f6c0c55b-75d6-4bcc-8abf-daed8e938bc4.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "R&B Now - Apple Music R&B",
-          "title": "R&B Now",
-          "subtitle": "Apple Music R&B",
-          "bgColor": "#010101",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/dancexl/pl.6bf4415b83ce4f3789614ac4c3675740?itscg=10000&itsct=mus-0-mus_fam-posn5_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/87/42/2a/87422af4-71b6-8860-9585-7b3a57f78ad7/e9d76023-64e0-41d1-ada4-d9fa1b1b60ba.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "danceXL - Apple Music Dance",
-          "title": "danceXL",
-          "subtitle": "Apple Music Dance",
-          "bgColor": "#000000",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/rap-life/pl.abe8ba42278f4ef490e3a9fc5ec8e8c5?itscg=10000&itsct=mus-0-mus_fam-posn1_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/cf/6c/ea/cf6cead6-c787-8582-834d-706733af4dca/73853971-969b-44bb-a796-775558a9ed5d.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Rap Life - Apple Music Hip-Hop",
-          "title": "Rap Life",
-          "subtitle": "Apple Music Hip-Hop",
-          "bgColor": "#131314",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/dale-play/pl.4b364b8b182f4115acbf6deb83bd5222?itscg=10000&itsct=mus-0-mus_fam-posn2_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/c6/32/10/c63210e5-b74c-42ae-9771-959d77e7f11f/26cf9150-966d-4650-8a50-16cd57f37c04.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "¡Dale Play! - Apple Music Pop Latino",
-          "title": "¡Dale Play!",
-          "subtitle": "Apple Music Pop Latino",
-          "bgColor": "#4b0601",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/a-list-pop/pl.5ee8333dbe944d9f9151e97d92d1ead9?itscg=10000&itsct=mus-0-mus_fam-posn3_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/38/ef/8f/38ef8f5e-b876-d1e4-a926-7de81cedc556/0079e905-7fb7-4417-81fb-eb3cafc74511.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "A-List Pop - Apple Music Pop",
-          "title": "A-List Pop",
-          "subtitle": "Apple Music Pop",
-          "bgColor": "#0439c0",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/r-b-now/pl.b7ae3e0a28e84c5c96c4284b6a6c70af?itscg=10000&itsct=mus-0-mus_fam-posn4_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/ad/b5/f0/adb5f013-db4d-3784-6cda-d59017381b27/f6c0c55b-75d6-4bcc-8abf-daed8e938bc4.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "R&B Now - Apple Music R&B",
-          "title": "R&B Now",
-          "subtitle": "Apple Music R&B",
-          "bgColor": "#010101",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/dancexl/pl.6bf4415b83ce4f3789614ac4c3675740?itscg=10000&itsct=mus-0-mus_fam-posn5_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/87/42/2a/87422af4-71b6-8860-9585-7b3a57f78ad7/e9d76023-64e0-41d1-ada4-d9fa1b1b60ba.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "danceXL - Apple Music Dance",
-          "title": "danceXL",
-          "subtitle": "Apple Music Dance",
-          "bgColor": "#000000",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/pure-meditation/pl.e896478fdf824a93ab2f99165c3a1422?itscg=10000&itsct=mus-0-mus_fam-posn6_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/3e/a3/7e/3ea37ed4-945e-7937-0791-dc0c9c9df9c3/U0MtTVMtV1ctUHVyZV9NZWRpdGF0aW9uLUFEQU1fSUQ9OTc2NDQ3NjgzLnBuZw.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Pure Meditation - Apple Music Wellbeing",
-          "title": "Pure Meditation",
-          "subtitle": "Apple Music Wellbeing",
-          "bgColor": "#e52a56",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/alt-ctrl/pl.0b593f1142b84a50a2c1e7088b3fb683?itscg=10000&itsct=mus-0-mus_fam-posn7_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/da/34/d2/da34d21d-f543-001b-4450-a294ca4f0ee7/fcb03152-be89-4eaf-a1a8-6be107f22e6d.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "ALT CTRL - Apple Music Alternative",
-          "title": "ALT CTRL",
-          "subtitle": "Apple Music Alternative",
-          "bgColor": "#2e292b",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/puro-pop/pl.2754a2d6e0084e2b8106fcd35fef6492?itscg=10000&itsct=mus-0-mus_fam-posn8_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/cf/40/62/cf406282-492f-c243-11a5-7143d1af96e5/deab0b3f-b9ea-4904-a707-465a9f752f02.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Puro Pop - Apple Music Pop Latino",
-          "title": "Puro Pop",
-          "subtitle": "Apple Music Pop Latino",
-          "bgColor": "#fae11d",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/superbloom/pl.78ee237116dc46f1a5a3d8916b4a28fc?itscg=10000&itsct=mus-0-mus_fam-posn9_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/b8/e5/39/b8e53971-6fce-6f27-8631-6ae236f5eade/930a942c-ccfa-4011-bba1-de6714468ff8.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Superbloom - Apple Music Pop",
-          "title": "Superbloom",
-          "subtitle": "Apple Music Pop",
-          "bgColor": "#fc4308",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/high-maintenance/pl.8573a92705fe4253af597147d7cb981f?itscg=10000&itsct=mus-0-mus_fam-posn10_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/3e/17/87/3e178780-d6f1-85a1-e342-9577a9ba965b/U0MtTVMtV1ctSGlnaF9NYWludGVuYW5jZS1hZGFtPTE1MDA3MjMxODMtTm9fTG9nby5wbmc.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "High Maintenance - Apple Music",
-          "title": "High Maintenance",
-          "subtitle": "Apple Music",
-          "bgColor": "#af6746",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/africa-now/pl.a0794db8bc6f45888834fa708a674987?itscg=10000&itsct=mus-0-mus_fam-posn11_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/0f/9e/58/0f9e5842-bf86-324d-6de8-2e4b35ec2235/77777270-f4ee-45b9-b103-d3df147eb75a.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Africa Now - Apple Music African",
-          "title": "Africa Now",
-          "subtitle": "Apple Music African",
-          "bgColor": "#e4a864",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/todays-hits/pl.f4d106fed2bd41149aaacabb233eb5eb?itscg=10000&itsct=mus-0-mus_fam-posn12_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/03/86/dd/0386ddd4-711a-c7fb-7446-34433b78512e/26c526e3-ed70-45e0-9157-089471a7673b.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Today's Hits - Apple Music Hits",
-          "title": "Today's Hits",
-          "subtitle": "Apple Music Hits",
-          "bgColor": "#b98740",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/the-a-list-k-pop/pl.48229b41bbfc47d7af39dae8e8b5276e?itscg=10000&itsct=mus-0-mus_fam-posn13_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/af/81/df/af81df78-c9a8-9689-12ab-889e82d5d8ba/7233fc40-2c3b-492c-8c31-ad91d8328eee.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "The A-List: K-Pop - Apple Music K-Pop",
-          "title": "The A-List: K-Pop",
-          "subtitle": "Apple Music K-Pop",
-          "bgColor": "#7400e4",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/family-pop/pl.cd835923714f47f295c08470b18e8891?itscg=10000&itsct=mus-0-mus_fam-posn14_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/97/b7/f3/97b7f335-4930-61da-1561-7222d62e3bbf/U0MtTVMtV1ctRmFtaWx5X1BvcC1BREFNX0lEPTk3NjQ1MTcwNi5wbmc.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Family Pop - Apple Music Family",
-          "title": "Family Pop",
-          "subtitle": "Apple Music Family",
-          "bgColor": "#f399ac",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/punjabi-hits/pl.35b8520d9d6a486d9bf5c1b3331165b2?itscg=10000&itsct=mus-0-mus_fam-posn15_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/5f/76/0e/5f760e1d-b095-a3ac-1d94-2786b102e129/d03ee1a8-6888-4055-83e8-97df33539acd.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Punjabi Hits - Apple Music Punjabi",
-          "title": "Punjabi Hits",
-          "subtitle": "Apple Music Punjabi",
-          "bgColor": "#d9d9d9",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/la-oficial/pl.daca4fa353174d7493a2394f03f623ea?itscg=10000&itsct=mus-0-mus_fam-posn16_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/48/eb/c6/48ebc68b-c5b5-e250-5eeb-6712f890fbb7/1493454c-120a-4e3e-a529-c19e137e4976.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "La Oficial - Apple Music Música Mexicana",
-          "title": "La Oficial",
-          "subtitle": "Apple Music Música Mexicana",
-          "bgColor": "#0027ec",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/todays-country/pl.87bb5b36a9bd49db8c975607452bfa2b?itscg=10000&itsct=mus-0-mus_fam-posn17_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/0a/c2/78/0ac27819-0452-fe87-b159-a17849c312f9/95d2017e-b13f-4270-959b-150ad25c59a7.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Today's Country - Apple Music Country",
-          "title": "Today's Country",
-          "subtitle": "Apple Music Country",
-          "bgColor": "#efece7",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/onrepeat/pl.426a1044619f47d6b1f86b3f79ecf857?itscg=10000&itsct=mus-0-mus_fam-posn18_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/d3/40/3c/d3403caa-ce41-011c-da48-c8edd692c16a/39cf2216-3c5c-45a4-b687-0350abe4d4a4.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "#OnRepeat - Apple Music Hip-Hop",
-          "title": "#OnRepeat",
-          "subtitle": "Apple Music Hip-Hop",
-          "bgColor": "#000000",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/new-music-daily/pl.2b0e6e332fdf4b7a91164da3162127b5?itscg=10000&itsct=mus-0-mus_fam-posn19_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/4b/32/f5/4b32f58d-0a7b-3783-bd22-2fa278771657/2e05ed3e-7df0-4a28-af26-543a9ecc18a1.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "New Music Daily - Apple Music",
-          "title": "New Music Daily",
-          "subtitle": "Apple Music",
-          "bgColor": "#373737",
-          "playlistId": 1
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/rap-life/pl.abe8ba42278f4ef490e3a9fc5ec8e8c5?itscg=10000&itsct=mus-0-mus_fam-posn1_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/cf/6c/ea/cf6cead6-c787-8582-834d-706733af4dca/73853971-969b-44bb-a796-775558a9ed5d.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Rap Life - Apple Music Hip-Hop",
-          "title": "Rap Life",
-          "subtitle": "Apple Music Hip-Hop",
-          "bgColor": "#131314",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/dale-play/pl.4b364b8b182f4115acbf6deb83bd5222?itscg=10000&itsct=mus-0-mus_fam-posn2_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/c6/32/10/c63210e5-b74c-42ae-9771-959d77e7f11f/26cf9150-966d-4650-8a50-16cd57f37c04.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "¡Dale Play! - Apple Music Pop Latino",
-          "title": "¡Dale Play!",
-          "subtitle": "Apple Music Pop Latino",
-          "bgColor": "#4b0601",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/a-list-pop/pl.5ee8333dbe944d9f9151e97d92d1ead9?itscg=10000&itsct=mus-0-mus_fam-posn3_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/38/ef/8f/38ef8f5e-b876-d1e4-a926-7de81cedc556/0079e905-7fb7-4417-81fb-eb3cafc74511.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "A-List Pop - Apple Music Pop",
-          "title": "A-List Pop",
-          "subtitle": "Apple Music Pop",
-          "bgColor": "#0439c0",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/r-b-now/pl.b7ae3e0a28e84c5c96c4284b6a6c70af?itscg=10000&itsct=mus-0-mus_fam-posn4_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/ad/b5/f0/adb5f013-db4d-3784-6cda-d59017381b27/f6c0c55b-75d6-4bcc-8abf-daed8e938bc4.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "R&B Now - Apple Music R&B",
-          "title": "R&B Now",
-          "subtitle": "Apple Music R&B",
-          "bgColor": "#010101",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/dancexl/pl.6bf4415b83ce4f3789614ac4c3675740?itscg=10000&itsct=mus-0-mus_fam-posn5_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/87/42/2a/87422af4-71b6-8860-9585-7b3a57f78ad7/e9d76023-64e0-41d1-ada4-d9fa1b1b60ba.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "danceXL - Apple Music Dance",
-          "title": "danceXL",
-          "subtitle": "Apple Music Dance",
-          "bgColor": "#000000",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/rap-life/pl.abe8ba42278f4ef490e3a9fc5ec8e8c5?itscg=10000&itsct=mus-0-mus_fam-posn1_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/cf/6c/ea/cf6cead6-c787-8582-834d-706733af4dca/73853971-969b-44bb-a796-775558a9ed5d.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Rap Life - Apple Music Hip-Hop",
-          "title": "Rap Life",
-          "subtitle": "Apple Music Hip-Hop",
-          "bgColor": "#131314",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/dale-play/pl.4b364b8b182f4115acbf6deb83bd5222?itscg=10000&itsct=mus-0-mus_fam-posn2_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/c6/32/10/c63210e5-b74c-42ae-9771-959d77e7f11f/26cf9150-966d-4650-8a50-16cd57f37c04.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "¡Dale Play! - Apple Music Pop Latino",
-          "title": "¡Dale Play!",
-          "subtitle": "Apple Music Pop Latino",
-          "bgColor": "#4b0601",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/a-list-pop/pl.5ee8333dbe944d9f9151e97d92d1ead9?itscg=10000&itsct=mus-0-mus_fam-posn3_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/38/ef/8f/38ef8f5e-b876-d1e4-a926-7de81cedc556/0079e905-7fb7-4417-81fb-eb3cafc74511.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "A-List Pop - Apple Music Pop",
-          "title": "A-List Pop",
-          "subtitle": "Apple Music Pop",
-          "bgColor": "#0439c0",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/r-b-now/pl.b7ae3e0a28e84c5c96c4284b6a6c70af?itscg=10000&itsct=mus-0-mus_fam-posn4_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/ad/b5/f0/adb5f013-db4d-3784-6cda-d59017381b27/f6c0c55b-75d6-4bcc-8abf-daed8e938bc4.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "R&B Now - Apple Music R&B",
-          "title": "R&B Now",
-          "subtitle": "Apple Music R&B",
-          "bgColor": "#010101",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/dancexl/pl.6bf4415b83ce4f3789614ac4c3675740?itscg=10000&itsct=mus-0-mus_fam-posn5_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/87/42/2a/87422af4-71b6-8860-9585-7b3a57f78ad7/e9d76023-64e0-41d1-ada4-d9fa1b1b60ba.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "danceXL - Apple Music Dance",
-          "title": "danceXL",
-          "subtitle": "Apple Music Dance",
-          "bgColor": "#000000",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/pure-meditation/pl.e896478fdf824a93ab2f99165c3a1422?itscg=10000&itsct=mus-0-mus_fam-posn6_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/3e/a3/7e/3ea37ed4-945e-7937-0791-dc0c9c9df9c3/U0MtTVMtV1ctUHVyZV9NZWRpdGF0aW9uLUFEQU1fSUQ9OTc2NDQ3NjgzLnBuZw.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Pure Meditation - Apple Music Wellbeing",
-          "title": "Pure Meditation",
-          "subtitle": "Apple Music Wellbeing",
-          "bgColor": "#e52a56",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/alt-ctrl/pl.0b593f1142b84a50a2c1e7088b3fb683?itscg=10000&itsct=mus-0-mus_fam-posn7_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/da/34/d2/da34d21d-f543-001b-4450-a294ca4f0ee7/fcb03152-be89-4eaf-a1a8-6be107f22e6d.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "ALT CTRL - Apple Music Alternative",
-          "title": "ALT CTRL",
-          "subtitle": "Apple Music Alternative",
-          "bgColor": "#2e292b",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/puro-pop/pl.2754a2d6e0084e2b8106fcd35fef6492?itscg=10000&itsct=mus-0-mus_fam-posn8_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/cf/40/62/cf406282-492f-c243-11a5-7143d1af96e5/deab0b3f-b9ea-4904-a707-465a9f752f02.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Puro Pop - Apple Music Pop Latino",
-          "title": "Puro Pop",
-          "subtitle": "Apple Music Pop Latino",
-          "bgColor": "#fae11d",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/superbloom/pl.78ee237116dc46f1a5a3d8916b4a28fc?itscg=10000&itsct=mus-0-mus_fam-posn9_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/b8/e5/39/b8e53971-6fce-6f27-8631-6ae236f5eade/930a942c-ccfa-4011-bba1-de6714468ff8.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Superbloom - Apple Music Pop",
-          "title": "Superbloom",
-          "subtitle": "Apple Music Pop",
-          "bgColor": "#fc4308",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/high-maintenance/pl.8573a92705fe4253af597147d7cb981f?itscg=10000&itsct=mus-0-mus_fam-posn10_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/3e/17/87/3e178780-d6f1-85a1-e342-9577a9ba965b/U0MtTVMtV1ctSGlnaF9NYWludGVuYW5jZS1hZGFtPTE1MDA3MjMxODMtTm9fTG9nby5wbmc.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "High Maintenance - Apple Music",
-          "title": "High Maintenance",
-          "subtitle": "Apple Music",
-          "bgColor": "#af6746",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/africa-now/pl.a0794db8bc6f45888834fa708a674987?itscg=10000&itsct=mus-0-mus_fam-posn11_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/0f/9e/58/0f9e5842-bf86-324d-6de8-2e4b35ec2235/77777270-f4ee-45b9-b103-d3df147eb75a.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Africa Now - Apple Music African",
-          "title": "Africa Now",
-          "subtitle": "Apple Music African",
-          "bgColor": "#e4a864",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/todays-hits/pl.f4d106fed2bd41149aaacabb233eb5eb?itscg=10000&itsct=mus-0-mus_fam-posn12_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/03/86/dd/0386ddd4-711a-c7fb-7446-34433b78512e/26c526e3-ed70-45e0-9157-089471a7673b.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Today's Hits - Apple Music Hits",
-          "title": "Today's Hits",
-          "subtitle": "Apple Music Hits",
-          "bgColor": "#b98740",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/the-a-list-k-pop/pl.48229b41bbfc47d7af39dae8e8b5276e?itscg=10000&itsct=mus-0-mus_fam-posn13_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/af/81/df/af81df78-c9a8-9689-12ab-889e82d5d8ba/7233fc40-2c3b-492c-8c31-ad91d8328eee.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "The A-List: K-Pop - Apple Music K-Pop",
-          "title": "The A-List: K-Pop",
-          "subtitle": "Apple Music K-Pop",
-          "bgColor": "#7400e4",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/family-pop/pl.cd835923714f47f295c08470b18e8891?itscg=10000&itsct=mus-0-mus_fam-posn14_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/97/b7/f3/97b7f335-4930-61da-1561-7222d62e3bbf/U0MtTVMtV1ctRmFtaWx5X1BvcC1BREFNX0lEPTk3NjQ1MTcwNi5wbmc.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Family Pop - Apple Music Family",
-          "title": "Family Pop",
-          "subtitle": "Apple Music Family",
-          "bgColor": "#f399ac",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/punjabi-hits/pl.35b8520d9d6a486d9bf5c1b3331165b2?itscg=10000&itsct=mus-0-mus_fam-posn15_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/5f/76/0e/5f760e1d-b095-a3ac-1d94-2786b102e129/d03ee1a8-6888-4055-83e8-97df33539acd.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Punjabi Hits - Apple Music Punjabi",
-          "title": "Punjabi Hits",
-          "subtitle": "Apple Music Punjabi",
-          "bgColor": "#d9d9d9",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/la-oficial/pl.daca4fa353174d7493a2394f03f623ea?itscg=10000&itsct=mus-0-mus_fam-posn16_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/48/eb/c6/48ebc68b-c5b5-e250-5eeb-6712f890fbb7/1493454c-120a-4e3e-a529-c19e137e4976.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "La Oficial - Apple Music Música Mexicana",
-          "title": "La Oficial",
-          "subtitle": "Apple Music Música Mexicana",
-          "bgColor": "#0027ec",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/todays-country/pl.87bb5b36a9bd49db8c975607452bfa2b?itscg=10000&itsct=mus-0-mus_fam-posn17_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/0a/c2/78/0ac27819-0452-fe87-b159-a17849c312f9/95d2017e-b13f-4270-959b-150ad25c59a7.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Today's Country - Apple Music Country",
-          "title": "Today's Country",
-          "subtitle": "Apple Music Country",
-          "bgColor": "#efece7",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/onrepeat/pl.426a1044619f47d6b1f86b3f79ecf857?itscg=10000&itsct=mus-0-mus_fam-posn18_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/d3/40/3c/d3403caa-ce41-011c-da48-c8edd692c16a/39cf2216-3c5c-45a4-b687-0350abe4d4a4.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "#OnRepeat - Apple Music Hip-Hop",
-          "title": "#OnRepeat",
-          "subtitle": "Apple Music Hip-Hop",
-          "bgColor": "#000000",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/new-music-daily/pl.2b0e6e332fdf4b7a91164da3162127b5?itscg=10000&itsct=mus-0-mus_fam-posn19_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/4b/32/f5/4b32f58d-0a7b-3783-bd22-2fa278771657/2e05ed3e-7df0-4a28-af26-543a9ecc18a1.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "New Music Daily - Apple Music",
-          "title": "New Music Daily",
-          "subtitle": "Apple Music",
-          "bgColor": "#373737",
-          "playlistId": 2
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/rap-life/pl.abe8ba42278f4ef490e3a9fc5ec8e8c5?itscg=10000&itsct=mus-0-mus_fam-posn1_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/cf/6c/ea/cf6cead6-c787-8582-834d-706733af4dca/73853971-969b-44bb-a796-775558a9ed5d.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Rap Life - Apple Music Hip-Hop",
-          "title": "Rap Life",
-          "subtitle": "Apple Music Hip-Hop",
-          "bgColor": "#131314",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/dale-play/pl.4b364b8b182f4115acbf6deb83bd5222?itscg=10000&itsct=mus-0-mus_fam-posn2_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/c6/32/10/c63210e5-b74c-42ae-9771-959d77e7f11f/26cf9150-966d-4650-8a50-16cd57f37c04.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "¡Dale Play! - Apple Music Pop Latino",
-          "title": "¡Dale Play!",
-          "subtitle": "Apple Music Pop Latino",
-          "bgColor": "#4b0601",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/a-list-pop/pl.5ee8333dbe944d9f9151e97d92d1ead9?itscg=10000&itsct=mus-0-mus_fam-posn3_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/38/ef/8f/38ef8f5e-b876-d1e4-a926-7de81cedc556/0079e905-7fb7-4417-81fb-eb3cafc74511.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "A-List Pop - Apple Music Pop",
-          "title": "A-List Pop",
-          "subtitle": "Apple Music Pop",
-          "bgColor": "#0439c0",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/r-b-now/pl.b7ae3e0a28e84c5c96c4284b6a6c70af?itscg=10000&itsct=mus-0-mus_fam-posn4_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/ad/b5/f0/adb5f013-db4d-3784-6cda-d59017381b27/f6c0c55b-75d6-4bcc-8abf-daed8e938bc4.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "R&B Now - Apple Music R&B",
-          "title": "R&B Now",
-          "subtitle": "Apple Music R&B",
-          "bgColor": "#010101",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/dancexl/pl.6bf4415b83ce4f3789614ac4c3675740?itscg=10000&itsct=mus-0-mus_fam-posn5_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/87/42/2a/87422af4-71b6-8860-9585-7b3a57f78ad7/e9d76023-64e0-41d1-ada4-d9fa1b1b60ba.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "danceXL - Apple Music Dance",
-          "title": "danceXL",
-          "subtitle": "Apple Music Dance",
-          "bgColor": "#000000",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/rap-life/pl.abe8ba42278f4ef490e3a9fc5ec8e8c5?itscg=10000&itsct=mus-0-mus_fam-posn1_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/cf/6c/ea/cf6cead6-c787-8582-834d-706733af4dca/73853971-969b-44bb-a796-775558a9ed5d.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Rap Life - Apple Music Hip-Hop",
-          "title": "Rap Life",
-          "subtitle": "Apple Music Hip-Hop",
-          "bgColor": "#131314",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/dale-play/pl.4b364b8b182f4115acbf6deb83bd5222?itscg=10000&itsct=mus-0-mus_fam-posn2_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/c6/32/10/c63210e5-b74c-42ae-9771-959d77e7f11f/26cf9150-966d-4650-8a50-16cd57f37c04.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "¡Dale Play! - Apple Music Pop Latino",
-          "title": "¡Dale Play!",
-          "subtitle": "Apple Music Pop Latino",
-          "bgColor": "#4b0601",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/a-list-pop/pl.5ee8333dbe944d9f9151e97d92d1ead9?itscg=10000&itsct=mus-0-mus_fam-posn3_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/38/ef/8f/38ef8f5e-b876-d1e4-a926-7de81cedc556/0079e905-7fb7-4417-81fb-eb3cafc74511.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "A-List Pop - Apple Music Pop",
-          "title": "A-List Pop",
-          "subtitle": "Apple Music Pop",
-          "bgColor": "#0439c0",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/r-b-now/pl.b7ae3e0a28e84c5c96c4284b6a6c70af?itscg=10000&itsct=mus-0-mus_fam-posn4_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/ad/b5/f0/adb5f013-db4d-3784-6cda-d59017381b27/f6c0c55b-75d6-4bcc-8abf-daed8e938bc4.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "R&B Now - Apple Music R&B",
-          "title": "R&B Now",
-          "subtitle": "Apple Music R&B",
-          "bgColor": "#010101",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/dancexl/pl.6bf4415b83ce4f3789614ac4c3675740?itscg=10000&itsct=mus-0-mus_fam-posn5_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/87/42/2a/87422af4-71b6-8860-9585-7b3a57f78ad7/e9d76023-64e0-41d1-ada4-d9fa1b1b60ba.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "danceXL - Apple Music Dance",
-          "title": "danceXL",
-          "subtitle": "Apple Music Dance",
-          "bgColor": "#000000",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/pure-meditation/pl.e896478fdf824a93ab2f99165c3a1422?itscg=10000&itsct=mus-0-mus_fam-posn6_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/3e/a3/7e/3ea37ed4-945e-7937-0791-dc0c9c9df9c3/U0MtTVMtV1ctUHVyZV9NZWRpdGF0aW9uLUFEQU1fSUQ9OTc2NDQ3NjgzLnBuZw.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Pure Meditation - Apple Music Wellbeing",
-          "title": "Pure Meditation",
-          "subtitle": "Apple Music Wellbeing",
-          "bgColor": "#e52a56",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/alt-ctrl/pl.0b593f1142b84a50a2c1e7088b3fb683?itscg=10000&itsct=mus-0-mus_fam-posn7_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/da/34/d2/da34d21d-f543-001b-4450-a294ca4f0ee7/fcb03152-be89-4eaf-a1a8-6be107f22e6d.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "ALT CTRL - Apple Music Alternative",
-          "title": "ALT CTRL",
-          "subtitle": "Apple Music Alternative",
-          "bgColor": "#2e292b",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/puro-pop/pl.2754a2d6e0084e2b8106fcd35fef6492?itscg=10000&itsct=mus-0-mus_fam-posn8_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/cf/40/62/cf406282-492f-c243-11a5-7143d1af96e5/deab0b3f-b9ea-4904-a707-465a9f752f02.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Puro Pop - Apple Music Pop Latino",
-          "title": "Puro Pop",
-          "subtitle": "Apple Music Pop Latino",
-          "bgColor": "#fae11d",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/superbloom/pl.78ee237116dc46f1a5a3d8916b4a28fc?itscg=10000&itsct=mus-0-mus_fam-posn9_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/b8/e5/39/b8e53971-6fce-6f27-8631-6ae236f5eade/930a942c-ccfa-4011-bba1-de6714468ff8.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Superbloom - Apple Music Pop",
-          "title": "Superbloom",
-          "subtitle": "Apple Music Pop",
-          "bgColor": "#fc4308",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/high-maintenance/pl.8573a92705fe4253af597147d7cb981f?itscg=10000&itsct=mus-0-mus_fam-posn10_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/3e/17/87/3e178780-d6f1-85a1-e342-9577a9ba965b/U0MtTVMtV1ctSGlnaF9NYWludGVuYW5jZS1hZGFtPTE1MDA3MjMxODMtTm9fTG9nby5wbmc.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "High Maintenance - Apple Music",
-          "title": "High Maintenance",
-          "subtitle": "Apple Music",
-          "bgColor": "#af6746",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/africa-now/pl.a0794db8bc6f45888834fa708a674987?itscg=10000&itsct=mus-0-mus_fam-posn11_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/0f/9e/58/0f9e5842-bf86-324d-6de8-2e4b35ec2235/77777270-f4ee-45b9-b103-d3df147eb75a.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Africa Now - Apple Music African",
-          "title": "Africa Now",
-          "subtitle": "Apple Music African",
-          "bgColor": "#e4a864",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/todays-hits/pl.f4d106fed2bd41149aaacabb233eb5eb?itscg=10000&itsct=mus-0-mus_fam-posn12_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/03/86/dd/0386ddd4-711a-c7fb-7446-34433b78512e/26c526e3-ed70-45e0-9157-089471a7673b.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Today's Hits - Apple Music Hits",
-          "title": "Today's Hits",
-          "subtitle": "Apple Music Hits",
-          "bgColor": "#b98740",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/the-a-list-k-pop/pl.48229b41bbfc47d7af39dae8e8b5276e?itscg=10000&itsct=mus-0-mus_fam-posn13_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/af/81/df/af81df78-c9a8-9689-12ab-889e82d5d8ba/7233fc40-2c3b-492c-8c31-ad91d8328eee.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "The A-List: K-Pop - Apple Music K-Pop",
-          "title": "The A-List: K-Pop",
-          "subtitle": "Apple Music K-Pop",
-          "bgColor": "#7400e4",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/family-pop/pl.cd835923714f47f295c08470b18e8891?itscg=10000&itsct=mus-0-mus_fam-posn14_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/97/b7/f3/97b7f335-4930-61da-1561-7222d62e3bbf/U0MtTVMtV1ctRmFtaWx5X1BvcC1BREFNX0lEPTk3NjQ1MTcwNi5wbmc.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Family Pop - Apple Music Family",
-          "title": "Family Pop",
-          "subtitle": "Apple Music Family",
-          "bgColor": "#f399ac",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/punjabi-hits/pl.35b8520d9d6a486d9bf5c1b3331165b2?itscg=10000&itsct=mus-0-mus_fam-posn15_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/5f/76/0e/5f760e1d-b095-a3ac-1d94-2786b102e129/d03ee1a8-6888-4055-83e8-97df33539acd.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Punjabi Hits - Apple Music Punjabi",
-          "title": "Punjabi Hits",
-          "subtitle": "Apple Music Punjabi",
-          "bgColor": "#d9d9d9",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/la-oficial/pl.daca4fa353174d7493a2394f03f623ea?itscg=10000&itsct=mus-0-mus_fam-posn16_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/48/eb/c6/48ebc68b-c5b5-e250-5eeb-6712f890fbb7/1493454c-120a-4e3e-a529-c19e137e4976.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "La Oficial - Apple Music Música Mexicana",
-          "title": "La Oficial",
-          "subtitle": "Apple Music Música Mexicana",
-          "bgColor": "#0027ec",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/todays-country/pl.87bb5b36a9bd49db8c975607452bfa2b?itscg=10000&itsct=mus-0-mus_fam-posn17_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/0a/c2/78/0ac27819-0452-fe87-b159-a17849c312f9/95d2017e-b13f-4270-959b-150ad25c59a7.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "Today's Country - Apple Music Country",
-          "title": "Today's Country",
-          "subtitle": "Apple Music Country",
-          "bgColor": "#efece7",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/onrepeat/pl.426a1044619f47d6b1f86b3f79ecf857?itscg=10000&itsct=mus-0-mus_fam-posn18_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/d3/40/3c/d3403caa-ce41-011c-da48-c8edd692c16a/39cf2216-3c5c-45a4-b687-0350abe4d4a4.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "#OnRepeat - Apple Music Hip-Hop",
-          "title": "#OnRepeat",
-          "subtitle": "Apple Music Hip-Hop",
-          "bgColor": "#000000",
-          "playlistId": 3
-        },
-        {
-          "link": "https://music.apple.com/us/playlist/new-music-daily/pl.2b0e6e332fdf4b7a91164da3162127b5?itscg=10000&itsct=mus-0-mus_fam-posn19_stm-apl-avl-200130",
-          "imageSrc": "https://is1-ssl.mzstatic.com/image/thumb/Features116/v4/4b/32/f5/4b32f58d-0a7b-3783-bd22-2fa278771657/2e05ed3e-7df0-4a28-af26-543a9ecc18a1.png/3744x3744SC.DN01.jpg?l=en-US",
-          "altText": "New Music Daily - Apple Music",
-          "title": "New Music Daily",
-          "subtitle": "Apple Music",
-          "bgColor": "#373737",
-          "playlistId": 3
-        }
-      ],
       "technologies": [
         {
           "icon": {
             "name": "bubble.fill"
           },
-          "eyebrow": "Language",
+          "eyebrow": "Langue",
           "title": "HTML",
-          "description": "Ich habe HTML beim Erstellen dieser Webseite gelernt und fühle mich damit sehr sicher, da ich es in fast allen bisherigen Projekten verwendet habe.",
+          "description": "J'ai appris le HTML en créant ce site web et je me sens très à l'aise avec, car je l'ai utilisé dans presque tous mes projets précédents.",
           "badges": ["Markup", "Web", "Frontend"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
               "icon": {
                 "name": "chevron.right"
@@ -1157,13 +449,13 @@
           "icon": {
             "name": "bubble.fill"
           },
-          "eyebrow": "Language",
+          "eyebrow": "Langue",
           "title": "CSS",
-          "description": "CSS habe ich ebenfalls während dem Aufbau dieser Webseite gelernt. Da CSS genau wie HTML in fast jedem Projekt verwendet wird, habe ich auch hier schon viel Erfahrung gesammelt.",
+          "description": "J'ai également appris le CSS pendant la construction de ce site web. Comme le CSS, tout comme le HTML, est utilisé dans presque tous les projets, j'ai également acquis beaucoup d'expérience dans ce domaine.",
           "badges": ["Styling", "Web", "Frontend", "Design"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://developer.mozilla.org/en-US/docs/Web/CSS",
               "icon": {
                 "name": "chevron.right"
@@ -1175,13 +467,13 @@
           "icon": {
             "name": "bubble.fill"
           },
-          "eyebrow": "Language",
+          "eyebrow": "Langue",
           "title": "JavaScript",
-          "description": "Das ist wahrscheinlich meine meist verwendete Programmiersprache. Ich habe damit schon bei vielen Projekten gearbeitet und auch schon mit Frameworks und Libraries, wie Vue.js, React oder Express.js angewendet, die ja darauf aufbauen.",
+          "description": "C'est probablement le langage de programmation que j'utilise le plus. J'ai travaillé avec lui sur de nombreux projets et je l'ai aussi utilisé avec des frameworks et des bibliothèques comme Vue.js, React ou Express.js, qui sont basés sur lui.",
           "badges": ["Scripting", "Web", "Frontend", "Backend"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
               "icon": {
                 "name": "chevron.right"
@@ -1193,13 +485,13 @@
           "icon": {
             "name": "books.vertical.fill"
           },
-          "eyebrow": "Library",
+          "eyebrow": "Bibliothèque",
           "title": "SDX",
-          "description": "Mit dieser Library bin ich schon mehrmals während meiner Ausbildung in Kontakt gekommen. Ich habe damit z.B. beim Entwickeln der Apps Team Webseite, der Medienkurse und noch vielen weiteren Swisscom-Applikationen gearbeitet.",
+          "description": "J'ai déjà été en contact avec cette bibliothèque plusieurs fois pendant ma formation. Je l'ai utilisée par exemple pour développer les applications du site web de l'équipe, les cours médias et bien d'autres applications Swisscom.",
           "badges": ["Swisscom", "Design", "UI"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://sdx.swisscom.ch",
               "icon": {
                 "name": "chevron.right"
@@ -1213,11 +505,11 @@
           },
           "eyebrow": "Runtime",
           "title": "Node.js",
-          "description": "Diese Technologie habe ich im NexCC das allererste mal gelernt und angewendet. Dabei habe ich zuerst kennengelernt was Node.js überhaupt ist und auch wie man dependencies mit NPM installiert und verwaltet.",
+          "description": "J'ai appris et utilisé cette technologie pour la toute première fois à NexCC. J'ai d'abord appris ce qu'était Node.js et comment installer et gérer les dépendances avec NPM.",
           "badges": ["Javascript", "Server", "Backend"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://nodejs.org",
               "icon": {
                 "name": "chevron.right"
@@ -1229,13 +521,13 @@
           "icon": {
             "name": "bubble.fill"
           },
-          "eyebrow": "Language",
+          "eyebrow": "Langue",
           "title": "SQL",
-          "description": "SQL habe ich erstmals während der Entwicklung meiner CRUD-App im NexCC verwendent, dabei habe ich die Basics gelernt. Später gab es auch noch die beiden Berufsschulmodule 162 und 164 und den ÜK-106, der auch fortgeschrittene Abfragen beinhaltete.",
+          "description": "J'ai utilisé SQL pour la première fois pendant le développement de mon application CRUD dans le NexCC, j'y ai appris les bases. Plus tard, il y avait aussi les deux modules d'école professionnelle 162 et 164 et le CIE-106, qui comprenait aussi des requêtes avancées.",
           "badges": ["Database", "Query", "Backend"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://developer.mozilla.org/en-US/docs/Glossary/SQL",
               "icon": {
                 "name": "chevron.right"
@@ -1249,11 +541,11 @@
           },
           "eyebrow": "Framework",
           "title": "Express.js",
-          "description": "Meine CRUD-App im NexCC habe ich damit erstellt, was sehr lehrreich für mich war. Später hatte ich auch noch einen entsprechenden ÜK, welcher darum ging ein Backend mit Express.js zu erstellen.",
+          "description": "J'ai créé mon application CRUD dans NexCC, ce qui a été très instructif pour moi. Plus tard, j'ai également suivi un cours de formation correspondant, qui consistait à créer un backend avec Express.js.",
           "badges": ["Node", "Web", "Backend"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://expressjs.com",
               "icon": {
                 "name": "chevron.right"
@@ -1267,11 +559,11 @@
           },
           "eyebrow": "Framework",
           "title": "Vue.js",
-          "description": "Diese Webseite ist mit Vue.js erstellt worden und ich habe damit auch anderweitig gearbeitet. Beispiele sind meine Memory App im Apps Team oder das Zukunftstagstool und die Berufsschulapp, welche ich wiederrum im NexCC erstellt habe.",
+          "description": "Ce site web a été créé avec Vue.js et je l'ai également utilisé dans d'autres domaines. Par exemple, mon application de mémoire dans le Apps Team ou l'outil du jour de l'avenir et l'application de l'école professionnelle, que j'ai à nouveau créée dans NexCC.",
           "badges": ["Javascript", "Frontend", "Web"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://vuejs.org",
               "icon": {
                 "name": "chevron.right"
@@ -1283,13 +575,13 @@
           "icon": {
             "name": "bubble.fill"
           },
-          "eyebrow": "Language",
+          "eyebrow": "Langue",
           "title": "TypeScript",
-          "description": "Diese Technologie habe ich das erste mal bei meiner Memory-App im Apps Team verwendet und benutze seither wenn möglich nur noch TypeScript anstelle von JavaScript. Projekte, bei denen ich TypeScript gearbeitet habe, sind z.B. die Apps Team Webseite, die CRUD-App im Apps Team oder auch das Fleetmanagement Tool.",
+          "description": "J'ai utilisé cette technologie pour la première fois avec mon application de mémoire dans Apps Team et depuis, je n'utilise que TypeScript au lieu de JavaScript lorsque c'est possible. Les projets pour lesquels j'ai utilisé TypeScript sont par exemple le site web de le Apps Team, l'application CRUD de le Apps Team ou encore l'outil de gestion de flotte.",
           "badges": ["Javascript", "Typed", "Frontend", "Backend"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://typescriptlang.org",
               "icon": {
                 "name": "chevron.right"
@@ -1301,13 +593,13 @@
           "icon": {
             "name": "bubble.fill"
           },
-          "eyebrow": "Language",
+          "eyebrow": "Langue",
           "title": "C#",
-          "description": "Ich habe C# bereits in der 3. Oberstufe kennengelernt, als ich ein eigenes Spiel mit Unity als Abschlussarbeit erstellt habe. Bei den Automatisierungsprojekten im Banking Bereich habe ich dann noch ein wenig mehr darüber gelernt.",
+          "description": "J'ai découvert C# dès la 3e année secondaire, lorsque j'ai créé mon propre jeu avec Unity comme projet de fin d'études. J'en ai ensuite appris un peu plus en travaillant sur des projets d'automatisation dans le domaine bancaire.",
           "badges": ["Microsoft", "Backend", "Object-Oriented"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://docs.microsoft.com/en-us/dotnet/csharp",
               "icon": {
                 "name": "chevron.right"
@@ -1319,13 +611,13 @@
           "icon": {
             "name": "bubble.fill"
           },
-          "eyebrow": "Language",
+          "eyebrow": "Langue",
           "title": "Java",
-          "description": "Java kenne ich hauptsächlich vom Berufsschulmodul 319, wo wir damit gearbeitet haben und kleinere Aufgaben programmieren mussten. Im Modul 320 kam dann auch noch OOP dazu, was ich sehr interessant fand. Ausserdem habe ich auch noch den ÜK-223 besucht, bei dem es darum ging Multi-User-Applikationen objektorientiert zu realisieren. Das haben wir mit einem Java-Backend und einem ORM gemacht.",
+          "description": "Je connais Java principalement par le module 319 de l'école professionnelle, où nous avons travaillé avec et avons dû programmer de petites tâches. Dans le module 320, il y avait aussi la POO, que j'ai trouvée très intéressante. J'ai également suivi le CIE-223, qui portait sur la réalisation d'applications multi-utilisateurs orientées objet. Nous l'avons fait avec un backend Java et un ORM.",
           "badges": ["Backend", "Object-Oriented", "Enterprise"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://java.com",
               "icon": {
                 "name": "chevron.right"
@@ -1337,13 +629,13 @@
           "icon": {
             "name": "bubble.fill"
           },
-          "eyebrow": "Language",
+          "eyebrow": "Langue",
           "title": "Bash",
-          "description": "Ich habe schon oft mit Bash gearbeitet und bin damit mittlerweile auch einigermassen vertraut. Ich habe damit z.B. schon ein paar kleine Skripte geschrieben, um mir die Arbeit zu erleichtern. Zudem gab es auch das Modul 122 in der Berufsschule, bei dem wir ebenfalls mit Bash gearbeitet haben.",
+          "description": "J'ai souvent travaillé avec Bash et je m'y connais un peu maintenant. Par exemple, j'ai déjà écrit quelques petits scripts pour me faciliter la tâche. De plus, il y avait aussi le module 122 à l'école professionnelle, dans lequel nous avons également travaillé avec Bash.",
           "badges": ["Scripting", "Shell", "Linux"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://gnu.org/software/bash",
               "icon": {
                 "name": "chevron.right"
@@ -1357,11 +649,11 @@
           },
           "eyebrow": "Framework",
           "title": "React",
-          "description": "React selbst habe ich erst gelernt, nachdem ich bereits mit Next.js gearbeitet habe, daher war die Lernkurve nicht mehr so steil. Beispiele für Projekte, bei denen ich React verwendet habe, sind z.B. die Medienkurse, das Fleetmanagement Tool oder auch die neuen Webfrontends.",
+          "description": "J'ai appris React lui-même après avoir déjà travaillé avec Next.js, donc la courbe d'apprentissage n'était plus aussi raide. Des exemples de projets pour lesquels j'ai utilisé React sont par exemple les cours de médias, l'outil de gestion de flotte ou encore les nouveaux frontaux web.",
           "badges": ["Javascript", "Frontend", "Web", "UI"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://reactjs.org",
               "icon": {
                 "name": "chevron.right"
@@ -1375,11 +667,11 @@
           },
           "eyebrow": "Framework",
           "title": "Next.js",
-          "description": "Das erste mal kennenlernen durte ich Next.js im Apps Team, wo ich damit die neue Apps Team Webseite erstellt habe. Dort habe ich gleichzeitig auch sehr viel über React gelernt und konnte so meine Kenntnisse gleich in beiden Frameworks verbessern.",
+          "description": "J'ai découvert Next.js pour la première fois dans le Apps Team, où j'ai créé le nouveau site web de le Apps Team. J'ai également appris beaucoup de choses sur React, ce qui m'a permis d'améliorer mes connaissances dans les deux frameworks.",
           "badges": ["React", "Frontend", "Web", "SSR"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://nextjs.org",
               "icon": {
                 "name": "chevron.right"
@@ -1391,13 +683,13 @@
           "icon": {
             "name": "shippingbox.fill"
           },
-          "eyebrow": "Container Management",
+          "eyebrow": "Gestion des conteneurs",
           "title": "Docker",
-          "description": "Richtig verstanden und mich damit beschäftigt habe ich Docker im Berufsschulmodul 347, wo wir eine Applikation mittels CI/CD deployen mussten. Dazu gab es den ÜK 210, bei dem es um das Thema Cloud ging und wir auch dort nochmal mit Docker gearbeitet haben.",
+          "description": "J'ai vraiment compris et étudié Docker dans le module 347 de l'école professionnelle, où nous devions déployer une application à l'aide de CI/CD. Il y avait aussi le ÜK-210, qui traitait du cloud et où nous avons également travaillé avec Docker.",
           "badges": ["Container", "DevOps", "Cloud"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://docker.com",
               "icon": {
                 "name": "chevron.right"
@@ -1409,13 +701,13 @@
           "icon": {
             "name": "shippingbox.fill"
           },
-          "eyebrow": "Container Management",
+          "eyebrow": "Gestion des conteneurs",
           "title": "Kubernetes",
-          "description": "Auch Kubernetes habe ich im Berufsschulmodul 347 kennengelernt und dort verwendet, um eine Applikation mittels CI/CD zu deployen. Der ÜK 210 hat mir dann nochmal einen tieferen Einblick in die Container-Orchestrierung gegeben, da er sich mehr damit beschäftigt hat.",
+          "description": "J'ai également découvert Kubernetes dans le module 347 de l'école professionnelle, où je l'ai utilisé pour déployer une application à l'aide de CI/CD. Le ÜK-210 m'a ensuite donné un aperçu plus approfondi de l'orchestration de conteneurs, car il s'y est davantage intéressé.",
           "badges": ["Container", "Orchestration", "DevOps"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://kubernetes.io",
               "icon": {
                 "name": "chevron.right"
@@ -1429,11 +721,11 @@
           },
           "eyebrow": "Framework",
           "title": "Nest.js",
-          "description": "Dieses Backend-Framework habe ich im Apps Team kennengelernt und habe damit meine CRUD-App erstellt. Dabei habe ich viel über die Architektur und die verschiedenen Module gelernt. Ausserdem habe ich auch in produktiven Projekten im Apps Team, wie z.B. dem Fleetmanagement Tool oder den neuen Webfrontends damit gearbeitet.",
+          "description": "J'ai découvert ce framework backend dans le Apps Team et l'ai utilisé pour créer mon application CRUD. J'ai beaucoup appris sur l'architecture et les différents modules. J'ai également travaillé avec lui sur des projets productifs au sein de le Apps Team, comme l'outil de gestion de flotte ou les nouveaux frontaux web.",
           "badges": ["Node", "Backend", "TypeScript"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://nestjs.com",
               "icon": {
                 "name": "chevron.right"
@@ -1447,11 +739,11 @@
           },
           "eyebrow": "ORM",
           "title": "Prisma",
-          "description": "Das habe ich verwendet um meine CRUD-App zu erstellen und ich bin dabei das erste mal mit einem ORM in Berührung gekommen. Später habe ich auch beim Fleetmanagement Tool mit Prisma gearbeiet.",
+          "description": "Je l'ai utilisé pour créer mon application CRUD et c'est la première fois que j'ai été en contact avec un ORM. Plus tard, j'ai aussi travaillé avec Prisma pour l'outil de gestion de flotte.",
           "badges": ["Database", "TypeScript", "ORM"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://prisma.io",
               "icon": {
                 "name": "chevron.right"
@@ -1465,11 +757,11 @@
           },
           "eyebrow": "ORM",
           "title": "TypeORM",
-          "description": "Als Alternative zu Prisma habe ich meine CRUD-App, nachdem ich sie fertiggestellt habe, auch noch mit TypeORM umgesetzt, da auch dieses ORM in diversen Projekten im Apps Team verwendet wird.",
+          "description": "Comme alternative à Prisma, j'ai également mis en œuvre mon application CRUD, après l'avoir terminée, avec TypeORM, car cet ORM est également utilisé dans divers projets de le Apps Team.",
           "badges": ["Database", "TypeScript", "ORM"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://typeorm.io",
               "icon": {
                 "name": "chevron.right"
@@ -1481,13 +773,13 @@
           "icon": {
             "name": "books.vertical.fill"
           },
-          "eyebrow": "Library",
+          "eyebrow": "Bibliothèque",
           "title": "GitHub Primer",
-          "description": "Ich habe GitHub Primer benutzt, um ein Frontend zusammen mit React für meine CRUD-App im Apps Team zu erstellen.",
+          "description": "J'ai utilisé GitHub Primer pour créer un front-end avec React pour mon application CRUD dans le Apps Team.",
           "badges": ["React", "Frontend", "Design", "UI"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://primer.style",
               "icon": {
                 "name": "chevron.right"
@@ -1499,13 +791,13 @@
           "icon": {
             "name": "books.vertical.fill"
           },
-          "eyebrow": "Library",
+          "eyebrow": "Bibliothèque",
           "title": "Tailwind CSS",
-          "description": "Tailwind CSS wurde zusammen mit SDX in vielen Projekten im Apps Team verwendet. Das Fleetmanagement Tool und die neuen Webfrontends sind zwei Beispiele dafür.",
+          "description": "Tailwind CSS a été utilisé avec SDX dans de nombreux projets de le Apps Team. L'outil de gestion de flotte et les nouveaux frontaux web en sont deux exemples.",
           "badges": ["CSS", "Frontend", "Design", "UI"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://tailwindcss.com",
               "icon": {
                 "name": "chevron.right"
@@ -1517,13 +809,13 @@
           "icon": {
             "name": "bubble.fill"
           },
-          "eyebrow": "Language",
+          "eyebrow": "Langue",
           "title": "Python",
-          "description": "Diese Programmiersprache habe ich im Security Journey gelernt und sie für die Entwicklung des DAM Log Scanners verwendet, ein Tool, welches Datenbankaktivitäten aufzeichnet.",
+          "description": "J'ai appris ce langage de programmation dans le Security Journey et je l'ai utilisé pour développer le DAM Log Scanner, un outil qui enregistre l'activité de la base de données.",
           "badges": ["Scripting", "Backend", "Object-Oriented"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://python.org",
               "icon": {
                 "name": "chevron.right"
@@ -1535,13 +827,13 @@
           "icon": {
             "name": "bubble.fill"
           },
-          "eyebrow": "Language",
+          "eyebrow": "Langue",
           "title": "Kotlin",
-          "description": "Kotlin habe ich im ÜK 335 gelernt, wo wir als Projektarbeit eine Android App erstellt haben. Dabei konnten wir selbst entscheiden, ob wir Java oder Kotlin verwenden. Ich habe mich für Kotlin entschieden, da ich es interessant fand und es auch eine moderne Programmiersprache ist.",
+          "description": "J'ai appris Kotlin lors du CI 335, où nous avons créé une application Android dans le cadre d'un projet. Nous avons pu décider nous-mêmes si nous voulions utiliser Java ou Kotlin. J'ai choisi Kotlin parce que je le trouvais intéressant et que c'est aussi un langage de programmation moderne.",
           "badges": ["Android", "Mobile", "Object-Oriented"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://kotlinlang.org",
               "icon": {
                 "name": "chevron.right"
@@ -1553,13 +845,13 @@
           "icon": {
             "name": "bubble.fill"
           },
-          "eyebrow": "Language",
+          "eyebrow": "Langue",
           "title": "Jetpack Compose",
-          "description": "Ich habe Jetpack Compose das erste mal zusammen mit Kotlin im ÜK 335 verwendet, wo wir eine Android App erstellt haben.",
+          "description": "J'ai utilisé Jetpack Compose pour la première fois avec Kotlin dans le CI 335, où nous avons créé une application Android.",
           "badges": ["Android", "Mobile", "UI"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://kotlinlang.org",
               "icon": {
                 "name": "chevron.right"
@@ -1571,13 +863,13 @@
           "icon": {
             "name": "books.vertical.fill"
           },
-          "eyebrow": "Library",
+          "eyebrow": "Bibliothèque",
           "title": "Material Design 3",
-          "description": "Während meiner Projektarbeit im ÜK 335 habe ich Material Design 3 verwendet, um die Android App zu gestalten.",
+          "description": "Pendant mon travail de projet au ÜK-335, j'ai utilisé Material Design 3 pour concevoir l'application Android.",
           "badges": ["Android", "Mobile", "UI", "Design", "Google"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://kotlinlang.org",
               "icon": {
                 "name": "chevron.right"
@@ -1591,11 +883,11 @@
           },
           "eyebrow": "Framework",
           "title": "Nuxt",
-          "description": "Nuxt habe ich mir selbst beigebracht, da ich es interessant fand und auch gerne mit Vue programmiere, worauf Nuxt aufbaut. Bisher habe ich es allerdings bei keinen Projeken ausser dieser Webseite verwendet.",
+          "description": "J'ai appris Nuxt par moi-même, car je trouvais cela intéressant et j'aime aussi programmer avec Vue, sur lequel Nuxt est basé. Jusqu'à présent, je ne l'ai pas utilisé pour d'autres projets que ce site web.",
           "badges": ["Vue", "Frontend", "Web", "SSR"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://nextjs.org",
               "icon": {
                 "name": "chevron.right"
@@ -1609,11 +901,11 @@
           },
           "eyebrow": "Framework",
           "title": "Angular",
-          "description": "Während ich im Piz Tofana Team war, habe ich Angular kennengelernt und auch damit gearbeitet. Damit haben wir nämlich während der Entwicklung des Frontends von Daedalus gearbeitet.",
+          "description": "Pendant que j'étais dans l'équipe de Piz Tofana, j'ai appris à connaître Angular et à l'utiliser. Nous l'avons utilisé pendant le développement du front-end de Daedalus.",
           "badges": ["Javascript", "Frontend", "Web", "UI"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://angular.io",
               "icon": {
                 "name": "chevron.right"
@@ -1627,11 +919,11 @@
           },
           "eyebrow": "Runtime",
           "title": "Bun",
-          "description": "Ich habe Bun kennengelernt, als ich meine Webseite auf Nuxt umgestellt habe. Vorallem die Einfachheit und die Geschwindigkeit im Gegensatz zu Node.js haben mich dabei überzeugt, weswegen ich wenn möglich nur noch Bun verwende.",
+          "description": "J'ai découvert Bun lorsque j'ai mis mon site web à jour avec Nuxt. La simplicité et la vitesse par rapport à Node.js m'ont convaincu, c'est pourquoi je n'utilise plus que Bun lorsque c'est possible.",
           "badges": ["TypeScript", "Server", "Backend"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://bun.sh",
               "icon": {
                 "name": "chevron.right"
@@ -1643,13 +935,13 @@
           "icon": {
             "name": "bubble.fill"
           },
-          "eyebrow": "Language",
+          "eyebrow": "Langue",
           "title": "Scala",
-          "description": "Scala habe ich im Berufsschulmodul 323 kennengelernt und fand es sehr interessant, da es viele Parallelen zu Java hat, aber auch viele neue Konzepte, wie z.B. Traits oder Pattern Matching, mitbringt.",
+          "description": "J'ai découvert Scala dans le module 323 de l'école professionnelle et je l'ai trouvé très intéressant, car il présente de nombreux parallèles avec Java, tout en apportant de nombreux nouveaux concepts, comme les traits ou le pattern matching.",
           "badges": ["Backend", "Object-Oriented", "Functional", "Java"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://scala-lang.org",
               "icon": {
                 "name": "chevron.right"
@@ -1664,8 +956,8 @@
             "name": "airplane.departure"
           },
           "eyebrow": "Introduction",
-          "title": "NEX First Steps",
-          "description": "In den First Steps hat meine Lehre begonnen. Dort habe ich alles rund um Swisscom kennengelernt, also z.B. wie man die verschieden Tools verwendet, wie man richtig zusammenarbeitet und auch andere Dinge, wie beispielsweise die Arbeitssicherheit.",
+          "title": "NEX Premières étapes",
+          "description": "C'est dans les First Steps que mon apprentissage a commencé. J'y ai appris tout ce qui concerne Swisscom, par exemple comment utiliser les différents outils, comment collaborer correctement et aussi d'autres choses, comme la sécurité au travail.",
           "badges": [
             "Introduction",
             "Swisscom",
@@ -1678,7 +970,7 @@
               "fixed": "2021-08-01"
             },
             "supervisor": "Steve Hess",
-            "location": "Zürich & Bern",
+            "location": "Zurich & Berne",
             "department": "GHR-POD-NEX"
           }
         },
@@ -1686,9 +978,9 @@
           "icon": {
             "name": "chevron.left.forwardslash.chevron.right"
           },
-          "eyebrow": "Full Stack",
-          "title": "Competence Center NexCC",
-          "description": "Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei viele neue Programmiersprachen gelernt. Darunter HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App erstellen, welche ich mit einer SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend hinzugefügt und so ein eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte Programmiersprachen, wie Node.js, Express.js oder Vue.js neu dazugelernt.",
+          "eyebrow": "Full-Stack",
+          "title": "Centre de compétences NexCC",
+          "description": "Au NexCC, j'ai d'abord pu créer ce site web ici et j'ai appris de nombreux nouveaux langages de programmation. Notamment HTML, CSS et JavaScript. Ensuite, j'ai pu créer une application CRUD que j'ai reliée à une base de données SQL. Plus tard, j'ai également ajouté un frontend et créé mon propre système de connexion. J'ai surtout appris à connaître le backend et les langages de programmation basés sur les frameworks, comme Node.js, Express.js ou Vue.js.",
           "badges": [
             "Web Development",
             "Frontend",
@@ -1719,8 +1011,8 @@
             "name": "clock.arrow.trianglehead.2.counterclockwise.rotate.90"
           },
           "eyebrow": "Automation",
-          "title": "Automatisierungsprojekte im Banking Bereich",
-          "description": "Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld erhalten. Ich war aktiv dabei und habe die einzelnen Banken mittls Ranorex & UiPath gelernt zu testen bzw. zu automatisieren. Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr über das .NET Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu verbessern!",
+          "title": "Projets d'automatisation dans le domaine bancaire",
+          "description": "Ici, j'ai pu avoir un aperçu général de l'automatisation et de son environnement. J'ai participé activement et j'ai appris à tester ou à automatiser les différentes banques à l'aide de Ranorex & UiPath. J'ai aussi appris un peu de C# et plus de choses sur le framework .NET. Mais mon objectif est d'améliorer cela à l'avenir!",
           "badges": [
             "Automation",
             "Banking",
@@ -1751,11 +1043,11 @@
           },
           "eyebrow": "Frontend",
           "title": "Apps Team - Frontend",
-          "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
+          "description": "Dans le Apps Team, j'ai d'abord pu créer ma propre application mémoire avec Vue.js, TypeScript et SDX. Ensuite, j'ai aidé à programmer le nouveau site web de le Apps Team. Là aussi, nous avons travaillé avec TypeScript et SDX, mais en utilisant Next.js comme framework.",
           "badges": ["Frontend", "Memory", "Vue", "TypeScript", "SDX", "Next"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://appsteam.swisscom.com",
               "icon": {
                 "name": "chevron.right"
@@ -1780,7 +1072,7 @@
           },
           "eyebrow": "Backend",
           "title": "Apps Team - Backend",
-          "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt. Danach habe ich dann beim Tool für Medienkurse mitgeholfen und konnte dort einige Features hinzufügen und Fehler beheben. Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen Webfrontends mitwirken, was mir sehr gefallen hat :)",
+          "description": "Après avoir travaillé dans le Apps Team en tant que développeur front-end, je voulais maintenant mieux connaître le back-end. J'ai d'abord pu créer ma propre application CRUD. J'ai appris beaucoup de choses sur Nest.js et les deux ORM Prisma et TypeORM, et j'ai acquis une expérience précieuse. Plus tard, j'ai également créé un front-end pour mon application CRUD avec GitHub Primer. Ensuite, j'ai aidé à l'outil pour les cours de médias et j'ai pu y ajouter quelques fonctionnalités et corriger des erreurs. Enfin, j'ai pu participer à l'outil de gestion de la flotte et aux nouveaux fronts web, ce qui m'a beaucoup plu :)",
           "badges": [
             "Backend",
             "CRUD",
@@ -1792,7 +1084,7 @@
           ],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://appsteam.swisscom.com",
               "icon": {
                 "name": "chevron.right"
@@ -1815,9 +1107,9 @@
           "icon": {
             "name": "shield.lefthalf.filled"
           },
-          "eyebrow": "Security Journey",
-          "title": "Security & Compliance Services ART",
-          "description": "In diesem Projekt habe ich mit ein paar Trainings zu Cloud, Security und DevOps begonnen, was ziemlich lehrreich für mich war. Danach durfte ich bereits am DAM Log Scanner Projekt arbeiten, einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring) und nach spezifischen Richtlinien handelt. Diese wurden primär mit OPA (Open Policy Agent) umgsetzt, womit ich allerdings nicht allzu viel zu tun hatte. Ich habe nämlich hauptsächlich Python, Docker und Kubernetes verwendet, wobei Python für mich neu war. Gegen Ende des Projekts habe ich dann auch noch begonnen Elasticsearch zu implementieren, um die Daten zu visualisieren und zu analysieren.",
+          "eyebrow": "Parcours de sécurité",
+          "title": "Services de sécurité et de conformité ART",
+          "description": "Dans ce projet, j'ai commencé par quelques formations sur le cloud, la sécurité et DevOps, ce qui a été assez instructif pour moi. Ensuite, j'ai pu travailler sur le projet DAM Log Scanner, un outil qui enregistre l'activité de la base de données (Database Activity Monitoring) et agit selon des directives spécifiques. Celles-ci ont été mises en œuvre principalement avec OPA (Open Policy Agent), mais je n'ai pas eu beaucoup à faire avec. J'ai principalement utilisé Python, Docker et Kubernetes, Python étant nouveau pour moi. Vers la fin du projet, j'ai également commencé à mettre en œuvre Elasticsearch pour visualiser et analyser les données.",
           "badges": [
             "Security",
             "Cloud",
@@ -1845,9 +1137,9 @@
           "icon": {
             "name": "shield.lefthalf.filled"
           },
-          "eyebrow": "Security Journey",
+          "eyebrow": "Parcours de sécurité",
           "title": "Piz Tofana Tooling Team",
-          "description": "Während meines Aufenthalts im Team Piz Tofana, habe ich hauptsächlich an der Daedalus Applikation gearbeitet. Diese bietet verschiedene Selbstbeurteilungs-Module, die von den Fachabteilungen zur Bewertung von Datenschutz, Sicherheit, Compliance, Klassifizierung und Weiterem für verknüpfte Objekte wie Anwendungen, Ressourcen, Dienste oder Angebote bereitgestellt werden. Als Technologien wurden Java Spring Boot für das Backend und Angular für das Frontend verwendet.",
+          "description": "Pendant mon séjour dans l'équipe Piz Tofana, j'ai principalement travaillé sur l'application Daedalus. Celle-ci offre différents modules d'auto-évaluation qui sont fournis par les départements spécialisés pour évaluer la protection des données, la sécurité, la conformité, la classification et autres pour les objets liés tels que les applications, les ressources, les services ou les offres. Les technologies utilisées sont Java Spring Boot pour le backend et Angular pour le frontend.",
           "badges": ["Security", "Java", "Spring Boot", "Angular"],
           "info": {
             "date": {
@@ -1865,13 +1157,13 @@
           "icon": {
             "name": "airplane.arrival"
           },
-          "eyebrow": "Fullstack",
-          "title": "Apps Team - Fullstack (IPA)",
-          "description": "Für meine IPA (Individuelle Praktische Arbeit) habe ich mich entschieden, nochmals ins Apps Team zu gehen, da ich dort bereits viele Erfahrungen sammeln konnte und auch die Leute dort sehr nett sind. Aktuell arbeite ich hier mit Next.js als Frontend-Framework und Nest.js als Backend-Framework.",
+          "eyebrow": "Full-Stack",
+          "title": "Apps Team - Full-Stack (IPA)",
+          "description": "Pour mon TPI (Travail Pratique Individuel), j'ai décidé d'intégrer à nouveau le Apps Team, car j'y ai déjà acquis beaucoup d'expérience et les gens y sont également très sympathiques. Actuellement, je travaille ici avec Next.js comme framework frontal et Nest.js comme framework dorsal.",
           "badges": ["Next", "Nest", "TypeORM", "Prisma", "IPA"],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "En savoir plus",
               "url": "https://appsteam.swisscom.com",
               "icon": {
                 "name": "chevron.right"
@@ -1902,7 +1194,7 @@
         }
       },
       "title": "{statusCode} Not Found",
-      "description": "Die Seite, die du suchst, kann nicht gefunden werden. Bitte überprüfe sie und versuche es erneut.",
+      "description": "La page que tu cherches est introuvable. Vérifie-la s'il te plaît et essaie à nouveau.",
       "links": []
     },
     "internalServerError": {
@@ -1912,8 +1204,8 @@
           "primary": "var(--color-system-red)"
         }
       },
-      "title": "{statusCode} Internal Server Error",
-      "description": "Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem weiterhin besteht.",
+      "title": "{statusCode} Erreur de serveur interne",
+      "description": "Quelque chose s'est mal passé. Reviens bientôt si le problème persiste.",
       "links": []
     },
     "serviceUnavailable": {
@@ -1923,8 +1215,8 @@
           "secondary": "var(--color-system-blue)"
         }
       },
-      "title": "Be right back.",
-      "description": "Ich führe Aktualisierungen auf der Seite durch. Schau bald wieder vorbei.",
+      "title": "Sois de retour.",
+      "description": "Je suis en train de faire des mises à jour sur le site. Reviens bientôt.",
       "links": []
     },
     "error": {
@@ -1934,8 +1226,8 @@
           "primary": "var(--color-system-red)"
         }
       },
-      "title": "Error {statusCode}",
-      "description": "Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem weiterhin besteht.",
+      "title": "Erreur {statusCode}",
+      "description": "Quelque chose s'est mal passé. Reviens bientôt si le problème persiste.",
       "links": []
     }
   }
