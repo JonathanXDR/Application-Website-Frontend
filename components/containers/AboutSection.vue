@@ -105,7 +105,8 @@ onMounted(async () => {
   padding: 0;
 }
 
-.sharesheet-options {
+.sharesheet {
+  margin-top: 24px;
   justify-content: center;
 }
 
@@ -141,7 +142,7 @@ onMounted(async () => {
     padding: 0;
   }
 
-  .sharesheet-options {
+  .sharesheet {
     justify-content: flex-start;
   }
 

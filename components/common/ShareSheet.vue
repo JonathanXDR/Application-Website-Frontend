@@ -1,24 +1,26 @@
 <template>
-  <ul class="sharesheet-options">
-    <li
-      v-for="(link, index) in links"
-      :key="index"
-      v-animation="{ add: 'visible' }"
-      class="social-option"
-    >
-      <NuxtLink
-        class="link"
-        :to="link.url"
-        :title="link.title"
-        target="_blank"
-        external
+  <section class="sharesheet">
+    <ul class="sharesheet-options">
+      <li
+        v-for="(link, index) in links"
+        :key="index"
+        v-animation="{ add: 'visible' }"
+        class="social-option"
       >
-        <ClientOnly>
-          <Icon :name="`fa6-${link.category}:${link.icon?.name}`" />
-        </ClientOnly>
-      </NuxtLink>
-    </li>
-  </ul>
+        <NuxtLink
+          class="link"
+          :to="link.url"
+          :title="link.title"
+          target="_blank"
+          external
+        >
+          <ClientOnly>
+            <Icon :name="`fa6-${link.category}:${link.icon?.name}`" />
+          </ClientOnly>
+        </NuxtLink>
+      </li>
+    </ul>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -38,11 +40,16 @@ const links = computed<FaLinkType[]>(() =>
   color: var(--color-figure-blue) !important;
 }
 
+.sharesheet {
+  display: flex;
+  align-items: center;
+  height: 1.5em;
+}
+
 .sharesheet-options {
   display: flex;
   align-items: center;
   visibility: visible;
-  margin-top: 24px;
 }
 
 @keyframes FadeIn {

@@ -75,8 +75,8 @@ const getLabel = (locale: { code: string; name?: string }) => {
 
 .lang-switcher-container .language-picker-wrapper li:last-of-type {
   border-right: none;
-  padding-right: 10px;
-  margin-right: 20px;
+  padding-right: 0;
+  margin-right: 0;
 }
 
 input[name="language"]:checked ~ label {
