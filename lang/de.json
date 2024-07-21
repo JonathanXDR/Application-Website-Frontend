@@ -1,0 +1,1234 @@
+{
+  "components": {
+    "common": {
+      "NavBar": [
+        {
+          "id": "about",
+          "name": "About",
+          "route": "#about",
+          "class": "section-separated"
+        },
+        {
+          "id": "languages",
+          "name": "Sprachen",
+          "route": "#languages",
+          "class": "section-separated"
+        },
+        {
+          "id": "references",
+          "name": "Referenzen",
+          "route": "#references",
+          "class": "section-separated"
+        },
+        {
+          "id": "school",
+          "name": "Schule",
+          "route": "#school",
+          "class": "section-separated"
+        },
+        {
+          "id": "technologies",
+          "name": "Technologien",
+          "route": "#technologies"
+        },
+        {
+          "id": "projects",
+          "name": "Projekte",
+          "route": "#projects"
+        }
+      ],
+      "RibbonBar": [
+        {
+          "description": "Was ist neu in {latestTag}?",
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/{previousTag}...{latestTag}",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Erkunde meine neusten Projekte bei Swisscom!",
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "#projects",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "description": "Entdecke alle Technologien, mit denen ich bisher gearbeitet habe!",
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "#technologies",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        }
+      ],
+      "SegmentNav": {
+        "theme": [
+          {
+            "id": "light",
+            "category": "theme",
+            "label": "Hell",
+            "icon": {
+              "name": "sun.max.fill"
+            }
+          },
+          {
+            "id": "dark",
+            "category": "theme",
+            "label": "Dunkel",
+            "icon": {
+              "name": "moon.fill"
+            }
+          },
+          {
+            "id": "auto",
+            "category": "theme",
+            "label": "Auto",
+            "icon": {
+              "name": "circle.lefthalf.filled"
+            }
+          }
+        ],
+        "projects": [
+          {
+            "id": "swisscom",
+            "category": "projects",
+            "label": "Swisscom",
+            "icon": {
+              "name": "building.2.fill"
+            }
+          },
+          {
+            "id": "personal",
+            "category": "projects",
+            "label": "Persönlich",
+            "icon": {
+              "name": "person.fill"
+            }
+          },
+          {
+            "id": "school",
+            "category": "projects",
+            "label": "Schule",
+            "icon": {
+              "name": "graduationcap.fill"
+            }
+          }
+        ],
+        "technologies": [
+          {
+            "id": "language",
+            "category": "technologies",
+            "label": "Sprache",
+            "icon": {
+              "name": "bubble.fill"
+            }
+          },
+          {
+            "id": "library",
+            "category": "technologies",
+            "label": "Bibliothek",
+            "icon": {
+              "name": "books.vertical.fill"
+            }
+          },
+          {
+            "id": "runtime",
+            "category": "technologies",
+            "label": "Runtime",
+            "icon": {
+              "name": "gear"
+            }
+          },
+          {
+            "id": "framework",
+            "category": "technologies",
+            "label": "Framework",
+            "icon": {
+              "name": "inset.filled.square.dashed"
+            }
+          },
+          {
+            "id": "container-management",
+            "category": "technologies",
+            "label": "Container Management",
+            "icon": {
+              "name": "shippingbox.fill"
+            }
+          },
+          {
+            "id": "orm",
+            "category": "technologies",
+            "label": "ORM",
+            "icon": {
+              "name": "gear"
+            }
+          }
+        ]
+      },
+      "LiveResultSummary": {
+        "title": "Zeige {count} Ergebnisse",
+        "description": "Angepinnt"
+      },
+      "CardItem": {
+        "created": "Erstellt",
+        "updated": "Aktualisiert",
+        "learnMore": "Mehr erfahren"
+      },
+      "ShareSheet": {
+        "links": [
+          {
+            "title": "Mail",
+            "url": "mailto:contact@jonathan-russ.com",
+            "category": "solid",
+            "icon": {
+              "name": "envelope"
+            }
+          },
+          {
+            "title": "LinkedIn",
+            "url": "https://linkedin.com/in/jonathan-russ-b7442a228",
+            "category": "brands",
+            "icon": {
+              "name": "linkedin-in"
+            }
+          },
+          {
+            "title": "GitHub",
+            "url": "https://github.com/JonathanXDR",
+            "category": "brands",
+            "icon": {
+              "name": "github"
+            }
+          },
+          {
+            "title": "Twitter",
+            "url": "https://twitter.com/JonathanXD12_",
+            "category": "brands",
+            "icon": {
+              "name": "x-twitter"
+            }
+          }
+        ]
+      },
+      "FooterItem": {
+        "chooseYourLanguage": "Wähle deine Sprache"
+      }
+    },
+    "containers": {
+      "about": {
+        "eyebrow": "Hey ;)",
+        "title": "I'm Jonathan",
+        "description": "Hallo mein Name ist Jonathan und ich bin {age} Jahre alt. Aktuell bin ich im {apprenticeshipYear}. Lehrjahr als Informatiker - Applikationsentwicklung. Ich wohne in Egg bei Einsiedeln im Kanton Schwyz. Das Programmieren fasziniert mich sehr und ich finde es spannend, was man damit alles erreichen kann. In meiner Freizeit spiele ich gerne Computer -und Konsolenspiele und treffe mich oft mit Freunden. Ausserdem höre ich häufig Musik und produziere sie auch manchmal selbst.",
+        "dates": [
+          {
+            "title": "Jahre",
+            "key": "age",
+            "date": "2005-12-12"
+          },
+          {
+            "title": "Lehrjahr",
+            "key": "apprenticeshipYear",
+            "date": "2021-08-01"
+          }
+        ]
+      },
+      "languages": [
+        {
+          "title": "Deutsch",
+          "eyebrow": "Muttersprache",
+          "progress": 100,
+          "divider": {
+            "direction": "left"
+          }
+        },
+        {
+          "title": "Englisch",
+          "eyebrow": "Fliessend",
+          "progress": 60,
+          "divider": {
+            "direction": "left"
+          },
+          "links": [
+            {
+              "title": "B1 Preliminary",
+              "url": "https://www.cambridgeenglish.org/de/exams-and-tests/preliminary"
+            },
+            {
+              "title": "B2 First",
+              "url": "https://www.cambridgeenglish.org/de/exams-and-tests/first"
+            }
+          ]
+        },
+        {
+          "title": "Französisch",
+          "eyebrow": "Gut",
+          "progress": 30,
+          "divider": {
+            "direction": "left"
+          }
+        }
+      ],
+      "references": [
+        {
+          "icon": {
+            "name": "person.fill"
+          },
+          "eyebrow": "Vorgesetzter",
+          "title": "Steve Hess",
+          "description": "Coach Next Generation",
+          "info": {
+            "location": "Wor-Ati6",
+            "department": "GHR-POD-NEX"
+          }
+        },
+        {
+          "icon": {
+            "name": "person.fill"
+          },
+          "eyebrow": "Projektanbieter",
+          "title": "Nick Zimmermann",
+          "description": "DevOps I Engineer",
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://nickzimmermann.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ],
+          "info": {
+            "location": "Zür-För181",
+            "department": "INI-EOG-SPA"
+          }
+        },
+        {
+          "icon": {
+            "name": "person.fill"
+          },
+          "eyebrow": "Projektanbieter",
+          "title": "Alessio Iantosca",
+          "description": "Test Automation Engineer",
+          "info": {
+            "location": "Zür-Pfi51",
+            "department": "B2B-BAN-COB-ASO-AUT"
+          }
+        },
+        {
+          "icon": {
+            "name": "person.fill"
+          },
+          "eyebrow": "Projektanbieter",
+          "title": "Carlo Schmid",
+          "description": "Full-Stack Developer",
+          "info": {
+            "location": "Itt-Ey10",
+            "department": "GHR-POD-LES-APP"
+          }
+        },
+        {
+          "icon": {
+            "name": "person.fill"
+          },
+          "eyebrow": "Projektanbieter",
+          "title": "Kim Eggler",
+          "description": "Full-Stack Developer",
+          "info": {
+            "location": "Itt-Ey10",
+            "department": "GHR-POD-LES-APP"
+          }
+        },
+        {
+          "icon": {
+            "name": "person.fill"
+          },
+          "eyebrow": "Projektanbieter",
+          "title": "Radu Margineanu",
+          "description": "Enterprise & System Architect EAS",
+          "info": {
+            "location": "Zür-För181",
+            "department": "INI-EAI-EAV"
+          }
+        },
+        {
+          "icon": {
+            "name": "person.fill"
+          },
+          "eyebrow": "Projektanbieter",
+          "title": "Oliver Kramer",
+          "description": "Cyber Security Specialist",
+          "info": {
+            "location": "Zür-För181",
+            "department": "INI-EOG-SPA"
+          }
+        }
+      ],
+      "school": [
+        {
+          "icon": {
+            "name": "graduationcap.fill"
+          },
+          "eyebrow": "Schule",
+          "title": "Technische Berufsschule Zürich",
+          "description": "Ich gehe immer donnerstags nachmittags zur Berufsschule in Zürich.",
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://tbz.ch",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ],
+          "info": {
+            "date": {
+              "fixed": "2021-08-26"
+            },
+            "location": "Zürich"
+          }
+        },
+        {
+          "icon": {
+            "name": "graduationcap.fill"
+          },
+          "eyebrow": "Schule",
+          "title": "Berufsmaturitätsschule Zürich",
+          "description": "Am Freitag gehe ich jeweils zur Berufsmaturitätsschule in Zürich.",
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://bms-zuerich.ch",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ],
+          "info": {
+            "date": {
+              "fixed": "2021-08-27"
+            },
+            "location": "Zürich"
+          }
+        }
+      ],
+      "funFacts": [],
+      "technologies": [
+        {
+          "icon": {
+            "name": "bubble.fill"
+          },
+          "eyebrow": "Sprache",
+          "title": "HTML",
+          "description": "Ich habe HTML beim Erstellen dieser Webseite gelernt und fühle mich damit sehr sicher, da ich es in fast allen bisherigen Projekten verwendet habe.",
+          "badges": ["Markup", "Web", "Frontend"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "bubble.fill"
+          },
+          "eyebrow": "Sprache",
+          "title": "CSS",
+          "description": "CSS habe ich ebenfalls während dem Aufbau dieser Webseite gelernt. Da CSS genau wie HTML in fast jedem Projekt verwendet wird, habe ich auch hier schon viel Erfahrung gesammelt.",
+          "badges": ["Styling", "Web", "Frontend", "Design"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "bubble.fill"
+          },
+          "eyebrow": "Sprache",
+          "title": "JavaScript",
+          "description": "Das ist wahrscheinlich meine meist verwendete Programmiersprache. Ich habe damit schon bei vielen Projekten gearbeitet und auch schon mit Frameworks und Libraries, wie Vue.js, React oder Express.js angewendet, die ja darauf aufbauen.",
+          "badges": ["Scripting", "Web", "Frontend", "Backend"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "books.vertical.fill"
+          },
+          "eyebrow": "Bibliothek",
+          "title": "SDX",
+          "description": "Mit dieser Library bin ich schon mehrmals während meiner Ausbildung in Kontakt gekommen. Ich habe damit z.B. beim Entwickeln der Apps Team Webseite, der Medienkurse und noch vielen weiteren Swisscom-Applikationen gearbeitet.",
+          "badges": ["Swisscom", "Design", "UI"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://sdx.swisscom.ch",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "gear"
+          },
+          "eyebrow": "Runtime",
+          "title": "Node.js",
+          "description": "Diese Technologie habe ich im NexCC das allererste mal gelernt und angewendet. Dabei habe ich zuerst kennengelernt was Node.js überhaupt ist und auch wie man dependencies mit NPM installiert und verwaltet.",
+          "badges": ["Javascript", "Server", "Backend"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://nodejs.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "bubble.fill"
+          },
+          "eyebrow": "Sprache",
+          "title": "SQL",
+          "description": "SQL habe ich erstmals während der Entwicklung meiner CRUD-App im NexCC verwendent, dabei habe ich die Basics gelernt. Später gab es auch noch die beiden Berufsschulmodule 162 und 164 und den ÜK-106, der auch fortgeschrittene Abfragen beinhaltete.",
+          "badges": ["Database", "Query", "Backend"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://developer.mozilla.org/en-US/docs/Glossary/SQL",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "inset.filled.square.dashed"
+          },
+          "eyebrow": "Framework",
+          "title": "Express.js",
+          "description": "Meine CRUD-App im NexCC habe ich damit erstellt, was sehr lehrreich für mich war. Später hatte ich auch noch einen entsprechenden ÜK, welcher darum ging ein Backend mit Express.js zu erstellen.",
+          "badges": ["Node", "Web", "Backend"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://expressjs.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "inset.filled.square.dashed"
+          },
+          "eyebrow": "Framework",
+          "title": "Vue.js",
+          "description": "Diese Webseite ist mit Vue.js erstellt worden und ich habe damit auch anderweitig gearbeitet. Beispiele sind meine Memory App im Apps Team oder das Zukunftstagstool und die Berufsschulapp, welche ich wiederrum im NexCC erstellt habe.",
+          "badges": ["Javascript", "Frontend", "Web"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://vuejs.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "bubble.fill"
+          },
+          "eyebrow": "Sprache",
+          "title": "TypeScript",
+          "description": "Diese Technologie habe ich das erste mal bei meiner Memory-App im Apps Team verwendet und benutze seither wenn möglich nur noch TypeScript anstelle von JavaScript. Projekte, bei denen ich TypeScript gearbeitet habe, sind z.B. die Apps Team Webseite, die CRUD-App im Apps Team oder auch das Fleetmanagement Tool.",
+          "badges": ["Javascript", "Typed", "Frontend", "Backend"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://typescriptlang.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "bubble.fill"
+          },
+          "eyebrow": "Sprache",
+          "title": "C#",
+          "description": "Ich habe C# bereits in der 3. Oberstufe kennengelernt, als ich ein eigenes Spiel mit Unity als Abschlussarbeit erstellt habe. Bei den Automatisierungsprojekten im Banking Bereich habe ich dann noch ein wenig mehr darüber gelernt.",
+          "badges": ["Microsoft", "Backend", "Object-Oriented"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://docs.microsoft.com/en-us/dotnet/csharp",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "bubble.fill"
+          },
+          "eyebrow": "Sprache",
+          "title": "Java",
+          "description": "Java kenne ich hauptsächlich vom Berufsschulmodul 319, wo wir damit gearbeitet haben und kleinere Aufgaben programmieren mussten. Im Modul 320 kam dann auch noch OOP dazu, was ich sehr interessant fand. Ausserdem habe ich auch noch den ÜK-223 besucht, bei dem es darum ging Multi-User-Applikationen objektorientiert zu realisieren. Das haben wir mit einem Java-Backend und einem ORM gemacht.",
+          "badges": ["Backend", "Object-Oriented", "Enterprise"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://java.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "bubble.fill"
+          },
+          "eyebrow": "Sprache",
+          "title": "Bash",
+          "description": "Ich habe schon oft mit Bash gearbeitet und bin damit mittlerweile auch einigermassen vertraut. Ich habe damit z.B. schon ein paar kleine Skripte geschrieben, um mir die Arbeit zu erleichtern. Zudem gab es auch das Modul 122 in der Berufsschule, bei dem wir ebenfalls mit Bash gearbeitet haben.",
+          "badges": ["Scripting", "Shell", "Linux"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://gnu.org/software/bash",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "inset.filled.square.dashed"
+          },
+          "eyebrow": "Framework",
+          "title": "React",
+          "description": "React selbst habe ich erst gelernt, nachdem ich bereits mit Next.js gearbeitet habe, daher war die Lernkurve nicht mehr so steil. Beispiele für Projekte, bei denen ich React verwendet habe, sind z.B. die Medienkurse, das Fleetmanagement Tool oder auch die neuen Webfrontends.",
+          "badges": ["Javascript", "Frontend", "Web", "UI"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://reactjs.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "inset.filled.square.dashed"
+          },
+          "eyebrow": "Framework",
+          "title": "Next.js",
+          "description": "Das erste mal kennenlernen durte ich Next.js im Apps Team, wo ich damit die neue Apps Team Webseite erstellt habe. Dort habe ich gleichzeitig auch sehr viel über React gelernt und konnte so meine Kenntnisse gleich in beiden Frameworks verbessern.",
+          "badges": ["React", "Frontend", "Web", "SSR"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://nextjs.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "shippingbox.fill"
+          },
+          "eyebrow": "Container Management",
+          "title": "Docker",
+          "description": "Richtig verstanden und mich damit beschäftigt habe ich Docker im Berufsschulmodul 347, wo wir eine Applikation mittels CI/CD deployen mussten. Dazu gab es den ÜK 210, bei dem es um das Thema Cloud ging und wir auch dort nochmal mit Docker gearbeitet haben.",
+          "badges": ["Container", "DevOps", "Cloud"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://docker.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "shippingbox.fill"
+          },
+          "eyebrow": "Container Management",
+          "title": "Kubernetes",
+          "description": "Auch Kubernetes habe ich im Berufsschulmodul 347 kennengelernt und dort verwendet, um eine Applikation mittels CI/CD zu deployen. Der ÜK 210 hat mir dann nochmal einen tieferen Einblick in die Container-Orchestrierung gegeben, da er sich mehr damit beschäftigt hat.",
+          "badges": ["Container", "Orchestration", "DevOps"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://kubernetes.io",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "inset.filled.square.dashed"
+          },
+          "eyebrow": "Framework",
+          "title": "Nest.js",
+          "description": "Dieses Backend-Framework habe ich im Apps Team kennengelernt und habe damit meine CRUD-App erstellt. Dabei habe ich viel über die Architektur und die verschiedenen Module gelernt. Ausserdem habe ich auch in produktiven Projekten im Apps Team, wie z.B. dem Fleetmanagement Tool oder den neuen Webfrontends damit gearbeitet.",
+          "badges": ["Node", "Backend", "TypeScript"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://nestjs.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "gear"
+          },
+          "eyebrow": "ORM",
+          "title": "Prisma",
+          "description": "Das habe ich verwendet um meine CRUD-App zu erstellen und ich bin dabei das erste mal mit einem ORM in Berührung gekommen. Später habe ich auch beim Fleetmanagement Tool mit Prisma gearbeiet.",
+          "badges": ["Database", "TypeScript", "ORM"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://prisma.io",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "gear"
+          },
+          "eyebrow": "ORM",
+          "title": "TypeORM",
+          "description": "Als Alternative zu Prisma habe ich meine CRUD-App, nachdem ich sie fertiggestellt habe, auch noch mit TypeORM umgesetzt, da auch dieses ORM in diversen Projekten im Apps Team verwendet wird.",
+          "badges": ["Database", "TypeScript", "ORM"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://typeorm.io",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "books.vertical.fill"
+          },
+          "eyebrow": "Bibliothek",
+          "title": "GitHub Primer",
+          "description": "Ich habe GitHub Primer benutzt, um ein Frontend zusammen mit React für meine CRUD-App im Apps Team zu erstellen.",
+          "badges": ["React", "Frontend", "Design", "UI"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://primer.style",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "books.vertical.fill"
+          },
+          "eyebrow": "Bibliothek",
+          "title": "Tailwind CSS",
+          "description": "Tailwind CSS wurde zusammen mit SDX in vielen Projekten im Apps Team verwendet. Das Fleetmanagement Tool und die neuen Webfrontends sind zwei Beispiele dafür.",
+          "badges": ["CSS", "Frontend", "Design", "UI"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://tailwindcss.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "bubble.fill"
+          },
+          "eyebrow": "Sprache",
+          "title": "Python",
+          "description": "Diese Programmiersprache habe ich im Security Journey gelernt und sie für die Entwicklung des DAM Log Scanners verwendet, ein Tool, welches Datenbankaktivitäten aufzeichnet.",
+          "badges": ["Scripting", "Backend", "Object-Oriented"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://python.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "bubble.fill"
+          },
+          "eyebrow": "Sprache",
+          "title": "Kotlin",
+          "description": "Kotlin habe ich im ÜK 335 gelernt, wo wir als Projektarbeit eine Android App erstellt haben. Dabei konnten wir selbst entscheiden, ob wir Java oder Kotlin verwenden. Ich habe mich für Kotlin entschieden, da ich es interessant fand und es auch eine moderne Programmiersprache ist.",
+          "badges": ["Android", "Mobile", "Object-Oriented"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://kotlinlang.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "bubble.fill"
+          },
+          "eyebrow": "Sprache",
+          "title": "Jetpack Compose",
+          "description": "Ich habe Jetpack Compose das erste mal zusammen mit Kotlin im ÜK 335 verwendet, wo wir eine Android App erstellt haben.",
+          "badges": ["Android", "Mobile", "UI"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://kotlinlang.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "books.vertical.fill"
+          },
+          "eyebrow": "Bibliothek",
+          "title": "Material Design 3",
+          "description": "Während meiner Projektarbeit im ÜK 335 habe ich Material Design 3 verwendet, um die Android App zu gestalten.",
+          "badges": ["Android", "Mobile", "UI", "Design", "Google"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://kotlinlang.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "inset.filled.square.dashed"
+          },
+          "eyebrow": "Framework",
+          "title": "Nuxt",
+          "description": "Nuxt habe ich mir selbst beigebracht, da ich es interessant fand und auch gerne mit Vue programmiere, worauf Nuxt aufbaut. Bisher habe ich es allerdings bei keinen Projeken ausser dieser Webseite verwendet.",
+          "badges": ["Vue", "Frontend", "Web", "SSR"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://nextjs.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "inset.filled.square.dashed"
+          },
+          "eyebrow": "Framework",
+          "title": "Angular",
+          "description": "Während ich im Piz Tofana Team war, habe ich Angular kennengelernt und auch damit gearbeitet. Damit haben wir nämlich während der Entwicklung des Frontends von Daedalus gearbeitet.",
+          "badges": ["Javascript", "Frontend", "Web", "UI"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://angular.io",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "gear"
+          },
+          "eyebrow": "Runtime",
+          "title": "Bun",
+          "description": "Ich habe Bun kennengelernt, als ich meine Webseite auf Nuxt umgestellt habe. Vorallem die Einfachheit und die Geschwindigkeit im Gegensatz zu Node.js haben mich dabei überzeugt, weswegen ich wenn möglich nur noch Bun verwende.",
+          "badges": ["TypeScript", "Server", "Backend"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://bun.sh",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        },
+        {
+          "icon": {
+            "name": "bubble.fill"
+          },
+          "eyebrow": "Sprache",
+          "title": "Scala",
+          "description": "Scala habe ich im Berufsschulmodul 323 kennengelernt und fand es sehr interessant, da es viele Parallelen zu Java hat, aber auch viele neue Konzepte, wie z.B. Traits oder Pattern Matching, mitbringt.",
+          "badges": ["Backend", "Object-Oriented", "Functional", "Java"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://scala-lang.org",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "icon": {
+            "name": "airplane.departure"
+          },
+          "eyebrow": "Einführung",
+          "title": "NEX First Steps",
+          "description": "In den First Steps hat meine Lehre begonnen. Dort habe ich alles rund um Swisscom kennengelernt, also z.B. wie man die verschieden Tools verwendet, wie man richtig zusammenarbeitet und auch andere Dinge, wie beispielsweise die Arbeitssicherheit.",
+          "badges": [
+            "Introduction",
+            "Swisscom",
+            "Teamwork",
+            "Work Safety",
+            "Next Generation"
+          ],
+          "info": {
+            "date": {
+              "fixed": "2021-08-01"
+            },
+            "supervisor": "Steve Hess",
+            "location": "Zürich & Bern",
+            "department": "GHR-POD-NEX"
+          }
+        },
+        {
+          "icon": {
+            "name": "chevron.left.forwardslash.chevron.right"
+          },
+          "eyebrow": "Full-Stack",
+          "title": "Competence Center NexCC",
+          "description": "Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei viele neue Programmiersprachen gelernt. Darunter HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App erstellen, welche ich mit einer SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend hinzugefügt und so ein eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte Programmiersprachen, wie Node.js, Express.js oder Vue.js neu dazugelernt.",
+          "badges": [
+            "Web Development",
+            "Frontend",
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "CRUD",
+            "SQL",
+            "Backend",
+            "Node",
+            "Express",
+            "Vue"
+          ],
+          "info": {
+            "date": {
+              "duration": {
+                "from": "2021-08-01",
+                "to": "2022-01-01"
+              }
+            },
+            "supervisor": "Nick Zimmermann",
+            "location": "Zür-Har3",
+            "department": "GHR-POD-NEX"
+          }
+        },
+        {
+          "icon": {
+            "name": "clock.arrow.trianglehead.2.counterclockwise.rotate.90"
+          },
+          "eyebrow": "Automation",
+          "title": "Automatisierungsprojekte im Banking Bereich",
+          "description": "Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld erhalten. Ich war aktiv dabei und habe die einzelnen Banken mittls Ranorex & UiPath gelernt zu testen bzw. zu automatisieren. Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr über das .NET Framework erfahren. Mein Ziel ist es aber in Zukunft das noch zu verbessern!",
+          "badges": [
+            "Automation",
+            "Banking",
+            "Testing",
+            "Ranorex",
+            "UiPath",
+            "C#",
+            ".NET"
+          ],
+          "info": {
+            "date": {
+              "duration": {
+                "from": "2022-02-01",
+                "to": "2022-07-01"
+              }
+            },
+            "supervisor": "Alessio Iantosca",
+            "location": "Zür-Pfi51",
+            "department": "B2B-BAN-COB-ASO-AUT"
+          }
+        },
+        {
+          "icon": {
+            "name": "display",
+            "colors": {
+              "tertiary": "none"
+            }
+          },
+          "eyebrow": "Frontend",
+          "title": "Apps Team - Frontend",
+          "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
+          "badges": ["Frontend", "Memory", "Vue", "TypeScript", "SDX", "Next"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://appsteam.swisscom.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ],
+          "info": {
+            "date": {
+              "duration": {
+                "from": "2022-08-01",
+                "to": "2023-02-01"
+              }
+            },
+            "supervisor": "Carlo Schmid",
+            "location": "Itt-Ey10",
+            "department": "GHR-POD-LES-APP"
+          }
+        },
+        {
+          "icon": {
+            "name": "gear"
+          },
+          "eyebrow": "Backend",
+          "title": "Apps Team - Backend",
+          "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt. Danach habe ich dann beim Tool für Medienkurse mitgeholfen und konnte dort einige Features hinzufügen und Fehler beheben. Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen Webfrontends mitwirken, was mir sehr gefallen hat :)",
+          "badges": [
+            "Backend",
+            "CRUD",
+            "Nest",
+            "ORM",
+            "Prisma",
+            "TypeORM",
+            "GitHub Primer"
+          ],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://appsteam.swisscom.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ],
+          "info": {
+            "date": {
+              "duration": {
+                "from": "2023-02-01",
+                "to": "2023-08-01"
+              }
+            },
+            "supervisor": "Kim Eggler",
+            "location": "Itt-Ey10",
+            "department": "GHR-POD-LES-APP"
+          }
+        },
+        {
+          "icon": {
+            "name": "shield.lefthalf.filled"
+          },
+          "eyebrow": "Security Journey",
+          "title": "Security & Compliance Services ART",
+          "description": "In diesem Projekt habe ich mit ein paar Trainings zu Cloud, Security und DevOps begonnen, was ziemlich lehrreich für mich war. Danach durfte ich bereits am DAM Log Scanner Projekt arbeiten, einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring) und nach spezifischen Richtlinien handelt. Diese wurden primär mit OPA (Open Policy Agent) umgsetzt, womit ich allerdings nicht allzu viel zu tun hatte. Ich habe nämlich hauptsächlich Python, Docker und Kubernetes verwendet, wobei Python für mich neu war. Gegen Ende des Projekts habe ich dann auch noch begonnen Elasticsearch zu implementieren, um die Daten zu visualisieren und zu analysieren.",
+          "badges": [
+            "Security",
+            "Cloud",
+            "Database Activity Monitoring",
+            "Python",
+            "Docker",
+            "Kubernetes",
+            "OPA",
+            "DevOps",
+            "Elastic"
+          ],
+          "info": {
+            "date": {
+              "duration": {
+                "from": "2023-09-01",
+                "to": "2024-03-01"
+              }
+            },
+            "supervisor": "Radu Margineanu",
+            "location": "Zür-Mas10",
+            "department": "INI-CIT-MCS"
+          }
+        },
+        {
+          "icon": {
+            "name": "shield.lefthalf.filled"
+          },
+          "eyebrow": "Security Journey",
+          "title": "Piz Tofana Tooling Team",
+          "description": "Während meines Aufenthalts im Team Piz Tofana, habe ich hauptsächlich an der Daedalus Applikation gearbeitet. Diese bietet verschiedene Selbstbeurteilungs-Module, die von den Fachabteilungen zur Bewertung von Datenschutz, Sicherheit, Compliance, Klassifizierung und Weiterem für verknüpfte Objekte wie Anwendungen, Ressourcen, Dienste oder Angebote bereitgestellt werden. Als Technologien wurden Java Spring Boot für das Backend und Angular für das Frontend verwendet.",
+          "badges": ["Security", "Java", "Spring Boot", "Angular"],
+          "info": {
+            "date": {
+              "duration": {
+                "from": "2024-03-01",
+                "to": "2024-07-01"
+              }
+            },
+            "supervisor": "Oliver Kramer",
+            "location": "Zür-För181",
+            "department": "INI-EOG-SPA"
+          }
+        },
+        {
+          "icon": {
+            "name": "airplane.arrival"
+          },
+          "eyebrow": "Full-Stack",
+          "title": "Apps Team - Full-Stack (IPA)",
+          "description": "Für meine IPA (Individuelle Praktische Arbeit) habe ich mich entschieden, nochmals ins Apps Team zu gehen, da ich dort bereits viele Erfahrungen sammeln konnte und auch die Leute dort sehr nett sind. Aktuell arbeite ich hier mit Next.js als Frontend-Framework und Nest.js als Backend-Framework.",
+          "badges": ["Next", "Nest", "TypeORM", "Prisma", "IPA"],
+          "links": [
+            {
+              "title": "Mehr erfahren",
+              "url": "https://appsteam.swisscom.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ],
+          "info": {
+            "date": {
+              "duration": {
+                "from": "2024-08-01",
+                "to": "2025-08-01"
+              }
+            },
+            "supervisor": "Kim Eggler",
+            "location": "Itt-Ey10",
+            "department": "GHR-POD-LES-APP"
+          }
+        }
+      ]
+    }
+  },
+  "pages": {
+    "notFound": {
+      "icon": {
+        "name": "exclamationmark.triangle.fill",
+        "colors": {
+          "primary": "var(--color-system-yellow)"
+        }
+      },
+      "title": "{statusCode} Not Found",
+      "description": "Die Seite, die du suchst, kann nicht gefunden werden. Bitte überprüfe sie und versuche es erneut.",
+      "links": []
+    },
+    "internalServerError": {
+      "icon": {
+        "name": "exclamationmark.octagon.fill",
+        "colors": {
+          "primary": "var(--color-system-red)"
+        }
+      },
+      "title": "{statusCode} Internal Server Error",
+      "description": "Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem weiterhin besteht.",
+      "links": []
+    },
+    "serviceUnavailable": {
+      "icon": {
+        "name": "wrench.and.screwdriver.fill",
+        "colors": {
+          "secondary": "var(--color-system-blue)"
+        }
+      },
+      "title": "Be right back.",
+      "description": "Ich führe Aktualisierungen auf der Seite durch. Schau bald wieder vorbei.",
+      "links": []
+    },
+    "error": {
+      "icon": {
+        "name": "exclamationmark.octagon.fill",
+        "colors": {
+          "primary": "var(--color-system-red)"
+        }
+      },
+      "title": "Error {statusCode}",
+      "description": "Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem weiterhin besteht.",
+      "links": []
+    }
+  }
+}
