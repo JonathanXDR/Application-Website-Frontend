@@ -5,23 +5,33 @@ type AnimationOperations = {
   onViewportChange?: (isInViewport: boolean, el: HTMLElement) => void;
 };
 
+const animationState = new WeakMap<
+  HTMLElement,
+  { inViewport: boolean; wasInViewport: boolean }
+>();
+const toArray = (input: string | string[] | undefined): string[] => {
+  if (Array.isArray(input)) {
+    return input;
+  } else if (typeof input === "string") {
+    return [input];
+  } else {
+    return [];
+  }
+};
+
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive("animation", {
     mounted(el: HTMLElement, binding: { value: AnimationOperations }) {
-      const toArray = (input: string | string[] | undefined): string[] => {
-        if (Array.isArray(input)) {
-          return input;
-        } else if (typeof input === "string") {
-          return [input];
-        } else {
-          return [];
-        }
-      };
-
       const observerCallback = (entries: IntersectionObserverEntry[]) => {
         entries.forEach((entry) => {
           const { add, remove, toggle, onViewportChange } = binding.value;
           const isInViewport = entry.isIntersecting;
+
+          if (!animationState.has(el)) {
+            animationState.set(el, { inViewport: false, wasInViewport: false });
+          }
+
+          const state = animationState.get(el)!;
 
           if (isInViewport) {
             toArray(add).forEach((className) => el.classList.add(className));
@@ -29,12 +39,16 @@ export default defineNuxtPlugin((nuxtApp) => {
               el.classList.remove(className),
             );
             toArray(toggle).forEach((className) => el.classList.add(className));
+            state.inViewport = true;
+            state.wasInViewport = true;
           } else {
             toArray(toggle).forEach((className) =>
               el.classList.remove(className),
             );
+            state.inViewport = false;
           }
 
+          animationState.set(el, state);
           onViewportChange?.(isInViewport, el);
         });
       };
@@ -71,6 +85,27 @@ export default defineNuxtPlugin((nuxtApp) => {
       };
 
       window.addEventListener("scroll", updateObserver);
+
+      const state = animationState.get(el);
+      if (state?.wasInViewport) {
+        toArray(binding.value.add).forEach((className) =>
+          el.classList.add(className),
+        );
+      }
+    },
+    updated(el: HTMLElement, binding: { value: AnimationOperations }) {
+      const state = animationState.get(el);
+      if (state?.wasInViewport) {
+        toArray(binding.value.add).forEach((className) =>
+          el.classList.add(className),
+        );
+        toArray(binding.value.remove).forEach((className) =>
+          el.classList.remove(className),
+        );
+        toArray(binding.value.toggle).forEach((className) =>
+          el.classList.add(className),
+        );
+      }
     },
   });
 });
