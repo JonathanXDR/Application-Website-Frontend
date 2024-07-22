@@ -3,8 +3,8 @@
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 411 411"
-      width="300"
-      height="300"
+      width="275"
+      height="275"
     >
       <defs>
         <clipPath id="image">
@@ -117,6 +117,13 @@ onMounted(async () => {
 
   100% {
     opacity: 1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .info-container > svg {
+    width: 300px;
+    height: 300px;
   }
 }
 
