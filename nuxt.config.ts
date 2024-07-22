@@ -178,6 +178,8 @@ export default defineNuxtConfig({
 
       githubRepoName: process.env.GITHUB_REPO_NAME,
       githubRepoOwner: process.env.GITHUB_REPO_OWNER,
+
+      hypertuneToken: process.env.HYPERTUNE_TOKEN!,
     },
 
     githubToken: process.env.GITHUB_TOKEN,
@@ -256,6 +258,8 @@ export default defineNuxtConfig({
           "https://*.google.com",
           "https://cognito-identity.us-west-2.amazonaws.com",
           "https://user-events-v3.s3-accelerate.amazonaws.com",
+          "https://edge.hypertune.com",
+          "https://gcp.fasthorse.workers.dev",
           "*.sentry.io",
         ],
       },

@@ -41,6 +41,7 @@
     "dayjs": "^1.11.12",
     "eslint": "^8.0.1",
     "eslint-config-standard": "^17.1.0",
+    "hypertune": "^2.3.10",
     "nuxt": "^3.12.4",
     "nuxt-security": "^2.0.0-rc.9",
     "octokit": "^4.0.2",
