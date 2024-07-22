@@ -98,20 +98,6 @@ watch(locale, (newLocale) => {
   display: inline-block;
 }
 
-.language-picker-dropdown select {
-  color: var(--color-figure-blue);
-  font-weight: 600;
-  display: inline;
-  direction: rtl;
-  width: auto;
-  height: auto;
-  padding: 0 0.75rem 0 0;
-  border-radius: 0;
-  -webkit-appearance: none;
-  appearance: none;
-  outline: none;
-}
-
 .dropdown-arrow {
   position: absolute;
   right: 0;
@@ -136,14 +122,6 @@ watch(locale, (newLocale) => {
   -webkit-appearance: none;
   appearance: none;
   outline: none;
-}
-
-@media (max-width: 767px) {
-  .dropdown-container select:active {
-    font-size: 16px;
-    transform-origin: top left;
-    transform: scale(0.719);
-  }
 }
 
 .dropdown-container:hover * {
