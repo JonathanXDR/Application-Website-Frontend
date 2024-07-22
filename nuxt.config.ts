@@ -109,7 +109,7 @@ export default defineNuxtConfig({
           { property: "og:image", content: "/img/dev/favicon-dev-orange.png" },
           {
             property: "twitter:image",
-            content: "/img/dev/favicon-dev-orange.png",
+            content: `${process.env.SITE_URL}/img/favicon.png`,
           },
         ],
       },
@@ -148,7 +148,10 @@ export default defineNuxtConfig({
         ],
         meta: [
           { property: "og:image", content: "/img/favicon.png" },
-          { property: "twitter:image", content: "/img/favicon.png" },
+          {
+            property: "twitter:image",
+            content: `${process.env.SITE_URL}/img/favicon.png`,
+          },
         ],
       },
     },
