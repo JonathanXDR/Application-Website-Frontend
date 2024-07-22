@@ -56,7 +56,7 @@
       <span v-if="progress" class="stat-values title">{{ progress }}%</span>
       <span
         v-if="eyebrow"
-        :class="['stat-label eyebrow', { 'hyphens-auto': width === 'full' }]"
+        :class="['stat-label eyebrow', { 'stat-label-full': width === 'full' }]"
       >
         {{ eyebrow }}
       </span>
@@ -146,6 +146,11 @@ const applyHover = computed(
 }
 .stat .stat-label:last-child {
   margin-top: 2px;
+}
+
+.stat .stat-label-full {
+  hyphens: auto;
+  word-break: break-word;
 }
 
 .eyebrow {
