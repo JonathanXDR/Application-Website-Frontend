@@ -4,18 +4,24 @@ import * as sdk from "hypertune";
 
 export const queryCode = `query FullQuery{root{example exampleFlag}}`;
 
-export const query = {
-  Query: {
-    objectTypeName: "Query",
-    selection: {
-      root: {
-        fieldArguments: { __isPartialObject__: true },
-        fieldQuery: {
-          Root: {
-            objectTypeName: "Root",
-            selection: {
-              example: { fieldArguments: {}, fieldQuery: null },
-              exampleFlag: { fieldArguments: {}, fieldQuery: null },
+export const query: sdk.Query<sdk.ObjectValueWithVariables> = {
+  variableDefinitions: {},
+  fragmentDefinitions: {},
+  fieldQuery: {
+    Query: {
+      type: "InlineFragment",
+      objectTypeName: "Query",
+      selection: {
+        root: {
+          fieldArguments: { __isPartialObject__: true },
+          fieldQuery: {
+            Root: {
+              type: "InlineFragment",
+              objectTypeName: "Root",
+              selection: {
+                example: { fieldArguments: {}, fieldQuery: null },
+                exampleFlag: { fieldArguments: {}, fieldQuery: null },
+              },
             },
           },
         },
@@ -396,7 +402,11 @@ export class SourceNode extends sdk.Node {
     args: Rec4;
     fallback?: Source;
   }): Source {
-    const getQuery = sdk.mergeQueryAndArgs(query, args);
+    const getQuery = sdk.mergeFieldQueryAndArgs(
+      query.fragmentDefinitions,
+      sdk.getFieldQueryForPath(query.fragmentDefinitions, query.fieldQuery, []),
+      args,
+    );
     return this.getValue({ query: getQuery, fallback }) as Source;
   }
 
