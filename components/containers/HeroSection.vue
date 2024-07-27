@@ -10,7 +10,7 @@
     </div>
     <div class="section-content hero-content" style="opacity: 1">
       <h1 class="hero-headline" style="opacity: 1; transform: none">
-        <em class="">Apple Security Research</em>
+        <em class="">Hey there, I'm Jonathan :)</em>
       </h1>
       <div class="hero-description" style="opacity: 1; transform: none">
         <p>
@@ -66,11 +66,12 @@
   font-weight: 600;
   letter-spacing: -0.015em;
   font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   margin: 0;
   color: inherit;
@@ -83,11 +84,12 @@
     font-weight: 600;
     letter-spacing: -0.009em;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -98,11 +100,12 @@
     font-weight: 600;
     letter-spacing: -0.00066em;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -125,11 +128,12 @@
   font-weight: 400;
   letter-spacing: 0.009em;
   font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   text-align: left;
 }
@@ -140,11 +144,12 @@
     font-weight: 400;
     letter-spacing: 0.012em;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }

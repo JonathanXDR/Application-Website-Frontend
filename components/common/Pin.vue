@@ -43,11 +43,12 @@ defineProps<{
   font-weight: 600;
   letter-spacing: 0.012em;
   font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 @media only screen and (max-width: 1023px) {
@@ -57,11 +58,12 @@ defineProps<{
     font-weight: 600;
     letter-spacing: 0.012em;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -72,11 +74,12 @@ defineProps<{
     font-weight: 400;
     letter-spacing: -0.016em;
     font-family:
-      SF Pro Text,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
