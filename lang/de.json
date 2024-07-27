@@ -15,6 +15,11 @@
           "class": "section-separated"
         },
         {
+          "id": "fun-facts",
+          "name": "Fun Facts",
+          "route": "#funFacts"
+        },
+        {
           "id": "references",
           "name": "Referenzen",
           "route": "#references",
@@ -29,12 +34,17 @@
         {
           "id": "technologies",
           "name": "Technologien",
-          "route": "#technologies"
+          "route": "/technologies"
         },
         {
           "id": "projects",
           "name": "Projekte",
-          "route": "#projects"
+          "route": "/projects"
+        },
+        {
+          "id": "music",
+          "name": "Musik",
+          "route": "/music"
         }
       ],
       "RibbonBar": [
