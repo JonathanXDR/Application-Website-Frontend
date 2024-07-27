@@ -81,6 +81,18 @@ export default defineNuxtConfig({
           property: "twitter:description",
           content: process.env.SITE_DESCRIPTION,
         },
+        {
+          name: "apple-music-developer-token",
+          content: process.env.APPLE_DEVELOPER_TOKEN,
+        },
+        {
+          name: "apple-music-app-name",
+          content: process.env.APP_NAME,
+        },
+        {
+          name: "apple-music-app-build",
+          content: process.env.APP_BUILD,
+        },
       ],
     },
   },
@@ -198,12 +210,13 @@ export default defineNuxtConfig({
         id: process.env.GOOGLE_TAG_MANAGER_ID || "",
       },
     },
-    // globals: {
-    //   musicKit: {
-    //     src: 'https://js-cdn.music.apple.com/musickit/v1/musickit.js',
-    //     async: true
-    //   }
-    // }
+    globals: {
+      musicKit: {
+        src: "https://js-cdn.music.apple.com/musickit/v3/musickit.js",
+        async: true,
+        "data-web-components": true,
+      },
+    },
   },
 
   components: {

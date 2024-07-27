@@ -1,5 +1,5 @@
 import { Octokit } from "octokit";
-import type { GetRepositoryTagsParameters } from "~/types/services/GitHub/Tag";
+import type { GetRepositoryTagsParameters } from "~/types/services/github/Tag";
 
 export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig();

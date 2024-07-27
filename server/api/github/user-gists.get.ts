@@ -1,5 +1,5 @@
 import { Octokit } from "octokit";
-import type { GetUserGistsParameters } from "~/types/services/GitHub/Gist";
+import type { GetUserGistsParameters } from "~/types/services/github/Gist";
 
 export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig();
