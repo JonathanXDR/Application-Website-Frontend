@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center mt-24">
     <HeadlineAnimation
-      :title="title"
+      title="Projects"
       class="typography-magical-headline pb-12"
     />
     <NavBarExtension>
@@ -147,9 +147,13 @@ type Projects = {
   school: MinimalRepository[];
 };
 
-defineProps<{
-  title: string;
-}>();
+definePageMeta({
+  header: true,
+  nav: true,
+  ribbon: true,
+  footerFull: true,
+  footerCompact: false,
+});
 
 const { tm } = useI18n();
 const { randomDevColor } = useColor();

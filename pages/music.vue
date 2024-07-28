@@ -16,6 +16,14 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 
+definePageMeta({
+  header: true,
+  nav: true,
+  ribbon: true,
+  footerFull: true,
+  footerCompact: false,
+});
+
 const albums = ref([]);
 const loading = ref(true);
 const error = ref(null);

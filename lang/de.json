@@ -5,30 +5,30 @@
         {
           "id": "about",
           "name": "About",
-          "route": "#about",
+          "route": "/#about",
           "class": "section-separated"
         },
         {
           "id": "languages",
           "name": "Sprachen",
-          "route": "#languages",
+          "route": "/#languages",
           "class": "section-separated"
         },
         {
           "id": "fun-facts",
           "name": "Fun Facts",
-          "route": "#funFacts"
+          "route": "/#funFacts"
         },
         {
           "id": "references",
           "name": "Referenzen",
-          "route": "#references",
+          "route": "/#references",
           "class": "section-separated"
         },
         {
           "id": "school",
           "name": "Schule",
-          "route": "#school",
+          "route": "/#school",
           "class": "section-separated"
         },
         {

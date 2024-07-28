@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center mt-24">
     <HeadlineAnimation
-      :title="title"
+      title="Technologies"
       class="typography-magical-headline pb-12"
     />
     <!-- <NavBarExtension>
@@ -58,12 +58,15 @@
 <script setup lang="ts">
 import type { CardItemType } from "~/types/common/CardItem";
 
-defineProps<{
-  title: string;
-}>();
+definePageMeta({
+  header: true,
+  nav: true,
+  ribbon: true,
+  footerFull: true,
+  footerCompact: false,
+});
 
 const { tm } = useI18n();
-
 const cards = computed<CardItemType[]>(() =>
   tm("components.containers.technologies"),
 );
