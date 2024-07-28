@@ -6,7 +6,7 @@
     <div v-else>
       <ul>
         <li v-for="album in albums" :key="album.id">
-          {{ album.attributes.name }}
+          {{ album.attributes?.name }}
         </li>
       </ul>
     </div>
@@ -14,8 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-
 definePageMeta({
   header: true,
   nav: true,
@@ -24,16 +22,16 @@ definePageMeta({
   footerCompact: false,
 });
 
-const albums = ref([]);
+const albums = ref<MusicKit.Albums[]>([]);
 const loading = ref(true);
-const error = ref(null);
+const error = ref<string | null>(null);
 
 onMounted(async () => {
   try {
     const { data } = await useFetch("/api/musickit/user-library-albums");
     albums.value = data.value;
   } catch (err) {
-    error.value = err.message;
+    error.value = (err as Error).message;
   } finally {
     loading.value = false;
   }
