@@ -1,8 +1,9 @@
 <template>
   <div>
     <h1>User Library Albums</h1>
+    {{ status }}
     <div v-if="error">{{ error }}</div>
-    <div v-else-if="loading">Loading...</div>
+
     <div v-else>
       <ul>
         <li v-for="album in albums" :key="album.id">
@@ -22,18 +23,9 @@ definePageMeta({
   footerCompact: false,
 });
 
-const albums = ref<MusicKit.Albums[]>([]);
-const loading = ref(true);
-const error = ref<string | null>(null);
-
-onMounted(async () => {
-  try {
-    const { data } = await useFetch("/api/musickit/user-library-albums");
-    albums.value = data.value;
-  } catch (err) {
-    error.value = (err as Error).message;
-  } finally {
-    loading.value = false;
-  }
-});
+const {
+  data: albums,
+  status,
+  error,
+} = await useFetch<MusicKit.Albums[]>("/api/musickit/user-library-albums");
 </script>

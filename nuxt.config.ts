@@ -186,6 +186,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       appName: process.env.APP_NAME,
+      appBuild: process.env.APP_BUILD,
       appEnvironment: process.env.NODE_ENV,
 
       githubRepoName: process.env.GITHUB_REPO_NAME,
@@ -252,6 +253,7 @@ export default defineNuxtConfig({
           "https://*.googletagmanager.com",
           "https://snippet.meticulous.ai",
           "https://browser.sentry-cdn.com",
+          "https://*.music.apple.com",
         ],
         "img-src": [
           "'self'",
@@ -261,6 +263,7 @@ export default defineNuxtConfig({
           "https://*.googletagmanager.com",
           "https://*.g.doubleclick.net",
           "https://*.google.com",
+          "https://*.music.apple.com",
         ],
         "connect-src": [
           "'self'",
@@ -273,6 +276,7 @@ export default defineNuxtConfig({
           "https://user-events-v3.s3-accelerate.amazonaws.com",
           "https://edge.hypertune.com",
           "https://gcp.fasthorse.workers.dev",
+          "https://*.music.apple.com",
           "*.sentry.io",
         ],
       },
