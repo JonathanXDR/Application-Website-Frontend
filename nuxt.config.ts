@@ -193,7 +193,9 @@ export default defineNuxtConfig({
     },
 
     githubToken: process.env.GITHUB_TOKEN,
-    appleDeveloperToken: process.env.APPLE_DEVELOPER_TOKEN,
+    appleDeveloperPrivateKey: process.env.APPLE_DEVELOPER_PRIVATE_KEY,
+    appleDeveloperKeyId: process.env.APPLE_DEVELOPER_KEY_ID,
+    appleDeveloperTeamId: process.env.APPLE_DEVELOPER_TEAM_ID,
   },
 
   scripts: {

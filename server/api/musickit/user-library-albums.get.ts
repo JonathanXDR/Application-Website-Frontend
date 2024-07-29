@@ -7,6 +7,7 @@ export default defineEventHandler(async () => {
       {
         headers: {
           Authorization: `Bearer ${config.appleDeveloperToken}`,
+          "Music-User-Token": config.appleMusicUserToken,
         },
       },
     );

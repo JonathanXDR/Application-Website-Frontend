@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>User Library Albums</h1>
+    <!-- <h1>User Library Albums</h1>
     {{ status }}
     <div v-if="error">{{ error }}</div>
 
@@ -10,7 +10,7 @@
           {{ album.attributes?.name }}
         </li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -23,9 +23,12 @@ definePageMeta({
   footerCompact: false,
 });
 
-const {
-  data: albums,
-  status,
-  error,
-} = await useFetch<MusicKit.Albums[]>("/api/musickit/user-library-albums");
+// const {
+//   data: albums,
+//   status,
+//   error,
+// } = await useFetch<MusicKit.Albums[]>('/api/musickit/user-library-albums');
+
+const { data } = await useFetch("/api/musickit/auth-token");
+console.log(data.value);
 </script>
