@@ -1,12 +1,13 @@
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig();
+  const token = generateToken();
 
   try {
     const response = await $fetch(
       `${config.public.appleMusicBaseUrl}/me/library/songs`,
       {
         headers: {
-          Authorization: `Bearer ${config.appleDeveloperToken}`,
+          Authorization: `Bearer ${token}`,
           "Music-User-Token": config.appleMusicUserToken,
         },
       },

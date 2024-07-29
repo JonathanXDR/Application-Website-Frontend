@@ -1,5 +1,6 @@
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
+  const token = generateToken();
   const params = getQuery(event);
   const searchTerm = params.term;
 
@@ -8,7 +9,7 @@ export default defineEventHandler(async (event) => {
       `${config.public.appleMusicBaseUrl}/catalog/us/search`,
       {
         headers: {
-          Authorization: `Bearer ${config.appleDeveloperToken}`,
+          Authorization: `Bearer ${token}`,
         },
         params: {
           term: searchTerm,

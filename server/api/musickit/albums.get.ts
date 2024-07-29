@@ -1,5 +1,6 @@
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
+  const token = generateToken();
   const params = getQuery(event);
 
   try {
@@ -7,7 +8,7 @@ export default defineEventHandler(async (event) => {
       `${config.public.appleMusicBaseUrl}/catalog/us/albums`,
       {
         headers: {
-          Authorization: `Bearer ${config.appleDeveloperToken}`,
+          Authorization: `Bearer ${token}`,
         },
         params,
       },
