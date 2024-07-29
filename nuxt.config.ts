@@ -185,6 +185,7 @@ export default defineNuxtConfig({
       appIcon: process.env.APP_ICON,
       appEnvironment: process.env.NODE_ENV,
 
+      appleMusicBaseUrl: process.env.APPLE_MUSIC_BASE_URL,
       githubRepoName: process.env.GITHUB_REPO_NAME,
       githubRepoOwner: process.env.GITHUB_REPO_OWNER,
 
