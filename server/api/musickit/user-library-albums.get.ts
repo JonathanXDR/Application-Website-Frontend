@@ -1,15 +1,19 @@
+import { generateToken } from "~/server/utils/generateToken";
+
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig();
-  const token = generateToken();
+  const { authToken, musicUserToken } = generateToken();
+  console.log("musicUserToken", musicUserToken);
+
+  const headers = new Headers();
+  headers.append("Authorization", `Bearer ${authToken}`);
+  headers.append("Music-User-Token", `${musicUserToken}`);
 
   try {
-    const response = await $fetch(
+    const response = await $fetch<MusicKit.Albums[]>(
       `${config.public.appleMusicBaseUrl}/me/library/albums`,
       {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Music-User-Token": config.appleMusicUserToken,
-        },
+        headers,
       },
     );
     return response;

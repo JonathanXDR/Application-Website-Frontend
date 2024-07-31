@@ -6,9 +6,14 @@ export const generateToken = () => {
   const teamId = config.appleDeveloperTeamId;
   const keyId = config.appleDeveloperKeyId;
   const privateKeyEncoded = config.appleDeveloperPrivateKey;
+  const musicUserToken = config.appleMusicUserToken;
   const privateKey = Buffer.from(privateKeyEncoded, "base64").toString();
+  // const musicUserToken = Buffer.from(
+  //   musicUserTokenEncoded,
+  //   "base64",
+  // ).toString();
 
-  const token = jwt.sign({}, privateKey, {
+  const authToken = jwt.sign({}, privateKey, {
     algorithm: "ES256",
     expiresIn: "1d",
     issuer: teamId,
@@ -17,5 +22,5 @@ export const generateToken = () => {
       kid: keyId,
     },
   });
-  return token;
+  return { authToken, musicUserToken };
 };

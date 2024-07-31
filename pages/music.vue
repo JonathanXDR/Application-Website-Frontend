@@ -27,7 +27,7 @@ const {
   data: albums,
   status,
   error,
-} = await useFetch<MusicKit.Albums[]>("/api/musickit/albums", {
+} = await useFetch("/api/musickit/user-library-albums", {
   params: { ids: "1616728060" },
 });
 </script>

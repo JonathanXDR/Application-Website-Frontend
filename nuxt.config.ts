@@ -196,6 +196,7 @@ export default defineNuxtConfig({
     appleDeveloperPrivateKey: process.env.APPLE_DEVELOPER_PRIVATE_KEY,
     appleDeveloperKeyId: process.env.APPLE_DEVELOPER_KEY_ID,
     appleDeveloperTeamId: process.env.APPLE_DEVELOPER_TEAM_ID,
+    appleMusicUserToken: process.env.APPLE_MUSIC_USER_TOKEN,
   },
 
   scripts: {
