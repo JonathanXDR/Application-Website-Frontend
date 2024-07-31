@@ -24,8 +24,6 @@
 </template>
 
 <script setup lang="ts">
-import type { BadgeType } from "~/types/common/Badge";
-
 const props = withDefaults(defineProps<BadgeType>(), {
   variant: "a",
   componentSize: "medium",

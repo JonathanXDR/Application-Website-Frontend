@@ -84,8 +84,6 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from "~/types/common/Item";
-
 const { tm } = useI18n();
 const options = computed<ItemType[]>(() =>
   tm("components.common.FilterInput.sorts"),

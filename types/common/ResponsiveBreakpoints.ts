@@ -1,5 +1,3 @@
-import type { Breakpoints } from "./Breakpoint";
-
 type ResponsiveSizeTypeTailwind<T extends string> = T | string;
 type ResponsiveSizeType<T extends string> =
   `${Breakpoints}:${ResponsiveSizeTypeTailwind<T>}`;

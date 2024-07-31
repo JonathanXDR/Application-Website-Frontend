@@ -14,8 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import type { SectionType } from "~/types/common/Section";
-
 definePageMeta({
   header: true,
   nav: true,

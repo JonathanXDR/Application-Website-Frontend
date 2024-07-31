@@ -39,8 +39,6 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import type { InfoType } from "~/types/common/Info";
-import type { ItemType } from "~/types/common/Item";
 
 const props = withDefaults(defineProps<InfoType>(), {
   loading: false,

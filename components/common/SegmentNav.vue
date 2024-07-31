@@ -65,8 +65,6 @@
 </template>
 
 <script setup lang="ts">
-import type { SegmentNavType } from "~/types/common/SegmentNav";
-
 const props = withDefaults(defineProps<SegmentNavType>(), {
   componentSize: "medium",
   label: "text",

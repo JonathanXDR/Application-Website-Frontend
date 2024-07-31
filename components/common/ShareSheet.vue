@@ -24,9 +24,6 @@
 </template>
 
 <script setup lang="ts">
-import type { FaLinkType } from "~/types/common/FaLink";
-import type { ShareSheet } from "~/types/common/ShareSheet";
-
 defineProps<ShareSheet>();
 
 const { tm } = useI18n();

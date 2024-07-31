@@ -27,8 +27,6 @@
 </template>
 
 <script setup lang="ts">
-import type { ExtendedSizeType } from "~/types/common/ExtendedSize";
-
 const props = withDefaults(
   defineProps<{
     componentSize?: Exclude<ExtendedSizeType, "xlarge">;

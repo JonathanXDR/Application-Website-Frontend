@@ -7,7 +7,7 @@
     <div v-else>
       <ul>
         <li v-for="album in albums" :key="album.id">
-          {{ album[0].attributes?.name }}
+          {{ album }}
         </li>
       </ul>
     </div>

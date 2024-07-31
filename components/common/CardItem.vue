@@ -127,8 +127,6 @@
 </template>
 
 <script setup lang="ts">
-import type { CardRepositoryType } from "~/types/common/CardRepository";
-
 const props = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
   variant: "card",
   componentSize: "medium",
