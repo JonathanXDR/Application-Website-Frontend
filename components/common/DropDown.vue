@@ -20,6 +20,8 @@
 </template>
 
 <script setup lang="ts">
+import type { ItemType } from "~/types/common/Item";
+
 withDefaults(
   defineProps<{
     options: ItemType[];

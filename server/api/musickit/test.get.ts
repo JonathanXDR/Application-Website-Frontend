@@ -1,11 +1,11 @@
 import { generateToken } from "~/server/utils/generateToken";
 
 export default defineEventHandler(async () => {
-  const { authToken } = generateToken();
+  const token = generateToken();
 
   const response = await fetch("https://api.music.apple.com/v1/test", {
     headers: {
-      Authorization: `Bearer ${authToken}`,
+      Authorization: `Bearer ${token}`,
     },
   });
 

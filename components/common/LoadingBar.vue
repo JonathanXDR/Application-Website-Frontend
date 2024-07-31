@@ -20,6 +20,8 @@
 </template>
 
 <script setup lang="ts">
+import type { ColorType } from "~/types/common/Color";
+
 withDefaults(
   defineProps<{
     progress: number;

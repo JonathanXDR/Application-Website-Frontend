@@ -1,3 +1,5 @@
+import type { IconType } from "./Icon";
+
 export interface FlashAlertType {
   variant?:
     | "deprecated"

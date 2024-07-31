@@ -56,6 +56,8 @@
 </template>
 
 <script setup lang="ts">
+import type { CardItemType } from "~/types/common/CardItem";
+
 definePageMeta({
   header: true,
   nav: true,

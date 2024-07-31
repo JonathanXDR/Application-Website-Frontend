@@ -1,3 +1,6 @@
+import type { ExtendedSizeType } from "./ExtendedSize";
+import type { ItemType } from "./Item";
+
 export interface SegmentNavType {
   items: ItemType[];
   componentSize?: Exclude<ExtendedSizeType, "xlarge">;

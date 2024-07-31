@@ -65,6 +65,8 @@
 </template>
 
 <script setup lang="ts">
+import type { LanguageBarType } from "~/types/common/LanguageBar";
+
 const props = withDefaults(defineProps<LanguageBarType>(), {
   progress: 0,
   componentSize: "medium",

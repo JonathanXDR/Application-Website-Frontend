@@ -127,6 +127,11 @@
 
 <script setup lang="ts">
 import type { Repository } from "@octokit/graphql-schema";
+import type { CardItemType } from "~/types/common/CardItem";
+import type { CardRepositoryType } from "~/types/common/CardRepository";
+import type { IconType } from "~/types/common/Icon";
+import type { ItemType } from "~/types/common/Item";
+import type { MinimalRepository } from "~/types/services/github/Repository";
 
 type PinnedRepository = Repository & {
   icon?: IconType;

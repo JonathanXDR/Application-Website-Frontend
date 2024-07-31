@@ -30,6 +30,8 @@
 </template>
 
 <script setup lang="ts">
+import type { LinkType } from "~/types/common/Link";
+
 const props = withDefaults(
   defineProps<{
     links: LinkType[];

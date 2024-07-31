@@ -14,10 +14,6 @@ export default defineNuxtConfig({
     "nuxt-security",
   ],
 
-  imports: {
-    dirs: ["types/**"],
-  },
-
   css: ["~/assets/css/main.css"],
 
   devtools: {

@@ -76,6 +76,9 @@
 </template>
 
 <script setup lang="ts">
+import type { ItemType } from "~/types/common/Item";
+import { type SectionType } from "~/types/common/Section";
+
 const { randomDevColor } = useColor();
 const { currentSection } = useSection();
 const { getTheme, setTheme } = useTheme();

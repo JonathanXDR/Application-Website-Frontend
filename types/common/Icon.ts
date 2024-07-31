@@ -1,3 +1,6 @@
+import type { BasicSizeType } from "./BasicSize";
+import type { ColorType } from "./Color";
+
 export interface IconType {
   name: string;
   variant?: "default" | "outline" | "fill" | "custom";

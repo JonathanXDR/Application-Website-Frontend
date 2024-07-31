@@ -5,6 +5,9 @@
 </template>
 
 <script setup lang="ts">
+import type { BasicSizeType } from "~/types/common/BasicSize";
+import type { IconType } from "~/types/common/Icon";
+
 withDefaults(
   defineProps<{
     as?: keyof HTMLElementTagNameMap;

@@ -47,6 +47,8 @@
 </template>
 
 <script setup lang="ts">
+import type { DateItemType } from "~/types/common/DateItem";
+
 defineProps<{
   title: string;
 }>();

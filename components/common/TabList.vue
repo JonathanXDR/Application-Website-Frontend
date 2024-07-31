@@ -29,6 +29,7 @@
 </template>
 
 <script setup lang="ts">
+import type { ItemType } from "~/types/common/Item";
 const props = withDefaults(
   defineProps<{
     items: ItemType[];

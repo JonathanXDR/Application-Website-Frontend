@@ -7,6 +7,9 @@
 </template>
 
 <script setup lang="ts">
+import type { BasicSizeType } from "~/types/common/BasicSize";
+import type { IconType } from "~/types/common/Icon";
+
 const props = withDefaults(defineProps<IconType>(), {
   componentSize: "medium",
   loading: false,

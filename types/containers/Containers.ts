@@ -1,3 +1,12 @@
+import type { ExtendedPropsType } from "../common/ExtendedProps";
+import type { About } from "./About";
+import type { CommonContainers } from "./Common";
+import type { Languages } from "./Languages";
+import type { Other } from "./Other";
+import type { Projects } from "./Projects";
+import type { References } from "./References";
+import type { Technologies } from "./Technologies";
+
 export interface Containers extends ExtendedPropsType {
   common: CommonContainers;
   about: About;
