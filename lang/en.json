@@ -487,7 +487,7 @@
           },
           "eyebrow": "Library",
           "title": "SDX",
-          "description": "I came into contact with this library several times during my training. For example, I used it to develop the Team website apps, the media courses and many other Swisscom applications.",
+          "description": "I came into contact with this library several times during my training. For example, I used it to develop the Apps Team website, the media courses and many other Swisscom applications.",
           "badges": ["Swisscom", "Design", "UI"],
           "links": [
             {
@@ -559,7 +559,7 @@
           },
           "eyebrow": "Framework",
           "title": "Vue.js",
-          "description": "This website was created with Vue.js and I've also worked with it in other ways. Examples are my memory app in the apps team or the future day tool and the vocational school app, which I created in NexCC.",
+          "description": "This website was created with Vue.js and I've also worked with it in other ways. Examples are my memory app in the Apps Team or the future day tool and the vocational school app, which I created in NexCC.",
           "badges": ["Javascript", "Frontend", "Web"],
           "links": [
             {
@@ -757,7 +757,7 @@
           },
           "eyebrow": "ORM",
           "title": "TypeORM",
-          "description": "As an alternative to Prisma, I also implemented my CRUD app with TypeORM after I had finished it, as this ORM is also used in various projects in the apps team.",
+          "description": "As an alternative to Prisma, I also implemented my CRUD app with TypeORM after I had finished it, as this ORM is also used in various projects in the Apps Team.",
           "badges": ["Database", "TypeScript", "ORM"],
           "links": [
             {
