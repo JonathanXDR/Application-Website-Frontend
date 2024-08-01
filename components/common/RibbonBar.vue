@@ -92,7 +92,7 @@ const props = withDefaults(defineProps<RibbonBar>(), {
   loading: false,
 });
 
-const { t, tm, rt } = useI18n();
+const { t, tm, rt, locale } = useI18n();
 const config = useRuntimeConfig();
 
 const tags = ref<{
@@ -217,6 +217,10 @@ watch(
   },
   { immediate: true },
 );
+
+watch(locale, () => {
+  updateBaseItems();
+});
 </script>
 
 <style scoped>
