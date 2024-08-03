@@ -49,7 +49,7 @@
 </template>
 
 <script setup lang="ts">
-import { SteppedEase, TimelineMax } from "gsap";
+import { gsap } from "gsap";
 import AudioExit from "~/public/mario/audio/smw_keyhole_exit.ogg";
 
 const foundCoins = ref(0);
@@ -70,7 +70,7 @@ const jumpMario = (blockCenter: number, blockBottom: number) => {
   const marioRect = mario.getBoundingClientRect();
   const isJumpingLeft = marioRect.x > blockCenter;
   const marioFloor = window.innerHeight - marioRect.height;
-  const marioAnimation = new TimelineMax();
+  const marioAnimation = gsap.timeline();
 
   marioAnimation
     .clear(true)
@@ -79,8 +79,8 @@ const jumpMario = (blockCenter: number, blockBottom: number) => {
     })
     .fromTo(
       mario,
-      0.3,
       {
+        duration: 0.3,
         left: marioRect.x,
         top: marioFloor,
         onStart: () => {
@@ -105,7 +105,7 @@ const jumpMario = (blockCenter: number, blockBottom: number) => {
           ],
           autoRotate: false,
         },
-        ease: SteppedEase.config(12),
+        ease: "steps(12)",
         onComplete: () => {
           marioState.value = hasFoundAllCoins.value ? "celebrate" : null;
         },
@@ -136,27 +136,22 @@ const onFoundAllCoins = () => {
 
 const onOpenMessage = () => {
   audioExit.play();
-  const timeline = new TimelineMax();
+  const timeline = gsap.timeline();
   timeline
-    .to("#Mario .mario-msg", 1, {
+    .to("#Mario .mario-msg", {
+      duration: 1,
       scale: 1,
-      ease: SteppedEase.config(12),
+      ease: "steps(12)",
     })
-    .to(
-      "#Mario .mario-msg .later",
-      0.1,
-      {
-        autoAlpha: 1,
-      },
-      "+=2",
-    );
+    .to("#Mario .mario-msg .later", { duration: 0.1, autoAlpha: 1 }, "+=2");
 };
 
 const onCloseMessage = () => {
-  const timeline = new TimelineMax();
-  timeline.to("#Mario .mario-msg, #Mario .mario-msg-overlay", 1, {
+  const timeline = gsap.timeline();
+  timeline.to("#Mario .mario-msg, #Mario .mario-msg-overlay", {
+    duration: 1,
     scale: 0,
-    ease: SteppedEase.config(12),
+    ease: "steps(12)",
   });
 };
 </script>

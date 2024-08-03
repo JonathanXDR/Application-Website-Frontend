@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { SteppedEase, TimelineMax } from "gsap";
+import { gsap, SteppedEase } from "gsap";
 import AudioPowerUp from "~/public/mario/audio/smw_power-up.ogg";
 import AudioAppears from "~/public/mario/audio/smw_power-up_appears.ogg";
 import AudioStomp from "~/public/mario/audio/smw_stomp.ogg";
@@ -33,8 +33,8 @@ const emits = defineEmits<{
 const foundCoins = ref(0);
 const coinsToBeFound = 16;
 const hasTouched = ref(false);
-const blockAnimation = new TimelineMax();
-const coinAnimation = new TimelineMax();
+const blockAnimation = gsap.timeline();
+const coinAnimation = gsap.timeline();
 
 const audioStomp = new Audio(AudioStomp);
 const audioPowerUp = new Audio(AudioPowerUp);
@@ -50,7 +50,9 @@ const random = (min: number, max: number) => {
 };
 
 const animateCoin = () => {
-  const coin = document.querySelectorAll(".mario-coin")[foundCoins.value];
+  const coin = document.querySelectorAll(".mario-coin")[
+    foundCoins.value
+  ] as HTMLElement;
   const xCoords = random(-150, 150);
 
   coinAnimation
@@ -59,11 +61,12 @@ const animateCoin = () => {
       xPercent: 0,
       yPercent: 0,
     })
-    .to(coin, 0.1, { yPercent: -100 })
-    .to(coin, 1, {
-      bezier: {
+    .to(coin, { duration: 0.1, yPercent: -100 })
+    .to(coin, {
+      duration: 1,
+      motionPath: {
         curviness: 1.25,
-        values: [
+        path: [
           { xPercent: xCoords, yPercent: random(-150, -100) },
           { xPercent: xCoords * 2, yPercent: 800 },
         ],
@@ -84,15 +87,14 @@ const animateCoin = () => {
 };
 
 const animateBlock = () => {
-  emits("jumped", document.querySelector(".mario-box"));
-
-  const box = document.querySelector(".mario-box");
+  const box = document.querySelector(".mario-box") as HTMLElement;
+  emits("jumped", box);
 
   blockAnimation
     .clear(true)
     .set(box, { yPercent: 0 })
-    .to(box, 0.07, { yPercent: -40, ease: SteppedEase.config(2) })
-    .to(box, 0.07, { yPercent: 0, ease: SteppedEase.config(2) });
+    .to(box, { duration: 0.07, yPercent: -40, ease: SteppedEase.config(2) })
+    .to(box, { duration: 0.07, yPercent: 0, ease: SteppedEase.config(2) });
 };
 
 const onTouchBlock = () => {
