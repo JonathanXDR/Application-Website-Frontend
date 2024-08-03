@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import { random } from "@/utils";
 import { SteppedEase, TimelineMax } from "gsap";
 import AudioPowerUp from "~/public/mario/audio/smw_power-up.ogg";
 import AudioAppears from "~/public/mario/audio/smw_power-up_appears.ogg";
@@ -48,6 +47,11 @@ export default {
     },
   },
   methods: {
+    random(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
     animateCoin() {
       const coin = this.$el.querySelectorAll(".mario-coin")[this.foundCoins];
       const xCoords = random(-150, 150);

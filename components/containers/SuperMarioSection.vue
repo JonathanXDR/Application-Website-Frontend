@@ -49,7 +49,6 @@
 </template>
 
 <script>
-import { random } from "@/utils";
 import { SteppedEase, TimelineMax } from "gsap";
 import AudioExit from "~/public/mario/audio/smw_keyhole_exit.ogg";
 import SceneSection from "../SceneSection.vue";
@@ -67,6 +66,11 @@ export default {
     };
   },
   methods: {
+    random(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
     onJumped(block) {
       const rect = block.getBoundingClientRect();
       const blockCenter = Math.floor(rect.x + rect.width / 2);
