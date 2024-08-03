@@ -8,9 +8,9 @@
     <template #container>
       <div class="blocks">
         <SuperMarioBlock
-          v-for="(block, i) in 3"
+          v-for="i in 3"
           :key="i"
-          :has-coins="randomBlock === i + 1"
+          :has-coins="randomBlock === i"
           @jumped="onJumped"
           @found-coin="onFoundCoin"
           @found-all-coins="onFoundAllCoins"
@@ -48,124 +48,110 @@
   </SceneSection>
 </template>
 
-<script>
+<script setup lang="ts">
 import { SteppedEase, TimelineMax } from "gsap";
 import AudioExit from "~/public/mario/audio/smw_keyhole_exit.ogg";
-import SceneSection from "../SceneSection.vue";
 
-export default {
-  name: "SuperMarioScene",
-  components: { SceneSection, SuperMarioBlock, SuperMarioMario },
-  data() {
-    return {
-      foundCoins: 0,
-      marioState: null,
-      hasFoundAllCoins: false,
-      randomBlock: random(1, 3),
-      audioExit: new Audio(AudioExit),
-    };
-  },
-  methods: {
-    random(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    },
-    onJumped(block) {
-      const rect = block.getBoundingClientRect();
-      const blockCenter = Math.floor(rect.x + rect.width / 2);
-      const blockBottom = rect.bottom;
+const foundCoins = ref(0);
+const marioState = ref<string | null>(null);
+const hasFoundAllCoins = ref(false);
+const randomBlock = ref<number>(Math.floor(Math.random() * 3) + 1);
+const audioExit = new Audio(AudioExit);
 
-      this.jumpMario(blockCenter, blockBottom);
-    },
-    jumpMario(blockCenter, blockBottom) {
-      const mario = this.$el.querySelector(".mario");
-      const marioRect = mario.getBoundingClientRect();
-      const isJumpingLeft = marioRect.x > blockCenter;
-      const marioFloor = window.innerHeight - marioRect.height;
-      const marioAnimation = new TimelineMax();
+const jumpMario = (blockCenter: number, blockBottom: number) => {
+  const mario = document.querySelector(".mario") as HTMLElement;
+  const marioRect = mario.getBoundingClientRect();
+  const isJumpingLeft = marioRect.x > blockCenter;
+  const marioFloor = window.innerHeight - marioRect.height;
+  const marioAnimation = new TimelineMax();
 
-      marioAnimation
-        .clear(true)
-        .set(mario, {
-          rotationY: isJumpingLeft ? 180 : 0,
-        })
-        .fromTo(
-          mario,
-          0.3,
-          {
-            left: marioRect.x,
-            top: marioFloor,
-            onStart: () => {
-              this.marioState = "up";
+  marioAnimation
+    .clear(true)
+    .set(mario, {
+      rotationY: isJumpingLeft ? 180 : 0,
+    })
+    .fromTo(
+      mario,
+      0.3,
+      {
+        left: marioRect.x,
+        top: marioFloor,
+        onStart: () => {
+          marioState.value = "up";
+        },
+      },
+      {
+        bezier: {
+          curviness: 1.25,
+          values: [
+            {
+              left: blockCenter - marioRect.width / 2,
+              top: window.innerWidth <= 1024 ? blockBottom * 0.85 : blockBottom,
             },
-          },
-          {
-            bezier: {
-              curviness: 1.25,
-              values: [
-                {
-                  left: blockCenter - marioRect.width / 2,
-                  top: this.$viewport.isTablet
-                    ? blockBottom * 0.85
-                    : blockBottom,
-                },
-                {
-                  left: isJumpingLeft ? blockCenter - 128 : blockCenter + 128,
-                  top: this.$viewport.isTablet ? marioFloor * 0.9 : marioFloor,
-                  onStart: () => {
-                    this.marioState = "down";
-                  },
-                },
-              ],
-              autoRotate: false,
+            {
+              left: isJumpingLeft ? blockCenter - 128 : blockCenter + 128,
+              top: window.innerWidth <= 1024 ? marioFloor * 0.9 : marioFloor,
+              onStart: () => {
+                marioState.value = "down";
+              },
             },
-            ease: SteppedEase.config(12),
-            onComplete: () => {
-              this.marioState = this.hasFoundAllCoins ? "celebrate" : null;
-            },
-          },
-        );
-    },
-    onFoundCoin(foundCoins) {
-      this.$emit("foundCoin");
-      this.foundCoins = foundCoins;
-
-      document.body.classList.remove("is-playing-mario");
-      document.body.classList.add("has-played-mario");
-      document.body.classList.add("blue-background");
-    },
-    onFoundAllCoins() {
-      this.$emit("foundAllCoins");
-      this.hasFoundAllCoins = true;
-      this.marioState = "celebrate";
-      this.onOpenMessage();
-    },
-    onOpenMessage() {
-      this.audioExit.play();
-      const timeline = new TimelineMax();
-      timeline
-        .to("#Mario .mario-msg", 1, {
-          scale: 1,
-          ease: SteppedEase.config(12),
-        })
-        .to(
-          "#Mario .mario-msg .later",
-          0.1,
-          {
-            autoAlpha: 1,
-          },
-          "+=2",
-        );
-    },
-    onCloseMessage() {
-      const timeline = new TimelineMax();
-      timeline.to("#Mario .mario-msg, #Mario .mario-msg-overlay", 1, {
-        scale: 0,
+          ],
+          autoRotate: false,
+        },
         ease: SteppedEase.config(12),
-      });
-    },
-  },
+        onComplete: () => {
+          marioState.value = hasFoundAllCoins.value ? "celebrate" : null;
+        },
+      },
+    );
+};
+
+const onJumped = (block: HTMLElement) => {
+  const rect = block.getBoundingClientRect();
+  const blockCenter = Math.floor(rect.x + rect.width / 2);
+  const blockBottom = rect.bottom;
+
+  jumpMario(blockCenter, blockBottom);
+};
+
+const onFoundCoin = (foundCoinsCount: number) => {
+  foundCoins.value = foundCoinsCount;
+
+  document.body.classList.remove("is-playing-mario");
+  document.body.classList.add("has-played-mario");
+  document.body.classList.add("blue-background");
+};
+
+const onFoundAllCoins = () => {
+  hasFoundAllCoins.value = true;
+  marioState.value = "celebrate";
+  onOpenMessage();
+};
+
+const onOpenMessage = () => {
+  audioExit.play();
+  const timeline = new TimelineMax();
+  timeline
+    .to("#Mario .mario-msg", 1, {
+      scale: 1,
+      ease: SteppedEase.config(12),
+    })
+    .to(
+      "#Mario .mario-msg .later",
+      0.1,
+      {
+        autoAlpha: 1,
+      },
+      "+=2",
+    );
+};
+
+const onCloseMessage = () => {
+  const timeline = new TimelineMax();
+  timeline.to("#Mario .mario-msg, #Mario .mario-msg-overlay", 1, {
+    scale: 0,
+    ease: SteppedEase.config(12),
+  });
 };
 </script>
 

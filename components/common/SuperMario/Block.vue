@@ -8,114 +8,104 @@
       @click="onTouchBlock"
     >
       <div class="in" />
-      <SuperMarioCoin v-for="(item, i) in coinsToBeFound" :key="i" is-playing />
+      <SuperMarioCoin v-for="i in coinsToBeFound" :key="i" :is-playing="true" />
     </div>
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import { SteppedEase, TimelineMax } from "gsap";
 import AudioPowerUp from "~/public/mario/audio/smw_power-up.ogg";
 import AudioAppears from "~/public/mario/audio/smw_power-up_appears.ogg";
 import AudioStomp from "~/public/mario/audio/smw_stomp.ogg";
 import AudioNoDamage from "~/public/mario/audio/smw_stomp_no_damage.ogg";
 
-export default {
-  name: "SuperMarioBlock",
-  components: {
-    SuperMarioCoin,
-  },
-  props: {
-    hasCoins: Boolean,
-  },
-  data() {
-    return {
-      foundCoins: 0,
-      coinsToBeFound: 16,
-      hasTouched: false,
-      blockAnimation: new TimelineMax(),
-      coinAnimation: new TimelineMax(),
-      audioStomp: new Audio(AudioStomp),
-      audioPowerUp: new Audio(AudioPowerUp),
-      audioAppears: new Audio(AudioAppears),
-      audioNoDamage: new Audio(AudioNoDamage),
-    };
-  },
-  computed: {
-    hasFoundAllCoins() {
-      return this.foundCoins === this.coinsToBeFound;
-    },
-  },
-  methods: {
-    random(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    },
-    animateCoin() {
-      const coin = this.$el.querySelectorAll(".mario-coin")[this.foundCoins];
-      const xCoords = random(-150, 150);
+const props = defineProps<{
+  hasCoins: boolean;
+}>();
 
-      const coinAnimation = new TimelineMax();
-      coinAnimation
-        // .clear(true)
-        .set(coin, {
-          autoAlpha: 1,
-          xPercent: 0,
-          yPercent: 0,
-        })
-        .to(coin, 0.1, { yPercent: -100 })
-        .to(coin, 1, {
-          bezier: {
-            curviness: 1.25,
-            values: [
-              { xPercent: xCoords, yPercent: random(-150, -100) },
-              { xPercent: xCoords * 2, yPercent: 800 },
-            ],
-            autoRotate: false,
-          },
-          ease: SteppedEase.config(24),
-        });
+const foundCoins = ref(0);
+const coinsToBeFound = ref(16);
+const hasTouched = ref(false);
+const blockAnimation = new TimelineMax();
+// const coinAnimation = new TimelineMax();
+const audioStomp = new Audio(AudioStomp);
+const audioPowerUp = new Audio(AudioPowerUp);
+const audioAppears = new Audio(AudioAppears);
+const audioNoDamage = new Audio(AudioNoDamage);
 
-      this.foundCoins++;
+const hasFoundAllCoins = computed(
+  () => foundCoins.value === coinsToBeFound.value,
+);
 
-      if (this.hasFoundAllCoins) {
-        this.audioPowerUp.play();
-        this.$emit("foundAllCoins");
-      }
+const random = (min: number, max: number) =>
+  Math.floor(Math.random() * (max - min + 1)) + min;
 
-      this.audioAppears.play();
-      this.$emit("foundCoin", this.foundCoins);
-    },
-    animateBlock() {
-      this.$emit("jumped", this.$el);
+const animateCoin = () => {
+  const coin = document.querySelectorAll(".mario-coin")[
+    foundCoins.value
+  ] as HTMLElement;
+  const xCoords = random(-150, 150);
 
-      const box = this.$el.querySelector(".mario-box");
+  const coinAnimation = new TimelineMax();
+  coinAnimation
+    .set(coin, {
+      autoAlpha: 1,
+      xPercent: 0,
+      yPercent: 0,
+    })
+    .to(coin, 0.1, { yPercent: -100 })
+    .to(coin, 1, {
+      bezier: {
+        curviness: 1.25,
+        values: [
+          { xPercent: xCoords, yPercent: random(-150, -100) },
+          { xPercent: xCoords * 2, yPercent: 800 },
+        ],
+        autoRotate: false,
+      },
+      ease: SteppedEase.config(24),
+    });
 
-      this.blockAnimation
-        .clear(true)
-        .set(box, { yPercent: 0 })
-        .to(box, 0.07, { yPercent: -40, ease: SteppedEase.config(2) })
-        .to(box, 0.07, { yPercent: 0, ease: SteppedEase.config(2) });
-    },
-    onTouchBlock() {
-      this.hasTouched = true;
+  foundCoins.value++;
 
-      this.animateBlock();
+  if (hasFoundAllCoins.value) {
+    audioPowerUp.play();
+    emit("foundAllCoins");
+  }
 
-      if (this.hasFoundAllCoins) {
-        this.audioNoDamage.play();
-        return;
-      }
+  audioAppears.play();
+  emit("foundCoin", foundCoins.value);
+};
 
-      if (this.hasCoins) {
-        this.audioStomp.play();
-        this.animateCoin();
-      } else {
-        this.audioNoDamage.play();
-      }
-    },
-  },
+const animateBlock = () => {
+  emit("jumped", element);
+
+  const box = element.querySelector(".mario-box") as HTMLElement;
+
+  blockAnimation
+    .clear(true)
+    .set(box, { yPercent: 0 })
+    .to(box, 0.07, { yPercent: -40, ease: SteppedEase.config(2) })
+    .to(box, 0.07, { yPercent: 0, ease: SteppedEase.config(2) });
+};
+
+const onTouchBlock = () => {
+  hasTouched.value = true;
+
+  animateBlock();
+
+  if (hasFoundAllCoins.value) {
+    audioNoDamage.play();
+    return;
+  }
+
+  if (props.hasCoins) {
+    audioStomp.play();
+    animateCoin();
+  } else {
+    audioNoDamage.play();
+  }
 };
 </script>
 

@@ -9,12 +9,6 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: 'SceneSection',
-};
-</script>
-
 <style scoped>
 .scene {
   min-height: 100vh;

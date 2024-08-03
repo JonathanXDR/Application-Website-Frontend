@@ -4,13 +4,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "SuperMarioCharacter",
-  props: {
-    state: String,
-  },
-};
+<script setup lang="ts">
+defineProps<{
+  state: string;
+}>();
 </script>
 
 <style scoped>

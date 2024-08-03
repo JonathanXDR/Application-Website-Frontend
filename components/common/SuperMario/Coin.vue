@@ -2,13 +2,10 @@
   <div :class="['mario-coin', { pause: !isPlaying }]" />
 </template>
 
-<script>
-export default {
-  name: "SuperMarioCoin",
-  props: {
-    isPlaying: Boolean,
-  },
-};
+<script setup lang="ts">
+defineProps<{
+  isPlaying: boolean;
+}>();
 </script>
 
 <style scoped>
