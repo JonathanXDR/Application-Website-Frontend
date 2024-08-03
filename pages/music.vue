@@ -7,7 +7,7 @@
     <div v-else>
       <ul>
         <li v-for="album in albums" :key="album.id">
-          {{ album[0].attributes?.name }}
+          {{ album.attributes?.name }}
         </li>
       </ul>
     </div>
@@ -27,7 +27,7 @@ const {
   data: albums,
   status,
   error,
-} = await useFetch("/api/musickit/user-library-albums", {
+} = await useFetch<MusicKit.Albums[]>("/api/musickit/user-library-albums", {
   params: { ids: "1616728060" },
 });
 </script>
