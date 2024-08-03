@@ -42,6 +42,7 @@
     "@vueuse/sound": "^2.0.1",
     "dayjs": "^1.11.12",
     "eslint": "^9.8.0",
+    "gsap": "^3.12.5",
     "hypertune": "^2.4.0",
     "jsonwebtoken": "^9.0.2",
     "nuxt": "^3.12.4",
