@@ -10,7 +10,7 @@ export default defineEventHandler(async () => {
   headers.append("Music-User-Token", `${musicUserToken}`);
 
   try {
-    const response = await $fetch<MusicKit.Albums[]>(
+    const response = await $fetch(
       `${config.public.appleMusicBaseUrl}/me/library/albums`,
       {
         headers,

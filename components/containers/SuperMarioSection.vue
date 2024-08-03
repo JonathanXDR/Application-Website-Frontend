@@ -17,7 +17,7 @@
         />
       </div>
 
-      <SuperMarioMario class="mario-container" :state="marioState" />
+      <SuperMario class="mario-container" :state="marioState || ''" />
 
       <div v-show="foundCoins" class="mario-coin-counter">
         {{ foundCoins }}
