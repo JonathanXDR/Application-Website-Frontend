@@ -1,0 +1,52 @@
+<section
+  class="scene"
+  id="Mario"
+  role="img"
+  aria-labelledby="marioDesc"
+  style="visibility: inherit; opacity: 1"
+>
+  <div class="static-container">
+    <p id="marioDesc" class="ariaLabel">
+      Three boxes with a question mark, from the Super Mario Bros game, are
+      standing in the center of the screen ... try to find the coin in one of
+      them by using the numbers 1, 2, and 3 on your keyboard!
+    </p>
+  </div>
+  <div class="container" style="visibility: inherit; opacity: 1; z-index: 4">
+    <audio id="mario-start" class="bgm">
+      <source src="/media/smw_princess_help.6db08fe8.ogg" type="audio/ogg" />
+    </audio>
+    <audio id="mario-stomp" class="bgm">
+      <source src="/media/smw_stomp.cc3fd551.ogg" type="audio/ogg" />
+    </audio>
+    <audio id="mario-empty" class="bgm">
+      <source src="/media/smw_stomp_no_damage.f0ed2462.ogg" type="audio/ogg" />
+    </audio>
+    <audio id="mario-appears" class="bgm">
+      <source src="/media/smw_power-up_appears.1f4184e6.ogg" type="audio/ogg" />
+    </audio>
+    <audio id="mario-power-up" class="bgm">
+      <source src="/media/smw_power-up.01d1241b.ogg" type="audio/ogg" />
+    </audio>
+    <audio id="mario-exit" class="bgm">
+      <source src="/media/smw_keyhole_exit.a8b8504b.ogg" type="audio/ogg" />
+    </audio>
+    <div class="mario-box b1">
+      <div class="in"></div>
+    </div>
+    <div class="mario-box b2">
+      <div class="in"></div>
+    </div>
+    <div class="mario-box b3">
+      <div class="in"></div>
+    </div>
+    <div
+      class="mario"
+      style="
+        visibility: hidden;
+        opacity: 0;
+        transform: translate(0%, 200%) matrix(1, 0, 0, 1, 0, 0);
+      "
+    ></div>
+  </div>
+</section>

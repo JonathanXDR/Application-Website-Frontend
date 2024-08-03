@@ -1,11 +1,11 @@
 <template>
   <header id="header">
     <div class="header-bg">
-      <div class="-default"></div>
-      <div class="-mario"></div>
-      <div class="-admin"></div>
-      <div class="-confianca"></div>
-      <div class="-desbravando"></div>
+      <div class="-default" />
+      <div class="-mario" />
+      <div class="-admin" />
+      <div class="-confianca" />
+      <div class="-desbravando" />
     </div>
 
     <div class="header-container">
@@ -20,9 +20,9 @@
       >
         <span class="label">Menu</span>
 
-        <span class="dots d1"></span>
-        <span class="dots d2"></span>
-        <span class="dots d3"></span>
+        <span class="dots d1" />
+        <span class="dots d2" />
+        <span class="dots d3" />
       </button>
 
       <nav class="header-nav">
@@ -95,17 +95,17 @@
 </template>
 
 <script>
-import '@/styles/header.scss'
+import "@/styles/header.scss";
 
 export default {
-  name: 'HeaderSection',
+  name: "HeaderSection",
   methods: {
     openMenu() {
-      document.body.classList.add('-open-nav')
+      document.body.classList.add("-open-nav");
     },
     closeMenu() {
-      document.body.classList.remove('-open-nav')
+      document.body.classList.remove("-open-nav");
     },
   },
-}
+};
 </script>

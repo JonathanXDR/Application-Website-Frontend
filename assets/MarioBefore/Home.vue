@@ -8,10 +8,10 @@
         >myCV</TitleFunction
       >
     </TitleSection>
-    <Biz :isPlaying="{ ...isPlaying.Biz }" />
+    <Biz :is-playing="{ ...isPlaying.Biz }" />
     <Gap />
 
-    <EarlyDays :isPlaying="isPlaying.EarlyDays" />
+    <EarlyDays :is-playing="isPlaying.EarlyDays" />
     <Gap />
 
     <TitleSection scene="ArtPhiGamesTitle">
@@ -41,35 +41,35 @@
 </template>
 
 <script>
-import '@/styles/home.scss'
-import { TimelineMax, TweenLite, Power0, Power1, Power2, Power3 } from 'gsap'
-import * as ScrollMagic from 'scrollmagic'
-import Intro from '@/components/Home/Intro.vue'
-import TitleSection from '@/components/Home/TitleSection.vue'
-import TitleFunction from '@/components/Home/TitleFunction.vue'
-import Biz from '@/components/Home/Biz.vue'
-import EarlyDays from '@/components/Home/EarlyDays.vue'
-import SuperMario from '@/components/Home/SuperMario.vue'
-import Ghibli from '@/components/Home/Ghibli.vue'
-import Wrapper from '@/components/Home/Wrapper.vue'
-import Thanks from '@/components/Home/Thanks.vue'
-import Potion from '@/js/potion'
-import Mario from '@/js/mario'
-import Castle from '@/js/ghibli'
-import Gap from '@/components/Gap.vue'
+import "@/styles/home.scss";
+import { TimelineMax, TweenLite, Power0, Power1, Power2, Power3 } from "gsap";
+import * as ScrollMagic from "scrollmagic";
+import Intro from "@/components/Home/Intro.vue";
+import TitleSection from "@/components/Home/TitleSection.vue";
+import TitleFunction from "@/components/Home/TitleFunction.vue";
+import Biz from "@/components/Home/Biz.vue";
+import EarlyDays from "@/components/Home/EarlyDays.vue";
+import SuperMario from "@/components/Home/SuperMario.vue";
+import Ghibli from "@/components/Home/Ghibli.vue";
+import Wrapper from "@/components/Home/Wrapper.vue";
+import Thanks from "@/components/Home/Thanks.vue";
+import Potion from "@/js/potion";
+import Mario from "@/js/mario";
+import Castle from "@/js/ghibli";
+import Gap from "@/components/Gap.vue";
 
 function removeBodyClass(...classes) {
-  document.body.classList.remove(...classes)
+  document.body.classList.remove(...classes);
 }
 
 function addBodyClass(...classes) {
-  if (document.querySelector('#app.page-home')) {
-    document.body.classList.add(...classes)
+  if (document.querySelector("#app.page-home")) {
+    document.body.classList.add(...classes);
   }
 }
 
 export default {
-  name: 'HomeView',
+  name: "HomeView",
   components: {
     Intro,
     TitleSection,
@@ -103,64 +103,64 @@ export default {
           Shapes: true,
         },
       },
-    }
+    };
   },
   created() {
-    window.addEventListener('beforeunload', () => window.scroll(0, 0))
+    window.addEventListener("beforeunload", () => window.scroll(0, 0));
   },
   mounted() {
     // 01. play Intro
-    this.playIntro()
+    this.playIntro();
     // 02. setup time lines and scenes
-    this.setupScenes()
+    this.setupScenes();
     // 03. build loop animations for each character
-    this.buildLoops()
+    this.buildLoops();
     // 04. Hook loops to ScrollMagic Scenes
-    this.hookLoops()
+    this.hookLoops();
     // 05. Animate every scene on scroll
-    this.sceneCurriculumVitae()
+    this.sceneCurriculumVitae();
     // biz(2011,2019)
-    this.sceneBizTitle()
-    this.sceneBizZen()
-    this.sceneBizEverybody()
-    this.sceneBizEnding()
+    this.sceneBizTitle();
+    this.sceneBizZen();
+    this.sceneBizEverybody();
+    this.sceneBizEnding();
     // EarlyDays(2008,2011)
-    this.sceneEarlyDays()
-    this.sceneOcean()
-    this.sceneFloatingHead()
-    this.sceneSunset()
+    this.sceneEarlyDays();
+    this.sceneOcean();
+    this.sceneFloatingHead();
+    this.sceneSunset();
     // ${Art} ${Philosophy} ${VideoGames}
-    this.sceneArtPhiGames()
-    this.sceneMario()
-    this.sceneGhibli()
+    this.sceneArtPhiGames();
+    this.sceneMario();
+    this.sceneGhibli();
     // </wrapper>
-    this.sceneWrapper()
+    this.sceneWrapper();
   },
   beforeUnmount() {
     // stop loop animations
     Object.keys(this.isPlaying.Biz).forEach((character) => {
-      this.isPlaying.Biz[character] = false
-    })
+      this.isPlaying.Biz[character] = false;
+    });
 
-    Castle.stop()
-    this.isPlaying.EarlyDays = false
-    Potion.stop()
-    Mario.stop()
+    Castle.stop();
+    this.isPlaying.EarlyDays = false;
+    Potion.stop();
+    Mario.stop();
 
     // kill time lines
-    this.timeLines.forEach((timeLine) => timeLine.kill())
-    this.timeLines = []
-    this.tweeners.forEach((tweener) => tweener.kill())
-    this.tweeners = []
+    this.timeLines.forEach((timeLine) => timeLine.kill());
+    this.timeLines = [];
+    this.tweeners.forEach((tweener) => tweener.kill());
+    this.tweeners = [];
 
     // destroy ScrollMagic
-    this.scroller.destroy(true)
-    this.scroller = null
+    this.scroller.destroy(true);
+    this.scroller = null;
     this.scenes.forEach((scene) => {
-      scene.on('enter', () => undefined)
-      scene.destroy(true)
-    })
-    this.scenes = []
+      scene.on("enter", () => undefined);
+      scene.destroy(true);
+    });
+    this.scenes = [];
   },
   methods: {
     setupScenes() {
@@ -175,12 +175,12 @@ export default {
        * This way I can synchronize scenes to the HTML content
        * and keep the momentum effect on all browsers
        */
-      const scenesElements = document.querySelectorAll('.scene')
-      for (let [i, scenesElement] of Array.from(scenesElements).entries()) {
+      const scenesElements = document.querySelectorAll(".scene");
+      for (const [i, scenesElement] of Array.from(scenesElements).entries()) {
         // tweeners, to animate the time lines' progress, to add momentum
-        this.tweeners[i] = new TimelineMax()
+        this.tweeners[i] = new TimelineMax();
         // time lines
-        this.timeLines[i] = new TimelineMax({ paused: true })
+        this.timeLines[i] = new TimelineMax({ paused: true });
         // create scenes on ScrollMagic
         this.scenes[i] = new ScrollMagic.Scene({
           // trigger on the scene element
@@ -193,16 +193,16 @@ export default {
           .setTween(this.tweeners[i])
           .addTo(this.scroller)
           .reverse(true)
-          .setClassToggle(scenesElement, 'active')
+          .setClassToggle(scenesElement, "active");
         // animate the progress in the time lines
         this.tweeners[i]
           .to(scenesElement, 1, { autoAlpha: 1 }) // fake, just to have some progress
-          .eventCallback('onUpdate', () => {
+          .eventCallback("onUpdate", () => {
             TweenLite.to(this.timeLines[i], 0.5, {
               progress: this.tweeners[i].progress(),
               ease: Power0.easeNone,
-            })
-          })
+            });
+          });
       }
     },
     playIntro() {
@@ -211,28 +211,28 @@ export default {
        * intro scene
        */
       this.intro
-        .addLabel('enter', 1)
+        .addLabel("enter", 1)
         .from(
-          '#intro .title',
+          "#intro .title",
           2,
           {
             autoAlpha: 0,
             rotationX: 90,
-            transformOrigin: '50% 50% -100px',
+            transformOrigin: "50% 50% -100px",
             ease: Power3.easeOut,
           },
-          'enter'
+          "enter",
         )
         .from(
-          '#intro .std',
+          "#intro .std",
           2,
           {
             autoAlpha: 0,
             x: -32,
             ease: Power3.easeOut,
           },
-          'enter+=1.5'
-        )
+          "enter+=1.5",
+        );
     },
     hookLoops() {
       /**
@@ -240,155 +240,155 @@ export default {
        * play and stop loop animations
        * based on the scenes been played
        */
-      this.scenes[0].on('enter', (e) => {
-        if (e.scrollDirection === 'REVERSE') {
-          this.isPlaying.Biz.ABiz = false
-          this.isPlaying.Biz.Shapes = false
+      this.scenes[0].on("enter", (e) => {
+        if (e.scrollDirection === "REVERSE") {
+          this.isPlaying.Biz.ABiz = false;
+          this.isPlaying.Biz.Shapes = false;
         }
-      })
-      this.scenes[1].on('enter', (e) => {
-        if (e.scrollDirection === 'FORWARD') {
-          this.isPlaying.Biz.ABiz = true
-          this.isPlaying.Biz.Shapes = true
+      });
+      this.scenes[1].on("enter", (e) => {
+        if (e.scrollDirection === "FORWARD") {
+          this.isPlaying.Biz.ABiz = true;
+          this.isPlaying.Biz.Shapes = true;
         }
-        if (e.scrollDirection === 'REVERSE') {
-          this.isPlaying.Biz.Zen = false
+        if (e.scrollDirection === "REVERSE") {
+          this.isPlaying.Biz.Zen = false;
         }
-      })
-      this.scenes[2].on('enter', (e) => {
-        if (e.scrollDirection === 'FORWARD') {
-          this.isPlaying.Biz.Zen = true
+      });
+      this.scenes[2].on("enter", (e) => {
+        if (e.scrollDirection === "FORWARD") {
+          this.isPlaying.Biz.Zen = true;
         }
-        if (e.scrollDirection === 'REVERSE') {
+        if (e.scrollDirection === "REVERSE") {
           // play
-          this.isPlaying.Biz.ABiz = true
-          this.isPlaying.Biz.Shapes = true
+          this.isPlaying.Biz.ABiz = true;
+          this.isPlaying.Biz.Shapes = true;
           // stop
-          this.isPlaying.Biz.Shrimp = false
-          this.isPlaying.Biz.Dino = false
-          this.isPlaying.Biz.ET = false
-          this.isPlaying.Biz.Octopus = false
-          this.isPlaying.Biz.Astronaut = false
-          this.isPlaying.Biz.CoffeeMug = false
+          this.isPlaying.Biz.Shrimp = false;
+          this.isPlaying.Biz.Dino = false;
+          this.isPlaying.Biz.ET = false;
+          this.isPlaying.Biz.Octopus = false;
+          this.isPlaying.Biz.Astronaut = false;
+          this.isPlaying.Biz.CoffeeMug = false;
         }
-      })
-      this.scenes[3].on('enter', (e) => {
-        if (e.scrollDirection === 'FORWARD') {
+      });
+      this.scenes[3].on("enter", (e) => {
+        if (e.scrollDirection === "FORWARD") {
           // stop
-          this.isPlaying.Biz.ABiz = false
-          this.isPlaying.Biz.Shapes = false
+          this.isPlaying.Biz.ABiz = false;
+          this.isPlaying.Biz.Shapes = false;
           // play
-          this.isPlaying.Biz.Shrimp = true
-          this.isPlaying.Biz.Dino = true
-          this.isPlaying.Biz.ET = true
-          this.isPlaying.Biz.Octopus = true
-          this.isPlaying.Biz.Astronaut = true
-          this.isPlaying.Biz.CoffeeMug = true
+          this.isPlaying.Biz.Shrimp = true;
+          this.isPlaying.Biz.Dino = true;
+          this.isPlaying.Biz.ET = true;
+          this.isPlaying.Biz.Octopus = true;
+          this.isPlaying.Biz.Astronaut = true;
+          this.isPlaying.Biz.CoffeeMug = true;
         }
-        if (e.scrollDirection === 'REVERSE') {
-          this.isPlaying.Biz.Zen = true
+        if (e.scrollDirection === "REVERSE") {
+          this.isPlaying.Biz.Zen = true;
         }
-      })
-      this.scenes[4].on('enter', (e) => {
-        if (e.scrollDirection === 'FORWARD') {
-          this.isPlaying.Biz.Zen = false
+      });
+      this.scenes[4].on("enter", (e) => {
+        if (e.scrollDirection === "FORWARD") {
+          this.isPlaying.Biz.Zen = false;
         }
-        if (e.scrollDirection === 'REVERSE') {
-          this.isPlaying.Biz.Shrimp = true
-          this.isPlaying.Biz.Dino = true
-          this.isPlaying.Biz.ET = true
-          this.isPlaying.Biz.Octopus = true
+        if (e.scrollDirection === "REVERSE") {
+          this.isPlaying.Biz.Shrimp = true;
+          this.isPlaying.Biz.Dino = true;
+          this.isPlaying.Biz.ET = true;
+          this.isPlaying.Biz.Octopus = true;
         }
-      })
-      this.scenes[5].on('enter', (e) => {
-        if (e.scrollDirection === 'FORWARD') {
-          this.isPlaying.Biz.Shrimp = false
-          this.isPlaying.Biz.Dino = false
-          this.isPlaying.Biz.ET = false
-          this.isPlaying.Biz.Octopus = false
-          this.isPlaying.EarlyDays = true
+      });
+      this.scenes[5].on("enter", (e) => {
+        if (e.scrollDirection === "FORWARD") {
+          this.isPlaying.Biz.Shrimp = false;
+          this.isPlaying.Biz.Dino = false;
+          this.isPlaying.Biz.ET = false;
+          this.isPlaying.Biz.Octopus = false;
+          this.isPlaying.EarlyDays = true;
         }
-        if (e.scrollDirection === 'REVERSE') {
-          this.isPlaying.Biz.Astronaut = true
-          this.isPlaying.Biz.CoffeeMug = true
-          this.isPlaying.EarlyDays = false
+        if (e.scrollDirection === "REVERSE") {
+          this.isPlaying.Biz.Astronaut = true;
+          this.isPlaying.Biz.CoffeeMug = true;
+          this.isPlaying.EarlyDays = false;
         }
-      })
-      this.scenes[6].on('enter', (e) => {
-        if (e.scrollDirection === 'FORWARD') {
-          this.isPlaying.Biz.Astronaut = false
-          this.isPlaying.Biz.CoffeeMug = false
+      });
+      this.scenes[6].on("enter", (e) => {
+        if (e.scrollDirection === "FORWARD") {
+          this.isPlaying.Biz.Astronaut = false;
+          this.isPlaying.Biz.CoffeeMug = false;
 
-          this.isPlaying.EarlyDays = true
+          this.isPlaying.EarlyDays = true;
         }
-      })
-      this.scenes[9].on('enter', (e) => {
-        if (e.scrollDirection === 'REVERSE') {
-          this.isPlaying.EarlyDays = true
+      });
+      this.scenes[9].on("enter", (e) => {
+        if (e.scrollDirection === "REVERSE") {
+          this.isPlaying.EarlyDays = true;
           // release mario body lock and remove bg
-          removeBodyClass('-mario-lock', '-mario-bg')
+          removeBodyClass("-mario-lock", "-mario-bg");
         }
-      })
+      });
       this.scenes[10] /** @Mario **/
-        .on('enter', (e) => {
-          if (e.scrollDirection === 'FORWARD') {
-            this.isPlaying.EarlyDays = false
+        .on("enter", (e) => {
+          if (e.scrollDirection === "FORWARD") {
+            this.isPlaying.EarlyDays = false;
             // mario bg is added inside mario.js
           }
-          if (e.scrollDirection === 'REVERSE') {
+          if (e.scrollDirection === "REVERSE") {
             // add bg just in case
-            addBodyClass('-mario-bg')
+            addBodyClass("-mario-bg");
           }
         })
-        .on('leave', (e) => {
-          if (e.scrollDirection === 'REVERSE') {
-            Castle.stop()
+        .on("leave", (e) => {
+          if (e.scrollDirection === "REVERSE") {
+            Castle.stop();
           }
-        })
-      this.scenes[11].on('enter', (e) => {
-        if (e.scrollDirection === 'FORWARD') {
-          Castle.play()
+        });
+      this.scenes[11].on("enter", (e) => {
+        if (e.scrollDirection === "FORWARD") {
+          Castle.play();
           // release mario body lock
-          removeBodyClass('-mario-lock')
+          removeBodyClass("-mario-lock");
         }
-        addBodyClass('-mario-bg')
-      })
-      this.scenes[12].on('enter', () => {
+        addBodyClass("-mario-bg");
+      });
+      this.scenes[12].on("enter", () => {
         // add bg just in case in both directions
-        addBodyClass('-mario-bg')
-      })
-      this.scenes[13].on('enter', () => {
+        addBodyClass("-mario-bg");
+      });
+      this.scenes[13].on("enter", () => {
         // add bg just in case in both directions
-        addBodyClass('-mario-bg')
-      })
-      this.scenes[14].on('enter', () => {
+        addBodyClass("-mario-bg");
+      });
+      this.scenes[14].on("enter", () => {
         // add bg just in case in both directions
-        addBodyClass('-mario-bg')
-      })
+        addBodyClass("-mario-bg");
+      });
       this.scenes[15]
-        .on('enter', (e) => {
-          if (e.scrollDirection === 'FORWARD') {
+        .on("enter", (e) => {
+          if (e.scrollDirection === "FORWARD") {
             // remove bg
-            removeBodyClass('-mario-bg')
+            removeBodyClass("-mario-bg");
           }
-          if (e.scrollDirection === 'REVERSE') {
-            Castle.play()
+          if (e.scrollDirection === "REVERSE") {
+            Castle.play();
 
-            Potion.stop()
+            Potion.stop();
           }
         })
-        .on('leave', (e) => {
-          if (e.scrollDirection === 'REVERSE') {
+        .on("leave", (e) => {
+          if (e.scrollDirection === "REVERSE") {
             // add bg
-            addBodyClass('-mario-bg')
+            addBodyClass("-mario-bg");
           }
-        })
-      this.scenes[16].on('enter', (e) => {
-        if (e.scrollDirection === 'FORWARD') {
-          Castle.stop()
-          Potion.play()
+        });
+      this.scenes[16].on("enter", (e) => {
+        if (e.scrollDirection === "FORWARD") {
+          Castle.stop();
+          Potion.play();
         }
-      })
+      });
     },
     buildLoops() {
       /**
@@ -396,12 +396,12 @@ export default {
        * mount loop animations
        */
 
-      Castle.build()
-      Potion.build()
+      Castle.build();
+      Potion.build();
       if (this.$viewport.isMobile) {
-        Castle.build568()
+        Castle.build568();
       } else {
-        Castle.build()
+        Castle.build();
       }
     },
     sceneCurriculumVitae() {
@@ -411,79 +411,79 @@ export default {
        */
       // CurriculumVitae()
       this.timeLines[0]
-        .set('#curriculum .title-container', { autoAlpha: 1 }) // show animations
-        .addLabel('start', 0)
+        .set("#curriculum .title-container", { autoAlpha: 1 }) // show animations
+        .addLabel("start", 0)
         .from(
-          '#curriculum .title',
+          "#curriculum .title",
           2,
           {
             yPercent: -50,
             autoAlpha: 0,
             rotationX: 90,
-            transformOrigin: '50% 50% -100px',
+            transformOrigin: "50% 50% -100px",
             ease: Power3.easeOut,
           },
-          'start'
+          "start",
         )
         .from(
-          '#curriculum .std',
+          "#curriculum .std",
           2,
           {
             yPercent: 50,
             autoAlpha: 0,
             rotationX: -90,
-            transformOrigin: '50% 50% -100px',
+            transformOrigin: "50% 50% -100px",
             ease: Power3.easeOut,
           },
-          'start'
+          "start",
         )
-        .to('#curriculum .title, #curriculum .std', 2, {
+        .to("#curriculum .title, #curriculum .std", 2, {
           autoAlpha: 0,
           yPercent: -100,
-        })
+        });
     },
     sceneBizTitle() {
       // biz()
       this.timeLines[1]
         // next scene characters
-        .set('#filomena', {
+        .set("#filomena", {
           autoAlpha: 0,
           scale: 0,
           xPercent: 600,
           yPercent: 100,
         })
-        .set('#dino', {
+        .set("#dino", {
           scale: 0,
           xPercent: 400,
           yPercent: 100,
         })
-        .set('#astro, #coffee, #et, #octo', {
+        .set("#astro, #coffee, #et, #octo", {
           autoAlpha: 0,
           scale: 0,
           xPercent: 400,
           yPercent: 100,
         })
         // this scene
-        .set('#bizTitle .title-container, #biz1 .container', { autoAlpha: 1 })
-        .addLabel('start', 0)
+        .set("#bizTitle .title-container, #biz1 .container", { autoAlpha: 1 })
+        .addLabel("start", 0)
         .from(
-          '#bizTitle .title',
+          "#bizTitle .title",
           6,
           {
             yPercent: -50,
             autoAlpha: 0,
             rotationX: 90,
-            transformOrigin: '50% 50% -100px',
+            transformOrigin: "50% 50% -100px",
             ease: Power3.easeOut,
           },
-          'start'
+          "start",
         )
-        .to('#bizTitle .title', 6, {
+        .to("#bizTitle .title", 6, {
           autoAlpha: 0,
           yPercent: -100,
         })
         .staggerFrom(
-          '#smart, #open',
+          "#smart, #open",
           6,
           {
             autoAlpha: 0,
@@ -491,42 +491,42 @@ export default {
             ease: Power3.easeOut,
           },
           0.2,
-          'start+=2'
+          "start+=2",
         )
         .from(
-          '#abiz',
+          "#abiz",
           6,
           {
             scale: 0,
           },
-          'start+=2'
-        )
+          "start+=2",
+        );
     },
     sceneBizZen() {
       // Biz Commerce 1
       this.timeLines[2]
-        .addLabel('start', 0)
+        .addLabel("start", 0)
         .from(
-          '#zen',
+          "#zen",
           4,
           {
             xPercent: 70,
             ease: Power3.easeOut,
           },
-          'start'
+          "start",
         )
         .to(
-          '#abiz',
+          "#abiz",
           4,
           {
             autoAlpha: 0,
             xPercent: -100,
             ease: Power3.easeIn,
           },
-          'start'
+          "start",
         )
         .staggerTo(
-          '#smart, #open',
+          "#smart, #open",
           4,
           {
             autoAlpha: 0,
@@ -534,24 +534,24 @@ export default {
             ease: Power3.easeOut,
           },
           0.2,
-          'start'
-        )
+          "start",
+        );
     },
     sceneBizEverybody() {
       // Biz Commerce 2
       this.timeLines[3]
-        .addLabel('start', 0)
+        .addLabel("start", 0)
         .to(
-          '#zen',
+          "#zen",
           4,
           {
             yPercent: 130,
             ease: Power3.easeIn,
           },
-          'start'
+          "start",
         )
         .staggerTo(
-          '#dino, #astro, #coffee, #et, #filomena, #octo',
+          "#dino, #astro, #coffee, #et, #filomena, #octo",
           5,
           {
             autoAlpha: 1,
@@ -561,25 +561,25 @@ export default {
             ease: Power3.easeOut,
           },
           0.2,
-          'start'
-        )
+          "start",
+        );
     },
     sceneBizEnding() {
       // Biz Commerce 3
       this.timeLines[4]
-        .addLabel('start', 0)
+        .addLabel("start", 0)
         .to(
-          '#dino',
+          "#dino",
           6,
           {
             yPercent: 200,
             scale: 1.5,
             ease: Power3.easeIn,
           },
-          'start'
+          "start",
         )
         .to(
-          '#et',
+          "#et",
           6,
           {
             xPercent: -250,
@@ -587,10 +587,10 @@ export default {
             autoAlpha: 0,
             ease: Power3.easeIn,
           },
-          'start'
+          "start",
         )
         .to(
-          '#filomena',
+          "#filomena",
           6,
           {
             xPercent: -300,
@@ -598,10 +598,10 @@ export default {
             autoAlpha: 0,
             ease: Power3.easeIn,
           },
-          'start'
+          "start",
         )
         .to(
-          '#octo',
+          "#octo",
           6,
           {
             xPercent: -650,
@@ -609,48 +609,48 @@ export default {
             autoAlpha: 0,
             ease: Power3.easeIn,
           },
-          'start'
+          "start",
         )
         .to(
-          '#astro',
+          "#astro",
           12,
           {
-            bottom: '-10vh',
-            right: '-10vw',
+            bottom: "-10vh",
+            right: "-10vw",
             scale: 4,
             ease: Power3.easeInOut,
           },
-          'start'
+          "start",
         )
         .to(
-          '#coffee',
+          "#coffee",
           12,
           {
-            top: '8rem',
+            top: "8rem",
             left: 0,
             scale: 4,
             ease: Power3.easeInOut,
           },
-          'start'
-        )
+          "start",
+        );
     },
     sceneEarlyDays() {
       // Clouds parallax
-      let cloudsTimeline = new TimelineMax({ paused: true }),
-        cloudsTweener = new TimelineMax()
+      const cloudsTimeline = new TimelineMax({ paused: true }),
+        cloudsTweener = new TimelineMax();
       cloudsTweener
-        .to('.cloud-1', 20, { rotation: 0 })
-        .eventCallback('onUpdate', () => {
+        .to(".cloud-1", 20, { rotation: 0 })
+        .eventCallback("onUpdate", () => {
           TweenLite.to(cloudsTimeline, 4, {
             progress: cloudsTweener.progress(),
             ease: Power3.easeOut,
-          })
-        })
+          });
+        });
 
       cloudsTimeline
-        .addLabel('start', 0)
+        .addLabel("start", 0)
         .fromTo(
-          '.cloud-1',
+          ".cloud-1",
           10,
           {
             yPercent: 50,
@@ -660,10 +660,10 @@ export default {
             yPercent: -85,
             xPercent: -20,
           },
-          'action'
+          "action",
         )
         .fromTo(
-          '.cloud-2',
+          ".cloud-2",
           10,
           {
             yPercent: 40,
@@ -673,10 +673,10 @@ export default {
             yPercent: -40,
             xPercent: 85,
           },
-          'action'
+          "action",
         )
         .fromTo(
-          '.cloud-3',
+          ".cloud-3",
           10,
           {
             yPercent: 70,
@@ -686,229 +686,229 @@ export default {
             yPercent: -85,
             xPercent: -40,
           },
-          'action'
-        )
+          "action",
+        );
 
       new ScrollMagic.Scene({
-        triggerElement: '#earlyTitle',
+        triggerElement: "#earlyTitle",
         offset: -this.$viewport.height / 2,
         duration: this.$viewport.height * 3.5,
       })
         .setTween(cloudsTweener)
-        .addTo(this.scroller)
+        .addTo(this.scroller);
 
       // EarlyDays()
       this.timeLines[5]
-        .set('.pepe-scenery', { autoAlpha: 0 })
-        .set('#biz1 .container', { autoAlpha: 1 })
-        .addLabel('start', 0)
+        .set(".pepe-scenery", { autoAlpha: 0 })
+        .set("#biz1 .container", { autoAlpha: 1 })
+        .addLabel("start", 0)
         .to(
-          '#astro',
+          "#astro",
           4,
           {
             yPercent: 600,
             xPercent: 200,
             ease: Power2.easeIn,
           },
-          'start'
+          "start",
         )
         .to(
-          '#coffee',
+          "#coffee",
           4,
           {
             yPercent: -600,
             xPercent: -200,
             ease: Power2.easeIn,
           },
-          'start'
+          "start",
         )
-        .to('#earlyTitle .title-container', 2, { autoAlpha: 1 }, 'start')
+        .to("#earlyTitle .title-container", 2, { autoAlpha: 1 }, "start")
         .from(
-          '#earlyTitle .title',
+          "#earlyTitle .title",
           4,
           {
             yPercent: -50,
             autoAlpha: 0,
             rotationX: 90,
-            transformOrigin: '50% 50% -100px',
+            transformOrigin: "50% 50% -100px",
             ease: Power3.easeOut,
           },
-          'start'
+          "start",
         )
         .from(
-          '#earlyTitle .std',
+          "#earlyTitle .std",
           4,
           {
             yPercent: 50,
             autoAlpha: 0,
             rotationX: -90,
-            transformOrigin: '50% 50% 100px',
+            transformOrigin: "50% 50% 100px",
             ease: Power3.easeOut,
           },
-          'start'
+          "start",
         )
-        .to('#earlyTitle .title, #earlyTitle .std', 4, {
+        .to("#earlyTitle .title, #earlyTitle .std", 4, {
           autoAlpha: 0,
           yPercent: -100,
-        })
+        });
     },
     sceneOcean() {
       // Pepe parallax
-      let pepeTimeline = new TimelineMax({ paused: true }),
+      const pepeTimeline = new TimelineMax({ paused: true }),
         pepeTweener = new TimelineMax(),
         pepeLength =
-          window.innerWidth + document.querySelector('.pepe').offsetWidth + 16
+          window.innerWidth + document.querySelector(".pepe").offsetWidth + 16;
 
       pepeTweener
-        .to('.pepe', 20, { rotation: 0 })
-        .eventCallback('onUpdate', () => {
+        .to(".pepe", 20, { rotation: 0 })
+        .eventCallback("onUpdate", () => {
           TweenLite.to(pepeTimeline, 4, {
             progress: pepeTweener.progress(),
             ease: Power3.easeOut,
-          })
-        })
+          });
+        });
 
-      pepeTimeline.addLabel('start').to(
-        '.pepe',
+      pepeTimeline.addLabel("start").to(
+        ".pepe",
         10,
         {
           x: `-${pepeLength}px`,
           scale: 0.5,
         },
-        'start'
-      )
+        "start",
+      );
 
       new ScrollMagic.Scene({
-        triggerElement: '#early-days2',
+        triggerElement: "#early-days2",
         offset: -this.$viewport.height / 2,
         duration: this.$viewport.height * 4,
       })
         .setTween(pepeTweener)
-        .addTo(this.scroller)
+        .addTo(this.scroller);
 
       // foothold on arts
       this.timeLines[6]
-        .set('#biz1 .container', { autoAlpha: 0 })
-        .to('.pepe-scenery', 8, { autoAlpha: 1 })
+        .set("#biz1 .container", { autoAlpha: 0 })
+        .to(".pepe-scenery", 8, { autoAlpha: 1 });
     },
     sceneFloatingHead() {
       // first company
-      this.timeLines[7].addLabel('start', 0)
+      this.timeLines[7].addLabel("start", 0);
     },
     sceneSunset() {
       // porta, kibe etc.
       this.timeLines[8]
-        .set('#Mario .container', { autoAlpha: 0 })
-        .to('.pepe-scenery', 8, { autoAlpha: 0 })
+        .set("#Mario .container", { autoAlpha: 0 })
+        .to(".pepe-scenery", 8, { autoAlpha: 0 });
     },
     sceneArtPhiGames() {
       this.timeLines[9]
-        .set('#Mario .container', { autoAlpha: 0 })
-        .addLabel('start', 1)
-        .to('#ArtPhiGamesTitle .title-container', 1, { autoAlpha: 1 })
-        .staggerFrom('#ArtPhiGamesTitle .title .line', 4, {
+        .set("#Mario .container", { autoAlpha: 0 })
+        .addLabel("start", 1)
+        .to("#ArtPhiGamesTitle .title-container", 1, { autoAlpha: 1 })
+        .staggerFrom("#ArtPhiGamesTitle .title .line", 4, {
           yPercent: -50,
           autoAlpha: 0,
           rotationX: 90,
-          transformOrigin: '50% 50% -100px',
+          transformOrigin: "50% 50% -100px",
           ease: Power3.easeOut,
           stagger: 0.5,
         })
         .from(
-          '#ArtPhiGamesTitle .std',
+          "#ArtPhiGamesTitle .std",
           4,
           {
             yPercent: 50,
             autoAlpha: 0,
             rotationX: -90,
-            transformOrigin: '50% 50% 100px',
+            transformOrigin: "50% 50% 100px",
             ease: Power3.easeOut,
           },
-          '-=1'
+          "-=1",
         )
-        .to('#ArtPhiGamesTitle .title, #ArtPhiGamesTitle .std', 3, {
+        .to("#ArtPhiGamesTitle .title, #ArtPhiGamesTitle .std", 3, {
           yPercent: -100,
           autoAlpha: 0,
         })
-        .set('#earlyTitle .title-container', { autoAlpha: 1 })
+        .set("#earlyTitle .title-container", { autoAlpha: 1 });
     },
     sceneMario() {
       // Mario
       // using the tweener here
       // because I need to be precise about time, and the momentum would ruin it
       this.tweeners[10]
-        .to('#earlyTitle .title-container', 0.5, { autoAlpha: 0 }) // fix reverse scroll and help time the mario trigger
-        .to('#Mario .container', 1, {
+        .to("#earlyTitle .title-container", 0.5, { autoAlpha: 0 }) // fix reverse scroll and help time the mario trigger
+        .to("#Mario .container", 1, {
           autoAlpha: 1,
           zIndex: 4,
           onComplete: () => Mario.action(),
-        })
-      this.timeLines[10].set('.mario', { yPercent: 200, autoAlpha: 0 })
+        });
+      this.timeLines[10].set(".mario", { yPercent: 200, autoAlpha: 0 });
     },
     sceneGhibli() {
       // Ghibli Grass parallax
-      let grassTimeline = new TimelineMax({ paused: true }),
-        grassTweener = new TimelineMax()
+      const grassTimeline = new TimelineMax({ paused: true }),
+        grassTweener = new TimelineMax();
 
       grassTweener
-        .to('.pepe', 20, { rotation: 0 })
-        .eventCallback('onUpdate', () => {
+        .to(".pepe", 20, { rotation: 0 })
+        .eventCallback("onUpdate", () => {
           TweenLite.to(grassTimeline, 2, {
             progress: grassTweener.progress(),
             ease: Power3.easeOut,
-          })
-        })
+          });
+        });
 
       grassTimeline
-        .addLabel('start', 0)
+        .addLabel("start", 0)
         .to(
-          '#Ghibli .grass1',
+          "#Ghibli .grass1",
           20,
           {
             yPercent: 10,
             xPercent: -100,
             ease: Power1.easeIn,
           },
-          'start'
+          "start",
         )
         .to(
-          '#Ghibli .grass2',
+          "#Ghibli .grass2",
           20,
           {
             yPercent: 10,
             xPercent: 100,
             ease: Power1.easeIn,
           },
-          'start'
+          "start",
         )
-        .addLabel('start')
+        .addLabel("start");
 
       new ScrollMagic.Scene({
-        triggerElement: '#Ghibli',
+        triggerElement: "#Ghibli",
         offset: -this.$viewport.height / 2,
         duration: this.$viewport.height * 4,
       })
         .setTween(grassTweener)
-        .addTo(this.scroller)
+        .addTo(this.scroller);
 
       // Ghibli Clouds parallax
-      let gCloudsTimeline = new TimelineMax({ paused: true }),
-        gCloudsTweener = new TimelineMax()
+      const gCloudsTimeline = new TimelineMax({ paused: true }),
+        gCloudsTweener = new TimelineMax();
 
       gCloudsTweener
-        .to('.pepe', 20, { rotation: 0 })
-        .eventCallback('onUpdate', () => {
+        .to(".pepe", 20, { rotation: 0 })
+        .eventCallback("onUpdate", () => {
           TweenLite.to(gCloudsTimeline, 6, {
             progress: gCloudsTweener.progress(),
             ease: Power3.easeOut,
-          })
-        })
+          });
+        });
 
       gCloudsTimeline
-        .addLabel('start', 0)
-        .set('#Ghibli .sky .c1, #Ghibli .sky .c2', { yPercent: 50 })
+        .addLabel("start", 0)
+        .set("#Ghibli .sky .c1, #Ghibli .sky .c2", { yPercent: 50 })
         .to(
-          '#Ghibli .sky .c1',
+          "#Ghibli .sky .c1",
           20,
           {
             yPercent: 10,
@@ -916,10 +916,10 @@ export default {
             scale: 1.5,
             ease: Power1.easeIn,
           },
-          'start'
+          "start",
         )
         .to(
-          '#Ghibli .sky .c2',
+          "#Ghibli .sky .c2",
           20,
           {
             yPercent: 0,
@@ -927,73 +927,73 @@ export default {
             scale: 1.5,
             ease: Power1.easeIn,
           },
-          'start'
-        )
+          "start",
+        );
 
       new ScrollMagic.Scene({
-        triggerElement: '#Ghibli',
+        triggerElement: "#Ghibli",
         offset: -this.$viewport.height / 2,
         duration: this.$viewport.height * 4,
       })
         .setTween(gCloudsTweener)
-        .addTo(this.scroller)
+        .addTo(this.scroller);
 
       // Howl's Moving Castle parallax
       let castleTimeline = new TimelineMax({ paused: true }),
         castleTweener = new TimelineMax(),
-        castleLength = '-120vw'
+        castleLength = "-120vw";
 
       if (this.$viewport.isMobile)
         castleLength =
-          '-' +
+          "-" +
           (window.innerWidth +
-            document.querySelector('.castle-container').offsetWidth +
+            document.querySelector(".castle-container").offsetWidth +
             16) +
-          'px'
+          "px";
 
       castleTweener
-        .to('.pepe', 20, { rotation: 0 })
-        .eventCallback('onUpdate', () => {
+        .to(".pepe", 20, { rotation: 0 })
+        .eventCallback("onUpdate", () => {
           TweenLite.to(castleTimeline, 3, {
             progress: castleTweener.progress(),
             ease: Power3.easeOut,
-          })
-        })
+          });
+        });
 
-      castleTimeline.to('.castle-container', 10, {
+      castleTimeline.to(".castle-container", 10, {
         x: castleLength,
-        y: '-70vh',
+        y: "-70vh",
         scale: 0.5,
-      })
+      });
 
       new ScrollMagic.Scene({
-        triggerElement: '#Ghibli',
+        triggerElement: "#Ghibli",
         duration: this.$viewport.height * 5,
       })
         .setTween(castleTweener)
-        .addTo(this.scroller)
+        .addTo(this.scroller);
 
       // Ghibli 1
       this.timeLines[11]
-        .addLabel('start', 0)
-        .to('#Mario .container', 4, { autoAlpha: 0 }, 'start')
-        .to('#Ghibli .container', 4, { autoAlpha: 1 }, 'start')
+        .addLabel("start", 0)
+        .to("#Mario .container", 4, { autoAlpha: 0 }, "start")
+        .to("#Ghibli .container", 4, { autoAlpha: 1 }, "start");
 
       // Ghibli 2 (gap)
-      this.timeLines[12].addLabel('start', 0)
+      this.timeLines[12].addLabel("start", 0);
 
       // Ghibli 3 (gap)
-      this.timeLines[13].addLabel('start', 0)
+      this.timeLines[13].addLabel("start", 0);
 
       // Ghibli 4 (gap)
-      this.timeLines[14].addLabel('start', 0)
+      this.timeLines[14].addLabel("start", 0);
     },
     sceneWrapper() {
       this.timeLines[15]
-        .addLabel('start', 0)
-        .to('#Ghibli .container', 2, { autoAlpha: 0 }, 'start')
-        .from('#wrapperTitle .static-container', 2, { autoAlpha: 1 })
+        .addLabel("start", 0)
+        .to("#Ghibli .container", 2, { autoAlpha: 0 }, "start")
+        .from("#wrapperTitle .static-container", 2, { autoAlpha: 1 });
     },
   },
-}
+};
 </script>

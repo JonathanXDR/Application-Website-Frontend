@@ -1,8 +1,9 @@
 //fonts
 @font-face {
-  font-family: 'SMW';
-  src: url('../assets/fonts/smw.woff2') format('woff2'),
-    url('../assets/fonts/smw.woff') format('woff');
+  font-family: "SMW";
+  src:
+    url("../assets/fonts/smw.woff2") format("woff2"),
+    url("../assets/fonts/smw.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -58,7 +59,7 @@
       height: 128px;
 
       &:before {
-        content: '1';
+        content: "1";
         position: absolute;
         top: calc(100% + 1rem);
         left: calc(50% - 1rem);
@@ -120,14 +121,14 @@
         left: calc(50% - 64px);
 
         &:before {
-          content: '2';
+          content: "2";
         }
       }
       &.b3 {
         left: calc(75% - 64px);
 
         &:before {
-          content: '3';
+          content: "3";
         }
       }
 
@@ -166,7 +167,7 @@
       width: 7rem;
       text-align: center;
       line-height: 3rem;
-      font-family: 'SMW', monospace;
+      font-family: "SMW", monospace;
       font-size: 2rem;
       color: #fff;
       display: flex;
@@ -174,7 +175,7 @@
 
       &:before {
         flex: 0 0 auto;
-        content: '';
+        content: "";
         margin-right: 0.5rem;
         width: 2rem;
         height: 2rem;
@@ -205,7 +206,7 @@
     max-height: 70vh;
     background: #000;
     color: #fff;
-    font-family: 'SMW', monospace;
+    font-family: "SMW", monospace;
     font-size: 2rem;
     text-align: center;
     letter-spacing: 2px;
@@ -320,7 +321,7 @@
         left: 0;
         width: 596px;
         height: 420px;
-        background: url('../assets/ghibli/pieces.png') 0 0 no-repeat;
+        background: url("../assets/ghibli/pieces.png") 0 0 no-repeat;
         background-size: 865px 713px;
       }
       .top-tower {
@@ -328,7 +329,7 @@
         left: 102px;
         width: 131px;
         height: 172px;
-        background: url('../assets/ghibli/pieces.png') -596px 0 no-repeat;
+        background: url("../assets/ghibli/pieces.png") -596px 0 no-repeat;
         background-size: 865px 713px;
       }
       .top-clothes {
@@ -336,7 +337,7 @@
         left: 500px;
         width: 130px;
         height: 323px;
-        background: url('../assets/ghibli/clothes.png') no-repeat 0 0;
+        background: url("../assets/ghibli/clothes.png") no-repeat 0 0;
         background-size: 390px 323px;
         animation: clothes 0.25s steps(3) infinite;
 
@@ -352,7 +353,7 @@
         left: 580px;
         width: 15px;
         height: 54px;
-        background: url('../assets/ghibli/bucket.png') 0 0;
+        background: url("../assets/ghibli/bucket.png") 0 0;
       }
       .mouth {
         .back-lip {
@@ -360,7 +361,7 @@
           left: 71px;
           width: 150px;
           height: 150px;
-          background: url('../assets/ghibli/pieces.png') 0 -563px no-repeat;
+          background: url("../assets/ghibli/pieces.png") 0 -563px no-repeat;
           background-size: 865px 713px;
         }
         .front-lip {
@@ -368,7 +369,7 @@
           left: 72px;
           width: 150px;
           height: 150px;
-          background: url('../assets/ghibli/pieces.png') -150px -563px no-repeat;
+          background: url("../assets/ghibli/pieces.png") -150px -563px no-repeat;
           background-size: 865px 713px;
         }
       }
@@ -378,7 +379,7 @@
         left: 409px;
         width: 132px;
         height: 110px;
-        background: url('../assets/ghibli/pieces.png') -727px -140px no-repeat;
+        background: url("../assets/ghibli/pieces.png") -727px -140px no-repeat;
         background-size: 865px 713px;
       }
       .r-leg {
@@ -386,7 +387,7 @@
         left: 462px;
         width: 152px;
         height: 136px;
-        background: url('../assets/ghibli/pieces.png') -300px -563px no-repeat;
+        background: url("../assets/ghibli/pieces.png") -300px -563px no-repeat;
         background-size: 865px 713px;
       }
       .l-arm {
@@ -394,7 +395,7 @@
         left: 191px;
         width: 146px;
         height: 104px;
-        background: url('../assets/ghibli/pieces.png') -388px -420px no-repeat;
+        background: url("../assets/ghibli/pieces.png") -388px -420px no-repeat;
         background-size: 865px 713px;
       }
       .body {
@@ -402,7 +403,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: url('../assets/ghibli/body.png') no-repeat 0 0;
+        background: url("../assets/ghibli/body.png") no-repeat 0 0;
         background-size: 100% 100%;
       }
       .fans {
@@ -414,14 +415,14 @@
         .fan2 {
           width: 100%;
           height: 100%;
-          background: url('../assets/ghibli/fan-2.png') 0 0 no-repeat;
+          background: url("../assets/ghibli/fan-2.png") 0 0 no-repeat;
           background-size: 2199px 824px;
           animation: fan1 0.3s steps(3) infinite;
         }
         .fan1 {
           width: 100%;
           height: 100%;
-          background: url('../assets/ghibli/fan-1.png') no-repeat 0 0;
+          background: url("../assets/ghibli/fan-1.png") no-repeat 0 0;
           background-size: 2199px 824px;
           animation: fan1 0.4s steps(3) infinite;
 
@@ -436,7 +437,7 @@
           left: 0;
           width: 100%;
           height: 100%;
-          background: url('../assets/ghibli/fixed-tails.png') 0 0 no-repeat;
+          background: url("../assets/ghibli/fixed-tails.png") 0 0 no-repeat;
           background-size: 100% 100%;
         }
       }
@@ -451,7 +452,7 @@
           left: 254px;
           width: 177px;
           height: 143px;
-          background: url('../assets/ghibli/pieces.png') 0 -420px no-repeat;
+          background: url("../assets/ghibli/pieces.png") 0 -420px no-repeat;
           background-size: 865px 713px;
         }
         .fix-shoulder {
@@ -459,7 +460,7 @@
           left: 0;
           width: 100%;
           height: 100%;
-          background: url('../assets/ghibli/fixed-shoulder.png') 0 0 no-repeat;
+          background: url("../assets/ghibli/fixed-shoulder.png") 0 0 no-repeat;
           background-size: 100% 100%;
         }
       }
@@ -469,7 +470,7 @@
         left: 205px;
         width: 70px;
         height: 53px;
-        background: url('../assets/ghibli/ear.png') 0 0;
+        background: url("../assets/ghibli/ear.png") 0 0;
       }
       .lower-foliage {
         top: 0;
@@ -481,7 +482,7 @@
           left: 244px;
           width: 121px;
           height: 99px;
-          background: url('../assets/ghibli/pieces.png') -727px -250px no-repeat;
+          background: url("../assets/ghibli/pieces.png") -727px -250px no-repeat;
           background-size: 865px 713px;
         }
         .foliage1 {
@@ -489,7 +490,7 @@
           left: 307px;
           width: 110px;
           height: 62px;
-          background: url('../assets/ghibli/pieces.png') -727px -349px no-repeat;
+          background: url("../assets/ghibli/pieces.png") -727px -349px no-repeat;
           background-size: 865px 713px;
         }
         .fix-balcony {
@@ -497,7 +498,7 @@
           left: 0;
           width: 100%;
           height: 100%;
-          background: url('../assets/ghibli/fixed-balcony.png') 0 0 no-repeat;
+          background: url("../assets/ghibli/fixed-balcony.png") 0 0 no-repeat;
           background-size: 100% 100%;
         }
       }
@@ -507,7 +508,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: url('../assets/ghibli/wing.png') no-repeat 0 0;
+        background: url("../assets/ghibli/wing.png") no-repeat 0 0;
         background-size: 4398px 824px;
         animation: wing 0.4s steps(6) infinite alternate;
 
@@ -527,7 +528,7 @@
           left: 290px;
           width: 138px;
           height: 140px;
-          background: url('../assets/ghibli/pieces.png') -727px 0 no-repeat;
+          background: url("../assets/ghibli/pieces.png") -727px 0 no-repeat;
           background-size: 865px 713px;
         }
         .foliage2 {
@@ -535,7 +536,7 @@
           left: 357px;
           width: 211px;
           height: 119px;
-          background: url('../assets/ghibli/pieces.png') -177px -420px no-repeat;
+          background: url("../assets/ghibli/pieces.png") -177px -420px no-repeat;
           background-size: 865px 713px;
         }
         .foliage1 {
@@ -543,7 +544,7 @@
           left: 438px;
           width: 89px;
           height: 62px;
-          background: url('../assets/ghibli/pieces.png') -727px -411px no-repeat;
+          background: url("../assets/ghibli/pieces.png") -727px -411px no-repeat;
           background-size: 865px 713px;
         }
         .fix-roof {
@@ -551,7 +552,7 @@
           left: 0;
           width: 100%;
           height: 100%;
-          background: url('../assets/ghibli/fixed-roof.png') 0 0 no-repeat;
+          background: url("../assets/ghibli/fixed-roof.png") 0 0 no-repeat;
           background-size: 100% 100%;
         }
       }
@@ -561,7 +562,7 @@
         left: 429px;
         width: 53px;
         height: 30px;
-        background: url('../assets/ghibli/flag.png') 0 0;
+        background: url("../assets/ghibli/flag.png") 0 0;
 
         animation: flag 0.2s steps(2) infinite;
 
@@ -592,7 +593,7 @@
     position: relative;
 
     &:before {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       top: 0;
@@ -703,8 +704,8 @@ body.-mario-lock {
   }
 
   &:before {
-    content: '?';
-    font-family: 'SMW', monospace;
+    content: "?";
+    font-family: "SMW", monospace;
     font-size: 3rem;
     color: #fff;
     position: fixed;

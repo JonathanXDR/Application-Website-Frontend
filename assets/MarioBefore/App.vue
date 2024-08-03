@@ -4,22 +4,22 @@
     <transition appear mode="out-in" :css="false" @leave="leave" @enter="enter">
       <router-view />
     </transition>
-    <Spine :isPlaying="isSpinePlaying" />
+    <Spine :is-playing="isSpinePlaying" />
   </div>
 </template>
 
 <script>
 // GSAP + ScrollMagic
-import * as ScrollMagic from 'scrollmagic'
-import { TweenMax, TimelineMax, Power3 } from 'gsap'
-import { ScrollMagicPluginGsap } from 'scrollmagic-plugin-gsap'
-import HeaderSection from '@/components/Header.vue'
-import Spine from '@/components/Spine.vue'
+import * as ScrollMagic from "scrollmagic";
+import { TweenMax, TimelineMax, Power3 } from "gsap";
+import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+import HeaderSection from "@/components/Header.vue";
+import Spine from "@/components/Spine.vue";
 
-ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax)
+ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HeaderSection,
     Spine,
@@ -29,16 +29,16 @@ export default {
       isSpinePlaying: false,
       introTimeline: new TimelineMax(),
       leaveTimeline: new TimelineMax(),
-    }
+    };
   },
   methods: {
     enter(el, done) {
       // intro animations
       this.introTimeline
         .clear()
-        .addLabel('enter', 0)
+        .addLabel("enter", 0)
         .fromTo(
-          '.header-breadcrumb',
+          ".header-breadcrumb",
           1,
           {
             autoAlpha: 0,
@@ -49,7 +49,7 @@ export default {
             x: 0,
             ease: Power3.easeOut,
           },
-          'enter'
+          "enter",
         )
         .fromTo(
           el,
@@ -61,17 +61,17 @@ export default {
             autoAlpha: 1,
             onComplete: done,
           },
-          'enter'
-        )
+          "enter",
+        );
 
-      this.isSpinePlaying = true
+      this.isSpinePlaying = true;
     },
     leave(el, done) {
       // leave animations
       this.leaveTimeline
         .clear()
-        .addLabel('leave', 0)
-        .set('.header-breadcrumb', { autoAlpha: 0 }, 'leave')
+        .addLabel("leave", 0)
+        .set(".header-breadcrumb", { autoAlpha: 0 }, "leave")
         .to(
           el,
           1,
@@ -79,13 +79,13 @@ export default {
             autoAlpha: 0,
             onComplete: done,
           },
-          'leave'
-        )
+          "leave",
+        );
 
-      this.isSpinePlaying = false
+      this.isSpinePlaying = false;
     },
   },
-}
+};
 </script>
 
 <style lang="scss">
@@ -118,7 +118,7 @@ export default {
 // layout
 html {
   background: var(--bg);
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   font-size: 100%;
   color: #888;
 }
@@ -140,7 +140,7 @@ body {
   transition: opacity 0.5s linear;
 
   &:after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: 50vh;
@@ -205,7 +205,7 @@ svg {
 }
 body {
   background: var(--bg);
-  transition: background-color .4s ease-out;
+  transition: background-color 0.4s ease-out;
 }
 body.-mario-bg {
   background: #0497d1;
