@@ -11,26 +11,23 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped>
 .mario-coin {
   width: 128px;
   height: 128px;
-  background: url("./assets/bg-mario.png") no-repeat 0 -256px;
+  background: url("~/public/mario/bg-mario.png") no-repeat 0 -256px;
   animation: marioCoin 0.6s steps(4) infinite;
   pointer-events: none;
-
-  &.pause {
-    animation-play-state: paused;
-  }
-
-  .preview > & {
-    margin: 10rem auto 3rem;
-  }
-
-  @keyframes marioCoin {
-    to {
-      background-position: -512px -256px;
-    }
+}
+.mario-coin.pause {
+  animation-play-state: paused;
+}
+.preview > .mario-coin {
+  margin: 10rem auto 3rem;
+}
+@keyframes marioCoin {
+  to {
+    background-position: -512px -256px;
   }
 }
 </style>

@@ -13,27 +13,24 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped>
 .mario {
   width: 128px;
   height: 248px;
-  background: url("./assets/bg-mario.png") no-repeat -256px -384px;
-
-  &.up {
-    background-position: 0 -384px;
-  }
-  &.down {
-    background-position: -128px -384px;
-  }
-  &.celebrate {
-    background-position: -384px -384px;
-  }
-
-  .preview > & {
-    margin: 10rem auto 3rem;
-  }
+  background: url("~/public/mario/bg-mario.png") no-repeat -256px -384px;
 }
-
+.mario.up {
+  background-position: 0 -384px;
+}
+.mario.down {
+  background-position: -128px -384px;
+}
+.mario.celebrate {
+  background-position: -384px -384px;
+}
+.preview > .mario {
+  margin: 10rem auto 3rem;
+}
 button {
   padding: 1rem;
 }

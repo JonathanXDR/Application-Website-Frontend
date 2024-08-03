@@ -14,13 +14,12 @@
 </template>
 
 <script>
-import { TimelineMax, SteppedEase } from "gsap";
 import { random } from "@/utils";
-import AudioStomp from "./assets/smw_stomp.ogg";
-import AudioPowerUp from "./assets/smw_power-up.ogg";
-import AudioAppears from "./assets/smw_power-up_appears.ogg";
-import AudioNoDamage from "./assets/smw_stomp_no_damage.ogg";
-import SuperMarioCoin from "./Coin.vue";
+import { SteppedEase, TimelineMax } from "gsap";
+import AudioPowerUp from "~/public/mario/audio/smw_power-up.ogg";
+import AudioAppears from "~/public/mario/audio/smw_power-up_appears.ogg";
+import AudioStomp from "~/public/mario/audio/smw_stomp.ogg";
+import AudioNoDamage from "~/public/mario/audio/smw_stomp_no_damage.ogg";
 
 export default {
   name: "SuperMarioBlock",
@@ -116,75 +115,61 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped>
 .mario-box {
   position: relative;
   cursor: pointer;
   width: 128px;
   height: 128px;
-
-  .preview > & {
-    margin: 30rem auto 10rem;
-  }
-
-  &:hover {
-    filter: brightness(1.2);
-  }
-
-  &.-jumped {
-    .in {
-      animation: marioBoxEmpty 0.6s steps(4) infinite;
-    }
-  }
-
-  &.-full.-jumped .in {
-    animation: none;
-    background-position: -512px 0;
-  }
-
-  &.-off {
-    cursor: default;
-
-    &:hover {
-      filter: none;
-    }
-  }
-
-  .in {
-    position: relative;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    width: 128px;
-    height: 128px;
-    background: url("./assets/bg-mario.png") no-repeat 0 0;
-    animation: marioBox 0.6s steps(4) infinite;
-  }
-
-  .mario-coin {
-    left: 0;
-    bottom: 0;
-    z-index: 1;
-    position: absolute;
-    visibility: hidden;
-  }
 }
-
+.preview > .mario-box {
+  margin: 30rem auto 10rem;
+}
+.mario-box:hover {
+  filter: brightness(1.2);
+}
+.mario-box.-jumped .in {
+  animation: marioBoxEmpty 0.6s steps(4) infinite;
+}
+.mario-box.-full.-jumped .in {
+  animation: none;
+  background-position: -512px 0;
+}
+.mario-box.-off {
+  cursor: default;
+}
+.mario-box.-off:hover {
+  filter: none;
+}
+.mario-box .in {
+  position: relative;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 128px;
+  height: 128px;
+  background: url("~/public/mario/bg-mario.png") no-repeat 0 0;
+  animation: marioBox 0.6s steps(4) infinite;
+}
+.mario-box .mario-coin {
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  position: absolute;
+  visibility: hidden;
+}
 @keyframes marioBox {
   from {
     background-position: 0 0;
   }
-
   to {
     background-position: -512px 0;
   }
 }
-
 @keyframes marioBoxEmpty {
   from {
     background-position: 0 -128px;
   }
-
   to {
     background-position: -512px -128px;
   }

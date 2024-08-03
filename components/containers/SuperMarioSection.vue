@@ -49,11 +49,9 @@
 </template>
 
 <script>
-import { TimelineMax, SteppedEase } from "gsap";
 import { random } from "@/utils";
-import AudioExit from "../Characters/SuperMario/assets/smw_keyhole_exit.ogg";
-import SuperMarioBlock from "../Characters/SuperMario/Block.vue";
-import SuperMarioMario from "../Characters/SuperMario/Mario.vue";
+import { SteppedEase, TimelineMax } from "gsap";
+import AudioExit from "~/public/mario/audio/smw_keyhole_exit.ogg";
 import SceneSection from "../SceneSection.vue";
 
 export default {
@@ -167,100 +165,86 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped>
 body.is-playing-mario {
   overflow: hidden;
-
-  #header,
-  .wrapper:after,
-  .spine,
-  .spine-target {
-    transition: opacity 200ms ease-out;
-    opacity: 0 !important;
-  }
-
-  &:before {
-    content: "?";
-    font-family: "SMW", monospace;
-    font-size: 3rem;
-    color: #fff;
-    position: fixed;
-    top: 8rem;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-  }
 }
-
+body.is-playing-mario #header,
+body.is-playing-mario .wrapper:after,
+body.is-playing-mario .spine,
+body.is-playing-mario .spine-target {
+  transition: opacity 200ms ease-out;
+  opacity: 0 !important;
+}
+body.is-playing-mario:before {
+  content: "?";
+  font-family: "SMW", monospace;
+  font-size: 3rem;
+  color: #fff;
+  position: fixed;
+  top: 8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
 #Mario {
   position: relative;
   z-index: 999;
-
-  .blocks {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: max(2rem, 6vw);
-    margin-top: 35vh;
+}
+#Mario .blocks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: max(2rem, 6vw);
+  margin-top: 35vh;
+}
+#Mario .mario-box {
+  left: calc(50% - 64px);
+}
+#Mario .mario {
+  position: fixed !important;
+  top: calc(100% - 248px);
+  left: calc(50% - 64px);
+}
+#Mario .mario-coin-counter {
+  position: fixed;
+  top: 7rem;
+  left: calc(50% - 3rem);
+  width: 7rem;
+  text-align: center;
+  line-height: 3rem;
+  font-family: "SMW", monospace;
+  font-size: 2rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+#Mario .mario-coin-counter:before {
+  flex: 0 0 auto;
+  content: "";
+  margin-right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  background: url("~/public/mario/bg-mario.png") no-repeat 0 -64px;
+  background-size: 160px 158px;
+}
+@media screen and (max-width: 1024px) {
+  #Mario .mario-box,
+  #Mario .mario {
+    transform-origin: 50% 100%;
+    transform: scale(0.7);
   }
-
-  .mario-box {
-    left: calc(50% - 64px);
+  #Mario .container {
+    transform: scale(1);
   }
-
-  .mario {
-    position: fixed !important;
-    top: calc(100% - 248px);
-    left: calc(50% - 64px);
+  #Mario .mario-coin-counter {
+    top: 6rem;
+    font-size: 1.5rem;
   }
-
-  .mario-coin-counter {
-    position: fixed;
-    top: 7rem;
-    left: calc(50% - 3rem);
-    width: 7rem;
-    text-align: center;
-    line-height: 3rem;
-    font-family: "SMW", monospace;
-    font-size: 2rem;
-    color: #fff;
-    display: flex;
-    align-items: center;
-
-    &:before {
-      flex: 0 0 auto;
-      content: "";
-      margin-right: 0.5rem;
-      width: 2rem;
-      height: 2rem;
-      background: url("../Characters/SuperMario/assets/bg-mario.png") no-repeat
-        0 -64px;
-      background-size: 160px 158px;
-    }
-  }
-
-  @media screen and (max-width: 1024px) {
-    .mario-box,
-    .mario {
-      transform-origin: 50% 100%;
-      transform: scale(0.7);
-    }
-
-    .container {
-      transform: scale(1);
-    }
-
-    .mario-coin-counter {
-      top: 6rem;
-      font-size: 1.5rem;
-
-      &:before {
-        transform: scale(0.8);
-      }
-    }
+  #Mario .mario-coin-counter:before {
+    transform: scale(0.8);
   }
 }
-
 .mario-msg-overlay {
   position: fixed;
   top: 0;
@@ -269,7 +253,6 @@ body.is-playing-mario {
   height: 100%;
   z-index: 9999;
 }
-
 .mario-msg {
   position: fixed;
   top: 50%;
@@ -293,30 +276,27 @@ body.is-playing-mario {
   align-items: center;
   justify-content: center;
   user-select: none;
-
-  .-purple {
-    color: var(--purple);
-  }
-
-  .later {
-    color: var(--purple);
-    opacity: 0;
-    padding-top: 2rem;
-    position: static;
-    text-align: center;
-  }
-
-  @media screen and (max-width: 568px) {
+}
+.mario-msg .-purple {
+  color: var(--purple);
+}
+.mario-msg .later {
+  color: var(--purple);
+  opacity: 0;
+  padding-top: 2rem;
+  position: static;
+  text-align: center;
+}
+@media screen and (max-width: 568px) {
+  .mario-msg {
     padding: 1rem;
     max-width: 80vw;
     font-size: 1.2rem;
-
-    .later {
-      padding-top: 1rem;
-    }
+  }
+  .mario-msg .later {
+    padding-top: 1rem;
   }
 }
-
 .mario-msg-close {
   position: absolute;
   bottom: 100%;
