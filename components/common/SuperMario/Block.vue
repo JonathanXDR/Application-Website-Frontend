@@ -24,30 +24,35 @@ const props = defineProps<{
   hasCoins: boolean;
 }>();
 
+const emits = defineEmits<{
+  (e: "foundCoin", foundCoins: number): void;
+  (e: "foundAllCoins"): void;
+  (e: "jumped", el: HTMLElement): void;
+}>();
+
 const foundCoins = ref(0);
-const coinsToBeFound = ref(16);
+const coinsToBeFound = 16;
 const hasTouched = ref(false);
 const blockAnimation = new TimelineMax();
-// const coinAnimation = new TimelineMax();
+const coinAnimation = new TimelineMax();
+
 const audioStomp = new Audio(AudioStomp);
 const audioPowerUp = new Audio(AudioPowerUp);
 const audioAppears = new Audio(AudioAppears);
 const audioNoDamage = new Audio(AudioNoDamage);
 
-const hasFoundAllCoins = computed(
-  () => foundCoins.value === coinsToBeFound.value,
-);
+const hasFoundAllCoins = computed(() => foundCoins.value === coinsToBeFound);
 
-const random = (min: number, max: number) =>
-  Math.floor(Math.random() * (max - min + 1)) + min;
+const random = (min: number, max: number) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
 const animateCoin = () => {
-  const coin = document.querySelectorAll(".mario-coin")[
-    foundCoins.value
-  ] as HTMLElement;
+  const coin = document.querySelectorAll(".mario-coin")[foundCoins.value];
   const xCoords = random(-150, 150);
 
-  const coinAnimation = new TimelineMax();
   coinAnimation
     .set(coin, {
       autoAlpha: 1,
@@ -71,17 +76,17 @@ const animateCoin = () => {
 
   if (hasFoundAllCoins.value) {
     audioPowerUp.play();
-    emit("foundAllCoins");
+    emits("foundAllCoins");
   }
 
   audioAppears.play();
-  emit("foundCoin", foundCoins.value);
+  emits("foundCoin", foundCoins.value);
 };
 
 const animateBlock = () => {
-  emit("jumped", element);
+  emits("jumped", document.querySelector(".mario-box"));
 
-  const box = element.querySelector(".mario-box") as HTMLElement;
+  const box = document.querySelector(".mario-box");
 
   blockAnimation
     .clear(true)

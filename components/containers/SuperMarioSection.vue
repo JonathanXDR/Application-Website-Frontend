@@ -55,8 +55,15 @@ import AudioExit from "~/public/mario/audio/smw_keyhole_exit.ogg";
 const foundCoins = ref(0);
 const marioState = ref<string | null>(null);
 const hasFoundAllCoins = ref(false);
-const randomBlock = ref<number>(Math.floor(Math.random() * 3) + 1);
 const audioExit = new Audio(AudioExit);
+
+const random = (min: number, max: number) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+const randomBlock = ref(random(1, 3));
 
 const jumpMario = (blockCenter: number, blockBottom: number) => {
   const mario = document.querySelector(".mario") as HTMLElement;
@@ -114,9 +121,8 @@ const onJumped = (block: HTMLElement) => {
   jumpMario(blockCenter, blockBottom);
 };
 
-const onFoundCoin = (foundCoinsCount: number) => {
-  foundCoins.value = foundCoinsCount;
-
+const onFoundCoin = (newFoundCoins: number) => {
+  foundCoins.value = newFoundCoins;
   document.body.classList.remove("is-playing-mario");
   document.body.classList.add("has-played-mario");
   document.body.classList.add("blue-background");
