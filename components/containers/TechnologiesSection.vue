@@ -38,7 +38,6 @@
         :key="index"
         v-bind="{
           ...card,
-          hover: 'false',
           loading: false,
           componentSize: 'small',
           icon: {

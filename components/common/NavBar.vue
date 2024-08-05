@@ -77,7 +77,7 @@
 
 <script setup lang="ts">
 import type { ItemType } from "~/types/common/Item";
-import { type SectionType } from "~/types/common/Section";
+import type { SectionType } from "~/types/common/Section";
 
 const { randomDevColor } = useColor();
 const { currentSection } = useSection();
