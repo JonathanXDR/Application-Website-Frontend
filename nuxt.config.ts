@@ -17,6 +17,28 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css"],
 
+  fonts: {
+    defaults: {
+      weights: [400, 500, 600, 700],
+      styles: ["normal"],
+      subsets: ["latin"],
+    },
+    families: [
+      {
+        name: "system-ui",
+        provider: "none",
+        fallbacks: [
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"Helvetica Neue"',
+          "Helvetica",
+          "Arial",
+          "sans-serif",
+        ],
+      },
+    ],
+  },
+
   devtools: {
     enabled: true,
     timeline: {
