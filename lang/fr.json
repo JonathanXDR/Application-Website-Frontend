@@ -347,6 +347,15 @@
           "eyebrow": "Fournisseur de projets",
           "title": "Kim Eggler",
           "description": "Développeur Full-Stack",
+          "links": [
+            {
+              "title": "En savoir plus",
+              "url": "https://retrostories.ch",
+              "icon": {
+                "name": "chevron.right"
+              }
+            }
+          ],
           "info": {
             "location": "Itt-Ey10",
             "department": "GHR-POD-LES-APP"
