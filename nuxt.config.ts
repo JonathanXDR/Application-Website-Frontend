@@ -76,7 +76,7 @@ export default defineNuxtConfig({
           property: "og:description",
           content: process.env.SITE_DESCRIPTION,
         },
-        { property: "og:url", content: `${process.env.SITE_URL}/en` },
+        { property: "og:url", content: process.env.SITE_URL },
         {
           property: "twitter:image",
           content: process.env.SITE_LOGO,
