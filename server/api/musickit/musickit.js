@@ -1,15 +1,3 @@
-/**
- * IMPORTANT NOTE:
- *
- * This file is licensed only for the use of Apple developers in providing MusicKit Web Services,
- * and is subject to the Apple Media Services Terms and Conditions and the Apple Developer Program
- * License Agreement. You may not copy, modify, re-host, or create derivative works of this file or the
- * accompanying Documentation, or any part thereof, including any updates, without Apple's written consent.
- *
- * ACKNOWLEDGEMENTS:
- * https://js-cdn.music.apple.com/musickit/v1/acknowledgements.txt
- */
-
 !(function (e, n) {
   "object" == typeof exports && "undefined" != typeof module
     ? n(exports)
@@ -23,18 +11,7 @@
         );
 })(this, function (e) {
   "use strict";
-  var n = void 0 !== typeof self ? self : this;
-  function formatArtworkURL(e, n, d) {
-    return (
-      (n = n || e.height || 100),
-      (d = d || e.width || 100),
-      window.devicePixelRatio >= 1.5 && ((d *= 2), (n *= 2)),
-      e.url
-        .replace("{h}", "" + n)
-        .replace("{w}", "" + d)
-        .replace("{f}", "jpeg")
-    );
-  }
+  var n = undefined !== typeof self ? self : this;
   const K = () => {},
     asAsync = (e) => {
       e.then(K, K);
@@ -54,7 +31,7 @@
         );
       })(e),
       { storefrontId: p, kind: h, contentId: y } = n;
-    if ([p, h, y].some((e) => void 0 === e))
+    if ([p, h, y].some((e) => undefined === e))
       throw new TypeError("Invalid Media URL: " + e);
     return {
       storefrontId: p,
@@ -111,16 +88,18 @@
     var n;
     return (
       null != e &&
-      (!0 === e.isUTS ||
+      (true === e.isUTS ||
         m.includes(e.type) ||
         "video" ===
-          (null === (n = e.attributes) || void 0 === n ? void 0 : n.mediaKind))
+          (null === (n = e.attributes) || undefined === n
+            ? undefined
+            : n.mediaKind))
     );
   }
   function isLive(e) {
     var n;
-    return !!(null == e || null === (n = e.attributes) || void 0 === n
-      ? void 0
+    return !!(null == e || null === (n = e.attributes) || undefined === n
+      ? undefined
       : n.isLive);
   }
   function isStream$1(e) {
@@ -129,10 +108,10 @@
       "stream" ===
       (null == e ||
       null === (d = e.attributes) ||
-      void 0 === d ||
+      undefined === d ||
       null === (n = d.playParams) ||
-      void 0 === n
-        ? void 0
+      undefined === n
+        ? undefined
         : n.format)
     );
   }
@@ -143,10 +122,10 @@
         "tracks" ===
         (null == e ||
         null === (d = e.attributes) ||
-        void 0 === d ||
+        undefined === d ||
         null === (n = d.playParams) ||
-        void 0 === n
-          ? void 0
+        undefined === n
+          ? undefined
           : n.format)
       );
     })(e);
@@ -157,14 +136,15 @@
       "radioStation" ===
         (null == e ||
         null === (p = e.attributes) ||
-        void 0 === p ||
+        undefined === p ||
         null === (d = p.playParams) ||
-        void 0 === d
-          ? void 0
+        undefined === d
+          ? undefined
           : d.kind) &&
-      (void 0 === n ||
-        (null === (h = e.attributes) || void 0 === h ? void 0 : h.mediaKind) ===
-          n)
+      (undefined === n ||
+        (null === (h = e.attributes) || undefined === h
+          ? undefined
+          : h.mediaKind) === n)
     );
   }
   function isRadioEpisode(e, n) {
@@ -174,31 +154,9 @@
       isStream$1(e) &&
       !isLive(e) &&
       "Episode" ===
-        (null == e || null === (d = e.attributes) || void 0 === d
-          ? void 0
+        (null == e || null === (d = e.attributes) || undefined === d
+          ? undefined
           : d.streamingRadioSubType)
-    );
-  }
-  function isLiveRadioStation(e, n) {
-    return isRadioStation(e, n) && isLive(e) && isStream$1(e);
-  }
-  function isLiveRadioKind(e, n) {
-    return isLiveRadioStation(e, n);
-  }
-  function normalizeContentType(e) {
-    return normalizeMediaType(e);
-  }
-  function _define_property$20(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
     );
   }
   const g = {
@@ -282,7 +240,7 @@
   class MKError extends Error {
     static isMKError(e) {
       return (function (e) {
-        return void 0 !== e && e instanceof MKError;
+        return undefined !== e && e instanceof MKError;
       })(e);
     }
     get errorCode() {
@@ -331,11 +289,51 @@
     }
     constructor(e, n) {
       super(),
-        _define_property$20(this, "isMKError", !0),
-        _define_property$20(this, "reason", g.UNKNOWN_ERROR),
-        _define_property$20(this, "description", void 0),
-        _define_property$20(this, "dialog", void 0),
-        _define_property$20(this, "data", void 0),
+        ("isMKError" in this
+          ? Object.defineProperty(this, "isMKError", {
+              value: true,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isMKError = true),
+        this),
+        ("reason" in this
+          ? Object.defineProperty(this, "reason", {
+              value: g.UNKNOWN_ERROR,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.reason = g.UNKNOWN_ERROR),
+        this),
+        ("description" in this
+          ? Object.defineProperty(this, "description", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.description = undefined),
+        this),
+        ("dialog" in this
+          ? Object.defineProperty(this, "dialog", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.dialog = undefined),
+        this),
+        ("data" in this
+          ? Object.defineProperty(this, "data", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.data = undefined),
+        this),
         e && S.has(e)
           ? ((this.name = this.reason = e),
             (this.message = this.description = n || e))
@@ -347,7 +345,16 @@
         Error.captureStackTrace && Error.captureStackTrace(this, MKError);
     }
   }
-  _define_property$20(MKError, "Reason", g), Object.assign(MKError, g);
+  "Reason" in MKError
+    ? Object.defineProperty(MKError, "Reason", {
+        value: g,
+        enumerable: true,
+        configurable: true,
+        writable: true,
+      })
+    : (MKError.Reason = g),
+    MKError,
+    Object.assign(MKError, g);
   class GenericStorage {
     get data() {
       return this._data;
@@ -378,13 +385,13 @@
     }
     constructor(e = {}) {
       var n, d, p;
-      (p = void 0),
+      (p = undefined),
         (d = "_data") in (n = this)
           ? Object.defineProperty(n, d, {
               value: p,
-              enumerable: !0,
-              configurable: !0,
-              writable: !0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
             })
           : (n[d] = p),
         (this.data = e);
@@ -415,7 +422,7 @@
     setCookie(e, "", "/", 0, n, d);
   }
   function hasSessionStorage() {
-    let e = !1;
+    let e = false;
     try {
       e = "undefined" != typeof sessionStorage;
     } catch (Vt) {}
@@ -426,7 +433,7 @@
     return hasSessionStorage() && (e = sessionStorage), e;
   }
   function hasLocalStorage() {
-    let e = !1;
+    let e = false;
     try {
       e = "undefined" != typeof localStorage;
     } catch (Vt) {}
@@ -440,7 +447,7 @@
     const n = (function (e) {
       if (!hasLocalStorage()) return;
       const n = getLocalStorage().getItem(e);
-      return null !== n ? n : void 0;
+      return null !== n ? n : undefined;
     })(e);
     if (n)
       try {
@@ -448,19 +455,6 @@
       } catch (Vt) {
         return;
       }
-  }
-  function _define_property$1_(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   class Notifications {
     get shouldStorageDispatch() {
@@ -482,7 +476,7 @@
         var d;
         const p = `${this.dispatchNamespace}:${e}`;
         null === (d = getSessionStorage()) ||
-          void 0 === d ||
+          undefined === d ||
           d.setItem(p, JSON.stringify(n));
       }
     }
@@ -496,8 +490,8 @@
       var n;
       if (
         this.dispatchNamespace &&
-        (null === (n = e.key) || void 0 === n
-          ? void 0
+        (null === (n = e.key) || undefined === n
+          ? undefined
           : n.startsWith(this.dispatchNamespace + ":"))
       ) {
         const n = e.key.substring(this.dispatchNamespace.length + 1);
@@ -505,8 +499,24 @@
       }
     }
     constructor(e = [], n) {
-      _define_property$1_(this, "dispatchNamespace", void 0),
-        _define_property$1_(this, "_eventRegistry", {}),
+      "dispatchNamespace" in this
+        ? Object.defineProperty(this, "dispatchNamespace", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.dispatchNamespace = undefined),
+        this,
+        ("_eventRegistry" in this
+          ? Object.defineProperty(this, "_eventRegistry", {
+              value: {},
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._eventRegistry = {}),
+        this),
         e.forEach((e) => {
           this._eventRegistry[e] = [];
         }),
@@ -539,32 +549,28 @@
     };
   }
   function generateUUID() {
-    let e = strRandomizer() + strRandomizer();
-    for (; e.length < 16; ) e += strRandomizer();
+    let e =
+      Math.random().toString(16).substring(2) +
+      Math.random().toString(16).substring(2);
+    for (; e.length < 16; ) e += Math.random().toString(16).substring(2);
     return e.slice(0, 16);
-  }
-  function strRandomizer() {
-    return Math.random().toString(16).substring(2);
   }
   const T = memoize((e) => /^[a|i|l|p]{1}\.[a-zA-Z0-9]+$/.test(e));
   function detectNodeEnvironment() {
     var e, n, d, p;
     return (
-      void 0 !==
+      undefined !==
         (null === (d = globalThis) ||
-        void 0 === d ||
+        undefined === d ||
         null === (n = d.process) ||
-        void 0 === n ||
+        undefined === n ||
         null === (e = n.versions) ||
-        void 0 === e
-          ? void 0
+        undefined === e
+          ? undefined
           : e.node) ||
-      void 0 !==
-        (null === (p = globalThis) || void 0 === p ? void 0 : p.FastBoot)
+      undefined !==
+        (null === (p = globalThis) || undefined === p ? undefined : p.FastBoot)
     );
-  }
-  function isNodeEnvironment$1() {
-    return detectNodeEnvironment();
   }
   const k = memoize(
     detectNodeEnvironment()
@@ -576,23 +582,20 @@
       ? (e) => E.from(e).toString("base64")
       : (e) => window.btoa(e),
   );
-  const debounce = (e, n = 250, d = { isImmediate: !1 }) => {
+  const debounce = (e, n = 250, d = { isImmediate: false }) => {
       let p;
       return function (...h) {
         const y = this,
-          _ = d.isImmediate && void 0 === p;
-        void 0 !== p && clearTimeout(p),
+          _ = d.isImmediate && undefined === p;
+        undefined !== p && clearTimeout(p),
           (p = setTimeout(function () {
-            (p = void 0), d.isImmediate || e.apply(y, h);
+            (p = undefined), d.isImmediate || e.apply(y, h);
           }, n)),
           _ && e.apply(y, h);
       };
     },
     arrayEquals = (e, n) =>
       !!e && !!n && [].every.call(e, (e, d) => e === n[d]);
-  function hasOwn(e, n) {
-    return Object.prototype.hasOwnProperty.call(Object(e), n);
-  }
   function deepClone(e) {
     const n = Object.prototype.toString.call(e).toLowerCase().slice(8, -1);
     switch (n) {
@@ -608,13 +611,13 @@
             "string" == typeof n.flags
               ? n.flags
               : [
-                  n.global ? "g" : void 0,
-                  n.ignoreCase ? "i" : void 0,
-                  n.multiline ? "m" : void 0,
-                  n.sticky ? "y" : void 0,
-                  n.unicode ? "u" : void 0,
+                  n.global ? "g" : undefined,
+                  n.ignoreCase ? "i" : undefined,
+                  n.multiline ? "m" : undefined,
+                  n.sticky ? "y" : undefined,
+                  n.unicode ? "u" : undefined,
                 ]
-                  .filter((e) => void 0 !== e)
+                  .filter((e) => undefined !== e)
                   .join("");
         return RegExp(e.source, d);
       }
@@ -648,7 +651,9 @@
       case "array":
       case "object": {
         const n = Array.isArray(e) ? [] : {};
-        for (const d in e) hasOwn(e, d) && (n[d] = deepClone(e[d]));
+        for (const d in e)
+          Object.prototype.hasOwnProperty.call(Object(e), d) &&
+            (n[d] = deepClone(e[d]));
         return n;
       }
       default:
@@ -657,10 +662,11 @@
   }
   function isEmpty(e) {
     if ("object" != typeof e) throw new TypeError("Source is not an Object");
-    for (const n in e) if (hasOwn(e, n)) return !1;
-    return !0;
+    for (const n in e)
+      if (Object.prototype.hasOwnProperty.call(Object(e), n)) return false;
+    return true;
   }
-  function transform$9(e, n, d = !1) {
+  function transform$9(e, n, d = false) {
     return (
       d && (e = Object.keys(e).reduce((n, d) => ((n[e[d]] = d), n), {})),
       Object.keys(e).reduce((d, p) => {
@@ -670,7 +676,7 @@
               ? h()
               : (function (e, n) {
                   return n.split(".").reduce((e, n) => {
-                    if (void 0 !== e) return e[n];
+                    if (undefined !== e) return e[n];
                   }, e);
                 })(n, h);
         return (
@@ -678,12 +684,14 @@
             (function (e, n, d) {
               n.split(".").reduce((n, p, h, y) => {
                 const _ = h === y.length - 1,
-                  m = hasOwn(n, p),
+                  m = Object.prototype.hasOwnProperty.call(Object(n), p),
                   g = n[p] instanceof Object,
                   b = null === n[p];
                 if (!_ && m && (!g || b))
                   throw new TypeError(
-                    `Value at ${y.slice(0, h + 1).join(".")} in keypath is not an Object.`,
+                    `Value at ${y
+                      .slice(0, h + 1)
+                      .join(".")} in keypath is not an Object.`,
                   );
                 return _ ? ((n[p] = d), e) : m ? n[p] : (n[p] = {});
               }, e);
@@ -698,7 +706,7 @@
     const d = e
       .toLowerCase()
       .replace(/[^a-zA-Z0-9]+(.)/g, (e, n) => n.toUpperCase());
-    if (hasOwn(w, d)) {
+    if (Object.prototype.hasOwnProperty.call(Object(w), d)) {
       const p = w[d];
       if (n !== p.constructor)
         throw new Error(
@@ -709,8 +717,8 @@
     const p = new n(e);
     return (
       Object.defineProperty(w, d, {
-        configurable: !0,
-        enumerable: !0,
+        configurable: true,
+        enumerable: true,
         get: function () {
           return p;
         },
@@ -726,30 +734,30 @@
       return this.get();
     }
     get configured() {
-      return void 0 !== this.value;
+      return undefined !== this.value;
     }
     read() {
       var e, n;
       const d =
         null !==
           (n =
-            null === (e = getLocalStorage()) || void 0 === e
-              ? void 0
-              : e.getItem(this.key)) && void 0 !== n
+            null === (e = getLocalStorage()) || undefined === e
+              ? undefined
+              : e.getItem(this.key)) && undefined !== n
           ? n
           : null;
-      return null !== d ? d : void 0;
+      return null !== d ? d : undefined;
     }
     write(e) {
       var n;
       null === (n = getLocalStorage()) ||
-        void 0 === n ||
+        undefined === n ||
         n.setItem(this.key, e);
     }
     clear() {
       var e;
       null === (e = getLocalStorage()) ||
-        void 0 === e ||
+        undefined === e ||
         e.removeItem(this.key);
     }
     constructor(e) {
@@ -758,12 +766,12 @@
           n in e
             ? Object.defineProperty(e, n, {
                 value: d,
-                enumerable: !0,
-                configurable: !0,
-                writable: !0,
+                enumerable: true,
+                configurable: true,
+                writable: true,
               })
             : (e[n] = d);
-        })(this, "key", void 0),
+        })(this, "key", undefined),
         "string" != typeof e || "" === e.trim())
       )
         throw new Error("DevFlag requires a non-empty string key");
@@ -801,21 +809,21 @@
     }
     get() {
       const e = this.read();
-      if (void 0 !== e) return "1" === e || "true" === e.toLowerCase();
+      if (undefined !== e) return "1" === e || "true" === e.toLowerCase();
     }
     set(e) {
       "boolean" == typeof e
-        ? this.write(!0 === e ? "1" : "0")
+        ? this.write(true === e ? "1" : "0")
         : console.warn("Value for BooleanDevFlag should be a boolean");
     }
     get enabled() {
-      return !0 === this.get();
+      return true === this.get();
     }
     enable() {
-      this.set(!0);
+      this.set(true);
     }
     disable() {
-      this.set(!1);
+      this.set(false);
     }
     toggle() {
       this.set(!this.get());
@@ -833,7 +841,7 @@
     }
     get() {
       const e = this.read();
-      if (void 0 !== e)
+      if (undefined !== e)
         try {
           return JSON.parse(e);
         } catch (V) {
@@ -844,7 +852,7 @@
       this.write(JSON.stringify(e));
     }
     prop(e) {
-      if (void 0 !== this.value) return this.value[e];
+      if (undefined !== this.value) return this.value[e];
     }
   }
   const O = [
@@ -893,28 +901,15 @@
         return "number" == typeof e && Object.values(A).includes(e);
       })(e)
         ? e
-        : void 0;
+        : undefined;
     let d = e.toUpperCase();
     return (
-      n.allowShorthands && void 0 !== R[d] && (d = R[d]),
+      n.allowShorthands && undefined !== R[d] && (d = R[d]),
       (function (e) {
-        return "string" == typeof e && void 0 !== A[e.toUpperCase()];
+        return "string" == typeof e && undefined !== A[e.toUpperCase()];
       })(d)
         ? A[d]
-        : void 0
-    );
-  }
-  function _define_property$1Y(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
+        : undefined
     );
   }
   function _object_spread$U(e) {
@@ -928,7 +923,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1Y(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -955,19 +958,6 @@
       e
     );
   }
-  function _define_property1$1(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   const $ = A.ERROR,
     DEFAULT_POLICY$1 = (e, n) => e !== A.NONE && n >= e;
   class Logger$1 {
@@ -978,7 +968,7 @@
       return Array.from(this._children.values());
     }
     get namespace() {
-      return void 0 === this._parent
+      return undefined === this._parent
         ? this.name
         : this._parent.namespace + "/" + this.name;
     }
@@ -989,11 +979,11 @@
       var e, n, d;
       return null !==
         (d =
-          null !== (n = this._level) && void 0 !== n
+          null !== (n = this._level) && undefined !== n
             ? n
-            : null === (e = this.parent) || void 0 === e
-              ? void 0
-              : e.level) && void 0 !== d
+            : null === (e = this.parent) || undefined === e
+              ? undefined
+              : e.level) && undefined !== d
         ? d
         : $;
     }
@@ -1002,7 +992,7 @@
       return null !==
         (e = (function (e) {
           for (const [n, d] of Object.entries(A)) if (e === d) return n;
-        })(this.level)) && void 0 !== e
+        })(this.level)) && undefined !== e
         ? e
         : "UNKNOWN";
     }
@@ -1010,11 +1000,11 @@
       var e, n, d;
       return null !==
         (d =
-          null !== (n = this._levelPolicy) && void 0 !== n
+          null !== (n = this._levelPolicy) && undefined !== n
             ? n
-            : null === (e = this.parent) || void 0 === e
-              ? void 0
-              : e.levelPolicy) && void 0 !== d
+            : null === (e = this.parent) || undefined === e
+              ? undefined
+              : e.levelPolicy) && undefined !== d
         ? d
         : DEFAULT_POLICY$1;
     }
@@ -1022,11 +1012,11 @@
       var e, n, d;
       return null !==
         (d =
-          null !== (n = this._handlers) && void 0 !== n
+          null !== (n = this._handlers) && undefined !== n
             ? n
-            : null === (e = this.parent) || void 0 === e
-              ? void 0
-              : e.handlers) && void 0 !== d
+            : null === (e = this.parent) || undefined === e
+              ? undefined
+              : e.handlers) && undefined !== d
         ? d
         : {};
     }
@@ -1035,16 +1025,16 @@
     }
     setLevel(e) {
       const n = getLoggingLevel$1(e);
-      void 0 !== n && (this._level = n);
+      undefined !== n && (this._level = n);
     }
     clearLevel() {
-      this._level = void 0;
+      this._level = undefined;
     }
     setLevelPolicy(e) {
       this._levelPolicy = e;
     }
     clearLevelPolicy() {
-      this._levelPolicy = void 0;
+      this._levelPolicy = undefined;
     }
     addHandler(e, n) {
       this._handlers || (this._handlers = {}), (this._handlers[e] = n);
@@ -1052,21 +1042,21 @@
     hasHandler(e) {
       var n;
       return (
-        void 0 !==
-        (null === (n = this._handlers) || void 0 === n ? void 0 : n[e])
+        undefined !==
+        (null === (n = this._handlers) || undefined === n ? undefined : n[e])
       );
     }
     removeHandler(e) {
-      void 0 !== this._handlers &&
+      undefined !== this._handlers &&
         (delete this._handlers[e],
         0 === Object.keys(this._handlers).length && this.clearHandlers());
     }
     clearHandlers() {
-      this._handlers = void 0;
+      this._handlers = undefined;
     }
     createChild(e, n) {
       const d = this._children.get(e);
-      return void 0 !== d
+      return undefined !== d
         ? d
         : new Logger$1(
             e,
@@ -1074,15 +1064,16 @@
           );
     }
     linkChild(e) {
-      if (void 0 !== e.parent && e.parent !== this)
+      if (undefined !== e.parent && e.parent !== this)
         throw new Error(
           `Logger '${e.name}' is already a child of a different parent ('${e.parent.name}')`,
         );
       const n = this._children.get(e.name);
-      if (void 0 !== n && n !== e)
+      if (undefined !== n && n !== e)
         throw new Error(`A child with name '${e.name}' is already registered`);
       return (
-        void 0 === n && (this._children.set(e.name, e), e.linkParent(this)), e
+        undefined === n && (this._children.set(e.name, e), e.linkParent(this)),
+        e
       );
     }
     unlinkChild(e) {
@@ -1099,7 +1090,7 @@
         p[0].trim() === e.name && p.shift();
         if (0 === p.length) return e;
         let h = e;
-        for (; void 0 !== h && p.length > 0; ) {
+        for (; undefined !== h && p.length > 0; ) {
           const e = p.shift();
           h = h.getByName(e.trim());
         }
@@ -1115,14 +1106,14 @@
     }
     unlinkParent() {
       return (
-        void 0 !== this._parent &&
-          (this._parent.unlinkChild(this), (this._parent = void 0)),
+        undefined !== this._parent &&
+          (this._parent.unlinkChild(this), (this._parent = undefined)),
         this
       );
     }
     log(e, n, ...d) {
       const p = getLoggingLevel$1(e);
-      void 0 !== p &&
+      undefined !== p &&
         this.logRecord({
           time: Date.now(),
           namespace: this.namespace,
@@ -1155,17 +1146,67 @@
       this.log(A.TRACE, e, ...n);
     }
     constructor(e, n) {
-      _define_property1$1(this, "name", void 0),
-        _define_property1$1(this, "_parent", void 0),
-        _define_property1$1(this, "_children", new Map()),
-        _define_property1$1(this, "_level", void 0),
-        _define_property1$1(this, "_levelPolicy", void 0),
-        _define_property1$1(this, "_handlers", void 0),
+      "name" in this
+        ? Object.defineProperty(this, "name", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.name = undefined),
+        this,
+        ("_parent" in this
+          ? Object.defineProperty(this, "_parent", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._parent = undefined),
+        this),
+        ("_children" in this
+          ? Object.defineProperty(this, "_children", {
+              value: new Map(),
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._children = new Map()),
+        this),
+        ("_level" in this
+          ? Object.defineProperty(this, "_level", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._level = undefined),
+        this),
+        ("_levelPolicy" in this
+          ? Object.defineProperty(this, "_levelPolicy", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._levelPolicy = undefined),
+        this),
+        ("_handlers" in this
+          ? Object.defineProperty(this, "_handlers", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._handlers = undefined),
+        this),
         (this.name = e),
-        (this._levelPolicy = null == n ? void 0 : n.levelPolicy),
-        (this._handlers = null == n ? void 0 : n.handlers),
-        void 0 !== (null == n ? void 0 : n.parent) && this.linkParent(n.parent),
-        void 0 !== (null == n ? void 0 : n.level) && this.setLevel(n.level);
+        (this._levelPolicy = null == n ? undefined : n.levelPolicy),
+        (this._handlers = null == n ? undefined : n.handlers),
+        undefined !== (null == n ? undefined : n.parent) &&
+          this.linkParent(n.parent),
+        undefined !== (null == n ? undefined : n.level) &&
+          this.setLevel(n.level);
     }
   }
   new Map([
@@ -1178,7 +1219,7 @@
   ]);
   const C = new Logger$1("media-item");
   var M, D;
-  (e.PlaybackType = void 0),
+  (e.PlaybackType = undefined),
     ((M = e.PlaybackType || (e.PlaybackType = {}))[(M.none = 0)] = "none"),
     (M[(M.preview = 1)] = "preview"),
     (M[(M.unencryptedFull = 2)] = "unencryptedFull"),
@@ -1238,7 +1279,7 @@
     };
   function isStringNotEmpty(e) {
     return !(function (e) {
-      return void 0 === e || "" === e.trim();
+      return undefined === e || "" === e.trim();
     })(e);
   }
   function transform$8(e) {
@@ -1247,7 +1288,7 @@
         "attributes.albumName": "metadata.playlistName",
         "attributes.artistName": "metadata.artistName",
         "attributes.artwork"() {
-          const n = null == e ? void 0 : e.artworkURL;
+          const n = null == e ? undefined : e.artworkURL;
           if (n)
             return (function (e) {
               const n = e.split("/").pop(),
@@ -1264,8 +1305,8 @@
           var n;
           if (
             1 ===
-            (null == e || null === (n = e.metadata) || void 0 === n
-              ? void 0
+            (null == e || null === (n = e.metadata) || undefined === n
+              ? undefined
               : n.explicit)
           )
             return "explicit";
@@ -1273,8 +1314,8 @@
         "attributes.discNumber"() {
           var n;
           return (
-            (null == e || null === (n = e.metadata) || void 0 === n
-              ? void 0
+            (null == e || null === (n = e.metadata) || undefined === n
+              ? undefined
               : n.discNumber) || 1
           );
         },
@@ -1282,16 +1323,16 @@
         "attributes.genreNames"() {
           var n;
           return [
-            null == e || null === (n = e.metadata) || void 0 === n
-              ? void 0
+            null == e || null === (n = e.metadata) || undefined === n
+              ? undefined
               : n.genre,
           ];
         },
         "attributes.isrc"() {
           var n;
           const d =
-            null == e || null === (n = e.metadata) || void 0 === n
-              ? void 0
+            null == e || null === (n = e.metadata) || undefined === n
+              ? undefined
               : n.xid;
           if (d) return d.replace(/^([^:]+):isrc:/, "$1");
         },
@@ -1299,7 +1340,7 @@
         "attributes.playParams.id": "metadata.itemId",
         "attributes.playParams.kind": "metadata.kind",
         "attributes.previews": () => [
-          { url: null == e ? void 0 : e.previewURL },
+          { url: null == e ? undefined : e.previewURL },
         ],
         "attributes.releaseDate": "metadata.releaseDate",
         "attributes.trackNumber": "metadata.trackNumber",
@@ -1309,8 +1350,8 @@
           var n;
           return (
             "" +
-            (null == e || null === (n = e.metadata) || void 0 === n
-              ? void 0
+            (null == e || null === (n = e.metadata) || undefined === n
+              ? undefined
               : n.itemId)
           );
         },
@@ -1320,26 +1361,13 @@
       e,
     );
   }
-  function _define_property$1X(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   const { mediaItemStateDidChange: q, mediaItemStateWillChange: W } = I,
     z = BooleanDevFlag.register("mk-music-movie-playback");
   class MediaItem extends Notifications {
     get ageGatePolicy() {
       var e;
-      return null === (e = this.defaultPlayable) || void 0 === e
-        ? void 0
+      return null === (e = this.defaultPlayable) || undefined === e
+        ? undefined
         : e.ageGatePolicy;
     }
     get albumInfo() {
@@ -1359,10 +1387,10 @@
     }
     get artwork() {
       var e, n;
-      return null !== (n = this.attributes.artwork) && void 0 !== n
+      return null !== (n = this.attributes.artwork) && undefined !== n
         ? n
-        : null === (e = this.attributes.images) || void 0 === e
-          ? void 0
+        : null === (e = this.attributes.images) || undefined === e
+          ? undefined
           : e.coverArt16X9;
     }
     get artworkURL() {
@@ -1391,7 +1419,9 @@
     }
     get defaultPlayable() {
       var e;
-      return null === (e = this.playables) || void 0 === e ? void 0 : e[0];
+      return null === (e = this.playables) || undefined === e
+        ? undefined
+        : e[0];
     }
     get discNumber() {
       return this.attributes.discNumber;
@@ -1415,14 +1445,14 @@
       var e, n, d;
       return (
         this.isLinearStream &&
-        !0 ===
+        true ===
           (null === (d = this.defaultPlayable) ||
-          void 0 === d ||
+          undefined === d ||
           null === (n = d.assets) ||
-          void 0 === n ||
+          undefined === n ||
           null === (e = n.streamCapability) ||
-          void 0 === e
-            ? void 0
+          undefined === e
+            ? undefined
             : e.supportsLinearScrubbing)
       );
     }
@@ -1431,17 +1461,16 @@
     }
     get isLinearStream() {
       return (
-        "LiveService" === (null == (e = this) ? void 0 : e.type) ||
+        "LiveService" === (null == (e = this) ? undefined : e.type) ||
         "Event" ===
-          (null == e || null === (n = e.defaultPlayable) || void 0 === n
-            ? void 0
+          (null == e || null === (n = e.defaultPlayable) || undefined === n
+            ? undefined
             : n.type) ||
         "EbsEvent" ===
-          (null == e || null === (d = e.defaultPlayable) || void 0 === d
-            ? void 0
+          (null == e || null === (d = e.defaultPlayable) || undefined === d
+            ? undefined
             : d.type)
       );
-      var e, n, d;
     }
     get isAlgoStation() {
       return isAlgoStation(this);
@@ -1453,22 +1482,21 @@
       return isRadioEpisode(this);
     }
     get isLiveRadioStation() {
-      return isLiveRadioStation(this);
+      return isRadioStation(this, n) && isLive(this) && isStream$1(this);
     }
     get isLiveAudioStation() {
-      return isLiveRadioStation(this, "audio");
+      return isRadioStation(this, "audio") && isLive(this) && isStream$1(this);
     }
     get isLiveVideoStation() {
-      return isLiveRadioStation(this, "video");
+      return isRadioStation(this, "video") && isLive(this) && isStream$1(this);
     }
     get isAOD() {
       return (
         isRadioEpisode((e = this), n) ||
-        !!(null == e || null === (d = e.attributes) || void 0 === d
-          ? void 0
+        !!(null == e || null === (d = e.attributes) || undefined === d
+          ? undefined
           : d.isAOD)
       );
-      var e, n, d;
     }
     get isSong() {
       return "song" === this.type;
@@ -1508,8 +1536,8 @@
             (this.needsPlayParams
               ? !!this.playParams
               : !!this.rawAssetUrl ||
-                !!(null === (e = this.attributes.previews) || void 0 === e
-                  ? void 0
+                !!(null === (e = this.attributes.previews) || undefined === e
+                  ? undefined
                   : e.length))))
       );
     }
@@ -1550,7 +1578,7 @@
       return ["musicMovie", "musicVideo", "song"].includes(this.type);
     }
     get normalizedType() {
-      return normalizeContentType(this.type);
+      return normalizeMediaType(this.type);
     }
     get offers() {
       return this.attributes.offers;
@@ -1559,14 +1587,14 @@
       const { offers: e } = this,
         n =
           null == e
-            ? void 0
+            ? undefined
             : e.find((e) => {
                 var n;
-                return !!(null === (n = e.hlsUrl) || void 0 === n
-                  ? void 0
+                return !!(null === (n = e.hlsUrl) || undefined === n
+                  ? undefined
                   : n.length);
               });
-      return null == n ? void 0 : n.hlsUrl;
+      return null == n ? undefined : n.hlsUrl;
     }
     get hasOffersHlsUrl() {
       return isStringNotEmpty(this.offersHlsUrl);
@@ -1575,7 +1603,7 @@
       return this.attributes.assetUrl;
     }
     set playbackData(e) {
-      if (void 0 === e) return;
+      if (undefined === e) return;
       this.previewURL && (e.previewURL = this.previewURL);
       const n = transform$8(e);
       this.artwork && n.artwork && delete n.artwork,
@@ -1594,7 +1622,15 @@
                 }),
               )),
               p.forEach(function (n) {
-                _define_property$1X(e, n, d[n]);
+                n in e
+                  ? Object.defineProperty(e, n, {
+                      value: d[n],
+                      enumerable: true,
+                      configurable: true,
+                      writable: true,
+                    })
+                  : (e[n] = d[n]),
+                  e;
               });
           }
           return e;
@@ -1611,20 +1647,20 @@
     }
     get playEvent() {
       var e;
-      return null === (e = this.defaultPlayable) || void 0 === e
-        ? void 0
+      return null === (e = this.defaultPlayable) || undefined === e
+        ? undefined
         : e.playEvent;
     }
     get playlistArtworkURL() {
       var e, n, d;
       return this.hasPlaylistContainer && this.hasContainerArtwork
         ? null === (d = this.container) ||
-          void 0 === d ||
+          undefined === d ||
           null === (n = d.attributes) ||
-          void 0 === n ||
+          undefined === n ||
           null === (e = n.artwork) ||
-          void 0 === e
-          ? void 0
+          undefined === e
+          ? undefined
           : e.url
         : this.artworkURL;
     }
@@ -1632,10 +1668,10 @@
       var e, n;
       return this.hasPlaylistContainer
         ? null === (n = this.container) ||
-          void 0 === n ||
+          undefined === n ||
           null === (e = n.attributes) ||
-          void 0 === e
-          ? void 0
+          undefined === e
+          ? undefined
           : e.name
         : this.albumName;
     }
@@ -1649,44 +1685,44 @@
       var e, n, d, p, h, y, _, m, g, b, P, S, E, T, k;
       return (
         (null === (d = this.attributes) ||
-        void 0 === d ||
+        undefined === d ||
         null === (n = d.previews) ||
-        void 0 === n ||
+        undefined === n ||
         null === (e = n[0]) ||
-        void 0 === e
-          ? void 0
+        undefined === e
+          ? undefined
           : e.url) ||
         (null === (y = this.attributes) ||
-        void 0 === y ||
+        undefined === y ||
         null === (h = y.previews) ||
-        void 0 === h ||
-        null === (p = h[0]) ||
-        void 0 === p
-          ? void 0
+        undefined === h ||
+        null === (p = "allow-forms") ||
+        undefined === p
+          ? undefined
           : p.hlsUrl) ||
         (null === (b = this.attributes) ||
-        void 0 === b ||
+        undefined === b ||
         null === (g = b.trailers) ||
-        void 0 === g ||
+        undefined === g ||
         null === (m = g[0]) ||
-        void 0 === m ||
+        undefined === m ||
         null === (_ = m.assets) ||
-        void 0 === _
-          ? void 0
+        undefined === _
+          ? undefined
           : _.hlsUrl) ||
         (null === (E = this.attributes) ||
-        void 0 === E ||
+        undefined === E ||
         null === (S = E.movieClips) ||
-        void 0 === S ||
+        undefined === S ||
         null === (P = S[0]) ||
-        void 0 === P
-          ? void 0
+        undefined === P
+          ? undefined
           : P.hlsUrl) ||
         (null === (k = this.attributes) ||
-        void 0 === k ||
+        undefined === k ||
         null === (T = k.video) ||
-        void 0 === T
-          ? void 0
+        undefined === T
+          ? undefined
           : T.hlsUrl)
       );
     }
@@ -1704,7 +1740,7 @@
         return (
           (this._releaseDate = /^\d{4}-\d{1,2}-\d{1,2}/.test(e)
             ? new Date(e)
-            : void 0),
+            : undefined),
           this._releaseDate
         );
       }
@@ -1714,7 +1750,7 @@
         "string" == typeof e
           ? /^\d{4}-\d{1,2}-\d{1,2}/.test(e)
             ? new Date(e)
-            : void 0
+            : undefined
           : "number" == typeof e
             ? new Date(e)
             : e;
@@ -1746,10 +1782,10 @@
       this._stateWillChange = e;
     }
     endMonitoringStateDidChange() {
-      this._stateDidChange = void 0;
+      this._stateDidChange = undefined;
     }
     endMonitoringStateWillChange() {
-      this._stateWillChange = void 0;
+      this._stateWillChange = undefined;
     }
     isEqual(e) {
       return (
@@ -1784,7 +1820,7 @@
     }
     updateWithMZPlayData(e) {
       "musicVideo" === this.type || "musicMovie" === this.type
-        ? this.updateWithLoadedAssets(void 0, e["hls-playlist-url"])
+        ? this.updateWithLoadedAssets(undefined, e["hls-playlist-url"])
         : this.updateWithLoadedAssets(e.assets),
         (this._songId = e.songId),
         this.updateWithLoadedKeys({
@@ -1801,43 +1837,245 @@
     }
     _removePlayableData() {
       var e, n, d;
-      null === (e = this.attributes) || void 0 === e || delete e.playParams,
-        null === (n = this.attributes) || void 0 === n || delete n.previews,
-        null === (d = this.attributes) || void 0 === d || delete d.trailers;
+      null === (e = this.attributes) || undefined === e || delete e.playParams,
+        null === (n = this.attributes) || undefined === n || delete n.previews,
+        null === (d = this.attributes) || undefined === d || delete d.trailers;
     }
     constructor(n = {}) {
       super([q, W]),
-        _define_property$1X(this, "id", void 0),
-        _define_property$1X(this, "type", void 0),
-        _define_property$1X(this, "cloudId", void 0),
-        _define_property$1X(this, "playables", void 0),
-        _define_property$1X(this, "channels", void 0),
-        _define_property$1X(this, "assetURL", void 0),
-        _define_property$1X(this, "hlsMetadata", {}),
-        _define_property$1X(this, "flavor", void 0),
-        _define_property$1X(this, "keyPlayStartTime", void 0),
-        _define_property$1X(this, "currentKeyPlay", void 0),
-        _define_property$1X(this, "keyPlayShelf", void 0),
-        _define_property$1X(this, "keyURLs", void 0),
-        _define_property$1X(this, "keyServerQueryParameters", void 0),
-        _define_property$1X(this, "attributes", {}),
-        _define_property$1X(this, "playbackType", e.PlaybackType.none),
-        _define_property$1X(this, "trackInfo", void 0),
-        _define_property$1X(this, "relationships", void 0),
-        _define_property$1X(this, "_assets", []),
-        _define_property$1X(this, "_container", void 0),
-        _define_property$1X(this, "_context", void 0),
-        _define_property$1X(this, "_releaseDate", void 0),
-        _define_property$1X(this, "_songId", void 0),
-        _define_property$1X(this, "_state", createMediaItemStateGuard()),
-        _define_property$1X(this, "_stateDidChange", void 0),
-        _define_property$1X(this, "_stateWillChange", void 0),
+        ("id" in this
+          ? Object.defineProperty(this, "id", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.id = undefined),
+        this),
+        ("type" in this
+          ? Object.defineProperty(this, "type", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.type = undefined),
+        this),
+        ("cloudId" in this
+          ? Object.defineProperty(this, "cloudId", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.cloudId = undefined),
+        this),
+        ("playables" in this
+          ? Object.defineProperty(this, "playables", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.playables = undefined),
+        this),
+        ("channels" in this
+          ? Object.defineProperty(this, "channels", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.channels = undefined),
+        this),
+        ("assetURL" in this
+          ? Object.defineProperty(this, "assetURL", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.assetURL = undefined),
+        this),
+        ("hlsMetadata" in this
+          ? Object.defineProperty(this, "hlsMetadata", {
+              value: {},
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.hlsMetadata = {}),
+        this),
+        ("flavor" in this
+          ? Object.defineProperty(this, "flavor", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.flavor = undefined),
+        this),
+        ("keyPlayStartTime" in this
+          ? Object.defineProperty(this, "keyPlayStartTime", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.keyPlayStartTime = undefined),
+        this),
+        ("currentKeyPlay" in this
+          ? Object.defineProperty(this, "currentKeyPlay", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentKeyPlay = undefined),
+        this),
+        ("keyPlayShelf" in this
+          ? Object.defineProperty(this, "keyPlayShelf", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.keyPlayShelf = undefined),
+        this),
+        ("keyURLs" in this
+          ? Object.defineProperty(this, "keyURLs", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.keyURLs = undefined),
+        this),
+        ("keyServerQueryParameters" in this
+          ? Object.defineProperty(this, "keyServerQueryParameters", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.keyServerQueryParameters = undefined),
+        this),
+        ("attributes" in this
+          ? Object.defineProperty(this, "attributes", {
+              value: {},
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.attributes = {}),
+        this),
+        ("playbackType" in this
+          ? Object.defineProperty(this, "playbackType", {
+              value: e.PlaybackType.none,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.playbackType = e.PlaybackType.none),
+        this),
+        ("trackInfo" in this
+          ? Object.defineProperty(this, "trackInfo", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.trackInfo = undefined),
+        this),
+        ("relationships" in this
+          ? Object.defineProperty(this, "relationships", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.relationships = undefined),
+        this),
+        ("_assets" in this
+          ? Object.defineProperty(this, "_assets", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._assets = []),
+        this),
+        ("_container" in this
+          ? Object.defineProperty(this, "_container", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._container = undefined),
+        this),
+        ("_context" in this
+          ? Object.defineProperty(this, "_context", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._context = undefined),
+        this),
+        ("_releaseDate" in this
+          ? Object.defineProperty(this, "_releaseDate", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._releaseDate = undefined),
+        this),
+        ("_songId" in this
+          ? Object.defineProperty(this, "_songId", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._songId = undefined),
+        this),
+        ("_state" in this
+          ? Object.defineProperty(this, "_state", {
+              value: createMediaItemStateGuard(),
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._state = createMediaItemStateGuard()),
+        this),
+        ("_stateDidChange" in this
+          ? Object.defineProperty(this, "_stateDidChange", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._stateDidChange = undefined),
+        this),
+        ("_stateWillChange" in this
+          ? Object.defineProperty(this, "_stateWillChange", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._stateWillChange = undefined),
+        this),
         C.debug("media-item: creating Media Item with options:", n);
       var d;
       n.id && n.attributes
         ? (Object.assign(this, n),
           (this.type = (
-            null === (d = this.playParams) || void 0 === d ? void 0 : d.kind
+            null === (d = this.playParams) || undefined === d
+              ? undefined
+              : d.kind
           )
             ? this.playParams.kind
             : this.type || "song"))
@@ -1868,7 +2106,7 @@
     "workouts",
   ];
   var Q, X;
-  (e.PlaybackStates = void 0),
+  (e.PlaybackStates = undefined),
     ((Q = e.PlaybackStates || (e.PlaybackStates = {}))[(Q.none = 0)] = "none"),
     (Q[(Q.loading = 1)] = "loading"),
     (Q[(Q.playing = 2)] = "playing"),
@@ -1879,7 +2117,7 @@
     (Q[(Q.waiting = 8)] = "waiting"),
     (Q[(Q.stalled = 9)] = "stalled"),
     (Q[(Q.completed = 10)] = "completed"),
-    (e.PresentationMode = void 0),
+    (e.PresentationMode = undefined),
     ((X = e.PresentationMode || (e.PresentationMode = {}))[
       (X.pictureinpicture = 0)
     ] = "pictureinpicture"),
@@ -1951,10 +2189,9 @@
       ? Symbol.for("react.element")
       : 60103;
   function cloneUnlessOtherwiseSpecified(e, n) {
-    return !1 !== n.clone && n.isMergeableObject(e)
+    return false !== n.clone && n.isMergeableObject(e)
       ? deepmerge(((d = e), Array.isArray(d) ? [] : {}), e, n)
       : e;
-    var d;
   }
   function defaultArrayMerge(e, n, d) {
     return e.concat(n).map(function (e) {
@@ -2001,19 +2238,6 @@
         : mergeObject(e, n, d)
       : cloneUnlessOtherwiseSpecified(n, d);
   }
-  function _define_property$1W(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread$S(e) {
     for (var n = 1; n < arguments.length; n++) {
       var d = null != arguments[n] ? arguments[n] : {},
@@ -2025,7 +2249,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1W(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -2120,11 +2352,11 @@
     meta(e) {
       return e ? this._meta[e] : this._meta;
     }
-    serialize(e = !0, n = {}, d = {}) {
+    serialize(e = true, n = {}, d = {}) {
       const p = { id: this.id, type: this.type };
       return n[`${this.type}-${this.id}`] && !d.allowFullDuplicateSerializations
         ? p
-        : ((n[`${this.type}-${this.id}`] = !0),
+        : ((n[`${this.type}-${this.id}`] = true),
           this.hasAttributes() &&
             (p.attributes = this._mjs.attributes.reduce(
               (e, n) => ((e[n] = this[n]), e),
@@ -2141,16 +2373,13 @@
           e ? { data: p } : p);
     }
     setProperty(e, n, d = "attributes", p = {}) {
-      function isMergeableObject(e) {
-        return !(!e || "object" != typeof e || e instanceof DataRecord);
-      }
-      hasOwn(this, e) ||
+      Object.prototype.hasOwnProperty.call(Object(this), e) ||
         (this._mjs[d] || (this._mjs[d] = []), this._mjs[d].push(e));
       const setDescriptor = (e) => ({
         value: e,
-        writable: !0,
-        configurable: !0,
-        enumerable: !0,
+        writable: true,
+        configurable: true,
+        enumerable: true,
       });
       this[e] && n && "object" == typeof this[e] && "object" == typeof n
         ? "attributes" === d
@@ -2206,22 +2435,56 @@
           Array.isArray(h)
             ? (e[p] = {
                 data: h.map((e) =>
-                  "function" == typeof e.serialize ? e.serialize(!1, n, d) : e,
+                  "function" == typeof e.serialize
+                    ? e.serialize(false, n, d)
+                    : e,
                 ),
               })
             : (e[p] =
                 h && "function" == typeof h.serialize
-                  ? h.serialize(!1, n, d)
+                  ? h.serialize(false, n, d)
                   : h),
           e
         );
       }, {});
     }
     constructor(e, n, d = {}) {
-      _define_property$1W(this, "type", void 0),
-        _define_property$1W(this, "id", void 0),
-        _define_property$1W(this, "_mjs", void 0),
-        _define_property$1W(this, "_meta", void 0),
+      "type" in this
+        ? Object.defineProperty(this, "type", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.type = undefined),
+        this,
+        ("id" in this
+          ? Object.defineProperty(this, "id", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.id = undefined),
+        this),
+        ("_mjs" in this
+          ? Object.defineProperty(this, "_mjs", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._mjs = undefined),
+        this),
+        ("_meta" in this
+          ? Object.defineProperty(this, "_meta", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._meta = undefined),
+        this),
         (this.type = e),
         (this.id = n),
         (this._mjs = { attributes: [], relationships: [], views: [] }),
@@ -2325,16 +2588,16 @@
     }
     query(e, n) {
       this._checkForExpiredRecords();
-      let includeRecord = (e) => !1;
+      let includeRecord = (e) => false;
       return (
         "string" == typeof e && n
-          ? (includeRecord = (d) => (null == d ? void 0 : d[e]) === n)
+          ? (includeRecord = (d) => (null == d ? undefined : d[e]) === n)
           : "function" == typeof e
             ? (includeRecord = (n) => {
                 try {
                   return e(n);
                 } catch (Vt) {
-                  return !1;
+                  return false;
                 }
               })
             : "object" == typeof e &&
@@ -2343,7 +2606,7 @@
                 let p = 0;
                 return (
                   d.forEach((d) => {
-                    (null == n ? void 0 : n[d]) === e[d] && p++;
+                    (null == n ? undefined : n[d]) === e[d] && p++;
                   }),
                   d.length === p
                 );
@@ -2361,7 +2624,8 @@
     }
     remove(e, n) {
       setTimeout(this._checkForExpiredRecords.bind(this), 0);
-      if (!hasOwn(this._records, e)) return;
+      if (!Object.prototype.hasOwnProperty.call(Object(this._records), e))
+        return;
       const d = this.peek(e, n);
       d &&
         (this.dispatchEvent("dataRecordWillDelete", [e, n]),
@@ -2419,12 +2683,60 @@
         "dataRecordWillPopulate",
         "dataRecordDidPopulate",
       ]),
-        _define_property$1W(this, "_records", void 0),
-        _define_property$1W(this, "_expiryRecords", void 0),
-        _define_property$1W(this, "_mapping", void 0),
-        _define_property$1W(this, "_removeOnExpiration", !1),
-        _define_property$1W(this, "_shouldDisableRecordReuse", !0),
-        _define_property$1W(this, "filter", void 0),
+        ("_records" in this
+          ? Object.defineProperty(this, "_records", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._records = undefined),
+        this),
+        ("_expiryRecords" in this
+          ? Object.defineProperty(this, "_expiryRecords", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._expiryRecords = undefined),
+        this),
+        ("_mapping" in this
+          ? Object.defineProperty(this, "_mapping", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._mapping = undefined),
+        this),
+        ("_removeOnExpiration" in this
+          ? Object.defineProperty(this, "_removeOnExpiration", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._removeOnExpiration = false),
+        this),
+        ("_shouldDisableRecordReuse" in this
+          ? Object.defineProperty(this, "_shouldDisableRecordReuse", {
+              value: true,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._shouldDisableRecordReuse = true),
+        this),
+        ("filter" in this
+          ? Object.defineProperty(this, "filter", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.filter = undefined),
+        this),
         (this._records = {}),
         (this._expiryRecords = new Set()),
         (this._removeOnExpiration = !!e.removeOnExpiration),
@@ -2432,19 +2744,6 @@
         (this._shouldDisableRecordReuse = !!e.shouldDisableRecordReuse),
         (this.filter = e.filter);
     }
-  }
-  function _define_property$1V(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   class DeveloperToken {
     get isExpired() {
@@ -2455,10 +2754,42 @@
     }
     constructor(e) {
       if (
-        (_define_property$1V(this, "token", void 0),
-        _define_property$1V(this, "expiration", void 0),
-        _define_property$1V(this, "keyId", void 0),
-        _define_property$1V(this, "teamId", void 0),
+        ("token" in this
+          ? Object.defineProperty(this, "token", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.token = undefined),
+        this,
+        ("expiration" in this
+          ? Object.defineProperty(this, "expiration", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.expiration = undefined),
+        this),
+        ("keyId" in this
+          ? Object.defineProperty(this, "keyId", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.keyId = undefined),
+        this),
+        ("teamId" in this
+          ? Object.defineProperty(this, "teamId", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.teamId = undefined),
+        this),
         (this.token = e),
         !e ||
           !/^[a-z0-9\-\_]{16,}\.[a-z0-9\-\_]{16,}\.[a-z0-9\-\_]{16,}/i.test(e))
@@ -2495,35 +2826,15 @@
               );
         })(e, n)
       );
-    })(e, 1 / 0);
+    })(e, Infinity);
   }
   function invoke(e) {
-    return void 0 === e || ((e) => "function" != typeof e)(e) ? e : e();
-  }
-  function isObject(e) {
-    return !!e && "object" == typeof e && !Array.isArray(e);
-  }
-  function isFunction(e) {
-    return "function" == typeof e;
-  }
-  function isString(e) {
-    return "string" == typeof e;
+    return undefined === e || ((e) => "function" != typeof e)(e) ? e : e();
   }
   function isEmptyString(e, n) {
-    if (!isString(e)) return !1;
-    return 0 === (!0 === (null == n ? void 0 : n.trim) ? e.trim() : e).length;
-  }
-  function _define_property$1U(e, n, d) {
+    if (!("string" == typeof e)) return false;
     return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
+      0 === (true === (null == n ? undefined : n.trim) ? e.trim() : e).length
     );
   }
   function _object_spread$R(e) {
@@ -2537,7 +2848,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1U(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -2637,52 +2956,58 @@
     if (!e) return "";
     let d = "";
     if (
-      (!0 === (null == n ? void 0 : n.prefix)
+      (true === (null == n ? undefined : n.prefix)
         ? (d = "?")
-        : isString(null == n ? void 0 : n.prefix) && (d = n.prefix),
-      isString(e))
+        : "string" == typeof (null == n ? undefined : n.prefix) &&
+          (d = n.prefix),
+      "string" == typeof e)
     )
       return d + e.replace(/^[?&]+/, "");
     var p;
-    const h = isFunction(null == n ? void 0 : n.arrayFormat)
-      ? n.arrayFormat
-      : ae[
-          null !== (p = null == n ? void 0 : n.arrayFormat) && void 0 !== p
-            ? p
-            : "comma"
-        ];
+    const h =
+      "function" == typeof (null == n ? undefined : n.arrayFormat)
+        ? n.arrayFormat
+        : ae[
+            null !== (p = null == n ? undefined : n.arrayFormat) &&
+            undefined !== p
+              ? p
+              : "comma"
+          ];
     var y;
-    const _ = isFunction(null == n ? void 0 : n.objectFormat)
-      ? n.objectFormat
-      : se[
-          null !== (y = null == n ? void 0 : n.objectFormat) && void 0 !== y
-            ? y
-            : "bracket"
-        ];
+    const _ =
+      "function" == typeof (null == n ? undefined : n.objectFormat)
+        ? n.objectFormat
+        : se[
+            null !== (y = null == n ? undefined : n.objectFormat) &&
+            undefined !== y
+              ? y
+              : "bracket"
+          ];
     var m;
     const g =
-      null !== (m = null == n ? void 0 : n.sort) && void 0 !== m
+      null !== (m = null == n ? undefined : n.sort) && undefined !== m
         ? m
         : (...e) => 0;
     let b = DEFAULT_ENCODER;
-    isFunction(null == n ? void 0 : n.encode)
+    "function" == typeof (null == n ? undefined : n.encode)
       ? (b = n.encode)
-      : !1 === (null == n ? void 0 : n.encode) && (b = STRING_ENCODER);
+      : false === (null == n ? undefined : n.encode) && (b = STRING_ENCODER);
     const P = _(e, {
       path: [],
       next: function (e, d) {
         return (function (e, n) {
           return (
-            (void 0 === e && !1 !== (null == n ? void 0 : n.skipUndefined)) ||
-            (null === e && !1 !== (null == n ? void 0 : n.skipNull)) ||
+            (undefined === e &&
+              false !== (null == n ? undefined : n.skipUndefined)) ||
+            (null === e && false !== (null == n ? undefined : n.skipNull)) ||
             !(
               !isEmptyString(e) ||
-              !1 === (null == n ? void 0 : n.skipEmptyString)
+              false === (null == n ? undefined : n.skipEmptyString)
             )
           );
         })(e, n)
           ? ""
-          : isObject(e)
+          : !!e && "object" == typeof e && !Array.isArray(e)
             ? _(e, d)
             : Array.isArray(e)
               ? h(e, d)
@@ -2692,19 +3017,6 @@
       sort: g,
     });
     return "" === P ? "" : d + P;
-  }
-  function _define_property$1T(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   const DEFAULT_CACHE_KEY_FUNCTION = (e, n) => `${n}${e}`;
   class NetworkCache {
@@ -2725,12 +3037,12 @@
       const n = this.cacheKeyForPath(e);
       this.storage.removeItem(n);
     }
-    removeItemsMatching(e, n = !0) {
+    removeItemsMatching(e, n = true) {
       const d = this.cacheKeyForPath(e);
       this.removeItemsMatchingCacheKey(d, n);
     }
     clear() {
-      this.removeItemsMatchingCacheKey(this.prefix, !1);
+      this.removeItemsMatchingCacheKey(this.prefix, false);
     }
     removeItemsMatchingCacheKey(e, n) {
       const d = new RegExp(`^${e}${n ? "$" : ""}`);
@@ -2745,10 +3057,42 @@
       return this.cacheKeyFunction(e, this.prefix);
     }
     constructor(e = {}) {
-      _define_property$1T(this, "storage", void 0),
-        _define_property$1T(this, "prefix", void 0),
-        _define_property$1T(this, "ttl", void 0),
-        _define_property$1T(this, "cacheKeyFunction", void 0),
+      "storage" in this
+        ? Object.defineProperty(this, "storage", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.storage = undefined),
+        this,
+        ("prefix" in this
+          ? Object.defineProperty(this, "prefix", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.prefix = undefined),
+        this),
+        ("ttl" in this
+          ? Object.defineProperty(this, "ttl", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.ttl = undefined),
+        this),
+        ("cacheKeyFunction" in this
+          ? Object.defineProperty(this, "cacheKeyFunction", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.cacheKeyFunction = undefined),
+        this),
         (this.storage = e.storage || new GenericStorage()),
         (this.prefix = e.prefix || ""),
         (this.ttl = e.ttl || 3e5),
@@ -2783,19 +3127,6 @@
       )
     );
   }
-  function _define_property$1S(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread$Q(e) {
     for (var n = 1; n < arguments.length; n++) {
       var d = null != arguments[n] ? arguments[n] : {},
@@ -2807,7 +3138,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1S(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -2852,8 +3191,8 @@
       _object_spread$Q({}, headersToDict(e), headersToDict(n)),
     mergeFetchOptions = (e, n) => {
       if (e || n)
-        return (null == e ? void 0 : e.headers) &&
-          (null == n ? void 0 : n.headers)
+        return (null == e ? undefined : e.headers) &&
+          (null == n ? undefined : n.headers)
           ? _object_spread_props$w(_object_spread$Q({}, e, n), {
               headers: mergeFetchHeaders(e.headers, n.headers),
             })
@@ -2864,7 +3203,7 @@
     try {
       var n;
       return parseParams(
-        null !== (n = e.split("?")[1]) && void 0 !== n ? n : e,
+        null !== (n = e.split("?")[1]) && undefined !== n ? n : e,
         "&",
         decodeURIComponent,
       );
@@ -2881,15 +3220,15 @@
           .reduce((e, n) => {
             const [p, h] = n;
             return (
-              ("" === p && void 0 === h) ||
-                ((e[d(p)] = d(h)), void 0 === h && (e[d(p)] = void 0)),
+              ("" === p && undefined === h) ||
+                ((e[d(p)] = d(h)), undefined === h && (e[d(p)] = undefined)),
               e
             );
           }, {});
   }
   function getMaxAgeFromHeaders(e) {
     const n = (function (e, n) {
-      if (void 0 !== n) return ce && n instanceof Headers ? n.get(e) : n[e];
+      if (undefined !== n) return ce && n instanceof Headers ? n.get(e) : n[e];
     })("cache-control", e);
     if (n) {
       return ((e) => {
@@ -2899,13 +3238,13 @@
     }
   }
   function buildURL(e, n, d) {
-    isObject(n) && ((d = n), (n = ""));
+    !!n && "object" == typeof n && !Array.isArray(n) && ((d = n), (n = ""));
     const p = joinURLPath([e, null != n ? n : ""]);
     let h = "?";
     p.endsWith("&") || p.endsWith("?")
       ? (h = "")
       : p.includes("?") && (h = "&");
-    return p + (void 0 !== d ? encodeQueryParameters(d, { prefix: h }) : "");
+    return p + (undefined !== d ? encodeQueryParameters(d, { prefix: h }) : "");
   }
   function asyncGeneratorStep$1j(e, n, d, p, h, y, _) {
     try {
@@ -2915,19 +3254,6 @@
       return void d(V);
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
-  }
-  function _define_property$1R(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$P(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -2940,7 +3266,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1R(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -2955,27 +3289,27 @@
     var e, n;
     if (
       "function" ==
-      typeof (null === (e = globalThis.process) || void 0 === e
-        ? void 0
+      typeof (null === (e = globalThis.process) || undefined === e
+        ? undefined
         : e.hrtime)
     ) {
       const [e, n] = process.hrtime();
-      return Math.floor(1e3 * e + 1e-6 * n);
+      return Math.floor(1e3 * e + 0.000001 * n);
     }
     return "function" ==
-      typeof (null === (n = globalThis.performance) || void 0 === n
-        ? void 0
+      typeof (null === (n = globalThis.performance) || undefined === n
+        ? undefined
         : n.now)
       ? globalThis.performance.now() - de
       : Date.now() - de;
   }
   const formatByte = (e) => ("0" + (255 & e).toString(16)).slice(-2);
   function compareUint8Array(e, n) {
-    if (void 0 === e && void 0 === n) return !0;
-    if (typeof e != typeof n) return !1;
-    if (((n = n), (e = e).byteLength !== n.byteLength)) return !1;
-    for (let d = 0; d < e.byteLength; d++) if (e[d] !== n[d]) return !1;
-    return !0;
+    if (undefined === e && undefined === n) return true;
+    if (typeof e != typeof n) return false;
+    if (((n = n), (e = e).byteLength !== n.byteLength)) return false;
+    for (let d = 0; d < e.byteLength; d++) if (e[d] !== n[d]) return false;
+    return true;
   }
   function parseVersion(e) {
     const n = { version: e.toLowerCase() },
@@ -3011,19 +3345,6 @@
     }
     return d;
   }
-  function _define_property$1Q(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread$O(e) {
     for (var n = 1; n < arguments.length; n++) {
       var d = null != arguments[n] ? arguments[n] : {},
@@ -3035,7 +3356,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1Q(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -3079,14 +3408,14 @@
               },
               parseVersion(e[2]),
             ),
-            { mobile: !1 },
+            { mobile: false },
           ),
       ],
       [
         /(?:(?:fban\/fbios|fb_iab\/fb4a)(?!.+fbav)|;fbav\/([\w\.]+);)/i,
         (e) =>
           _object_spread$O(
-            { name: "webview", variant: "facebook", mobile: !0 },
+            { name: "webview", variant: "facebook", mobile: true },
             parseVersion(e[1]),
           ),
       ],
@@ -3094,7 +3423,11 @@
         /(instagram|snapchat)[\/ ]([-\w\.]+)/i,
         (e) =>
           _object_spread$O(
-            { name: "webview", variant: e[1].trim().toLowerCase(), mobile: !0 },
+            {
+              name: "webview",
+              variant: e[1].trim().toLowerCase(),
+              mobile: true,
+            },
             parseVersion(e[2]),
           ),
       ],
@@ -3102,21 +3435,27 @@
         /musical_ly(?:.+app_?version\/|_)([\w\.]+)/i,
         (e) =>
           _object_spread$O(
-            { name: "webview", variant: "tiktok", mobile: !0 },
+            { name: "webview", variant: "tiktok", mobile: true },
             parseVersion(e[1]),
           ),
       ],
-      [/twitter/i, () => ({ name: "webview", variant: "twitter", mobile: !0 })],
+      [
+        /twitter/i,
+        () => ({ name: "webview", variant: "twitter", mobile: true }),
+      ],
       [
         / wv\).+?(?:version|chrome)\/([\w\.]+)/i,
         (e) =>
-          _object_spread$O({ name: "webview", mobile: !0 }, parseVersion(e[1])),
+          _object_spread$O(
+            { name: "webview", mobile: true },
+            parseVersion(e[1]),
+          ),
       ],
       [
         /electron\/([\w\.]+) safari/i,
         (e) =>
           _object_spread$O(
-            { name: "electron", mobile: !1 },
+            { name: "electron", mobile: false },
             parseVersion(e[1]),
           ),
       ],
@@ -3125,7 +3464,7 @@
         (e) =>
           _object_spread_props$v(
             _object_spread$O(
-              { name: "other", variant: "tesla", mobile: !1 },
+              { name: "other", variant: "tesla", mobile: false },
               parseVersion(e[2]),
             ),
             { version: e[1] },
@@ -3141,7 +3480,7 @@
                 .trim()
                 .toLowerCase()
                 .replace(/browser/i, ""),
-              mobile: !0,
+              mobile: true,
             },
             parseVersion(e[2]),
           ),
@@ -3150,7 +3489,7 @@
         /yabrowser\/([-\w\.]+)/i,
         (e) =>
           _object_spread$O(
-            { name: "other", variant: "yandex", mobile: !1 },
+            { name: "other", variant: "yandex", mobile: false },
             parseVersion(e[1]),
           ),
       ],
@@ -3173,7 +3512,7 @@
             {
               name: "edge",
               mobile: /(edgios|edga)/i.test(
-                null !== (ue = e[1]) && void 0 !== ue ? ue : "",
+                null !== (ue = e[1]) && undefined !== ue ? ue : "",
               ),
             },
             parseVersion(e[2]),
@@ -3181,7 +3520,8 @@
       ],
       [
         /trident.+rv[: ]([\w\.]{1,9})\b.+like gecko/i,
-        (e) => _object_spread$O({ name: "ie", mobile: !1 }, parseVersion(e[1])),
+        (e) =>
+          _object_spread$O({ name: "ie", mobile: false }, parseVersion(e[1])),
       ],
       [
         /opr\/([\w\.]+)/i,
@@ -3198,14 +3538,17 @@
         /headlesschrome(?:\/([\w\.]+)| )/i,
         (e) =>
           _object_spread$O(
-            { name: "chrome", variant: "headless", mobile: !1 },
+            { name: "chrome", variant: "headless", mobile: false },
             parseVersion(e[1]),
           ),
       ],
       [
         /\b(?:crmo|crios)\/([\w\.]+)/i,
         (e) =>
-          _object_spread$O({ name: "chrome", mobile: !0 }, parseVersion(e[1])),
+          _object_spread$O(
+            { name: "chrome", mobile: true },
+            parseVersion(e[1]),
+          ),
       ],
       [
         /chrome(?: browser)?\/v?([\w\.]+)( mobile)?/i,
@@ -3214,7 +3557,7 @@
             {
               name: "chrome",
               mobile: /mobile/i.test(
-                null !== (pe = e[2]) && void 0 !== pe ? pe : "",
+                null !== (pe = e[2]) && undefined !== pe ? pe : "",
               ),
             },
             parseVersion(e[1]),
@@ -3224,7 +3567,7 @@
         /\bfocus\/([\w\.]+)/i,
         (e) =>
           _object_spread$O(
-            { name: "firefox", variant: "focus", mobile: !0 },
+            { name: "firefox", variant: "focus", mobile: true },
             parseVersion(e[1]),
           ),
       ],
@@ -3232,13 +3575,20 @@
         /fxios\/([\w\.-]+)/i,
         /(?:mobile|tablet);.*(?:firefox)\/([\w\.-]+)/i,
         (e) =>
-          _object_spread$O({ name: "firefox", mobile: !0 }, parseVersion(e[1])),
+          _object_spread$O(
+            { name: "firefox", mobile: true },
+            parseVersion(e[1]),
+          ),
       ],
       [
         /(icedragon|iceweasel|camino|chimera|fennec|maemo browser|minimo|conkeror|klar)[\/ ]?([\w\.\+]+)/i,
         (e) =>
           _object_spread$O(
-            { name: "firefox", variant: e[1].trim().toLowerCase(), mobile: !1 },
+            {
+              name: "firefox",
+              variant: e[1].trim().toLowerCase(),
+              mobile: false,
+            },
             parseVersion(e[2]),
           ),
       ],
@@ -3246,7 +3596,10 @@
         /(?:firefox)\/([\w\.]+)/i,
         /(?:mozilla)\/([\w\.]+) .+rv\:.+gecko\/\d+/i,
         (e) =>
-          _object_spread$O({ name: "firefox", mobile: !1 }, parseVersion(e[1])),
+          _object_spread$O(
+            { name: "firefox", mobile: false },
+            parseVersion(e[1]),
+          ),
       ],
       [
         /version\/([\w\.\,]+) .*mobile(?:\/\w+ | ?)safari/i,
@@ -3339,32 +3692,21 @@
         navigator: e,
         ua:
           null !==
-            (h = null === (d = e) || void 0 === d ? void 0 : d.userAgent) &&
-          void 0 !== h
+            (h =
+              null === (d = e) || undefined === d ? undefined : d.userAgent) &&
+          undefined !== h
             ? h
             : "",
         extensions: [],
-        browser: applyRules(he.browser, e, { name: "unknown", mobile: !1 }),
+        browser: applyRules(he.browser, e, { name: "unknown", mobile: false }),
         engine: applyRules(he.engine, e, { name: "unknown" }),
         os: applyRules(he.os, e, { name: "unknown" }),
       },
-      null !== (y = null === (p = n) || void 0 === p ? void 0 : p.extensions) &&
-        void 0 !== y
+      null !==
+        (y = null === (p = n) || undefined === p ? undefined : p.extensions) &&
+        undefined !== y
         ? y
         : [],
-    );
-  }
-  function _define_property$1P(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
     );
   }
   function _object_spread$N(e) {
@@ -3378,7 +3720,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1P(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -3415,9 +3765,10 @@
       "ipados" === n ||
       (h && /ipad/i.test(e.ua)) ||
       (p &&
-        (null !== (y = e.navigator.maxTouchPoints) && void 0 !== y ? y : 0) >=
-          2);
-    _ && ((n = "ipados"), (h = !1), (p = !1));
+        (null !== (y = e.navigator.maxTouchPoints) && undefined !== y
+          ? y
+          : 0) >= 2);
+    _ && ((n = "ipados"), (h = false), (p = false));
     const m = _object_spread_props$u(_object_spread$N({}, e.browser), {
         isUnknown: "unknown" === e.browser.name,
         isSafari: "safari" === e.browser.name,
@@ -3426,7 +3777,7 @@
         isEdge: "edge" === e.browser.name,
         isWebView: "webview" === e.browser.name,
         isOther: "other" === e.browser.name,
-        isMobile: e.browser.mobile || h || _ || d || !1,
+        isMobile: e.browser.mobile || h || _ || d || false,
       }),
       g = _object_spread_props$u(_object_spread$N({}, e.engine), {
         isUnknown: "unknown" === e.engine.name,
@@ -3472,19 +3823,16 @@
         function _throw(e) {
           asyncGeneratorStep$1i(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function isBrowserEnvironment() {
-    return _isBrowserEnvironment.apply(this, arguments);
   }
   function _isBrowserEnvironment() {
     return (_isBrowserEnvironment = _async_to_generator$1i(function* () {
       var e;
       return (
-        void 0 !==
-        (null === (e = window) || void 0 === e ? void 0 : e.navigator)
+        undefined !==
+        (null === (e = window) || undefined === e ? undefined : e.navigator)
       );
     })).apply(this, arguments);
   }
@@ -3509,19 +3857,16 @@
         function _throw(e) {
           asyncGeneratorStep$1h(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function isNodeEnvironment() {
-    return _isNodeEnvironment.apply(this, arguments);
   }
   function _isNodeEnvironment() {
     return (_isNodeEnvironment = _async_to_generator$1h(function* () {
       var e;
       return (
-        void 0 !==
-        (null === (e = globalThis) || void 0 === e ? void 0 : e.process)
+        undefined !==
+        (null === (e = globalThis) || undefined === e ? undefined : e.process)
       );
     })).apply(this, arguments);
   }
@@ -3546,7 +3891,7 @@
         function _throw(e) {
           asyncGeneratorStep$1g(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
   }
@@ -3556,65 +3901,61 @@
     clearkey: ["org.w3.clearkey"],
     fairplay: ["com.apple.fps", "com.apple.fairplay"],
   };
-  function detectEMESupport() {
-    return _detectEMESupport.apply(this, arguments);
-  }
   function _detectEMESupport() {
     return (_detectEMESupport = _async_to_generator$1g(function* () {
       var e, n, d, p;
       return (
-        void 0 !==
+        undefined !==
           (null === (n = window) ||
-          void 0 === n ||
+          undefined === n ||
           null === (e = n.navigator) ||
-          void 0 === e
-            ? void 0
+          undefined === e
+            ? undefined
             : e.requestMediaKeySystemAccess) &&
-        void 0 !==
-          (null === (d = window) || void 0 === d ? void 0 : d.MediaKeys) &&
-        void 0 !==
-          (null === (p = window) || void 0 === p
-            ? void 0
+        undefined !==
+          (null === (d = window) || undefined === d
+            ? undefined
+            : d.MediaKeys) &&
+        undefined !==
+          (null === (p = window) || undefined === p
+            ? undefined
             : p.MediaKeySystemAccess)
       );
     })).apply(this, arguments);
   }
-  function detectEMEKeySystems() {
-    return _detectEMEKeySystems.apply(this, arguments);
-  }
   function _detectEMEKeySystems() {
     return (_detectEMEKeySystems = _async_to_generator$1g(function* () {
       var e, n;
-      if (yield isNodeEnvironment()) return [];
+      if (yield _isNodeEnvironment.apply(this, arguments)) return [];
       const d = [],
         p = window;
       if (
         "function" ==
-        typeof (null === (e = p.WebKitMediaKeys) || void 0 === e
-          ? void 0
+        typeof (null === (e = p.WebKitMediaKeys) || undefined === e
+          ? undefined
           : e.isTypeSupported)
       )
         for (let _ of ye.fairplay) {
           var h, y;
           if (
-            (null === (h = p.WebKitMediaKeys) || void 0 === h
-              ? void 0
+            (null === (h = p.WebKitMediaKeys) || undefined === h
+              ? undefined
               : h.isTypeSupported(_, "video/mp4")) ||
-            (null === (y = p.WebKitMediaKeys) || void 0 === y
-              ? void 0
+            (null === (y = p.WebKitMediaKeys) || undefined === y
+              ? undefined
               : y.isTypeSupported(_ + ".1_0", "video/mp4"))
           )
             return d.push("fairplay"), d;
         }
       if (
         "function" ==
-        typeof (null === (n = p.MSMediaKeys) || void 0 === n
-          ? void 0
+        typeof (null === (n = p.MSMediaKeys) || undefined === n
+          ? undefined
           : n.isTypeSupported)
       )
         for (let _ of ye.playready)
           p.MSMediaKeys.isTypeSupported(_, "video/mp4") && d.push("playready");
-      if (yield detectEMESupport()) {
+      if (yield _detectEMESupport.apply(this, arguments)) {
         const e = [
           {
             initDataTypes: ["keyids", "cenc"],
@@ -3662,12 +4003,9 @@
         function _throw(e) {
           asyncGeneratorStep$1f(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function detectES2015() {
-    return _detectES2015.apply(this, arguments);
   }
   function _detectES2015() {
     return (_detectES2015 = _async_to_generator$1f(function* () {
@@ -3676,7 +4014,7 @@
           '"use strict"; class Test {}; const identity = (x) => x;',
         )();
       } catch (Vt) {
-        return !1;
+        return false;
       }
       return "undefined" != typeof Symbol;
     })).apply(this, arguments);
@@ -3702,39 +4040,36 @@
         function _throw(e) {
           asyncGeneratorStep$1e(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function detectMMSSupport() {
-    return _detectMMSSupport.apply(this, arguments);
   }
   function _detectMMSSupport() {
     return (_detectMMSSupport = _async_to_generator$1e(function* () {
       var e, n, d, p, h, y;
       const _ =
-          null === (e = window) || void 0 === e
-            ? void 0
+          null === (e = window) || undefined === e
+            ? undefined
             : e.ManagedSourceBuffer,
         m =
           "function" ==
             typeof (null === (d = _) ||
-            void 0 === d ||
+            undefined === d ||
             null === (n = d.prototype) ||
-            void 0 === n
-              ? void 0
+            undefined === n
+              ? undefined
               : n.appendBuffer) &&
           "function" ==
             typeof (null === (h = _) ||
-            void 0 === h ||
+            undefined === h ||
             null === (p = h.prototype) ||
-            void 0 === p
-              ? void 0
+            undefined === p
+              ? undefined
               : p.remove);
       return (
-        void 0 !==
-          (null === (y = window) || void 0 === y
-            ? void 0
+        undefined !==
+          (null === (y = window) || undefined === y
+            ? undefined
             : y.ManagedMediaSource) && m
       );
     })).apply(this, arguments);
@@ -3760,21 +4095,22 @@
         function _throw(e) {
           asyncGeneratorStep$1d(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function detectMSESupport() {
-    return _detectMSESupport.apply(this, arguments);
   }
   function _detectMSESupport() {
     return (_detectMSESupport = _async_to_generator$1d(function* () {
       var e, n;
       return (
-        void 0 !==
-          (null === (e = window) || void 0 === e ? void 0 : e.MediaSource) &&
-        void 0 !==
-          (null === (n = window) || void 0 === n ? void 0 : n.SourceBuffer)
+        undefined !==
+          (null === (e = window) || undefined === e
+            ? undefined
+            : e.MediaSource) &&
+        undefined !==
+          (null === (n = window) || undefined === n
+            ? undefined
+            : n.SourceBuffer)
       );
     })).apply(this, arguments);
   }
@@ -3799,31 +4135,28 @@
         function _throw(e) {
           asyncGeneratorStep$1c(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function detectPictureInPictureSupport() {
-    return _detectPictureInPictureSupport.apply(this, arguments);
   }
   function _detectPictureInPictureSupport() {
     return (_detectPictureInPictureSupport = _async_to_generator$1c(
       function* () {
         var e, n, d;
-        if (yield isNodeEnvironment()) return !1;
+        if (yield _isNodeEnvironment.apply(this, arguments)) return false;
         const p = document.createElement("video");
         return (
-          (void 0 !==
-            (null === (e = p) || void 0 === e
-              ? void 0
+          (undefined !==
+            (null === (e = p) || undefined === e
+              ? undefined
               : e.webkitSupportsPresentationMode) &&
             "function" ==
-              typeof (null === (n = p) || void 0 === n
-                ? void 0
+              typeof (null === (n = p) || undefined === n
+                ? undefined
                 : n.webkitSetPresentationMode)) ||
-          void 0 !==
-            (null === (d = document) || void 0 === d
-              ? void 0
+          undefined !==
+            (null === (d = document) || undefined === d
+              ? undefined
               : d.pictureInPictureEnabled)
         );
       },
@@ -3837,19 +4170,6 @@
       return void d(V);
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
-  }
-  function _define_property$1O(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   class RuntimeEnvironment {
     get isConfigured() {
@@ -3905,20 +4225,28 @@
         const p =
           null !==
             (d =
-              null === (e = window) || void 0 === e ? void 0 : e.navigator) &&
-          void 0 !== d
+              null === (e = window) || undefined === e
+                ? undefined
+                : e.navigator) && undefined !== d
             ? d
             : { userAgent: "", maxTouchPoints: 0 };
         return new n({
           userAgent: yield parseUserAgent(p, { extensions: [flagsExtension] }),
-          isNodeEnvironment: yield isNodeEnvironment(),
-          isBrowserEnvironment: yield isBrowserEnvironment(),
-          isPictureInPictureSupported: yield detectPictureInPictureSupport(),
-          isES2015Supported: yield detectES2015(),
-          isMMSSupported: yield detectMMSSupport(),
-          isMSESupported: yield detectMSESupport(),
-          isEMESupported: yield detectEMESupport(),
-          availableKeySystems: yield detectEMEKeySystems(),
+          isNodeEnvironment: yield _isNodeEnvironment.apply(this, arguments),
+          isBrowserEnvironment: yield _isBrowserEnvironment.apply(
+            this,
+            arguments,
+          ),
+          isPictureInPictureSupported:
+            yield _detectPictureInPictureSupport.apply(this, arguments),
+          isES2015Supported: yield _detectES2015.apply(this, arguments),
+          isMMSSupported: yield _detectMMSSupport.apply(this, arguments),
+          isMSESupported: yield _detectMSESupport.apply(this, arguments),
+          isEMESupported: yield _detectEMESupport.apply(this, arguments),
+          availableKeySystems: yield _detectEMEKeySystems.apply(
+            this,
+            arguments,
+          ),
         });
       }),
       function () {
@@ -3932,33 +4260,36 @@
           function _throw(e) {
             asyncGeneratorStep$1b(y, p, h, _next, _throw, "throw", e);
           }
-          _next(void 0);
+          _next(undefined);
         });
       })();
     }
     configure(e) {
       for (const [n, d] of Object.entries(e)) this.config[n] = d;
-      this.configured = !0;
+      this.configured = true;
     }
     constructor(e) {
-      _define_property$1O(this, "configured", !1),
-        _define_property$1O(this, "config", void 0),
-        (this.config = e),
-        (this.configured = !0);
-    }
-  }
-  function _define_property$1N(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
+      "configured" in this
+        ? Object.defineProperty(this, "configured", {
+            value: false,
+            enumerable: true,
+            configurable: true,
+            writable: true,
           })
-        : (e[n] = d),
-      e
-    );
+        : (this.configured = false),
+        this,
+        ("config" in this
+          ? Object.defineProperty(this, "config", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.config = undefined),
+        this),
+        (this.config = e),
+        (this.configured = true);
+    }
   }
   function omit(e, n) {
     const d = (function (e) {
@@ -3972,7 +4303,15 @@
             }),
           )),
           p.forEach(function (n) {
-            _define_property$1N(e, n, d[n]);
+            n in e
+              ? Object.defineProperty(e, n, {
+                  value: d[n],
+                  enumerable: true,
+                  configurable: true,
+                  writable: true,
+                })
+              : (e[n] = d[n]),
+              e;
           });
       }
       return e;
@@ -3983,13 +4322,13 @@
   class PubSub {
     publish(e, n) {
       const d = this.getSubscribersForType(e);
-      void 0 !== d &&
+      undefined !== d &&
         d.forEach((d) => {
           d(e, n);
         });
     }
     subscribe(e, n) {
-      this.getSubscribersForType(e, !0).push(n);
+      this.getSubscribersForType(e, true).push(n);
     }
     subscribeOnce(e, n) {
       const onceCallback = (e, d) => {
@@ -3999,7 +4338,7 @@
     }
     unsubscribe(e, n) {
       const d = this.getSubscribersForType(e);
-      if (void 0 !== d)
+      if (undefined !== d)
         for (const p in d)
           if (d[p] === n) {
             delete d[p];
@@ -4007,9 +4346,9 @@
           }
     }
     clear(e) {
-      void 0 === e ? (this.events = {}) : delete this.events[e];
+      undefined === e ? (this.events = {}) : delete this.events[e];
     }
-    getSubscribersForType(e, n = !1) {
+    getSubscribersForType(e, n = false) {
       return (
         !this.events.hasOwnProperty(e) && n && (this.events[e] = []),
         this.events[e]
@@ -4020,9 +4359,9 @@
         n in e
           ? Object.defineProperty(e, n, {
               value: d,
-              enumerable: !0,
-              configurable: !0,
-              writable: !0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
             })
           : (e[n] = d);
       })(this, "events", {});
@@ -4049,22 +4388,9 @@
         function _throw(e) {
           asyncGeneratorStep$1a(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$1L(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   class RequestManager {
     static create(e) {
@@ -4074,7 +4400,7 @@
       })();
     }
     get fetch() {
-      if (void 0 === this.fetchFunction)
+      if (undefined === this.fetchFunction)
         throw new MKError(
           MKError.Reason.INTERNAL_ERROR,
           "Could not find fetch implementation",
@@ -4085,9 +4411,9 @@
       return this.configured;
     }
     configure(e) {
-      void 0 !== (null == e ? void 0 : e.fetchFunction) &&
+      undefined !== (null == e ? undefined : e.fetchFunction) &&
         (this.fetchFunction = e.fetchFunction),
-        (this.configured = !0);
+        (this.configured = true);
     }
     buildURL(e, n, d) {
       return new URL(buildURL(e, n, d));
@@ -4182,15 +4508,36 @@
     }
     constructor(e) {
       var n;
-      _define_property$1L(this, "configured", !1),
-        _define_property$1L(
-          this,
-          "fetchFunction",
-          void 0 !==
-            (null === (n = globalThis) || void 0 === n ? void 0 : n.fetch)
-            ? fetch.bind(globalThis)
-            : void 0,
-        ),
+      "configured" in this
+        ? Object.defineProperty(this, "configured", {
+            value: false,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.configured = false),
+        this,
+        ("fetchFunction" in this
+          ? Object.defineProperty(this, "fetchFunction", {
+              value:
+                undefined !==
+                (null === (n = globalThis) || undefined === n
+                  ? undefined
+                  : n.fetch)
+                  ? fetch.bind(globalThis)
+                  : undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.fetchFunction =
+              undefined !==
+              (null === (n = globalThis) || undefined === n
+                ? undefined
+                : n.fetch)
+                ? fetch.bind(globalThis)
+                : undefined),
+        this),
         this.configure(null != e ? e : {});
     }
   }
@@ -4215,7 +4562,7 @@
         function _throw(e) {
           asyncGeneratorStep$19(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
   }
@@ -4230,7 +4577,7 @@
     me = /^https:\/\/(.*\/includes\/js-cdn)\//i,
     ve = /^([a-z]+:)?\/\//;
   function findScript(e) {
-    return isNodeEnvironment$1() || !e
+    return detectNodeEnvironment() || !e
       ? null
       : document.querySelector(`script[src*="${e}"]`);
   }
@@ -4253,7 +4600,7 @@
     return "";
   }
   function determineCdnBaseHost() {
-    if (isNodeEnvironment$1()) return "";
+    if (detectNodeEnvironment()) return "";
     return `//${determineCdnBasePrefix()}js-cdn.music.apple.com`;
   }
   function determineCdnPathHost() {
@@ -4264,7 +4611,7 @@
     be = StringDevFlag.register("mk-hlsjs-version");
   function getHlsJsCdnConfig() {
     const e = { hls: "", rtc: "" };
-    if (isNodeEnvironment$1()) return e;
+    if (detectNodeEnvironment()) return e;
     const n = determineCdnPathHost() || determineCdnBaseHost(),
       d = be.get() || "2.820.0",
       p = (function () {
@@ -4291,7 +4638,7 @@
       (e.rtc = `https:${n}/hls.js/${d}/rtc.js/rtc.min.js`),
       (function (e) {
         const n = _e.get();
-        if (!(null == n ? void 0 : n.url)) return;
+        if (!(null == n ? undefined : n.url)) return;
         const { url: d } = n;
         isAppleHostname(d) &&
           "carry-" === determineCdnBasePrefix() &&
@@ -4304,14 +4651,14 @@
     try {
       return new URL(e).hostname.endsWith(".apple.com");
     } catch (Vt) {}
-    return !1;
+    return false;
   }
   function cdnBaseURL(e, n = window) {
     var d;
-    if (isNodeEnvironment$1()) return "";
+    if (detectNodeEnvironment()) return "";
     const p =
-      null === (d = getLocalStorage()) || void 0 === d
-        ? void 0
+      null === (d = getLocalStorage()) || undefined === d
+        ? undefined
         : d.getItem("mkCDNBaseURLOverride");
     if (p) return p;
     const h = findScript(e);
@@ -4324,7 +4671,7 @@
     const d = Pe.get(e);
     if (d) return d;
     const p = new Promise((d, p) => {
-      isNodeEnvironment$1() &&
+      detectNodeEnvironment() &&
         p("Dynamic script loading is unsupported in Node environments.");
       if (findScript(e)) return d();
       const h = document.createElement("script");
@@ -4378,15 +4725,15 @@
         return "number" == typeof e && Object.values(Se).includes(e);
       })(e)
         ? e
-        : void 0;
+        : undefined;
     let d = e.toUpperCase();
     return (
-      n.allowShorthands && void 0 !== Ee[d] && (d = Ee[d]),
+      n.allowShorthands && undefined !== Ee[d] && (d = Ee[d]),
       (function (e) {
-        return "string" == typeof e && void 0 !== Se[e.toUpperCase()];
+        return "string" == typeof e && undefined !== Se[e.toUpperCase()];
       })(d)
         ? Se[d]
-        : void 0
+        : undefined
     );
   }
   function getLoggingLevelName(e) {
@@ -4396,21 +4743,8 @@
     const d = [e];
     for (; d.length > 0; ) {
       const e = d.shift();
-      void 0 !== e && (d.push(...e.children), n(e));
+      undefined !== e && (d.push(...e.children), n(e));
     }
-  }
-  function _define_property$1K(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$L(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -4423,7 +4757,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1K(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -4450,19 +4792,6 @@
       e
     );
   }
-  function _define_property1(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   const Te = Se.ERROR,
     DEFAULT_POLICY = (e, n) => e !== Se.NONE && n >= e;
   class Logger {
@@ -4473,7 +4802,7 @@
       return Array.from(this._children.values());
     }
     get namespace() {
-      return void 0 === this._parent
+      return undefined === this._parent
         ? this.name
         : this._parent.namespace + "/" + this.name;
     }
@@ -4484,17 +4813,17 @@
       var e, n, d;
       return null !==
         (d =
-          null !== (n = this._level) && void 0 !== n
+          null !== (n = this._level) && undefined !== n
             ? n
-            : null === (e = this.parent) || void 0 === e
-              ? void 0
-              : e.level) && void 0 !== d
+            : null === (e = this.parent) || undefined === e
+              ? undefined
+              : e.level) && undefined !== d
         ? d
         : Te;
     }
     get levelName() {
       var e;
-      return null !== (e = getLoggingLevelName(this.level)) && void 0 !== e
+      return null !== (e = getLoggingLevelName(this.level)) && undefined !== e
         ? e
         : "UNKNOWN";
     }
@@ -4502,11 +4831,11 @@
       var e, n, d;
       return null !==
         (d =
-          null !== (n = this._levelPolicy) && void 0 !== n
+          null !== (n = this._levelPolicy) && undefined !== n
             ? n
-            : null === (e = this.parent) || void 0 === e
-              ? void 0
-              : e.levelPolicy) && void 0 !== d
+            : null === (e = this.parent) || undefined === e
+              ? undefined
+              : e.levelPolicy) && undefined !== d
         ? d
         : DEFAULT_POLICY;
     }
@@ -4514,11 +4843,11 @@
       var e, n, d;
       return null !==
         (d =
-          null !== (n = this._handlers) && void 0 !== n
+          null !== (n = this._handlers) && undefined !== n
             ? n
-            : null === (e = this.parent) || void 0 === e
-              ? void 0
-              : e.handlers) && void 0 !== d
+            : null === (e = this.parent) || undefined === e
+              ? undefined
+              : e.handlers) && undefined !== d
         ? d
         : {};
     }
@@ -4527,16 +4856,16 @@
     }
     setLevel(e) {
       const n = getLoggingLevel(e);
-      void 0 !== n && (this._level = n);
+      undefined !== n && (this._level = n);
     }
     clearLevel() {
-      this._level = void 0;
+      this._level = undefined;
     }
     setLevelPolicy(e) {
       this._levelPolicy = e;
     }
     clearLevelPolicy() {
-      this._levelPolicy = void 0;
+      this._levelPolicy = undefined;
     }
     addHandler(e, n) {
       this._handlers || (this._handlers = {}), (this._handlers[e] = n);
@@ -4544,21 +4873,21 @@
     hasHandler(e) {
       var n;
       return (
-        void 0 !==
-        (null === (n = this._handlers) || void 0 === n ? void 0 : n[e])
+        undefined !==
+        (null === (n = this._handlers) || undefined === n ? undefined : n[e])
       );
     }
     removeHandler(e) {
-      void 0 !== this._handlers &&
+      undefined !== this._handlers &&
         (delete this._handlers[e],
         0 === Object.keys(this._handlers).length && this.clearHandlers());
     }
     clearHandlers() {
-      this._handlers = void 0;
+      this._handlers = undefined;
     }
     createChild(e, n) {
       const d = this._children.get(e);
-      return void 0 !== d
+      return undefined !== d
         ? d
         : new Logger(
             e,
@@ -4566,15 +4895,16 @@
           );
     }
     linkChild(e) {
-      if (void 0 !== e.parent && e.parent !== this)
+      if (undefined !== e.parent && e.parent !== this)
         throw new Error(
           `Logger '${e.name}' is already a child of a different parent ('${e.parent.name}')`,
         );
       const n = this._children.get(e.name);
-      if (void 0 !== n && n !== e)
+      if (undefined !== n && n !== e)
         throw new Error(`A child with name '${e.name}' is already registered`);
       return (
-        void 0 === n && (this._children.set(e.name, e), e.linkParent(this)), e
+        undefined === n && (this._children.set(e.name, e), e.linkParent(this)),
+        e
       );
     }
     unlinkChild(e) {
@@ -4591,7 +4921,7 @@
         p[0].trim() === e.name && p.shift();
         if (0 === p.length) return e;
         let h = e;
-        for (; void 0 !== h && p.length > 0; ) {
+        for (; undefined !== h && p.length > 0; ) {
           const e = p.shift();
           h = h.getByName(e.trim());
         }
@@ -4607,14 +4937,14 @@
     }
     unlinkParent() {
       return (
-        void 0 !== this._parent &&
-          (this._parent.unlinkChild(this), (this._parent = void 0)),
+        undefined !== this._parent &&
+          (this._parent.unlinkChild(this), (this._parent = undefined)),
         this
       );
     }
     log(e, n, ...d) {
       const p = getLoggingLevel(e);
-      void 0 !== p &&
+      undefined !== p &&
         this.logRecord({
           time: Date.now(),
           namespace: this.namespace,
@@ -4647,42 +4977,95 @@
       this.log(Se.TRACE, e, ...n);
     }
     constructor(e, n) {
-      _define_property1(this, "name", void 0),
-        _define_property1(this, "_parent", void 0),
-        _define_property1(this, "_children", new Map()),
-        _define_property1(this, "_level", void 0),
-        _define_property1(this, "_levelPolicy", void 0),
-        _define_property1(this, "_handlers", void 0),
-        (this.name = e),
-        (this._levelPolicy = null == n ? void 0 : n.levelPolicy),
-        (this._handlers = null == n ? void 0 : n.handlers),
-        void 0 !== (null == n ? void 0 : n.parent) && this.linkParent(n.parent),
-        void 0 !== (null == n ? void 0 : n.level) && this.setLevel(n.level);
-    }
-  }
-  function _define_property$1J(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
+      "name" in this
+        ? Object.defineProperty(this, "name", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
           })
-        : (e[n] = d),
-      e
-    );
+        : (this.name = undefined),
+        this,
+        ("_parent" in this
+          ? Object.defineProperty(this, "_parent", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._parent = undefined),
+        this),
+        ("_children" in this
+          ? Object.defineProperty(this, "_children", {
+              value: new Map(),
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._children = new Map()),
+        this),
+        ("_level" in this
+          ? Object.defineProperty(this, "_level", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._level = undefined),
+        this),
+        ("_levelPolicy" in this
+          ? Object.defineProperty(this, "_levelPolicy", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._levelPolicy = undefined),
+        this),
+        ("_handlers" in this
+          ? Object.defineProperty(this, "_handlers", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._handlers = undefined),
+        this),
+        (this.name = e),
+        (this._levelPolicy = null == n ? undefined : n.levelPolicy),
+        (this._handlers = null == n ? undefined : n.handlers),
+        undefined !== (null == n ? undefined : n.parent) &&
+          this.linkParent(n.parent),
+        undefined !== (null == n ? undefined : n.level) &&
+          this.setLevel(n.level);
+    }
   }
   class CallbackHandler {
     process(e) {
-      this.enabled && void 0 !== this.callback && this.callback(e);
+      this.enabled && undefined !== this.callback && this.callback(e);
     }
     constructor(e, n = {}) {
       var d;
-      _define_property$1J(this, "enabled", void 0),
-        _define_property$1J(this, "callback", void 0),
+      "enabled" in this
+        ? Object.defineProperty(this, "enabled", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.enabled = undefined),
+        this,
+        ("callback" in this
+          ? Object.defineProperty(this, "callback", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.callback = undefined),
+        this),
         (this.callback = e),
-        (this.enabled = null === (d = n.enabled) || void 0 === d || d);
+        (this.enabled = null === (d = n.enabled) || undefined === d || d);
     }
   }
   const ke = /%{([^}]+)}/gi,
@@ -4694,7 +5077,7 @@
       level: (e) => String(e.level),
       levelname: (e) => {
         var n;
-        return null !== (n = getLoggingLevelName(e.level)) && void 0 !== n
+        return null !== (n = getLoggingLevelName(e.level)) && undefined !== n
           ? n
           : "UNKNOWN";
       },
@@ -4702,19 +5085,6 @@
       name: (e) => e.namespace.split("/").pop(),
       namespace: (e) => e.namespace,
     };
-  function _define_property$1I(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   const Oe = new Map([
       [Se.CRITICAL, "error"],
       [Se.ERROR, "error"],
@@ -4727,24 +5097,11 @@
       ((Ae = "%{datetime} %{levelname} - [%{namespace}] %{message}"),
       function (e) {
         return Ae.replace(ke, function (n, d) {
-          return (d = d.toLowerCase()), void 0 !== we[d] ? we[d](e) : n;
+          return (d = d.toLowerCase()), undefined !== we[d] ? we[d](e) : n;
         });
       });
   var Ae;
   const Re = new Logger("storekit");
-  function _define_property$1H(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   const $e = [
     "apps.apple.com",
     "books.apple.com",
@@ -4770,22 +5127,9 @@
     return (
       e &&
         Ce.some(function (d) {
-          if (e.endsWith("." + d)) return (n = d), !0;
+          if (e.endsWith("." + d)) return (n = d), true;
         }),
       n
-    );
-  }
-  function _define_property$1G(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
     );
   }
   class AuthBridgeApp extends class {
@@ -4795,7 +5139,7 @@
         (this._sendWindow = n),
         (this.handleMessage = this.handleMessage.bind(this)),
         null === (d = this._receiveWindow) ||
-          void 0 === d ||
+          undefined === d ||
           d.addEventListener("message", this.handleMessage);
     }
     sendMessage(e, n) {
@@ -4818,7 +5162,7 @@
         : Re.debug("auth-bridge: unsupported method", d);
     }
     _isOriginAllowed(e) {
-      if (!e) return !1;
+      if (!e) return false;
       const [n, d] = e.split("://");
       let p = "";
       return (
@@ -4830,9 +5174,33 @@
       return e.action && -1 !== e.action.indexOf("mediakit:");
     }
     constructor() {
-      _define_property$1H(this, "_receiveWindow", void 0),
-        _define_property$1H(this, "_sendWindow", void 0),
-        _define_property$1H(this, "_targetOrigin", "*");
+      "_receiveWindow" in this
+        ? Object.defineProperty(this, "_receiveWindow", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._receiveWindow = undefined),
+        this,
+        ("_sendWindow" in this
+          ? Object.defineProperty(this, "_sendWindow", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._sendWindow = undefined),
+        this),
+        ("_targetOrigin" in this
+          ? Object.defineProperty(this, "_targetOrigin", {
+              value: "*",
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._targetOrigin = "*"),
+        this);
     }
   } {
     requestAuthUpdate() {
@@ -4848,24 +5216,26 @@
     }
     frameInit() {
       var e;
-      null === (e = this._frameInitResolve) || void 0 === e || e.call(this),
+      null === (e = this._frameInitResolve) || undefined === e || e.call(this),
         this.requestAuthUpdate();
     }
     updateAuth(e) {
       if (
-        (null == e ? void 0 : e.enabled) &&
-        (null == e ? void 0 : e.cookies)
+        (null == e ? undefined : e.enabled) &&
+        (null == e ? undefined : e.cookies)
       ) {
         const n = e.cookies,
           d = determineBaseCookieDomain(window.location.hostname);
         Object.keys(n).forEach((e) => {
           var p;
-          const h = null !== (p = n[e]) && void 0 !== p ? p : "";
-          h ? setCookie(e, h, "/", 30, void 0, d) : removeCookie(e, void 0, d);
+          const h = null !== (p = n[e]) && undefined !== p ? p : "";
+          h
+            ? setCookie(e, h, "/", 30, undefined, d)
+            : removeCookie(e, undefined, d);
         });
       }
       this._authUpdateResolve &&
-        (this._authUpdateResolve(), (this._authUpdateResolve = void 0));
+        (this._authUpdateResolve(), (this._authUpdateResolve = undefined));
     }
     authClearedFromOtherFrame() {
       Re.warn(
@@ -4884,11 +5254,51 @@
     }
     constructor() {
       super(),
-        _define_property$1G(this, "whenAuthCompleted", void 0),
-        _define_property$1G(this, "frame", void 0),
-        _define_property$1G(this, "whenFrameInited", void 0),
-        _define_property$1G(this, "_frameInitResolve", void 0),
-        _define_property$1G(this, "_authUpdateResolve", void 0),
+        ("whenAuthCompleted" in this
+          ? Object.defineProperty(this, "whenAuthCompleted", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.whenAuthCompleted = undefined),
+        this),
+        ("frame" in this
+          ? Object.defineProperty(this, "frame", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.frame = undefined),
+        this),
+        ("whenFrameInited" in this
+          ? Object.defineProperty(this, "whenFrameInited", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.whenFrameInited = undefined),
+        this),
+        ("_frameInitResolve" in this
+          ? Object.defineProperty(this, "_frameInitResolve", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._frameInitResolve = undefined),
+        this),
+        ("_authUpdateResolve" in this
+          ? Object.defineProperty(this, "_authUpdateResolve", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._authUpdateResolve = undefined),
+        this),
         (this.whenFrameInited = new Promise(
           (e) => (this._frameInitResolve = e),
         )),
@@ -4917,15 +5327,15 @@
         const e = d.split("-");
         d = e[e.length - 1];
       }
-      return Me.has(d) ? p : void 0;
+      return Me.has(d) ? p : undefined;
     })(n.hostname);
     return p && (d = `${e}.${p}.apple.com`), d;
   }
   var xe, je, Le;
   function buildQueryParams(e = { app: "music", p: "subscribe" }) {
     return (
-      void 0 === e.app && (e.app = "music"),
-      void 0 === e.p && (e.p = "subscribe"),
+      undefined === e.app && (e.app = "music"),
+      undefined === e.p && (e.p = "subscribe"),
       Object.keys(e)
         .map((n) => `${encodeURIComponent(n)}=${encodeURIComponent(e[n])}`)
         .join("&")
@@ -4941,7 +5351,7 @@
         (e.STOREFRONT_COUNTRY_CODE = "itua"),
         (e.USER_TOKEN = "media-user-token");
     })(je || (je = {})),
-    (e.SKRealm = void 0),
+    (e.SKRealm = undefined),
     ((Le = e.SKRealm || (e.SKRealm = {}))[(Le.MUSIC = 0)] = "MUSIC"),
     (Le[(Le.PODCAST = 1)] = "PODCAST"),
     (Le[(Le.TV = 2)] = "TV");
@@ -4959,19 +5369,6 @@
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
   }
-  function _define_property$1F(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   var Be;
   !(function (e) {
     (e[(e.ParseError = -32700)] = "ParseError"),
@@ -4988,7 +5385,7 @@
       if (!e && this._source)
         return (
           this._source.removeEventListener("message", this.handle),
-          void (this._source = void 0)
+          void (this._source = undefined)
         );
       e.addEventListener("message", this.handle), (this._source = e);
     }
@@ -5022,7 +5419,7 @@
             error: { code: -32601, message: "Method not found" },
           });
         try {
-          const d = yield p.apply(void 0, ensureArray(e.params));
+          const d = yield p.apply(undefined, ensureArray(e.params));
           return Object.assign(n, { result: d });
         } catch (V) {
           return Object.assign(n, {
@@ -5041,7 +5438,7 @@
           function _throw(e) {
             asyncGeneratorStep$18(y, p, h, _next, _throw, "throw", e);
           }
-          _next(void 0);
+          _next(undefined);
         });
       })();
     }
@@ -5054,26 +5451,100 @@
             : n.resolve(e.result));
     }
     send(e, n) {
-      e.postMessage(n, e.window === e ? this.origin : void 0);
+      e.postMessage(n, e.window === e ? this.origin : undefined);
     }
     constructor(e = {}) {
-      _define_property$1F(this, "destination", void 0),
-        _define_property$1F(this, "origin", void 0),
-        _define_property$1F(this, "methods", void 0),
-        _define_property$1F(this, "_registry", {}),
-        _define_property$1F(this, "_sequence", 0),
-        _define_property$1F(this, "_source", void 0),
-        _define_property$1F(this, "handle", (e) => {
-          e.data &&
-            "2.0" === e.data.jsonrpc &&
-            (("*" !== this.origin && this.origin !== e.origin) ||
-              (e.data.method && this.destination
-                ? this.handleRequest(e.data).then((e) => {
-                    this.send(this.destination, e);
-                  })
-                : (hasOwn(e.data, "result") || e.data.error) &&
-                  this.handleResponse(e.data)));
-        }),
+      "destination" in this
+        ? Object.defineProperty(this, "destination", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.destination = undefined),
+        this,
+        ("origin" in this
+          ? Object.defineProperty(this, "origin", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.origin = undefined),
+        this),
+        ("methods" in this
+          ? Object.defineProperty(this, "methods", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.methods = undefined),
+        this),
+        ("_registry" in this
+          ? Object.defineProperty(this, "_registry", {
+              value: {},
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._registry = {}),
+        this),
+        ("_sequence" in this
+          ? Object.defineProperty(this, "_sequence", {
+              value: 0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._sequence = 0),
+        this),
+        ("_source" in this
+          ? Object.defineProperty(this, "_source", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._source = undefined),
+        this),
+        ("handle" in this
+          ? Object.defineProperty(this, "handle", {
+              value: (e) => {
+                e.data &&
+                  "2.0" === e.data.jsonrpc &&
+                  (("*" !== this.origin && this.origin !== e.origin) ||
+                    (e.data.method && this.destination
+                      ? this.handleRequest(e.data).then((e) => {
+                          this.send(this.destination, e);
+                        })
+                      : (Object.prototype.hasOwnProperty.call(
+                          Object(e.data),
+                          "result",
+                        ) ||
+                          e.data.error) &&
+                        this.handleResponse(e.data)));
+              },
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.handle = (e) => {
+              e.data &&
+                "2.0" === e.data.jsonrpc &&
+                (("*" !== this.origin && this.origin !== e.origin) ||
+                  (e.data.method && this.destination
+                    ? this.handleRequest(e.data).then((e) => {
+                        this.send(this.destination, e);
+                      })
+                    : (Object.prototype.hasOwnProperty.call(
+                        Object(e.data),
+                        "result",
+                      ) ||
+                        e.data.error) &&
+                      this.handleResponse(e.data)));
+            }),
+        this),
         (this.destination = e.destination),
         (this.methods = e.methods || {}),
         (this.origin = e.origin || "*"),
@@ -5101,22 +5572,9 @@
         function _throw(e) {
           asyncGeneratorStep$17(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$1E(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$K(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -5129,7 +5587,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1E(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -5158,10 +5624,10 @@
   }
   var Fe;
   function validateToken(e) {
-    if ("string" != typeof e) return !1;
+    if ("string" != typeof e) return false;
     const n = e.match(/[a-zA-Z0-9=\/+]{32,}==$/);
     var d;
-    return null !== (d = n && n.length > 0) && void 0 !== d && d;
+    return null !== (d = n && n.length > 0) && undefined !== d && d;
   }
   !(function (e) {
     (e[(e.UNAVAILABLE = -1)] = "UNAVAILABLE"),
@@ -5170,7 +5636,9 @@
       (e[(e.RESTRICTED = 2)] = "RESTRICTED"),
       (e[(e.AUTHORIZED = 3)] = "AUTHORIZED");
   })(Fe || (Fe = {}));
-  const Ke = `https://${getCommerceHostname("buy")}/commerce/account/authenticateMusicKitRequest`,
+  const Ke = `https://${getCommerceHostname(
+      "buy",
+    )}/commerce/account/authenticateMusicKitRequest`,
     Ve = "https://authorize.music.apple.com",
     Ge = /^https?:\/\/(.+\.)*(apple\.com|apps\.mzstatic\.com)(\/[\w\d]+)*$/;
   var He, qe, We;
@@ -5182,7 +5650,7 @@
       return (
         /(authorize\.(.+\.)*apple\.com)/i.test(window.location.hostname) ||
         (window && window.name === this.target) ||
-        !1
+        false
       );
     }
     focus() {
@@ -5225,9 +5693,9 @@
       return (
         /trident|msie/i.test(navigator.userAgent)
           ? ((this._window =
-              window.open(window.location.href, this.target, g) || void 0),
+              window.open(window.location.href, this.target, g) || undefined),
             (this._window.location.href = e))
-          : (this._window = window.open(e, this.target, g) || void 0),
+          : (this._window = window.open(e, this.target, g) || undefined),
         /\bedge\b/i.test(navigator.userAgent) && (this._window.opener = self),
         this.focus(),
         this._window
@@ -5235,17 +5703,18 @@
     }
     _startPollingForWindowClosed(e) {
       this._window &&
-        void 0 === this._windowClosedInterval &&
+        undefined === this._windowClosedInterval &&
         (this._windowClosedInterval = setInterval(() => {
           var n;
-          (null === (n = this._window) || void 0 === n ? void 0 : n.closed) &&
-            (this._stopPollingForWindowClosed(), e());
+          (null === (n = this._window) || undefined === n
+            ? undefined
+            : n.closed) && (this._stopPollingForWindowClosed(), e());
         }, 500));
     }
     _stopPollingForWindowClosed() {
-      void 0 !== this._windowClosedInterval &&
+      undefined !== this._windowClosedInterval &&
         (clearInterval(this._windowClosedInterval),
-        (this._windowClosedInterval = void 0));
+        (this._windowClosedInterval = undefined));
     }
     _authorizeAction(e = {}) {
       var n = this;
@@ -5253,11 +5722,17 @@
         var d;
         let p, h;
         const y =
-          (null === (d = window.location) || void 0 === d ? void 0 : d.href) ||
-          "";
+          (null === (d = window.location) || undefined === d
+            ? undefined
+            : d.href) || "";
         return (
           "GET" === n.authenticateMethod
-            ? (h = `${Ve}/woa?${buildQueryParams(_object_spread_props$s(_object_spread$K({}, n.deeplinkParameters), { a: btoa(n._thirdPartyInfo()), referrer: y }))}`)
+            ? (h = `${Ve}/woa?${buildQueryParams(
+                _object_spread_props$s(
+                  _object_spread$K({}, n.deeplinkParameters),
+                  { a: btoa(n._thirdPartyInfo()), referrer: y },
+                ),
+              )}`)
             : ((p = n._buildFormElement(Ke)), document.body.appendChild(p)),
           new Promise((d, y) => {
             const _ = n.present(h);
@@ -5376,13 +5851,13 @@
             document.querySelectorAll('link[rel="apple-touch-icon"]'),
           ),
         ];
-      if (h && h[0] && h[0].href) {
+      if (h && "allow-forms" && "allow-forms".href) {
         const e = h.find((e) => !!e.sizes && "120x120" === e.sizes.value);
         var y;
         d =
-          null !== (y = null == e ? void 0 : e.href) && void 0 !== y
+          null !== (y = null == e ? undefined : e.href) && undefined !== y
             ? y
-            : h[0].href;
+            : "allow-forms".href;
       }
       return JSON.stringify({
         thirdPartyIconURL: d,
@@ -5393,14 +5868,78 @@
     }
     constructor(e, n = {}) {
       if (
-        (_define_property$1E(this, "developerToken", void 0),
-        _define_property$1E(this, "authenticateMethod", void 0),
-        _define_property$1E(this, "deeplinkParameters", void 0),
-        _define_property$1E(this, "iconURL", void 0),
-        _define_property$1E(this, "target", void 0),
-        _define_property$1E(this, "dispatch", void 0),
-        _define_property$1E(this, "_window", void 0),
-        _define_property$1E(this, "_windowClosedInterval", void 0),
+        ("developerToken" in this
+          ? Object.defineProperty(this, "developerToken", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.developerToken = undefined),
+        this,
+        ("authenticateMethod" in this
+          ? Object.defineProperty(this, "authenticateMethod", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.authenticateMethod = undefined),
+        this),
+        ("deeplinkParameters" in this
+          ? Object.defineProperty(this, "deeplinkParameters", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.deeplinkParameters = undefined),
+        this),
+        ("iconURL" in this
+          ? Object.defineProperty(this, "iconURL", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.iconURL = undefined),
+        this),
+        ("target" in this
+          ? Object.defineProperty(this, "target", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.target = undefined),
+        this),
+        ("dispatch" in this
+          ? Object.defineProperty(this, "dispatch", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.dispatch = undefined),
+        this),
+        ("_window" in this
+          ? Object.defineProperty(this, "_window", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._window = undefined),
+        this),
+        ("_windowClosedInterval" in this
+          ? Object.defineProperty(this, "_windowClosedInterval", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._windowClosedInterval = undefined),
+        this),
         (this.developerToken = e),
         (this.authenticateMethod = "GET"),
         (this.target = "apple-music-service-view"),
@@ -5411,15 +5950,15 @@
       ) {
         var d;
         const e =
-            null === (d = getSessionStorage()) || void 0 === d
-              ? void 0
+            null === (d = getSessionStorage()) || undefined === d
+              ? undefined
               : d.getItem("ac"),
-          n = null != e ? new URL(e).origin : void 0;
+          n = null != e ? new URL(e).origin : undefined;
         var p;
         if (n)
           this.dispatch = new Dispatch({
             destination:
-              null !== (p = window.opener) && void 0 !== p ? p : void 0,
+              null !== (p = window.opener) && undefined !== p ? p : undefined,
             origin: n,
             source: window,
           });
@@ -5447,22 +5986,9 @@
         function _throw(e) {
           asyncGeneratorStep$16(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$1D(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _fetchStorefronts() {
     return (_fetchStorefronts = _async_to_generator$16(function* (
@@ -5499,22 +6025,9 @@
         function _throw(e) {
           asyncGeneratorStep$15(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$1C(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$J(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -5527,7 +6040,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1C(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -5551,14 +6072,14 @@
   class StoreKit extends Notifications {
     updateUserTokenFromStorage() {
       const e = this._getStorageItem(je.USER_TOKEN);
-      this.userToken = e || void 0;
+      this.userToken = e || undefined;
     }
     get authorizationStatus() {
       return this._authorizationStatus;
     }
     set authorizationStatus(e) {
       this._authorizationStatus !== e &&
-        (this._getIsActiveSubscription.updateCache(void 0),
+        (this._getIsActiveSubscription.updateCache(undefined),
         this.dispatchEvent("authorizationStatusWillChange", {
           authorizationStatus: this._authorizationStatus,
           newAuthorizationStatus: e,
@@ -5571,7 +6092,7 @@
     get cid() {
       if (!this._cids[this.cidNamespace]) {
         const e = this._getStorageItem(this.cidNamespace);
-        this._cids[this.cidNamespace] = e || void 0;
+        this._cids[this.cidNamespace] = e || undefined;
       }
       return this._cids[this.cidNamespace];
     }
@@ -5625,7 +6146,7 @@
             "tr",
           ];
           this._restrictedEnabled =
-            -1 !== e.indexOf(this._storefrontCountryCode) || void 0;
+            -1 !== e.indexOf(this._storefrontCountryCode) || undefined;
         }
       }
       return this._restrictedEnabled;
@@ -5633,21 +6154,21 @@
     set restrictedEnabled(e) {
       this._restrictedEnabledOverridden ||
         (this.userToken &&
-          void 0 !== e &&
+          undefined !== e &&
           this._setStorageItem(je.RESTRICTIONS_ENABLED, e ? "1" : "0"),
         (this._restrictedEnabled = e),
         e && (this.authorizationStatus = Fe.RESTRICTED));
     }
     overrideRestrictEnabled(e) {
-      (this._restrictedEnabledOverridden = !1),
+      (this._restrictedEnabledOverridden = false),
         (this.restrictedEnabled = e),
-        (this._restrictedEnabledOverridden = !0);
+        (this._restrictedEnabledOverridden = true);
     }
     get storefrontCountryCode() {
       if (!this._storefrontCountryCode) {
         const e = this._getStorageItem(je.STOREFRONT_COUNTRY_CODE);
         this._storefrontCountryCode =
-          (null == e ? void 0 : e.toLowerCase()) || qe.ID;
+          (null == e ? undefined : e.toLowerCase()) || qe.ID;
       }
       return this._storefrontCountryCode;
     }
@@ -5670,7 +6191,7 @@
           storefrontIdentifier: e,
         });
     }
-    runTokenValidations(e, n = !0) {
+    runTokenValidations(e, n = true) {
       e && validateToken(e)
         ? (n && this._setStorageItem(je.USER_TOKEN, e),
           (this.authorizationStatus = this.restrictedEnabled
@@ -5687,7 +6208,7 @@
         return (
           d !== n &&
             ((d = n),
-            this.runTokenValidations(n, !1),
+            this.runTokenValidations(n, false),
             this.dispatchEvent("userTokenDidChange", { userToken: n })),
           n || ""
         );
@@ -5809,10 +6330,42 @@
               })();
             }
             constructor(e, n, d) {
-              _define_property$1D(this, "id", void 0),
-                _define_property$1D(this, "attributes", void 0),
-                _define_property$1D(this, "href", void 0),
-                _define_property$1D(this, "type", void 0),
+              "id" in this
+                ? Object.defineProperty(this, "id", {
+                    value: undefined,
+                    enumerable: true,
+                    configurable: true,
+                    writable: true,
+                  })
+                : (this.id = undefined),
+                this,
+                ("attributes" in this
+                  ? Object.defineProperty(this, "attributes", {
+                      value: undefined,
+                      enumerable: true,
+                      configurable: true,
+                      writable: true,
+                    })
+                  : (this.attributes = undefined),
+                this),
+                ("href" in this
+                  ? Object.defineProperty(this, "href", {
+                      value: undefined,
+                      enumerable: true,
+                      configurable: true,
+                      writable: true,
+                    })
+                  : (this.href = undefined),
+                this),
+                ("type" in this
+                  ? Object.defineProperty(this, "type", {
+                      value: undefined,
+                      enumerable: true,
+                      configurable: true,
+                      writable: true,
+                    })
+                  : (this.type = undefined),
+                this),
                 (this.id = e),
                 (this.attributes = n),
                 (this.type = "storefronts"),
@@ -5846,7 +6399,7 @@
         try {
           yield e._webPlayerLogout();
         } catch (Vt) {}
-        null === (n = e.authBridgeApp) || void 0 === n || n.clearAuth(),
+        null === (n = e.authBridgeApp) || undefined === n || n.clearAuth(),
           e.dispatchEvent("authorizationStatusWillChange", {
             authorizationStatus: e.authorizationStatus,
             newAuthorizationStatus: Fe.NOT_DETERMINED,
@@ -5874,15 +6427,15 @@
       var e = this;
       return _async_to_generator$15(function* () {
         var n;
-        return !!(null === (n = (yield e.me()).subscription) || void 0 === n
-          ? void 0
+        return !!(null === (n = (yield e.me()).subscription) || undefined === n
+          ? undefined
           : n.active);
       })();
     }
     resetSubscribeViewEligibility() {
-      this._dispatchedSubscribeView = !1;
+      this._dispatchedSubscribeView = false;
     }
-    presentSubscribeViewForEligibleUsers(e = {}, n = !0) {
+    presentSubscribeViewForEligibleUsers(e = {}, n = true) {
       var d = this;
       return _async_to_generator$15(function* () {
         const p = yield d.eligibleForSubscribeView();
@@ -5890,11 +6443,11 @@
           if (!n)
             return (
               d.dispatchEvent("eligibleForSubscribeView", e),
-              void (d._dispatchedSubscribeView = !0)
+              void (d._dispatchedSubscribeView = true)
             );
           try {
             const e = yield d._serviceSetupView.load({ action: He.SUBSCRIBE });
-            return (d._dispatchedSubscribeView = !0), e;
+            return (d._dispatchedSubscribeView = true), e;
           } catch (h) {
             return d.revokeUserToken();
           }
@@ -5967,9 +6520,9 @@
             var n;
             return (
               this._getIsActiveSubscription.updateCache(
-                (null === (n = e.subscription) || void 0 === n
-                  ? void 0
-                  : n.active) || !1,
+                (null === (n = e.subscription) || undefined === n
+                  ? undefined
+                  : n.active) || false,
               ),
               (this._me = null),
               e
@@ -5986,10 +6539,10 @@
         return "cookie" === this.persist
           ? getCookie(e)
           : "localstorage" === this.persist
-            ? null === (n = this.storage) || void 0 === n
-              ? void 0
+            ? null === (n = this.storage) || undefined === n
+              ? undefined
               : n.getItem(`${this.storagePrefix}.${e}`)
-            : void 0;
+            : undefined;
     }
     _processLocationHash(e) {
       const n = /^\#([a-zA-Z0-9+\/]{200,}={0,2})$/;
@@ -6008,8 +6561,8 @@
       if ("cookie" === this.persist) this._removeCookieFromDomains(e);
       else if ("localstorage" === this.persist) {
         var n;
-        return null === (n = this.storage) || void 0 === n
-          ? void 0
+        return null === (n = this.storage) || undefined === n
+          ? undefined
           : n.removeItem(`${this.storagePrefix}.${e}`);
       }
     }
@@ -6028,17 +6581,17 @@
     _reset(e = Fe.NOT_DETERMINED) {
       (this._authorizationStatus = e),
         (this._cids = {}),
-        (this._dispatchedSubscribeView = !1),
-        (this._restrictedEnabled = void 0),
-        (this._storefrontCountryCode = void 0),
-        this._getIsActiveSubscription.updateCache(void 0),
+        (this._dispatchedSubscribeView = false),
+        (this._restrictedEnabled = undefined),
+        (this._storefrontCountryCode = undefined),
+        this._getIsActiveSubscription.updateCache(undefined),
         Object.keys(Ue).forEach((e) => {
           this._removeStorageItem(Ue[e]);
         }),
         this._removeStorageItem(je.RESTRICTIONS_ENABLED),
         this._removeStorageItem(je.USER_TOKEN),
         this._removeStorageItem(je.STOREFRONT_COUNTRY_CODE),
-        (this._dynamicUserToken = void 0),
+        (this._dynamicUserToken = undefined),
         (this._me = null);
     }
     _setStorageItem(e, n) {
@@ -6048,7 +6601,7 @@
           if (this.reflector.skipJsCookieWrite(e)) return;
         } else
           null === (d = this.authBridgeApp) ||
-            void 0 === d ||
+            undefined === d ||
             d.setCookieItem(e, n);
         return (
           Re.debug("Calling setCookie from _setStorageItem", e, n),
@@ -6057,15 +6610,15 @@
             n,
             "/",
             180,
-            void 0,
+            undefined,
             determineBaseCookieDomain(window.location.hostname),
           )
         );
       }
       var p;
       if ("localstorage" === this.persist)
-        return null === (p = this.storage) || void 0 === p
-          ? void 0
+        return null === (p = this.storage) || undefined === p
+          ? undefined
           : p.setItem(`${this.storagePrefix}.${e}`, n);
     }
     _webPlayerLogout() {
@@ -6096,36 +6649,276 @@
         "userTokenDidChange",
         "storefrontIdentifierDidChange",
       ]),
-        _define_property$1C(this, "developerToken", void 0),
-        _define_property$1C(this, "apiBase", void 0),
-        _define_property$1C(this, "bundleId", void 0),
-        _define_property$1C(this, "cidNamespace", void 0),
-        _define_property$1C(this, "deeplinkParameters", void 0),
-        _define_property$1C(this, "iconURL", void 0),
-        _define_property$1C(this, "iTunesBuyBase", void 0),
-        _define_property$1C(this, "meParameters", void 0),
-        _define_property$1C(this, "persist", void 0),
-        _define_property$1C(this, "playBase", void 0),
-        _define_property$1C(this, "prefix", void 0),
-        _define_property$1C(this, "realm", void 0),
-        _define_property$1C(this, "storage", void 0),
-        _define_property$1C(this, "storagePrefix", void 0),
-        _define_property$1C(this, "whenAuthCompleted", void 0),
-        _define_property$1C(this, "fetch", void 0),
-        _define_property$1C(this, "_authorizationStatus", void 0),
-        _define_property$1C(this, "_developerToken", void 0),
-        _define_property$1C(this, "_disableLogoutURL", void 0),
-        _define_property$1C(this, "_dispatchedSubscribeView", void 0),
-        _define_property$1C(this, "_me", void 0),
-        _define_property$1C(this, "_cids", void 0),
-        _define_property$1C(this, "_restrictedEnabled", void 0),
-        _define_property$1C(this, "_restrictedEnabledOverridden", void 0),
-        _define_property$1C(this, "_serviceSetupView", void 0),
-        _define_property$1C(this, "authBridgeApp", void 0),
-        _define_property$1C(this, "reflector", void 0),
-        _define_property$1C(this, "_storefrontCountryCode", void 0),
-        _define_property$1C(this, "_storefrontIdentifier", void 0),
-        _define_property$1C(this, "_dynamicUserToken", void 0),
+        ("developerToken" in this
+          ? Object.defineProperty(this, "developerToken", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.developerToken = undefined),
+        this),
+        ("apiBase" in this
+          ? Object.defineProperty(this, "apiBase", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.apiBase = undefined),
+        this),
+        ("bundleId" in this
+          ? Object.defineProperty(this, "bundleId", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.bundleId = undefined),
+        this),
+        ("cidNamespace" in this
+          ? Object.defineProperty(this, "cidNamespace", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.cidNamespace = undefined),
+        this),
+        ("deeplinkParameters" in this
+          ? Object.defineProperty(this, "deeplinkParameters", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.deeplinkParameters = undefined),
+        this),
+        ("iconURL" in this
+          ? Object.defineProperty(this, "iconURL", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.iconURL = undefined),
+        this),
+        ("iTunesBuyBase" in this
+          ? Object.defineProperty(this, "iTunesBuyBase", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.iTunesBuyBase = undefined),
+        this),
+        ("meParameters" in this
+          ? Object.defineProperty(this, "meParameters", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.meParameters = undefined),
+        this),
+        ("persist" in this
+          ? Object.defineProperty(this, "persist", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.persist = undefined),
+        this),
+        ("playBase" in this
+          ? Object.defineProperty(this, "playBase", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.playBase = undefined),
+        this),
+        ("prefix" in this
+          ? Object.defineProperty(this, "prefix", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.prefix = undefined),
+        this),
+        ("realm" in this
+          ? Object.defineProperty(this, "realm", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.realm = undefined),
+        this),
+        ("storage" in this
+          ? Object.defineProperty(this, "storage", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.storage = undefined),
+        this),
+        ("storagePrefix" in this
+          ? Object.defineProperty(this, "storagePrefix", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.storagePrefix = undefined),
+        this),
+        ("whenAuthCompleted" in this
+          ? Object.defineProperty(this, "whenAuthCompleted", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.whenAuthCompleted = undefined),
+        this),
+        ("fetch" in this
+          ? Object.defineProperty(this, "fetch", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.fetch = undefined),
+        this),
+        ("_authorizationStatus" in this
+          ? Object.defineProperty(this, "_authorizationStatus", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._authorizationStatus = undefined),
+        this),
+        ("_developerToken" in this
+          ? Object.defineProperty(this, "_developerToken", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._developerToken = undefined),
+        this),
+        ("_disableLogoutURL" in this
+          ? Object.defineProperty(this, "_disableLogoutURL", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._disableLogoutURL = undefined),
+        this),
+        ("_dispatchedSubscribeView" in this
+          ? Object.defineProperty(this, "_dispatchedSubscribeView", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._dispatchedSubscribeView = undefined),
+        this),
+        ("_me" in this
+          ? Object.defineProperty(this, "_me", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._me = undefined),
+        this),
+        ("_cids" in this
+          ? Object.defineProperty(this, "_cids", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._cids = undefined),
+        this),
+        ("_restrictedEnabled" in this
+          ? Object.defineProperty(this, "_restrictedEnabled", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._restrictedEnabled = undefined),
+        this),
+        ("_restrictedEnabledOverridden" in this
+          ? Object.defineProperty(this, "_restrictedEnabledOverridden", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._restrictedEnabledOverridden = undefined),
+        this),
+        ("_serviceSetupView" in this
+          ? Object.defineProperty(this, "_serviceSetupView", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._serviceSetupView = undefined),
+        this),
+        ("authBridgeApp" in this
+          ? Object.defineProperty(this, "authBridgeApp", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.authBridgeApp = undefined),
+        this),
+        ("reflector" in this
+          ? Object.defineProperty(this, "reflector", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.reflector = undefined),
+        this),
+        ("_storefrontCountryCode" in this
+          ? Object.defineProperty(this, "_storefrontCountryCode", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._storefrontCountryCode = undefined),
+        this),
+        ("_storefrontIdentifier" in this
+          ? Object.defineProperty(this, "_storefrontIdentifier", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._storefrontIdentifier = undefined),
+        this),
+        ("_dynamicUserToken" in this
+          ? Object.defineProperty(this, "_dynamicUserToken", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._dynamicUserToken = undefined),
+        this),
         (this.developerToken = n),
         (this.apiBase = "https://api.music.apple.com/v1"),
         (this.iTunesBuyBase = ze),
@@ -6136,11 +6929,11 @@
         (this.realm = e.SKRealm.MUSIC),
         (this.storage = getLocalStorage()),
         (this._authorizationStatus = Fe.NOT_DETERMINED),
-        (this._disableLogoutURL = !1),
-        (this._dispatchedSubscribeView = !1),
+        (this._disableLogoutURL = false),
+        (this._dispatchedSubscribeView = false),
         (this._me = null),
         (this._cids = {}),
-        (this._restrictedEnabledOverridden = !1),
+        (this._restrictedEnabledOverridden = false),
         (this._dynamicUserToken = getCookie(je.USER_TOKEN)),
         Re.info("StoreKit initialized"),
         d &&
@@ -6149,10 +6942,10 @@
           d.meParameters && (this.meParameters = d.meParameters),
           d.persist && (this.persist = d.persist),
           d.prefix && (this.prefix = d.prefix),
-          void 0 !== d.realm && (this.realm = d.realm),
+          undefined !== d.realm && (this.realm = d.realm),
           (this.bundleId = Ne[this.realm])),
         (this.fetch =
-          void 0 !== d && "function" == typeof d.fetch
+          undefined !== d && "function" == typeof d.fetch
             ? d.fetch
             : globalThis.fetch.bind(globalThis)),
         (this.cidNamespace = Ue[this.realm]),
@@ -6170,12 +6963,12 @@
           (this._restrictedEnabled = this.restrictedEnabled),
         (this._storefrontCountryCode = this.storefrontCountryCode),
         (this.whenAuthCompleted = Promise.resolve()),
-        isNodeEnvironment$1() ||
+        detectNodeEnvironment() ||
           (this._processLocationHash(window.location.hash),
           "cookie" === this.persist &&
             (this.reflector
               ? this.reflector.refresh()
-              : (null == d ? void 0 : d.disableAuthBridge) ||
+              : (null == d ? undefined : d.disableAuthBridge) ||
                 (Re.debug("Using auth bridge"),
                 (this.authBridgeApp = new AuthBridgeApp()),
                 (this.authBridgeApp.authClearedFromOtherFrame =
@@ -6206,27 +6999,24 @@
       (
         (e = 300) =>
         (n, d, p) => {
-          if (void 0 === p || "function" != typeof p.value)
+          if (undefined === p || "function" != typeof p.value)
             throw new TypeError(
               `Only methods can be decorated with @CachedResult, but ${d} is not a method.`,
             );
           return {
-            configurable: !0,
+            configurable: true,
             get() {
               const n = p.value,
                 h = 1e3 * e;
               let y,
                 _ = -1;
-              function cachedResultMethod() {
-                return _cachedResultMethod.apply(this, arguments);
-              }
               function _cachedResultMethod() {
                 return (_cachedResultMethod = _async_to_generator$19(function* (
                   ...e
                 ) {
                   const d = Date.now();
                   return (
-                    (void 0 === y || -1 === _ || (_ > 0 && d > _ + h)) &&
+                    (undefined === y || -1 === _ || (_ > 0 && d > _ + h)) &&
                       ((_ = d), (y = yield n.apply(this, e))),
                     y
                   );
@@ -6239,8 +7029,8 @@
                 (cachedResultMethod.getCachedValue = () => y),
                 Object.defineProperty(this, d, {
                   value: cachedResultMethod,
-                  configurable: !0,
-                  writable: !0,
+                  configurable: true,
+                  writable: true,
                 }),
                 cachedResultMethod
               );
@@ -6276,27 +7066,61 @@
           if (this.mapLevels) {
             const d = this.levelMapping.get(e.level);
             (function (e) {
-              return void 0 !== e && e in console;
+              return undefined !== e && e in console;
             })(d) && (n = d);
           }
           var d;
-          const p = null !== (d = e.args) && void 0 !== d ? d : [],
+          const p = null !== (d = e.args) && undefined !== d ? d : [],
             h = this.format(e);
           console[n](h, ...p);
         }
         constructor(e = {}) {
           var n, d, p, h;
-          _define_property$1I(this, "enabled", void 0),
-            _define_property$1I(this, "mapLevels", void 0),
-            _define_property$1I(this, "levelMapping", void 0),
-            _define_property$1I(this, "format", void 0),
-            (this.enabled = null === (n = e.enabled) || void 0 === n || n),
-            (this.mapLevels = null === (d = e.mapLevels) || void 0 === d || d),
+          "enabled" in this
+            ? Object.defineProperty(this, "enabled", {
+                value: undefined,
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (this.enabled = undefined),
+            this,
+            ("mapLevels" in this
+              ? Object.defineProperty(this, "mapLevels", {
+                  value: undefined,
+                  enumerable: true,
+                  configurable: true,
+                  writable: true,
+                })
+              : (this.mapLevels = undefined),
+            this),
+            ("levelMapping" in this
+              ? Object.defineProperty(this, "levelMapping", {
+                  value: undefined,
+                  enumerable: true,
+                  configurable: true,
+                  writable: true,
+                })
+              : (this.levelMapping = undefined),
+            this),
+            ("format" in this
+              ? Object.defineProperty(this, "format", {
+                  value: undefined,
+                  enumerable: true,
+                  configurable: true,
+                  writable: true,
+                })
+              : (this.format = undefined),
+            this),
+            (this.enabled = null === (n = e.enabled) || undefined === n || n),
+            (this.mapLevels =
+              null === (d = e.mapLevels) || undefined === d || d),
             (this.levelMapping =
-              null !== (p = e.levelMapping) && void 0 !== p ? p : Oe),
-            (this.format = null !== (h = e.formatter) && void 0 !== h ? h : Ie);
+              null !== (p = e.levelMapping) && undefined !== p ? p : Oe),
+            (this.format =
+              null !== (h = e.formatter) && undefined !== h ? h : Ie);
         }
-      })({ enabled: !1 }),
+      })({ enabled: false }),
       external: new CallbackHandler(() => {}),
     },
   });
@@ -6306,16 +7130,16 @@
         let d;
         const p = e.namespace;
         e.clearLevel(),
-          void 0 === e.parent && void 0 !== n["*"]
+          undefined === e.parent && undefined !== n["*"]
             ? (d = getLoggingLevel(n["*"]))
-            : void 0 !== n[p] && (d = getLoggingLevel(n[p])),
-          void 0 !== d && e.setLevel(d);
+            : undefined !== n[p] && (d = getLoggingLevel(n[p])),
+          undefined !== d && e.setLevel(d);
       });
     })(
       it,
       (function (e) {
-        const n = getLoggingLevel(e.trim(), { allowShorthands: !0 });
-        if (void 0 !== n) return { "*": n };
+        const n = getLoggingLevel(e.trim(), { allowShorthands: true });
+        if (undefined !== n) return { "*": n };
         const d = {},
           p = e.split(",").filter((e) => "" !== e.trim());
         for (const g of p) {
@@ -6325,20 +7149,24 @@
           var _;
           const n =
             null !==
-              (_ = null === (h = e[0]) || void 0 === h ? void 0 : h.trim()) &&
-            void 0 !== _
+              (_ =
+                null === (h = e[0]) || undefined === h
+                  ? undefined
+                  : h.trim()) && undefined !== _
               ? _
               : "";
           var m;
           const p = getLoggingLevel(
             null !==
-              (m = null === (y = e[1]) || void 0 === y ? void 0 : y.trim()) &&
-              void 0 !== m
+              (m =
+                null === (y = e[1]) || undefined === y
+                  ? undefined
+                  : y.trim()) && undefined !== m
               ? m
               : "",
-            { allowShorthands: !0 },
+            { allowShorthands: true },
           );
-          "" !== n && void 0 !== p && (d[n] = p);
+          "" !== n && undefined !== p && (d[n] = p);
         }
         return d;
       })(e),
@@ -6346,27 +7174,27 @@
   }
   function clearLoggingLevels() {
     it.setLevel(rt),
-      (function (e, n = { includeRoot: !0 }) {
+      (function (e, n = { includeRoot: true }) {
         walk(e, function (e) {
-          (void 0 !== e.parent || n.includeRoot) && e.clearLevel();
+          (undefined !== e.parent || n.includeRoot) && e.clearLevel();
         });
-      })(it, { includeRoot: !1 });
+      })(it, { includeRoot: false });
   }
   function setConsoleOutput(e) {
     it.handlers.console.enabled = null != e && e;
   }
   function setRootLoggingLevel(e) {
     var n;
-    rt = null !== (n = getLoggingLevel(e)) && void 0 !== n ? n : rt;
+    rt = null !== (n = getLoggingLevel(e)) && undefined !== n ? n : rt;
   }
   const nt = {
     getLogger: (e = "*") => it.getByNamespace(null != e ? e : "*"),
     setConsoleOutput(e) {
-      !0 === e
+      true === e
         ? (Ze.enable(),
-          setConsoleOutput(!0),
+          setConsoleOutput(true),
           it.info("Console output is enabled with level " + it.levelName))
-        : (Ze.disable(), setConsoleOutput(!1));
+        : (Ze.disable(), setConsoleOutput(false));
     },
     setLoggingLevels(e, n) {
       "" !== e.trim()
@@ -6375,18 +7203,18 @@
           nt.setConsoleOutput(null == n || n))
         : nt.clearLoggingLevels(null != n && n);
     },
-    clearLoggingLevels(e = !1) {
+    clearLoggingLevels(e = false) {
       nt.setConsoleOutput(e), et.clear(), clearLoggingLevels();
     },
     listLoggers: (e) =>
       (function (e) {
         const n = {};
-        void 0 !== e && (e = e.startsWith("mk/") ? e : "mk/" + e);
+        undefined !== e && (e = e.startsWith("mk/") ? e : "mk/" + e);
         const d = it.children;
         for (; d.length > 0; ) {
           const p = d.shift();
-          if (void 0 === p) break;
-          (void 0 === e || p.namespace.startsWith(e)) &&
+          if (undefined === p) break;
+          (undefined === e || p.namespace.startsWith(e)) &&
             ((n[p.namespace] = p.levelName), d.unshift(...p.children));
         }
         return n;
@@ -6394,7 +7222,7 @@
   };
   var ot;
   Ze.enabled && nt.setConsoleOutput(Ze.enabled),
-    void 0 !== et.value && nt.setLoggingLevels(et.value, Ze.enabled),
+    undefined !== et.value && nt.setLoggingLevels(et.value, Ze.enabled),
     (function (e) {
       (e.NONE = "none"),
         (e.FAIRPLAY = "com.apple.fps"),
@@ -6426,12 +7254,9 @@
         function _throw(e) {
           asyncGeneratorStep$14(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function findMediaKeySystemAccess(e, n) {
-    return _findMediaKeySystemAccess.apply(this, arguments);
   }
   function _findMediaKeySystemAccess() {
     return (_findMediaKeySystemAccess = _async_to_generator$14(
@@ -6481,33 +7306,35 @@
         ? [ft, _t]
         : [_t, ft];
   }
-  function findKeySystemPreference(e) {
-    return _findKeySystemPreference.apply(this, arguments);
-  }
   function _findKeySystemPreference() {
     return (_findKeySystemPreference = _async_to_generator$14(function* (e) {
       var n, d, p;
       if (
-        null === (p = null == e ? void 0 : e.isNodeEnvironment) ||
-        void 0 === p ||
+        null === (p = null == e ? undefined : e.isNodeEnvironment) ||
+        undefined === p ||
         !p
       ) {
         if (
-          null === (n = window.WebKitMediaKeys) || void 0 === n
-            ? void 0
+          null === (n = window.WebKitMediaKeys) || undefined === n
+            ? undefined
             : n.isTypeSupported(yt + ".1_0", dt.AVC1)
         )
           pt = yt;
         else if (
-          null === (d = window.MSMediaKeys) || void 0 === d
-            ? void 0
+          null === (d = window.MSMediaKeys) || undefined === d
+            ? undefined
             : d.isTypeSupported(ft, dt.AVC1)
         )
           pt = ft;
         else {
           const e = document.createElement("video");
           if (
-            hasMediaKeySupport() &&
+            !!(
+              navigator &&
+              navigator.requestMediaKeySystemAccess &&
+              window.MediaKeys &&
+              window.MediaKeySystemAccess
+            ) &&
             e.canPlayType('video/mp4;codecs="avc1.42E01E"') &&
             e.canPlayType(ct)
           ) {
@@ -6526,7 +7353,7 @@
                 },
               ],
               n = potentialKeySystemsForAccess(),
-              [d] = yield findMediaKeySystemAccess(n, e);
+              [d] = yield _findMediaKeySystemAccess.apply(this, arguments);
             pt = d;
           }
         }
@@ -6535,14 +7362,6 @@
       pt = ht;
     })).apply(this, arguments);
   }
-  function hasMediaKeySupport() {
-    return !!(
-      navigator &&
-      navigator.requestMediaKeySystemAccess &&
-      window.MediaKeys &&
-      window.MediaKeySystemAccess
-    );
-  }
   const AsyncDebounce =
       (e = 100, n) =>
       (d, p, h) => {
@@ -6550,21 +7369,21 @@
           _ = asyncDebounce(y, e, n);
         h.value = _;
       },
-    asyncDebounce = (e, n = 250, d = { isImmediate: !1 }) => {
+    asyncDebounce = (e, n = 250, d = { isImmediate: false }) => {
       let p, h;
       function fulfill(e) {
-        return null == e ? void 0 : e.resolve(d.cancelledValue);
+        return null == e ? undefined : e.resolve(d.cancelledValue);
       }
       const clearLastPromise = () => {
           p &&
             (p.resolved ||
               (fulfill(p), p.timeoutId && clearTimeout(p.timeoutId)),
-            (p = void 0));
+            (p = undefined));
         },
         invokeFn = (n, d, h, y) => {
           e.apply(n, y)
             .then((e) => {
-              d(e), p && (p.resolved = !0);
+              d(e), p && (p.resolved = true);
             })
             .catch(h);
         };
@@ -6587,7 +7406,7 @@
             return (
               p && clearLastPromise(),
               new Promise(function (h, y) {
-                const _ = setTimeout(invokeFn.bind(void 0, d, h, y, e), n);
+                const _ = setTimeout(invokeFn.bind(undefined, d, h, y, e), n);
                 p = { resolve: h, reject: y, timeoutId: _ };
               })
             );
@@ -6614,7 +7433,7 @@
         function _throw(e) {
           asyncGeneratorStep$13(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
   }
@@ -6641,7 +7460,7 @@
       };
     };
   var vt, gt, bt;
-  (e.PlaybackBitrate = void 0),
+  (e.PlaybackBitrate = undefined),
     ((vt = e.PlaybackBitrate || (e.PlaybackBitrate = {}))[(vt.STANDARD = 64)] =
       "STANDARD"),
     (vt[(vt.HIGH = 256)] = "HIGH"),
@@ -6671,17 +7490,17 @@
     time(e = 0) {
       return 1 === this.mode ? Math.round(e) : e;
     }
-    constructor(e = !1) {
+    constructor(e = false) {
       !(function (e, n, d) {
         n in e
           ? Object.defineProperty(e, n, {
               value: d,
-              enumerable: !0,
-              configurable: !0,
-              writable: !0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
             })
           : (e[n] = d);
-      })(this, "mode", void 0),
+      })(this, "mode", undefined),
         (this.mode = e ? 0 : 1);
     }
   }
@@ -6716,19 +7535,6 @@
     textTrackRemoved: "textTrackRemoved",
     timedMetadataDidChange: "timedMetadataDidChange",
   };
-  function _define_property$1A(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   class BitrateCalculator {
     get bitrate() {
       return this._bitrate;
@@ -6754,19 +7560,43 @@
     }
     constructor(n, d = e.PlaybackBitrate.STANDARD) {
       var p, h, y;
-      _define_property$1A(this, "_bitrate", void 0),
-        _define_property$1A(this, "_dispatcher", void 0),
-        _define_property$1A(this, "_downlinkSamples", []),
+      "_bitrate" in this
+        ? Object.defineProperty(this, "_bitrate", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._bitrate = undefined),
+        this,
+        ("_dispatcher" in this
+          ? Object.defineProperty(this, "_dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._dispatcher = undefined),
+        this),
+        ("_downlinkSamples" in this
+          ? Object.defineProperty(this, "_downlinkSamples", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._downlinkSamples = []),
+        this),
         (this._bitrate = d),
         (this._dispatcher = n),
-        void 0 !==
+        undefined !==
           (null === (y = window) ||
-          void 0 === y ||
+          undefined === y ||
           null === (h = y.navigator) ||
-          void 0 === h ||
+          undefined === h ||
           null === (p = h.connection) ||
-          void 0 === p
-            ? void 0
+          undefined === p
+            ? undefined
             : p.downlink) &&
           this._recalculateBitrate(
             100 * (window.navigator.connection.downlink || 0),
@@ -6797,7 +7627,7 @@
         (e[(e.ALBUM = 3)] = "ALBUM"),
         (e[(e.ARTIST = 4)] = "ARTIST");
     })(Et || (Et = {})),
-    (e.PlayActivityEndReasonType = void 0),
+    (e.PlayActivityEndReasonType = undefined),
     ((Tt = e.PlayActivityEndReasonType || (e.PlayActivityEndReasonType = {}))[
       (Tt.NOT_APPLICABLE = 0)
     ] = "NOT_APPLICABLE"),
@@ -6925,20 +7755,6 @@
           "NEW_MUSIC_STATION_RECOMMENDED");
     })(It || (It = {}));
   var At, Rt, $t, Ct, Mt, Dt, xt, jt, Lt, Nt, Ut, Bt, Ft, Kt;
-  /*! *****************************************************************************
-  Copyright (c) Microsoft Corporation.
-
-  Permission to use, copy, modify, and/or distribute this software for any
-  purpose with or without fee is hereby granted.
-
-  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-  REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-  AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-  INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-  LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-  OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-  PERFORMANCE OF THIS SOFTWARE.
-  ***************************************************************************** */
   function t(e, n) {
     var d = "function" == typeof Symbol && e[Symbol.iterator];
     if (!d) return e;
@@ -6947,7 +7763,7 @@
       y = d.call(e),
       _ = [];
     try {
-      for (; (void 0 === n || n-- > 0) && !(p = y.next()).done; )
+      for (; (undefined === n || n-- > 0) && !(p = y.next()).done; )
         _.push(p.value);
     } catch (e) {
       h = { error: e };
@@ -7063,7 +7879,7 @@
     })(Kt || (Kt = {}));
   var Vt = { type: "xstate.init" };
   function r(e) {
-    return void 0 === e ? [] : [].concat(e);
+    return undefined === e ? [] : [].concat(e);
   }
   function o(e) {
     return { type: "xstate.assign", assignment: e };
@@ -7084,15 +7900,15 @@
     return "string" == typeof e ? { type: e } : e;
   }
   function c(e, n) {
-    return { value: e, context: n, actions: [], changed: !1, matches: a(e) };
+    return { value: e, context: n, actions: [], changed: false, matches: a(e) };
   }
   function f(e, n, d) {
     var p = n,
-      h = !1;
+      h = false;
     return [
       e.filter(function (e) {
         if ("xstate.assign" === e.type) {
-          h = !0;
+          h = true;
           var n = Object.assign({}, p);
           return (
             "function" == typeof e.assignment
@@ -7104,17 +7920,17 @@
                       : e.assignment[h];
                 }),
             (p = n),
-            !1
+            false
           );
         }
-        return !0;
+        return true;
       }),
       p,
       h,
     ];
   }
   function s(e, n) {
-    void 0 === n && (n = {});
+    undefined === n && (n = {});
     var d = t(
         f(
           r(e.states[e.initial].entry).map(function (e) {
@@ -7157,7 +7973,7 @@
                       return {
                         next: function () {
                           return (
-                            e && p >= e.length && (e = void 0),
+                            e && p >= e.length && (e = undefined),
                             { value: e && e[p++], done: !e }
                           );
                         },
@@ -7173,19 +7989,19 @@
                 T = E.next()
               ) {
                 var k = T.value;
-                if (void 0 === k) return c(m, g);
+                if (undefined === k) return c(m, g);
                 var w = "string" == typeof k ? { target: k } : k,
                   O = w.target,
                   I = w.actions,
-                  A = void 0 === I ? [] : I,
+                  A = undefined === I ? [] : I,
                   R = w.cond,
                   $ =
-                    void 0 === R
+                    undefined === R
                       ? function () {
-                          return !0;
+                          return true;
                         }
                       : R,
-                  C = void 0 === O,
+                  C = undefined === O,
                   M = null != O ? O : m,
                   D = e.states[M];
                 if ($(g, b)) {
@@ -7301,19 +8117,6 @@
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
   }
-  function _define_property$1z(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread$I(e) {
     for (var n = 1; n < arguments.length; n++) {
       var d = null != arguments[n] ? arguments[n] : {},
@@ -7325,7 +8128,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1z(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -7431,7 +8242,7 @@
           function _throw(e) {
             asyncGeneratorStep$12(y, p, h, _next, _throw, "throw", e);
           }
-          _next(void 0);
+          _next(undefined);
         });
       })();
     }
@@ -7440,9 +8251,9 @@
       const d =
         null !==
           (n =
-            null === (e = this._fetchOptions) || void 0 === e
-              ? void 0
-              : e.headers) && void 0 !== n
+            null === (e = this._fetchOptions) || undefined === e
+              ? undefined
+              : e.headers) && undefined !== n
           ? n
           : {};
       return d instanceof this._headersClass
@@ -7457,7 +8268,7 @@
         n.set("Content-Type", "application/json"),
         n.set(e, "" + this.musicUserToken),
         this._isQA &&
-          void 0 !== this._traceTag &&
+          undefined !== this._traceTag &&
           n.set("Data-Trace-Tag", this._traceTag),
         n
       );
@@ -7467,28 +8278,132 @@
     }
     constructor(e) {
       var n, d, p, h;
-      _define_property$1z(this, "mode", Ut.AUTO),
-        _define_property$1z(this, "_accessToken", void 0),
-        _define_property$1z(this, "_musicUserToken", void 0),
-        _define_property$1z(this, "_clientId", void 0),
-        _define_property$1z(this, "_eventType", void 0),
-        _define_property$1z(this, "_fetch", void 0),
-        _define_property$1z(this, "_fetchOptions", void 0),
-        _define_property$1z(this, "_headersClass", void 0),
-        _define_property$1z(this, "_isQA", !1),
-        _define_property$1z(this, "_logInfo", !1),
-        _define_property$1z(this, "_preferDSID", !1),
-        _define_property$1z(this, "_sourceType", void 0),
-        _define_property$1z(this, "_traceTag", void 0),
+      "mode" in this
+        ? Object.defineProperty(this, "mode", {
+            value: Ut.AUTO,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.mode = Ut.AUTO),
+        this,
+        ("_accessToken" in this
+          ? Object.defineProperty(this, "_accessToken", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._accessToken = undefined),
+        this),
+        ("_musicUserToken" in this
+          ? Object.defineProperty(this, "_musicUserToken", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._musicUserToken = undefined),
+        this),
+        ("_clientId" in this
+          ? Object.defineProperty(this, "_clientId", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._clientId = undefined),
+        this),
+        ("_eventType" in this
+          ? Object.defineProperty(this, "_eventType", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._eventType = undefined),
+        this),
+        ("_fetch" in this
+          ? Object.defineProperty(this, "_fetch", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._fetch = undefined),
+        this),
+        ("_fetchOptions" in this
+          ? Object.defineProperty(this, "_fetchOptions", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._fetchOptions = undefined),
+        this),
+        ("_headersClass" in this
+          ? Object.defineProperty(this, "_headersClass", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._headersClass = undefined),
+        this),
+        ("_isQA" in this
+          ? Object.defineProperty(this, "_isQA", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._isQA = false),
+        this),
+        ("_logInfo" in this
+          ? Object.defineProperty(this, "_logInfo", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._logInfo = false),
+        this),
+        ("_preferDSID" in this
+          ? Object.defineProperty(this, "_preferDSID", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._preferDSID = false),
+        this),
+        ("_sourceType" in this
+          ? Object.defineProperty(this, "_sourceType", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._sourceType = undefined),
+        this),
+        ("_traceTag" in this
+          ? Object.defineProperty(this, "_traceTag", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._traceTag = undefined),
+        this),
         (this._accessToken = e.accessToken),
         (this._clientId = e.clientId),
         (this._eventType = e.eventType),
-        (this._fetch = null !== (n = e.fetch) && void 0 !== n ? n : fetch),
+        (this._fetch = null !== (n = e.fetch) && undefined !== n ? n : fetch),
         (this._fetchOptions =
-          null !== (d = e.fetchOptions) && void 0 !== d ? d : {}),
+          null !== (d = e.fetchOptions) && undefined !== d ? d : {}),
         (this._headersClass =
-          null !== (p = e.headersClass) && void 0 !== p ? p : Headers),
-        (this._isQA = null !== (h = e.isQA) && void 0 !== h && h),
+          null !== (p = e.headersClass) && undefined !== p ? p : Headers),
+        (this._isQA = null !== (h = e.isQA) && undefined !== h && h),
         (this._logInfo = e.logInfo || this._isQA),
         (this._musicUserToken = e.musicUserToken),
         (this._preferDSID = e.preferDSID),
@@ -7497,8 +8412,9 @@
     }
   }
   const fullAppId = (e, n) => {
-      if (void 0 === (null == n ? void 0 : n.name)) return "MusicKitApp/1.0";
-      if (void 0 !== e) return e;
+      if (undefined === (null == n ? undefined : n.name))
+        return "MusicKitApp/1.0";
+      if (undefined !== e) return e;
       return `${(function (e) {
         return e
           .toLowerCase()
@@ -7506,7 +8422,7 @@
           .replace(/[^\w\s]/g, "")
           .replace(/\b./g, (e) => e.toUpperCase())
           .replace(/\s/g, "");
-      })(n.name)}/${(null == n ? void 0 : n.version) || "1.0"}`;
+      })(n.name)}/${(null == n ? undefined : n.version) || "1.0"}`;
     },
     os = (e) => {
       var n, d;
@@ -7533,13 +8449,25 @@
                     : !_ &&
                       /windows/.test(p) &&
                       ((y = "Windows"), (h = p.match(/windows ([^\)]*)/)));
-      return `${y}/${null !== (m = null == h || null === (d = h[1]) || void 0 === d || null === (n = d.replace) || void 0 === n ? void 0 : n.call(d, /_/g, ".")) && void 0 !== m ? m : "0.0"}`;
+      return `${y}/${
+        null !==
+          (m =
+            null == h ||
+            null === (d = "allow-popups") ||
+            undefined === d ||
+            null === (n = d.replace) ||
+            undefined === n
+              ? undefined
+              : n.call(d, /_/g, ".")) && undefined !== m
+          ? m
+          : "0.0"
+      }`;
     },
     model = (e) =>
-      "model/" + ((null == e ? void 0 : e.platform) || "Unavailable"),
+      "model/" + ((null == e ? undefined : e.platform) || "Unavailable"),
     build = (e) => {
-      const n = null == e ? void 0 : e.build;
-      return void 0 === n || "" === n ? "build/0.0.0" : "build/" + n;
+      const n = null == e ? undefined : e.build;
+      return undefined === n || "" === n ? "build/0.0.0" : "build/" + n;
     };
   function asyncGeneratorStep$11(e, n, d, p, h, y, _) {
     try {
@@ -7549,19 +8477,6 @@
       return void d(V);
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
-  }
-  function _define_property$1y(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$H(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -7574,7 +8489,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1y(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -7608,7 +8531,7 @@
     }
     get appID() {
       return (
-        void 0 === this._appId &&
+        undefined === this._appId &&
           (this._appId = fullAppId(this._appId, this._appInfo)),
         this._appId
       );
@@ -7621,7 +8544,7 @@
     }
     get navigator() {
       var e;
-      return null !== (e = this._navigator) && void 0 !== e
+      return null !== (e = this._navigator) && undefined !== e
         ? e
         : "undefined" == typeof navigator
           ? qt
@@ -7632,7 +8555,7 @@
     }
     get userAgent() {
       var e;
-      return null !== (e = this._userAgent) && void 0 !== e
+      return null !== (e = this._userAgent) && undefined !== e
         ? e
         : this.navigator.userAgent;
     }
@@ -7644,14 +8567,14 @@
     }
     get utcOffsetInSeconds() {
       if (
-        void 0 === this._utcOffsetInSeconds &&
-        void 0 !== this._utcOffset &&
+        undefined === this._utcOffsetInSeconds &&
+        undefined !== this._utcOffset &&
         !isNaN(this._utcOffset)
       ) {
         const e = 60 * this._utcOffset;
         this._utcOffsetInSeconds = e <= 0 ? Math.abs(e) : -e;
       }
-      return void 0 === this._utcOffsetInSeconds ||
+      return undefined === this._utcOffsetInSeconds ||
         isNaN(this._utcOffsetInSeconds)
         ? -1
         : this._utcOffsetInSeconds;
@@ -7673,7 +8596,7 @@
           function _throw(e) {
             asyncGeneratorStep$11(y, p, h, _next, _throw, "throw", e);
           }
-          _next(void 0);
+          _next(undefined);
         });
       })();
     }
@@ -7689,67 +8612,253 @@
         h,
       );
     }
-    buildForPlayParams(e, n, d, p = 0, h = {}, y = !1) {
+    buildForPlayParams(e, n, d, p = 0, h = {}, y = false) {
       return this.build(this.buildDescriptorForPlayParams(e, n, d, p, h), y);
     }
     constructor(e, n, d, p) {
       var h, y, _, m;
-      (_define_property$1y(this, "_accessToken", void 0),
-      _define_property$1y(this, "_musicUserToken", void 0),
-      _define_property$1y(this, "_storefrontId", void 0),
-      _define_property$1y(this, "privateEnabled", void 0),
-      _define_property$1y(this, "siriInitiated", void 0),
-      _define_property$1y(this, "buildVersion", void 0),
-      _define_property$1y(this, "clientId", void 0),
-      _define_property$1y(this, "eventType", void 0),
-      _define_property$1y(this, "guid", void 0),
-      _define_property$1y(this, "internalBuild", void 0),
-      _define_property$1y(this, "metricsClientId", void 0),
-      _define_property$1y(this, "preferDSID", void 0),
-      _define_property$1y(this, "sender", void 0),
-      _define_property$1y(this, "sourceType", void 0),
-      _define_property$1y(this, "_appId", void 0),
-      _define_property$1y(this, "_appInfo", void 0),
-      _define_property$1y(this, "_deviceName", void 0),
-      _define_property$1y(this, "_navigator", void 0),
-      _define_property$1y(this, "_utcOffset", void 0),
-      _define_property$1y(this, "_utcOffsetInSeconds", void 0),
-      _define_property$1y(this, "_userAgent", void 0),
-      _define_property$1y(this, "_userIsSubscribed", void 0),
-      _define_property$1y(this, "_allowReportingId", void 0),
+      ("_accessToken" in this
+        ? Object.defineProperty(this, "_accessToken", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._accessToken = undefined),
+      this,
+      ("_musicUserToken" in this
+        ? Object.defineProperty(this, "_musicUserToken", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._musicUserToken = undefined),
+      this),
+      ("_storefrontId" in this
+        ? Object.defineProperty(this, "_storefrontId", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._storefrontId = undefined),
+      this),
+      ("privateEnabled" in this
+        ? Object.defineProperty(this, "privateEnabled", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.privateEnabled = undefined),
+      this),
+      ("siriInitiated" in this
+        ? Object.defineProperty(this, "siriInitiated", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.siriInitiated = undefined),
+      this),
+      ("buildVersion" in this
+        ? Object.defineProperty(this, "buildVersion", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.buildVersion = undefined),
+      this),
+      ("clientId" in this
+        ? Object.defineProperty(this, "clientId", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.clientId = undefined),
+      this),
+      ("eventType" in this
+        ? Object.defineProperty(this, "eventType", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.eventType = undefined),
+      this),
+      ("guid" in this
+        ? Object.defineProperty(this, "guid", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.guid = undefined),
+      this),
+      ("internalBuild" in this
+        ? Object.defineProperty(this, "internalBuild", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.internalBuild = undefined),
+      this),
+      ("metricsClientId" in this
+        ? Object.defineProperty(this, "metricsClientId", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.metricsClientId = undefined),
+      this),
+      ("preferDSID" in this
+        ? Object.defineProperty(this, "preferDSID", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.preferDSID = undefined),
+      this),
+      ("sender" in this
+        ? Object.defineProperty(this, "sender", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.sender = undefined),
+      this),
+      ("sourceType" in this
+        ? Object.defineProperty(this, "sourceType", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.sourceType = undefined),
+      this),
+      ("_appId" in this
+        ? Object.defineProperty(this, "_appId", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._appId = undefined),
+      this),
+      ("_appInfo" in this
+        ? Object.defineProperty(this, "_appInfo", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._appInfo = undefined),
+      this),
+      ("_deviceName" in this
+        ? Object.defineProperty(this, "_deviceName", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._deviceName = undefined),
+      this),
+      ("_navigator" in this
+        ? Object.defineProperty(this, "_navigator", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._navigator = undefined),
+      this),
+      ("_utcOffset" in this
+        ? Object.defineProperty(this, "_utcOffset", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._utcOffset = undefined),
+      this),
+      ("_utcOffsetInSeconds" in this
+        ? Object.defineProperty(this, "_utcOffsetInSeconds", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._utcOffsetInSeconds = undefined),
+      this),
+      ("_userAgent" in this
+        ? Object.defineProperty(this, "_userAgent", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._userAgent = undefined),
+      this),
+      ("_userIsSubscribed" in this
+        ? Object.defineProperty(this, "_userIsSubscribed", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._userIsSubscribed = undefined),
+      this),
+      ("_allowReportingId" in this
+        ? Object.defineProperty(this, "_allowReportingId", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._allowReportingId = undefined),
+      this),
       (this._accessToken = e),
       (this._musicUserToken = n),
       (this._storefrontId = d),
-      (this.privateEnabled = !1),
-      (this.siriInitiated = !1),
+      (this.privateEnabled = false),
+      (this.siriInitiated = false),
       (this.clientId = "JSCLIENT"),
       (this.eventType = "JSPLAY"),
-      (this.internalBuild = !1),
-      (this.preferDSID = !1),
+      (this.internalBuild = false),
+      (this.preferDSID = false),
       (this.sourceType = Bt.MUSICKIT),
       (this._utcOffset = new Date().getTimezoneOffset()),
-      (this._userIsSubscribed = !0),
-      (this._allowReportingId = !1),
+      (this._userIsSubscribed = true),
+      (this._allowReportingId = false),
       p) &&
         ((this._appInfo = p.app),
         (this._navigator = p.navigator),
         (this._userAgent = p.userAgent),
-        hasOwn(p, "utcOffset") && isNaN(p.utcOffset)
+        Object.prototype.hasOwnProperty.call(Object(p), "utcOffset") &&
+        isNaN(p.utcOffset)
           ? (this._utcOffsetInSeconds = -1)
-          : hasOwn(p, "utcOffset") && (this._utcOffset = p.utcOffset),
+          : Object.prototype.hasOwnProperty.call(Object(p), "utcOffset") &&
+            (this._utcOffset = p.utcOffset),
         (this.clientId = p.clientId || "JSCLIENT"),
         (this._deviceName = p.deviceName),
         (this.guid = p.guid),
         (this.metricsClientId = p.metricsClientId),
-        (this.preferDSID = null !== (y = p.preferDSID) && void 0 !== y && y),
+        (this.preferDSID = null !== (y = p.preferDSID) && undefined !== y && y),
         (this.sourceType =
-          void 0 !== p.sourceType && "number" == typeof p.sourceType
+          undefined !== p.sourceType && "number" == typeof p.sourceType
             ? p.sourceType
             : Bt.MUSICKIT),
         (this._userIsSubscribed =
-          null === (_ = p.userIsSubscribed) || void 0 === _ || _),
+          null === (_ = p.userIsSubscribed) || undefined === _ || _),
         (this._allowReportingId =
-          null !== (m = p.allowReportingId) && void 0 !== m && m));
+          null !== (m = p.allowReportingId) && undefined !== m && m));
       (this.buildVersion = ((e, n, d, p) =>
         [fullAppId(e, n), os(p), model(d), build(n)].join(" "))(
         this._appId,
@@ -7761,18 +8870,18 @@
           accessToken: this._accessToken,
           clientId: this.clientId,
           eventType: this.eventType,
-          fetch: null == p ? void 0 : p.fetch,
-          fetchOptions: null == p ? void 0 : p.fetchOptions,
+          fetch: null == p ? undefined : p.fetch,
+          fetchOptions: null == p ? undefined : p.fetchOptions,
           headersClass:
-            null == p || null === (h = p.fetch) || void 0 === h
-              ? void 0
+            null == p || null === (h = p.fetch) || undefined === h
+              ? undefined
               : h.Headers,
-          isQA: null == p ? void 0 : p.isQA,
-          logInfo: null == p ? void 0 : p.logInfo,
+          isQA: null == p ? undefined : p.isQA,
+          logInfo: null == p ? undefined : p.logInfo,
           musicUserToken: this._musicUserToken,
           preferDSID: this.preferDSID,
           sourceType: this.sourceType,
-          traceTag: null == p ? void 0 : p.traceTag,
+          traceTag: null == p ? undefined : p.traceTag,
         }));
     }
   }
@@ -7785,10 +8894,9 @@
   function mapEventTypeString(e) {
     return "number" == typeof e
       ? e
-      : null !== (n = Wt.get(e)) && void 0 !== n
+      : null !== (n = Wt.get(e)) && undefined !== n
         ? n
         : jt.PLAY_END;
-    var n;
   }
   const zt = new Map([
     ["exit", e.PlayActivityEndReasonType.EXITED_APPLICATION],
@@ -7806,33 +8914,20 @@
       d = (function (e) {
         var n;
         const d =
-          null !== (n = e.eventType) && void 0 !== n ? n : jt.PLAY_START;
+          null !== (n = e.eventType) && undefined !== n ? n : jt.PLAY_START;
         if ("number" == typeof d) return { eventType: d };
         return { eventTypeString: d, eventType: mapEventTypeString(d) };
       })(e);
     return (
       (n.eventType = d.eventType),
       (n.eventTypeString = d.eventTypeString),
-      void 0 === n.endReasonType &&
-        void 0 !== d.eventTypeString &&
+      undefined === n.endReasonType &&
+        undefined !== d.eventTypeString &&
         (n.endReasonType = (function (e) {
-          if (void 0 !== e) return zt.get(e);
+          if (undefined !== e) return zt.get(e);
         })(d.eventTypeString)),
-      !1 !== n.reporting && (n.reporting = !0),
+      false !== n.reporting && (n.reporting = true),
       n
-    );
-  }
-  function _define_property$1x(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
     );
   }
   function _object_spread_props$p(e, n) {
@@ -7865,10 +8960,10 @@
       (e, n) =>
       (...d) =>
         (function (e, n) {
-          if (void 0 !== n) return { [e]: n };
+          if (undefined !== n) return { [e]: n };
         })(e, n(...d)),
     createFieldFn = (e, n) => {
-      const normalizeReturnValue = (n) => (null == n ? void 0 : { [e]: n });
+      const normalizeReturnValue = (n) => (null == n ? undefined : { [e]: n });
       return (d, p, h) => {
         const { fields: y } = h.cache;
         return (
@@ -7885,7 +8980,15 @@
                       }),
                     )),
                     p.forEach(function (n) {
-                      _define_property$1x(e, n, d[n]);
+                      n in e
+                        ? Object.defineProperty(e, n, {
+                            value: d[n],
+                            enumerable: true,
+                            configurable: true,
+                            writable: true,
+                          })
+                        : (e[n] = d[n]),
+                        e;
                     });
                 }
                 return e;
@@ -7899,44 +9002,44 @@
     createClientFieldFn = (e, n) =>
       createFieldFn(e, (e, d, { client: p }) => p[n]),
     Yt = createFieldFn("event-type", (e, n, d) => {
-      return void 0 === e.eventType
+      return undefined === e.eventType
         ? jt.PLAY_START
-        : e.itemType === Lt.TIMED_METADATA_PING && void 0 !== e.timedMetadata
+        : e.itemType === Lt.TIMED_METADATA_PING && undefined !== e.timedMetadata
           ? jt.PLAY_END
-          : null !== (p = e.eventType) && void 0 !== p
+          : null !== (p = e.eventType) && undefined !== p
             ? p
             : jt.PLAY_START;
-      var p;
     }),
     Qt = createHelper("should-include-audio-quality", (e, n, d) => {
       var p, h;
       const y = e.userPreference;
       return (
         Yt(e, n, d)["event-type"] === jt.PLAY_END &&
-        void 0 !==
-          (null === (p = e.audioQuality) || void 0 === p
-            ? void 0
+        undefined !==
+          (null === (p = e.audioQuality) || undefined === p
+            ? undefined
             : p.provided) &&
-        void 0 !==
-          (null === (h = e.audioQuality) || void 0 === h
-            ? void 0
+        undefined !==
+          (null === (h = e.audioQuality) || undefined === h
+            ? undefined
             : h.targeted) &&
-        void 0 !== (null == y ? void 0 : y.audioQuality) &&
-        void 0 !== (null == y ? void 0 : y.playbackFormat)
+        undefined !== (null == y ? undefined : y.audioQuality) &&
+        undefined !== (null == y ? undefined : y.playbackFormat)
       );
     }),
     Xt = createFieldFn("audio-quality-provided", (e, n, d) => {
       if (!Qt(e, n, d)) return;
       const p = e.audioQuality;
-      if (void 0 === (null == p ? void 0 : p.provided)) return;
+      if (undefined === (null == p ? undefined : p.provided)) return;
       const { provided: h } = p;
       var y, _, m;
       return {
         "audio-sample-rate-in-hz":
-          null !== (y = h.audioSampleRateHz) && void 0 !== y ? y : 0,
+          null !== (y = h.audioSampleRateHz) && undefined !== y ? y : 0,
         "audio-bit-depth":
-          null !== (_ = h.audioBitDepth) && void 0 !== _ ? _ : 0,
-        "bit-rate-in-bps": null !== (m = h.bitRateBps) && void 0 !== m ? m : 0,
+          null !== (_ = h.audioBitDepth) && undefined !== _ ? _ : 0,
+        "bit-rate-in-bps":
+          null !== (m = h.bitRateBps) && undefined !== m ? m : 0,
         codec: h.codec,
         "audio-channel-type": h.audioChannelType,
         "playback-format": h.playbackFormat,
@@ -7945,15 +9048,16 @@
     Jt = createFieldFn("audio-quality-targeted", (e, n, d) => {
       if (!Qt(e, n, d)) return;
       const p = e.audioQuality;
-      if (void 0 === (null == p ? void 0 : p.targeted)) return;
+      if (undefined === (null == p ? undefined : p.targeted)) return;
       const { targeted: h } = p;
       var y, _, m;
       return {
         "audio-sample-rate-in-hz":
-          null !== (y = h.audioSampleRateHz) && void 0 !== y ? y : 0,
+          null !== (y = h.audioSampleRateHz) && undefined !== y ? y : 0,
         "audio-bit-depth":
-          null !== (_ = h.audioBitDepth) && void 0 !== _ ? _ : 0,
-        "bit-rate-in-bps": null !== (m = h.bitRateBps) && void 0 !== m ? m : 0,
+          null !== (_ = h.audioBitDepth) && undefined !== _ ? _ : 0,
+        "bit-rate-in-bps":
+          null !== (m = h.bitRateBps) && undefined !== m ? m : 0,
         codec: h.codec,
         "audio-channel-type": h.audioChannelType,
         "playback-format": h.playbackFormat,
@@ -7968,12 +9072,12 @@
     ],
     tr = createHelper(
       "is-auc",
-      ({ kind: e }) => void 0 !== e && er.includes(e),
+      ({ kind: e }) => undefined !== e && er.includes(e),
     ),
     rr = createHelper(
       "should-send-timed-metadata",
       ({ endReasonType: n, eventType: d, itemType: p, timedMetadata: h }) =>
-        void 0 !== h &&
+        undefined !== h &&
         (p === Lt.TIMED_METADATA_PING ||
           d === jt.PLAY_START ||
           n === e.PlayActivityEndReasonType.PLAYBACK_MANUALLY_PAUSED),
@@ -7983,7 +9087,9 @@
       var y;
       if ("-1" === p || !h)
         switch (
-          null === (y = Yt(e, n, d)) || void 0 === y ? void 0 : y["event-type"]
+          null === (y = Yt(e, n, d)) || undefined === y
+            ? undefined
+            : y["event-type"]
         ) {
           case jt.PLAY_END:
             return Lt.AGGREGATE_NON_CATALOG_PLAY_TIME;
@@ -8008,14 +9114,14 @@
     nr = createFieldFn("container-type", (e, n, d) => {
       var p;
       if (
-        (null === (p = ir(e, n, d)) || void 0 === p ? void 0 : p.type) ===
+        (null === (p = ir(e, n, d)) || undefined === p ? undefined : p.type) ===
         Lt.AGGREGATE_NON_CATALOG_PLAY_TIME
       )
         return;
       const { container: h } = e;
-      if (void 0 === h) return Et.UNKNOWN;
+      if (undefined === h) return Et.UNKNOWN;
       var y;
-      const _ = null !== (y = h.type) && void 0 !== y ? y : h.kind;
+      const _ = null !== (y = h.type) && undefined !== y ? y : h.kind;
       if ("number" == typeof _) return _;
       switch (_) {
         case "album":
@@ -8039,131 +9145,124 @@
           return Et.UNKNOWN;
       }
     });
-  function _define_property$1w(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   const or = [
       returnAsField("album-adam-id", (e, n, d) => {
         var p;
         if (
-          (null === (p = nr(e, n, d)) || void 0 === p
-            ? void 0
+          (null === (p = nr(e, n, d)) || undefined === p
+            ? undefined
             : p["container-type"]) !== Et.ALBUM
         )
           return;
         const { container: h } = e,
-          y = null == h ? void 0 : h.id;
-        return void 0 === y || T(y) ? void 0 : y;
+          y = null == h ? undefined : h.id;
+        return undefined === y || T(y) ? undefined : y;
       }),
       returnAsField("cloud-album-id", (e, n, d) => {
         var p;
         if (
-          (null === (p = nr(e, n, d)) || void 0 === p
-            ? void 0
+          (null === (p = nr(e, n, d)) || undefined === p
+            ? undefined
             : p["container-type"]) !== Et.ALBUM
         )
           return;
         const { container: h } = e,
-          y = null == h ? void 0 : h.id;
-        return void 0 !== y && T(y) ? y : void 0;
+          y = null == h ? undefined : h.id;
+        return undefined !== y && T(y) ? y : undefined;
       }),
       returnAsField("global-playlist-id", (e, n, d) => {
         var p;
         if (
-          (null === (p = nr(e, n, d)) || void 0 === p
-            ? void 0
+          (null === (p = nr(e, n, d)) || undefined === p
+            ? undefined
             : p["container-type"]) !== Et.PLAYLIST
         )
           return;
         const { container: h } = e;
         var y;
         const _ =
-          null !== (y = null == h ? void 0 : h.catalogId) && void 0 !== y
+          null !== (y = null == h ? undefined : h.catalogId) && undefined !== y
             ? y
             : null == h
-              ? void 0
+              ? undefined
               : h.globalId;
-        return (null == h ? void 0 : h.isLibrary) && _
+        return (null == h ? undefined : h.isLibrary) && _
           ? _
-          : T(null == h ? void 0 : h.id) || null == h
-            ? void 0
+          : T(null == h ? undefined : h.id) || null == h
+            ? undefined
             : h.id;
       }),
       returnAsField("playlist-version-hash", (e, n, d) => {
         var p;
         if (
-          (null === (p = nr(e, n, d)) || void 0 === p
-            ? void 0
+          (null === (p = nr(e, n, d)) || undefined === p
+            ? undefined
             : p["container-type"]) !== Et.PLAYLIST
         )
           return;
         const { container: h } = e,
-          y = null == h ? void 0 : h.versionHash;
-        return void 0 !== y && "" !== y ? y : void 0;
+          y = null == h ? undefined : h.versionHash;
+        return undefined !== y && "" !== y ? y : undefined;
       }),
       returnAsField("station-hash", (e, n, d) => {
         var p, h;
         if (
-          (null === (p = nr(e, n, d)) || void 0 === p
-            ? void 0
+          (null === (p = nr(e, n, d)) || undefined === p
+            ? undefined
             : p["container-type"]) !== Et.RADIO
         )
           return;
         const y =
-          null === (h = e.container) || void 0 === h ? void 0 : h.stationHash;
-        return void 0 !== y && "" !== y ? y : void 0;
+          null === (h = e.container) || undefined === h
+            ? undefined
+            : h.stationHash;
+        return undefined !== y && "" !== y ? y : undefined;
       }),
       returnAsField("station-id", (e, n, d) => {
         var p, h;
         if (
-          (null === (p = nr(e, n, d)) || void 0 === p
-            ? void 0
+          (null === (p = nr(e, n, d)) || undefined === p
+            ? undefined
             : p["container-type"]) === Et.RADIO
         )
-          return null === (h = e.container) || void 0 === h ? void 0 : h.id;
+          return null === (h = e.container) || undefined === h
+            ? undefined
+            : h.id;
       }),
       returnAsField("station-personalized-id", (e, n, d) => {
         var p, h;
         if (
-          (null === (p = nr(e, n, d)) || void 0 === p
-            ? void 0
+          (null === (p = nr(e, n, d)) || undefined === p
+            ? undefined
             : p["container-type"]) !== Et.RADIO
         )
           return;
-        const y = null === (h = e.container) || void 0 === h ? void 0 : h.id;
-        return void 0 !== y && Ht.test(y)
+        const y =
+          null === (h = e.container) || undefined === h ? undefined : h.id;
+        return undefined !== y && Ht.test(y)
           ? parseInt(y.replace(Ht, "$1"), 10)
-          : void 0;
+          : undefined;
       }),
       returnAsField("universal-library-id", (e, n, d) => {
         var p;
         if (
-          (null === (p = nr(e, n, d)) || void 0 === p
-            ? void 0
+          (null === (p = nr(e, n, d)) || undefined === p
+            ? undefined
             : p["container-type"]) !== Et.PLAYLIST
         )
           return;
         const { container: h } = e;
         var y;
         const _ =
-            null !== (y = null == h ? void 0 : h.catalogId) && void 0 !== y
+            null !== (y = null == h ? undefined : h.catalogId) &&
+            undefined !== y
               ? y
               : null == h
-                ? void 0
+                ? undefined
                 : h.globalId,
-          m = null == h ? void 0 : h.id;
-        if (void 0 !== m)
-          if ((null == h ? void 0 : h.isLibrary) && _) {
+          m = null == h ? undefined : h.id;
+        if (undefined !== m)
+          if ((null == h ? undefined : h.isLibrary) && _) {
             if ("" !== m) return m;
           } else if (T(m)) return m;
       }),
@@ -8171,7 +9270,7 @@
     ar = createFieldFn("container-ids", (e, n, d) => {
       var p;
       if (
-        (null === (p = ir(e, n, d)) || void 0 === p ? void 0 : p.type) ===
+        (null === (p = ir(e, n, d)) || undefined === p ? undefined : p.type) ===
         Lt.AGGREGATE_NON_CATALOG_PLAY_TIME
       )
         return;
@@ -8188,26 +9287,34 @@
                   }),
                 )),
                 p.forEach(function (n) {
-                  _define_property$1w(e, n, d[n]);
+                  n in e
+                    ? Object.defineProperty(e, n, {
+                        value: d[n],
+                        enumerable: true,
+                        configurable: true,
+                        writable: true,
+                      })
+                    : (e[n] = d[n]),
+                    e;
                 });
             }
             return e;
           })({}, p, h(e, n, d)),
         Object.create(null),
       );
-      return isEmpty(h) ? void 0 : h;
+      return isEmpty(h) ? undefined : h;
     }),
     sr = createClientFieldFn("developer-token", "accessToken"),
     cr = createClientFieldFn("device-name", "deviceName"),
     lr = createFieldFn("display-type", (e, n, d) => {
       var p, h;
       if (
-        (null === (p = Yt(e, n, d)) || void 0 === p
-          ? void 0
+        (null === (p = Yt(e, n, d)) || undefined === p
+          ? undefined
           : p["event-type"]) === jt.LYRIC_DISPLAY
       )
-        return null === (h = e.lyricDescriptor) || void 0 === h
-          ? void 0
+        return null === (h = e.lyricDescriptor) || undefined === h
+          ? undefined
           : h.displayType;
     }),
     dr = createHelper(
@@ -8218,14 +9325,16 @@
     ur = createFieldFn("end-position-in-milliseconds", (e, n, d) => {
       var p;
       switch (
-        null === (p = Yt(e, n, d)) || void 0 === p ? void 0 : p["event-type"]
+        null === (p = Yt(e, n, d)) || undefined === p
+          ? undefined
+          : p["event-type"]
       ) {
         case jt.LYRIC_DISPLAY:
           var h;
           if (
-            void 0 ===
-            (null === (h = e.lyricDescriptor) || void 0 === h
-              ? void 0
+            undefined ===
+            (null === (h = e.lyricDescriptor) || undefined === h
+              ? undefined
               : h.duration)
           )
             return;
@@ -8233,7 +9342,7 @@
         case jt.PLAY_START:
           return;
         default:
-          if (n && void 0 === n.position) return;
+          if (n && undefined === n.position) return;
           return e.endPositionInMilliseconds || dr(e, n, d);
       }
     }),
@@ -8243,11 +9352,11 @@
     ),
     hr = createFieldFn("end-reason-type", (n, d, p) => {
       var h;
-      if (!d || void 0 !== (null == d ? void 0 : d.position))
-        return ((null === (h = ir(n, d, p)) || void 0 === h
-          ? void 0
+      if (!d || undefined !== (null == d ? undefined : d.position))
+        return ((null === (h = ir(n, d, p)) || undefined === h
+          ? undefined
           : h.type) === Lt.TIMED_METADATA_PING &&
-          void 0 !== n.timedMetadata) ||
+          undefined !== n.timedMetadata) ||
           (pr(n, d, p) && n.eventType === jt.PLAY_END)
           ? e.PlayActivityEndReasonType.NOT_APPLICABLE
           : n.endReasonType;
@@ -8256,20 +9365,20 @@
     fr = createFieldFn("event-reason-hint-type", (e, n, d) => {
       var p, h;
       if (
-        (null === (p = Yt(e, n, d)) || void 0 === p
-          ? void 0
+        (null === (p = Yt(e, n, d)) || undefined === p
+          ? undefined
           : p["event-type"]) !== jt.PLAY_START
       )
         return;
       const y = e.container;
-      return void 0 === y
+      return undefined === y
         ? _r
-        : !1 === n
+        : false === n
           ? d.isAlexa
             ? _r
             : yr
-          : (null == n || null === (h = n.container) || void 0 === h
-                ? void 0
+          : (null == n || null === (h = n.container) || undefined === h
+                ? undefined
                 : h.id) !== y.id
             ? yr
             : _r;
@@ -8277,15 +9386,17 @@
     mr = createFieldFn("feature-name", (e, n, d) => {
       var p, h, y;
       if (
-        (null === (p = ir(e, n, d)) || void 0 === p ? void 0 : p.type) ===
+        (null === (p = ir(e, n, d)) || undefined === p ? undefined : p.type) ===
         Lt.AGGREGATE_NON_CATALOG_PLAY_TIME
       )
         return;
       return (
         "" +
         (null !==
-          (y = null === (h = e.container) || void 0 === h ? void 0 : h.name) &&
-        void 0 !== y
+          (y =
+            null === (h = e.container) || undefined === h
+              ? undefined
+              : h.name) && undefined !== y
           ? y
           : St.MUSICKIT)
       );
@@ -8295,43 +9406,30 @@
     br = createHelper(
       "should-have-radio-adam-id",
       ({ id: e, container: n }) =>
-        Gt.test(e) || "radioStation" === (null == n ? void 0 : n.kind),
+        Gt.test(e) || "radioStation" === (null == n ? undefined : n.kind),
     ),
     Pr = createHelper(
       "is-library-item-or-library-type",
       ({ id: e, isLibrary: n }, d, p) => n || T(e),
     ),
     Sr = createHelper("catalog-id", ({ catalogId: e, container: n }) =>
-      null != e ? e : null == n ? void 0 : n.catalogId,
+      null != e ? e : null == n ? undefined : n.catalogId,
     ),
     Er = createHelper(
       "is-library-item-with-catalog-id",
       (e, n, d) => e.isLibrary && !!Sr(e, n, d),
     );
-  function _define_property$1v(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   const Tr = [
       returnAsField("auc-adam-id", (e, n, d) => {
-        if (!pr(e, n, d) && !br(e, n, d)) return gr(e, n, d) ? e.id : void 0;
+        if (!pr(e, n, d) && !br(e, n, d)) return gr(e, n, d) ? e.id : undefined;
       }),
       returnAsField("cloud-id", (e, n, d) => {
         var p;
         const { id: h } = e,
-          y = void 0 !== h && "" !== h;
+          y = undefined !== h && "" !== h;
         return pr(e, n, d) &&
-          (null === (p = Yt(e, n, d)) || void 0 === p
-            ? void 0
+          (null === (p = Yt(e, n, d)) || undefined === p
+            ? undefined
             : p["event-type"]) === jt.PLAY_START &&
           y &&
           "-1" !== h
@@ -8345,29 +9443,31 @@
       returnAsField("lyric-id", (e, n, d) => {
         var p, h;
         if (
-          (null === (p = Yt(e, n, d)) || void 0 === p
-            ? void 0
+          (null === (p = Yt(e, n, d)) || undefined === p
+            ? undefined
             : p["event-type"]) === jt.LYRIC_DISPLAY
         )
-          return null === (h = e.lyricDescriptor) || void 0 === h
-            ? void 0
+          return null === (h = e.lyricDescriptor) || undefined === h
+            ? undefined
             : h.id;
       }),
       returnAsField("purchased-adam-id", (e, n, d) => e.purchasedId),
       returnAsField("reporting-adam-id", (e, n, d) => {
-        if (!0 !== d.client.allowReportingId) return;
+        if (true !== d.client.allowReportingId) return;
         var p;
         return (
-          (null !== (p = Yt(e, n, d)) && void 0 !== p ? p : {})["event-type"],
-          Pr(e, n, d) ? e.reportingId : void 0
+          (null !== (p = Yt(e, n, d)) && undefined !== p ? p : {})[
+            "event-type"
+          ],
+          Pr(e, n, d) ? e.reportingId : undefined
         );
       }),
       returnAsField("radio-adam-id", (e, n, d) => {
         if (pr(e, n, d)) return;
         const { container: p, id: h } = e;
-        return Gt.test(h) || "radioStation" === (null == p ? void 0 : p.kind)
+        return Gt.test(h) || "radioStation" === (null == p ? undefined : p.kind)
           ? parseInt(("" + h).replace(Gt, "$1"), 10)
-          : void 0;
+          : undefined;
       }),
       returnAsField("subscription-adam-id", (e, n, d) => {
         if (!(pr(e, n, d) || br(e, n, d) || gr(e, n, d))) {
@@ -8379,7 +9479,7 @@
     kr = createFieldFn("ids", (e, n, d) => {
       var p;
       if (
-        (null === (p = ir(e, n, d)) || void 0 === p ? void 0 : p.type) ===
+        (null === (p = ir(e, n, d)) || undefined === p ? undefined : p.type) ===
         Lt.AGGREGATE_NON_CATALOG_PLAY_TIME
       )
         return;
@@ -8396,34 +9496,42 @@
                   }),
                 )),
                 p.forEach(function (n) {
-                  _define_property$1v(e, n, d[n]);
+                  n in e
+                    ? Object.defineProperty(e, n, {
+                        value: d[n],
+                        enumerable: true,
+                        configurable: true,
+                        writable: true,
+                      })
+                    : (e[n] = d[n]),
+                    e;
                 });
             }
             return e;
           })({}, p, h(e, n, d)),
         Object.create(null),
       );
-      return isEmpty(h) ? void 0 : h;
+      return isEmpty(h) ? undefined : h;
     }),
     wr = createClientFieldFn("internal-build", "internalBuild"),
     Or = createFieldFn("is-collaborative", (e, n, d) => {
       var p;
       return (
-        !0 ===
-          (null === (p = e.container) || void 0 === p
-            ? void 0
-            : p.isCollaborative) || void 0
+        true ===
+          (null === (p = e.container) || undefined === p
+            ? undefined
+            : p.isCollaborative) || undefined
       );
     }),
     Ir = createFieldFn("lyric-language", (e, n, d) => {
       var p, h;
       if (
-        (null === (p = Yt(e, n, d)) || void 0 === p
-          ? void 0
+        (null === (p = Yt(e, n, d)) || undefined === p
+          ? undefined
           : p["event-type"]) === jt.LYRIC_DISPLAY
       )
-        return null === (h = e.lyricDescriptor) || void 0 === h
-          ? void 0
+        return null === (h = e.lyricDescriptor) || undefined === h
+          ? undefined
           : h.language;
     }),
     Ar = createHelper(
@@ -8433,7 +9541,7 @@
     Rr = createHelper("is-stream", (e, n, d) => {
       var p;
       return (
-        (null === (p = ir(e, n, d)) || void 0 === p ? void 0 : p.type) ===
+        (null === (p = ir(e, n, d)) || undefined === p ? undefined : p.type) ===
         Lt.STREAM
       );
     }),
@@ -8444,17 +9552,19 @@
     Cr = createFieldFn("media-duration-in-milliseconds", (e, n, d) => {
       var p;
       const h =
-        null === (p = Yt(e, n, d)) || void 0 === p ? void 0 : p["event-type"];
+        null === (p = Yt(e, n, d)) || undefined === p
+          ? undefined
+          : p["event-type"];
       if (h === jt.LYRIC_DISPLAY) return 0;
       if ($r(e, n, d)) return 0;
       const y = Math.round(1e3 * e.duration);
       if (h === jt.PLAY_START) return y;
       var _, m;
       const g =
-        null !== (m = e.startPositionInMilliseconds) && void 0 !== m
+        null !== (m = e.startPositionInMilliseconds) && undefined !== m
           ? m
           : Math.round(
-              1e3 * (null !== (_ = e.position) && void 0 !== _ ? _ : 0),
+              1e3 * (null !== (_ = e.position) && undefined !== _ ? _ : 0),
             );
       return g > 1e3 * e.duration ? g : y;
     }),
@@ -8462,8 +9572,8 @@
     xr = createFieldFn("media-type", (e, n, d) => {
       var p;
       if (
-        (null === (p = Yt(e, n, d)) || void 0 === p
-          ? void 0
+        (null === (p = Yt(e, n, d)) || undefined === p
+          ? undefined
           : p["event-type"]) === jt.LYRIC_DISPLAY
       )
         return Mr;
@@ -8473,46 +9583,46 @@
       return _ && /video|movie/i.test(_) ? Dr : Mr;
     }),
     jr = createClientFieldFn("metrics-client-id", "metricsClientId"),
-    Lr = createFieldFn("offline", () => !1),
+    Lr = createFieldFn("offline", () => false),
     Nr = createFieldFn("persistent-id", () => generateUUID()),
     Ur = createFieldFn("play-mode", (e, n, d) => {
       var p, h, y, _, m;
       if (
-        (null === (p = Yt(e, n, d)) || void 0 === p
-          ? void 0
+        (null === (p = Yt(e, n, d)) || undefined === p
+          ? undefined
           : p["event-type"]) === jt.LYRIC_DISPLAY ||
-        (null === (h = ir(e, n, d)) || void 0 === h ? void 0 : h.type) ===
+        (null === (h = ir(e, n, d)) || undefined === h ? undefined : h.type) ===
           Lt.AGGREGATE_NON_CATALOG_PLAY_TIME
       )
         return {
           "auto-play-mode":
-            null !== (y = Ur.autoplayMode) && void 0 !== y ? y : 0,
+            null !== (y = Ur.autoplayMode) && undefined !== y ? y : 0,
           "repeat-play-mode":
-            null !== (_ = Ur.repeatPlayMode) && void 0 !== _ ? _ : 0,
+            null !== (_ = Ur.repeatPlayMode) && undefined !== _ ? _ : 0,
           "shuffle-play-mode":
-            null !== (m = Ur.shufflePlayMode) && void 0 !== m ? m : 0,
+            null !== (m = Ur.shufflePlayMode) && undefined !== m ? m : 0,
         };
       const g = invoke(e.playMode);
       var b, P, S;
-      return void 0 !== g
+      return undefined !== g
         ? {
             "auto-play-mode":
-              null !== (b = g.autoplayMode) && void 0 !== b ? b : 0,
+              null !== (b = g.autoplayMode) && undefined !== b ? b : 0,
             "repeat-play-mode":
-              null !== (P = g.repeatPlayMode) && void 0 !== P ? P : 0,
+              null !== (P = g.repeatPlayMode) && undefined !== P ? P : 0,
             "shuffle-play-mode":
-              null !== (S = g.shufflePlayMode) && void 0 !== S ? S : 0,
+              null !== (S = g.shufflePlayMode) && undefined !== S ? S : 0,
           }
-        : void 0;
+        : undefined;
     }),
     Br = createClientFieldFn("private-enabled", "privateEnabled"),
     Fr = createFieldFn("reco-data", (e, n, d) => {
       var p, h;
       if (
-        (null === (p = Yt(e, n, d)) || void 0 === p
-          ? void 0
+        (null === (p = Yt(e, n, d)) || undefined === p
+          ? undefined
           : p["event-type"]) !== jt.LYRIC_DISPLAY &&
-        (null === (h = ir(e, n, d)) || void 0 === h ? void 0 : h.type) !==
+        (null === (h = ir(e, n, d)) || undefined === h ? undefined : h.type) !==
           Lt.AGGREGATE_NON_CATALOG_PLAY_TIME
       )
         return e.recoData;
@@ -8523,9 +9633,11 @@
     Hr = createFieldFn("start-position-in-milliseconds", (e, n, d) => {
       var p, h;
       const y =
-        null === (p = Yt(e, n, d)) || void 0 === p ? void 0 : p["event-type"];
+        null === (p = Yt(e, n, d)) || undefined === p
+          ? undefined
+          : p["event-type"];
       return y === jt.LYRIC_DISPLAY ||
-        (null === (h = ir(e, n, d)) || void 0 === h ? void 0 : h.type) ===
+        (null === (h = ir(e, n, d)) || undefined === h ? undefined : h.type) ===
           Lt.AGGREGATE_NON_CATALOG_PLAY_TIME ||
         $r(e, n, d)
         ? 0
@@ -8533,19 +9645,19 @@
           ? dr(e, n, d)
           : null !==
                 (m =
-                  null !== (_ = e.startPositionInMilliseconds) && void 0 !== _
+                  null !== (_ = e.startPositionInMilliseconds) &&
+                  undefined !== _
                     ? _
-                    : previousPosition(n)) && void 0 !== m
+                    : previousPosition(n)) && undefined !== m
             ? m
             : 0;
-      var _, m;
     }),
     previousPosition = (e) =>
-      e && void 0 !== e.position ? Math.round(1e3 * e.position) : 0,
+      e && undefined !== e.position ? Math.round(1e3 * e.position) : 0,
     qr = createClientFieldFn("store-front", "storefrontId"),
     Wr = createFieldFn("timed-metadata", (e, n, d) => {
       const p = e.timedMetadata;
-      if (void 0 !== p && shouldSendTimedMetadata(e, n, d))
+      if (undefined !== p && shouldSendTimedMetadata(e, n, d))
         return ((e, n = 8) => {
           if (!(e instanceof Uint8Array)) return "";
           const d = Array.prototype.map.call(e, formatByte).join("");
@@ -8557,10 +9669,10 @@
     shouldSendTimedMetadata = (e, n, d) => {
       var p, h;
       return (
-        (null === (p = ir(e, n, d)) || void 0 === p ? void 0 : p.type) ===
+        (null === (p = ir(e, n, d)) || undefined === p ? undefined : p.type) ===
           Lt.TIMED_METADATA_PING ||
-        (null === (h = Yt(e, n, d)) || void 0 === h
-          ? void 0
+        (null === (h = Yt(e, n, d)) || undefined === h
+          ? undefined
           : h["event-type"]) !== jt.LYRIC_DISPLAY
       );
     },
@@ -8571,15 +9683,15 @@
     Qr = createFieldFn("user-preference-audio-quality", (e, n, d) => {
       var p;
       if (Qt(e, n, d))
-        return null === (p = e.userPreference) || void 0 === p
-          ? void 0
+        return null === (p = e.userPreference) || undefined === p
+          ? undefined
           : p.audioQuality;
     }),
     Xr = createFieldFn("user-preference-playback-format", (e, n, d) => {
       var p;
       if (Qt(e, n, d))
-        return null === (p = e.userPreference) || void 0 === p
-          ? void 0
+        return null === (p = e.userPreference) || undefined === p
+          ? undefined
           : p.playbackFormat;
     }),
     Jr = createFieldFn("user-token", (e, n, { client: d }) => {
@@ -8587,8 +9699,9 @@
     }),
     Zr = createFieldFn("utc-offset-in-seconds", (e, n, d) => {
       var p;
-      return (null === (p = ir(e, n, d)) || void 0 === p ? void 0 : p.type) ===
-        Lt.AGGREGATE_NON_CATALOG_PLAY_TIME
+      return (null === (p = ir(e, n, d)) || undefined === p
+        ? undefined
+        : p.type) === Lt.AGGREGATE_NON_CATALOG_PLAY_TIME
         ? 0
         : d.client.utcOffsetInSeconds;
     }),
@@ -8633,19 +9746,6 @@
       "user-token": Jr,
       "utc-offset-in-seconds": Zr,
     };
-  function _define_property$1u(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread$D(e) {
     for (var n = 1; n < arguments.length; n++) {
       var d = null != arguments[n] ? arguments[n] : {},
@@ -8657,7 +9757,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1u(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -8685,19 +9793,6 @@
     );
   }
   let ti = 0;
-  function _define_property$1t(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread_props$n(e, n) {
     return (
       (n = null != n ? n : {}),
@@ -8720,7 +9815,7 @@
       e
     );
   }
-  const buildPlayActivityData$1 = (e, n, d, p = !1) => {
+  const buildPlayActivityData$1 = (e, n, d, p = false) => {
     const h = ((e, ...n) =>
       _object_spread_props$o(_object_spread$D({}, e, Object.assign({}, ...n)), {
         cache: {
@@ -8728,8 +9823,8 @@
             {},
             ...n.map((e) => {
               var n;
-              return null == e || null === (n = e.cache) || void 0 === n
-                ? void 0
+              return null == e || null === (n = e.cache) || undefined === n
+                ? undefined
                 : n.fields;
             }),
           ),
@@ -8737,8 +9832,8 @@
             {},
             ...n.map((e) => {
               var n;
-              return null == e || null === (n = e.cache) || void 0 === n
-                ? void 0
+              return null == e || null === (n = e.cache) || undefined === n
+                ? undefined
                 : n.helpers;
             }),
           ),
@@ -8747,7 +9842,7 @@
       "boolean" == typeof p
         ? ((e = {}, n) =>
             _object_spread$D(
-              { id: (ti++).toFixed(0), client: n, isAlexa: !1 },
+              { id: (ti++).toFixed(0), client: n, isAlexa: false },
               e,
             ))({ isAlexa: p }, e)
         : _object_spread_props$n(
@@ -8762,7 +9857,15 @@
                     }),
                   )),
                   p.forEach(function (n) {
-                    _define_property$1t(e, n, d[n]);
+                    n in e
+                      ? Object.defineProperty(e, n, {
+                          value: d[n],
+                          enumerable: true,
+                          configurable: true,
+                          writable: true,
+                        })
+                      : (e[n] = d[n]),
+                      e;
                   });
               }
               return e;
@@ -8775,23 +9878,10 @@
       d && (d = normalizePlayActivityDescriptor(d)),
       Object.assign(
         Object.create(null),
-        ...Object.values(ei).map((e) => (null == e ? void 0 : e(n, d, h))),
+        ...Object.values(ei).map((e) => (null == e ? undefined : e(n, d, h))),
       )
     );
   };
-  function _define_property$1s(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread$B(e) {
     for (var n = 1; n < arguments.length; n++) {
       var d = null != arguments[n] ? arguments[n] : {},
@@ -8803,7 +9893,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1s(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -8830,19 +9928,6 @@
       e
     );
   }
-  function _define_property$1r(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread$A(e) {
     for (var n = 1; n < arguments.length; n++) {
       var d = null != arguments[n] ? arguments[n] : {},
@@ -8854,7 +9939,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1r(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -8902,22 +9995,9 @@
         function _throw(e) {
           asyncGeneratorStep$10(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$1q(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread_props$k(e, n) {
     return (
@@ -8953,9 +10033,13 @@
           throw Error(
             "lyrics are already being displayed. Did you forget to stop them?",
           );
-        if (void 0 === e) throw Error("Missing descriptor for lyrics play");
+        if (undefined === e) throw Error("Missing descriptor for lyrics play");
         Xe.info(
-          `Staring tracking: lyricsId=${null === (d = e.lyricDescriptor) || void 0 === d ? void 0 : d.id}, itemId=${e.id}, catalogId=${e.catalogId}`,
+          `Staring tracking: lyricsId=${
+            null === (d = e.lyricDescriptor) || undefined === d
+              ? undefined
+              : d.id
+          }, itemId=${e.id}, catalogId=${e.catalogId}`,
         ),
           (n.startDescriptor = e),
           n._machine.send({ type: "play" });
@@ -8969,10 +10053,16 @@
           throw Error(
             "lyrics are not being displayed. Did you forget to display them?",
           );
-        if (void 0 === e.startDescriptor)
+        if (undefined === e.startDescriptor)
           throw Error("Missing start descriptor for lyrics stop");
         Xe.info(
-          `Stopping tracking: lyricsId=${null === (n = e.startDescriptor.lyricDescriptor) || void 0 === n ? void 0 : n.id}, itemId=${e.startDescriptor.id}, catalogId=${e.startDescriptor.catalogId}`,
+          `Stopping tracking: lyricsId=${
+            null === (n = e.startDescriptor.lyricDescriptor) || undefined === n
+              ? undefined
+              : n.id
+          }, itemId=${e.startDescriptor.id}, catalogId=${
+            e.startDescriptor.catalogId
+          }`,
         ),
           e._machine.send({ type: "stop" });
         const d = e._machine.state.context.duration,
@@ -8989,7 +10079,15 @@
                   }),
                 )),
                 p.forEach(function (n) {
-                  _define_property$1q(e, n, d[n]);
+                  n in e
+                    ? Object.defineProperty(e, n, {
+                        value: d[n],
+                        enumerable: true,
+                        configurable: true,
+                        writable: true,
+                      })
+                    : (e[n] = d[n]),
+                    e;
                 });
             }
             return e;
@@ -8997,8 +10095,8 @@
           { duration: Math.round(d) },
         )),
           Xe.debug("Clearing tracked descriptor"),
-          (e.startDescriptor = void 0);
-        const h = e.build(p, !1);
+          (e.startDescriptor = undefined);
+        const h = e.build(p, false);
         try {
           Xe.debug("Sending PAF request with data payload"),
             yield e.send(h),
@@ -9014,14 +10112,14 @@
     }
     build(e, n) {
       return ((e, n, d) => {
-        if (void 0 === n)
+        if (undefined === n)
           throw new Error("called without a play activity descriptor");
         const p = _object_spread_props$m(_object_spread$B({}, n), {
           eventType: jt.LYRIC_DISPLAY,
         });
         return ((e, ...n) => n.reduce((e, n) => n(e), e))(
           _object_spread_props$m(
-            _object_spread$B({}, buildPlayActivityData$1(e, p, d, !1)),
+            _object_spread$B({}, buildPlayActivityData$1(e, p, d, false)),
             {
               "media-duration-in-milliseconds": 0,
               "media-type": Nt.AUDIO,
@@ -9044,8 +10142,24 @@
     }
     constructor(e, n, d, p) {
       super(e, n, d, p),
-        _define_property$1q(this, "_machine", void 0),
-        _define_property$1q(this, "startDescriptor", void 0),
+        ("_machine" in this
+          ? Object.defineProperty(this, "_machine", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._machine = undefined),
+        this),
+        ("startDescriptor" in this
+          ? Object.defineProperty(this, "startDescriptor", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.startDescriptor = undefined),
+        this),
         (this._machine = v(
           s({
             id: "lpaf",
@@ -9055,7 +10169,7 @@
               idle: {
                 entry: o((e) =>
                   _object_spread_props$l(_object_spread$A({}, e), {
-                    initialShowTime: void 0,
+                    initialShowTime: undefined,
                     duration: now() - e.initialShowTime,
                   }),
                 ),
@@ -9079,13 +10193,13 @@
     e[(e.ALEXA = 13)] = "ALEXA";
   })(ri || (ri = {}));
   const createCookieJar = (e) => {
-      switch ((void 0 === e && (e = "browser"), e)) {
+      switch ((undefined === e && (e = "browser"), e)) {
         case "browser":
           return { get: getCookie, set: setCookie };
         case "memory":
           return ((e = {}) => ({
             get(n) {
-              if (void 0 !== n) return e[n];
+              if (undefined !== n) return e[n];
             },
             set(n, d) {
               e[n] = d;
@@ -9098,7 +10212,7 @@
     empty = (e, n) => write(e, n, [], "/", 0),
     read = (e, n) => {
       const d = e.get(n);
-      if (void 0 === d || "" === d) return [];
+      if (undefined === d || "" === d) return [];
       return ensureArray(JSON.parse(atob(d)));
     },
     write = (e, n, d, p, h, y) => e.set(n, btoa(JSON.stringify(d)), p, h, y);
@@ -9123,22 +10237,9 @@
         function _throw(e) {
           asyncGeneratorStep$$(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$1p(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   const { AUTO: ii } = Ut;
   class PlayActivityBatchableSender {
@@ -9146,7 +10247,7 @@
       var e = this;
       return _async_to_generator$$(function* () {
         const n = read(e.jar, "amupaee");
-        if (void 0 !== n && 0 !== n.length)
+        if (undefined !== n && 0 !== n.length)
           try {
             yield e.sender.send(n), empty(e.jar, "amupaee");
           } catch (V) {
@@ -9170,9 +10271,33 @@
       })();
     }
     constructor(e, n) {
-      _define_property$1p(this, "sender", void 0),
-        _define_property$1p(this, "jar", void 0),
-        _define_property$1p(this, "mode", void 0),
+      "sender" in this
+        ? Object.defineProperty(this, "sender", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.sender = undefined),
+        this,
+        ("jar" in this
+          ? Object.defineProperty(this, "jar", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.jar = undefined),
+        this),
+        ("mode" in this
+          ? Object.defineProperty(this, "mode", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.mode = undefined),
+        this),
         (this.sender = e),
         (this.jar = n),
         (this.mode = ii);
@@ -9199,22 +10324,9 @@
         function _throw(e) {
           asyncGeneratorStep$_(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$1o(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   class Timeline {
     get events() {
@@ -9244,7 +10356,8 @@
       if ("number" != typeof e) {
         const n = [];
         for (const e in this._events)
-          hasOwn(this._events, e) && n.push(this._events[e]);
+          Object.prototype.hasOwnProperty.call(Object(this._events), e) &&
+            n.push(this._events[e]);
         e = this._keys[n.indexOf(e)];
       }
       const n = this._keys.indexOf(e);
@@ -9262,7 +10375,7 @@
       var e = this;
       return _async_to_generator$_(function* () {
         const n = e._keys.pop();
-        if (void 0 === n) return Promise.reject("TIMELINE IS EMPTY");
+        if (undefined === n) return Promise.reject("TIMELINE IS EMPTY");
         const d = e._events[n];
         return delete e._events[n], Promise.resolve(d);
       })();
@@ -9284,7 +10397,7 @@
       var e = this;
       return _async_to_generator$_(function* () {
         const n = e._keys.shift();
-        if (void 0 === n) return Promise.reject("TIMELINE IS EMPTY");
+        if (undefined === n) return Promise.reject("TIMELINE IS EMPTY");
         const d = e._events[n];
         return delete e._events[n], Promise.resolve(d);
       })();
@@ -9297,8 +10410,24 @@
       })();
     }
     constructor() {
-      _define_property$1o(this, "_events", {}),
-        _define_property$1o(this, "_keys", []);
+      "_events" in this
+        ? Object.defineProperty(this, "_events", {
+            value: {},
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._events = {}),
+        this,
+        ("_keys" in this
+          ? Object.defineProperty(this, "_keys", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._keys = []),
+        this);
     }
   }
   function asyncGeneratorStep$Z(e, n, d, p, h, y, _) {
@@ -9310,34 +10439,21 @@
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
   }
-  function _define_property$1n(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   class TimedMetadataTracker {
     get currentValue() {
       return this._currentValue;
     }
     clear() {
-      this._currentValue = void 0;
+      this._currentValue = undefined;
     }
     ping(e, n) {
       var d,
         p = this;
       return ((d = function* () {
         p.timedMetadataChanged(e) &&
-          (void 0 !== p._currentValue &&
+          (undefined !== p._currentValue &&
             (yield p.client.pingTimedMetadata(n, p._currentValue)),
-          (p._currentValue = void 0 === e ? void 0 : e.slice(0)));
+          (p._currentValue = undefined === e ? undefined : e.slice(0)));
       }),
       function () {
         var e = this,
@@ -9350,26 +10466,44 @@
           function _throw(e) {
             asyncGeneratorStep$Z(y, p, h, _next, _throw, "throw", e);
           }
-          _next(void 0);
+          _next(undefined);
         });
       })();
     }
     timedMetadataChanged(e) {
       const { _currentValue: n } = this;
-      return void 0 === n
-        ? void 0 !== e
-        : void 0 === e || e.length !== n.length || n.some((n, d) => n !== e[d]);
+      return undefined === n
+        ? undefined !== e
+        : undefined === e ||
+            e.length !== n.length ||
+            n.some((n, d) => n !== e[d]);
     }
     constructor(e, n) {
-      _define_property$1n(this, "client", void 0),
-        _define_property$1n(this, "_currentValue", void 0),
+      "client" in this
+        ? Object.defineProperty(this, "client", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.client = undefined),
+        this,
+        ("_currentValue" in this
+          ? Object.defineProperty(this, "_currentValue", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._currentValue = undefined),
+        this),
         (this.client = e),
         (this._currentValue = n);
     }
   }
   const transitionEvent = (e) => ({ type: e });
   function deriveTransitionEvent(n) {
-    if (n.itemType === Lt.TIMED_METADATA_PING) return !1;
+    if (n.itemType === Lt.TIMED_METADATA_PING) return false;
     if (
       (function (e) {
         return e.eventType === jt.PLAY_START;
@@ -9378,12 +10512,12 @@
       return transitionEvent("play");
     if (
       (function (e) {
-        if (e.eventType !== jt.PLAY_END) return !1;
-        if (void 0 === e.endReasonType)
+        if (e.eventType !== jt.PLAY_END) return false;
+        if (undefined === e.endReasonType)
           throw new Error(
             "PLAY_END activity descriptor requires an endReasonType value",
           );
-        return !0;
+        return true;
       })(n)
     ) {
       const d = n.endReasonType;
@@ -9391,22 +10525,9 @@
         return transitionEvent("scrubBegin");
       if (d === e.PlayActivityEndReasonType.SCRUB_END)
         return transitionEvent("scrubEnd");
-      if (d === e.PlayActivityEndReasonType.EXITED_APPLICATION) return !1;
+      if (d === e.PlayActivityEndReasonType.EXITED_APPLICATION) return false;
     }
     return transitionEvent("stop");
-  }
-  function _define_property$1m(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$y(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -9419,7 +10540,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1m(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -9481,14 +10610,30 @@
     }
     transition(e, n) {
       const d = deriveTransitionEvent(e);
-      if (!1 === d) return this.currentStateName;
+      if (false === d) return this.currentStateName;
       if ((this.machineService.send(d), this.matches("error")))
         throw new Error(this.machineService.state.context.errorMessage);
       return this.currentStateName;
     }
     constructor() {
-      _define_property$1m(this, "machine", void 0),
-        _define_property$1m(this, "machineService", void 0),
+      "machine" in this
+        ? Object.defineProperty(this, "machine", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.machine = undefined),
+        this,
+        ("machineService" in this
+          ? Object.defineProperty(this, "machineService", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.machineService = undefined),
+        this),
         (this.machine = s(
           {
             id: "mpaf",
@@ -9583,22 +10728,9 @@
         function _throw(e) {
           asyncGeneratorStep$Y(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$1l(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$x(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -9611,7 +10743,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1l(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -9671,7 +10811,7 @@
         yield d._timedMetadataTracker.ping(e, n);
       })();
     }
-    activate(n = !1) {
+    activate(n = false) {
       var d = this;
       return _async_to_generator$Y(function* () {
         if (n)
@@ -9734,7 +10874,7 @@
       var d = this;
       return _async_to_generator$Y(function* () {
         const p = d.timeline.length > 0;
-        if (void 0 === e) {
+        if (undefined === e) {
           if (!p) return;
           const e = d.previousDescriptor;
           return (
@@ -9751,7 +10891,7 @@
           const e = d.previousDescriptor;
           if (
             d._machine.matches("playing") &&
-            !(({ id: e, reporting: n = !0, eventType: d }) =>
+            !(({ id: e, reporting: n = true, eventType: d }) =>
               ("-1" === e || !n) && d === jt.PLAY_END)(e)
           )
             return Promise.reject(
@@ -9814,20 +10954,20 @@
     }
     build(e, n) {
       if (
-        (void 0 === e &&
-          void 0 === n &&
+        (undefined === e &&
+          undefined === n &&
           Xe.warn(
             "You are calling build() from a stateful PAF client. Please, use a stateless client or exit(), pause(), play(), scrub(), skip() or stop() instead.",
           ),
-        void 0 === e)
+        undefined === e)
       ) {
         if (0 === this.timeline.length)
           throw new Error("build() called without a play activity descriptor");
         e = this.timeline.last;
       }
-      if (void 0 === n) {
+      if (undefined === n) {
         if (
-          void 0 === (n = this.timeline.before(e)) &&
+          undefined === (n = this.timeline.before(e)) &&
           e.eventType === jt.PLAY_END
         )
           throw new Error(
@@ -9879,11 +11019,11 @@
     }
     get previousDescriptor() {
       const e = this.timeline.last;
-      if (void 0 === e)
+      if (undefined === e)
         throw new Error("A method was called without a previous descriptor");
       return omit(e, ["timestamp"]);
     }
-    buildForPlayParams(e, n, d, p = 0, h = {}, y = !1) {
+    buildForPlayParams(e, n, d, p = 0, h = {}, y = false) {
       return (
         Xe.warn(
           "You are using buildsForPlayParams from a stateful PlayActivity. Please, use StatelessPlayActivity instead",
@@ -9905,14 +11045,64 @@
       );
     }
     constructor(e, n, d, p) {
-      _define_property$1l(this, "sender", void 0),
-        _define_property$1l(this, "timeline", new Timeline()),
-        _define_property$1l(this, "_cookieJar", void 0),
-        _define_property$1l(this, "_paf", void 0),
-        _define_property$1l(this, "_machine", void 0),
-        _define_property$1l(this, "_timedMetadataTracker", void 0),
+      "sender" in this
+        ? Object.defineProperty(this, "sender", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.sender = undefined),
+        this,
+        ("timeline" in this
+          ? Object.defineProperty(this, "timeline", {
+              value: new Timeline(),
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.timeline = new Timeline()),
+        this),
+        ("_cookieJar" in this
+          ? Object.defineProperty(this, "_cookieJar", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._cookieJar = undefined),
+        this),
+        ("_paf" in this
+          ? Object.defineProperty(this, "_paf", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._paf = undefined),
+        this),
+        ("_machine" in this
+          ? Object.defineProperty(this, "_machine", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._machine = undefined),
+        this),
+        ("_timedMetadataTracker" in this
+          ? Object.defineProperty(this, "_timedMetadataTracker", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._timedMetadataTracker = undefined),
+        this),
         (this._paf = new StatelessPlayActivity(e, n, d, p)),
-        (this._cookieJar = createCookieJar(null == p ? void 0 : p.cookieJar)),
+        (this._cookieJar = createCookieJar(
+          null == p ? undefined : p.cookieJar,
+        )),
         (this.sender = new PlayActivityBatchableSender(
           this._paf.sender,
           this._cookieJar,
@@ -9922,19 +11112,19 @@
     }
   }
   const Bind = () => (e, n, d) => {
-      if (void 0 === d || "function" != typeof d.value)
+      if (undefined === d || "function" != typeof d.value)
         throw new TypeError(
           `Only methods can be decorated with @Bind, but ${n} is not a method.`,
         );
       return {
-        configurable: !0,
+        configurable: true,
         get() {
           const e = d.value.bind(this);
           return (
             Object.defineProperty(this, n, {
               value: e,
-              configurable: !0,
-              writable: !0,
+              configurable: true,
+              writable: true,
             }),
             e
           );
@@ -9961,26 +11151,28 @@
     ],
     noop = () => Promise.resolve(),
     si = ((e) => {
-      if (void 0 === e) return noop;
+      if (undefined === e) return noop;
       const n = ni.find((n) => "function" == typeof e.prototype[n]);
       return "string" != typeof n
         ? noop
         : (e = self.document) => {
             var d;
-            return null == e || null === (d = e[n]) || void 0 === d
-              ? void 0
+            return null == e || null === (d = e[n]) || undefined === d
+              ? undefined
               : d.call(e);
           };
     })(Document),
     ci = ((e) => {
-      if (void 0 === e) return () => !1;
+      if (undefined === e) return () => false;
       const n = oi.find((n) => n in e.prototype);
-      return "string" != typeof n ? () => !1 : (e = self.document) => !!e[n];
+      return "string" != typeof n ? () => false : (e = self.document) => !!e[n];
     })(Document),
     li = ((e) => {
-      if (void 0 === e) return noop;
+      if (undefined === e) return noop;
       const n = ai.find((n) => "function" == typeof e.prototype[n]);
-      return "string" != typeof n ? noop : (e) => (null == e ? void 0 : e[n]());
+      return "string" != typeof n
+        ? noop
+        : (e) => (null == e ? undefined : e[n]());
     })(HTMLElement);
   function asyncGeneratorStep$X(e, n, d, p, h, y, _) {
     try {
@@ -10003,7 +11195,7 @@
         function _throw(e) {
           asyncGeneratorStep$X(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
   }
@@ -10018,7 +11210,7 @@
     request(e) {
       var n = this;
       return _async_to_generator$X(function* () {
-        if (void 0 !== e)
+        if (undefined !== e)
           return n.stopDispatchingEvents(() =>
             n.requestFullscreenForElement(e),
           );
@@ -10044,12 +11236,12 @@
         n in e
           ? Object.defineProperty(e, n, {
               value: d,
-              enumerable: !0,
-              configurable: !0,
-              writable: !0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
             })
           : (e[n] = d);
-      })(this, "player", void 0),
+      })(this, "player", undefined),
         (this.player = e);
     }
   }
@@ -10061,19 +11253,6 @@
       return void d(V);
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
-  }
-  function _define_property$1j(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   class UnsupportedSeeker {
     start() {
@@ -10089,7 +11268,15 @@
       );
     }
     constructor() {
-      _define_property$1j(this, "ended", !1);
+      "ended" in this
+        ? Object.defineProperty(this, "ended", {
+            value: false,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.ended = false),
+        this;
     }
   }
   class PlayerSeeker {
@@ -10134,7 +11321,7 @@
           function _throw(e) {
             asyncGeneratorStep$W(y, p, h, _next, _throw, "throw", e);
           }
-          _next(void 0);
+          _next(undefined);
         });
       })();
     }
@@ -10163,7 +11350,7 @@
         });
     }
     dispatchEndEvent() {
-      (this._ended = !0),
+      (this._ended = true),
         this.dispatch(gt.playbackScrub, {
           item: this._currentItem,
           position: this._lastSeekedTime,
@@ -10171,11 +11358,51 @@
         });
     }
     constructor(e) {
-      _define_property$1j(this, "_ended", !1),
-        _define_property$1j(this, "_lastSeekedTime", -1),
-        _define_property$1j(this, "_player", void 0),
-        _define_property$1j(this, "_startTime", -1),
-        _define_property$1j(this, "_currentItem", void 0),
+      "_ended" in this
+        ? Object.defineProperty(this, "_ended", {
+            value: false,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._ended = false),
+        this,
+        ("_lastSeekedTime" in this
+          ? Object.defineProperty(this, "_lastSeekedTime", {
+              value: -1,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._lastSeekedTime = -1),
+        this),
+        ("_player" in this
+          ? Object.defineProperty(this, "_player", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._player = undefined),
+        this),
+        ("_startTime" in this
+          ? Object.defineProperty(this, "_startTime", {
+              value: -1,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._startTime = -1),
+        this),
+        ("_currentItem" in this
+          ? Object.defineProperty(this, "_currentItem", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._currentItem = undefined),
+        this),
         Qe.debug("seeker: new"),
         (this._player = e);
     }
@@ -10188,19 +11415,6 @@
       return void d(V);
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
-  }
-  function _define_property$1i(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_decorate$r(e, n, d, p) {
     var h,
@@ -10229,9 +11443,9 @@
   } = (() => {
     let e = "visibilitychange",
       n = "visibilityState";
-    void 0 !== document.mozHidden
+    undefined !== document.mozHidden
       ? ((e = "mozvisibilitychange"), (n = "mozVisibilityState"))
-      : void 0 !== document.msHidden
+      : undefined !== document.msHidden
         ? ((e = "msvisibilitychange"), (n = "msVisibilityState"))
         : document.webkitHidden &&
           ((e = "webkitvisibilitychange"), (n = "webkitVisibilityState"));
@@ -10244,7 +11458,7 @@
   class WindowHandlers {
     activate(e = self, n = self.document) {
       n.addEventListener(di, this.visibilityChanged),
-        e.addEventListener("storage", this.storage, !1),
+        e.addEventListener("storage", this.storage, false),
         e.addEventListener(pi, this.windowUnloaded);
     }
     deactivate() {
@@ -10256,9 +11470,9 @@
       var n,
         d = this;
       return ((n = function* () {
-        d.dispatchVisibilityChanges = !1;
+        d.dispatchVisibilityChanges = false;
         const n = yield e();
-        return (d.dispatchVisibilityChanges = !0), n;
+        return (d.dispatchVisibilityChanges = true), n;
       }),
       function () {
         var e = this,
@@ -10271,7 +11485,7 @@
           function _throw(e) {
             asyncGeneratorStep$V(y, p, h, _next, _throw, "throw", e);
           }
-          _next(void 0);
+          _next(undefined);
         });
       })();
     }
@@ -10301,9 +11515,33 @@
         });
     }
     constructor(e, n) {
-      _define_property$1i(this, "player", void 0),
-        _define_property$1i(this, "runtimeEnvironment", void 0),
-        _define_property$1i(this, "dispatchVisibilityChanges", !0),
+      "player" in this
+        ? Object.defineProperty(this, "player", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.player = undefined),
+        this,
+        ("runtimeEnvironment" in this
+          ? Object.defineProperty(this, "runtimeEnvironment", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.runtimeEnvironment = undefined),
+        this),
+        ("dispatchVisibilityChanges" in this
+          ? Object.defineProperty(this, "dispatchVisibilityChanges", {
+              value: true,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.dispatchVisibilityChanges = true),
+        this),
         (this.player = e),
         (this.runtimeEnvironment = n);
     }
@@ -10329,22 +11567,9 @@
         function _throw(e) {
           asyncGeneratorStep$U(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$1h(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$w(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -10357,7 +11582,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1h(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -10370,8 +11603,8 @@
     [
       Bind(),
       _ts_metadata$r("design:type", Function),
-      _ts_metadata$r("design:paramtypes", [void 0]),
-      _ts_metadata$r("design:returntype", void 0),
+      _ts_metadata$r("design:paramtypes", [undefined]),
+      _ts_metadata$r("design:returntype", undefined),
     ],
     WindowHandlers.prototype,
     "storage",
@@ -10384,7 +11617,7 @@
         _ts_metadata$r("design:paramtypes", [
           "undefined" == typeof Event ? Object : Event,
         ]),
-        _ts_metadata$r("design:returntype", void 0),
+        _ts_metadata$r("design:returntype", undefined),
       ],
       WindowHandlers.prototype,
       "visibilityChanged",
@@ -10395,7 +11628,7 @@
         Bind(),
         _ts_metadata$r("design:type", Function),
         _ts_metadata$r("design:paramtypes", []),
-        _ts_metadata$r("design:returntype", void 0),
+        _ts_metadata$r("design:returntype", undefined),
       ],
       WindowHandlers.prototype,
       "windowUnloaded",
@@ -10464,8 +11697,8 @@
       var d;
       return (
         e -
-        (null !== (d = null == n ? void 0 : n.currentTimestampOffset) &&
-        void 0 !== d
+        (null !== (d = null == n ? undefined : n.currentTimestampOffset) &&
+        undefined !== d
           ? d
           : 0)
       );
@@ -10515,10 +11748,10 @@
         ((this._isPrimaryPlayer = e),
         this._isPrimaryPlayer
           ? null === (n = getLocalStorage()) ||
-            void 0 === n ||
+            undefined === n ||
             n.setItem(st, this._serial)
           : (this._dispatcher.publish(bi, { target: this }),
-            this.pause({ userInitiated: !1 })));
+            this.pause({ userInitiated: false })));
     }
     get isReady() {
       return 0 !== this._targetElement.readyState;
@@ -10528,7 +11761,7 @@
     }
     set nowPlayingItem(e) {
       const n = this._dispatcher;
-      if (void 0 === e)
+      if (undefined === e)
         return (
           n.publish(vi, { item: e }),
           (this._nowPlayingItem = e),
@@ -10536,10 +11769,10 @@
         );
       const d = this._nowPlayingItem,
         p = this._buffer;
-      (null == d ? void 0 : d.isEqual(e)) ||
+      (null == d ? undefined : d.isEqual(e)) ||
         (n.publish(vi, { item: e }),
         this.isPlaying &&
-          (null == p ? void 0 : p.currentItem) !== e &&
+          (null == p ? undefined : p.currentItem) !== e &&
           this._pauseMedia(),
         d &&
           (Qe.debug("setting state to ended on ", d.title),
@@ -10578,7 +11811,7 @@
     }
     get playbackTargetAvailable() {
       return (
-        void 0 !== window.WebKitPlaybackTargetAvailabilityEvent &&
+        undefined !== window.WebKitPlaybackTargetAvailabilityEvent &&
         this._playbackTargetAvailable
       );
     }
@@ -10589,7 +11822,7 @@
     }
     get playbackTargetIsWireless() {
       return (
-        void 0 !== window.WebKitPlaybackTargetAvailabilityEvent &&
+        undefined !== window.WebKitPlaybackTargetAvailabilityEvent &&
         this._playbackTargetIsWireless
       );
     }
@@ -10609,7 +11842,7 @@
     }
     clearNextManifest() {
       var e;
-      null === (e = this._buffer) || void 0 === e || e.clearNextManifest();
+      null === (e = this._buffer) || undefined === e || e.clearNextManifest();
     }
     initialize() {
       var e = this;
@@ -10657,7 +11890,7 @@
     newSeeker() {
       var e;
       return (
-        null === (e = this._seeker) || void 0 === e || e.end(),
+        null === (e = this._seeker) || undefined === e || e.end(),
         (this._seeker = new PlayerSeeker(this)),
         this._seeker
       );
@@ -10690,12 +11923,12 @@
       return _async_to_generator$U(function* () {
         Qe.debug("stopMediaAndCleanup"),
           yield n._stopMediaElement(),
-          (n._stopped = !0),
-          (n._paused = !1);
+          (n._stopped = true),
+          (n._paused = false);
         const d = n.nowPlayingItem;
-        (n.nowPlayingItem = void 0),
-          (n.initialBufferPosition = void 0),
-          (n.initialPlayingDate = void 0),
+        (n.nowPlayingItem = undefined),
+          (n.initialBufferPosition = undefined),
+          (n.initialPlayingDate = undefined),
           n.setPlaybackState(e, d);
       })();
     }
@@ -10703,7 +11936,7 @@
       this.resetDeferredPlay(),
         this.stop({
           endReasonType: e.PlayActivityEndReasonType.FAILED_TO_LOAD,
-          userInitiated: !1,
+          userInitiated: false,
         });
     }
     calculatePlaybackProgress() {
@@ -10727,16 +11960,16 @@
       var e, n;
       if (
         (Qe.debug("BasePlayer.destroy"),
-        (this._isDestroyed = !0),
+        (this._isDestroyed = true),
         this._dispatcher.unsubscribe(fi, this.onPlaybackError),
         !this.hasMediaElement)
       )
         return;
       const d = this._targetElement;
-      null === (e = this.extension) || void 0 === e || e.destroy(d),
+      null === (e = this.extension) || undefined === e || e.destroy(d),
         this.removeEventHandlers(),
         this.cleanupElement(),
-        null === (n = d.parentNode) || void 0 === n || n.removeChild(d);
+        null === (n = d.parentNode) || undefined === n || n.removeChild(d);
     }
     handleEvent(n) {
       var d = this;
@@ -10758,7 +11991,7 @@
                 d.setPlaybackState(xi, p);
             break;
           case "durationchange":
-            d._targetElement.duration !== 1 / 0 &&
+            d._targetElement.duration !== Infinity &&
               ((n.duration = d.currentPlaybackDuration),
               d._dispatcher.publish(Pi, n),
               d.calculatePlaybackProgress());
@@ -10767,8 +12000,8 @@
             var h;
             if (
               (Qe.debug('media element "ended" event'),
-              null === (h = d.nowPlayingItem) || void 0 === h
-                ? void 0
+              null === (h = d.nowPlayingItem) || undefined === h
+                ? undefined
                 : h.isLinearStream)
             )
               return void Qe.warn("ignoring ended event for linear stream", n);
@@ -10777,7 +12010,7 @@
               break;
             }
             const p = d.nowPlayingItem,
-              y = (null == p ? void 0 : p.playbackDuration)
+              y = (null == p ? undefined : p.playbackDuration)
                 ? p.playbackDuration / 1e3
                 : d.currentPlaybackTime,
               _ = d.currentPlayingDate;
@@ -10808,9 +12041,9 @@
             break;
           case "play":
           case "playing":
-            (d._paused = !1),
-              (d._stopped = !1),
-              (d.isPrimaryPlayer = !0),
+            (d._paused = false),
+              (d._stopped = false),
+              (d.isPrimaryPlayer = true),
               d.setPlaybackState(xi, p);
             break;
           case "progress": {
@@ -10833,8 +12066,8 @@
             break;
           case "seeking":
             d.playbackState === Di
-              ? (d._paused = !0)
-              : d.playbackState === Li && (d._stopped = !0),
+              ? (d._paused = true)
+              : d.playbackState === Li && (d._stopped = true),
               d.playbackState !== Ci && d.setPlaybackState(ji, p);
             break;
           case "timeupdate": {
@@ -10858,7 +12091,7 @@
     }
     handleBufferStart() {
       const { _targetElement: e } = this;
-      void 0 !== this.initialBufferPosition ||
+      undefined !== this.initialBufferPosition ||
         e.paused ||
         0 === e.buffered.length ||
         ((this.initialBufferPosition = e.buffered.start(0)),
@@ -10874,7 +12107,7 @@
         yield n._waitForPendingPlay(),
           n.isPlaying &&
             (yield n._pauseMedia(),
-            (n._paused = !0),
+            (n._paused = true),
             n.dispatch(
               gt.playbackPause,
               _object_spread$w(
@@ -10888,7 +12121,7 @@
             ));
       })();
     }
-    play(e = !0) {
+    play(e = true) {
       var n = this;
       return _async_to_generator$U(function* () {
         if ((Qe.debug("BasePlayer.play()"), n.nowPlayingItem))
@@ -10906,7 +12139,7 @@
               (Vt &&
                 $i.includes(Vt.name) &&
                 Qe.error("BasePlayer.play() rejected due to", Vt),
-              "NotAllowedError" === (null == Vt ? void 0 : Vt.name))
+              "NotAllowedError" === (null == Vt ? undefined : Vt.name))
             )
               throw new MKError(
                 MKError.Reason.USER_INTERACTION_REQUIRED,
@@ -10923,18 +12156,21 @@
         this._targetElement.webkitShowPlaybackTargetPicker();
     }
     dispatch(e, n) {
-      void 0 === n.item && (n.item = this.nowPlayingItem),
-        hasOwn(n, "isPlaying") || (n.isPlaying = this.isPlaying),
+      undefined === n.item && (n.item = this.nowPlayingItem),
+        Object.prototype.hasOwnProperty.call(Object(n), "isPlaying") ||
+          (n.isPlaying = this.isPlaying),
         this._dispatcher.publish(e, n);
     }
     tsidChanged(e) {
-      void 0 !== e && "" !== e && (this.isPrimaryPlayer = e === this._serial);
+      undefined !== e &&
+        "" !== e &&
+        (this.isPrimaryPlayer = e === this._serial);
     }
     _waitForPendingPlay() {
       var e = this;
       return _async_to_generator$U(function* () {
         e._deferredPlay &&
-          (yield e._deferredPlay.promise, (e._deferredPlay = void 0));
+          (yield e._deferredPlay.promise, (e._deferredPlay = undefined));
       })();
     }
     _loadMedia() {
@@ -10963,7 +12199,7 @@
       var p = this;
       return _async_to_generator$U(function* () {
         return (
-          (null == d ? void 0 : d.startTime) && (e += "#t=" + d.startTime),
+          (null == d ? undefined : d.startTime) && (e += "#t=" + d.startTime),
           n || p.startPlaybackSequence(),
           yield p._playAssetURL(e, n),
           p.finishPlaybackSequence()
@@ -10975,7 +12211,7 @@
       return _async_to_generator$U(function* () {
         Qe.debug("BasePlayer._playMedia", e._targetElement, e.extension);
         try {
-          yield e._targetElement.play(), (e._playbackDidStart = !0);
+          yield e._targetElement.play(), (e._playbackDidStart = true);
         } catch (V) {
           throw (
             (Qe.error(
@@ -10991,7 +12227,7 @@
       this.hasMediaElement && (this._targetElement.title = e);
     }
     resetDeferredPlay() {
-      this._deferredPlay = void 0;
+      this._deferredPlay = undefined;
     }
     _stopMediaElement() {
       var e = this;
@@ -11015,10 +12251,10 @@
       var e;
       Qe.debug("BasePlayer.finishPlaybackSequence", this._deferredPlay);
       const n =
-        null === (e = this._deferredPlay) || void 0 === e
-          ? void 0
-          : e.resolve(void 0);
-      return (this._deferredPlay = void 0), n;
+        null === (e = this._deferredPlay) || undefined === e
+          ? undefined
+          : e.resolve(undefined);
+      return (this._deferredPlay = undefined), n;
     }
     startPlaybackSequence() {
       return (
@@ -11045,43 +12281,251 @@
     }
     constructor(n) {
       var d;
-      _define_property$1h(this, "privateEnabled", !1),
-        _define_property$1h(this, "siriInitiated", !1),
-        _define_property$1h(this, "windowHandlers", void 0),
-        _define_property$1h(this, "_dispatcher", void 0),
-        _define_property$1h(this, "_buffer", void 0),
-        _define_property$1h(this, "services", void 0),
-        _define_property$1h(this, "_context", void 0),
-        _define_property$1h(this, "_currentBufferedProgress", 0),
-        _define_property$1h(this, "initialBufferPosition", void 0),
-        _define_property$1h(this, "initialPlayingDate", void 0),
-        _define_property$1h(this, "_paused", !1),
-        _define_property$1h(this, "_playbackState", e.PlaybackStates.none),
-        _define_property$1h(this, "_stopped", !1),
-        _define_property$1h(this, "_playbackDidStart", !1),
-        _define_property$1h(this, "_nowPlayingItem", void 0),
-        _define_property$1h(this, "_bitrateCalculator", void 0),
-        _define_property$1h(this, "_currentPlaybackProgress", 0),
-        _define_property$1h(this, "_isPrimaryPlayer", !0),
-        _define_property$1h(this, "_playbackTargetAvailable", !1),
-        _define_property$1h(this, "_playbackTargetIsWireless", !1),
-        _define_property$1h(this, "_seeker", void 0),
-        _define_property$1h(this, "_serial", Date.now().toString()),
-        _define_property$1h(this, "_timing", void 0),
-        _define_property$1h(this, "fullscreen", void 0),
-        _define_property$1h(this, "_isDestroyed", !1),
-        _define_property$1h(this, "_deferredPlay", void 0),
+      "privateEnabled" in this
+        ? Object.defineProperty(this, "privateEnabled", {
+            value: false,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.privateEnabled = false),
+        this,
+        ("siriInitiated" in this
+          ? Object.defineProperty(this, "siriInitiated", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.siriInitiated = false),
+        this),
+        ("windowHandlers" in this
+          ? Object.defineProperty(this, "windowHandlers", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.windowHandlers = undefined),
+        this),
+        ("_dispatcher" in this
+          ? Object.defineProperty(this, "_dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._dispatcher = undefined),
+        this),
+        ("_buffer" in this
+          ? Object.defineProperty(this, "_buffer", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._buffer = undefined),
+        this),
+        ("services" in this
+          ? Object.defineProperty(this, "services", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.services = undefined),
+        this),
+        ("_context" in this
+          ? Object.defineProperty(this, "_context", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._context = undefined),
+        this),
+        ("_currentBufferedProgress" in this
+          ? Object.defineProperty(this, "_currentBufferedProgress", {
+              value: 0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._currentBufferedProgress = 0),
+        this),
+        ("initialBufferPosition" in this
+          ? Object.defineProperty(this, "initialBufferPosition", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.initialBufferPosition = undefined),
+        this),
+        ("initialPlayingDate" in this
+          ? Object.defineProperty(this, "initialPlayingDate", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.initialPlayingDate = undefined),
+        this),
+        ("_paused" in this
+          ? Object.defineProperty(this, "_paused", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._paused = false),
+        this),
+        ("_playbackState" in this
+          ? Object.defineProperty(this, "_playbackState", {
+              value: e.PlaybackStates.none,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._playbackState = e.PlaybackStates.none),
+        this),
+        ("_stopped" in this
+          ? Object.defineProperty(this, "_stopped", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._stopped = false),
+        this),
+        ("_playbackDidStart" in this
+          ? Object.defineProperty(this, "_playbackDidStart", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._playbackDidStart = false),
+        this),
+        ("_nowPlayingItem" in this
+          ? Object.defineProperty(this, "_nowPlayingItem", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._nowPlayingItem = undefined),
+        this),
+        ("_bitrateCalculator" in this
+          ? Object.defineProperty(this, "_bitrateCalculator", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._bitrateCalculator = undefined),
+        this),
+        ("_currentPlaybackProgress" in this
+          ? Object.defineProperty(this, "_currentPlaybackProgress", {
+              value: 0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._currentPlaybackProgress = 0),
+        this),
+        ("_isPrimaryPlayer" in this
+          ? Object.defineProperty(this, "_isPrimaryPlayer", {
+              value: true,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._isPrimaryPlayer = true),
+        this),
+        ("_playbackTargetAvailable" in this
+          ? Object.defineProperty(this, "_playbackTargetAvailable", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._playbackTargetAvailable = false),
+        this),
+        ("_playbackTargetIsWireless" in this
+          ? Object.defineProperty(this, "_playbackTargetIsWireless", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._playbackTargetIsWireless = false),
+        this),
+        ("_seeker" in this
+          ? Object.defineProperty(this, "_seeker", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._seeker = undefined),
+        this),
+        ("_serial" in this
+          ? Object.defineProperty(this, "_serial", {
+              value: Date.now().toString(),
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._serial = Date.now().toString()),
+        this),
+        ("_timing" in this
+          ? Object.defineProperty(this, "_timing", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._timing = undefined),
+        this),
+        ("fullscreen" in this
+          ? Object.defineProperty(this, "fullscreen", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.fullscreen = undefined),
+        this),
+        ("_isDestroyed" in this
+          ? Object.defineProperty(this, "_isDestroyed", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._isDestroyed = false),
+        this),
+        ("_deferredPlay" in this
+          ? Object.defineProperty(this, "_deferredPlay", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._deferredPlay = undefined),
+        this),
         (this.services = n.services),
         (this._dispatcher = n.services.dispatcher),
         (this._timing = n.services.timing),
         (this._context = n.context || {}),
-        (this.privateEnabled = n.privateEnabled || !1),
-        (this.siriInitiated = n.siriInitiated || !1),
+        (this.privateEnabled = n.privateEnabled || false),
+        (this.siriInitiated = n.siriInitiated || false),
         (this._bitrateCalculator = n.services.bitrateCalculator),
         (this.windowHandlers = new WindowHandlers(this, n.services.runtime)),
         (this.fullscreen = new Fullscreen(this)),
         null === (d = getLocalStorage()) ||
-          void 0 === d ||
+          undefined === d ||
           d.setItem(st, this._serial),
         this._dispatcher.subscribe(fi, this.onPlaybackError);
     }
@@ -11092,9 +12536,9 @@
     if (!e.assetURL) throw new Error("Cannot generate asset URL");
     const d = {};
     return (
-      (null == n ? void 0 : n.startOver) && (d.startOver = !0),
-      (null == n ? void 0 : n.bingeWatching) && (d.bingeWatching = !0),
-      e.supportsLinearScrubbing && (d.linearScrubbingSupported = !0),
+      (null == n ? undefined : n.startOver) && (d.startOver = true),
+      (null == n ? undefined : n.bingeWatching) && (d.bingeWatching = true),
+      e.supportsLinearScrubbing && (d.linearScrubbingSupported = true),
       e.assetURL.match(/xapsub=accepts-css/) || (d.xapsub = "accepts-css"),
       buildURL(e.assetURL, d)
     );
@@ -11112,27 +12556,11 @@
           ? getLocalStorage().setItem(d, JSON.stringify(p))
           : getLocalStorage().setItem(d, ""));
   }
-  function loadTrack(e) {
-    return getJsonFromLocalStorage(e);
-  }
   function trackEquals(e, n) {
     const d = toPersistedTrack(e),
       p = toPersistedTrack(n);
-    for (const h of Object.keys(d)) if (d[h] !== p[h]) return !1;
-    return !0;
-  }
-  function _define_property$1g(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
+    for (const h of Object.keys(d)) if (d[h] !== p[h]) return false;
+    return true;
   }
   !(function (e, n, d, p) {
     var h,
@@ -11155,9 +12583,9 @@
       _ts_metadata$q("design:type", Function),
       _ts_metadata$q("design:paramtypes", [
         String,
-        void 0 === MKError ? Object : MKError,
+        undefined === MKError ? Object : MKError,
       ]),
-      _ts_metadata$q("design:returntype", void 0),
+      _ts_metadata$q("design:returntype", undefined),
     ],
     BasePlayer.prototype,
     "onPlaybackError",
@@ -11184,19 +12612,19 @@
             (this.extensionTracks.audioTrack = e))
           : (Qe.debug("MEDIA_TRACK disabling all audio tracks"),
             Array.from(this.mediaElement.audioTracks).forEach((n) => {
-              n !== e && (n.enabled = !1);
+              n !== e && (n.enabled = false);
             }),
             Qe.debug("MEDIA_TRACK enabling", e),
-            (e.enabled = !0)),
+            (e.enabled = true)),
         (function (e) {
           return (
-            void 0 !== e.characteristics &&
+            undefined !== e.characteristics &&
             e.characteristics.includes("com.apple.amp.appletv.home-team-radio")
           );
         })(e) ||
           (function (e) {
             return (
-              void 0 !== e.characteristics &&
+              undefined !== e.characteristics &&
               e.characteristics.includes(
                 "com.apple.amp.appletv.away-team-radio",
               )
@@ -11213,7 +12641,7 @@
         : Array.from(this.mediaElement.audioTracks);
     }
     destroy() {
-      if (((this._isDestroyed = !0), this.extensionTracks)) {
+      if (((this._isDestroyed = true), this.extensionTracks)) {
         const e = this.extensionTracks;
         e.removeEventListener(
           lt.audioTracksUpdated,
@@ -11245,11 +12673,13 @@
         "MEDIA_TRACK Extension audio tracks updated " + JSON.stringify(e),
       ),
         (this._extensionTracks = e);
-      const d = loadTrack("mk-audio-track");
+      const d = getJsonFromLocalStorage("mk-audio-track");
       if (
-        (null === (n = this.tracks) || void 0 === n ? void 0 : n.length) >= 0 &&
-        void 0 !== d &&
-        (void 0 === this.currentTrack || !trackEquals(this.currentTrack, d))
+        (null === (n = this.tracks) || undefined === n
+          ? undefined
+          : n.length) >= 0 &&
+        undefined !== d &&
+        (undefined === this.currentTrack || !trackEquals(this.currentTrack, d))
       )
         for (const p of this.tracks)
           if (trackEquals(p, d)) {
@@ -11274,8 +12704,8 @@
       this.dispatcher.publish(Pt.audioTrackChanged, e);
     }
     onAudioTrackAdded(e) {
-      const n = loadTrack("mk-audio-track");
-      void 0 !== n &&
+      const n = getJsonFromLocalStorage("mk-audio-track");
+      undefined !== n &&
         trackEquals(e.track, n) &&
         (Qe.debug("Found new track matching persisted track: " + e.track.label),
         (this.currentTrack = e.track)),
@@ -11289,16 +12719,56 @@
     }
     constructor(e, n, d) {
       if (
-        (_define_property$1g(this, "mediaElement", void 0),
-        _define_property$1g(this, "dispatcher", void 0),
-        _define_property$1g(this, "extensionTracks", void 0),
-        _define_property$1g(this, "_extensionTracks", void 0),
-        _define_property$1g(this, "_isDestroyed", void 0),
+        ("mediaElement" in this
+          ? Object.defineProperty(this, "mediaElement", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.mediaElement = undefined),
+        this,
+        ("dispatcher" in this
+          ? Object.defineProperty(this, "dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.dispatcher = undefined),
+        this),
+        ("extensionTracks" in this
+          ? Object.defineProperty(this, "extensionTracks", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.extensionTracks = undefined),
+        this),
+        ("_extensionTracks" in this
+          ? Object.defineProperty(this, "_extensionTracks", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._extensionTracks = undefined),
+        this),
+        ("_isDestroyed" in this
+          ? Object.defineProperty(this, "_isDestroyed", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._isDestroyed = undefined),
+        this),
         (this.mediaElement = e),
         (this.dispatcher = n),
         (this.extensionTracks = d),
         (this._extensionTracks = []),
-        (this._isDestroyed = !1),
+        (this._isDestroyed = false),
         this.extensionTracks)
       ) {
         Qe.debug(
@@ -11367,7 +12837,7 @@
       ? globalThis
       : "undefined" != typeof window
         ? window
-        : void 0 !== n
+        : undefined !== n
           ? n
           : "undefined" != typeof self
             ? self
@@ -11379,57 +12849,56 @@
       ? e.default
       : e;
   }
-  function createCommonjsModule(e, n) {
-    return e((n = { exports: {} }), n.exports), n.exports;
-  }
-  var Gi = createCommonjsModule(function (e, n) {
-    Object.defineProperty(n, "__esModule", { value: !0 }),
-      (n.isValidScrollSetting =
-        n.isValidPositionAlignSetting =
-        n.isValidLineAlignSetting =
-        n.isValidLineAndPositionSetting =
-        n.isValidDirectionSetting =
-        n.isValidAlignSetting =
-        n.isValidPercentValue =
-          void 0),
-      (n.isValidPercentValue = function (e) {
-        return "number" == typeof e && e >= 0 && e <= 100;
-      }),
-      (n.isValidAlignSetting = function (e) {
-        return (
-          "string" == typeof e &&
-          ["start", "center", "end", "left", "right", "middle"].includes(e)
-        );
-      }),
-      (n.isValidDirectionSetting = function (e) {
-        return "string" == typeof e && ["", "rl", "lr"].includes(e);
-      }),
-      (n.isValidLineAndPositionSetting = function (e) {
-        return "number" == typeof e || "auto" === e;
-      }),
-      (n.isValidLineAlignSetting = function (e) {
-        return "string" == typeof e && ["start", "center", "end"].includes(e);
-      }),
-      (n.isValidPositionAlignSetting = function (e) {
-        return (
-          "string" == typeof e &&
-          [
-            "line-left",
-            "center",
-            "line-right",
-            "auto",
-            "left",
-            "start",
-            "middle",
-            "end",
-            "right",
-          ].includes(e)
-        );
-      }),
-      (n.isValidScrollSetting = function (e) {
-        return ["", "up"].includes(e);
-      });
-  });
+  var Gi =
+    ((function (e, n) {
+      Object.defineProperty(n, "__esModule", { value: true }),
+        (n.isValidScrollSetting =
+          n.isValidPositionAlignSetting =
+          n.isValidLineAlignSetting =
+          n.isValidLineAndPositionSetting =
+          n.isValidDirectionSetting =
+          n.isValidAlignSetting =
+          n.isValidPercentValue =
+            undefined),
+        (n.isValidPercentValue = function (e) {
+          return "number" == typeof e && e >= 0 && e <= 100;
+        }),
+        (n.isValidAlignSetting = function (e) {
+          return (
+            "string" == typeof e &&
+            ["start", "center", "end", "left", "right", "middle"].includes(e)
+          );
+        }),
+        (n.isValidDirectionSetting = function (e) {
+          return "string" == typeof e && ["", "rl", "lr"].includes(e);
+        }),
+        (n.isValidLineAndPositionSetting = function (e) {
+          return "number" == typeof e || "auto" === e;
+        }),
+        (n.isValidLineAlignSetting = function (e) {
+          return "string" == typeof e && ["start", "center", "end"].includes(e);
+        }),
+        (n.isValidPositionAlignSetting = function (e) {
+          return (
+            "string" == typeof e &&
+            [
+              "line-left",
+              "center",
+              "line-right",
+              "auto",
+              "left",
+              "start",
+              "middle",
+              "end",
+              "right",
+            ].includes(e)
+          );
+        }),
+        (n.isValidScrollSetting = function (e) {
+          return ["", "up"].includes(e);
+        });
+    })((n = { exports: {} }), n.exports),
+    n.exports);
   unwrapExports(Gi),
     Gi.isValidScrollSetting,
     Gi.isValidPositionAlignSetting,
@@ -11438,1766 +12907,1794 @@
     Gi.isValidDirectionSetting,
     Gi.isValidAlignSetting,
     Gi.isValidPercentValue;
-  var Hi = createCommonjsModule(function (e, n) {
-    Object.defineProperty(n, "__esModule", { value: !0 });
-    const d = {
-        "&amp;": "&",
-        "&lt;": "<",
-        "&gt;": ">",
-        "&lrm;": "‎",
-        "&rlm;": "‏",
-        "&nbsp;": " ",
-      },
-      p = {
-        c: "span",
-        i: "i",
-        b: "b",
-        u: "u",
-        ruby: "ruby",
-        rt: "rt",
-        v: "span",
-        lang: "span",
-      },
-      h = { v: "title", lang: "lang" },
-      y = { rt: "ruby" },
-      _ = {
-        "text-combine-upright":
-          "-webkit-text-combine:horizontal; text-orientation: mixed;",
-      };
-    class ParserUtility {
-      static parseTimeStamp(e) {
-        function computeSeconds(e) {
-          const [n, d, p, h] = e.map((e) => (e ? parseInt("" + e) : 0));
-          return 3600 * n + 60 * d + p + h / 1e3;
+  var Hi =
+    ((function (e, n) {
+      Object.defineProperty(n, "__esModule", { value: true });
+      const d = {
+          "&amp;": "&",
+          "&lt;": "<",
+          "&gt;": ">",
+          "&lrm;": "‎",
+          "&rlm;": "‏",
+          "&nbsp;": " ",
+        },
+        p = {
+          c: "span",
+          i: "i",
+          b: "b",
+          u: "u",
+          ruby: "ruby",
+          rt: "rt",
+          v: "span",
+          lang: "span",
+        },
+        h = { v: "title", lang: "lang" },
+        y = { rt: "ruby" },
+        _ = {
+          "text-combine-upright":
+            "-webkit-text-combine:horizontal; text-orientation: mixed;",
+        };
+      class ParserUtility {
+        static parseTimeStamp(e) {
+          function computeSeconds(e) {
+            const [n, d, p, h] = e.map((e) => (e ? parseInt("" + e) : 0));
+            return 3600 * n + 60 * d + p + h / 1e3;
+          }
+          const n = /^(\d+):(\d{2})(:\d{2})?\.(\d{3})/.exec(e);
+          return n
+            ? n[3]
+              ? computeSeconds([n[1], n[2], n[3].substring(1), n[4]])
+              : parseInt(n[1]) > 59
+                ? computeSeconds([n[1], n[2], null, n[4]])
+                : computeSeconds([null, n[1], n[2], n[4]])
+            : null;
         }
-        const n = /^(\d+):(\d{2})(:\d{2})?\.(\d{3})/.exec(e);
-        return n
-          ? n[3]
-            ? computeSeconds([n[1], n[2], n[3].substring(1), n[4]])
-            : parseInt(n[1]) > 59
-              ? computeSeconds([n[1], n[2], null, n[4]])
-              : computeSeconds([null, n[1], n[2], n[4]])
-          : null;
-      }
-      static parseContent(e, n, m) {
-        let g = n.text;
-        function nextToken() {
-          if (!g) return null;
-          const e = /^([^<]*)(<[^>]+>?)?/.exec(g);
-          return (n = e[1] ? e[1] : e[2]), (g = g.substr(n.length)), n;
-          var n;
-        }
-        function unescape1(e) {
-          return d[e];
-        }
-        function unescape(e) {
-          return e.replace(/&(amp|lt|gt|lrm|rlm|nbsp);/g, unescape1);
-        }
-        function shouldAdd(e, n) {
-          return (
-            !y[n.dataset.localName] ||
-            y[n.dataset.localName] === e.dataset.localName
-          );
-        }
-        function createElement(n, d, y) {
-          const g = p[n];
-          if (!g) return null;
-          const b = e.document.createElement(g);
-          b.dataset.localName = g;
-          const P = h[n];
-          if ((P && y && (b[P] = y.trim()), d))
-            if (m[d]) {
-              const e = (function (e) {
-                let n = "";
-                for (const d in e) n += _[d] ? _[d] : d + ":" + e[d] + ";";
-                return n;
-              })(m[d]);
-              b.setAttribute("style", e);
-            } else
-              console.info(
-                `WebVTT: parseContent: Style referenced, but no style defined for '${d}'!`,
+        static parseContent(e, n, m) {
+          let g = n.text;
+          function nextToken() {
+            if (!g) return null;
+            const e = /^([^<]*)(<[^>]+>?)?/.exec(g);
+            return (n = e[1] ? e[1] : e[2]), (g = g.substr(n.length)), n;
+          }
+          function createElement(n, d, y) {
+            const g = p[n];
+            if (!g) return null;
+            const b = e.document.createElement(g);
+            b.dataset.localName = g;
+            const P = h[n];
+            if ((P && y && (b[P] = y.trim()), d))
+              if (m[d]) {
+                const e = (function (e) {
+                  let n = "";
+                  for (const d in e) n += _[d] ? _[d] : d + ":" + e[d] + ";";
+                  return n;
+                })(m[d]);
+                b.setAttribute("style", e);
+              } else
+                console.info(
+                  `WebVTT: parseContent: Style referenced, but no style defined for '${d}'!`,
+                );
+            return b;
+          }
+          const b = e.document.createElement("div"),
+            P = [];
+          let S,
+            E,
+            T = b;
+          for (; null !== (S = nextToken()); )
+            if ("<" !== S[0])
+              T.appendChild(
+                e.document.createTextNode(
+                  S.replace(/&(amp|lt|gt|lrm|rlm|nbsp);/g, unescape1),
+                ),
               );
+            else {
+              if ("/" === S[1]) {
+                P.length &&
+                  P[P.length - 1] === S.substr(2).replace(">", "") &&
+                  (P.pop(), (T = T.parentNode));
+                continue;
+              }
+              const n = ParserUtility.parseTimeStamp(S.substr(1, S.length - 2));
+              let d;
+              if (n) {
+                (d = e.document.createProcessingInstruction(
+                  "timestamp",
+                  n.toString(),
+                )),
+                  T.appendChild(d);
+                continue;
+              }
+              if (
+                ((E = /^<([^.\s/0-9>]+)(\.[^\s\\>]+)?([^>\\]+)?(\\?)>?$/.exec(
+                  S,
+                )),
+                !E)
+              )
+                continue;
+              if (((d = createElement(E[1], E[2], E[3])), !d)) continue;
+              if (
+                !(
+                  !y[d.dataset.localName] ||
+                  y[d.dataset.localName] === T.dataset.localName
+                )
+              )
+                continue;
+              E[2], P.push(E[1]), T.appendChild(d), (T = d);
+            }
           return b;
         }
-        const b = e.document.createElement("div"),
-          P = [];
-        let S,
-          E,
-          T = b;
-        for (; null !== (S = nextToken()); )
-          if ("<" !== S[0])
-            T.appendChild(e.document.createTextNode(unescape(S)));
-          else {
-            if ("/" === S[1]) {
-              P.length &&
-                P[P.length - 1] === S.substr(2).replace(">", "") &&
-                (P.pop(), (T = T.parentNode));
-              continue;
-            }
-            const n = ParserUtility.parseTimeStamp(S.substr(1, S.length - 2));
-            let d;
-            if (n) {
-              (d = e.document.createProcessingInstruction(
-                "timestamp",
-                n.toString(),
-              )),
-                T.appendChild(d);
-              continue;
-            }
-            if (
-              ((E = /^<([^.\s/0-9>]+)(\.[^\s\\>]+)?([^>\\]+)?(\\?)>?$/.exec(S)),
-              !E)
-            )
-              continue;
-            if (((d = createElement(E[1], E[2], E[3])), !d)) continue;
-            if (!shouldAdd(T, d)) continue;
-            E[2], P.push(E[1]), T.appendChild(d), (T = d);
-          }
-        return b;
       }
-    }
-    n.default = ParserUtility;
-  });
+      n.default = ParserUtility;
+    })((n = { exports: {} }), n.exports),
+    n.exports);
   unwrapExports(Hi);
-  var qi = createCommonjsModule(function (e, n) {
-    var d =
-      (Vi && Vi.__decorate) ||
-      function (e, n, d, p) {
-        var h,
-          y = arguments.length,
-          _ =
-            y < 3
-              ? n
-              : null === p
-                ? (p = Object.getOwnPropertyDescriptor(n, d))
-                : p;
-        if ("object" == typeof Reflect && "function" == typeof Reflect.decorate)
-          _ = Reflect.decorate(e, n, d, p);
-        else
-          for (var m = e.length - 1; m >= 0; m--)
-            (h = e[m]) &&
-              (_ = (y < 3 ? h(_) : y > 3 ? h(n, d, _) : h(n, d)) || _);
-        return y > 3 && _ && Object.defineProperty(n, d, _), _;
-      };
-    Object.defineProperty(n, "__esModule", { value: !0 }), (n.VTTCue = void 0);
-    let p = class {
-      get id() {
-        return this._id;
-      }
-      set id(e) {
-        this._id = "" + e;
-      }
-      get pauseOnExit() {
-        return this._pauseOnExit;
-      }
-      set pauseOnExit(e) {
-        this._pauseOnExit = !!e;
-      }
-      get startTime() {
-        return this._startTime;
-      }
-      set startTime(e) {
-        if ("number" != typeof e)
-          throw new TypeError("Start time must be set to a number: " + e);
-        (this._startTime = e), (this.hasBeenReset = !0);
-      }
-      get endTime() {
-        return this._endTime;
-      }
-      set endTime(e) {
-        if ("number" != typeof e)
-          throw new TypeError("End time must be set to a number: " + e);
-        (this._endTime = e), (this.hasBeenReset = !0);
-      }
-      get text() {
-        return this._text;
-      }
-      set text(e) {
-        (this._text = "" + e), (this.hasBeenReset = !0);
-      }
-      get region() {
-        return this._region;
-      }
-      set region(e) {
-        (this._region = e), (this.hasBeenReset = !0);
-      }
-      get vertical() {
-        return this._vertical;
-      }
-      set vertical(e) {
-        if (!Gi.isValidDirectionSetting(e))
-          throw new SyntaxError(
-            "An invalid or illegal string was specified for vertical: " + e,
-          );
-        (this._vertical = e), (this.hasBeenReset = !0);
-      }
-      get snapToLines() {
-        return this._snapToLines;
-      }
-      set snapToLines(e) {
-        (this._snapToLines = !!e), (this.hasBeenReset = !0);
-      }
-      get line() {
-        return this._line;
-      }
-      set line(e) {
-        if (!Gi.isValidLineAndPositionSetting(e))
-          throw new SyntaxError(
-            "An invalid number or illegal string was specified for line: " + e,
-          );
-        (this._line = e), (this.hasBeenReset = !0);
-      }
-      get lineAlign() {
-        return this._lineAlign;
-      }
-      set lineAlign(e) {
-        if (!Gi.isValidLineAlignSetting(e))
-          throw new SyntaxError(
-            "An invalid or illegal string was specified for lineAlign: " + e,
-          );
-        (this._lineAlign = e), (this.hasBeenReset = !0);
-      }
-      get position() {
-        return this._position;
-      }
-      set position(e) {
-        if (!Gi.isValidLineAndPositionSetting(e))
-          throw new Error("Position must be between 0 and 100 or auto: " + e);
-        (this._position = e), (this.hasBeenReset = !0);
-      }
-      get positionAlign() {
-        return this._positionAlign;
-      }
-      set positionAlign(e) {
-        if (!Gi.isValidPositionAlignSetting(e))
-          throw new SyntaxError(
-            "An invalid or illegal string was specified for positionAlign: " +
-              e,
-          );
-        (this._positionAlign = e), (this.hasBeenReset = !0);
-      }
-      get size() {
-        return this._size;
-      }
-      set size(e) {
-        if (e < 0 || e > 100)
-          throw new Error("Size must be between 0 and 100: " + e);
-        (this._size = e), (this.hasBeenReset = !0);
-      }
-      get align() {
-        return this._align;
-      }
-      set align(e) {
-        if (!Gi.isValidAlignSetting(e))
-          throw new SyntaxError(
-            "An invalid or illegal string was specified for align: " + e,
-          );
-        (this._align = e), (this.hasBeenReset = !0);
-      }
-      getCueAsHTML() {
-        return Hi.default.parseContent(window, this, {});
-      }
-      static create(e) {
-        if (
-          !e.hasOwnProperty("startTime") ||
-          !e.hasOwnProperty("endTime") ||
-          !e.hasOwnProperty("text")
-        )
-          throw new Error(
-            "You must at least have start time, end time, and text.",
-          );
-        const n = new this(e.startTime, e.endTime, e.text);
-        return (
-          Object.keys(e).forEach((d) => {
-            n.hasOwnProperty(d) && (n[d] = e[d]);
-          }),
-          n
-        );
-      }
-      static fromJSON(e) {
-        return this.create(JSON.parse(e));
-      }
-      toJSON() {
-        const e = {};
-        return (
-          Object.keys(this).forEach((n) => {
-            this.hasOwnProperty(n) &&
-              "getCueAsHTML" !== n &&
-              "hasBeenReset" !== n &&
-              "displayState" !== n &&
-              (e[n] = this[n]);
-          }),
-          e
-        );
-      }
-      constructor(e, n, d) {
-        (this._id = ""),
-          (this._pauseOnExit = !1),
-          (this._region = null),
-          (this._vertical = ""),
-          (this._snapToLines = !0),
-          (this._line = "auto"),
-          (this._lineAlign = "start"),
-          (this._position = "auto"),
-          (this._positionAlign = "auto"),
-          (this._size = 100),
-          (this._align = "center"),
-          (this.hasBeenReset = !1),
-          (this._startTime = e),
-          (this._endTime = n),
-          (this._text = d);
-      }
-    };
-    (p = d(
-      [
-        function (e) {
-          let n = e;
-          "undefined" != typeof window &&
-            null != window.VTTCue &&
-            ((n = window.VTTCue),
-            (n.create = e.create),
-            (n.fromJSON = e.fromJSON),
-            (n.prototype.toJSON = e.prototype.toJSON));
-          return n;
-        },
-      ],
-      p,
-    )),
-      (n.VTTCue = p);
-  });
-  unwrapExports(qi), qi.VTTCue;
-  var Wi = createCommonjsModule(function (e, n) {
-    var d =
-      (Vi && Vi.__decorate) ||
-      function (e, n, d, p) {
-        var h,
-          y = arguments.length,
-          _ =
-            y < 3
-              ? n
-              : null === p
-                ? (p = Object.getOwnPropertyDescriptor(n, d))
-                : p;
-        if ("object" == typeof Reflect && "function" == typeof Reflect.decorate)
-          _ = Reflect.decorate(e, n, d, p);
-        else
-          for (var m = e.length - 1; m >= 0; m--)
-            (h = e[m]) &&
-              (_ = (y < 3 ? h(_) : y > 3 ? h(n, d, _) : h(n, d)) || _);
-        return y > 3 && _ && Object.defineProperty(n, d, _), _;
-      };
-    Object.defineProperty(n, "__esModule", { value: !0 }),
-      (n.VTTRegion = void 0);
-    let p = class {
-      get id() {
-        return this._id;
-      }
-      set id(e) {
-        if ("string" != typeof e) throw new Error("ID must be a string.");
-        this._id = e;
-      }
-      get lines() {
-        return this._lines;
-      }
-      set lines(e) {
-        if ("number" != typeof e)
-          throw new TypeError("Lines must be set to a number.");
-        this._lines = e;
-      }
-      get regionAnchorX() {
-        return this._regionAnchorX;
-      }
-      set regionAnchorX(e) {
-        if (!Gi.isValidPercentValue(e))
-          throw new TypeError("RegionAnchorX must be between 0 and 100.");
-        this._regionAnchorX = e;
-      }
-      get regionAnchorY() {
-        return this._regionAnchorY;
-      }
-      set regionAnchorY(e) {
-        if (!Gi.isValidPercentValue(e))
-          throw new TypeError("RegionAnchorY must be between 0 and 100.");
-        this._regionAnchorY = e;
-      }
-      get scroll() {
-        return this._scroll;
-      }
-      set scroll(e) {
-        if ("string" == typeof e) {
-          const n = e.toLowerCase();
-          if (Gi.isValidScrollSetting(n)) return void (this._scroll = n);
-        }
-        throw new SyntaxError("An invalid or illegal string was specified.");
-      }
-      get viewportAnchorX() {
-        return this._viewportAnchorX;
-      }
-      set viewportAnchorX(e) {
-        if (!Gi.isValidPercentValue(e))
-          throw new TypeError("ViewportAnchorX must be between 0 and 100.");
-        this._viewportAnchorX = e;
-      }
-      get viewportAnchorY() {
-        return this._viewportAnchorY;
-      }
-      set viewportAnchorY(e) {
-        if (!Gi.isValidPercentValue(e))
-          throw new TypeError("ViewportAnchorY must be between 0 and 100.");
-        this._viewportAnchorY = e;
-      }
-      get width() {
-        return this._width;
-      }
-      set width(e) {
-        if (!Gi.isValidPercentValue(e))
-          throw new TypeError("Width must be between 0 and 100.");
-        this._lines = e;
-      }
-      toJSON() {
-        const e = {};
-        return (
-          Object.keys(this).forEach((n) => {
-            this.hasOwnProperty(n) && (e[n] = this[n]);
-          }),
-          e
-        );
-      }
-      static create(e) {
-        const n = new this();
-        return (
-          Object.keys(e).forEach((d) => {
-            n.hasOwnProperty(d) && (n[d] = e[d]);
-          }),
-          n
-        );
-      }
-      static fromJSON(e) {
-        return this.create(JSON.parse(e));
-      }
-      constructor() {
-        (this._id = ""),
-          (this._lines = 3),
-          (this._regionAnchorX = 0),
-          (this._regionAnchorY = 100),
-          (this._scroll = ""),
-          (this._viewportAnchorX = 0),
-          (this._viewportAnchorY = 100),
-          (this._width = 100);
-      }
-    };
-    (p = d(
-      [
-        function (e) {
-          let n = e;
-          "undefined" != typeof window &&
-            null != window.VTTRegion &&
-            ((n = window.VTTRegion),
-            (n.create = e.create),
-            (n.fromJSON = e.fromJSON),
-            (n.prototype.toJSON = e.prototype.toJSON));
-          return n;
-        },
-      ],
-      p,
-    )),
-      (n.VTTRegion = p);
-  });
-  unwrapExports(Wi), Wi.VTTRegion;
-  var zi = createCommonjsModule(function (e, n) {
-    Object.defineProperty(n, "__esModule", { value: !0 });
-  });
-  unwrapExports(zi);
-  var Yi = createCommonjsModule(function (e, n) {
-    var d =
-        (Vi && Vi.__createBinding) ||
-        (Object.create
-          ? function (e, n, d, p) {
-              void 0 === p && (p = d),
-                Object.defineProperty(e, p, {
-                  enumerable: !0,
-                  get: function () {
-                    return n[d];
-                  },
-                });
-            }
-          : function (e, n, d, p) {
-              void 0 === p && (p = d), (e[p] = n[d]);
-            }),
-      p =
-        (Vi && Vi.__exportStar) ||
-        function (e, n) {
-          for (var p in e) "default" === p || n.hasOwnProperty(p) || d(n, e, p);
-        };
-    Object.defineProperty(n, "__esModule", { value: !0 }),
-      (n.VTTRegion = n.VTTCue = n.WebVTTParser = n.ParsingError = void 0),
-      Object.defineProperty(n, "VTTCue", {
-        enumerable: !0,
-        get: function () {
-          return qi.VTTCue;
-        },
-      }),
-      Object.defineProperty(n, "VTTRegion", {
-        enumerable: !0,
-        get: function () {
-          return Wi.VTTRegion;
-        },
-      });
-    class ParsingError extends Error {
-      constructor(e, n) {
-        super(),
-          (this.name = "ParsingError"),
-          (this.code = "number" == typeof e ? e : e.code),
-          n
-            ? (this.message = n)
-            : e instanceof ParsingError && (this.message = e.message);
-      }
-    }
-    (n.ParsingError = ParsingError),
-      (ParsingError.Errors = {
-        BadSignature: new ParsingError(0, "Malformed WebVTT signature."),
-        BadTimeStamp: new ParsingError(1, "Malformed time stamp."),
-      });
-    class Settings {
-      set(e, n) {
-        this.get(e) || "" === n || (this.values[e] = n);
-      }
-      get(e, n, d) {
-        return "object" == typeof n && "string" == typeof d
-          ? this.has(e)
-            ? this.values[e]
-            : n[d]
-          : this.has(e)
-            ? this.values[e]
-            : n;
-      }
-      has(e) {
-        return e in this.values;
-      }
-      alt(e, n, d) {
-        for (let p = 0; p < d.length; ++p)
-          if (n === d[p]) {
-            this.set(e, n);
-            break;
-          }
-      }
-      integer(e, n) {
-        /^-?\d+$/.test(n) && this.set(e, parseInt(n, 10));
-      }
-      percent(e, n) {
-        if (n.match(/^([\d]{1,3})(\.[\d]*)?%$/))
-          try {
-            const d = parseFloat(n);
-            if (d >= 0 && d <= 100) return this.set(e, d), !0;
-          } catch (d) {
-            return !1;
-          }
-        return !1;
-      }
-      constructor() {
-        this.values = {};
-      }
-    }
-    class WebVTTParser {
-      static StringDecoder() {
-        return {
-          decode: (e) => {
-            if (!e) return "";
-            if ("string" != typeof e)
-              throw new Error("Error - expected string data.");
-            return decodeURIComponent(encodeURIComponent(e));
-          },
-        };
-      }
-      reportOrThrowError(e) {
-        if (
-          !(
-            e instanceof ParsingError &&
-            "function" == typeof this.onparsingerror
+  var qi =
+    ((function (e, n) {
+      var d =
+        (Vi && Vi.__decorate) ||
+        function (e, n, d, p) {
+          var h,
+            y = arguments.length,
+            _ =
+              y < 3
+                ? n
+                : null === p
+                  ? (p = Object.getOwnPropertyDescriptor(n, d))
+                  : p;
+          if (
+            "object" == typeof Reflect &&
+            "function" == typeof Reflect.decorate
           )
-        )
-          throw e;
-        this.onparsingerror(e);
-      }
-      parseOptions(e, n, d, p) {
-        const h = p ? e.split(p) : [e];
-        for (const y of h) {
-          if ("string" != typeof y) continue;
-          const e = y.split(d);
-          if (2 !== e.length) continue;
-          n(e[0], e[1]);
+            _ = Reflect.decorate(e, n, d, p);
+          else
+            for (var m = e.length - 1; m >= 0; m--)
+              (h = e[m]) &&
+                (_ = (y < 3 ? h(_) : y > 3 ? h(n, d, _) : h(n, d)) || _);
+          return y > 3 && _ && Object.defineProperty(n, d, _), _;
+        };
+      Object.defineProperty(n, "__esModule", { value: true }),
+        (n.VTTCue = undefined);
+      let p = class {
+        get id() {
+          return this._id;
         }
-      }
-      parseCue(e, n, d) {
-        const p = e,
-          consumeTimeStamp = () => {
-            const n = Hi.default.parseTimeStamp(e);
-            if (null === n)
-              throw new ParsingError(
-                ParsingError.Errors.BadTimeStamp,
-                "Malformed timestamp: " + p,
-              );
-            return (e = e.replace(/^[^\sa-zA-Z-]+/, "")), n;
-          },
-          skipWhitespace = () => {
-            e = e.replace(/^\s+/, "");
-          };
-        if (
-          (skipWhitespace(),
-          (n.startTime = consumeTimeStamp()),
-          skipWhitespace(),
-          "--\x3e" !== e.substr(0, 3))
-        )
-          throw new ParsingError(
-            ParsingError.Errors.BadTimeStamp,
-            "Malformed time stamp (time stamps must be separated by '--\x3e'): " +
-              p,
-          );
-        (e = e.substr(3)),
-          skipWhitespace(),
-          (n.endTime = consumeTimeStamp()),
-          skipWhitespace(),
-          ((e, n) => {
-            const p = new Settings();
-            this.parseOptions(
-              e,
-              (e, n) => {
-                let h, y;
-                switch (e) {
-                  case "region":
-                    for (let h = d.length - 1; h >= 0; h--)
-                      if (d[h].id === n) {
-                        p.set(e, d[h].region);
-                        break;
-                      }
-                    break;
-                  case "vertical":
-                    p.alt(e, n, ["rl", "lr"]);
-                    break;
-                  case "line":
-                    (h = n.split(",")),
-                      (y = h[0]),
-                      p.integer(e, y),
-                      p.percent(e, y) && p.set("snapToLines", !1),
-                      p.alt(e, y, ["auto"]),
-                      2 === h.length &&
-                        p.alt("lineAlign", h[1], [
-                          "start",
-                          "middle",
-                          "center",
-                          "end",
-                        ]);
-                    break;
-                  case "position":
-                    if (
-                      ((h = n.split(",")), p.percent(e, h[0]), 2 === h.length)
-                    ) {
-                      let e = [
-                        "line-left",
-                        "line-right",
-                        "center",
-                        "auto",
-                        "left",
-                        "start",
-                        "middle",
-                        "end",
-                        "right",
-                      ];
-                      p.alt("positionAlign", h[1], e);
-                    }
-                    break;
-                  case "size":
-                    p.percent(e, n);
-                    break;
-                  case "align":
-                    let _ = [
-                      "start",
-                      "center",
-                      "end",
-                      "left",
-                      "right",
-                      "middle",
-                    ];
-                    p.alt(e, n, _);
-                }
-              },
-              /:/,
-              /\s/,
-            ),
-              (n.region = p.get("region", null)),
-              (n.vertical = p.get("vertical", "")),
-              (n.line = p.get("line", void 0 === n.line ? "auto" : n.line));
-            const h = p.get("lineAlign", "start");
-            (n.lineAlign =
-              "center" === h || "middle" === h ? this.middleOrCenter : h),
-              (n.snapToLines = p.get("snapToLines", !0)),
-              (n.size = p.get("size", 100));
-            const y = p.get("align", "center");
-            (n.align =
-              "center" === y || "middle" === y ? this.middleOrCenter : y),
-              (n.position = p.get("position", "auto"));
-            let _ = p.get(
-              "positionAlign",
-              {
-                start: "start",
-                left: "start",
-                center: "center",
-                middle: "middle",
-                right: "end",
-                end: "end",
-              },
-              n.align,
+        set id(e) {
+          this._id = "" + e;
+        }
+        get pauseOnExit() {
+          return this._pauseOnExit;
+        }
+        set pauseOnExit(e) {
+          this._pauseOnExit = !!e;
+        }
+        get startTime() {
+          return this._startTime;
+        }
+        set startTime(e) {
+          if ("number" != typeof e)
+            throw new TypeError("Start time must be set to a number: " + e);
+          (this._startTime = e), (this.hasBeenReset = true);
+        }
+        get endTime() {
+          return this._endTime;
+        }
+        set endTime(e) {
+          if ("number" != typeof e)
+            throw new TypeError("End time must be set to a number: " + e);
+          (this._endTime = e), (this.hasBeenReset = true);
+        }
+        get text() {
+          return this._text;
+        }
+        set text(e) {
+          (this._text = "" + e), (this.hasBeenReset = true);
+        }
+        get region() {
+          return this._region;
+        }
+        set region(e) {
+          (this._region = e), (this.hasBeenReset = true);
+        }
+        get vertical() {
+          return this._vertical;
+        }
+        set vertical(e) {
+          if (!Gi.isValidDirectionSetting(e))
+            throw new SyntaxError(
+              "An invalid or illegal string was specified for vertical: " + e,
             );
-            n.positionAlign =
-              "center" === _ || "middle" === _
-                ? this.middleOrCenter
-                : {
-                    start: "start",
-                    "line-left": "start",
-                    left: "start",
-                    center: "center",
-                    middle: "middle",
-                    "line-right": "end",
-                    right: "end",
-                    end: "end",
-                  }[_];
-          })(e, n);
-      }
-      parseRegion(e) {
-        const n = new Settings();
-        if (
-          (this.parseOptions(
-            e,
-            (e, d) => {
-              switch (e) {
-                case "id":
-                  n.set(e, d);
-                  break;
-                case "width":
-                  n.percent(e, d);
-                  break;
-                case "lines":
-                  n.integer(e, d);
-                  break;
-                case "regionanchor":
-                case "viewportanchor": {
-                  const p = d.split(",");
-                  if (2 !== p.length) break;
-                  const h = new Settings();
-                  if (
-                    (h.percent("x", p[0]),
-                    h.percent("y", p[1]),
-                    !h.has("x") || !h.has("y"))
-                  )
-                    break;
-                  n.set(e + "X", h.get("x")), n.set(e + "Y", h.get("y"));
-                  break;
-                }
-                case "scroll":
-                  n.alt(e, d, ["up"]);
-              }
-            },
-            /=/,
-            /\s/,
-          ),
-          n.has("id"))
-        ) {
-          const e = new Wi.VTTRegion();
-          (e.width = n.get("width", 100)),
-            (e.lines = n.get("lines", 3)),
-            (e.regionAnchorX = n.get("regionanchorX", 0)),
-            (e.regionAnchorY = n.get("regionanchorY", 100)),
-            (e.viewportAnchorX = n.get("viewportanchorX", 0)),
-            (e.viewportAnchorY = n.get("viewportanchorY", 100)),
-            (e.scroll = n.get("scroll", "")),
-            this.onregion && this.onregion(e),
-            this.regionList.push({ id: n.get("id"), region: e });
+          (this._vertical = e), (this.hasBeenReset = true);
         }
-      }
-      parseStyle(e) {
-        const parseStyles = (e) => {
-            const n = {},
-              d = e.split(";");
-            for (let p = 0; p < d.length; p++)
-              if (d[p].includes(":")) {
-                const e = d[p].split(":", 2),
-                  h = e[0].trim(),
-                  y = e[1].trim();
-                "" !== h && "" !== y && (n[h] = y);
-              }
+        get snapToLines() {
+          return this._snapToLines;
+        }
+        set snapToLines(e) {
+          (this._snapToLines = !!e), (this.hasBeenReset = true);
+        }
+        get line() {
+          return this._line;
+        }
+        set line(e) {
+          if (!Gi.isValidLineAndPositionSetting(e))
+            throw new SyntaxError(
+              "An invalid number or illegal string was specified for line: " +
+                e,
+            );
+          (this._line = e), (this.hasBeenReset = true);
+        }
+        get lineAlign() {
+          return this._lineAlign;
+        }
+        set lineAlign(e) {
+          if (!Gi.isValidLineAlignSetting(e))
+            throw new SyntaxError(
+              "An invalid or illegal string was specified for lineAlign: " + e,
+            );
+          (this._lineAlign = e), (this.hasBeenReset = true);
+        }
+        get position() {
+          return this._position;
+        }
+        set position(e) {
+          if (!Gi.isValidLineAndPositionSetting(e))
+            throw new Error("Position must be between 0 and 100 or auto: " + e);
+          (this._position = e), (this.hasBeenReset = true);
+        }
+        get positionAlign() {
+          return this._positionAlign;
+        }
+        set positionAlign(e) {
+          if (!Gi.isValidPositionAlignSetting(e))
+            throw new SyntaxError(
+              "An invalid or illegal string was specified for positionAlign: " +
+                e,
+            );
+          (this._positionAlign = e), (this.hasBeenReset = true);
+        }
+        get size() {
+          return this._size;
+        }
+        set size(e) {
+          if (e < 0 || e > 100)
+            throw new Error("Size must be between 0 and 100: " + e);
+          (this._size = e), (this.hasBeenReset = true);
+        }
+        get align() {
+          return this._align;
+        }
+        set align(e) {
+          if (!Gi.isValidAlignSetting(e))
+            throw new SyntaxError(
+              "An invalid or illegal string was specified for align: " + e,
+            );
+          (this._align = e), (this.hasBeenReset = true);
+        }
+        getCueAsHTML() {
+          return Hi.default.parseContent(window, this, {});
+        }
+        static create(e) {
+          if (
+            !e.hasOwnProperty("startTime") ||
+            !e.hasOwnProperty("endTime") ||
+            !e.hasOwnProperty("text")
+          )
+            throw new Error(
+              "You must at least have start time, end time, and text.",
+            );
+          const n = new this(e.startTime, e.endTime, e.text);
+          return (
+            Object.keys(e).forEach((d) => {
+              n.hasOwnProperty(d) && (n[d] = e[d]);
+            }),
+            n
+          );
+        }
+        static fromJSON(e) {
+          return this.create(JSON.parse(e));
+        }
+        toJSON() {
+          const e = {};
+          return (
+            Object.keys(this).forEach((n) => {
+              this.hasOwnProperty(n) &&
+                "getCueAsHTML" !== n &&
+                "hasBeenReset" !== n &&
+                "displayState" !== n &&
+                (e[n] = this[n]);
+            }),
+            e
+          );
+        }
+        constructor(e, n, d) {
+          (this._id = ""),
+            (this._pauseOnExit = false),
+            (this._region = null),
+            (this._vertical = ""),
+            (this._snapToLines = true),
+            (this._line = "auto"),
+            (this._lineAlign = "start"),
+            (this._position = "auto"),
+            (this._positionAlign = "auto"),
+            (this._size = 100),
+            (this._align = "center"),
+            (this.hasBeenReset = false),
+            (this._startTime = e),
+            (this._endTime = n),
+            (this._text = d);
+        }
+      };
+      (p = d(
+        [
+          function (e) {
+            let n = e;
+            "undefined" != typeof window &&
+              null != window.VTTCue &&
+              ((n = window.VTTCue),
+              (n.create = e.create),
+              (n.fromJSON = e.fromJSON),
+              (n.prototype.toJSON = e.prototype.toJSON));
             return n;
           },
-          n = e.split("}");
-        n.pop();
-        for (const d of n) {
-          let e = null,
-            n = null;
-          const p = d.split("{");
-          p[0] && (e = p[0].trim()),
-            p[1] && (n = parseStyles(p[1])),
-            e && n && (this._styles[e] = n);
+        ],
+        p,
+      )),
+        (n.VTTCue = p);
+    })((n = { exports: {} }), n.exports),
+    n.exports);
+  unwrapExports(qi), qi.VTTCue;
+  var Wi =
+    ((function (e, n) {
+      var d =
+        (Vi && Vi.__decorate) ||
+        function (e, n, d, p) {
+          var h,
+            y = arguments.length,
+            _ =
+              y < 3
+                ? n
+                : null === p
+                  ? (p = Object.getOwnPropertyDescriptor(n, d))
+                  : p;
+          if (
+            "object" == typeof Reflect &&
+            "function" == typeof Reflect.decorate
+          )
+            _ = Reflect.decorate(e, n, d, p);
+          else
+            for (var m = e.length - 1; m >= 0; m--)
+              (h = e[m]) &&
+                (_ = (y < 3 ? h(_) : y > 3 ? h(n, d, _) : h(n, d)) || _);
+          return y > 3 && _ && Object.defineProperty(n, d, _), _;
+        };
+      Object.defineProperty(n, "__esModule", { value: true }),
+        (n.VTTRegion = undefined);
+      let p = class {
+        get id() {
+          return this._id;
         }
-        this.onStylesParsedCallback &&
-          this.onStylesParsedCallback(this._styles);
-      }
-      parseHeader(e) {
-        this.parseOptions(
-          e,
-          function (e, n) {
-            switch (e) {
-              case "Region":
-                this.parseRegion(n);
-            }
+        set id(e) {
+          if ("string" != typeof e) throw new Error("ID must be a string.");
+          this._id = e;
+        }
+        get lines() {
+          return this._lines;
+        }
+        set lines(e) {
+          if ("number" != typeof e)
+            throw new TypeError("Lines must be set to a number.");
+          this._lines = e;
+        }
+        get regionAnchorX() {
+          return this._regionAnchorX;
+        }
+        set regionAnchorX(e) {
+          if (!Gi.isValidPercentValue(e))
+            throw new TypeError("RegionAnchorX must be between 0 and 100.");
+          this._regionAnchorX = e;
+        }
+        get regionAnchorY() {
+          return this._regionAnchorY;
+        }
+        set regionAnchorY(e) {
+          if (!Gi.isValidPercentValue(e))
+            throw new TypeError("RegionAnchorY must be between 0 and 100.");
+          this._regionAnchorY = e;
+        }
+        get scroll() {
+          return this._scroll;
+        }
+        set scroll(e) {
+          if ("string" == typeof e) {
+            const n = e.toLowerCase();
+            if (Gi.isValidScrollSetting(n)) return void (this._scroll = n);
+          }
+          throw new SyntaxError("An invalid or illegal string was specified.");
+        }
+        get viewportAnchorX() {
+          return this._viewportAnchorX;
+        }
+        set viewportAnchorX(e) {
+          if (!Gi.isValidPercentValue(e))
+            throw new TypeError("ViewportAnchorX must be between 0 and 100.");
+          this._viewportAnchorX = e;
+        }
+        get viewportAnchorY() {
+          return this._viewportAnchorY;
+        }
+        set viewportAnchorY(e) {
+          if (!Gi.isValidPercentValue(e))
+            throw new TypeError("ViewportAnchorY must be between 0 and 100.");
+          this._viewportAnchorY = e;
+        }
+        get width() {
+          return this._width;
+        }
+        set width(e) {
+          if (!Gi.isValidPercentValue(e))
+            throw new TypeError("Width must be between 0 and 100.");
+          this._lines = e;
+        }
+        toJSON() {
+          const e = {};
+          return (
+            Object.keys(this).forEach((n) => {
+              this.hasOwnProperty(n) && (e[n] = this[n]);
+            }),
+            e
+          );
+        }
+        static create(e) {
+          const n = new this();
+          return (
+            Object.keys(e).forEach((d) => {
+              n.hasOwnProperty(d) && (n[d] = e[d]);
+            }),
+            n
+          );
+        }
+        static fromJSON(e) {
+          return this.create(JSON.parse(e));
+        }
+        constructor() {
+          (this._id = ""),
+            (this._lines = 3),
+            (this._regionAnchorX = 0),
+            (this._regionAnchorY = 100),
+            (this._scroll = ""),
+            (this._viewportAnchorX = 0),
+            (this._viewportAnchorY = 100),
+            (this._width = 100);
+        }
+      };
+      (p = d(
+        [
+          function (e) {
+            let n = e;
+            "undefined" != typeof window &&
+              null != window.VTTRegion &&
+              ((n = window.VTTRegion),
+              (n.create = e.create),
+              (n.fromJSON = e.fromJSON),
+              (n.prototype.toJSON = e.prototype.toJSON));
+            return n;
           },
-          /:/,
-        );
-      }
-      parse(e) {
-        e && (this.buffer += this.decoder.decode(e, { stream: !0 }));
-        const collectNextLine = () => {
-          const e = this.buffer;
-          let n = 0;
-          const calculateBreakPosition = (e, n) => {
-            const d = { start: -1, length: -1 };
-            if ("\r" === e[n]) (d.start = n), (d.length = 1);
-            else if ("\n" === e[n]) (d.start = n), (d.length = 1);
-            else if (
-              "<" === e[n] &&
-              n + 1 < e.length &&
-              "b" === e[n + 1] &&
-              n + 2 < e.length &&
-              "r" === e[n + 2]
-            ) {
-              let p = n + 2;
-              for (; p < e.length && ">" !== e[p++]; );
-              (d.start = n), (d.length = p - n);
-            }
-            return d;
+        ],
+        p,
+      )),
+        (n.VTTRegion = p);
+    })((n = { exports: {} }), n.exports),
+    n.exports);
+  unwrapExports(Wi), Wi.VTTRegion;
+  var zi =
+    ((function (e, n) {
+      Object.defineProperty(n, "__esModule", { value: true });
+    })((n = { exports: {} }), n.exports),
+    n.exports);
+  unwrapExports(zi);
+  var Yi =
+    ((function (e, n) {
+      var d =
+          (Vi && Vi.__createBinding) ||
+          (Object.create
+            ? function (e, n, d, p) {
+                undefined === p && (p = d),
+                  Object.defineProperty(e, p, {
+                    enumerable: true,
+                    get: function () {
+                      return n[d];
+                    },
+                  });
+              }
+            : function (e, n, d, p) {
+                undefined === p && (p = d), (e[p] = n[d]);
+              }),
+        p =
+          (Vi && Vi.__exportStar) ||
+          function (e, n) {
+            for (var p in e)
+              "default" === p || n.hasOwnProperty(p) || d(n, e, p);
           };
-          let d = { start: e.length, length: 0 };
-          for (; n < e.length; ) {
-            const p = calculateBreakPosition(e, n);
-            if (p.length > 0) {
-              d = p;
+      Object.defineProperty(n, "__esModule", { value: true }),
+        (n.VTTRegion = n.VTTCue = n.WebVTTParser = n.ParsingError = undefined),
+        Object.defineProperty(n, "VTTCue", {
+          enumerable: true,
+          get: function () {
+            return qi.VTTCue;
+          },
+        }),
+        Object.defineProperty(n, "VTTRegion", {
+          enumerable: true,
+          get: function () {
+            return Wi.VTTRegion;
+          },
+        });
+      class ParsingError extends Error {
+        constructor(e, n) {
+          super(),
+            (this.name = "ParsingError"),
+            (this.code = "number" == typeof e ? e : e.code),
+            n
+              ? (this.message = n)
+              : e instanceof ParsingError && (this.message = e.message);
+        }
+      }
+      (n.ParsingError = ParsingError),
+        (ParsingError.Errors = {
+          BadSignature: new ParsingError(0, "Malformed WebVTT signature."),
+          BadTimeStamp: new ParsingError(1, "Malformed time stamp."),
+        });
+      class Settings {
+        set(e, n) {
+          this.get(e) || "" === n || (this.values[e] = n);
+        }
+        get(e, n, d) {
+          return "object" == typeof n && "string" == typeof d
+            ? this.has(e)
+              ? this.values[e]
+              : n[d]
+            : this.has(e)
+              ? this.values[e]
+              : n;
+        }
+        has(e) {
+          return e in this.values;
+        }
+        alt(e, n, d) {
+          for (let p = 0; p < d.length; ++p)
+            if (n === d[p]) {
+              this.set(e, n);
               break;
             }
-            ++n;
-          }
-          const p = e.substr(0, d.start);
-          return (this.buffer = e.substr(d.start + d.length)), p;
-        };
-        try {
-          let e;
-          if ("INITIAL" === this.state) {
-            if (!/\r\n|\n/.test(this.buffer)) return this;
-            (this.alreadyCollectedLine = ""), (e = collectNextLine());
-            const n = /^(ï»¿)?WEBVTT([ \t].*)?$/.exec(e);
-            if (!n || !n[0])
-              throw new ParsingError(ParsingError.Errors.BadSignature);
-            this.state = "HEADER";
-          }
-          for (; this.buffer; ) {
-            if (!/\r\n|\n/.test(this.buffer)) return this;
-            switch (
-              (this.alreadyCollectedLine
-                ? ((e = this.alreadyCollectedLine),
-                  (this.alreadyCollectedLine = ""))
-                : (e = collectNextLine()),
-              this.state)
-            ) {
-              case "HEADER":
-                e.includes(":")
-                  ? this.parseHeader(e)
-                  : e || (this.state = "ID");
-                continue;
-              case "NOTE":
-                e || (this.state = "ID");
-                continue;
-              case "STYLE":
-                e
-                  ? (this.styleCollector += e)
-                  : (this.parseStyle(this.styleCollector),
-                    (this.state = "ID"),
-                    (this.styleCollector = ""));
-                continue;
-              case "ID":
-                if (/^NOTE($|[ \t])/.test(e)) {
-                  this.state = "NOTE";
-                  break;
-                }
-                if (/^STYLE($|[ \t])/.test(e)) {
-                  this.state = "STYLE";
-                  break;
-                }
-                if (!e) continue;
-                if (
-                  ((this.cue = new qi.VTTCue(0, 0, "")),
-                  (this.state = "CUE"),
-                  !e.includes("--\x3e"))
-                ) {
-                  this.cue.id = e;
-                  continue;
-                }
-              case "CUE":
-                try {
-                  this.parseCue(e, this.cue, this.regionList);
-                } catch (Vt) {
-                  this.reportOrThrowError(Vt),
-                    (this.cue = null),
-                    (this.state = "BADCUE");
-                  continue;
-                }
-                this.state = "CUETEXT";
-                continue;
-              case "CUETEXT": {
-                const n = e.includes("--\x3e");
-                if (!e || n) {
-                  (this.alreadyCollectedLine = e),
-                    this.oncue && this.oncue(this.cue),
-                    (this.cue = null),
-                    (this.state = "ID");
-                  continue;
-                }
-                this.cue.text && (this.cue.text += "\n"), (this.cue.text += e);
-                continue;
-              }
-              case "BADCUE":
-                e || (this.state = "ID");
-                continue;
-            }
-          }
-        } catch (Vt) {
-          this.reportOrThrowError(Vt),
-            "CUETEXT" === this.state &&
-              this.cue &&
-              this.oncue &&
-              this.oncue(this.cue),
-            (this.cue = null),
-            (this.state = "INITIAL" === this.state ? "BADWEBVTT" : "BADCUE");
         }
-        return this;
+        integer(e, n) {
+          /^-?\d+$/.test(n) && this.set(e, parseInt(n, 10));
+        }
+        percent(e, n) {
+          if (n.match(/^([\d]{1,3})(\.[\d]*)?%$/))
+            try {
+              const d = parseFloat(n);
+              if (d >= 0 && d <= 100) return this.set(e, d), true;
+            } catch (d) {
+              return false;
+            }
+          return false;
+        }
+        constructor() {
+          this.values = {};
+        }
       }
-      flush() {
-        try {
+      class WebVTTParser {
+        static StringDecoder() {
+          return {
+            decode: (e) => {
+              if (!e) return "";
+              if ("string" != typeof e)
+                throw new Error("Error - expected string data.");
+              return decodeURIComponent(encodeURIComponent(e));
+            },
+          };
+        }
+        reportOrThrowError(e) {
           if (
-            ((this.buffer += this.decoder.decode()),
-            (this.cue || "HEADER" === this.state) &&
-              ((this.buffer += "\n\n"), this.parse()),
-            "INITIAL" === this.state)
+            !(
+              e instanceof ParsingError &&
+              "function" == typeof this.onparsingerror
+            )
           )
-            throw new ParsingError(ParsingError.Errors.BadSignature);
-        } catch (Vt) {
-          this.reportOrThrowError(Vt);
+            throw e;
+          this.onparsingerror(e);
         }
-        return this.onflush && this.onflush(), this;
-      }
-      styles() {
-        return this._styles;
-      }
-      constructor(e, n, d) {
-        (this.window = e),
-          (this.state = "INITIAL"),
-          (this.styleCollector = ""),
-          (this.buffer = ""),
-          (this.decoder = n || new TextDecoder("utf8")),
-          (this.regionList = []),
-          (this.alreadyCollectedLine = ""),
-          (this.onStylesParsedCallback = d),
-          (this._styles = {}),
-          (this.middleOrCenter = "center");
-        const p = new qi.VTTCue(0, 0, "middleOrCenter");
-        try {
-          (p.align = "center"),
-            "center" !== p.align && (this.middleOrCenter = "middle");
-        } catch (Vt) {
-          this.middleOrCenter = "middle";
-        }
-      }
-    }
-    (n.default = WebVTTParser), (n.WebVTTParser = WebVTTParser), p(zi, n);
-  });
-  unwrapExports(Yi), Yi.VTTRegion, Yi.VTTCue, Yi.WebVTTParser, Yi.ParsingError;
-  var Qi = createCommonjsModule(function (e, n) {
-    var d =
-        (Vi && Vi.__createBinding) ||
-        (Object.create
-          ? function (e, n, d, p) {
-              void 0 === p && (p = d),
-                Object.defineProperty(e, p, {
-                  enumerable: !0,
-                  get: function () {
-                    return n[d];
-                  },
-                });
-            }
-          : function (e, n, d, p) {
-              void 0 === p && (p = d), (e[p] = n[d]);
-            }),
-      p =
-        (Vi && Vi.__exportStar) ||
-        function (e, n) {
-          for (var p in e) "default" === p || n.hasOwnProperty(p) || d(n, e, p);
-        };
-    Object.defineProperty(n, "__esModule", { value: !0 }),
-      (n.VTTCue =
-        n.WebVTTRenderer =
-        n.BoxPosition =
-        n.CueStyleBox =
-        n.StyleBox =
-          void 0),
-      Object.defineProperty(n, "VTTCue", {
-        enumerable: !0,
-        get: function () {
-          return qi.VTTCue;
-        },
-      });
-    const h = [
-        /^(::cue\()(\..*)(\))/,
-        /^(::cue\()(#.*)(\))/,
-        /^(::cue\()(c|i|b|u|ruby|rt|v|lang)(\))/,
-      ],
-      y = [
-        [1470, 1470],
-        [1472, 1472],
-        [1475, 1475],
-        [1478, 1478],
-        [1488, 1514],
-        [1520, 1524],
-        [1544, 1544],
-        [1547, 1547],
-        [1549, 1549],
-        [1563, 1563],
-        [1566, 1610],
-        [1645, 1647],
-        [1649, 1749],
-        [1765, 1766],
-        [1774, 1775],
-        [1786, 1805],
-        [1807, 1808],
-        [1810, 1839],
-        [1869, 1957],
-        [1969, 1969],
-        [1984, 2026],
-        [2036, 2037],
-        [2042, 2042],
-        [2048, 2069],
-        [2074, 2074],
-        [2084, 2084],
-        [2088, 2088],
-        [2096, 2110],
-        [2112, 2136],
-        [2142, 2142],
-        [2208, 2208],
-        [2210, 2220],
-        [8207, 8207],
-        [64285, 64285],
-        [64287, 64296],
-        [64298, 64310],
-        [64312, 64316],
-        [64318, 64318],
-        [64320, 64321],
-        [64323, 64324],
-        [64326, 64449],
-        [64467, 64829],
-        [64848, 64911],
-        [64914, 64967],
-        [65008, 65020],
-        [65136, 65140],
-        [65142, 65276],
-        [67584, 67589],
-        [67592, 67592],
-        [67594, 67637],
-        [67639, 67640],
-        [67644, 67644],
-        [67647, 67669],
-        [67671, 67679],
-        [67840, 67867],
-        [67872, 67897],
-        [67903, 67903],
-        [67968, 68023],
-        [68030, 68031],
-        [68096, 68096],
-        [68112, 68115],
-        [68117, 68119],
-        [68121, 68147],
-        [68160, 68167],
-        [68176, 68184],
-        [68192, 68223],
-        [68352, 68405],
-        [68416, 68437],
-        [68440, 68466],
-        [68472, 68479],
-        [68608, 68680],
-        [126464, 126467],
-        [126469, 126495],
-        [126497, 126498],
-        [126500, 126500],
-        [126503, 126503],
-        [126505, 126514],
-        [126516, 126519],
-        [126521, 126521],
-        [126523, 126523],
-        [126530, 126530],
-        [126535, 126535],
-        [126537, 126537],
-        [126539, 126539],
-        [126541, 126543],
-        [126545, 126546],
-        [126548, 126548],
-        [126551, 126551],
-        [126553, 126553],
-        [126555, 126555],
-        [126557, 126557],
-        [126559, 126559],
-        [126561, 126562],
-        [126564, 126564],
-        [126567, 126570],
-        [126572, 126578],
-        [126580, 126583],
-        [126585, 126588],
-        [126590, 126590],
-        [126592, 126601],
-        [126603, 126619],
-        [126625, 126627],
-        [126629, 126633],
-        [126635, 126651],
-        [1114109, 1114109],
-      ];
-    class StyleBox {
-      applyStyles(e, n) {
-        n = n || this.div;
-        for (const d in e) e.hasOwnProperty(d) && (n.style[d] = e[d]);
-      }
-      formatStyle(e, n) {
-        return 0 === e ? "0" : e + n;
-      }
-    }
-    n.StyleBox = StyleBox;
-    class CueStyleBox extends StyleBox {
-      determineBidi(e) {
-        let n,
-          d = [],
-          p = "";
-        if (!e || !e.childNodes) return "ltr";
-        function pushNodes(e, n) {
-          for (let d = n.childNodes.length - 1; d >= 0; d--)
-            e.push(n.childNodes[d]);
-        }
-        function nextTextNode(e) {
-          if (!e || !e.length) return null;
-          let n = e.pop(),
-            d = n.textContent || n.innerText;
-          if (d) {
-            const n = /^.*(\n|\r)/.exec(d);
-            return n ? ((e.length = 0), n[0]) : d;
+        parseOptions(e, n, d, p) {
+          const h = p ? e.split(p) : [e];
+          for (const y of h) {
+            if ("string" != typeof y) continue;
+            const e = y.split(d);
+            if (2 !== e.length) continue;
+            n(e[0], e[1]);
           }
-          return "ruby" === n.tagName
-            ? nextTextNode(e)
-            : n.childNodes
-              ? (pushNodes(e, n), nextTextNode(e))
-              : void 0;
         }
-        function isContainedInCharacterList(e, n) {
-          for (const d of n) if (e >= d[0] && e <= d[1]) return !0;
-          return !1;
+        parseCue(e, n, d) {
+          const p = e,
+            consumeTimeStamp = () => {
+              const n = Hi.default.parseTimeStamp(e);
+              if (null === n)
+                throw new ParsingError(
+                  ParsingError.Errors.BadTimeStamp,
+                  "Malformed timestamp: " + p,
+                );
+              return (e = e.replace(/^[^\sa-zA-Z-]+/, "")), n;
+            },
+            skipWhitespace = () => {
+              e = e.replace(/^\s+/, "");
+            };
+          if (
+            (skipWhitespace(),
+            (n.startTime = consumeTimeStamp()),
+            skipWhitespace(),
+            "-->" !== e.substr(0, 3))
+          )
+            throw new ParsingError(
+              ParsingError.Errors.BadTimeStamp,
+              "Malformed time stamp (time stamps must be separated by '-->'): " +
+                p,
+            );
+          (e = e.substr(3)),
+            skipWhitespace(),
+            (n.endTime = consumeTimeStamp()),
+            skipWhitespace(),
+            ((e, n) => {
+              const p = new Settings();
+              this.parseOptions(
+                e,
+                (e, n) => {
+                  let h, y;
+                  switch (e) {
+                    case "region":
+                      for (let h = d.length - 1; h >= 0; h--)
+                        if (d[h].id === n) {
+                          p.set(e, d[h].region);
+                          break;
+                        }
+                      break;
+                    case "vertical":
+                      p.alt(e, n, ["rl", "lr"]);
+                      break;
+                    case "line":
+                      (h = n.split(",")),
+                        (y = "allow-forms"),
+                        p.integer(e, y),
+                        p.percent(e, y) && p.set("snapToLines", false),
+                        p.alt(e, y, ["auto"]),
+                        2 === h.length &&
+                          p.alt("lineAlign", "allow-popups", [
+                            "start",
+                            "middle",
+                            "center",
+                            "end",
+                          ]);
+                      break;
+                    case "position":
+                      if (
+                        ((h = n.split(",")),
+                        p.percent(e, "allow-forms"),
+                        2 === h.length)
+                      ) {
+                        let e = [
+                          "line-left",
+                          "line-right",
+                          "center",
+                          "auto",
+                          "left",
+                          "start",
+                          "middle",
+                          "end",
+                          "right",
+                        ];
+                        p.alt("positionAlign", "allow-popups", e);
+                      }
+                      break;
+                    case "size":
+                      p.percent(e, n);
+                      break;
+                    case "align":
+                      let _ = [
+                        "start",
+                        "center",
+                        "end",
+                        "left",
+                        "right",
+                        "middle",
+                      ];
+                      p.alt(e, n, _);
+                  }
+                },
+                /:/,
+                /\s/,
+              ),
+                (n.region = p.get("region", null)),
+                (n.vertical = p.get("vertical", "")),
+                (n.line = p.get(
+                  "line",
+                  undefined === n.line ? "auto" : n.line,
+                ));
+              const h = p.get("lineAlign", "start");
+              (n.lineAlign =
+                "center" === h || "middle" === h ? this.middleOrCenter : h),
+                (n.snapToLines = p.get("snapToLines", true)),
+                (n.size = p.get("size", 100));
+              const y = p.get("align", "center");
+              (n.align =
+                "center" === y || "middle" === y ? this.middleOrCenter : y),
+                (n.position = p.get("position", "auto"));
+              let _ = p.get(
+                "positionAlign",
+                {
+                  start: "start",
+                  left: "start",
+                  center: "center",
+                  middle: "middle",
+                  right: "end",
+                  end: "end",
+                },
+                n.align,
+              );
+              n.positionAlign =
+                "center" === _ || "middle" === _
+                  ? this.middleOrCenter
+                  : {
+                      start: "start",
+                      "line-left": "start",
+                      left: "start",
+                      center: "center",
+                      middle: "middle",
+                      "line-right": "end",
+                      right: "end",
+                      end: "end",
+                    }[_];
+            })(e, n);
         }
-        for (pushNodes(d, e); (p = nextTextNode(d)); )
-          for (let e = 0; e < p.length; e++)
-            if (((n = p.charCodeAt(e)), isContainedInCharacterList(n, y)))
-              return "rtl";
-        return "ltr";
-      }
-      parseOpacity(e) {
-        if (!e || "string" != typeof e) return null;
-        const n = (e = e
-          .replace(/ /g, "")
-          .replace("rgba(", "")
-          .replace(")", "")).split(",");
-        return n && n.length >= 4 ? n[3] : null;
-      }
-      directionSettingToWritingMode(e) {
-        return "" === e
-          ? "horizontal-tb"
-          : "lr" === e
-            ? "vertical-lr"
-            : "vertical-rl";
-      }
-      move(e) {
-        this.applyStyles({
-          top: this.formatStyle(e.top, "px"),
-          bottom: this.formatStyle(e.bottom, "px"),
-          left: this.formatStyle(e.left, "px"),
-          right: this.formatStyle(e.right, "px"),
-          height: this.formatStyle(e.height, "px"),
-          width: this.formatStyle(e.width, "px"),
-        });
-      }
-      constructor(e, n, d, p, h) {
-        super(), (this.cue = n);
-        let y =
-          {
-            start: "left",
-            "line-left": "left",
-            left: "left",
-            center: "center",
-            middle: "center",
-            "line-right": "right",
-            right: "right",
-            end: "right",
-          }[n.positionAlign] || n.align;
-        "middle" === y && (y = "center");
-        let _ = { textAlign: y, whiteSpace: "pre-line", position: "absolute" };
-        (_.direction = this.determineBidi(this.cueDiv)),
-          (_.writingMode = this.directionSettingToWritingMode(n.vertical)),
-          (_.unicodeBidi = "plaintext"),
-          (this.div = e.document.createElement("div")),
-          this.applyStyles(_),
-          (_ = { backgroundColor: p.backgroundColor, display: "inline-block" }),
-          this.parseOpacity(_.backgroundColor) &&
-            ((_.padding = "5px"), (_.borderRadius = "5px")),
-          (this.backgroundDiv = e.document.createElement("div")),
-          this.applyStyles(_, this.backgroundDiv),
-          (_ = {
-            color: d.color,
-            backgroundColor: d.backgroundColor,
-            textShadow: d.textShadow,
-            fontSize: d.fontSize,
-            fontFamily: d.fontFamily,
-            position: "relative",
-            left: "0",
-            right: "0",
-            top: "0",
-            bottom: "0",
-            display: "inline-block",
-            textOrientation: "upright",
-          }),
-          (_.writingMode = this.directionSettingToWritingMode(n.vertical)),
-          (_.unicodeBidi = "plaintext"),
-          (this.cueDiv = Hi.default.parseContent(e, n, h)),
-          this.applyStyles(_, this.cueDiv),
-          this.backgroundDiv.appendChild(this.cueDiv),
-          this.div.appendChild(this.backgroundDiv);
-        let m = 0;
-        if ("number" == typeof n.position) {
-          let e = n.positionAlign || n.align;
-          if (e)
-            switch (e) {
-              case "start":
-              case "left":
-                m = n.position;
+        parseRegion(e) {
+          const n = new Settings();
+          if (
+            (this.parseOptions(
+              e,
+              (e, d) => {
+                switch (e) {
+                  case "id":
+                    n.set(e, d);
+                    break;
+                  case "width":
+                    n.percent(e, d);
+                    break;
+                  case "lines":
+                    n.integer(e, d);
+                    break;
+                  case "regionanchor":
+                  case "viewportanchor": {
+                    const p = d.split(",");
+                    if (2 !== p.length) break;
+                    const h = new Settings();
+                    if (
+                      (h.percent("x", p[0]),
+                      h.percent("y", p[1]),
+                      !h.has("x") || !h.has("y"))
+                    )
+                      break;
+                    n.set(e + "X", h.get("x")), n.set(e + "Y", h.get("y"));
+                    break;
+                  }
+                  case "scroll":
+                    n.alt(e, d, ["up"]);
+                }
+              },
+              /=/,
+              /\s/,
+            ),
+            n.has("id"))
+          ) {
+            const e = new Wi.VTTRegion();
+            (e.width = n.get("width", 100)),
+              (e.lines = n.get("lines", 3)),
+              (e.regionAnchorX = n.get("regionanchorX", 0)),
+              (e.regionAnchorY = n.get("regionanchorY", 100)),
+              (e.viewportAnchorX = n.get("viewportanchorX", 0)),
+              (e.viewportAnchorY = n.get("viewportanchorY", 100)),
+              (e.scroll = n.get("scroll", "")),
+              this.onregion && this.onregion(e),
+              this.regionList.push({ id: n.get("id"), region: e });
+          }
+        }
+        parseStyle(e) {
+          const parseStyles = (e) => {
+              const n = {},
+                d = e.split(";");
+              for (let p = 0; p < d.length; p++)
+                if (d[p].includes(":")) {
+                  const e = d[p].split(":", 2),
+                    h = e[0].trim(),
+                    y = e[1].trim();
+                  "" !== h && "" !== y && (n[h] = y);
+                }
+              return n;
+            },
+            n = e.split("}");
+          n.pop();
+          for (const d of n) {
+            let e = null,
+              n = null;
+            const p = d.split("{");
+            p[0] && (e = p[0].trim()),
+              p[1] && (n = parseStyles(p[1])),
+              e && n && (this._styles[e] = n);
+          }
+          this.onStylesParsedCallback &&
+            this.onStylesParsedCallback(this._styles);
+        }
+        parseHeader(e) {
+          this.parseOptions(
+            e,
+            function (e, n) {
+              switch (e) {
+                case "Region":
+                  this.parseRegion(n);
+              }
+            },
+            /:/,
+          );
+        }
+        parse(e) {
+          e && (this.buffer += this.decoder.decode(e, { stream: true }));
+          const collectNextLine = () => {
+            const e = this.buffer;
+            let n = 0;
+            const calculateBreakPosition = (e, n) => {
+              const d = { start: -1, length: -1 };
+              if ("\r" === e[n]) (d.start = n), (d.length = 1);
+              else if ("\n" === e[n]) (d.start = n), (d.length = 1);
+              else if (
+                "<" === e[n] &&
+                n + 1 < e.length &&
+                "b" === e[n + 1] &&
+                n + 2 < e.length &&
+                "r" === e[n + 2]
+              ) {
+                let p = n + 2;
+                for (; p < e.length && ">" !== e[p++]; );
+                (d.start = n), (d.length = p - n);
+              }
+              return d;
+            };
+            let d = { start: e.length, length: 0 };
+            for (; n < e.length; ) {
+              const p = calculateBreakPosition(e, n);
+              if (p.length > 0) {
+                d = p;
                 break;
+              }
+              ++n;
+            }
+            const p = e.substr(0, d.start);
+            return (this.buffer = e.substr(d.start + d.length)), p;
+          };
+          try {
+            let e;
+            if ("INITIAL" === this.state) {
+              if (!/\r\n|\n/.test(this.buffer)) return this;
+              (this.alreadyCollectedLine = ""), (e = collectNextLine());
+              const n = /^(ï»¿)?WEBVTT([ \t].*)?$/.exec(e);
+              if (!n || !n[0])
+                throw new ParsingError(ParsingError.Errors.BadSignature);
+              this.state = "HEADER";
+            }
+            for (; this.buffer; ) {
+              if (!/\r\n|\n/.test(this.buffer)) return this;
+              switch (
+                (this.alreadyCollectedLine
+                  ? ((e = this.alreadyCollectedLine),
+                    (this.alreadyCollectedLine = ""))
+                  : (e = collectNextLine()),
+                this.state)
+              ) {
+                case "HEADER":
+                  e.includes(":")
+                    ? this.parseHeader(e)
+                    : e || (this.state = "ID");
+                  continue;
+                case "NOTE":
+                  e || (this.state = "ID");
+                  continue;
+                case "STYLE":
+                  e
+                    ? (this.styleCollector += e)
+                    : (this.parseStyle(this.styleCollector),
+                      (this.state = "ID"),
+                      (this.styleCollector = ""));
+                  continue;
+                case "ID":
+                  if (/^NOTE($|[ \t])/.test(e)) {
+                    this.state = "NOTE";
+                    break;
+                  }
+                  if (/^STYLE($|[ \t])/.test(e)) {
+                    this.state = "STYLE";
+                    break;
+                  }
+                  if (!e) continue;
+                  if (
+                    ((this.cue = new qi.VTTCue(0, 0, "")),
+                    (this.state = "CUE"),
+                    !e.includes("-->"))
+                  ) {
+                    this.cue.id = e;
+                    continue;
+                  }
+                case "CUE":
+                  try {
+                    this.parseCue(e, this.cue, this.regionList);
+                  } catch (Vt) {
+                    this.reportOrThrowError(Vt),
+                      (this.cue = null),
+                      (this.state = "BADCUE");
+                    continue;
+                  }
+                  this.state = "CUETEXT";
+                  continue;
+                case "CUETEXT": {
+                  const n = e.includes("-->");
+                  if (!e || n) {
+                    (this.alreadyCollectedLine = e),
+                      this.oncue && this.oncue(this.cue),
+                      (this.cue = null),
+                      (this.state = "ID");
+                    continue;
+                  }
+                  this.cue.text && (this.cue.text += "\n"),
+                    (this.cue.text += e);
+                  continue;
+                }
+                case "BADCUE":
+                  e || (this.state = "ID");
+                  continue;
+              }
+            }
+          } catch (Vt) {
+            this.reportOrThrowError(Vt),
+              "CUETEXT" === this.state &&
+                this.cue &&
+                this.oncue &&
+                this.oncue(this.cue),
+              (this.cue = null),
+              (this.state = "INITIAL" === this.state ? "BADWEBVTT" : "BADCUE");
+          }
+          return this;
+        }
+        flush() {
+          try {
+            if (
+              ((this.buffer += this.decoder.decode()),
+              (this.cue || "HEADER" === this.state) &&
+                ((this.buffer += "\n\n"), this.parse()),
+              "INITIAL" === this.state)
+            )
+              throw new ParsingError(ParsingError.Errors.BadSignature);
+          } catch (Vt) {
+            this.reportOrThrowError(Vt);
+          }
+          return this.onflush && this.onflush(), this;
+        }
+        styles() {
+          return this._styles;
+        }
+        constructor(e, n, d) {
+          (this.window = e),
+            (this.state = "INITIAL"),
+            (this.styleCollector = ""),
+            (this.buffer = ""),
+            (this.decoder = n || new TextDecoder("utf8")),
+            (this.regionList = []),
+            (this.alreadyCollectedLine = ""),
+            (this.onStylesParsedCallback = d),
+            (this._styles = {}),
+            (this.middleOrCenter = "center");
+          const p = new qi.VTTCue(0, 0, "middleOrCenter");
+          try {
+            (p.align = "center"),
+              "center" !== p.align && (this.middleOrCenter = "middle");
+          } catch (Vt) {
+            this.middleOrCenter = "middle";
+          }
+        }
+      }
+      (n.default = WebVTTParser), (n.WebVTTParser = WebVTTParser), p(zi, n);
+    })((n = { exports: {} }), n.exports),
+    n.exports);
+  unwrapExports(Yi), Yi.VTTRegion, Yi.VTTCue, Yi.WebVTTParser, Yi.ParsingError;
+  var Qi =
+    ((function (e, n) {
+      var d =
+          (Vi && Vi.__createBinding) ||
+          (Object.create
+            ? function (e, n, d, p) {
+                undefined === p && (p = d),
+                  Object.defineProperty(e, p, {
+                    enumerable: true,
+                    get: function () {
+                      return n[d];
+                    },
+                  });
+              }
+            : function (e, n, d, p) {
+                undefined === p && (p = d), (e[p] = n[d]);
+              }),
+        p =
+          (Vi && Vi.__exportStar) ||
+          function (e, n) {
+            for (var p in e)
+              "default" === p || n.hasOwnProperty(p) || d(n, e, p);
+          };
+      Object.defineProperty(n, "__esModule", { value: true }),
+        (n.VTTCue =
+          n.WebVTTRenderer =
+          n.BoxPosition =
+          n.CueStyleBox =
+          n.StyleBox =
+            undefined),
+        Object.defineProperty(n, "VTTCue", {
+          enumerable: true,
+          get: function () {
+            return qi.VTTCue;
+          },
+        });
+      const h = [
+          /^(::cue\()(\..*)(\))/,
+          /^(::cue\()(#.*)(\))/,
+          /^(::cue\()(c|i|b|u|ruby|rt|v|lang)(\))/,
+        ],
+        y = [
+          [1470, 1470],
+          [1472, 1472],
+          [1475, 1475],
+          [1478, 1478],
+          [1488, 1514],
+          [1520, 1524],
+          [1544, 1544],
+          [1547, 1547],
+          [1549, 1549],
+          [1563, 1563],
+          [1566, 1610],
+          [1645, 1647],
+          [1649, 1749],
+          [1765, 1766],
+          [1774, 1775],
+          [1786, 1805],
+          [1807, 1808],
+          [1810, 1839],
+          [1869, 1957],
+          [1969, 1969],
+          [1984, 2026],
+          [2036, 2037],
+          [2042, 2042],
+          [2048, 2069],
+          [2074, 2074],
+          [2084, 2084],
+          [2088, 2088],
+          [2096, 2110],
+          [2112, 2136],
+          [2142, 2142],
+          [2208, 2208],
+          [2210, 2220],
+          [8207, 8207],
+          [64285, 64285],
+          [64287, 64296],
+          [64298, 64310],
+          [64312, 64316],
+          [64318, 64318],
+          [64320, 64321],
+          [64323, 64324],
+          [64326, 64449],
+          [64467, 64829],
+          [64848, 64911],
+          [64914, 64967],
+          [65008, 65020],
+          [65136, 65140],
+          [65142, 65276],
+          [67584, 67589],
+          [67592, 67592],
+          [67594, 67637],
+          [67639, 67640],
+          [67644, 67644],
+          [67647, 67669],
+          [67671, 67679],
+          [67840, 67867],
+          [67872, 67897],
+          [67903, 67903],
+          [67968, 68023],
+          [68030, 68031],
+          [68096, 68096],
+          [68112, 68115],
+          [68117, 68119],
+          [68121, 68147],
+          [68160, 68167],
+          [68176, 68184],
+          [68192, 68223],
+          [68352, 68405],
+          [68416, 68437],
+          [68440, 68466],
+          [68472, 68479],
+          [68608, 68680],
+          [126464, 126467],
+          [126469, 126495],
+          [126497, 126498],
+          [126500, 126500],
+          [126503, 126503],
+          [126505, 126514],
+          [126516, 126519],
+          [126521, 126521],
+          [126523, 126523],
+          [126530, 126530],
+          [126535, 126535],
+          [126537, 126537],
+          [126539, 126539],
+          [126541, 126543],
+          [126545, 126546],
+          [126548, 126548],
+          [126551, 126551],
+          [126553, 126553],
+          [126555, 126555],
+          [126557, 126557],
+          [126559, 126559],
+          [126561, 126562],
+          [126564, 126564],
+          [126567, 126570],
+          [126572, 126578],
+          [126580, 126583],
+          [126585, 126588],
+          [126590, 126590],
+          [126592, 126601],
+          [126603, 126619],
+          [126625, 126627],
+          [126629, 126633],
+          [126635, 126651],
+          [1114109, 1114109],
+        ];
+      class StyleBox {
+        applyStyles(e, n) {
+          n = n || this.div;
+          for (const d in e) e.hasOwnProperty(d) && (n.style[d] = e[d]);
+        }
+        formatStyle(e, n) {
+          return 0 === e ? "0" : e + n;
+        }
+      }
+      n.StyleBox = StyleBox;
+      class CueStyleBox extends StyleBox {
+        determineBidi(e) {
+          let n,
+            d = [],
+            p = "";
+          if (!e || !e.childNodes) return "ltr";
+          function pushNodes(e, n) {
+            for (let d = n.childNodes.length - 1; d >= 0; d--)
+              e.push(n.childNodes[d]);
+          }
+          function nextTextNode(e) {
+            if (!e || !e.length) return null;
+            let n = e.pop(),
+              d = n.textContent || n.innerText;
+            if (d) {
+              const n = /^.*(\n|\r)/.exec(d);
+              return n ? ((e.length = 0), n[0]) : d;
+            }
+            return "ruby" === n.tagName
+              ? nextTextNode(e)
+              : n.childNodes
+                ? (pushNodes(e, n), nextTextNode(e))
+                : undefined;
+          }
+          function isContainedInCharacterList(e, n) {
+            for (const d of n) if (e >= d[0] && e <= d[1]) return true;
+            return false;
+          }
+          for (pushNodes(d, e); (p = nextTextNode(d)); )
+            for (let e = 0; e < p.length; e++)
+              if (((n = p.charCodeAt(e)), isContainedInCharacterList(n, y)))
+                return "rtl";
+          return "ltr";
+        }
+        parseOpacity(e) {
+          if (!e || "string" != typeof e) return null;
+          const n = (e = e
+            .replace(/ /g, "")
+            .replace("rgba(", "")
+            .replace(")", "")).split(",");
+          return n && n.length >= 4 ? n[3] : null;
+        }
+        directionSettingToWritingMode(e) {
+          return "" === e
+            ? "horizontal-tb"
+            : "lr" === e
+              ? "vertical-lr"
+              : "vertical-rl";
+        }
+        move(e) {
+          this.applyStyles({
+            top: this.formatStyle(e.top, "px"),
+            bottom: this.formatStyle(e.bottom, "px"),
+            left: this.formatStyle(e.left, "px"),
+            right: this.formatStyle(e.right, "px"),
+            height: this.formatStyle(e.height, "px"),
+            width: this.formatStyle(e.width, "px"),
+          });
+        }
+        constructor(e, n, d, p, h) {
+          super(), (this.cue = n);
+          let y =
+            {
+              start: "left",
+              "line-left": "left",
+              left: "left",
+              center: "center",
+              middle: "center",
+              "line-right": "right",
+              right: "right",
+              end: "right",
+            }[n.positionAlign] || n.align;
+          "middle" === y && (y = "center");
+          let _ = {
+            textAlign: y,
+            whiteSpace: "pre-line",
+            position: "absolute",
+          };
+          (_.direction = this.determineBidi(this.cueDiv)),
+            (_.writingMode = this.directionSettingToWritingMode(n.vertical)),
+            (_.unicodeBidi = "plaintext"),
+            (this.div = e.document.createElement("div")),
+            this.applyStyles(_),
+            (_ = {
+              backgroundColor: p.backgroundColor,
+              display: "inline-block",
+            }),
+            this.parseOpacity(_.backgroundColor) &&
+              ((_.padding = "5px"), (_.borderRadius = "5px")),
+            (this.backgroundDiv = e.document.createElement("div")),
+            this.applyStyles(_, this.backgroundDiv),
+            (_ = {
+              color: d.color,
+              backgroundColor: d.backgroundColor,
+              textShadow: d.textShadow,
+              fontSize: d.fontSize,
+              fontFamily: d.fontFamily,
+              position: "relative",
+              left: "0",
+              right: "0",
+              top: "0",
+              bottom: "0",
+              display: "inline-block",
+              textOrientation: "upright",
+            }),
+            (_.writingMode = this.directionSettingToWritingMode(n.vertical)),
+            (_.unicodeBidi = "plaintext"),
+            (this.cueDiv = Hi.default.parseContent(e, n, h)),
+            this.applyStyles(_, this.cueDiv),
+            this.backgroundDiv.appendChild(this.cueDiv),
+            this.div.appendChild(this.backgroundDiv);
+          let m = 0;
+          if ("number" == typeof n.position) {
+            let e = n.positionAlign || n.align;
+            if (e)
+              switch (e) {
+                case "start":
+                case "left":
+                  m = n.position;
+                  break;
+                case "center":
+                case "middle":
+                  m = n.position - n.size / 2;
+                  break;
+                case "end":
+                case "right":
+                  m = n.position - n.size;
+              }
+          }
+          "" === n.vertical
+            ? this.applyStyles({
+                left: this.formatStyle(m, "%"),
+                width: this.formatStyle(n.size, "%"),
+              })
+            : this.applyStyles({
+                top: this.formatStyle(m, "%"),
+                height: this.formatStyle(n.size, "%"),
+              });
+        }
+      }
+      n.CueStyleBox = CueStyleBox;
+      class BoxPosition {
+        calculateNewLines(e) {
+          let n = 1;
+          for (let d = 0; d < e.length; d++) "\n" === e[d] && n++;
+          return n;
+        }
+        move(e, n) {
+          switch (((n = undefined !== n ? n : this.singleLineHeight), e)) {
+            case "+x":
+              (this.left += n), (this.right += n);
+              break;
+            case "-x":
+              (this.left -= n), (this.right -= n);
+              break;
+            case "+y":
+              (this.top += n), (this.bottom += n);
+              break;
+            case "-y":
+              (this.top -= n), (this.bottom -= n);
+          }
+        }
+        overlaps(e) {
+          return (
+            this.left < e.right &&
+            this.right > e.left &&
+            this.top < e.bottom &&
+            this.bottom > e.top
+          );
+        }
+        overlapsAny(e) {
+          for (const n of e) if (this.overlaps(n)) return true;
+          return false;
+        }
+        within(e) {
+          return (
+            this.top >= e.top &&
+            this.bottom <= e.bottom &&
+            this.left >= e.left &&
+            this.right <= e.right
+          );
+        }
+        moveIfOutOfBounds(e, n) {
+          switch (n) {
+            case "+x":
+              this.left < e.left &&
+                ((this.left = e.left), (this.right = this.left + this.width));
+              break;
+            case "-x":
+              this.right > e.right &&
+                ((this.right = e.right), (this.left = this.right - this.width));
+              break;
+            case "+y":
+              this.top < e.top &&
+                ((this.top = e.top), (this.bottom = this.top + this.height));
+              break;
+            case "-y":
+              this.bottom > e.bottom &&
+                ((this.bottom = e.bottom),
+                (this.top = this.bottom - this.height));
+          }
+        }
+        toCSSCompatValues(e) {
+          return {
+            top: this.top - e.top,
+            bottom: e.bottom - this.bottom,
+            left: this.left - e.left,
+            right: e.right - this.right,
+            height: this.height,
+            width: this.width,
+          };
+        }
+        static getSimpleBoxPosition(e) {
+          let n = null;
+          e instanceof StyleBox && e.div
+            ? (n = e.div)
+            : e instanceof HTMLElement && (n = e);
+          let d = n.offsetHeight || 0,
+            p = n.offsetWidth || 0,
+            h = n.offsetTop || 0,
+            y = h + d,
+            _ = n.getBoundingClientRect();
+          const { left: m, right: g } = _;
+          return (
+            _.top && (h = _.top),
+            _.height && (d = _.height),
+            _.width && (p = _.width),
+            _.bottom && (y = _.bottom),
+            { left: m, right: g, top: h, height: d, bottom: y, width: p }
+          );
+        }
+        static getBoxPosition(e, n) {
+          if (e && e.length > 0) {
+            let d = 0,
+              p = e[0][n];
+            for (let h = 0; h < e.length; h++)
+              n in ["top", "right"]
+                ? e[h][n] > p && ((d = h), (p = e[h][n]))
+                : n in ["bottom", "left"] &&
+                  e[h][n] < p &&
+                  ((d = h), (p = e[h][n]));
+            return e[d];
+          }
+          return null;
+        }
+        static moveToMinimumDistancePlacement(e, n, d) {
+          "height" === e.property
+            ? "+y" === n
+              ? ((e.top = d.topMostBoxPosition.bottom + 0),
+                (e.bottom = e.top + e.height))
+              : "-y" === n &&
+                ((e.bottom = d.bottomMostBoxPosition.top - 0),
+                (e.top = e.bottom - e.height))
+            : "width" === e.property &&
+              ("+x" === n
+                ? ((e.left = d.rightMostBoxPosition.right + 0),
+                  (e.right = e.left + e.width))
+                : "-x" === n &&
+                  ((e.right = d.leftMostBoxPosition.left - 0),
+                  (e.left = e.right - e.width)));
+        }
+        static moveBoxToLinePosition(e, n, d) {
+          const p = e.cue;
+          let h,
+            y = new BoxPosition(e),
+            _ = (function (e) {
+              if (
+                "number" == typeof e.line &&
+                (e.snapToLines || (e.line >= 0 && e.line <= 100))
+              )
+                return e.line;
+              if (
+                !e.track ||
+                !e.track.textTrackList ||
+                !e.track.textTrackList.mediaElement
+              )
+                return -1;
+              let n = 0;
+              const d = e.track,
+                p = d.textTrackList;
+              for (let h = 0; h < p.length && p[h] !== d; h++)
+                "showing" === p[h].mode && n++;
+              return -1 * ++n;
+            })(p),
+            m = [];
+          if (p.snapToLines) {
+            let e = 0;
+            switch (p.vertical) {
+              case "":
+                (m = ["+y", "-y"]), (h = "height");
+                break;
+              case "rl":
+                (m = ["+x", "-x"]), (h = "width");
+                break;
+              case "lr":
+                (m = ["-x", "+x"]), (h = "width");
+            }
+            const d = y.lineHeight,
+              g = n[h] + d,
+              b = m[0];
+            if (_ < 0) {
+              let h = 0;
+              switch (p.vertical) {
+                case "":
+                  h = n.height - d - 0.05 * n.height;
+                  break;
+                case "rl":
+                case "lr":
+                  h = -n.width + d + 0.05 * n.width;
+              }
+              (e = h), (m = m.reverse());
+            } else {
+              switch (p.vertical) {
+                case "":
+                  e = d * Math.round(_);
+                  break;
+                case "rl":
+                  e = n.width - d * Math.round(_);
+                  break;
+                case "lr":
+                  e = d * Math.round(_);
+              }
+              Math.abs(e) > g &&
+                ((e = e < 0 ? -1 : 1), (e *= Math.ceil(g / d) * d));
+            }
+            y.move(b, e);
+          } else {
+            const d = "" === p.vertical ? n.height : n.width,
+              h = (y.lineHeight / d) * 100;
+            switch (p.lineAlign) {
               case "center":
               case "middle":
-                m = n.position - n.size / 2;
+                _ -= h / 2;
                 break;
               case "end":
-              case "right":
-                m = n.position - n.size;
+                _ -= h;
             }
-        }
-        "" === n.vertical
-          ? this.applyStyles({
-              left: this.formatStyle(m, "%"),
-              width: this.formatStyle(n.size, "%"),
-            })
-          : this.applyStyles({
-              top: this.formatStyle(m, "%"),
-              height: this.formatStyle(n.size, "%"),
-            });
-      }
-    }
-    n.CueStyleBox = CueStyleBox;
-    class BoxPosition {
-      calculateNewLines(e) {
-        let n = 1;
-        for (let d = 0; d < e.length; d++) "\n" === e[d] && n++;
-        return n;
-      }
-      move(e, n) {
-        switch (((n = void 0 !== n ? n : this.singleLineHeight), e)) {
-          case "+x":
-            (this.left += n), (this.right += n);
-            break;
-          case "-x":
-            (this.left -= n), (this.right -= n);
-            break;
-          case "+y":
-            (this.top += n), (this.bottom += n);
-            break;
-          case "-y":
-            (this.top -= n), (this.bottom -= n);
-        }
-      }
-      overlaps(e) {
-        return (
-          this.left < e.right &&
-          this.right > e.left &&
-          this.top < e.bottom &&
-          this.bottom > e.top
-        );
-      }
-      overlapsAny(e) {
-        for (const n of e) if (this.overlaps(n)) return !0;
-        return !1;
-      }
-      within(e) {
-        return (
-          this.top >= e.top &&
-          this.bottom <= e.bottom &&
-          this.left >= e.left &&
-          this.right <= e.right
-        );
-      }
-      moveIfOutOfBounds(e, n) {
-        switch (n) {
-          case "+x":
-            this.left < e.left &&
-              ((this.left = e.left), (this.right = this.left + this.width));
-            break;
-          case "-x":
-            this.right > e.right &&
-              ((this.right = e.right), (this.left = this.right - this.width));
-            break;
-          case "+y":
-            this.top < e.top &&
-              ((this.top = e.top), (this.bottom = this.top + this.height));
-            break;
-          case "-y":
-            this.bottom > e.bottom &&
-              ((this.bottom = e.bottom),
-              (this.top = this.bottom - this.height));
-        }
-      }
-      toCSSCompatValues(e) {
-        return {
-          top: this.top - e.top,
-          bottom: e.bottom - this.bottom,
-          left: this.left - e.left,
-          right: e.right - this.right,
-          height: this.height,
-          width: this.width,
-        };
-      }
-      static getSimpleBoxPosition(e) {
-        let n = null;
-        e instanceof StyleBox && e.div
-          ? (n = e.div)
-          : e instanceof HTMLElement && (n = e);
-        let d = n.offsetHeight || 0,
-          p = n.offsetWidth || 0,
-          h = n.offsetTop || 0,
-          y = h + d,
-          _ = n.getBoundingClientRect();
-        const { left: m, right: g } = _;
-        return (
-          _.top && (h = _.top),
-          _.height && (d = _.height),
-          _.width && (p = _.width),
-          _.bottom && (y = _.bottom),
-          { left: m, right: g, top: h, height: d, bottom: y, width: p }
-        );
-      }
-      static getBoxPosition(e, n) {
-        if (e && e.length > 0) {
-          let d = 0,
-            p = e[0][n];
-          for (let h = 0; h < e.length; h++)
-            n in ["top", "right"]
-              ? e[h][n] > p && ((d = h), (p = e[h][n]))
-              : n in ["bottom", "left"] &&
-                e[h][n] < p &&
-                ((d = h), (p = e[h][n]));
-          return e[d];
-        }
-        return null;
-      }
-      static moveToMinimumDistancePlacement(e, n, d) {
-        "height" === e.property
-          ? "+y" === n
-            ? ((e.top = d.topMostBoxPosition.bottom + 0),
-              (e.bottom = e.top + e.height))
-            : "-y" === n &&
-              ((e.bottom = d.bottomMostBoxPosition.top - 0),
-              (e.top = e.bottom - e.height))
-          : "width" === e.property &&
-            ("+x" === n
-              ? ((e.left = d.rightMostBoxPosition.right + 0),
-                (e.right = e.left + e.width))
-              : "-x" === n &&
-                ((e.right = d.leftMostBoxPosition.left - 0),
-                (e.left = e.right - e.width)));
-      }
-      static moveBoxToLinePosition(e, n, d) {
-        const p = e.cue;
-        let h,
-          y = new BoxPosition(e),
-          _ = (function (e) {
-            if (
-              "number" == typeof e.line &&
-              (e.snapToLines || (e.line >= 0 && e.line <= 100))
-            )
-              return e.line;
-            if (
-              !e.track ||
-              !e.track.textTrackList ||
-              !e.track.textTrackList.mediaElement
-            )
-              return -1;
-            let n = 0;
-            const d = e.track,
-              p = d.textTrackList;
-            for (let h = 0; h < p.length && p[h] !== d; h++)
-              "showing" === p[h].mode && n++;
-            return -1 * ++n;
-          })(p),
-          m = [];
-        if (p.snapToLines) {
-          let e = 0;
-          switch (p.vertical) {
-            case "":
-              (m = ["+y", "-y"]), (h = "height");
-              break;
-            case "rl":
-              (m = ["+x", "-x"]), (h = "width");
-              break;
-            case "lr":
-              (m = ["-x", "+x"]), (h = "width");
-          }
-          const d = y.lineHeight,
-            g = n[h] + d,
-            b = m[0];
-          if (_ < 0) {
-            let h = 0;
             switch (p.vertical) {
               case "":
-                h = n.height - d - 0.05 * n.height;
+                e.applyStyles({ top: e.formatStyle(_, "%") });
                 break;
               case "rl":
-              case "lr":
-                h = -n.width + d + 0.05 * n.width;
-            }
-            (e = h), (m = m.reverse());
-          } else {
-            switch (p.vertical) {
-              case "":
-                e = d * Math.round(_);
-                break;
-              case "rl":
-                e = n.width - d * Math.round(_);
+                e.applyStyles({ right: e.formatStyle(_, "%") });
                 break;
               case "lr":
-                e = d * Math.round(_);
+                e.applyStyles({ left: e.formatStyle(_, "%") });
             }
-            Math.abs(e) > g &&
-              ((e = e < 0 ? -1 : 1), (e *= Math.ceil(g / d) * d));
+            (m = ["+y", "-y", "+x", "-x"]),
+              "+y" === p.axis
+                ? (m = ["+y", "-y", "+x", "-x"])
+                : "-y" === p.axis && (m = ["-y", "+y", "+x", "-x"]),
+              (y = new BoxPosition(e));
           }
-          y.move(b, e);
-        } else {
-          const d = "" === p.vertical ? n.height : n.width,
-            h = (y.lineHeight / d) * 100;
-          switch (p.lineAlign) {
-            case "center":
-            case "middle":
-              _ -= h / 2;
-              break;
-            case "end":
-              _ -= h;
-          }
-          switch (p.vertical) {
-            case "":
-              e.applyStyles({ top: e.formatStyle(_, "%") });
-              break;
-            case "rl":
-              e.applyStyles({ right: e.formatStyle(_, "%") });
-              break;
-            case "lr":
-              e.applyStyles({ left: e.formatStyle(_, "%") });
-          }
-          (m = ["+y", "-y", "+x", "-x"]),
-            "+y" === p.axis
-              ? (m = ["+y", "-y", "+x", "-x"])
-              : "-y" === p.axis && (m = ["-y", "+y", "+x", "-x"]),
-            (y = new BoxPosition(e));
+          const g = (function (e, p) {
+            let h;
+            for (let y = 0; y < p.length; y++) {
+              e.moveIfOutOfBounds(n, p[y]);
+              let _ = 0,
+                m = false;
+              for (; e.overlapsAny(d) && !(_ > 9); )
+                m
+                  ? e.move(p[y])
+                  : (d &&
+                      d.length > 0 &&
+                      (h ||
+                        (h = {
+                          topMostBoxPosition: BoxPosition.getBoxPosition(
+                            d,
+                            "top",
+                          ),
+                          bottomMostBoxPosition: BoxPosition.getBoxPosition(
+                            d,
+                            "bottom",
+                          ),
+                          leftMostBoxPosition: BoxPosition.getBoxPosition(
+                            d,
+                            "left",
+                          ),
+                          rightMostBoxPosition: BoxPosition.getBoxPosition(
+                            d,
+                            "right",
+                          ),
+                        }),
+                      BoxPosition.moveToMinimumDistancePlacement(e, p[y], h)),
+                    (m = true)),
+                  _++;
+            }
+            return e;
+          })(y, m);
+          e.move(g.toCSSCompatValues(n));
         }
-        const g = (function (e, p) {
-          let h;
-          for (let y = 0; y < p.length; y++) {
-            e.moveIfOutOfBounds(n, p[y]);
-            let _ = 0,
-              m = !1;
-            for (; e.overlapsAny(d) && !(_ > 9); )
-              m
-                ? e.move(p[y])
-                : (d &&
-                    d.length > 0 &&
-                    (h ||
-                      (h = {
-                        topMostBoxPosition: BoxPosition.getBoxPosition(
-                          d,
-                          "top",
-                        ),
-                        bottomMostBoxPosition: BoxPosition.getBoxPosition(
-                          d,
-                          "bottom",
-                        ),
-                        leftMostBoxPosition: BoxPosition.getBoxPosition(
-                          d,
-                          "left",
-                        ),
-                        rightMostBoxPosition: BoxPosition.getBoxPosition(
-                          d,
-                          "right",
-                        ),
-                      }),
-                    BoxPosition.moveToMinimumDistancePlacement(e, p[y], h)),
-                  (m = !0)),
-                _++;
-          }
-          return e;
-        })(y, m);
-        e.move(g.toCSSCompatValues(n));
-      }
-      constructor(e) {
-        var n;
-        let d, p, h, y, _, m;
-        if (
-          (e instanceof CueStyleBox && e.cue
-            ? (n = e.cue) && "" !== n.vertical
-              ? (this.property = "width")
-              : (this.property = "height")
-            : e instanceof BoxPosition &&
-              (this.property = e.property || "height"),
-          e instanceof CueStyleBox && e.div)
-        ) {
-          (h = e.div.offsetHeight),
-            (y = e.div.offsetWidth),
-            (_ = e.div.offsetTop);
-          const n = e.div.firstChild;
+        constructor(e) {
+          var n;
+          let d, p, h, y, _, m;
           if (
-            ((m = n
-              ? n.getBoundingClientRect()
-              : e.div.getBoundingClientRect()),
-            (d = (m && m[this.property]) || null),
-            n && n.firstChild)
+            (e instanceof CueStyleBox && e.cue
+              ? (n = e.cue) && "" !== n.vertical
+                ? (this.property = "width")
+                : (this.property = "height")
+              : e instanceof BoxPosition &&
+                (this.property = e.property || "height"),
+            e instanceof CueStyleBox && e.div)
           ) {
-            const e = n.firstChild;
-            if (e && "string" == typeof e.textContent) {
-              p = d / this.calculateNewLines(e.textContent);
-            }
-          }
-        } else e instanceof BoxPosition && (m = e);
-        (this.left = m.left),
-          (this.right = m.right),
-          (this.top = m.top || _),
-          (this.height = m.height || h),
-          (this.bottom = m.bottom || _ + (m.height || h)),
-          (this.width = m.width || y),
-          (this.lineHeight = null !== d ? d : m.lineHeight),
-          (this.singleLineHeight = null !== p ? p : m.singleLineHeight),
-          this.singleLineHeight || (this.singleLineHeight = 41);
-      }
-    }
-    n.BoxPosition = BoxPosition;
-    class WebVTTRenderer {
-      initSubtitleCSS() {
-        const e = [
-          new qi.VTTCue(0, 0, "String to init CSS - Won't be visible to user"),
-        ];
-        (this.paddedOverlay.style.opacity = "0"),
-          this.processCues(e),
-          this.processCues([]),
-          (this.paddedOverlay.style.opacity = "1");
-      }
-      convertCueToDOMTree(e) {
-        return e
-          ? Hi.default.parseContent(this.window, e, this.globalStyleCollection)
-          : null;
-      }
-      setStyles(e) {
-        function applyStyles(e, n, d) {
-          for (const p in n)
-            n.hasOwnProperty(p) &&
-              ((!0 === d && void 0 !== e[p]) || !1 === d) &&
-              (e[p] = n[p]);
-        }
-        for (const n in e) {
-          let d = !1,
-            p = null;
-          "::cue" === n
-            ? ((p = this.foregroundStyleOptions), (d = !0))
-            : "::-webkit-media-text-track-display" === n &&
-              ((p = this.backgroundStyleOptions), (d = !0));
-          const y = e[n];
-          if (!0 === d) applyStyles(p, y, d);
-          else
-            for (let e = 0; e < h.length; e++) {
-              const p = h[e].exec(n);
-              if (p && 4 === p.length) {
-                const e = p[2],
-                  n = {};
-                applyStyles(n, y, d), (this.globalStyleCollection[e] = n);
+            (h = e.div.offsetHeight),
+              (y = e.div.offsetWidth),
+              (_ = e.div.offsetTop);
+            const n = e.div.firstChild;
+            if (
+              ((m = n
+                ? n.getBoundingClientRect()
+                : e.div.getBoundingClientRect()),
+              (d = (m && m[this.property]) || null),
+              n && n.firstChild)
+            ) {
+              const e = n.firstChild;
+              if (e && "string" == typeof e.textContent) {
+                p = d / this.calculateNewLines(e.textContent);
               }
             }
+          } else e instanceof BoxPosition && (m = e);
+          (this.left = m.left),
+            (this.right = m.right),
+            (this.top = m.top || _),
+            (this.height = m.height || h),
+            (this.bottom = m.bottom || _ + (m.height || h)),
+            (this.width = m.width || y),
+            (this.lineHeight = null !== d ? d : m.lineHeight),
+            (this.singleLineHeight = null !== p ? p : m.singleLineHeight),
+            this.singleLineHeight || (this.singleLineHeight = 41);
         }
-        this.initSubtitleCSS(),
-          this.loggingEnabled &&
-            (console.log(
-              "WebVTTRenderer setStyles foregroundStyleOptions: " +
-                JSON.stringify(this.foregroundStyleOptions),
-            ),
-            console.log(
-              "WebVTTRenderer setStyles backgroundStyleOptions: " +
-                JSON.stringify(this.backgroundStyleOptions),
-            ),
-            console.log(
-              "WebVTTRenderer setStyles globalStyleCollection: " +
-                JSON.stringify(this.globalStyleCollection),
-            ));
       }
-      processCues(e) {
-        if (!e) return;
-        for (; this.paddedOverlay.firstChild; )
-          this.paddedOverlay.removeChild(this.paddedOverlay.firstChild);
-        if (
-          !(function (e) {
+      n.BoxPosition = BoxPosition;
+      class WebVTTRenderer {
+        initSubtitleCSS() {
+          const e = [
+            new qi.VTTCue(
+              0,
+              0,
+              "String to init CSS - Won't be visible to user",
+            ),
+          ];
+          (this.paddedOverlay.style.opacity = "0"),
+            this.processCues(e),
+            this.processCues([]),
+            (this.paddedOverlay.style.opacity = "1");
+        }
+        convertCueToDOMTree(e) {
+          return e
+            ? Hi.default.parseContent(
+                this.window,
+                e,
+                this.globalStyleCollection,
+              )
+            : null;
+        }
+        setStyles(e) {
+          function applyStyles(e, n, d) {
+            for (const p in n)
+              n.hasOwnProperty(p) &&
+                ((true === d && undefined !== e[p]) || false === d) &&
+                (e[p] = n[p]);
+          }
+          for (const n in e) {
+            let d = false,
+              p = null;
+            "::cue" === n
+              ? ((p = this.foregroundStyleOptions), (d = true))
+              : "::-webkit-media-text-track-display" === n &&
+                ((p = this.backgroundStyleOptions), (d = true));
+            const y = e[n];
+            if (true === d) applyStyles(p, y, d);
+            else
+              for (let e = 0; e < h.length; e++) {
+                const p = h[e].exec(n);
+                if (p && 4 === p.length) {
+                  const e = p[2],
+                    n = {};
+                  applyStyles(n, y, d), (this.globalStyleCollection[e] = n);
+                }
+              }
+          }
+          this.initSubtitleCSS(),
+            this.loggingEnabled &&
+              (console.log(
+                "WebVTTRenderer setStyles foregroundStyleOptions: " +
+                  JSON.stringify(this.foregroundStyleOptions),
+              ),
+              console.log(
+                "WebVTTRenderer setStyles backgroundStyleOptions: " +
+                  JSON.stringify(this.backgroundStyleOptions),
+              ),
+              console.log(
+                "WebVTTRenderer setStyles globalStyleCollection: " +
+                  JSON.stringify(this.globalStyleCollection),
+              ));
+        }
+        processCues(e) {
+          if (!e) return;
+          for (; this.paddedOverlay.firstChild; )
+            this.paddedOverlay.removeChild(this.paddedOverlay.firstChild);
+          if (
+            !(function (e) {
+              for (let n = 0; n < e.length; n++)
+                if (e[n].hasBeenReset || !e[n].displayState) return true;
+              return false;
+            })(e)
+          ) {
             for (let n = 0; n < e.length; n++)
-              if (e[n].hasBeenReset || !e[n].displayState) return !0;
-            return !1;
-          })(e)
-        ) {
-          for (let n = 0; n < e.length; n++)
-            this.paddedOverlay.appendChild(e[n].displayState);
-          return;
+              this.paddedOverlay.appendChild(e[n].displayState);
+            return;
+          }
+          const n = [],
+            d = BoxPosition.getSimpleBoxPosition(this.paddedOverlay);
+          e.length > 1 &&
+            (e = (function (e) {
+              const n = [];
+              let d = 0;
+              for (let p = 0; p < e.length; p++) {
+                let h = e[p];
+                if ("number" != typeof h.line) return e;
+                (d += h.line), n.push(h);
+              }
+              return (
+                (d /= e.length),
+                d > 50
+                  ? (n.forEach(function (e) {
+                      e.axis = "-y";
+                    }),
+                    n.sort((e, n) => n.line - e.line))
+                  : (n.forEach(function (e) {
+                      e.axis = "+y";
+                    }),
+                    n.sort((e, n) => e.line - n.line)),
+                n
+              );
+            })(e));
+          for (let p = 0; p < e.length; p++) {
+            let h = e[p],
+              y = new CueStyleBox(
+                this.window,
+                h,
+                this.foregroundStyleOptions,
+                this.backgroundStyleOptions,
+                this.globalStyleCollection,
+              );
+            this.paddedOverlay.appendChild(y.div),
+              BoxPosition.moveBoxToLinePosition(y, d, n),
+              (h.displayState = y.div),
+              n.push(BoxPosition.getSimpleBoxPosition(y));
+          }
         }
-        const n = [],
-          d = BoxPosition.getSimpleBoxPosition(this.paddedOverlay);
-        e.length > 1 &&
-          (e = (function (e) {
-            const n = [];
-            let d = 0;
-            for (let p = 0; p < e.length; p++) {
-              let h = e[p];
-              if ("number" != typeof h.line) return e;
-              (d += h.line), n.push(h);
-            }
-            return (
-              (d /= e.length),
-              d > 50
-                ? (n.forEach(function (e) {
-                    e.axis = "-y";
-                  }),
-                  n.sort((e, n) => n.line - e.line))
-                : (n.forEach(function (e) {
-                    e.axis = "+y";
-                  }),
-                  n.sort((e, n) => e.line - n.line)),
-              n
-            );
-          })(e));
-        for (let p = 0; p < e.length; p++) {
-          let h = e[p],
-            y = new CueStyleBox(
-              this.window,
-              h,
-              this.foregroundStyleOptions,
-              this.backgroundStyleOptions,
-              this.globalStyleCollection,
-            );
-          this.paddedOverlay.appendChild(y.div),
-            BoxPosition.moveBoxToLinePosition(y, d, n),
-            (h.displayState = y.div),
-            n.push(BoxPosition.getSimpleBoxPosition(y));
+        setSize(e, n) {
+          e && (this.overlay.style.width = e + "px"),
+            n && (this.overlay.style.height = n + "px");
+        }
+        getOverlay() {
+          return this.overlay;
+        }
+        constructor(e, n, d = true) {
+          if (!e) return null;
+          (this.window = e),
+            (this.overlay = n),
+            (this.loggingEnabled = d),
+            (this.foregroundStyleOptions = {
+              fontFamily: "Helvetica",
+              fontSize: "36px",
+              color: "rgba(255, 255, 255, 1)",
+              textShadow: "",
+              backgroundColor: "rgba(0, 0, 0, 0)",
+            }),
+            (this.backgroundStyleOptions = {
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+            }),
+            (this.globalStyleCollection = {});
+          const p = e.document.createElement("div");
+          (p.style.position = "absolute"),
+            (p.style.left = "0"),
+            (p.style.right = "0"),
+            (p.style.top = "0"),
+            (p.style.bottom = "0"),
+            (p.style.margin = "1.5%"),
+            (this.paddedOverlay = p),
+            n.appendChild(this.paddedOverlay),
+            this.initSubtitleCSS();
         }
       }
-      setSize(e, n) {
-        e && (this.overlay.style.width = e + "px"),
-          n && (this.overlay.style.height = n + "px");
-      }
-      getOverlay() {
-        return this.overlay;
-      }
-      constructor(e, n, d = !0) {
-        if (!e) return null;
-        (this.window = e),
-          (this.overlay = n),
-          (this.loggingEnabled = d),
-          (this.foregroundStyleOptions = {
-            fontFamily: "Helvetica",
-            fontSize: "36px",
-            color: "rgba(255, 255, 255, 1)",
-            textShadow: "",
-            backgroundColor: "rgba(0, 0, 0, 0)",
-          }),
-          (this.backgroundStyleOptions = {
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-          }),
-          (this.globalStyleCollection = {});
-        const p = e.document.createElement("div");
-        (p.style.position = "absolute"),
-          (p.style.left = "0"),
-          (p.style.right = "0"),
-          (p.style.top = "0"),
-          (p.style.bottom = "0"),
-          (p.style.margin = "1.5%"),
-          (this.paddedOverlay = p),
-          n.appendChild(this.paddedOverlay),
-          this.initSubtitleCSS();
-      }
-    }
-    (n.default = WebVTTRenderer), (n.WebVTTRenderer = WebVTTRenderer), p(zi, n);
-  });
+      (n.default = WebVTTRenderer),
+        (n.WebVTTRenderer = WebVTTRenderer),
+        p(zi, n);
+    })((n = { exports: {} }), n.exports),
+    n.exports);
   unwrapExports(Qi),
     Qi.VTTCue,
     Qi.WebVTTRenderer,
     Qi.BoxPosition,
     Qi.CueStyleBox,
     Qi.StyleBox;
-  var Xi = createCommonjsModule(function (e, n) {
-    var d =
-        (Vi && Vi.__createBinding) ||
-        (Object.create
-          ? function (e, n, d, p) {
-              void 0 === p && (p = d),
-                Object.defineProperty(e, p, {
-                  enumerable: !0,
-                  get: function () {
-                    return n[d];
-                  },
-                });
-            }
-          : function (e, n, d, p) {
-              void 0 === p && (p = d), (e[p] = n[d]);
-            }),
-      p =
-        (Vi && Vi.__exportStar) ||
-        function (e, n) {
-          for (var p in e) "default" === p || n.hasOwnProperty(p) || d(n, e, p);
-        };
-    Object.defineProperty(n, "__esModule", { value: !0 }), p(Yi, n), p(Qi, n);
-  });
+  var Xi =
+    ((function (e, n) {
+      var d =
+          (Vi && Vi.__createBinding) ||
+          (Object.create
+            ? function (e, n, d, p) {
+                undefined === p && (p = d),
+                  Object.defineProperty(e, p, {
+                    enumerable: true,
+                    get: function () {
+                      return n[d];
+                    },
+                  });
+              }
+            : function (e, n, d, p) {
+                undefined === p && (p = d), (e[p] = n[d]);
+              }),
+        p =
+          (Vi && Vi.__exportStar) ||
+          function (e, n) {
+            for (var p in e)
+              "default" === p || n.hasOwnProperty(p) || d(n, e, p);
+          };
+      Object.defineProperty(n, "__esModule", { value: true }),
+        p(Yi, n),
+        p(Qi, n);
+    })((n = { exports: {} }), n.exports),
+    n.exports);
   unwrapExports(Xi);
   var Ji = Xi.WebVTTRenderer;
-  function isTextTrackID3FrameCue(e) {
-    return (
-      null != e &&
-      "string" == typeof e.id &&
-      void 0 !== e.value &&
-      "string" == typeof e.value.key
-    );
-  }
-  function _define_property$1f(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   const {
     textTracksSwitched: Zi,
     textTracksUpdated: en,
@@ -13222,7 +14719,8 @@
             "Off" === e.label
               ? (this.clearCurrentlyPlayingTrack(),
                 (n = this.extensionTracks.selectForcedTrack()),
-                void 0 === n && this.onExtensionTextTrackSwitched({ track: e }))
+                undefined === n &&
+                  this.onExtensionTextTrackSwitched({ track: e }))
               : (this.extensionTracks.textTrack = e))
           : (Qe.debug("MEDIA_TRACK Setting track on element " + e.label),
             this._tracks.forEach((n) => {
@@ -13245,7 +14743,7 @@
     }
     destroy() {
       if (
-        ((this._isDestroyed = !0),
+        ((this._isDestroyed = true),
         this.clearCurrentlyPlayingTrack(),
         this.extensionTracks)
       ) {
@@ -13278,11 +14776,13 @@
     }
     restoreSelectedTrack() {
       var e;
-      const n = loadTrack("mk-text-track");
+      const n = getJsonFromLocalStorage("mk-text-track");
       if (
-        (null === (e = this.tracks) || void 0 === e ? void 0 : e.length) >= 0 &&
-        void 0 !== n &&
-        (void 0 === this.currentTrack || !trackEquals(this.currentTrack, n))
+        (null === (e = this.tracks) || undefined === e
+          ? undefined
+          : e.length) >= 0 &&
+        undefined !== n &&
+        (undefined === this.currentTrack || !trackEquals(this.currentTrack, n))
       )
         for (const d of this.tracks)
           if (trackEquals(d, n)) {
@@ -13292,7 +14792,7 @@
           }
     }
     getSavedTrack() {
-      return loadTrack("mk-text-track");
+      return getJsonFromLocalStorage("mk-text-track");
     }
     onExtensionInlineStylesParsed(e) {
       Qe.debug("MEDIA_TRACK Extension inline styles parsed", e),
@@ -13326,7 +14826,7 @@
     }
     handleVTT(e) {
       const n = e && e.track && e.track.id;
-      if (void 0 !== n && n >= 0) {
+      if (undefined !== n && n >= 0) {
         const e = this.filterSelectableTextTracks(this.mediaElement.textTracks)[
           n
         ];
@@ -13404,7 +14904,7 @@
         e.addEventListener("cuechange", this.onCueChange);
     }
     clearCurrentlyPlayingTrack() {
-      void 0 !== this._currentlyPlayingTrack &&
+      undefined !== this._currentlyPlayingTrack &&
         (function (e) {
           return (
             null != e && "string" == typeof e.id && "removeEventListener" in e
@@ -13441,18 +14941,74 @@
       return "Off" === e.label || "Auto" === e.label;
     }
     constructor(e, n, d) {
-      _define_property$1f(this, "mediaElement", void 0),
-        _define_property$1f(this, "dispatcher", void 0),
-        _define_property$1f(this, "extensionTracks", void 0),
-        _define_property$1f(this, "_tracks", void 0),
-        _define_property$1f(this, "renderer", void 0),
-        _define_property$1f(this, "_currentlyPlayingTrack", void 0),
-        _define_property$1f(this, "_isDestroyed", void 0),
+      "mediaElement" in this
+        ? Object.defineProperty(this, "mediaElement", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.mediaElement = undefined),
+        this,
+        ("dispatcher" in this
+          ? Object.defineProperty(this, "dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.dispatcher = undefined),
+        this),
+        ("extensionTracks" in this
+          ? Object.defineProperty(this, "extensionTracks", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.extensionTracks = undefined),
+        this),
+        ("_tracks" in this
+          ? Object.defineProperty(this, "_tracks", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._tracks = undefined),
+        this),
+        ("renderer" in this
+          ? Object.defineProperty(this, "renderer", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.renderer = undefined),
+        this),
+        ("_currentlyPlayingTrack" in this
+          ? Object.defineProperty(this, "_currentlyPlayingTrack", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._currentlyPlayingTrack = undefined),
+        this),
+        ("_isDestroyed" in this
+          ? Object.defineProperty(this, "_isDestroyed", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._isDestroyed = undefined),
+        this),
         (this.mediaElement = e),
         (this.dispatcher = n),
         (this.extensionTracks = d),
         (this._tracks = []),
-        (this._isDestroyed = !1);
+        (this._isDestroyed = false);
       const p = this.getSavedTrack();
       if (
         (this._tracks.push({
@@ -13468,7 +15024,7 @@
           "MEDIA_TRACK Initializing text track manager for HLS.js track events",
         );
         const n = e.parentElement;
-        (this.renderer = new Ji(window, n, !1)),
+        (this.renderer = new Ji(window, n, false)),
           this.renderer.setStyles({ "::cue": { fontSize: "calc(1vw + 1em)" } }),
           (this.onExtensionTextTracksAdded =
             this.onExtensionTextTracksAdded.bind(this)),
@@ -13521,22 +15077,9 @@
         function _throw(e) {
           asyncGeneratorStep$T(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$1e(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_metadata$p(e, n) {
     if ("object" == typeof Reflect && "function" == typeof Reflect.metadata)
@@ -13557,9 +15100,9 @@
       var e, n;
       return null !==
         (n =
-          null === (e = this.audioTrackManager) || void 0 === e
-            ? void 0
-            : e.tracks) && void 0 !== n
+          null === (e = this.audioTrackManager) || undefined === e
+            ? undefined
+            : e.tracks) && undefined !== n
         ? n
         : [];
     }
@@ -13570,22 +15113,22 @@
     }
     get currentAudioTrack() {
       var e;
-      return null === (e = this.audioTrackManager) || void 0 === e
-        ? void 0
+      return null === (e = this.audioTrackManager) || undefined === e
+        ? undefined
         : e.currentTrack;
     }
     set currentAudioTrack(e) {
-      void 0 !== this.audioTrackManager &&
+      undefined !== this.audioTrackManager &&
         (this.audioTrackManager.currentTrack = e);
     }
     get currentTextTrack() {
       var e;
-      return null === (e = this.textTrackManager) || void 0 === e
-        ? void 0
+      return null === (e = this.textTrackManager) || undefined === e
+        ? undefined
         : e.currentTrack;
     }
     set currentTextTrack(e) {
-      void 0 !== this.textTrackManager &&
+      undefined !== this.textTrackManager &&
         (this.textTrackManager.currentTrack = e);
     }
     get _targetElement() {
@@ -13602,7 +15145,15 @@
                 }),
               )),
               p.forEach(function (n) {
-                _define_property$1e(e, n, d[n]);
+                n in e
+                  ? Object.defineProperty(e, n, {
+                      value: d[n],
+                      enumerable: true,
+                      configurable: true,
+                      writable: true,
+                    })
+                  : (e[n] = d[n]),
+                  e;
               });
           }
           return e;
@@ -13613,9 +15164,9 @@
       var e, n;
       return null !==
         (n =
-          null === (e = this.textTrackManager) || void 0 === e
-            ? void 0
-            : e.tracks) && void 0 !== n
+          null === (e = this.textTrackManager) || undefined === e
+            ? undefined
+            : e.tracks) && undefined !== n
         ? n
         : [];
     }
@@ -13639,9 +15190,9 @@
     setupTrackManagers(e) {
       var n, d, p, h;
       null === (d = this.textTrackManager) ||
-        void 0 === d ||
+        undefined === d ||
         null === (n = d.destroy) ||
-        void 0 === n ||
+        undefined === n ||
         n.call(d),
         (this.textTrackManager = new TextTrackManager(
           this._targetElement,
@@ -13649,9 +15200,9 @@
           e,
         )),
         null === (h = this.audioTrackManager) ||
-          void 0 === h ||
+          undefined === h ||
           null === (p = h.destroy) ||
-          void 0 === p ||
+          undefined === p ||
           p.call(h),
         (this.audioTrackManager = new AudioTrackManager(
           this._targetElement,
@@ -13662,8 +15213,8 @@
     destroy() {
       var e, n;
       this.finishPlaybackSequence(),
-        null === (e = this.textTrackManager) || void 0 === e || e.destroy(),
-        null === (n = this.audioTrackManager) || void 0 === n || n.destroy(),
+        null === (e = this.textTrackManager) || undefined === e || e.destroy(),
+        null === (n = this.audioTrackManager) || undefined === n || n.destroy(),
         super.destroy();
     }
     initializeEventHandlers() {
@@ -13719,9 +15270,9 @@
                 e
               );
             })()),
-            (e.video.autoplay = !1),
-            (e.video.controls = !1),
-            (e.video.playsInline = !0),
+            (e.video.autoplay = false),
+            (e.video.controls = false),
+            (e.video.playsInline = true),
             (e.video.id = "apple-music-video-player"),
             n.appendChild(e.video))
           : Qe.warn(
@@ -13760,7 +15311,7 @@
         }
       }
     }
-    playItemFromEncryptedSource(n, d = !1, p = {}) {
+    playItemFromEncryptedSource(n, d = false, p = {}) {
       var h = this;
       return _async_to_generator$T(function* () {
         if (
@@ -13816,7 +15367,7 @@
     _translateStringToPresentationMode(n) {
       let d = rn[n];
       return (
-        void 0 === d &&
+        undefined === d &&
           (Qe.warn(
             `videoPlayer._translateStringToPresentationMode ${n} is not a valid presentation mode, setting to inline`,
           ),
@@ -13827,7 +15378,7 @@
     _translatePresentationModeToString(e) {
       let n = nn[e];
       return (
-        void 0 === n &&
+        undefined === n &&
           (Qe.warn(
             `videoPlayer._translatePresentationModeToString ${e} is not a valid presentation mode, setting to inline`,
           ),
@@ -13840,14 +15391,78 @@
     }
     constructor(e) {
       super(e),
-        _define_property$1e(this, "extension", void 0),
-        _define_property$1e(this, "video", void 0),
-        _define_property$1e(this, "mediaPlayerType", "video"),
-        _define_property$1e(this, "restrictPlatforms", void 0),
-        _define_property$1e(this, "textTrackManager", void 0),
-        _define_property$1e(this, "audioTrackManager", void 0),
-        _define_property$1e(this, "_shouldLoadManifestsOnce", !1),
-        _define_property$1e(this, "userInitiated", !1),
+        ("extension" in this
+          ? Object.defineProperty(this, "extension", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.extension = undefined),
+        this),
+        ("video" in this
+          ? Object.defineProperty(this, "video", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.video = undefined),
+        this),
+        ("mediaPlayerType" in this
+          ? Object.defineProperty(this, "mediaPlayerType", {
+              value: "video",
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.mediaPlayerType = "video"),
+        this),
+        ("restrictPlatforms" in this
+          ? Object.defineProperty(this, "restrictPlatforms", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.restrictPlatforms = undefined),
+        this),
+        ("textTrackManager" in this
+          ? Object.defineProperty(this, "textTrackManager", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.textTrackManager = undefined),
+        this),
+        ("audioTrackManager" in this
+          ? Object.defineProperty(this, "audioTrackManager", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.audioTrackManager = undefined),
+        this),
+        ("_shouldLoadManifestsOnce" in this
+          ? Object.defineProperty(this, "_shouldLoadManifestsOnce", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._shouldLoadManifestsOnce = false),
+        this),
+        ("userInitiated" in this
+          ? Object.defineProperty(this, "userInitiated", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.userInitiated = false),
+        this),
         (this.restrictPlatforms =
           !("restrict-platforms" in at.features) ||
           at.features["restrict-platforms"]),
@@ -13874,8 +15489,8 @@
     [
       Bind(),
       _ts_metadata$p("design:type", Function),
-      _ts_metadata$p("design:paramtypes", [void 0]),
-      _ts_metadata$p("design:returntype", void 0),
+      _ts_metadata$p("design:paramtypes", [undefined]),
+      _ts_metadata$p("design:returntype", undefined),
     ],
     VideoPlayer.prototype,
     "onPlaybackLicenseError",
@@ -13924,22 +15539,9 @@
         function _throw(e) {
           asyncGeneratorStep$S(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$1d(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$u(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -13952,7 +15554,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1d(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -13964,7 +15574,7 @@
     var p;
     return _object_spread$u(
       { id: d, "lease-action": n },
-      null !== (p = e.keyServerQueryParameters) && void 0 !== p ? p : {},
+      null !== (p = e.keyServerQueryParameters) && undefined !== p ? p : {},
     );
   }
   function createLicenseChallengeBody(e, n, d, p, h, y) {
@@ -14010,7 +15620,7 @@
             : _object_spread$u(
                 {},
                 m,
-                (function (e, n = !1) {
+                (function (e, n = false) {
                   return {
                     adamId: e.songId,
                     isLibrary: e.isCloudItem,
@@ -14029,7 +15639,7 @@
         "Content-Type": "application/json",
         "X-Apple-Music-User-Token": "" + cn.musicUserToken,
       };
-      this.keySystem === ot.WIDEVINE && (n["X-Apple-Renewal"] = !0);
+      this.keySystem === ot.WIDEVINE && (n["X-Apple-Renewal"] = true);
       const d = new Headers(n);
       return decayingOperation(
         () =>
@@ -14043,14 +15653,14 @@
       );
     }
     reset() {
-      (this.licenseUrl = void 0),
-        (this.playableItem = void 0),
-        (this.data = void 0),
-        (this.initiated = void 0),
-        (this.keySystem = void 0),
-        (this.startResponse = void 0);
+      (this.licenseUrl = undefined),
+        (this.playableItem = undefined),
+        (this.data = undefined),
+        (this.initiated = undefined),
+        (this.keySystem = undefined),
+        (this.startResponse = undefined);
     }
-    start(e, n, d, p, h = !1, y = !1) {
+    start(e, n, d, p, h = false, y = false) {
       var _ = this;
       return _async_to_generator$S(function* () {
         (_.licenseUrl = e),
@@ -14080,23 +15690,23 @@
             (
               null == n ||
               null === (P = n["streaming-response"]) ||
-              void 0 === P ||
+              undefined === P ||
               null === (b = P["streaming-keys"]) ||
-              void 0 === b
-                ? void 0
+              undefined === b
+                ? undefined
                 : b.length
             )
               ? (d = n["streaming-response"]["streaming-keys"][0])
               : (null == n ||
                 null === (S = n["license-responses"]) ||
-                void 0 === S
-                  ? void 0
+                undefined === S
+                  ? undefined
                   : S.length) && (d = n["license-responses"][0]),
             0 !== d.status && _.processJsonError(d),
             d
           );
         } catch (V) {
-          throw ((_.startResponse = void 0), V);
+          throw ((_.startResponse = undefined), V);
         }
       })();
     }
@@ -14106,8 +15716,8 @@
         "Error acquiring license",
       );
       if (
-        ((null == e ? void 0 : e.errorCode) && (e.status = e.errorCode),
-        -1021 === (null == e ? void 0 : e.status) && (e.status = 190121),
+        ((null == e ? undefined : e.errorCode) && (e.status = e.errorCode),
+        -1021 === (null == e ? undefined : e.status) && (e.status = 190121),
         e && 0 !== e.status)
       ) {
         if (!e.message)
@@ -14157,12 +15767,60 @@
       })();
     }
     constructor() {
-      _define_property$1d(this, "licenseUrl", void 0),
-        _define_property$1d(this, "playableItem", void 0),
-        _define_property$1d(this, "data", void 0),
-        _define_property$1d(this, "initiated", void 0),
-        _define_property$1d(this, "keySystem", void 0),
-        _define_property$1d(this, "startResponse", void 0);
+      "licenseUrl" in this
+        ? Object.defineProperty(this, "licenseUrl", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.licenseUrl = undefined),
+        this,
+        ("playableItem" in this
+          ? Object.defineProperty(this, "playableItem", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.playableItem = undefined),
+        this),
+        ("data" in this
+          ? Object.defineProperty(this, "data", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.data = undefined),
+        this),
+        ("initiated" in this
+          ? Object.defineProperty(this, "initiated", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.initiated = undefined),
+        this),
+        ("keySystem" in this
+          ? Object.defineProperty(this, "keySystem", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.keySystem = undefined),
+        this),
+        ("startResponse" in this
+          ? Object.defineProperty(this, "startResponse", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.startResponse = undefined),
+        this);
     }
   }
   function asyncGeneratorStep$R(e, n, d, p, h, y, _) {
@@ -14186,22 +15844,9 @@
         function _throw(e) {
           asyncGeneratorStep$R(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$1c(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_metadata$o(e, n) {
     if ("object" == typeof Reflect && "function" == typeof Reflect.metadata)
@@ -14280,10 +15925,10 @@
       4294955417 ===
         (null == e ||
         null === (d = e.target) ||
-        void 0 === d ||
+        undefined === d ||
         null === (n = d.error) ||
-        void 0 === n
-          ? void 0
+        undefined === n
+          ? undefined
           : n.systemCode)
         ? Qe.error("Ignoring error", e)
         : (console.error(
@@ -14339,7 +15984,7 @@
       return _async_to_generator$R(function* () {
         if (
           (Qe.debug(`updating session ${d} with license response`, e),
-          null == e ? void 0 : e.license)
+          null == e ? undefined : e.license)
         ) {
           const d = J(e.license);
           try {
@@ -14351,7 +15996,7 @@
         }
       })();
     }
-    addMediaKeySessionInfo(e, n, d, p = !1) {
+    addMediaKeySessionInfo(e, n, d, p = false) {
       const h = this.mediaKeySessions[e];
       h
         ? (Qe.debug(
@@ -14371,24 +16016,168 @@
     }
     constructor() {
       super([lt.playbackLicenseError, lt.playbackSessionError]),
-        _define_property$1c(this, "developerToken", void 0),
-        _define_property$1c(this, "adamId", void 0),
-        _define_property$1c(this, "userToken", void 0),
-        _define_property$1c(this, "extURI", void 0),
-        _define_property$1c(this, "item", void 0),
-        _define_property$1c(this, "initiated", !0),
-        _define_property$1c(this, "isLibrary", !1),
-        _define_property$1c(this, "keyCertURL", void 0),
-        _define_property$1c(this, "keyServerURL", void 0),
-        _define_property$1c(this, "keySystem", ot.FAIRPLAY),
-        _define_property$1c(this, "isLegacyEme", !1),
-        _define_property$1c(this, "boundDispatchKeyError", void 0),
-        _define_property$1c(this, "boundDispatchSessionError", void 0),
-        _define_property$1c(this, "boundHandleSessionCreation", void 0),
-        _define_property$1c(this, "boundStartLicenseSession", void 0),
-        _define_property$1c(this, "mediaKeySessions", {}),
-        _define_property$1c(this, "_pendingRenewal", void 0),
-        _define_property$1c(this, "license", void 0),
+        ("developerToken" in this
+          ? Object.defineProperty(this, "developerToken", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.developerToken = undefined),
+        this),
+        ("adamId" in this
+          ? Object.defineProperty(this, "adamId", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.adamId = undefined),
+        this),
+        ("userToken" in this
+          ? Object.defineProperty(this, "userToken", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.userToken = undefined),
+        this),
+        ("extURI" in this
+          ? Object.defineProperty(this, "extURI", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.extURI = undefined),
+        this),
+        ("item" in this
+          ? Object.defineProperty(this, "item", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.item = undefined),
+        this),
+        ("initiated" in this
+          ? Object.defineProperty(this, "initiated", {
+              value: true,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.initiated = true),
+        this),
+        ("isLibrary" in this
+          ? Object.defineProperty(this, "isLibrary", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isLibrary = false),
+        this),
+        ("keyCertURL" in this
+          ? Object.defineProperty(this, "keyCertURL", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.keyCertURL = undefined),
+        this),
+        ("keyServerURL" in this
+          ? Object.defineProperty(this, "keyServerURL", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.keyServerURL = undefined),
+        this),
+        ("keySystem" in this
+          ? Object.defineProperty(this, "keySystem", {
+              value: ot.FAIRPLAY,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.keySystem = ot.FAIRPLAY),
+        this),
+        ("isLegacyEme" in this
+          ? Object.defineProperty(this, "isLegacyEme", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isLegacyEme = false),
+        this),
+        ("boundDispatchKeyError" in this
+          ? Object.defineProperty(this, "boundDispatchKeyError", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.boundDispatchKeyError = undefined),
+        this),
+        ("boundDispatchSessionError" in this
+          ? Object.defineProperty(this, "boundDispatchSessionError", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.boundDispatchSessionError = undefined),
+        this),
+        ("boundHandleSessionCreation" in this
+          ? Object.defineProperty(this, "boundHandleSessionCreation", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.boundHandleSessionCreation = undefined),
+        this),
+        ("boundStartLicenseSession" in this
+          ? Object.defineProperty(this, "boundStartLicenseSession", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.boundStartLicenseSession = undefined),
+        this),
+        ("mediaKeySessions" in this
+          ? Object.defineProperty(this, "mediaKeySessions", {
+              value: {},
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.mediaKeySessions = {}),
+        this),
+        ("_pendingRenewal" in this
+          ? Object.defineProperty(this, "_pendingRenewal", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._pendingRenewal = undefined),
+        this),
+        ("license" in this
+          ? Object.defineProperty(this, "license", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.license = undefined),
+        this),
         (this.boundDispatchKeyError = this.dispatchKeyError.bind(this)),
         (this.boundDispatchSessionError = this.dispatchSessionError.bind(this)),
         (this.boundHandleSessionCreation =
@@ -14418,22 +16207,9 @@
         function _throw(e) {
           asyncGeneratorStep$Q(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$1b(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_metadata$n(e, n) {
     if ("object" == typeof Reflect && "function" == typeof Reflect.metadata)
@@ -14458,7 +16234,7 @@
     [
       Bind(),
       _ts_metadata$o("design:type", Function),
-      _ts_metadata$o("design:paramtypes", [void 0]),
+      _ts_metadata$o("design:paramtypes", [undefined]),
       _ts_metadata$o("design:returntype", Promise),
     ],
     KeySession.prototype,
@@ -14471,7 +16247,7 @@
       return _async_to_generator$Q(function* () {
         (d.keySystem = n.keySystem),
           (d._keySystemAccess = n),
-          e.addEventListener("encrypted", d.boundHandleSessionCreation, !1);
+          e.addEventListener("encrypted", d.boundHandleSessionCreation, false);
       })();
     }
     detachMedia(e) {
@@ -14513,7 +16289,7 @@
           ));
         const m = yield n._mediaKeysPromise,
           g = new Uint8Array(p),
-          b = String.fromCharCode.apply(void 0, Array.from(g));
+          b = String.fromCharCode.apply(undefined, Array.from(g));
         if (n.mediaKeySessions[b])
           return void Qe.error(
             "fairplay eme: not creating new session for extURI",
@@ -14581,11 +16357,51 @@
     }
     constructor(...e) {
       super(...e),
-        _define_property$1b(this, "_keySystemAccess", void 0),
-        _define_property$1b(this, "_mediaKeysPromise", void 0),
-        _define_property$1b(this, "_mediaKeySessions", {}),
-        _define_property$1b(this, "_mediaKeySessionRenewals", {}),
-        _define_property$1b(this, "_mediaKeys", void 0);
+        ("_keySystemAccess" in this
+          ? Object.defineProperty(this, "_keySystemAccess", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._keySystemAccess = undefined),
+        this),
+        ("_mediaKeysPromise" in this
+          ? Object.defineProperty(this, "_mediaKeysPromise", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._mediaKeysPromise = undefined),
+        this),
+        ("_mediaKeySessions" in this
+          ? Object.defineProperty(this, "_mediaKeySessions", {
+              value: {},
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._mediaKeySessions = {}),
+        this),
+        ("_mediaKeySessionRenewals" in this
+          ? Object.defineProperty(this, "_mediaKeySessionRenewals", {
+              value: {},
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._mediaKeySessionRenewals = {}),
+        this),
+        ("_mediaKeys" in this
+          ? Object.defineProperty(this, "_mediaKeys", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._mediaKeys = undefined),
+        this);
     }
   }
   function asyncGeneratorStep$P(e, n, d, p, h, y, _) {
@@ -14609,22 +16425,9 @@
         function _throw(e) {
           asyncGeneratorStep$P(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$1a(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   !(function (e, n, d, p) {
     var h,
@@ -14645,8 +16448,8 @@
     [
       Bind(),
       _ts_metadata$n("design:type", Function),
-      _ts_metadata$n("design:paramtypes", [void 0]),
-      _ts_metadata$n("design:returntype", void 0),
+      _ts_metadata$n("design:paramtypes", [undefined]),
+      _ts_metadata$n("design:returntype", undefined),
     ],
     FairplayEncryptedSession.prototype,
     "startFairplayLicenseSession",
@@ -14663,7 +16466,7 @@
         e.addEventListener(
           "webkitneedkey",
           this.boundHandleSessionCreation,
-          !1,
+          false,
         ),
         e.addEventListener("webkitkeyerror", this.boundDispatchKeyError),
         e
@@ -14674,13 +16477,13 @@
         (e.removeEventListener(
           "webkitneedkey",
           this.boundHandleSessionCreation,
-          !1,
+          false,
         ),
         e.removeEventListener("webkitkeyerror", this.boundDispatchKeyError));
     }
     destroy() {
       Qe.debug("FPS destroy"),
-        (this._isDestroyed = !0),
+        (this._isDestroyed = true),
         this.detachMedia(this.target),
         this.session &&
           (this.session.removeEventListener(
@@ -14732,10 +16535,13 @@
         y = new DataView(h);
       new Uint8Array(h, p, e.byteLength).set(e),
         (p += e.byteLength),
-        y.setUint32(p, n.byteLength, !0),
+        y.setUint32(p, n.byteLength, true),
         (p += 4);
       const _ = new Uint8Array(h, p, n.byteLength);
-      _.set(n), (p += _.byteLength), y.setUint32(p, d.byteLength, !0), (p += 4);
+      _.set(n),
+        (p += _.byteLength),
+        y.setUint32(p, d.byteLength, true),
+        (p += 4);
       return (
         new Uint8Array(h, p, d.byteLength).set(d),
         new Uint8Array(h, 0, h.byteLength)
@@ -14750,10 +16556,42 @@
     }
     constructor(...e) {
       super(...e),
-        _define_property$1a(this, "target", void 0),
-        _define_property$1a(this, "session", void 0),
-        _define_property$1a(this, "_isDestroyed", !1),
-        _define_property$1a(this, "isLegacyEme", !0);
+        ("target" in this
+          ? Object.defineProperty(this, "target", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.target = undefined),
+        this),
+        ("session" in this
+          ? Object.defineProperty(this, "session", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.session = undefined),
+        this),
+        ("_isDestroyed" in this
+          ? Object.defineProperty(this, "_isDestroyed", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._isDestroyed = false),
+        this),
+        ("isLegacyEme" in this
+          ? Object.defineProperty(this, "isLegacyEme", {
+              value: true,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isLegacyEme = true),
+        this);
     }
   }
   function asyncGeneratorStep$O(e, n, d, p, h, y, _) {
@@ -14777,7 +16615,7 @@
         function _throw(e) {
           asyncGeneratorStep$O(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
   }
@@ -14785,13 +16623,17 @@
     attachMedia(e, n) {
       return (
         (this.keySystem = n.keySystem),
-        e.addEventListener("msneedkey", this.boundHandleSessionCreation, !1),
+        e.addEventListener("msneedkey", this.boundHandleSessionCreation, false),
         e.addEventListener("mskeyerror", this.boundDispatchKeyError),
         e
       );
     }
     detachMedia(e) {
-      e.removeEventListener("msneedkey", this.boundHandleSessionCreation, !1),
+      e.removeEventListener(
+        "msneedkey",
+        this.boundHandleSessionCreation,
+        false,
+      ),
         e.removeEventListener("mskeyerror", this.boundDispatchKeyError);
     }
     createSession(e) {
@@ -14885,22 +16727,9 @@
         function _throw(e) {
           asyncGeneratorStep$N(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$19(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   class PreloadingEncryptedSession extends KeySession {
     attachMedia(e, n) {
@@ -14926,8 +16755,8 @@
                 const h = yield n.createMediaKeys();
                 try {
                   var y;
-                  yield null === (y = e._target) || void 0 === y
-                    ? void 0
+                  yield null === (y = e._target) || undefined === y
+                    ? undefined
                     : y.setMediaKeys(h),
                     (e._mediaKeys = h);
                 } catch (V) {
@@ -14950,15 +16779,15 @@
       var p = this;
       return _async_to_generator$N(function* () {
         var h;
-        const y = !!(null == d ? void 0 : d.isRenewal),
-          _ = !!(null == d ? void 0 : d.delayCdmUpdate);
+        const y = !!(null == d ? undefined : d.isRenewal),
+          _ = !!(null == d ? undefined : d.delayCdmUpdate);
         if (!y && p.mediaKeySessions[e]) return;
         Qe.debug(
           `createSessionAndGenerateRequest for item ${n.title}, isRenewal ${y}`,
         );
         const m =
-            null === (h = p._mediaKeys) || void 0 === h
-              ? void 0
+            null === (h = p._mediaKeys) || undefined === h
+              ? undefined
               : h.createSession(),
           { keySystem: g } = p;
         if (!m) return;
@@ -15023,8 +16852,8 @@
         }
         yield _superprop_get_handleLicenseJson().call(p, e, n, d);
         const m =
-          null === (h = p.mediaKeySessions[d]) || void 0 === h
-            ? void 0
+          null === (h = p.mediaKeySessions[d]) || undefined === h
+            ? undefined
             : h.oldSession;
         m &&
           (Qe.debug("removing old key session after updating", d),
@@ -15036,7 +16865,7 @@
     _renewMediaKeySession(e, n) {
       delete this._mediaKeySessionRenewals[e.session.sessionId],
         asAsync(
-          this.createSessionAndGenerateRequest(n, e.item, { isRenewal: !0 }),
+          this.createSessionAndGenerateRequest(n, e.item, { isRenewal: true }),
         );
     }
     applyDelayedCdmUpdates() {
@@ -15049,7 +16878,7 @@
           if (p.delayCdmUpdate) {
             const d = yield p["license-json"];
             Qe.debug("delayed update of license", d),
-              (p.delayCdmUpdate = !1),
+              (p.delayCdmUpdate = false),
               yield e.handleLicenseJson(d, p.session, n);
           }
         }
@@ -15064,9 +16893,9 @@
           const { dataUri: h } = e;
           yield p.createSessionAndGenerateRequest(h, n, d);
         }
-        if (null == n ? void 0 : n.isLiveAudioStation) {
+        if (null == n ? undefined : n.isLiveAudioStation) {
           const e = Object.keys(p.mediaKeySessions),
-            n = h.reduce((e, n) => ((e[n.dataUri] = !0), e), {});
+            n = h.reduce((e, n) => ((e[n.dataUri] = true), e), {});
           for (const d of e) n[d] || (yield p._scheduleRemoveSession(d));
         }
       })();
@@ -15084,7 +16913,7 @@
       var n = this;
       return _async_to_generator$N(function* () {
         const d = n.mediaKeySessions;
-        if (null == e ? void 0 : e.length) {
+        if (null == e ? undefined : e.length) {
           const d = n.filterKeyValues(e);
           for (const e of d) {
             const d = e.dataUri;
@@ -15159,12 +16988,60 @@
     }
     constructor(...e) {
       super(...e),
-        _define_property$19(this, "_keySystemAccess", void 0),
-        _define_property$19(this, "_mediaKeysPromise", void 0),
-        _define_property$19(this, "_mediaKeys", void 0),
-        _define_property$19(this, "_target", void 0),
-        _define_property$19(this, "_sessionRemovalTimeouts", {}),
-        _define_property$19(this, "_mediaKeySessionRenewals", {});
+        ("_keySystemAccess" in this
+          ? Object.defineProperty(this, "_keySystemAccess", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._keySystemAccess = undefined),
+        this),
+        ("_mediaKeysPromise" in this
+          ? Object.defineProperty(this, "_mediaKeysPromise", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._mediaKeysPromise = undefined),
+        this),
+        ("_mediaKeys" in this
+          ? Object.defineProperty(this, "_mediaKeys", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._mediaKeys = undefined),
+        this),
+        ("_target" in this
+          ? Object.defineProperty(this, "_target", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._target = undefined),
+        this),
+        ("_sessionRemovalTimeouts" in this
+          ? Object.defineProperty(this, "_sessionRemovalTimeouts", {
+              value: {},
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._sessionRemovalTimeouts = {}),
+        this),
+        ("_mediaKeySessionRenewals" in this
+          ? Object.defineProperty(this, "_mediaKeySessionRenewals", {
+              value: {},
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._mediaKeySessionRenewals = {}),
+        this);
     }
   }
   function asyncGeneratorStep$M(e, n, d, p, h, y, _) {
@@ -15188,30 +17065,22 @@
         function _throw(e) {
           asyncGeneratorStep$M(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$18(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   const fn = BooleanDevFlag.register("mk-safari-modern-eme");
   class MediaExtension extends Notifications {
     get hasMediaKeySupport() {
-      return hasMediaKeySupport();
+      return !!(
+        navigator &&
+        navigator.requestMediaKeySystemAccess &&
+        window.MediaKeys &&
+        window.MediaKeySystemAccess
+      );
     }
     get hasMediaSession() {
-      return void 0 !== this._session;
+      return undefined !== this._session;
     }
     get isFairplay() {
       return this._session.isFairplay;
@@ -15229,8 +17098,8 @@
       var n = this;
       return _async_to_generator$M(function* () {
         var d;
-        return null === (d = n.session) || void 0 === d
-          ? void 0
+        return null === (d = n.session) || undefined === d
+          ? undefined
           : d.clearSessions(e);
       })();
     }
@@ -15261,7 +17130,7 @@
               sessionTypes: ["temporary"],
             },
           ],
-          [, p] = yield findMediaKeySystemAccess([ot.FAIRPLAY], d);
+          [, p] = yield _findMediaKeySystemAccess.apply(this, arguments);
         return p;
       })();
     }
@@ -15271,8 +17140,8 @@
         var n, d;
         const { mediaElement: p, contentType: h } = e;
         if (
-          null === (n = window.WebKitMediaKeys) || void 0 === n
-            ? void 0
+          null === (n = window.WebKitMediaKeys) || undefined === n
+            ? undefined
             : n.isTypeSupported(ot.FAIRPLAY + ".1_0", dt.MP4)
         ) {
           let n;
@@ -15287,8 +17156,8 @@
                 (e._session = new WebKitSession()),
                 e._session.attachMedia(p, { keySystem: ot.FAIRPLAY }));
         } else if (
-          null === (d = window.MSMediaKeys) || void 0 === d
-            ? void 0
+          null === (d = window.MSMediaKeys) || undefined === d
+            ? undefined
             : d.isTypeSupported(ot.PLAYREADY, dt.MP4)
         )
           (e._session = new MSSession()),
@@ -15304,10 +17173,10 @@
               },
             ],
             d = potentialKeySystemsForAccess(),
-            [, _] = yield findMediaKeySystemAccess(d, n);
+            [, _] = yield _findMediaKeySystemAccess.apply(this, arguments);
           var y;
           if (_)
-            null === (y = e._session) || void 0 === y || y.attachMedia(p, _);
+            null === (y = e._session) || undefined === y || y.attachMedia(p, _);
           else Qe.warn("media-extension: No keysystem detected!");
         }
       })();
@@ -15325,13 +17194,37 @@
     }
     destroy(e) {
       var n;
-      null === (n = this._session) || void 0 === n || n.detachMedia(e);
+      null === (n = this._session) || undefined === n || n.detachMedia(e);
     }
     constructor(e, n) {
       super([lt.playbackLicenseError, lt.playbackSessionError]),
-        _define_property$18(this, "_session", void 0),
-        _define_property$18(this, "mediaElement", void 0),
-        _define_property$18(this, "contentType", void 0),
+        ("_session" in this
+          ? Object.defineProperty(this, "_session", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._session = undefined),
+        this),
+        ("mediaElement" in this
+          ? Object.defineProperty(this, "mediaElement", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.mediaElement = undefined),
+        this),
+        ("contentType" in this
+          ? Object.defineProperty(this, "contentType", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.contentType = undefined),
+        this),
         (this.mediaElement = e),
         (this.contentType = n);
     }
@@ -15346,19 +17239,6 @@
       return void d(V);
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
-  }
-  function _define_property$17(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   class ByteRangeSegment {
     load() {
@@ -15384,19 +17264,83 @@
           function _throw(e) {
             asyncGeneratorStep$L(y, p, h, _next, _throw, "throw", e);
           }
-          _next(void 0);
+          _next(undefined);
         });
       })();
     }
-    constructor({ url: e, startByte: n, length: d, isInitSegment: p = !1 }) {
-      _define_property$17(this, "url", void 0),
-        _define_property$17(this, "range", void 0),
-        _define_property$17(this, "startByte", void 0),
-        _define_property$17(this, "endByte", void 0),
-        _define_property$17(this, "length", void 0),
-        _define_property$17(this, "startTime", void 0),
-        _define_property$17(this, "endTime", void 0),
-        _define_property$17(this, "isInitSegment", void 0),
+    constructor({ url: e, startByte: n, length: d, isInitSegment: p = false }) {
+      "url" in this
+        ? Object.defineProperty(this, "url", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.url = undefined),
+        this,
+        ("range" in this
+          ? Object.defineProperty(this, "range", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.range = undefined),
+        this),
+        ("startByte" in this
+          ? Object.defineProperty(this, "startByte", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.startByte = undefined),
+        this),
+        ("endByte" in this
+          ? Object.defineProperty(this, "endByte", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.endByte = undefined),
+        this),
+        ("length" in this
+          ? Object.defineProperty(this, "length", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.length = undefined),
+        this),
+        ("startTime" in this
+          ? Object.defineProperty(this, "startTime", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.startTime = undefined),
+        this),
+        ("endTime" in this
+          ? Object.defineProperty(this, "endTime", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.endTime = undefined),
+        this),
+        ("isInitSegment" in this
+          ? Object.defineProperty(this, "isInitSegment", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isInitSegment = undefined),
+        this),
         (this.url = e),
         (this.isInitSegment = p),
         (this.startByte = parseInt(n, 10)),
@@ -15413,19 +17357,6 @@
       return void d(V);
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
-  }
-  function _define_property$16(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   class ContinuousSegment {
     load() {
@@ -15449,29 +17380,32 @@
           function _throw(e) {
             asyncGeneratorStep$K(y, p, h, _next, _throw, "throw", e);
           }
-          _next(void 0);
+          _next(undefined);
         });
       })();
     }
-    constructor(e, n = !1) {
-      _define_property$16(this, "url", void 0),
-        _define_property$16(this, "isInitSegment", void 0),
+    constructor(e, n = false) {
+      "url" in this
+        ? Object.defineProperty(this, "url", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.url = undefined),
+        this,
+        ("isInitSegment" in this
+          ? Object.defineProperty(this, "isInitSegment", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isInitSegment = undefined),
+        this),
         (this.url = e),
         (this.isInitSegment = n);
     }
-  }
-  function _define_property$15(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   const vn = /^#EXT-X-BYTERANGE:([^\n]+)\n/gim,
     gn = /^#EXT-X-MAP:([^\n]+)\n/im,
@@ -15486,7 +17420,7 @@
       this._addedSegments[n] ||
         (Qe.debug("Adding segment", n),
         this._segments.push(e),
-        (this._addedSegments[n] = !0));
+        (this._addedSegments[n] = true));
     }
     extractLiveRadioSegments(e, n) {
       this._extractContinuousSegments(bn, e, n);
@@ -15517,21 +17451,39 @@
         }, {});
       })(e);
       var p;
-      const h = null !== (p = n.split("/").pop()) && void 0 !== p ? p : "",
+      const h = null !== (p = n.split("/").pop()) && undefined !== p ? p : "",
         y = n.replace(h, d.uri),
         [_, m] = d.byterange.split("@"),
         g = new ByteRangeSegment({ url: y, startByte: m, length: _ });
       var b;
       this.addSegment(g, g.range),
-        (null !== (b = e.match(vn)) && void 0 !== b ? b : []).forEach((e) => {
-          const [, n, d] = e.match(/^#EXT-X-BYTERANGE:(\d+)@(\d+)\n/),
-            p = new ByteRangeSegment({ url: y, startByte: d, length: n });
-          this.addSegment(p, p.range);
-        });
+        (null !== (b = e.match(vn)) && undefined !== b ? b : []).forEach(
+          (e) => {
+            const [, n, d] = e.match(/^#EXT-X-BYTERANGE:(\d+)@(\d+)\n/),
+              p = new ByteRangeSegment({ url: y, startByte: d, length: n });
+            this.addSegment(p, p.range);
+          },
+        );
     }
     constructor() {
-      _define_property$15(this, "_segments", []),
-        _define_property$15(this, "_addedSegments", {});
+      "_segments" in this
+        ? Object.defineProperty(this, "_segments", {
+            value: [],
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._segments = []),
+        this,
+        ("_addedSegments" in this
+          ? Object.defineProperty(this, "_addedSegments", {
+              value: {},
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._addedSegments = {}),
+        this);
     }
   }
   var Sn;
@@ -15556,22 +17508,9 @@
         function _throw(e) {
           asyncGeneratorStep$J(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$14(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_metadata$m(e, n) {
     if ("object" == typeof Reflect && "function" == typeof Reflect.metadata)
@@ -15583,9 +17522,6 @@
   const En = /^#EXT-X-TARGETDURATION:(\d+)/im,
     Tn = /^#EXT-X-KEY:[^\n]+URI="([^"]+)"/im,
     kn = /^#EXT-X-KEY:.*(.*$)/gim;
-  function loadManifestData(e) {
-    return _loadManifestData.apply(this, arguments);
-  }
   function _loadManifestData() {
     return (_loadManifestData = _async_to_generator$J(function* (e) {
       return (yield fetch(e)).text();
@@ -15608,7 +17544,7 @@
           this._manifestRefreshInterval = setInterval(this.liveRadioRefresh, p);
         } else this._segmentList.extractByteRangeSegments(n, e.assetURL);
     }
-    static load(e, n = !0) {
+    static load(e, n = true) {
       var d = this;
       return _async_to_generator$J(function* () {
         Qe.debug("loading manifest for item", e.title);
@@ -15616,10 +17552,10 @@
         let h;
         const y = getSessionStorage(),
           _ = !!y && n;
-        if (_ && ((h = null == y ? void 0 : y.getItem(p)), h))
+        if (_ && ((h = null == y ? undefined : y.getItem(p)), h))
           return new d(h, e);
         const m = new Date().getTime();
-        h = yield loadManifestData(p);
+        h = yield _loadManifestData.apply(this, arguments);
         const g = new d(h, e);
         return (
           (g.downlink = (function (e, n) {
@@ -15642,7 +17578,7 @@
     liveRadioRefresh() {
       var e = this;
       return _async_to_generator$J(function* () {
-        const n = yield loadManifestData(e._url);
+        const n = yield _loadManifestData.apply(this, arguments);
         (e._data = n),
           e._detectKeyTags(),
           e._segmentList.extractLiveRadioSegments(n, e._url),
@@ -15662,7 +17598,7 @@
       if (!this._extURI) {
         const e = this._data.match(Tn);
         Qe.debug("manifest: EXT_X_KEY_URI matches", e),
-          (this._extURI = (e && e[1]) || void 0);
+          (this._extURI = (e && e[1]) || undefined);
       }
       return this._extURI;
     }
@@ -15678,7 +17614,7 @@
     get _legacyKeys() {
       const e = this._data.match(Tn);
       Qe.debug("manifest: EXT_X_KEY_URI matches", e);
-      const n = (e && e[1]) || void 0;
+      const n = (e && e[1]) || undefined;
       this._extURI = n;
       const d = [];
       return n && d.push({ keyFormat: ut.WIDEVINE, dataUri: n }), d;
@@ -15693,18 +17629,18 @@
         const m =
           null !==
             (h =
-              null === (d = /KEYFORMAT="(.*?)"/.exec(_)) || void 0 === d
-                ? void 0
-                : d[1]) && void 0 !== h
+              null === (d = /KEYFORMAT="(.*?)"/.exec(_)) || undefined === d
+                ? undefined
+                : d[1]) && undefined !== h
             ? h
             : "";
         var y;
         const g =
           null !==
             (y =
-              null === (p = /URI="(.*?)"/.exec(_)) || void 0 === p
-                ? void 0
-                : p[1]) && void 0 !== y
+              null === (p = /URI="(.*?)"/.exec(_)) || undefined === p
+                ? undefined
+                : p[1]) && undefined !== y
             ? y
             : "";
         m && g && n.push({ keyFormat: m, dataUri: g });
@@ -15717,13 +17653,69 @@
     }
     constructor(e, n) {
       super([lt.manifestParsed, Sn.keysParsed]),
-        _define_property$14(this, "_data", void 0),
-        _define_property$14(this, "_downlink", 0),
-        _define_property$14(this, "_extURI", void 0),
-        _define_property$14(this, "_url", void 0),
-        _define_property$14(this, "_item", void 0),
-        _define_property$14(this, "_segmentList", new SegmentList()),
-        _define_property$14(this, "_manifestRefreshInterval", void 0),
+        ("_data" in this
+          ? Object.defineProperty(this, "_data", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._data = undefined),
+        this),
+        ("_downlink" in this
+          ? Object.defineProperty(this, "_downlink", {
+              value: 0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._downlink = 0),
+        this),
+        ("_extURI" in this
+          ? Object.defineProperty(this, "_extURI", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._extURI = undefined),
+        this),
+        ("_url" in this
+          ? Object.defineProperty(this, "_url", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._url = undefined),
+        this),
+        ("_item" in this
+          ? Object.defineProperty(this, "_item", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._item = undefined),
+        this),
+        ("_segmentList" in this
+          ? Object.defineProperty(this, "_segmentList", {
+              value: new SegmentList(),
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._segmentList = new SegmentList()),
+        this),
+        ("_manifestRefreshInterval" in this
+          ? Object.defineProperty(this, "_manifestRefreshInterval", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._manifestRefreshInterval = undefined),
+        this),
         (this._data = e),
         (this._item = n),
         (this._url = n.assetURL);
@@ -15768,23 +17760,10 @@
     d = null != d ? d : e.length;
     for (let h = n; h < d; h++) {
       const n = e[h];
-      if ("\0" === String.fromCharCode(n)) break;
+      if ("" === String.fromCharCode(n)) break;
       p.push(String.fromCharCode(n));
     }
     return [p.join(""), p.length];
-  }
-  function _define_property$13(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   class BaseMp4Box {
     get size() {
@@ -15794,10 +17773,42 @@
       return this.data.slice(this.start, this.end);
     }
     constructor(e, n, d, p) {
-      _define_property$13(this, "id", void 0),
-        _define_property$13(this, "data", void 0),
-        _define_property$13(this, "start", void 0),
-        _define_property$13(this, "end", void 0),
+      "id" in this
+        ? Object.defineProperty(this, "id", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.id = undefined),
+        this,
+        ("data" in this
+          ? Object.defineProperty(this, "data", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.data = undefined),
+        this),
+        ("start" in this
+          ? Object.defineProperty(this, "start", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.start = undefined),
+        this),
+        ("end" in this
+          ? Object.defineProperty(this, "end", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.end = undefined),
+        this),
         (this.id = e),
         (this.data = n),
         (this.start = d),
@@ -15834,27 +17845,14 @@
           n in e
             ? Object.defineProperty(e, n, {
                 value: d,
-                enumerable: !0,
-                configurable: !0,
-                writable: !0,
+                enumerable: true,
+                configurable: true,
+                writable: true,
               })
             : (e[n] = d);
-        })(this, "view", void 0),
+        })(this, "view", undefined),
         (this.view = new DataView(e.buffer, n));
     }
-  }
-  function _define_property$11(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   class TencBox extends BaseMp4Box {
     get isProtected() {
@@ -15871,9 +17869,33 @@
     }
     constructor(e, n, d) {
       super("tenc", e, n, d),
-        _define_property$11(this, "data", void 0),
-        _define_property$11(this, "start", void 0),
-        _define_property$11(this, "end", void 0),
+        ("data" in this
+          ? Object.defineProperty(this, "data", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.data = undefined),
+        this),
+        ("start" in this
+          ? Object.defineProperty(this, "start", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.start = undefined),
+        this),
+        ("end" in this
+          ? Object.defineProperty(this, "end", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.end = undefined),
+        this),
         (this.data = e),
         (this.start = n),
         (this.end = d);
@@ -15922,19 +17944,6 @@
     })(e).find((e) => e.isWidevine);
     d && (n.defaultKeyId = d.keyBytes);
   };
-  function _define_property$10(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   class ID3Tag {
     get major() {
       return this.version[0];
@@ -15944,7 +17953,7 @@
     }
     get revision() {
       var e;
-      return null !== (e = this.version[2]) && void 0 !== e ? e : 0;
+      return null !== (e = this.version[2]) && undefined !== e ? e : 0;
     }
     static parse(e) {
       return (function (e) {
@@ -15962,31 +17971,70 @@
           (n.flags = (function (e, n = 5) {
             const d = e[n];
             return {
-              unsynchronized: decodeBitFlag(d, 7),
-              extendedHeader: decodeBitFlag(d, 6),
-              experimental: decodeBitFlag(d, 5),
-              footer: decodeBitFlag(d, 4),
+              unsynchronized: 0 != (d & 128),
+              extendedHeader: 0 != (d & 64),
+              experimental: 0 != (d & 32),
+              footer: 0 != (d & 16),
             };
           })(e)),
           (d += 1);
-        const p = d + 4 + decodeSynchSafeUint32(e.subarray(d, d + 4));
+        const p =
+          d +
+          4 +
+          (2097152 * (127 & e.subarray(d, d + 4)[0]) +
+            16384 * (127 & e.subarray(d, d + 4)[1]) +
+            128 * (127 & e.subarray(d, d + 4)[2]) +
+            (127 & e.subarray(d, d + 4)[3]));
         (d += 4),
           n.flags.extendedHeader &&
-            (d += decodeSynchSafeUint32(e.subarray(d, d + 4)));
+            (d +=
+              2097152 * (127 & e.subarray(d, d + 4)[0]) +
+              16384 * (127 & e.subarray(d, d + 4)[1]) +
+              128 * (127 & e.subarray(d, d + 4)[2]) +
+              (127 & e.subarray(d, d + 4)[3]));
         n.version[1] > 2 && (n.frames = decodeID3Frames(e, n.version, [d, p]));
         return new ID3Tag(n);
       })(e);
     }
     constructor(e) {
       var n;
-      _define_property$10(this, "version", [3, 2, 0]),
-        _define_property$10(this, "frames", []),
-        _define_property$10(this, "flags", {
-          unsynchronized: !1,
-          extendedHeader: !1,
-          footer: !1,
-          experimental: !1,
-        }),
+      "version" in this
+        ? Object.defineProperty(this, "version", {
+            value: [3, 2, 0],
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.version = [3, 2, 0]),
+        this,
+        ("frames" in this
+          ? Object.defineProperty(this, "frames", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.frames = []),
+        this),
+        ("flags" in this
+          ? Object.defineProperty(this, "flags", {
+              value: {
+                unsynchronized: false,
+                extendedHeader: false,
+                footer: false,
+                experimental: false,
+              },
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.flags = {
+              unsynchronized: false,
+              extendedHeader: false,
+              footer: false,
+              experimental: false,
+            }),
+        this),
         (this.version = e.version),
         (this.flags = (function (e) {
           for (var n = 1; n < arguments.length; n++) {
@@ -15999,20 +18047,28 @@
                 }),
               )),
               p.forEach(function (n) {
-                _define_property$10(e, n, d[n]);
+                n in e
+                  ? Object.defineProperty(e, n, {
+                      value: d[n],
+                      enumerable: true,
+                      configurable: true,
+                      writable: true,
+                    })
+                  : (e[n] = d[n]),
+                  e;
               });
           }
           return e;
         })(
           {
-            unsynchronized: !1,
-            extendedHeader: !1,
-            footer: !1,
-            experimental: !1,
+            unsynchronized: false,
+            extendedHeader: false,
+            footer: false,
+            experimental: false,
           },
           e.flags,
         )),
-        (this.frames = null !== (n = e.frames) && void 0 !== n ? n : []);
+        (this.frames = null !== (n = e.frames) && undefined !== n ? n : []);
     }
   }
   const Rn = {
@@ -16039,25 +18095,37 @@
     TPE1: function (e, n, d) {
       return {
         key: "TPE1",
-        data: trimNull(decodeString(n.subarray(1), decodeCharset(n[0]))),
+        data: decodeString(n.subarray(1), decodeCharset(n[0])).replace(
+          /^\0*|\0*/g,
+          "",
+        ),
       };
     },
     TIT2: function (e, n, d) {
       return {
         key: "TIT2",
-        data: trimNull(decodeString(n.subarray(1), decodeCharset(n[0]))),
+        data: decodeString(n.subarray(1), decodeCharset(n[0])).replace(
+          /^\0*|\0*/g,
+          "",
+        ),
       };
     },
     TALB: function (e, n, d) {
       return {
         key: "TALB",
-        data: trimNull(decodeString(n.subarray(1), decodeCharset(n[0]))),
+        data: decodeString(n.subarray(1), decodeCharset(n[0])).replace(
+          /^\0*|\0*/g,
+          "",
+        ),
       };
     },
     TEXT: function (e, n, d) {
       return {
         key: "TEXT",
-        data: trimNull(decodeString(n.subarray(1), decodeCharset(n[0]))),
+        data: decodeString(n.subarray(1), decodeCharset(n[0])).replace(
+          /^\0*|\0*/g,
+          "",
+        ),
       };
     },
     PRIV: function (e, n, d) {
@@ -16094,11 +18162,12 @@
   function decodeID3Frames(e, n, d) {
     var p;
     const h =
-      null !== (p = (d = null != d ? d : [0, e.byteLength])[1]) && void 0 !== p
+      null !== (p = (d = null != d ? d : [0, e.byteLength])[1]) &&
+      undefined !== p
         ? p
         : e.byteLength;
     var y;
-    let _ = null !== (y = d[0]) && void 0 !== y ? y : 0;
+    let _ = null !== (y = d[0]) && undefined !== y ? y : 0;
     const m = new DataView(e.buffer, 0, h),
       g = [];
     for (; _ + 8 <= h; ) {
@@ -16107,11 +18176,17 @@
       _ += 4;
       const p =
         4 === n[1]
-          ? decodeSynchSafeUint32(e.subarray(_, _ + 4))
+          ? 2097152 * (127 & e.subarray(_, _ + 4)[0]) +
+            16384 * (127 & e.subarray(_, _ + 4)[1]) +
+            128 * (127 & e.subarray(_, _ + 4)[2]) +
+            (127 & e.subarray(_, _ + 4)[3])
           : m.getUint32(_);
       if (((_ += 4), e[_++], e[_++], _ + p > h)) break;
       const y = e.slice(_, _ + p),
-        P = null === (b = Rn[d]) || void 0 === b ? void 0 : b.call(Rn, d, y, n);
+        P =
+          null === (b = Rn[d]) || undefined === b
+            ? undefined
+            : b.call(Rn, d, y, n);
       P && g.push(P), (_ += p);
     }
     return g;
@@ -16119,16 +18194,10 @@
   function decodeString(e, n = "utf-8") {
     return new TextDecoder(n).decode(e);
   }
-  function decodeBitFlag(e, n) {
-    return 0 != (e & (1 << n));
-  }
   const $n = { 0: "iso-8859-1", 1: "utf-16", 2: "utf-16be", 3: "utf-8" };
   function decodeCharset(e) {
     var n;
-    return null !== (n = $n[e]) && void 0 !== n ? n : "iso-8859-1";
-  }
-  function trimNull(e) {
-    return e.replace(/^\0*|\0*/g, "");
+    return null !== (n = $n[e]) && undefined !== n ? n : "iso-8859-1";
   }
   function decodeNullTerminatedString(e, n = "utf-8", d = 0) {
     const p = [];
@@ -16139,38 +18208,38 @@
     }
     return [decodeString(new Uint8Array(p), n), p.length];
   }
-  function decodeSynchSafeUint32(e) {
-    return (
-      2097152 * (127 & e[0]) +
-      16384 * (127 & e[1]) +
-      128 * (127 & e[2]) +
-      (127 & e[3])
-    );
-  }
-  function checkBoxName(e, n, d) {
-    return (
-      !(n + 4 > e.length) &&
-      e[n] === d[0] &&
-      e[n + 1] === d[1] &&
-      e[n + 2] === d[2] &&
-      e[n + 3] === d[3]
-    );
-  }
   function findEmsgs(e) {
     const n = e.length,
       d = [];
     if (
       (function (e) {
         return (
-          (null == e ? void 0 : e.length) >= 8 &&
-          checkBoxName(e, 4, [102, 116, 121, 112])
+          (null == e ? undefined : e.length) >= 8 &&
+          !(8 > e.length) &&
+          e[4] === [102, 116, 121, 112][0] &&
+          e[5] === [102, 116, 121, 112][1] &&
+          e[6] === [102, 116, 121, 112][2] &&
+          e[7] === [102, 116, 121, 112][3]
         );
       })(e)
     )
       return d;
     for (let p = 0; p < n; p++) {
-      if (checkBoxName(e, p, [109, 111, 111, 102])) return d;
-      if (checkBoxName(e, p, [101, 109, 115, 103])) {
+      if (
+        !(p + 4 > e.length) &&
+        e[p] === [109, 111, 111, 102][0] &&
+        e[p + 1] === [109, 111, 111, 102][1] &&
+        e[p + 2] === [109, 111, 111, 102][2] &&
+        e[p + 3] === [109, 111, 111, 102][3]
+      )
+        return d;
+      if (
+        !(p + 4 > e.length) &&
+        e[p] === [101, 109, 115, 103][0] &&
+        e[p + 1] === [101, 109, 115, 103][1] &&
+        e[p + 2] === [101, 109, 115, 103][2] &&
+        e[p + 3] === [101, 109, 115, 103][3]
+      ) {
         const n = p - 4,
           h = new DataView(e.buffer, n).getUint32(0),
           y = e.subarray(n, n + h);
@@ -16179,49 +18248,38 @@
     }
     return d;
   }
-  function _define_property$$(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   class TimedMetadata {
     storefrontAdamId(e) {
       var n;
-      return null === (n = this.storefrontAdamIds) || void 0 === n
-        ? void 0
+      return null === (n = this.storefrontAdamIds) || undefined === n
+        ? undefined
         : n[e];
     }
     equals(e) {
       return (function (e, n) {
         var d, p, h, y;
-        if (void 0 === e && void 0 === n) return !0;
-        if (typeof e != typeof n) return !1;
+        if (undefined === e && undefined === n) return true;
+        if (typeof e != typeof n) return false;
         if (
           ((n = n),
           (e = e).album !== n.album ||
             e.title !== n.title ||
             e.performer !== n.performer)
         )
-          return !1;
+          return false;
         if (
-          (null === (d = e.links) || void 0 === d ? void 0 : d.length) !==
-          (null === (p = n.links) || void 0 === p ? void 0 : p.length)
+          (null === (d = e.links) || undefined === d ? undefined : d.length) !==
+          (null === (p = n.links) || undefined === p ? undefined : p.length)
         )
-          return !1;
+          return false;
         for (
           let g = 0;
           g <
           (null !==
-            (y = null === (h = e.links) || void 0 === h ? void 0 : h.length) &&
-          void 0 !== y
+            (y =
+              null === (h = e.links) || undefined === h
+                ? undefined
+                : h.length) && undefined !== y
             ? y
             : 0);
           g++
@@ -16229,47 +18287,95 @@
           var _, m;
           if (
             !objectKeyValueEquals(
-              null === (_ = e.links) || void 0 === _ ? void 0 : _[g],
-              null === (m = n.links) || void 0 === m ? void 0 : m[g],
+              null === (_ = e.links) || undefined === _ ? undefined : _[g],
+              null === (m = n.links) || undefined === m ? undefined : m[g],
             )
           )
-            return !1;
+            return false;
         }
         if (!objectKeyValueEquals(e.storefrontAdamIds, n.storefrontAdamIds))
-          return !1;
-        if (!compareUint8Array(e.blob, n.blob)) return !1;
-        return !0;
+          return false;
+        if (!compareUint8Array(e.blob, n.blob)) return false;
+        return true;
       })(this, e);
     }
     constructor(e) {
       var n;
-      _define_property$$(this, "performer", void 0),
-        _define_property$$(this, "title", void 0),
-        _define_property$$(this, "album", void 0),
-        _define_property$$(this, "links", void 0),
-        _define_property$$(this, "storefrontAdamIds", void 0),
-        _define_property$$(this, "blob", void 0),
-        (this.performer = null == e ? void 0 : e.performer),
-        (this.title = null == e ? void 0 : e.title),
-        (this.album = null == e ? void 0 : e.album),
-        (this.links = null == e ? void 0 : e.links),
+      "performer" in this
+        ? Object.defineProperty(this, "performer", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.performer = undefined),
+        this,
+        ("title" in this
+          ? Object.defineProperty(this, "title", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.title = undefined),
+        this),
+        ("album" in this
+          ? Object.defineProperty(this, "album", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.album = undefined),
+        this),
+        ("links" in this
+          ? Object.defineProperty(this, "links", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.links = undefined),
+        this),
+        ("storefrontAdamIds" in this
+          ? Object.defineProperty(this, "storefrontAdamIds", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.storefrontAdamIds = undefined),
+        this),
+        ("blob" in this
+          ? Object.defineProperty(this, "blob", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.blob = undefined),
+        this),
+        (this.performer = null == e ? undefined : e.performer),
+        (this.title = null == e ? undefined : e.title),
+        (this.album = null == e ? undefined : e.album),
+        (this.links = null == e ? undefined : e.links),
         (this.storefrontAdamIds =
-          null !== (n = null == e ? void 0 : e.storefrontAdamIds) &&
-          void 0 !== n
+          null !== (n = null == e ? undefined : e.storefrontAdamIds) &&
+          undefined !== n
             ? n
             : {}),
-        (this.blob = null == e ? void 0 : e.blob);
+        (this.blob = null == e ? undefined : e.blob);
     }
   }
   function objectKeyValueEquals(e, n) {
-    if (void 0 === e && void 0 === n) return !0;
-    if (typeof e != typeof n) return !1;
+    if (undefined === e && undefined === n) return true;
+    if (typeof e != typeof n) return false;
     (e = e), (n = n);
     const d = Object.keys(e),
       p = Object.keys(n);
-    if (d.length !== p.length) return !1;
-    for (const h of d) if (e[h] !== n[h]) return !1;
-    return !0;
+    if (d.length !== p.length) return false;
+    for (const h of d) if (e[h] !== n[h]) return false;
+    return true;
   }
   function parseStorefrontAdamIds(e) {
     let n;
@@ -16279,14 +18385,14 @@
         : e;
     const d = n.trim().split(",");
     if (0 === d.length) return;
-    const isEmptyString = (e) => void 0 === e || "" === e,
+    const isEmptyString = (e) => undefined === e || "" === e,
       p = {};
     for (const h of d) {
       const [e, n] = h.split(":", 2).map((e) => e.trim());
       isEmptyString(e) ||
         isEmptyString(n) ||
         "0" === n ||
-        void 0 !== p[e] ||
+        undefined !== p[e] ||
         (p[e] = n);
     }
     return p;
@@ -16295,19 +18401,6 @@
     return "string" == typeof e
       ? Uint8Array.from(atob(e), (e) => e.charCodeAt(0))
       : e;
-  }
-  function _define_property$_(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   class Emsg {
     get length() {
@@ -16320,12 +18413,13 @@
     get timedMetadata() {
       var e;
       if (this._timedMetadata) return this._timedMetadata;
-      const n = null === (e = this.id3) || void 0 === e ? void 0 : e.frames;
+      const n =
+        null === (e = this.id3) || undefined === e ? undefined : e.frames;
       return n
         ? ((this._timedMetadata = (function (e) {
             const n = {};
             for (const p of e)
-              if (void 0 !== p.key)
+              if (undefined !== p.key)
                 switch (p.key) {
                   case "TALB":
                     n.album = p.data;
@@ -16338,14 +18432,14 @@
                     break;
                   case "WXXX":
                     var d;
-                    if (void 0 !== p.description)
+                    if (undefined !== p.description)
                       if (
-                        (void 0 === n.links && (n.links = []),
+                        (undefined === n.links && (n.links = []),
                         !n.links.some((e) => e.url === p.data))
                       )
                         n.links.push({
                           description:
-                            null !== (d = p.description) && void 0 !== d
+                            null !== (d = p.description) && undefined !== d
                               ? d
                               : "",
                           url: p.data,
@@ -16360,18 +18454,90 @@
             return new TimedMetadata(n);
           })(n)),
           this._timedMetadata)
-        : void 0;
+        : undefined;
     }
     constructor(e) {
-      _define_property$_(this, "data", void 0),
-        _define_property$_(this, "schemeIdUri", void 0),
-        _define_property$_(this, "eventDuration", void 0),
-        _define_property$_(this, "presentationTime", void 0),
-        _define_property$_(this, "payload", void 0),
-        _define_property$_(this, "timeScale", void 0),
-        _define_property$_(this, "id3", void 0),
-        _define_property$_(this, "id", void 0),
-        _define_property$_(this, "_timedMetadata", void 0),
+      "data" in this
+        ? Object.defineProperty(this, "data", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.data = undefined),
+        this,
+        ("schemeIdUri" in this
+          ? Object.defineProperty(this, "schemeIdUri", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.schemeIdUri = undefined),
+        this),
+        ("eventDuration" in this
+          ? Object.defineProperty(this, "eventDuration", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.eventDuration = undefined),
+        this),
+        ("presentationTime" in this
+          ? Object.defineProperty(this, "presentationTime", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.presentationTime = undefined),
+        this),
+        ("payload" in this
+          ? Object.defineProperty(this, "payload", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.payload = undefined),
+        this),
+        ("timeScale" in this
+          ? Object.defineProperty(this, "timeScale", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.timeScale = undefined),
+        this),
+        ("id3" in this
+          ? Object.defineProperty(this, "id3", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.id3 = undefined),
+        this),
+        ("id" in this
+          ? Object.defineProperty(this, "id", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.id = undefined),
+        this),
+        ("_timedMetadata" in this
+          ? Object.defineProperty(this, "_timedMetadata", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._timedMetadata = undefined),
+        this),
         (this.data = e);
       const n = new DataView(e.buffer);
       let d = 8;
@@ -16400,19 +18566,6 @@
         (this.payload = e.subarray(d, e.byteLength)),
         (this.id3 = ID3Tag.parse(this.payload));
     }
-  }
-  function _define_property$Z(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   class TimedMetadataManager {
     processEmsgs(e) {
@@ -16444,7 +18597,7 @@
         const e = n[y];
         if (!e) return;
         const { _currentEmsg: d, _onDidChange: p } = this,
-          h = null == d ? void 0 : d.payload,
+          h = null == d ? undefined : d.payload,
           _ = e.payload;
         (h && arrayEquals(h, _)) || ((this._currentEmsg = e), p(e)),
           this._cleanupEmsgs(y);
@@ -16457,29 +18610,56 @@
       });
     }
     constructor(e, n) {
-      _define_property$Z(this, "_currentTime", void 0),
-        _define_property$Z(this, "_onDidChange", void 0),
-        _define_property$Z(this, "_currentEmsgInterval", void 0),
-        _define_property$Z(this, "_emsgLookup", void 0),
-        _define_property$Z(this, "_currentEmsg", void 0),
+      "_currentTime" in this
+        ? Object.defineProperty(this, "_currentTime", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._currentTime = undefined),
+        this,
+        ("_onDidChange" in this
+          ? Object.defineProperty(this, "_onDidChange", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._onDidChange = undefined),
+        this),
+        ("_currentEmsgInterval" in this
+          ? Object.defineProperty(this, "_currentEmsgInterval", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._currentEmsgInterval = undefined),
+        this),
+        ("_emsgLookup" in this
+          ? Object.defineProperty(this, "_emsgLookup", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._emsgLookup = undefined),
+        this),
+        ("_currentEmsg" in this
+          ? Object.defineProperty(this, "_currentEmsg", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._currentEmsg = undefined),
+        this),
         (this._currentTime = e),
         (this._onDidChange = n),
         (this._emsgLookup = {}),
         (this._getCurrentEmsg = this._getCurrentEmsg.bind(this));
     }
-  }
-  function _define_property$Y(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   class SegmentProcessor {
     process(e, n) {
@@ -16502,8 +18682,24 @@
       this._timedMetadataManager.processEmsgs(e);
     }
     constructor(e, n, d) {
-      _define_property$Y(this, "_item", void 0),
-        _define_property$Y(this, "_timedMetadataManager", void 0),
+      "_item" in this
+        ? Object.defineProperty(this, "_item", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._item = undefined),
+        this,
+        ("_timedMetadataManager" in this
+          ? Object.defineProperty(this, "_timedMetadataManager", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._timedMetadataManager = undefined),
+        this),
         (this._item = e),
         (this._timedMetadataManager = new TimedMetadataManager(
           () => n.currentTime,
@@ -16534,22 +18730,9 @@
         function _throw(e) {
           asyncGeneratorStep$I(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$X(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_decorate$l(e, n, d, p) {
     var h,
@@ -16592,7 +18775,7 @@
             (n.appendWindowEnd = d.end))
           : (Cn.debug("seeking for clip", d.start),
             asAsync(this.seek(d.start)))),
-        this.updateSegmentToFetch(0, !0);
+        this.updateSegmentToFetch(0, true);
     }
     setNextManifest(e) {
       Cn.debug("setting next manifest for ", e.mediaItem.title),
@@ -16601,7 +18784,7 @@
               "abandoning transition scheduled for " +
                 this.nextSeamlessTransition,
             ),
-            this.revertSeamlessTransition(!0),
+            this.revertSeamlessTransition(true),
             (this.playbackTimeline.next = { manifest: e }))
           : ((this.playbackTimeline.next = { manifest: e }),
             this.isFullyBuffered &&
@@ -16614,11 +18797,11 @@
       var n, d;
       const { playbackTimeline: p } = this,
         h = this.nextSeamlessTransition
-          ? null === (n = p.previous) || void 0 === n
-            ? void 0
+          ? null === (n = p.previous) || undefined === n
+            ? undefined
             : n.manifest.mediaItem
-          : null === (d = p.current) || void 0 === d
-            ? void 0
+          : null === (d = p.current) || undefined === d
+            ? undefined
             : d.manifest.mediaItem;
       return (
         !!h &&
@@ -16653,16 +18836,16 @@
         var d, p;
         Cn.debug("setting offset to", n),
           (this.currentTimestampOffset = n || 0),
-          (this.nextSeamlessTransition = void 0),
+          (this.nextSeamlessTransition = undefined),
           (this.duration = this.manifest.mediaItem.playbackDuration / 1e3),
           Cn.debug("buffer setting duration to", this.duration);
         const e = {
           previous:
             null === (p = this.playbackTimeline.previous) ||
-            void 0 === p ||
+            undefined === p ||
             null === (d = p.manifest) ||
-            void 0 === d
-              ? void 0
+            undefined === d
+              ? undefined
               : d.mediaItem,
           current: this.manifest.mediaItem,
         };
@@ -16681,9 +18864,9 @@
     get hasAppendWindowSupport() {
       var e;
       return (
-        void 0 !==
-        (null === (e = this.sourceBuffer) || void 0 === e
-          ? void 0
+        undefined !==
+        (null === (e = this.sourceBuffer) || undefined === e
+          ? undefined
           : e.appendWindowStart)
       );
     }
@@ -16692,29 +18875,29 @@
       return _async_to_generator$I(function* () {
         const { duration: d, seekWhenUpdated: p, sourceBuffer: h } = n;
         if (
-          (n.resolveSeekPromise(!1),
+          (n.resolveSeekPromise(false),
           Cn.debug("seek to ", e),
           (e = +e) > d &&
             (Cn.debug("rounding seek time to duration", e, d), (e = d)),
           !h)
         )
-          return !1;
+          return false;
         if ((n.revertSeamlessTransition(), h.updating))
           return (
             Cn.debug("sourcebuffer updating, deferring seek"),
             new Promise((d) => {
-              p && p.resolve(!1),
+              p && p.resolve(false),
                 (n.seekWhenUpdated = { seek: n.seek.bind(n, e), resolve: d });
             })
           );
-        (n.currentlyLoadingSegmentIndex = void 0),
-          n.updateSegmentToFetch(0, !0),
+        (n.currentlyLoadingSegmentIndex = undefined),
+          n.updateSegmentToFetch(0, true),
           n.removeToTime(e),
           (n.timeToTrim = 10 * Math.floor(e / 10));
         const y = n.getSegmentForTime(e);
         0 !== y && (yield n.firstSegmentLoadPromise),
           Cn.debug("seeking to", e, "segment", y),
-          n.updateSegmentToFetch(y, !0);
+          n.updateSegmentToFetch(y, true);
         const _ = new Promise((d) => {
           n.seekResolver = { time: e, resolve: d };
         });
@@ -16722,9 +18905,10 @@
       })();
     }
     clearNextManifest() {
-      this.revertSeamlessTransition(!0), (this.playbackTimeline.next = void 0);
+      this.revertSeamlessTransition(true),
+        (this.playbackTimeline.next = undefined);
     }
-    revertSeamlessTransition(e = !1) {
+    revertSeamlessTransition(e = false) {
       const { playbackTimeline: n, nextSeamlessTransition: d } = this;
       if (!d || !n.previous)
         return void Cn.debug("no need to revert, no transition");
@@ -16732,12 +18916,12 @@
         Cn.debug("reverting seamless transition with discardNextManifest", e),
         e ? this.clearBufferToEnd(d) : this.clearBuffer(),
         Cn.debug("abandoning transition to " + this.manifest.mediaItem.title),
-        (n.next = e ? void 0 : n.current),
+        (n.next = e ? undefined : n.current),
         (n.current = n.previous),
-        (n.previous = void 0);
+        (n.previous = undefined);
       const p = this.manifest.mediaItem;
       Cn.debug("current item reverted to " + p.title),
-        (this.nextSeamlessTransition = void 0),
+        (this.nextSeamlessTransition = undefined),
         (this.duration = p.playbackDuration / 1e3),
         Cn.debug("reverted duration to " + this.duration),
         e ||
@@ -16759,19 +18943,19 @@
       var e;
       Cn.debug("removing sourceBuffer and mediaSource");
       const { sourceBuffer: n, mediaSource: d } = this;
-      null === (e = this.seekResolver) || void 0 === e || e.resolve(!1),
+      null === (e = this.seekResolver) || undefined === e || e.resolve(false),
         this.manifest.removeEventListener(Dn, this.onManifestParsed);
       const p = this._playableUrl;
       p && (Cn.debug("revoking url", p), window.URL.revokeObjectURL(p)),
         d.removeEventListener("sourceopen", this.onSourceOpen),
         n &&
           (n.removeEventListener("updateend", this.updateEndHandler),
-          (this.sourceBuffer = void 0));
+          (this.sourceBuffer = undefined));
     }
     onManifestParsed() {
       const e = this.segmentIndexToFetch + 1;
       Cn.debug("manifestParsed, loading segment", e),
-        this.updateSegmentToFetch(e, !0);
+        this.updateSegmentToFetch(e, true);
     }
     updateEndHandler() {
       if ((this.kickstartBuffer(), this.clearDeferredRemove())) return;
@@ -16782,7 +18966,7 @@
         const { seekWhenUpdated: e } = this;
         return (
           asAsync(e.seek().then(e.resolve)),
-          void (this.seekWhenUpdated = void 0)
+          void (this.seekWhenUpdated = undefined)
         );
       }
       this.checkSeekBuffered();
@@ -16804,20 +18988,20 @@
             (Cn.debug("isAtEndOfStream, not fetching any more segments"),
             this.playbackTimeline.next || this.setEndOfStream(),
             this.transitionToNextManifest()),
-          void (this.isAtEndOfStream = !1)
+          void (this.isAtEndOfStream = false)
         );
       Cn.debug("updateEndHandler invoking loadSegment"),
         asAsync(this.loadSegment());
     }
     clearDeferredRemove() {
       var e;
-      if (0 === this.deferredRemoves.length) return !1;
+      if (0 === this.deferredRemoves.length) return false;
       const n = this.deferredRemoves.shift();
       return (
         null === (e = this.sourceBuffer) ||
-          void 0 === e ||
+          undefined === e ||
           e.remove(n.start, n.end),
-        !0
+        true
       );
     }
     transitionToNextManifest() {
@@ -16833,17 +19017,17 @@
         (n.previous = n.current),
         Cn.debug(
           "previous manifest set to",
-          null === (e = n.previous) || void 0 === e
-            ? void 0
+          null === (e = n.previous) || undefined === e
+            ? undefined
             : e.manifest.mediaItem.title,
         ),
         (n.current = n.next),
         Cn.debug("current manifest set to", n.current.manifest.mediaItem.title),
-        (n.next = void 0),
-        this.updateSegmentToFetch(0, !0),
+        (n.next = undefined),
+        this.updateSegmentToFetch(0, true),
         this.printInfo();
     }
-    updateSegmentToFetch(e, n = !1) {
+    updateSegmentToFetch(e, n = false) {
       this.segments.length &&
         e < this.segments.length &&
         e !== this.segmentIndexToFetch &&
@@ -16878,14 +19062,14 @@
                 "number" == typeof m &&
                   (Cn.debug("adjusting timestampOffset of sourcebuffer to", m),
                   (_.timestampOffset = m),
-                  (e.timestampOffsetAdjustment = void 0)),
+                  (e.timestampOffsetAdjustment = undefined)),
                   _.appendBuffer(y),
-                  (e.isFullyBuffered = !1),
-                  (e.isOverBufferLimit = !1),
+                  (e.isFullyBuffered = false),
+                  (e.isOverBufferLimit = false),
                   Cn.debug("appended to buffer", y.length),
                   e.printBufferTimes(),
                   n === e.segments.length - 1
-                    ? (e.isAtEndOfStream = !0)
+                    ? (e.isAtEndOfStream = true)
                     : n === e.segmentIndexToFetch &&
                       (Cn.debug(
                         "loadSegment bumping segment index to fetch to ",
@@ -16894,7 +19078,7 @@
                       e.updateSegmentToFetch(n + 1));
               } catch (p) {
                 "QuotaExceededError" === p.name
-                  ? ((e.isOverBufferLimit = !0),
+                  ? ((e.isOverBufferLimit = true),
                     Cn.debug("reached buffer limit"))
                   : Cn.warn("Error appending to source buffer", p);
               }
@@ -16902,7 +19086,7 @@
               Cn.error("Error loading segment", Vt),
                 e.dispatcher.publish(In, Vt);
             } finally {
-              e.currentlyLoadingSegmentIndex = void 0;
+              e.currentlyLoadingSegmentIndex = undefined;
             }
         } else
           Cn.debug(`segment ${n} is currently loading, not loading it again`);
@@ -16920,7 +19104,7 @@
             )
           : (Cn.debug("mediaSource.endOfStream"),
             n.endOfStream(),
-            (this.isFullyBuffered = !0)));
+            (this.isFullyBuffered = true)));
     }
     removeToTime(e) {
       Cn.debug("removing to time", e),
@@ -16939,17 +19123,17 @@
       var e, n;
       return (
         (null === (n = this.playbackTimeline) ||
-        void 0 === n ||
+        undefined === n ||
         null === (e = n.previous) ||
-        void 0 === e
-          ? void 0
+        undefined === e
+          ? undefined
           : e.endTime) || 0
       );
     }
     get manifest() {
       var e;
-      return null === (e = this.playbackTimeline.current) || void 0 === e
-        ? void 0
+      return null === (e = this.playbackTimeline.current) || undefined === e
+        ? undefined
         : e.manifest;
     }
     checkSeekBuffered() {
@@ -16963,30 +19147,34 @@
         h &&
           (Cn.debug("resolving seek to true for time:", p),
           (this.element.currentTime = p),
-          this.resolveSeekPromise(!0));
+          this.resolveSeekPromise(true));
     }
     resolveSeekPromise(e) {
       this.seekResolver &&
-        (this.seekResolver.resolve(e), (this.seekResolver = void 0));
+        (this.seekResolver.resolve(e), (this.seekResolver = undefined));
     }
     get endOfBufferTime() {
       var e;
       const n =
-        null === (e = this.sourceBuffer) || void 0 === e ? void 0 : e.buffered;
+        null === (e = this.sourceBuffer) || undefined === e
+          ? undefined
+          : e.buffered;
       return !(!n || !n.length) && n.end(n.length - 1);
     }
     isTimeBuffered(e) {
       var n;
       const d =
-        null === (n = this.sourceBuffer) || void 0 === n ? void 0 : n.buffered;
-      if (!d) return !1;
+        null === (n = this.sourceBuffer) || undefined === n
+          ? undefined
+          : n.buffered;
+      if (!d) return false;
       for (let p = 0; p < d.length; p++)
         if (
           (Cn.debug("isTimeBuffered", d.start(p), e, d.end(p)),
           e >= d.start(p) && e <= d.end(p))
         )
-          return !0;
-      return !1;
+          return true;
+      return false;
     }
     clearBufferToEnd(e) {
       const { sourceBuffer: n } = this;
@@ -17004,7 +19192,9 @@
     get bufferTimesString() {
       var e;
       const n =
-        null === (e = this.sourceBuffer) || void 0 === e ? void 0 : e.buffered;
+        null === (e = this.sourceBuffer) || undefined === e
+          ? undefined
+          : e.buffered;
       if (!n) return "";
       const d = [];
       for (let p = 0; p < n.length; p++)
@@ -17024,9 +19214,9 @@
         (this.manifest.mediaItem.isSong
           ? d &&
             this.isTimeBuffered(d.start) &&
-            ((n.currentTime = d.start), (this.hasKickstarted = !0))
+            ((n.currentTime = d.start), (this.hasKickstarted = true))
           : p.length &&
-            ((n.currentTime = p.start(0)), (this.hasKickstarted = !0)));
+            ((n.currentTime = p.start(0)), (this.hasKickstarted = true)));
     }
     printInfo() {
       var e, n;
@@ -17035,14 +19225,14 @@
         Cn.info("currently buffering item", d.current.manifest.mediaItem.title),
         Cn.info(
           "next item to buffer",
-          null === (e = d.next) || void 0 === e
-            ? void 0
+          null === (e = d.next) || undefined === e
+            ? undefined
             : e.manifest.mediaItem.title,
         ),
         Cn.info(
           "previously buffered item",
-          null === (n = d.previous) || void 0 === n
-            ? void 0
+          null === (n = d.previous) || undefined === n
+            ? undefined
             : n.manifest.mediaItem.title,
         ),
         Cn.info("currentTimestampOffset", this.currentTimestampOffset),
@@ -17065,30 +19255,222 @@
       duration: h,
       clip: y,
     }) {
-      _define_property$X(this, "dispatcher", void 0),
-        _define_property$X(this, "mediaSource", void 0),
-        _define_property$X(this, "sourceBuffer", void 0),
-        _define_property$X(this, "element", void 0),
-        _define_property$X(this, "_currentTime", void 0),
-        _define_property$X(this, "currentlyLoadingSegmentIndex", void 0),
-        _define_property$X(this, "duration", void 0),
-        _define_property$X(this, "firstSegmentLoadPromise", Promise.resolve()),
-        _define_property$X(this, "hasKickstarted", !1),
-        _define_property$X(this, "isOverBufferLimit", void 0),
-        _define_property$X(this, "seekResolver", void 0),
-        _define_property$X(this, "seekWhenUpdated", void 0),
-        _define_property$X(this, "segmentIndexToFetch", -1),
-        _define_property$X(this, "segmentProcessor", void 0),
-        _define_property$X(this, "timeToTrim", 10),
-        _define_property$X(this, "isAtEndOfStream", !1),
-        _define_property$X(this, "isFullyBuffered", !1),
-        _define_property$X(this, "_playableUrl", void 0),
-        _define_property$X(this, "clip", void 0),
-        _define_property$X(this, "deferredRemoves", []),
-        _define_property$X(this, "timestampOffsetAdjustment", void 0),
-        _define_property$X(this, "playbackTimeline", void 0),
-        _define_property$X(this, "currentTimestampOffset", 0),
-        _define_property$X(this, "nextSeamlessTransition", void 0),
+      "dispatcher" in this
+        ? Object.defineProperty(this, "dispatcher", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.dispatcher = undefined),
+        this,
+        ("mediaSource" in this
+          ? Object.defineProperty(this, "mediaSource", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.mediaSource = undefined),
+        this),
+        ("sourceBuffer" in this
+          ? Object.defineProperty(this, "sourceBuffer", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.sourceBuffer = undefined),
+        this),
+        ("element" in this
+          ? Object.defineProperty(this, "element", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.element = undefined),
+        this),
+        ("_currentTime" in this
+          ? Object.defineProperty(this, "_currentTime", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._currentTime = undefined),
+        this),
+        ("currentlyLoadingSegmentIndex" in this
+          ? Object.defineProperty(this, "currentlyLoadingSegmentIndex", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentlyLoadingSegmentIndex = undefined),
+        this),
+        ("duration" in this
+          ? Object.defineProperty(this, "duration", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.duration = undefined),
+        this),
+        ("firstSegmentLoadPromise" in this
+          ? Object.defineProperty(this, "firstSegmentLoadPromise", {
+              value: Promise.resolve(),
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.firstSegmentLoadPromise = Promise.resolve()),
+        this),
+        ("hasKickstarted" in this
+          ? Object.defineProperty(this, "hasKickstarted", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.hasKickstarted = false),
+        this),
+        ("isOverBufferLimit" in this
+          ? Object.defineProperty(this, "isOverBufferLimit", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isOverBufferLimit = undefined),
+        this),
+        ("seekResolver" in this
+          ? Object.defineProperty(this, "seekResolver", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.seekResolver = undefined),
+        this),
+        ("seekWhenUpdated" in this
+          ? Object.defineProperty(this, "seekWhenUpdated", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.seekWhenUpdated = undefined),
+        this),
+        ("segmentIndexToFetch" in this
+          ? Object.defineProperty(this, "segmentIndexToFetch", {
+              value: -1,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.segmentIndexToFetch = -1),
+        this),
+        ("segmentProcessor" in this
+          ? Object.defineProperty(this, "segmentProcessor", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.segmentProcessor = undefined),
+        this),
+        ("timeToTrim" in this
+          ? Object.defineProperty(this, "timeToTrim", {
+              value: 10,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.timeToTrim = 10),
+        this),
+        ("isAtEndOfStream" in this
+          ? Object.defineProperty(this, "isAtEndOfStream", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isAtEndOfStream = false),
+        this),
+        ("isFullyBuffered" in this
+          ? Object.defineProperty(this, "isFullyBuffered", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isFullyBuffered = false),
+        this),
+        ("_playableUrl" in this
+          ? Object.defineProperty(this, "_playableUrl", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._playableUrl = undefined),
+        this),
+        ("clip" in this
+          ? Object.defineProperty(this, "clip", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.clip = undefined),
+        this),
+        ("deferredRemoves" in this
+          ? Object.defineProperty(this, "deferredRemoves", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.deferredRemoves = []),
+        this),
+        ("timestampOffsetAdjustment" in this
+          ? Object.defineProperty(this, "timestampOffsetAdjustment", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.timestampOffsetAdjustment = undefined),
+        this),
+        ("playbackTimeline" in this
+          ? Object.defineProperty(this, "playbackTimeline", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.playbackTimeline = undefined),
+        this),
+        ("currentTimestampOffset" in this
+          ? Object.defineProperty(this, "currentTimestampOffset", {
+              value: 0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentTimestampOffset = 0),
+        this),
+        ("nextSeamlessTransition" in this
+          ? Object.defineProperty(this, "nextSeamlessTransition", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.nextSeamlessTransition = undefined),
+        this),
         (this.dispatcher = e),
         (this.clip = y),
         (this.element = n),
@@ -17123,22 +19505,9 @@
         function _throw(e) {
           asyncGeneratorStep$H(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$W(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_decorate$k(e, n, d, p) {
     var h,
@@ -17165,7 +19534,7 @@
       Bind(),
       _ts_metadata$l("design:type", Function),
       _ts_metadata$l("design:paramtypes", []),
-      _ts_metadata$l("design:returntype", void 0),
+      _ts_metadata$l("design:returntype", undefined),
     ],
     MseBuffer.prototype,
     "onSourceOpen",
@@ -17176,7 +19545,7 @@
         Bind(),
         _ts_metadata$l("design:type", Function),
         _ts_metadata$l("design:paramtypes", []),
-        _ts_metadata$l("design:returntype", void 0),
+        _ts_metadata$l("design:returntype", undefined),
       ],
       MseBuffer.prototype,
       "onManifestParsed",
@@ -17187,7 +19556,7 @@
         Bind(),
         _ts_metadata$l("design:type", Function),
         _ts_metadata$l("design:paramtypes", []),
-        _ts_metadata$l("design:returntype", void 0),
+        _ts_metadata$l("design:returntype", undefined),
       ],
       MseBuffer.prototype,
       "updateEndHandler",
@@ -17212,15 +19581,15 @@
     }
     get currentPlayingDate() {}
     get isPlayingAtLiveEdge() {
-      return !1;
+      return false;
     }
     get seekableTimeRanges() {
       return this.currentPlaybackDuration
         ? [{ start: 0, end: this.currentPlaybackDuration }]
-        : void 0;
+        : undefined;
     }
     get supportsPreviewImages() {
-      return !1;
+      return false;
     }
     get _targetElement() {
       return this.audio;
@@ -17246,10 +19615,10 @@
       var e = this;
       return _async_to_generator$H(function* () {
         const n = nextAvailableAudioElement();
-        (n.autoplay = !1),
+        (n.autoplay = false),
           (n.id = "apple-music-player"),
-          (n.controls = !1),
-          (n.muted = !1),
+          (n.controls = false),
+          (n.muted = false),
           (n.playbackRate = 1),
           (n.preload = "metadata"),
           (n.volume = 1),
@@ -17267,7 +19636,7 @@
         super.removeEventHandlers();
     }
     isPlayerSupported() {
-      return !0;
+      return true;
     }
     _stopMediaElement() {
       var e = this,
@@ -17276,8 +19645,8 @@
         var n;
         yield _superprop_get__stopMediaElement().call(e),
           yield e.tearDownManifests(),
-          null === (n = e._buffer) || void 0 === n || n.stop(),
-          (e._buffer = void 0);
+          null === (n = e._buffer) || undefined === n || n.stop(),
+          (e._buffer = undefined);
       })();
     }
     setNextSeamlessItem(e) {
@@ -17286,24 +19655,24 @@
         const { extension: d, nextManifest: p } = n,
           h = n._buffer;
         if (!h || !d) return;
-        if ((null == p ? void 0 : p.mediaItem.id) === e.id)
+        if ((null == p ? undefined : p.mediaItem.id) === e.id)
           return void Qe.debug("already have next manifest for ", e.title);
         n._targetElement.removeEventListener("timeupdate", n.onTimeUpdate),
           n._targetElement.addEventListener("timeupdate", n.onTimeUpdate),
           Qe.debug("player preparing next manifest for", e.title);
-        const y = yield n.loadAndParseManifest(e, !1);
+        const y = yield n.loadAndParseManifest(e, false);
         h.setNextManifest(y),
           d.setMediaItem(e),
           (d.extURI = y.extURI),
           (n.nextManifest = y);
       })();
     }
-    playItemFromEncryptedSource(n, d = !1, p) {
+    playItemFromEncryptedSource(n, d = false, p) {
       var h = this;
       return _async_to_generator$H(function* () {
         const y = h._paused && !d;
         Qe.debug("playItemFromEncryptedSource", n.title);
-        const _ = y ? void 0 : h.startPlaybackSequence();
+        const _ = y ? undefined : h.startPlaybackSequence();
         if (n.playRawAssetURL)
           return (
             (n.playbackType = e.PlaybackType.unencryptedFull),
@@ -17315,9 +19684,9 @@
         var g, b;
         h.delaySeamlessCdmUpdates &&
           (null === (b = h.extension) ||
-            void 0 === b ||
+            undefined === b ||
             null === (g = b.session) ||
-            void 0 === g ||
+            undefined === g ||
             g.applyDelayedCdmUpdates());
         if (!m) return _;
         (m.initiated = d),
@@ -17334,7 +19703,7 @@
           m.isFairplay && !S)
         ) {
           let e = n.assetURL;
-          (null == p ? void 0 : p.startTime) && (e += "#t=" + p.startTime),
+          (null == p ? undefined : p.startTime) && (e += "#t=" + p.startTime),
             yield h._playAssetURL(e, y);
         } else {
           const e = h._buffer;
@@ -17386,14 +19755,14 @@
                 `replacing manifest for ${y.mediaItem.title} with next manifest ${h.mediaItem.title}`,
               ),
               (b = h),
-              (n.nextManifest = void 0),
+              (n.nextManifest = undefined),
               Qe.debug(
                 "cease listening for keys on manifest for",
                 y.mediaItem.title,
               ),
               yield n.tearDownManifest(y))
             : g
-              ? (null == h ? void 0 : h.mediaItem.id) !== e.id
+              ? (null == h ? undefined : h.mediaItem.id) !== e.id
                 ? (Qe.debug(
                     `item to play ${e.title} does not match playing or next items, tearing down all manifests`,
                   ),
@@ -17410,9 +19779,9 @@
                 (b = y)),
           Qe.debug("getManifestForItem loading keys for", y.mediaItem.title),
           null === (p = n.extension) ||
-            void 0 === p ||
+            undefined === p ||
             null === (d = p.session) ||
-            void 0 === d ||
+            undefined === d ||
             d.loadKeys(b.keyValues, b.mediaItem),
           b
         );
@@ -17449,14 +19818,14 @@
           e.removeEventListener(Sn.keysParsed, n.loadKeysHandler));
       })();
     }
-    loadAndParseManifest(e, n = !0) {
+    loadAndParseManifest(e, n = true) {
       var d = this;
       return _async_to_generator$H(function* () {
         let p;
         Qe.debug(`will load and parse manifest for ${e.title}, loadKeys ${n}`);
         try {
           return (
-            (p = yield Manifest.load(e, !1)),
+            (p = yield Manifest.load(e, false)),
             n && p.addEventListener(Sn.keysParsed, d.loadKeysHandler),
             p.parse(),
             p
@@ -17482,19 +19851,19 @@
         var p, h, y, _;
         if ((Qe.debug("player loading keys for", n.mediaItem.title, d), d))
           null === (h = this.extension) ||
-            void 0 === h ||
+            undefined === h ||
             null === (p = h.session) ||
-            void 0 === p ||
-            p.loadKeys(n.keyValues, n.mediaItem, { delayCdmUpdate: !0 }),
+            undefined === p ||
+            p.loadKeys(n.keyValues, n.mediaItem, { delayCdmUpdate: true }),
             this._targetElement.addEventListener(
               "timeupdate",
               this.delayedCdmUpdateCheck,
             );
         else
           null === (_ = this.extension) ||
-            void 0 === _ ||
+            undefined === _ ||
             null === (y = _.session) ||
-            void 0 === y ||
+            undefined === y ||
             y.loadKeys(n.keyValues, n.mediaItem);
         this._targetElement.removeEventListener(
           "timeupdate",
@@ -17505,8 +19874,8 @@
     delayedCdmUpdateCheck() {
       var e;
       const n =
-          null === (e = this.nowPlayingItem) || void 0 === e
-            ? void 0
+          null === (e = this.nowPlayingItem) || undefined === e
+            ? undefined
             : e.playbackDuration,
         d = n ? n / 1e3 : this.currentPlaybackDuration,
         p = this._currentTime,
@@ -17518,9 +19887,9 @@
             var e, n;
             Qe.debug("applying delayed CDM update"),
               null === (n = this.extension) ||
-                void 0 === n ||
+                undefined === n ||
                 null === (e = n.session) ||
-                void 0 === e ||
+                undefined === e ||
                 e.applyDelayedCdmUpdates();
           }, e),
           this._targetElement.removeEventListener(
@@ -17532,9 +19901,9 @@
     loadKeysHandler(e) {
       var n, d;
       null === (d = this.extension) ||
-        void 0 === d ||
+        undefined === d ||
         null === (n = d.session) ||
-        void 0 === n ||
+        undefined === n ||
         n.loadKeys(e.keys, e.item);
     }
     beginNewBufferForItem(e, n, d) {
@@ -17549,12 +19918,12 @@
             duration: n.mediaItem.playbackDuration / 1e3,
             manifest: n,
           })),
-          yield p._playAssetURL(p._buffer.playableUrl, !0),
+          yield p._playAssetURL(p._buffer.playableUrl, true),
           !e)
         ) {
           let e = Promise.resolve();
           return (
-            (null == d ? void 0 : d.startTime) &&
+            (null == d ? undefined : d.startTime) &&
               (e = p.seekToTime(d.startTime)),
             e.then(() => p._playMedia())
           );
@@ -17572,21 +19941,110 @@
     constructor(e) {
       var n, d;
       super(e),
-        _define_property$W(this, "currentAudioTrack", void 0),
-        _define_property$W(this, "currentTextTrack", void 0),
-        _define_property$W(this, "textTracks", []),
-        _define_property$W(this, "audioTracks", []),
-        _define_property$W(this, "audio", void 0),
-        _define_property$W(this, "isSeamlessAudioTransitionsEnabled", !1),
-        _define_property$W(this, "delaySeamlessCdmUpdates", !1),
-        _define_property$W(this, "extension", void 0),
-        _define_property$W(this, "mediaPlayerType", "audio"),
-        _define_property$W(this, "manifest", void 0),
-        _define_property$W(this, "nextManifest", void 0);
+        ("currentAudioTrack" in this
+          ? Object.defineProperty(this, "currentAudioTrack", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentAudioTrack = undefined),
+        this),
+        ("currentTextTrack" in this
+          ? Object.defineProperty(this, "currentTextTrack", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentTextTrack = undefined),
+        this),
+        ("textTracks" in this
+          ? Object.defineProperty(this, "textTracks", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.textTracks = []),
+        this),
+        ("audioTracks" in this
+          ? Object.defineProperty(this, "audioTracks", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.audioTracks = []),
+        this),
+        ("audio" in this
+          ? Object.defineProperty(this, "audio", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.audio = undefined),
+        this),
+        ("isSeamlessAudioTransitionsEnabled" in this
+          ? Object.defineProperty(this, "isSeamlessAudioTransitionsEnabled", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isSeamlessAudioTransitionsEnabled = false),
+        this),
+        ("delaySeamlessCdmUpdates" in this
+          ? Object.defineProperty(this, "delaySeamlessCdmUpdates", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.delaySeamlessCdmUpdates = false),
+        this),
+        ("extension" in this
+          ? Object.defineProperty(this, "extension", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.extension = undefined),
+        this),
+        ("mediaPlayerType" in this
+          ? Object.defineProperty(this, "mediaPlayerType", {
+              value: "audio",
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.mediaPlayerType = "audio"),
+        this),
+        ("manifest" in this
+          ? Object.defineProperty(this, "manifest", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.manifest = undefined),
+        this),
+        ("nextManifest" in this
+          ? Object.defineProperty(this, "nextManifest", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.nextManifest = undefined),
+        this);
       const p =
         null !==
-          (d = null === (n = e.bag) || void 0 === n ? void 0 : n.features) &&
-        void 0 !== d
+          (d =
+            null === (n = e.bag) || undefined === n ? undefined : n.features) &&
+        undefined !== d
           ? d
           : {};
       (this.isSeamlessAudioTransitionsEnabled =
@@ -17617,29 +20075,16 @@
         function _throw(e) {
           asyncGeneratorStep$G(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$V(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   _ts_decorate$k(
     [
       Bind(),
       _ts_metadata$k("design:type", Function),
-      _ts_metadata$k("design:paramtypes", [void 0]),
-      _ts_metadata$k("design:returntype", void 0),
+      _ts_metadata$k("design:paramtypes", [undefined]),
+      _ts_metadata$k("design:returntype", undefined),
     ],
     AudioPlayer.prototype,
     "onLoadSegmentError",
@@ -17661,7 +20106,7 @@
         Bind(),
         _ts_metadata$k("design:type", Function),
         _ts_metadata$k("design:paramtypes", []),
-        _ts_metadata$k("design:returntype", void 0),
+        _ts_metadata$k("design:returntype", undefined),
       ],
       AudioPlayer.prototype,
       "onTimeUpdate",
@@ -17672,7 +20117,7 @@
         Bind(),
         _ts_metadata$k("design:type", Function),
         _ts_metadata$k("design:paramtypes", []),
-        _ts_metadata$k("design:returntype", void 0),
+        _ts_metadata$k("design:returntype", undefined),
       ],
       AudioPlayer.prototype,
       "delayedCdmUpdateCheck",
@@ -17682,8 +20127,8 @@
       [
         Bind(),
         _ts_metadata$k("design:type", Function),
-        _ts_metadata$k("design:paramtypes", [void 0]),
-        _ts_metadata$k("design:returntype", void 0),
+        _ts_metadata$k("design:paramtypes", [undefined]),
+        _ts_metadata$k("design:returntype", undefined),
       ],
       AudioPlayer.prototype,
       "loadKeysHandler",
@@ -17695,7 +20140,7 @@
       return _async_to_generator$G(function* () {
         (d.keySystem = n.keySystem),
           (d._keySystemAccess = n),
-          e.addEventListener("encrypted", d.boundHandleSessionCreation, !1);
+          e.addEventListener("encrypted", d.boundHandleSessionCreation, false);
       })();
     }
     detachMedia(e) {
@@ -17729,7 +20174,7 @@
               }),
             )),
           yield n._mediaKeysPromise,
-          n._mediaKeysServerCertificate ? n._createSession(y, p, h) : void 0
+          n._mediaKeysServerCertificate ? n._createSession(y, p, h) : undefined
         );
       })();
     }
@@ -17760,7 +20205,7 @@
             }
             return n;
           })(new Uint8Array(n)).find((e) => e.isWidevine),
-          d = null == e ? void 0 : e.rawBytes,
+          d = null == e ? undefined : e.rawBytes,
           h = te(d);
         Qe.debug("extracted uri", h), (p.extURI = h), (y = n);
       }
@@ -17781,7 +20226,7 @@
           "message",
           this.startLicenseSession,
         ),
-        (this._currentSession = void 0));
+        (this._currentSession = undefined));
     }
     applyDelayedCdmUpdates() {}
     loadKeys(e, n, d) {
@@ -17792,10 +20237,42 @@
     }
     constructor(...e) {
       super(...e),
-        _define_property$V(this, "_currentSession", void 0),
-        _define_property$V(this, "_keySystemAccess", void 0),
-        _define_property$V(this, "_mediaKeysPromise", void 0),
-        _define_property$V(this, "_mediaKeysServerCertificate", void 0);
+        ("_currentSession" in this
+          ? Object.defineProperty(this, "_currentSession", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._currentSession = undefined),
+        this),
+        ("_keySystemAccess" in this
+          ? Object.defineProperty(this, "_keySystemAccess", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._keySystemAccess = undefined),
+        this),
+        ("_mediaKeysPromise" in this
+          ? Object.defineProperty(this, "_mediaKeysPromise", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._mediaKeysPromise = undefined),
+        this),
+        ("_mediaKeysServerCertificate" in this
+          ? Object.defineProperty(this, "_mediaKeysServerCertificate", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._mediaKeysServerCertificate = undefined),
+        this);
     }
   }
   function asyncGeneratorStep$F(e, n, d, p, h, y, _) {
@@ -17819,22 +20296,9 @@
         function _throw(e) {
           asyncGeneratorStep$F(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$U(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   class MediaExtensionStub extends Notifications {
     destroy(e) {}
@@ -17850,20 +20314,84 @@
     }
     constructor(e) {
       super(e),
-        _define_property$U(this, "audioTracks", []),
-        _define_property$U(this, "textTracks", []),
-        _define_property$U(this, "session", void 0),
-        _define_property$U(this, "extURI", void 0),
-        _define_property$U(this, "hasMediaKeySupport", void 0),
-        _define_property$U(this, "hasMediaSession", void 0),
-        _define_property$U(this, "initiated", void 0),
-        _define_property$U(this, "isFairplay", void 0),
+        ("audioTracks" in this
+          ? Object.defineProperty(this, "audioTracks", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.audioTracks = []),
+        this),
+        ("textTracks" in this
+          ? Object.defineProperty(this, "textTracks", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.textTracks = []),
+        this),
+        ("session" in this
+          ? Object.defineProperty(this, "session", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.session = undefined),
+        this),
+        ("extURI" in this
+          ? Object.defineProperty(this, "extURI", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.extURI = undefined),
+        this),
+        ("hasMediaKeySupport" in this
+          ? Object.defineProperty(this, "hasMediaKeySupport", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.hasMediaKeySupport = undefined),
+        this),
+        ("hasMediaSession" in this
+          ? Object.defineProperty(this, "hasMediaSession", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.hasMediaSession = undefined),
+        this),
+        ("initiated" in this
+          ? Object.defineProperty(this, "initiated", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.initiated = undefined),
+        this),
+        ("isFairplay" in this
+          ? Object.defineProperty(this, "isFairplay", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isFairplay = undefined),
+        this),
         (this.extURI = ""),
-        (this.hasMediaKeySupport = !0),
-        (this.initiated = !0),
-        (this.isFairplay = !0),
-        (this.hasMediaKeySupport = !0),
-        (this.hasMediaSession = !0);
+        (this.hasMediaKeySupport = true),
+        (this.initiated = true),
+        (this.isFairplay = true),
+        (this.hasMediaKeySupport = true),
+        (this.hasMediaSession = true);
     }
   }
   function asyncGeneratorStep$E(e, n, d, p, h, y, _) {
@@ -17887,26 +20415,13 @@
         function _throw(e) {
           asyncGeneratorStep$E(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
   }
-  function _define_property$T(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   class PlayerStub {
     get hasMediaElement() {
-      return !0;
+      return true;
     }
     get isEngagedInPlayback() {
       return !this.paused;
@@ -17989,44 +20504,292 @@
       return _async_to_generator$E(function* () {})();
     }
     supportsPictureInPicture() {
-      return !1;
+      return false;
     }
     tsidChanged() {}
     setNextSeamlessItem(e) {
       return _async_to_generator$E(function* () {})();
     }
     constructor(n) {
-      _define_property$T(this, "bitrate", e.PlaybackBitrate.STANDARD),
-        _define_property$T(this, "audioTracks", []),
-        _define_property$T(this, "currentBufferedProgress", 0),
-        _define_property$T(this, "currentPlaybackDuration", 0),
-        _define_property$T(this, "currentPlaybackProgress", 0),
-        _define_property$T(this, "currentPlaybackTime", 0),
-        _define_property$T(this, "currentPlaybackTimeRemaining", 0),
-        _define_property$T(this, "currentPlayingDate", void 0),
-        _define_property$T(this, "isPlayingAtLiveEdge", !1),
-        _define_property$T(this, "isPlaying", !1),
-        _define_property$T(this, "isPrimaryPlayer", !0),
-        _define_property$T(this, "isReady", !1),
-        _define_property$T(this, "nowPlayingItem", void 0),
-        _define_property$T(this, "paused", !1),
-        _define_property$T(this, "playbackState", e.PlaybackStates.none),
-        _define_property$T(this, "playbackTargetAvailable", !1),
-        _define_property$T(this, "playbackTargetIsWireless", !1),
-        _define_property$T(this, "previewOnly", !1),
-        _define_property$T(this, "supportsPreviewImages", !1),
-        _define_property$T(this, "textTracks", []),
-        _define_property$T(this, "extension", new MediaExtensionStub([])),
-        _define_property$T(this, "hasAuthorization", !0),
-        _define_property$T(this, "windowHandlers", void 0),
-        _define_property$T(this, "isDestroyed", !1),
-        _define_property$T(this, "services", void 0),
-        _define_property$T(this, "_dispatcher", void 0),
-        _define_property$T(this, "_volume", 1),
-        _define_property$T(this, "_playbackRate", 1),
-        _define_property$T(this, "currentAudioTrack", void 0),
-        _define_property$T(this, "currentTextTrack", void 0),
-        _define_property$T(this, "seekableTimeRanges", void 0),
+      "bitrate" in this
+        ? Object.defineProperty(this, "bitrate", {
+            value: e.PlaybackBitrate.STANDARD,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.bitrate = e.PlaybackBitrate.STANDARD),
+        this,
+        ("audioTracks" in this
+          ? Object.defineProperty(this, "audioTracks", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.audioTracks = []),
+        this),
+        ("currentBufferedProgress" in this
+          ? Object.defineProperty(this, "currentBufferedProgress", {
+              value: 0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentBufferedProgress = 0),
+        this),
+        ("currentPlaybackDuration" in this
+          ? Object.defineProperty(this, "currentPlaybackDuration", {
+              value: 0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentPlaybackDuration = 0),
+        this),
+        ("currentPlaybackProgress" in this
+          ? Object.defineProperty(this, "currentPlaybackProgress", {
+              value: 0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentPlaybackProgress = 0),
+        this),
+        ("currentPlaybackTime" in this
+          ? Object.defineProperty(this, "currentPlaybackTime", {
+              value: 0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentPlaybackTime = 0),
+        this),
+        ("currentPlaybackTimeRemaining" in this
+          ? Object.defineProperty(this, "currentPlaybackTimeRemaining", {
+              value: 0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentPlaybackTimeRemaining = 0),
+        this),
+        ("currentPlayingDate" in this
+          ? Object.defineProperty(this, "currentPlayingDate", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentPlayingDate = undefined),
+        this),
+        ("isPlayingAtLiveEdge" in this
+          ? Object.defineProperty(this, "isPlayingAtLiveEdge", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isPlayingAtLiveEdge = false),
+        this),
+        ("isPlaying" in this
+          ? Object.defineProperty(this, "isPlaying", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isPlaying = false),
+        this),
+        ("isPrimaryPlayer" in this
+          ? Object.defineProperty(this, "isPrimaryPlayer", {
+              value: true,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isPrimaryPlayer = true),
+        this),
+        ("isReady" in this
+          ? Object.defineProperty(this, "isReady", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isReady = false),
+        this),
+        ("nowPlayingItem" in this
+          ? Object.defineProperty(this, "nowPlayingItem", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.nowPlayingItem = undefined),
+        this),
+        ("paused" in this
+          ? Object.defineProperty(this, "paused", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.paused = false),
+        this),
+        ("playbackState" in this
+          ? Object.defineProperty(this, "playbackState", {
+              value: e.PlaybackStates.none,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.playbackState = e.PlaybackStates.none),
+        this),
+        ("playbackTargetAvailable" in this
+          ? Object.defineProperty(this, "playbackTargetAvailable", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.playbackTargetAvailable = false),
+        this),
+        ("playbackTargetIsWireless" in this
+          ? Object.defineProperty(this, "playbackTargetIsWireless", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.playbackTargetIsWireless = false),
+        this),
+        ("previewOnly" in this
+          ? Object.defineProperty(this, "previewOnly", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.previewOnly = false),
+        this),
+        ("supportsPreviewImages" in this
+          ? Object.defineProperty(this, "supportsPreviewImages", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.supportsPreviewImages = false),
+        this),
+        ("textTracks" in this
+          ? Object.defineProperty(this, "textTracks", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.textTracks = []),
+        this),
+        ("extension" in this
+          ? Object.defineProperty(this, "extension", {
+              value: new MediaExtensionStub([]),
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.extension = new MediaExtensionStub([])),
+        this),
+        ("hasAuthorization" in this
+          ? Object.defineProperty(this, "hasAuthorization", {
+              value: true,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.hasAuthorization = true),
+        this),
+        ("windowHandlers" in this
+          ? Object.defineProperty(this, "windowHandlers", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.windowHandlers = undefined),
+        this),
+        ("isDestroyed" in this
+          ? Object.defineProperty(this, "isDestroyed", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isDestroyed = false),
+        this),
+        ("services" in this
+          ? Object.defineProperty(this, "services", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.services = undefined),
+        this),
+        ("_dispatcher" in this
+          ? Object.defineProperty(this, "_dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._dispatcher = undefined),
+        this),
+        ("_volume" in this
+          ? Object.defineProperty(this, "_volume", {
+              value: 1,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._volume = 1),
+        this),
+        ("_playbackRate" in this
+          ? Object.defineProperty(this, "_playbackRate", {
+              value: 1,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._playbackRate = 1),
+        this),
+        ("currentAudioTrack" in this
+          ? Object.defineProperty(this, "currentAudioTrack", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentAudioTrack = undefined),
+        this),
+        ("currentTextTrack" in this
+          ? Object.defineProperty(this, "currentTextTrack", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentTextTrack = undefined),
+        this),
+        ("seekableTimeRanges" in this
+          ? Object.defineProperty(this, "seekableTimeRanges", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.seekableTimeRanges = undefined),
+        this),
         (this.services = n.services),
         (this._dispatcher = n.services.dispatcher),
         (this.windowHandlers = new WindowHandlers(this, n.services.runtime));
@@ -18035,7 +20798,7 @@
   class VideoMediaExtension extends MediaExtension {
     destroy(e) {
       var n;
-      null === (n = this._session) || void 0 === n || n.stopLicenseSession(),
+      null === (n = this._session) || undefined === n || n.stopLicenseSession(),
         super.destroy(e);
     }
   }
@@ -18061,22 +20824,9 @@
         function _throw(e) {
           asyncGeneratorStep$D(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$S(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   const Ln = [
     "https://play.itunes.apple.com/",
@@ -18134,9 +20884,9 @@
           url: e,
           content: h,
           contentType:
-            null !== (y = p.headers.get("content-type")) && void 0 !== y
+            null !== (y = p.headers.get("content-type")) && undefined !== y
               ? y
-              : void 0,
+              : undefined,
         };
         return n.cache.set(e, _), _;
       })();
@@ -18151,19 +20901,38 @@
           url: e,
           content: p,
           contentType:
-            null !== (h = d.headers.get("content-type")) && void 0 !== h
+            null !== (h = d.headers.get("content-type")) && undefined !== h
               ? h
-              : void 0,
+              : undefined,
         };
       })();
     }
     constructor(e = {}) {
       var n, d;
-      _define_property$S(this, "cache", void 0),
-        _define_property$S(this, "fetch", void 0),
+      "cache" in this
+        ? Object.defineProperty(this, "cache", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.cache = undefined),
+        this,
+        ("fetch" in this
+          ? Object.defineProperty(this, "fetch", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.fetch = undefined),
+        this),
         (this.fetch =
-          null !== (n = e.fetch) && void 0 !== n ? n : fetch.bind(globalThis)),
-        (this.cache = null !== (d = e.cache) && void 0 !== d ? d : new Map());
+          null !== (n = e.fetch) && undefined !== n
+            ? n
+            : fetch.bind(globalThis)),
+        (this.cache =
+          null !== (d = e.cache) && undefined !== d ? d : new Map());
     }
   })();
   function asyncGeneratorStep$C(e, n, d, p, h, y, _) {
@@ -18187,7 +20956,7 @@
         function _throw(e) {
           asyncGeneratorStep$C(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
   }
@@ -18216,15 +20985,15 @@
   class NativeSafariVideoPlayer extends VideoPlayer {
     get currentPlayingDate() {}
     get isPlayingAtLiveEdge() {
-      return !1;
+      return false;
     }
     get seekableTimeRanges() {
       return this.currentPlaybackDuration
         ? [{ start: 0, end: this.currentPlaybackDuration }]
-        : void 0;
+        : undefined;
     }
     get supportsPreviewImages() {
-      return !1;
+      return false;
     }
     initializeExtension() {
       var e = this;
@@ -18247,7 +21016,7 @@
       Qe.debug("native-safari-video-player.destroy");
       const { extension: e, video: n } = this;
       this._blobUrl &&
-        (URL.revokeObjectURL(this._blobUrl), (this._blobUrl = void 0)),
+        (URL.revokeObjectURL(this._blobUrl), (this._blobUrl = undefined)),
         e &&
           n &&
           (e.removeEventListener(Bn, this.onPlaybackLicenseError),
@@ -18269,8 +21038,8 @@
         }
         p.setupTrackManagers();
         const y = p.startPlaybackSequence();
-        void 0 === d.startTime &&
-          void 0 !== (null == n ? void 0 : n.keyPlayStartTime) &&
+        undefined === d.startTime &&
+          undefined !== (null == n ? undefined : n.keyPlayStartTime) &&
           (d.startTime = n.keyPlayStartTime);
         const _ = (
           p._shouldLoadManifestsOnce
@@ -18278,7 +21047,8 @@
             : p.playBySource(e, h, d)
         ).then(() => y);
         var m;
-        n && (null === (m = p.extension) || void 0 === m || m.setMediaItem(n));
+        n &&
+          (null === (m = p.extension) || undefined === m || m.setMediaItem(n));
         return h.addEventListener("loadedmetadata", p.onMetadataLoaded), _;
       })();
     }
@@ -18333,14 +21103,14 @@
         g.setAttribute("src", e),
           y && g.setAttribute("type", y),
           Qe.debug("native-safari-video-player: blob url", e),
-          void 0 !== d.startTime && (n.currentTime = d.startTime),
+          undefined !== d.startTime && (n.currentTime = d.startTime),
           n.appendChild(g);
       })();
     }
     playBySource(e, n, d = {}) {
       return _async_to_generator$C(function* () {
         Qe.debug("native-safari-video-player: playing video by source"),
-          void 0 !== d.startTime && (e += "#t=" + d.startTime),
+          undefined !== d.startTime && (e += "#t=" + d.startTime),
           (n.src = e);
       })();
     }
@@ -18350,20 +21120,20 @@
           n in e
             ? Object.defineProperty(e, n, {
                 value: d,
-                enumerable: !0,
-                configurable: !0,
-                writable: !0,
+                enumerable: true,
+                configurable: true,
+                writable: true,
               })
             : (e[n] = d);
-        })(this, "_blobUrl", void 0);
+        })(this, "_blobUrl", undefined);
     }
   }
   _ts_decorate$j(
     [
       Bind(),
       _ts_metadata$j("design:type", Function),
-      _ts_metadata$j("design:paramtypes", [void 0]),
-      _ts_metadata$j("design:returntype", void 0),
+      _ts_metadata$j("design:paramtypes", [undefined]),
+      _ts_metadata$j("design:returntype", undefined),
     ],
     NativeSafariVideoPlayer.prototype,
     "onPlaybackSessionError",
@@ -18392,19 +21162,6 @@
       null,
     );
   const Kn = Qe.createChild("tracks");
-  function _define_property$Q(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread$s(e) {
     for (var n = 1; n < arguments.length; n++) {
       var d = null != arguments[n] ? arguments[n] : {},
@@ -18416,7 +21173,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$Q(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -18483,17 +21248,17 @@
     set audioTrack(e) {
       this.session &&
         e &&
-        void 0 !== e.id &&
+        undefined !== e.id &&
         (this.session.audioSelectedPersistentID = e.id);
     }
     set textTrack(e) {
       var n;
       this.session.subtitleSelectedPersistentID =
-        null !== (n = null == e ? void 0 : e.id) && void 0 !== n ? n : -1;
+        null !== (n = null == e ? undefined : e.id) && undefined !== n ? n : -1;
     }
     selectForcedTrack() {
       const { session: e } = this;
-      if (!(null == e ? void 0 : e.audioTracks)) return;
+      if (!(null == e ? undefined : e.audioTracks)) return;
       const n = e.audioTracks.filter(
           (n) => n.persistentID === e.audioSelectedPersistentID,
         ),
@@ -18504,7 +21269,7 @@
             0 === e.MediaSelectionOptionsDisplaysNonForcedSubtitles &&
             e.MediaSelectionOptionsExtendedLanguageTag === d.lang,
         ),
-        h = null == p ? void 0 : p[0];
+        h = null == p ? undefined : p[0];
       let y;
       return (
         h
@@ -18543,7 +21308,7 @@
       var d;
       null == n ||
         null === (d = n.itemList) ||
-        void 0 === d ||
+        undefined === d ||
         d.forEach((e) => {
           if ("_hls.localized-rendition-names" === e["DATA-ID"] && e.VALUE)
             try {
@@ -18551,8 +21316,9 @@
                 this._audioTracks.forEach((e) => {
                   var n;
                   const d =
-                    null === (n = this._localizedRenditionNames) || void 0 === n
-                      ? void 0
+                    null === (n = this._localizedRenditionNames) ||
+                    undefined === n
+                      ? undefined
                       : n[e.label];
                   d && (e.localizedRenditionNames = d);
                 }),
@@ -18591,7 +21357,7 @@
           : "main";
       return _object_spread_props$h(
         _object_spread$s({}, this.normalizeSelectionOption(e)),
-        { enabled: !1, kind: d, characteristics: n },
+        { enabled: false, kind: d, characteristics: n },
       );
     }
     normalizeTextTrack(e) {
@@ -18600,8 +21366,8 @@
       return (
         (d =
           (null === (n = e.MediaSelectionOptionsTaggedMediaCharacteristics) ||
-          void 0 === n
-            ? void 0
+          undefined === n
+            ? undefined
             : n.includes("public.accessibility.describes-music-and-sound")) ||
           "clcp" === e.MediaSelectionOptionsMediaType
             ? "captions"
@@ -18620,7 +21386,7 @@
       };
     }
     destroy() {
-      this._isDestroyed = !0;
+      this._isDestroyed = true;
       const {
         MANIFEST_LOADED: e,
         AUDIO_TRACK_SWITCHED: n,
@@ -18636,15 +21402,55 @@
     }
     constructor(e) {
       super([Vn, Gn, Hn, qn, Wn]),
-        _define_property$Q(this, "session", void 0),
-        _define_property$Q(this, "_audioTracks", void 0),
-        _define_property$Q(this, "_textTracks", void 0),
-        _define_property$Q(this, "_localizedRenditionNames", void 0),
-        _define_property$Q(this, "_isDestroyed", void 0),
+        ("session" in this
+          ? Object.defineProperty(this, "session", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.session = undefined),
+        this),
+        ("_audioTracks" in this
+          ? Object.defineProperty(this, "_audioTracks", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._audioTracks = undefined),
+        this),
+        ("_textTracks" in this
+          ? Object.defineProperty(this, "_textTracks", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._textTracks = undefined),
+        this),
+        ("_localizedRenditionNames" in this
+          ? Object.defineProperty(this, "_localizedRenditionNames", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._localizedRenditionNames = undefined),
+        this),
+        ("_isDestroyed" in this
+          ? Object.defineProperty(this, "_isDestroyed", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._isDestroyed = undefined),
+        this),
         (this.session = e),
         (this._audioTracks = []),
         (this._textTracks = []),
-        (this._isDestroyed = !1);
+        (this._isDestroyed = false);
       const {
         MANIFEST_LOADED: n,
         AUDIO_TRACK_SWITCHED: d,
@@ -18659,25 +21465,12 @@
         this.session.on(y, this.handleSessionDataComplete);
     }
   }
-  function _define_property$P(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   _ts_decorate$i(
     [
       Bind(),
       _ts_metadata$i("design:type", Function),
       _ts_metadata$i("design:paramtypes", []),
-      _ts_metadata$i("design:returntype", void 0),
+      _ts_metadata$i("design:returntype", undefined),
     ],
     HlsJsTracks.prototype,
     "handleAudioTrackSwitched",
@@ -18687,8 +21480,8 @@
       [
         Bind(),
         _ts_metadata$i("design:type", Function),
-        _ts_metadata$i("design:paramtypes", [void 0, void 0]),
-        _ts_metadata$i("design:returntype", void 0),
+        _ts_metadata$i("design:paramtypes", [undefined, undefined]),
+        _ts_metadata$i("design:returntype", undefined),
       ],
       HlsJsTracks.prototype,
       "handleInlineStylesParsed",
@@ -18698,8 +21491,8 @@
       [
         Bind(),
         _ts_metadata$i("design:type", Function),
-        _ts_metadata$i("design:paramtypes", [void 0, void 0]),
-        _ts_metadata$i("design:returntype", void 0),
+        _ts_metadata$i("design:paramtypes", [undefined, undefined]),
+        _ts_metadata$i("design:returntype", undefined),
       ],
       HlsJsTracks.prototype,
       "handleManifestLoaded",
@@ -18709,8 +21502,8 @@
       [
         Bind(),
         _ts_metadata$i("design:type", Function),
-        _ts_metadata$i("design:paramtypes", [void 0, void 0]),
-        _ts_metadata$i("design:returntype", void 0),
+        _ts_metadata$i("design:paramtypes", [undefined, undefined]),
+        _ts_metadata$i("design:returntype", undefined),
       ],
       HlsJsTracks.prototype,
       "handleSessionDataComplete",
@@ -18720,8 +21513,8 @@
       [
         Bind(),
         _ts_metadata$i("design:type", Function),
-        _ts_metadata$i("design:paramtypes", [void 0, void 0]),
-        _ts_metadata$i("design:returntype", void 0),
+        _ts_metadata$i("design:paramtypes", [undefined, undefined]),
+        _ts_metadata$i("design:returntype", undefined),
       ],
       HlsJsTracks.prototype,
       "handleSubtitleTrackSwitch",
@@ -18743,9 +21536,33 @@
       );
     }
     constructor(e) {
-      _define_property$P(this, "hls", void 0),
-        _define_property$P(this, "lastPosition", void 0),
-        _define_property$P(this, "lastPromise", void 0),
+      "hls" in this
+        ? Object.defineProperty(this, "hls", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.hls = undefined),
+        this,
+        ("lastPosition" in this
+          ? Object.defineProperty(this, "lastPosition", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.lastPosition = undefined),
+        this),
+        ("lastPromise" in this
+          ? Object.defineProperty(this, "lastPromise", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.lastPromise = undefined),
+        this),
         (this.hls = e);
     }
   }
@@ -18770,22 +21587,9 @@
         function _throw(e) {
           asyncGeneratorStep$B(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$O(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_decorate$h(e, n, d, p) {
     var h,
@@ -18827,7 +21631,7 @@
     (Xn[ot.PLAYREADY] = "playready"),
     (Xn[ot.WIDEVINE] = "widevine");
   const Jn = BooleanDevFlag.get("mk-block-report-cdn-server"),
-    Zn = { nightly: !0, carry: !0 },
+    Zn = { nightly: true, carry: true },
     eo = JsonDevFlag.register("mk-hlsjs-config-overrides");
   class HlsJsVideoPlayer extends VideoPlayer {
     get shouldDispatchErrors() {
@@ -18838,16 +21642,18 @@
       return (
         !this.services.runtime.isMobile &&
         (null === (n = this._hls) ||
-        void 0 === n ||
+        undefined === n ||
         null === (e = n.iframeVariants) ||
-        void 0 === e
-          ? void 0
+        undefined === e
+          ? undefined
           : e.some((e) => "mjpg" === e.imageCodec))
       );
     }
     get currentPlayingDate() {
       var e;
-      return null === (e = this._hls) || void 0 === e ? void 0 : e.playingDate;
+      return null === (e = this._hls) || undefined === e
+        ? undefined
+        : e.playingDate;
     }
     get isPlayingAtLiveEdge() {
       var e;
@@ -18855,8 +21661,8 @@
       return (
         !(
           !n ||
-          !(null === (e = this.nowPlayingItem) || void 0 === e
-            ? void 0
+          !(null === (e = this.nowPlayingItem) || undefined === e
+            ? undefined
             : e.isLinearStream)
         ) && !!n.isPlayingAtLive
       );
@@ -18867,19 +21673,19 @@
         ? e.seekableTimeRanges
         : this.currentPlaybackDuration
           ? [{ start: 0, end: this.currentPlaybackDuration }]
-          : void 0;
+          : undefined;
     }
     initializeExtension() {
       var e = this;
       return _async_to_generator$B(function* () {
-        e._keySystem = yield findKeySystemPreference(e.services.runtime);
+        e._keySystem = yield _findKeySystemPreference.apply(this, arguments);
         try {
           var n;
           if (!at.urls.hls) throw new Error("bag.urls.hls is not configured");
           yield Promise.all([
             loadScript(at.urls.hls),
-            null === (n = e._rtcTracker) || void 0 === n
-              ? void 0
+            null === (n = e._rtcTracker) || undefined === n
+              ? undefined
               : n.loadScript(),
           ]);
         } catch (Vt) {
@@ -18897,7 +21703,7 @@
       var e;
       if (
         (Qe.debug("hlsjs-video-player.destroy"),
-        null === (e = this._hlsJsTracks) || void 0 === e || e.destroy(),
+        null === (e = this._hlsJsTracks) || undefined === e || e.destroy(),
         this._hls)
       ) {
         const {
@@ -18921,7 +21727,7 @@
           this._shouldLoadManifestsOnce &&
             m.off(_, this.handleUnresolvedUriLoading),
           m.destroy(),
-          (window.hlsSession = void 0);
+          (window.hlsSession = undefined);
       }
       super.destroy(), asAsync(this._license.stop());
     }
@@ -18932,13 +21738,13 @@
         const { _keySystem: h } = p;
         if (!h) return;
         let y, _;
-        (p._unrecoverableError = void 0), p.createHlsPlayer();
+        (p._unrecoverableError = undefined), p.createHlsPlayer();
         const hasKey = (e, n) => {
           var d;
           return (
-            void 0 !==
-            (null == n || null === (d = n.keyURLs) || void 0 === d
-              ? void 0
+            undefined !==
+            (null == n || null === (d = n.keyURLs) || undefined === d
+              ? undefined
               : d[e])
           );
         };
@@ -18962,7 +21768,7 @@
           { _rtcTracker: g, _hls: b } = p;
         if (g) {
           const e = g.prepareReportingAgent(n);
-          void 0 !== e && (m.appData.reportingAgent = e);
+          undefined !== e && (m.appData.reportingAgent = e);
         }
         Qe.debug("RTC: loadSource with load options", m);
         const P = p.startPlaybackSequence();
@@ -18974,10 +21780,10 @@
           b.loadSource(
             e,
             m,
-            null !== (S = d.startTime) && void 0 !== S
+            null !== (S = d.startTime) && undefined !== S
               ? S
               : null == n
-                ? void 0
+                ? undefined
                 : n.keyPlayStartTime,
           ),
           b.attachMedia(p.video),
@@ -19015,32 +21821,40 @@
                 }),
               )),
               p.forEach(function (n) {
-                _define_property$O(e, n, d[n]);
+                n in e
+                  ? Object.defineProperty(e, n, {
+                      value: d[n],
+                      enumerable: true,
+                      configurable: true,
+                      writable: true,
+                    })
+                  : (e[n] = d[n]),
+                  e;
               });
           }
           return e;
         })(
           {
-            clearMediaKeysOnPromise: !1,
-            customTextTrackCueRenderer: !0,
+            clearMediaKeysOnPromise: false,
+            customTextTrackCueRenderer: true,
             debug: !!p,
             debugLevel: p,
-            enableIFramePreloading: !1,
+            enableIFramePreloading: false,
             enablePerformanceLogging: !!p,
-            enablePlayReadyKeySystem: !0,
+            enablePlayReadyKeySystem: true,
             enableQueryParamsForITunes: !this._shouldLoadManifestsOnce,
-            enableRtcReporting: void 0 !== this._rtcTracker,
+            enableRtcReporting: undefined !== this._rtcTracker,
             keySystemPreference: Xn[n],
-            useMediaKeySystemAccessFilter: !0,
-            maintainMediaKeysBetweenSessions: !1,
+            useMediaKeySystemAccessFilter: true,
+            maintainMediaKeysBetweenSessions: false,
             nativeControlsEnabled: h.isAndroid,
-            enableContentSteering: !0,
-            allowFastSwitchUp: !0,
-            liveAllowLowLatencyPlayback: !0,
+            enableContentSteering: true,
+            allowFastSwitchUp: true,
+            liveAllowLowLatencyPlayback: true,
           },
           (
-            null === (e = this._runtime) || void 0 === e
-              ? void 0
+            null === (e = this._runtime) || undefined === e
+              ? undefined
               : e.browser.isEdge
           )
             ? y
@@ -19050,8 +21864,8 @@
         const { Hls: n } = window;
         if (n && Jn) {
           const d = deepClone(n.DefaultConfig.fragLoadPolicy);
-          (d.default.reportCDNServer = !1),
-            (d.customURL.reportCDNServer = !1),
+          (d.default.reportCDNServer = false),
+            (d.customURL.reportCDNServer = false),
             (e.fragLoadPolicy = d);
         }
       })(_),
@@ -19060,7 +21874,7 @@
           if (!n) return;
           var d;
           const p =
-            null !== (d = determineCdnPathPrefix()) && void 0 !== d ? d : "";
+            null !== (d = determineCdnPathPrefix()) && undefined !== d ? d : "";
           n.socketurl &&
             isAppleHostname(n.socketurl) &&
             Zn[p.split(".")[0]] &&
@@ -19105,7 +21919,7 @@
         var y;
         Qe.debug("handleUnresolvedUriLoading for uri ", p);
         const _ =
-          null !== (y = Nn.getManifest(h)) && void 0 !== y
+          null !== (y = Nn.getManifest(h)) && undefined !== y
             ? y
             : yield Nn.fetchManifest(h);
         _
@@ -19123,21 +21937,21 @@
       const { level: h } = n;
       if (!h) return;
       const y =
-        null === (d = this._levels) || void 0 === d
-          ? void 0
+        null === (d = this._levels) || undefined === d
+          ? undefined
           : d.find((e) => e.persistentId === h);
       if (
         !y ||
-        (null === (p = this._currentLevel) || void 0 === p
-          ? void 0
-          : p.persistentId) === (null == y ? void 0 : y.persistentId)
+        (null === (p = this._currentLevel) || undefined === p
+          ? undefined
+          : p.persistentId) === (null == y ? undefined : y.persistentId)
       )
         return;
       this._currentLevel = y;
       const _ =
-        void 0 !== y.audioGroupId
+        undefined !== y.audioGroupId
           ? this._channelsByGroup[y.audioGroupId]
-          : void 0;
+          : undefined;
       this._dispatcher.publish(gt.hlsLevelUpdated, { level: y, channels: _ });
     }
     handleHlsError(e, n) {
@@ -19150,18 +21964,19 @@
       p.data = n;
       const { bufferStalledError: h, keySystemGenericError: y } = zn;
       if (n.details === y) return void this._dispatcher.publish(y, p);
-      let _ = !1;
+      let _ = false;
       var m;
       n.details === h &&
         "Seek" === n.stallType &&
         -12909 ===
-          (null === (d = n.response) || void 0 === d ? void 0 : d.code) &&
+          (null === (d = n.response) || undefined === d ? undefined : d.code) &&
         ((p = new MKError(MKError.Reason.BUFFER_STALLED_ERROR, n.stallType)),
         (p.data = {
           stallType: n.stallType,
-          code: null === (m = n.response) || void 0 === m ? void 0 : m.code,
+          code:
+            null === (m = n.response) || undefined === m ? undefined : m.code,
         }),
-        (_ = !0));
+        (_ = true));
       if (
         ("output-restricted" === n.reason &&
           (p = new MKError(MKError.Reason.OUTPUT_RESTRICTED, n.reason)),
@@ -19177,10 +21992,10 @@
         var e, p;
         let h;
         Qe.debug("handleManifestParsed", n),
-          (d._levels = null !== (e = n.levels) && void 0 !== e ? e : []),
+          (d._levels = null !== (e = n.levels) && undefined !== e ? e : []),
           (d.nowPlayingItem.state = D.ready),
           (d._channelsByGroup = (
-            null !== (p = n.audioTracks) && void 0 !== p ? p : []
+            null !== (p = n.audioTracks) && undefined !== p ? p : []
           ).reduce((e, n) => ((e[n.groupId] = n.channels), e), {}));
         try {
           yield d._playMedia();
@@ -19209,11 +22024,11 @@
         } = p;
         try {
           var m;
-          const e = yield null === (m = p._license) || void 0 === m
-              ? void 0
+          const e = yield null === (m = p._license) || undefined === m
+              ? undefined
               : m.start(n, h, d, y, _),
             g = { statusCode: e.status };
-          (null == e ? void 0 : e.license) &&
+          (null == e ? undefined : e.license) &&
             (y === ot.FAIRPLAY
               ? (g.ckc = J(e.license))
               : (g.license = J(e.license)));
@@ -19224,7 +22039,7 @@
           if (p._unrecoverableError) return;
           const h = V.data,
             y = {};
-          void 0 !== (null == h ? void 0 : h.status) &&
+          undefined !== (null == h ? undefined : h.status) &&
             (y.statusCode = +h.status),
             Qe.warn("Passing license response error to Hls.js", y),
             p._hls.setLicenseResponse(d.keyuri, y),
@@ -19253,34 +22068,130 @@
       var n = this;
       return _async_to_generator$B(function* () {
         var d;
-        return null === (d = n._hlsPreviewImageLoader) || void 0 === d
-          ? void 0
+        return null === (d = n._hlsPreviewImageLoader) || undefined === d
+          ? undefined
           : d.loadPreviewImage(e);
       })();
     }
     constructor(e) {
       var n, d;
       super(e),
-        _define_property$O(this, "_hls", void 0),
-        _define_property$O(this, "_hlsPreviewImageLoader", void 0),
-        _define_property$O(this, "_hlsJsTracks", void 0),
-        _define_property$O(this, "_keySystem", void 0),
-        _define_property$O(this, "_license", void 0),
-        _define_property$O(this, "_rtcTracker", void 0),
-        _define_property$O(this, "_levels", void 0),
-        _define_property$O(this, "_channelsByGroup", {}),
-        _define_property$O(this, "_currentLevel", void 0),
-        _define_property$O(this, "_licenseServerUrl", void 0),
-        _define_property$O(this, "_unrecoverableError", void 0),
-        _define_property$O(this, "_runtime", void 0),
+        ("_hls" in this
+          ? Object.defineProperty(this, "_hls", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._hls = undefined),
+        this),
+        ("_hlsPreviewImageLoader" in this
+          ? Object.defineProperty(this, "_hlsPreviewImageLoader", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._hlsPreviewImageLoader = undefined),
+        this),
+        ("_hlsJsTracks" in this
+          ? Object.defineProperty(this, "_hlsJsTracks", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._hlsJsTracks = undefined),
+        this),
+        ("_keySystem" in this
+          ? Object.defineProperty(this, "_keySystem", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._keySystem = undefined),
+        this),
+        ("_license" in this
+          ? Object.defineProperty(this, "_license", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._license = undefined),
+        this),
+        ("_rtcTracker" in this
+          ? Object.defineProperty(this, "_rtcTracker", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._rtcTracker = undefined),
+        this),
+        ("_levels" in this
+          ? Object.defineProperty(this, "_levels", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._levels = undefined),
+        this),
+        ("_channelsByGroup" in this
+          ? Object.defineProperty(this, "_channelsByGroup", {
+              value: {},
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._channelsByGroup = {}),
+        this),
+        ("_currentLevel" in this
+          ? Object.defineProperty(this, "_currentLevel", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._currentLevel = undefined),
+        this),
+        ("_licenseServerUrl" in this
+          ? Object.defineProperty(this, "_licenseServerUrl", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._licenseServerUrl = undefined),
+        this),
+        ("_unrecoverableError" in this
+          ? Object.defineProperty(this, "_unrecoverableError", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._unrecoverableError = undefined),
+        this),
+        ("_runtime" in this
+          ? Object.defineProperty(this, "_runtime", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._runtime = undefined),
+        this),
         (this._rtcTracker =
-          null == e || null === (n = e.playbackServices) || void 0 === n
-            ? void 0
+          null == e || null === (n = e.playbackServices) || undefined === n
+            ? undefined
             : n.getRTCStreamingTracker()),
         (this._license = new License()),
         (this._runtime =
-          null == e || null === (d = e.services) || void 0 === d
-            ? void 0
+          null == e || null === (d = e.services) || undefined === d
+            ? undefined
             : d.runtime);
     }
   }
@@ -19305,8 +22216,8 @@
       [
         Bind(),
         _ts_metadata$h("design:type", Function),
-        _ts_metadata$h("design:paramtypes", [void 0, void 0]),
-        _ts_metadata$h("design:returntype", void 0),
+        _ts_metadata$h("design:paramtypes", [undefined, undefined]),
+        _ts_metadata$h("design:returntype", undefined),
       ],
       HlsJsVideoPlayer.prototype,
       "handleLevelSwitched",
@@ -19316,8 +22227,8 @@
       [
         Bind(),
         _ts_metadata$h("design:type", Function),
-        _ts_metadata$h("design:paramtypes", [void 0, void 0]),
-        _ts_metadata$h("design:returntype", void 0),
+        _ts_metadata$h("design:paramtypes", [undefined, undefined]),
+        _ts_metadata$h("design:returntype", undefined),
       ],
       HlsJsVideoPlayer.prototype,
       "handleHlsError",
@@ -19327,7 +22238,7 @@
       [
         Bind(),
         _ts_metadata$h("design:type", Function),
-        _ts_metadata$h("design:paramtypes", [void 0, void 0]),
+        _ts_metadata$h("design:paramtypes", [undefined, undefined]),
         _ts_metadata$h("design:returntype", Promise),
       ],
       HlsJsVideoPlayer.prototype,
@@ -19338,8 +22249,8 @@
       [
         Bind(),
         _ts_metadata$h("design:type", Function),
-        _ts_metadata$h("design:paramtypes", [void 0, void 0]),
-        _ts_metadata$h("design:returntype", void 0),
+        _ts_metadata$h("design:paramtypes", [undefined, undefined]),
+        _ts_metadata$h("design:returntype", undefined),
       ],
       HlsJsVideoPlayer.prototype,
       "handleKeyRequestStarted",
@@ -19349,7 +22260,7 @@
       [
         Bind(),
         _ts_metadata$h("design:type", Function),
-        _ts_metadata$h("design:paramtypes", [void 0, void 0]),
+        _ts_metadata$h("design:paramtypes", [undefined, undefined]),
         _ts_metadata$h("design:returntype", Promise),
       ],
       HlsJsVideoPlayer.prototype,
@@ -19376,14 +22287,14 @@
               p,
               h = 0;
             const resetState = () => {
-              clearTimeout(p), (p = 0), (d = void 0);
+              clearTimeout(p), (p = 0), (d = undefined);
             };
             return function (...y) {
               const _ = this;
               return new Promise(function (m, g) {
                 const b = Date.now();
                 b - h < n
-                  ? (d && (d.resolve(void 0), resetState()),
+                  ? (d && (d.resolve(undefined), resetState()),
                     (d = { resolve: m, reject: g, args: y }),
                     (p = setTimeout(
                       () => {
@@ -19414,11 +22325,11 @@
   (ro[0] = "3"),
     (ro[ro.length - 1] = io + "-prerelease"),
     (e.version = ro.join(".")),
-    (e.PlaybackActions = void 0),
+    (e.PlaybackActions = undefined),
     ((no = e.PlaybackActions || (e.PlaybackActions = {})).REPEAT = "REPEAT"),
     (no.SHUFFLE = "SHUFFLE"),
     (no.AUTOPLAY = "AUTOPLAY"),
-    (e.PlaybackMode = void 0),
+    (e.PlaybackMode = undefined),
     ((oo = e.PlaybackMode || (e.PlaybackMode = {}))[(oo.PREVIEW_ONLY = 0)] =
       "PREVIEW_ONLY"),
     (oo[(oo.MIXED_CONTENT = 1)] = "MIXED_CONTENT"),
@@ -19486,19 +22397,6 @@
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
   }
-  function _define_property$N(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _ts_metadata$g(e, n) {
     if ("object" == typeof Reflect && "function" == typeof Reflect.metadata)
       return Reflect.metadata(e, n);
@@ -19525,10 +22423,10 @@
         p = this;
       return ((d = function* () {
         !Number.isFinite(n) || n < p.start || n > p.stop
-          ? (p.inWatchSpan = !1)
+          ? (p.inWatchSpan = false)
           : p.inWatchSpan ||
             (p.allowMultiple || p.stopMonitor(),
-            (p.inWatchSpan = !0),
+            (p.inWatchSpan = true),
             yield p.callback(n, p));
       }),
       function () {
@@ -19542,37 +22440,72 @@
           function _throw(e) {
             asyncGeneratorStep$A(y, p, h, _next, _throw, "throw", e);
           }
-          _next(void 0);
+          _next(undefined);
         });
       })();
     }
-    constructor(e, n, d, p, h = !1) {
-      _define_property$N(this, "dispatcher", void 0),
-        _define_property$N(this, "callback", void 0),
-        _define_property$N(this, "start", void 0),
-        _define_property$N(this, "stop", void 0),
-        _define_property$N(this, "allowMultiple", void 0),
-        _define_property$N(this, "inWatchSpan", void 0),
+    constructor(e, n, d, p, h = false) {
+      "dispatcher" in this
+        ? Object.defineProperty(this, "dispatcher", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.dispatcher = undefined),
+        this,
+        ("callback" in this
+          ? Object.defineProperty(this, "callback", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.callback = undefined),
+        this),
+        ("start" in this
+          ? Object.defineProperty(this, "start", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.start = undefined),
+        this),
+        ("stop" in this
+          ? Object.defineProperty(this, "stop", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.stop = undefined),
+        this),
+        ("allowMultiple" in this
+          ? Object.defineProperty(this, "allowMultiple", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.allowMultiple = undefined),
+        this),
+        ("inWatchSpan" in this
+          ? Object.defineProperty(this, "inWatchSpan", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.inWatchSpan = undefined),
+        this),
         (this.dispatcher = e),
         (this.callback = n),
         (this.start = d),
         (this.stop = p),
         (this.allowMultiple = h),
-        (this.inWatchSpan = !1);
+        (this.inWatchSpan = false);
     }
-  }
-  function _define_property$M(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_metadata$f(e, n) {
     if ("object" == typeof Reflect && "function" == typeof Reflect.metadata)
@@ -19597,7 +22530,7 @@
     [
       Bind(),
       _ts_metadata$g("design:type", Function),
-      _ts_metadata$g("design:paramtypes", [void 0, void 0]),
+      _ts_metadata$g("design:paramtypes", [undefined, undefined]),
       _ts_metadata$g("design:returntype", Promise),
     ],
     SpanWatcher.prototype,
@@ -19606,15 +22539,15 @@
   );
   class PlaybackMonitor {
     activate() {
-      (this.isActive = !0), this.startMonitor();
+      (this.isActive = true), this.startMonitor();
     }
     deactivate() {
-      (this.isActive = !1), this.clearMonitor();
+      (this.isActive = false), this.clearMonitor();
     }
     clearMonitor() {
       this.isMonitoring &&
         (this.watchers.forEach((e) => e.stopMonitor()),
-        (this.isMonitoring = !1));
+        (this.isMonitoring = false));
     }
     shouldMonitor() {
       return this.isActive;
@@ -19622,19 +22555,67 @@
     startMonitor() {
       this.shouldMonitor() &&
         (this.watchers.forEach((e) => e.startMonitor()),
-        (this.isMonitoring = !0));
+        (this.isMonitoring = true));
     }
     handleMediaItemChange() {
       this.isActive &&
         (this.clearMonitor(), this.shouldMonitor() && this.startMonitor());
     }
     constructor(e) {
-      _define_property$M(this, "isActive", !1),
-        _define_property$M(this, "isMonitoring", !1),
-        _define_property$M(this, "apiManager", void 0),
-        _define_property$M(this, "dispatcher", void 0),
-        _define_property$M(this, "playbackController", void 0),
-        _define_property$M(this, "watchers", []),
+      "isActive" in this
+        ? Object.defineProperty(this, "isActive", {
+            value: false,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.isActive = false),
+        this,
+        ("isMonitoring" in this
+          ? Object.defineProperty(this, "isMonitoring", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isMonitoring = false),
+        this),
+        ("apiManager" in this
+          ? Object.defineProperty(this, "apiManager", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.apiManager = undefined),
+        this),
+        ("dispatcher" in this
+          ? Object.defineProperty(this, "dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.dispatcher = undefined),
+        this),
+        ("playbackController" in this
+          ? Object.defineProperty(this, "playbackController", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.playbackController = undefined),
+        this),
+        ("watchers" in this
+          ? Object.defineProperty(this, "watchers", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.watchers = []),
+        this),
         (this.handlePlaybackThreshold =
           this.handlePlaybackThreshold.bind(this)),
         (this.playbackController = e.controller),
@@ -19675,7 +22656,7 @@
       Bind(),
       _ts_metadata$f("design:type", Function),
       _ts_metadata$f("design:paramtypes", []),
-      _ts_metadata$f("design:returntype", void 0),
+      _ts_metadata$f("design:returntype", undefined),
     ],
     PlaybackMonitor.prototype,
     "handleMediaItemChange",
@@ -19701,12 +22682,12 @@
           function _throw(e) {
             asyncGeneratorStep$z(y, p, h, _next, _throw, "throw", e);
           }
-          _next(void 0);
+          _next(undefined);
         });
       })();
     }
     shouldMonitor() {
-      if (!super.shouldMonitor()) return !1;
+      if (!super.shouldMonitor()) return false;
       return this.getRollMetadata().length > 0;
     }
     startMonitor() {
@@ -19714,10 +22695,10 @@
     }
     getRollMetadata() {
       const e = this.playbackController.nowPlayingItem;
-      return void 0 === e
+      return undefined === e
         ? []
         : (function (e, n = ["pre-roll", "mid-roll", "post-roll"]) {
-            if (void 0 === e.hlsMetadata) return [];
+            if (undefined === e.hlsMetadata) return [];
             const d = [];
             return (
               n.forEach((n) => {
@@ -19738,7 +22719,7 @@
                         ),
                       },
                       _ = p + ".dynamic-slot.data-set-id";
-                    void 0 !== e.hlsMetadata[_] &&
+                    undefined !== e.hlsMetadata[_] &&
                       (y["dynamic-id"] = e.hlsMetadata[_]),
                       d.push(y);
                   }
@@ -19767,9 +22748,9 @@
           n in e
             ? Object.defineProperty(e, n, {
                 value: d,
-                enumerable: !0,
-                configurable: !0,
-                writable: !0,
+                enumerable: true,
+                configurable: true,
+                writable: true,
               })
             : (e[n] = d);
         })(this, "rollMap", new Map());
@@ -19804,12 +22785,12 @@
           function _throw(e) {
             asyncGeneratorStep$y(y, p, h, _next, _throw, "throw", e);
           }
-          _next(void 0);
+          _next(undefined);
         });
       })();
     }
     shouldMonitor() {
-      if (!super.shouldMonitor()) return !1;
+      if (!super.shouldMonitor()) return false;
       return this.getNowPlayingMetadata().length > 0;
     }
     startMonitor() {
@@ -19817,7 +22798,7 @@
     }
     getNowPlayingMetadata() {
       const e = this.playbackController.nowPlayingItem;
-      return void 0 === e
+      return undefined === e
         ? []
         : (function (e) {
             const n = parseInt(e.hlsMetadata["skip.count"], 10),
@@ -19830,7 +22811,7 @@
                 target: parseFloat(e.hlsMetadata[`skip.${p}.target`]),
                 label: e.hlsMetadata[`skip.${p}.label`],
               };
-              void 0 !== e.hlsMetadata[`skip.${p}.promo.enabled`] &&
+              undefined !== e.hlsMetadata[`skip.${p}.promo.enabled`] &&
                 (n.promo = {
                   enabled: "true" === e.hlsMetadata[`skip.${p}.promo.enabled`],
                   image: e.hlsMetadata[`skip.${p}.promo.image`],
@@ -19883,7 +22864,7 @@
             this.handlePlaybackThreshold,
             d,
             y ? p : d + h,
-            !0,
+            true,
           );
         n.push(_), this.skipMap.set(_, e);
       }),
@@ -19895,9 +22876,9 @@
           n in e
             ? Object.defineProperty(e, n, {
                 value: d,
-                enumerable: !0,
-                configurable: !0,
-                writable: !0,
+                enumerable: true,
+                configurable: true,
+                writable: true,
               })
             : (e[n] = d);
         })(this, "skipMap", new Map());
@@ -19911,19 +22892,6 @@
       return void d(V);
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
-  }
-  function _define_property$J(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   const hasContentCompletionThresholdData = (e) =>
       !isNaN(getUpNextStart(e)) && !isNaN(getWatchedTime(e)),
@@ -19946,7 +22914,15 @@
                     }),
                   )),
                   p.forEach(function (n) {
-                    _define_property$J(e, n, d[n]);
+                    n in e
+                      ? Object.defineProperty(e, n, {
+                          value: d[n],
+                          enumerable: true,
+                          configurable: true,
+                          writable: true,
+                        })
+                      : (e[n] = d[n]),
+                      e;
                   });
               }
               return e;
@@ -19962,7 +22938,7 @@
                   if (e) {
                     let d = e[1];
                     e[1].startsWith("com.apple.hls.") &&
-                      !1 !== n.stripPrefix &&
+                      false !== n.stripPrefix &&
                       (d = e[1].slice("com.apple.hls.".length));
                     const h = e[2];
                     p[d] = h;
@@ -19986,7 +22962,7 @@
           function _throw(e) {
             asyncGeneratorStep$x(h, d, p, _next, _throw, "throw", e);
           }
-          _next(void 0);
+          _next(undefined);
         });
       }),
       function (e, n) {
@@ -20021,7 +22997,7 @@
             function _throw(e) {
               asyncGeneratorStep$w(y, p, h, _next, _throw, "throw", e);
             }
-            _next(void 0);
+            _next(undefined);
           });
         };
       })(function* () {
@@ -20029,9 +23005,9 @@
       })();
     }
     shouldMonitor() {
-      if (!super.shouldMonitor()) return !1;
+      if (!super.shouldMonitor()) return false;
       const e = this.playbackController.nowPlayingItem;
-      return void 0 !== e && hasContentCompletionThresholdData(e);
+      return undefined !== e && hasContentCompletionThresholdData(e);
     }
     startMonitor() {
       this.setupWatchers(), super.startMonitor();
@@ -20092,17 +23068,19 @@
         maxUpcomingTracksToMaintain: 10,
       },
       features: {
-        xtrick: !0,
-        isWeb: !0,
-        bookmarking: !1,
-        "seamless-audio-transitions": !0,
-        "enhanced-hls": !1,
+        xtrick: true,
+        isWeb: true,
+        bookmarking: false,
+        "seamless-audio-transitions": true,
+        "enhanced-hls": false,
       },
       urls: {
         hls: uo.hls,
         rtc: uo.rtc,
         mediaApi: "https://api.music.apple.com/v1",
-        webPlayback: `https://${getCommerceHostname("play")}/WebObjects/MZPlay.woa/wa/webPlayback`,
+        webPlayback: `https://${getCommerceHostname(
+          "play",
+        )}/WebObjects/MZPlay.woa/wa/webPlayback`,
       },
     },
     ho = JsonDevFlag.register("mk-offers-key-urls").get();
@@ -20127,22 +23105,9 @@
         function _throw(e) {
           asyncGeneratorStep$v(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$I(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread_props$g(e, n) {
     return (
@@ -20209,7 +23174,7 @@
       return this.storekit.realm;
     }
     set requestUserToken(e) {
-      (this._providedRequestUserToken = !0),
+      (this._providedRequestUserToken = true),
         (this.storekit.requestUserToken = e);
     }
     get restrictedEnabled() {
@@ -20222,7 +23187,7 @@
       var e;
       return this.isAuthorized
         ? this.storekit.storefrontCountryCode
-        : null !== (e = this._defaultStorefrontCountryCode) && void 0 !== e
+        : null !== (e = this._defaultStorefrontCountryCode) && undefined !== e
           ? e
           : this.storekit.storefrontCountryCode;
     }
@@ -20279,7 +23244,7 @@
                 })(),
               ),
               n)
-            : void 0
+            : undefined
         );
       })();
     }
@@ -20291,14 +23256,78 @@
     }
     constructor(n, d = {}) {
       var p, h;
-      _define_property$I(this, "precache", void 0),
-        _define_property$I(this, "storekit", void 0),
-        _define_property$I(this, "dispatcher", void 0),
-        _define_property$I(this, "_apiStorefrontId", void 0),
-        _define_property$I(this, "_defaultStorefrontCountryCode", void 0),
-        _define_property$I(this, "_hasAuthorized", !1),
-        _define_property$I(this, "_metricsClientId", void 0),
-        _define_property$I(this, "_providedRequestUserToken", !1),
+      "precache" in this
+        ? Object.defineProperty(this, "precache", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.precache = undefined),
+        this,
+        ("storekit" in this
+          ? Object.defineProperty(this, "storekit", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.storekit = undefined),
+        this),
+        ("dispatcher" in this
+          ? Object.defineProperty(this, "dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.dispatcher = undefined),
+        this),
+        ("_apiStorefrontId" in this
+          ? Object.defineProperty(this, "_apiStorefrontId", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._apiStorefrontId = undefined),
+        this),
+        ("_defaultStorefrontCountryCode" in this
+          ? Object.defineProperty(this, "_defaultStorefrontCountryCode", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._defaultStorefrontCountryCode = undefined),
+        this),
+        ("_hasAuthorized" in this
+          ? Object.defineProperty(this, "_hasAuthorized", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._hasAuthorized = false),
+        this),
+        ("_metricsClientId" in this
+          ? Object.defineProperty(this, "_metricsClientId", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._metricsClientId = undefined),
+        this),
+        ("_providedRequestUserToken" in this
+          ? Object.defineProperty(this, "_providedRequestUserToken", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._providedRequestUserToken = false),
+        this),
         (this.dispatcher = d.services.dispatcher),
         "precache" in d && (this.precache = d.precache),
         d.storefrontId && (this.storefrontId = d.storefrontId),
@@ -20316,7 +23345,15 @@
                     }),
                   )),
                   p.forEach(function (n) {
-                    _define_property$I(e, n, d[n]);
+                    n in e
+                      ? Object.defineProperty(e, n, {
+                          value: d[n],
+                          enumerable: true,
+                          configurable: true,
+                          writable: true,
+                        })
+                      : (e[n] = d[n]),
+                      e;
                   });
               }
               return e;
@@ -20337,10 +23374,10 @@
           fetch:
             null == d ||
             null === (h = d.services) ||
-            void 0 === h ||
+            undefined === h ||
             null === (p = h.request) ||
-            void 0 === p
-              ? void 0
+            undefined === p
+              ? undefined
               : p.fetch,
         })),
         this.storekit.addEventListener(ao.authorizationStatusDidChange, (e) => {
@@ -20376,36 +23413,16 @@
         function _throw(e) {
           asyncGeneratorStep$u(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
   }
-  function hasAuthorization(e) {
-    return (
-      void 0 === e && (e = yo && yo.storekit),
-      void 0 !== e && e.hasAuthorized && e.userTokenIsValid
-    );
-  }
-  function hasMusicSubscription(e) {
-    return _hasMusicSubscription.apply(this, arguments);
-  }
   function _hasMusicSubscription() {
     return (_hasMusicSubscription = _async_to_generator$u(function* (e) {
-      return void 0 === e && (e = yo && yo.storekit), e.hasMusicSubscription();
+      return (
+        undefined === e && (e = yo && yo.storekit), e.hasMusicSubscription()
+      );
     })).apply(this, arguments);
-  }
-  function _define_property$H(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function transform$7(e) {
     return (function (e) {
@@ -20419,7 +23436,15 @@
             }),
           )),
           p.forEach(function (n) {
-            _define_property$H(e, n, d[n]);
+            n in e
+              ? Object.defineProperty(e, n, {
+                  value: d[n],
+                  enumerable: true,
+                  configurable: true,
+                  writable: true,
+                })
+              : (e[n] = d[n]),
+              e;
           });
       }
       return e;
@@ -20433,8 +23458,8 @@
             var n;
             if (
               1 ===
-              (null == e || null === (n = e.metadata) || void 0 === n
-                ? void 0
+              (null == e || null === (n = e.metadata) || undefined === n
+                ? undefined
                 : n.isExplicit)
             )
               return "explicit";
@@ -20443,16 +23468,16 @@
             var n, d, p;
             return (
               0 !==
-                (null == e || null === (n = e.metadata) || void 0 === n
-                  ? void 0
+                (null == e || null === (n = e.metadata) || undefined === n
+                  ? undefined
                   : n.isPlayable) && {
                 id:
-                  null == e || null === (d = e.metadata) || void 0 === d
-                    ? void 0
+                  null == e || null === (d = e.metadata) || undefined === d
+                    ? undefined
                     : d.itemId,
                 kind:
-                  null == e || null === (p = e.metadata) || void 0 === p
-                    ? void 0
+                  null == e || null === (p = e.metadata) || undefined === p
+                    ? undefined
                     : p.itemType,
               }
             );
@@ -20463,19 +23488,6 @@
         },
         e,
       ),
-    );
-  }
-  function _define_property$G(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
     );
   }
   function _object_spread$n(e) {
@@ -20489,7 +23501,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$G(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -20517,24 +23537,11 @@
     );
   }
   const _o = {
-    condition: () => !0,
+    condition: () => true,
     toOptions: (e, n, d) => [
       _object_spread_props$f(_object_spread$n({}, e), { context: d }),
     ],
   };
-  function _define_property$F(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread$m(e) {
     for (var n = 1; n < arguments.length; n++) {
       var d = null != arguments[n] ? arguments[n] : {},
@@ -20546,7 +23553,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$F(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -20578,7 +23593,9 @@
         var n;
         return (
           "stations" === e.type &&
-          (null === (n = e.attributes) || void 0 === n ? void 0 : n.isLive)
+          (null === (n = e.attributes) || undefined === n
+            ? undefined
+            : n.isLive)
         );
       },
       toOptions: (e, n, d) => [
@@ -20588,7 +23605,7 @@
             attributes: e.attributes,
             id: e.id,
             type: e.type,
-            name: null == d ? void 0 : d.featureName,
+            name: null == d ? undefined : d.featureName,
           },
         }),
       ],
@@ -20598,23 +23615,10 @@
       ({ type: n }) =>
         e.includes(n),
     withBagPrefix = (e) => {
-      if (void 0 === e || "" === e) return;
+      if (undefined === e || "" === e) return;
       const { prefix: n } = po;
       return n ? `${n}:${e}` : e;
     };
-  function _define_property$E(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread_props$d(e, n) {
     return (
       (n = null != n ? n : {}),
@@ -20643,9 +23647,9 @@
         (p =
           null != n
             ? n
-            : null == e || null === (d = e.container) || void 0 === d
-              ? void 0
-              : d.name) && void 0 !== p
+            : null == e || null === (d = e.container) || undefined === d
+              ? undefined
+              : d.name) && undefined !== p
         ? p
         : St.SONG;
     },
@@ -20663,14 +23667,22 @@
                   }),
                 )),
                 p.forEach(function (n) {
-                  _define_property$E(e, n, d[n]);
+                  n in e
+                    ? Object.defineProperty(e, n, {
+                        value: d[n],
+                        enumerable: true,
+                        configurable: true,
+                        writable: true,
+                      })
+                    : (e[n] = d[n]),
+                    e;
                 });
             }
             return e;
           })({ id: e.id }, n),
           {
             name: withBagPrefix(
-              getContainerName$1(e, null == d ? void 0 : d.featureName),
+              getContainerName$1(e, null == d ? undefined : d.featureName),
             ),
           },
         );
@@ -20687,19 +23699,6 @@
       },
       condition: typeIs("songs", "library-songs", "music-videos"),
     };
-  function _define_property$D(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread$k(e) {
     for (var n = 1; n < arguments.length; n++) {
       var d = null != arguments[n] ? arguments[n] : {},
@@ -20711,7 +23710,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$D(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -20741,12 +23748,12 @@
   const parseAssets = ({ type: e, attributes: { assetTokens: n } }) =>
       e.includes("udio")
         ? ((e) => {
-            if (void 0 === e) return;
+            if (undefined === e) return;
             const [n] = Object.keys(e);
             return e[n];
           })(n)
         : ((e) => {
-            if (void 0 === e) return;
+            if (undefined === e) return;
             const n = Object.keys(e);
             return e[n[n.length - 1]];
           })(n),
@@ -20768,20 +23775,20 @@
               playParams:
                 null !==
                   (h =
-                    null == e || null === (p = e.attributes) || void 0 === p
-                      ? void 0
-                      : p.playParams) && void 0 !== h
+                    null == e || null === (p = e.attributes) || undefined === p
+                      ? undefined
+                      : p.playParams) && undefined !== h
                   ? h
                   : { id: e.id, kind: e.type },
             },
           ),
         });
         return (
-          void 0 !== n && (y.container = n),
-          void 0 !== (null == d ? void 0 : d.featureName) &&
+          undefined !== n && (y.container = n),
+          undefined !== (null == d ? undefined : d.featureName) &&
             (y.container = _object_spread_props$c(
               _object_spread$k({}, y.container),
-              { name: null == d ? void 0 : d.featureName },
+              { name: null == d ? undefined : d.featureName },
             )),
           [y]
         );
@@ -20810,22 +23817,9 @@
         ? d
           ? St.PLAYLIST_CLASSICAL
           : St.PLAYLIST
-        : void 0;
+        : undefined;
   };
   var go;
-  function _define_property$C(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread$j(e) {
     for (var n = 1; n < arguments.length; n++) {
       var d = null != arguments[n] ? arguments[n] : {},
@@ -20837,7 +23831,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$C(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -20872,7 +23874,7 @@
             id: e.id,
             type: e.type,
             name: withBagPrefix(
-              getFeatureName(e, null == d ? void 0 : d.featureName),
+              getFeatureName(e, null == d ? undefined : d.featureName),
             ),
           };
           return e.relationships.tracks.data.map((e) => ({
@@ -20888,10 +23890,10 @@
           (e) => {
             var n, d;
             return !!(null === (d = e.relationships) ||
-            void 0 === d ||
+            undefined === d ||
             null === (n = d[go]) ||
-            void 0 === n
-              ? void 0
+            undefined === n
+              ? undefined
               : n.data);
           }),
         requiredRelationships: ["tracks"],
@@ -20911,21 +23913,23 @@
                 playParams:
                   null !==
                     (h =
-                      null == e || null === (p = e.attributes) || void 0 === p
-                        ? void 0
-                        : p.playParams) && void 0 !== h
+                      null == e ||
+                      null === (p = e.attributes) ||
+                      undefined === p
+                        ? undefined
+                        : p.playParams) && undefined !== h
                     ? h
                     : { id: e.id, kind: "musicMovie" },
-                offers: void 0,
+                offers: undefined,
               },
             ),
           });
           return (
-            void 0 !== n && (y.container = n),
-            void 0 !== (null == d ? void 0 : d.featureName) &&
+            undefined !== n && (y.container = n),
+            undefined !== (null == d ? undefined : d.featureName) &&
               (y.container = _object_spread_props$b(
                 _object_spread$j({}, y.container),
-                { name: null == d ? void 0 : d.featureName },
+                { name: null == d ? undefined : d.featureName },
               )),
             [y]
           );
@@ -20938,30 +23942,17 @@
     }, []),
     So = new Set(Po),
     isArrayOf = (e, n) => Array.isArray(e) && (0 === e.length || n(e[0])),
-    isMediaAPIResource = (e) => e && void 0 !== e.id && void 0 !== e.type,
-    isMediaItem = (e) => e && void 0 !== e.id,
+    isMediaAPIResource = (e) => e && undefined !== e.id && undefined !== e.type,
+    isMediaItem = (e) => e && undefined !== e.id,
     isMPMediaItem = (e) =>
       e &&
-      void 0 !== e.contentId &&
-      void 0 !== e.metadata &&
-      void 0 !== e.metadata.itemId &&
-      void 0 !== e.metadata.itemType,
+      undefined !== e.contentId &&
+      undefined !== e.metadata &&
+      undefined !== e.metadata.itemId &&
+      undefined !== e.metadata.itemType,
     isQueueItems = (e) => e && e.items && Array.isArray(e.items),
     isQueueLoaded = (e) => e && e.loaded,
     isQueueURLOption = (e) => e && e.url;
-  function _define_property$B(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   const Eo = it.linkChild(new Logger("queue")),
     descriptorToMediaItems = (e) => {
       if (!isQueueItems(e) && !isQueueLoaded(e)) return [];
@@ -20982,7 +23973,15 @@
                     }),
                   )),
                   p.forEach(function (n) {
-                    _define_property$B(e, n, d[n]);
+                    n in e
+                      ? Object.defineProperty(e, n, {
+                          value: d[n],
+                          enumerable: true,
+                          configurable: true,
+                          writable: true,
+                        })
+                      : (e[n] = d[n]),
+                      e;
                   });
               }
               return e;
@@ -21000,7 +23999,7 @@
     loadedDescriptorToMediaItem = (e) => {
       const n = [],
         { loaded: d, container: p, context: h } = e;
-      return void 0 === d
+      return undefined === d
         ? []
         : isArrayOf(d, isDataRecord)
           ? (d.forEach((e) => {
@@ -21019,9 +24018,9 @@
                 : [];
     },
     dataRecordToMediaItems = (e, n, d = {}) => {
-      const { data: p } = e.serialize(!0, void 0, {
+      const { data: p } = e.serialize(true, undefined, {
         includeRelationships: So,
-        allowFullDuplicateSerializations: !0,
+        allowFullDuplicateSerializations: true,
       });
       return resourceToMediaItem(p, n, d);
     },
@@ -21032,13 +24031,13 @@
         n =
           null !==
             (h =
-              null == n || null === (p = n.serialize) || void 0 === p
-                ? void 0
-                : p.call(n).data) && void 0 !== h
+              null == n || null === (p = n.serialize) || undefined === p
+                ? undefined
+                : p.call(n).data) && undefined !== h
             ? h
             : n;
         return (
-          null !== (y = bo.find((p) => p.condition(e, n, d))) && void 0 !== y
+          null !== (y = bo.find((p) => p.condition(e, n, d))) && undefined !== y
             ? y
             : _o
         )
@@ -21046,19 +24045,6 @@
           .map((e) => new MediaItem(e));
       })(e, n, d)
     );
-  function _define_property$A(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   class BaseModifiableQueue {
     append(e) {
       Je.warn("Append is not supported for this type of playback");
@@ -21069,12 +24055,28 @@
     insertAt(e, n) {
       Je.warn("InsertAt is not supported for this type of playback");
     }
-    prepend(e, n = !1) {
+    prepend(e, n = false) {
       Je.warn("Prepend is not supported for this type of playback");
     }
     constructor() {
-      _define_property$A(this, "queue", void 0),
-        _define_property$A(this, "canModifyQueue", !1);
+      "queue" in this
+        ? Object.defineProperty(this, "queue", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.queue = undefined),
+        this,
+        ("canModifyQueue" in this
+          ? Object.defineProperty(this, "canModifyQueue", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.canModifyQueue = false),
+        this);
     }
   }
   class ModifiableQueue {
@@ -21090,34 +24092,45 @@
       const d = descriptorToMediaItems(n);
       this.queue.splice(e, 0, d);
     }
-    prepend(e, n = !1) {
+    prepend(e, n = false) {
       const d = descriptorToMediaItems(e),
         p = this.queue.position + 1;
       n && this.queue.splice(p, this.queue.length), this.queue.splice(p, 0, d);
     }
     constructor(e, n) {
-      _define_property$A(this, "queue", void 0),
-        _define_property$A(this, "canModifyQueue", !0),
-        _define_property$A(this, "_mediaItemPlayback", void 0),
+      "queue" in this
+        ? Object.defineProperty(this, "queue", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.queue = undefined),
+        this,
+        ("canModifyQueue" in this
+          ? Object.defineProperty(this, "canModifyQueue", {
+              value: true,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.canModifyQueue = true),
+        this),
+        ("_mediaItemPlayback" in this
+          ? Object.defineProperty(this, "_mediaItemPlayback", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._mediaItemPlayback = undefined),
+        this),
         (this.queue = e),
         (this._mediaItemPlayback = n);
     }
   }
-  function _define_property$z(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   var To;
-  (e.PlayerRepeatMode = void 0),
+  (e.PlayerRepeatMode = undefined),
     ((To = e.PlayerRepeatMode || (e.PlayerRepeatMode = {}))[(To.none = 0)] =
       "none"),
     (To[(To.one = 1)] = "one"),
@@ -21131,7 +24144,15 @@
         Je.warn("setting repeatMode is not supported in this playback method");
     }
     constructor() {
-      _define_property$z(this, "canSetRepeatMode", !1);
+      "canSetRepeatMode" in this
+        ? Object.defineProperty(this, "canSetRepeatMode", {
+            value: false,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.canSetRepeatMode = false),
+        this;
     }
   }
   class Repeatable {
@@ -21145,25 +24166,36 @@
         this.dispatcher.publish(ao.repeatModeDidChange, this._repeatMode));
     }
     constructor(e, n = 0) {
-      _define_property$z(this, "canSetRepeatMode", !0),
-        _define_property$z(this, "dispatcher", void 0),
-        _define_property$z(this, "_repeatMode", void 0),
+      "canSetRepeatMode" in this
+        ? Object.defineProperty(this, "canSetRepeatMode", {
+            value: true,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.canSetRepeatMode = true),
+        this,
+        ("dispatcher" in this
+          ? Object.defineProperty(this, "dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.dispatcher = undefined),
+        this),
+        ("_repeatMode" in this
+          ? Object.defineProperty(this, "_repeatMode", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._repeatMode = undefined),
+        this),
         (this.dispatcher = e),
         (this._repeatMode = n);
     }
-  }
-  function _define_property$y(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function asyncGeneratorStep$t(e, n, d, p, h, y, _) {
     try {
@@ -21186,22 +24218,9 @@
         function _throw(e) {
           asyncGeneratorStep$t(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$x(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   !(function (e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -21214,7 +24233,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$y(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
   })({}, { NEXT_ITEM: "NEXT" }, e.PlayActivityEndReasonType);
@@ -21241,26 +24268,42 @@
       })();
     }
     constructor(e) {
-      _define_property$x(this, "mediaItemPlayback", void 0),
-        _define_property$x(this, "canSeek", void 0),
+      "mediaItemPlayback" in this
+        ? Object.defineProperty(this, "mediaItemPlayback", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.mediaItemPlayback = undefined),
+        this,
+        ("canSeek" in this
+          ? Object.defineProperty(this, "canSeek", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.canSeek = undefined),
+        this),
         (this.mediaItemPlayback = e),
-        (this.canSeek = !1);
+        (this.canSeek = false);
     }
   }
   class Seekable {
     getSeekSeconds(e) {
       return ((e) =>
-        (null == e ? void 0 : e.isUTS) ||
-        ko.includes(null == e ? void 0 : e.type)
+        (null == e ? undefined : e.isUTS) ||
+        ko.includes(null == e ? undefined : e.type)
           ? { FORWARD: 10, BACK: 10 }
-          : (null == e ? void 0 : e.isAOD)
+          : (null == e ? undefined : e.isAOD)
             ? { FORWARD: 30, BACK: 30 }
             : { FORWARD: 30, BACK: 15 })(e);
     }
     seekBackward(e = this._seekToBeginning) {
       var n = this;
       return _async_to_generator$t(function* () {
-        if (void 0 === n.mediaItemPlayback.nowPlayingItem)
+        if (undefined === n.mediaItemPlayback.nowPlayingItem)
           return void Je.warn(
             "Cannot seekBackward when nowPlayingItem is not yet set.",
           );
@@ -21273,7 +24316,7 @@
     seekForward(e = this._seekToEnd) {
       var n = this;
       return _async_to_generator$t(function* () {
-        if (void 0 === n.mediaItemPlayback.nowPlayingItem)
+        if (undefined === n.mediaItemPlayback.nowPlayingItem)
           return void Je.warn(
             "Cannot seekForward when nowPlayingItem is not yet set.",
           );
@@ -21288,7 +24331,7 @@
     seekToTime(e, n = kt.Manual) {
       var d = this;
       return _async_to_generator$t(function* () {
-        if (void 0 === d.mediaItemPlayback.nowPlayingItem)
+        if (undefined === d.mediaItemPlayback.nowPlayingItem)
           return void Je.warn(
             "Cannot seekToTime when nowPlayingItem is not yet set.",
           );
@@ -21300,7 +24343,7 @@
             d.mediaItemPlayback.currentPlaybackDuration,
           );
         let m;
-        if (p.isLinearStream && void 0 !== y) {
+        if (p.isLinearStream && undefined !== y) {
           const e = 1e3 * (_ - h);
           m = new Date(y.getTime() + e);
         }
@@ -21331,12 +24374,36 @@
       })();
     }
     constructor(e, n) {
-      _define_property$x(this, "_dispatcher", void 0),
-        _define_property$x(this, "mediaItemPlayback", void 0),
-        _define_property$x(this, "canSeek", void 0),
+      "_dispatcher" in this
+        ? Object.defineProperty(this, "_dispatcher", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._dispatcher = undefined),
+        this,
+        ("mediaItemPlayback" in this
+          ? Object.defineProperty(this, "mediaItemPlayback", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.mediaItemPlayback = undefined),
+        this),
+        ("canSeek" in this
+          ? Object.defineProperty(this, "canSeek", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.canSeek = undefined),
+        this),
         (this._dispatcher = e),
         (this.mediaItemPlayback = n),
-        (this.canSeek = !0);
+        (this.canSeek = true);
     }
   }
   const shuffleCollection = (e) => {
@@ -21352,7 +24419,7 @@
   function deprecationWarning(e, n = {}) {
     var d;
     const p =
-        null !== (d = n.message) && void 0 !== d
+        null !== (d = n.message) && undefined !== d
           ? d
           : e + " has been deprecated",
       h = [];
@@ -21363,19 +24430,6 @@
           p +
           (h.length > 0 ? ` (${h.join(", ")})` : ""),
       );
-  }
-  function _define_property$w(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_without_properties$1(e, n) {
     if (null == e) return {};
@@ -21407,20 +24461,30 @@
     }
     constructor(e, n) {
       var d;
-      _define_property$w(this, "isAutoplay", !1),
-        _define_property$w(this, "item", void 0),
+      "isAutoplay" in this
+        ? Object.defineProperty(this, "isAutoplay", {
+            value: false,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.isAutoplay = false),
+        this,
+        ("item" in this
+          ? Object.defineProperty(this, "item", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.item = undefined),
+        this),
         (this.item = e),
         (this.isAutoplay =
-          null !== (d = null == n ? void 0 : n.isAutoplay) &&
-          void 0 !== d &&
+          null !== (d = null == n ? undefined : n.isAutoplay) &&
+          undefined !== d &&
           d);
     }
-  }
-  function toQueueItems(e, n) {
-    return e.map((e) => new QueueItem(e, n));
-  }
-  function toMediaItems(e) {
-    return e.map((e) => e.item);
   }
   const parseQueueURLOption = (e) => {
       if (!isQueueURLOption(e)) return e;
@@ -21442,7 +24506,8 @@
     set isRestricted(e) {
       var n;
       this._isRestricted = e;
-      const d = null === (n = this.currentItem) || void 0 === n ? void 0 : n.id;
+      const d =
+        null === (n = this.currentItem) || undefined === n ? undefined : n.id;
       this._isRestricted &&
         !this.isEmpty &&
         (this.removeQueueItems((e) => e.item.isExplicitItem),
@@ -21465,33 +24530,46 @@
       return -1 !== n && this.position < n && (e = n), e;
     }
     get items() {
-      return toMediaItems(this._queueItems);
+      return this._queueItems.map((e) => this._queueItems.item);
     }
     get autoplayItems() {
-      return toMediaItems(this._queueItems.filter((e) => e.isAutoplay));
+      return this._queueItems
+        .filter((e) => e.isAutoplay)
+        .map((e) => this._queueItems.filter((e) => e.isAutoplay).item);
     }
     get unplayedAutoplayItems() {
-      return toMediaItems(this._unplayedQueueItems.filter((e) => e.isAutoplay));
+      return this._unplayedQueueItems
+        .filter((e) => e.isAutoplay)
+        .map((e) => this._unplayedQueueItems.filter((e) => e.isAutoplay).item);
     }
     get userAddedItems() {
-      return toMediaItems(this._queueItems.filter((e) => !e.isAutoplay));
+      return this._queueItems
+        .filter((e) => !e.isAutoplay)
+        .map((e) => this._queueItems.filter((e) => !e.isAutoplay).item);
     }
     get unplayedUserItems() {
-      return toMediaItems(
-        this._unplayedQueueItems.filter((e) => !e.isAutoplay),
-      );
+      return this._unplayedQueueItems
+        .filter((e) => !e.isAutoplay)
+        .map((e) => this._unplayedQueueItems.filter((e) => !e.isAutoplay).item);
     }
     get playableItems() {
-      return toMediaItems(
-        this._queueItems.filter((e) => canPlay(e.item, this.playbackMode)),
-      );
+      return this._queueItems
+        .filter((e) => canPlay(e.item, this.playbackMode))
+        .map(
+          (e) =>
+            this._queueItems.filter((e) => canPlay(e.item, this.playbackMode))
+              .item,
+        );
     }
     get unplayedPlayableItems() {
-      return toMediaItems(
-        this._unplayedQueueItems.filter((e) =>
-          canPlay(e.item, this.playbackMode),
-        ),
-      );
+      return this._unplayedQueueItems
+        .filter((e) => canPlay(e.item, this.playbackMode))
+        .map(
+          (e) =>
+            this._unplayedQueueItems.filter((e) =>
+              canPlay(e.item, this.playbackMode),
+            ).item,
+        );
     }
     get length() {
       return this._queueItems.length;
@@ -21531,17 +24609,21 @@
     }
     item(e) {
       var n;
-      return null === (n = this.queueItem(e)) || void 0 === n ? void 0 : n.item;
+      return null === (n = this.queueItem(e)) || undefined === n
+        ? undefined
+        : n.item;
     }
     get currentItem() {
       return this.item(this.position);
     }
     queueItem(e) {
       var n;
-      return null === (n = this._queueItems) || void 0 === n ? void 0 : n[e];
+      return null === (n = this._queueItems) || undefined === n
+        ? undefined
+        : n[e];
     }
     updateItems(e) {
-      (this._queueItems = toQueueItems(e)),
+      (this._queueItems = e.map((e) => new QueueItem(e, n))),
         this._reindex(),
         this._dispatcher.publish(ao.queueItemsDidChange, this.items);
     }
@@ -21559,17 +24641,31 @@
       this.splice(e, 1);
     }
     append(e = []) {
-      return this.appendQueueItems(toQueueItems(e));
+      return this.appendQueueItems(e.map((e) => new QueueItem(e, n)));
     }
     appendQueueItems(e = []) {
       return this.spliceQueueItems(this.appendTargetIndex, 0, e);
     }
     splice(e, n, d = []) {
-      return toMediaItems(this.spliceQueueItems(e, n, toQueueItems(d)));
+      return this.spliceQueueItems(
+        e,
+        n,
+        d.map((e) => new QueueItem(d, n)),
+      ).map(
+        (e) =>
+          this.spliceQueueItems(
+            e,
+            n,
+            d.map((e) => new QueueItem(d, n)),
+          ).item,
+      );
     }
-    spliceQueueItems(e, n, d = [], p = !0) {
-      d = d.filter((e) =>
-        isPlayable(null == e ? void 0 : e.item, this.playbackMode),
+    spliceQueueItems(e, n, d = [], p = true) {
+      d = d.filter(
+        (e) =>
+          (null == e ? undefined : e.item).isPlayable ||
+          (this.playbackMode !== e.PlaybackMode.FULL_PLAYBACK_ONLY &&
+            undefined !== (null == e ? undefined : e.item).previewURL),
       );
       const h = this._queueItems.splice(e, n, ...d);
       return (
@@ -21577,8 +24673,8 @@
         p &&
           (this._dispatcher.publish(gt.queueModified, {
             start: e,
-            added: toMediaItems(d),
-            removed: toMediaItems(h),
+            added: d.map((e) => d.item),
+            removed: h.map((e) => h.item),
           }),
           this._dispatcher.publish(Io, this.items)),
         h
@@ -21604,14 +24700,14 @@
           });
     }
     _isSameItems(e) {
-      if (e.length !== this.length) return !1;
+      if (e.length !== this.length) return false;
       const n = e.map((e) => e.id).sort(),
         d = [...this._itemIDs].sort();
       let p, h;
       try {
         (p = JSON.stringify(n)), (h = JSON.stringify(d));
       } catch (Vt) {
-        return !1;
+        return false;
       }
       return p === h;
     }
@@ -21635,9 +24731,15 @@
     findPlayableIndexForward(n = this.position) {
       var d;
       if (this.isEmpty) return -1;
-      if (this.isInitiated && !indexInBounds([0, this.position], n)) return -1;
+      if (
+        this.isInitiated &&
+        !([0, this.position][0] <= n && n <= [0, this.position][1])
+      )
+        return -1;
       const p =
-        null === (d = this.repeatable) || void 0 === d ? void 0 : d.repeatMode;
+        null === (d = this.repeatable) || undefined === d
+          ? undefined
+          : d.repeatMode;
       if (n < this.length)
         for (let e = n + 1; e < this.length; e++) {
           if (canPlay(this.item(e), this.playbackMode)) return e;
@@ -21651,9 +24753,12 @@
     findPlayableIndexBackward(n = this.position) {
       var d;
       if (this.isEmpty) return -1;
-      if (!indexInBounds([0, this.position], n)) return -1;
+      if (!([0, this.position][0] <= n && n <= [0, this.position][1]))
+        return -1;
       const p =
-        null === (d = this.repeatable) || void 0 === d ? void 0 : d.repeatMode;
+        null === (d = this.repeatable) || undefined === d
+          ? undefined
+          : d.repeatMode;
       if (n > 0)
         for (let e = n - 1; e >= 0; e--) {
           if (canPlay(this.item(e), this.playbackMode)) return e;
@@ -21669,7 +24774,7 @@
       return this._queueItems.slice(e);
     }
     _getStartItemPosition(e) {
-      if (void 0 === e) return -1;
+      if (undefined === e) return -1;
       if (
         ("object" == typeof e && "id" in e && (e = e.id), "string" == typeof e)
       )
@@ -21679,38 +24784,109 @@
     }
     constructor(n) {
       if (
-        (_define_property$w(this, "repeatable", void 0),
-        _define_property$w(this, "hasAutoplayStation", !1),
-        _define_property$w(this, "playbackMode", e.PlaybackMode.MIXED_CONTENT),
-        _define_property$w(this, "_itemIDs", []),
-        _define_property$w(this, "_queueItems", []),
-        _define_property$w(this, "_isRestricted", !1),
-        _define_property$w(this, "_nextPlayableItemIndex", -1),
-        _define_property$w(this, "_position", -1),
-        _define_property$w(this, "_dispatcher", void 0),
+        ("repeatable" in this
+          ? Object.defineProperty(this, "repeatable", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.repeatable = undefined),
+        this,
+        ("hasAutoplayStation" in this
+          ? Object.defineProperty(this, "hasAutoplayStation", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.hasAutoplayStation = false),
+        this),
+        ("playbackMode" in this
+          ? Object.defineProperty(this, "playbackMode", {
+              value: e.PlaybackMode.MIXED_CONTENT,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.playbackMode = e.PlaybackMode.MIXED_CONTENT),
+        this),
+        ("_itemIDs" in this
+          ? Object.defineProperty(this, "_itemIDs", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._itemIDs = []),
+        this),
+        ("_queueItems" in this
+          ? Object.defineProperty(this, "_queueItems", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._queueItems = []),
+        this),
+        ("_isRestricted" in this
+          ? Object.defineProperty(this, "_isRestricted", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._isRestricted = false),
+        this),
+        ("_nextPlayableItemIndex" in this
+          ? Object.defineProperty(this, "_nextPlayableItemIndex", {
+              value: -1,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._nextPlayableItemIndex = -1),
+        this),
+        ("_position" in this
+          ? Object.defineProperty(this, "_position", {
+              value: -1,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._position = -1),
+        this),
+        ("_dispatcher" in this
+          ? Object.defineProperty(this, "_dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._dispatcher = undefined),
+        this),
         (this._dispatcher = n.services.dispatcher),
         (this.playbackMode = n.playbackMode),
         !n.descriptor)
       )
         return;
-      const d = descriptorToMediaItems(n.descriptor).filter((e) =>
-        isPlayable(e, this.playbackMode),
+      const d = descriptorToMediaItems(n.descriptor).filter(
+        (e) =>
+          e.isPlayable ||
+          (this.playbackMode !== e.PlaybackMode.FULL_PLAYBACK_ONLY &&
+            undefined !== e.previewURL),
       );
-      (this._queueItems = toQueueItems(d)),
+      (this._queueItems = d.map((e) => new QueueItem(d, n))),
         this._reindex(),
-        void 0 !== n.descriptor.startWith &&
+        undefined !== n.descriptor.startWith &&
           (this.position = this._getStartItemPosition(n.descriptor.startWith));
     }
   }
-  function isPlayable(n, d) {
-    return (
-      n.isPlayable ||
-      (d !== e.PlaybackMode.FULL_PLAYBACK_ONLY && void 0 !== n.previewURL)
-    );
-  }
   function canPlay(e, n) {
     return (
-      isPlayable(e, n) &&
+      (e.isPlayable ||
+        (n !== e.PlaybackMode.FULL_PLAYBACK_ONLY &&
+          undefined !== e.previewURL)) &&
       !(function (e) {
         return e.isRestricted;
       })(e) &&
@@ -21719,28 +24895,12 @@
       })(e)
     );
   }
-  function indexInBounds(e, n) {
-    return e[0] <= n && n <= e[1];
-  }
-  function _define_property$v(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _ts_metadata$d(e, n) {
     if ("object" == typeof Reflect && "function" == typeof Reflect.metadata)
       return Reflect.metadata(e, n);
   }
   var Ro;
-  (e.PlayerShuffleMode = void 0),
+  (e.PlayerShuffleMode = undefined),
     ((Ro = e.PlayerShuffleMode || (e.PlayerShuffleMode = {}))[(Ro.off = 0)] =
       "off"),
     (Ro[(Ro.songs = 1)] = "songs");
@@ -21759,8 +24919,24 @@
       Je.warn($o);
     }
     constructor() {
-      _define_property$v(this, "canSetShuffleMode", !1),
-        _define_property$v(this, "queue", void 0);
+      "canSetShuffleMode" in this
+        ? Object.defineProperty(this, "canSetShuffleMode", {
+            value: false,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.canSetShuffleMode = false),
+        this,
+        ("queue" in this
+          ? Object.defineProperty(this, "queue", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.queue = undefined),
+        this);
     }
   }
   class Shuffler {
@@ -21770,11 +24946,11 @@
     set queue(e) {
       (this._queue = e),
         (this._unshuffledIDs = e.userAddedItems.map((e) => e.id)),
-        this.checkAndReshuffle(!1);
+        this.checkAndReshuffle(false);
     }
     queueModifiedHandler(e, n) {
       if (this._isSpliceFromShuffle)
-        return void (this._isSpliceFromShuffle = !1);
+        return void (this._isSpliceFromShuffle = false);
       const { start: d, added: p, removed: h } = n;
       if (h.length > 0) {
         const e = h.map((e) => e.id);
@@ -21800,10 +24976,10 @@
           )),
         this.dispatcher.publish(ao.shuffleModeDidChange, this.shuffleMode));
     }
-    checkAndReshuffle(e = !1) {
+    checkAndReshuffle(e = false) {
       1 === this.shuffleMode && this.shuffleQueue(e);
     }
-    shuffleQueue(e = !0) {
+    shuffleQueue(e = true) {
       const { userAddedItems: n } = this._queue;
       if (n.length <= 1) return n;
       const d = n.slice(0),
@@ -21813,10 +24989,15 @@
         h = shuffleCollection(d);
       } while (d.length > 1 && arrayEquals(h, d));
       const y = [...p, ...h];
-      (this._isSpliceFromShuffle = !0),
-        this._queue.spliceQueueItems(0, y.length, toQueueItems(y), e);
+      (this._isSpliceFromShuffle = true),
+        this._queue.spliceQueueItems(
+          0,
+          y.length,
+          y.map((e) => new QueueItem(y, n)),
+          e,
+        );
     }
-    unshuffleQueue(e = !0) {
+    unshuffleQueue(e = true) {
       let n = [];
       const d = this._unshuffledIDs.reduce((e, n, d) => ((e[n] = d), e), {}),
         p = [];
@@ -21824,29 +25005,90 @@
       const y = this._queue.item(this._queue.position);
       this._queue.userAddedItems.forEach((e) => {
         const _ = d[e.id];
-        void 0 === _ && p.push(e),
+        undefined === _ && p.push(e),
           (n[_] = e),
-          e.id === (null == y ? void 0 : y.id) && (h = _);
+          e.id === (null == y ? undefined : y.id) && (h = _);
       }),
         (n = n.filter(Boolean));
       const _ = n.concat(p);
-      (this._isSpliceFromShuffle = !0),
-        this._queue.spliceQueueItems(0, _.length, toQueueItems(_), e),
+      (this._isSpliceFromShuffle = true),
+        this._queue.spliceQueueItems(
+          0,
+          _.length,
+          _.map((e) => new QueueItem(_, n)),
+          e,
+        ),
         (this._queue.position = h);
     }
     constructor(e, { dispatcher: n }) {
-      _define_property$v(this, "controller", void 0),
-        _define_property$v(this, "canSetShuffleMode", void 0),
-        _define_property$v(this, "dispatcher", void 0),
-        _define_property$v(this, "mode", void 0),
-        _define_property$v(this, "_queue", void 0),
-        _define_property$v(this, "_unshuffledIDs", void 0),
-        _define_property$v(this, "_isSpliceFromShuffle", void 0),
+      "controller" in this
+        ? Object.defineProperty(this, "controller", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.controller = undefined),
+        this,
+        ("canSetShuffleMode" in this
+          ? Object.defineProperty(this, "canSetShuffleMode", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.canSetShuffleMode = undefined),
+        this),
+        ("dispatcher" in this
+          ? Object.defineProperty(this, "dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.dispatcher = undefined),
+        this),
+        ("mode" in this
+          ? Object.defineProperty(this, "mode", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.mode = undefined),
+        this),
+        ("_queue" in this
+          ? Object.defineProperty(this, "_queue", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._queue = undefined),
+        this),
+        ("_unshuffledIDs" in this
+          ? Object.defineProperty(this, "_unshuffledIDs", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._unshuffledIDs = undefined),
+        this),
+        ("_isSpliceFromShuffle" in this
+          ? Object.defineProperty(this, "_isSpliceFromShuffle", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._isSpliceFromShuffle = undefined),
+        this),
         (this.controller = e),
-        (this.canSetShuffleMode = !0),
+        (this.canSetShuffleMode = true),
         (this.mode = 0),
         (this._unshuffledIDs = []),
-        (this._isSpliceFromShuffle = !1),
+        (this._isSpliceFromShuffle = false),
         (this.dispatcher = n),
         this.dispatcher.subscribe(gt.queueModified, this.queueModifiedHandler),
         (this._queue = e.queue);
@@ -21873,22 +25115,9 @@
         function _throw(e) {
           asyncGeneratorStep$s(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$u(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$g(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -21901,7 +25130,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$u(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -21953,7 +25190,7 @@
       Bind(),
       _ts_metadata$d("design:type", Function),
       _ts_metadata$d("design:paramtypes", [String, Object]),
-      _ts_metadata$d("design:returntype", void 0),
+      _ts_metadata$d("design:returntype", undefined),
     ],
     Shuffler.prototype,
     "queueModifiedHandler",
@@ -21974,12 +25211,12 @@
       let d = e.context;
       var p;
       return (
-        void 0 !== e.featureName &&
-          void 0 === (null == d ? void 0 : d.featureName) &&
+        undefined !== e.featureName &&
+          undefined === (null == d ? undefined : d.featureName) &&
           (Je.warn("featureName is deprecated, pass it inside context"),
           d || (d = {}),
           (d.featureName = e.featureName)),
-        null !== (p = null != d ? d : n) && void 0 !== p ? p : {}
+        null !== (p = null != d ? d : n) && undefined !== p ? p : {}
       );
     }
     get context() {
@@ -22004,7 +25241,12 @@
       return this._services.dispatcher;
     }
     get hasAuthorization() {
-      return hasAuthorization(this.storekit);
+      return (
+        undefined === this.storekit && (this.storekit = yo && yo.storekit),
+        undefined !== this.storekit &&
+          this.storekit.hasAuthorized &&
+          this.storekit.userTokenIsValid
+      );
     }
     get isPlaying() {
       return this._mediaItemPlayback.isPlaying;
@@ -22051,7 +25293,7 @@
     }
     get seekSeconds() {
       const { nowPlayingItem: e } = this;
-      if (void 0 !== e) return this._seekable.getSeekSeconds(e);
+      if (undefined !== e) return this._seekable.getSeekSeconds(e);
     }
     set shuffle(e) {
       this._shuffler.shuffle = e;
@@ -22079,9 +25321,9 @@
                 ? yield d.stop({
                     endReasonType:
                       e.PlayActivityEndReasonType.PLAYBACK_SUSPENDED,
-                    userInitiated: !1,
+                    userInitiated: false,
                   })
-                : yield d.stop({ userInitiated: !1 });
+                : yield d.stop({ userInitiated: false });
             });
             return function (e) {
               return n.apply(this, arguments);
@@ -22104,16 +25346,18 @@
         var d, p, h;
         yield n.stop();
         const y =
-            null === (d = n.queue.item(e)) || void 0 === d ? void 0 : d.id,
+            null === (d = n.queue.item(e)) || undefined === d
+              ? undefined
+              : d.id,
           _ =
             null === (h = n._mediaItemPlayback) ||
-            void 0 === h ||
+            undefined === h ||
             null === (p = h.playOptions) ||
-            void 0 === p
-              ? void 0
+            undefined === p
+              ? undefined
               : p.get(y);
-        let m = (null == _ ? void 0 : _.startTime) || 0;
-        const g = yield n._changeToMediaAtIndex(e, { userInitiated: !0 });
+        let m = (null == _ ? undefined : _.startTime) || 0;
+        const g = yield n._changeToMediaAtIndex(e, { userInitiated: true });
         g &&
           (g.id !== y && (m = 0),
           n._dispatcher.publish(gt.playbackPlay, {
@@ -22162,7 +25406,7 @@
     destroy() {
       var e = this;
       return _async_to_generator$s(function* () {
-        (e._isDestroyed = !0),
+        (e._isDestroyed = true),
           yield e.deactivate(),
           e._dispatcher.unsubscribe(
             ao.autoplayEnabledDidChange,
@@ -22186,25 +25430,25 @@
         const { queue: n } = e;
         return -1 !== n.nextPlayableItemIndex
           ? e.changeToMediaAtIndex(n.nextPlayableItemIndex)
-          : void 0;
+          : undefined;
       })();
     }
     playSingleMediaItem(e, n) {
       var d = this;
       return _async_to_generator$s(function* () {
         yield so(e, n), d._dispatcher.publish(ao.queueItemsDidChange, [e]);
-        const p = yield d._mediaItemPlayback.startMediaItemPlayback(e, !0);
+        const p = yield d._mediaItemPlayback.startMediaItemPlayback(e, true);
         if (p) {
           var h;
           const e = {
             item: p,
             position:
               null !== (h = d._mediaItemPlayback.currentPlaybackTime) &&
-              void 0 !== h
+              undefined !== h
                 ? h
                 : 0,
             playingDate: d._mediaItemPlayback.currentPlayingDate,
-            userInitiated: !0,
+            userInitiated: true,
           };
           Je.debug(
             "playSingleMediaItem: Dispatching DispatchTypes.playbackPlay event",
@@ -22224,7 +25468,7 @@
           ),
           p._dispatcher.publish(gt.applicationActivityIntent, {
             endReasonType: e.PlayActivityEndReasonType.TRACK_SKIPPED_FORWARDS,
-            userInitiated: !1,
+            userInitiated: false,
           }),
           yield p._next());
       })();
@@ -22259,13 +25503,13 @@
     skipToNextItem() {
       var e = this;
       return _async_to_generator$s(function* () {
-        return e._next({ userInitiated: !0 });
+        return e._next({ userInitiated: true });
       })();
     }
     skipToPreviousItem() {
       var e = this;
       return _async_to_generator$s(function* () {
-        return e._previous({ userInitiated: !0 });
+        return e._previous({ userInitiated: true });
       })();
     }
     getNewSeeker() {
@@ -22291,7 +25535,7 @@
       var n = this;
       return _async_to_generator$s(function* () {
         (n._context = n.constructContext(e)),
-          void 0 !== e.featureName &&
+          undefined !== e.featureName &&
             e.context &&
             (Je.warn("featureName is deprecated, pass it inside context"),
             (e.context.featureName = e.featureName));
@@ -22313,7 +25557,7 @@
         var h;
         const y = yield d._mediaItemPlayback.startMediaItemPlayback(
           p,
-          null !== (h = n.userInitiated) && void 0 !== h && h,
+          null !== (h = n.userInitiated) && undefined !== h && h,
         );
         if (y || p.state !== D.unsupported) return y;
         yield d.skipToNextItem();
@@ -22323,9 +25567,9 @@
       var d = this;
       return _async_to_generator$s(function* () {
         if (d.queue.isEmpty) return;
-        const { userInitiated: p = !1 } = n;
+        const { userInitiated: p = false } = n;
         return d.repeatMode === e.PlayerRepeatMode.one &&
-          void 0 !== d.queue.currentItem
+          undefined !== d.queue.currentItem
           ? (yield d.stop(_object_spread$g({ userInitiated: p }, n)),
             void (yield d.play()))
           : (!p &&
@@ -22343,7 +25587,7 @@
               ),
               (n = {
                 userInitiated: n.userInitiated,
-                seamlessAudioTransition: !0,
+                seamlessAudioTransition: true,
               })),
             d._nextAtIndex(d.queue.nextPlayableItemIndex, n));
       })();
@@ -22354,7 +25598,7 @@
         if (p.queue.isEmpty) return;
         const { _mediaItemPlayback: h } = p;
         var y;
-        const _ = null !== (y = d.userInitiated) && void 0 !== y && y;
+        const _ = null !== (y = d.userInitiated) && undefined !== y && y;
         if (n < 0)
           return (
             Je.debug(
@@ -22374,7 +25618,7 @@
           p._notifySkip(m, b, {
             userInitiated: _,
             seamlessAudioTransition:
-              null !== (P = d.seamlessAudioTransition) && void 0 !== P && P,
+              null !== (P = d.seamlessAudioTransition) && undefined !== P && P,
             position: g,
             direction: e.PlayActivityEndReasonType.TRACK_SKIPPED_FORWARDS,
           }),
@@ -22386,10 +25630,10 @@
       var d = this;
       return _async_to_generator$s(function* () {
         if (d.queue.isEmpty) return;
-        const { userInitiated: p = !1 } = n;
+        const { userInitiated: p = false } = n;
         if (
           d.repeatMode === e.PlayerRepeatMode.one &&
-          void 0 !== d.queue.currentItem
+          undefined !== d.queue.currentItem
         )
           return (
             yield d.stop({
@@ -22403,14 +25647,14 @@
         if (
           p &&
           d.repeatMode === e.PlayerRepeatMode.none &&
-          void 0 !== d.nowPlayingItem &&
+          undefined !== d.nowPlayingItem &&
           -1 === h
         )
           return (
             yield d.stop({
               endReasonType:
                 e.PlayActivityEndReasonType.TRACK_SKIPPED_BACKWARDS,
-              userInitiated: !0,
+              userInitiated: true,
             }),
             void (yield d.play())
           );
@@ -22421,7 +25665,7 @@
         return (
           d._notifySkip(y, m, {
             userInitiated: p,
-            seamlessAudioTransition: !1,
+            seamlessAudioTransition: false,
             direction: e.PlayActivityEndReasonType.TRACK_SKIPPED_BACKWARDS,
             position: _,
           }),
@@ -22434,7 +25678,7 @@
           userInitiated: h,
           direction: y,
           position: _,
-          seamlessAudioTransition: m = !1,
+          seamlessAudioTransition: m = false,
         } = p,
         g = this._dispatcher;
       m
@@ -22479,32 +25723,160 @@
     _prepareQueue(e) {
       Je.debug("mk: _prepareQueue"),
         this.hasAuthorization &&
-          (e.isRestricted = this.storekit.restrictedEnabled || !1),
+          (e.isRestricted = this.storekit.restrictedEnabled || false),
         (e.repeatable = this._repeatable);
     }
     constructor(e) {
       var n;
-      _define_property$u(this, "_context", {}),
-        _define_property$u(this, "_continuous", void 0),
-        _define_property$u(this, "_autoplayEnabled", void 0),
-        _define_property$u(this, "_playerOptions", void 0),
-        _define_property$u(this, "_queue", void 0),
-        _define_property$u(this, "_storekit", void 0),
-        _define_property$u(this, "_queueModifier", void 0),
-        _define_property$u(this, "_repeatable", void 0),
-        _define_property$u(this, "_shuffler", void 0),
-        _define_property$u(this, "_seekable", void 0),
-        _define_property$u(this, "_services", void 0),
-        _define_property$u(this, "_rollMonitor", void 0),
-        _define_property$u(this, "_skipIntro", void 0),
-        _define_property$u(this, "_upNext", void 0),
-        _define_property$u(this, "_playbackMode", void 0),
-        _define_property$u(this, "_isDestroyed", !0),
+      "_context" in this
+        ? Object.defineProperty(this, "_context", {
+            value: {},
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._context = {}),
+        this,
+        ("_continuous" in this
+          ? Object.defineProperty(this, "_continuous", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._continuous = undefined),
+        this),
+        ("_autoplayEnabled" in this
+          ? Object.defineProperty(this, "_autoplayEnabled", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._autoplayEnabled = undefined),
+        this),
+        ("_playerOptions" in this
+          ? Object.defineProperty(this, "_playerOptions", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._playerOptions = undefined),
+        this),
+        ("_queue" in this
+          ? Object.defineProperty(this, "_queue", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._queue = undefined),
+        this),
+        ("_storekit" in this
+          ? Object.defineProperty(this, "_storekit", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._storekit = undefined),
+        this),
+        ("_queueModifier" in this
+          ? Object.defineProperty(this, "_queueModifier", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._queueModifier = undefined),
+        this),
+        ("_repeatable" in this
+          ? Object.defineProperty(this, "_repeatable", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._repeatable = undefined),
+        this),
+        ("_shuffler" in this
+          ? Object.defineProperty(this, "_shuffler", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._shuffler = undefined),
+        this),
+        ("_seekable" in this
+          ? Object.defineProperty(this, "_seekable", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._seekable = undefined),
+        this),
+        ("_services" in this
+          ? Object.defineProperty(this, "_services", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._services = undefined),
+        this),
+        ("_rollMonitor" in this
+          ? Object.defineProperty(this, "_rollMonitor", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._rollMonitor = undefined),
+        this),
+        ("_skipIntro" in this
+          ? Object.defineProperty(this, "_skipIntro", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._skipIntro = undefined),
+        this),
+        ("_upNext" in this
+          ? Object.defineProperty(this, "_upNext", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._upNext = undefined),
+        this),
+        ("_playbackMode" in this
+          ? Object.defineProperty(this, "_playbackMode", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._playbackMode = undefined),
+        this),
+        ("_isDestroyed" in this
+          ? Object.defineProperty(this, "_isDestroyed", {
+              value: true,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._isDestroyed = true),
+        this),
         (this.onPlaybackStateDidChange =
           this.onPlaybackStateDidChange.bind(this)),
         (this._autoplayEnabled =
-          null !== (n = null == e ? void 0 : e.autoplayEnabled) &&
-          void 0 !== n &&
+          null !== (n = null == e ? undefined : e.autoplayEnabled) &&
+          undefined !== n &&
           n),
         (this._services = e.services),
         (this._playerOptions = e),
@@ -22531,19 +25903,6 @@
         ),
         (this._playbackMode = e.playbackMode);
     }
-  }
-  function _define_property$t(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_decorate$b(e, n, d, p) {
     var h,
@@ -22585,7 +25944,7 @@
       Bind(),
       _ts_metadata$c("design:type", Function),
       _ts_metadata$c("design:paramtypes", [String, Boolean]),
-      _ts_metadata$c("design:returntype", void 0),
+      _ts_metadata$c("design:returntype", undefined),
     ],
     PlaybackController.prototype,
     "updateAutoplay",
@@ -22606,15 +25965,22 @@
         (this.session.metadata = new window.MediaMetadata({
           title: e.title,
           artist:
-            null !== (d = e.artistName) && void 0 !== d
+            null !== (d = e.artistName) && undefined !== d
               ? d
-              : null === (n = e.attributes) || void 0 === n
-                ? void 0
+              : null === (n = e.attributes) || undefined === n
+                ? undefined
                 : n.showTitle,
           album: e.albumName,
           artwork: e.artwork
             ? [96, 128, 192, 256, 384, 512].map((n) => ({
-                src: formatArtworkURL(e.artwork, n, n),
+                src:
+                  ((n = n || e.artwork.height || 100),
+                  (n = n || e.artwork.width || 100),
+                  window.devicePixelRatio >= 1.5 && ((n *= 2), (n *= 2)),
+                  e.artwork.url
+                    .replace("{h}", "" + n)
+                    .replace("{w}", "" + n)
+                    .replace("{f}", "jpeg")),
                 sizes: `${n}x${n}`,
                 type: "image/jpeg",
               }))
@@ -22626,65 +25992,97 @@
         (this._resetHandlers(),
         this.session.setActionHandler("play", () => {
           var e;
-          return null === (e = this.controller) || void 0 === e
-            ? void 0
+          return null === (e = this.controller) || undefined === e
+            ? undefined
             : e.play();
         }),
         this.capabilities.canPause
           ? this.session.setActionHandler("pause", () => {
               var e;
-              return null === (e = this.controller) || void 0 === e
-                ? void 0
+              return null === (e = this.controller) || undefined === e
+                ? undefined
                 : e.pause();
             })
           : this.session.setActionHandler("pause", () => {
               var e;
-              return null === (e = this.controller) || void 0 === e
-                ? void 0
+              return null === (e = this.controller) || undefined === e
+                ? undefined
                 : e.stop();
             }),
         this.capabilities.canSeek &&
           (this.session.setActionHandler("seekforward", () => {
             var e;
-            return null === (e = this.controller) || void 0 === e
-              ? void 0
+            return null === (e = this.controller) || undefined === e
+              ? undefined
               : e.seekForward();
           }),
           this.session.setActionHandler("seekbackward", () => {
             var e;
-            return null === (e = this.controller) || void 0 === e
-              ? void 0
+            return null === (e = this.controller) || undefined === e
+              ? undefined
               : e.seekBackward();
           })),
         this.capabilities.canSkipToNextItem &&
           this.session.setActionHandler("nexttrack", () => {
             var e;
-            return null === (e = this.controller) || void 0 === e
-              ? void 0
+            return null === (e = this.controller) || undefined === e
+              ? undefined
               : e.skipToNextItem();
           }),
         this.capabilities.canSkipToPreviousItem &&
           this.session.setActionHandler("previoustrack", () => {
             var e;
-            return null === (e = this.controller) || void 0 === e
-              ? void 0
+            return null === (e = this.controller) || undefined === e
+              ? undefined
               : e.skipToPreviousItem();
           }));
     }
     _resetHandlers() {
       this.session &&
-        (this.session.setActionHandler("play", void 0),
-        this.session.setActionHandler("pause", void 0),
-        this.session.setActionHandler("seekforward", void 0),
-        this.session.setActionHandler("seekbackward", void 0),
-        this.session.setActionHandler("nexttrack", void 0),
-        this.session.setActionHandler("previoustrack", void 0));
+        (this.session.setActionHandler("play", undefined),
+        this.session.setActionHandler("pause", undefined),
+        this.session.setActionHandler("seekforward", undefined),
+        this.session.setActionHandler("seekbackward", undefined),
+        this.session.setActionHandler("nexttrack", undefined),
+        this.session.setActionHandler("previoustrack", undefined));
     }
     constructor(e, n) {
-      _define_property$t(this, "capabilities", void 0),
-        _define_property$t(this, "dispatcher", void 0),
-        _define_property$t(this, "controller", void 0),
-        _define_property$t(this, "session", void 0),
+      "capabilities" in this
+        ? Object.defineProperty(this, "capabilities", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.capabilities = undefined),
+        this,
+        ("dispatcher" in this
+          ? Object.defineProperty(this, "dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.dispatcher = undefined),
+        this),
+        ("controller" in this
+          ? Object.defineProperty(this, "controller", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.controller = undefined),
+        this),
+        ("session" in this
+          ? Object.defineProperty(this, "session", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.session = undefined),
+        this),
         (this.capabilities = e),
         (this.dispatcher = n),
         (this.session = navigator.mediaSession),
@@ -22700,26 +26098,13 @@
           this._setMediaSessionHandlers());
     }
   }
-  function _define_property$s(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   var Do;
   _ts_decorate$b(
     [
       Bind(),
       _ts_metadata$b("design:type", Function),
       _ts_metadata$b("design:paramtypes", []),
-      _ts_metadata$b("design:returntype", void 0),
+      _ts_metadata$b("design:returntype", undefined),
     ],
     MediaSessionManager.prototype,
     "onCapabilitiesChanged",
@@ -22729,8 +26114,8 @@
       [
         Bind(),
         _ts_metadata$b("design:type", Function),
-        _ts_metadata$b("design:paramtypes", [void 0, void 0]),
-        _ts_metadata$b("design:returntype", void 0),
+        _ts_metadata$b("design:paramtypes", [undefined, undefined]),
+        _ts_metadata$b("design:returntype", undefined),
       ],
       MediaSessionManager.prototype,
       "onNowPlayingItemDidChange",
@@ -22788,18 +26173,37 @@
       return this._checkCapability(9);
     }
     constructor(e) {
-      _define_property$s(this, "_dispatcher", void 0),
-        _define_property$s(this, "_checkCapability", void 0),
-        _define_property$s(this, "_mediaSession", void 0),
+      "_dispatcher" in this
+        ? Object.defineProperty(this, "_dispatcher", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._dispatcher = undefined),
+        this,
+        ("_checkCapability" in this
+          ? Object.defineProperty(this, "_checkCapability", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._checkCapability = undefined),
+        this),
+        ("_mediaSession" in this
+          ? Object.defineProperty(this, "_mediaSession", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._mediaSession = undefined),
+        this),
         (this._dispatcher = e),
         (this._checkCapability = (e) => 9 === e),
         (this._mediaSession = new MediaSessionManager(this, e));
     }
-  }
-  function rejectOnLast() {
-    return Promise.reject(
-      "The last middleware in the stack should not call next",
-    );
   }
   function processMiddleware(e, ...n) {
     return e.length
@@ -22852,19 +26256,6 @@
       .join("");
   }
   var xo;
-  function _define_property$r(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread_props$9(e, n) {
     return (
       (n = null != n ? n : {}),
@@ -22906,7 +26297,15 @@
                   }),
                 )),
                 p.forEach(function (n) {
-                  _define_property$r(e, n, d[n]);
+                  n in e
+                    ? Object.defineProperty(e, n, {
+                        value: d[n],
+                        enumerable: true,
+                        configurable: true,
+                        writable: true,
+                      })
+                    : (e[n] = d[n]),
+                    e;
                 });
             }
             return e;
@@ -22914,7 +26313,7 @@
           {
             url: buildURL(
               d,
-              null !== (p = n.queryParameters) && void 0 !== p ? p : {},
+              null !== (p = n.queryParameters) && undefined !== p ? p : {},
             ),
           },
         ),
@@ -22942,12 +26341,9 @@
         function _throw(e) {
           asyncGeneratorStep$r(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function unwrapJSONFromResponse(e) {
-    return _unwrapJSONFromResponse.apply(this, arguments);
   }
   function _unwrapJSONFromResponse() {
     return (_unwrapJSONFromResponse = _async_to_generator$r(function* (e) {
@@ -22965,7 +26361,7 @@
           h = {
             request: d,
             response: p,
-            data: yield unwrapJSONFromResponse(p),
+            data: yield _unwrapJSONFromResponse.apply(this, arguments),
           };
         if (!p.ok) throw MKError.responseError(p);
         return h;
@@ -22974,7 +26370,6 @@
         return n.apply(this, arguments);
       }
     );
-    var n;
   }
   !(function (e) {
     (e[(e.Static = 0)] = "Static"), (e[(e.Parameter = 1)] = "Parameter");
@@ -22986,19 +26381,6 @@
           throw new Error("window.fetch is not defined");
         },
   );
-  function _define_property$q(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread$e(e) {
     for (var n = 1; n < arguments.length; n++) {
       var d = null != arguments[n] ? arguments[n] : {},
@@ -23010,7 +26392,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$q(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -23056,8 +26446,8 @@
             baseUrl: this.config.url,
             path: e,
             fetchOptions: mergeFetchOptions(
-              null === (p = this.config.defaultOptions) || void 0 === p
-                ? void 0
+              null === (p = this.config.defaultOptions) || undefined === p
+                ? undefined
                 : p.fetchOptions,
               d.fetchOptions,
             ),
@@ -23078,7 +26468,7 @@
     reconfigure(e, n = "REPLACE") {
       "MERGE" === n && (e = deepmerge(this.config, e)),
         No.forEach((n) => {
-          if (void 0 === e[n])
+          if (undefined === e[n])
             throw new Error(
               `Session requires a valid SessionConfig, missing "${n}"`,
             );
@@ -23101,8 +26491,24 @@
         : jo;
     }
     constructor(e) {
-      _define_property$q(this, "_config", void 0),
-        _define_property$q(this, "middlewareStack", void 0),
+      "_config" in this
+        ? Object.defineProperty(this, "_config", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._config = undefined),
+        this,
+        ("middlewareStack" in this
+          ? Object.defineProperty(this, "middlewareStack", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.middlewareStack = undefined),
+        this),
         this.reconfigure(e);
     }
   }
@@ -23162,11 +26568,13 @@
         const y =
           "undefined" != typeof process &&
           "test" ===
-            (null === (h = process.env) || void 0 === h ? void 0 : h.NODE_ENV);
+            (null === (h = process.env) || undefined === h
+              ? undefined
+              : h.NODE_ENV);
         Object.defineProperty(this, e, {
           value: d,
           writable: y,
-          enumerable: !0,
+          enumerable: true,
         });
       }
     }
@@ -23175,17 +26583,17 @@
         n in e
           ? Object.defineProperty(e, n, {
               value: d,
-              enumerable: !0,
-              configurable: !0,
-              writable: !0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
             })
           : (e[n] = d);
-      })(this, "storefrontId", void 0);
+      })(this, "storefrontId", undefined);
       const { realmConfig: n } = e,
         d = _object_without_properties(e, ["realmConfig"]);
       for (const p in Uo) {
         let e = deepmerge(Uo[p], d);
-        const h = null == n ? void 0 : n[p];
+        const h = null == n ? undefined : n[p];
         h && (e = deepmerge(e, h)), this.configure(p, e);
       }
     }
@@ -23198,19 +26606,6 @@
       return void d(V);
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
-  }
-  function _define_property$o(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_metadata$a(e, n) {
     if ("object" == typeof Reflect && "function" == typeof Reflect.metadata)
@@ -23226,14 +26621,14 @@
           ao.queuePositionDidChange,
           this.checkLoadMore,
         ),
-        (this.isActive = !0);
+        (this.isActive = true);
     }
     deactivate() {
       this.dispatcher.unsubscribe(
         ao.queuePositionDidChange,
         this.checkLoadMore,
       ),
-        (this.isActive = !1);
+        (this.isActive = false);
     }
     start() {
       return this.isActive || this.activate(), this.loadNextTracks();
@@ -23256,22 +26651,22 @@
             function _throw(e) {
               asyncGeneratorStep$q(y, p, h, _next, _throw, "throw", e);
             }
-            _next(void 0);
+            _next(undefined);
           });
         };
       })(function* () {
         let n = [];
         const { apiManager: d } = e;
-        if ((null == d ? void 0 : d.api) instanceof MediaAPIV3) {
+        if ((null == d ? undefined : d.api) instanceof MediaAPIV3) {
           var p;
           const h = yield d.api.music(
             "v1/me/stations/next-tracks/" + e.station.id,
-            void 0,
+            undefined,
             { fetchOptions: { method: "POST" } },
           );
           n =
-            null == h || null === (p = h.data) || void 0 === p
-              ? void 0
+            null == h || null === (p = h.data) || undefined === p
+              ? undefined
               : p.data;
         } else {
           var h;
@@ -23281,11 +26676,11 @@
             (p.extend = { songs: ["extendedAssetUrls"] }),
             (n =
               null !==
-                (y = yield null === (h = d.mediaAPI) || void 0 === h
-                  ? void 0
+                (y = yield null === (h = d.mediaAPI) || undefined === h
+                  ? undefined
                   : h.nextStationTracks(e.station.id, null, {
                       queryParameters: p,
-                    })) && void 0 !== y
+                    })) && undefined !== y
                 ? y
                 : []);
         }
@@ -23308,16 +26703,64 @@
       })();
     }
     constructor(e, n, { dispatcher: d, apiManager: p }, h = {}) {
-      _define_property$o(this, "queue", void 0),
-        _define_property$o(this, "station", void 0),
-        _define_property$o(this, "context", void 0),
-        _define_property$o(this, "apiManager", void 0),
-        _define_property$o(this, "dispatcher", void 0),
-        _define_property$o(this, "isActive", void 0),
+      "queue" in this
+        ? Object.defineProperty(this, "queue", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.queue = undefined),
+        this,
+        ("station" in this
+          ? Object.defineProperty(this, "station", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.station = undefined),
+        this),
+        ("context" in this
+          ? Object.defineProperty(this, "context", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.context = undefined),
+        this),
+        ("apiManager" in this
+          ? Object.defineProperty(this, "apiManager", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.apiManager = undefined),
+        this),
+        ("dispatcher" in this
+          ? Object.defineProperty(this, "dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.dispatcher = undefined),
+        this),
+        ("isActive" in this
+          ? Object.defineProperty(this, "isActive", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isActive = undefined),
+        this),
         (this.queue = e),
         (this.station = n),
         (this.context = h),
-        (this.isActive = !1),
+        (this.isActive = false),
         (this.dispatcher = d),
         (this.apiManager = p);
     }
@@ -23343,7 +26786,7 @@
       Bind(),
       _ts_metadata$a("design:type", Function),
       _ts_metadata$a("design:paramtypes", []),
-      _ts_metadata$a("design:returntype", void 0),
+      _ts_metadata$a("design:returntype", undefined),
     ],
     StationTrackLoader.prototype,
     "checkLoadMore",
@@ -23358,7 +26801,7 @@
     (function (e) {
       e.BEATS1 = "beats1";
     })(Fo || (Fo = {}));
-  const isIdentityQueue = (e) => e && void 0 !== e.identity;
+  const isIdentityQueue = (e) => e && undefined !== e.identity;
   function asyncGeneratorStep$p(e, n, d, p, h, y, _) {
     try {
       var m = e[y](_),
@@ -23380,22 +26823,9 @@
         function _throw(e) {
           asyncGeneratorStep$p(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$n(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_metadata$9(e, n) {
     if ("object" == typeof Reflect && "function" == typeof Reflect.metadata)
@@ -23404,10 +26834,10 @@
   const { queueIsReady: Ko } = ao;
   class ContinuousPlaybackController extends PlaybackController {
     get continuous() {
-      return !0;
+      return true;
     }
     set continuous(e) {
-      if (!0 !== e)
+      if (true !== e)
         throw new MKError(
           MKError.Reason.UNSUPPORTED_ERROR,
           "Continuous playback cannot be disabled for station queues.",
@@ -23425,7 +26855,15 @@
               }),
             )),
             p.forEach(function (n) {
-              _define_property$n(e, n, d[n]);
+              n in e
+                ? Object.defineProperty(e, n, {
+                    value: d[n],
+                    enumerable: true,
+                    configurable: true,
+                    writable: true,
+                  })
+                : (e[n] = d[n]),
+                e;
             });
         }
         return e;
@@ -23455,7 +26893,7 @@
     hasCapabilities(e) {
       switch (e) {
         case Do.VOLUME:
-          return !0;
+          return true;
         case Do.PAUSE:
         case Do.SKIP_NEXT:
         case Do.SKIP_PREVIOUS:
@@ -23467,7 +26905,7 @@
         case Do.SHUFFLE:
         case Do.REPEAT:
         default:
-          return !1;
+          return false;
       }
     }
     pause(e) {
@@ -23501,7 +26939,7 @@
         const p = isIdentityQueue(e)
           ? yield n.loadStationByIdentity(e.identity)
           : yield n.loadStationByStationId(n.generateStationId(e));
-        if (void 0 === p)
+        if (undefined === p)
           return Promise.reject(
             new MKError(
               MKError.Reason.UNSUPPORTED_ERROR,
@@ -23511,9 +26949,9 @@
         (n.station = p),
           (n.isLive =
             isIdentityQueue(e) ||
-            !!(null == p ? void 0 : p.isLive) ||
-            !!(null == p || null === (d = p.attributes) || void 0 === d
-              ? void 0
+            !!(null == p ? undefined : p.isLive) ||
+            !!(null == p || null === (d = p.attributes) || undefined === d
+              ? undefined
               : d.isLive)),
           (n.isAlgorithmic = isAlgoStation(p));
         const h = {
@@ -23618,22 +27056,24 @@
       return _async_to_generator$p(function* () {
         var d;
         const { apiManager: p } = n._services;
-        if ((null == p ? void 0 : p.api) instanceof MediaAPIV3) {
+        if ((null == p ? undefined : p.api) instanceof MediaAPIV3) {
           var h, y;
           const n = yield p.api.music("v1/catalog/{{storefrontId}}/stations", {
             filter: { identity: e },
           });
           return null == n ||
             null === (y = n.data) ||
-            void 0 === y ||
+            undefined === y ||
             null === (h = y.data) ||
-            void 0 === h
-            ? void 0
-            : h[0];
+            undefined === h
+            ? undefined
+            : "allow-forms";
         }
-        const _ = yield null == p || null === (d = p.mediaAPI) || void 0 === d
-          ? void 0
-          : d.stations(void 0, { filter: { identity: e } });
+        const _ = yield null == p ||
+        null === (d = p.mediaAPI) ||
+        undefined === d
+          ? undefined
+          : d.stations(undefined, { filter: { identity: e } });
         return _ && _[0];
       })();
     }
@@ -23642,21 +27082,21 @@
       return _async_to_generator$p(function* () {
         var d;
         const { apiManager: p } = n._services;
-        if ((null == p ? void 0 : p.api) instanceof MediaAPIV3) {
+        if ((null == p ? undefined : p.api) instanceof MediaAPIV3) {
           var h, y;
           const n = yield p.api.music(
             "v1/catalog/{{storefrontId}}/stations/" + e,
           );
           return null == n ||
             null === (y = n.data) ||
-            void 0 === y ||
+            undefined === y ||
             null === (h = y.data) ||
-            void 0 === h
-            ? void 0
-            : h[0];
+            undefined === h
+            ? undefined
+            : "allow-forms";
         }
-        return null == p || null === (d = p.mediaAPI) || void 0 === d
-          ? void 0
+        return null == p || null === (d = p.mediaAPI) || undefined === d
+          ? undefined
           : d.station(e);
       })();
     }
@@ -23673,12 +27113,52 @@
     }
     constructor(e) {
       super(e),
-        _define_property$n(this, "type", Co.continuous),
-        _define_property$n(this, "_isLive", !1),
-        _define_property$n(this, "_isAlgorithmic", !1),
-        _define_property$n(this, "trackLoader", void 0),
-        _define_property$n(this, "station", void 0),
-        (this._continuous = !0);
+        ("type" in this
+          ? Object.defineProperty(this, "type", {
+              value: Co.continuous,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.type = Co.continuous),
+        this),
+        ("_isLive" in this
+          ? Object.defineProperty(this, "_isLive", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._isLive = false),
+        this),
+        ("_isAlgorithmic" in this
+          ? Object.defineProperty(this, "_isAlgorithmic", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._isAlgorithmic = false),
+        this),
+        ("trackLoader" in this
+          ? Object.defineProperty(this, "trackLoader", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.trackLoader = undefined),
+        this),
+        ("station" in this
+          ? Object.defineProperty(this, "station", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.station = undefined),
+        this),
+        (this._continuous = true);
     }
   }
   function asyncGeneratorStep$o(e, n, d, p, h, y, _) {
@@ -23689,19 +27169,6 @@
       return void d(V);
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
-  }
-  function _define_property$m(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_decorate$8(e, n, d, p) {
     var h,
@@ -23742,7 +27209,7 @@
     [
       Bind(),
       _ts_metadata$9("design:type", Function),
-      _ts_metadata$9("design:paramtypes", [void 0 === Do ? Object : Do]),
+      _ts_metadata$9("design:paramtypes", [undefined === Do ? Object : Do]),
       _ts_metadata$9("design:returntype", Boolean),
     ],
     ContinuousPlaybackController.prototype,
@@ -23796,7 +27263,7 @@
             function _throw(e) {
               asyncGeneratorStep$o(y, p, h, _next, _throw, "throw", e);
             }
-            _next(void 0);
+            _next(undefined);
           });
         };
       })(function* () {
@@ -23808,10 +27275,42 @@
       this.threshold = n * this.percentage;
     }
     constructor(e, n, d) {
-      _define_property$m(this, "dispatcher", void 0),
-        _define_property$m(this, "callback", void 0),
-        _define_property$m(this, "percentage", void 0),
-        _define_property$m(this, "threshold", void 0),
+      "dispatcher" in this
+        ? Object.defineProperty(this, "dispatcher", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.dispatcher = undefined),
+        this,
+        ("callback" in this
+          ? Object.defineProperty(this, "callback", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.callback = undefined),
+        this),
+        ("percentage" in this
+          ? Object.defineProperty(this, "percentage", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.percentage = undefined),
+        this),
+        ("threshold" in this
+          ? Object.defineProperty(this, "threshold", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.threshold = undefined),
+        this),
         (this.dispatcher = e),
         (this.callback = n),
         (this.percentage = d),
@@ -23831,7 +27330,7 @@
     [
       Bind(),
       _ts_metadata$8("design:type", Function),
-      _ts_metadata$8("design:paramtypes", [void 0, void 0]),
+      _ts_metadata$8("design:paramtypes", [undefined, undefined]),
       _ts_metadata$8("design:returntype", Promise),
     ],
     PercentageWatcher.prototype,
@@ -23842,8 +27341,8 @@
       [
         Bind(),
         _ts_metadata$8("design:type", Function),
-        _ts_metadata$8("design:paramtypes", [void 0, void 0]),
-        _ts_metadata$8("design:returntype", void 0),
+        _ts_metadata$8("design:paramtypes", [undefined, undefined]),
+        _ts_metadata$8("design:returntype", undefined),
       ],
       PercentageWatcher.prototype,
       "updateThreshold",
@@ -23864,26 +27363,26 @@
             function _throw(e) {
               asyncGeneratorStep$n(y, p, h, _next, _throw, "throw", e);
             }
-            _next(void 0);
+            _next(undefined);
           });
         };
       })(function* () {
         const n = e.getNextPlayableItem();
-        n && (yield e.playbackController.prepareToPlay(n, !0));
+        n && (yield e.playbackController.prepareToPlay(n, true));
       })();
     }
     shouldMonitor() {
-      if (!super.shouldMonitor()) return !1;
+      if (!super.shouldMonitor()) return false;
       if (
         !this.playbackController.hasAuthorization ||
         this.playbackController.previewOnly
       )
-        return !1;
+        return false;
       const e = this.getNextPlayableItem(),
-        n = void 0 !== e;
+        n = undefined !== e;
       return this.isSeamlessAudioTransitionsEnabled
         ? n
-        : n && !(null == e ? void 0 : e.isPreparedToPlay);
+        : n && !(null == e ? undefined : e.isPreparedToPlay);
     }
     getNextPlayableItem() {
       return this.playbackController.queue.nextPlayableItem;
@@ -23894,12 +27393,12 @@
           n in e
             ? Object.defineProperty(e, n, {
                 value: d,
-                enumerable: !0,
-                configurable: !0,
-                writable: !0,
+                enumerable: true,
+                configurable: true,
+                writable: true,
               })
             : (e[n] = d);
-        })(this, "isSeamlessAudioTransitionsEnabled", !1),
+        })(this, "isSeamlessAudioTransitionsEnabled", false),
         (this.watchers = [
           new PercentageWatcher(
             this.dispatcher,
@@ -23910,12 +27409,6 @@
         (this.isSeamlessAudioTransitionsEnabled =
           po.features["seamless-audio-transitions"]);
     }
-  }
-  function dasherize(e) {
-    return e
-      .replace(/([A-Z])/g, "-$1")
-      .replace(/[-_\s]+/g, "-")
-      .toLowerCase();
   }
   function asyncGeneratorStep$m(e, n, d, p, h, y, _) {
     try {
@@ -23938,22 +27431,9 @@
         function _throw(e) {
           asyncGeneratorStep$m(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$k(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$c(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -23966,7 +27446,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$k(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -23993,9 +27481,6 @@
       e
     );
   }
-  function loadRelationshipData(e, n, d) {
-    return _loadRelationshipData.apply(this, arguments);
-  }
   function _loadRelationshipData() {
     return (_loadRelationshipData = _async_to_generator$m(function* (
       e,
@@ -24003,21 +27488,21 @@
       d,
       p = {},
     ) {
-      if (void 0 === n) return d;
-      void 0 === p.limit && (p.limit = 100),
-        void 0 === p.offset && (p.offset = 0);
+      if (undefined === n) return d;
+      undefined === p.limit && (p.limit = 100),
+        undefined === p.offset && (p.offset = 0);
       const { relationship: h, method: y } = n,
         _ = e[y].bind(e);
       let m;
       return (
         isDataRecord(d)
-          ? (void 0 === d[h] && d.setProperty(h, [], "relationships"),
+          ? (undefined === d[h] && d.setProperty(h, [], "relationships"),
             (m = d[h]))
           : ((d.relationships = d.relationships || {}),
-            void 0 === d.relationships[h] &&
+            undefined === d.relationships[h] &&
               Object.defineProperty(d.relationships, h, {
                 value: { data: [] },
-                enumerable: !0,
+                enumerable: true,
               }),
             (m = d.relationships[h].data)),
         yield Vo(_, [d.id, h, p], m),
@@ -24054,7 +27539,8 @@
       var e = _async_to_generator$m(function* (e, n, d) {
         const [p] = d,
           h = n[p];
-        if (!Array.isArray(h)) return loadSelectedQueueValue(e, n, d, h);
+        if (!Array.isArray(h))
+          return _loadSelectedQueueValue.apply(this, arguments);
         const y = new Map();
         h.forEach((e) => {
           const n = e.indexOf("."),
@@ -24064,11 +27550,13 @@
           p && p.push(e);
         });
         const _ = (yield Promise.all(
-            [...y.values()].map((p) => loadSelectedQueueValue(e, n, d, p)),
+            [...y.values()].map((p) =>
+              _loadSelectedQueueValue.apply(this, arguments),
+            ),
           )).reduce((e, n) => {
             var d;
             return (
-              (n = null !== (d = n.data) && void 0 !== d ? d : n).forEach(
+              (n = null !== (d = n.data) && undefined !== d ? d : n).forEach(
                 (n) => {
                   e.set(n.id, n);
                 },
@@ -24089,21 +27577,15 @@
         return e.apply(this, arguments);
       };
     })();
-  function loadSelectedQueueValue(e, n, d, p) {
-    return _loadSelectedQueueValue.apply(this, arguments);
-  }
   function _loadSelectedQueueValue() {
     return (_loadSelectedQueueValue = _async_to_generator$m(
       function* (e, n, d, p) {
         const h = yield e.getAPIForItem(Array.isArray(p) ? p[0] : p);
         return h instanceof MediaAPIV3
-          ? loadSelectedQueueValueV3(h, n, d, p)
-          : loadSelectedQueueValueV2(h, n, d, p);
+          ? _loadSelectedQueueValueV3.apply(this, arguments)
+          : _loadSelectedQueueValueV2.apply(this, arguments);
       },
     )).apply(this, arguments);
-  }
-  function loadSelectedQueueValueV2(e, n, d, p) {
-    return _loadSelectedQueueValueV2.apply(this, arguments);
   }
   function _loadSelectedQueueValueV2() {
     return (_loadSelectedQueueValueV2 = _async_to_generator$m(
@@ -24118,14 +27600,11 @@
         return (
           h.loadedQueueTransform && (_ = h.loadedQueueTransform(_)),
           Array.isArray(p) ||
-            (yield loadRelationshipData(e, h.relationshipMethod, _)),
+            (yield _loadRelationshipData.apply(this, arguments)),
           _
         );
       },
     )).apply(this, arguments);
-  }
-  function loadSelectedQueueValueV3(e, n, d, p) {
-    return _loadSelectedQueueValueV3.apply(this, arguments);
   }
   function _loadSelectedQueueValueV3() {
     return (_loadSelectedQueueValueV3 = _async_to_generator$m(
@@ -24134,7 +27613,10 @@
           y = Array.isArray(p),
           _ = T(y ? "" + p[0] : "" + p),
           m = /^(?:playlists?|albums?)$/i.test(h);
-        let g = dasherize(h);
+        let g = h
+          .replace(/([A-Z])/g, "-$1")
+          .replace(/[-_\s]+/g, "-")
+          .toLowerCase();
         g.endsWith("s") || (g += "s");
         let b =
           (_ ? "/v1/me/library" : "/v1/catalog/{{storefrontId}}") + "/" + g;
@@ -24167,22 +27649,9 @@
         function _throw(e) {
           asyncGeneratorStep$l(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$j(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$b(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -24195,7 +27664,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$j(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -24246,7 +27723,7 @@
     isAutoplaySupportedForType = (e) => Ho.includes(e),
     normalizeTypeForAutoplay = (e, n) =>
       (T(e) && !(null != n ? n : "").startsWith("library-") ? "library-" : "") +
-      normalizeContentType(n);
+      normalizeMediaType(n);
   class AutoplayTrackLoader {
     activate() {
       this.isActive ||
@@ -24266,7 +27743,7 @@
           ao.repeatModeDidChange,
           this.onRepeatableChanged,
         ),
-        (this.isActive = !0));
+        (this.isActive = true));
     }
     deactivate() {
       this.isActive &&
@@ -24278,9 +27755,9 @@
           ao.repeatModeDidChange,
           this.onRepeatableChanged,
         ),
-        (this.isActive = !1),
-        (this.station = void 0),
-        (this.queue.hasAutoplayStation = !1));
+        (this.isActive = false),
+        (this.station = undefined),
+        (this.queue.hasAutoplayStation = false));
     }
     start() {
       if (!this.isActive) return this.activate(), this.loadNextTracks();
@@ -24299,12 +27776,15 @@
     get api() {
       const e = this.apiManager.mediaAPI;
       var n;
-      return null !== (n = null == e ? void 0 : e.v3) && void 0 !== n ? n : e;
+      return null !== (n = null == e ? undefined : e.v3) && undefined !== n
+        ? n
+        : e;
     }
     checkLoadMore() {
       var e;
       const n =
-          null !== (e = this.queue.unplayedAutoplayItems.length) && void 0 !== e
+          null !== (e = this.queue.unplayedAutoplayItems.length) &&
+          undefined !== e
             ? e
             : 0,
         d = po.autoplay.maxUpcomingTracksToMaintain;
@@ -24338,8 +27818,8 @@
               { fetchOptions: { method: "POST" } },
             )),
               (h =
-                null == h || null === (_ = h.data) || void 0 === _
-                  ? void 0
+                null == h || null === (_ = h.data) || undefined === _
+                  ? undefined
                   : _.data);
           } catch (Vt) {
             return;
@@ -24348,32 +27828,35 @@
         } else {
           var m;
           const e = yield d.startStation(n);
-          if (!e || !d.isActive) return void (d.queue.hasAutoplayStation = !1);
+          if (!e || !d.isActive)
+            return void (d.queue.hasAutoplayStation = false);
           (y = d.station = e.station),
-            (d.queue.hasAutoplayStation = !0),
+            (d.queue.hasAutoplayStation = true),
             (h = e.tracks),
-            (null == e || null === (m = e.tracks) || void 0 === m
-              ? void 0
+            (null == e || null === (m = e.tracks) || undefined === m
+              ? undefined
               : m.length) ||
               Je.warn("No track data is available for the current station", {
-                stationId: null == y ? void 0 : y.id,
+                stationId: null == y ? undefined : y.id,
               });
         }
         const g = descriptorToMediaItems({
           context: _object_spread_props$6(_object_spread$b({}, d.context), {
             featureName: "now_playing",
             reco_id: (
-              null === (p = d.context.featureName) || void 0 === p
-                ? void 0
+              null === (p = d.context.featureName) || undefined === p
+                ? undefined
                 : p.startsWith("listen-now")
             )
-              ? void 0
+              ? undefined
               : d.context.reco_id,
           }),
           loaded: h,
           container: y,
         });
-        d.queue.appendQueueItems(toQueueItems(g, { isAutoplay: !0 }));
+        d.queue.appendQueueItems(
+          g.map((e) => new QueueItem(g, { isAutoplay: true })),
+        );
       })();
     }
     startStation(e) {
@@ -24382,11 +27865,11 @@
         const { userAddedItems: d } = n.queue;
         var p;
         const h =
-            null !== (p = d[d.length - 2]) && void 0 !== p
+            null !== (p = d[d.length - 2]) && undefined !== p
               ? p
               : d[d.length - 1],
-          y = null == h ? void 0 : h.container,
-          _ = y ? { container: { id: y.id, type: y.type } } : void 0,
+          y = null == h ? undefined : h.container,
+          _ = y ? { container: { id: y.id, type: y.type } } : undefined,
           m = n.queue.items
             .slice(-1 * po.autoplay.maxQueueSizeInRequest)
             .reduce((e, { id: d, type: p }) => {
@@ -24409,13 +27892,13 @@
             {
               fetchOptions: {
                 method: "POST",
-                body: JSON.stringify(g, void 0, 2),
+                body: JSON.stringify(g, undefined, 2),
               },
             },
           )),
             (b =
-              null == b || null === (P = b.data) || void 0 === P
-                ? void 0
+              null == b || null === (P = b.data) || undefined === P
+                ? undefined
                 : P.results);
         } catch (Vt) {
           m.forEach((e) => n.errorIds.add(e.id));
@@ -24424,18 +27907,82 @@
       })();
     }
     constructor(e, n, { dispatcher: d, apiManager: p }, h = {}) {
-      _define_property$j(this, "queue", void 0),
-        _define_property$j(this, "repeatable", void 0),
-        _define_property$j(this, "context", void 0),
-        _define_property$j(this, "apiManager", void 0),
-        _define_property$j(this, "dispatcher", void 0),
-        _define_property$j(this, "isActive", void 0),
-        _define_property$j(this, "errorIds", void 0),
-        _define_property$j(this, "station", void 0),
+      "queue" in this
+        ? Object.defineProperty(this, "queue", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.queue = undefined),
+        this,
+        ("repeatable" in this
+          ? Object.defineProperty(this, "repeatable", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.repeatable = undefined),
+        this),
+        ("context" in this
+          ? Object.defineProperty(this, "context", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.context = undefined),
+        this),
+        ("apiManager" in this
+          ? Object.defineProperty(this, "apiManager", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.apiManager = undefined),
+        this),
+        ("dispatcher" in this
+          ? Object.defineProperty(this, "dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.dispatcher = undefined),
+        this),
+        ("isActive" in this
+          ? Object.defineProperty(this, "isActive", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isActive = undefined),
+        this),
+        ("errorIds" in this
+          ? Object.defineProperty(this, "errorIds", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.errorIds = undefined),
+        this),
+        ("station" in this
+          ? Object.defineProperty(this, "station", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.station = undefined),
+        this),
         (this.queue = e),
         (this.repeatable = n),
         (this.context = h),
-        (this.isActive = !1),
+        (this.isActive = false),
         (this.errorIds = new Set()),
         (this.dispatcher = d),
         (this.apiManager = p);
@@ -24462,22 +28009,9 @@
         function _throw(e) {
           asyncGeneratorStep$k(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$i(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$a(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -24490,7 +28024,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$i(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -24542,7 +28084,7 @@
       Bind(),
       _ts_metadata$7("design:type", Function),
       _ts_metadata$7("design:paramtypes", []),
-      _ts_metadata$7("design:returntype", void 0),
+      _ts_metadata$7("design:returntype", undefined),
     ],
     AutoplayTrackLoader.prototype,
     "onRepeatableChanged",
@@ -24553,7 +28095,7 @@
         Bind(),
         _ts_metadata$7("design:type", Function),
         _ts_metadata$7("design:paramtypes", []),
-        _ts_metadata$7("design:returntype", void 0),
+        _ts_metadata$7("design:returntype", undefined),
       ],
       AutoplayTrackLoader.prototype,
       "onQueueChanged",
@@ -24570,7 +28112,7 @@
               if (this[y]) return this[y];
               const n = (this[y] = p.apply(this, e)),
                 reset = () => {
-                  this[y] = void 0;
+                  this[y] = undefined;
                 };
               return n.then(reset, reset), n;
             }),
@@ -24607,7 +28149,7 @@
       var n;
       this._autoplayEnabled = e;
       const d = e ? "start" : "stop";
-      null === (n = this._autoplayTrackLoader) || void 0 === n || n[d]();
+      null === (n = this._autoplayTrackLoader) || undefined === n || n[d]();
     }
     activate() {
       super.activate(),
@@ -24630,17 +28172,17 @@
             ao.repeatModeDidChange,
             e.onRepeatModeChange,
           ),
-          null === (n = e._autoplayTrackLoader) || void 0 === n || n.stop();
+          null === (n = e._autoplayTrackLoader) || undefined === n || n.stop();
       })();
     }
     onSeamlessAudioTransition(n, d) {
       Je.debug("controller handling seamless audio transition, PAF stop", d),
         this._next({
-          userInitiated: !1,
-          seamlessAudioTransition: !0,
+          userInitiated: false,
+          seamlessAudioTransition: true,
           endReasonType: e.PlayActivityEndReasonType.NATURAL_END_OF_TRACK,
           position: d.previous.playbackDuration / 1e3,
-          isPlaying: !1,
+          isPlaying: false,
         });
     }
     hasCapabilities(e) {
@@ -24651,24 +28193,24 @@
         case Do.AUTOPLAY:
         case Do.VOLUME:
         case Do.SKIP_PREVIOUS:
-          return !0;
+          return true;
         case Do.REPEAT:
         case Do.SHUFFLE:
           var n, d;
           return !(null === (d = this.queue) ||
-          void 0 === d ||
+          undefined === d ||
           null === (n = d.currentQueueItem) ||
-          void 0 === n
-            ? void 0
+          undefined === n
+            ? undefined
             : n.isAutoplay);
         case Do.PAUSE:
         case Do.SEEK:
           var p;
-          return !(null === (p = this.nowPlayingItem) || void 0 === p
-            ? void 0
+          return !(null === (p = this.nowPlayingItem) || undefined === p
+            ? undefined
             : p.isAssetScrubbingDisabled);
         default:
-          return !1;
+          return false;
       }
     }
     onRepeatModeChange() {
@@ -24676,13 +28218,13 @@
       this.queue.nextPlayableItem &&
         (Je.info(
           "SerialPlaybackController: preparing new item after RepeatMode change",
-          null === (e = this.queue.nextPlayableItem) || void 0 === e
-            ? void 0
+          null === (e = this.queue.nextPlayableItem) || undefined === e
+            ? undefined
             : e.title,
         ),
-        this.prepareToPlay(this.queue.nextPlayableItem, !0));
+        this.prepareToPlay(this.queue.nextPlayableItem, true));
     }
-    prepareToPlay(n, d = !1) {
+    prepareToPlay(n, d = false) {
       var p = this;
       return _async_to_generator$k(function* () {
         if (
@@ -24705,7 +28247,7 @@
                 p._dispatcher.publish(gt.applicationActivityIntent, {
                   endReasonType:
                     e.PlayActivityEndReasonType.TRACK_SKIPPED_FORWARDS,
-                  userInitiated: !1,
+                  userInitiated: false,
                 }),
                 p._next()
               );
@@ -24716,11 +28258,11 @@
     returnQueueForOptions(e) {
       var n = this;
       return _async_to_generator$k(function* () {
-        void 0 !== (e = parseQueueURLOption(e)).startPosition &&
+        undefined !== (e = parseQueueURLOption(e)).startPosition &&
           (deprecationWarning("startPosition", {
             message: "startPosition has been deprecated in favor of startWith",
           }),
-          void 0 === e.startWith && (e.startWith = e.startPosition));
+          undefined === e.startWith && (e.startWith = e.startPosition));
         const d = yield n._dataForQueueOptions(e),
           p = {
             services: {
@@ -24733,7 +28275,7 @@
             playbackMode: n.playbackMode,
           };
         if (
-          (void 0 !== e.shuffleMode && (n.shuffleMode = e.shuffleMode),
+          (undefined !== e.shuffleMode && (n.shuffleMode = e.shuffleMode),
           (n.queue = new Queue(p)),
           "number" == typeof e.startTime)
         ) {
@@ -24796,9 +28338,9 @@
             return p;
           })(n._services.apiManager.apiService, e);
         return (
-          void 0 === h ||
-            ((null === (d = n.storekit) || void 0 === d
-              ? void 0
+          undefined === h ||
+            ((null === (d = n.storekit) || undefined === d
+              ? undefined
               : d.restrictedEnabled) &&
               (e.parameters = _object_spread_props$5(
                 _object_spread$a({}, e.parameters),
@@ -24833,7 +28375,8 @@
       var d = this;
       return _async_to_generator$k(function* () {
         const p = d.queue.position + 1;
-        !0 === (null == n ? void 0 : n.clear) && d.queue.clearAfterCurrent();
+        true === (null == n ? undefined : n.clear) &&
+          d.queue.clearAfterCurrent();
         const h = yield d._dataForQueueOptions(e),
           y = descriptorToMediaItems(h);
         if ((d.queue.splice(p, 0, y), d.shouldTransitionSeamlessly)) {
@@ -24852,7 +28395,7 @@
         return e.queue.clear(), e.queue;
       })();
     }
-    _changeToMediaAtIndex(e = 0, n = { userInitiated: !1 }) {
+    _changeToMediaAtIndex(e = 0, n = { userInitiated: false }) {
       var d = this,
         _superprop_get__changeToMediaAtIndex = () =>
           super._changeToMediaAtIndex;
@@ -24877,10 +28420,42 @@
     constructor(e) {
       var n;
       super(e),
-        _define_property$i(this, "type", Co.serial),
-        _define_property$i(this, "_preloader", void 0),
-        _define_property$i(this, "_isSeamlessAudioTransitionsEnabled", void 0),
-        _define_property$i(this, "_autoplayTrackLoader", void 0),
+        ("type" in this
+          ? Object.defineProperty(this, "type", {
+              value: Co.serial,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.type = Co.serial),
+        this),
+        ("_preloader" in this
+          ? Object.defineProperty(this, "_preloader", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._preloader = undefined),
+        this),
+        ("_isSeamlessAudioTransitionsEnabled" in this
+          ? Object.defineProperty(this, "_isSeamlessAudioTransitionsEnabled", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._isSeamlessAudioTransitionsEnabled = undefined),
+        this),
+        ("_autoplayTrackLoader" in this
+          ? Object.defineProperty(this, "_autoplayTrackLoader", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._autoplayTrackLoader = undefined),
+        this),
         (this._queue = new Queue(e)),
         (this._repeatable = new Repeatable(this._dispatcher)),
         (this._seekable = new Seekable(
@@ -24894,32 +28469,19 @@
         )),
         (this._isSeamlessAudioTransitionsEnabled = !!(null == e ||
         null === (n = e.bag) ||
-        void 0 === n
-          ? void 0
+        undefined === n
+          ? undefined
           : n.features["seamless-audio-transitions"]));
       const d = { controller: this, services: e.services };
       this._preloader = new Preloader(d);
     }
   }
-  function _define_property$h(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   _ts_decorate$6(
     [
       Bind(),
       _ts_metadata$6("design:type", Function),
-      _ts_metadata$6("design:paramtypes", [void 0, void 0]),
-      _ts_metadata$6("design:returntype", void 0),
+      _ts_metadata$6("design:paramtypes", [undefined, undefined]),
+      _ts_metadata$6("design:returntype", undefined),
     ],
     SerialPlaybackController.prototype,
     "onSeamlessAudioTransition",
@@ -24929,7 +28491,7 @@
       [
         Bind(),
         _ts_metadata$6("design:type", Function),
-        _ts_metadata$6("design:paramtypes", [void 0 === Do ? Object : Do]),
+        _ts_metadata$6("design:paramtypes", [undefined === Do ? Object : Do]),
         _ts_metadata$6("design:returntype", Boolean),
       ],
       SerialPlaybackController.prototype,
@@ -24941,7 +28503,7 @@
         Bind(),
         _ts_metadata$6("design:type", Function),
         _ts_metadata$6("design:paramtypes", []),
-        _ts_metadata$6("design:returntype", void 0),
+        _ts_metadata$6("design:returntype", undefined),
       ],
       SerialPlaybackController.prototype,
       "onRepeatModeChange",
@@ -24950,7 +28512,7 @@
   class MKDialog {
     static presentError(e) {
       const n = e.dialog;
-      void 0 !== n
+      undefined !== n
         ? MKDialog.serverDialog(n).present()
         : new MKDialog(e.message).present();
     }
@@ -25054,16 +28616,96 @@
         document.body.appendChild(n);
     }
     constructor(e, n = "") {
-      _define_property$h(this, "_message", void 0),
-        _define_property$h(this, "_explanation", void 0),
-        _define_property$h(this, "id", void 0),
-        _define_property$h(this, "scrimId", void 0),
-        _define_property$h(this, "styleId", void 0),
-        _define_property$h(this, "_cancelButtonString", void 0),
-        _define_property$h(this, "_cancelButtonAction", void 0),
-        _define_property$h(this, "_okButtonAction", void 0),
-        _define_property$h(this, "_okButtonActionURL", void 0),
-        _define_property$h(this, "_okButtonString", void 0),
+      "_message" in this
+        ? Object.defineProperty(this, "_message", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._message = undefined),
+        this,
+        ("_explanation" in this
+          ? Object.defineProperty(this, "_explanation", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._explanation = undefined),
+        this),
+        ("id" in this
+          ? Object.defineProperty(this, "id", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.id = undefined),
+        this),
+        ("scrimId" in this
+          ? Object.defineProperty(this, "scrimId", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.scrimId = undefined),
+        this),
+        ("styleId" in this
+          ? Object.defineProperty(this, "styleId", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.styleId = undefined),
+        this),
+        ("_cancelButtonString" in this
+          ? Object.defineProperty(this, "_cancelButtonString", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._cancelButtonString = undefined),
+        this),
+        ("_cancelButtonAction" in this
+          ? Object.defineProperty(this, "_cancelButtonAction", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._cancelButtonAction = undefined),
+        this),
+        ("_okButtonAction" in this
+          ? Object.defineProperty(this, "_okButtonAction", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._okButtonAction = undefined),
+        this),
+        ("_okButtonActionURL" in this
+          ? Object.defineProperty(this, "_okButtonActionURL", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._okButtonActionURL = undefined),
+        this),
+        ("_okButtonString" in this
+          ? Object.defineProperty(this, "_okButtonString", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._okButtonString = undefined),
+        this),
         (this._message = e),
         (this._explanation = n),
         (this.id = "musickit-dialog"),
@@ -25081,19 +28723,6 @@
         );
     }
   }
-  function _define_property$g(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread$9(e) {
     for (var n = 1; n < arguments.length; n++) {
       var d = null != arguments[n] ? arguments[n] : {},
@@ -25105,7 +28734,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$g(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -25114,37 +28751,24 @@
     const n = _object_spread$9({}, e),
       { href: d } = n;
     return (
-      void 0 !== d &&
+      undefined !== d &&
         (delete n.href,
         (n.attributes = _object_spread$9({}, n.attributes, { href: d }))),
       n
     );
   }
-  function _define_property$f(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   const Yo = ["extend", "include", "l", "platform", "views"];
   class LocalDataStore {
     get hasDataStore() {
-      return this.enableDataStore && void 0 !== this._store;
+      return this.enableDataStore && undefined !== this._store;
     }
     delete(e, n) {
       this.hasDataStore && this._store.remove(e, n);
     }
     read(e, n, d, p) {
-      p || "function" != typeof d || ((p = d), (d = void 0));
+      p || "function" != typeof d || ((p = d), (d = undefined));
       const h = {};
-      let y = !1;
+      let y = false;
       if (
         (d &&
           ((y = Object.keys(d).some((e) => /^(fields|extend)/.test(e))),
@@ -25186,7 +28810,8 @@
           : Object.keys(e).reduce((d, p) => {
               const h = e[p];
               return (
-                hasOwn(h, "data") && (d[p] = n({ data: h.data })),
+                Object.prototype.hasOwnProperty.call(Object(h), "data") &&
+                  (d[p] = n({ data: h.data })),
                 "meta" === p && (d[p] = e[p]),
                 d
               );
@@ -25194,33 +28819,42 @@
         : e;
     }
     constructor(e = {}) {
-      _define_property$f(this, "_store", void 0),
-        _define_property$f(this, "enableDataStore", !1);
-      let n = !1;
+      "_store" in this
+        ? Object.defineProperty(this, "_store", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._store = undefined),
+        this,
+        ("enableDataStore" in this
+          ? Object.defineProperty(this, "enableDataStore", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.enableDataStore = false),
+        this);
+      let n = false;
       e.features &&
-        hasOwn(e.features, "api-data-store") &&
+        Object.prototype.hasOwnProperty.call(
+          Object(e.features),
+          "api-data-store",
+        ) &&
         (this.enableDataStore = !!e.features["api-data-store"]),
         e.features &&
-          hasOwn(e.features, "disable-data-store-record-reuse") &&
+          Object.prototype.hasOwnProperty.call(
+            Object(e.features),
+            "disable-data-store-record-reuse",
+          ) &&
           (n = !!e.features["disable-data-store-record-reuse"]),
         this.enableDataStore &&
           ((this._store =
             e.store || new DataStore({ shouldDisableRecordReuse: n })),
           (this._store.mapping = transformStoreData));
     }
-  }
-  function _define_property$e(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread_props$4(e, n) {
     return (
@@ -25265,7 +28899,7 @@
     })(Xo || (Xo = {}));
   class API extends class extends class {
     clearCacheForRequest(e, n) {
-      "object" == typeof e && ((n = e), (e = void 0)),
+      "object" == typeof e && ((n = e), (e = undefined)),
         this.networkCache.removeItemsMatching(
           buildURL(this.url, null != e ? e : "", n),
         );
@@ -25274,18 +28908,18 @@
       var p,
         h = this;
       return ((p = function* () {
-        d || "object" != typeof e || ((d = n || {}), (n = e), (e = void 0));
+        d || "object" != typeof e || ((d = n || {}), (n = e), (e = undefined));
         let p = {};
         "object" ==
         typeof (d = _object_spread$P(
-          { method: h.method, headers: h.headers, reload: !1 },
+          { method: h.method, headers: h.headers, reload: false },
           h._fetchOptions,
           d,
         )).queryParameters
           ? ((p = d.queryParameters), delete d.queryParameters)
           : ("GET" !== d.method && "DELETE" !== d.method) || (p = n);
         const y = buildURL(h.url, null != e ? e : "", p),
-          { method: _, reload: m = !1, useRawResponse: g } = d;
+          { method: _, reload: m = false, useRawResponse: g } = d;
         if (
           ((d.headers = h.buildHeaders(d)),
           delete d.reload,
@@ -25320,7 +28954,7 @@
         if ("GET" === _) {
           var E;
           const e =
-            null !== (E = getMaxAgeFromHeaders(b.headers)) && void 0 !== E
+            null !== (E = getMaxAgeFromHeaders(b.headers)) && undefined !== E
               ? E
               : h.ttl;
           h.setCacheItem(y, S, e);
@@ -25338,12 +28972,12 @@
           function _throw(e) {
             asyncGeneratorStep$1j(y, d, h, _next, _throw, "throw", e);
           }
-          _next(void 0);
+          _next(undefined);
         });
       })();
     }
-    buildHeaders({ headers: e, reload: n = !1 } = {}) {
-      void 0 === e && (e = this.headers);
+    buildHeaders({ headers: e, reload: n = false } = {}) {
+      undefined === e && (e = this.headers);
       const d = ((e) => new e.constructor(e))(e);
       return n && d.set("Cache-Control", "no-cache"), d;
     }
@@ -25372,7 +29006,7 @@
       const d = (function (e) {
         try {
           const [n, d] = e.split("?", 2);
-          if (void 0 === d) return n;
+          if (undefined === d) return n;
           const p = d.split("&").map((e) => e.split("=", 2)),
             h = [...Array(p.length).keys()];
           h.sort((e, n) => {
@@ -25381,7 +29015,9 @@
             return d < h ? -1 : d > h ? 1 : e - n;
           });
           const y = h.map((e) => p[e]);
-          return `${n}?${y.map(([e, n]) => (void 0 !== n ? `${e}=${n}` : e)).join("&")}`;
+          return `${n}?${y
+            .map(([e, n]) => (undefined !== n ? `${e}=${n}` : e))
+            .join("&")}`;
         } catch (Vt) {
           return e;
         }
@@ -25392,15 +29028,87 @@
     }
     constructor(e, n) {
       if (
-        (_define_property$1R(this, "url", void 0),
-        _define_property$1R(this, "headers", void 0),
-        _define_property$1R(this, "prefix", ""),
-        _define_property$1R(this, "storage", void 0),
-        _define_property$1R(this, "networkCache", void 0),
-        _define_property$1R(this, "ttl", void 0),
-        _define_property$1R(this, "method", "GET"),
-        _define_property$1R(this, "_fetchOptions", void 0),
-        _define_property$1R(this, "_fetchFunction", void 0),
+        ("url" in this
+          ? Object.defineProperty(this, "url", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.url = undefined),
+        this,
+        ("headers" in this
+          ? Object.defineProperty(this, "headers", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.headers = undefined),
+        this),
+        ("prefix" in this
+          ? Object.defineProperty(this, "prefix", {
+              value: "",
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.prefix = ""),
+        this),
+        ("storage" in this
+          ? Object.defineProperty(this, "storage", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.storage = undefined),
+        this),
+        ("networkCache" in this
+          ? Object.defineProperty(this, "networkCache", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.networkCache = undefined),
+        this),
+        ("ttl" in this
+          ? Object.defineProperty(this, "ttl", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.ttl = undefined),
+        this),
+        ("method" in this
+          ? Object.defineProperty(this, "method", {
+              value: "GET",
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.method = "GET"),
+        this),
+        ("_fetchOptions" in this
+          ? Object.defineProperty(this, "_fetchOptions", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._fetchOptions = undefined),
+        this),
+        ("_fetchFunction" in this
+          ? Object.defineProperty(this, "_fetchFunction", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._fetchFunction = undefined),
+        this),
         (this.url = e),
         (n = n || {}).storage && n.underlyingStorage)
       )
@@ -25422,7 +29130,7 @@
         throw new Error("window.fetch is not defined");
       var p;
       (this._fetchFunction =
-        null !== (p = n.fetch) && void 0 !== p ? p : fetch.bind(window)),
+        null !== (p = n.fetch) && undefined !== p ? p : fetch.bind(window)),
         (this.headers = this._fetchOptions.headers || new Headers()),
         delete this._fetchOptions.headers;
     }
@@ -25432,8 +29140,24 @@
     }
     constructor(e, n, d) {
       super(e, d),
-        _define_property$1R(this, "userToken", void 0),
-        _define_property$1R(this, "_developerToken", void 0),
+        ("userToken" in this
+          ? Object.defineProperty(this, "userToken", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.userToken = undefined),
+        this),
+        ("_developerToken" in this
+          ? Object.defineProperty(this, "_developerToken", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._developerToken = undefined),
+        this),
         (this._developerToken = new DeveloperToken(n)),
         this.headers.set("Authorization", "Bearer " + this.developerToken),
         (d = d || {}),
@@ -25457,7 +29181,15 @@
                   }),
                 )),
                 p.forEach(function (n) {
-                  _define_property$e(e, n, d[n]);
+                  n in e
+                    ? Object.defineProperty(e, n, {
+                        value: d[n],
+                        enumerable: true,
+                        configurable: true,
+                        writable: true,
+                      })
+                    : (e[n] = d[n]),
+                    e;
                 });
             }
             return e;
@@ -25465,20 +29197,78 @@
           { userToken: p, storage: y },
         ),
       ),
-        _define_property$e(this, "_store", void 0),
-        _define_property$e(this, "v3", void 0),
-        _define_property$e(this, "storefrontId", qe.ID),
-        _define_property$e(this, "defaultIncludePaginationMetadata", void 0),
-        _define_property$e(this, "resourceRelatives", {
-          artists: {
-            albums: { include: "tracks" },
-            playlists: { include: "tracks" },
-            songs: null,
-          },
-        }),
-        _define_property$e(this, "userStorefrontId", void 0),
+        ("_store" in this
+          ? Object.defineProperty(this, "_store", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._store = undefined),
+        this),
+        ("v3" in this
+          ? Object.defineProperty(this, "v3", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.v3 = undefined),
+        this),
+        ("storefrontId" in this
+          ? Object.defineProperty(this, "storefrontId", {
+              value: qe.ID,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.storefrontId = qe.ID),
+        this),
+        ("defaultIncludePaginationMetadata" in this
+          ? Object.defineProperty(this, "defaultIncludePaginationMetadata", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.defaultIncludePaginationMetadata = undefined),
+        this),
+        ("resourceRelatives" in this
+          ? Object.defineProperty(this, "resourceRelatives", {
+              value: {
+                artists: {
+                  albums: { include: "tracks" },
+                  playlists: { include: "tracks" },
+                  songs: null,
+                },
+              },
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.resourceRelatives = {
+              artists: {
+                albums: { include: "tracks" },
+                playlists: { include: "tracks" },
+                songs: null,
+              },
+            }),
+        this),
+        ("userStorefrontId" in this
+          ? Object.defineProperty(this, "userStorefrontId", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.userStorefrontId = undefined),
+        this),
         (this.defaultIncludePaginationMetadata =
-          _.features && hasOwn(_.features, "api-pagination-metadata")),
+          _.features &&
+          Object.prototype.hasOwnProperty.call(
+            Object(_.features),
+            "api-pagination-metadata",
+          )),
         (this._store = new LocalDataStore(_)),
         d && (this.storefrontId = d.toLowerCase()),
         p && h && (this.userStorefrontId = h.toLowerCase()),
@@ -25511,28 +29301,18 @@
         function _throw(e) {
           asyncGeneratorStep$j(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
   }
-  function _define_property$d(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   let Jo;
   const Zo = (function () {
-      var e = _async_to_generator$j(function* (e, n = !1) {
+      var e = _async_to_generator$j(function* (e, n = false) {
         if (Jo && !n) {
-          if (void 0 === e.storefrontId || e.storefrontId === Jo.storefrontId)
+          if (
+            undefined === e.storefrontId ||
+            e.storefrontId === Jo.storefrontId
+          )
             return Jo;
           Jo.clear();
         }
@@ -25546,36 +29326,36 @@
     })(),
     ea = {
       album: {
-        isPlural: !1,
+        isPlural: false,
         apiMethod: "album",
         relationshipMethod: {
           method: "albumRelationship",
           relationship: "tracks",
         },
       },
-      albums: { isPlural: !0, apiMethod: "albums" },
-      musicVideo: { isPlural: !1, apiMethod: "musicVideo" },
-      musicVideos: { isPlural: !0, apiMethod: "musicVideos" },
-      musicMovie: { isPlural: !1, apiMethod: "musicMovie" },
-      musicMovies: { isPlural: !0, apiMethod: "musicMovies" },
+      albums: { isPlural: true, apiMethod: "albums" },
+      musicVideo: { isPlural: false, apiMethod: "musicVideo" },
+      musicVideos: { isPlural: true, apiMethod: "musicVideos" },
+      musicMovie: { isPlural: false, apiMethod: "musicMovie" },
+      musicMovies: { isPlural: true, apiMethod: "musicMovies" },
       playlist: {
-        isPlural: !1,
+        isPlural: false,
         apiMethod: "playlist",
         relationshipMethod: {
           method: "playlistRelationship",
           relationship: "tracks",
         },
       },
-      playlists: { isPlural: !0, apiMethod: "playlists" },
-      song: { isPlural: !1, apiMethod: "song" },
-      songs: { isPlural: !0, apiMethod: "songs" },
+      playlists: { isPlural: true, apiMethod: "playlists" },
+      song: { isPlural: false, apiMethod: "song" },
+      songs: { isPlural: true, apiMethod: "songs" },
     };
   class MediaAPIService {
     get isConfigured() {
-      return void 0 !== this._api;
+      return undefined !== this._api;
     }
     get api() {
-      if (void 0 === this._api)
+      if (undefined === this._api)
         throw new MKError(
           MKError.Reason.CONFIGURATION_ERROR,
           "The API cannot be accessed before it is configured.",
@@ -25588,7 +29368,7 @@
     configure(e) {
       var n = this;
       return _async_to_generator$j(function* () {
-        void 0 !== e.store &&
+        undefined !== e.store &&
           ((n.store = e.store),
           [
             ao.authorizationStatusDidChange,
@@ -25619,13 +29399,13 @@
       })();
     }
     _initializeAPI(e) {
-      if (void 0 !== (null == e ? void 0 : e.api))
+      if (undefined !== (null == e ? undefined : e.api))
         return void (this._api = e.api);
       const n = (e && e.store) || this.store;
-      if (void 0 === n) return;
+      if (undefined === n) return;
       const d = po.features["api-session-storage"]
           ? getSessionStorage()
-          : void 0,
+          : undefined,
         p = (e && e.storefrontId) || n.storefrontId,
         h = new API(
           this.url,
@@ -25635,7 +29415,7 @@
           n.storekit.storefrontCountryCode,
           d,
           po,
-          null == e ? void 0 : e.sessionOptions,
+          null == e ? undefined : e.sessionOptions,
         );
       this._api = h.v3;
     }
@@ -25652,11 +29432,51 @@
     }
     constructor(e) {
       if (
-        (_define_property$d(this, "_dispatcher", void 0),
-        _define_property$d(this, "namedQueueOptions", void 0),
-        _define_property$d(this, "url", void 0),
-        _define_property$d(this, "store", void 0),
-        _define_property$d(this, "_api", void 0),
+        ("_dispatcher" in this
+          ? Object.defineProperty(this, "_dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._dispatcher = undefined),
+        this,
+        ("namedQueueOptions" in this
+          ? Object.defineProperty(this, "namedQueueOptions", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.namedQueueOptions = undefined),
+        this),
+        ("url" in this
+          ? Object.defineProperty(this, "url", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.url = undefined),
+        this),
+        ("store" in this
+          ? Object.defineProperty(this, "store", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.store = undefined),
+        this),
+        ("_api" in this
+          ? Object.defineProperty(this, "_api", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._api = undefined),
+        this),
         (this._dispatcher = e),
         !po.urls.mediaApi)
       )
@@ -25697,25 +29517,9 @@
         function _throw(e) {
           asyncGeneratorStep$i(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$c(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
-  function configure$2(e) {
-    return _configure$2.apply(this, arguments);
   }
   function _configure$2() {
     return (_configure$2 = _async_to_generator$i(function* (e) {
@@ -25725,7 +29529,7 @@
   }
   class UTSClientService {
     get isConfigured() {
-      return void 0 !== this.api;
+      return undefined !== this.api;
     }
     configure(e) {
       var n = this;
@@ -25737,14 +29541,38 @@
     getAPIForItem(e) {
       var n = this;
       return _async_to_generator$i(function* () {
-        if (void 0 === n.api) throw new Error("UTS has not been configured");
+        if (undefined === n.api) throw new Error("UTS has not been configured");
         return n.api;
       })();
     }
     constructor() {
-      _define_property$c(this, "api", void 0),
-        _define_property$c(this, "namedQueueOptions", {}),
-        _define_property$c(this, "url", "");
+      "api" in this
+        ? Object.defineProperty(this, "api", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.api = undefined),
+        this,
+        ("namedQueueOptions" in this
+          ? Object.defineProperty(this, "namedQueueOptions", {
+              value: {},
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.namedQueueOptions = {}),
+        this),
+        ("url" in this
+          ? Object.defineProperty(this, "url", {
+              value: "",
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.url = ""),
+        this);
     }
   }
   var ta;
@@ -25757,19 +29585,6 @@
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
   }
-  function _define_property$b(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
-  }
   function _object_spread$7(e) {
     for (var n = 1; n < arguments.length; n++) {
       var d = null != arguments[n] ? arguments[n] : {},
@@ -25781,7 +29596,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$b(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -25794,7 +29617,7 @@
       return this.getApiByType(this._defaultAPI);
     }
     get apiService() {
-      if (void 0 !== this._defaultAPI)
+      if (undefined !== this._defaultAPI)
         return this._apisByType[this._defaultAPI];
       Je.error("There is no API instance configured");
     }
@@ -25807,8 +29630,8 @@
     getApiByType(e) {
       let n;
       if (
-        (void 0 !== e && (n = this._apisByType[e]),
-        void 0 === n || void 0 === n.api)
+        (undefined !== e && (n = this._apisByType[e]),
+        undefined === n || undefined === n.api)
       )
         throw new MKError(
           MKError.Reason.CONFIGURATION_ERROR,
@@ -25833,13 +29656,13 @@
             function _throw(e) {
               asyncGeneratorStep$h(y, p, h, _next, _throw, "throw", e);
             }
-            _next(void 0);
+            _next(undefined);
           });
         };
       })(function* () {
         const { apiType: d, options: p } = e,
           h = { store: n.store, dispatcher: n._dispatcher };
-        void 0 === n._defaultAPI && (n._defaultAPI = d),
+        undefined === n._defaultAPI && (n._defaultAPI = d),
           d === ta.MEDIA_API
             ? (n._apisByType[d] = yield Zo.call(n, _object_spread$7({}, p, h)))
             : d === ta.UTS_CLIENT &&
@@ -25850,10 +29673,42 @@
       })();
     }
     constructor(e, n) {
-      _define_property$b(this, "store", void 0),
-        _define_property$b(this, "_dispatcher", void 0),
-        _define_property$b(this, "_apisByType", void 0),
-        _define_property$b(this, "_defaultAPI", void 0),
+      "store" in this
+        ? Object.defineProperty(this, "store", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.store = undefined),
+        this,
+        ("_dispatcher" in this
+          ? Object.defineProperty(this, "_dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._dispatcher = undefined),
+        this),
+        ("_apisByType" in this
+          ? Object.defineProperty(this, "_apisByType", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._apisByType = undefined),
+        this),
+        ("_defaultAPI" in this
+          ? Object.defineProperty(this, "_defaultAPI", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._defaultAPI = undefined),
+        this),
         (this.store = e),
         (this._dispatcher = n),
         (this._apisByType = {});
@@ -25869,7 +29724,7 @@
           };
         return d.push([n, wrappedCallback]), wrappedCallback;
       })(n, d);
-    !0 === h ? e.subscribeOnce(n, y) : e.subscribe(n, y);
+    true === h ? e.subscribeOnce(n, y) : e.subscribe(n, y);
   }
   function getCallbacksForName(e) {
     let n = ra[e];
@@ -25896,27 +29751,14 @@
         function _throw(e) {
           asyncGeneratorStep$g(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$a(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   const ia = Je.createChild("rtc");
   class RTCStreamingTracker {
     get isConfigured() {
-      return void 0 !== this.instance;
+      return undefined !== this.instance;
     }
     configure(e) {
       var n = this;
@@ -25953,7 +29795,15 @@
               }),
             )),
             p.forEach(function (n) {
-              _define_property$a(e, n, d[n]);
+              n in e
+                ? Object.defineProperty(e, n, {
+                    value: d[n],
+                    enumerable: true,
+                    configurable: true,
+                    writable: true,
+                  })
+                : (e[n] = d[n]),
+                e;
             });
         }
         return e;
@@ -25964,7 +29814,8 @@
         },
         this.getMediaIdentifiers(e),
       );
-      void 0 === this._storeBag && (this._storeBag = this.generateStoreBag());
+      undefined === this._storeBag &&
+        (this._storeBag = this.generateStoreBag());
       const g = {
         [n]: "HLSJS",
         [d]: this.options.clientName,
@@ -25988,35 +29839,37 @@
       })();
     }
     getMediaIdentifiers(e) {
-      const n = null == e ? void 0 : e.defaultPlayable;
+      const n = null == e ? undefined : e.defaultPlayable;
       if (n) {
         var d;
         const e = {};
         return (
-          void 0 !==
-            (null === (d = n.mediaMetrics) || void 0 === d
-              ? void 0
+          undefined !==
+            (null === (d = n.mediaMetrics) || undefined === d
+              ? undefined
               : d.MediaIdentifier) &&
             (e.MediaIdentifier = n.mediaMetrics.MediaIdentifier),
-          void 0 !== n.channelId && (e.ContentProvider = n.channelId),
+          undefined !== n.channelId && (e.ContentProvider = n.channelId),
           e
         );
       }
-      return "musicVideo" === (null == e ? void 0 : e.type)
+      return "musicVideo" === (null == e ? undefined : e.type)
         ? { MediaIdentifier: "adamid=" + e.id }
-        : (null == e ? void 0 : e.isLiveVideoStation)
+        : (null == e ? undefined : e.isLiveVideoStation)
           ? { MediaIdentifier: "raid=" + e.id }
-          : void 0;
+          : undefined;
     }
     clearReportingAgent() {
-      void 0 !== this.reportingAgent &&
+      undefined !== this.reportingAgent &&
         (this.reportingAgent.destroy(),
         ia.debug("RTC: called destroy on reporting agent", this.reportingAgent),
-        (this.reportingAgent = void 0));
+        (this.reportingAgent = undefined));
     }
     generateBrowserVersion() {
       return this.options.browserMajorVersion
-        ? `${this.options.browserMajorVersion}.${this.options.browserMinorVersion || 0}`
+        ? `${this.options.browserMajorVersion}.${
+            this.options.browserMinorVersion || 0
+          }`
         : "unknown";
     }
     generateStoreBag() {
@@ -26029,18 +29882,70 @@
           browserName: y,
         } = this.options,
         _ = {
-          iTunesAppVersion: `${`${po.app.name}-${po.app.build}`}/${null === (e = this.instance) || void 0 === e ? void 0 : e.version}`,
+          iTunesAppVersion: `${`${po.app.name}-${po.app.build}`}/${
+            null === (e = this.instance) || undefined === e
+              ? undefined
+              : e.version
+          }`,
         },
         m = new window.rtc.RTCStorebag.RTCReportingStoreBag(n, d, h, p, y, _);
       return ia.debug("RTC: created store bag", m), m;
     }
     constructor(e) {
-      _define_property$a(this, "options", void 0),
-        _define_property$a(this, "reportingAgent", void 0),
-        _define_property$a(this, "instance", void 0),
-        _define_property$a(this, "currentMediaItem", void 0),
-        _define_property$a(this, "_storeBag", void 0),
-        _define_property$a(this, "requestedEvents", []),
+      "options" in this
+        ? Object.defineProperty(this, "options", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.options = undefined),
+        this,
+        ("reportingAgent" in this
+          ? Object.defineProperty(this, "reportingAgent", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.reportingAgent = undefined),
+        this),
+        ("instance" in this
+          ? Object.defineProperty(this, "instance", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.instance = undefined),
+        this),
+        ("currentMediaItem" in this
+          ? Object.defineProperty(this, "currentMediaItem", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentMediaItem = undefined),
+        this),
+        ("_storeBag" in this
+          ? Object.defineProperty(this, "_storeBag", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._storeBag = undefined),
+        this),
+        ("requestedEvents" in this
+          ? Object.defineProperty(this, "requestedEvents", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.requestedEvents = []),
+        this),
         (this.options = e);
     }
   }
@@ -26052,19 +29957,6 @@
       return void d(V);
     }
     m.done ? n(g) : Promise.resolve(g).then(p, h);
-  }
-  function _define_property$9(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_decorate$5(e, n, d, p) {
     var h,
@@ -26090,7 +29982,9 @@
     cleanup() {
       this.trackers.forEach((e) => {
         var n;
-        return null === (n = e.cleanup) || void 0 === n ? void 0 : n.call(e);
+        return null === (n = e.cleanup) || undefined === n
+          ? undefined
+          : n.call(e);
       }),
         this.clearIntention(),
         this.teardownListeners(),
@@ -26110,7 +30004,7 @@
             function _throw(e) {
               asyncGeneratorStep$f(y, p, h, _next, _throw, "throw", e);
             }
-            _next(void 0);
+            _next(undefined);
           });
         };
       })(function* () {
@@ -26134,7 +30028,7 @@
     handleEvent(e, n = {}) {
       const d = this.addIntention(e, n);
       e === gt.playerActivate &&
-        (d.flush = "boolean" == typeof n.isPlaying ? !n.isPlaying : void 0);
+        (d.flush = "boolean" == typeof n.isPlaying ? !n.isPlaying : undefined);
       for (const p of this.trackers) p.handleEvent(e, d, n.item);
     }
     addIntention(e, n) {
@@ -26150,7 +30044,15 @@
               }),
             )),
             p.forEach(function (n) {
-              _define_property$9(e, n, d[n]);
+              n in e
+                ? Object.defineProperty(e, n, {
+                    value: d[n],
+                    enumerable: true,
+                    configurable: true,
+                    writable: true,
+                  })
+                : (e[n] = d[n]),
+                e;
             });
         }
         return e;
@@ -26158,7 +30060,8 @@
       return this.clearIntention(), d;
     }
     clearIntention() {
-      (this.lastUserIntent = void 0), (this.lastApplicationIntent = void 0);
+      (this.lastUserIntent = undefined),
+        (this.lastApplicationIntent = undefined);
     }
     recordApplicationIntent(e, n) {
       this.lastApplicationIntent = n;
@@ -26190,16 +30093,64 @@
         );
     }
     constructor(e, n) {
-      _define_property$9(this, "dispatcher", void 0),
-        _define_property$9(this, "trackers", void 0),
-        _define_property$9(this, "registeredEvents", void 0),
-        _define_property$9(this, "lastUserIntent", void 0),
-        _define_property$9(this, "lastApplicationIntent", void 0),
-        _define_property$9(this, "isConfigured", void 0),
+      "dispatcher" in this
+        ? Object.defineProperty(this, "dispatcher", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.dispatcher = undefined),
+        this,
+        ("trackers" in this
+          ? Object.defineProperty(this, "trackers", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.trackers = undefined),
+        this),
+        ("registeredEvents" in this
+          ? Object.defineProperty(this, "registeredEvents", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.registeredEvents = undefined),
+        this),
+        ("lastUserIntent" in this
+          ? Object.defineProperty(this, "lastUserIntent", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.lastUserIntent = undefined),
+        this),
+        ("lastApplicationIntent" in this
+          ? Object.defineProperty(this, "lastApplicationIntent", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.lastApplicationIntent = undefined),
+        this),
+        ("isConfigured" in this
+          ? Object.defineProperty(this, "isConfigured", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.isConfigured = undefined),
+        this),
         (this.dispatcher = e),
         (this.trackers = n),
         (this.registeredEvents = new Set()),
-        (this.isConfigured = !0);
+        (this.isConfigured = true);
     }
   }
   function asyncGeneratorStep$e(e, n, d, p, h, y, _) {
@@ -26223,7 +30174,7 @@
         function _throw(e) {
           asyncGeneratorStep$e(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
   }
@@ -26232,7 +30183,7 @@
       Bind(),
       _ts_metadata$5("design:type", Function),
       _ts_metadata$5("design:paramtypes", [String, Object]),
-      _ts_metadata$5("design:returntype", void 0),
+      _ts_metadata$5("design:returntype", undefined),
     ],
     PlayActivityService.prototype,
     "handleEvent",
@@ -26246,7 +30197,7 @@
           String,
           "undefined" == typeof ActivityIntention ? Object : ActivityIntention,
         ]),
-        _ts_metadata$5("design:returntype", void 0),
+        _ts_metadata$5("design:returntype", undefined),
       ],
       PlayActivityService.prototype,
       "recordApplicationIntent",
@@ -26260,23 +30211,18 @@
           String,
           "undefined" == typeof ActivityIntention ? Object : ActivityIntention,
         ]),
-        _ts_metadata$5("design:returntype", void 0),
+        _ts_metadata$5("design:returntype", undefined),
       ],
       PlayActivityService.prototype,
       "recordUserIntent",
       null,
     );
   const na = BooleanDevFlag.register("mk-force-safari-hlsjs");
-  function useNativeSafariPlayback() {
-    return !na.enabled;
-  }
-  function requiresHlsJs(e) {
-    return _requiresHlsJs.apply(this, arguments);
-  }
   function _requiresHlsJs() {
     return (_requiresHlsJs = _async_to_generator$e(function* (e) {
-      const n = null != e ? e : yield findKeySystemPreference(),
-        d = !useNativeSafariPlayback();
+      const n =
+          null != e ? e : yield _findKeySystemPreference.apply(this, arguments),
+        d = !!na.enabled;
       return n !== ot.FAIRPLAY || d;
     })).apply(this, arguments);
   }
@@ -26301,22 +30247,9 @@
         function _throw(e) {
           asyncGeneratorStep$d(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$8(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$4(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -26329,7 +30262,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$8(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -26355,9 +30296,6 @@
           }),
       e
     );
-  }
-  function fetchRadioStationAssets(e, n, d) {
-    return _fetchRadioStationAssets.apply(this, arguments);
   }
   function _fetchRadioStationAssets() {
     return (_fetchRadioStationAssets = _async_to_generator$d(
@@ -26385,21 +30323,21 @@
             var m;
             (n = yield _.json()),
               (n =
-                null == n || null === (m = n.errors) || void 0 === m
-                  ? void 0
-                  : m[0]);
+                null == n || null === (m = n.errors) || undefined === m
+                  ? undefined
+                  : "contributors");
           } catch (Vt) {}
           const d =
-            "40303" === (null == n ? void 0 : n.code)
+            "40303" === (null == n ? undefined : n.code)
               ? MKError.Reason.SUBSCRIPTION_ERROR
               : MKError.Reason.ACCESS_DENIED;
           var g;
           const p = new MKError(
             d,
-            null !== (g = null == n ? void 0 : n.title) && void 0 !== g
+            null !== (g = null == n ? undefined : n.title) && undefined !== g
               ? g
               : null == n
-                ? void 0
+                ? undefined
                 : n.detail,
           );
           throw ((p.data = e), p);
@@ -26436,16 +30374,13 @@
         function _throw(e) {
           asyncGeneratorStep$c(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
   }
-  function prepareMediaAPIItem(e, n, d) {
-    return _prepareMediaAPIItem.apply(this, arguments);
-  }
   function _prepareMediaAPIItem() {
     return (_prepareMediaAPIItem = _async_to_generator$c(function* (e, n, d) {
-      if (void 0 === d)
+      if (undefined === d)
         return Promise.reject(
           new MKError(
             MKError.Reason.AUTHORIZATION_ERROR,
@@ -26453,18 +30388,15 @@
           ),
         );
       e.hasOffersHlsUrl
-        ? yield prepareWithHLSOffers(e)
+        ? yield _prepareWithHLSOffers.apply(this, arguments)
         : e.isLiveVideoStation
-          ? yield prepareLiveVideoStation(e, n, d)
+          ? yield _prepareLiveVideoStation.apply(this, arguments)
           : e.isLiveRadioStation
-            ? yield prepareLiveRadioStation(e, n, d)
+            ? yield _prepareLiveRadioStation.apply(this, arguments)
             : e.isRadioEpisode
-              ? yield prepareRadioStationEpisode(e, n, d)
-              : yield prepareItemWithMZPlay(e, n, d);
+              ? yield _prepareRadioStationEpisode.apply(this, arguments)
+              : yield _prepareItemWithMZPlay.apply(this, arguments);
     })).apply(this, arguments);
-  }
-  function prepareWithHLSOffers(e) {
-    return _prepareWithHLSOffers.apply(this, arguments);
   }
   function _prepareWithHLSOffers() {
     return (_prepareWithHLSOffers = _async_to_generator$c(function* (e) {
@@ -26475,28 +30407,25 @@
       var h;
       e.updateWithLoadedKeys(p),
         e.updateWithLoadedAssets(
-          void 0,
+          undefined,
           null !==
             (h =
-              null === (n = e.attributes) || void 0 === n
-                ? void 0
-                : n.assetUrl) && void 0 !== h
+              null === (n = e.attributes) || undefined === n
+                ? undefined
+                : n.assetUrl) && undefined !== h
             ? h
-            : null === (d = e.attributes.offers) || void 0 === d
-              ? void 0
+            : null === (d = e.attributes.offers) || undefined === d
+              ? undefined
               : d[0].hlsUrl,
         ),
-        yield fetchMasterManifestUrl(e, e.assetURL);
+        yield _fetchMasterManifestUrl.apply(this, arguments);
     })).apply(this, arguments);
-  }
-  function prepareRadioStationEpisode(e, n, d) {
-    return _prepareRadioStationEpisode.apply(this, arguments);
   }
   function _prepareRadioStationEpisode() {
     return (_prepareRadioStationEpisode = _async_to_generator$c(
       function* (e, n, d) {
-        const p = yield fetchRadioStationAssets(e, n, d);
-        if (void 0 === p.assets || 0 === p.assets.length)
+        const p = yield _fetchRadioStationAssets.apply(this, arguments);
+        if (undefined === p.assets || 0 === p.assets.length)
           throw new MKError(
             MKError.Reason.CONTENT_UNAVAILABLE,
             "Missing RadioStation assets",
@@ -26515,14 +30444,11 @@
       },
     )).apply(this, arguments);
   }
-  function prepareLiveVideoStation(e, n, d) {
-    return _prepareLiveVideoStation.apply(this, arguments);
-  }
   function _prepareLiveVideoStation() {
     return (_prepareLiveVideoStation = _async_to_generator$c(
       function* (e, n, d) {
-        const p = yield fetchRadioStationAssets(e, n, d);
-        if (void 0 === p.assets || 0 === p.assets.length)
+        const p = yield _fetchRadioStationAssets.apply(this, arguments);
+        if (undefined === p.assets || 0 === p.assets.length)
           throw new MKError(
             MKError.Reason.CONTENT_UNAVAILABLE,
             "Missing RadioStation assets",
@@ -26542,9 +30468,6 @@
       },
     )).apply(this, arguments);
   }
-  function prepareLiveRadioStation(e, n, d) {
-    return _prepareLiveRadioStation.apply(this, arguments);
-  }
   function _prepareLiveRadioStation() {
     return (_prepareLiveRadioStation = _async_to_generator$c(
       function* (e, n, d) {
@@ -26555,18 +30478,16 @@
           !po.features["mse-live-radio"]
         )
           throw new MKError(MKError.Reason.CONTENT_UNSUPPORTED, "LIVE_RADIO");
-        const p = (yield fetchRadioStationAssets(e, n, d)).assets[0];
+        const p = (yield _fetchRadioStationAssets.apply(this, arguments))
+          .assets[0];
         e.updateWithLoadedKeys({
           "hls-key-cert-url": p.fairPlayKeyCertificateUrl,
           "hls-key-server-url": p.keyServerUrl,
           "widevine-cert-url": p.widevineKeyCertificateUrl,
         }),
-          yield fetchMasterManifestUrl(e, p.url);
+          yield _fetchMasterManifestUrl.apply(this, arguments);
       },
     )).apply(this, arguments);
-  }
-  function fetchMasterManifestUrl(e, n) {
-    return _fetchMasterManifestUrl.apply(this, arguments);
   }
   function _fetchMasterManifestUrl() {
     return (_fetchMasterManifestUrl = _async_to_generator$c(function* (e, n) {
@@ -26584,24 +30505,25 @@
     let h;
     for (; (h = p.exec(e)); ) {
       var y, _;
-      let e = h[1];
-      const p = h[0];
+      let e = "allow-popups";
+      const p = "allow-forms";
       var m;
       const b =
         null !==
           (m =
-            null === (y = /CODECS=("(.*)")/.exec(p)) || void 0 === y
-              ? void 0
-              : y[2]) && void 0 !== m
+            null === (y = /CODECS=("(.*)")/.exec(p)) || undefined === y
+              ? undefined
+              : "fullscreen *") && undefined !== m
           ? m
           : "";
       var g;
       const P =
         null !==
           (g =
-            null === (_ = /(?:[^\w-])BANDWIDTH=((\d+))/.exec(p)) || void 0 === _
-              ? void 0
-              : _[2]) && void 0 !== g
+            null === (_ = /(?:[^\w-])BANDWIDTH=((\d+))/.exec(p)) ||
+            undefined === _
+              ? undefined
+              : _[2]) && undefined !== g
           ? g
           : 0;
       /^http(s)?:\/\//.test(e) ||
@@ -26618,18 +30540,16 @@
     const n = new MKError(MKError.Reason.CONTENT_UNAVAILABLE);
     return (n.data = e), n;
   }
-  function prepareItemWithMZPlay(e, n, d) {
-    return _prepareItemWithMZPlay.apply(this, arguments);
-  }
   function _prepareItemWithMZPlay() {
     return (_prepareItemWithMZPlay = _async_to_generator$c(function* (e, n, d) {
       var p;
       if (
         (Je.debug("mk: loadWithMZPlay", e.playParams),
-        !(yield hasMusicSubscription()))
+        !(yield _hasMusicSubscription.apply(this, arguments)))
       )
         return;
-      const h = null === (p = e.playParams) || void 0 === p ? void 0 : p.id,
+      const h =
+          null === (p = e.playParams) || undefined === p ? undefined : p.id,
         y = new Headers({
           Authorization: "Bearer " + n,
           Accept: "application/json",
@@ -26690,12 +30610,9 @@
         function _throw(e) {
           asyncGeneratorStep$b(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function prepareToPlayMediaItem(e, n) {
-    return _prepareToPlayMediaItem.apply(this, arguments);
   }
   function _prepareToPlayMediaItem() {
     return (_prepareToPlayMediaItem = _async_to_generator$b(function* (e, n) {
@@ -26714,7 +30631,7 @@
           );
         {
           const { developerToken: d, userToken: p } = e.store;
-          yield prepareMediaAPIItem(n, d, p);
+          yield _prepareMediaAPIItem.apply(this, arguments);
         }
       }
     })).apply(this, arguments);
@@ -26725,8 +30642,9 @@
         !!e.previewURL &&
         (!!n ||
           (!e.playRawAssetURL &&
-            (!(yield hasMusicSubscription()) ||
-              !hasAuthorization() ||
+            (!(yield _hasMusicSubscription.apply(this, arguments)) ||
+              !(undefined === e && (e = yo && yo.storekit),
+              undefined !== e && e.hasAuthorized && e.userTokenIsValid) ||
               !e.isPlayable ||
               !supportsDrm())))
       );
@@ -26737,7 +30655,9 @@
       function* (e, n, d) {
         if (
           (Je.debug("prepareForEncryptedPlayback"),
-          !n.isUTS && !hasAuthorization())
+          !n.isUTS &&
+            !(undefined === e && (e = yo && yo.storekit),
+            undefined !== e && e.hasAuthorized && e.userTokenIsValid))
         )
           return Promise.reject(
             new MKError(
@@ -26746,7 +30666,7 @@
             ),
           );
         try {
-          yield prepareToPlayMediaItem(e, n);
+          yield _prepareToPlayMediaItem.apply(this, arguments);
         } catch (V) {
           if (V.reason === MKError.Reason.AUTHORIZATION_ERROR)
             yield e.store.storekit.revokeUserToken();
@@ -26754,7 +30674,7 @@
             try {
               return (
                 yield e.store.storekit.renewUserToken(),
-                yield prepareToPlayMediaItem(e, n),
+                yield _prepareToPlayMediaItem.apply(this, arguments),
                 (n.playbackData = _playbackDataForItem(n, d)),
                 n
               );
@@ -26771,15 +30691,24 @@
     if ("musicVideo" !== n.type && !n.isLiveVideoStation) {
       if (!n.isLiveRadioStation) {
         const [e] = n.assets.filter((e) => {
-          if (!("flavor" in e)) return !1;
+          if (!("flavor" in e)) return false;
           const n = new RegExp(
-            `\\d{1,2}\\:(c${(null === (p = window.WebKitMediaKeys) || void 0 === p ? void 0 : p.isTypeSupported(yt + ".1_0", dt.AVC1)) ? "bc" : "tr"}p)(\\d{2,3})`,
+            `\\d{1,2}\\:(c${
+              (
+                null === (p = window.WebKitMediaKeys) || undefined === p
+                  ? undefined
+                  : p.isTypeSupported(yt + ".1_0", dt.AVC1)
+              )
+                ? "bc"
+                : "tr"
+            }p)(\\d{2,3})`,
             "i",
           );
           var p;
           const h = n.test(e.flavor);
           var y;
-          const _ = null !== (y = e.flavor.match(n)) && void 0 !== y ? y : [];
+          const _ =
+            null !== (y = e.flavor.match(n)) && undefined !== y ? y : [];
           return h && parseInt(_[2], 10) <= d.bitrate;
         });
         return e;
@@ -26791,25 +30720,15 @@
             return e[d] || (e[d] = []), e[d].push(n), e;
           }, {}),
           y = Object.keys(h).sort((e, n) => parseInt(e, 10) - parseInt(n, 10)),
-          _ = d.bitrate === e.PlaybackBitrate.STANDARD ? y[0] : y[y.length - 1];
-        (null == h || null === (p = h[_]) || void 0 === p
-          ? void 0
+          _ =
+            d.bitrate === e.PlaybackBitrate.STANDARD
+              ? "autoplay *"
+              : y[y.length - 1];
+        (null == h || null === (p = h[_]) || undefined === p
+          ? undefined
           : p[0].URL) && (n.assetURL = h[_][0].URL);
       }
     }
-  }
-  function _define_property$7(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_decorate$4(e, n, d, p) {
     var h,
@@ -26838,8 +30757,8 @@
     get activeCues() {
       var e;
       const n =
-        null === (e = this.metadataTrack) || void 0 === e
-          ? void 0
+        null === (e = this.metadataTrack) || undefined === e
+          ? undefined
           : e.activeCues;
       return null != n ? Array.from(n) : [];
     }
@@ -26847,13 +30766,13 @@
       return this._isDestroyed;
     }
     get tracks() {
-      return void 0 !== this.metadataTrack ? [this.metadataTrack] : [];
+      return undefined !== this.metadataTrack ? [this.metadataTrack] : [];
     }
     get currentTrack() {
       return this.metadataTrack;
     }
     attach(e) {
-      if (void 0 !== this.mediaElement && this.mediaElement !== e)
+      if (undefined !== this.mediaElement && this.mediaElement !== e)
         throw new Error(
           "MetadaTrackManager is already attached to a different HTMLMediaElement.",
         );
@@ -26869,7 +30788,7 @@
         ));
     }
     detach() {
-      void 0 !== this.mediaElement &&
+      undefined !== this.mediaElement &&
         (this.mediaElement.removeEventListener(
           "loadedmetadata",
           this.registerMetadataTrack,
@@ -26878,21 +30797,21 @@
           "loadeddata",
           this.registerMetadataTrack,
         ),
-        (this.mediaElement = void 0)),
-        void 0 !== this.metadataTrack &&
+        (this.mediaElement = undefined)),
+        undefined !== this.metadataTrack &&
           (this.metadataTrack.removeEventListener(
             "cuechange",
             this.onCueChange,
           ),
-          (this.metadataTrack = void 0));
+          (this.metadataTrack = undefined));
     }
     registerMetadataTrack(e) {
-      if (void 0 !== this.mediaElement)
+      if (undefined !== this.mediaElement)
         for (let d = 0; d < this.mediaElement.textTracks.length; d++) {
           const e = this.mediaElement.textTracks[d];
           if ("metadata" === e.kind) {
             var n;
-            if (void 0 === this.metadataTrack)
+            if (undefined === this.metadataTrack)
               (this.metadataTrack = e),
                 this.metadataTrack.addEventListener(
                   "cuechange",
@@ -26900,7 +30819,9 @@
                 );
             else
               Kn.warning(
-                `Skipping registering metadata TextTrack with id "${null !== (n = e.id) && void 0 !== n ? n : "unknown"}"`,
+                `Skipping registering metadata TextTrack with id "${
+                  null !== (n = e.id) && undefined !== n ? n : "unknown"
+                }"`,
               );
             break;
           }
@@ -26909,19 +30830,24 @@
     onCueChange(e) {
       if (
         (Kn.debug("Processing metadata cues"),
-        void 0 === this.activeCues || this.activeCues.length <= 0)
+        undefined === this.activeCues || this.activeCues.length <= 0)
       ) {
         var n;
-        if (void 0 !== this.activeMetadata)
-          null === (n = this.onchange) || void 0 === n || n.call(this);
-        this._activeMetadata = void 0;
+        if (undefined !== this.activeMetadata)
+          null === (n = this.onchange) || undefined === n || n.call(this);
+        this._activeMetadata = undefined;
       } else {
         const e = (function (e) {
           const n = {};
           for (const h of e) {
             if (
-              !isTextTrackID3FrameCue(h) ||
-              void 0 === (null == h ? void 0 : h.value)
+              !(
+                null != h &&
+                "string" == typeof h.id &&
+                undefined !== h.value &&
+                "string" == typeof h.value.key
+              ) ||
+              undefined === (null == h ? undefined : h.value)
             )
               continue;
             const e = h.value;
@@ -26938,12 +30864,13 @@
               case "WXXX":
                 var d, p;
                 if (
-                  ((n.links = null !== (d = n.links) && void 0 !== d ? d : []),
+                  ((n.links =
+                    null !== (d = n.links) && undefined !== d ? d : []),
                   !n.links.some(({ url: n }) => n === e.data))
                 )
                   n.links.push({
                     description:
-                      null !== (p = e.description) && void 0 !== p ? p : "",
+                      null !== (p = e.description) && undefined !== p ? p : "",
                     url: e.data,
                   });
                 break;
@@ -26960,25 +30887,66 @@
           return new TimedMetadata(n);
         })(this.activeCues);
         var d;
-        if (void 0 === this.activeMetadata || !e.equals(this.activeMetadata))
+        if (undefined === this.activeMetadata || !e.equals(this.activeMetadata))
           Kn.debug("Track TimedMetadata changed", e),
             (this._activeMetadata = e),
-            null === (d = this.onchange) || void 0 === d || d.call(this, e);
+            null === (d = this.onchange) || undefined === d || d.call(this, e);
       }
     }
     saveTrack() {}
     restoreSelectedTrack() {}
     destroy() {
-      (this._isDestroyed = !0), (this.onchange = void 0), this.detach();
+      (this._isDestroyed = true), (this.onchange = undefined), this.detach();
     }
     constructor(e) {
-      _define_property$7(this, "_isDestroyed", !1),
-        _define_property$7(this, "mediaElement", void 0),
-        _define_property$7(this, "metadataTrack", void 0),
-        _define_property$7(this, "_activeMetadata", void 0),
-        _define_property$7(this, "onchange", void 0),
-        (this.onchange = null == e ? void 0 : e.onchange),
-        void 0 !== (null == e ? void 0 : e.element) && this.attach(e.element);
+      "_isDestroyed" in this
+        ? Object.defineProperty(this, "_isDestroyed", {
+            value: false,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this._isDestroyed = false),
+        this,
+        ("mediaElement" in this
+          ? Object.defineProperty(this, "mediaElement", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.mediaElement = undefined),
+        this),
+        ("metadataTrack" in this
+          ? Object.defineProperty(this, "metadataTrack", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.metadataTrack = undefined),
+        this),
+        ("_activeMetadata" in this
+          ? Object.defineProperty(this, "_activeMetadata", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._activeMetadata = undefined),
+        this),
+        ("onchange" in this
+          ? Object.defineProperty(this, "onchange", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.onchange = undefined),
+        this),
+        (this.onchange = null == e ? undefined : e.onchange),
+        undefined !== (null == e ? undefined : e.element) &&
+          this.attach(e.element);
     }
   }
   function asyncGeneratorStep$a(e, n, d, p, h, y, _) {
@@ -27002,22 +30970,9 @@
         function _throw(e) {
           asyncGeneratorStep$a(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$6(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_decorate$3(e, n, d, p) {
     var h,
@@ -27044,7 +30999,7 @@
       Bind(),
       _ts_metadata$4("design:type", Function),
       _ts_metadata$4("design:paramtypes", [Object]),
-      _ts_metadata$4("design:returntype", void 0),
+      _ts_metadata$4("design:returntype", undefined),
     ],
     ID3MetadataTrackManager.prototype,
     "registerMetadataTrack",
@@ -27055,7 +31010,7 @@
         Bind(),
         _ts_metadata$4("design:type", Function),
         _ts_metadata$4("design:paramtypes", [Object]),
-        _ts_metadata$4("design:returntype", void 0),
+        _ts_metadata$4("design:returntype", undefined),
       ],
       ID3MetadataTrackManager.prototype,
       "onCueChange",
@@ -27089,7 +31044,9 @@
     }
     get currentPlayingDate() {
       var e;
-      return null === (e = this.hls) || void 0 === e ? void 0 : e.playingDate;
+      return null === (e = this.hls) || undefined === e
+        ? undefined
+        : e.playingDate;
     }
     get isPlayingAtLiveEdge() {
       var e;
@@ -27097,13 +31054,13 @@
       return (
         !(
           !n ||
-          !(null === (e = this.nowPlayingItem) || void 0 === e
-            ? void 0
+          !(null === (e = this.nowPlayingItem) || undefined === e
+            ? undefined
             : e.isLinearStream)
         ) && !!n.isPlayingAtLive
       );
     }
-    playItemFromEncryptedSource(n, d = !1, p = {}) {
+    playItemFromEncryptedSource(n, d = false, p = {}) {
       var h = this;
       return _async_to_generator$a(function* () {
         h.playbackState !== e.PlaybackStates.stopped
@@ -27118,16 +31075,16 @@
       })();
     }
     isPlayerSupported() {
-      return !0;
+      return true;
     }
     initializeMediaElement() {
       var e = this;
       return _async_to_generator$a(function* () {
         const n = nextAvailableAudioElement();
-        (n.autoplay = !1),
+        (n.autoplay = false),
           (n.id = "apple-music-player"),
-          (n.controls = !1),
-          (n.muted = !1),
+          (n.controls = false),
+          (n.muted = false),
           (n.playbackRate = 1),
           (n.preload = "metadata"),
           (n.volume = 1),
@@ -27143,19 +31100,19 @@
         ? e.seekableTimeRanges
         : this.currentPlaybackDuration
           ? [{ start: 0, end: this.currentPlaybackDuration }]
-          : void 0;
+          : undefined;
     }
     initializeExtension() {
       var e = this;
       return _async_to_generator$a(function* () {
-        e._keySystem = yield findKeySystemPreference();
+        e._keySystem = yield _findKeySystemPreference.apply(this, arguments);
         try {
           var n;
           if (!at.urls.hls) throw new Error("bag.urls.hls is not configured");
           yield Promise.all([
             loadScript(at.urls.hls),
-            null === (n = e._rtcTracker) || void 0 === n
-              ? void 0
+            null === (n = e._rtcTracker) || undefined === n
+              ? undefined
               : n.loadScript(),
           ]);
         } catch (Vt) {
@@ -27207,7 +31164,7 @@
         const { _keySystem: h } = p;
         if (!h) return;
         let y, _;
-        (p._unrecoverableError = void 0),
+        (p._unrecoverableError = undefined),
           p.createHlsPlayer(),
           h === ot.WIDEVINE &&
             ((y = "WIDEVINE_SOFTWARE"),
@@ -27228,7 +31185,7 @@
           { _rtcTracker: g, hls: b } = p;
         if (g) {
           const e = g.prepareReportingAgent(n);
-          void 0 !== e && (m.appData.reportingAgent = e);
+          undefined !== e && (m.appData.reportingAgent = e);
         }
         ca.debug("RTC: loadSource with load options", m);
         const P = p.startPlaybackSequence();
@@ -27257,16 +31214,16 @@
         { Hls: d } = window,
         p = ge.get(),
         h = {
-          clearMediaKeysOnPromise: !1,
+          clearMediaKeysOnPromise: false,
           debug: !!p,
           debugLevel: p,
           enablePerformanceLogging: !!p,
-          enablePlayReadyKeySystem: !0,
-          enableRtcReporting: void 0 !== this._rtcTracker,
+          enablePlayReadyKeySystem: true,
+          enableRtcReporting: undefined !== this._rtcTracker,
           keySystemPreference: sa[e],
-          useMediaKeySystemAccessFilter: !0,
+          useMediaKeySystemAccessFilter: true,
           nativeControlsEnabled: n.isAndroid,
-          enableID3Cues: !0,
+          enableID3Cues: true,
         };
       ((e) => {
         const n = _e.value;
@@ -27304,21 +31261,21 @@
       const { level: h } = n;
       if (!h) return;
       const y =
-        null === (d = this._levels) || void 0 === d
-          ? void 0
+        null === (d = this._levels) || undefined === d
+          ? undefined
           : d.find((e) => e.persistentId === h);
       if (
         !y ||
-        (null === (p = this._currentLevel) || void 0 === p
-          ? void 0
-          : p.persistentId) === (null == y ? void 0 : y.persistentId)
+        (null === (p = this._currentLevel) || undefined === p
+          ? undefined
+          : p.persistentId) === (null == y ? undefined : y.persistentId)
       )
         return;
       this._currentLevel = y;
       const _ =
-        void 0 !== y.audioGroupId
+        undefined !== y.audioGroupId
           ? this._channelsByGroup[y.audioGroupId]
-          : void 0;
+          : undefined;
       this._dispatcher.publish(gt.hlsLevelUpdated, { level: y, channels: _ });
     }
     handleHlsError(e, n) {
@@ -27346,10 +31303,10 @@
         var e, p;
         let h;
         ca.debug("handleManifestParsed", n),
-          (d._levels = null !== (e = n.levels) && void 0 !== e ? e : []),
+          (d._levels = null !== (e = n.levels) && undefined !== e ? e : []),
           (d.nowPlayingItem.state = D.ready),
           (d._channelsByGroup = (
-            null !== (p = n.audioTracks) && void 0 !== p ? p : []
+            null !== (p = n.audioTracks) && undefined !== p ? p : []
           ).reduce((e, n) => ((e[n.groupId] = n.channels), e), {}));
         try {
           yield d._playMedia();
@@ -27378,11 +31335,11 @@
         } = p;
         try {
           var m;
-          const e = yield null === (m = p._license) || void 0 === m
-              ? void 0
+          const e = yield null === (m = p._license) || undefined === m
+              ? undefined
               : m.start(n, h, d, y, _),
             g = { statusCode: e.status };
-          (null == e ? void 0 : e.license) &&
+          (null == e ? undefined : e.license) &&
             (y === ot.FAIRPLAY
               ? (g.ckc = J(e.license))
               : (g.license = J(e.license)));
@@ -27393,7 +31350,7 @@
           if (p._unrecoverableError) return;
           const h = Vt.data,
             y = {};
-          void 0 !== (null == h ? void 0 : h.status) &&
+          undefined !== (null == h ? undefined : h.status) &&
             (y.statusCode = +h.status),
             ca.warn("Passing license response error to Hls.js", y),
             p.hls.setLicenseResponse(d.keyuri, y),
@@ -27424,28 +31381,180 @@
     constructor(e) {
       var n;
       super(e),
-        _define_property$6(this, "currentAudioTrack", void 0),
-        _define_property$6(this, "currentTextTrack", void 0),
-        _define_property$6(this, "textTracks", []),
-        _define_property$6(this, "audioTracks", []),
-        _define_property$6(this, "userInitiated", !1),
-        _define_property$6(this, "mediaElement", void 0),
-        _define_property$6(this, "mediaPlayerType", "hlsjs-audio"),
-        _define_property$6(this, "hls", void 0),
-        _define_property$6(this, "supportsPreviewImages", !1),
-        _define_property$6(this, "extension", void 0),
-        _define_property$6(this, "_keySystem", void 0),
-        _define_property$6(this, "_license", void 0),
-        _define_property$6(this, "_rtcTracker", void 0),
-        _define_property$6(this, "_levels", void 0),
-        _define_property$6(this, "_channelsByGroup", {}),
-        _define_property$6(this, "_currentLevel", void 0),
-        _define_property$6(this, "_licenseServerUrl", void 0),
-        _define_property$6(this, "_unrecoverableError", void 0),
-        _define_property$6(this, "id3MetadataManager", void 0),
+        ("currentAudioTrack" in this
+          ? Object.defineProperty(this, "currentAudioTrack", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentAudioTrack = undefined),
+        this),
+        ("currentTextTrack" in this
+          ? Object.defineProperty(this, "currentTextTrack", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.currentTextTrack = undefined),
+        this),
+        ("textTracks" in this
+          ? Object.defineProperty(this, "textTracks", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.textTracks = []),
+        this),
+        ("audioTracks" in this
+          ? Object.defineProperty(this, "audioTracks", {
+              value: [],
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.audioTracks = []),
+        this),
+        ("userInitiated" in this
+          ? Object.defineProperty(this, "userInitiated", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.userInitiated = false),
+        this),
+        ("mediaElement" in this
+          ? Object.defineProperty(this, "mediaElement", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.mediaElement = undefined),
+        this),
+        ("mediaPlayerType" in this
+          ? Object.defineProperty(this, "mediaPlayerType", {
+              value: "hlsjs-audio",
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.mediaPlayerType = "hlsjs-audio"),
+        this),
+        ("hls" in this
+          ? Object.defineProperty(this, "hls", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.hls = undefined),
+        this),
+        ("supportsPreviewImages" in this
+          ? Object.defineProperty(this, "supportsPreviewImages", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.supportsPreviewImages = false),
+        this),
+        ("extension" in this
+          ? Object.defineProperty(this, "extension", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.extension = undefined),
+        this),
+        ("_keySystem" in this
+          ? Object.defineProperty(this, "_keySystem", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._keySystem = undefined),
+        this),
+        ("_license" in this
+          ? Object.defineProperty(this, "_license", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._license = undefined),
+        this),
+        ("_rtcTracker" in this
+          ? Object.defineProperty(this, "_rtcTracker", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._rtcTracker = undefined),
+        this),
+        ("_levels" in this
+          ? Object.defineProperty(this, "_levels", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._levels = undefined),
+        this),
+        ("_channelsByGroup" in this
+          ? Object.defineProperty(this, "_channelsByGroup", {
+              value: {},
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._channelsByGroup = {}),
+        this),
+        ("_currentLevel" in this
+          ? Object.defineProperty(this, "_currentLevel", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._currentLevel = undefined),
+        this),
+        ("_licenseServerUrl" in this
+          ? Object.defineProperty(this, "_licenseServerUrl", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._licenseServerUrl = undefined),
+        this),
+        ("_unrecoverableError" in this
+          ? Object.defineProperty(this, "_unrecoverableError", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._unrecoverableError = undefined),
+        this),
+        ("id3MetadataManager" in this
+          ? Object.defineProperty(this, "id3MetadataManager", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.id3MetadataManager = undefined),
+        this),
         (this._rtcTracker =
-          null == e || null === (n = e.playbackServices) || void 0 === n
-            ? void 0
+          null == e || null === (n = e.playbackServices) || undefined === n
+            ? undefined
             : n.getRTCStreamingTracker()),
         (this._license = new License()),
         (this.id3MetadataManager = new ID3MetadataTrackManager({
@@ -27453,7 +31562,7 @@
             var n;
             ca.debug("Dispatching bufferTimedMetadataDidChange", e),
               null === (n = this._dispatcher) ||
-                void 0 === n ||
+                undefined === n ||
                 n.publish(On, e);
           },
         }));
@@ -27480,29 +31589,16 @@
         function _throw(e) {
           asyncGeneratorStep$9(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$5(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   _ts_decorate$3(
     [
       Bind(),
       _ts_metadata$3("design:type", Function),
-      _ts_metadata$3("design:paramtypes", [void 0, void 0]),
-      _ts_metadata$3("design:returntype", void 0),
+      _ts_metadata$3("design:paramtypes", [undefined, undefined]),
+      _ts_metadata$3("design:returntype", undefined),
     ],
     HlsJsAudioPlayer.prototype,
     "handleLevelSwitched",
@@ -27512,8 +31608,8 @@
       [
         Bind(),
         _ts_metadata$3("design:type", Function),
-        _ts_metadata$3("design:paramtypes", [void 0, void 0]),
-        _ts_metadata$3("design:returntype", void 0),
+        _ts_metadata$3("design:paramtypes", [undefined, undefined]),
+        _ts_metadata$3("design:returntype", undefined),
       ],
       HlsJsAudioPlayer.prototype,
       "handleHlsError",
@@ -27523,7 +31619,7 @@
       [
         Bind(),
         _ts_metadata$3("design:type", Function),
-        _ts_metadata$3("design:paramtypes", [void 0, void 0]),
+        _ts_metadata$3("design:paramtypes", [undefined, undefined]),
         _ts_metadata$3("design:returntype", Promise),
       ],
       HlsJsAudioPlayer.prototype,
@@ -27534,8 +31630,8 @@
       [
         Bind(),
         _ts_metadata$3("design:type", Function),
-        _ts_metadata$3("design:paramtypes", [void 0, void 0]),
-        _ts_metadata$3("design:returntype", void 0),
+        _ts_metadata$3("design:paramtypes", [undefined, undefined]),
+        _ts_metadata$3("design:returntype", undefined),
       ],
       HlsJsAudioPlayer.prototype,
       "handleKeyRequestStarted",
@@ -27545,7 +31641,7 @@
       [
         Bind(),
         _ts_metadata$3("design:type", Function),
-        _ts_metadata$3("design:paramtypes", [void 0, void 0]),
+        _ts_metadata$3("design:paramtypes", [undefined, undefined]),
         _ts_metadata$3("design:returntype", Promise),
       ],
       HlsJsAudioPlayer.prototype,
@@ -27559,7 +31655,7 @@
         _ts_metadata$3("design:paramtypes", [
           "undefined" == typeof Error ? Object : Error,
         ]),
-        _ts_metadata$3("design:returntype", void 0),
+        _ts_metadata$3("design:returntype", undefined),
       ],
       HlsJsAudioPlayer.prototype,
       "onPlaybackLicenseError",
@@ -27580,9 +31676,6 @@
     ua = BooleanDevFlag.register("mk-force-hlsjs-video-player"),
     pa = BooleanDevFlag.register("mk-force-hls-audio-player"),
     ha = Qe.createChild("factory");
-  function contentRequiresHLSjs(e) {
-    return _contentRequiresHLSjs.apply(this, arguments);
-  }
   function _contentRequiresHLSjs() {
     return (_contentRequiresHLSjs = _async_to_generator$9(function* (e) {
       var n, d, p;
@@ -27591,12 +31684,12 @@
           e.isLiveVideoStation ||
           e.isLinearStream ||
           (null === (p = e.defaultPlayable) ||
-          void 0 === p ||
+          undefined === p ||
           null === (d = p.assets) ||
-          void 0 === d ||
+          undefined === d ||
           null === (n = d.fpsKeyServerUrl) ||
-          void 0 === n
-            ? void 0
+          undefined === n
+            ? undefined
             : n.startsWith("https://linear.tv.apple.com"))
         ) || !(!e.hasOffersHlsUrl && !e.isRadioEpisode)
       );
@@ -27623,10 +31716,10 @@
             "audio" === d.mediaPlayerType && n.playersByType.set("audio", d);
         } else
           isVideo(e) && (d = yield n.createVideoPlayer(e, n.playerOptions));
-        if (void 0 === d)
+        if (undefined === d)
           throw new Error(
             "Unable to create player for MediaItem: " +
-              (null == e ? void 0 : e.id),
+              (null == e ? undefined : e.id),
           );
         return (
           ha.debug("Initializing player: " + d.constructor.name),
@@ -27645,7 +31738,7 @@
             ),
             new HlsJsAudioPlayer(n)
           );
-        if (yield contentRequiresHLSjs(e))
+        if (yield _contentRequiresHLSjs.apply(this, arguments))
           return (
             ha.debug("Creating HlsJsAudioPlayer required for content item"),
             new HlsJsAudioPlayer(n)
@@ -27675,7 +31768,7 @@
             ),
             new HlsJsVideoPlayer(n)
           );
-        if (yield contentRequiresHLSjs(e))
+        if (yield _contentRequiresHLSjs.apply(this, arguments))
           return (
             ha.debug("Creating HlsJsVideoPlayer required for content item"),
             new HlsJsVideoPlayer(n)
@@ -27689,15 +31782,47 @@
       })();
     }
     destroy() {
-      this._isDestroyed = !0;
+      this._isDestroyed = true;
       for (const e of this.playersByType.values()) e.destroy();
       this.playersByType.clear();
     }
     constructor(e) {
-      _define_property$5(this, "runtime", void 0),
-        _define_property$5(this, "playerOptions", void 0),
-        _define_property$5(this, "playersByType", void 0),
-        _define_property$5(this, "_isDestroyed", !1),
+      "runtime" in this
+        ? Object.defineProperty(this, "runtime", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.runtime = undefined),
+        this,
+        ("playerOptions" in this
+          ? Object.defineProperty(this, "playerOptions", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.playerOptions = undefined),
+        this),
+        ("playersByType" in this
+          ? Object.defineProperty(this, "playersByType", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.playersByType = undefined),
+        this),
+        ("_isDestroyed" in this
+          ? Object.defineProperty(this, "_isDestroyed", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._isDestroyed = false),
+        this),
         (this.playersByType = new Map()),
         (this.playerOptions = e),
         (this.runtime = e.services.runtime);
@@ -27724,22 +31849,9 @@
         function _throw(e) {
           asyncGeneratorStep$8(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$4(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _ts_decorate$2(e, n, d, p) {
     var h,
@@ -27769,10 +31881,10 @@
       var d, p;
       if (
         null === (p = e.container) ||
-        void 0 === p ||
+        undefined === p ||
         null === (d = p.attributes) ||
-        void 0 === d
-          ? void 0
+        undefined === d
+          ? undefined
           : d.requiresSubscription
       ) {
         if (!(yield n())) {
@@ -27785,7 +31897,7 @@
       return e.apply(this, arguments);
     };
   })();
-  let va = !1;
+  let va = false;
   class MediaItemPlayback {
     get isDestroyed() {
       return this._isDestroyed;
@@ -27881,7 +31993,7 @@
       var n;
       this._currentPlayer.isDestroyed &&
         (null === (n = this._dispatcher) ||
-          void 0 === n ||
+          undefined === n ||
           n.publish(Pt.playbackVolumeDidChange, {}));
       this._updatePlayerState("volume", e);
     }
@@ -27890,13 +32002,13 @@
     }
     destroy() {
       var e, n;
-      (this._isDestroyed = !0),
+      (this._isDestroyed = true),
         this._playerFactory.destroy(),
         null === (e = this._dispatcher) ||
-          void 0 === e ||
+          undefined === e ||
           e.unsubscribe(ya, this.onPlaybackLicenseError),
         null === (n = this._dispatcher) ||
-          void 0 === n ||
+          undefined === n ||
           n.unsubscribe(_a, this.onKeySystemGenericError);
     }
     exitFullscreen() {
@@ -27941,9 +32053,11 @@
             bitrate: n._bitrateCalculator.bitrate,
           }),
           h =
-            null === (d = n._currentPlayback) || void 0 === d ? void 0 : d.item,
+            null === (d = n._currentPlayback) || undefined === d
+              ? undefined
+              : d.item,
           y = at.features["seamless-audio-transitions"],
-          _ = "song" === (null == h ? void 0 : h.type) && "song" === e.type,
+          _ = "song" === (null == h ? undefined : h.type) && "song" === e.type,
           m = !e.playRawAssetURL;
         return (
           y &&
@@ -27973,7 +32087,7 @@
         return n._currentPlayer.setPresentationMode(e);
       })();
     }
-    startMediaItemPlayback(e, n = !1) {
+    startMediaItemPlayback(e, n = false) {
       var d = this;
       return _async_to_generator$8(function* () {
         var p;
@@ -28015,8 +32129,8 @@
         const h = yield d._getPlayerForMediaItem(e);
         if (
           (yield d.setCurrentPlayer(h),
-          !(null === (p = d._currentPlayer) || void 0 === p
-            ? void 0
+          !(null === (p = d._currentPlayer) || undefined === p
+            ? undefined
             : p.hasMediaElement))
         )
           return (
@@ -28057,7 +32171,7 @@
                   return (
                     isLive(e) &&
                     isStream$1(e) &&
-                    void 0 !== e.attributes.stationProviderName &&
+                    undefined !== e.attributes.stationProviderName &&
                     "Shoutcast" === e.attributes.streamingRadioSubType
                   );
                 })(e)
@@ -28105,18 +32219,18 @@
               if (!p || !p.age || !p.frequencyInMinutes)
                 return (
                   Je.debug("No ageGatePolicy. Resolving handleAgeGate()"),
-                  n(void 0)
+                  n(undefined)
                 );
               const h = getLocalStorage(),
-                y = null == h ? void 0 : h.ageGatePolicyAge,
-                _ = null == h ? void 0 : h.ageGatePolicyExpiration;
+                y = null == h ? undefined : h.ageGatePolicyAge,
+                _ = null == h ? undefined : h.ageGatePolicyExpiration;
               if (
                 y &&
                 _ &&
                 parseInt(_, 10) > Date.now() &&
                 parseInt(y, 10) >= p.age
               )
-                return n(void 0);
+                return n(undefined);
               MKDialog.clientDialog({
                 okButtonString: "Yes",
                 okButtonAction: () => (
@@ -28126,7 +32240,7 @@
                       "ageGatePolicyExpiration",
                       (Date.now() + 60 * p.frequencyInMinutes * 1e3).toString(),
                     ),
-                  n(void 0)
+                  n(undefined)
                 ),
                 cancelButtonString: "No",
                 cancelButtonAction: () =>
@@ -28154,11 +32268,7 @@
         }
         const h = p._currentPlayer,
           y = h.isPaused() && !d,
-          _ = yield fetchRadioStationAssets(
-            n,
-            cn.developerToken,
-            cn.musicUserToken,
-          ),
+          _ = yield _fetchRadioStationAssets.apply(this, arguments),
           m = _.assets[0];
         return (
           (n.playbackType = e.PlaybackType.unencryptedFull),
@@ -28207,7 +32317,7 @@
     unmute() {
       this.volume > 0 ||
         ((this.volume = this._volumeAtMute || 1),
-        (this._volumeAtMute = void 0));
+        (this._volumeAtMute = undefined));
     }
     _getPlayerForMediaItem(e) {
       var n = this;
@@ -28230,7 +32340,7 @@
           yield n._currentPlayer.stop(),
           (n._currentPlayer = e),
           null === (d = n._dispatcher) ||
-            void 0 === d ||
+            undefined === d ||
             d.publish(Pt.playerTypeDidChange, { player: e }));
       })();
     }
@@ -28243,9 +32353,9 @@
         var e;
         va
           ? null === (e = d._dispatcher) ||
-            void 0 === e ||
+            undefined === e ||
             e.publish(Pt.mediaPlaybackError, n)
-          : ((va = !0),
+          : ((va = true),
             it.warn("Retrying playback after keysystemGenericError"),
             yield d.restartPlayback());
       })();
@@ -28260,7 +32370,7 @@
             ),
             yield d.restartPlayback())
           : null === (e = d._dispatcher) ||
-            void 0 === e ||
+            undefined === e ||
             e.publish(Pt.mediaPlaybackError, n);
       })();
     }
@@ -28279,19 +32389,123 @@
       (this.playerState[e] = n), (this._currentPlayer[e] = n);
     }
     constructor(e) {
-      _define_property$4(this, "playerState", { playbackRate: 1, volume: 1 }),
-        _define_property$4(this, "playOptions", new Map()),
-        _define_property$4(this, "hasMusicSubscription", void 0),
-        _define_property$4(this, "prepareForEncryptedPlayback", void 0),
-        _define_property$4(this, "_currentPlayer", void 0),
-        _define_property$4(this, "services", void 0),
-        _define_property$4(this, "_dispatcher", void 0),
-        _define_property$4(this, "_playerFactory", void 0),
-        _define_property$4(this, "_previewOnly", !1),
-        _define_property$4(this, "_volumeAtMute", void 0),
-        _define_property$4(this, "_currentPlayback", void 0),
-        _define_property$4(this, "_bitrateCalculator", void 0),
-        _define_property$4(this, "_isDestroyed", !1);
+      "playerState" in this
+        ? Object.defineProperty(this, "playerState", {
+            value: { playbackRate: 1, volume: 1 },
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.playerState = { playbackRate: 1, volume: 1 }),
+        this,
+        ("playOptions" in this
+          ? Object.defineProperty(this, "playOptions", {
+              value: new Map(),
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.playOptions = new Map()),
+        this),
+        ("hasMusicSubscription" in this
+          ? Object.defineProperty(this, "hasMusicSubscription", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.hasMusicSubscription = undefined),
+        this),
+        ("prepareForEncryptedPlayback" in this
+          ? Object.defineProperty(this, "prepareForEncryptedPlayback", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.prepareForEncryptedPlayback = undefined),
+        this),
+        ("_currentPlayer" in this
+          ? Object.defineProperty(this, "_currentPlayer", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._currentPlayer = undefined),
+        this),
+        ("services" in this
+          ? Object.defineProperty(this, "services", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.services = undefined),
+        this),
+        ("_dispatcher" in this
+          ? Object.defineProperty(this, "_dispatcher", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._dispatcher = undefined),
+        this),
+        ("_playerFactory" in this
+          ? Object.defineProperty(this, "_playerFactory", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._playerFactory = undefined),
+        this),
+        ("_previewOnly" in this
+          ? Object.defineProperty(this, "_previewOnly", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._previewOnly = false),
+        this),
+        ("_volumeAtMute" in this
+          ? Object.defineProperty(this, "_volumeAtMute", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._volumeAtMute = undefined),
+        this),
+        ("_currentPlayback" in this
+          ? Object.defineProperty(this, "_currentPlayback", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._currentPlayback = undefined),
+        this),
+        ("_bitrateCalculator" in this
+          ? Object.defineProperty(this, "_bitrateCalculator", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._bitrateCalculator = undefined),
+        this),
+        ("_isDestroyed" in this
+          ? Object.defineProperty(this, "_isDestroyed", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._isDestroyed = false),
+        this);
       const { playbackServices: n } = e;
       var d;
       (this.hasMusicSubscription = n.hasMusicSubscription),
@@ -28330,22 +32544,9 @@
         function _throw(e) {
           asyncGeneratorStep$7(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$3(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$3(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -28358,7 +32559,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$3(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -28387,7 +32596,7 @@
     [
       Bind(),
       _ts_metadata$2("design:type", Function),
-      _ts_metadata$2("design:paramtypes", [void 0, void 0]),
+      _ts_metadata$2("design:paramtypes", [undefined, undefined]),
       _ts_metadata$2("design:returntype", Promise),
     ],
     MediaItemPlayback.prototype,
@@ -28398,7 +32607,7 @@
       [
         Bind(),
         _ts_metadata$2("design:type", Function),
-        _ts_metadata$2("design:paramtypes", [void 0, void 0]),
+        _ts_metadata$2("design:paramtypes", [undefined, undefined]),
         _ts_metadata$2("design:returntype", Promise),
       ],
       MediaItemPlayback.prototype,
@@ -28436,7 +32645,7 @@
       this._services.bitrateCalculator.bitrate = e;
     }
     get browserSupportsPictureInPicture() {
-      return detectPictureInPictureSupport();
+      return _detectPictureInPictureSupport.apply(this, arguments);
     }
     get browserSupportsVideoDrm() {
       return supportsDrm();
@@ -28457,7 +32666,7 @@
       return this._autoplayEnabled;
     }
     set autoplayEnabled(n) {
-      this.realm !== e.SKRealm.MUSIC && (n = !1),
+      this.realm !== e.SKRealm.MUSIC && (n = false),
         n !== this.autoplayEnabled &&
           ((this._autoplayEnabled = n),
           this._services.dispatcher.publish(
@@ -28636,7 +32845,7 @@
       return this._services.mediaItemPlayback;
     }
     get _playbackController() {
-      if (void 0 !== this._playbackControllerInternal)
+      if (undefined !== this._playbackControllerInternal)
         return this._playbackControllerInternal;
       it.debug("setting _playbackController");
       const e = this._getPlaybackControllerByType(Co.serial);
@@ -28697,7 +32906,7 @@
       return _async_to_generator$7(function* () {
         var d;
         null === (d = n._services.mediaItemPlayback) ||
-          void 0 === d ||
+          undefined === d ||
           d.destroy(),
           n._signalIntent({
             endReasonType: e.PlayActivityEndReasonType.EXITED_APPLICATION,
@@ -28748,7 +32957,7 @@
       })();
     }
     hasMusicSubscription() {
-      return hasMusicSubscription(yo.storekit);
+      return _hasMusicSubscription.apply(this, arguments);
     }
     mute() {
       return this._mediaItemPlayback.mute();
@@ -28790,13 +32999,14 @@
         var p, h;
         if (
           (it.debug("mk: playMediaItem", e),
-          (null == n ? void 0 : n.bingeWatching) || d.deferPlayback(),
+          (null == n ? undefined : n.bingeWatching) || d.deferPlayback(),
           (n = _object_spread$3({}, n)),
-          (null == e ? void 0 : e.playEvent) && !hasOwn(n, "startTime"))
+          (null == e ? undefined : e.playEvent) &&
+            !Object.prototype.hasOwnProperty.call(Object(n), "startTime"))
         ) {
           const { playEvent: d } = e;
           d.isDone ||
-            void 0 === d.playCursorInSeconds ||
+            undefined === d.playCursorInSeconds ||
             (n.startTime = d.playCursorInSeconds);
         }
         d.services.dispatcher.publish(ao.playInitiated, {
@@ -28804,9 +33014,9 @@
           timestamp:
             null !==
               (h =
-                null === (p = n.meta) || void 0 === p
-                  ? void 0
-                  : p.initiatedTimestamp) && void 0 !== h
+                null === (p = n.meta) || undefined === p
+                  ? undefined
+                  : p.initiatedTimestamp) && undefined !== h
               ? h
               : Date.now(),
         });
@@ -28942,10 +33152,10 @@
         if (n._isPlaybackSupported()) {
           var d;
           n._signalIntent({
-            endReasonType: null == e ? void 0 : e.endReasonType,
+            endReasonType: null == e ? undefined : e.endReasonType,
             userInitiated:
-              null === (d = null == e ? void 0 : e.userInitiated) ||
-              void 0 === d ||
+              null === (d = null == e ? undefined : e.userInitiated) ||
+              undefined === d ||
               d,
           });
           try {
@@ -28971,8 +33181,8 @@
         playbackServices: {
           getRTCStreamingTracker: () => {
             var e;
-            return null === (e = this._services.playActivity) || void 0 === e
-              ? void 0
+            return null === (e = this._services.playActivity) || undefined === e
+              ? undefined
               : e.getTrackerByType(RTCStreamingTracker);
           },
           hasMusicSubscription: hasMusicSubscription,
@@ -28987,7 +33197,7 @@
         autoplayEnabled: this.autoplayEnabled,
         privateEnabled: this.privateEnabled,
         siriInitiated: this.siriInitiated,
-        storekit: null == yo ? void 0 : yo.storekit,
+        storekit: null == yo ? undefined : yo.storekit,
         playbackMode: this.playbackMode,
       };
     }
@@ -29042,7 +33252,7 @@
             ),
             yo.storekit.presentSubscribeViewForEligibleUsers(
               { state: d.state, item: this.nowPlayingItem },
-              !1,
+              false,
             ));
         }),
         n.subscribe(On, (e, d) => {
@@ -29077,18 +33287,18 @@
     configureLogger(e) {
       var n;
       it.level === tt &&
-        (!0 === e.debug
+        (true === e.debug
           ? setRootLoggingLevel(Se.DEBUG)
-          : void 0 !== e.logLevel && setRootLoggingLevel(e.logLevel)),
+          : undefined !== e.logLevel && setRootLoggingLevel(e.logLevel)),
         Ze.enabled && setConsoleOutput(Ze.enabled),
-        void 0 !== et.value && applyLoggingLevels(et.value),
-        void 0 !== e.logHandler &&
+        undefined !== et.value && applyLoggingLevels(et.value),
+        undefined !== e.logHandler &&
           ((n = e.logHandler), (it.handlers.external = new CallbackHandler(n)));
     }
     _configurePlayActivity() {
       var e = this;
       return _async_to_generator$7(function* () {
-        void 0 !== e._services.playActivity &&
+        undefined !== e._services.playActivity &&
           (yield e._services.playActivity.configure({
             instance: e,
             services: e._services,
@@ -29098,7 +33308,8 @@
     _isPlaybackSupported() {
       return (
         !this._services.runtime.isNodeEnvironment ||
-        (it.warn("Media playback is not supported in Node environments."), !1)
+        (it.warn("Media playback is not supported in Node environments."),
+        false)
       );
     }
     _updatePlaybackController(e) {
@@ -29120,39 +33331,191 @@
     _signalIntent(e) {
       this.services.dispatcher.publish(
         gt.userActivityIntent,
-        _object_spread$3({ userInitiated: !0 }, e),
+        _object_spread$3({ userInitiated: true }, e),
       );
     }
-    _validateAuthorization(n = !1) {
+    _validateAuthorization(n = false) {
       var d = this;
       return _async_to_generator$7(function* () {
         (n || d.playbackMode === e.PlaybackMode.FULL_PLAYBACK_ONLY) &&
-          ((void 0 !== d._playbackControllerInternal &&
+          ((undefined !== d._playbackControllerInternal &&
             d._playbackControllerInternal.isReady &&
             d._playbackControllerInternal.isPlaying) ||
             (yield d.authorize()));
       })();
     }
     constructor(n) {
-      _define_property$3(this, "app", void 0),
-        _define_property$3(this, "capabilities", void 0),
-        _define_property$3(this, "context", void 0),
-        _define_property$3(this, "_autoplayEnabled", !1),
-        _define_property$3(this, "id", void 0),
-        _define_property$3(this, "prefix", void 0),
-        _define_property$3(this, "privateEnabled", !1),
-        _define_property$3(this, "siriInitiated", !1),
-        _define_property$3(this, "sourceType", Bt.MUSICKIT),
-        _define_property$3(this, "version", e.version),
-        _define_property$3(this, "playbackActions", void 0),
-        _define_property$3(this, "guid", void 0),
-        _define_property$3(this, "_bag", po),
-        _define_property$3(this, "_playbackControllers", {}),
-        _define_property$3(this, "_playbackControllerInternal", void 0),
-        _define_property$3(this, "_services", void 0),
-        _define_property$3(this, "_playbackErrorDialog", !0),
-        _define_property$3(this, "_playbackMode", e.PlaybackMode.MIXED_CONTENT),
-        _define_property$3(this, "_whenConfigured", void 0);
+      "app" in this
+        ? Object.defineProperty(this, "app", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.app = undefined),
+        this,
+        ("capabilities" in this
+          ? Object.defineProperty(this, "capabilities", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.capabilities = undefined),
+        this),
+        ("context" in this
+          ? Object.defineProperty(this, "context", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.context = undefined),
+        this),
+        ("_autoplayEnabled" in this
+          ? Object.defineProperty(this, "_autoplayEnabled", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._autoplayEnabled = false),
+        this),
+        ("id" in this
+          ? Object.defineProperty(this, "id", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.id = undefined),
+        this),
+        ("prefix" in this
+          ? Object.defineProperty(this, "prefix", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.prefix = undefined),
+        this),
+        ("privateEnabled" in this
+          ? Object.defineProperty(this, "privateEnabled", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.privateEnabled = false),
+        this),
+        ("siriInitiated" in this
+          ? Object.defineProperty(this, "siriInitiated", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.siriInitiated = false),
+        this),
+        ("sourceType" in this
+          ? Object.defineProperty(this, "sourceType", {
+              value: Bt.MUSICKIT,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.sourceType = Bt.MUSICKIT),
+        this),
+        ("version" in this
+          ? Object.defineProperty(this, "version", {
+              value: e.version,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.version = e.version),
+        this),
+        ("playbackActions" in this
+          ? Object.defineProperty(this, "playbackActions", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.playbackActions = undefined),
+        this),
+        ("guid" in this
+          ? Object.defineProperty(this, "guid", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.guid = undefined),
+        this),
+        ("_bag" in this
+          ? Object.defineProperty(this, "_bag", {
+              value: po,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._bag = po),
+        this),
+        ("_playbackControllers" in this
+          ? Object.defineProperty(this, "_playbackControllers", {
+              value: {},
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._playbackControllers = {}),
+        this),
+        ("_playbackControllerInternal" in this
+          ? Object.defineProperty(this, "_playbackControllerInternal", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._playbackControllerInternal = undefined),
+        this),
+        ("_services" in this
+          ? Object.defineProperty(this, "_services", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._services = undefined),
+        this),
+        ("_playbackErrorDialog" in this
+          ? Object.defineProperty(this, "_playbackErrorDialog", {
+              value: true,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._playbackErrorDialog = true),
+        this),
+        ("_playbackMode" in this
+          ? Object.defineProperty(this, "_playbackMode", {
+              value: e.PlaybackMode.MIXED_CONTENT,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._playbackMode = e.PlaybackMode.MIXED_CONTENT),
+        this),
+        ("_whenConfigured" in this
+          ? Object.defineProperty(this, "_whenConfigured", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._whenConfigured = undefined),
+        this);
       const { developerToken: d } = n;
       if ("string" != typeof d || "" === d.trim())
         throw new MKError(
@@ -29166,8 +33529,8 @@
           return (
             e.forEach((e) => {
               "-" === e.charAt(0)
-                ? ((e = e.substr(1)), (n[e] = !1))
-                : (n[e] = !0);
+                ? ((e = e.substr(1)), (n[e] = false))
+                : (n[e] = true);
             }),
             n
           );
@@ -29194,7 +33557,7 @@
         timing: y,
         bitrateCalculator: _,
       }),
-        void 0 !== n.playActivityAPI &&
+        undefined !== n.playActivityAPI &&
           (this._services.playActivity = new PlayActivityService(
             h.dispatcher,
             n.playActivityAPI,
@@ -29215,9 +33578,10 @@
           (this.prefix = po.prefix = n.prefix),
         n.suppressErrorDialog &&
           (this._playbackErrorDialog = !n.suppressErrorDialog),
-        void 0 !== n.playbackMode && (this.playbackMode = n.playbackMode),
-        "privateEnabled" in n && (this.privateEnabled = n.privateEnabled || !1),
-        "siriInitiated" in n && (this.siriInitiated = n.siriInitiated || !1),
+        undefined !== n.playbackMode && (this.playbackMode = n.playbackMode),
+        "privateEnabled" in n &&
+          (this.privateEnabled = n.privateEnabled || false),
+        "siriInitiated" in n && (this.siriInitiated = n.siriInitiated || false),
         (this.id = generateUUID()),
         it.info("MusicKit JS Version: " + this.version),
         it.info("InstanceId", this.id),
@@ -29246,13 +33610,13 @@
         function _throw(e) {
           asyncGeneratorStep$6(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
   }
   function dispatchDocumentEvent(e) {
     if (detectNodeEnvironment()) return;
-    const n = new Event(e, { bubbles: !0, cancelable: !0 });
+    const n = new Event(e, { bubbles: true, cancelable: true });
     setTimeout(() => document.dispatchEvent(n));
   }
   function _loadWebComponents() {
@@ -29262,13 +33626,15 @@
       const n = findScript("musickit.js");
       if (
         "" !==
-        (null == n || null === (e = n.dataset) || void 0 === e
-          ? void 0
+        (null == n || null === (e = n.dataset) || undefined === e
+          ? undefined
           : e.webComponents)
       )
         return;
       const d = "noModule" in n,
-        p = `components/musickit-components/musickit-components${d ? ".esm" : ""}.js`,
+        p = `components/musickit-components/musickit-components${
+          d ? ".esm" : ""
+        }.js`,
         h = "https:" + cdnBaseURL(p) + p,
         y = {};
       d && (y.type = "module"),
@@ -29299,22 +33665,9 @@
         function _throw(e) {
           asyncGeneratorStep$5(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$2(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$2(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -29327,7 +33680,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$2(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -29356,7 +33717,7 @@
   }
   _ts_decorate$1(
     [
-      AsyncDebounce(250, { isImmediate: !0 }),
+      AsyncDebounce(250, { isImmediate: true }),
       _ts_metadata$1("design:type", Function),
       _ts_metadata$1("design:paramtypes", [
         "undefined" == typeof ActivityNotificationOptions
@@ -29371,7 +33732,7 @@
   ),
     _ts_decorate$1(
       [
-        AsyncDebounce(250, { isImmediate: !0 }),
+        AsyncDebounce(250, { isImmediate: true }),
         _ts_metadata$1("design:type", Function),
         _ts_metadata$1("design:paramtypes", []),
         _ts_metadata$1("design:returntype", Promise),
@@ -29425,19 +33786,13 @@
       null,
     );
   const Pa = "undefined" != typeof window && "undefined" != typeof document;
-  let Sa = !1;
+  let Sa = false;
   const Ea = [];
-  function cleanupInstances() {
-    return _cleanupInstances.apply(this, arguments);
-  }
   function _cleanupInstances() {
     return (_cleanupInstances = _async_to_generator$5(function* () {
       const e = Ea.map((e) => e.cleanup());
       yield Promise.all(e), Ea.splice(0, Ea.length);
     })).apply(this, arguments);
-  }
-  function configure$1(e) {
-    return _configure$1.apply(this, arguments);
   }
   function _configure$1() {
     return (_configure$1 = _async_to_generator$5(function* (
@@ -29465,23 +33820,20 @@
           dispatcher: new PubSub(),
           request: new RequestManager(),
         },
-        null == e ? void 0 : e.services,
+        null == e ? undefined : e.services,
       );
-      yield findKeySystemPreference(h.runtime);
+      yield _findKeySystemPreference.apply(this, arguments);
       const y = new n(
         _object_spread_props$2(_object_spread$2({}, e, p), { services: h }),
       );
       return (
-        Sa || (yield cleanupInstances()),
+        Sa || (yield _cleanupInstances.apply(this, arguments)),
         d && (yield d(y)),
         Ea.push(y),
         dispatchDocumentEvent(ao.configured),
         y
       );
     })).apply(this, arguments);
-  }
-  function getInstances() {
-    return Ea;
   }
   Pa &&
     (asAsync(
@@ -29517,22 +33869,9 @@
         function _throw(e) {
           asyncGeneratorStep$4(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property$1(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread$1(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -29545,7 +33884,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property$1(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -29588,10 +33935,10 @@
       return Array.from(this.dispatchTable.keys());
     }
     get isConfigured() {
-      return void 0 !== this.instance;
+      return undefined !== this.instance;
     }
     get activityTracker() {
-      if (void 0 === this._activityTracker)
+      if (undefined === this._activityTracker)
         throw new MKError(
           MKError.Reason.CONFIGURATION_ERROR,
           "Play Activity service was called before configuration.",
@@ -29614,7 +33961,7 @@
               {
                 app: {
                   build: po.app.build,
-                  name: null !== (h = po.app.name) && void 0 !== h ? h : "",
+                  name: null !== (h = po.app.name) && undefined !== h ? h : "",
                   version: po.app.version,
                 },
                 fetch: p.request.fetch,
@@ -29634,7 +33981,7 @@
     handleEvent(e, n, d) {
       if (!this.shouldTrackPlayActivity(e, d)) return;
       const p = this.dispatchTable.get(e);
-      void 0 !== p && "function" == typeof this[p] && this[p](d, n);
+      undefined !== p && "function" == typeof this[p] && this[p](d, n);
     }
     activate(e, n = {}) {
       return this.activityTracker.activate(n.flush);
@@ -29657,14 +34004,16 @@
     }
     play(e, n = {}) {
       const d = generateItemDescriptorForPAF(gt.playbackPlay, this.instance, e);
-      isLiveRadioKind(e, "video") &&
+      isRadioStation(e, "video") &&
+        isLive(e) &&
+        isStream$1(e) &&
         (this.musicLiveVideoStartTime = Date.now()),
         ka.debug(
           "PAF debug",
           `client.play(${JSON.stringify(d)}, ${n.position})`,
         ),
         this.activityTracker.play(d, n.position),
-        (this.playReported = !0);
+        (this.playReported = true);
     }
     scrub(e, n = {}) {
       return (
@@ -29694,7 +34043,9 @@
         const p = generateItemDescriptorForPAF(gt.playbackSkip, d.instance, e);
         ka.debug(
           "PAF debug",
-          `client.skip(${JSON.stringify(p)}, ${asCode(n.direction)}, ${n.position})`,
+          `client.skip(${JSON.stringify(p)}, ${asCode(n.direction)}, ${
+            n.position
+          })`,
         );
         try {
           yield d.activityTracker.skip(p, n.direction, n.position);
@@ -29710,15 +34061,15 @@
     }
     stop(n, d = {}) {
       var p;
-      (isLiveRadioKind(n, "video")
+      (isRadioStation(n, "video") && isLive(n) && isStream$1(n)
         ? ((d.position = (Date.now() - this.musicLiveVideoStartTime) / 1e3),
           (this.musicLiveVideoStartTime = 0))
-        : (null == n ? void 0 : n.isLiveRadioStation) &&
+        : (null == n ? undefined : n.isLiveRadioStation) &&
           d.position &&
           (d.position = d.position - (d.startPosition || 0)),
-      null == n ? void 0 : n.isLiveRadioStation) &&
+      null == n ? undefined : n.isLiveRadioStation) &&
         (d.endReasonType =
-          null !== (p = d.endReasonType) && void 0 !== p
+          null !== (p = d.endReasonType) && undefined !== p
             ? p
             : e.PlayActivityEndReasonType.PLAYBACK_MANUALLY_PAUSED);
       return (
@@ -29734,30 +34085,34 @@
       return _async_to_generator$4(function* () {
         var p, h;
         if (
-          void 0 === e ||
-          void 0 === n ||
-          void 0 === n.position ||
-          void 0 ===
-            (null === (p = n.metadata) || void 0 === p ? void 0 : p.blob)
+          undefined === e ||
+          undefined === n ||
+          undefined === n.position ||
+          undefined ===
+            (null === (p = n.metadata) || undefined === p ? undefined : p.blob)
         )
           return;
         if (!e.isRadioEpisode)
           return void ka.debug(
             `Ignoring TimedMetadata ping at ${n.position}, not a Radio Episode`,
           );
-        const y = null === (h = n.metadata) || void 0 === h ? void 0 : h.blob,
+        const y =
+            null === (h = n.metadata) || undefined === h ? undefined : h.blob,
           _ = d.activityTracker.timedMetadata;
         ka.debug("Storing TimedMetadata ping at " + n.position),
           d.activityTracker.setTimedMetadata(y, n.position),
-          d.playReported || void 0 === y
-            ? ((void 0 !== y && void 0 === _) || !compareUint8Array(y, _)) &&
+          d.playReported || undefined === y
+            ? ((undefined !== y && undefined === _) ||
+                !compareUint8Array(y, _)) &&
               (ka.debug("Sending TimedMetadata ping at " + n.position),
               d.activityTracker.pingTimedMetadata(n.position, y))
             : ka.debug("Play not reported, skipping TimeMetadata ping");
       })();
     }
     shouldTrackPlayActivity(n, d) {
-      const p = hasAuthorization(),
+      const p =
+          (undefined === e && (e = yo && yo.storekit),
+          undefined !== e && e.hasAuthorized && e.userTokenIsValid),
         h = !d || d.playbackType !== e.PlaybackType.preview,
         y = this.alwaysSendForActivityType(n),
         _ = !d || (d && this.mediaRequiresPlayActivity(d));
@@ -29768,33 +34123,86 @@
     }
     mediaRequiresPlayActivity(e) {
       return (
-        (void 0 !== (n = e.type) && Ta.includes(n)) ||
+        (undefined !== (n = e.type) && Ta.includes(n)) ||
         -1 !==
           ["musicMovie", "musicVideo", "song", "radioStation"].indexOf(e.type)
       );
-      var n;
     }
     constructor() {
-      _define_property$1(this, "instance", void 0),
-        _define_property$1(this, "services", void 0),
-        _define_property$1(this, "_activityTracker", void 0),
-        _define_property$1(this, "playReported", !1),
-        _define_property$1(this, "musicLiveVideoStartTime", 0),
-        _define_property$1(
-          this,
-          "dispatchTable",
-          new Map([
-            [gt.playbackPlay, "play"],
-            [gt.playbackPause, "pause"],
-            [gt.playbackScrub, "scrub"],
-            [gt.playbackSeek, "seek"],
-            [gt.playbackSkip, "skip"],
-            [gt.playbackStop, "stop"],
-            [gt.playerActivate, "activate"],
-            [gt.playerExit, "exit"],
-            [gt.timedMetadata, "timedMetadata"],
-          ]),
-        );
+      "instance" in this
+        ? Object.defineProperty(this, "instance", {
+            value: undefined,
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.instance = undefined),
+        this,
+        ("services" in this
+          ? Object.defineProperty(this, "services", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.services = undefined),
+        this),
+        ("_activityTracker" in this
+          ? Object.defineProperty(this, "_activityTracker", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._activityTracker = undefined),
+        this),
+        ("playReported" in this
+          ? Object.defineProperty(this, "playReported", {
+              value: false,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.playReported = false),
+        this),
+        ("musicLiveVideoStartTime" in this
+          ? Object.defineProperty(this, "musicLiveVideoStartTime", {
+              value: 0,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.musicLiveVideoStartTime = 0),
+        this),
+        ("dispatchTable" in this
+          ? Object.defineProperty(this, "dispatchTable", {
+              value: new Map([
+                [gt.playbackPlay, "play"],
+                [gt.playbackPause, "pause"],
+                [gt.playbackScrub, "scrub"],
+                [gt.playbackSeek, "seek"],
+                [gt.playbackSkip, "skip"],
+                [gt.playbackStop, "stop"],
+                [gt.playerActivate, "activate"],
+                [gt.playerExit, "exit"],
+                [gt.timedMetadata, "timedMetadata"],
+              ]),
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.dispatchTable = new Map([
+              [gt.playbackPlay, "play"],
+              [gt.playbackPause, "pause"],
+              [gt.playbackScrub, "scrub"],
+              [gt.playbackSeek, "seek"],
+              [gt.playbackSkip, "skip"],
+              [gt.playbackStop, "stop"],
+              [gt.playerActivate, "activate"],
+              [gt.playerExit, "exit"],
+              [gt.timedMetadata, "timedMetadata"],
+            ])),
+        this);
     }
   }
   function generateItemDescriptorForPAF(n, d, p) {
@@ -29803,8 +34211,8 @@
         {},
         (function (n, d, p) {
           if (
-            void 0 === (null == p ? void 0 : p.playbackActions) ||
-            void 0 === d
+            undefined === (null == p ? undefined : p.playbackActions) ||
+            undefined === d
           )
             return {};
           const h = {
@@ -29835,7 +34243,7 @@
                         g.items.some((e) => {
                           const { id: n, type: d, container: p } = e;
                           if (p && "stations" === p.type && p.name === St.RADIO)
-                            return !1;
+                            return false;
                           const h = normalizeTypeForAutoplay(n, d);
                           return isAutoplaySupportedForType(h);
                         })
@@ -29850,22 +34258,24 @@
         (function (e, n) {
           var d;
           if (!typeRequiresItem(e)) return {};
-          if (void 0 === n) return {};
+          if (undefined === n) return {};
           const p =
-            null === (d = n.attributes) || void 0 === d ? void 0 : d.mediaKind;
+            null === (d = n.attributes) || undefined === d
+              ? undefined
+              : d.mediaKind;
           return _object_spread$1(
             {},
-            void 0 !== p ? { mediaType: p } : {},
+            undefined !== p ? { mediaType: p } : {},
             n.playParams,
           );
         })(n, p),
         (function (e, n) {
-          if (!typeRequiresItem(e) || void 0 === n) return {};
+          if (!typeRequiresItem(e) || undefined === n) return {};
           const { context: d = {} } = n;
           return { recoData: d.reco_id };
         })(n, p),
         (function (e, n) {
-          if (!typeRequiresItem(e) || void 0 === n) return {};
+          if (!typeRequiresItem(e) || undefined === n) return {};
           const d = n.playbackDuration;
           if (!d) return {};
           return { duration: d / 1e3 };
@@ -29876,8 +34286,8 @@
               var d;
               return (
                 (itemIsRequired(e, n) &&
-                  (null == n || null === (d = n.container) || void 0 === d
-                    ? void 0
+                  (null == n || null === (d = n.container) || undefined === d
+                    ? undefined
                     : d.name)) ||
                 null
               );
@@ -29885,21 +34295,21 @@
             m = itemIsRequired(e, n)
               ? _object_spread$1(
                   {},
-                  null == n ? void 0 : n.container,
+                  null == n ? undefined : n.container,
                   null == n ||
                     null === (p = n.container) ||
-                    void 0 === p ||
+                    undefined === p ||
                     null === (d = p.attributes) ||
-                    void 0 === d
-                    ? void 0
+                    undefined === d
+                    ? undefined
                     : d.playParams,
                   (null == n ||
                   null === (y = n.container) ||
-                  void 0 === y ||
+                  undefined === y ||
                   null === (h = y.attributes) ||
-                  void 0 === h
-                    ? void 0
-                    : h.hasCollaboration) && { isCollaborative: !0 },
+                  undefined === h
+                    ? undefined
+                    : h.hasCollaboration) && { isCollaborative: true },
                 )
               : null;
           if (null === _ && null === m) return;
@@ -29910,14 +34320,14 @@
           };
         })(n, p),
       ),
-      { trackInfo: null == p ? void 0 : p.trackInfo },
+      { trackInfo: null == p ? undefined : p.trackInfo },
     );
     return ka.trace("PAF descriptor", h), h;
   }
   const wa = BooleanDevFlag.register("mk-use-paf-qa-endpoint");
   const typeRequiresItem = (e) =>
       [gt.playbackPlay, gt.playbackSkip].includes(e),
-    itemIsRequired = (e, n) => void 0 !== n && typeRequiresItem(e);
+    itemIsRequired = (e, n) => undefined !== n && typeRequiresItem(e);
   function cleanContainer(e) {
     const n = _object_spread$1({}, e);
     return delete n.attributes, n;
@@ -29943,22 +34353,9 @@
         function _throw(e) {
           asyncGeneratorStep$3(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function _define_property(e, n, d) {
-    return (
-      n in e
-        ? Object.defineProperty(e, n, {
-            value: d,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          })
-        : (e[n] = d),
-      e
-    );
   }
   function _object_spread(e) {
     for (var n = 1; n < arguments.length; n++) {
@@ -29971,7 +34368,15 @@
           }),
         )),
         p.forEach(function (n) {
-          _define_property(e, n, d[n]);
+          n in e
+            ? Object.defineProperty(e, n, {
+                value: d[n],
+                enumerable: true,
+                configurable: true,
+                writable: true,
+              })
+            : (e[n] = d[n]),
+            e;
         });
     }
     return e;
@@ -30004,14 +34409,14 @@
       return Array.from(this.dispatchTable.keys());
     }
     get activityTracker() {
-      if (void 0 === this.instance || void 0 === this.services)
+      if (undefined === this.instance || undefined === this.services)
         throw new MKError(
           MKError.Reason.CONFIGURATION_ERROR,
           "Lyrics Play Activity service was called before configuration.",
         );
       var e, n, d;
       return (
-        void 0 === this._activityTracker &&
+        undefined === this._activityTracker &&
           (this._activityTracker =
             ((e = this.instance),
             (n = {
@@ -30025,7 +34430,7 @@
               {
                 app: {
                   build: po.app.build,
-                  name: null !== (d = po.app.name) && void 0 !== d ? d : "",
+                  name: null !== (d = po.app.name) && undefined !== d ? d : "",
                   version: po.app.version,
                 },
                 fetch: n.request.fetch,
@@ -30041,7 +34446,7 @@
       );
     }
     get isConfigured() {
-      return void 0 !== this.instance;
+      return undefined !== this.instance;
     }
     static configure(e) {
       var n = this;
@@ -30058,18 +34463,18 @@
     }
     handleEvent(e, n, d) {
       const p = this.dispatchTable.get(e);
-      void 0 !== p && "function" == typeof this[p] && this[p](d, n);
+      undefined !== p && "function" == typeof this[p] && this[p](d, n);
     }
     lyricsPlay(e, n) {
       var d = this;
       return _async_to_generator$3(function* () {
-        const p = null == n ? void 0 : n.lyrics;
-        if (void 0 === p)
+        const p = null == n ? undefined : n.lyrics;
+        if (undefined === p)
           throw new MKError(
             MKError.Reason.MEDIA_DESCRIPTOR,
             "Key lyrics is missing from descriptor provided to lyricsPlay",
           );
-        if (void 0 === e)
+        if (undefined === e)
           throw new MKError(
             MKError.Reason.MEDIA_DESCRIPTOR,
             "Cannot display lyrics without a MediaItem",
@@ -30087,10 +34492,10 @@
                     {},
                     n.container,
                     null === (h = n.container) ||
-                      void 0 === h ||
+                      undefined === h ||
                       null === (p = h.attributes) ||
-                      void 0 === p
-                      ? void 0
+                      undefined === p
+                      ? undefined
                       : p.playParams,
                   ),
                 },
@@ -30098,14 +34503,14 @@
               ),
               {
                 lyricDescriptor: {
-                  id: null !== (_ = d.id) && void 0 !== _ ? _ : n.id,
+                  id: null !== (_ = d.id) && undefined !== _ ? _ : n.id,
                   displayType: d.displayType,
                   language: d.language,
                 },
                 trackInfo: n.trackInfo,
                 recoData:
-                  null === (y = n.attributes) || void 0 === y
-                    ? void 0
+                  null === (y = n.attributes) || undefined === y
+                    ? undefined
                     : y.reco_id,
               },
             );
@@ -30126,18 +34531,50 @@
       })();
     }
     constructor() {
-      _define_property(
+      "dispatchTable" in this
+        ? Object.defineProperty(this, "dispatchTable", {
+            value: new Map([
+              [gt.lyricsPlay, "lyricsPlay"],
+              [gt.lyricsStop, "lyricsStop"],
+              [gt.playerExit, "exit"],
+            ]),
+            enumerable: true,
+            configurable: true,
+            writable: true,
+          })
+        : (this.dispatchTable = new Map([
+            [gt.lyricsPlay, "lyricsPlay"],
+            [gt.lyricsStop, "lyricsStop"],
+            [gt.playerExit, "exit"],
+          ])),
         this,
-        "dispatchTable",
-        new Map([
-          [gt.lyricsPlay, "lyricsPlay"],
-          [gt.lyricsStop, "lyricsStop"],
-          [gt.playerExit, "exit"],
-        ]),
-      ),
-        _define_property(this, "instance", void 0),
-        _define_property(this, "services", void 0),
-        _define_property(this, "_activityTracker", void 0);
+        ("instance" in this
+          ? Object.defineProperty(this, "instance", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.instance = undefined),
+        this),
+        ("services" in this
+          ? Object.defineProperty(this, "services", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this.services = undefined),
+        this),
+        ("_activityTracker" in this
+          ? Object.defineProperty(this, "_activityTracker", {
+              value: undefined,
+              enumerable: true,
+              configurable: true,
+              writable: true,
+            })
+          : (this._activityTracker = undefined),
+        this);
     }
   }
   const Ia = BooleanDevFlag.register("mk-use-paf-qa-endpoint");
@@ -30162,7 +34599,7 @@
         function _throw(e) {
           asyncGeneratorStep$2(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
   }
@@ -30222,16 +34659,16 @@
           !!e &&
           (!!isIdentityQueue(e) ||
             !!isQueueURLOption(e) ||
-            Object.keys(Bo).some((n) => void 0 !== e[n])))(
+            Object.keys(Bo).some((n) => undefined !== e[n])))(
           (e = parseQueueURLOption(e)),
         ) ||
         ((e) => {
-          if (!e) return !1;
-          if (isQueueURLOption(e)) return !0;
-          if (isQueueItems(e)) return !0;
+          if (!e) return false;
+          if (isQueueURLOption(e)) return true;
+          if (isQueueItems(e)) return true;
           return Object.keys(Wo)
             .concat(Object.keys(zo))
-            .some((n) => void 0 !== e[n]);
+            .some((n) => undefined !== e[n]);
         })(e)
       );
     }
@@ -30247,15 +34684,15 @@
           yield n._updatePlaybackController(
             n._getPlaybackControllerByType(Co.continuous),
           ),
-          yield _superprop_get__validateAuthorization().call(n, !0),
+          yield _superprop_get__validateAuthorization().call(n, true),
           (e = parseQueueURLOption(e));
         const d = n._playbackController.setQueue(e);
         return (
-          void 0 !== e.autoplay &&
+          undefined !== e.autoplay &&
             (deprecationWarning("autoplay", {
               message: "autoplay has been deprecated, use startPlaying instead",
             }),
-            void 0 === e.startPlaying && (e.startPlaying = e.autoplay)),
+            undefined === e.startPlaying && (e.startPlaying = e.autoplay)),
           e.startPlaying && (yield n.play()),
           d
         );
@@ -30284,13 +34721,13 @@
           );
         const d = yield n._playbackController.setQueue(e);
         return (
-          void 0 !== e.repeatMode &&
+          undefined !== e.repeatMode &&
             (n._playbackController.repeatMode = e.repeatMode),
-          void 0 !== e.autoplay &&
+          undefined !== e.autoplay &&
             (deprecationWarning("autoplay", {
               message: "autoplay has been deprecated, use startPlaying instead",
             }),
-            void 0 === e.startPlaying && (e.startPlaying = e.autoplay)),
+            undefined === e.startPlaying && (e.startPlaying = e.autoplay)),
           e.startPlaying && (yield n.play()),
           d
         );
@@ -30299,11 +34736,11 @@
     assertUserStorefront() {
       const n = yo.storekit.storefrontCountryCode,
         d = yo.storefrontId,
-        p = void 0 !== n && n !== d;
-      if (this.realm === e.SKRealm.MUSIC && !this.previewOnly && !0 === p)
+        p = undefined !== n && n !== d;
+      if (this.realm === e.SKRealm.MUSIC && !this.previewOnly && true === p)
         throw new MKError(MKError.Reason.CONTENT_EQUIVALENT);
     }
-    playNext(e, n = !1) {
+    playNext(e, n = false) {
       var d = this;
       return _async_to_generator$2(function* () {
         if (d._isPlaybackSupported())
@@ -30366,7 +34803,7 @@
         function _throw(e) {
           asyncGeneratorStep$1(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
   }
@@ -30408,9 +34845,6 @@
     "playAt",
     null,
   );
-  function loadLinksData() {
-    return _loadLinksData.apply(this, arguments);
-  }
   function _loadLinksData() {
     return (_loadLinksData = _async_to_generator$1(function* () {
       const e = [
@@ -30535,12 +34969,9 @@
         })
       : h;
   }
-  function filterLinks(e) {
-    return _filterLinks.apply(this, arguments);
-  }
   function _filterLinks() {
     return (_filterLinks = _async_to_generator$1(function* (e) {
-      const n = yield loadLinksData(),
+      const n = yield _loadLinksData.apply(this, arguments),
         d = parseQueryParams(e);
       return n.reduce((n, p) => {
         if (meetsLinkRequirements(e, p, d)) {
@@ -30556,7 +34987,7 @@
               (p.mediaAPI.parameters = transform$9(
                 p.mediaAPI.parameterMapping,
                 d,
-                !0,
+                true,
               )),
             n.push(p);
         }
@@ -30567,7 +34998,7 @@
   function _resolveCanonical() {
     return (_resolveCanonical = _async_to_generator$1(function* (e) {
       return {
-        results: { links: yield filterLinks(e) },
+        results: { links: yield _filterLinks.apply(this, arguments) },
         meta: { originalUrl: e, originalQueryParams: parseQueryParams(e) },
       };
     })).apply(this, arguments);
@@ -30593,12 +35024,9 @@
         function _throw(e) {
           asyncGeneratorStep(y, p, h, _next, _throw, "throw", e);
         }
-        _next(void 0);
+        _next(undefined);
       });
     };
-  }
-  function configure(e) {
-    return _configure.apply(this, arguments);
   }
   function _configure() {
     return (_configure = _async_to_generator(function* (e) {
@@ -30608,25 +35036,7 @@
         it.linkChild(Xe),
         (e.playActivityAPI = [new MPAFTracker(), new LyricsTracker()]);
       let n = MusicKitInstance;
-      return yield configure$1(
-        e,
-        n,
-        (function () {
-          var n = _async_to_generator(function* (n) {
-            let d = { apiType: ta.MEDIA_API, options: {} };
-            yield n.configure([d]),
-              e.declarativeMarkup &&
-                "undefined" != typeof console &&
-                console.warn &&
-                console.warn(
-                  "The declarativeMarkup configuration option has been removed in MusicKit JS V3",
-                );
-          });
-          return function (e) {
-            return n.apply(this, arguments);
-          };
-        })(),
-      );
+      return yield _configure$1.apply(this, arguments);
     })).apply(this, arguments);
   }
   if (Pa) {
@@ -30634,7 +35044,7 @@
         function meta(e) {
           if (detectNodeEnvironment()) return;
           const n = document.head.querySelector(`meta[name=${e}]`);
-          return (null == n ? void 0 : n.content) || void 0;
+          return (null == n ? undefined : n.content) || undefined;
         }
         const e = meta("apple-music-developer-token") || meta("JWT"),
           n = meta("apple-music-app-build") || meta("version"),
@@ -30656,42 +35066,44 @@
       n = /interactive|complete|loaded/.test(document.readyState);
     e &&
       e.developerToken &&
-      0 === getInstances().length &&
+      0 === Ea.length &&
       (n
-        ? asAsync(configure(e))
-        : document.addEventListener("DOMContentLoaded", () => configure(e)));
+        ? asAsync(_configure.apply(this, arguments))
+        : document.addEventListener("DOMContentLoaded", () =>
+            _configure.apply(this, arguments),
+          ));
   }
   (e.Events = ao),
     (e.MKError = MKError),
     (e.MediaItem = MediaItem),
     (e.VideoTypes = {
-      movie: !0,
-      musicVideo: !0,
-      musicMovie: !0,
-      trailer: !0,
-      tvEpisode: !0,
-      uploadedVideo: !0,
-      "uploaded-videos": !0,
-      "music-videos": !0,
-      "music-movies": !0,
-      "tv-episodes": !0,
-      Bonus: !0,
-      Extra: !0,
-      Episode: !0,
-      Movie: !0,
-      Preview: !0,
-      Promotional: !0,
-      Season: !0,
-      Show: !0,
-      Vod: !0,
-      EditorialVideoClip: !0,
-      RealityVideo: !0,
-      SportingEvent: !0,
-      LiveService: !0,
+      movie: true,
+      musicVideo: true,
+      musicMovie: true,
+      trailer: true,
+      tvEpisode: true,
+      uploadedVideo: true,
+      "uploaded-videos": true,
+      "music-videos": true,
+      "music-movies": true,
+      "tv-episodes": true,
+      Bonus: true,
+      Extra: true,
+      Episode: true,
+      Movie: true,
+      Preview: true,
+      Promotional: true,
+      Season: true,
+      Show: true,
+      Vod: true,
+      EditorialVideoClip: true,
+      RealityVideo: true,
+      SportingEvent: true,
+      LiveService: true,
     }),
     (e.configure = configure),
     (e.enableMultipleInstances = function () {
-      Sa = !0;
+      Sa = true;
     }),
     (e.formatArtworkURL = formatArtworkURL),
     (e.formatMediaTime = function (e, n = ":") {
@@ -30714,9 +35126,9 @@
     (e.generateEmbedCode = function (e, n = { height: "450", width: "660" }) {
       if (!p.test(e)) throw new Error("Invalid content url");
       var d;
-      let _ = null !== (d = n.height) && void 0 !== d ? d : "450";
+      let _ = null !== (d = n.height) && undefined !== d ? d : "450";
       var m;
-      let g = null !== (m = n.width) && void 0 !== m ? m : "660";
+      let g = null !== (m = n.width) && undefined !== m ? m : "660";
       const { kind: b, isUTS: P } = formattedMediaURL(e),
         S = "post" === b || "musicVideo" === b || P;
       "song" === b || "episode" === b
@@ -30727,29 +35139,36 @@
       const E =
         (S ? "width:" + g : "width:100%;" + (g ? "max-width:" + g : "")) +
         ";overflow:hidden;border-radius:10px;";
-      return `<iframe ${[`allow="${y.join("; ")}"`, 'frameborder="0"', _ ? `height="${_}"` : "", `style="${E}"`, `sandbox="${h.join(" ")}"`, `src="${e.replace(p, "https://embed.music.apple.com")}"`].join(" ")}></iframe>`;
+      return `<iframe ${[
+        `allow="${y.join("; ")}"`,
+        'frameborder="0"',
+        _ ? `height="${_}"` : "",
+        `style="${E}"`,
+        `sandbox="${h.join(" ")}"`,
+        `src="${e.replace(p, "https://embed.music.apple.com")}"`,
+      ].join(" ")}></iframe>`;
     }),
     (e.getHlsJsCdnConfig = getHlsJsCdnConfig),
     (e.getInstance = function (e) {
       if (0 !== Ea.length)
-        return void 0 === e ? Ea[Ea.length - 1] : Ea.find((n) => n.id === e);
+        return undefined === e ? Ea[Ea.length - 1] : Ea.find((n) => n.id === e);
     }),
     (e.getInstances = getInstances),
     (e.getPlayerType = function (e) {
       var n, d;
-      return (null == e ? void 0 : e.isUTS) ||
-        Y.includes(null == e ? void 0 : e.type)
+      return (null == e ? undefined : e.isUTS) ||
+        Y.includes(null == e ? undefined : e.type)
         ? "video"
         : null !==
               (d =
-                null == e || null === (n = e.attributes) || void 0 === n
-                  ? void 0
-                  : n.mediaKind) && void 0 !== d
+                null == e || null === (n = e.attributes) || undefined === n
+                  ? undefined
+                  : n.mediaKind) && undefined !== d
           ? d
           : "audio";
     }),
     (e.resolveCanonical = function (e) {
       return _resolveCanonical.apply(this, arguments);
     }),
-    Object.defineProperty(e, "__esModule", { value: !0 });
+    Object.defineProperty(e, "__esModule", { value: true });
 });
