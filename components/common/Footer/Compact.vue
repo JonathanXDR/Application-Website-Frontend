@@ -1,7 +1,11 @@
 <template>
   <div class="rs-covers-footer">
     <div class="as-l-container">
-      Copyright © {{ currentYear }} Jonathan Russ. All rights reserved.
+      {{
+        $t("components.common.Footer.allRightsReserved", {
+          currentYear,
+        })
+      }}
     </div>
   </div>
 </template>

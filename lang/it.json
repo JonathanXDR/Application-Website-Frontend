@@ -224,8 +224,11 @@
           }
         ]
       },
-      "FooterItem": {
+      "LanguagePickerBar": {
         "chooseYourLanguage": "Scegli la tua lingua"
+      },
+      "Footer": {
+        "allRightsReserved": "Copyright © {currentYear} Jonathan Russ. Tutti i diritti riservati."
       }
     },
     "containers": {

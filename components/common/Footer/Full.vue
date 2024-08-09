@@ -1,6 +1,12 @@
 <template>
   <section id="copyright">
-    <p>Copyright © {{ currentYear }} Jonathan Russ. All rights reserved.</p>
+    <p>
+      {{
+        $t("components.common.Footer.allRightsReserved", {
+          currentYear,
+        })
+      }}
+    </p>
   </section>
   <LanguagePickerBar />
   <ShareSheet />
