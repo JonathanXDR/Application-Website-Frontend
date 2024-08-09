@@ -1,4 +1,4 @@
-// mario
+/* eslint-disable */
 export default {
   tl: new TimelineMax(),
   mariotl: new TimelineMax(),

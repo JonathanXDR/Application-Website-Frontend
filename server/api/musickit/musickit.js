@@ -1,3 +1,4 @@
+/* eslint-disable */
 !(function (e, n) {
   "object" == typeof exports && "undefined" != typeof module
     ? n(exports)
