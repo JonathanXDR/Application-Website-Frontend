@@ -11,6 +11,7 @@
     <footer :class="footerClass">
       <component :is="footerComponent" />
     </footer>
+    <EasterEggAscii />
   </div>
 </template>
 
