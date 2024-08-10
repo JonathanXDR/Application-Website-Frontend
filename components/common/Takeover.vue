@@ -515,7 +515,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 }
 .takeover .event-info:not(.pre-event) .countdown {
   opacity: 0;
-  margin-top: -3.5294117647rem;
+  margin-top: -56px;
   pointer-events: none;
   transition:
     opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
@@ -865,7 +865,7 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
   flex-direction: column;
   align-items: center;
   position: relative;
-  min-width: 3.2941176471rem;
+  min-width: 52px;
 }
 .countdown-zone:not(:first-child) {
   margin-left: 12px;

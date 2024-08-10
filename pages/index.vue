@@ -1,5 +1,6 @@
 <template>
   <div>
+    <HeroSection />
     <section
       v-for="(section, index) in sections"
       :id="section.id"

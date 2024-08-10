@@ -28,6 +28,8 @@
 <script setup lang="ts"></script>
 
 <style scoped>
+@import url("https://use.typekit.net/bzh0rct.css");
+
 .section-content {
   width: calc(100% - 55px);
   margin-inline: auto;
@@ -168,15 +170,11 @@
 .hero-code {
   width: 150%;
   height: 3em;
-  font-size: 1.8823529412rem;
+  font-size: 30px;
   line-height: 1.5;
   font-weight: 300;
   letter-spacing: -0.02em;
-  font-family:
-    SF Mono,
-    SF Pro Icons,
-    Menlo,
-    monospace;
+  font-family: Menlo, monospace;
   opacity: 0.2;
   color: #e8e8ed;
   -webkit-mask-image: linear-gradient(0deg, transparent, #eee 120%);
@@ -186,7 +184,8 @@
   .hero-code {
     margin-top: -16px;
     height: 4.7619047619em;
-    font-size: 2.4705882353rem;
+    /* font-size: 40px; */
+    font-size: 43px;
     line-height: 1.1904761905;
   }
 }
