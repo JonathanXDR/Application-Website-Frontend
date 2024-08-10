@@ -1,5 +1,5 @@
 <template>
-  <div v-if="files?.length">
+  <div v-if="files?.length" class="hidden">
     <div
       v-for="(art, index) in files"
       :key="index"
@@ -17,7 +17,7 @@ interface ArtFile {
   className: string;
 }
 
-const files = ref<ArtFile[] | null>(null);
+const files = ref<ArtFile[]>([]);
 
 const { data, error } = await useAsyncData<ArtFile[]>(
   "ascii-files",
@@ -43,6 +43,20 @@ if (error.value) {
 } else {
   files.value = data.value || [];
 }
+
+const randomFile = computed(() =>
+  files.value.length
+    ? files.value[Math.floor(Math.random() * files.value.length)]
+    : null,
+);
+
+onMounted(() => {
+  if (!randomFile.value) return;
+  console.log(
+    `%cHey! You've found an Easter egg! 🥚 \n\n${randomFile.value.content}`,
+    `font-family: ${randomFile.value.className}`,
+  );
+});
 </script>
 
 <style scoped>
