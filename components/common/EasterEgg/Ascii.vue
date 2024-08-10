@@ -1,10 +1,10 @@
 <template>
   <div
-    v-for="(art, index) in fileContents"
+    v-for="(art, index) in files"
     :key="index"
     class="border border-gray-300 p-4"
   >
-    <pre>{{ `${index}\n\n` + art }}</pre>
+    <pre :class="art.className">{{ `${index}\n\n` + art.content }}</pre>
   </div>
 </template>
 
@@ -27,31 +27,35 @@
 //   return atob(base64);
 // };
 
-const fileContents = ref<string[]>([]);
+const files = ref<{ content: string; className: string }[]>([]);
 
-const txtFiles = import.meta.glob("~/public/ascii/*.txt", {
-  query: "?raw",
-  import: "default",
+const txtFiles = import.meta.glob(`~/public/ascii/**/*.txt`, {
+  query: '?raw',
+  import: 'default',
 });
 
 for (const path in txtFiles) {
-  const file = txtFiles[path] ? await txtFiles[path]() : null;
-  fileContents.value.push(file as string);
+  const content = txtFiles[path] ? await txtFiles[path]() : null;
+  const folder = path.split('/')[3];
+  const className = folder === 'monospace' ? 'monospace' : 'helvetica';
+  files.value.push({ content: content as string, className });
 }
 </script>
 
 <style scoped>
 * {
-  border-collapse: separate;
-  text-indent: initial;
   line-height: normal;
   font-weight: normal;
   font-size: medium;
   font-style: normal;
-  color: -internal-quirk-inherit;
-  text-align: start;
-  border-spacing: 2px;
-  font-variant: normal;
+  white-space: pre;
+}
+
+.monospace {
   font-family: monospace;
+}
+
+.helvetica {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 </style>
