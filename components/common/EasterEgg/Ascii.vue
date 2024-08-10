@@ -1,49 +1,53 @@
 <template>
-  <div
-    v-for="(art, index) in files"
-    :key="index"
-    class="border border-gray-300 p-4"
-  >
-    <pre :class="art.className">{{ `${index}\n\n` + art.content }}</pre>
+  <div v-if="files?.length">
+    <div
+      v-for="(art, index) in files"
+      :key="index"
+      class="border border-gray-300 p-4"
+    >
+      <pre :class="art.className">{{ index }}<br><br>{{ art.content }}</pre>
+    </div>
   </div>
+  <div v-else>Loading...</div>
 </template>
 
 <script setup lang="ts">
-// const { tm } = useI18n();
-// const asciiArts = computed<string[]>(() =>
-//   tm('components.common.EasterEgg.Ascii')
-// );
+interface ArtFile {
+  content: string;
+  className: string;
+}
 
-// const decodedArts = computed(() => {
-//   return asciiArts.value.map((ascii) => decodeBase64(ascii));
-// });
+const files = ref<ArtFile[] | null>(null);
 
-// const randomArt = () => {
-//   const randomIndex = Math.floor(Math.random() * asciiArts.value.length);
-//   return asciiArts.value[randomIndex];
-// };
+const { data, error } = await useAsyncData<ArtFile[]>(
+  "ascii-files",
+  async () => {
+    const txtFiles = import.meta.glob<string>("~/public/ascii/**/*.txt", {
+      query: "?raw",
+      import: "default",
+    });
 
-// const decodeBase64 = (base64: string) => {
-//   return atob(base64);
-// };
+    const fileLoaders = Object.entries(txtFiles).map(async ([path, loader]) => {
+      const content = await loader();
+      const folder = path.split("/")[3];
+      const className = folder === "monospace" ? "monospace" : "helvetica";
+      return { content, className };
+    });
 
-const files = ref<{ content: string; className: string }[]>([]);
+    return await Promise.all(fileLoaders);
+  },
+);
 
-const txtFiles = import.meta.glob(`~/public/ascii/**/*.txt`, {
-  query: '?raw',
-  import: 'default',
-});
-
-for (const path in txtFiles) {
-  const content = txtFiles[path] ? await txtFiles[path]() : null;
-  const folder = path.split('/')[3];
-  const className = folder === 'monospace' ? 'monospace' : 'helvetica';
-  files.value.push({ content: content as string, className });
+if (error.value) {
+  console.error("Error loading ASCII files:", error.value);
+} else {
+  files.value = data.value || [];
 }
 </script>
 
 <style scoped>
-* {
+pre,
+code {
   line-height: normal;
   font-weight: normal;
   font-size: medium;
@@ -56,6 +60,6 @@ for (const path in txtFiles) {
 }
 
 .helvetica {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 </style>
