@@ -13,7 +13,8 @@
   <nav
     id="ac-localnav"
     :class="[
-      'ac-localnav-scrim ac-localnav-noborder js no-touch css-sticky ac-ln-allow-transitions ac-ln-sticking',
+      'ac-localnav-scrim css-sticky ac-ln-allow-transitions ac-ln-sticking',
+      { 'ac-localnav-noborder': !border.display },
       { 'ac-ln-open': navOpen },
       { 'ac-ln-opening': navOpen },
     ]"
@@ -23,7 +24,7 @@
     aria-label="Local"
   >
     <div class="ac-ln-wrapper">
-      <div ref="ac-ln-background" class="ac-ln-background" />
+      <div class="ac-ln-background" />
       <div class="ac-ln-content">
         <div class="ac-ln-title">
           <a href="/apple-vision-pro/"> Apple Vision Pro </a>
@@ -174,7 +175,15 @@
 
 <script setup lang="ts">
 import type { ItemType } from "~/types/common/Item";
+import type { NavBarType } from "~/types/common/NavBar";
 import type { SectionType } from "~/types/common/Section";
+
+withDefaults(defineProps<NavBarType>(), {
+  border: () => ({
+    display: false,
+    animation: false,
+  }),
+});
 
 const { randomDevColor } = useColor();
 const { currentSection } = useSection();
@@ -381,6 +390,9 @@ onMounted(() => {
   #ac-localnav {
     --r-localnav-min-width: 320px;
   }
+}
+.ac-localnav-overlap #ac-localnav {
+  margin-bottom: var(--r-localnav-margin-bottom);
 }
 #ac-localnav .ac-ln-wrapper {
   position: absolute;
@@ -1337,7 +1349,7 @@ onMounted(() => {
   pointer-events: none;
   opacity: var(--sk-button-disabled-opacity);
 }
-/*! CSS Used from: https://www.apple.com/v/apple-vision-pro/e/built/styles/overview.built.css */
+
 li,
 ul {
   margin: 0;
