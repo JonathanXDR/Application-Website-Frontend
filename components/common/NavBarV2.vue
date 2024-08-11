@@ -140,24 +140,19 @@
               </label>
             </div>
             <div class="ac-ln-action ac-ln-action-button">
-              <a
-                class="ac-ln-button"
-                href="/us/shop/goto/buy_vision/apple_vision_pro"
-              >
-                Buy
-                <span class="ac-ln-action-product">Apple Vision Pro</span>
-              </a>
+              <SegmentNav
+                :items="themeItems"
+                gap="5px"
+                component-size="xsmall"
+                :focus="false"
+                :label="windowWidth < 769 ? 'icon' : 'text'"
+                :selected-item="getTheme()"
+                :on-select="(newTheme: string) => setTheme(newTheme)"
+              />
             </div>
-            <!-- <SegmentNav
-              :items="themeItems"
-              gap="5px"
-              component-size="xsmall"
-              :focus="false"
-              :label="windowWidth < 769 ? 'icon' : 'text'"
-              :selected-item="getTheme()"
-              :on-select="(newTheme: string) => setTheme(newTheme)"
-            />
-            <LanguagePickerDropdown /> -->
+            <div class="ac-ln-action ac-ln-action-button">
+              <LanguagePickerDropdown />
+            </div>
           </div>
         </div>
       </div>
@@ -499,7 +494,10 @@ onMounted(() => {
   }
 }
 #ac-localnav .ac-ln-actions {
-  padding-top: var(--r-localnav-actions-padding-top);
+  /* padding-top: var(--r-localnav-actions-padding-top); */
+  height: 100%;
+  display: flex;
+  align-items: center;
   float: var(--r-localnav-start);
 }
 @media (max-width: 767px) {
@@ -541,7 +539,9 @@ onMounted(() => {
   left: auto;
 }
 #ac-localnav .ac-ln-action-menucta {
-  margin-top: -2px;
+  height: 100%;
+  align-items: center;
+  /* margin-top: -2px; */
   position: relative;
   z-index: 1;
 }
@@ -611,7 +611,7 @@ onMounted(() => {
     -webkit-backdrop-filter;
 }
 @supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)) {
-  #ac-localnav.ac-ln-sticking .ac-ln-background {
+  #ac-localnav.ac-localnav-scrim .ac-ln-background {
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
   }
@@ -737,6 +737,7 @@ onMounted(() => {
   --r-localnav-menu-link-current-keyline-bottom-offset: 10px;
 }
 #ac-localnav .ac-ln-menu {
+  height: 100%;
   font-size: 12px;
   line-height: 1;
   font-weight: 400;
@@ -749,11 +750,12 @@ onMounted(() => {
     "Helvetica",
     "Arial",
     sans-serif;
-  margin-top: -3px;
+  /* margin-top: -3px; */
   float: var(--r-localnav-end);
 }
 @media (max-width: 767px) {
   #ac-localnav .ac-ln-menu {
+    height: auto;
     font-size: 14px;
     line-height: 1;
     font-weight: 400;
@@ -788,7 +790,8 @@ onMounted(() => {
   }
 }
 #ac-localnav .ac-ln-menu-tray {
-  padding-top: var(--r-localnav-menu-tray-padding-top);
+  height: 100%;
+  /* padding-top: var(--r-localnav-menu-tray-padding-top); */
   float: var(--r-localnav-start);
 }
 @media (max-width: 767px) {
@@ -827,6 +830,11 @@ onMounted(() => {
   #ac-ln-menustate:target ~ #ac-localnav.ac-ln-opening .ac-ln-menu-tray {
     overflow-y: hidden;
   }
+}
+#ac-localnav .ac-ln-menu-items {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 @media (max-width: 767px) {
   #ac-localnav .ac-ln-menu-items {
@@ -1096,7 +1104,7 @@ onMounted(() => {
 }
 @media (max-width: 767px) {
   #ac-localnav .ac-ln-action-menucta {
-    display: block;
+    display: flex;
   }
 }
 #ac-localnav .ac-ln-menucta {
@@ -1207,6 +1215,7 @@ onMounted(() => {
   }
 }
 #ac-localnav .ac-ln-title {
+  height: 100%;
   display: flex;
   align-items: center;
   font-size: 21px;
@@ -1223,8 +1232,8 @@ onMounted(() => {
     sans-serif;
   cursor: default;
   /* display: block; */
-  margin: var(--r-localnav-title-vertical-offset) 0
-    calc(var(--r-localnav-title-vertical-offset) * -1);
+  /* margin: var(--r-localnav-title-vertical-offset) 0
+    calc(var(--r-localnav-title-vertical-offset) * -1); */
   padding: 0;
   white-space: nowrap;
   float: var(--r-localnav-start);
