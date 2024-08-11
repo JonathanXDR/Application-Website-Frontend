@@ -7,7 +7,7 @@
     aria-controls="ac-ln-menustate-tray"
     aria-expanded="false"
     :disabled="navDisabled"
-    @input="toggleNav()"
+    @input="toggleNav"
   >
   <div id="ac-ln-sticky-placeholder" class="css-sticky ac-ln-sticking" />
   <nav
@@ -111,39 +111,32 @@
                       points="15.265 .835 8 8.167 .735 .835"
                     >
                       <animate
+                        ref="expandAnimation"
                         data-chevron-animate="expand"
                         attributeName="points"
-                        values="15.265 .835 8 8.167 .735 .835;
-					15.25 4.5 8 4.5 .75 4.5;
-					15.265 8.165 8 .835 .735 8.165"
+                        values="15.265 .835 8 8.167 .735 .835; 15.25 4.5 8 4.5 .75 4.5; 15.265 8.165 8 .835 .735 8.165"
                         dur="320ms"
                         begin="indefinite"
                         fill="freeze"
-                        keyTimes="0;
-					0.5;
-					1"
+                        keyTimes="0; 0.5; 1"
                         calcMode="spline"
-                        keySplines="0.12, 0, 0.38, 0;
-						0.2, 1, 0.68, 1"
+                        keySplines="0.12, 0, 0.38, 0; 0.2, 1, 0.68, 1"
                       />
                       <animate
+                        ref="collapseAnimation"
                         data-chevron-animate="collapse"
                         attributeName="points"
-                        values="15.265 8.165 8 .835 .735 8.165;
-					15.25 4.5 8 4.5 .75 4.5;
-					15.265 .835 8 8.167 .735 .835"
+                        values="15.265 8.165 8 .835 .735 8.165; 15.25 4.5 8 4.5 .75 4.5; 15.265 .835 8 8.167 .735 .835"
                         dur="320ms"
                         begin="indefinite"
                         fill="freeze"
-                        keyTimes="0;
-					0.5;
-					1"
+                        keyTimes="0; 0.5; 1"
                         calcMode="spline"
-                        keySplines="0.2, 0, 0.68, 0;
-						0.2, 1, 0.68, 1"
+                        keySplines="0.2, 0, 0.68, 0; 0.2, 1, 0.68, 1"
                       />
-                    </polyline></svg
-                ></span>
+                    </polyline>
+                  </svg>
+                </span>
               </label>
             </div>
             <div class="ac-ln-action ac-ln-action-button">
@@ -199,6 +192,8 @@ const themeItems = computed<ItemType[]>(() =>
 const navOpen = ref(false);
 const navDisabled = ref(false);
 const currentSectionIndex = computed(() => currentSection.value.index);
+const expandAnimation = ref<SVGAnimateElement | null>(null);
+const collapseAnimation = ref<SVGAnimateElement | null>(null);
 
 const initHeaderAnimations = () => {
   const animation = {
@@ -212,7 +207,16 @@ const initHeaderAnimations = () => {
 
 const toggleNav = () => {
   navOpen.value = !navOpen.value;
+  animateChevron(navOpen.value);
   checkboxTimeout();
+};
+
+const animateChevron = (isOpen: boolean) => {
+  if (isOpen) {
+    expandAnimation.value?.beginElement();
+  } else {
+    collapseAnimation.value?.beginElement();
+  }
 };
 
 const checkboxTimeout = () => {
@@ -225,6 +229,7 @@ const checkboxTimeout = () => {
 const handleScroll = () => {
   if (navOpen.value && window.scrollY > 0) {
     navOpen.value = false;
+    animateChevron(false);
   }
 };
 
