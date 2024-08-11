@@ -278,7 +278,7 @@ onMounted(() => {
   padding: 0;
 }
 #ac-localnav :focus-visible {
-  outline: 2px solid var(--sk-focus-color, #0071e3);
+  outline: 2px solid var(--sk-focus-color, var(--color-fill-blue));
   outline-offset: var(--sk-focus-offset, 1px);
 }
 #ac-localnav *,
@@ -297,8 +297,11 @@ onMounted(() => {
   list-style: none;
 }
 #ac-localnav {
-  --localnav-focus-color: var(--sk-focus-color, #0071e3);
-  --localnav-focus-color-alt: var(--sk-focus-color-alt, rgb(0, 0, 0));
+  --localnav-focus-color: var(--sk-focus-color, var(--color-fill-blue));
+  --localnav-focus-color-alt: var(
+    --sk-focus-color-alt,
+    var(--color-nav-link-color)
+  );
   --localnav-focus-offset: var(--sk-focus-offset, 1px);
   --localnav-focus-offset-container: var(--sk-focus-offset-container, 3px);
 }
@@ -307,9 +310,6 @@ onMounted(() => {
   --sk-focus-color-alt: var(--localnav-focus-color-alt);
   --sk-focus-offset: var(--localnav-focus-offset);
   --sk-focus-offset-container: var(--localnav-focus-offset-container);
-}
-#ac-localnav.ac-localnav-dark {
-  --localnav-focus-color-alt: var(--sk-focus-color-alt, rgb(255, 255, 255));
 }
 #ac-localnav {
   --r-localnav-min-width: 1024px;
@@ -485,34 +485,21 @@ onMounted(() => {
   }
 }
 #ac-localnav {
-  --localnav-background: var(--globalheader-background, transparent);
-  --localnav-keyline-color: rgba(0, 0, 0, 0.16);
-}
-.ac-localnav-scrim#ac-localnav.ac-localnav-dark {
-  --localnav-background: rgba(22, 22, 23, 0.88);
+  --localnav-background: var(
+    --globalheader-background,
+    var(--color-nav-background)
+  );
+  --localnav-keyline-color: var(--color-nav-keyline);
 }
 #ac-localnav.ac-ln-sticking {
   --localnav-background: var(
     --localnav-background-stuck,
-    rgba(250, 250, 252, 0.92)
-  );
-}
-.ac-ln-sticking#ac-localnav.ac-localnav-dark {
-  --localnav-background: var(
-    --localnav-background-stuck,
-    rgba(22, 22, 23, 0.88)
+    var(--color-nav-background-stuck) ;
   );
 }
 #ac-ln-menustate:checked ~ #ac-localnav,
 #ac-ln-menustate:target ~ #ac-localnav {
-  --localnav-background: rgb(250, 250, 252);
-}
-#ac-localnav.ac-localnav-dark {
-  --localnav-keyline-color: rgba(255, 255, 255, 0.24);
-}
-#ac-ln-menustate:checked ~ .ac-localnav-dark#ac-localnav,
-#ac-ln-menustate:target ~ .ac-localnav-dark#ac-localnav {
-  --localnav-background: rgb(22, 22, 23);
+  --localnav-background: var(--color-nav-background-checked);
 }
 #ac-localnav .ac-ln-background {
   position: absolute;
@@ -645,9 +632,9 @@ onMounted(() => {
   );
   --r-localnav-menu-tray-max-height: 0;
   --r-localnav-menu-link-transition-delay: 0;
-  --r-localnav-menu-link-color: rgb(0, 0, 0);
+  --r-localnav-menu-link-color: var(--color-nav-link-color);
   --r-localnav-menu-link-opacity: 0.8;
-  --r-localnav-menu-link-border-color: rgba(0, 0, 0, 0.1818181818);
+  --r-localnav-menu-link-border-color: var(--color-nav-link-border-color);
   --r-localnav-menu-link-current-keyline-bottom-offset: 10px;
 }
 @media (max-width: 833px) {
@@ -671,9 +658,6 @@ onMounted(() => {
 }
 .ac-localnav-noborder#ac-localnav.ac-ln-sticking {
   --r-localnav-menu-link-current-keyline-bottom-offset: 10px;
-}
-#ac-localnav.ac-localnav-dark {
-  --r-localnav-menu-link-color: rgb(255, 255, 255);
 }
 #ac-localnav .ac-ln-menu {
   font-size: 12px;
@@ -950,10 +934,7 @@ onMounted(() => {
   }
 }
 #ac-localnav {
-  --localnav-menucta-color: rgb(0, 0, 0);
-}
-#ac-localnav.ac-localnav-dark {
-  --localnav-menucta-color: rgb(255, 255, 255);
+  --localnav-menucta-color: var(--color-nav-link-color);
 }
 #ac-localnav .ac-ln-action-menucta {
   display: none;
@@ -971,7 +952,7 @@ onMounted(() => {
   overflow: hidden;
   width: 40px;
   height: calc(52px - 18px);
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
 }
 @media (max-width: 833px) {
   #ac-localnav .ac-ln-menucta {
@@ -1060,20 +1041,15 @@ onMounted(() => {
 }
 #ac-localnav {
   --r-localnav-title-vertical-offset: 14px;
-  --r-localnav-title-link-opacity: 0.88;
-  --r-localnav-title-link-color: rgb(0, 0, 0);
-  --r-localnav-title-subhead-color: rgb(0, 0, 0);
+  --r-localnav-title-link-opacity: var(--color-nav-link-opacity);
+  --r-localnav-title-link-color: var(--color-nav-link-color);
+  --r-localnav-title-subhead-color: var(--color-nav-link-color);
   --r-localnav-title-subhead-opacity: 0.56;
 }
 @media (max-width: 833px) {
   #ac-localnav {
     --r-localnav-title-vertical-offset: 12px;
   }
-}
-#ac-localnav.ac-localnav-dark {
-  --r-localnav-title-link-color: rgb(255, 255, 255);
-  --r-localnav-title-link-opacity: 0.92;
-  --r-localnav-title-subhead-color: rgb(255, 255, 255);
 }
 #ac-localnav .ac-ln-title {
   font-size: 21px;
@@ -1175,7 +1151,7 @@ onMounted(() => {
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-  --sk-button-background: rgb(0, 113, 227);
+  --sk-button-background: var(--color-fill-blue);
   --sk-button-background-hover: #0076df;
   --sk-button-background-active: #006edb;
   --sk-button-padding-horizontal: 11px;
@@ -1194,7 +1170,7 @@ onMounted(() => {
   background: var(--sk-button-background-hover, var(--sk-button-background));
   color: var(--sk-button-color-hover, var(--sk-button-color));
   text-decoration: none;
-  border-color: rgba(0, 0, 0, 0);
+  border-color: transparent;
 }
 #ac-localnav .ac-ln-button:active {
   background: var(--sk-button-background-active, var(--sk-button-background));
@@ -1212,7 +1188,7 @@ ul {
   padding: 0;
 }
 :focus {
-  outline: 2px solid #0071e3;
+  outline: 2px solid var(--color-fill-blue);
   outline-offset: 0px;
 }
 ul {
@@ -1223,7 +1199,7 @@ nav ul {
   list-style: none;
 }
 a {
-  color: #06c;
+  color: var(--color-figure-blue);
   letter-spacing: inherit;
 }
 a:link,
@@ -1260,8 +1236,8 @@ a :disabled {
     padding: 3px 10px;
     margin-top: -1px;
     background: transparent;
-    color: #000;
-    border: 1px solid #000;
+    color: var(--color-nav-link-color);
+    border: 1px solid var(--color-nav-link-color);
   }
   #ac-localnav .ac-ln-menu-link.button-secondary-neutral:hover {
     text-decoration: none;
@@ -1276,34 +1252,20 @@ a :disabled {
   #ac-localnav .ac-ln-menu-link.button-secondary-neutral:active,
   #ac-localnav .ac-ln-menu-link.button-secondary-neutral:focus,
   #ac-localnav .ac-ln-menu-link.button-secondary-neutral:hover {
-    background: #000;
-    color: #fff;
+    background: var(--color-nav-link-color);
+    color: var(--color-nav-solid-background);
   }
   #ac-localnav .ac-ln-menu-link.button-secondary-neutral:focus {
     box-shadow: none;
-    outline: 2px solid #000;
+    outline: 2px solid var(--color-nav-link-color);
     outline-offset: 3px;
   }
-  .ac-localnav-dark#ac-localnav .ac-ln-menu-link.button-secondary-neutral {
-    color: #fff;
-    border-color: #fff;
-    outline-color: #fff;
-  }
-  .ac-localnav-dark#ac-localnav
-    .ac-ln-menu-link.button-secondary-neutral:active,
-  .ac-localnav-dark#ac-localnav .ac-ln-menu-link.button-secondary-neutral:focus,
-  .ac-localnav-dark#ac-localnav
-    .ac-ln-menu-link.button-secondary-neutral:hover {
-    background: #fff;
-    color: #000;
-  }
-  .ac-localnav-dark#ac-localnav
-    .ac-ln-menu-link.button-secondary-neutral:focus {
-    outline-color: #fff;
+  #ac-localnav .ac-ln-menu-link.button-secondary-neutral {
+    outline-color: var(--color-nav-link-color);
   }
 }
-.ac-localnav-scrim#ac-localnav.ac-localnav-dark .ac-ln-background {
-  background-color: rgba(0, 0, 0, 0.72);
+.ac-localnav-scrim#ac-localnav .ac-ln-background {
+  background-color: var(--color-nav-background-scrim);
 }
 
 #ac-ln-menustate {
@@ -1320,7 +1282,7 @@ a :disabled {
 }
 
 #ac-ln-curtain {
-  --localnav-curtain-background: rgba(232, 232, 237, 0.4);
+  --localnav-curtain-background: var(--color-nav-curtain-background);
   --r-localnav-curtain-transition: opacity 0.2s ease;
   --r-localnav-curtain-width: 0;
   --r-localnav-curtain-height: 0;
@@ -1334,9 +1296,6 @@ a :disabled {
   z-index: 9996;
   -webkit-transition: var(--r-localnav-curtain-transition);
   transition: var(--r-localnav-curtain-transition);
-}
-#ac-localnav.ac-localnav-dark ~ #ac-ln-curtain {
-  --localnav-curtain-background: rgba(51, 51, 54, 0.4);
 }
 @media (max-width: 833px) {
   #ac-localnav ~ #ac-ln-curtain {
