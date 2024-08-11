@@ -29,7 +29,9 @@
       <div ref="ac-ln-background" class="ac-ln-background" />
       <div class="ac-ln-content">
         <div class="ac-ln-title">
-          <NuxtLink to="/" class="ac-ln-title" aria-label="JR">
+          <a href="/apple-vision-pro/"> Apple Vision Pro </a>
+
+          <!-- <NuxtLink to="/" class="ac-ln-title" aria-label="JR">
             <Logo />
           </NuxtLink>
           <DevBadge
@@ -37,7 +39,7 @@
             :color="{
               primary: `var(--color-figure-${randomDevColor?.name})`,
             }"
-          />
+          /> -->
         </div>
         <div class="ac-ln-menu">
           <a
@@ -98,9 +100,14 @@
             <div class="ac-ln-action ac-ln-action-menucta" aria-hidden="true">
               <label for="ac-ln-menustate" class="ac-ln-menucta">
                 <span class="ac-ln-menucta-chevron">
-                  <svg viewBox="0 0 16 9" xmlns="http://www.w3.org/2000/svg">
+                  <svg
+                    viewBox="0 0 16 9"
+                    data-chevron-icon
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
                     <polyline
                       shape-rendering="geometricPrecision"
+                      data-chevron-icon-shape
                       stroke="currentColor"
                       stroke-linecap="round"
                       vector-effect="non-scaling-stroke"
@@ -110,6 +117,7 @@
                       points="15.265 .835 8 8.167 .735 .835"
                     >
                       <animate
+                        data-chevron-animate="expand"
                         attributeName="points"
                         values="15.265 .835 8 8.167 .735 .835;
 					15.25 4.5 8 4.5 .75 4.5;
@@ -125,6 +133,7 @@
 						0.2, 1, 0.68, 1"
                       />
                       <animate
+                        data-chevron-animate="collapse"
                         attributeName="points"
                         values="15.265 8.165 8 .835 .735 8.165;
 					15.25 4.5 8 4.5 .75 4.5;
