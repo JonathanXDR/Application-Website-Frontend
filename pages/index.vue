@@ -1,16 +1,20 @@
 <template>
   <div>
-    <HeroSection />
-    <section
-      v-for="(section, index) in sections"
-      :id="section.id"
-      :key="section.id"
-      v-section="(section.id, index)"
-      :name="section.name"
-      :class="section.class"
-    >
-      <component :is="`${section.id}Section`" :title="section.name" />
+    <section>
+      <HeroSection />
     </section>
+    <template v-for="(section, index) in sections">
+      <section
+        v-if="section.page === 'home'"
+        :id="section.id"
+        :key="section.id"
+        v-section="(section.id, index)"
+        :name="section.name"
+        :class="section.class"
+      >
+        <component :is="`${section.id}Section`" :title="section.name" />
+      </section>
+    </template>
   </div>
 </template>
 

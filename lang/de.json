@@ -6,45 +6,53 @@
           "id": "about",
           "name": "About",
           "route": "/#about",
-          "class": "section-separated"
+          "class": "section-separated",
+          "page": "home"
         },
         {
           "id": "languages",
           "name": "Sprachen",
           "route": "/#languages",
-          "class": "section-separated"
+          "class": "section-separated",
+          "page": "home"
         },
         {
           "id": "fun-facts",
           "name": "Fun Facts",
-          "route": "/#funFacts"
+          "route": "/#funFacts",
+          "page": "home"
         },
         {
           "id": "references",
           "name": "Referenzen",
           "route": "/#references",
-          "class": "section-separated"
+          "class": "section-separated",
+          "page": "home"
         },
         {
           "id": "school",
           "name": "Schule",
           "route": "/#school",
-          "class": "section-separated"
+          "class": "section-separated",
+          "page": "home"
         },
         {
           "id": "technologies",
           "name": "Technologien",
-          "route": "/technologies"
+          "route": "/technologies",
+          "page": "technologies"
         },
         {
           "id": "projects",
           "name": "Projekte",
-          "route": "/projects"
+          "route": "/projects",
+          "page": "projects"
         },
         {
           "id": "music",
           "name": "Musik",
-          "route": "/music"
+          "route": "/music",
+          "page": "music"
         }
       ],
       "RibbonBar": [
