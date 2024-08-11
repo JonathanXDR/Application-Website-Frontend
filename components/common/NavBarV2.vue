@@ -27,17 +27,17 @@
       <div class="ac-ln-background" />
       <div class="ac-ln-content">
         <div class="ac-ln-title">
-          <a href="/apple-vision-pro/"> Apple Vision Pro </a>
+          <!-- <a href="/apple-vision-pro/"> Apple Vision Pro </a> -->
 
-          <!-- <NuxtLink to="/" class="ac-ln-title" aria-label="JR">
-            <Logo />
+          <NuxtLink to="/" aria-label="JR">
+            <Logo :style="{ height: '13px !important', width: 'auto' }" />
           </NuxtLink>
           <DevBadge
             v-if="config.public.appEnvironment === 'development'"
             :color="{
               primary: `var(--color-figure-${randomDevColor?.name})`,
             }"
-          /> -->
+          />
         </div>
         <div class="ac-ln-menu">
           <a
@@ -1201,6 +1201,8 @@ onMounted(() => {
   }
 }
 #ac-localnav .ac-ln-title {
+  display: flex;
+  align-items: center;
   font-size: 21px;
   line-height: 1.1428571429;
   font-weight: 600;
@@ -1214,7 +1216,7 @@ onMounted(() => {
     "Arial",
     sans-serif;
   cursor: default;
-  display: block;
+  /* display: block; */
   margin: var(--r-localnav-title-vertical-offset) 0
     calc(var(--r-localnav-title-vertical-offset) * -1);
   padding: 0;
@@ -1240,7 +1242,7 @@ onMounted(() => {
 @media (max-width: 767px) {
   #ac-localnav .ac-ln-title {
     --r-localnav-title-vertical-offset: 12px;
-    display: inline-block;
+    /* display: inline-block; */
   }
 }
 #ac-localnav .ac-ln-title a {
@@ -1249,8 +1251,8 @@ onMounted(() => {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: reverse;
-  -ms-flex-direction: column-reverse;
-  flex-direction: column-reverse;
+  /* -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse; */
   letter-spacing: inherit;
   line-height: inherit;
   margin: 0;
