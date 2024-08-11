@@ -610,6 +610,12 @@ onMounted(() => {
     backdrop-filter,
     -webkit-backdrop-filter;
 }
+@supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)) {
+  #ac-localnav.ac-ln-sticking .ac-ln-background {
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+}
 #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-background,
 #ac-ln-menustate:target ~ #ac-localnav .ac-ln-background {
   max-height: none;
