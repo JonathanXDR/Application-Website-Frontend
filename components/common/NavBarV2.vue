@@ -10,20 +10,17 @@
     @input="toggleNav()"
   >
   <div id="ac-ln-sticky-placeholder" class="css-sticky ac-ln-sticking" />
-  <!-- <nav
-  id="ac-localnav"
-  class="ac-localnav-scrim ac-localnav-noborder js no-touch css-sticky ac-ln-allow-transitions ac-ln-sticking"
-  lang="en-US"
-  dir="ltr"
-  role="navigation"
-  aria-label="Local"
-  > -->
   <nav
     id="ac-localnav"
     :class="[
-      'ac-localnav-dark ac-localnav-noborder ac-ln-sticking',
-      { 'nav-open': navOpen },
+      'ac-localnav-scrim ac-localnav-noborder js no-touch css-sticky ac-ln-allow-transitions ac-ln-sticking',
+      { 'ac-ln-open': navOpen },
+      { 'ac-ln-opening': navOpen },
     ]"
+    lang="en-US"
+    dir="ltr"
+    role="navigation"
+    aria-label="Local"
   >
     <div class="ac-ln-wrapper">
       <div ref="ac-ln-background" class="ac-ln-background" />
@@ -62,11 +59,7 @@
           >
             <span class="ac-ln-menucta-anchor-label">Local Nav Close Menu</span>
           </a>
-          <div
-            id="ac-ln-menustate-tray"
-            class="ac-ln-menu-tray"
-            style="--r-localnav-menu-tray-natural-height: 55px"
-          >
+          <div id="ac-ln-menustate-tray" class="ac-ln-menu-tray">
             <ul class="ac-ln-menu-items">
               <li
                 v-for="(item, index) in navItems"
@@ -566,8 +559,8 @@ onMounted(() => {
   position: absolute;
   left: 0;
   top: 0;
-  margin-top: calc(-1 * var(--r-globalnav-height, 0));
-  padding-top: var(--r-globalnav-height, 0);
+  /* margin-top: calc(-1 * var(--r-globalnav-height, 0));
+  padding-top: var(--r-globalnav-height, 0); */
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -853,6 +846,22 @@ onMounted(() => {
     --r-localnav-menu-link-transition-delay: 0s;
     --r-localnav-menu-link-transition-duration: 340ms;
   }
+  #ac-localnav .ac-ln-menu-item:nth-child(5) .ac-ln-menu-link {
+    --r-localnav-menu-link-transition-delay: 0s;
+    --r-localnav-menu-link-transition-duration: 320ms;
+  }
+  #ac-localnav .ac-ln-menu-item:nth-child(6) .ac-ln-menu-link {
+    --r-localnav-menu-link-transition-delay: 0s;
+    --r-localnav-menu-link-transition-duration: 300ms;
+  }
+  #ac-localnav .ac-ln-menu-item:nth-child(7) .ac-ln-menu-link {
+    --r-localnav-menu-link-transition-delay: 0s;
+    --r-localnav-menu-link-transition-duration: 280ms;
+  }
+  #ac-localnav .ac-ln-menu-item:nth-child(8) .ac-ln-menu-link {
+    --r-localnav-menu-link-transition-delay: 0s;
+    --r-localnav-menu-link-transition-duration: 260ms;
+  }
   #ac-ln-menustate:checked
     ~ #ac-localnav
     .ac-ln-menu-item:nth-child(1)
@@ -895,6 +904,50 @@ onMounted(() => {
     .ac-ln-menu-item:nth-child(4)
     .ac-ln-menu-link {
     --r-localnav-menu-link-transition-delay: 320ms;
+    --r-localnav-menu-link-transition-duration: 320ms;
+  }
+  #ac-ln-menustate:checked
+    ~ #ac-localnav
+    .ac-ln-menu-item:nth-child(5)
+    .ac-ln-menu-link,
+  #ac-ln-menustate:target
+    ~ #ac-localnav
+    .ac-ln-menu-item:nth-child(5)
+    .ac-ln-menu-link {
+    --r-localnav-menu-link-transition-delay: 340ms;
+    --r-localnav-menu-link-transition-duration: 320ms;
+  }
+  #ac-ln-menustate:checked
+    ~ #ac-localnav
+    .ac-ln-menu-item:nth-child(6)
+    .ac-ln-menu-link,
+  #ac-ln-menustate:target
+    ~ #ac-localnav
+    .ac-ln-menu-item:nth-child(6)
+    .ac-ln-menu-link {
+    --r-localnav-menu-link-transition-delay: 360ms;
+    --r-localnav-menu-link-transition-duration: 320ms;
+  }
+  #ac-ln-menustate:checked
+    ~ #ac-localnav
+    .ac-ln-menu-item:nth-child(7)
+    .ac-ln-menu-link,
+  #ac-ln-menustate:target
+    ~ #ac-localnav
+    .ac-ln-menu-item:nth-child(7)
+    .ac-ln-menu-link {
+    --r-localnav-menu-link-transition-delay: 380ms;
+    --r-localnav-menu-link-transition-duration: 320ms;
+  }
+  #ac-ln-menustate:checked
+    ~ #ac-localnav
+    .ac-ln-menu-item:nth-child(8)
+    .ac-ln-menu-link,
+  #ac-ln-menustate:target
+    ~ #ac-localnav
+    .ac-ln-menu-item:nth-child(8)
+    .ac-ln-menu-link {
+    --r-localnav-menu-link-transition-delay: 400ms;
     --r-localnav-menu-link-transition-duration: 320ms;
   }
 }
@@ -1367,9 +1420,6 @@ a :disabled {
   #ac-localnav .ac-ln-menu-link.button-secondary-neutral {
     outline-color: var(--color-nav-link-color);
   }
-}
-.ac-localnav-scrim#ac-localnav .ac-ln-background {
-  background-color: var(--color-nav-background-scrim);
 }
 
 #ac-ln-menustate {
