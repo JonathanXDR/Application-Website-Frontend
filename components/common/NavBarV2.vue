@@ -143,7 +143,7 @@
                 ></span>
               </label>
             </div>
-            <!-- <div class="ac-ln-action ac-ln-action-button">
+            <div class="ac-ln-action ac-ln-action-button">
               <a
                 class="ac-ln-button"
                 href="/us/shop/goto/buy_vision/apple_vision_pro"
@@ -151,8 +151,8 @@
                 Buy
                 <span class="ac-ln-action-product">Apple Vision Pro</span>
               </a>
-            </div> -->
-            <SegmentNav
+            </div>
+            <!-- <SegmentNav
               :items="themeItems"
               gap="5px"
               component-size="xsmall"
@@ -161,7 +161,7 @@
               :selected-item="getTheme()"
               :on-select="(newTheme: string) => setTheme(newTheme)"
             />
-            <LanguagePickerDropdown />
+            <LanguagePickerDropdown /> -->
           </div>
         </div>
       </div>
@@ -297,6 +297,44 @@ onMounted(() => {
   list-style: none;
 }
 #ac-localnav {
+  --r-globalnav-height: 44px;
+  --r-globalmessage-segment-height: 0px;
+  --r-globalnav-segmentbar-height: 0px;
+  --r-globalmessage-segment-height: 40px;
+  --r-globalnav-segmentbar-height: 40px;
+}
+#ac-localnav {
+  --r-localnav-height: calc(52px * var(--r-localnav-text-zoom-factor));
+  --r-localnav-stacked-height: calc(66px * var(--r-localnav-text-zoom-factor));
+  --r-localnav-gn-height: calc(
+    var(--r-globalnav-height, 44px) * var(--r-localnav-text-zoom-factor)
+  );
+  --r-localnav-viewport-large-min-width: viewport-get-property-for(
+    "ac-localnav:large",
+    min-width
+  );
+  --r-localnav-viewport-large-query: min-width(1024px);
+  --r-localnav-viewport-medium-min-width: viewport-get-property-for(
+    "ac-localnav:medium",
+    min-width
+  );
+  --r-localnav-viewport-medium-max-width: viewport-get-property-for(
+    "ac-localnav:medium",
+    max-width
+  );
+  --r-localnav-viewport-medium-query: min-width(834px);
+  --r-localnav-viewport-small-min-width: viewport-get-property-for(
+    "ac-localnav:small",
+    min-width
+  );
+  --r-localnav-viewport-small-max-width: viewport-get-property-for(
+    "ac-localnav:small",
+    max-width
+  );
+  --r-localnav-viewport-small-query: min-width(320px);
+  --r-localnav-text-zoom-factor: 1;
+}
+#ac-localnav {
   --localnav-focus-color: var(--sk-focus-color, var(--color-fill-blue));
   --localnav-focus-color-alt: var(
     --sk-focus-color-alt,
@@ -413,6 +451,20 @@ onMounted(() => {
   --r-localnav-actions-menucta-space-after: 16px;
 }
 @media (max-width: 833px) {
+  #ac-localnav {
+    --r-globalnav-height: 48px;
+    --r-globalmessage-segment-height: 44px;
+    --r-globalnav-segmentbar-height: 44px;
+  }
+  #ac-localnav {
+    --r-localnav-height: calc(48px * var(--r-localnav-text-zoom-factor));
+    --r-localnav-stacked-height: calc(
+      63px * var(--r-localnav-text-zoom-factor)
+    );
+    --r-localnav-gn-height: calc(
+      var(--r-globalnav-height, 48px) * var(--r-localnav-text-zoom-factor)
+    );
+  }
   #ac-localnav {
     --r-localnav-actions-padding-top: calc(
       16px * var(--r-localnav-text-zoom-factor)
