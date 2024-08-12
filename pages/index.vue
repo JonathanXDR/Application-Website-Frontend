@@ -3,16 +3,16 @@
     <section>
       <HeroSection />
     </section>
-    <template v-for="(section, index) in sections">
+    <template v-for="section in sections">
       <section
-        v-if="section.page === 'home'"
-        :id="section.id"
-        :key="section.id"
-        v-section="(section.id, index)"
-        :name="section.name"
-        :class="section.class"
+        v-for="(child, index) in section.children"
+        :id="child.id"
+        :key="child.id"
+        v-section="(child.id, index)"
+        :name="child.label"
+        :class="child.class"
       >
-        <component :is="`${section.id}Section`" :title="section.name" />
+        <component :is="`${child.id}Section`" :title="child.label" />
       </section>
     </template>
   </div>

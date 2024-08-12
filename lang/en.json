@@ -3,38 +3,50 @@
     "common": {
       "NavBar": [
         {
-          "id": "about",
-          "name": "About",
-          "route": "#about",
-          "class": "section-separated"
-        },
-        {
-          "id": "languages",
-          "name": "Languages",
-          "route": "#languages",
-          "class": "section-separated"
-        },
-        {
-          "id": "references",
-          "name": "References",
-          "route": "#references",
-          "class": "section-separated"
-        },
-        {
-          "id": "school",
-          "name": "School",
-          "route": "#school",
-          "class": "section-separated"
+          "id": "overview",
+          "label": "Overview",
+          "route": "/",
+          "children": [
+            {
+              "id": "about",
+              "label": "About",
+              "route": "/#about",
+              "class": "section-separated"
+            },
+            {
+              "id": "languages",
+              "label": "Languages",
+              "route": "/#languages",
+              "class": "section-separated"
+            },
+            {
+              "id": "references",
+              "label": "References",
+              "route": "/#references",
+              "class": "section-separated"
+            },
+            {
+              "id": "school",
+              "label": "School",
+              "route": "/#school",
+              "class": "section-separated"
+            }
+          ]
         },
         {
           "id": "technologies",
-          "name": "Technologies",
-          "route": "#technologies"
+          "label": "Technologies",
+          "route": "/technologies"
         },
         {
           "id": "projects",
-          "name": "Projects",
-          "route": "#projects"
+          "label": "Projects",
+          "route": "/projects"
+        },
+        {
+          "id": "music",
+          "label": "Music",
+          "route": "/music"
         }
       ],
       "RibbonBar": [

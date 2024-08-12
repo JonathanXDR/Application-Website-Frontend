@@ -3,56 +3,55 @@
     "common": {
       "NavBar": [
         {
-          "id": "about",
-          "name": "About",
-          "route": "/#about",
-          "class": "section-separated",
-          "page": "home"
-        },
-        {
-          "id": "languages",
-          "name": "Sprachen",
-          "route": "/#languages",
-          "class": "section-separated",
-          "page": "home"
-        },
-        {
-          "id": "fun-facts",
-          "name": "Fun Facts",
-          "route": "/#funFacts",
-          "page": "home"
-        },
-        {
-          "id": "references",
-          "name": "Referenzen",
-          "route": "/#references",
-          "class": "section-separated",
-          "page": "home"
-        },
-        {
-          "id": "school",
-          "name": "Schule",
-          "route": "/#school",
-          "class": "section-separated",
-          "page": "home"
+          "id": "overview",
+          "label": "Übersicht",
+          "route": "/",
+          "children": [
+            {
+              "id": "about",
+              "label": "About",
+              "route": "/#about",
+              "class": "section-separated"
+            },
+            {
+              "id": "languages",
+              "label": "Sprachen",
+              "route": "/#languages",
+              "class": "section-separated"
+            },
+            {
+              "id": "fun-facts",
+              "label": "Fun Facts",
+              "route": "/#funFacts"
+            },
+            {
+              "id": "references",
+              "label": "Referenzen",
+              "route": "/#references",
+              "class": "section-separated"
+            },
+            {
+              "id": "school",
+              "label": "Schule",
+              "route": "/#school",
+              "class": "section-separated"
+            }
+          ]
         },
         {
           "id": "technologies",
-          "name": "Technologien",
-          "route": "/technologies",
-          "page": "technologies"
+          "label": "Technologien",
+          "route": "/technologies"
         },
         {
           "id": "projects",
-          "name": "Projekte",
-          "route": "/projects",
-          "page": "projects"
+          "label": "Projekte",
+          "route": "/projects"
         },
         {
           "id": "music",
-          "name": "Musik",
-          "route": "/music",
-          "page": "music"
+          "label": "Musik",
+          "route": "/music"
         }
       ],
       "RibbonBar": [

@@ -79,13 +79,17 @@
                   :to="item.route"
                   :class="[
                     'ac-ln-menu-link',
-                    { current: index === currentSectionIndex },
+                    {
+                      current:
+                        index === currentSectionIndex ||
+                        route.path === item.route,
+                    },
                   ]"
                   role="link"
                   aria-disabled="true"
                   aria-current="page"
                 >
-                  {{ item.name }}
+                  {{ item.label }}
                 </NuxtLink>
               </li>
             </ul>
@@ -179,6 +183,7 @@ const { getTheme, setTheme } = useTheme();
 const { windowWidth } = useWidth();
 const { headerAnimations } = useAnimation();
 const config = useRuntimeConfig();
+const route = useRoute();
 const { tm } = useI18n();
 const navItems = computed<SectionType[]>(() => tm("components.common.NavBar"));
 const themeItems = computed<ItemType[]>(() =>

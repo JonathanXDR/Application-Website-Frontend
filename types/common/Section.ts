@@ -2,9 +2,9 @@ import type { IconType } from "./Icon";
 
 export interface SectionType {
   id: string;
-  name: string;
+  label: string;
   route: string;
-  page: string;
+  children?: SectionType[];
   class?: string;
   icon?: IconType;
 }
