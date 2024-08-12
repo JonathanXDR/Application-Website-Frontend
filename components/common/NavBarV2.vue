@@ -838,6 +838,7 @@ onMounted(() => {
 }
 @media (max-width: 767px) {
   #ac-localnav .ac-ln-menu-items {
+    flex-direction: column;
     padding: 37px 16px 27px;
   }
 }
