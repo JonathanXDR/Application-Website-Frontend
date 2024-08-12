@@ -406,7 +406,8 @@ onMounted(() => {
 #ac-localnav .ac-ln-content {
   height: var(--r-localnav-height);
   margin: 0 auto;
-  max-width: 980px;
+  width: 82.5%;
+  /* max-width: 980px;
   padding: 0 var(--r-localnav-content-padding);
   -webkit-padding-start: max(
     var(--r-localnav-content-padding),
@@ -423,7 +424,7 @@ onMounted(() => {
   padding-inline-end: max(
     var(--r-localnav-content-padding),
     var(--r-localnav-safe-area-inset-end)
-  );
+  ); */
   position: relative;
   z-index: 2;
 }
@@ -437,6 +438,7 @@ onMounted(() => {
 }
 @media (max-width: 1023px) {
   #ac-localnav .ac-ln-content {
+    width: 90%;
     border-bottom: none;
   }
 }
