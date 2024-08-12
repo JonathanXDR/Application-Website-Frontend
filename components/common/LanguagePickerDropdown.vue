@@ -15,9 +15,9 @@
           :value="computedLocale.code"
         >
           {{
-            windowWidth < 769
-              ? computedLocale.code.toUpperCase()
-              : computedLocale.name
+            windowWidth >= 1024
+              ? computedLocale.name
+              : computedLocale.code.toUpperCase()
           }}
         </option>
       </select>

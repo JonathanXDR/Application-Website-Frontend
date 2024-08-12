@@ -145,7 +145,7 @@
                 gap="5px"
                 component-size="xsmall"
                 :focus="false"
-                :label="windowWidth < 769 ? 'icon' : 'text'"
+                :label="windowWidth >= 1024 ? 'text' : 'icon'"
                 :selected-item="getTheme()"
                 :on-select="(newTheme: string) => setTheme(newTheme)"
               />
