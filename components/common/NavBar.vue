@@ -46,7 +46,7 @@
                     { current: index === currentSectionIndex },
                   ]"
                 >
-                  {{ item.name }}
+                  {{ item.label }}
                 </NuxtLink>
               </li>
             </ul>
