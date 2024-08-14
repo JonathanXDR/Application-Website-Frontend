@@ -140,7 +140,7 @@ const containerStyle = computed(() => ({
 }));
 
 const computedPadding = computed(() => {
-  return props.padding ?? (props.label !== "icon" ? "0 8px" : "0");
+  return props.padding ?? (props.label !== "icon" ? "0 12px" : "0");
 });
 
 watch(
