@@ -17,7 +17,7 @@
           :outer-padding="3"
           :selected-item="segmentNavItems[currentIndex]?.id"
           :on-select="
-            (id) =>
+            (id: string) =>
               updateCurrentIndex(
                 segmentNavItems.findIndex((item) => item.id === id),
               )

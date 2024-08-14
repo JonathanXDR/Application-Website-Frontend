@@ -64,7 +64,7 @@
               :focus="false"
               :label="windowWidth < 769 ? 'icon' : 'text'"
               :selected-item="getTheme()"
-              :on-select="(newTheme) => setTheme(newTheme)"
+              :on-select="(newTheme: string) => setTheme(newTheme)"
             />
             <LanguagePickerDropdown />
           </div>
