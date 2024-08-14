@@ -43,7 +43,7 @@
             <span
               class="viewer-sizenav-label"
               :style="{
-                padding: padding,
+                padding: computedPadding,
                 color: grayLabels
                   ? 'var(--color-figure-gray-secondary)'
                   : 'var(--aap-icon-color)',
@@ -75,9 +75,6 @@ const props = withDefaults(defineProps<SegmentNavType>(), {
   shadow: false,
   grayLabels: false,
   gap: "0px",
-  padding: (props: SegmentNavType) => {
-    return props.label !== "icon" ? "0 8px" : "0";
-  },
   outerPadding: 4,
   selectedItem: (props: SegmentNavType) => {
     return props.items[0]?.id || "";
@@ -141,6 +138,10 @@ const containerStyle = computed(() => ({
   "--sizenav-outer-padding": `${props.outerPadding}px`,
   "--aap-min-height": `${computedHeight.value}px`,
 }));
+
+const computedPadding = computed(() => {
+  return props.padding ?? (props.label !== "icon" ? "0 8px" : "0");
+});
 
 watch(
   selectedItem,
