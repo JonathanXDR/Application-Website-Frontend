@@ -81,7 +81,7 @@
                     'ac-ln-menu-link',
                     {
                       current:
-                        index === currentSectionIndex ||
+                        item.id === currentSection.id ||
                         route.path === item.route,
                     },
                   ]"
@@ -191,7 +191,7 @@ const themeItems = computed<ItemType[]>(() =>
 );
 const navOpen = ref(false);
 const navDisabled = ref(false);
-const currentSectionIndex = computed(() => currentSection.value.index);
+// const currentSectionIndex = computed(() => currentSection.value.index);
 const expandAnimation = ref<SVGAnimateElement | null>(null);
 const collapseAnimation = ref<SVGAnimateElement | null>(null);
 
