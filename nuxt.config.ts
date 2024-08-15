@@ -277,6 +277,7 @@ export default defineNuxtConfig({
           "https://snippet.meticulous.ai",
           "https://browser.sentry-cdn.com",
           "https://*.apple.com",
+          process.env.SITE_DOMAIN || "",
         ],
         "img-src": [
           "'self'",
@@ -287,6 +288,7 @@ export default defineNuxtConfig({
           "https://*.g.doubleclick.net",
           "https://*.google.com",
           "https://*.apple.com",
+          process.env.SITE_DOMAIN || "",
         ],
         "connect-src": [
           "'self'",
@@ -297,10 +299,11 @@ export default defineNuxtConfig({
           "https://*.google.com",
           "https://cognito-identity.us-west-2.amazonaws.com",
           "https://user-events-v3.s3-accelerate.amazonaws.com",
+          "*.sentry.io",
           "https://edge.hypertune.com",
           "https://gcp.fasthorse.workers.dev",
           "https://*.apple.com",
-          "*.sentry.io",
+          process.env.SITE_DOMAIN || "",
         ],
       },
     },
