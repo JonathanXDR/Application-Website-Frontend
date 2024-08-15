@@ -1,7 +1,14 @@
 <template>
   <template v-if="!loading">
-    <svg :style="styles">
-      <use :href="icon" />
+    <svg
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      aria-hidden="true"
+      role="img"
+      :style="styles"
+    >
+      <use :xlink:href="icon" />
     </svg>
   </template>
 </template>
