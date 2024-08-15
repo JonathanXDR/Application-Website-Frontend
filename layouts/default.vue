@@ -2,13 +2,7 @@
   <div>
     <SpeedInsights />
     <header v-if="shouldShow('header')">
-      <NavBarV2
-        v-if="shouldShow('nav')"
-        :border="{
-          display: true,
-          animation: true,
-        }"
-      />
+      <NavBarV2 v-if="shouldShow('nav')" />
       <RibbonBar v-if="shouldShow('ribbon')" :loading="false" :items="items" />
     </header>
     <main>

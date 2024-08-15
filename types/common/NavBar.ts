@@ -1,6 +1,5 @@
 export interface NavBarType {
-  border?: {
-    display: boolean;
-    animation: boolean;
-  };
+  border?: boolean;
+  scrim?: boolean;
+  position?: "sticky" | "fixed";
 }

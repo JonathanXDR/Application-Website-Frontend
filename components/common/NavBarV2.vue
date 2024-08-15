@@ -9,12 +9,21 @@
     :disabled="navDisabled"
     @input="toggleNav"
   >
-  <div id="ac-ln-fixed-placeholder" class="css-fixed ac-ln-sticking" />
+  <div
+    id="ac-ln-fixed-placeholder"
+    :class="[
+      { 'css-sticky ac-ln-sticking': position === 'sticky' },
+      { 'css-fixed ac-ln-sticking': position === 'fixed' },
+    ]"
+  />
   <nav
     id="ac-localnav"
     :class="[
-      'ac-localnav-scrim css-fixed ac-ln-allow-transitions ac-ln-sticking',
-      { 'ac-localnav-noborder': !border.display },
+      ' ac-ln-allow-transitions',
+      { 'css-sticky ac-ln-sticking': position === 'sticky' },
+      { 'css-fixed ac-ln-sticking': position === 'fixed' },
+      { 'ac-localnav-noborder': !border },
+      { 'ac-localnav-scrim': scrim },
       { 'ac-ln-open': navOpen },
       { 'ac-ln-opening': navOpen },
     ]"
@@ -171,10 +180,9 @@ import type { NavBarType } from "~/types/common/NavBar";
 import type { SectionType } from "~/types/common/Section";
 
 withDefaults(defineProps<NavBarType>(), {
-  border: () => ({
-    display: false,
-    animation: false,
-  }),
+  border: true,
+  scrim: true,
+  position: "fixed",
 });
 
 const { randomDevColor } = useColor();
@@ -185,6 +193,7 @@ const { headerAnimations } = useAnimation();
 const config = useRuntimeConfig();
 const route = useRoute();
 const { tm } = useI18n();
+// const { x, y } = useScroll(el, { behavior })
 const navItems = computed<SectionType[]>(() => tm("components.common.NavBar"));
 const themeItems = computed<ItemType[]>(() =>
   tm("components.common.SegmentNav.theme"),
@@ -451,6 +460,9 @@ onMounted(() => {
   #ac-localnav .ac-ln-content {
     --r-localnav-content-padding: 16px;
   }
+}
+#ac-localnav.css-sticky {
+  position: sticky;
 }
 #ac-localnav.css-fixed {
   position: fixed;
