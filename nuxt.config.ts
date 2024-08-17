@@ -268,7 +268,8 @@ export default defineNuxtConfig({
     csrf: true,
     headers: {
       contentSecurityPolicy: {
-        "style-src": ["'self'", "'unsafe-inline'"],
+        "default-src": ["'self'", process.env.SITE_URL || ""],
+        "style-src": ["'self'", "'unsafe-inline'", process.env.SITE_URL || ""],
         "script-src": [
           "'self'",
           "'strict-dynamic'",
@@ -277,7 +278,7 @@ export default defineNuxtConfig({
           "https://snippet.meticulous.ai",
           "https://browser.sentry-cdn.com",
           "https://*.apple.com",
-          process.env.SITE_DOMAIN || "",
+          process.env.SITE_URL || "",
         ],
         "img-src": [
           "'self'",
@@ -288,7 +289,7 @@ export default defineNuxtConfig({
           "https://*.g.doubleclick.net",
           "https://*.google.com",
           "https://*.apple.com",
-          process.env.SITE_DOMAIN || "",
+          process.env.SITE_URL || "",
         ],
         "connect-src": [
           "'self'",
@@ -303,7 +304,7 @@ export default defineNuxtConfig({
           "https://edge.hypertune.com",
           "https://gcp.fasthorse.workers.dev",
           "https://*.apple.com",
-          process.env.SITE_DOMAIN || "",
+          process.env.SITE_URL || "",
         ],
       },
     },
