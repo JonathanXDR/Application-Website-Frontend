@@ -229,7 +229,8 @@ export default defineNuxtConfig({
     csrf: true,
     headers: {
       contentSecurityPolicy: {
-        "style-src": ["'self'", "'unsafe-inline'"],
+        "default-src": ["'self'", process.env.SITE_URL || ""],
+        "style-src": ["'self'", "'unsafe-inline'", process.env.SITE_URL || ""],
         "script-src": [
           "'self'",
           "'strict-dynamic'",
@@ -237,6 +238,8 @@ export default defineNuxtConfig({
           "https://*.googletagmanager.com",
           "https://snippet.meticulous.ai",
           "https://browser.sentry-cdn.com",
+          "https://*.apple.com",
+          process.env.SITE_URL || "",
         ],
         "img-src": [
           "'self'",
@@ -246,6 +249,8 @@ export default defineNuxtConfig({
           "https://*.googletagmanager.com",
           "https://*.g.doubleclick.net",
           "https://*.google.com",
+          "https://*.apple.com",
+          process.env.SITE_URL || "",
         ],
         "connect-src": [
           "'self'",
@@ -257,6 +262,10 @@ export default defineNuxtConfig({
           "https://cognito-identity.us-west-2.amazonaws.com",
           "https://user-events-v3.s3-accelerate.amazonaws.com",
           "*.sentry.io",
+          "https://edge.hypertune.com",
+          "https://gcp.fasthorse.workers.dev",
+          "https://*.apple.com",
+          process.env.SITE_URL || "",
         ],
       },
     },
