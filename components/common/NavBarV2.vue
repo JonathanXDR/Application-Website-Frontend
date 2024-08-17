@@ -19,7 +19,7 @@
   <nav
     id="ac-localnav"
     :class="[
-      ' ac-ln-allow-transitions',
+      'ac-ln-allow-transitions',
       { 'css-sticky ac-ln-sticking': position === 'sticky' },
       { 'css-fixed ac-ln-sticking': position === 'fixed' },
       { 'ac-localnav-noborder': !border },
@@ -676,7 +676,7 @@ onMounted(() => {
   }
 }
 #ac-localnav.ac-localnav-noborder .ac-ln-background:after {
-  display: none;
+  width: 0% !important;
 }
 #ac-localnav.ac-localnav-scrim .ac-ln-background:after {
   /* -webkit-margin-start: 0;
@@ -749,7 +749,7 @@ onMounted(() => {
     --r-localnav-menu-tray-max-height: calc(100vh - 48px);
   }
 }
-#ac-localnav.ac-localnav-noborder {
+/* #ac-localnav.ac-localnav-noborder {
   --r-localnav-menu-link-current-keyline-bottom-offset: 0px;
 }
 .ac-localnav-noborder#ac-localnav.ac-localnav-scrim {
@@ -757,7 +757,7 @@ onMounted(() => {
 }
 .ac-localnav-noborder#ac-localnav.ac-ln-sticking {
   --r-localnav-menu-link-current-keyline-bottom-offset: 10px;
-}
+} */
 #ac-localnav .ac-ln-menu {
   height: 100%;
   font-size: 12px;
