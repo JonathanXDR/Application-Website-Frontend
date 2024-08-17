@@ -28,8 +28,6 @@
 <script setup lang="ts"></script>
 
 <style scoped>
-@import url("https://use.typekit.net/bzh0rct.css");
-
 .section-content {
   width: calc(100% - 55px);
   margin-inline: auto;
