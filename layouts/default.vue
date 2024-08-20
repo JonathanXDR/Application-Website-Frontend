@@ -56,27 +56,27 @@ watchEffect(() => {
     title: currentSection.value.name,
   });
 
-  if (config.public.appEnvironment === "development") {
-    useHead({
-      link: [
-        { rel: "icon", type: "image/svg+xml", href: faviconGraphicData.value },
-        {
-          rel: "apple-touch-icon",
-          href: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
-        },
-      ],
-      meta: [
-        {
-          property: "twitter:image",
-          content: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
-        },
-        {
-          property: "og:image",
-          content: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
-        },
-      ],
-    });
-  }
+  if (config.public.appEnvironment !== "development") return;
+
+  useHead({
+    link: [
+      { rel: "icon", type: "image/svg+xml", href: faviconGraphicData.value },
+      {
+        rel: "apple-touch-icon",
+        href: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
+      },
+    ],
+    meta: [
+      {
+        property: "twitter:image",
+        content: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
+      },
+      {
+        property: "og:image",
+        content: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
+      },
+    ],
+  });
 });
 
 const errorConfig = {
