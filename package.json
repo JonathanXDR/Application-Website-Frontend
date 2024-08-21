@@ -23,7 +23,7 @@
     "@nuxt/eslint": "^0.5.1",
     "@nuxt/icon": "^1.4.7",
     "@nuxt/image": "^1.7.0",
-    "@nuxt/scripts": "^0.7.0",
+    "@nuxt/scripts": "^0.6.6",
     "@nuxtjs/color-mode": "^3.4.4",
     "@nuxtjs/i18n": "^8.5.0",
     "@nuxtjs/seo": "^2.0.0-rc.19",
