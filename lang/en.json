@@ -745,7 +745,7 @@
           },
           "eyebrow": "Framework",
           "title": "Nest.js",
-          "description": "I got to know this backend framework in the Apps team and used it to create my CRUD app. I learned a lot about the architecture and the various modules. I also worked with it in productive projects in the Apps team, such as the fleet management tool or the new web frontends.",
+          "description": "I got to know this backend framework in the Apps Team and used it to create my CRUD app. I learned a lot about the architecture and the various modules. I also worked with it in productive projects in the Apps Team, such as the fleet management tool or the new web frontends.",
           "badges": ["Node", "Backend", "TypeScript"],
           "links": [
             {
@@ -817,7 +817,7 @@
           },
           "eyebrow": "Library",
           "title": "Tailwind CSS",
-          "description": "Tailwind CSS was used together with SDX in many projects in the Apps team. The fleet management tool and the new web frontends are two examples of this.",
+          "description": "Tailwind CSS was used together with SDX in many projects in the Apps Team. The fleet management tool and the new web frontends are two examples of this.",
           "badges": ["CSS", "Frontend", "Design", "UI"],
           "links": [
             {
@@ -1096,7 +1096,7 @@
           },
           "eyebrow": "Backend",
           "title": "Apps Team - Backend",
-          "description": "Having already worked in the Apps team as a frontend developer, I now wanted to get to know the backend better. First, I was allowed to create my own CRUD app. I was able to learn a lot about Nest.js and the two ORMs Prisma and TypeORM and gained valuable experience in the process. Later, I also created a frontend for my CRUD app with GitHub Primer. After that, I helped with the tool for media courses and was able to add some features and fix bugs. Finally, I was also able to contribute to the fleet management tool and the new web frontends, which I really enjoyed :)",
+          "description": "Having already worked in the Apps Team as a frontend developer, I now wanted to get to know the backend better. First, I was allowed to create my own CRUD app. I was able to learn a lot about Nest.js and the two ORMs Prisma and TypeORM and gained valuable experience in the process. Later, I also created a frontend for my CRUD app with GitHub Primer. After that, I helped with the tool for media courses and was able to add some features and fix bugs. Finally, I was also able to contribute to the fleet management tool and the new web frontends, which I really enjoyed :)",
           "badges": [
             "Backend",
             "CRUD",
@@ -1183,7 +1183,7 @@
           },
           "eyebrow": "Full-Stack",
           "title": "Apps Team - Full-Stack (IPA)",
-          "description": "For my IPA (Individual Practical Work), I decided to go back to the Apps team, as I've already gained a lot of experience there and the people there are also very nice. I'm currently working with Next.js as a frontend framework and Nest.js as a backend framework.",
+          "description": "For my IPA (Individual Practical Work), I decided to go back to the Apps Team, as I've already gained a lot of experience there and the people there are also very nice. I'm currently working with Next.js as a frontend framework and Nest.js as a backend framework.",
           "badges": ["Next", "Nest", "TypeORM", "Prisma", "IPA"],
           "links": [
             {
