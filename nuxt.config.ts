@@ -78,6 +78,11 @@ export default defineNuxtConfig({
   },
 
   app: {
+    seoMeta: {
+      description: process.env.SITE_DESCRIPTION,
+      ogImage: process.env.SITE_LOGO,
+      ogSiteName: process.env.SITE_NAME,
+    },
     head: {
       templateParams: {
         site: {
@@ -109,18 +114,6 @@ export default defineNuxtConfig({
         {
           property: "twitter:description",
           content: process.env.SITE_DESCRIPTION,
-        },
-        {
-          name: "apple-music-developer-token",
-          content: process.env.APPLE_DEVELOPER_TOKEN,
-        },
-        {
-          name: "apple-music-app-name",
-          content: process.env.APP_NAME,
-        },
-        {
-          name: "apple-music-app-build",
-          content: process.env.APP_BUILD,
         },
       ],
     },
@@ -176,11 +169,7 @@ export default defineNuxtConfig({
     app: {
       head: {
         link: [
-          {
-            rel: "icon",
-            type: "image/svg+xml",
-            href: process.env.SITE_LOGO,
-          },
+          { rel: "icon", type: "image/svg+xml", href: "/img/favicon.svg" },
         ],
       },
     },
