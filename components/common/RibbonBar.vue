@@ -109,11 +109,13 @@ const displayItems = ref<{ description: string; links: LinkType[] }[]>([]);
 const initialAnimationPlayed = ref(false);
 
 const { data: repositoryTags } = await useFetch("/api/github/repository-tags", {
+  key: "repository-tags",
   params: {
     owner: config.public.githubRepoOwner,
     repo: config.public.githubRepoName,
     per_page: 2,
   },
+  getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
 });
 
 const updateBaseItems = () => {

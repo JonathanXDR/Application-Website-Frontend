@@ -174,14 +174,18 @@ const currentIndex = ref(0);
 const { data: userRepositories } = await useFetch(
   "/api/github/user-repositories",
   {
+    key: "user-repositories",
     params: { username: config.public.githubRepoOwner, per_page: 100 },
+    getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
   },
 );
 
 const { data: pinnedProjects } = await useFetch(
   "/api/github/pinned-repositories",
   {
+    key: "pinned-repositories",
     params: { username: config.public.githubRepoOwner, per_page: 100 },
+    getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
   },
 );
 
