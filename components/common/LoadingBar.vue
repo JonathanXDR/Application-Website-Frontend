@@ -14,6 +14,7 @@
       :style="{
         '--progress-updated': background ? `-${100 - progress}%` : '0%',
         '--color-primary': colors.primary,
+        width: `${progress}%`
       }"
     />
   </div>
