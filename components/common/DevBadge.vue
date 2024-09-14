@@ -23,7 +23,7 @@ withDefaults(
 
 <style scoped>
 .dev-badge {
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 600;
   font-family:
     system-ui,
