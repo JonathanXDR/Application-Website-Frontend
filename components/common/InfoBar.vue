@@ -39,8 +39,8 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import type { IconType } from "~/types/common/Icon";
 import type { InfoType } from "~/types/common/Info";
-import type { ItemType } from "~/types/common/Item";
 
 const props = withDefaults(defineProps<InfoType>(), {
   loading: false,
@@ -56,7 +56,7 @@ const props = withDefaults(defineProps<InfoType>(), {
 dayjs.extend(relativeTime);
 
 const { locale } = useI18n();
-const infoItems: ItemType[] = [
+const infoItems: { id: keyof InfoType; icon: IconType }[] = [
   { id: "location", icon: { name: "location.fill" } },
   { id: "supervisor", icon: { name: "person.fill" } },
   { id: "department", icon: { name: "tag.fill" } },
