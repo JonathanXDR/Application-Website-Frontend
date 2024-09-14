@@ -20,7 +20,7 @@
 withDefaults(
   defineProps<{
     badges: string[];
-    loading: boolean;
+    loading?: boolean;
   }>(),
   {
     badges: () => [],

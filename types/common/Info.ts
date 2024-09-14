@@ -1,7 +1,6 @@
 import type { DateType } from "./Date";
 
 export interface InfoType {
-  [key: string]: undefined | string | number | boolean | DateType;
   loading?: boolean;
   date?: DateType;
 
