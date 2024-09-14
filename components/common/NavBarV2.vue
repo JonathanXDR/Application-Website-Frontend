@@ -72,7 +72,14 @@
           >
             <span class="ac-ln-menucta-anchor-label">Local Nav Close Menu</span>
           </a>
-          <div id="ac-ln-menustate-tray" class="ac-ln-menu-tray">
+          <div
+            id="ac-ln-menustate-tray"
+            ref="menustateTrayEl"
+            class="ac-ln-menu-tray"
+            :style="{
+              '--r-localnav-menu-tray-natural-height': `${trayHeight}px`,
+            }"
+          >
             <ul class="ac-ln-menu-items">
               <li
                 v-for="(item, index) in navItems"
@@ -202,6 +209,8 @@ const expandAnimation = ref<SVGAnimateElement | null>(null);
 const collapseAnimation = ref<SVGAnimateElement | null>(null);
 
 const navbarEl = ref<HTMLElement | null>(null);
+const menustateTrayEl = ref<HTMLElement | null>(null);
+const trayHeight = ref<number | undefined>(undefined);
 const menuLinkRefs: Record<string, HTMLElement | null> = {};
 
 const borderTransformOrigin = ref<string>("50% 0%");
@@ -298,10 +307,14 @@ onMounted(() => {
   updateBorderPosition();
   useEventListener("scroll", handleScroll);
 
+  nextTick(() => {
+    if (!menustateTrayEl.value) return;
+    trayHeight.value = menustateTrayEl.value.scrollHeight;
+  });
+
   watch(getTheme, (newTheme, oldTheme) => {
-    if (newTheme !== oldTheme) {
-      updateAnimations();
-    }
+    if (newTheme === oldTheme) return;
+    updateAnimations();
   });
 });
 
