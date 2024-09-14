@@ -78,11 +78,6 @@ export default defineNuxtConfig({
   },
 
   app: {
-    seoMeta: {
-      description: process.env.SITE_DESCRIPTION,
-      ogImage: process.env.SITE_LOGO,
-      ogSiteName: process.env.SITE_NAME,
-    },
     head: {
       templateParams: {
         site: {
@@ -92,6 +87,11 @@ export default defineNuxtConfig({
         },
       },
       link: [{ rel: "apple-touch-icon", href: process.env.SITE_LOGO }],
+      seoMeta: {
+        description: process.env.SITE_DESCRIPTION,
+        ogImage: process.env.SITE_LOGO,
+        ogSiteName: process.env.SITE_NAME,
+      },
       meta: [
         { name: "title", content: process.env.SITE_NAME },
         {
