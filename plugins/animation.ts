@@ -77,7 +77,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         observer.observe(el);
       };
 
-      window.addEventListener("scroll", updateObserver, { passive: true });
+      useEventListener("scroll", updateObserver, { passive: true });
 
       if (animationState.get(el)?.wasInViewport) {
         toArray(value.add).forEach((className) => el.classList.add(className));

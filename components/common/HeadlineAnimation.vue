@@ -66,9 +66,9 @@ let cursorBlinkTimeout: number | NodeJS.Timeout | null = null;
 const animationConfig = {
   onViewportChange: (isInViewport: boolean) => {
     if (isInViewport) {
-      window.addEventListener("scroll", updateLetterCount);
+      useEventListener("scroll", updateLetterCount);
     } else {
-      window.removeEventListener("scroll", updateLetterCount);
+      removeEventListener("scroll", updateLetterCount);
       clearTimeout(cursorBlinkTimeout as NodeJS.Timeout);
     }
   },

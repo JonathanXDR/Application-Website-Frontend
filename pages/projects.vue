@@ -244,8 +244,8 @@ const updateUlHeightAndInitializePath = async () => {
 };
 
 onMounted(() => {
+  useEventListener("resize", updateUlHeightAndInitializePath);
   updateUlHeightAndInitializePath();
-  window.addEventListener("resize", updateUlHeightAndInitializePath);
 });
 
 watch(
