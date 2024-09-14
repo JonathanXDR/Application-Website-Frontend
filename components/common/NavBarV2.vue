@@ -18,6 +18,7 @@
   />
   <nav
     id="ac-localnav"
+    ref="navbarEl"
     :class="[
       'ac-ln-allow-transitions',
       { 'css-sticky ac-ln-sticking': position === 'sticky' },
@@ -27,6 +28,10 @@
       { 'ac-ln-open': navOpen },
       { 'ac-ln-opening': navOpen },
     ]"
+    :style="{
+      '--border-transform-origin': borderTransformOrigin,
+      '--border-scaleX': borderScaleX,
+    }"
     lang="en-US"
     dir="ltr"
     role="navigation"
@@ -36,8 +41,6 @@
       <div class="ac-ln-background" />
       <div class="ac-ln-content">
         <div class="ac-ln-title">
-          <!-- <a href="/apple-vision-pro/"> Apple Vision Pro </a> -->
-
           <NuxtLink to="/" aria-label="JR">
             <Logo :style="{ height: '13px !important', width: 'auto' }" />
           </NuxtLink>
@@ -74,16 +77,9 @@
               <li
                 v-for="(item, index) in navItems"
                 :key="index"
+                :ref="(el) => (menuLinkRefs[item.id] = el as HTMLElement)"
                 class="ac-ln-menu-item"
               >
-                <!-- <span
-                  class="ac-ln-menu-link current"
-                  role="link"
-                  aria-disabled="true"
-                  aria-current="page"
-                >
-                  Overview
-                </span> -->
                 <NuxtLink
                   :to="item.route"
                   :class="[
@@ -193,16 +189,38 @@ const { headerAnimations } = useAnimation();
 const config = useRuntimeConfig();
 const route = useRoute();
 const { tm } = useI18n();
-// const { x, y } = useScroll(el, { behavior })
+
 const navItems = computed<SectionType[]>(() => tm("components.common.NavBar"));
 const themeItems = computed<ItemType[]>(() =>
   tm("components.common.SegmentNav.theme"),
 );
+
 const navOpen = ref(false);
 const navDisabled = ref(false);
-// const currentSectionIndex = computed(() => currentSection.value.index);
+
 const expandAnimation = ref<SVGAnimateElement | null>(null);
 const collapseAnimation = ref<SVGAnimateElement | null>(null);
+
+const navbarEl = ref<HTMLElement | null>(null);
+const menuLinkRefs: Record<string, HTMLElement | null> = {};
+
+const borderTransformOrigin = ref<string>("50% 0%");
+const borderScaleX = ref<string>("scaleX(1)");
+
+const currentMenuLinkEl = computed<HTMLElement | null>(() => {
+  const currentId = navItems.value.find(
+    (item) => item.id === currentSection.value.id || route.path === item.route,
+  )?.id;
+  const liEl = currentId ? menuLinkRefs[currentId] : null;
+
+  if (!liEl) return null;
+
+  const menuLinkEl = liEl.querySelector(
+    ".ac-ln-menu-link",
+  ) as HTMLElement | null;
+
+  return menuLinkEl;
+});
 
 const initHeaderAnimations = () => {
   const animation = {
@@ -252,15 +270,49 @@ const updateAnimations = () => {
   });
 };
 
+const updateBorderPosition = () => {
+  if (currentMenuLinkEl.value && navbarEl.value) {
+    const menuLinkRect = currentMenuLinkEl.value.getBoundingClientRect();
+    const navbarRect = navbarEl.value.getBoundingClientRect();
+
+    const centerPosition =
+      menuLinkRect.left + menuLinkRect.width / 2 - navbarRect.left;
+
+    const transformOriginPercent = (centerPosition / navbarRect.width) * 100;
+
+    borderTransformOrigin.value = `${transformOriginPercent}% 0%`;
+
+    borderScaleX.value = "scaleX(0)";
+
+    requestAnimationFrame(() => {
+      borderScaleX.value = "scaleX(1)";
+    });
+  } else {
+    borderTransformOrigin.value = "50% 0%";
+    borderScaleX.value = "scaleX(1)";
+  }
+};
+
 onMounted(() => {
   initHeaderAnimations();
-  window.addEventListener("scroll", handleScroll);
+  updateBorderPosition();
+  useEventListener("scroll", handleScroll);
 
   watch(getTheme, (newTheme, oldTheme) => {
     if (newTheme !== oldTheme) {
       updateAnimations();
     }
   });
+});
+
+useEventListener(window, "resize", updateBorderPosition);
+
+watch([() => route.path, () => currentSection.value.id], () => {
+  updateBorderPosition();
+});
+
+watch(currentMenuLinkEl, () => {
+  updateBorderPosition();
 });
 </script>
 
@@ -657,15 +709,13 @@ onMounted(() => {
   display: block;
   position: absolute;
   bottom: 0;
-  /* inset-inline-start: 50%; */
-  width: 82.5%;
-  /* -webkit-margin-start: -490px;
-  margin-inline-start: -490px; */
+  left: 0;
+  width: 100%;
   height: 1px;
   z-index: 1;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: all 1s;
+  transform-origin: var(--border-transform-origin);
+  transform: var(--border-scaleX);
+  transition: transform 1s ease;
 }
 @media (max-width: 1023px) {
   #ac-localnav .ac-ln-background:after {
@@ -676,7 +726,7 @@ onMounted(() => {
   }
 }
 #ac-localnav.ac-localnav-noborder .ac-ln-background:after {
-  width: 0% !important;
+  transform: scaleX(0);
 }
 #ac-localnav.ac-localnav-scrim .ac-ln-background:after {
   /* -webkit-margin-start: 0;
