@@ -8,41 +8,52 @@
     <div class="section-content">
       <div class="event-info" :class="eventState">
         <div class="event-info-heading">
-          <h2 class="section-head">WWDC24</h2>
+          <h2 class="section-head">September 2024 Keynote</h2>
           <div class="add-to-calendar">
             <a
-              href="https://www.apple.com/newsroom/cal/apple-event-1717429718871/wwdc24.ics"
+              href="https://www.apple.com/newsroom/cal/apple-event-1724879336043/apple_event.ics"
+              aria-label="add to calendar: September 2024 Keynote"
               class="add-to-calendar__link icon-downloadcircle icon"
-            >
-              Add to calendar
-              <Symbol name="arrow.down.circle" class="icon icon-medium" />
+              download=""
+              role="button"
+              tabindex="0"
+              >Add to calendar
             </a>
           </div>
         </div>
-        <div v-if="showCountdown" class="event-info-interactive show-countdown">
-          <aside class="countdown">
+        <div class="event-info-interactive show-countdown">
+          <aside
+            v-if="showCountdown && eventState === 'pre-event'"
+            aria-label="Countdown:September 2024 Keynote"
+            class="countdown"
+          >
             <div
               v-for="(value, label) in countdown"
               :key="label"
               class="countdown-zone"
             >
-              <span class="countdown-volabel"
-                >{{ value.prev }}, {{ label }}</span
-              >
-              <div class="countdown-digitsholder">
-                <!-- <span v-if="isTransitioning" class="countdown-prev">{{
-                  value.prev
-                }}</span> -->
+              <span class="countdown-volabel">
+                {{ value.prev }}, {{ label }}
+              </span>
+              <div class="countdown-digitsholder" aria-hidden="true">
+                <span class="countdown-prev">{{ value.prev }}</span>
                 <span class="countdown-current">{{ value.current }}</span>
               </div>
-              <div class="countdown-label">{{ label }}</div>
+              <div class="countdown-label" aria-hidden="true">{{ label }}</div>
             </div>
           </aside>
-          <div class="event-info-cta-area">
+          <div
+            v-if="eventState !== 'pre-event'"
+            class="event-info-cta-area"
+            aria-live="polite"
+          >
             <a
               v-if="eventState === 'live'"
               href="https://www.apple.com/apple-events/"
               class="watch-live"
+              aria-label="watch live event: September 2024 Keynote"
+              aria-hidden="true"
+              tabindex="-1"
             >
               Watch live event
             </a>
@@ -50,6 +61,9 @@
               v-if="eventState === 'post-event'"
               href="https://www.apple.com/apple-events/"
               class="watch-event"
+              aria-label="watch event: September 2024 Keynote"
+              aria-hidden="true"
+              tabindex="-1"
             >
               Watch event
             </a>
@@ -75,8 +89,8 @@ const props = withDefaults(
   }>(),
   {
     eventDuration: () => ({
-      start: new Date(2024, 5, 30, 6, 0),
-      end: new Date(2024, 5, 30, 8, 0),
+      start: new Date(2024, 8, 15, 0, 0),
+      end: new Date(2024, 8, 15, 6, 0),
     }),
     showCountdown: true,
   },
@@ -88,10 +102,14 @@ interface CountdownValue {
 }
 
 const eventState = ref<"pre-event" | "live" | "post-event">("pre-event");
-const countdown = ref<Record<"days" | "hours" | "minutes", CountdownValue>>({
+const countdown = ref<
+  Record<"months" | "days" | "hours" | "minutes" | "seconds", CountdownValue>
+>({
+  months: { prev: "00", current: "00" },
   days: { prev: "00", current: "00" },
   hours: { prev: "00", current: "00" },
   minutes: { prev: "00", current: "00" },
+  seconds: { prev: "00", current: "00" },
 });
 const isTransitioning = ref(false);
 let timer: ReturnType<typeof setTimeout> | null = null;
@@ -102,6 +120,10 @@ const updateCountdown = () => {
   const diff = dayjs.duration(end.diff(now));
 
   const newCountdown = {
+    months: {
+      prev: countdown.value.months.current,
+      current: diff.months().toString().padStart(2, "0"),
+    },
     days: {
       prev: countdown.value.days.current,
       current: diff.days().toString().padStart(2, "0"),
@@ -113,6 +135,10 @@ const updateCountdown = () => {
     minutes: {
       prev: countdown.value.minutes.current,
       current: diff.minutes().toString().padStart(2, "0"),
+    },
+    seconds: {
+      prev: countdown.value.seconds.current,
+      current: diff.seconds().toString().padStart(2, "0"),
     },
   };
 
@@ -160,53 +186,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.event-branding-img {
-  background: url(https://www.apple.com/newsroom/images/2024/06/wwdc/Apple-WWDC24-event-branding.jpg.branding-large.jpg)
-    no-repeat top;
-  background-size: cover;
-  width: 100%;
-  height: 320px;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-  only screen and (min-resolution: 1.5dppx),
-  (-webkit-min-device-pixel-ratio: 1.5),
-  (min-resolution: 144dpi) {
-  .event-branding-img {
-    background-image: url(https://www.apple.com/newsroom/images/2024/06/wwdc/Apple-WWDC24-event-branding.jpg.branding-large_2x.jpg);
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .event-branding-img {
-    background-image: url(https://www.apple.com/newsroom/images/2024/06/wwdc/Apple-WWDC24-event-branding.jpg.branding-medium.jpg);
-    height: 227px;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 1.5),
-  only screen and (min-width: 768px) and (max-width: 1023px) and (min-resolution: 1.5dppx),
-  (min-width: 768px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 1.5),
-  (min-width: 768px) and (max-width: 1023px) and (min-resolution: 144dpi) {
-  .event-branding-img {
-    background-image: url(https://www.apple.com/newsroom/images/2024/06/wwdc/Apple-WWDC24-event-branding.jpg.branding-medium_2x.jpg);
-  }
-}
-@media only screen and (max-width: 767px) {
-  .event-branding-img {
-    background-image: url(https://www.apple.com/newsroom/images/2024/06/wwdc/Apple-WWDC24-event-branding.jpg.branding-small.jpg);
-    height: 210px;
-  }
-}
-@media only screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5),
-  only screen and (max-width: 767px) and (min-resolution: 1.5dppx),
-  (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5),
-  (max-width: 767px) and (min-resolution: 144dpi) {
-  .event-branding-img {
-    background-image: url(https://www.apple.com/newsroom/images/2024/06/wwdc/Apple-WWDC24-event-branding.jpg.branding-small_2x.jpg);
-  }
-}
-
-/*! CSS Used from:
-https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/global-elements/global-header/v1/assets/globalheader.css
-*/
 .theme-dark {
   --sk-glyph: rgb(255, 255, 255);
   --sk-glyph-gray: rgb(245, 245, 247);
@@ -246,7 +225,6 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   --sk-link-disabled-opacity: 0.36;
   --sk-focus-color-alt: rgb(255, 255, 255);
 }
-
 .section-head {
   font-size: 32px;
   line-height: 1.125;
@@ -339,15 +317,67 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     max-width: 366px;
   }
 }
+.section-head {
+  font-size: 32px;
+  line-height: 1.125;
+  font-weight: 700;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
+  margin-bottom: 24px;
+}
+@media only screen and (max-width: 1023px) {
+  .section-head {
+    font-size: 28px;
+    line-height: 1.1428571429;
+    font-weight: 700;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .section-head {
+    font-size: 24px;
+    line-height: 1.1666666667;
+    font-weight: 700;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  .section-head {
+    margin-bottom: 16px;
+  }
+}
+.image {
+  z-index: 0;
+}
+@media only screen and (inverted-colors) {
+  .image {
+    filter: invert(1);
+  }
+}
 .takeover {
   background-color: var(--color-fill-secondary);
   overflow: hidden;
   margin-top: -52px;
-}
-@media only screen and (max-width: 767px) {
-  .ac-ls-visible .takeover {
-    margin-top: -48px;
-  }
 }
 .takeover .section-content {
   margin-bottom: 40px;
@@ -381,115 +411,6 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     margin-top: 32px;
   }
 }
-.takeover .event-info ~ .section-tiles {
-  margin-bottom: 40px;
-  margin-top: -16px;
-  display: inline-flex;
-  width: 100%;
-}
-@media only screen and (max-width: 1023px) {
-  .takeover .event-info ~ .section-tiles {
-    margin-bottom: 28px;
-    margin-top: -20px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .takeover .event-info ~ .section-tiles {
-    margin-bottom: 0;
-    margin-top: 0;
-  }
-}
-.takeover .tile-item .tile-hero .tile__headline {
-  font-size: 32px;
-  line-height: 1.125;
-  font-weight: 700;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  overflow: hidden;
-}
-@media only screen and (max-width: 1023px) {
-  .takeover .tile-item .tile-hero .tile__headline {
-    font-size: 21px;
-    line-height: 1.1904761905;
-    font-weight: 700;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .takeover .tile-item .tile-hero .tile__headline {
-    font-size: 19px;
-    line-height: 1.2105263158;
-    font-weight: 700;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .takeover .tile-item.item-2up-secondary,
-  .takeover .tile-item.item-3up-secondary {
-    margin-top: 0;
-    border-top: 1px solid var(--color-figure-gray-secondary);
-    padding-top: 24px;
-  }
-  .takeover .tile-item.item-2up-secondary .tile__description,
-  .takeover .tile-item.item-3up-secondary .tile__description {
-    justify-content: flex-start;
-  }
-  .takeover .tile-item.item-2up + .tile-item.item-2up-secondary,
-  .takeover .tile-item.item-2up + .tile-item.item-3up-secondary {
-    border-top: none;
-    padding-top: 0;
-  }
-  .takeover .tile-item:last-of-type {
-    margin-bottom: 8px;
-  }
-}
-.takeover .tile {
-  background-color: var(--color-fill);
-}
-.takeover .tile__headline {
-  color: var(--color-fill-gray);
-}
-.takeover .tile__category,
-.takeover .tile__timestamp {
-  color: var(--color-figure-gray-secondary);
-}
-@media only screen and (max-width: 767px) {
-  .takeover .tile.tile-2up-secondary,
-  .takeover .tile.tile-3up-secondary {
-    background-color: transparent;
-  }
-  .takeover .tile.tile-2up-secondary .tile__description,
-  .takeover .tile.tile-3up-secondary .tile__description {
-    padding: 0;
-    padding-inline-start: 24px;
-  }
-}
-.takeover .tile:hover {
-  text-decoration: none;
-}
 .takeover .event-info {
   display: flex;
   align-items: center;
@@ -513,28 +434,6 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     margin-top 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 300ms;
 }
-.takeover .event-info:not(.pre-event) .countdown {
-  opacity: 0;
-  margin-top: -56px;
-  pointer-events: none;
-  transition:
-    opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
-    margin-top 300ms cubic-bezier(0.4, 0, 0.25, 1) 300ms;
-}
-.takeover .event-info:not(.pre-event) .add-to-calendar {
-  margin-top: -36px;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transition:
-    opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
-    margin-top 300ms cubic-bezier(0.4, 0, 0.25, 1) 300ms;
-}
-@media only screen and (max-width: 767px) {
-  .takeover .event-info:not(.pre-event) .event-info-interactive {
-    margin-top: 4px;
-  }
-}
 @media only screen and (max-width: 767px) {
   .takeover .event-info.pre-event .event-info-interactive,
   .takeover .event-info.post-event .event-info-interactive,
@@ -555,16 +454,6 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     margin-bottom: 0;
   }
 }
-.takeover .event-info:not(.post-event) .watch-event {
-  opacity: 0;
-  transition: opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms;
-  pointer-events: none;
-}
-.takeover .event-info:not(.live) .watch-live {
-  opacity: 0;
-  transition: opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms;
-  pointer-events: none;
-}
 .takeover .event-info-heading {
   display: flex;
   flex-direction: column;
@@ -584,6 +473,11 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
   color: var(--color-syntax-marks);
   margin-bottom: 0;
 }
+@media only screen and (max-width: 767px) {
+  .takeover .event-info-heading .section-head {
+    text-align: center;
+  }
+}
 .takeover .event-info-heading .add-to-calendar {
   margin-top: 8px;
   transition:
@@ -598,9 +492,7 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 }
 .takeover .event-info-heading .add-to-calendar__link {
   border-radius: 30px;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
+  display: inline-block;
   transition:
     background-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     border-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
@@ -618,59 +510,32 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     sans-serif;
   padding: 8px 16px;
   background: var(--color-fill-gray-quaternary);
-  color: var(--color-fill-gray);
+  color: var(--color-figure-gray);
 }
 .takeover .event-info-heading .add-to-calendar__link:hover {
   text-decoration: none;
 }
-.takeover
-  .event-info-heading
-  .add-to-calendar__link:focus[data-focus-method="key"] {
-  text-decoration: none;
-}
 .takeover .event-info-heading .add-to-calendar__link::after {
-  margin-left: 4px;
+  margin-inline-start: 4px;
 }
 @media (hover: hover) {
   .takeover .event-info-heading .add-to-calendar__link:hover::after {
     color: inherit;
   }
 }
-.takeover
-  .event-info-heading
-  .add-to-calendar__link:focus[data-focus-method="key"]::after {
-  color: inherit;
-}
 @media (hover: hover) {
   .takeover .event-info-heading .add-to-calendar__link.icon:hover {
     background: var(--color-fill-gray-tertiary);
-    color: var(--color-fill-gray);
+    color: var(--color-figure-gray);
     text-decoration: none;
   }
-}
-.takeover
-  .event-info-heading
-  .add-to-calendar__link.icon:focus[data-focus-method="key"] {
-  background: var(--color-fill-gray-tertiary);
-  color: var(--color-fill-gray);
-  text-decoration: none;
 }
 @media (hover: hover) {
   .takeover .event-info-heading .add-to-calendar__link:hover {
     background: var(--color-fill-gray-tertiary);
-    color: var(--color-fill-gray);
+    color: var(--color-figure-gray);
     text-decoration: none;
   }
-}
-.takeover
-  .event-info-heading
-  .add-to-calendar__link:focus[data-focus-method="key"] {
-  background: var(--color-fill-gray-tertiary);
-  color: var(--color-fill-gray);
-  text-decoration: none;
-}
-.takeover .event-info-heading .add-to-calendar__link a {
-  color: var(--color-fill-gray);
 }
 .takeover .event-info-heading .add-to-calendar__link::after {
   line-height: 1.4;
@@ -692,13 +557,6 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 .takeover .event-info-interactive .countdown,
 .takeover .event-info-interactive .event-info-cta-area {
   grid-area: 1/1/2/2;
-}
-.pre-event .takeover .event-info-interactive {
-  margin-top: 12px;
-}
-.live .takeover .event-info-interactive,
-.post-event .takeover .event-info-interactive {
-  margin-top: 4px;
 }
 .takeover .event-info-cta-area {
   display: inline-grid;
@@ -729,15 +587,25 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     "Helvetica",
     "Arial",
     sans-serif;
-  border: 2px solid;
   padding: 10px 24px 9px;
-  border-color: var(--color-fill-gray);
-  color: var(--color-fill-gray);
+  background: var(--color-fill-gray-quaternary);
+  color: var(--color-figure-gray);
+  font-size: 17px;
+  line-height: 1.2353641176;
+  font-weight: 600;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
+  padding: 12px 24px 11px;
   transition:
     border-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     background-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,
     opacity 300ms cubic-bezier(0.4, 0, 0.25, 1) 300ms;
-  background: transparent;
   grid-area: 1/1/2/2;
   text-decoration: none;
 }
@@ -745,25 +613,13 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
 .takeover .event-info-cta-area .watch-event:hover {
   text-decoration: none;
 }
-.takeover .event-info-cta-area .watch-live:focus[data-focus-method="key"],
-.takeover .event-info-cta-area .watch-event:focus[data-focus-method="key"] {
-  text-decoration: none;
-}
-.theme-dark .takeover .event-info-cta-area .watch-live,
-.theme-dark .takeover .event-info-cta-area .watch-event {
-  color: var(--color-fill-gray);
-}
 @media (hover: hover) {
   .takeover .event-info-cta-area .watch-live:hover,
   .takeover .event-info-cta-area .watch-event:hover {
-    background: var(--color-fill-gray);
-    color: var(--color-fill-tertiary);
+    background: var(--color-fill-gray-tertiary);
+    color: var(--color-figure-gray);
+    text-decoration: none;
   }
-}
-.takeover .event-info-cta-area .watch-live:focus[data-focus-method="key"],
-.takeover .event-info-cta-area .watch-event:focus[data-focus-method="key"] {
-  background: var(--color-fill-gray);
-  color: var(--color-fill-tertiary);
 }
 .takeover .event-info-cta-area .watch-live {
   display: flex;
@@ -783,29 +639,12 @@ https://web.archive.org/web/20240605132002cs_/https://www.apple.com/api-www/glob
     margin-right: 4px;
   }
 }
-html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
+.takeover .event-info-cta-area .watch-live::before {
   animation-name: blinking-dot;
   animation-duration: 0.6s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: cubic-bezier(0.4, 0, 0.25, 1);
-}
-@keyframes blinking-dot {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.4;
-  }
-}
-.takeover .event-info.not-interactive {
-  flex-direction: row;
-  margin-bottom: 24px;
-}
-@media only screen and (max-width: 1023px) {
-  .takeover .event-info.not-interactive {
-    margin-bottom: 16px;
-  }
 }
 .countdown {
   font-size: 32px;
@@ -865,7 +704,7 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
   flex-direction: column;
   align-items: center;
   position: relative;
-  min-width: 52px;
+  min-width: 3.2941176471rem;
 }
 .countdown-zone:not(:first-child) {
   margin-left: 12px;
@@ -897,7 +736,6 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
   }
 }
 .countdown-prev,
-.countdown-next,
 .countdown-current {
   position: absolute;
   top: 0;
@@ -906,9 +744,6 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
 }
 .countdown-prev {
   transform: translate(-50%, -100%);
-}
-.countdown-next {
-  transform: translate(-50%, 100%);
 }
 .countdown-current {
   transform: translate(-50%, 0);
@@ -939,7 +774,49 @@ html.no-reduced-motion .takeover .event-info-cta-area .watch-live::before {
   right: 0;
   bottom: 0;
 }
-/*! CSS Used keyframes */
+.event-branding-img {
+  background: url(https://www.apple.com/newsroom/images/2024/09/keynote/Apple-Fall-event-240909.jpg.branding-large.jpg)
+    no-repeat top;
+  background-size: cover;
+  width: 100%;
+  height: 320px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min-resolution: 1.5dppx),
+  (-webkit-min-device-pixel-ratio: 1.5),
+  (min-resolution: 144dpi) {
+  .event-branding-img {
+    background-image: url(https://www.apple.com/newsroom/images/2024/09/keynote/Apple-Fall-event-240909.jpg.branding-large_2x.jpg);
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .event-branding-img {
+    background-image: url(https://www.apple.com/newsroom/images/2024/09/keynote/Apple-Fall-event-240909.jpg.branding-medium.jpg);
+    height: 227px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min-width: 768px) and (max-width: 1023px) and (min-resolution: 1.5dppx),
+  (min-width: 768px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 1.5),
+  (min-width: 768px) and (max-width: 1023px) and (min-resolution: 144dpi) {
+  .event-branding-img {
+    background-image: url(https://www.apple.com/newsroom/images/2024/09/keynote/Apple-Fall-event-240909.jpg.branding-medium_2x.jpg);
+  }
+}
+@media only screen and (max-width: 767px) {
+  .event-branding-img {
+    background-image: url(https://www.apple.com/newsroom/images/2024/09/keynote/Apple-Fall-event-240909.jpg.branding-small.jpg);
+    height: 210px;
+  }
+}
+@media only screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (max-width: 767px) and (min-resolution: 1.5dppx),
+  (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5),
+  (max-width: 767px) and (min-resolution: 144dpi) {
+  .event-branding-img {
+    background-image: url(https://www.apple.com/newsroom/images/2024/09/keynote/Apple-Fall-event-240909.jpg.branding-small_2x.jpg);
+  }
+}
 @keyframes blinking-dot {
   from {
     opacity: 1;
