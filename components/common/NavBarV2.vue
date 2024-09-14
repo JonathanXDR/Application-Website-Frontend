@@ -38,7 +38,7 @@
     aria-label="Local"
   >
     <div class="ac-ln-wrapper">
-      <div class="ac-ln-background" />
+      <div ref="backgroundEl" class="ac-ln-background" />
       <div class="ac-ln-content">
         <div class="ac-ln-title">
           <NuxtLink to="/" aria-label="JR">
@@ -192,7 +192,7 @@ const { randomDevColor } = useColor();
 const { currentSection } = useSection();
 const { getTheme, setTheme } = useTheme();
 const { windowWidth } = useWidth();
-const { headerAnimations } = useAnimation();
+const { headerAnimations, setHeaderAnimation } = useAnimation();
 const config = useRuntimeConfig();
 const route = useRoute();
 const { tm } = useI18n();
@@ -209,6 +209,7 @@ const expandAnimation = ref<SVGAnimateElement | null>(null);
 const collapseAnimation = ref<SVGAnimateElement | null>(null);
 
 const navbarEl = ref<HTMLElement | null>(null);
+const backgroundEl = ref<HTMLElement | null>(null);
 const menustateTrayEl = ref<HTMLElement | null>(null);
 const trayHeight = ref<number | undefined>(undefined);
 const menuLinkRefs: Record<string, HTMLElement | null> = {};
@@ -224,20 +225,16 @@ const currentMenuLinkEl = computed<HTMLElement | null>(() => {
 
   if (!liEl) return null;
 
-  const menuLinkEl = liEl.querySelector(
-    ".ac-ln-menu-link",
-  ) as HTMLElement | null;
-
+  const menuLinkEl = liEl.firstElementChild as HTMLElement | null;
   return menuLinkEl;
 });
 
 const initHeaderAnimations = () => {
   const animation = {
-    element: document.querySelector(".ac-ln-background") as HTMLElement,
+    element: backgroundEl.value as HTMLElement,
     class: "ac-ln-background-transition",
     timeout: 500,
   };
-  const { setHeaderAnimation } = useAnimation();
   setHeaderAnimation(animation);
 };
 
@@ -728,7 +725,7 @@ watch(currentMenuLinkEl, () => {
   z-index: 1;
   transform-origin: var(--border-transform-origin);
   transform: var(--border-scaleX);
-  transition: transform 1s ease;
+  transition: all 1s;
 }
 @media (max-width: 1023px) {
   #ac-localnav .ac-ln-background:after {
