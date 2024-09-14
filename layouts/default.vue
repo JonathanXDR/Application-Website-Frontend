@@ -2,8 +2,10 @@
   <div>
     <SpeedInsights />
     <header v-if="shouldShow('header')">
-      <NavBarV2 v-if="shouldShow('nav')" :border="y === 0" />
-      <RibbonBar v-if="shouldShow('ribbon')" :loading="false" :items="items" />
+      <NavBarV2 v-if="shouldShow('nav')" :border="y < ribbonBarHeight" />
+      <div v-if="shouldShow('ribbon')" ref="ribbonBarEl">
+        <RibbonBar :loading="false" :items="items" />
+      </div>
     </header>
     <main>
       <slot />
@@ -17,7 +19,6 @@
 
 <script setup lang="ts">
 import { SpeedInsights } from "@vercel/speed-insights/vue";
-import { useScroll } from "@vueuse/core";
 import FooterCompact from "~/components/common/Footer/Compact.vue";
 import FooterFull from "~/components/common/Footer/Full.vue";
 import type { RibbonBar } from "~/types/common/RibbonBar";
@@ -29,6 +30,9 @@ const { locale, tm } = useI18n();
 const { y } = useScroll(window);
 const error = useError();
 const config = useRuntimeConfig();
+
+const ribbonBarEl = ref<HTMLElement | null>(null);
+const { height: ribbonBarHeight } = useElementSize(ribbonBarEl);
 
 const items = computed<RibbonBar["items"]>(() =>
   tm("components.common.RibbonBar"),
