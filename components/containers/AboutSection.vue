@@ -13,15 +13,9 @@
           />
         </clipPath>
       </defs>
-      <image
-        clip-path="url(#image)"
-        height="100%"
-        width="100%"
-        x="0"
-        y="10"
-        href="/img/portrait.jpg"
-        preserveAspectRatio="xMidYMin slice"
-      />
+      <foreignObject x="0" y="10" width="100%" height="100%">
+        <NuxtImg src="/img/portrait.jpg" alt="Portrait" class="portrait" />
+      </foreignObject>
     </svg>
 
     <CardItem
@@ -103,6 +97,13 @@ onMounted(async () => {
 
 .info-container div {
   padding: 0;
+}
+
+.portrait {
+  clip-path: url(#image);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .sharesheet {
