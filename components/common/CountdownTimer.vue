@@ -7,12 +7,23 @@
     >
       <span class="countdown-volabel">{{ value.current }}, {{ label }}</span>
       <div class="countdown-digitsholder" aria-hidden="true">
-        <transition name="countdown">
+        <Transition enter-active-class="countdown-current">
+          <span
+            v-if="value.transition"
+            :key="value.prev"
+            class="countdown-prev"
+          >
+            {{ value.prev }}
+          </span>
+        </Transition>
+        <Transition
+          enter-active-class="countdown-next"
+          leave-active-class="countdown-prev"
+        >
           <span :key="value.current" class="countdown-current">
             {{ value.current }}
           </span>
-        </transition>
-        <span class="countdown-prev">{{ value.prev }}</span>
+        </Transition>
       </div>
       <div class="countdown-label" aria-hidden="true">{{ label }}</div>
     </div>
@@ -34,16 +45,17 @@ const props = defineProps<Props>();
 interface CountdownValue {
   prev: string;
   current: string;
+  transition: boolean;
 }
 
 type CountdownUnits = "months" | "days" | "hours" | "minutes" | "seconds";
 
 const countdown = ref<Record<CountdownUnits, CountdownValue>>({
-  months: { prev: "00", current: "00" },
-  days: { prev: "00", current: "00" },
-  hours: { prev: "00", current: "00" },
-  minutes: { prev: "00", current: "00" },
-  seconds: { prev: "00", current: "00" },
+  months: { prev: "00", current: "00", transition: false },
+  days: { prev: "00", current: "00", transition: false },
+  hours: { prev: "00", current: "00", transition: false },
+  minutes: { prev: "00", current: "00", transition: false },
+  seconds: { prev: "00", current: "00", transition: false },
 });
 
 const updateCountdown = () => {
@@ -55,26 +67,45 @@ const updateCountdown = () => {
     months: {
       prev: countdown.value.months.current,
       current: diff.months().toString().padStart(2, "0"),
+      transition: false,
     },
     days: {
       prev: countdown.value.days.current,
       current: diff.days().toString().padStart(2, "0"),
+      transition: false,
     },
     hours: {
       prev: countdown.value.hours.current,
       current: diff.hours().toString().padStart(2, "0"),
+      transition: false,
     },
     minutes: {
       prev: countdown.value.minutes.current,
       current: diff.minutes().toString().padStart(2, "0"),
+      transition: false,
     },
     seconds: {
       prev: countdown.value.seconds.current,
       current: diff.seconds().toString().padStart(2, "0"),
+      transition: false,
     },
   };
 
+  Object.keys(newCountdown).forEach((key) => {
+    const unit = key as CountdownUnits;
+    if (newCountdown[unit].current !== countdown.value[unit].current) {
+      newCountdown[unit].transition = true;
+    }
+  });
+
   countdown.value = newCountdown;
+
+  setTimeout(() => {
+    Object.keys(countdown.value).forEach((key) => {
+      const unit = key as CountdownUnits;
+      countdown.value[unit].transition = false;
+    });
+  }, 400);
 };
 
 let timer: NodeJS.Timeout | null = null;
@@ -182,29 +213,21 @@ onUnmounted(() => {
   }
 }
 .countdown-prev,
+.countdown-next,
 .countdown-current {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%, 0);
   transition: transform 400ms cubic-bezier(0.4, 0, 0.25, 1) 0ms;
 }
 .countdown-prev {
   transform: translate(-50%, -100%);
 }
-.countdown-current {
-  transform: translate(-50%, 0);
-}
-.countdown,
-.countdown-leave-active {
-  transition: transform 400ms cubic-bezier(0.4, 0, 0.25, 1) 0ms;
-}
-.countdown-enter-from {
+.countdown-current.countdown-next {
   transform: translate(-50%, 100%);
 }
-
-.countdown-leave-to {
-  transform: translate(-50%, -100%);
+.countdown-current {
+  transform: translate(-50%, 0);
 }
 .countdown-label {
   font-size: 14px;
