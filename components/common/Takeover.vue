@@ -61,7 +61,6 @@
 
 <script setup lang="ts">
 import dayjs from "dayjs";
-import { onMounted, onUnmounted, ref } from "vue";
 
 interface Props {
   eventTitle: string;
@@ -76,17 +75,10 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   showCountdown: true,
-  eventTitle: "September 2024 Keynote",
-  eventDuration: () => ({
-    start: new Date(2024, 8, 15, 0, 0),
-    end: new Date(2024, 8, 15, 6, 0),
-  }),
-  calendarLink:
-    "https://www.apple.com/newsroom/cal/apple-event-1724879336043/apple_event.ics",
-  eventLink: "https://www.apple.com/apple-events/",
 });
 
-const eventState = ref<"pre-event" | "live" | "post-event">("pre-event");
+type EventState = "pre-event" | "live" | "post-event";
+const eventState = ref<EventState>("pre-event");
 
 const calculateEventState = () => {
   const now = dayjs();
@@ -102,11 +94,11 @@ const calculateEventState = () => {
   }
 };
 
-let timer: number | null = null;
+let timer: NodeJS.Timeout | null = null;
 
 onMounted(() => {
   calculateEventState();
-  timer = window.setInterval(calculateEventState, 1000);
+  timer = setInterval(calculateEventState, 1000);
 });
 
 onUnmounted(() => {

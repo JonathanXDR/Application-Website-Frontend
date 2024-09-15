@@ -5,10 +5,14 @@
       :key="label"
       class="countdown-zone"
     >
-      <span class="countdown-volabel"> {{ value.current }}, {{ label }} </span>
+      <span class="countdown-volabel">{{ value.current }}, {{ label }}</span>
       <div class="countdown-digitsholder" aria-hidden="true">
+        <transition name="countdown">
+          <span :key="value.current" class="countdown-current">
+            {{ value.current }}
+          </span>
+        </transition>
         <span class="countdown-prev">{{ value.prev }}</span>
-        <span class="countdown-current">{{ value.current }}</span>
       </div>
       <div class="countdown-label" aria-hidden="true">{{ label }}</div>
     </div>
@@ -18,7 +22,6 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
-
 dayjs.extend(duration);
 
 interface Props {
@@ -33,9 +36,9 @@ interface CountdownValue {
   current: string;
 }
 
-const countdown = ref<
-  Record<"months" | "days" | "hours" | "minutes" | "seconds", CountdownValue>
->({
+type CountdownUnits = "months" | "days" | "hours" | "minutes" | "seconds";
+
+const countdown = ref<Record<CountdownUnits, CountdownValue>>({
   months: { prev: "00", current: "00" },
   days: { prev: "00", current: "00" },
   hours: { prev: "00", current: "00" },
@@ -48,7 +51,7 @@ const updateCountdown = () => {
   const end = dayjs(props.endDate);
   const diff = dayjs.duration(end.diff(now));
 
-  const newCountdown = {
+  const newCountdown: Record<CountdownUnits, CountdownValue> = {
     months: {
       prev: countdown.value.months.current,
       current: diff.months().toString().padStart(2, "0"),
@@ -74,11 +77,11 @@ const updateCountdown = () => {
   countdown.value = newCountdown;
 };
 
-let timer: number | null = null;
+let timer: NodeJS.Timeout | null = null;
 
 onMounted(() => {
   updateCountdown();
-  timer = window.setInterval(updateCountdown, 1000);
+  timer = setInterval(updateCountdown, 1000);
 });
 
 onUnmounted(() => {
@@ -183,6 +186,7 @@ onUnmounted(() => {
   position: absolute;
   top: 0;
   left: 50%;
+  transform: translate(-50%, 0);
   transition: transform 400ms cubic-bezier(0.4, 0, 0.25, 1) 0ms;
 }
 .countdown-prev {
@@ -190,6 +194,17 @@ onUnmounted(() => {
 }
 .countdown-current {
   transform: translate(-50%, 0);
+}
+.countdown,
+.countdown-leave-active {
+  transition: transform 400ms cubic-bezier(0.4, 0, 0.25, 1) 0ms;
+}
+.countdown-enter-from {
+  transform: translate(-50%, 100%);
+}
+
+.countdown-leave-to {
+  transform: translate(-50%, -100%);
 }
 .countdown-label {
   font-size: 14px;
