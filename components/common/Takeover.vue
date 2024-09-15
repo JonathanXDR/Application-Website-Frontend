@@ -28,8 +28,8 @@
         >
           <CountdownTimer
             v-if="showCountdown && eventState === 'pre-event'"
-            :end-date="eventDuration.end"
-            :aria-label="`Countdown: ${eventTitle}`"
+            :endDate="eventDuration.end"
+            :ariaLabel="`Countdown: ${eventTitle}`"
           />
           <div
             v-if="eventState !== 'pre-event'"
