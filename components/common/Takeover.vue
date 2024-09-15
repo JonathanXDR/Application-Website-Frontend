@@ -1,47 +1,36 @@
 <template>
   <section
     class="takeover theme-dark"
-    style="--localnav-theme-start: a0t - 100vh"
+    :style="{ '--localnav-theme-start': 'a0t - 100vh' }"
   >
     <div class="image event-branding-img" />
 
     <div class="section-content">
       <div class="event-info" :class="eventState">
         <div class="event-info-heading">
-          <h2 class="section-head">September 2024 Keynote</h2>
-          <div class="add-to-calendar">
+          <h2 class="section-head">{{ eventTitle }}</h2>
+          <div v-if="eventState === 'pre-event'" class="add-to-calendar">
             <a
-              href="https://www.apple.com/newsroom/cal/apple-event-1724879336043/apple_event.ics"
-              aria-label="add to calendar: September 2024 Keynote"
+              :href="calendarLink"
+              :aria-label="`add to calendar: ${eventTitle}`"
               class="add-to-calendar__link icon-downloadcircle icon"
-              download=""
+              download
               role="button"
               tabindex="0"
-              >Add to calendar
+            >
+              Add to calendar
             </a>
           </div>
         </div>
-        <div class="event-info-interactive show-countdown">
-          <aside
+        <div
+          class="event-info-interactive"
+          :class="{ 'show-countdown': showCountdown }"
+        >
+          <CountdownTimer
             v-if="showCountdown && eventState === 'pre-event'"
-            aria-label="Countdown:September 2024 Keynote"
-            class="countdown"
-          >
-            <div
-              v-for="(value, label) in countdown"
-              :key="label"
-              class="countdown-zone"
-            >
-              <span class="countdown-volabel">
-                {{ value.prev }}, {{ label }}
-              </span>
-              <div class="countdown-digitsholder" aria-hidden="true">
-                <span class="countdown-prev">{{ value.prev }}</span>
-                <span class="countdown-current">{{ value.current }}</span>
-              </div>
-              <div class="countdown-label" aria-hidden="true">{{ label }}</div>
-            </div>
-          </aside>
+            :end-date="eventDuration.end"
+            :aria-label="`Countdown: ${eventTitle}`"
+          />
           <div
             v-if="eventState !== 'pre-event'"
             class="event-info-cta-area"
@@ -49,21 +38,17 @@
           >
             <a
               v-if="eventState === 'live'"
-              href="https://www.apple.com/apple-events/"
+              :href="eventLink"
               class="watch-live"
-              aria-label="watch live event: September 2024 Keynote"
-              aria-hidden="true"
-              tabindex="-1"
+              :aria-label="`watch live event: ${eventTitle}`"
             >
               Watch live event
             </a>
             <a
               v-if="eventState === 'post-event'"
-              href="https://www.apple.com/apple-events/"
+              :href="eventLink"
               class="watch-event"
-              aria-label="watch event: September 2024 Keynote"
-              aria-hidden="true"
-              tabindex="-1"
+              :aria-label="`watch event: ${eventTitle}`"
             >
               Watch event
             </a>
@@ -76,79 +61,32 @@
 
 <script setup lang="ts">
 import dayjs from "dayjs";
-import duration from "dayjs/plugin/duration";
-dayjs.extend(duration);
+import { onMounted, onUnmounted, ref } from "vue";
 
-const props = withDefaults(
-  defineProps<{
-    eventDuration?: {
-      start: Date;
-      end: Date;
-    };
-    showCountdown?: boolean;
-  }>(),
-  {
-    eventDuration: () => ({
-      start: new Date(2024, 8, 15, 0, 0),
-      end: new Date(2024, 8, 15, 6, 0),
-    }),
-    showCountdown: true,
-  },
-);
-
-interface CountdownValue {
-  prev: string;
-  current: string;
+interface Props {
+  eventTitle: string;
+  eventDuration: {
+    start: Date;
+    end: Date;
+  };
+  showCountdown?: boolean;
+  calendarLink: string;
+  eventLink: string;
 }
 
-const eventState = ref<"pre-event" | "live" | "post-event">("pre-event");
-const countdown = ref<
-  Record<"months" | "days" | "hours" | "minutes" | "seconds", CountdownValue>
->({
-  months: { prev: "00", current: "00" },
-  days: { prev: "00", current: "00" },
-  hours: { prev: "00", current: "00" },
-  minutes: { prev: "00", current: "00" },
-  seconds: { prev: "00", current: "00" },
+const props = withDefaults(defineProps<Props>(), {
+  showCountdown: true,
+  eventTitle: "September 2024 Keynote",
+  eventDuration: () => ({
+    start: new Date(2024, 8, 15, 0, 0),
+    end: new Date(2024, 8, 15, 6, 0),
+  }),
+  calendarLink:
+    "https://www.apple.com/newsroom/cal/apple-event-1724879336043/apple_event.ics",
+  eventLink: "https://www.apple.com/apple-events/",
 });
-const isTransitioning = ref(false);
-let timer: ReturnType<typeof setTimeout> | null = null;
 
-const updateCountdown = () => {
-  const now = dayjs();
-  const end = dayjs(props.eventDuration.end);
-  const diff = dayjs.duration(end.diff(now));
-
-  const newCountdown = {
-    months: {
-      prev: countdown.value.months.current,
-      current: diff.months().toString().padStart(2, "0"),
-    },
-    days: {
-      prev: countdown.value.days.current,
-      current: diff.days().toString().padStart(2, "0"),
-    },
-    hours: {
-      prev: countdown.value.hours.current,
-      current: diff.hours().toString().padStart(2, "0"),
-    },
-    minutes: {
-      prev: countdown.value.minutes.current,
-      current: diff.minutes().toString().padStart(2, "0"),
-    },
-    seconds: {
-      prev: countdown.value.seconds.current,
-      current: diff.seconds().toString().padStart(2, "0"),
-    },
-  };
-
-  isTransitioning.value = true;
-  countdown.value = newCountdown;
-
-  setTimeout(() => {
-    isTransitioning.value = false;
-  }, 500);
-};
+const eventState = ref<"pre-event" | "live" | "post-event">("pre-event");
 
 const calculateEventState = () => {
   const now = dayjs();
@@ -164,23 +102,16 @@ const calculateEventState = () => {
   }
 };
 
-const queueNextTick = () => {
-  timer = setTimeout(() => {
-    updateCountdown();
-    calculateEventState();
-    queueNextTick();
-  }, 1000);
-};
+let timer: number | null = null;
 
 onMounted(() => {
   calculateEventState();
-  updateCountdown();
-  queueNextTick();
+  timer = window.setInterval(calculateEventState, 1000);
 });
 
 onUnmounted(() => {
-  if (timer) {
-    clearTimeout(timer);
+  if (timer !== null) {
+    clearInterval(timer);
   }
 });
 </script>
@@ -646,134 +577,7 @@ onUnmounted(() => {
   animation-direction: alternate;
   animation-timing-function: cubic-bezier(0.4, 0, 0.25, 1);
 }
-.countdown {
-  font-size: 32px;
-  line-height: 1.125;
-  font-weight: 700;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
-  color: var(--sk-body-text-color);
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-@media only screen and (max-width: 1023px) {
-  .countdown {
-    font-size: 28px;
-    line-height: 1.1428571429;
-    font-weight: 700;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .countdown {
-    font-size: 24px;
-    line-height: 1.1666666667;
-    font-weight: 700;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .countdown {
-    justify-content: center;
-  }
-}
-.countdown-zone {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  min-width: 3.2941176471rem;
-}
-.countdown-zone:not(:first-child) {
-  margin-left: 12px;
-}
-@media only screen and (max-width: 1023px) {
-  .countdown-zone:not(:first-child) {
-    margin-left: 10px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .countdown-zone:not(:first-child) {
-    margin-left: 4px;
-  }
-}
-.countdown-digitsholder {
-  height: 1.125em;
-  width: 1.34em;
-  overflow-y: hidden;
-  position: relative;
-}
-@media only screen and (max-width: 1023px) {
-  .countdown-digitsholder {
-    height: 1.1428571429em;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .countdown-digitsholder {
-    height: 1.1666666667em;
-  }
-}
-.countdown-prev,
-.countdown-current {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transition: transform 400ms cubic-bezier(0.4, 0, 0.25, 1) 0ms;
-}
-.countdown-prev {
-  transform: translate(-50%, -100%);
-}
-.countdown-current {
-  transform: translate(-50%, 0);
-}
-.countdown-label {
-  font-size: 14px;
-  line-height: 1.4285914286;
-  font-weight: 700;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
-  color: var(--color-figure-gray-secondary);
-  margin-top: 4px;
-}
-.countdown-volabel {
-  color: transparent;
-  position: absolute;
-  overflow: hidden;
-  padding: 0;
-  border: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
+
 .event-branding-img {
   background: url(https://www.apple.com/newsroom/images/2024/09/keynote/Apple-Fall-event-240909.jpg.branding-large.jpg)
     no-repeat top;
