@@ -28,8 +28,8 @@
         >
           <CountdownTimer
             v-if="showCountdown && eventState === 'pre-event'"
-            :endDate="eventDuration.end"
-            :ariaLabel="`Countdown: ${eventTitle}`"
+            :end-date="eventDuration.end"
+            :aria-label="`Countdown: ${eventTitle}`"
           />
           <div
             v-if="eventState !== 'pre-event'"
@@ -109,45 +109,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.theme-dark {
-  --sk-glyph: rgb(255, 255, 255);
-  --sk-glyph-gray: rgb(245, 245, 247);
-  --sk-glyph-gray-alpha: rgba(255, 255, 255, 0.92);
-  --sk-glyph-gray-secondary: rgb(134, 134, 139);
-  --sk-glyph-gray-secondary-alpha: rgba(255, 255, 255, 0.56);
-  --sk-glyph-gray-secondary-alt: rgb(210, 210, 215);
-  --sk-glyph-gray-secondary-alt-alpha: rgba(255, 255, 255, 0.8);
-  --sk-glyph-gray-tertiary: rgb(110, 110, 115);
-  --sk-glyph-gray-tertiary-alpha: rgba(255, 255, 255, 0.4);
-  --sk-glyph-blue: rgb(41, 151, 255);
-  --sk-glyph-orange: rgb(255, 121, 27);
-  --sk-glyph-green: rgb(3, 161, 14);
-  --sk-glyph-red: rgb(255, 48, 55);
-  --sk-fill: rgb(0, 0, 0);
-  --sk-fill-secondary: rgb(22, 22, 23);
-  --sk-fill-tertiary: rgb(29, 29, 31);
-  --sk-fill-gray: rgb(245, 245, 247);
-  --sk-fill-gray-alpha: rgba(255, 255, 255, 0.92);
-  --sk-fill-gray-secondary: rgb(110, 110, 115);
-  --sk-fill-gray-secondary-alpha: rgba(255, 255, 255, 0.4);
-  --sk-fill-gray-tertiary: rgb(66, 66, 69);
-  --sk-fill-gray-tertiary-alpha: rgba(255, 255, 255, 0.24);
-  --sk-fill-gray-quaternary: rgb(51, 51, 54);
-  --sk-fill-gray-quaternary-alpha: rgba(255, 255, 255, 0.2);
-  --sk-fill-orange-secondary: rgb(41, 13, 0);
-  --sk-fill-green-secondary: rgb(0, 43, 3);
-  --sk-fill-red: rgb(255, 48, 55);
-  --sk-fill-red-secondary: rgb(51, 0, 0);
-  --sk-fill-yellow: rgb(173, 130, 0);
-  --sk-fill-yellow-secondary: rgb(43, 32, 0);
-  --sk-enviro-neutral: rgb(0, 0, 0);
-  --sk-body-background-color: rgb(0, 0, 0);
-  --sk-body-text-color: rgb(245, 245, 247);
-  --sk-headline-text-color: rgb(245, 245, 247);
-  --sk-body-link-color: rgb(41, 151, 255);
-  --sk-link-disabled-opacity: 0.36;
-  --sk-focus-color-alt: rgb(255, 255, 255);
-}
 .section-head {
   font-size: 32px;
   line-height: 1.125;

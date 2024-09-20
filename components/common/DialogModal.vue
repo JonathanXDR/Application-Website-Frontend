@@ -488,7 +488,7 @@ html:not([dir="rtl"]) .modal-close-button .modal-close-icon svg {
 }
 .modal-page-overlay {
   --modal-close-timeout: 400ms;
-  color: var(--sk-body-text-color);
+  color: var(--color-fill-gray);
   transition: opacity var(--modal-close-timeout) ease;
   opacity: 0;
 }

@@ -135,7 +135,7 @@ onUnmounted(() => {
     "Helvetica",
     "Arial",
     sans-serif;
-  color: var(--sk-body-text-color);
+  color: var(--color-fill-gray);
   display: flex;
   position: relative;
   flex-wrap: wrap;
