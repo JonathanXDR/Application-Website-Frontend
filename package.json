@@ -14,7 +14,6 @@
     "icon:generate-sprite": "sh ./scripts/icon-generate-sprite.sh",
     "component:merge": "sh ./scripts/component-merge.sh",
     "build:trigger": "sh ./scripts/build-trigger.sh",
-    "prepare": "husky",
     "precommit": "bun run prettify && lint-staged --no-stash",
     "prettify": "prettier --write \"**/*.{js,jsx,ts,tsx,vue,json,css,scss}\""
   },
