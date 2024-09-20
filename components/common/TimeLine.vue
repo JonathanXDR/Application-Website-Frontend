@@ -19,16 +19,16 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
+const properties = defineProps<{
   initialHeight: number;
   onUpdateHeight: (value: number) => void;
 }>();
 
 const pathData = ref<string>("");
-const timelineHeight = ref<number>(props.initialHeight);
+const timelineHeight = ref<number>(properties.initialHeight);
 const viewBox = ref<string>("0 0 8 0");
-const strokeDashArray = ref<number>(props.initialHeight);
-const strokeDashOffset = ref<number>(props.initialHeight);
+const strokeDashArray = ref<number>(properties.initialHeight);
+const strokeDashOffset = ref<number>(properties.initialHeight);
 const strokeWidth = ref<number>(5);
 
 const svgElement = ref<SVGElement | null>(null);
@@ -36,7 +36,7 @@ const pathElement = ref<SVGPathElement | null>(null);
 const initialAnimationDone = ref<boolean>(false);
 
 const initializePath = () => {
-  const listHeight = props.initialHeight;
+  const listHeight = properties.initialHeight;
   const roundedHeight = Math.round(listHeight);
 
   pathData.value = `M 4 0 L 4 ${roundedHeight}`;
@@ -57,7 +57,7 @@ const animatePath = () => {
   const drawLength = scrollPercentage > 0 ? height * scrollPercentage : 0;
 
   strokeDashOffset.value = drawLength < height ? height - drawLength : 0;
-  props.onUpdateHeight(strokeDashOffset.value);
+  properties.onUpdateHeight(strokeDashOffset.value);
 };
 
 const initialAnimatePath = () => {
@@ -89,7 +89,7 @@ onMounted(async () => {
 });
 
 watch(
-  () => props.initialHeight,
+  () => properties.initialHeight,
   async () => {
     await nextTick();
     initializePath();

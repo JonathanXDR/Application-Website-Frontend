@@ -32,7 +32,7 @@
 <script setup lang="ts">
 import type { LinkType } from "~/types/common/Link";
 
-const props = withDefaults(
+const properties = withDefaults(
   defineProps<{
     links: LinkType[];
     divider?: boolean;
@@ -47,7 +47,7 @@ const props = withDefaults(
   },
 );
 
-const { links } = toRefs(props);
+const { links } = toRefs(properties);
 
 const getLinkComponentType = (link: LinkType) => {
   return link.url?.startsWith("#") || link.url?.startsWith("/")
@@ -56,11 +56,9 @@ const getLinkComponentType = (link: LinkType) => {
 };
 
 const getLinkAttributes = (link: LinkType) => {
-  if (link.url?.startsWith("#") || link.url?.startsWith("/")) {
-    return { to: link.url, target: "_self" };
-  } else {
-    return { href: link.url, target: "_blank", rel: "noopener noreferrer" };
-  }
+  return link.url?.startsWith("#") || link.url?.startsWith("/")
+    ? { to: link.url, target: "_self" }
+    : { href: link.url, target: "_blank", rel: "noopener noreferrer" };
 };
 
 const enhancedLinks = computed(() => {

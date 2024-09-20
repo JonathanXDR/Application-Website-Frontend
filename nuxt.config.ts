@@ -145,8 +145,8 @@ export default defineNuxtConfig({
       globals: {
         meticulousAi: {
           src: "https://snippet.meticulous.ai/v1/meticulous.js",
-          ["data-project-id"]: "3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w",
-          ["data-is-production-environment"]: false,
+          "data-project-id": "3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w",
+          "data-is-production-environment": false,
         },
       },
     },
@@ -178,8 +178,8 @@ export default defineNuxtConfig({
       globals: {
         meticulousAi: {
           src: "https://snippet.meticulous.ai/v1/meticulous.js",
-          ["data-project-id"]: "3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w",
-          ["data-is-production-environment"]: true,
+          "data-project-id": "3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w",
+          "data-is-production-environment": true,
         },
       },
     },

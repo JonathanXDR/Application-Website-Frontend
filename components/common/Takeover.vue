@@ -8,7 +8,9 @@
     <div class="section-content">
       <div class="event-info" :class="eventState">
         <div class="event-info-heading">
-          <h2 class="section-head">{{ eventTitle }}</h2>
+          <h2 class="section-head">
+            {{ eventTitle }}
+          </h2>
           <div v-if="eventState === 'pre-event'" class="add-to-calendar">
             <a
               :href="calendarLink"
@@ -62,7 +64,7 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
 
-interface Props {
+interface Properties {
   eventTitle: string;
   eventDuration: {
     start: Date;
@@ -73,7 +75,7 @@ interface Props {
   eventLink: string;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const properties = withDefaults(defineProps<Properties>(), {
   showCountdown: true,
 });
 
@@ -82,8 +84,8 @@ const eventState = ref<EventState>("pre-event");
 
 const calculateEventState = () => {
   const now = dayjs();
-  const start = dayjs(props.eventDuration.start);
-  const end = dayjs(props.eventDuration.end);
+  const start = dayjs(properties.eventDuration.start);
+  const end = dayjs(properties.eventDuration.end);
 
   if (now.isBefore(start)) {
     eventState.value = "pre-event";

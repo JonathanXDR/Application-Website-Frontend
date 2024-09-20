@@ -7,25 +7,25 @@
     </p>
     <template #container>
       <audio id="mario-start" class="bgm">
-        <source src="@/assets/audio/smw_princess_help.ogg" type="audio/ogg" >
+        <source src="@/assets/audio/smw_princess_help.ogg" type="audio/ogg" />
       </audio>
       <audio id="mario-stomp" class="bgm">
-        <source src="@/assets/audio/smw_stomp.ogg" type="audio/ogg" >
+        <source src="@/assets/audio/smw_stomp.ogg" type="audio/ogg" />
       </audio>
       <audio id="mario-empty" class="bgm">
-        <source src="@/assets/audio/smw_stomp_no_damage.ogg" type="audio/ogg" >
+        <source src="@/assets/audio/smw_stomp_no_damage.ogg" type="audio/ogg" />
       </audio>
       <audio id="mario-appears" class="bgm">
         <source
           src="@/assets/audio/smw_power-up_appears.ogg"
           type="audio/ogg"
-        >
+        />
       </audio>
       <audio id="mario-power-up" class="bgm">
-        <source src="@/assets/audio/smw_power-up.ogg" type="audio/ogg" >
+        <source src="@/assets/audio/smw_power-up.ogg" type="audio/ogg" />
       </audio>
       <audio id="mario-exit" class="bgm">
-        <source src="@/assets/audio/smw_keyhole_exit.ogg" type="audio/ogg" >
+        <source src="@/assets/audio/smw_keyhole_exit.ogg" type="audio/ogg" />
       </audio>
 
       <div class="mario-box b1">

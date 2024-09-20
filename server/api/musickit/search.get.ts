@@ -1,8 +1,8 @@
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   const token = generateToken();
-  const params = getQuery(event);
-  const searchTerm = params.term;
+  const parameters = getQuery(event);
+  const searchTerm = parameters.term;
 
   try {
     const response = await $fetch(

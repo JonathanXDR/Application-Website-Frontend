@@ -6,9 +6,9 @@ export default defineEventHandler(async (event) => {
   const graphqlInstance = graphql.defaults({
     headers: { authorization: `token ${githubToken}` },
   });
-  const params: { username: string; per_page?: number } = getQuery(event);
+  const parameters: { username: string; per_page?: number } = getQuery(event);
 
-  const { username, per_page = 30 } = params;
+  const { username, per_page = 30 } = parameters;
 
   const query = `
     {
@@ -63,7 +63,7 @@ export default defineEventHandler(async (event) => {
       }
     }`;
 
-  const remapProps = (item: Repository) => {
+  const remapProperties = (item: Repository) => {
     const {
       name,
       description,
@@ -97,7 +97,7 @@ export default defineEventHandler(async (event) => {
   try {
     const response = await graphqlInstance<GraphQlQueryResponseData>(query);
     return response.user.pinnedItems.edges.map((edge: { node: Repository }) =>
-      remapProps(edge.node),
+      remapProperties(edge.node),
     );
   } catch (error) {
     console.error(

@@ -44,7 +44,7 @@
                   class="filter-input"
                   @focus="onFocus"
                   @blur="onBlur"
-                >
+                />
               </label>
             </div>
             <div class="filter-delete-button-wrapper">
@@ -67,7 +67,7 @@
             </div>
           </div>
           <BadgeBar
-            v-if="open && options.length"
+            v-if="open && options.length > 0"
             :badges="
               options
                 .filter((option) => option.label)

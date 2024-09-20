@@ -47,9 +47,9 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ title: string }>();
+const properties = defineProps<{ title: string }>();
 const words = computed(() =>
-  props.title
+  properties.title
     .trim()
     .split(" ")
     .map((word) => word.split("")),
@@ -58,7 +58,8 @@ const isCursorBlinking = ref(false);
 const initialCursorOpacity = ref("1");
 const currentLetterCount = ref(0);
 const originalStringLength = computed(
-  () => props.title.trim().replace(/ /g, "").length + words.value.length - 1,
+  () =>
+    properties.title.trim().replaceAll(" ", "").length + words.value.length - 1,
 );
 const headline = ref<HTMLElement | null>(null);
 let cursorBlinkTimeout: number | NodeJS.Timeout | null = null;
@@ -81,8 +82,8 @@ const getLetterStyle = (index: number) => ({
 
 const getGlobalIndex = (wordIndex: number, letterIndex: number) => {
   let globalIndex = 0;
-  for (let i = 0; i < wordIndex; i++) {
-    globalIndex += (words.value[i]?.length || 0) + 1;
+  for (let index = 0; index < wordIndex; index++) {
+    globalIndex += (words.value[index]?.length || 0) + 1;
   }
   return globalIndex + letterIndex;
 };
@@ -95,35 +96,41 @@ const updateLetterCount = () => {
 
   switch (true) {
     case scrollY > lastScrollY + scrollThreshold &&
-      currentLetterCount.value < originalStringLength.value:
+      currentLetterCount.value < originalStringLength.value: {
       currentLetterCount.value++;
       setCursorBlink(false);
       initialCursorOpacity.value = "0";
       lastScrollY = scrollY;
       break;
+    }
     case scrollY < lastScrollY - scrollThreshold &&
-      currentLetterCount.value > 0:
+      currentLetterCount.value > 0: {
       currentLetterCount.value--;
       setCursorBlink(false);
       lastScrollY = scrollY;
       break;
-    default:
+    }
+    default: {
       setCursorBlink(true);
       break;
+    }
   }
 };
 
 watch(currentLetterCount, (newCount, oldCount) => {
   switch (true) {
-    case newCount === 0:
+    case newCount === 0: {
       initialCursorOpacity.value = "1";
       break;
-    case newCount === originalStringLength.value:
+    }
+    case newCount === originalStringLength.value: {
       setCursorBlink(true);
       break;
-    case newCount < oldCount:
+    }
+    case newCount < oldCount: {
       setCursorBlink(false);
       break;
+    }
   }
 });
 

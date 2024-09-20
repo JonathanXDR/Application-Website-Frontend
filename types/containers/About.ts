@@ -1,7 +1,7 @@
 import type { DateItemType } from "../common/DateItem";
-import type { ExtendedPropsType } from "../common/ExtendedProps";
+import type { ExtendedPropsType as ExtendedPropertiesType } from "../common/ExtendedProps";
 
-export interface About extends ExtendedPropsType {
+export interface About extends ExtendedPropertiesType {
   eyebrow: string;
   dates: DateItemType[];
 }

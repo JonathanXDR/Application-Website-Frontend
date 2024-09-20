@@ -4,17 +4,17 @@ import type { GetRepositoryIssuesParameters } from "~/types/services/github/Issu
 export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig();
   const octokit = new Octokit({ auth: githubToken });
-  const params: GetRepositoryIssuesParameters = getQuery(event);
+  const parameters: GetRepositoryIssuesParameters = getQuery(event);
 
   try {
     const response = await octokit.request("GET /repos/{owner}/{repo}/issues", {
-      ...params,
+      ...parameters,
       headers: { accept: "application/vnd.github+json" },
     });
     return response.data;
   } catch (error) {
     console.error(
-      `Error fetching issues for repository ${params.repo}:`,
+      `Error fetching issues for repository ${parameters.repo}:`,
       error,
     );
     throw createError({

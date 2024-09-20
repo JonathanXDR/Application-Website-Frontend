@@ -1,21 +1,21 @@
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.directive("section", (el, binding) => {
+  nuxtApp.vueApp.directive("section", (element, binding) => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
+        for (const entry of entries) {
           if (entry.isIntersecting) {
             useSection().setCurrentSection(
-              el.getAttribute("id"),
-              el.getAttribute("name"),
+              element.getAttribute("id"),
+              element.getAttribute("name"),
               binding.value,
             );
           }
-        });
+        }
       },
       {
         rootMargin: `-${window.innerWidth < 1281 ? 48 : 52}px 0px -95% 0px`,
       },
     );
-    observer.observe(el);
+    observer.observe(element);
   });
 });

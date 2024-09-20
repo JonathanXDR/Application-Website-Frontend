@@ -20,14 +20,14 @@ import AudioAppears from "~/public/mario/audio/smw_power-up_appears.ogg";
 import AudioStomp from "~/public/mario/audio/smw_stomp.ogg";
 import AudioNoDamage from "~/public/mario/audio/smw_stomp_no_damage.ogg";
 
-const props = defineProps<{
+const properties = defineProps<{
   hasCoins: boolean;
 }>();
 
 const emits = defineEmits<{
   (e: "foundCoin", foundCoins: number): void;
   (e: "foundAllCoins"): void;
-  (e: "jumped", el: HTMLElement): void;
+  (e: "jumped", element: HTMLElement): void;
 }>();
 
 const foundCoins = ref(0);
@@ -107,7 +107,7 @@ const onTouchBlock = () => {
     return;
   }
 
-  if (props.hasCoins) {
+  if (properties.hasCoins) {
     audioStomp.play();
     animateCoin();
   } else {

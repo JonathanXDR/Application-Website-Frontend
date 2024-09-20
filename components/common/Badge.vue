@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import type { BadgeType } from "~/types/common/Badge";
 
-const props = withDefaults(defineProps<BadgeType>(), {
+const properties = withDefaults(defineProps<BadgeType>(), {
   variant: "a",
   componentSize: "medium",
   colors: () => ({
@@ -47,17 +47,19 @@ const defaultColors = {
 };
 
 const computedStyle = computed(() => ({
-  "--color-figure": props.loading
+  "--color-figure": properties.loading
     ? defaultColors.primary
-    : props.colors?.primary,
-  "--color-figure-background": props.loading
+    : properties.colors?.primary,
+  "--color-figure-background": properties.loading
     ? defaultColors.secondary
-    : props.colors?.secondary,
-  "--color-figure-background-hover": props.loading
+    : properties.colors?.secondary,
+  "--color-figure-background-hover": properties.loading
     ? defaultColors.secondary
-    : props.colors?.tertiary,
+    : properties.colors?.tertiary,
   "--color-figure-border":
-    props.loading || !props.border ? "transparent" : props.colors?.tertiary,
+    properties.loading || !properties.border
+      ? "transparent"
+      : properties.colors?.tertiary,
 }));
 </script>
 

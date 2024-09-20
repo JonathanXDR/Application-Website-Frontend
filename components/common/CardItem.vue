@@ -129,7 +129,7 @@
 <script setup lang="ts">
 import type { CardRepositoryType } from "~/types/common/CardRepository";
 
-const props = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
+const properties = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
   variant: "card",
   componentSize: "medium",
   colors: () => ({
@@ -158,18 +158,21 @@ const { t } = useI18n();
 const { randomDevColor } = useColor();
 const applyHover = computed(
   () =>
-    (props.hover === "auto" &&
-      ((props.links && props.links.length >= 1) || props.html_url)) ||
-    props.hover === "true",
+    (properties.hover === "auto" &&
+      ((properties.links && properties.links.length > 0) ||
+        properties.html_url)) ||
+    properties.hover === "true",
 );
 const componentType = computed(() =>
-  props.variant === "article" || !applyHover.value ? "div" : "a",
+  properties.variant === "article" || !applyHover.value ? "div" : "a",
 );
 const componentId = computed(() =>
-  props.title?.toLowerCase().replace(/ /g, "-"),
+  properties.title?.toLowerCase().replaceAll(" ", "-"),
 );
 const componentHref = computed(() =>
-  applyHover.value && props.links ? props.links[0]?.url : props.html_url,
+  applyHover.value && properties.links
+    ? properties.links[0]?.url
+    : properties.html_url,
 );
 const scrollAnimation = {
   add: "scroll-animation--on",
@@ -177,19 +180,23 @@ const scrollAnimation = {
 };
 
 const hasCoverOrGraphs = computed(
-  () => props.cover || props.graphs?.donut || props.graphs?.bar,
+  () => properties.cover || properties.graphs?.donut || properties.graphs?.bar,
 );
 const hasBadgesOrTopics = computed(
-  () => props.badges?.length || props.topics?.length,
+  () => properties.badges?.length || properties.topics?.length,
 );
-const badgesOrTopics = computed(() => props.badges || props.topics || []);
-const hasLinksOrHtmlUrl = computed(() => props.links?.length || props.html_url);
+const badgesOrTopics = computed(
+  () => properties.badges || properties.topics || [],
+);
+const hasLinksOrHtmlUrl = computed(
+  () => properties.links?.length || properties.html_url,
+);
 const linkCollectionLinks = computed(
   () =>
-    props.links || [
+    properties.links || [
       {
         title: t("components.common.CardItem.learnMore"),
-        url: props.html_url,
+        url: properties.html_url,
         icon: { name: "chevron.right" },
       },
     ],
@@ -209,14 +216,16 @@ const hasInfo = computed(() => {
     "open_issues_count",
     "subscribers_count",
   ];
-  return keys.some((key: string) => (props as Record<string, unknown>)[key]);
+  return keys.some(
+    (key: string) => (properties as Record<string, unknown>)[key],
+  );
 });
 
 const info = computed(() => {
   return {
-    ...props.info,
-    language: props.language || undefined,
-    license: props.license?.name,
+    ...properties.info,
+    language: properties.language || undefined,
+    license: properties.license?.name,
     // forks: props.forks_count,
     // networks: props.network_count,
     // watchers: props.watchers_count,
@@ -238,7 +247,7 @@ const flexDirection = computed(
       right: "row-reverse",
       bottom: "column-reverse",
       left: "row",
-    })[props.icon?.position || "left"],
+    })[properties.icon?.position || "left"],
 );
 
 const alignItems = computed(
@@ -247,7 +256,7 @@ const alignItems = computed(
       start: "flex-start",
       center: "center",
       end: "flex-end",
-    })[props.alignment],
+    })[properties.alignment],
 );
 
 const detailsStyle = computed((): Record<string, string> => {
@@ -259,9 +268,11 @@ const detailsStyle = computed((): Record<string, string> => {
 
 const iconClasses = computed(() => ({
   icon: true,
-  "icon-large": props.variant === "article" && props.componentSize === "large",
-  "icon-xlarge": ["medium", "small"].includes(props.componentSize),
-  "icon-xxlarge": props.variant === "card" && props.componentSize === "large",
+  "icon-large":
+    properties.variant === "article" && properties.componentSize === "large",
+  "icon-xlarge": ["medium", "small"].includes(properties.componentSize),
+  "icon-xxlarge":
+    properties.variant === "card" && properties.componentSize === "large",
 }));
 </script>
 

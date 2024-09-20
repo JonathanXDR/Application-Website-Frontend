@@ -3,11 +3,7 @@ export const useTheme = () => {
   const themeCookie = useCookie("theme");
 
   const setTheme = (theme: string) => {
-    if (theme === "auto") {
-      colorMode.preference = "system";
-    } else {
-      colorMode.preference = theme;
-    }
+    colorMode.preference = theme === "auto" ? "system" : theme;
     themeCookie.value = theme;
   };
 

@@ -4,9 +4,9 @@
     <Gap />
 
     <TitleSection scene="curriculum">
-      <TitleFunction params="/^.*$/gi" subtitle="&lt;WorkShowcase&gt;"
-        >myCV</TitleFunction
-      >
+      <TitleFunction params="/^.*$/gi" subtitle="&lt;WorkShowcase&gt;">
+        myCV
+      </TitleFunction>
     </TitleSection>
     <Biz :is-playing="{ ...isPlaying.Biz }" />
     <Gap />
@@ -138,9 +138,9 @@ export default {
   },
   beforeUnmount() {
     // stop loop animations
-    Object.keys(this.isPlaying.Biz).forEach((character) => {
+    for (const character of Object.keys(this.isPlaying.Biz)) {
       this.isPlaying.Biz[character] = false;
-    });
+    }
 
     Castle.stop();
     this.isPlaying.EarlyDays = false;
@@ -148,18 +148,18 @@ export default {
     Mario.stop();
 
     // kill time lines
-    this.timeLines.forEach((timeLine) => timeLine.kill());
+    for (const timeLine of this.timeLines) timeLine.kill();
     this.timeLines = [];
-    this.tweeners.forEach((tweener) => tweener.kill());
+    for (const tweener of this.tweeners) tweener.kill();
     this.tweeners = [];
 
     // destroy ScrollMagic
     this.scroller.destroy(true);
     this.scroller = null;
-    this.scenes.forEach((scene) => {
-      scene.on("enter", () => undefined);
+    for (const scene of this.scenes) {
+      scene.on("enter", () => {});
       scene.destroy(true);
-    });
+    }
     this.scenes = [];
   },
   methods: {
@@ -176,13 +176,13 @@ export default {
        * and keep the momentum effect on all browsers
        */
       const scenesElements = document.querySelectorAll(".scene");
-      for (const [i, scenesElement] of Array.from(scenesElements).entries()) {
+      for (const [index, scenesElement] of [...scenesElements].entries()) {
         // tweeners, to animate the time lines' progress, to add momentum
-        this.tweeners[i] = new TimelineMax();
+        this.tweeners[index] = new TimelineMax();
         // time lines
-        this.timeLines[i] = new TimelineMax({ paused: true });
+        this.timeLines[index] = new TimelineMax({ paused: true });
         // create scenes on ScrollMagic
-        this.scenes[i] = new ScrollMagic.Scene({
+        this.scenes[index] = new ScrollMagic.Scene({
           // trigger on the scene element
           triggerElement: scenesElement,
           // start half screen before
@@ -190,16 +190,16 @@ export default {
           // lasts for the scene element height
           duration: scenesElement.offsetHeight,
         })
-          .setTween(this.tweeners[i])
+          .setTween(this.tweeners[index])
           .addTo(this.scroller)
           .reverse(true)
           .setClassToggle(scenesElement, "active");
         // animate the progress in the time lines
-        this.tweeners[i]
+        this.tweeners[index]
           .to(scenesElement, 1, { autoAlpha: 1 }) // fake, just to have some progress
           .eventCallback("onUpdate", () => {
-            TweenLite.to(this.timeLines[i], 0.5, {
-              progress: this.tweeners[i].progress(),
+            TweenLite.to(this.timeLines[index], 0.5, {
+              progress: this.tweeners[index].progress(),
               ease: Power0.easeNone,
             });
           });
@@ -636,8 +636,8 @@ export default {
     },
     sceneEarlyDays() {
       // Clouds parallax
-      const cloudsTimeline = new TimelineMax({ paused: true }),
-        cloudsTweener = new TimelineMax();
+      const cloudsTimeline = new TimelineMax({ paused: true });
+      const cloudsTweener = new TimelineMax();
       cloudsTweener
         .to(".cloud-1", 20, { rotation: 0 })
         .eventCallback("onUpdate", () => {
@@ -754,10 +754,10 @@ export default {
     },
     sceneOcean() {
       // Pepe parallax
-      const pepeTimeline = new TimelineMax({ paused: true }),
-        pepeTweener = new TimelineMax(),
-        pepeLength =
-          window.innerWidth + document.querySelector(".pepe").offsetWidth + 16;
+      const pepeTimeline = new TimelineMax({ paused: true });
+      const pepeTweener = new TimelineMax();
+      const pepeLength =
+        window.innerWidth + document.querySelector(".pepe").offsetWidth + 16;
 
       pepeTweener
         .to(".pepe", 20, { rotation: 0 })
@@ -847,8 +847,8 @@ export default {
     },
     sceneGhibli() {
       // Ghibli Grass parallax
-      const grassTimeline = new TimelineMax({ paused: true }),
-        grassTweener = new TimelineMax();
+      const grassTimeline = new TimelineMax({ paused: true });
+      const grassTweener = new TimelineMax();
 
       grassTweener
         .to(".pepe", 20, { rotation: 0 })
@@ -892,8 +892,8 @@ export default {
         .addTo(this.scroller);
 
       // Ghibli Clouds parallax
-      const gCloudsTimeline = new TimelineMax({ paused: true }),
-        gCloudsTweener = new TimelineMax();
+      const gCloudsTimeline = new TimelineMax({ paused: true });
+      const gCloudsTweener = new TimelineMax();
 
       gCloudsTweener
         .to(".pepe", 20, { rotation: 0 })
@@ -939,17 +939,18 @@ export default {
         .addTo(this.scroller);
 
       // Howl's Moving Castle parallax
-      let castleTimeline = new TimelineMax({ paused: true }),
-        castleTweener = new TimelineMax(),
-        castleLength = "-120vw";
+      const castleTimeline = new TimelineMax({ paused: true });
+      const castleTweener = new TimelineMax();
+      let castleLength = "-120vw";
 
-      if (this.$viewport.isMobile)
+      if (this.$viewport.isMobile) {
         castleLength =
           "-" +
           (window.innerWidth +
             document.querySelector(".castle-container").offsetWidth +
             16) +
           "px";
+      }
 
       castleTweener
         .to(".pepe", 20, { rotation: 0 })

@@ -4,7 +4,7 @@ interface AnimationOperations {
   add?: string | string[];
   remove?: string | string[];
   toggle?: string | string[];
-  onViewportChange?: (isInViewport: boolean, el: HTMLElement) => void;
+  onViewportChange?: (isInViewport: boolean, element: HTMLElement) => void;
 }
 
 interface AnimationState {
@@ -18,40 +18,46 @@ const toArray = (input?: string | string[]): string[] =>
   Array.isArray(input) ? input : input ? [input] : [];
 
 const updateClasses = (
-  el: HTMLElement,
+  element: HTMLElement,
   { add, remove, toggle, onViewportChange }: AnimationOperations,
   isInViewport: boolean,
 ) => {
-  const state = animationState.get(el) ?? {
+  const state = animationState.get(element) ?? {
     inViewport: false,
     wasInViewport: false,
   };
 
   if (isInViewport) {
-    toArray(add).forEach((className) => el.classList.add(className));
-    toArray(remove).forEach((className) => el.classList.remove(className));
-    toArray(toggle).forEach((className) => el.classList.toggle(className));
+    for (const className of toArray(add)) element.classList.add(className);
+    for (const className of toArray(remove)) {
+      element.classList.remove(className);
+    }
+    for (const className of toArray(toggle)) {
+      element.classList.toggle(className);
+    }
     state.inViewport = true;
     state.wasInViewport = true;
   } else {
-    toArray(toggle).forEach((className) => el.classList.toggle(className));
+    for (const className of toArray(toggle)) {
+      element.classList.toggle(className);
+    }
     state.inViewport = false;
   }
 
-  animationState.set(el, state);
-  onViewportChange?.(isInViewport, el);
+  animationState.set(element, state);
+  onViewportChange?.(isInViewport, element);
 };
 
 const createObserver = (
-  el: HTMLElement,
+  element: HTMLElement,
   options: AnimationOperations,
   rootMargin: string,
 ): IntersectionObserver => {
   return new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) =>
-        updateClasses(el, options, entry.isIntersecting),
-      );
+      for (const entry of entries) {
+        updateClasses(element, options, entry.isIntersecting);
+      }
     },
     { threshold: 0.5, rootMargin },
   );
@@ -59,10 +65,13 @@ const createObserver = (
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive("animation", {
-    mounted(el: HTMLElement, binding: DirectiveBinding<AnimationOperations>) {
+    mounted(
+      element: HTMLElement,
+      binding: DirectiveBinding<AnimationOperations>,
+    ) {
       const { value } = binding;
-      let observer = createObserver(el, value, "0px 0px -200px 0px");
-      observer.observe(el);
+      let observer = createObserver(element, value, "0px 0px -200px 0px");
+      observer.observe(element);
 
       const updateObserver = () => {
         const { scrollTop, scrollHeight, clientHeight } =
@@ -73,27 +82,36 @@ export default defineNuxtPlugin((nuxtApp) => {
           : "0px 0px -200px 0px";
 
         observer.disconnect();
-        observer = createObserver(el, value, rootMargin);
-        observer.observe(el);
+        observer = createObserver(element, value, rootMargin);
+        observer.observe(element);
       };
 
       useEventListener("scroll", updateObserver, { passive: true });
 
-      if (animationState.get(el)?.wasInViewport) {
-        toArray(value.add).forEach((className) => el.classList.add(className));
+      if (animationState.get(element)?.wasInViewport) {
+        for (const className of toArray(value.add)) {
+          element.classList.add(className);
+        }
       }
     },
-    updated(el: HTMLElement, binding: DirectiveBinding<AnimationOperations>) {
-      if (animationState.get(el)?.wasInViewport) {
+    updated(
+      element: HTMLElement,
+      binding: DirectiveBinding<AnimationOperations>,
+    ) {
+      if (animationState.get(element)?.wasInViewport) {
         const { add, remove, toggle } = binding.value;
-        toArray(add).forEach((className) => el.classList.add(className));
-        toArray(remove).forEach((className) => el.classList.remove(className));
-        toArray(toggle).forEach((className) => el.classList.toggle(className));
+        for (const className of toArray(add)) element.classList.add(className);
+        for (const className of toArray(remove)) {
+          element.classList.remove(className);
+        }
+        for (const className of toArray(toggle)) {
+          element.classList.toggle(className);
+        }
       }
     },
-    unmounted(el: HTMLElement) {
+    unmounted(element: HTMLElement) {
       window.removeEventListener("scroll", () => {});
-      animationState.delete(el);
+      animationState.delete(element);
     },
   });
 });

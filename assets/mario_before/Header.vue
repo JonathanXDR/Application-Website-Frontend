@@ -9,7 +9,9 @@
     </div>
 
     <div class="header-container">
-      <div class="header-breadcrumb">{{ $route.name }}</div>
+      <div class="header-breadcrumb">
+        {{ $route.name }}
+      </div>
 
       <button
         v-if="$viewport.isMobile"
@@ -37,9 +39,11 @@
         </button>
 
         <ul>
-          <li><router-link to="/" title="Home">.is()</router-link></li>
           <li>
-            <router-link to="/about" title="About me">.about()</router-link>
+            <router-link to="/" title="Home"> .is() </router-link>
+          </li>
+          <li>
+            <router-link to="/about" title="About me"> .about() </router-link>
           </li>
           <li>
             <a href="mailto:depaula.iuri@gmail.com" title="Send me an email"

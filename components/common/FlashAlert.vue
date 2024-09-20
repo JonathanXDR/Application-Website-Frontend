@@ -59,7 +59,7 @@
 <script setup lang="ts">
 import type { FlashAlertType } from "~/types/common/FlashAlert";
 
-const props = withDefaults(defineProps<FlashAlertType>(), {
+const properties = withDefaults(defineProps<FlashAlertType>(), {
   variant: "note",
   title: undefined,
   icon: () => ({ variant: "default", name: "" }),
@@ -69,42 +69,42 @@ const icons = {
   deprecated: {
     name: "nosign",
     colors: {
-      primary: `var(--color-aside-${props.variant})`,
+      primary: `var(--color-aside-${properties.variant})`,
     },
   },
   experiment: {
     name: "flask.fill",
     colors: {
-      primary: `var(--color-aside-${props.variant})`,
-      tertiary: `var(--color-aside-${props.variant})`,
+      primary: `var(--color-aside-${properties.variant})`,
+      tertiary: `var(--color-aside-${properties.variant})`,
     },
   },
   important: {
     name: "exclamationmark.triangle.fill",
     colors: {
       primary: "var(--color-fill)",
-      tertiary: `var(--color-aside-${props.variant})`,
+      tertiary: `var(--color-aside-${properties.variant})`,
     },
   },
   note: {
     name: "info.circle.fill",
     colors: {
       primary: "var(--color-fill)",
-      tertiary: `var(--color-aside-${props.variant})`,
+      tertiary: `var(--color-aside-${properties.variant})`,
     },
   },
   tip: {
     name: "questionmark.circle.fill",
     colors: {
       primary: "var(--color-fill)",
-      tertiary: `var(--color-aside-${props.variant})`,
+      tertiary: `var(--color-aside-${properties.variant})`,
     },
   },
   warning: {
     name: "exclamationmark.octagon.fill",
     colors: {
       primary: "var(--color-fill)",
-      tertiary: `var(--color-aside-${props.variant})`,
+      tertiary: `var(--color-aside-${properties.variant})`,
     },
   },
 };

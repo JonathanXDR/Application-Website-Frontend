@@ -4,11 +4,11 @@ import type { GetAuthenticatedUserGistParameters } from "~/types/services/github
 export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig();
   const octokit = new Octokit({ auth: githubToken });
-  const params: GetAuthenticatedUserGistParameters = getQuery(event);
+  const parameters: GetAuthenticatedUserGistParameters = getQuery(event);
 
   try {
     const response = await octokit.request("GET /gists", {
-      ...params,
+      ...parameters,
       headers: { accept: "application/vnd.github+json" },
     });
     return response.data;

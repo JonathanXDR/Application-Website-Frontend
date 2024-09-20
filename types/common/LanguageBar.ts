@@ -1,7 +1,7 @@
 import type { BasicSizeType } from "./BasicSize";
-import type { ExtendedPropsType } from "./ExtendedProps";
+import type { ExtendedPropsType as ExtendedPropertiesType } from "./ExtendedProps";
 
-export interface LanguageBarType extends ExtendedPropsType {
+export interface LanguageBarType extends ExtendedPropertiesType {
   progress: number;
   componentSize?: BasicSizeType | "full";
   loading?: boolean;

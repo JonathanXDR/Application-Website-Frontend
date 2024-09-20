@@ -4,16 +4,19 @@ import type { GetRepositoryTagsParameters } from "~/types/services/github/Tag";
 export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig();
   const octokit = new Octokit({ auth: githubToken });
-  const params: GetRepositoryTagsParameters = getQuery(event);
+  const parameters: GetRepositoryTagsParameters = getQuery(event);
 
   try {
     const response = await octokit.request("GET /repos/{owner}/{repo}/tags", {
-      ...params,
+      ...parameters,
       headers: { accept: "application/vnd.github+json" },
     });
     return response.data;
   } catch (error) {
-    console.error(`Error fetching tags for repository ${params.repo}:`, error);
+    console.error(
+      `Error fetching tags for repository ${parameters.repo}:`,
+      error,
+    );
     throw createError({
       statusCode: 500,
       statusMessage: "Internal Server Error",

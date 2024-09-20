@@ -8,7 +8,7 @@
     aria-expanded="false"
     :disabled="navDisabled"
     @input="toggleNav"
-  >
+  />
   <div
     id="ac-ln-fixed-placeholder"
     :class="[
@@ -217,16 +217,16 @@ const menuLinkRefs: Record<string, HTMLElement | null> = {};
 const borderTransformOrigin = ref<string>("50% 0%");
 const borderScaleX = ref<string>("scaleX(1)");
 
-const currentMenuLinkEl = computed<HTMLElement | null>(() => {
+const currentMenuLinkElement = computed<HTMLElement | null>(() => {
   const currentId = navItems.value.find(
     (item) => item.id === currentSection.value.id || route.path === item.route,
   )?.id;
-  const liEl = currentId ? menuLinkRefs[currentId] : null;
+  const liElement = currentId ? menuLinkRefs[currentId] : null;
 
-  if (!liEl) return null;
+  if (!liElement) return null;
 
-  const menuLinkEl = liEl.firstElementChild as HTMLElement | null;
-  return menuLinkEl;
+  const menuLinkElement = liElement.firstElementChild as HTMLElement | null;
+  return menuLinkElement;
 });
 
 const initHeaderAnimations = () => {
@@ -267,18 +267,18 @@ const handleScroll = () => {
 };
 
 const updateAnimations = () => {
-  headerAnimations.value.forEach((element) => {
+  for (const element of headerAnimations.value) {
     element.element.classList.remove(element.class);
 
     setTimeout(() => {
       element.element.classList.add(element.class);
     }, element.timeout);
-  });
+  }
 };
 
 const updateBorderPosition = () => {
-  if (currentMenuLinkEl.value && navbarEl.value) {
-    const menuLinkRect = currentMenuLinkEl.value.getBoundingClientRect();
+  if (currentMenuLinkElement.value && navbarEl.value) {
+    const menuLinkRect = currentMenuLinkElement.value.getBoundingClientRect();
     const navbarRect = navbarEl.value.getBoundingClientRect();
 
     const centerPosition =
@@ -321,7 +321,7 @@ watch([() => route.path, () => currentSection.value.id], () => {
   updateBorderPosition();
 });
 
-watch(currentMenuLinkEl, () => {
+watch(currentMenuLinkElement, () => {
   updateBorderPosition();
 });
 </script>

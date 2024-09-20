@@ -11,7 +11,7 @@
           name="language"
           :checked="locale === computedLocale.code"
           @click="changeLanguage(computedLocale.code)"
-        >
+        />
         <label :for="computedLocale.code" class="link">
           {{ getLabel(computedLocale) }}
         </label>
@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-const props = withDefaults(
+const properties = withDefaults(
   defineProps<{
     introText?: boolean;
     shortForm?: boolean;
@@ -43,7 +43,7 @@ const computedLocales = computed(() =>
 
 const getLabel = (locale: { code: string; name?: string }) => {
   const label = locale.name || locale.code;
-  return props.shortForm ? locale.code.toUpperCase() : label;
+  return properties.shortForm ? locale.code.toUpperCase() : label;
 };
 </script>
 

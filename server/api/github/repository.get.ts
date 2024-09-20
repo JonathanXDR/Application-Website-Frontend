@@ -4,17 +4,17 @@ import type { GetOwnerRepositoryParameters } from "~/types/services/github/Repos
 export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig();
   const octokit = new Octokit({ auth: githubToken });
-  const params: GetOwnerRepositoryParameters = getQuery(event);
+  const parameters: GetOwnerRepositoryParameters = getQuery(event);
 
   try {
     const response = await octokit.request("GET /repos/{owner}/{repo}", {
-      ...params,
+      ...parameters,
       headers: { accept: "application/vnd.github+json" },
     });
     return response.data;
   } catch (error) {
     console.error(
-      `Error fetching repository for owner ${params.owner}:`,
+      `Error fetching repository for owner ${parameters.owner}:`,
       error,
     );
     throw createError({

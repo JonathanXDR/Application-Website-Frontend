@@ -1,5 +1,5 @@
-import type { ExtendedPropsType } from "../common/ExtendedProps";
+import type { ExtendedPropsType as ExtendedPropertiesType } from "../common/ExtendedProps";
 
-export interface Projects extends ExtendedPropsType {
-  projects: ExtendedPropsType[];
+export interface Projects extends ExtendedPropertiesType {
+  projects: ExtendedPropertiesType[];
 }

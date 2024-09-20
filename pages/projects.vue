@@ -58,7 +58,7 @@
       </div>
     </div>
     <div v-else class="w-full">
-      <div v-if="projects.personal.length && projects.school.length">
+      <div v-if="projects.personal.length > 0 && projects.school.length > 0">
         <LiveResultSummary
           :total-results="currentProjects.length + pinned.length"
           :pinned-results="pinned.length"
@@ -267,10 +267,10 @@ watch(
 watchEffect(() => {
   projects.personal = [];
   projects.school = [];
-  filteredProjects.value.map(categorizeProject).forEach((project) => {
+  for (const project of filteredProjects.value.map(categorizeProject)) {
     const category = project.category as keyof Projects;
     projects[category].push(project);
-  });
+  }
 });
 
 onUnmounted(() => {

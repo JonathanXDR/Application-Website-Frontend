@@ -1,7 +1,7 @@
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   const token = generateToken();
-  const params = getQuery(event);
+  const parameters = getQuery(event);
 
   try {
     const response = await $fetch(
@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-        params,
+        params: parameters,
       },
     );
     return response;

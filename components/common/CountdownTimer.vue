@@ -25,7 +25,9 @@
           </span>
         </Transition>
       </div>
-      <div class="countdown-label" aria-hidden="true">{{ label }}</div>
+      <div class="countdown-label" aria-hidden="true">
+        {{ label }}
+      </div>
     </div>
   </aside>
 </template>
@@ -33,14 +35,15 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
+
 dayjs.extend(duration);
 
-interface Props {
+interface Properties {
   endDate: Date;
   ariaLabel: string;
 }
 
-const props = defineProps<Props>();
+const properties = defineProps<Properties>();
 
 interface CountdownValue {
   prev: string;
@@ -60,7 +63,7 @@ const countdown = ref<Record<CountdownUnits, CountdownValue>>({
 
 const updateCountdown = () => {
   const now = dayjs();
-  const end = dayjs(props.endDate);
+  const end = dayjs(properties.endDate);
   const diff = dayjs.duration(end.diff(now));
 
   const newCountdown: Record<CountdownUnits, CountdownValue> = {
@@ -91,20 +94,20 @@ const updateCountdown = () => {
     },
   };
 
-  Object.keys(newCountdown).forEach((key) => {
+  for (const key of Object.keys(newCountdown)) {
     const unit = key as CountdownUnits;
     if (newCountdown[unit].current !== countdown.value[unit].current) {
       newCountdown[unit].transition = true;
     }
-  });
+  }
 
   countdown.value = newCountdown;
 
   setTimeout(() => {
-    Object.keys(countdown.value).forEach((key) => {
+    for (const key of Object.keys(countdown.value)) {
       const unit = key as CountdownUnits;
       countdown.value[unit].transition = false;
-    });
+    }
   }, 400);
 };
 

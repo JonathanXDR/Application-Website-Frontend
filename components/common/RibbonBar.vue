@@ -35,7 +35,7 @@
                         </template>
 
                         <LinkCollection
-                          v-if="item.links.length"
+                          v-if="item.links.length > 0"
                           class="ribbon-link"
                           :loading="loading"
                           :links="item.links"
@@ -80,15 +80,16 @@
             </div>
           </div>
         </div>
-      </div></div
-  ></ClientOnly>
+      </div>
+    </div>
+  </ClientOnly>
 </template>
 
 <script setup lang="ts">
 import type { LinkType } from "~/types/common/Link";
 import type { RibbonBar } from "~/types/common/RibbonBar";
 
-const props = withDefaults(defineProps<RibbonBar>(), {
+const properties = withDefaults(defineProps<RibbonBar>(), {
   loading: false,
 });
 
@@ -122,7 +123,7 @@ const updateBaseItems = () => {
   const { latest: latestTag, previous: previousTag } = tags.value;
 
   if (!tags.value.latest || !tags.value.previous) return;
-  baseItems.value = props.items.map((item, index) => ({
+  baseItems.value = properties.items.map((item, index) => ({
     description:
       item.description &&
       t(`components.common.RibbonBar[${index}].description`, {
@@ -151,8 +152,8 @@ const updateDisplayItems = () => {
   const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value;
   displayItems.value = Array.from(
     { length: totalItems.value },
-    (_, i) =>
-      baseItems.value[(start + i) % totalItems.value] || {
+    (_, index) =>
+      baseItems.value[(start + index) % totalItems.value] || {
         description: "",
         links: [],
       },

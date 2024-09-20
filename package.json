@@ -13,7 +13,10 @@
     "icon:cleanup-svgs": "sh ./scripts/icon-cleanup-svgs.sh",
     "icon:generate-sprite": "sh ./scripts/icon-generate-sprite.sh",
     "component:merge": "sh ./scripts/component-merge.sh",
-    "build:trigger": "sh ./scripts/build-trigger.sh"
+    "build:trigger": "sh ./scripts/build-trigger.sh",
+    "prepare": "husky",
+    "precommit": "bun run prettify && lint-staged --no-stash",
+    "prettify": "prettier --write \"**/*.{js,jsx,ts,tsx,vue,json,css,scss}\""
   },
   "devDependencies": {
     "@iconify-json/fa6-brands": "^1.2.0",
@@ -43,9 +46,13 @@
     "@vueuse/sound": "^2.0.1",
     "dayjs": "^1.11.13",
     "eslint": "^9.11.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-unicorn": "^55.0.0",
     "gsap": "^3.12.5",
+    "husky": "^9.1.6",
     "hypertune": "^2.5.3",
     "jsonwebtoken": "^9.0.2",
+    "lint-staged": "^15.2.10",
     "neostandard": "^0.11.5",
     "nuxt": "^3.13.2",
     "nuxt-security": "^2.0.0",

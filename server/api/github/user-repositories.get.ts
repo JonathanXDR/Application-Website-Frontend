@@ -4,17 +4,17 @@ import type { GetUserRepositoriesParameters } from "~/types/services/github/Repo
 export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig();
   const octokit = new Octokit({ auth: githubToken });
-  const params: GetUserRepositoriesParameters = getQuery(event);
+  const parameters: GetUserRepositoriesParameters = getQuery(event);
 
   try {
     const response = await octokit.request("GET /users/{username}/repos", {
-      ...params,
+      ...parameters,
       headers: { accept: "application/vnd.github+json" },
     });
     return response.data;
   } catch (error) {
     console.error(
-      `Error fetching repositories for user ${params.username}:`,
+      `Error fetching repositories for user ${parameters.username}:`,
       error,
     );
     throw createError({

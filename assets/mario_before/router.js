@@ -103,10 +103,10 @@ const router = new Router({
     },
     {
       path: "*",
-      name: `.err(404)`,
+      name: ".err(404)",
       component: () => import("./views/404.vue"),
       meta: {
-        title: `iuri.err(404)`,
+        title: "iuri.err(404)",
         bodyClass: "page-err404",
         metaTags: [
           {
@@ -116,7 +116,7 @@ const router = new Router({
           // facebook
           {
             name: "og:title",
-            content: `iuri.err(404)`,
+            content: "iuri.err(404)",
           },
           {
             name: "og:url",
@@ -129,7 +129,7 @@ const router = new Router({
           // twitter
           {
             name: "twitter:title",
-            content: `iuri.err(404)`,
+            content: "iuri.err(404)",
           },
           {
             name: "twitter:url",
@@ -170,35 +170,33 @@ router.beforeEach((to, _from, next) => {
   );
 
   // Update meta tags
-  const nearestWithTitle = to.matched
-    .slice()
+  const nearestWithTitle = [...to.matched]
     .reverse()
     .find((r) => r.meta && r.meta.title);
   // Find the nearest route element with meta tags.
-  const nearestWithMeta = to.matched
-    .slice()
+  const nearestWithMeta = [...to.matched]
     .reverse()
     .find((r) => r.meta && r.meta.metaTags);
   // If a route with a title was found, set the document (page) title to that value.
   if (nearestWithTitle) document.title = nearestWithTitle.meta.title;
   // Remove any stale meta tags from the document using the key attribute we set below.
-  Array.from(document.querySelectorAll("[data-vue-router-controlled]")).map(
-    (el) => el.parentNode.removeChild(el),
+  [...document.querySelectorAll("[data-vue-router-controlled]")].map(
+    (element) => element.parentNode.removeChild(element),
   );
   // Skip rendering meta tags if there are none.
   if (!nearestWithMeta) return next();
   // Turn the meta tag definitions into actual elements in the head.
-  nearestWithMeta.meta.metaTags
-    .map((tagDef) => {
-      const tag = document.createElement("meta");
-      Object.keys(tagDef).forEach((key) => {
-        tag.setAttribute(key, tagDef[key]);
-      });
-      // We use this to track which meta tags we create, so we don't interfere with other ones.
-      tag.setAttribute("data-vue-router-controlled", "");
-      return tag;
-    })
-    .forEach((tag) => document.head.appendChild(tag));
+  for (const tag of nearestWithMeta.meta.metaTags.map((tagDef) => {
+    const tag = document.createElement("meta");
+    for (const key of Object.keys(tagDef)) {
+      tag.setAttribute(key, tagDef[key]);
+    }
+    // We use this to track which meta tags we create, so we don't interfere with other ones.
+    tag.dataset.vueRouterControlled = "";
+    return tag;
+  })) {
+    document.head.append(tag);
+  }
 
   next();
 });

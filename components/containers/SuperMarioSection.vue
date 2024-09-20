@@ -26,9 +26,9 @@
       <div v-show="hasFoundAllCoins">
         <div class="mario-msg-overlay" />
         <div class="mario-msg">
-          Hooray! Thanks for jumping so many times. <br >
+          Hooray! Thanks for jumping so many times. <br />
           <span class="-purple">You found all the coins!</span>
-          <br >&nbsp;<br >
+          <br />&nbsp;<br />
           Keep scrolling, you're near the end!
 
           <div class="later">

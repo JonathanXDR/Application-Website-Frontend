@@ -32,7 +32,7 @@ export default {
     };
   },
   methods: {
-    enter(el, done) {
+    enter(element, done) {
       // intro animations
       this.introTimeline
         .clear()
@@ -52,7 +52,7 @@ export default {
           "enter",
         )
         .fromTo(
-          el,
+          element,
           1,
           {
             autoAlpha: 0,
@@ -66,14 +66,14 @@ export default {
 
       this.isSpinePlaying = true;
     },
-    leave(el, done) {
+    leave(element, done) {
       // leave animations
       this.leaveTimeline
         .clear()
         .addLabel("leave", 0)
         .set(".header-breadcrumb", { autoAlpha: 0 }, "leave")
         .to(
-          el,
+          element,
           1,
           {
             autoAlpha: 0,

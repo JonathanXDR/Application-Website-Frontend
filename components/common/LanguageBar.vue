@@ -67,7 +67,7 @@
 <script setup lang="ts">
 import type { LanguageBarType } from "~/types/common/LanguageBar";
 
-const props = withDefaults(defineProps<LanguageBarType>(), {
+const properties = withDefaults(defineProps<LanguageBarType>(), {
   progress: 0,
   componentSize: "medium",
   loading: false,
@@ -78,8 +78,10 @@ const props = withDefaults(defineProps<LanguageBarType>(), {
 
 const applyHover = computed(
   () =>
-    (props.hover === "auto" && props.links && props.links.length >= 1) ||
-    props.hover === "true",
+    (properties.hover === "auto" &&
+      properties.links &&
+      properties.links.length > 0) ||
+    properties.hover === "true",
 );
 </script>
 

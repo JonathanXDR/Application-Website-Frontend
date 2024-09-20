@@ -45,7 +45,7 @@ if (error.value) {
 }
 
 const randomFile = computed(() =>
-  files.value.length
+  files.value.length > 0
     ? files.value[Math.floor(Math.random() * files.value.length)]
     : null,
 );

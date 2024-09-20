@@ -2,7 +2,9 @@
   <div>
     <h1>User Library Albums</h1>
     {{ status }}
-    <div v-if="error">{{ error }}</div>
+    <div v-if="error">
+      {{ error }}
+    </div>
 
     <div v-else>
       <ul>

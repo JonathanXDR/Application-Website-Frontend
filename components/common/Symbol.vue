@@ -17,7 +17,7 @@
 import type { BasicSizeType } from "~/types/common/BasicSize";
 import type { IconType } from "~/types/common/Icon";
 
-const props = withDefaults(defineProps<IconType>(), {
+const properties = withDefaults(defineProps<IconType>(), {
   componentSize: "medium",
   loading: false,
   colors: () => ({
@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<IconType>(), {
 });
 
 const icon = computed(
-  () => `${getSpriteUrl(props.componentSize)}#${props.name}`,
+  () => `${getSpriteUrl(properties.componentSize)}#${properties.name}`,
 );
 
 const getSpriteUrl = (size: BasicSizeType) => {
@@ -36,9 +36,9 @@ const getSpriteUrl = (size: BasicSizeType) => {
 };
 
 const styles = reactive({
-  "--color-primary": props.colors.primary || "currentColor",
-  "--color-secondary": props.colors.secondary || "currentColor",
-  "--color-tertiary": props.colors.tertiary || "currentColor",
+  "--color-primary": properties.colors.primary || "currentColor",
+  "--color-secondary": properties.colors.secondary || "currentColor",
+  "--color-tertiary": properties.colors.tertiary || "currentColor",
 });
 </script>
 

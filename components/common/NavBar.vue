@@ -5,7 +5,7 @@
     type="checkbox"
     :disabled="navDisabled"
     @input="toggleNav()"
-  >
+  />
   <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking" />
   <nav
     id="ac-localnav"
@@ -123,13 +123,13 @@ const handleScroll = () => {
 };
 
 const updateAnimations = () => {
-  headerAnimations.value.forEach((element) => {
+  for (const element of headerAnimations.value) {
     element.element.classList.remove(element.class);
 
     setTimeout(() => {
       element.element.classList.add(element.class);
     }, element.timeout);
-  });
+  }
 };
 
 onMounted(() => {

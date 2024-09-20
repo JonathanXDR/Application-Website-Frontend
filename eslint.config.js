@@ -1,9 +1,10 @@
-import neostandard from 'neostandard'
-
-import withNuxt from './.nuxt/eslint.config.mjs'
+import prettierPlugin from "eslint-plugin-prettier";
+import pluginUnicorn from "eslint-plugin-unicorn";
+import neostandard from "neostandard";
+import withNuxt from "./.nuxt/eslint.config.mjs";
 
 export default withNuxt(
-  neostandard({
-    ts: true
-  })
-)
+  neostandard(),
+  pluginUnicorn.configs["flat/all"],
+  prettierPlugin.configs["flat/all"],
+);
