@@ -8,7 +8,10 @@
 
     <div v-else>
       <ul>
-        <li v-for="album in albums" :key="album.id">
+        <li
+          v-for="album in albums"
+          :key="album.id"
+        >
           {{ album.attributes?.name }}
         </li>
       </ul>
@@ -23,13 +26,13 @@ definePageMeta({
   ribbon: true,
   footerFull: true,
   footerCompact: false,
-});
+})
 
 const {
   data: albums,
   status,
   error,
-} = await useFetch<MusicKit.Albums[]>("/api/musickit/user-library-albums", {
-  params: { ids: "1616728060" },
-});
+} = await useFetch<MusicKit.Albums[]>('/api/musickit/user-library-albums', {
+  params: { ids: '1616728060' },
+})
 </script>

@@ -2,7 +2,10 @@
   <h2>{{ title }}</h2>
 
   <div class="graph">
-    <template v-for="(language, index) in languages" :key="index">
+    <template
+      v-for="(language, index) in languages"
+      :key="index"
+    >
       <LanguageBar
         v-if="language"
         v-bind="{
@@ -21,17 +24,17 @@
 </template>
 
 <script setup lang="ts">
-import type { LanguageBarType } from "~/types/common/LanguageBar";
+import type { LanguageBarType } from '~/types/common/LanguageBar'
 
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
-const { tm } = useI18n();
-const { windowWidth } = useWidth();
+const { tm } = useI18n()
+const { windowWidth } = useWidth()
 const languages = computed<LanguageBarType[]>(() =>
-  tm("components.containers.languages"),
-);
+  tm('components.containers.languages')
+)
 </script>
 
 <style scoped>

@@ -30,15 +30,15 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from "~/types/common/CardItem";
+import type { CardItemType } from '~/types/common/CardItem'
 
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
-const { tm } = useI18n();
-const { windowWidth } = useWidth();
+const { tm } = useI18n()
+const { windowWidth } = useWidth()
 const cards = computed<CardItemType[]>(() =>
-  tm("components.containers.school"),
-);
+  tm('components.containers.school')
+)
 </script>

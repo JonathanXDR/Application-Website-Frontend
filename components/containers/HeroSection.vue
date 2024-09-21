@@ -1,6 +1,9 @@
 <template>
   <section class="hero">
-    <div class="hero-code" aria-hidden="true">
+    <div
+      class="hero-code"
+      aria-hidden="true"
+    >
       ======================================= :: 🔥🌸 Microkernel iBoot for d84,
       Apple Inc. :: Local boot, Board 0x6 (d84ap)/Rev 0xd :: BUILD_TAG:
       iBoot-10151.60.47.0.1 :: BUILD_STYLE: DEVELOPMENT :: USB_SERIAL_NUMBER:
@@ -8,11 +11,20 @@
       IBFL:2D SIKA:00 SRNM:[XXXXXXXXXX] ::
       =======================================
     </div>
-    <div class="section-content hero-content" style="opacity: 1">
-      <h1 class="hero-headline" style="opacity: 1; transform: none">
+    <div
+      class="section-content hero-content"
+      style="opacity: 1"
+    >
+      <h1
+        class="hero-headline"
+        style="opacity: 1; transform: none"
+      >
         <em class="">Hey there, I'm Jonathan :)</em>
       </h1>
-      <div class="hero-description" style="opacity: 1; transform: none">
+      <div
+        class="hero-description"
+        style="opacity: 1; transform: none"
+      >
         <p>
           Our groundbreaking security technologies protect the users of over 2.2
           billion active devices around the world. Hear about the latest

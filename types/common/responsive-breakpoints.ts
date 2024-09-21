@@ -1,9 +1,9 @@
-import type { Breakpoints } from "./Breakpoint";
+import type { Breakpoints } from './Breakpoint'
 
-type ResponsiveSizeTypeTailwind<T extends string> = T | string;
+type ResponsiveSizeTypeTailwind<T extends string> = T | string
 type ResponsiveSizeType<T extends string> =
-  `${Breakpoints}:${ResponsiveSizeTypeTailwind<T>}`;
+  `${Breakpoints}:${ResponsiveSizeTypeTailwind<T>}`
 
 export type ResponsiveBreakpoints<T extends string> =
   | ResponsiveSizeTypeTailwind<T>
-  | ResponsiveSizeType<T>;
+  | ResponsiveSizeType<T>

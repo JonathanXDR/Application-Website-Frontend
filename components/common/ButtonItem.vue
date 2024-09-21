@@ -1,30 +1,33 @@
 <template>
-  <component :is="as" :class="['button', variant, componentSize]">
+  <component
+    :is="as"
+    :class="['button', variant, componentSize]"
+  >
     <slot />
   </component>
 </template>
 
 <script setup lang="ts">
-import type { BasicSizeType } from "~/types/common/BasicSize";
-import type { IconType } from "~/types/common/Icon";
+import type { BasicSizeType } from '~/types/common/BasicSize'
+import type { IconType } from '~/types/common/Icon'
 
 withDefaults(
   defineProps<{
-    as?: keyof HTMLElementTagNameMap;
-    variant?: "primary" | "secondary" | "tertiary";
-    componentSize?: BasicSizeType;
-    borderRadius?: "reduced" | "full";
-    label: string;
-    icon?: IconType;
+    as?: keyof HTMLElementTagNameMap
+    variant?: 'primary' | 'secondary' | 'tertiary'
+    componentSize?: BasicSizeType
+    borderRadius?: 'reduced' | 'full'
+    label: string
+    icon?: IconType
   }>(),
   {
-    as: "button",
-    variant: "primary",
-    componentSize: "medium",
-    borderRadius: "reduced",
+    as: 'button',
+    variant: 'primary',
+    componentSize: 'medium',
+    borderRadius: 'reduced',
     icon: undefined,
-  },
-);
+  }
+)
 </script>
 
 <style scoped>

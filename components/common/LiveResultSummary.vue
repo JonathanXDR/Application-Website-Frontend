@@ -1,11 +1,17 @@
 <template>
-  <div id="live-result-summary" class="results">
+  <div
+    id="live-result-summary"
+    class="results"
+  >
     <div class="number-results">
       {{
         t(`components.common.LiveResultSummary.title`, { count: totalResults })
       }}
     </div>
-    <div v-if="pinnedResults" class="changesnav-totals">
+    <div
+      v-if="pinnedResults"
+      class="changesnav-totals"
+    >
       <div class="changed-total">
         <Symbol
           name="pin.fill"
@@ -34,17 +40,17 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    totalResults: number;
-    pinnedResults?: number;
+    totalResults: number
+    pinnedResults?: number
   }>(),
   {
     totalResults: 0,
     pinnedResults: 0,
-  },
-);
+  }
+)
 
-const { t } = useI18n();
-const { randomDevColor } = useColor();
+const { t } = useI18n()
+const { randomDevColor } = useColor()
 </script>
 
 <style scoped>

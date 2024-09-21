@@ -15,7 +15,10 @@
       <span class="cursor" />
     </span>
 
-    <template v-for="(word, wordIndex) in words" :key="wordIndex">
+    <template
+      v-for="(word, wordIndex) in words"
+      :key="wordIndex"
+    >
       <span class="word">
         <span
           v-for="(char, letterIndex) in word"
@@ -47,102 +50,102 @@
 </template>
 
 <script setup lang="ts">
-const properties = defineProps<{ title: string }>();
+const properties = defineProps<{ title: string }>()
 const words = computed(() =>
   properties.title
     .trim()
-    .split(" ")
-    .map((word) => word.split("")),
-);
-const isCursorBlinking = ref(false);
-const initialCursorOpacity = ref("1");
-const currentLetterCount = ref(0);
+    .split(' ')
+    .map(word => word.split(''))
+)
+const isCursorBlinking = ref(false)
+const initialCursorOpacity = ref('1')
+const currentLetterCount = ref(0)
 const originalStringLength = computed(
   () =>
-    properties.title.trim().replaceAll(" ", "").length + words.value.length - 1,
-);
-const headline = ref<HTMLElement | null>(null);
-let cursorBlinkTimeout: number | NodeJS.Timeout | null = null;
+    properties.title.trim().replaceAll(' ', '').length + words.value.length - 1
+)
+const headline = ref<HTMLElement | null>(null)
+let cursorBlinkTimeout: number | NodeJS.Timeout | null = null
 
 const animationConfig = {
   onViewportChange: (isInViewport: boolean) => {
     if (isInViewport) {
-      useEventListener("scroll", updateLetterCount);
+      useEventListener('scroll', updateLetterCount)
     } else {
-      removeEventListener("scroll", updateLetterCount);
-      clearTimeout(cursorBlinkTimeout as NodeJS.Timeout);
+      removeEventListener('scroll', updateLetterCount)
+      clearTimeout(cursorBlinkTimeout as NodeJS.Timeout)
     }
   },
-};
+}
 
 const getLetterStyle = (index: number) => ({
-  "--letter-opacity": index < currentLetterCount.value ? "1" : "0",
-  "--cursor-opacity": index === currentLetterCount.value - 1 ? "1" : "0",
-});
+  '--letter-opacity': index < currentLetterCount.value ? '1' : '0',
+  '--cursor-opacity': index === currentLetterCount.value - 1 ? '1' : '0',
+})
 
 const getGlobalIndex = (wordIndex: number, letterIndex: number) => {
-  let globalIndex = 0;
+  let globalIndex = 0
   for (let index = 0; index < wordIndex; index++) {
-    globalIndex += (words.value[index]?.length || 0) + 1;
+    globalIndex += (words.value[index]?.length || 0) + 1
   }
-  return globalIndex + letterIndex;
-};
+  return globalIndex + letterIndex
+}
 
-let lastScrollY = 0;
+let lastScrollY = 0
 
 const updateLetterCount = () => {
-  const scrollY = window.scrollY;
-  const scrollThreshold = 20;
+  const scrollY = window.scrollY
+  const scrollThreshold = 20
 
   switch (true) {
     case scrollY > lastScrollY + scrollThreshold &&
       currentLetterCount.value < originalStringLength.value: {
-      currentLetterCount.value++;
-      setCursorBlink(false);
-      initialCursorOpacity.value = "0";
-      lastScrollY = scrollY;
-      break;
+      currentLetterCount.value++
+      setCursorBlink(false)
+      initialCursorOpacity.value = '0'
+      lastScrollY = scrollY
+      break
     }
     case scrollY < lastScrollY - scrollThreshold &&
       currentLetterCount.value > 0: {
-      currentLetterCount.value--;
-      setCursorBlink(false);
-      lastScrollY = scrollY;
-      break;
+      currentLetterCount.value--
+      setCursorBlink(false)
+      lastScrollY = scrollY
+      break
     }
     default: {
-      setCursorBlink(true);
-      break;
+      setCursorBlink(true)
+      break
     }
   }
-};
+}
 
 watch(currentLetterCount, (newCount, oldCount) => {
   switch (true) {
     case newCount === 0: {
-      initialCursorOpacity.value = "1";
-      break;
+      initialCursorOpacity.value = '1'
+      break
     }
     case newCount === originalStringLength.value: {
-      setCursorBlink(true);
-      break;
+      setCursorBlink(true)
+      break
     }
     case newCount < oldCount: {
-      setCursorBlink(false);
-      break;
+      setCursorBlink(false)
+      break
     }
   }
-});
+})
 
 const setCursorBlink = (state: boolean) => {
-  clearTimeout(cursorBlinkTimeout as NodeJS.Timeout);
-  isCursorBlinking.value = state;
+  clearTimeout(cursorBlinkTimeout as NodeJS.Timeout)
+  isCursorBlinking.value = state
   if (!state) {
     cursorBlinkTimeout = setTimeout(() => {
-      isCursorBlinking.value = true;
-    }, 1);
+      isCursorBlinking.value = true
+    }, 1)
   }
-};
+}
 </script>
 
 <style scoped>

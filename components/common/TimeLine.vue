@@ -20,81 +20,81 @@
 
 <script setup lang="ts">
 const properties = defineProps<{
-  initialHeight: number;
-  onUpdateHeight: (value: number) => void;
-}>();
+  initialHeight: number
+  onUpdateHeight: (value: number) => void
+}>()
 
-const pathData = ref<string>("");
-const timelineHeight = ref<number>(properties.initialHeight);
-const viewBox = ref<string>("0 0 8 0");
-const strokeDashArray = ref<number>(properties.initialHeight);
-const strokeDashOffset = ref<number>(properties.initialHeight);
-const strokeWidth = ref<number>(5);
+const pathData = ref<string>('')
+const timelineHeight = ref<number>(properties.initialHeight)
+const viewBox = ref<string>('0 0 8 0')
+const strokeDashArray = ref<number>(properties.initialHeight)
+const strokeDashOffset = ref<number>(properties.initialHeight)
+const strokeWidth = ref<number>(5)
 
-const svgElement = ref<SVGElement | null>(null);
-const pathElement = ref<SVGPathElement | null>(null);
-const initialAnimationDone = ref<boolean>(false);
+const svgElement = ref<SVGElement | null>(null)
+const pathElement = ref<SVGPathElement | null>(null)
+const initialAnimationDone = ref<boolean>(false)
 
 const initializePath = () => {
-  const listHeight = properties.initialHeight;
-  const roundedHeight = Math.round(listHeight);
+  const listHeight = properties.initialHeight
+  const roundedHeight = Math.round(listHeight)
 
-  pathData.value = `M 4 0 L 4 ${roundedHeight}`;
-  timelineHeight.value = roundedHeight;
-  viewBox.value = `0 0 8 ${roundedHeight}`;
-  strokeDashArray.value = listHeight;
-  strokeDashOffset.value = listHeight;
-};
+  pathData.value = `M 4 0 L 4 ${roundedHeight}`
+  timelineHeight.value = roundedHeight
+  viewBox.value = `0 0 8 ${roundedHeight}`
+  strokeDashArray.value = listHeight
+  strokeDashOffset.value = listHeight
+}
 
 const animatePath = () => {
-  const height = timelineHeight.value || 0;
-  const centerY = window.innerHeight / 2;
-  const pathBounds = pathElement.value?.getBoundingClientRect();
+  const height = timelineHeight.value || 0
+  const centerY = window.innerHeight / 2
+  const pathBounds = pathElement.value?.getBoundingClientRect()
 
-  if (!pathBounds) return;
+  if (!pathBounds) return
 
-  const scrollPercentage = (centerY - pathBounds.top) / pathBounds.height;
-  const drawLength = scrollPercentage > 0 ? height * scrollPercentage : 0;
+  const scrollPercentage = (centerY - pathBounds.top) / pathBounds.height
+  const drawLength = scrollPercentage > 0 ? height * scrollPercentage : 0
 
-  strokeDashOffset.value = drawLength < height ? height - drawLength : 0;
-  properties.onUpdateHeight(strokeDashOffset.value);
-};
+  strokeDashOffset.value = drawLength < height ? height - drawLength : 0
+  properties.onUpdateHeight(strokeDashOffset.value)
+}
 
 const initialAnimatePath = () => {
-  if (initialAnimationDone.value) return;
+  if (initialAnimationDone.value) return
 
-  animatePath();
-  initialAnimationDone.value = true;
-};
+  animatePath()
+  initialAnimationDone.value = true
+}
 
 const setupIntersectionObserver = () => {
-  if (!svgElement.value) return;
+  if (!svgElement.value) return
 
   useIntersectionObserver(svgElement, ([entry]) => {
     if (entry?.isIntersecting) {
-      initialAnimatePath();
-      useEventListener("scroll", animatePath);
-      useEventListener("resize", initializePath);
+      initialAnimatePath()
+      useEventListener('scroll', animatePath)
+      useEventListener('resize', initializePath)
     } else {
-      removeEventListener("scroll", animatePath);
-      removeEventListener("resize", initializePath);
+      removeEventListener('scroll', animatePath)
+      removeEventListener('resize', initializePath)
     }
-  });
-};
+  })
+}
 
 onMounted(async () => {
-  await nextTick();
-  initializePath();
-  setupIntersectionObserver();
-});
+  await nextTick()
+  initializePath()
+  setupIntersectionObserver()
+})
 
 watch(
   () => properties.initialHeight,
   async () => {
-    await nextTick();
-    initializePath();
-  },
-);
+    await nextTick()
+    initializePath()
+  }
+)
 </script>
 
 <style scoped>

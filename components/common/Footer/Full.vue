@@ -13,5 +13,5 @@
 </template>
 
 <script setup lang="ts">
-const currentYear = ref(new Date().getFullYear());
+const currentYear = ref(new Date().getFullYear())
 </script>

@@ -1,6 +1,6 @@
 export default defineEventHandler(async () => {
-  const config = useRuntimeConfig();
-  const token = generateToken();
+  const config = useRuntimeConfig()
+  const token = generateToken()
 
   try {
     const response = await $fetch(
@@ -8,16 +8,16 @@ export default defineEventHandler(async () => {
       {
         headers: {
           Authorization: `Bearer ${token}`,
-          "Music-User-Token": config.appleMusicUserToken,
+          'Music-User-Token': config.appleMusicUserToken,
         },
-      },
-    );
-    return response;
+      }
+    )
+    return response
   } catch (error) {
-    console.error("Error fetching user library playlists:", error);
+    console.error('Error fetching user library playlists:', error)
     throw createError({
       statusCode: 500,
-      statusMessage: "Internal Server Error",
-    });
+      statusMessage: 'Internal Server Error',
+    })
   }
-});
+})

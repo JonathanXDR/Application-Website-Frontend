@@ -55,7 +55,7 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from "~/types/common/CardItem";
+import type { CardItemType } from '~/types/common/CardItem'
 
 definePageMeta({
   header: true,
@@ -63,12 +63,12 @@ definePageMeta({
   ribbon: true,
   footerFull: true,
   footerCompact: false,
-});
+})
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const cards = computed<CardItemType[]>(() =>
-  tm("components.containers.technologies"),
-);
+  tm('components.containers.technologies')
+)
 
 // const segmentNavItems = computed<ItemType[]>(() =>
 //   tm("components.common.SegmentNav.technologies"),

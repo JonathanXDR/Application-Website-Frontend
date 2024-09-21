@@ -1,3 +1,3 @@
-import type { BasicSizeType } from "./BasicSize";
+import type { BasicSizeType } from './BasicSize'
 
-export type ExtendedSizeType = BasicSizeType | "xsmall" | "xlarge";
+export type ExtendedSizeType = BasicSizeType | 'xsmall' | 'xlarge'

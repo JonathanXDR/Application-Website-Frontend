@@ -7,18 +7,18 @@
 </template>
 
 <script setup lang="ts">
-import type { ColorType } from "~/types/common/Color";
+import type { ColorType } from '~/types/common/Color'
 
 withDefaults(
   defineProps<{
-    color: ColorType;
+    color: ColorType
   }>(),
   {
     color: () => ({
-      primary: "var(--color-figure-orange)",
+      primary: 'var(--color-figure-orange)',
     }),
-  },
-);
+  }
+)
 </script>
 
 <style scoped>

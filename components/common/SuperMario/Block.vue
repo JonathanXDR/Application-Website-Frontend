@@ -8,52 +8,56 @@
       @click="onTouchBlock"
     >
       <div class="in" />
-      <SuperMarioCoin v-for="i in coinsToBeFound" :key="i" :is-playing="true" />
+      <SuperMarioCoin
+        v-for="i in coinsToBeFound"
+        :key="i"
+        :is-playing="true"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { gsap, SteppedEase } from "gsap";
-import AudioPowerUp from "~/public/mario/audio/smw_power-up.ogg";
-import AudioAppears from "~/public/mario/audio/smw_power-up_appears.ogg";
-import AudioStomp from "~/public/mario/audio/smw_stomp.ogg";
-import AudioNoDamage from "~/public/mario/audio/smw_stomp_no_damage.ogg";
+import { gsap, SteppedEase } from 'gsap'
+import AudioPowerUp from '~/public/mario/audio/smw_power-up.ogg'
+import AudioAppears from '~/public/mario/audio/smw_power-up_appears.ogg'
+import AudioStomp from '~/public/mario/audio/smw_stomp.ogg'
+import AudioNoDamage from '~/public/mario/audio/smw_stomp_no_damage.ogg'
 
 const properties = defineProps<{
-  hasCoins: boolean;
-}>();
+  hasCoins: boolean
+}>()
 
 const emits = defineEmits<{
-  (e: "foundCoin", foundCoins: number): void;
-  (e: "foundAllCoins"): void;
-  (e: "jumped", element: HTMLElement): void;
-}>();
+  (e: 'foundCoin', foundCoins: number): void
+  (e: 'foundAllCoins'): void
+  (e: 'jumped', element: HTMLElement): void
+}>()
 
-const foundCoins = ref(0);
-const coinsToBeFound = 16;
-const hasTouched = ref(false);
-const blockAnimation = gsap.timeline();
-const coinAnimation = gsap.timeline();
+const foundCoins = ref(0)
+const coinsToBeFound = 16
+const hasTouched = ref(false)
+const blockAnimation = gsap.timeline()
+const coinAnimation = gsap.timeline()
 
-const audioStomp = new Audio(AudioStomp);
-const audioPowerUp = new Audio(AudioPowerUp);
-const audioAppears = new Audio(AudioAppears);
-const audioNoDamage = new Audio(AudioNoDamage);
+const audioStomp = new Audio(AudioStomp)
+const audioPowerUp = new Audio(AudioPowerUp)
+const audioAppears = new Audio(AudioAppears)
+const audioNoDamage = new Audio(AudioNoDamage)
 
-const hasFoundAllCoins = computed(() => foundCoins.value === coinsToBeFound);
+const hasFoundAllCoins = computed(() => foundCoins.value === coinsToBeFound)
 
 const random = (min: number, max: number) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
 
 const animateCoin = () => {
-  const coin = document.querySelectorAll(".mario-coin")[
+  const coin = document.querySelectorAll('.mario-coin')[
     foundCoins.value
-  ] as HTMLElement;
-  const xCoords = random(-150, 150);
+  ] as HTMLElement
+  const xCoords = random(-150, 150)
 
   coinAnimation
     .set(coin, {
@@ -73,47 +77,47 @@ const animateCoin = () => {
         autoRotate: false,
       },
       ease: SteppedEase.config(24),
-    });
+    })
 
-  foundCoins.value++;
+  foundCoins.value++
 
   if (hasFoundAllCoins.value) {
-    audioPowerUp.play();
-    emits("foundAllCoins");
+    audioPowerUp.play()
+    emits('foundAllCoins')
   }
 
-  audioAppears.play();
-  emits("foundCoin", foundCoins.value);
-};
+  audioAppears.play()
+  emits('foundCoin', foundCoins.value)
+}
 
 const animateBlock = () => {
-  const box = document.querySelector(".mario-box") as HTMLElement;
-  emits("jumped", box);
+  const box = document.querySelector('.mario-box') as HTMLElement
+  emits('jumped', box)
 
   blockAnimation
     .clear(true)
     .set(box, { yPercent: 0 })
     .to(box, { duration: 0.07, yPercent: -40, ease: SteppedEase.config(2) })
-    .to(box, { duration: 0.07, yPercent: 0, ease: SteppedEase.config(2) });
-};
+    .to(box, { duration: 0.07, yPercent: 0, ease: SteppedEase.config(2) })
+}
 
 const onTouchBlock = () => {
-  hasTouched.value = true;
+  hasTouched.value = true
 
-  animateBlock();
+  animateBlock()
 
   if (hasFoundAllCoins.value) {
-    audioNoDamage.play();
-    return;
+    audioNoDamage.play()
+    return
   }
 
   if (properties.hasCoins) {
-    audioStomp.play();
-    animateCoin();
+    audioStomp.play()
+    animateCoin()
   } else {
-    audioNoDamage.play();
+    audioNoDamage.play()
   }
-};
+}
 </script>
 
 <style scoped>

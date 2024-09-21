@@ -1,26 +1,26 @@
-import { graphql, type GraphQlQueryResponseData } from "@octokit/graphql";
-import type { Repository } from "@octokit/graphql-schema";
+import { graphql, type GraphQlQueryResponseData } from '@octokit/graphql'
+import type { Repository } from '@octokit/graphql-schema'
 
 export default defineEventHandler(async (event) => {
-  const { githubToken } = useRuntimeConfig();
+  const { githubToken } = useRuntimeConfig()
   const graphqlInstance = graphql.defaults({
     headers: { authorization: `token ${githubToken}` },
-  });
-  const parameters: { username: string; per_page?: number } = getQuery(event);
+  })
+  const parameters: { username: string, perPage?: number } = getQuery(event)
 
-  const { username, per_page = 30 } = parameters;
+  const { username, perPage = 30 } = parameters
 
   const query = `
     {
       user(login: "${username}") {
-        pinnedItems(first: ${per_page}, types: REPOSITORY) {
+        pinnedItems(first: ${perPage}, types: REPOSITORY) {
           edges {
             node {
               ... on Repository {
                 name
                 description
                 url
-                repositoryTopics(first: ${per_page}) {
+                repositoryTopics(first: ${perPage}) {
                   nodes {
                     topic {
                       name
@@ -43,13 +43,13 @@ export default defineEventHandler(async (event) => {
                 stargazers {
                   totalCount
                 }
-                issues(first: ${per_page}) {
+                issues(first: ${perPage}) {
                   nodes {
                     closed
                     url
                   }
                 }
-                pullRequests(first: ${per_page}) {
+                pullRequests(first: ${perPage}) {
                   nodes {
                     closed
                     url
@@ -61,7 +61,7 @@ export default defineEventHandler(async (event) => {
           }
         }
       }
-    }`;
+    }`
 
   const remapProperties = (item: Repository) => {
     const {
@@ -76,37 +76,37 @@ export default defineEventHandler(async (event) => {
       issues,
       pullRequests,
       updatedAt,
-    } = item;
+    } = item
 
     return {
       name,
       description,
       html_url: url,
-      topics: repositoryTopics?.nodes?.map((node) => node?.topic.name),
+      topics: repositoryTopics?.nodes?.map(node => node?.topic.name),
       language: primaryLanguage?.name,
       license: licenseInfo,
       forks: forks?.totalCount,
       stars: stargazers?.totalCount,
-      issues: issues?.nodes?.filter((node) => node && !node.closed).length,
-      pullRequests: pullRequests?.nodes?.filter((node) => node && !node.closed)
+      issues: issues?.nodes?.filter(node => node && !node.closed).length,
+      pullRequests: pullRequests?.nodes?.filter(node => node && !node.closed)
         .length,
       updated_at: updatedAt,
-    };
-  };
+    }
+  }
 
   try {
-    const response = await graphqlInstance<GraphQlQueryResponseData>(query);
+    const response = await graphqlInstance<GraphQlQueryResponseData>(query)
     return response.user.pinnedItems.edges.map((edge: { node: Repository }) =>
-      remapProperties(edge.node),
-    );
+      remapProperties(edge.node)
+    )
   } catch (error) {
     console.error(
       `Error fetching pinned repositories for user ${username}:`,
-      error,
-    );
+      error
+    )
     throw createError({
       statusCode: 500,
-      statusMessage: "Internal Server Error",
-    });
+      statusMessage: 'Internal Server Error',
+    })
   }
-});
+})

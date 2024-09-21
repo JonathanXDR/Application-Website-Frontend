@@ -198,7 +198,10 @@
           alignItems: 'center',
         }"
       >
-        <div class="d-flex flex-column flex-items-center" style="height: 176px">
+        <div
+          class="d-flex flex-column flex-items-center"
+          style="height: 176px"
+        >
           <div
             v-animation="{ add: 'build-in-animate' }"
             class="mb-4 position-relative home-campaign-glowing-icon build-in-scale-fade block md:hidden"

@@ -11,6 +11,6 @@ declare namespace MusicKit {
       path: string,
       queryParameters?: QueryParameters,
       options?: { fetchOptions?: RequestInit },
-    ): Promise<any>;
+    ): Promise<any>
   }
 }

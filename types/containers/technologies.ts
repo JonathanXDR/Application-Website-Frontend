@@ -1,5 +1,5 @@
-import type { ExtendedPropsType as ExtendedPropertiesType } from "../common/ExtendedProps";
+import type { ExtendedPropsType as ExtendedPropertiesType } from '../common/ExtendedProps'
 
 export interface Technologies extends ExtendedPropertiesType {
-  technologies: ExtendedPropertiesType[];
+  technologies: ExtendedPropertiesType[]
 }

@@ -4,8 +4,14 @@
     :class="['viewer-sizenav all-access-pass__background', { shadow }]"
     :style="containerStyle"
   >
-    <div v-if="selectedItemElement" class="viewer-sizenav__bubble">
-      <div class="viewer-sizenav__bubble-inner" :style="bubbleStyle" />
+    <div
+      v-if="selectedItemElement"
+      class="viewer-sizenav__bubble"
+    >
+      <div
+        class="viewer-sizenav__bubble-inner"
+        :style="bubbleStyle"
+      />
     </div>
     <ul
       class="viewer-sizenav-items"
@@ -26,7 +32,7 @@
           :aria-label="item.label"
           :value="item.id"
           :disabled="item.id !== selectedItem && isTransitioning"
-        />
+        >
         <label
           :for="`viewer-sizenav-value-${item.id}`"
           class="viewer-sizenav-link"
@@ -65,52 +71,52 @@
 </template>
 
 <script setup lang="ts">
-import type { SegmentNavType } from "~/types/common/SegmentNav";
+import type { SegmentNavType } from '~/types/common/SegmentNav'
 
 const properties = withDefaults(defineProps<SegmentNavType>(), {
-  componentSize: "medium",
-  label: "text",
+  componentSize: 'medium',
+  label: 'text',
   focus: true,
   separator: false,
   shadow: false,
   grayLabels: false,
-  gap: "0px",
+  gap: '0px',
   outerPadding: 4,
   selectedItem: (properties_: SegmentNavType) => {
-    return properties_.items[0]?.id || "";
+    return properties_.items[0]?.id || ''
   },
   onSelect: () => {},
-});
+})
 
-const selectedItem = ref<string>(properties.selectedItem);
-const isTransitioning = ref<boolean>(false);
+const selectedItem = ref<string>(properties.selectedItem)
+const isTransitioning = ref<boolean>(false)
 
-const navContainer = ref<HTMLElement | null>(null);
-const itemElements = ref<Array<HTMLElement>>([]);
-const selectedItemElement = ref<HTMLElement | null>(null);
+const navContainer = ref<HTMLElement | null>(null)
+const itemElements = ref<Array<HTMLElement>>([])
+const selectedItemElement = ref<HTMLElement | null>(null)
 
 const setItemRef = (element: HTMLElement | null) => {
-  if (element) itemElements.value.push(element);
-};
+  if (element) itemElements.value.push(element)
+}
 
 const updateBubblePosition = () => {
-  isTransitioning.value = true;
+  isTransitioning.value = true
   const selectedItemIndex = properties.items.findIndex(
-    (item) => item.id === selectedItem.value,
-  );
-  selectedItemElement.value = itemElements.value[selectedItemIndex] || null;
+    item => item.id === selectedItem.value
+  )
+  selectedItemElement.value = itemElements.value[selectedItemIndex] || null
   if (selectedItemElement.value) {
     bubbleStyle.value = {
-      "--bubble-position": `${selectedItemElement.value.offsetLeft}px`,
-      "--bubble-width": `${selectedItemElement.value.offsetWidth}px`,
-      opacity: "1",
-    };
+      '--bubble-position': `${selectedItemElement.value.offsetLeft}px`,
+      '--bubble-width': `${selectedItemElement.value.offsetWidth}px`,
+      opacity: '1',
+    }
   }
 
-  setTimeout(() => (isTransitioning.value = false), 400);
-};
+  setTimeout(() => (isTransitioning.value = false), 400)
+}
 
-const bubbleStyle = ref<Record<string, string>>({});
+const bubbleStyle = ref<Record<string, string>>({})
 
 const computedHeight = computed(() => {
   const sizes: Record<string, number> = {
@@ -118,9 +124,9 @@ const computedHeight = computed(() => {
     small: 40,
     medium: 48,
     large: 56,
-  };
-  return sizes[properties.componentSize || "medium"] || 48;
-});
+  }
+  return sizes[properties.componentSize || 'medium'] || 48
+})
 
 const fontSize = computed(() => {
   const sizes: Record<string, number> = {
@@ -128,37 +134,37 @@ const fontSize = computed(() => {
     small: 14,
     medium: 16,
     large: 18,
-  };
-  return sizes[properties.componentSize || "medium"];
-});
+  }
+  return sizes[properties.componentSize || 'medium']
+})
 
 const containerStyle = computed(() => ({
-  width: "fit-content",
-  "--sizenav-width": `${navContainer.value?.offsetWidth}px`,
-  "--sizenav-outer-padding": `${properties.outerPadding}px`,
-  "--aap-min-height": `${computedHeight.value}px`,
-}));
+  width: 'fit-content',
+  '--sizenav-width': `${navContainer.value?.offsetWidth}px`,
+  '--sizenav-outer-padding': `${properties.outerPadding}px`,
+  '--aap-min-height': `${computedHeight.value}px`,
+}))
 
 const computedPadding = computed(() => {
-  return properties.padding ?? (properties.label === "icon" ? "0" : "0 12px");
-});
+  return properties.padding ?? (properties.label === 'icon' ? '0' : '0 12px')
+})
 
 watch(
   selectedItem,
   (newItem) => {
-    properties.onSelect(newItem);
-    updateBubblePosition();
+    properties.onSelect(newItem)
+    updateBubblePosition()
   },
-  { immediate: true },
-);
+  { immediate: true }
+)
 
-onMounted(updateBubblePosition);
+onMounted(updateBubblePosition)
 
 useResizeObserver(navContainer, () => {
   nextTick(() => {
-    updateBubblePosition();
-  });
-});
+    updateBubblePosition()
+  })
+})
 </script>
 
 <style scoped>

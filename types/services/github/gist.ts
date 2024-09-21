@@ -1,11 +1,11 @@
-import type { Endpoints } from "@octokit/types";
+import type { Endpoints } from '@octokit/types'
 
 export type GetUserGists =
-  Endpoints["GET /users/{username}/gists"]["response"]["data"];
+  Endpoints['GET /users/{username}/gists']['response']['data']
 export type GetUserGistsParameters =
-  Endpoints["GET /users/{username}/gists"]["parameters"];
+  Endpoints['GET /users/{username}/gists']['parameters']
 
 export type GetAuthenticatedUserGists =
-  Endpoints["GET /gists"]["response"]["data"];
+  Endpoints['GET /gists']['response']['data']
 export type GetAuthenticatedUserGistParameters =
-  Endpoints["GET /gists"]["parameters"];
+  Endpoints['GET /gists']['parameters']

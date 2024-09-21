@@ -5,8 +5,11 @@
     type="checkbox"
     :disabled="navDisabled"
     @input="toggleNav()"
+  >
+  <div
+    id="ac-ln-sticky-placeholder"
+    class="ac-ln-sticking"
   />
-  <div id="ac-ln-sticky-placeholder" class="ac-ln-sticking" />
   <nav
     id="ac-localnav"
     :class="[
@@ -21,7 +24,11 @@
       />
       <div class="ac-ln-content">
         <div class="ac-ln-title">
-          <NuxtLink to="/" class="ac-ln-title" aria-label="JR">
+          <NuxtLink
+            to="/"
+            class="ac-ln-title"
+            aria-label="JR"
+          >
             <Logo />
           </NuxtLink>
           <DevBadge
@@ -53,7 +60,10 @@
           </div>
           <div class="ac-ln-actions">
             <div class="ac-ln-action ac-ln-action-menucta">
-              <label for="ac-ln-menustate" class="ac-ln-menucta">
+              <label
+                for="ac-ln-menustate"
+                class="ac-ln-menucta"
+              >
                 <span class="ac-ln-menucta-chevron" />
               </label>
             </div>
@@ -72,76 +82,79 @@
       </div>
     </div>
   </nav>
-  <label id="ac-ln-curtain" for="ac-ln-menustate" />
+  <label
+    id="ac-ln-curtain"
+    for="ac-ln-menustate"
+  />
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from "~/types/common/Item";
-import type { SectionType } from "~/types/common/Section";
+import type { ItemType } from '~/types/common/Item'
+import type { SectionType } from '~/types/common/Section'
 
-const { randomDevColor } = useColor();
-const { currentSection } = useSection();
-const { getTheme, setTheme } = useTheme();
-const { windowWidth } = useWidth();
-const { headerAnimations } = useAnimation();
-const config = useRuntimeConfig();
-const { tm } = useI18n();
-const navItems = computed<SectionType[]>(() => tm("components.common.NavBar"));
+const { randomDevColor } = useColor()
+const { currentSection } = useSection()
+const { getTheme, setTheme } = useTheme()
+const { windowWidth } = useWidth()
+const { headerAnimations } = useAnimation()
+const config = useRuntimeConfig()
+const { tm } = useI18n()
+const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'))
 const themeItems = computed<ItemType[]>(() =>
-  tm("components.common.SegmentNav.theme"),
-);
-const navOpen = ref(false);
-const navDisabled = ref(false);
-const currentSectionIndex = computed(() => currentSection.value.index);
+  tm('components.common.SegmentNav.theme')
+)
+const navOpen = ref(false)
+const navDisabled = ref(false)
+const currentSectionIndex = computed(() => currentSection.value.index)
 
 const initHeaderAnimations = () => {
   const animation = {
-    element: document.querySelector(".ac-ln-background") as HTMLElement,
-    class: "ac-ln-background-transition",
+    element: document.querySelector('.ac-ln-background') as HTMLElement,
+    class: 'ac-ln-background-transition',
     timeout: 500,
-  };
-  const { setHeaderAnimation } = useAnimation();
-  setHeaderAnimation(animation);
-};
+  }
+  const { setHeaderAnimation } = useAnimation()
+  setHeaderAnimation(animation)
+}
 
 const toggleNav = () => {
-  navOpen.value = !navOpen.value;
-  checkboxTimeout();
-};
+  navOpen.value = !navOpen.value
+  checkboxTimeout()
+}
 
 const checkboxTimeout = () => {
-  navDisabled.value = true;
+  navDisabled.value = true
   setTimeout(() => {
-    navDisabled.value = false;
-  }, 1000);
-};
+    navDisabled.value = false
+  }, 1000)
+}
 
 const handleScroll = () => {
   if (navOpen.value && window.scrollY > 0) {
-    navOpen.value = false;
+    navOpen.value = false
   }
-};
+}
 
 const updateAnimations = () => {
   for (const element of headerAnimations.value) {
-    element.element.classList.remove(element.class);
+    element.element.classList.remove(element.class)
 
     setTimeout(() => {
-      element.element.classList.add(element.class);
-    }, element.timeout);
+      element.element.classList.add(element.class)
+    }, element.timeout)
   }
-};
+}
 
 onMounted(() => {
-  initHeaderAnimations();
-  window.addEventListener("scroll", handleScroll);
+  initHeaderAnimations()
+  window.addEventListener('scroll', handleScroll)
 
   watch(getTheme, (newTheme, oldTheme) => {
     if (newTheme !== oldTheme) {
-      updateAnimations();
+      updateAnimations()
     }
-  });
-});
+  })
+})
 </script>
 
 <style scoped>

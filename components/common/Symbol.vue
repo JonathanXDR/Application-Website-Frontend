@@ -14,32 +14,32 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicSizeType } from "~/types/common/BasicSize";
-import type { IconType } from "~/types/common/Icon";
+import type { BasicSizeType } from '~/types/common/BasicSize'
+import type { IconType } from '~/types/common/Icon'
 
 const properties = withDefaults(defineProps<IconType>(), {
-  componentSize: "medium",
+  componentSize: 'medium',
   loading: false,
   colors: () => ({
-    primary: "currentColor",
-    secondary: "currentColor",
-    tertiary: "currentColor",
+    primary: 'currentColor',
+    secondary: 'currentColor',
+    tertiary: 'currentColor',
   }),
-});
+})
 
 const icon = computed(
-  () => `${getSpriteUrl(properties.componentSize)}#${properties.name}`,
-);
+  () => `${getSpriteUrl(properties.componentSize)}#${properties.name}`
+)
 
 const getSpriteUrl = (size: BasicSizeType) => {
-  return `/icons/${size}.svg`;
-};
+  return `/icons/${size}.svg`
+}
 
 const styles = reactive({
-  "--color-primary": properties.colors.primary || "currentColor",
-  "--color-secondary": properties.colors.secondary || "currentColor",
-  "--color-tertiary": properties.colors.tertiary || "currentColor",
-});
+  '--color-primary': properties.colors.primary || 'currentColor',
+  '--color-secondary': properties.colors.secondary || 'currentColor',
+  '--color-tertiary': properties.colors.tertiary || 'currentColor',
+})
 </script>
 
 <style>

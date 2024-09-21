@@ -1,7 +1,13 @@
 <template>
   <div class="info">
-    <template v-for="item in infoItems" :key="item.id">
-      <div v-if="props[item.id]" class="info-item">
+    <template
+      v-for="item in infoItems"
+      :key="item.id"
+    >
+      <div
+        v-if="props[item.id]"
+        class="info-item"
+      >
         <Symbol
           v-if="item.icon"
           :name="item.icon.name"
@@ -12,12 +18,18 @@
           {{ props[item.id] }}
         </template>
         <template v-else>
-          <LoadingSkeleton width="100px" height="15px" />
+          <LoadingSkeleton
+            width="100px"
+            height="15px"
+          />
         </template>
       </div>
     </template>
 
-    <div v-if="props.date.fixed || props.date.duration" class="info-item">
+    <div
+      v-if="props.date.fixed || props.date.duration"
+      class="info-item"
+    >
       <Symbol
         :loading="loading"
         :name="updatedYesterday ? 'clock.fill' : 'calendar'"
@@ -25,43 +37,46 @@
       />
       <template v-if="!loading">
         {{
-          dateTitle ||
-          `${props.date.duration?.from} - ${props.date.duration?.to}`
+          dateTitle
+            || `${props.date.duration?.from} - ${props.date.duration?.to}`
         }}
       </template>
       <template v-else>
-        <LoadingSkeleton width="100px" height="15px" />
+        <LoadingSkeleton
+          width="100px"
+          height="15px"
+        />
       </template>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-import type { IconType } from "~/types/common/Icon";
-import type { InfoType } from "~/types/common/Info";
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import type { IconType } from '~/types/common/Icon'
+import type { InfoType } from '~/types/common/Info'
 
 const props = withDefaults(defineProps<InfoType>(), {
   loading: false,
   date: () => ({
     formatOptions: () => ({
-      year: "numeric",
-      month: "long",
-      day: "numeric",
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
     }),
   }),
-});
+})
 
-dayjs.extend(relativeTime);
+dayjs.extend(relativeTime)
 
-const { locale } = useI18n();
-const infoItems: { id: keyof InfoType; icon: IconType }[] = [
-  { id: "location", icon: { name: "location.fill" } },
-  { id: "supervisor", icon: { name: "person.fill" } },
-  { id: "department", icon: { name: "tag.fill" } },
-  { id: "language", icon: { name: "bubble.left.fill" } },
-  { id: "license", icon: { name: "scroll.fill" } },
+const { locale } = useI18n()
+const infoItems: { id: keyof InfoType, icon: IconType }[] = [
+  { id: 'location', icon: { name: 'location.fill' } },
+  { id: 'supervisor', icon: { name: 'person.fill' } },
+  { id: 'department', icon: { name: 'tag.fill' } },
+  { id: 'language', icon: { name: 'bubble.left.fill' } },
+  { id: 'license', icon: { name: 'scroll.fill' } },
   // { id: "forks", icon: { name: "document.on.document.fill" } },
   // { id: "networks", icon: { name: "network" } },
   // { id: "watchers", icon: { name: "eye.fill" } },
@@ -73,51 +88,51 @@ const infoItems: { id: keyof InfoType; icon: IconType }[] = [
   // { id: "commits", icon: { name: "doc.text.fill" } },
   // { id: "branches", icon: { name: "arrow.branch" } },
   // { id: "contributors", icon: { name: "person.2.fill" } },
-];
+]
 
 const updatedYesterday = computed(() => {
-  if (!props.date.fixed) return false;
-  const updatedDate = dayjs(props.date.fixed);
-  const currentDate = dayjs();
-  return currentDate.diff(updatedDate, "day") <= 1;
-});
+  if (!props.date.fixed) return false
+  const updatedDate = dayjs(props.date.fixed)
+  const currentDate = dayjs()
+  return currentDate.diff(updatedDate, 'day') <= 1
+})
 
 const formatDate = (
   dateString: string,
-  formatOptions: Intl.DateTimeFormatOptions,
+  formatOptions: Intl.DateTimeFormatOptions
 ) => {
-  return new Date(dateString).toLocaleDateString(locale.value, formatOptions);
-};
+  return new Date(dateString).toLocaleDateString(locale.value, formatOptions)
+}
 
 const getDate = () => {
-  const { duration, formatOptions, fixed, event } = props.date;
+  const { duration, formatOptions, fixed, event } = props.date
 
   if (duration && formatOptions) {
     const formattedDuration = `${formatDate(
       duration.from,
-      formatOptions(),
-    )} - ${formatDate(duration.to, formatOptions())}`;
+      formatOptions()
+    )} - ${formatDate(duration.to, formatOptions())}`
 
-    return formattedDuration;
+    return formattedDuration
   } else if (fixed && event) {
     const formattedevent = `${event?.charAt(0).toUpperCase()}${event?.slice(
-      1,
-    )} ${dayjs(fixed).locale(locale.value).fromNow()}`;
+      1
+    )} ${dayjs(fixed).locale(locale.value).fromNow()}`
 
-    return formattedevent;
+    return formattedevent
   } else if (fixed && formatOptions) {
-    const formattedFixedDate = formatDate(fixed.toString(), formatOptions());
+    const formattedFixedDate = formatDate(fixed.toString(), formatOptions())
 
-    return formattedFixedDate;
+    return formattedFixedDate
   }
-};
+}
 
-const dateTitle = ref(getDate());
+const dateTitle = ref(getDate())
 
 watch([locale, () => props.date], () => {
-  dayjs.locale(locale.value);
-  dateTitle.value = getDate();
-});
+  dayjs.locale(locale.value)
+  dateTitle.value = getDate()
+})
 </script>
 
 <style scoped>
