@@ -1,7 +1,7 @@
 <template>
   <aside
     class="countdown"
-    :aria-label="ariaLabel"
+    aria-label="Countdown"
   >
     <div
       v-for="(value, label) in countdown"
@@ -45,14 +45,14 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from 'dayjs'
-import duration from 'dayjs/plugin/duration'
+import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
 
 dayjs.extend(duration)
 
 interface Properties {
   endDate: Date
-  ariaLabel: string
+
 }
 
 const properties = defineProps<Properties>()

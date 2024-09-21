@@ -37,7 +37,6 @@
           <CountdownTimer
             v-if="showCountdown && eventState === 'pre-event'"
             :end-date="eventDuration.end"
-            :aria-label="`Countdown: ${eventTitle}`"
           />
           <div
             v-if="eventState !== 'pre-event'"
@@ -68,7 +67,7 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from 'dayjs'
+import dayjs from 'dayjs';
 
 interface Properties {
   eventTitle: string
