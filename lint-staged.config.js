@@ -1,6 +1,6 @@
 export default {
-  "*.js": (stagedFiles) => [
-    "eslint .",
-    `prettier --write ${stagedFiles.join(" ")}`,
+  '.': stagedFiles => [
+    'eslint .',
+    `prettier --write ${stagedFiles.join(' ')}`,
   ],
-};
+}
