@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkType } from '~/types/common/Link'
+import type { LinkType } from '~/types/common/link'
 
 const properties = withDefaults(
   defineProps<{
@@ -68,11 +68,11 @@ const enhancedLinks = computed(() => {
   return links.value.map(link => ({
     ...link,
     to:
-      link.url?.startsWith('#') || link.url?.startsWith('/') ? link.url : null,
+      link.url?.startsWith('#') || link.url?.startsWith('/') ? link.url : undefined,
     href:
       link.url && !(link.url.startsWith('#') || link.url.startsWith('/'))
         ? link.url
-        : null,
+        : undefined,
     target:
       link.url?.startsWith('#') || link.url?.startsWith('/')
         ? '_self'

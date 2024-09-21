@@ -1,6 +1,6 @@
-import type { ColorType } from './Color'
-import type { ExtendedSizeType } from './ExtendedSize'
-import type { LinkType } from './Link'
+import type { ColorType } from './color'
+import type { ExtendedSizeType } from './extended-size'
+import type { LinkType } from './link'
 
 export interface BadgeType extends LinkType {
   variant?: keyof HTMLElementTagNameMap

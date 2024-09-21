@@ -60,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import type { FlashAlertType } from '~/types/common/FlashAlert'
+import type { FlashAlertType } from '~/types/common/flash-alert'
 
 const properties = withDefaults(defineProps<FlashAlertType>(), {
   variant: 'note',

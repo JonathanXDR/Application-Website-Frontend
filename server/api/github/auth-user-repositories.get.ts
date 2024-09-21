@@ -1,5 +1,5 @@
 import { Octokit } from 'octokit'
-import type { GetAuthenticatedUserRepositoriesParameters } from '~/types/services/github/Repository'
+import type { GetAuthenticatedUserRepositoriesParameters } from '~/types/services/github/repository'
 
 export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig()

@@ -78,7 +78,7 @@ const updateCountdown = () => {
   const end = dayjs(properties.endDate)
   const diff = dayjs.duration(end.diff(now))
 
-  const newCountdown: Record<CountdownUnits, CountdownValue> = {
+  const countdownNew: Record<CountdownUnits, CountdownValue> = {
     months: {
       prev: countdown.value.months.current,
       current: diff.months().toString().padStart(2, '0'),
@@ -106,14 +106,14 @@ const updateCountdown = () => {
     },
   }
 
-  for (const key of Object.keys(newCountdown)) {
+  for (const key of Object.keys(countdownNew)) {
     const unit = key as CountdownUnits
-    if (newCountdown[unit].current !== countdown.value[unit].current) {
-      newCountdown[unit].transition = true
+    if (countdownNew[unit].current !== countdown.value[unit].current) {
+      countdownNew[unit].transition = true
     }
   }
 
-  countdown.value = newCountdown
+  countdown.value = countdownNew
 
   setTimeout(() => {
     for (const key of Object.keys(countdown.value)) {
@@ -123,7 +123,7 @@ const updateCountdown = () => {
   }, 400)
 }
 
-let timer: NodeJS.Timeout | null = null
+let timer: NodeJS.Timeout | undefined
 
 onMounted(() => {
   updateCountdown()

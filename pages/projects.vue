@@ -145,11 +145,11 @@
 
 <script setup lang="ts">
 import type { Repository } from '@octokit/graphql-schema'
-import type { CardItemType } from '~/types/common/CardItem'
-import type { CardRepositoryType } from '~/types/common/CardRepository'
-import type { IconType } from '~/types/common/Icon'
-import type { ItemType } from '~/types/common/Item'
-import type { MinimalRepository } from '~/types/services/github/Repository'
+import type { CardItemType } from '~/types/common/card-item'
+import type { CardRepositoryType } from '~/types/common/card-repository'
+import type { IconType } from '~/types/common/icon'
+import type { ItemType } from '~/types/common/item'
+import type { MinimalRepository } from '~/types/services/github/repository'
 
 type PinnedRepository = Repository & {
   icon?: IconType
@@ -264,8 +264,8 @@ onMounted(() => {
 
 watch(
   pinnedProjects,
-  (newPinnedProjects) => {
-    newPinnedProjects?.forEach((project: PinnedRepository) => {
+  (pinnedProjectsNew) => {
+    pinnedProjectsNew?.forEach((project: PinnedRepository) => {
       project.icon = {
         name: 'pin.fill',
         colors: {
@@ -273,7 +273,7 @@ watch(
         },
       }
     })
-    pinned.value = newPinnedProjects || []
+    pinned.value = pinnedProjectsNew || []
   },
   { immediate: true }
 )

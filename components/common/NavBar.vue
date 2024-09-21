@@ -74,7 +74,7 @@
               :focus="false"
               :label="windowWidth < 769 ? 'icon' : 'text'"
               :selected-item="getTheme()"
-              :on-select="(newTheme: string) => setTheme(newTheme)"
+              :on-select="(themeNew: string) => setTheme(themeNew)"
             />
             <LanguagePickerDropdown />
           </div>
@@ -89,8 +89,8 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Item'
-import type { SectionType } from '~/types/common/Section'
+import type { ItemType } from '~/types/common/item'
+import type { SectionType } from '~/types/common/section'
 
 const { randomDevColor } = useColor()
 const { currentSection } = useSection()
@@ -149,8 +149,8 @@ onMounted(() => {
   initHeaderAnimations()
   window.addEventListener('scroll', handleScroll)
 
-  watch(getTheme, (newTheme, oldTheme) => {
-    if (newTheme !== oldTheme) {
+  watch(getTheme, (themeNew, themeOld) => {
+    if (themeNew !== themeOld) {
       updateAnimations()
     }
   })

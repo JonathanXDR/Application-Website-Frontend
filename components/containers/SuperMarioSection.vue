@@ -66,7 +66,7 @@ import { gsap } from 'gsap'
 import AudioExit from '~/public/mario/audio/smw_keyhole_exit.ogg'
 
 const foundCoins = ref(0)
-const marioState = ref<string | null>(null)
+const marioState = ref<string | undefined>(undefined)
 const hasFoundAllCoins = ref(false)
 const audioExit = new Audio(AudioExit)
 
@@ -120,7 +120,7 @@ const jumpMario = (blockCenter: number, blockBottom: number) => {
         },
         ease: 'steps(12)',
         onComplete: () => {
-          marioState.value = hasFoundAllCoins.value ? 'celebrate' : null
+          marioState.value = hasFoundAllCoins.value ? 'celebrate' : undefined
         },
       }
     )

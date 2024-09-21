@@ -29,9 +29,9 @@ const properties = defineProps<{
 }>()
 
 const emits = defineEmits<{
-  (e: 'foundCoin', foundCoins: number): void
-  (e: 'foundAllCoins'): void
-  (e: 'jumped', element: HTMLElement): void
+  (event: 'foundCoin', foundCoins: number): void
+  (event: 'foundAllCoins'): void
+  (event: 'jumped', element: HTMLElement): void
 }>()
 
 const foundCoins = ref(0)

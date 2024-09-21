@@ -31,8 +31,8 @@ const strokeDashArray = ref<number>(properties.initialHeight)
 const strokeDashOffset = ref<number>(properties.initialHeight)
 const strokeWidth = ref<number>(5)
 
-const svgElement = ref<SVGElement | null>(null)
-const pathElement = ref<SVGPathElement | null>(null)
+const svgElement = ref<SVGElement | undefined>(undefined)
+const pathElement = ref<SVGPathElement | undefined>(undefined)
 const initialAnimationDone = ref<boolean>(false)
 
 const initializePath = () => {

@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from '~/types/common/CardItem'
+import type { CardItemType } from '~/types/common/card-item'
 
 defineProps<{
   title: string

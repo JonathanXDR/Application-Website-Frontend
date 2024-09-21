@@ -64,8 +64,8 @@ const originalStringLength = computed(
   () =>
     properties.title.trim().replaceAll(' ', '').length + words.value.length - 1
 )
-const headline = ref<HTMLElement | null>(null)
-let cursorBlinkTimeout: number | NodeJS.Timeout | null = null
+const headline = ref<HTMLElement | undefined>(undefined)
+let cursorBlinkTimeout: number | NodeJS.Timeout | undefined
 
 const animationConfig = {
   onViewportChange: (isInViewport: boolean) => {
@@ -120,17 +120,17 @@ const updateLetterCount = () => {
   }
 }
 
-watch(currentLetterCount, (newCount, oldCount) => {
+watch(currentLetterCount, (countNew, countOld) => {
   switch (true) {
-    case newCount === 0: {
+    case countNew === 0: {
       initialCursorOpacity.value = '1'
       break
     }
-    case newCount === originalStringLength.value: {
+    case countNew === originalStringLength.value: {
       setCursorBlink(true)
       break
     }
-    case newCount < oldCount: {
+    case countNew < countOld: {
       setCursorBlink(false)
       break
     }

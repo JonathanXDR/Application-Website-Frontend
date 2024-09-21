@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import type { SectionType } from '~/types/common/Section'
+import type { SectionType } from '~/types/common/section'
 
 definePageMeta({
   header: true,

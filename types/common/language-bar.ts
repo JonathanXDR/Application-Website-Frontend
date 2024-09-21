@@ -1,5 +1,5 @@
-import type { BasicSizeType } from './BasicSize'
-import type { ExtendedPropsType as ExtendedPropertiesType } from './ExtendedProps'
+import type { BasicSizeType } from './basic-size'
+import type { ExtendedPropertiesType } from './extended-properties'
 
 export interface LanguageBarType extends ExtendedPropertiesType {
   progress: number

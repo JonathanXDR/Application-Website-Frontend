@@ -6,8 +6,8 @@ export default function useWidth () {
 
   onMounted(() => {
     windowWidth.value = windowWidthReference.value
-    watch(windowWidthReference, (newWidth) => {
-      windowWidth.value = newWidth
+    watch(windowWidthReference, (widthNew) => {
+      windowWidth.value = widthNew
     })
   })
 

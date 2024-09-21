@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ColorType } from '~/types/common/Color'
+import type { ColorType } from '~/types/common/color'
 
 withDefaults(
   defineProps<{

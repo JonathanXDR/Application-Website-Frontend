@@ -1,5 +1,5 @@
-import type { BasicSizeType } from './BasicSize'
-import type { ColorType } from './Color'
+import type { BasicSizeType } from './basic-size'
+import type { ColorType } from './color'
 
 export interface IconType {
   name: string

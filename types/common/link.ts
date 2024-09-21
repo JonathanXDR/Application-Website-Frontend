@@ -1,4 +1,4 @@
-import type { IconType } from './Icon'
+import type { IconType } from './icon'
 
 export interface LinkType {
   title: string

@@ -8,7 +8,7 @@
       :key="index"
       class="border border-gray-300 p-4"
     >
-      <pre :class="art.className">{{ index }}<br><br>{{ art.content }}</pre>
+      <pre :class="art.elementClass">{{ index }}<br><br>{{ art.content }}</pre>
     </div>
   </div>
   <div v-else>
@@ -19,7 +19,7 @@
 <script setup lang="ts">
 interface ArtFile {
   content: string
-  className: string
+  elementClass: string
 }
 
 const files = ref<ArtFile[]>([])
@@ -35,8 +35,8 @@ const { data, error } = await useAsyncData<ArtFile[]>(
     const fileLoaders = Object.entries(txtFiles).map(async ([path, loader]) => {
       const content = await loader()
       const folder = path.split('/')[3]
-      const className = folder === 'monospace' ? 'monospace' : 'helvetica'
-      return { content, className }
+      const elementClass = folder === 'monospace' ? 'monospace' : 'helvetica'
+      return { content, elementClass }
     })
 
     return await Promise.all(fileLoaders)
@@ -52,14 +52,14 @@ if (error.value) {
 const randomFile = computed(() =>
   files.value.length > 0
     ? files.value[Math.floor(Math.random() * files.value.length)]
-    : null
+    : undefined
 )
 
 onMounted(() => {
   if (!randomFile.value) return
   console.log(
     `%cHey! You've found an Easter egg! 🥚 \n\n${randomFile.value.content}`,
-    `font-family: ${randomFile.value.className}`
+    `font-family: ${randomFile.value.elementClass}`
   )
 })
 </script>

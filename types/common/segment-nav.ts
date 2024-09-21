@@ -1,5 +1,5 @@
-import type { ExtendedSizeType } from './ExtendedSize'
-import type { ItemType } from './Item'
+import type { ExtendedSizeType } from './extended-size'
+import type { ItemType } from './item'
 
 export interface SegmentNavType {
   items: ItemType[]

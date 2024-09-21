@@ -63,7 +63,7 @@
 </template>
 
 <script setup lang="ts">
-import type { DialogModalType } from '~/types/common/DialogModal'
+import type { DialogModalType } from '~/types/common/dialog-modal'
 
 withDefaults(defineProps<DialogModalType>(), {
   orientation: 'vertical',

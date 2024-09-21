@@ -5,7 +5,7 @@
       :key="item.id"
     >
       <div
-        v-if="props[item.id]"
+        v-if="properties[item.id]"
         class="info-item"
       >
         <Symbol
@@ -15,7 +15,7 @@
           class="info-icon"
         />
         <template v-if="!loading">
-          {{ props[item.id] }}
+          {{ properties[item.id] }}
         </template>
         <template v-else>
           <LoadingSkeleton
@@ -27,7 +27,7 @@
     </template>
 
     <div
-      v-if="props.date.fixed || props.date.duration"
+      v-if="properties.date.fixed || properties.date.duration"
       class="info-item"
     >
       <Symbol
@@ -38,7 +38,7 @@
       <template v-if="!loading">
         {{
           dateTitle
-            || `${props.date.duration?.from} - ${props.date.duration?.to}`
+            || `${properties.date.duration?.from} - ${properties.date.duration?.to}`
         }}
       </template>
       <template v-else>
@@ -54,10 +54,10 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import type { IconType } from '~/types/common/Icon'
-import type { InfoType } from '~/types/common/Info'
+import type { IconType } from '~/types/common/icon'
+import type { InfoType } from '~/types/common/info'
 
-const props = withDefaults(defineProps<InfoType>(), {
+const properties = withDefaults(defineProps<InfoType>(), {
   loading: false,
   date: () => ({
     formatOptions: () => ({
@@ -91,8 +91,8 @@ const infoItems: { id: keyof InfoType, icon: IconType }[] = [
 ]
 
 const updatedYesterday = computed(() => {
-  if (!props.date.fixed) return false
-  const updatedDate = dayjs(props.date.fixed)
+  if (!properties.date.fixed) return false
+  const updatedDate = dayjs(properties.date.fixed)
   const currentDate = dayjs()
   return currentDate.diff(updatedDate, 'day') <= 1
 })
@@ -105,7 +105,7 @@ const formatDate = (
 }
 
 const getDate = () => {
-  const { duration, formatOptions, fixed, event } = props.date
+  const { duration, formatOptions, fixed, event } = properties.date
 
   if (duration && formatOptions) {
     const formattedDuration = `${formatDate(
@@ -129,7 +129,7 @@ const getDate = () => {
 
 const dateTitle = ref(getDate())
 
-watch([locale, () => props.date], () => {
+watch([locale, () => properties.date], () => {
   dayjs.locale(locale.value)
   dateTitle.value = getDate()
 })

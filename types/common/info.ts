@@ -1,4 +1,4 @@
-import type { DateType } from './Date'
+import type { DateType } from './date'
 
 export interface InfoType {
   loading?: boolean

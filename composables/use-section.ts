@@ -1,8 +1,8 @@
 export const useSection = () => {
   const currentSection = useState('currentSection', () => ({
-    id: null as string | null,
-    name: null as string | null,
-    index: null as number | null,
+    id: undefined as string | undefined,
+    name: undefined as string | undefined,
+    index: undefined as number | undefined,
   }))
 
   const setCurrentSection = (

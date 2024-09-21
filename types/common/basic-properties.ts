@@ -1,5 +1,5 @@
-import type { IconType } from './Icon'
-import type { LinkType } from './Link'
+import type { IconType } from './icon'
+import type { LinkType } from './link'
 
 export interface BasicPropertiesType {
   icon?: IconType

@@ -8,8 +8,8 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicSizeType } from '~/types/common/BasicSize'
-import type { IconType } from '~/types/common/Icon'
+import type { BasicSizeType } from '~/types/common/basic-size'
+import type { IconType } from '~/types/common/icon'
 
 withDefaults(
   defineProps<{

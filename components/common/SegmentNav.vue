@@ -71,7 +71,7 @@
 </template>
 
 <script setup lang="ts">
-import type { SegmentNavType } from '~/types/common/SegmentNav'
+import type { SegmentNavType } from '~/types/common/segment-nav'
 
 const properties = withDefaults(defineProps<SegmentNavType>(), {
   componentSize: 'medium',
@@ -91,11 +91,11 @@ const properties = withDefaults(defineProps<SegmentNavType>(), {
 const selectedItem = ref<string>(properties.selectedItem)
 const isTransitioning = ref<boolean>(false)
 
-const navContainer = ref<HTMLElement | null>(null)
+const navContainer = ref<HTMLElement | undefined>(undefined)
 const itemElements = ref<Array<HTMLElement>>([])
-const selectedItemElement = ref<HTMLElement | null>(null)
+const selectedItemElement = ref<HTMLElement | undefined>(undefined)
 
-const setItemRef = (element: HTMLElement | null) => {
+const setItemRef = (element: HTMLElement | undefined) => {
   if (element) itemElements.value.push(element)
 }
 
@@ -104,7 +104,7 @@ const updateBubblePosition = () => {
   const selectedItemIndex = properties.items.findIndex(
     item => item.id === selectedItem.value
   )
-  selectedItemElement.value = itemElements.value[selectedItemIndex] || null
+  selectedItemElement.value = itemElements.value[selectedItemIndex] || undefined
   if (selectedItemElement.value) {
     bubbleStyle.value = {
       '--bubble-position': `${selectedItemElement.value.offsetLeft}px`,

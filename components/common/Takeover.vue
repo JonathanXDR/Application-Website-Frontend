@@ -102,7 +102,7 @@ const calculateEventState = () => {
   }
 }
 
-let timer: NodeJS.Timeout | null = null
+let timer: NodeJS.Timeout | undefined
 
 onMounted(() => {
   calculateEventState()
@@ -110,7 +110,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  if (timer !== null) {
+  if (timer !== undefined) {
     clearInterval(timer)
   }
 })

@@ -89,8 +89,8 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkType } from '~/types/common/Link'
-import type { RibbonBar } from '~/types/common/RibbonBar'
+import type { LinkType } from '~/types/common/link'
+import type { RibbonBar } from '~/types/common/ribbon-bar'
 
 const properties = withDefaults(defineProps<RibbonBar>(), {
   loading: false,
@@ -211,9 +211,9 @@ watch(currentIndex, () => {
 
 watch(
   repositoryTags,
-  (newTags) => {
-    if (newTags && newTags.length >= 2) {
-      tags.value = { latest: newTags[0]?.name, previous: newTags[1]?.name }
+  (tagsNew) => {
+    if (tagsNew && tagsNew.length >= 2) {
+      tags.value = { latest: tagsNew[0]?.name, previous: tagsNew[1]?.name }
       updateBaseItems()
 
       setTimeout(() => {

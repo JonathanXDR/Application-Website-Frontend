@@ -1,9 +1,9 @@
-import type { BadgeType } from './Badge'
-import type { BasicSizeType } from './BasicSize'
-import type { ColorType } from './Color'
-import type { ExtendedPropsType as ExtendedPropertiesType } from './ExtendedProps'
-import type { GraphType } from './Graph'
-import type { IconType } from './Icon'
+import type { BadgeType } from './badge'
+import type { BasicSizeType } from './basic-size'
+import type { ColorType } from './color'
+import type { ExtendedPropertiesType } from './extended-properties'
+import type { GraphType } from './graph'
+import type { IconType } from './icon'
 
 export interface CardItemType extends ExtendedPropertiesType {
   variant?: 'card' | 'article'

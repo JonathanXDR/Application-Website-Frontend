@@ -87,7 +87,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Item'
+import type { ItemType } from '~/types/common/item'
 
 const { tm } = useI18n()
 const options = computed<ItemType[]>(() =>

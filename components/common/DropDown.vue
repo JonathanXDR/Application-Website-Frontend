@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Item'
+import type { ItemType } from '~/types/common/item'
 
 withDefaults(
   defineProps<{

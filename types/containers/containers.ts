@@ -1,11 +1,11 @@
-import type { ExtendedPropsType as ExtendedPropertiesType } from '../common/ExtendedProps'
-import type { About } from './About'
-import type { CommonContainers } from './Common'
-import type { Languages } from './Languages'
-import type { Other } from './Other'
-import type { Projects } from './Projects'
-import type { References } from './References'
-import type { Technologies } from './Technologies'
+import type { ExtendedPropertiesType } from '../common/extended-properties'
+import type { About } from './about'
+import type { CommonContainers } from './common'
+import type { Languages } from './languages'
+import type { Other } from './other'
+import type { Projects } from './projects'
+import type { References } from './references'
+import type { Technologies } from './technologies'
 
 export interface Containers extends ExtendedPropertiesType {
   common: CommonContainers

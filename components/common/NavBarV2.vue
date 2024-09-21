@@ -18,7 +18,7 @@
   />
   <nav
     id="ac-localnav"
-    ref="navbarEl"
+    ref="navbarElement"
     :class="[
       'ac-ln-allow-transitions',
       { 'css-sticky ac-ln-sticking': position === 'sticky' },
@@ -39,7 +39,7 @@
   >
     <div class="ac-ln-wrapper">
       <div
-        ref="backgroundEl"
+        ref="backgroundElement"
         class="ac-ln-background"
       />
       <div class="ac-ln-content">
@@ -80,7 +80,7 @@
           </a>
           <div
             id="ac-ln-menustate-tray"
-            ref="menustateTrayEl"
+            ref="menustateTrayElement"
             class="ac-ln-menu-tray"
             :style="{
               '--r-localnav-menu-tray-natural-height': `${trayHeight}px`,
@@ -175,7 +175,7 @@
                 :focus="false"
                 :label="windowWidth >= 1024 ? 'text' : 'icon'"
                 :selected-item="getTheme()"
-                :on-select="(newTheme: string) => setTheme(newTheme)"
+                :on-select="(themeNew: string) => setTheme(themeNew)"
               />
             </div>
             <div class="ac-ln-action ac-ln-action-button">
@@ -193,9 +193,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Item'
-import type { NavBarType } from '~/types/common/NavBar'
-import type { SectionType } from '~/types/common/Section'
+import type { ItemType } from '~/types/common/item'
+import type { NavBarType } from '~/types/common/nav-bar'
+import type { SectionType } from '~/types/common/section'
 
 withDefaults(defineProps<NavBarType>(), {
   border: true,
@@ -220,33 +220,33 @@ const themeItems = computed<ItemType[]>(() =>
 const navOpen = ref(false)
 const navDisabled = ref(false)
 
-const expandAnimation = ref<SVGAnimateElement | null>(null)
-const collapseAnimation = ref<SVGAnimateElement | null>(null)
+const expandAnimation = ref<SVGAnimateElement | undefined>(undefined)
+const collapseAnimation = ref<SVGAnimateElement | undefined>(undefined)
 
-const navbarEl = ref<HTMLElement | null>(null)
-const backgroundEl = ref<HTMLElement | null>(null)
-const menustateTrayEl = ref<HTMLElement | null>(null)
+const navbarElement = ref<HTMLElement | undefined>(undefined)
+const backgroundElement = ref<HTMLElement | undefined>(undefined)
+const menustateTrayElement = ref<HTMLElement | undefined>(undefined)
 const trayHeight = ref<number | undefined>(undefined)
-const menuLinkRefs: Record<string, HTMLElement | null> = {}
+const menuLinkRefs: Record<string, HTMLElement | undefined> = {}
 
 const borderTransformOrigin = ref<string>('50% 0%')
 const borderScaleX = ref<string>('scaleX(1)')
 
-const currentMenuLinkElement = computed<HTMLElement | null>(() => {
+const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
   const currentId = navItems.value.find(
     item => item.id === currentSection.value.id || route.path === item.route
   )?.id
-  const liElement = currentId ? menuLinkRefs[currentId] : null
+  const liElement = currentId ? menuLinkRefs[currentId] : undefined
 
-  if (!liElement) return null
+  if (!liElement) return
 
-  const menuLinkElement = liElement.firstElementChild as HTMLElement | null
+  const menuLinkElement = liElement.firstElementChild as HTMLElement | undefined
   return menuLinkElement
 })
 
 const initHeaderAnimations = () => {
   const animation = {
-    element: backgroundEl.value as HTMLElement,
+    element: backgroundElement.value as HTMLElement,
     class: 'ac-ln-background-transition',
     timeout: 500,
   }
@@ -292,9 +292,9 @@ const updateAnimations = () => {
 }
 
 const updateBorderPosition = () => {
-  if (currentMenuLinkElement.value && navbarEl.value) {
+  if (currentMenuLinkElement.value && navbarElement.value) {
     const menuLinkRect = currentMenuLinkElement.value.getBoundingClientRect()
-    const navbarRect = navbarEl.value.getBoundingClientRect()
+    const navbarRect = navbarElement.value.getBoundingClientRect()
 
     const centerPosition =
       menuLinkRect.left + menuLinkRect.width / 2 - navbarRect.left
@@ -320,12 +320,12 @@ onMounted(() => {
   useEventListener('scroll', handleScroll)
 
   nextTick(() => {
-    if (!menustateTrayEl.value) return
-    trayHeight.value = menustateTrayEl.value.scrollHeight
+    if (!menustateTrayElement.value) return
+    trayHeight.value = menustateTrayElement.value.scrollHeight
   })
 
-  watch(getTheme, (newTheme, oldTheme) => {
-    if (newTheme === oldTheme) return
+  watch(getTheme, (themeNew, themeOld) => {
+    if (themeNew === themeOld) return
     updateAnimations()
   })
 })

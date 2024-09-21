@@ -48,7 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/Item'
+import type { ItemType } from '~/types/common/item'
 
 const properties = withDefaults(
   defineProps<{
@@ -66,8 +66,8 @@ const selectedTab = ref(properties.activeTabId)
 
 watch(
   () => properties.activeTabId,
-  (newValue) => {
-    selectedTab.value = newValue
+  (valueNew) => {
+    selectedTab.value = valueNew
   }
 )
 

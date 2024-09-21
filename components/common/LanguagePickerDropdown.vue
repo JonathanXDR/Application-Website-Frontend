@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ExtendedSizeType } from '~/types/common/ExtendedSize'
+import type { ExtendedSizeType } from '~/types/common/extended-size'
 
 const properties = withDefaults(
   defineProps<{
@@ -65,8 +65,8 @@ const fontSize = computed(() => {
   return sizes[properties.componentSize || 'medium']
 })
 
-watch(locale, (newLocale) => {
-  selectedLocale.value = newLocale
+watch(locale, (localeNew) => {
+  selectedLocale.value = localeNew
 })
 </script>
 

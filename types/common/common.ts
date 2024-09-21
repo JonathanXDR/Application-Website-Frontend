@@ -1,7 +1,7 @@
-import type { CardItemType } from './CardItem'
-import type { RibbonBar } from './RibbonBar'
-import type { SectionType } from './Section'
-import type { ShareSheet } from './ShareSheet'
+import type { CardItemType } from './card-item'
+import type { RibbonBar } from './ribbon-bar'
+import type { SectionType } from './section'
+import type { ShareSheet } from './share-sheet'
 
 export interface CommonComponents {
   NavBar: SectionType[]

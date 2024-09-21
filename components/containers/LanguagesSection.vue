@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import type { LanguageBarType } from '~/types/common/LanguageBar'
+import type { LanguageBarType } from '~/types/common/language-bar'
 
 defineProps<{
   title: string

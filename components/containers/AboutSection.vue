@@ -50,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-import type { DateItemType } from '~/types/common/DateItem'
+import type { DateItemType } from '~/types/common/date-item'
 
 defineProps<{
   title: string

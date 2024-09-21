@@ -28,18 +28,18 @@ const updateClasses = (
   }
 
   if (isInViewport) {
-    for (const className of toArray(add)) element.classList.add(className)
-    for (const className of toArray(remove)) {
-      element.classList.remove(className)
+    for (const elementClass of toArray(add)) element.classList.add(elementClass)
+    for (const elementClass of toArray(remove)) {
+      element.classList.remove(elementClass)
     }
-    for (const className of toArray(toggle)) {
-      element.classList.toggle(className)
+    for (const elementClass of toArray(toggle)) {
+      element.classList.toggle(elementClass)
     }
     state.inViewport = true
     state.wasInViewport = true
   } else {
-    for (const className of toArray(toggle)) {
-      element.classList.toggle(className)
+    for (const elementClass of toArray(toggle)) {
+      element.classList.toggle(elementClass)
     }
     state.inViewport = false
   }

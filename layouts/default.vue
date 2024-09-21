@@ -8,7 +8,7 @@
       />
       <div
         v-if="shouldShow('ribbon')"
-        ref="ribbonBarEl"
+        ref="ribbonBarElement"
       >
         <RibbonBar
           :loading="false"
@@ -30,7 +30,7 @@
 import { SpeedInsights } from '@vercel/speed-insights/vue'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterFull from '~/components/common/Footer/Full.vue'
-import type { RibbonBar } from '~/types/common/RibbonBar'
+import type { RibbonBar } from '~/types/common/ribbon-bar'
 
 const { randomDevColor } = useColor()
 const route = useRoute()
@@ -40,8 +40,8 @@ const { y } = useScroll(window)
 const error = useError()
 const config = useRuntimeConfig()
 
-const ribbonBarEl = ref<HTMLElement | null>(null)
-const { height: ribbonBarHeight } = useElementSize(ribbonBarEl)
+const ribbonBarElement = ref<HTMLElement | undefined>(undefined)
+const { height: ribbonBarHeight } = useElementSize(ribbonBarElement)
 
 const items = computed<RibbonBar['items']>(() =>
   tm('components.common.RibbonBar')

@@ -63,37 +63,6 @@ export default defineEventHandler(async (event) => {
       }
     }`
 
-  const remapProperties = (item: Repository) => {
-    const {
-      name,
-      description,
-      url,
-      repositoryTopics,
-      primaryLanguage,
-      licenseInfo,
-      forks,
-      stargazers,
-      issues,
-      pullRequests,
-      updatedAt,
-    } = item
-
-    return {
-      name,
-      description,
-      html_url: url,
-      topics: repositoryTopics?.nodes?.map(node => node?.topic.name),
-      language: primaryLanguage?.name,
-      license: licenseInfo,
-      forks: forks?.totalCount,
-      stars: stargazers?.totalCount,
-      issues: issues?.nodes?.filter(node => node && !node.closed).length,
-      pullRequests: pullRequests?.nodes?.filter(node => node && !node.closed)
-        .length,
-      updated_at: updatedAt,
-    }
-  }
-
   try {
     const response = await graphqlInstance<GraphQlQueryResponseData>(query)
     return response.user.pinnedItems.edges.map((edge: { node: Repository }) =>
@@ -110,3 +79,34 @@ export default defineEventHandler(async (event) => {
     })
   }
 })
+
+const remapProperties = (item: Repository) => {
+  const {
+    name,
+    description,
+    url,
+    repositoryTopics,
+    primaryLanguage,
+    licenseInfo,
+    forks,
+    stargazers,
+    issues,
+    pullRequests,
+    updatedAt,
+  } = item
+
+  return {
+    name,
+    description,
+    html_url: url,
+    topics: repositoryTopics?.nodes?.map(node => node?.topic.name),
+    language: primaryLanguage?.name,
+    license: licenseInfo,
+    forks: forks?.totalCount,
+    stars: stargazers?.totalCount,
+    issues: issues?.nodes?.filter(node => node && !node.closed).length,
+    pullRequests: pullRequests?.nodes?.filter(node => node && !node.closed)
+      .length,
+    updated_at: updatedAt,
+  }
+}
