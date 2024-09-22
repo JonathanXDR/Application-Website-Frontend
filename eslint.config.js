@@ -12,5 +12,10 @@ export default withNuxt(
     rules: {
       'unicorn/filename-case': 'off',
     },
+    languageOptions: {
+      globals: {
+        NodeJS: true,
+      }
+    },
   }
 )

@@ -134,8 +134,8 @@ const onJumped = (block: HTMLElement) => {
   jumpMario(blockCenter, blockBottom)
 }
 
-const onFoundCoin = (newFoundCoins: number) => {
-  foundCoins.value = newFoundCoins
+const onFoundCoin = (foundCoinsNew: number) => {
+  foundCoins.value = foundCoinsNew
   document.body.classList.remove('is-playing-mario')
   document.body.classList.add('has-played-mario')
   document.body.classList.add('blue-background')
