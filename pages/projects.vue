@@ -175,7 +175,7 @@ definePageMeta({
 
 const { tm } = useI18n()
 const { randomDevColor } = useColor()
-const { windowWidth } = useWidth()
+const { width: windowWidth } = useWindowSize()
 const config = useRuntimeConfig()
 
 const ul = ref<HTMLElement | undefined>(undefined)
@@ -285,7 +285,7 @@ watch([userRepositories, pinnedProjects], () => {
 })
 
 onUnmounted(() => {
-  window.removeEventListener('resize', updateUlHeightAndInitializePath)
+  removeEventListener('resize', updateUlHeightAndInitializePath)
 })
 </script>
 

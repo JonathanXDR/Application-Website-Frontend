@@ -95,7 +95,8 @@ import type { SectionType } from '~/types/common/section'
 const { randomDevColor } = useColor()
 const { currentSection } = useSection()
 const { getTheme, setTheme } = useTheme()
-const { windowWidth } = useWidth()
+const { width: windowWidth } = useWindowSize()
+const { y: scrollY } = useWindowScroll()
 const { headerAnimations } = useAnimation()
 const config = useRuntimeConfig()
 const { tm } = useI18n()
@@ -130,7 +131,7 @@ const checkboxTimeout = () => {
 }
 
 const handleScroll = () => {
-  if (navOpen.value && window.scrollY > 0) {
+  if (navOpen.value && scrollY.value > 0) {
     navOpen.value = false
   }
 }
@@ -147,7 +148,7 @@ const updateAnimations = () => {
 
 onMounted(() => {
   initHeaderAnimations()
-  window.addEventListener('scroll', handleScroll)
+  useEventListener('scroll', handleScroll)
 
   watch(getTheme, (themeNew, themeOld) => {
     if (themeNew !== themeOld) {

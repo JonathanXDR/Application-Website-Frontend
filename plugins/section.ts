@@ -1,5 +1,6 @@
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive('section', (element, binding) => {
+    const { width } = useWindowSize()
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -13,7 +14,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         }
       },
       {
-        rootMargin: `-${window.innerWidth < 1281 ? 48 : 52}px 0px -95% 0px`,
+        rootMargin: `-${width.value < 1281 ? 48 : 52}px 0px -95% 0px`,
       }
     )
     observer.observe(element)

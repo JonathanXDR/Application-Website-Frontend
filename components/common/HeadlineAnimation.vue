@@ -51,6 +51,8 @@
 
 <script setup lang="ts">
 const properties = defineProps<{ title: string }>()
+
+const { y: scrollY } = useWindowScroll()
 const words = computed(() =>
   properties.title
     .trim()
@@ -94,23 +96,22 @@ const getGlobalIndex = (wordIndex: number, letterIndex: number) => {
 let lastScrollY = 0
 
 const updateLetterCount = () => {
-  const scrollY = window.scrollY
   const scrollThreshold = 20
 
   switch (true) {
-    case scrollY > lastScrollY + scrollThreshold &&
+    case scrollY.value > lastScrollY + scrollThreshold &&
       currentLetterCount.value < originalStringLength.value: {
       currentLetterCount.value++
       setCursorBlink(false)
       initialCursorOpacity.value = '0'
-      lastScrollY = scrollY
+      lastScrollY = scrollY.value
       break
     }
-    case scrollY < lastScrollY - scrollThreshold &&
+    case scrollY.value < lastScrollY - scrollThreshold &&
       currentLetterCount.value > 0: {
       currentLetterCount.value--
       setCursorBlink(false)
-      lastScrollY = scrollY
+      lastScrollY = scrollY.value
       break
     }
     default: {

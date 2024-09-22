@@ -28,7 +28,9 @@ const updateClasses = (
   }
 
   if (isInViewport) {
-    for (const elementClass of toArray(add)) element.classList.add(elementClass)
+    for (const elementClass of toArray(add)) {
+      element.classList.add(elementClass)
+    }
     for (const elementClass of toArray(remove)) {
       element.classList.remove(elementClass)
     }
@@ -100,7 +102,9 @@ export default defineNuxtPlugin((nuxtApp) => {
     ) {
       if (animationState.get(element)?.wasInViewport) {
         const { add, remove, toggle } = binding.value
-        for (const elementClass of toArray(add)) element.classList.add(elementClass)
+        for (const elementClass of toArray(add)) {
+          element.classList.add(elementClass)
+        }
         for (const elementClass of toArray(remove)) {
           element.classList.remove(elementClass)
         }
@@ -110,7 +114,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       }
     },
     unmounted (element: HTMLElement) {
-      window.removeEventListener('scroll', () => {})
+      removeEventListener('scroll', () => {})
       animationState.delete(element)
     },
   })

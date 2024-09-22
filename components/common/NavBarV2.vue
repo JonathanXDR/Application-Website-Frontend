@@ -206,7 +206,8 @@ withDefaults(defineProps<NavBarType>(), {
 const { randomDevColor } = useColor()
 const { currentSection } = useSection()
 const { getTheme, setTheme } = useTheme()
-const { windowWidth } = useWidth()
+const { width: windowWidth } = useWindowSize()
+const { y: scrollY } = useWindowScroll()
 const { headerAnimations, setHeaderAnimation } = useAnimation()
 const config = useRuntimeConfig()
 const route = useRoute()
@@ -275,7 +276,7 @@ const checkboxTimeout = () => {
 }
 
 const handleScroll = () => {
-  if (navOpen.value && window.scrollY > 0) {
+  if (navOpen.value && scrollY.value > 0) {
     navOpen.value = false
     animateChevron(false)
   }

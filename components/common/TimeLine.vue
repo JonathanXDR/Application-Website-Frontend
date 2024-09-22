@@ -24,6 +24,7 @@ const properties = defineProps<{
   onUpdateHeight: (value: number) => void
 }>()
 
+const { height: windowHeight } = useWindowSize()
 const pathData = ref<string>('')
 const timelineHeight = ref<number>(properties.initialHeight)
 const viewBox = ref<string>('0 0 8 0')
@@ -48,7 +49,7 @@ const initializePath = () => {
 
 const animatePath = () => {
   const height = timelineHeight.value || 0
-  const centerY = window.innerHeight / 2
+  const centerY = windowHeight.value / 2
   const pathBounds = pathElement.value?.getBoundingClientRect()
 
   if (!pathBounds) return
