@@ -1,6 +1,6 @@
-/* eslint-disable */
+/* eslint-disable prefer-rest-params, @typescript-eslint/consistent-type-imports, @typescript-eslint/no-import-type-side-effects, unicorn/prevent-abbreviations */
 
-import type { UpdateListener } from 'hypertune';
+import { type UpdateListener } from 'hypertune'
 import {
   type App,
   type ComputedRef,
@@ -11,29 +11,29 @@ import {
   shallowRef,
   toValue,
   triggerRef,
-} from 'vue';
-import type {
+} from 'vue'
+import {
   type CreateSourceOptions,
   type DehydratedState,
-  type RootArgs as RootArguments,
+  type RootArgs,
   RootNode,
   createSource,
-} from './hypertune';
+} from './hypertune'
 
 export type HypertunePluginOptions = {
-  createSourceOptions: CreateSourceOptions;
-  dehydratedState?: DehydratedState | null;
-  rootArgs: MaybeRefOrGetter<RootArguments> | ComputedRef<RootArguments>;
-};
+  createSourceOptions: CreateSourceOptions
+  dehydratedState?: DehydratedState | null
+  rootArgs: MaybeRefOrGetter<RootArgs> | ComputedRef<RootArgs>
+}
 
-export const hypertuneKey = Symbol('hypertune');
+export const hypertuneKey = Symbol('hypertune')
 
-export function useHypertune(): Ref<RootNode> {
-  const hypertuneSource = inject<Ref<RootNode>>(hypertuneKey);
+export function useHypertune (): Ref<RootNode> {
+  const hypertuneSource = inject<Ref<RootNode>>(hypertuneKey)
   if (!hypertuneSource) {
-    throw new Error('hypertune root not provided');
+    throw new Error('hypertune root not provided')
   }
-  return inject(hypertuneKey)!;
+  return inject(hypertuneKey)!
 }
 
 export const hypertunePlugin = {
@@ -41,29 +41,27 @@ export const hypertunePlugin = {
     app: App,
     { createSourceOptions, dehydratedState, rootArgs }: HypertunePluginOptions
   ): void => {
-    const hypertuneSourceReference = shallowRef(
-      createSource(createSourceOptions)
-    );
+    const hypertuneSourceRef = shallowRef(createSource(createSourceOptions))
     if (dehydratedState) {
-      hypertuneSourceReference.value.hydrate(dehydratedState);
+      hypertuneSourceRef.value.hydrate(dehydratedState)
     }
 
     const updateListener: UpdateListener = () => {
-      triggerRef(hypertuneSourceReference);
-    };
-    hypertuneSourceReference.value.addUpdateListener(updateListener);
+      triggerRef(hypertuneSourceRef)
+    }
+    hypertuneSourceRef.value.addUpdateListener(updateListener)
 
     const hypertune = computed(() => {
-      return hypertuneSourceReference.value.root({ args: toValue(rootArgs) });
-    });
+      return hypertuneSourceRef.value.root({ args: toValue(rootArgs) })
+    })
 
-    app.provide(hypertuneKey, hypertune);
+    app.provide(hypertuneKey, hypertune)
 
-    const originalAppUnmount = app.unmount;
+    const originalAppUnmount = app.unmount
     app.unmount = function () {
-      hypertuneSourceReference.value.removeUpdateListener(updateListener);
-      originalAppUnmount.apply(arguments);
-      hypertuneSourceReference.value.close();
-    };
+      hypertuneSourceRef.value.removeUpdateListener(updateListener)
+      originalAppUnmount.apply(arguments)
+      hypertuneSourceRef.value.close()
+    }
   },
-};
+}

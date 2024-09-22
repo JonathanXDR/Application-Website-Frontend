@@ -1,8 +1,8 @@
-/* eslint-disable */
+/* eslint-disable @typescript-eslint/no-empty-object-type, unicorn/no-null, unicorn/prevent-abbreviations, unicorn/no-thenable */
 
-import * as sdk from 'hypertune';
+import * as sdk from 'hypertune'
 
-export const queryCode = 'query FullQuery{root{example exampleFlag}}';
+export const queryCode = 'query FullQuery{root{example exampleFlag}}'
 
 export const query: sdk.Query<sdk.ObjectValueWithVariables> = {
   variableDefinitions: {},
@@ -28,7 +28,7 @@ export const query: sdk.Query<sdk.ObjectValueWithVariables> = {
       },
     },
   },
-};
+}
 
 export const initData = {
   commitId: 14_108,
@@ -230,7 +230,7 @@ export const initData = {
   },
   splits: {},
   commitConfig: { splitConfig: {} },
-};
+}
 
 /**
  * @deprecated use '@vercel/flags/providers/hypertune' package instead.
@@ -252,22 +252,22 @@ export const vercelFlagDefinitions = {
     origin:
       'https://app.hypertune.com/projects/3628/main/draft/logic?selected_field_path=root%3EexampleFlag',
   },
-};
+}
 
-export type Rec = {};
+export type Rec = {}
 
 export type Rec3 = {
-  id: string;
-  name: string;
-  email: string;
-};
+  id: string
+  name: string
+  email: string
+}
 
 export const EnvironmentEnumValues = [
   'development',
   'production',
   'test',
-] as const;
-export type Environment = (typeof EnvironmentEnumValues)[number];
+] as const
+export type Environment = (typeof EnvironmentEnumValues)[number]
 
 /**
  * This `Context` input type is used for the `context` argument on your root field.
@@ -277,84 +277,76 @@ export type Environment = (typeof EnvironmentEnumValues)[number];
  * or other input types.
  */
 export type Rec2 = {
-  user: Rec3;
-  environment: Environment;
-};
+  user: Rec3
+  environment: Environment
+}
 
 export type RootArgs = {
-  context: Rec2;
-};
+  context: Rec2
+}
 
 export type Root = {
-  example: boolean;
-  exampleFlag: boolean;
-};
+  example: boolean
+  exampleFlag: boolean
+}
 
-const rootFallback = { example: false, exampleFlag: false };
+const rootFallback = { example: false, exampleFlag: false }
 
 export class RootNode extends sdk.Node {
-  override typeName = 'Root' as const;
+  override typeName = 'Root' as const
 
-  getRootArgs(): RootArgs {
-    const { step } = this.props;
+  getRootArgs (): RootArgs {
+    const { step } = this.props
     return (
       step?.type === 'GetFieldStep' ? step.fieldArguments : {}
-    ) as RootArgs;
+    ) as RootArgs
   }
 
-  get({ fallback = rootFallback as Root }: { fallback?: Root } = {}): Root {
-    const getQuery = null;
-    return this.getValue({ query: getQuery, fallback }) as Root;
+  get ({ fallback = rootFallback as Root }: { fallback?: Root } = {}): Root {
+    const getQuery = null
+    return this.getValue({ query: getQuery, fallback }) as Root
   }
 
   /**
    * [Open in Hypertune UI]({@link https://app.hypertune.com/projects/3628/main/draft/logic?selected_field_path=root%3Eexample})
    */
-  example({
-    args: arguments_ = {},
-    fallback,
-  }: {
-    args?: Rec;
-    fallback: boolean;
-  }): boolean {
-    const properties0 = this.getFieldNodeProps('example', {
-      fieldArguments: arguments_,
-    });
-    const expression0 = properties0.expression;
+  example ({ args = {}, fallback }: { args?: Rec, fallback: boolean }): boolean {
+    const props0 = this.getFieldNodeProps('example', { fieldArguments: args })
+    const expression0 = props0.expression
 
     if (expression0 && expression0.type === 'BooleanExpression') {
-      const node = new sdk.BooleanNode(properties0);
-      return node.get({ fallback });
+      const node = new sdk.BooleanNode(props0)
+      return node.get({ fallback })
     }
 
-    const node = new sdk.BooleanNode(properties0);
-    node._logUnexpectedTypeError();
-    return node.get({ fallback });
+    const node = new sdk.BooleanNode(props0)
+    node._logUnexpectedTypeError()
+    return node.get({ fallback })
   }
 
   /**
    * [Open in Hypertune UI]({@link https://app.hypertune.com/projects/3628/main/draft/logic?selected_field_path=root%3EexampleFlag})
    */
-  exampleFlag({
-    args: arguments_ = {},
+  exampleFlag ({
+    args = {},
     fallback,
   }: {
-    args?: Rec;
-    fallback: boolean;
+    args?: Rec
+    fallback: boolean
   }): boolean {
-    const properties0 = this.getFieldNodeProps('exampleFlag', {
-      fieldArguments: arguments_,
-    });
-    const expression0 = properties0.expression;
+    const props0 = this.getFieldNodeProps('exampleFlag', {
+      fieldArguments: args,
+    })
+    const expression0 = props0.expression
 
     if (expression0 && expression0.type === 'BooleanExpression') {
-      const node = new sdk.BooleanNode(properties0);
-      return node.get({ fallback });
+      const node = new sdk.BooleanNode(props0)
+      return node.get({ fallback })
     }
 
-    const node = new sdk.BooleanNode(properties0);
-    node._logUnexpectedTypeError();
-    return node.get({ fallback });
+    const node = new sdk.BooleanNode(props0)
+    node._logUnexpectedTypeError()
+    return node.get({ fallback })
   }
 }
 
@@ -376,18 +368,18 @@ export type Source = {
    * already has a `context` argument. Since all flags are nested under the root
    * field, this context will be available to all of them.
    */
-  root: Root;
-};
+  root: Root
+}
 
-const sourceFallback = { root: { example: false, exampleFlag: false } };
+const sourceFallback = { root: { example: false, exampleFlag: false } }
 
 export type Rec5 = {
-  args: RootArgs;
-};
+  args: RootArgs
+}
 
 export type Rec4 = {
-  root: Rec5;
-};
+  root: Rec5
+}
 
 /**
  * This is your project schema expressed in GraphQL.
@@ -401,21 +393,21 @@ export type Rec4 = {
  * Once you've changed your schema, set your flag logic in the Logic view.
  */
 export class SourceNode extends sdk.Node {
-  override typeName = 'Query' as const;
+  override typeName = 'Query' as const
 
-  get({
+  get ({
     args,
     fallback = sourceFallback as Source,
   }: {
-    args: Rec4;
-    fallback?: Source;
+    args: Rec4
+    fallback?: Source
   }): Source {
     const getQuery = sdk.mergeFieldQueryAndArgs(
       query.fragmentDefinitions,
       sdk.getFieldQueryForPath(query.fragmentDefinitions, query.fieldQuery, []),
       args
-    );
-    return this.getValue({ query: getQuery, fallback }) as Source;
+    )
+    return this.getValue({ query: getQuery, fallback }) as Source
   }
 
   /**
@@ -424,35 +416,33 @@ export class SourceNode extends sdk.Node {
    * already has a `context` argument. Since all flags are nested under the root
    * field, this context will be available to all of them.
    */
-  root({ args }: { args: RootArgs }): RootNode {
-    const properties0 = this.getFieldNodeProps('root', {
-      fieldArguments: args,
-    });
-    const expression0 = properties0.expression;
+  root ({ args }: { args: RootArgs }): RootNode {
+    const props0 = this.getFieldNodeProps('root', { fieldArguments: args })
+    const expression0 = props0.expression
 
     if (
       expression0 &&
       expression0.type === 'ObjectExpression' &&
       expression0.objectTypeName === 'Root'
     ) {
-      return new RootNode(properties0);
+      return new RootNode(props0)
     }
 
-    const node = new RootNode(properties0);
-    node._logUnexpectedTypeError();
-    return node;
+    const node = new RootNode(props0)
+    node._logUnexpectedTypeError()
+    return node
   }
 }
 
-export type VariableValues = Rec;
-export type DehydratedState = sdk.DehydratedState<Source, VariableValues>;
+export type VariableValues = Rec
+export type DehydratedState = sdk.DehydratedState<Source, VariableValues>
 export type CreateSourceOptions = {
-  token: string;
-  variableValues?: VariableValues;
-  override?: sdk.DeepPartial<Source> | null;
-} & sdk.CreateOptions;
+  token: string
+  variableValues?: VariableValues
+  override?: sdk.DeepPartial<Source> | null
+} & sdk.CreateOptions
 
-export function createSource({
+export function createSource ({
   token,
   variableValues = {},
   override,
@@ -466,7 +456,7 @@ export function createSource({
     variableValues,
     override,
     options: { initData: initData as unknown as sdk.InitData, ...options },
-  });
+  })
 }
 
 export const emptySource = new SourceNode({
@@ -475,9 +465,9 @@ export const emptySource = new SourceNode({
   parent: null,
   step: null,
   expression: null,
-});
+})
 
-export function createSourceForServerOnly({
+export function createSourceForServerOnly ({
   token,
   variableValues = {},
   override,
@@ -485,18 +475,18 @@ export function createSourceForServerOnly({
 }: CreateSourceOptions): SourceNode {
   return typeof window === 'undefined'
     ? createSource({ token, variableValues, override, ...options })
-    : emptySource;
+    : emptySource
 }
 
 /**
  * @deprecated use createSource instead.
  */
-export const initHypertune = createSource;
+export const initHypertune = createSource
 /**
  * @deprecated use SourceNode instead.
  */
-export type QueryNode = SourceNode;
+export type QueryNode = SourceNode
 /**
  * @deprecated use Source instead.
  */
-export type Query = Source;
+export type Query = Source
