@@ -45,8 +45,8 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from 'dayjs';
-import duration from 'dayjs/plugin/duration';
+import dayjs from 'dayjs'
+import duration from 'dayjs/plugin/duration'
 
 dayjs.extend(duration)
 
@@ -131,7 +131,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  if (timer !== null) {
+  if (timer !== undefined) {
     clearInterval(timer)
   }
 })

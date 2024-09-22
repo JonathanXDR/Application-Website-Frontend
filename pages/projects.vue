@@ -132,7 +132,7 @@
             }"
           />
 
-          <ResultBlankState v-if="!currentProjects" />
+          <ResultBlankState v-if="currentProjects.length === 0" />
         </div>
       </div>
       <LoadingSpinner
@@ -178,7 +178,7 @@ const { randomDevColor } = useColor()
 const { windowWidth } = useWidth()
 const config = useRuntimeConfig()
 
-const ul = ref<HTMLElement | null>(null)
+const ul = ref<HTMLElement | undefined>(undefined)
 const ulHeight = ref<number>(0)
 
 const updateHeight = () => {
@@ -215,11 +215,10 @@ const projects: Projects = reactive({
   school: [],
 })
 
-const allProjects = computed(() => [...(userRepositories.value || [])])
+const allProjects = computed(() => userRepositories.value || [])
 const filteredProjects = computed(() =>
   allProjects.value.filter(
-    project =>
-      !pinned.value.find(pinnedProject => pinnedProject.name === project.name)
+    project => !pinned.value.some(pinnedProject => pinnedProject.name === project.name)
   )
 )
 
@@ -262,28 +261,26 @@ onMounted(() => {
   updateUlHeightAndInitializePath()
 })
 
-watch(
-  pinnedProjects,
-  (pinnedProjectsNew) => {
-    pinnedProjectsNew?.forEach((project: PinnedRepository) => {
+watch([userRepositories, pinnedProjects], () => {
+  if (pinnedProjects.value) {
+    for (const project of pinnedProjects.value) {
       project.icon = {
         name: 'pin.fill',
         colors: {
           primary: `var(--color-figure-${randomDevColor.value?.name})`,
         },
       }
-    })
-    pinned.value = pinnedProjectsNew || []
-  },
-  { immediate: true }
-)
+    }
+    pinned.value = pinnedProjects.value
+  }
 
-watchEffect(() => {
-  projects.personal = []
-  projects.school = []
-  for (const project of filteredProjects.value.map(categorizeProject)) {
-    const category = project.category as keyof Projects
-    projects[category].push(project)
+  if (userRepositories.value) {
+    projects.personal = []
+    projects.school = []
+    for (const project of filteredProjects.value.map(element => categorizeProject(element))) {
+      const category = project.category as keyof Projects
+      projects[category].push(project)
+    }
   }
 })
 
@@ -299,7 +296,6 @@ onUnmounted(() => {
 
 .highlight .match {
   font-weight: 600;
-  /* color: var(--color-figure-gray-secondary-alt); */
   background: var(--color-fill-light-blue-secondary);
 }
 
@@ -358,5 +354,11 @@ onUnmounted(() => {
   .timeline .article:nth-child(even) {
     align-self: flex-end;
   }
+}
+
+.error-message {
+  text-align: center;
+  color: var(--color-error);
+  padding: 20px;
 }
 </style>

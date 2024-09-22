@@ -67,7 +67,7 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from 'dayjs';
+import dayjs from 'dayjs'
 
 interface Properties {
   eventTitle: string

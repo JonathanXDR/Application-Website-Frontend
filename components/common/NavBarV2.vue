@@ -50,7 +50,7 @@
           >
             <Logo :style="{ height: '13px !important', width: 'auto' }" />
           </NuxtLink>
-          <DevBadge
+          <DevelopmentBadge
             v-if="config.public.appEnvironment === 'development'"
             :color="{
               primary: `var(--color-figure-${randomDevColor?.name})`,
@@ -90,7 +90,7 @@
               <li
                 v-for="(item, index) in navItems"
                 :key="index"
-                :ref="(el) => (menuLinkRefs[item.id] = el as HTMLElement)"
+                :ref="(el) => (menuLinkReferences[item.id] = el as HTMLElement)"
                 class="ac-ln-menu-item"
               >
                 <NuxtLink
@@ -227,7 +227,7 @@ const navbarElement = ref<HTMLElement | undefined>(undefined)
 const backgroundElement = ref<HTMLElement | undefined>(undefined)
 const menustateTrayElement = ref<HTMLElement | undefined>(undefined)
 const trayHeight = ref<number | undefined>(undefined)
-const menuLinkRefs: Record<string, HTMLElement | undefined> = {}
+const menuLinkReferences: Record<string, HTMLElement | undefined> = {}
 
 const borderTransformOrigin = ref<string>('50% 0%')
 const borderScaleX = ref<string>('scaleX(1)')
@@ -236,7 +236,7 @@ const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
   const currentId = navItems.value.find(
     item => item.id === currentSection.value.id || route.path === item.route
   )?.id
-  const liElement = currentId ? menuLinkRefs[currentId] : undefined
+  const liElement = currentId ? menuLinkReferences[currentId] : undefined
 
   if (!liElement) return
 

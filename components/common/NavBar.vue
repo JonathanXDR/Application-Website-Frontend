@@ -31,7 +31,7 @@
           >
             <Logo />
           </NuxtLink>
-          <DevBadge
+          <DevelopmentBadge
             v-if="config.public.appEnvironment === 'development'"
             :color="{
               primary: `var(--color-figure-${randomDevColor?.name})`,

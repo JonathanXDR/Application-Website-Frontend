@@ -125,7 +125,7 @@ const { data: repositoryTags } = await useFetch('/api/github/repository-tags', {
 const updateBaseItems = () => {
   const { latest: latestTag, previous: previousTag } = tags.value
 
-  if (!tags.value.latest || !tags.value.previous) return
+  if (!latestTag || !previousTag) return
   baseItems.value = properties.items.map((item, index) => ({
     description:
       item.description &&

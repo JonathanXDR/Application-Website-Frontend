@@ -20,7 +20,7 @@
       <li
         v-for="(item, index) in items"
         :key="index"
-        :ref="setItemRef as any"
+        :ref="setItemReference as any"
         :class="['viewer-sizenav-item', { separator }]"
       >
         <input
@@ -95,7 +95,7 @@ const navContainer = ref<HTMLElement | undefined>(undefined)
 const itemElements = ref<Array<HTMLElement>>([])
 const selectedItemElement = ref<HTMLElement | undefined>(undefined)
 
-const setItemRef = (element: HTMLElement | undefined) => {
+const setItemReference = (element: HTMLElement | undefined) => {
   if (element) itemElements.value.push(element)
 }
 
@@ -151,8 +151,8 @@ const computedPadding = computed(() => {
 
 watch(
   selectedItem,
-  (newItem) => {
-    properties.onSelect(newItem)
+  (itemNew) => {
+    properties.onSelect(itemNew)
     updateBubblePosition()
   },
   { immediate: true }

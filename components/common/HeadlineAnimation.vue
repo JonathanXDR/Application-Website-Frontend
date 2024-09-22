@@ -55,7 +55,7 @@ const words = computed(() =>
   properties.title
     .trim()
     .split(' ')
-    .map(word => word.split(''))
+    .map(word => [...word])
 )
 const isCursorBlinking = ref(false)
 const initialCursorOpacity = ref('1')
