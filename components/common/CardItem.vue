@@ -39,7 +39,7 @@
       class="details"
       :style="detailsStyle"
     >
-      <Symbol
+      <SFSymbol
         v-if="icon.name"
         :loading="loading"
         :name="icon.name"
@@ -76,7 +76,7 @@
             </template>
           </div>
 
-          <Badge
+          <BadgeItem
             v-if="archived"
             title="Public archive"
             component-size="xsmall"
@@ -89,7 +89,7 @@
             border
             :hover="false"
           />
-          <Badge
+          <BadgeItem
             v-if="badge"
             :title="badge.title"
             :icon="badge.icon"

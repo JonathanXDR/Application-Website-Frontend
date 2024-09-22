@@ -2,7 +2,7 @@
   <div class="badges filter-suggested-badges">
     <div class="scroll-wrapper">
       <div class="suggested-badges-badges">
-        <Badge
+        <BadgeItem
           v-for="(badge, index) in badges"
           :key="index"
           class="badge"

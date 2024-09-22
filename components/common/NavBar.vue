@@ -29,7 +29,7 @@
             class="ac-ln-title"
             aria-label="JR"
           >
-            <Logo />
+            <SiteLogo />
           </NuxtLink>
           <DevelopmentBadge
             v-if="config.public.appEnvironment === 'development'"

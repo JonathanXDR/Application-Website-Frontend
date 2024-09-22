@@ -13,7 +13,7 @@
       class="changesnav-totals"
     >
       <div class="changed-total">
-        <Symbol
+        <SFSymbol
           name="pin.fill"
           component-size="small"
           :colors="{

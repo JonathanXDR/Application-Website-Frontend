@@ -1,4 +1,4 @@
-import type { BadgeType } from './badge'
+import type { BadgeItemType } from './badge-item'
 import type { BasicSizeType } from './basic-size'
 import type { ColorType } from './color'
 import type { ExtendedPropertiesType } from './extended-properties'
@@ -12,7 +12,7 @@ export interface CardItemType extends ExtendedPropertiesType {
   alignment?: 'start' | 'center' | 'end'
   hover?: 'auto' | 'true' | 'false'
   cover?: string
-  badge?: BadgeType
+  badge?: BadgeItemType
   loading?: boolean
   graphs?: GraphType
   icon?: IconType

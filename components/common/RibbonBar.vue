@@ -58,7 +58,7 @@
                     :disabled="isTransitioning"
                     @click="scrollContent('left')"
                   >
-                    <Symbol
+                    <SFSymbol
                       :loading="loading"
                       name="chevron.left"
                       component-size="small"
@@ -71,7 +71,7 @@
                     :disabled="isTransitioning"
                     @click="scrollContent('right')"
                   >
-                    <Symbol
+                    <SFSymbol
                       :loading="loading"
                       name="chevron.right"
                       component-size="small"

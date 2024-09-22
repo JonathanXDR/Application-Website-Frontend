@@ -1,6 +1,6 @@
 <template>
   <div class="cta-circular-icon cta-open">
-    <Symbol
+    <SFSymbol
       name="plus"
       component-size="small"
     />

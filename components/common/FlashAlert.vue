@@ -16,7 +16,7 @@
       class="w-full flex items-start gap-3"
       :style="{ overflowWrap: 'anywhere' }"
     >
-      <Symbol
+      <SFSymbol
         v-if="icon.variant === 'default' || (icon.variant === 'custom' && icon)"
         class="icon icon-medium m-1"
         :name="

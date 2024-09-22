@@ -48,7 +48,7 @@
             to="/"
             aria-label="JR"
           >
-            <Logo :style="{ height: '13px !important', width: 'auto' }" />
+            <SiteLogo :style="{ height: '13px !important', width: 'auto' }" />
           </NuxtLink>
           <DevelopmentBadge
             v-if="config.public.appEnvironment === 'development'"

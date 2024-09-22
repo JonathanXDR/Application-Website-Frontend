@@ -1,5 +1,5 @@
 <template>
-  <Takeover
+  <TakeOver
     event-title="September 2024 Keynote"
     :event-duration="{
       start: new Date(2024, 11, 12, 0, 0),

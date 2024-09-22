@@ -56,7 +56,7 @@
                 fontSize: `${fontSize}px`,
               }"
             >
-              <Symbol
+              <SFSymbol
                 v-if="item.icon && label !== 'text'"
                 :name="item.icon.name"
                 class="icon icon-large"

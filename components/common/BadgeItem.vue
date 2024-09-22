@@ -6,7 +6,7 @@
     :style="computedStyle"
     @click="onClick"
   >
-    <Symbol
+    <SFSymbol
       v-if="icon"
       class="icon icon-medium mr-1"
       :loading="loading"
@@ -27,9 +27,9 @@
 </template>
 
 <script setup lang="ts">
-import type { BadgeType } from '~/types/common/badge'
+import type { BadgeItemType } from '~/types/common/badge-item'
 
-const properties = withDefaults(defineProps<BadgeType>(), {
+const properties = withDefaults(defineProps<BadgeItemType>(), {
   variant: 'a',
   componentSize: 'medium',
   colors: () => ({

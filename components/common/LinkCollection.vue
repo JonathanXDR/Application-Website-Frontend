@@ -20,7 +20,7 @@
         />
       </template>
 
-      <Symbol
+      <SFSymbol
         v-if="link.icon"
         :loading="loading"
         :name="link.icon.name"

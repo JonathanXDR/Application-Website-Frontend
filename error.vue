@@ -13,7 +13,7 @@
               data-analytics-id="rs-covers-media"
               class="rc-videoplayer rs-covers-media-wrapper rc-videoplayer-muted rc-videoplayer-stalled rc-videoplayer-medium"
             >
-              <Symbol
+              <SFSymbol
                 :name="$t(`pages.${currentKey}.icon.name`)"
                 :colors="colors"
                 class="rs-covers-media-icon media-icon"
