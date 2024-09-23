@@ -1,7 +1,12 @@
 <template>
   <div>
     <SpeedInsights />
-    <header v-if="shouldShow('header')">
+    <header
+      v-if="shouldShow('header')"
+      :class="[{
+        'hide-localnav': y > ribbonBarHeight && shouldHideNavbar,
+      }]"
+    >
       <NavBarV2
         v-if="shouldShow('nav')"
         :border="y < ribbonBarHeight"
@@ -36,12 +41,14 @@ const { randomDevColor } = useColor()
 const route = useRoute()
 const { currentSection } = useSection()
 const { locale, tm } = useI18n()
-const { y } = useScroll(window)
+const { y, isScrolling, arrivedState, directions } = useScroll(window)
 const error = useError()
 const config = useRuntimeConfig()
 
 const ribbonBarElement = ref<HTMLElement | undefined>(undefined)
 const { height: ribbonBarHeight } = useElementSize(ribbonBarElement)
+const lastScrollY = ref(0)
+const shouldHideNavbar = ref(false)
 
 const items = computed<RibbonBar['items']>(() =>
   tm('components.common.RibbonBar')
@@ -60,6 +67,13 @@ const fetchSvgContent = async () => {
 
 onMounted(async () => {
   await fetchSvgContent()
+})
+
+watch([y, isScrolling], ([yNew, isScrollingNew]) => {
+  if (!isScrollingNew) return
+
+  shouldHideNavbar.value = yNew > lastScrollY.value
+  lastScrollY.value = yNew
 })
 
 watchEffect(() => {
