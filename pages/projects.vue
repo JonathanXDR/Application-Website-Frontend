@@ -256,8 +256,9 @@ const updateUlHeightAndInitializePath = async () => {
   updateHeight()
 }
 
+useEventListener('resize', updateUlHeightAndInitializePath)
+
 onMounted(() => {
-  useEventListener('resize', updateUlHeightAndInitializePath)
   updateUlHeightAndInitializePath()
 })
 

@@ -97,10 +97,7 @@
                 <component
                   :is="isCurrent(item) ? 'span' : 'RouterLink'"
                   :to="isCurrent(item) ? undefined : item.route"
-                  :class="[
-                    'ac-ln-menu-link',
-                    { current: isCurrent(item) },
-                  ]"
+                  :class="['ac-ln-menu-link', { current: isCurrent(item) }]"
                   :role="isCurrent(item) ? 'link' : undefined"
                   :aria-disabled="isCurrent(item) ? 'true' : undefined"
                   :aria-current="isCurrent(item) ? 'page' : undefined"
@@ -191,9 +188,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/item'
-import type { NavBarType } from '~/types/common/nav-bar'
-import type { SectionType } from '~/types/common/section'
+import type { ItemType } from '~/types/common/item';
+import type { NavBarType } from '~/types/common/nav-bar';
+import type { SectionType } from '~/types/common/section';
 
 withDefaults(defineProps<NavBarType>(), {
   autoHide: false,
@@ -294,6 +291,11 @@ const updateAnimations = () => {
   }
 }
 
+const updateTrayHeight = () => {
+  if (!menustateTrayElement.value) return
+  trayHeight.value = menustateTrayElement.value.scrollHeight
+}
+
 const updateBorderPosition = () => {
   if (currentMenuLinkElement.value && navbarElement.value) {
     const menuLinkRect = currentMenuLinkElement.value.getBoundingClientRect()
@@ -319,12 +321,7 @@ const updateBorderPosition = () => {
 onMounted(() => {
   initHeaderAnimations()
   updateBorderPosition()
-  useEventListener('scroll', handleScroll)
-
-  nextTick(() => {
-    if (!menustateTrayElement.value) return
-    trayHeight.value = menustateTrayElement.value.scrollHeight
-  })
+  updateTrayHeight()
 })
 
 watch(getTheme, (themeNew, themeOld) => {
@@ -332,7 +329,11 @@ watch(getTheme, (themeNew, themeOld) => {
   updateAnimations()
 })
 
-useEventListener(window, 'resize', updateBorderPosition)
+useEventListener('scroll', handleScroll)
+useEventListener(window, 'resize', () => {
+  updateBorderPosition()
+  updateTrayHeight()
+})
 
 watch([() => route.path, () => currentSection.value.id], () => {
   updateBorderPosition()
