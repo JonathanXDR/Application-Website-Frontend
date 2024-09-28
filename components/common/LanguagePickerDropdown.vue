@@ -44,7 +44,7 @@ const properties = withDefaults(
   }
 )
 
-const { width: windowWidth } = useWindowSize()
+const { windowWidth } = useWidth()
 const { changeLanguage } = useLanguage()
 const { locale, locales } = useI18n()
 const selectedLocale = ref(locale.value)

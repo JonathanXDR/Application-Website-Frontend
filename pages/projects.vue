@@ -175,7 +175,7 @@ definePageMeta({
 
 const { tm } = useI18n()
 const { randomDevColor } = useColor()
-const { width: windowWidth } = useWindowSize()
+const { windowWidth } = useWidth()
 const config = useRuntimeConfig()
 
 const ul = ref<HTMLElement | undefined>(undefined)

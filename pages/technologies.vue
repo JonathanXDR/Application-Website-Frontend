@@ -73,7 +73,7 @@ const cards = computed<CardItemType[]>(() =>
 // const segmentNavItems = computed<ItemType[]>(() =>
 //   tm("components.common.SegmentNav.technologies"),
 // );
-// const { width: windowWidth } = useWindowSize();
+// const { windowWidth } = useWidth();
 // const currentIndex = ref(0);
 
 // const updateCurrentIndex = (index: number) => {
