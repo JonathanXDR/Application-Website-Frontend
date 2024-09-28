@@ -1,5 +1,5 @@
 <template>
-  <h2>{{ title }}</h2>
+  <h1>{{ title }}</h1>
 
   <div class="graph">
     <template

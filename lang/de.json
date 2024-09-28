@@ -22,7 +22,8 @@
             {
               "id": "fun-facts",
               "label": "Fun Facts",
-              "route": "/#funFacts"
+              "route": "/#funFacts",
+              "class": "section-separated"
             },
             {
               "id": "references",
@@ -466,7 +467,40 @@
           }
         }
       ],
-      "funFacts": [],
+      "funFacts": [
+        {
+          "title": "100'000",
+          "description": "Kilometers traveled"
+        },
+        {
+          "title": "10'000",
+          "description": "Hours worked"
+        },
+        {
+          "title": "15'000",
+          "description": "Git commits"
+        },
+        {
+          "title": "1'000'000",
+          "description": "Lines of code written"
+        },
+        {
+          "title": "1'000",
+          "description": "Hours spent debugging"
+        },
+        {
+          "title": "2'000",
+          "description": "Bugs fixed"
+        },
+        {
+          "title": "2'400",
+          "description": "Cups of coffee"
+        },
+        {
+          "title": "7'200",
+          "description": "Hours of music listened"
+        }
+      ],
       "technologies": [
         {
           "icon": {
