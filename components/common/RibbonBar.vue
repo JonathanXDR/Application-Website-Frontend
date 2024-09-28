@@ -641,7 +641,7 @@ watch(locale, () => {
     'Helvetica',
     'Arial',
     sans-serif;
-  color: #86868b;
+  color: var(--color-fill-gray-secondary);
 }
 @media only screen and (max-width: 1023px) and (max-device-width: 767px) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
@@ -811,7 +811,7 @@ watch(locale, () => {
   position: relative;
 }
 .rs-storehome-banner.ribbon-blue-to-default {
-  --ribbon-background-color: #fff;
+  --ribbon-background-color: var(--color-fill);
 }
 .rc-ribbon-content-scroller .rc-inline-gallery-item > div {
   white-space: normal;

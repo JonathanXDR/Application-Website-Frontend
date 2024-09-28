@@ -131,7 +131,7 @@ br.small {
 }
 
 .awy-messages p {
-  color: #6e6e73;
+  color: var(--color-figure-gray-secondary);
 }
 .message-item {
   --first-item-total-duration: 2.65s;
@@ -303,7 +303,7 @@ br.small {
 }
 .message--blue p,
 .message--green p {
-  color: #fff;
+  color: var(--color-fill);
 }
 .message:after,
 .message:before {

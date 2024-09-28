@@ -144,7 +144,7 @@ defineProps<{
 }
 .pin-caption span {
   font-weight: 500;
-  color: #86868b;
+  color: var(--color-fill-gray-secondary);
 }
 .pin-length {
   top: 43.5%;

@@ -41,7 +41,7 @@ const { randomDevColor } = useColor()
 const route = useRoute()
 const { currentSection } = useSection()
 const { locale, tm } = useI18n()
-const { y, isScrolling, arrivedState, directions } = useScroll(window)
+const { y, isScrolling, } = useScroll(window)
 const error = useError()
 const config = useRuntimeConfig()
 

@@ -619,7 +619,7 @@ h1 + * {
     "Helvetica",
     "Arial",
     sans-serif;
-  color: #86868b;
+  color: var(--color-fill-gray-secondary);
   display: flex;
   align-items: center;
   justify-content: center;

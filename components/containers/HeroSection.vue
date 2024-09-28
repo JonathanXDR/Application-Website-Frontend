@@ -70,7 +70,7 @@
   }
 }
 .hero .hero-content {
-  color: #fff;
+  color: var(--color-syntax-marks)
 }
 .hero .hero-content .hero-headline {
   font-size: 80px;
@@ -186,9 +186,9 @@
   letter-spacing: -0.02em;
   font-family: Menlo, monospace;
   opacity: 0.2;
-  color: #e8e8ed;
-  -webkit-mask-image: linear-gradient(0deg, transparent, #eee 120%);
-  mask-image: linear-gradient(0deg, transparent, #eee 120%);
+  color: var(--color-fill-gray);
+  -webkit-mask-image: linear-gradient(0deg, transparent, var(--color-fill-gray) 120%);
+  mask-image: linear-gradient(0deg, transparent, var(--color-fill-gray) 120%);
 }
 @media only screen and (min-width: 768px) {
   .hero-code {

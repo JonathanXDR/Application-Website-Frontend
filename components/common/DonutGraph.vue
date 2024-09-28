@@ -168,7 +168,7 @@ br.medium {
   }
 }
 .ac-graph-donut .donut-wedge {
-  fill: #f56300;
+  fill: var(--color-figure-orange)
 }
 svg.ac-graph-svg {
   width: 100%;
@@ -237,7 +237,7 @@ svg.ac-graph-svg {
   justify-content: start;
 }
 .wedge-legend.male:before {
-  background: #cecece;
+  background: var(--color-fill-gray)
 }
 .wedge-legend [data-value] {
   font-weight: 400;
@@ -270,7 +270,7 @@ svg.ac-graph-svg {
   margin: auto;
 }
 .donut-container .donut-wedge:nth-child(odd) {
-  fill: #cecece;
+  fill: var(--color-fill-gray)
 }
 .donut-container .donut-wedge:nth-child(2n) {
   fill: var(--color-fill);

@@ -42,27 +42,27 @@
 .small.loading-spinner .loading {
   height: 20px;
   width: 20px;
-  border-top: 1px solid #06c;
-  border-right: 1px solid #06c;
-  border-bottom: 1px solid #06c;
+  border-top: 1px solid var(--color-type-icon-sky);
+  border-right: 1px solid var(--color-type-icon-sky);
+  border-bottom: 1px solid var(--color-type-icon-sky);
   border-left: 1px solid transparent;
 }
 
 .xsmall.loading-spinner .loading {
   height: 15px;
   width: 15px;
-  border-top: 1px solid #06c;
-  border-right: 1px solid #06c;
-  border-bottom: 1px solid #06c;
+  border-top: 1px solid var(--color-type-icon-sky);
+  border-right: 1px solid var(--color-type-icon-sky);
+  border-bottom: 1px solid var(--color-type-icon-sky);
   border-left: 1px solid transparent;
 }
 
 .medium.loading-spinner .loading {
   height: 30px;
   width: 30px;
-  border-top: 1.5px solid #06c;
-  border-right: 1.5px solid #06c;
-  border-bottom: 1.5px solid #06c;
+  border-top: 1.5px solid var(--color-type-icon-sky);
+  border-right: 1.5px solid var(--color-type-icon-sky);
+  border-bottom: 1.5px solid var(--color-type-icon-sky);
   border-left: 1.5px solid transparent;
 }
 
@@ -81,9 +81,9 @@
   font-size: 10px;
   position: relative;
   /* text-indent: -99990px; */
-  border-top: 2px solid #06c;
-  border-right: 2px solid #06c;
-  border-bottom: 2px solid #06c;
+  border-top: 2px solid var(--color-type-icon-sky);
+  border-right: 2px solid var(--color-type-icon-sky);
+  border-bottom: 2px solid var(--color-type-icon-sky);
   border-left: 2px solid transparent;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);

@@ -214,7 +214,7 @@ html.overview-parallax .visuallyhidden--enhanced {
   width: 4px;
   height: 1em;
   line-height: 1;
-  background: #0071e3;
+  background: var(--color-fill-blue);
   display: inline-flex;
   position: absolute;
   bottom: 1px;
