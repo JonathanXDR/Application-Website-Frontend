@@ -4,9 +4,9 @@
       class="hero-code"
       aria-hidden="true"
     >
-      ======================================= :: 🔥🌸 Microkernel iBoot for d84,
-      Apple Inc. :: Local boot, Board 0x6 (d84ap)/Rev 0xd :: BUILD_TAG:
-      iBoot-10151.60.47.0.1 :: BUILD_STYLE: DEVELOPMENT :: USB_SERIAL_NUMBER:
+      ======================================= :: 🚀💻 Microkernel JRTXD for JR-01,
+      Jonathan Russ :: Local boot, Board 0x6 (JR-01xy)/Rev 0xd :: BUILD_TAG:
+      JRTXD-10151.60.47.0.1 :: BUILD_STYLE: DEVELOPMENT :: USB_SERIAL_NUMBER:
       SDOM:01 CPID:8130 CPRV:11 CPFM:01 SCEP:01 BDID:06 ECID:XXXXXXXXXXXXXXXX
       IBFL:2D SIKA:00 SRNM:[XXXXXXXXXX] ::
       =======================================
