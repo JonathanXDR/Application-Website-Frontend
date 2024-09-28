@@ -6,7 +6,7 @@
     class="ac-ln-menustate"
     aria-controls="ac-ln-menustate-tray"
     aria-expanded="false"
-    :disabled="navDisabled"
+    :disabled="navOpening"
     @input="toggleNav"
   >
   <div
@@ -25,8 +25,9 @@
       { 'css-fixed ac-ln-sticking': position === 'fixed' },
       { 'ac-localnav-noborder': !border },
       { 'ac-localnav-scrim': scrim },
+      { 'ac-ln-hide': autoHide },
       { 'ac-ln-open': navOpen },
-      { 'ac-ln-opening': navOpen },
+      { 'ac-ln-opening': navOpening },
     ]"
     :style="{
       '--border-transform-origin': borderTransformOrigin,
@@ -93,22 +94,19 @@
                 :ref="(el) => (menuLinkReferences[item.id] = el as HTMLElement)"
                 class="ac-ln-menu-item"
               >
-                <NuxtLink
-                  :to="item.route"
+                <component
+                  :is="isCurrent(item) ? 'span' : 'RouterLink'"
+                  :to="isCurrent(item) ? undefined : item.route"
                   :class="[
                     'ac-ln-menu-link',
-                    {
-                      current:
-                        item.id === currentSection.id
-                        || route.path === item.route,
-                    },
+                    { current: isCurrent(item) },
                   ]"
-                  role="link"
-                  aria-disabled="true"
-                  aria-current="page"
+                  :role="isCurrent(item) ? 'link' : undefined"
+                  :aria-disabled="isCurrent(item) ? 'true' : undefined"
+                  :aria-current="isCurrent(item) ? 'page' : undefined"
                 >
                   {{ item.label }}
-                </NuxtLink>
+                </component>
               </li>
             </ul>
           </div>
@@ -198,6 +196,7 @@ import type { NavBarType } from '~/types/common/nav-bar'
 import type { SectionType } from '~/types/common/section'
 
 withDefaults(defineProps<NavBarType>(), {
+  autoHide: false,
   border: true,
   scrim: true,
   position: 'fixed',
@@ -219,7 +218,7 @@ const themeItems = computed<ItemType[]>(() =>
 )
 
 const navOpen = ref(false)
-const navDisabled = ref(false)
+const navOpening = ref(false)
 
 const expandAnimation = ref<SVGAnimateElement | undefined>(undefined)
 const collapseAnimation = ref<SVGAnimateElement | undefined>(undefined)
@@ -234,9 +233,7 @@ const borderTransformOrigin = ref<string>('50% 0%')
 const borderScaleX = ref<string>('scaleX(1)')
 
 const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
-  const currentId = navItems.value.find(
-    item => item.id === currentSection.value.id || route.path === item.route
-  )?.id
+  const currentId = navItems.value.find(item => isCurrent(item))?.id
   const liElement = currentId ? menuLinkReferences[currentId] : undefined
 
   if (!liElement) return
@@ -271,9 +268,9 @@ const animateChevron = (isOpen: boolean) => {
 }
 
 const checkboxTimeout = () => {
-  navDisabled.value = true
+  navOpening.value = true
   setTimeout(() => {
-    navDisabled.value = false
+    navOpening.value = false
   }, 1000)
 }
 
@@ -283,6 +280,9 @@ const handleScroll = () => {
     animateChevron(false)
   }
 }
+
+const isCurrent = (item: SectionType) =>
+  item.id === currentSection.value.id || route.path === item.route
 
 const updateAnimations = () => {
   for (const element of headerAnimations.value) {
@@ -305,7 +305,6 @@ const updateBorderPosition = () => {
     const transformOriginPercent = (centerPosition / navbarRect.width) * 100
 
     borderTransformOrigin.value = `${transformOriginPercent}% 0%`
-
     borderScaleX.value = 'scaleX(0)'
 
     requestAnimationFrame(() => {
@@ -326,11 +325,11 @@ onMounted(() => {
     if (!menustateTrayElement.value) return
     trayHeight.value = menustateTrayElement.value.scrollHeight
   })
+})
 
-  watch(getTheme, (themeNew, themeOld) => {
-    if (themeNew === themeOld) return
-    updateAnimations()
-  })
+watch(getTheme, (themeNew, themeOld) => {
+  if (themeNew === themeOld) return
+  updateAnimations()
 })
 
 useEventListener(window, 'resize', updateBorderPosition)
@@ -377,35 +376,11 @@ watch(currentMenuLinkElement, () => {
   transform: scale(1.2);
 } */
 
-.hide-localnav #ac-localnav {
+.hide-localnav #ac-localnav.ac-ln-hide {
   overflow: hidden;
 }
-.hide-localnav #ac-localnav .ac-ln-wrapper {
+.hide-localnav #ac-localnav.ac-ln-hide .ac-ln-wrapper {
   transform: translateY(-100%);
-}
-#ac-localnav ul,
-#ac-localnav li {
-  margin: 0;
-  padding: 0;
-}
-#ac-localnav :focus-visible {
-  outline: 2px solid var(--sk-focus-color, var(--color-fill-blue));
-  outline-offset: var(--sk-focus-offset, 1px);
-}
-#ac-localnav *,
-#ac-localnav * :before,
-#ac-localnav * :after {
-  letter-spacing: inherit;
-}
-#ac-localnav .ac-ln-menu * {
-  letter-spacing: inherit;
-}
-#ac-localnav a,
-#ac-localnav a:hover {
-  text-decoration: none;
-}
-#ac-localnav ul {
-  list-style: none;
 }
 #ac-localnav {
   --r-globalnav-height: 44px;
@@ -1245,14 +1220,14 @@ watch(currentMenuLinkElement, () => {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: var(--localnav-menucta-color);
 }
 #ac-localnav .ac-ln-menucta-chevron [data-chevron-icon] {
-  -webkit-transform: translate3d(0, 6px, 0);
-  transform: translate3d(0, 6px, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   height: 9px;
@@ -1286,9 +1261,9 @@ watch(currentMenuLinkElement, () => {
     display: none;
   }
 }
-#ac-localnav .ac-ln-menucta-anchor:focus {
+/* #ac-localnav .ac-ln-menucta-anchor:focus {
   outline: none;
-}
+} */
 #ac-localnav .ac-ln-menucta-anchor-close {
   display: none;
 }
@@ -1483,39 +1458,6 @@ watch(currentMenuLinkElement, () => {
   opacity: var(--sk-button-disabled-opacity);
 }
 
-li,
-ul {
-  margin: 0;
-  padding: 0;
-}
-:focus {
-  outline: 2px solid var(--color-fill-blue);
-  outline-offset: 0px;
-}
-ul {
-  margin-left: 1.1764705882em;
-}
-nav ul {
-  margin: 0;
-  list-style: none;
-}
-a {
-  color: var(--color-figure-blue);
-  letter-spacing: inherit;
-}
-a:link,
-a:visited {
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-a:active {
-  text-decoration: none;
-}
-a :disabled {
-  opacity: var(--sk-link-disabled-opacity);
-}
 @media only screen and (min-width: 768px) {
   #ac-localnav .ac-ln-menu-link.button-secondary-neutral {
     cursor: pointer;

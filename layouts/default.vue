@@ -10,6 +10,7 @@
       <NavBarV2
         v-if="shouldShow('nav')"
         :border="y < ribbonBarHeight"
+        :auto-hide="true"
       />
       <div
         v-if="shouldShow('ribbon')"
