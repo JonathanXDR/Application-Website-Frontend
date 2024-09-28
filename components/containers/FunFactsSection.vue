@@ -11,11 +11,16 @@
       class="chip-claim"
       role="listitem"
       tabindex="-1"
-      style="visibility: visible; opacity: 1"
+      :style="{
+        visibility: 'visible',
+        opacity: 1,
+        '--chip-claim-height': `${chipClaimHeight - 12}px`,
+      }"
     >
       <div style="transform: translateY(0px); opacity: 1; pointer-events: auto">
         <figure class="stat typography-site-stat-caption highlight">
-          <strong>{{ item.title }}</strong> {{ item.description }}
+          <strong ref="titleElement">{{ item.title }}</strong>
+          {{ item.description }}
         </figure>
       </div>
     </li>
@@ -23,16 +28,25 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicPropertiesType } from '~/types/common/basic-properties'
+import type { BasicPropertiesType } from '~/types/common/basic-properties';
 
 defineProps<{
-  title: string
-}>()
+  title: string;
+}>();
 
-const { tm } = useI18n()
+const titleElement = ref<HTMLElement | undefined>(undefined);
+const chipClaimHeight = ref(0);
+
+const { tm } = useI18n();
 const funFacts = computed<BasicPropertiesType[]>(() =>
   tm('components.containers.funFacts')
-)
+);
+
+onMounted(() => {
+  const titleHeight = titleElement.value?.clientHeight;
+  if (!titleHeight) return;
+  chipClaimHeight.value = titleHeight;
+});
 </script>
 
 <style scoped>
@@ -50,7 +64,7 @@ const funFacts = computed<BasicPropertiesType[]>(() =>
   content: '';
   display: inline-block;
   position: relative;
-  height: 40px;
+  height: var(--chip-claim-height);
   width: 5px;
   background: var(--color-fill-gray);
   flex-shrink: 0;
