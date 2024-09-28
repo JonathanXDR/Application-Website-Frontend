@@ -4,11 +4,11 @@
       class="hero-code"
       aria-hidden="true"
     >
-      ======================================= :: 🚀💻 Microkernel JRTXD for JR-01,
-      Jonathan Russ :: Local boot, Board 0x6 (JR-01xy)/Rev 0xd :: BUILD_TAG:
-      JRTXD-10151.60.47.0.1 :: BUILD_STYLE: DEVELOPMENT :: USB_SERIAL_NUMBER:
-      SDOM:01 CPID:8130 CPRV:11 CPFM:01 SCEP:01 BDID:06 ECID:XXXXXXXXXXXXXXXX
-      IBFL:2D SIKA:00 SRNM:[XXXXXXXXXX] ::
+      ======================================= :: 🚀💻 Microkernel JRTXD for
+      JR-01, Jonathan Russ :: Local boot, Board 0x6 (JR-01xy)/Rev 0xd ::
+      BUILD_TAG: JRTXD-10151.60.47.0.1 :: BUILD_STYLE: DEVELOPMENT ::
+      USB_SERIAL_NUMBER: SDOM:01 CPID:8130 CPRV:11 CPFM:01 SCEP:01 BDID:06
+      ECID:XXXXXXXXXXXXXXXX IBFL:2D SIKA:00 SRNM:[XXXXXXXXXX] ::
       =======================================
     </div>
     <div
@@ -34,6 +34,7 @@
         </p>
       </div>
     </div>
+    <ExploreMore />
   </section>
 </template>
 
@@ -70,7 +71,7 @@
   }
 }
 .hero .hero-content {
-  color: var(--color-syntax-marks)
+  color: var(--color-syntax-marks);
 }
 .hero .hero-content .hero-headline {
   font-size: 80px;
@@ -81,9 +82,9 @@
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   margin: 0;
   color: inherit;
@@ -99,9 +100,9 @@
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -115,9 +116,9 @@
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -143,9 +144,9 @@
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   text-align: left;
 }
@@ -159,9 +160,9 @@
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -187,7 +188,11 @@
   font-family: Menlo, monospace;
   opacity: 0.2;
   color: var(--color-fill-gray);
-  -webkit-mask-image: linear-gradient(0deg, transparent, var(--color-fill-gray) 120%);
+  -webkit-mask-image: linear-gradient(
+    0deg,
+    transparent,
+    var(--color-fill-gray) 120%
+  );
   mask-image: linear-gradient(0deg, transparent, var(--color-fill-gray) 120%);
 }
 @media only screen and (min-width: 768px) {

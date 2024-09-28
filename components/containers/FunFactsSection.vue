@@ -23,16 +23,16 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicPropertiesType } from '~/types/common/basic-properties';
+import type { BasicPropertiesType } from '~/types/common/basic-properties'
 
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const funFacts = computed<BasicPropertiesType[]>(() =>
   tm('components.containers.funFacts')
-);
+)
 </script>
 
 <style scoped>
@@ -68,21 +68,20 @@ const funFacts = computed<BasicPropertiesType[]>(() =>
   font-size: 21px;
   line-height: 1.381002381;
   font-weight: 600;
-  letter-spacing: 0.011em;
   font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .typography-site-stat-caption {
     font-size: 17px;
     line-height: 1.4705882353;
     font-weight: 600;
-    letter-spacing: -0.022em;
     font-family:
       SF Pro Text,
       SF Pro Icons,
@@ -107,46 +106,46 @@ const funFacts = computed<BasicPropertiesType[]>(() =>
   position: relative;
 }
 .stat strong {
-  font-size: 48px;
+  /* font-size: 48px;
   line-height: 1.0834933333;
   font-weight: 600;
-  letter-spacing: -0.003em;
   font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif; */
   display: block;
 }
-@media only screen and (max-width: 1068px) {
-  .stat strong {
-    font-size: 40px;
-    line-height: 1.1;
-    font-weight: 600;
-    letter-spacing: 0em;
-    font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
-  }
+
+.stat strong {
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 600;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
-@media only screen and (max-width: 734px) {
+
+@media only screen and (max-width: 767px) {
   .stat strong {
     font-size: 32px;
     line-height: 1.125;
     font-weight: 600;
-    letter-spacing: 0.004em;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
