@@ -50,7 +50,9 @@ const lastScrollY = ref(0)
 const shouldHideNavbar = useState<boolean>('shouldHideNavbar', () => false)
 const autoHideNavbar = ref(false)
 
-const items = computed<RibbonBar['items']>(() => tm('components.common.RibbonBar'))
+const items = computed<RibbonBar['items']>(() =>
+  tm('components.common.RibbonBar')
+)
 
 const faviconColor = randomDevColor.value?.hex
 const faviconGraphicData = ref('')
@@ -70,12 +72,18 @@ onMounted(async () => {
 watch([y, isScrolling], ([yNew, isScrollingNew]) => {
   if (!isScrollingNew) return
 
-  shouldHideNavbar.value = autoHideNavbar.value ? yNew > lastScrollY.value : false
+  shouldHideNavbar.value = autoHideNavbar.value
+    ? yNew > lastScrollY.value
+    : false
   lastScrollY.value = yNew
 })
 
 const shouldApplyHideLocalnav = computed(() => {
-  return y.value > ribbonBarHeight.value && shouldHideNavbar.value && autoHideNavbar.value
+  return (
+    y.value > ribbonBarHeight.value &&
+    shouldHideNavbar.value &&
+    autoHideNavbar.value
+  )
 })
 
 watchEffect(() => {

@@ -19,7 +19,13 @@
     >
       <div style="">
         <figure class="stat typography-site-stat-caption highlight">
-          <strong :ref="(el) => { if (el) titleElements[index] = el as HTMLElement }">{{ item.title }}</strong>
+          <strong
+            :ref="
+              (el) => {
+                if (el) titleElements[index] = el as HTMLElement;
+              }
+            "
+          >{{ item.title }}</strong>
           {{ item.description }}
         </figure>
       </div>
@@ -44,7 +50,9 @@ const funFacts = computed<BasicPropertiesType[]>(() =>
 
 const updateChipClaimHeight = () => {
   nextTick(() => {
-    const maxHeight = Math.max(...titleElements.value.map(element => element.clientHeight))
+    const maxHeight = Math.max(
+      ...titleElements.value.map(element => element.clientHeight)
+    )
     chipClaimHeight.value = maxHeight
   })
 }
