@@ -194,6 +194,7 @@ const { data: userRepositories } = await useFetch(
   '/api/github/user-repositories',
   {
     key: 'user-repositories',
+    lazy: true,
     params: { username: config.public.githubRepoOwner, perPage: 100 },
     getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
   }
@@ -203,6 +204,7 @@ const { data: pinnedProjects } = await useFetch(
   '/api/github/pinned-repositories',
   {
     key: 'pinned-repositories',
+    lazy: true,
     params: { username: config.public.githubRepoOwner, perPage: 100 },
     getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
   }
@@ -288,7 +290,9 @@ watch(
 watchEffect(() => {
   projects.personal = []
   projects.school = []
-  const categorizedProjects = filteredProjects.value.map(project => categorizeProject(project))
+  const categorizedProjects = filteredProjects.value.map(project =>
+    categorizeProject(project)
+  )
   for (const project of categorizedProjects) {
     const category = project.category as keyof Projects
     projects[category].push(project)

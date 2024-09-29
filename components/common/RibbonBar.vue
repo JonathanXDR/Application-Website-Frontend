@@ -112,6 +112,7 @@ const initialAnimationPlayed = ref(false)
 
 const { data: repositoryTags } = await useFetch('/api/github/repository-tags', {
   key: 'repository-tags',
+  lazy: true,
   params: {
     owner: config.public.githubRepoOwner,
     repo: config.public.githubRepoName,
