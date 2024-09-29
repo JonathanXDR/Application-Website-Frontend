@@ -3,9 +3,11 @@
     <SpeedInsights />
     <header
       v-if="shouldShow('header')"
-      :class="[{
-        'hide-localnav': y > ribbonBarHeight && shouldHideNavbar,
-      }]"
+      :class="[
+        {
+          'hide-localnav': y > ribbonBarHeight && shouldHideNavbar,
+        },
+      ]"
     >
       <NavBar
         v-if="shouldShow('nav')"
@@ -42,7 +44,7 @@ const { randomDevColor } = useColor()
 const route = useRoute()
 const { currentSection } = useSection()
 const { locale, tm } = useI18n()
-const { y, isScrolling, } = useScroll(window)
+const { y, isScrolling } = useScroll(window)
 const error = useError()
 const config = useRuntimeConfig()
 

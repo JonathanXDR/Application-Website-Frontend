@@ -15,7 +15,7 @@ export default withNuxt(
     languageOptions: {
       globals: {
         NodeJS: true,
-      }
+      },
     },
   }
 )

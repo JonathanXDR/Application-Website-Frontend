@@ -104,7 +104,8 @@ const updateBubblePosition = () => {
   const selectedItemIndex = properties.items.findIndex(
     item => item.id === selectedItem.value
   )
-  selectedItemElement.value = itemElements.value[selectedItemIndex] || undefined
+  selectedItemElement.value =
+    itemElements.value[selectedItemIndex] || undefined
   if (selectedItemElement.value) {
     bubbleStyle.value = {
       '--bubble-position': `${selectedItemElement.value.offsetLeft}px`,

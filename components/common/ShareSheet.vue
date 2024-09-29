@@ -14,9 +14,7 @@
           target="_blank"
           external
         >
-          <ClientOnly>
-            <Icon :name="`fa6-${link.category}:${link.icon?.name}`" />
-          </ClientOnly>
+          <Icon :name="`fa6-${link.category}:${link.icon?.name}`" />
         </NuxtLink>
       </li>
     </ul>

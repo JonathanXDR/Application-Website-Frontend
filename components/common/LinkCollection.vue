@@ -68,7 +68,9 @@ const enhancedLinks = computed(() => {
   return links.value.map(link => ({
     ...link,
     to:
-      link.url?.startsWith('#') || link.url?.startsWith('/') ? link.url : undefined,
+      link.url?.startsWith('#') || link.url?.startsWith('/')
+        ? link.url
+        : undefined,
     href:
       link.url && !(link.url.startsWith('#') || link.url.startsWith('/'))
         ? link.url

@@ -68,7 +68,7 @@ useEventListener(window, 'resize', updateChipClaimHeight)
 }
 .chip-claim:before {
   margin-right: 20px;
-  content: '';
+  content: "";
   display: inline-block;
   position: relative;
   height: var(--chip-claim-height);
@@ -93,9 +93,9 @@ useEventListener(window, 'resize', updateChipClaimHeight)
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 @media only screen and (max-width: 767px) {
@@ -149,9 +149,9 @@ useEventListener(window, 'resize', updateChipClaimHeight)
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -164,9 +164,9 @@ useEventListener(window, 'resize', updateChipClaimHeight)
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }

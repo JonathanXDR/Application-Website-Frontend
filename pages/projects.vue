@@ -218,13 +218,18 @@ const projects: Projects = reactive({
 const allProjects = computed(() => userRepositories.value || [])
 const filteredProjects = computed(() =>
   allProjects.value.filter(
-    project => !pinned.value.some(pinnedProject => pinnedProject.name === project.name)
+    project =>
+      !pinned.value.some(
+        pinnedProject => pinnedProject.name === project.name
+      )
   )
 )
 
 const currentProjects = computed(
   () =>
-    projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
+    projects[
+      Object.keys(projects)[currentIndex.value] as keyof typeof projects
+    ]
 ) as Ref<CardItemType[]>
 
 const segmentNavItems = computed<ItemType[]>(() =>
@@ -278,7 +283,9 @@ watch([userRepositories, pinnedProjects], () => {
   if (userRepositories.value) {
     projects.personal = []
     projects.school = []
-    for (const project of filteredProjects.value.map(element => categorizeProject(element))) {
+    for (const project of filteredProjects.value.map(element =>
+      categorizeProject(element)
+    )) {
       const category = project.category as keyof Projects
       projects[category].push(project)
     }

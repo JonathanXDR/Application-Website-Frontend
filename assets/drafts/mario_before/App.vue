@@ -127,7 +127,7 @@ export default {
 // layout
 html {
   background: var(--bg);
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   font-size: 100%;
   color: #888;
 }
@@ -149,7 +149,7 @@ body {
   transition: opacity 0.5s linear;
 
   &:after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: 50vh;

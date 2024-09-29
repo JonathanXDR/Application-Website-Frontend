@@ -52,7 +52,6 @@ dayjs.extend(duration)
 
 interface Properties {
   endDate: Date
-
 }
 
 const properties = defineProps<Properties>()
