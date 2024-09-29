@@ -36,7 +36,7 @@ const handleScroll = () => {
 }
 
 const transformValue = computed(() => {
-  if (!isSticky.value && !shouldHideNavbar.value) return `translateY(${navbarHeight.value}px)`
+  if (!isSticky.value && !shouldHideNavbar.value) return 'translateY(0)'
   return isSticky.value && shouldHideNavbar.value
     ? 'translateY(0)'
     : `translateY(${navbarHeight.value}px)`
