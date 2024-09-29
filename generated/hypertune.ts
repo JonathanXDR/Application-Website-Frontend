@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-empty-object-type, unicorn/no-null, unicorn/prevent-abbreviations, unicorn/no-thenable */
+/* eslint-disable @typescript-eslint/no-empty-object-type, unicorn/no-null, unicorn/prevent-abbreviations */
 
 import * as sdk from 'hypertune'
 
-export const queryCode = 'query FullQuery{root{example exampleFlag}}'
+export const queryCode = 'query FullQuery{root{sections pages}}'
 
 export const query: sdk.Query<sdk.ObjectValueWithVariables> = {
   variableDefinitions: {},
@@ -19,8 +19,8 @@ export const query: sdk.Query<sdk.ObjectValueWithVariables> = {
               type: 'InlineFragment',
               objectTypeName: 'Root',
               selection: {
-                example: { fieldArguments: {}, fieldQuery: null },
-                exampleFlag: { fieldArguments: {}, fieldQuery: null },
+                sections: { fieldArguments: {}, fieldQuery: null },
+                pages: { fieldArguments: {}, fieldQuery: null },
               },
             },
           },
@@ -31,8 +31,8 @@ export const query: sdk.Query<sdk.ObjectValueWithVariables> = {
 }
 
 export const initData = {
-  commitId: 14_108,
-  hash: '6959447412302519',
+  commitId: 17_792,
+  hash: '2847269218841946',
   reducedExpression: {
     id: 'disMuXQYcKRF8cMpqXTXf',
     logs: { events: {}, exposures: {}, evaluations: {} },
@@ -45,166 +45,109 @@ export const initData = {
           logs: { events: {}, exposures: {}, evaluations: {} },
           type: 'ObjectExpression',
           fields: {
-            example: {
-              id: 'WwhE5Y_r7doKUcM5xZ3MH',
-              logs: {
-                evaluations: {
-                  Wk_E82g2kVIp1KLqEFEoc: 1,
-                  kLA9XKZm1VYo1gZ8y09bu: 1,
-                  '1Ml9nblJVThBHpk7aDRbg': 1,
-                },
-                events: {},
-                exposures: {},
-              },
-              type: 'BooleanExpression',
-              value: true,
-              valueType: { type: 'BooleanValueType' },
-            },
-            exampleFlag: {
-              id: '3V_BV-ggtJmc7riCzTWvk',
-              logs: {
-                evaluations: { '5eYF_5W96A_41hnSP-vSh': 1 },
-                events: {},
-                exposures: {},
-              },
-              type: 'SwitchExpression',
-              cases: [
+            sections: {
+              id: 'IYduM9fMVGK9RHFZ5UTms',
+              type: 'ListExpression',
+              items: [
                 {
-                  id: 'R8WNfrIeMP1KEE2n8Vzr1',
-                  when: {
-                    a: {
-                      id: 'foEhWCXcpI5BJfeAzqxDE',
-                      logs: { events: {}, exposures: {}, evaluations: {} },
-                      type: 'GetFieldExpression',
-                      object: {
-                        id: 'VuYfZ2UFke102x6tOhV7-',
-                        logs: { events: {}, exposures: {}, evaluations: {} },
-                        type: 'VariableExpression',
-                        valueType: {
-                          type: 'ObjectValueType',
-                          objectTypeName: 'Query_root_args',
-                        },
-                        variableId: '-Vq1C8DeuYLT9UBeoDfrt',
-                      },
-                      fieldPath: 'context > environment',
-                      valueType: {
-                        type: 'EnumValueType',
-                        enumTypeName: 'Environment',
-                      },
-                    },
-                    b: {
-                      id: 'kz2q_OL0fzhU0VgZBRRcj',
-                      logs: { events: {}, exposures: {}, evaluations: {} },
-                      type: 'ListExpression',
-                      items: [
-                        {
-                          id: 'MgoDFzr073w6DPw0s3mj2',
-                          logs: { events: {}, exposures: {}, evaluations: {} },
-                          type: 'EnumExpression',
-                          value: 'development',
-                          valueType: {
-                            type: 'EnumValueType',
-                            enumTypeName: 'Environment',
-                          },
-                        },
-                      ],
-                      valueType: {
-                        type: 'ListValueType',
-                        itemValueType: {
-                          type: 'EnumValueType',
-                          enumTypeName: 'Environment',
-                        },
-                      },
-                    },
-                    id: 'JfgddK9xKJwcLY9q9aFw2',
-                    logs: { events: {}, exposures: {}, evaluations: {} },
-                    type: 'ComparisonExpression',
-                    operator: 'in',
-                    valueType: { type: 'BooleanValueType' },
-                  },
-                  then: {
-                    id: 'saq5kOXDuKQ4CSOT_8D4K',
-                    logs: { events: {}, exposures: {}, evaluations: {} },
-                    type: 'BooleanExpression',
-                    value: true,
-                    valueType: { type: 'BooleanValueType' },
-                  },
+                  id: 'yPoMcXas5JOy94YJJ_2U-',
+                  type: 'BooleanExpression',
+                  value: false,
+                  valueType: { type: 'BooleanValueType' },
+                  logs: { evaluations: { '5zcKIXSq7FvisMlWvd2_k': 1 } },
                 },
                 {
-                  id: 'HkQ82oreQczxOHefkdge9',
-                  when: {
-                    a: {
-                      id: 'g933P_mY0Wogi82U0YkBC',
-                      logs: { events: {}, exposures: {}, evaluations: {} },
-                      type: 'GetFieldExpression',
-                      object: {
-                        id: 'jh9WOxxJNbfYF9Umdqjp7',
-                        logs: { events: {}, exposures: {}, evaluations: {} },
-                        type: 'VariableExpression',
-                        valueType: {
-                          type: 'ObjectValueType',
-                          objectTypeName: 'Query_root_args',
-                        },
-                        variableId: '-Vq1C8DeuYLT9UBeoDfrt',
-                      },
-                      fieldPath: 'context > user > id',
-                      valueType: { type: 'StringValueType' },
-                    },
-                    b: {
-                      id: 'e3u7DKHiD2VheKMIlNfqd',
-                      logs: { events: {}, exposures: {}, evaluations: {} },
-                      type: 'ListExpression',
-                      items: [
-                        {
-                          id: 'Z8HVp7ngrVCBRhMI3dsvp',
-                          logs: { events: {}, exposures: {}, evaluations: {} },
-                          type: 'StringExpression',
-                          value: 'user_123',
-                          valueType: { type: 'StringValueType' },
-                        },
-                        {
-                          id: 'hB0ZPzMwIi61fqji9W_D_',
-                          logs: { events: {}, exposures: {}, evaluations: {} },
-                          type: 'StringExpression',
-                          value: 'user_456',
-                          valueType: { type: 'StringValueType' },
-                        },
-                      ],
-                      valueType: {
-                        type: 'ListValueType',
-                        itemValueType: { type: 'StringValueType' },
-                      },
-                    },
-                    id: 'qS5kF9VHGReVpZy5GXKIM',
-                    logs: { events: {}, exposures: {}, evaluations: {} },
-                    type: 'ComparisonExpression',
-                    operator: 'in',
-                    valueType: { type: 'BooleanValueType' },
-                  },
-                  then: {
-                    id: 'N1pf_rgvlMT68cZfE_nJ_',
-                    logs: { events: {}, exposures: {}, evaluations: {} },
-                    type: 'BooleanExpression',
-                    value: true,
-                    valueType: { type: 'BooleanValueType' },
-                  },
+                  id: 'wUAsd4uZtPJbNguR6e_go',
+                  type: 'BooleanExpression',
+                  value: true,
+                  valueType: { type: 'BooleanValueType' },
+                  logs: { evaluations: { 'rSFSwj5M_q6PxS-2txEza': 1 } },
+                },
+                {
+                  id: 'Pfl0yX2kLHdIzPziTYPAF',
+                  type: 'BooleanExpression',
+                  value: true,
+                  valueType: { type: 'BooleanValueType' },
+                  logs: { evaluations: { '0WCFMJ30bpBdHcCnsmhlA': 1 } },
+                },
+                {
+                  id: 'AvkhgZ50nOjFKdKYZmgRH',
+                  type: 'BooleanExpression',
+                  value: false,
+                  valueType: { type: 'BooleanValueType' },
+                  logs: { evaluations: { H4Tvrcu12pttuEnRJ3TcT: 1 } },
+                },
+                {
+                  id: '0t6cvOyxXccQdsFVX464U',
+                  type: 'BooleanExpression',
+                  value: true,
+                  valueType: { type: 'BooleanValueType' },
+                  logs: { evaluations: { ni3Zx6dw54Nf9coLXNFtb: 1 } },
+                },
+                {
+                  id: 'wuMTmd0e7HGRetqZxTmhc',
+                  type: 'BooleanExpression',
+                  value: true,
+                  valueType: { type: 'BooleanValueType' },
+                  logs: { evaluations: { ciLpBqfi_SBhia97Bx_GA: 1 } },
                 },
               ],
-              control: {
-                id: 'el9EBqxYLz8JzPMCKfKOz',
-                logs: { events: {}, exposures: {}, evaluations: {} },
-                type: 'BooleanExpression',
-                value: true,
-                valueType: { type: 'BooleanValueType' },
+              valueType: {
+                type: 'ListValueType',
+                itemValueType: { type: 'BooleanValueType' },
               },
-              default: {
-                id: 'F1ZynD4QSt1KmD_YMs-iO',
-                logs: { events: {}, exposures: {}, evaluations: {} },
-                type: 'BooleanExpression',
-                value: false,
-                valueType: { type: 'BooleanValueType' },
+              logs: {
+                evaluations: {
+                  'CY-ED9lw2omeaD_xspBZA': 1,
+                  '3NvofvDllU0BOIPPoCJM4': 1,
+                  'e0-3AN-1CPe1hYaLghz-F': 1,
+                },
               },
-              valueType: { type: 'BooleanValueType' },
+            },
+            pages: {
+              id: 'FLjb1haEMaf_nkl9U3BF3',
+              type: 'ListExpression',
+              items: [
+                {
+                  id: 'nvaxqmXR7XlZMOF4j71NV',
+                  type: 'BooleanExpression',
+                  value: true,
+                  valueType: { type: 'BooleanValueType' },
+                  logs: { evaluations: { U_t3FA60RhqMhFgLiWDoh: 1 } },
+                },
+                {
+                  id: 'RqgUCdl7GXGJvqYJBzZVf',
+                  type: 'BooleanExpression',
+                  value: true,
+                  valueType: { type: 'BooleanValueType' },
+                  logs: { evaluations: { J65WaDg1_OU6n1YBykeQe: 1 } },
+                },
+                {
+                  id: 'd2hQSMG9IeDNqu9sMUbbk',
+                  type: 'BooleanExpression',
+                  value: true,
+                  valueType: { type: 'BooleanValueType' },
+                  logs: { evaluations: { qPjD4Ygjx932bblm0wPuK: 1 } },
+                },
+                {
+                  id: '6vu2fIczgoHcvL58QB4d1',
+                  type: 'BooleanExpression',
+                  value: false,
+                  valueType: { type: 'BooleanValueType' },
+                  logs: { evaluations: { 'fRnWuW_CzmCL-LnEVJAKS': 1 } },
+                },
+              ],
+              valueType: {
+                type: 'ListValueType',
+                itemValueType: { type: 'BooleanValueType' },
+              },
+              logs: {
+                evaluations: {
+                  y24329owsZRZkIxu5NnID: 1,
+                  dEuBmyuCR7Iz6XC4imQpU: 1,
+                  Raa6_7ffKXm1Id34TZePj: 1,
+                },
+              },
             },
           },
           valueType: { type: 'ObjectValueType', objectTypeName: 'Root' },
@@ -235,38 +178,24 @@ export const initData = {
 /**
  * @deprecated use '@vercel/flags/providers/hypertune' package instead.
  */
-export const vercelFlagDefinitions = {
-  example: {
-    options: [
-      { label: 'Off', value: false },
-      { label: 'On', value: true },
-    ],
-    origin:
-      'https://app.hypertune.com/projects/3628/main/draft/logic?selected_field_path=root%3Eexample',
-  },
-  exampleFlag: {
-    options: [
-      { label: 'Off', value: false },
-      { label: 'On', value: true },
-    ],
-    origin:
-      'https://app.hypertune.com/projects/3628/main/draft/logic?selected_field_path=root%3EexampleFlag',
-  },
+export const vercelFlagDefinitions = {}
+
+export type FlagValues = {}
+
+export type FlagPaths = keyof FlagValues & string
+
+export const flagFallbacks: FlagValues = {}
+
+export function decodeFlagValues<TFlagPaths extends keyof FlagValues & string> (
+  encodedValues: string,
+  flagPaths: TFlagPaths[]
+): Pick<FlagValues, TFlagPaths> {
+  return sdk.decodeFlagValues({ flagPaths, encodedValues })
 }
 
 export type Rec = {}
 
-export type Rec3 = {
-  id: string
-  name: string
-  email: string
-}
-
-export const EnvironmentEnumValues = [
-  'development',
-  'production',
-  'test',
-] as const
+export const EnvironmentEnumValues = ['development', 'production'] as const
 export type Environment = (typeof EnvironmentEnumValues)[number]
 
 /**
@@ -277,7 +206,6 @@ export type Environment = (typeof EnvironmentEnumValues)[number]
  * or other input types.
  */
 export type Rec2 = {
-  user: Rec3
   environment: Environment
 }
 
@@ -286,11 +214,11 @@ export type RootArgs = {
 }
 
 export type Root = {
-  example: boolean
-  exampleFlag: boolean
+  sections: boolean[]
+  pages: boolean[]
 }
 
-const rootFallback = { example: false, exampleFlag: false }
+const rootFallback = { sections: [], pages: [] }
 
 export class RootNode extends sdk.Node {
   override typeName = 'Root' as const
@@ -308,45 +236,63 @@ export class RootNode extends sdk.Node {
   }
 
   /**
-   * [Open in Hypertune UI]({@link https://app.hypertune.com/projects/3628/main/draft/logic?selected_field_path=root%3Eexample})
+   * [Open in Hypertune UI]({@link https://app.hypertune.com/projects/3628/main/draft/logic?selected_field_path=root%3Esections})
    */
-  example ({ args = {}, fallback }: { args?: Rec, fallback: boolean }): boolean {
-    const props0 = this.getFieldNodeProps('example', { fieldArguments: args })
-    const expression0 = props0.expression
+  sections ({
+    args = {},
+    itemFallback: fallback,
+    listFallbackLength = 0,
+  }: {
+    args?: Rec
+    itemFallback: boolean
+    listFallbackLength?: number
+  }): boolean[] {
+    const props0 = this.getFieldNodeProps('sections', { fieldArguments: args })
 
-    if (expression0 && expression0.type === 'BooleanExpression') {
-      const node = new sdk.BooleanNode(props0)
-      return node.get({ fallback })
-    }
+    return new sdk.Node(props0)
+      .getItemNodeProps({ fallbackLength: listFallbackLength })
+      .map((props1) => {
+        const expression1 = props1.expression
 
-    const node = new sdk.BooleanNode(props0)
-    node._logUnexpectedTypeError()
-    return node.get({ fallback })
+        if (expression1 && expression1.type === 'BooleanExpression') {
+          const node = new sdk.BooleanNode(props1)
+          return node.get({ fallback })
+        }
+
+        const node = new sdk.BooleanNode(props1)
+        node._logUnexpectedTypeError()
+        return node.get({ fallback })
+      })
   }
 
   /**
-   * [Open in Hypertune UI]({@link https://app.hypertune.com/projects/3628/main/draft/logic?selected_field_path=root%3EexampleFlag})
+   * [Open in Hypertune UI]({@link https://app.hypertune.com/projects/3628/main/draft/logic?selected_field_path=root%3Epages})
    */
-  exampleFlag ({
+  pages ({
     args = {},
-    fallback,
+    itemFallback: fallback,
+    listFallbackLength = 0,
   }: {
     args?: Rec
-    fallback: boolean
-  }): boolean {
-    const props0 = this.getFieldNodeProps('exampleFlag', {
-      fieldArguments: args,
-    })
-    const expression0 = props0.expression
+    itemFallback: boolean
+    listFallbackLength?: number
+  }): boolean[] {
+    const props0 = this.getFieldNodeProps('pages', { fieldArguments: args })
 
-    if (expression0 && expression0.type === 'BooleanExpression') {
-      const node = new sdk.BooleanNode(props0)
-      return node.get({ fallback })
-    }
+    return new sdk.Node(props0)
+      .getItemNodeProps({ fallbackLength: listFallbackLength })
+      .map((props1) => {
+        const expression1 = props1.expression
 
-    const node = new sdk.BooleanNode(props0)
-    node._logUnexpectedTypeError()
-    return node.get({ fallback })
+        if (expression1 && expression1.type === 'BooleanExpression') {
+          const node = new sdk.BooleanNode(props1)
+          return node.get({ fallback })
+        }
+
+        const node = new sdk.BooleanNode(props1)
+        node._logUnexpectedTypeError()
+        return node.get({ fallback })
+      })
   }
 }
 
@@ -371,14 +317,14 @@ export type Source = {
   root: Root
 }
 
-const sourceFallback = { root: { example: false, exampleFlag: false } }
+const sourceFallback = { root: { sections: [], pages: [] } }
 
-export type Rec5 = {
+export type Rec4 = {
   args: RootArgs
 }
 
-export type Rec4 = {
-  root: Rec5
+export type Rec3 = {
+  root: Rec4
 }
 
 /**
@@ -399,7 +345,7 @@ export class SourceNode extends sdk.Node {
     args,
     fallback = sourceFallback as Source,
   }: {
-    args: Rec4
+    args: Rec3
     fallback?: Source
   }): Source {
     const getQuery = sdk.mergeFieldQueryAndArgs(

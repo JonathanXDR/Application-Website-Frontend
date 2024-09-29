@@ -17,22 +17,26 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   }
 
   if (import.meta.server) {
-    await hypertuneSource.initIfNeeded() // Check for flag updates
+    await hypertuneSource.initIfNeeded()
 
-    const hypertune = hypertuneSource.root({
-      args: {
+    const rootArguments = computed<RootArgs>(() => {
+      return {
         context: {
           environment: 'development',
           user: { id: '1', name: 'Test', email: 'hi@test.com' },
         },
-      },
+      }
     })
 
-    serverData = {
-      dehydratedState: hypertune.dehydrate(),
-      rootArgs: hypertune.getRootArgs(),
-    }
+    const hypertune = computed(() =>
+      hypertuneSource.root({ args: rootArguments.value })
+    )
     nuxtApp.vueApp.provide(hypertuneKey, hypertune)
+
+    serverData = {
+      dehydratedState: hypertune.value.dehydrate(),
+      rootArgs: hypertune.value.getRootArgs(),
+    }
   }
 
   useHydration(

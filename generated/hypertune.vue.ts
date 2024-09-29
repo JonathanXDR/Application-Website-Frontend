@@ -1,21 +1,21 @@
 /* eslint-disable prefer-rest-params, @typescript-eslint/consistent-type-imports, @typescript-eslint/no-import-type-side-effects, unicorn/prevent-abbreviations */
 
-import { type UpdateListener } from 'hypertune'
 import {
   type App,
+  type Ref,
   type ComputedRef,
   type MaybeRefOrGetter,
-  type Ref,
   computed,
   inject,
   shallowRef,
   toValue,
   triggerRef,
 } from 'vue'
+import { type UpdateListener } from 'hypertune'
 import {
-  type CreateSourceOptions,
-  type DehydratedState,
   type RootArgs,
+  type DehydratedState,
+  type CreateSourceOptions,
   RootNode,
   createSource,
 } from './hypertune'

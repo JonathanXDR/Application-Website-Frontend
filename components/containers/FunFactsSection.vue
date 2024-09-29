@@ -12,8 +12,8 @@
       role="listitem"
       tabindex="-1"
       :style="{
-        visibility: 'visible',
-        opacity: 1,
+        'visibility': 'visible',
+        'opacity': 1,
         '--chip-claim-height': `${chipClaimHeight - 12}px`,
       }"
     >
@@ -28,25 +28,25 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicPropertiesType } from '~/types/common/basic-properties';
+import type { BasicPropertiesType } from '~/types/common/basic-properties'
 
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
-const titleElement = ref<HTMLElement | undefined>(undefined);
-const chipClaimHeight = ref(0);
+const titleElement = ref<HTMLElement | undefined>(undefined)
+const chipClaimHeight = ref(0)
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const funFacts = computed<BasicPropertiesType[]>(() =>
   tm('components.containers.funFacts')
-);
+)
 
 onMounted(() => {
-  const titleHeight = titleElement.value?.clientHeight;
-  if (!titleHeight) return;
-  chipClaimHeight.value = titleHeight;
-});
+  const titleHeight = titleElement.value?.clientHeight
+  if (!titleHeight) return
+  chipClaimHeight.value = titleHeight
+})
 </script>
 
 <style scoped>

@@ -1,20 +1,18 @@
 <template>
   <div>
-    <section>
-      <HeroSection />
-    </section>
-    <template v-for="section in sections">
+    <template
+      v-for="section in visibleSections"
+      :key="section.id"
+    >
       <section
-        v-for="(child, index) in section.children"
-        :id="child.id"
-        :key="child.id"
-        v-section="(child.id, index)"
-        :name="child.label"
-        :class="child.class"
+        :id="section.id"
+        v-section="section.id"
+        :name="section.label"
+        :class="section.class"
       >
         <component
-          :is="`${child.id}Section`"
-          :title="child.label"
+          :is="`${section.id}Section`"
+          :title="section.label"
         />
       </section>
     </template>
@@ -22,6 +20,7 @@
 </template>
 
 <script setup lang="ts">
+import type { FeatureFlags } from '~/types/common/feature-flags'
 import type { SectionType } from '~/types/common/section'
 
 definePageMeta({
@@ -33,7 +32,24 @@ definePageMeta({
 })
 
 const { tm } = useI18n()
-const sections = computed<SectionType[]>(() => tm('components.common.NavBar'))
+const featureFlags = inject<FeatureFlags>('featureFlags')
+
+if (!featureFlags) {
+  throw new Error('Feature flags not provided')
+}
+
+const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'))
+
+const overviewSections = computed(() => {
+  const overviewItem = navItems.value.find(item => item.id === 'overview')
+  return overviewItem?.children || []
+})
+
+const visibleSections = computed(() =>
+  overviewSections.value.filter(
+    (_, index) => featureFlags.sections.value[index] ?? false
+  )
+)
 </script>
 
 <style scoped>
