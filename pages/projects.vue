@@ -3,6 +3,7 @@
     <HeadlineAnimation
       title="Projects"
       class="typography-magical-headline pb-12"
+      :auto-animation="true"
     />
     <NavBarExtension>
       <div class="flex flex-col items-center gap-2">

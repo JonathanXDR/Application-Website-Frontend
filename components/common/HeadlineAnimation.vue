@@ -43,22 +43,30 @@
         :style="getLetterStyle(getGlobalIndex(wordIndex, word.length))"
         :data-letter-index="getGlobalIndex(wordIndex, word.length)"
       >
-        {{ "&nbsp;" }}<span class="cursor" />
+        &nbsp;<span class="cursor" />
       </span>
     </template>
   </h2>
 </template>
 
 <script setup lang="ts">
-const properties = defineProps<{ title: string }>()
+const properties = withDefaults(
+  defineProps<{
+    title: string
+    autoAnimation?: boolean
+  }>(),
+  {
+    autoAnimation: false,
+  }
+)
 
-const { y: scrollY } = useWindowScroll()
 const words = computed(() =>
   properties.title
     .trim()
     .split(' ')
     .map(word => [...word])
 )
+
 const isCursorBlinking = ref(false)
 const initialCursorOpacity = ref('1')
 const currentLetterCount = ref(0)
@@ -66,19 +74,6 @@ const originalStringLength = computed(
   () =>
     properties.title.trim().replaceAll(' ', '').length + words.value.length - 1
 )
-const headline = ref<HTMLElement | undefined>(undefined)
-let cursorBlinkTimeout: number | NodeJS.Timeout | undefined
-
-const animationConfig = {
-  onViewportChange: (isInViewport: boolean) => {
-    if (isInViewport) {
-      useEventListener('scroll', updateLetterCount)
-    } else {
-      removeEventListener('scroll', updateLetterCount)
-      clearTimeout(cursorBlinkTimeout as NodeJS.Timeout)
-    }
-  },
-}
 
 const getLetterStyle = (index: number) => ({
   '--letter-opacity': index < currentLetterCount.value ? '1' : '0',
@@ -93,7 +88,57 @@ const getGlobalIndex = (wordIndex: number, letterIndex: number) => {
   return globalIndex + letterIndex
 }
 
+const isCursorBlinkingTimeout = ref(false)
+
+const { start: startCursorBlinkTimeout, stop: stopCursorBlinkTimeout } =
+  useTimeoutFn(
+    () => {
+      isCursorBlinking.value = true
+      isCursorBlinkingTimeout.value = false
+    },
+    1,
+    { immediate: false }
+  )
+
+const setCursorBlink = (state: boolean) => {
+  stopCursorBlinkTimeout()
+  isCursorBlinking.value = state
+  if (!state) {
+    isCursorBlinkingTimeout.value = true
+    startCursorBlinkTimeout()
+  }
+}
+
+const autoAnimationCleanup = ref<(() => void) | undefined>(undefined)
+
+const startAutoAnimation = () => {
+  stopAutoAnimation()
+  const { pause } = useIntervalFn(
+    () => {
+      if (currentLetterCount.value < originalStringLength.value) {
+        currentLetterCount.value++
+        setCursorBlink(false)
+        initialCursorOpacity.value = '0'
+      } else {
+        pause()
+        setCursorBlink(true)
+      }
+    },
+    100,
+    { immediate: true }
+  )
+  autoAnimationCleanup.value = pause
+}
+
+const stopAutoAnimation = () => {
+  autoAnimationCleanup.value?.()
+  autoAnimationCleanup.value = undefined
+}
+
+const stopScrollListener = ref<(() => void) | undefined>(undefined)
+
 let lastScrollY = 0
+const { y: scrollY } = useWindowScroll()
 
 const updateLetterCount = () => {
   const scrollThreshold = 20
@@ -121,6 +166,45 @@ const updateLetterCount = () => {
   }
 }
 
+const animationConfig = {
+  onViewportChange: (isInViewport: boolean) => {
+    if (!properties.autoAnimation) {
+      if (isInViewport) {
+        stopScrollListener.value = useEventListener(
+          'scroll',
+          updateLetterCount
+        )
+      } else {
+        stopScrollListener.value?.()
+        stopScrollListener.value = undefined
+        stopCursorBlinkTimeout()
+      }
+    }
+  },
+}
+
+onMounted(() => {
+  if (properties.autoAnimation) {
+    startAutoAnimation()
+  }
+
+  watch(
+    () => properties.autoAnimation,
+    (valueNew) => {
+      if (valueNew) {
+        startAutoAnimation()
+      } else {
+        stopAutoAnimation()
+      }
+    },
+    { immediate: false }
+  )
+
+  if (!properties.autoAnimation) {
+    stopScrollListener.value = useEventListener('scroll', updateLetterCount)
+  }
+})
+
 watch(currentLetterCount, (countNew, countOld) => {
   switch (true) {
     case countNew === 0: {
@@ -138,15 +222,11 @@ watch(currentLetterCount, (countNew, countOld) => {
   }
 })
 
-const setCursorBlink = (state: boolean) => {
-  clearTimeout(cursorBlinkTimeout as NodeJS.Timeout)
-  isCursorBlinking.value = state
-  if (!state) {
-    cursorBlinkTimeout = setTimeout(() => {
-      isCursorBlinking.value = true
-    }, 1)
-  }
-}
+onBeforeUnmount(() => {
+  stopAutoAnimation()
+  stopScrollListener.value?.()
+  stopCursorBlinkTimeout()
+})
 </script>
 
 <style scoped>
@@ -154,14 +234,8 @@ const setCursorBlink = (state: boolean) => {
   font-size: 80px;
   line-height: 1;
   font-weight: 700;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
 }
 
 @media only screen and (max-width: 1023px) {
@@ -169,14 +243,8 @@ const setCursorBlink = (state: boolean) => {
     font-size: 54px;
     line-height: 1.037037037;
     font-weight: 700;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
   }
 }
 
@@ -185,14 +253,8 @@ const setCursorBlink = (state: boolean) => {
     font-size: 32px;
     line-height: 1.125;
     font-weight: 700;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
   }
 }
 
