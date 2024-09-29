@@ -19,7 +19,7 @@
     >
       <div style="transform: translateY(0px); opacity: 1; pointer-events: auto">
         <figure class="stat typography-site-stat-caption highlight">
-          <strong ref="titleElement">{{ item.title }}</strong>
+          <strong :ref="(el) => { if (el) titleElements[index] = el as HTMLElement }">{{ item.title }}</strong>
           {{ item.description }}
         </figure>
       </div>
@@ -34,7 +34,7 @@ defineProps<{
   title: string
 }>()
 
-const titleElement = ref<HTMLElement | undefined>(undefined)
+const titleElements = ref<HTMLElement[]>([])
 const chipClaimHeight = ref(0)
 
 const { tm } = useI18n()
@@ -42,11 +42,18 @@ const funFacts = computed<BasicPropertiesType[]>(() =>
   tm('components.containers.funFacts')
 )
 
+const updateChipClaimHeight = () => {
+  nextTick(() => {
+    const maxHeight = Math.max(...titleElements.value.map(element => element.clientHeight))
+    chipClaimHeight.value = maxHeight
+  })
+}
+
 onMounted(() => {
-  const titleHeight = titleElement.value?.clientHeight
-  if (!titleHeight) return
-  chipClaimHeight.value = titleHeight
+  updateChipClaimHeight()
 })
+
+useEventListener(window, 'resize', updateChipClaimHeight)
 </script>
 
 <style scoped>
