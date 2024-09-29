@@ -8,16 +8,16 @@
     <li
       v-for="(item, index) in funFacts"
       :key="index"
+      v-animation="{ add: 'visible' }"
       class="chip-claim"
       role="listitem"
       tabindex="-1"
+      data-textanim-1
       :style="{
-        'visibility': 'visible',
-        'opacity': 1,
         '--chip-claim-height': `${chipClaimHeight - 12}px`,
       }"
     >
-      <div style="transform: translateY(0px); opacity: 1; pointer-events: auto">
+      <div style="">
         <figure class="stat typography-site-stat-caption highlight">
           <strong :ref="(el) => { if (el) titleElements[index] = el as HTMLElement }">{{ item.title }}</strong>
           {{ item.description }}
@@ -57,6 +57,11 @@ useEventListener(window, 'resize', updateChipClaimHeight)
 </script>
 
 <style scoped>
+.visible {
+  transform: translateY(0px) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
 .chip-claims-list {
   margin-top: 3em;
   font-size: 28px;
