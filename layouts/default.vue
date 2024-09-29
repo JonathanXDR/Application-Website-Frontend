@@ -7,7 +7,7 @@
         'hide-localnav': y > ribbonBarHeight && shouldHideNavbar,
       }]"
     >
-      <NavBarV2
+      <NavBar
         v-if="shouldShow('nav')"
         :border="y < ribbonBarHeight"
         :auto-hide="true"
