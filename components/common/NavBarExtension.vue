@@ -1,5 +1,13 @@
 <template>
-  <div class="filter-input-sticky-wrapper is-sticky">
+  <div
+    ref="stickyWrapper"
+    class="filter-input-sticky-wrapper"
+    :class="{ 'is-sticky': isSticky }"
+    :style="{
+      'transform': transformValue,
+      '--navbar-height': `${navbarHeight}px`,
+    }"
+  >
     <div class="filter-input-container">
       <div class="container">
         <slot />
@@ -8,22 +16,49 @@
   </div>
 </template>
 
+<script setup lang="ts">
+const stickyWrapper = ref<HTMLElement | undefined>(undefined)
+const { width: windowWidth } = useWindowSize()
+const shouldHideNavbar = useState('shouldHideNavbar')
+
+const navbarHeight = computed(() => (windowWidth.value <= 1279 ? 48 : 52))
+
+const isSticky = ref(false)
+
+const handleScroll = () => {
+  if (!stickyWrapper.value) return
+
+  const stickyOffset = stickyWrapper.value.offsetTop
+  const adjustedScroll =
+    window.scrollY + (shouldHideNavbar.value ? 0 : navbarHeight.value)
+
+  isSticky.value = adjustedScroll >= stickyOffset
+}
+
+const transformValue = computed(() => {
+  if (!isSticky.value && !shouldHideNavbar.value) return `translateY(${navbarHeight.value}px)`
+  return isSticky.value && shouldHideNavbar.value
+    ? 'translateY(0)'
+    : `translateY(${navbarHeight.value}px)`
+})
+
+onMounted(() => {
+  handleScroll()
+  useEventListener(window, 'scroll', handleScroll, { passive: true })
+})
+</script>
+
 <style scoped>
 .filter-input-sticky-wrapper {
   width: 100%;
   position: sticky;
-  top: 52px;
+  top: 0;
   z-index: 5;
+  transition: transform 0.23s ease;
 }
 
-@media only screen and (max-width: 1279px) {
-  .filter-input-sticky-wrapper {
-    top: 48px;
-  }
-}
-
-.filter-input-sticky-wrapper .filter-input-container {
-  padding: 10px 0;
+.filter-input-container {
+  padding: 0.76471em 0;
   background-color: var(--color-menu);
   transition: border-bottom 0.2s ease-out;
   backdrop-filter: saturate(180%) blur(20px);
