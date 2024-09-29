@@ -268,9 +268,11 @@ onMounted(() => {
   updateUlHeightAndInitializePath()
 })
 
-watch([userRepositories, pinnedProjects], () => {
-  if (pinnedProjects.value) {
-    for (const project of pinnedProjects.value) {
+watch(
+  pinnedProjects,
+  (pinnedProjectsNew) => {
+    if (!pinnedProjectsNew) return
+    for (const project of pinnedProjectsNew) {
       project.icon = {
         name: 'pin.fill',
         colors: {
@@ -278,18 +280,18 @@ watch([userRepositories, pinnedProjects], () => {
         },
       }
     }
-    pinned.value = pinnedProjects.value
-  }
+    pinned.value = pinnedProjectsNew || []
+  },
+  { immediate: true }
+)
 
-  if (userRepositories.value) {
-    projects.personal = []
-    projects.school = []
-    for (const project of filteredProjects.value.map(element =>
-      categorizeProject(element)
-    )) {
-      const category = project.category as keyof Projects
-      projects[category].push(project)
-    }
+watchEffect(() => {
+  projects.personal = []
+  projects.school = []
+  const categorizedProjects = filteredProjects.value.map(project => categorizeProject(project))
+  for (const project of categorizedProjects) {
+    const category = project.category as keyof Projects
+    projects[category].push(project)
   }
 })
 
@@ -363,11 +365,5 @@ onUnmounted(() => {
   .timeline .article:nth-child(even) {
     align-self: flex-end;
   }
-}
-
-.error-message {
-  text-align: center;
-  color: var(--color-error);
-  padding: 20px;
 }
 </style>
