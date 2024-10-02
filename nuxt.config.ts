@@ -28,15 +28,6 @@ export default defineNuxtConfig({
     strict: true,
   },
 
-  eslint: {
-    config: {
-      // stylistic: true,
-      typescript: {
-        strict: true,
-      },
-    },
-  },
-
   ssr: true,
 
   compatibilityDate: "2024-07-03",
