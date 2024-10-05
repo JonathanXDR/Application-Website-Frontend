@@ -17,15 +17,13 @@
 </template>
 
 <script setup lang="ts">
-const stickyWrapper = ref<HTMLElement | undefined>(undefined)
-const { width: windowWidth } = useWindowSize()
-const shouldHideNavbar = useState<boolean>('shouldHideNavbar')
-
 const { setState } = useNavbar()
+const { width: windowWidth } = useWindowSize()
 
-const navbarHeight = computed(() => (windowWidth.value <= 1279 ? 48 : 52))
-
+const shouldHideNavbar = useState<boolean>('shouldHideNavbar')
+const stickyWrapper = ref<HTMLElement | undefined>(undefined)
 const isSticky = ref(false)
+const navbarHeight = computed(() => (windowWidth.value < 768 ? 48 : 52))
 
 const handleScroll = () => {
   if (!stickyWrapper.value) return
