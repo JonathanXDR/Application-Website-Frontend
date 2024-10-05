@@ -9,10 +9,10 @@
     <div v-else>
       <ul>
         <li
-          v-for="album in albums"
+          v-for="album in view?.data"
           :key="album.id"
         >
-          {{ album.attributes?.name }}
+          {{ album.attributes?.artwork.url }}
         </li>
       </ul>
     </div>
@@ -29,10 +29,16 @@ definePageMeta({
 })
 
 const {
-  data: albums,
+  data: view,
   status,
   error,
-} = await useFetch<MusicKit.Albums[]>('/api/musickit/user-library-albums', {
-  params: { ids: '1616728060' },
-})
+} = await useFetch<MusicKit.View<MusicKit.Albums>>(
+  '/api/musickit/user-library-albums',
+  {
+    key: 'user-library-albums',
+    lazy: true,
+    params: { ids: '1616728060' },
+    getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
+  }
+)
 </script>
