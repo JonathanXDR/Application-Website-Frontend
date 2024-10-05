@@ -1,4 +1,4 @@
-/* eslint-disable prefer-rest-params, @typescript-eslint/consistent-type-imports, @typescript-eslint/no-import-type-side-effects, unicorn/prevent-abbreviations */
+/* eslint-disable prefer-rest-params, @typescript-eslint/consistent-type-imports, @typescript-eslint/no-import-type-side-effects */
 
 import {
   type App,

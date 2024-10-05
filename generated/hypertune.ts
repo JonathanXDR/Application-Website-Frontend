@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-empty-object-type, unicorn/no-null, unicorn/prevent-abbreviations */
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 
 import * as sdk from 'hypertune'
 

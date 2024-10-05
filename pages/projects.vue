@@ -246,8 +246,7 @@ const updateCurrentIndex = (index: number) => {
 const categorizeProject = (
   project: MinimalRepository
 ): CategorizedRepository => {
-  const schoolProjectPattern =
-    /(M\d{3})|(UEK-\d{3})|(UEK-\d{3}-\w+)|((UEK|TBZ)-Modules)/
+  const schoolProjectPattern = /M\d{3}|UEK-\d{3}(?:-\w+)?|(?:UEK|TBZ)-Modules/
   const category = schoolProjectPattern.test(project.name)
     ? 'school'
     : 'personal'

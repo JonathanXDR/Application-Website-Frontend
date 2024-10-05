@@ -15,7 +15,7 @@ interface AnimationState {
 const animationState = new WeakMap<HTMLElement, AnimationState>()
 
 const toArray = (input?: string | string[]): string[] =>
-  Array.isArray(input) ? input : (input ? [input] : [])
+  Array.isArray(input) ? input : input ? [input] : []
 
 const updateClasses = (
   element: HTMLElement,

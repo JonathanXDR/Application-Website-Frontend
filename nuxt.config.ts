@@ -53,6 +53,7 @@ export default defineNuxtConfig({
 
   eslint: {
     config: {
+      tooling: true,
       stylistic: true,
       typescript: {
         strict: true,

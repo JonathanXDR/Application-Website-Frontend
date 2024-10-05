@@ -57,7 +57,7 @@ const computedStyle = computed(() => ({
     ? defaultColors.secondary
     : properties.colors?.secondary,
   '--color-figure-background-hover': properties.loading
-    ? defaultColors.secondary
+    ? defaultColors.tertiary
     : properties.colors?.tertiary,
   '--color-figure-border':
     properties.loading || !properties.border
