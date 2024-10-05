@@ -2,7 +2,7 @@
   <h1>{{ title }}</h1>
   <ul
     role="list"
-    aria-label="M2 Ultra capabilities"
+    aria-label="Fun Facts"
     class="chip-claims-list stat"
   >
     <li
@@ -17,15 +17,11 @@
         '--chip-claim-height': `${chipClaimHeight - 12}px`,
       }"
     >
-      <div style="">
+      <div>
         <figure class="stat typography-site-stat-caption highlight">
-          <strong
-            :ref="
-              (el) => {
-                if (el) titleElements[index] = el as HTMLElement;
-              }
-            "
-          >{{ item.title }}</strong>
+          <strong ref="titleElements">
+            <span ref="progressSpan">{{ item.progress.toLocaleString('en-US') }}</span>
+          </strong>
           {{ item.description }}
         </figure>
       </div>
@@ -34,17 +30,19 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicPropertiesType } from '~/types/common/basic-properties'
+import gsap from 'gsap';
+import type { LanguageBarType } from '~/types/common/language-bar';
 
 defineProps<{
   title: string
 }>()
 
+const { tm } = useI18n()
 const titleElements = ref<HTMLElement[]>([])
+const progressSpan = ref<HTMLElement[]>([])
 const chipClaimHeight = ref(0)
 
-const { tm } = useI18n()
-const funFacts = computed<BasicPropertiesType[]>(() =>
+const funFacts = computed<LanguageBarType[]>(() =>
   tm('components.containers.funFacts')
 )
 
@@ -57,8 +55,28 @@ const updateChipClaimHeight = () => {
   })
 }
 
+const animateNumbers = () => {
+  progressSpan.value.forEach((span, index) => {
+    const endValue = funFacts.value[index]?.progress ?? 0
+    gsap.fromTo(
+      span,
+      { innerHTML: '0' },
+      {
+        innerHTML: endValue,
+        duration: 2,
+        ease: 'power1.out',
+        snap: { innerHTML: 1 },
+        onUpdate: function () {
+          span.innerHTML = Number.parseInt(span.innerHTML).toLocaleString('en-US')
+        }
+      }
+    )
+  })
+}
+
 onMounted(() => {
   updateChipClaimHeight()
+  animateNumbers()
 })
 
 useEventListener(window, 'resize', updateChipClaimHeight)
