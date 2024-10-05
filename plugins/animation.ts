@@ -1,3 +1,4 @@
+import type { MaybeElementRef } from '@vueuse/core'
 import type { DirectiveBinding } from 'vue'
 
 interface AnimationOperations {
@@ -28,21 +29,13 @@ const updateClasses = (
   }
 
   if (isInViewport) {
-    for (const elementClass of toArray(add)) {
-      element.classList.add(elementClass)
-    }
-    for (const elementClass of toArray(remove)) {
-      element.classList.remove(elementClass)
-    }
-    for (const elementClass of toArray(toggle)) {
-      element.classList.toggle(elementClass)
-    }
+    element.classList.add(...toArray(add))
+    element.classList.remove(...toArray(remove))
+    toArray(toggle).forEach(cls => element.classList.toggle(cls))
     state.inViewport = true
     state.wasInViewport = true
   } else {
-    for (const elementClass of toArray(toggle)) {
-      element.classList.toggle(elementClass)
-    }
+    toArray(toggle).forEach(cls => element.classList.toggle(cls))
     state.inViewport = false
   }
 
@@ -51,14 +44,16 @@ const updateClasses = (
 }
 
 const createObserver = (
-  element: HTMLElement,
+  element: MaybeElementRef,
   options: AnimationOperations,
   rootMargin: string
-): IntersectionObserver => {
-  return new IntersectionObserver(
+) => {
+  return useIntersectionObserver(
+    element,
     (entries) => {
       for (const entry of entries) {
-        updateClasses(element, options, entry.isIntersecting)
+        const resolvedElement = unref(element) as HTMLElement
+        updateClasses(resolvedElement, options, entry.isIntersecting)
       }
     },
     { threshold: 0.5, rootMargin }
@@ -72,8 +67,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       binding: DirectiveBinding<AnimationOperations>
     ) {
       const { value } = binding
-      let observer = createObserver(element, value, '0px 0px -200px 0px')
-      observer.observe(element)
+      let { stop } = createObserver(element, value, '0px 0px -200px 0px')
 
       const updateObserver = () => {
         const { scrollTop, scrollHeight, clientHeight } =
@@ -83,17 +77,14 @@ export default defineNuxtPlugin((nuxtApp) => {
           ? '-100px 0px 0px 0px'
           : '0px 0px -200px 0px'
 
-        observer.disconnect()
-        observer = createObserver(element, value, rootMargin)
-        observer.observe(element)
+        stop();
+        ({ stop } = createObserver(element, value, rootMargin))
       }
 
       useEventListener(window, 'scroll', updateObserver, { passive: true })
 
       if (animationState.get(element)?.wasInViewport) {
-        for (const elementClass of toArray(value.add)) {
-          element.classList.add(elementClass)
-        }
+        element.classList.add(...toArray(value.add))
       }
     },
     updated (
@@ -102,19 +93,12 @@ export default defineNuxtPlugin((nuxtApp) => {
     ) {
       if (animationState.get(element)?.wasInViewport) {
         const { add, remove, toggle } = binding.value
-        for (const elementClass of toArray(add)) {
-          element.classList.add(elementClass)
-        }
-        for (const elementClass of toArray(remove)) {
-          element.classList.remove(elementClass)
-        }
-        for (const elementClass of toArray(toggle)) {
-          element.classList.toggle(elementClass)
-        }
+        element.classList.add(...toArray(add))
+        element.classList.remove(...toArray(remove))
+        toArray(toggle).forEach(cls => element.classList.toggle(cls))
       }
     },
     unmounted (element: HTMLElement) {
-      removeEventListener('scroll', () => {})
       animationState.delete(element)
     },
   })
