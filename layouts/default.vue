@@ -5,11 +5,7 @@
       v-if="shouldShow('header')"
       :class="{ 'hide-localnav': shouldApplyHideLocalnav }"
     >
-      <NavBar
-        v-if="shouldShow('nav')"
-        :border="y < ribbonBarHeight"
-        :auto-hide="autoHideNavbar"
-      />
+      <NavBar v-if="shouldShow('nav')" />
       <div
         v-if="shouldShow('ribbon')"
         ref="ribbonBarElement"
@@ -36,6 +32,7 @@ import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterFull from '~/components/common/Footer/Full.vue'
 import type { RibbonBar } from '~/types/common/ribbon-bar'
 
+const { state, setState } = useNavbar()
 const { randomDevColor } = useColor()
 const route = useRoute()
 const { currentSection } = useSection()
@@ -115,6 +112,19 @@ watchEffect(() => {
     ],
   })
 })
+
+watch(
+  () => [
+    y.value < ribbonBarHeight.value || state.value.extensionAttached,
+    autoHideNavbar.value,
+  ],
+  ([border, autoHide]) => {
+    setState({
+      border,
+      autoHide,
+    })
+  }
+)
 
 const errorConfig = {
   header: false,

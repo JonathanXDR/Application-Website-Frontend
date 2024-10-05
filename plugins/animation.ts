@@ -88,7 +88,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         observer.observe(element)
       }
 
-      useEventListener('scroll', updateObserver, { passive: true })
+      useEventListener(window, 'scroll', updateObserver, { passive: true })
 
       if (animationState.get(element)?.wasInViewport) {
         for (const elementClass of toArray(value.add)) {

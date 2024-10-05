@@ -19,7 +19,9 @@
 <script setup lang="ts">
 const stickyWrapper = ref<HTMLElement | undefined>(undefined)
 const { width: windowWidth } = useWindowSize()
-const shouldHideNavbar = useState('shouldHideNavbar')
+const shouldHideNavbar = useState<boolean>('shouldHideNavbar')
+
+const { setState } = useNavbar()
 
 const navbarHeight = computed(() => (windowWidth.value <= 1279 ? 48 : 52))
 
@@ -33,6 +35,7 @@ const handleScroll = () => {
     window.scrollY + (shouldHideNavbar.value ? 0 : navbarHeight.value)
 
   isSticky.value = adjustedScroll >= stickyOffset
+  setState({ extensionAttached: isSticky.value })
 }
 
 const transformValue = computed(() => {
@@ -42,9 +45,9 @@ const transformValue = computed(() => {
     : `translateY(${navbarHeight.value}px)`
 })
 
+useEventListener(window, 'scroll', handleScroll, { passive: true })
 onMounted(() => {
   handleScroll()
-  useEventListener(window, 'scroll', handleScroll, { passive: true })
 })
 </script>
 

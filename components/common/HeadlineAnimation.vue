@@ -171,6 +171,7 @@ const animationConfig = {
     if (!properties.autoAnimation) {
       if (isInViewport) {
         stopScrollListener.value = useEventListener(
+          window,
           'scroll',
           updateLetterCount
         )
@@ -201,7 +202,11 @@ onMounted(() => {
   )
 
   if (!properties.autoAnimation) {
-    stopScrollListener.value = useEventListener('scroll', updateLetterCount)
+    stopScrollListener.value = useEventListener(
+      window,
+      'scroll',
+      updateLetterCount
+    )
   }
 })
 

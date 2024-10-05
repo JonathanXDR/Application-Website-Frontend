@@ -12,8 +12,8 @@
   <div
     id="ac-ln-fixed-placeholder"
     :class="[
-      { 'css-sticky ac-ln-sticking': position === 'sticky' },
-      { 'css-fixed ac-ln-sticking': position === 'fixed' },
+      { 'css-sticky ac-ln-sticking': state.position === 'sticky' },
+      { 'css-fixed ac-ln-sticking': state.position === 'fixed' },
     ]"
   />
   <nav
@@ -21,11 +21,11 @@
     ref="navbarElement"
     :class="[
       'ac-ln-allow-transitions',
-      { 'css-sticky ac-ln-sticking': position === 'sticky' },
-      { 'css-fixed ac-ln-sticking': position === 'fixed' },
-      { 'ac-localnav-noborder': !border },
-      { 'ac-localnav-scrim': scrim },
-      { 'ac-ln-hide': autoHide },
+      { 'css-sticky ac-ln-sticking': state.position === 'sticky' },
+      { 'css-fixed ac-ln-sticking': state.position === 'fixed' },
+      { 'ac-localnav-noborder': !state.border },
+      { 'ac-localnav-scrim': state.scrim },
+      { 'ac-ln-hide': state.autoHide },
       { 'ac-ln-open': navOpen },
       { 'ac-ln-opening': navOpening },
     ]"
@@ -193,13 +193,14 @@ import type { ItemType } from '~/types/common/item'
 import type { NavBarType } from '~/types/common/nav-bar'
 import type { SectionType } from '~/types/common/section'
 
-withDefaults(defineProps<NavBarType>(), {
+const properties = withDefaults(defineProps<NavBarType>(), {
   autoHide: false,
   border: true,
   scrim: true,
   position: 'fixed',
 })
 
+const { state, setState } = useNavbar()
 const { randomDevColor } = useColor()
 const { currentSection } = useSection()
 const { getTheme, setTheme } = useTheme()
@@ -252,6 +253,13 @@ const visibleNavItems = computed(() => {
 if (!featureFlags) {
   throw new Error('Feature flags not provided')
 }
+
+setState({
+  autoHide: properties.autoHide,
+  border: properties.border,
+  scrim: properties.scrim,
+  position: properties.position,
+})
 
 const initHeaderAnimations = () => {
   const animation = {
@@ -341,7 +349,7 @@ watch(getTheme, (themeNew, themeOld) => {
   updateAnimations()
 })
 
-useEventListener('scroll', handleScroll)
+useEventListener(window, 'scroll', handleScroll)
 useEventListener(window, 'resize', () => {
   updateBorderPosition()
   updateTrayHeight()

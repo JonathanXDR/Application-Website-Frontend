@@ -74,8 +74,8 @@ const setupIntersectionObserver = () => {
   useIntersectionObserver(svgElement, ([entry]) => {
     if (entry?.isIntersecting) {
       initialAnimatePath()
-      useEventListener('scroll', animatePath)
-      useEventListener('resize', initializePath)
+      useEventListener(window, 'scroll', animatePath)
+      useEventListener(window, 'resize', initializePath)
     } else {
       removeEventListener('scroll', animatePath)
       removeEventListener('resize', initializePath)
