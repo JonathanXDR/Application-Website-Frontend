@@ -8,7 +8,11 @@
     <li
       v-for="(item, index) in funFacts"
       :key="index"
-      v-animation="{ add: 'visible', key: `chip-claim-${index}`, inViewport: itemInViewport }"
+      v-animation="{
+        add: 'visible',
+        key: `chip-claim-${index}`,
+        onEnter: () => animateNumber(index),
+      }"
       class="chip-claim"
       role="listitem"
       tabindex="-1"
@@ -20,9 +24,21 @@
       <div>
         <figure class="stat typography-site-stat-caption highlight">
           <strong ref="titleElements">
-            <span ref="progressSpan">{{
-              item.progress.toLocaleString("en-US")
-            }}</span>
+            <span
+              :ref="
+                (el) => {
+                  if (el) progressSpan[index] = el as HTMLElement;
+                }
+              "
+            >
+              {{
+                item.progress.toLocaleString(locale, {
+                  notation: viewport.isLessThan("tablet")
+                    ? "compact"
+                    : "standard",
+                })
+              }}
+            </span>
           </strong>
           {{ item.description }}
         </figure>
@@ -32,17 +48,17 @@
 </template>
 
 <script setup lang="ts">
-import { gsap } from 'gsap';
-import type { LanguageBarType } from '~/types/common/language-bar';
+import { gsap } from 'gsap'
+import type { LanguageBarType } from '~/types/common/language-bar'
 
 defineProps<{
   title: string
 }>()
 
-const { tm, localeProperties } = useI18n()
+const { tm, locale } = useI18n()
+const viewport = useViewport()
 
 const chipClaimHeight = ref(0)
-const itemInViewport = ref(false)
 const titleElements = ref<HTMLElement[]>([])
 const progressSpan = ref<HTMLElement[]>([])
 const funFacts = computed<LanguageBarType[]>(() =>
@@ -58,33 +74,29 @@ const updateChipClaimHeight = () => {
   })
 }
 
-const animateNumbers = () => {
-  progressSpan.value.forEach((span, index) => {
-    gsap.fromTo(
-      span,
-      { innerHTML: 0 },
-      {
-        innerHTML: funFacts.value[index]?.progress,
-        duration: 2,
-        ease: 'power2.inOut',
-        onUpdate: function () {
-          span.innerHTML = Number.parseInt(span.innerHTML).toLocaleString(
-            localeProperties.value.language
-          )
-        },
-      }
-    )
-  })
+const animateNumber = (index: number) => {
+  const span = progressSpan.value[index]
+  if (!span) return
+
+  gsap.fromTo(
+    span,
+    { innerHTML: '0' },
+    {
+      innerHTML: funFacts.value[index]?.progress.toString(),
+      duration: 1,
+      ease: 'power2.inOut',
+      onUpdate: function () {
+        span.innerHTML = Number.parseInt(span.innerHTML).toLocaleString(
+          locale.value,
+          { notation: viewport.isLessThan('tablet') ? 'compact' : 'standard' }
+        )
+      },
+    }
+  )
 }
 
 onMounted(() => {
   updateChipClaimHeight()
-})
-
-watch(itemInViewport, (value) => {
-  console.log(value)
-  if (!value) return
-  animateNumbers()
 })
 
 useEventListener(window, 'resize', updateChipClaimHeight)
@@ -124,6 +136,12 @@ useEventListener(window, 'resize', updateChipClaimHeight)
   grid-gap: var(--stats-gap);
   gap: var(--stats-gap);
 }
+@media only screen and (max-width: 767px) {
+  .chip-claims-list {
+    --stats-gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  }
+}
 .typography-site-stat-caption {
   font-size: 21px;
   line-height: 1.381002381;
@@ -143,11 +161,12 @@ useEventListener(window, 'resize', updateChipClaimHeight)
     line-height: 1.4705882353;
     font-weight: 600;
     font-family:
-      SF Pro Text,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
