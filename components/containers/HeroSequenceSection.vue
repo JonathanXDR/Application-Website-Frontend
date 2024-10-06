@@ -184,8 +184,8 @@
 </template>
 
 <script setup lang="ts">
-import { gsap } from 'gsap';
-import type { CSSProperties } from 'vue';
+import { gsap } from 'gsap'
+import type { CSSProperties } from 'vue'
 
 const headlineText = 'Privacy. That&nbsp;s Apple.'
 const headlineChars = headlineText.split('')
@@ -741,11 +741,14 @@ onMounted(() => {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   position: relative;
-  padding-top: calc(
-    max(
-      var(--min-pad-top),
-      var(--min-pad-top) + var(--background-image-height) * var(--pos) *
-        (var(--background-multiplier) - 1)
+  padding-top: max(
+    var(--min-pad-top),
+    calc(
+      var(--min-pad-top) +
+        (
+          var(--background-image-height) * var(--pos) *
+            (var(--background-multiplier) - 1)
+        )
     )
   );
 }

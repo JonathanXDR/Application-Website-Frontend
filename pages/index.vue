@@ -21,8 +21,8 @@
 </template>
 
 <script setup lang="ts">
-import type { FeatureFlags } from '~/types/common/feature-flags';
-import type { SectionType } from '~/types/common/section';
+import type { FeatureFlags } from '~/types/common/feature-flags'
+import type { SectionType } from '~/types/common/section'
 
 defineOgImageComponent('Overview')
 
