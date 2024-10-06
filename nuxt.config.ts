@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
     'nuxt-security',
+    'nuxt-viewport',
   ],
 
   css: ['~/assets/css/main.css'],
@@ -188,6 +189,20 @@ export default defineNuxtConfig({
 
   router: {
     options: routerOptions,
+  },
+
+  viewport: {
+    breakpoints: {
+      mobile: 320,
+      mobileMedium: 475,
+      mobileWide: 640,
+      tablet: 768,
+      desktop: 1024,
+      desktopMedium: 1280,
+      desktopWide: 1536,
+    },
+
+    fallbackBreakpoint: 'lg',
   },
 
   runtimeConfig: {

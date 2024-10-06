@@ -18,7 +18,7 @@
           :value="computedLocale.code"
         >
           {{
-            windowWidth >= 1024
+            viewport.isGreaterOrEquals("desktop")
               ? computedLocale.name
               : computedLocale.code.toUpperCase()
           }}
@@ -44,7 +44,7 @@ const properties = withDefaults(
   }
 )
 
-const { windowWidth } = useWidth()
+const viewport = useViewport()
 const { changeLanguage } = useLanguage()
 const { locale, locales } = useI18n()
 const selectedLocale = ref(locale.value)

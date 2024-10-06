@@ -9,11 +9,11 @@
         variant: 'article',
         hover: 'false',
         loading: false,
-        componentSize: windowWidth < 769 ? 'small' : 'medium',
+        componentSize: viewport.isLessThan('tablet') ? 'small' : 'medium',
         icon: {
           ...article.icon,
           name: article.icon?.name || '',
-          position: windowWidth < 769 ? 'top' : 'left',
+          position: viewport.isLessThan('tablet') ? 'top' : 'left',
         },
         info: {
           ...article?.info,
@@ -31,7 +31,7 @@ defineProps<{
 }>()
 
 const { tm } = useI18n()
-const { windowWidth } = useWidth()
+const viewport = useViewport()
 const articles = computed<CardItemType[]>(() =>
   tm('components.containers.references')
 )

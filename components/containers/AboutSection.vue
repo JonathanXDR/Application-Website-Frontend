@@ -31,9 +31,12 @@
       v-bind="{
         variant: 'article',
         hover: 'false',
-        alignment: windowWidth < 1281 ? 'center' : 'start',
-        componentSize:
-          windowWidth < 769 ? 'small' : windowWidth < 1281 ? 'medium' : 'large',
+        alignment: viewport.isLessThan('desktopMedium') ? 'center' : 'start',
+        componentSize: viewport.isLessThan('tablet')
+          ? 'small'
+          : viewport.isLessThan('desktopMedium')
+            ? 'medium'
+            : 'large',
         loading: false,
         eyebrow: $t('components.containers.about.eyebrow'),
         title: $t('components.containers.about.title'),
@@ -67,7 +70,7 @@ const dates = ref<{
   age: undefined,
   apprenticeshipYear: undefined,
 })
-const { windowWidth } = useWidth()
+const viewport = useViewport()
 
 const calculateYears = (date: string) => {
   const currentDate = new Date(Date.now())

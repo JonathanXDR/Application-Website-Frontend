@@ -168,7 +168,7 @@
                 gap="5px"
                 component-size="xsmall"
                 :focus="false"
-                :label="windowWidth >= 1024 ? 'text' : 'icon'"
+                :label="viewport.isGreaterOrEquals('desktop') ? 'text' : 'icon'"
                 :selected-item="getTheme()"
                 :on-select="(themeNew: string) => setTheme(themeNew)"
               />
@@ -205,7 +205,7 @@ const { randomDevColor } = useColor()
 const { currentSection } = useSection()
 const { getTheme, setTheme } = useTheme()
 const { y: scrollY } = useWindowScroll()
-const { windowWidth } = useWidth()
+const viewport = useViewport()
 const { headerAnimations, setHeaderAnimation } = useAnimation()
 const config = useRuntimeConfig()
 const route = useRoute()

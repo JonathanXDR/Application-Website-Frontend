@@ -20,7 +20,9 @@
       <div>
         <figure class="stat typography-site-stat-caption highlight">
           <strong ref="titleElements">
-            <span ref="progressSpan">{{ item.progress.toLocaleString('en-US') }}</span>
+            <span ref="progressSpan">{{
+              item.progress.toLocaleString("en-US")
+            }}</span>
           </strong>
           {{ item.description }}
         </figure>
@@ -30,8 +32,8 @@
 </template>
 
 <script setup lang="ts">
-import gsap from 'gsap';
-import type { LanguageBarType } from '~/types/common/language-bar';
+import gsap from 'gsap'
+import type { LanguageBarType } from '~/types/common/language-bar'
 
 defineProps<{
   title: string
@@ -67,8 +69,10 @@ const animateNumbers = () => {
         ease: 'power1.out',
         snap: { innerHTML: 1 },
         onUpdate: function () {
-          span.innerHTML = Number.parseInt(span.innerHTML).toLocaleString('en-US')
-        }
+          span.innerHTML = Number.parseInt(span.innerHTML).toLocaleString(
+            'en-US'
+          )
+        },
       }
     )
   })

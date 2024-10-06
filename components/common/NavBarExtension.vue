@@ -18,12 +18,12 @@
 
 <script setup lang="ts">
 const { setState } = useNavbar()
-const { width: windowWidth } = useWindowSize()
+const viewport = useViewport()
 
 const shouldHideNavbar = useState<boolean>('shouldHideNavbar')
 const stickyWrapper = ref<HTMLElement | undefined>(undefined)
 const isSticky = ref(false)
-const navbarHeight = computed(() => (windowWidth.value < 768 ? 48 : 52))
+const navbarHeight = computed(() => (viewport.isLessThan('tablet') ? 48 : 52))
 
 const handleScroll = () => {
   if (!stickyWrapper.value) return

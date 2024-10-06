@@ -9,10 +9,10 @@
       <div class="flex flex-col items-center gap-2">
         <SegmentNav
           :items="segmentNavItems"
-          :label="windowWidth < 769 ? 'text' : 'combination'"
+          :label="viewport.isLessThan('tablet') ? 'text' : 'combination'"
           padding="0 21px"
           component-size="small"
-          :separator="windowWidth > 768"
+          :separator="viewport.isGreaterOrEquals('tablet')"
           gray-labels
           :focus="false"
           :outer-padding="3"
@@ -47,7 +47,7 @@
             variant: 'article',
             hover: 'false',
             loading: false,
-            componentSize: windowWidth < 769 ? 'small' : 'medium',
+            componentSize: viewport.isLessThan('tablet') ? 'small' : 'medium',
             info: {
               ...project.info,
               date: {
@@ -61,7 +61,7 @@
             icon: {
               ...project.icon,
               name: project.icon?.name || '',
-              position: windowWidth < 769 ? 'top' : 'left',
+              position: viewport.isLessThan('tablet') ? 'top' : 'left',
             },
           }"
         />
@@ -176,7 +176,7 @@ definePageMeta({
 
 const { tm } = useI18n()
 const { randomDevColor } = useColor()
-const { windowWidth } = useWidth()
+const viewport = useViewport()
 const config = useRuntimeConfig()
 
 const ul = ref<HTMLElement | undefined>(undefined)
@@ -285,6 +285,13 @@ watch(
   },
   { immediate: true }
 )
+
+const { width } = useWindowSize()
+// add a watch for the viewport change
+watch(width, () => {
+  console.log('viewport changed:', viewport.breakpoint.value)
+  console.log('isLessThanOrEquals tablet:', viewport.isLessThan('tablet'))
+})
 
 watchEffect(() => {
   projects.personal = []

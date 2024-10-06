@@ -10,13 +10,12 @@
         v-if="language"
         v-bind="{
           ...language,
-          componentSize:
-            windowWidth < 769
-              ? 'small'
-              : windowWidth < 1281
-                ? 'medium'
-                : 'large',
-          width: windowWidth < 769 ? 'full' : 'compact',
+          componentSize: viewport.isLessThan('tablet')
+            ? 'small'
+            : viewport.isLessThan('desktopMedium')
+              ? 'medium'
+              : 'large',
+          width: viewport.isLessThan('tablet') ? 'full' : 'compact',
         }"
       />
     </template>
@@ -31,7 +30,7 @@ defineProps<{
 }>()
 
 const { tm } = useI18n()
-const { windowWidth } = useWidth()
+const viewport = useViewport()
 const languages = computed<LanguageBarType[]>(() =>
   tm('components.containers.languages')
 )
