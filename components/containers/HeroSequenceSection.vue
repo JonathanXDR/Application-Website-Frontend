@@ -396,8 +396,14 @@
   line-height: 1.05;
   font-weight: 600;
   letter-spacing: -0.015em;
-  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 @media only screen and (max-width: 1068px) {
   .typography-overview-hero-headline {
@@ -405,8 +411,14 @@
     line-height: 1.07143;
     font-weight: 600;
     letter-spacing: -0.005em;
-    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-      "Arial", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -415,8 +427,14 @@
     line-height: 1;
     font-weight: 600;
     letter-spacing: -0.003em;
-    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-      "Arial", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .typography-overview-hero-copy {
@@ -424,8 +442,14 @@
   line-height: 1.08349;
   font-weight: 600;
   letter-spacing: -0.003em;
-  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 @media only screen and (max-width: 1068px) {
   .typography-overview-hero-copy {
@@ -433,8 +457,14 @@
     line-height: 1.1;
     font-weight: 600;
     letter-spacing: 0em;
-    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-      "Arial", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -443,8 +473,14 @@
     line-height: 1.125;
     font-weight: 600;
     letter-spacing: 0.004em;
-    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-      "Arial", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .large-9 {
@@ -464,8 +500,14 @@
   line-height: 1.05;
   font-weight: 600;
   letter-spacing: -0.015em;
-  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 @media only screen and (max-width: 1068px) {
   .typography-overview-hero-headline {
@@ -473,8 +515,14 @@
     line-height: 1.07143;
     font-weight: 600;
     letter-spacing: -0.005em;
-    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-      "Arial", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -483,8 +531,14 @@
     line-height: 1;
     font-weight: 600;
     letter-spacing: -0.003em;
-    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-      "Arial", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 .typography-overview-hero-copy {
@@ -492,8 +546,14 @@
   line-height: 1.08349;
   font-weight: 600;
   letter-spacing: -0.003em;
-  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-    "Arial", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 @media only screen and (max-width: 1068px) {
   .typography-overview-hero-copy {
@@ -501,8 +561,14 @@
     line-height: 1.1;
     font-weight: 600;
     letter-spacing: 0em;
-    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-      "Arial", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
 @media only screen and (max-width: 734px) {
@@ -511,11 +577,17 @@
     line-height: 1.125;
     font-weight: 600;
     letter-spacing: 0.004em;
-    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-      "Arial", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
 }
-.main .section-hero {
+.section-hero {
   --section-offset: var(--r-localnav-height);
   --scroll-duration: 300px;
   --dot-size: 20px;
@@ -536,7 +608,7 @@
   margin-top: calc((var(--section-offset) * 2) * -1);
 }
 @media only screen and (max-width: 1068px) {
-  .main .section-hero {
+  .section-hero {
     --dot-size: 15px;
     --icon-size: 55px;
     --background-image-width: 1068px;
@@ -547,7 +619,7 @@
   }
 }
 @media only screen and (max-width: 734px) {
-  .main .section-hero {
+  .section-hero {
     --dot-size: 12px;
     --icon-size: 40px;
     --background-image-width: 734px;
@@ -559,16 +631,16 @@
   }
 }
 @media only screen and (min-width: 735px) {
-  .main .section-hero .pseudo-space:before {
+  .section-hero .pseudo-space:before {
     content: "\00a0";
   }
 }
 @media only screen and (max-width: 734px) {
-  .main .section-hero .pseudo-space {
+  .section-hero .pseudo-space {
     display: block;
   }
 }
-.main .section-hero .dot-character {
+.section-hero .dot-character {
   width: var(--dot-size);
   height: var(--dot-size);
   background: #fff;
@@ -577,16 +649,16 @@
   border-radius: 999px;
   margin: auto var(--dot-margin);
 }
-.main .section-hero .dot-character:first-of-type {
+.section-hero .dot-character:first-of-type {
   margin-left: 0;
 }
-.main .section-hero .dot-character:last-of-type {
+.section-hero .dot-character:last-of-type {
   margin-right: 0;
 }
-.main .section-hero .sticky-container {
+.section-hero .sticky-container {
   position: relative;
 }
-.main .section-hero .sticky-content {
+.section-hero .sticky-content {
   top: 0;
   margin-top: calc(var(--scroll-duration) * -0.65);
   text-align: center;
@@ -602,24 +674,24 @@
   position: sticky;
   min-height: 100vh;
 }
-.main .section-hero .scroll-duration {
+.section-hero .scroll-duration {
   height: var(--scroll-duration);
 }
-.main .section-hero .overview-hero-background {
+.section-hero .overview-hero-background {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   top: 0;
   pointer-events: none;
 }
-.main .section-hero .overview-hero-background,
-.main .section-hero .overview-hero-background:before,
-.main .section-hero .overview-hero-background:after {
+.section-hero .overview-hero-background,
+.section-hero .overview-hero-background:before,
+.section-hero .overview-hero-background:after {
   position: absolute;
   left: 0;
   width: 100%;
   height: 200%;
 }
-.main .section-hero .overview-hero-background:before {
+.section-hero .overview-hero-background:before {
   background-repeat: no-repeat;
   background-image: url("https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large.jpg");
   content: "";
@@ -641,12 +713,12 @@
   only screen and (min-resolution: 1.5dppx),
   (-webkit-min-device-pixel-ratio: 1.5),
   (min-resolution: 144dpi) {
-  .main .section-hero .overview-hero-background:before {
+  .section-hero .overview-hero-background:before {
     background-image: url("https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large_2x.jpg");
   }
 }
 @media only screen and (max-width: 1068px) {
-  .main .section-hero .overview-hero-background:before {
+  .section-hero .overview-hero-background:before {
     background-repeat: no-repeat;
     background-image: url("https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_medium.jpg");
   }
@@ -654,12 +726,12 @@
 @media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
   only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
   only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
-  .main .section-hero .overview-hero-background:before {
+  .section-hero .overview-hero-background:before {
     background-image: url("https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_medium_2x.jpg");
   }
 }
 @media only screen and (max-width: 734px) {
-  .main .section-hero .overview-hero-background:before {
+  .section-hero .overview-hero-background:before {
     background-repeat: no-repeat;
     background-image: url("https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_small.jpg");
   }
@@ -667,33 +739,33 @@
 @media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
   only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
   only screen and (max-width: 734px) and (min-resolution: 144dpi) {
-  .main .section-hero .overview-hero-background:before {
+  .section-hero .overview-hero-background:before {
     background-image: url("https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_small_2x.jpg");
   }
 }
 @media only screen and (max-width: 1068px) {
-  .main .section-hero .overview-hero-background:before {
+  .section-hero .overview-hero-background:before {
     background-position-y: 0px;
     --background-image-offset-from-center: 0.002;
   }
 }
 @media only screen and (max-width: 734px) {
-  .main .section-hero .overview-hero-background:before {
+  .section-hero .overview-hero-background:before {
     --background-image-offset-from-center: -0.004;
   }
 }
-html.no-ios .main .section-hero .overview-hero-background:before {
+.section-hero .overview-hero-background:before {
   background-attachment: fixed;
 }
-.main .section-hero .overview-hero-background:after {
+.section-hero .overview-hero-background:after {
   content: "";
   background: var(--background-alpha);
   height: 110%;
 }
-.main .section-hero .overview-hero-intro {
+.section-hero .overview-hero-intro {
   text-align: center;
 }
-.main .section-hero .overview-hero-intro .enhanced-section-content {
+.section-hero .overview-hero-intro .enhanced-section-content {
   margin-left: auto;
   margin-right: auto;
   width: 980px;
@@ -701,27 +773,27 @@ html.no-ios .main .section-hero .overview-hero-background:before {
   margin-bottom: 80px;
 }
 @media only screen and (min-width: 1441px) {
-  .main .section-hero .overview-hero-intro .enhanced-section-content {
+  .section-hero .overview-hero-intro .enhanced-section-content {
     margin-left: auto;
     margin-right: auto;
     width: 980px;
   }
 }
 @media only screen and (max-width: 1068px) {
-  .main .section-hero .overview-hero-intro .enhanced-section-content {
+  .section-hero .overview-hero-intro .enhanced-section-content {
     margin-left: auto;
     margin-right: auto;
     width: 692px;
   }
 }
 @media only screen and (max-width: 734px) {
-  .main .section-hero .overview-hero-intro .enhanced-section-content {
+  .section-hero .overview-hero-intro .enhanced-section-content {
     margin-left: auto;
     margin-right: auto;
     width: 87.5%;
   }
 }
-.main .section-hero .overview-hero-intro .grid-content {
+.section-hero .overview-hero-intro .grid-content {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
@@ -735,11 +807,11 @@ html.no-ios .main .section-hero .overview-hero-background:before {
     )
   );
 }
-.main .section-hero .overview-hero-intro .grid-content .grid-content-overlay {
+.section-hero .overview-hero-intro .grid-content .grid-content-overlay {
   grid-column: 1;
   text-align: center;
 }
-.main .section-hero .overview-hero-intro .overview-hero-headline {
+.section-hero .overview-hero-intro .overview-hero-headline {
   position: relative;
   -webkit-font-kerning: none;
   font-kerning: none;
@@ -749,21 +821,15 @@ html.no-ios .main .section-hero .overview-hero-background:before {
   margin-left: auto;
   margin-right: auto;
 }
-.main
-  .section-hero
-  .overview-hero-intro
-  .overview-hero-headline
-  .animate-character {
+
+.section-hero .overview-hero-intro .overview-hero-headline .animate-character {
   -webkit-transform-origin: center center;
   transform-origin: center center;
   display: inline-block;
   vertical-align: middle;
 }
-.main
-  .section-hero
-  .overview-hero-intro
-  .overview-hero-headline
-  .masked-headline {
+
+.section-hero .overview-hero-intro .overview-hero-headline .masked-headline {
   pointer-events: none;
   position: absolute;
   top: 0;
@@ -772,8 +838,7 @@ html.no-ios .main .section-hero .overview-hero-background:before {
   bottom: 0;
 }
 @media only screen and (min-width: 735px) {
-  .main
-    .section-hero
+  .section-hero
     .overview-hero-intro
     .overview-hero-headline
     .masked-headline
@@ -782,8 +847,7 @@ html.no-ios .main .section-hero .overview-hero-background:before {
   }
 }
 @media only screen and (max-width: 734px) {
-  .main
-    .section-hero
+  .section-hero
     .overview-hero-intro
     .overview-hero-headline
     .masked-headline
@@ -792,42 +856,39 @@ html.no-ios .main .section-hero .overview-hero-background:before {
     top: 6px;
   }
 }
-.main .section-hero .overview-hero-intro .hero-lock-icon-container {
+.section-hero .overview-hero-intro .hero-lock-icon-container {
   margin-left: auto;
   margin-right: auto;
   width: var(--icon-size);
   margin-bottom: 42px;
 }
-.main
-  .section-hero
+
+.section-hero
   .overview-hero-intro
   .hero-lock-icon-container.enhanced-icon-container {
   display: block;
 }
-.main
-  .section-hero
+
+.section-hero
   .overview-hero-intro
   .hero-lock-icon-container:not(.enhanced-icon-container) {
   display: none;
 }
-.main
-  .section-hero
-  .overview-hero-intro
-  .hero-lock-icon-container
-  .hero-lock-icon {
+
+.section-hero .overview-hero-intro .hero-lock-icon-container .hero-lock-icon {
   fill: #fff;
 }
-.main .section-hero .hero-lock-icon-container.enhanced-icon-container,
-.main .section-hero .overview-hero-headline {
+.section-hero .hero-lock-icon-container.enhanced-icon-container,
+.section-hero .overview-hero-headline {
   margin-top: calc(var(--copy-offset-start) / 2);
 }
-.main .section-hero .overview-hero-icon,
-.main .section-hero .overview-hero-headline {
+.section-hero .overview-hero-icon,
+.section-hero .overview-hero-headline {
   grid-row: 1;
   -ms-flex-item-align: start;
   align-self: start;
 }
-.main .section-hero .overview-hero-icon {
+.section-hero .overview-hero-icon {
   -webkit-transition: -webkit-transform 500ms ease-in;
   transition: -webkit-transform 500ms ease-in;
   transition: transform 500ms ease-in;
@@ -835,11 +896,11 @@ html.no-ios .main .section-hero .overview-hero-background:before {
     transform 500ms ease-in,
     -webkit-transform 500ms ease-in;
 }
-.main .section-hero .overview-hero-copy-container {
+.section-hero .overview-hero-copy-container {
   -ms-flex-item-align: center;
   align-self: center;
 }
-.main .section-hero .overview-hero-copy {
+.section-hero .overview-hero-copy {
   -webkit-transform: translateY(50px);
   transform: translateY(50px);
   opacity: 0;
@@ -848,14 +909,10 @@ html.no-ios .main .section-hero .overview-hero-background:before {
   margin-right: auto;
 }
 @media only screen and (max-width: 734px) {
-  .main .section-hero .overview-hero-copy {
+  .section-hero .overview-hero-copy {
     margin-top: -18px;
   }
 }
-.theme-dark .typography-overview-hero-headline {
-  color: #fff;
-}
-
 @media all {
   * {
     transform-box: fill-box;
@@ -869,7 +926,6 @@ html.no-ios .main .section-hero .overview-hero-background:before {
     stroke-width: 5px;
   }
 }
-
 @media all {
   * {
     transform-box: fill-box;
