@@ -5,6 +5,8 @@ interface AnimationOperations {
   add?: string | string[]
   remove?: string | string[]
   toggle?: string | string[]
+  key?: string
+  onEnter?: () => void
   onViewportChange?: (isInViewport: boolean, element: HTMLElement) => void
 }
 
@@ -20,7 +22,7 @@ const toArray = (input?: string | string[]): string[] =>
 
 const updateClasses = (
   element: HTMLElement,
-  { add, remove, toggle, onViewportChange }: AnimationOperations,
+  { add, remove, toggle, onViewportChange, onEnter }: AnimationOperations,
   isInViewport: boolean
 ) => {
   const state = animationState.get(element) ?? {
@@ -28,13 +30,14 @@ const updateClasses = (
     wasInViewport: false,
   }
 
-  if (isInViewport) {
+  if (isInViewport && !state.wasInViewport) {
     element.classList.add(...toArray(add))
     element.classList.remove(...toArray(remove))
     toArray(toggle).forEach(cls => element.classList.toggle(cls))
     state.inViewport = true
     state.wasInViewport = true
-  } else {
+    onEnter?.()
+  } else if (!isInViewport) {
     toArray(toggle).forEach(cls => element.classList.toggle(cls))
     state.inViewport = false
   }
@@ -67,6 +70,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       binding: DirectiveBinding<AnimationOperations>
     ) {
       const { value } = binding
+
       let { stop } = createObserver(element, value, '0px 0px -200px 0px')
 
       const updateObserver = () => {

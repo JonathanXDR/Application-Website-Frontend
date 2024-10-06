@@ -8,7 +8,7 @@
     <li
       v-for="(item, index) in funFacts"
       :key="index"
-      v-animation="{ add: 'visible' }"
+      v-animation="{ add: 'visible', key: `chip-claim-${index}`, inViewport: itemInViewport }"
       class="chip-claim"
       role="listitem"
       tabindex="-1"
@@ -32,18 +32,19 @@
 </template>
 
 <script setup lang="ts">
-import gsap from 'gsap'
-import type { LanguageBarType } from '~/types/common/language-bar'
+import { gsap } from 'gsap';
+import type { LanguageBarType } from '~/types/common/language-bar';
 
 defineProps<{
   title: string
 }>()
 
-const { tm } = useI18n()
+const { tm, localeProperties } = useI18n()
+
+const chipClaimHeight = ref(0)
+const itemInViewport = ref(false)
 const titleElements = ref<HTMLElement[]>([])
 const progressSpan = ref<HTMLElement[]>([])
-const chipClaimHeight = ref(0)
-
 const funFacts = computed<LanguageBarType[]>(() =>
   tm('components.containers.funFacts')
 )
@@ -59,18 +60,16 @@ const updateChipClaimHeight = () => {
 
 const animateNumbers = () => {
   progressSpan.value.forEach((span, index) => {
-    const endValue = funFacts.value[index]?.progress ?? 0
     gsap.fromTo(
       span,
-      { innerHTML: '0' },
+      { innerHTML: 0 },
       {
-        innerHTML: endValue,
+        innerHTML: funFacts.value[index]?.progress,
         duration: 2,
-        ease: 'power1.out',
-        snap: { innerHTML: 1 },
+        ease: 'power2.inOut',
         onUpdate: function () {
           span.innerHTML = Number.parseInt(span.innerHTML).toLocaleString(
-            'en-US'
+            localeProperties.value.language
           )
         },
       }
@@ -80,6 +79,11 @@ const animateNumbers = () => {
 
 onMounted(() => {
   updateChipClaimHeight()
+})
+
+watch(itemInViewport, (value) => {
+  console.log(value)
+  if (!value) return
   animateNumbers()
 })
 
