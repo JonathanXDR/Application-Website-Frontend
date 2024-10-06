@@ -1,33 +1,22 @@
 <template>
   <section
     class="section section-hero"
-    data-component-list="HeroSequence"
-    data-component-json="{ &quot;characterClass&quot;: &quot;animate-character&quot;, &quot;dotClass&quot;: &quot;dot-character&quot;, &quot;els&quot;: [{&quot;_stickyContainer&quot;: &quot;.sticky-container&quot;}, {&quot;_stickyContent&quot;: &quot;.sticky-content&quot;}, {&quot;_gridContent&quot;: &quot;.grid-content&quot;}, {&quot;_headline&quot;: &quot;.overview-hero-headline&quot;}, {&quot;_background&quot;: &quot;.overview-hero-background&quot;}, {&quot;_iconSection&quot;: &quot;.overview-hero-icon&quot;}, {&quot;_iconContainer&quot;: &quot;.hero-lock-icon-container&quot;}, {&quot;_icon&quot;: &quot;.hero-lock-icon&quot;}, {&quot;_copy&quot;: &quot;.overview-hero-copy&quot;}, {&quot;_copyContainer&quot;: &quot;.overview-hero-copy-container&quot;}, {&quot;_scrollDuration&quot;: &quot;.scroll-duration&quot;}]}"
-    data-analytics-section-engagement="name:hero"
-    style="
-      --background-size: 3292.0888888888894px 985.0000000000001px;
-      --background-multiplier: 1.0944444444444446;
-      --hero-offset: 180.5px;
-      --icon-height: 92px;
-      --background-blur: 0px;
-      --background-alpha: rgba(0, 0, 0, 0);
-    "
+    :style="sectionStyles"
   >
     <div class="overview-hero-intro sticky-container">
       <div class="sticky-content">
         <div
+          ref="background"
           class="overview-hero-background"
-          style="opacity: 1"
+          :style="{ opacity: backgroundOpacity }"
         />
         <div class="enhanced-section-content">
           <div class="grid-content static-container">
             <div class="overview-hero-icon grid-content-overlay">
               <div
+                ref="iconContainer"
                 class="hero-lock-icon-container enhanced-icon-container"
-                style="
-                  visibility: hidden;
-                  transform: matrix(0.5, 0, 0, 0.5, 0, 0);
-                "
+                :style="iconContainerStyle as CSSProperties"
               >
                 <svg
                   class="hero-lock-icon enhanced-icon"
@@ -35,22 +24,6 @@
                   data-thing=""
                 >
                   <defs>
-                    <style>
-                      .trace {
-                      opacity: 0;
-                      }
-                      svg &gt; * {
-                      transform-box: fill-box;
-                      transform-origin: center;
-                      }
-                      #arm {
-                      clip-path: url(#apple-clip);
-                      fill: none;
-                      stroke: #fff;
-                      stroke-linecap: round;
-                      stroke-width: 5px;
-                      }
-                    </style>
                     <clipPath id="apple-clip">
                       <path
                         id="clip-1"
@@ -103,205 +76,41 @@
               </div>
             </div>
             <h1
+              ref="headline"
               class="typography-overview-hero-headline overview-hero-headline grid-content-overlay static-content"
-              data-default=".default-headline"
-              data-masked=".masked-headline"
-              data-component-list="FocusComponent"
-              data-focus-options="{ &quot;tabindex&quot;: &quot;-1&quot;, &quot;keyframeEvent&quot;: &quot;hero-headline-vo&quot;, &quot;disabledWhen&quot;: &quot;reduced-motion&quot; }"
-              tabindex="-1"
-              style="outline: none"
+              :style="headlineStyle"
             >
               <div class="aria-headline visuallyhidden">
-                Privacy. That’s Apple.
+                Privacy. That&nbsp;s Apple.
               </div>
               <div
                 class="default-headline"
                 aria-hidden="true"
               >
                 <span
+                  v-for="(char, index) in headlineChars"
+                  :key="index"
                   class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >P</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >r</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >i</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >v</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >a</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >c</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >y</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >.</span><span class="pseudo-space" /><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >T</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >h</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >a</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >t</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >’</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >s</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >&nbsp;</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >A</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >p</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >p</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >l</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >e</span><span
-                  class="animate-character"
-                  aria-hidden="true"
-                  style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                >.</span>
+                >
+                  {{ char }}
+                </span>
               </div>
               <div
+                ref="maskedHeadline"
                 class="masked-headline"
                 aria-hidden="true"
               >
                 <span
+                  v-for="(dot, index) in dots"
+                  :key="index"
                   class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span class="pseudo-space" /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                /><span
-                  class="animate-character dot-character"
-                  aria-hidden="true"
-                  style="transform: matrix(0, 0, 0, 0, 0, 0)"
                 />
               </div>
             </h1>
           </div>
           <div
+            ref="copyContainer"
             class="overview-hero-copy-container static-container"
-            data-component-list="FocusComponent"
-            data-focus-options="{ &quot;tabindex&quot;: &quot;-1&quot;, &quot;keyframeEvent&quot;: &quot;hero-copy-vo&quot;, &quot;disabledWhen&quot;: &quot;reduced-motion&quot; }"
-            tabindex="-1"
-            style="outline: none"
           >
             <div class="overview-hero-copy-content static-content">
               <div class="hero-lock-icon-container">
@@ -311,22 +120,6 @@
                   data-thing="true"
                 >
                   <defs>
-                    <style>
-                      .trace {
-                      opacity: 0;
-                      }
-                      svg &gt; * {
-                      transform-box: fill-box;
-                      transform-origin: center;
-                      }
-                      #arm-static {
-                      clip-path: url(#static-apple-clip);
-                      fill: none;
-                      stroke: #fff;
-                      stroke-linecap: round;
-                      stroke-width: 5px;
-                      }
-                    </style>
                     <clipPath id="static-apple-clip">
                       <path
                         id="clip-1"
@@ -372,12 +165,14 @@
                 </svg>
               </div>
               <p
+                ref="copy"
                 class="overview-hero-copy typography-overview-hero-copy large-9 small-12"
-                style="transform: matrix(1, 0, 0, 1, 0, 50); opacity: 0"
+                :style="copyStyle"
               >
-                Privacy is a fundamental human right. It’s also one of our core
-                values. Which is why we design our products and services to
-                protect it. That’s the kind of innovation we believe&nbsp;in.
+                Privacy is a fundamental human right. It&nbsp;s also one of our
+                core values. Which is why we design our products and services to
+                protect it. That&nbsp;s the kind of innovation we
+                believe&nbsp;in.
               </p>
             </div>
           </div>
@@ -388,7 +183,154 @@
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { gsap } from 'gsap';
+import type { CSSProperties } from 'vue';
+
+const headlineText = 'Privacy. That&nbsp;s Apple.'
+const headlineChars = headlineText.split('')
+const dots = Array.from({ length: headlineChars.length }).fill('•')
+
+const headline = ref<HTMLElement | null>(null)
+const maskedHeadline = ref<HTMLElement | null>(null)
+const iconContainer = ref<HTMLElement | null>(null)
+const background = ref<HTMLElement | null>(null)
+const copy = ref<HTMLElement | null>(null)
+
+const sectionStyles = reactive({
+  '--background-size': '',
+  '--background-multiplier': '',
+  '--hero-offset': '180.5px',
+  '--icon-height': '92px',
+  '--background-blur': '0px',
+  '--background-alpha': 'rgba(0, 0, 0, 0)',
+})
+
+const backgroundOpacity = ref(1)
+const iconContainerStyle = reactive({
+  visibility: 'hidden',
+  transform: 'scale(0.5)',
+})
+const headlineStyle = reactive({
+  opacity: 1,
+})
+const copyStyle = reactive({
+  transform: 'translateY(50px)',
+  opacity: 0,
+})
+
+function calculateBackgroundSize () {
+  const backgroundWidth = 3008 // Adjust based on your image dimensions
+  const backgroundHeight = 900
+  const multiplier = window.innerHeight / backgroundHeight
+  sectionStyles['--background-size'] =
+    `${backgroundWidth * multiplier}px ${backgroundHeight * multiplier}px`
+  sectionStyles['--background-multiplier'] = multiplier.toString()
+}
+
+onMounted(() => {
+  calculateBackgroundSize()
+
+  const characters =
+    headline.value?.querySelectorAll('.animate-character') || []
+  const dots = maskedHeadline.value?.querySelectorAll('.dot-character') || []
+
+  const tl = gsap.timeline()
+
+  // Animate headline characters to scale down and disappear
+  characters.forEach((char, index) => {
+    tl.to(
+      char,
+      {
+        scale: 0,
+        duration: 0.3,
+        ease: 'power2.inOut',
+      },
+      index * 0.05
+    )
+  })
+
+  // Animate dots to scale up and appear
+  dots.forEach((dot, index) => {
+    tl.fromTo(
+      dot,
+      {
+        scale: 0,
+      },
+      {
+        scale: 1,
+        duration: 0.3,
+        ease: 'power2.inOut',
+      },
+      index * 0.05
+    )
+  })
+
+  // Animate dots to converge to center
+  tl.to(dots, {
+    x: 0,
+    duration: 0.5,
+    ease: 'power2.inOut',
+  })
+
+  // Fade out headline and show icon
+  tl.to(
+    headlineStyle,
+    {
+      opacity: 0,
+      duration: 0.5,
+    },
+    '-=0.5'
+  )
+  tl.to(
+    iconContainerStyle,
+    {
+      visibility: 'visible',
+      scale: 1.35,
+      duration: 0.5,
+      ease: 'power3.out',
+    },
+    '-=0.5'
+  )
+
+  // Animate icon movement
+  tl.to(iconContainer.value, {
+    y: '-80px', // Adjust based on your design
+    duration: 0.5,
+    ease: 'power2.out',
+  })
+
+  // Blur background
+  tl.to(
+    sectionStyles,
+    {
+      '--background-blur': '50px',
+      '--background-alpha': 'rgba(0, 0, 0, 0.6)',
+      duration: 0.5,
+      onUpdate: () => {
+        if (background.value) {
+          background.value.style.filter = `blur(${sectionStyles['--background-blur']}) brightness(0.7)`
+          background.value.style.backgroundColor =
+            sectionStyles['--background-alpha']
+        }
+      },
+    },
+    '-=0.5'
+  )
+
+  // Fade in copy text
+  tl.to(
+    copyStyle,
+    {
+      opacity: 1,
+      y: '0px',
+      duration: 0.5,
+      ease: 'power2.out',
+    },
+    '-=0.5'
+  )
+})
+</script>
 
 <style scoped>
 .typography-overview-hero-headline {
@@ -938,5 +880,26 @@
     stroke-linecap: round;
     stroke-width: 5px;
   }
+}
+.trace {
+  opacity: 0;
+}
+svg > * {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+#arm-static {
+  clip-path: url(#static-apple-clip);
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-width: 5px;
+}
+#arm {
+  clip-path: url(#apple-clip);
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-width: 5px;
 }
 </style>
