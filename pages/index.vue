@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeroSequenceSection />
+    <!-- <HeroSequenceSection /> -->
     <template
       v-for="section in visibleSections"
       :key="section.id"

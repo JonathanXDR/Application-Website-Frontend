@@ -227,7 +227,7 @@ const navbarElement = ref<HTMLElement | undefined>(undefined)
 const backgroundElement = ref<HTMLElement | undefined>(undefined)
 const menustateTrayElement = ref<HTMLElement | undefined>(undefined)
 const trayHeight = ref<number | undefined>(undefined)
-const menuLinkReferences: Record<string, HTMLElement | undefined> = {}
+const menuLinkReferences = reactive<Record<string, HTMLElement | undefined>>({})
 
 const borderTransformOrigin = ref<string>('50% 0%')
 const borderScaleX = ref<string>('scaleX(1)')
@@ -238,9 +238,7 @@ const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
 
   if (!liElement) return
 
-  const menuLinkElement = liElement.firstElementChild as
-    | HTMLElement
-    | undefined
+  const menuLinkElement = liElement.firstElementChild as HTMLElement
   return menuLinkElement
 })
 
@@ -338,6 +336,12 @@ const updateBorderPosition = () => {
   }
 }
 
+useEventListener(window, 'scroll', handleScroll)
+useEventListener(window, 'resize', () => {
+  updateBorderPosition()
+  updateTrayHeight()
+})
+
 onMounted(() => {
   initHeaderAnimations()
   updateBorderPosition()
@@ -349,17 +353,11 @@ watch(getTheme, (themeNew, themeOld) => {
   updateAnimations()
 })
 
-useEventListener(window, 'scroll', handleScroll)
-useEventListener(window, 'resize', () => {
+watch(currentMenuLinkElement, () => {
   updateBorderPosition()
-  updateTrayHeight()
 })
 
 watch([() => route.path, () => currentSection.value.id], () => {
-  updateBorderPosition()
-})
-
-watch(currentMenuLinkElement, () => {
   updateBorderPosition()
 })
 </script>
@@ -749,7 +747,7 @@ watch(currentMenuLinkElement, () => {
   z-index: 1;
   transform-origin: var(--border-transform-origin);
   transform: var(--border-scaleX);
-  transition: all 1s;
+  transition: transform 1s;
 }
 @media (max-width: 1023px) {
   #ac-localnav .ac-ln-background:after {
@@ -1292,7 +1290,7 @@ watch(currentMenuLinkElement, () => {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
   -webkit-clip-path: inset(0 0 99.9% 99.9%);
-  clip-path: inset(0 0 99.9% 99.9%);
+  clip-path: inset(0 0 99.9%);
   overflow: hidden;
   height: 1px;
   width: 1px;
@@ -1449,7 +1447,6 @@ watch(currentMenuLinkElement, () => {
   --sk-button-padding-vertical: 4px;
   --sk-button-min-width-basis: 45px;
   --sk-button-margin-horizontal: 10px;
-  --sk-button-margin-vertical: 10px;
   font-size: 12px;
   line-height: 1.3333733333;
   font-weight: 400;
