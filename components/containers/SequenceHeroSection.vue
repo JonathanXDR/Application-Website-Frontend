@@ -8,7 +8,10 @@
         <div
           ref="background"
           class="overview-hero-background"
-          :style="{ opacity: backgroundOpacity }"
+          :style="{
+            'opacity': backgroundOpacity,
+            '--background-image': `url(${props.background})`,
+          }"
         />
         <div class="enhanced-section-content">
           <div class="grid-content static-container">
@@ -21,7 +24,6 @@
                 <svg
                   class="hero-lock-icon enhanced-icon"
                   viewBox="0 0 64 84"
-                  data-thing=""
                 >
                   <defs>
                     <clipPath id="apple-clip">
@@ -78,10 +80,9 @@
             <h1
               ref="headline"
               class="typography-overview-hero-headline overview-hero-headline grid-content-overlay static-content"
-              :style="headlineStyle"
             >
               <div class="aria-headline visuallyhidden">
-                Privacy. That&nbsp;s Apple.
+                Privacy. That's Apple.
               </div>
               <div
                 class="default-headline"
@@ -117,7 +118,6 @@
                 <svg
                   class="hero-lock-icon"
                   viewBox="0 0 64 84"
-                  data-thing="true"
                 >
                   <defs>
                     <clipPath id="static-apple-clip">
@@ -163,38 +163,53 @@
                     />
                   </g>
                 </svg>
+                <div>
+                  <p
+                    ref="copy"
+                    class="overview-hero-copy typography-overview-hero-copy large-9 small-12"
+                  >
+                    {{ description }}
+                  </p>
+                </div>
               </div>
-              <p
-                ref="copy"
-                class="overview-hero-copy typography-overview-hero-copy large-9 small-12"
-                :style="copyStyle"
-              >
-                Privacy is a fundamental human right. It&nbsp;s also one of our
-                core values. Which is why we design our products and services to
-                protect it. That&nbsp;s the kind of innovation we
-                believe&nbsp;in.
-              </p>
             </div>
+            <div class="scroll-duration" />
           </div>
         </div>
       </div>
-      <div class="scroll-duration" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { gsap } from 'gsap'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import type { CSSProperties } from 'vue'
 
-const headlineText = 'Privacy. That&nbsp;s Apple.'
-const headlineChars = headlineText.split('')
+gsap.registerPlugin(ScrollTrigger)
+
+const props = withDefaults(
+  defineProps<{
+    title: string
+    description: string
+    background: string
+  }>(),
+  {
+    title: "Privacy. That's Apple.",
+    description:
+      "Privacy is a fundamental human right. It's also one of our core values. Which is why we design our products and services to protect it. That's the kind of innovation we believe&nbsp;in.",
+    background:
+      'https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large.jpg',
+  }
+)
+
+const headlineChars = props.title.split('')
 const dots = Array.from({ length: headlineChars.length }).fill('•')
 
 const headline = ref<HTMLElement | null>(null)
 const maskedHeadline = ref<HTMLElement | null>(null)
 const iconContainer = ref<HTMLElement | null>(null)
-const background = ref<HTMLElement | null>(null)
+const backgroundRef = ref<HTMLElement | null>(null)
 const copy = ref<HTMLElement | null>(null)
 
 const sectionStyles = reactive({
@@ -209,17 +224,11 @@ const sectionStyles = reactive({
 const backgroundOpacity = ref(1)
 const iconContainerStyle = reactive({
   visibility: 'hidden',
-  transform: 'scale(0.5)',
-})
-const headlineStyle = reactive({
-  opacity: 1,
-})
-const copyStyle = reactive({
-  transform: 'translateY(50px)',
-  opacity: 0,
+  scale: 0.5,
+  transformOrigin: 'center center',
 })
 
-function calculateBackgroundSize () {
+const calculateBackgroundSize = () => {
   const backgroundWidth = 3008 // Adjust based on your image dimensions
   const backgroundHeight = 900
   const multiplier = window.innerHeight / backgroundHeight
@@ -235,11 +244,24 @@ onMounted(() => {
     headline.value?.querySelectorAll('.animate-character') || []
   const dots = maskedHeadline.value?.querySelectorAll('.dot-character') || []
 
-  const tl = gsap.timeline()
+  // Initial styles
+  gsap.set(characters, { scale: 1 })
+  gsap.set(dots, { scale: 0 })
+  gsap.set(copy.value, { opacity: 0, y: 50 })
+
+  // Create a timeline for the headline animation
+  const headlineTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: headline.value,
+      start: 'top center',
+      end: 'bottom top',
+      scrub: true,
+    },
+  })
 
   // Animate headline characters to scale down and disappear
   characters.forEach((char, index) => {
-    tl.to(
+    headlineTimeline.to(
       char,
       {
         scale: 0,
@@ -252,7 +274,7 @@ onMounted(() => {
 
   // Animate dots to scale up and appear
   dots.forEach((dot, index) => {
-    tl.fromTo(
+    headlineTimeline.fromTo(
       dot,
       {
         scale: 0,
@@ -267,67 +289,86 @@ onMounted(() => {
   })
 
   // Animate dots to converge to center
-  tl.to(dots, {
-    x: 0,
-    duration: 0.5,
-    ease: 'power2.inOut',
-  })
+  headlineTimeline.to(
+    dots,
+    {
+      x: (i) => {
+        const dot = dots[i] as HTMLElement
+        return (
+          -dot.offsetLeft +
+          (maskedHeadline.value ? maskedHeadline.value.offsetWidth / 2 : 0) -
+          dot.offsetWidth / 2
+        )
+      },
+      duration: 0.5,
+      ease: 'power2.inOut',
+    },
+    'converge'
+  )
 
   // Fade out headline and show icon
-  tl.to(
-    headlineStyle,
+  headlineTimeline.to(
+    headline.value,
     {
       opacity: 0,
       duration: 0.5,
     },
-    '-=0.5'
+    'converge+=0.5'
   )
-  tl.to(
+  headlineTimeline.to(
     iconContainerStyle,
     {
       visibility: 'visible',
       scale: 1.35,
       duration: 0.5,
       ease: 'power3.out',
+      onUpdate: () => {
+        if (iconContainer.value) {
+          gsap.set(iconContainer.value, { scale: iconContainerStyle.scale })
+        }
+      },
     },
-    '-=0.5'
+    'converge+=0.5'
   )
 
   // Animate icon movement
-  tl.to(iconContainer.value, {
-    y: '-80px', // Adjust based on your design
-    duration: 0.5,
-    ease: 'power2.out',
-  })
+  headlineTimeline.to(
+    iconContainer.value,
+    {
+      y: '-80px', // Adjust based on your design
+      duration: 0.5,
+      ease: 'power2.out',
+    },
+    'converge+=1'
+  )
 
   // Blur background
-  tl.to(
+  headlineTimeline.to(
     sectionStyles,
     {
       '--background-blur': '50px',
       '--background-alpha': 'rgba(0, 0, 0, 0.6)',
       duration: 0.5,
       onUpdate: () => {
-        if (background.value) {
-          background.value.style.filter = `blur(${sectionStyles['--background-blur']}) brightness(0.7)`
-          background.value.style.backgroundColor =
-            sectionStyles['--background-alpha']
-        }
+        if (!backgroundRef.value) return
+        backgroundRef.value.style.filter = `blur(${sectionStyles['--background-blur']}) brightness(0.7)`
+        backgroundRef.value.style.backgroundColor =
+          sectionStyles['--background-alpha']
       },
     },
-    '-=0.5'
+    'converge+=1'
   )
 
   // Fade in copy text
-  tl.to(
-    copyStyle,
+  headlineTimeline.to(
+    copy.value,
     {
       opacity: 1,
-      y: '0px',
+      y: 0,
       duration: 0.5,
       ease: 'power2.out',
     },
-    '-=0.5'
+    'converge+=1'
   )
 })
 </script>
@@ -635,7 +676,7 @@ onMounted(() => {
 }
 .section-hero .overview-hero-background:before {
   background-repeat: no-repeat;
-  background-image: url("https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large.jpg");
+  background-image: var(--background-image);
   content: "";
   position: absolute;
   background-size: var(--background-size);
