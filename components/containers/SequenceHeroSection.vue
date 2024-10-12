@@ -1,190 +1,73 @@
 <template>
   <section
+    ref="sectionRef"
     class="section section-hero"
+    :class="{ 'load-state': isLoading, 'hero-fallback': isFallbackMode }"
     :style="sectionStyles"
   >
     <div class="overview-hero-intro sticky-container">
       <div class="sticky-content">
         <div
-          ref="background"
           class="overview-hero-background"
-          :style="{
-            'opacity': backgroundOpacity,
-            '--background-image': `url(${props.background})`,
-          }"
+          :style="backgroundStyles"
         />
         <div class="enhanced-section-content">
           <div class="grid-content static-container">
             <div class="overview-hero-icon grid-content-overlay">
               <div
-                ref="iconContainer"
                 class="hero-lock-icon-container enhanced-icon-container"
-                :style="iconContainerStyle as CSSProperties"
+                :style="iconContainerStyles"
               >
-                <svg
-                  class="hero-lock-icon enhanced-icon"
-                  viewBox="0 0 64 84"
-                >
-                  <defs>
-                    <clipPath id="apple-clip">
-                      <path
-                        id="clip-1"
-                        d="M19.94,84.56c-5.74,0-9.6-5.54-12.15-9.21A42.61,42.61,0,0,1,1.23,59.07C0,52,.82,45.59,3.69,40.62a18.34,18.34,0,0,1,15.49-9.35h.25a20,20,0,0,1,7.36,1.82,12.33,12.33,0,0,0,2.75.9,14.42,14.42,0,0,0,2.51-.85,23.34,23.34,0,0,1,8.6-2c.38,0,.76,0,1.14,0a17.36,17.36,0,0,1,13.69,7.49l1.85,2.72L54.46,43a11,11,0,0,0-5.23,9.23,10.79,10.79,0,0,0,6.42,9.87l2.65.88-.79,2.76a36.62,36.62,0,0,1-4.74,9.78c-2.56,3.75-6.06,8.89-12,9h-.29a13.57,13.57,0,0,1-5.81-1.41A9.52,9.52,0,0,0,30.39,82a10.47,10.47,0,0,0-4.6,1.12,14.47,14.47,0,0,1-5.53,1.45ZM64,0H0V84H64Z"
-                      />
-                    </clipPath>
-                    <path
-                      id="leaf-2"
-                      d="M30.26,35.3C30.64,34.86,30.82,34.29,30.77,33.71C30.21,33.77,29.69,34.04,29.31,34.47C28.93,34.88,28.74,35.44,28.79,36C29.36,36,29.9,35.75,30.26,35.3"
-                    />
-                    <path
-                      id="arm-3"
-                      d="M38.85,38.49C38.85,38.49,38.85,19,38.85,19C38.85,13.52,43.3,9.07,48.78,9.07C48.78,9.07,48.78,9.07,48.78,9.07C54.26,9.08,58.7,13.52,58.71,19C58.71,19,58.71,26,58.71,26"
-                    />
-                    <path
-                      id="arm-4"
-                      d="M38.85,34.88C38.85,34.88,38.85,15.37,38.85,15.37C38.85,9.89,34.4,5.44,28.92,5.44C28.92,5.44,28.92,5.44,28.92,5.44C23.44,5.44,18.99,9.89,19,15.37C19,15.37,19,22.37,19,22.37"
-                    />
-                    <path
-                      id="arm-5"
-                      d="M38.85,49.6C38.85,49.6,38.85,30.09,38.85,30.09C38.84,24.61,34.4,20.17,28.92,20.16C28.92,20.16,28.92,20.16,28.92,20.16C23.44,20.17,19,24.61,19,30.09C19,30.09,19,37.09,19,37.09"
-                    />
-                    <path
-                      id="arm-6"
-                      d="M38.85,42.6C38.85,42.6,38.85,23.09,38.85,23.09C38.84,17.61,34.4,13.17,28.92,13.16C28.92,13.16,28.92,13.16,28.92,13.16C23.44,13.17,19,17.61,19,23.09C19,23.09,19,31.09,19,31.09"
-                    />
-                  </defs>
-                  <g
-                    id="privacy-icon-inner"
-                    style="transform: matrix(1, 0, 0, 1, 0, 0)"
-                  >
-                    <path
-                      id="leaf"
-                      class="cls-2"
-                      d="M38.34000015258789,29C40.709999084472656,26.229999542236328,41.880001068115234,22.6299991607666,41.59000015258789,19C38.029998779296875,19.350000381469727,34.7400016784668,21.049999237060547,32.38999938964844,23.739999771118164C30.389999389648438,26.06999969482422,28.600000381469727,29.829999923706055,29.06999969482422,33.41999816894531C32.560001373291016,33.689998626708984,36.13999938964844,31.6299991607666,38.34000015258789,28.989999771118164"
-                      style="opacity: 1"
-                    />
-                    <path
-                      id="apple"
-                      d="M29.54,37c-2.47,0-6.29-2.8-10.32-2.7A15.22,15.22,0,0,0,6.29,42.12c-5.52,9.58-1.42,23.73,4,31.52,2.64,3.79,5.75,8,9.88,7.92,4-.17,5.45-2.58,10.26-2.58s6.13,2.58,10.32,2.48,7-3.86,9.58-7.69a33.94,33.94,0,0,0,4.34-8.9,13.8,13.8,0,0,1-8.4-12.66C46.16,44.29,52.7,40.5,53,40.33a14.67,14.67,0,0,0-11.44-6.2C36.35,33.73,32,37,29.54,37Z"
-                    />
-                    <path
-                      id="arm"
-                      style="opacity: 0"
-                      class="cls-3"
-                      d="M38.849998474121094,50.650001525878906C38.849998474121094,50.650001525878906,38.849998474121094,31.139999389648438,38.849998474121094,31.139999389648438C38.849998474121094,25.65999984741211,43.29999923706055,21.209999084472656,48.779998779296875,21.209999084472656C48.779998779296875,21.209999084472656,48.779998779296875,21.209999084472656,48.779998779296875,21.209999084472656C54.2599983215332,21.219999313354492,58.70000076293945,25.65999984741211,58.709999084472656,31.139999389648438C58.709999084472656,31.139999389648438,58.709999084472656,38.13999938964844,58.709999084472656,38.13999938964844"
-                    />
-                  </g>
-                </svg>
+                <HeroIcon ref="heroIconRef" />
               </div>
             </div>
             <h1
-              ref="headline"
+              ref="headlineRef"
               class="typography-overview-hero-headline overview-hero-headline grid-content-overlay static-content"
             >
               <div class="aria-headline visuallyhidden">
-                Privacy. That's Apple.
+                {{ title }}
               </div>
               <div
                 class="default-headline"
                 aria-hidden="true"
-              >
-                <span
-                  v-for="(char, index) in headlineChars"
-                  :key="index"
-                  class="animate-character"
-                >
-                  {{ char }}
-                </span>
-              </div>
+                v-html="formattedHeadline"
+              />
               <div
-                ref="maskedHeadline"
                 class="masked-headline"
                 aria-hidden="true"
-              >
-                <span
-                  v-for="(dot, index) in dots"
-                  :key="index"
-                  class="animate-character dot-character"
-                />
-              </div>
+                v-html="formattedMaskedHeadline"
+              />
             </h1>
           </div>
           <div
-            ref="copyContainer"
+            ref="copyContainerRef"
             class="overview-hero-copy-container static-container"
           >
             <div class="overview-hero-copy-content static-content">
               <div class="hero-lock-icon-container">
-                <svg
-                  class="hero-lock-icon"
-                  viewBox="0 0 64 84"
-                >
-                  <defs>
-                    <clipPath id="static-apple-clip">
-                      <path
-                        id="clip-1"
-                        d="M19.94,84.56c-5.74,0-9.6-5.54-12.15-9.21A42.61,42.61,0,0,1,1.23,59.07C0,52,.82,45.59,3.69,40.62a18.34,18.34,0,0,1,15.49-9.35h.25a20,20,0,0,1,7.36,1.82,12.33,12.33,0,0,0,2.75.9,14.42,14.42,0,0,0,2.51-.85,23.34,23.34,0,0,1,8.6-2c.38,0,.76,0,1.14,0a17.36,17.36,0,0,1,13.69,7.49l1.85,2.72L54.46,43a11,11,0,0,0-5.23,9.23,10.79,10.79,0,0,0,6.42,9.87l2.65.88-.79,2.76a36.62,36.62,0,0,1-4.74,9.78c-2.56,3.75-6.06,8.89-12,9h-.29a13.57,13.57,0,0,1-5.81-1.41A9.52,9.52,0,0,0,30.39,82a10.47,10.47,0,0,0-4.6,1.12,14.47,14.47,0,0,1-5.53,1.45ZM64,0H0V84H64Z"
-                      />
-                    </clipPath>
-                    <path
-                      id="leaf-2"
-                      d="M30.26,35.3C30.64,34.86,30.82,34.29,30.77,33.71C30.21,33.77,29.69,34.04,29.31,34.47C28.93,34.88,28.74,35.44,28.79,36C29.36,36,29.9,35.75,30.26,35.3"
-                    />
-                    <path
-                      id="arm-3"
-                      d="M38.85,38.49C38.85,38.49,38.85,19,38.85,19C38.85,13.52,43.3,9.07,48.78,9.07C48.78,9.07,48.78,9.07,48.78,9.07C54.26,9.08,58.7,13.52,58.71,19C58.71,19,58.71,26,58.71,26"
-                    />
-                    <path
-                      id="arm-4"
-                      d="M38.85,34.88C38.85,34.88,38.85,15.37,38.85,15.37C38.85,9.89,34.4,5.44,28.92,5.44C28.92,5.44,28.92,5.44,28.92,5.44C23.44,5.44,18.99,9.89,19,15.37C19,15.37,19,22.37,19,22.37"
-                    />
-                    <path
-                      id="arm-5"
-                      d="M38.85,49.6C38.85,49.6,38.85,30.09,38.85,30.09C38.84,24.61,34.4,20.17,28.92,20.16C28.92,20.16,28.92,20.16,28.92,20.16C23.44,20.17,19,24.61,19,30.09C19,30.09,19,37.09,19,37.09"
-                    />
-                    <path
-                      id="arm-6"
-                      d="M38.85,42.6C38.85,42.6,38.85,23.09,38.85,23.09C38.84,17.61,34.4,13.17,28.92,13.16C28.92,13.16,28.92,13.16,28.92,13.16C23.44,13.17,19,17.61,19,23.09C19,23.09,19,31.09,19,31.09"
-                    />
-                  </defs>
-                  <g id="privacy-icon-inner">
-                    <path
-                      id="leaf"
-                      class="cls-2"
-                      d="M38.34,29C40.71,26.23,41.88,22.63,41.59,19C38.03,19.35,34.74,21.05,32.39,23.74C30.39,26.07,28.6,29.83,29.07,33.42C32.56,33.69,36.14,31.63,38.34,28.99"
-                    />
-                    <path
-                      id="apple"
-                      d="M29.54,37c-2.47,0-6.29-2.8-10.32-2.7A15.22,15.22,0,0,0,6.29,42.12c-5.52,9.58-1.42,23.73,4,31.52,2.64,3.79,5.75,8,9.88,7.92,4-.17,5.45-2.58,10.26-2.58s6.13,2.58,10.32,2.48,7-3.86,9.58-7.69a33.94,33.94,0,0,0,4.34-8.9,13.8,13.8,0,0,1-8.4-12.66C46.16,44.29,52.7,40.5,53,40.33a14.67,14.67,0,0,0-11.44-6.2C36.35,33.73,32,37,29.54,37Z"
-                    />
-                    <path
-                      id="arm-static"
-                      d="M38.849998474121094,42.599998474121094C38.849998474121094,42.599998474121094,38.849998474121094,23.09000015258789,38.849998474121094,23.09000015258789C38.84000015258789,17.610000610351562,34.400001525878906,13.170000076293945,28.920000076293945,13.15999984741211C28.920000076293945,13.15999984741211,28.920000076293945,13.15999984741211,28.920000076293945,13.15999984741211C23.440000534057617,13.170000076293945,19,17.610000610351562,19,23.09000015258789C19,23.09000015258789,19,31.09000015258789,19,31.09000015258789"
-                    />
-                  </g>
-                </svg>
-                <div>
-                  <p
-                    ref="copy"
-                    class="overview-hero-copy typography-overview-hero-copy large-9 small-12"
-                  >
-                    {{ description }}
-                  </p>
-                </div>
+                <HeroIcon />
               </div>
+              <p
+                class="overview-hero-copy typography-overview-hero-copy large-9 small-12"
+                :style="copyStyles"
+              >
+                {{ description }}
+              </p>
             </div>
-            <div class="scroll-duration" />
           </div>
         </div>
       </div>
+      <div class="scroll-duration" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
-import type { CSSProperties } from 'vue'
+import { useWindowSize } from '@vueuse/core'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import HeroIcon from '~/components/common/HeroIcon.vue'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -203,173 +86,182 @@ const props = withDefaults(
   }
 )
 
-const headlineChars = props.title.split('')
-const dots = Array.from({ length: headlineChars.length }).fill('•')
+const sectionRef = ref<HTMLElement | null>(null)
 
-const headline = ref<HTMLElement | null>(null)
-const maskedHeadline = ref<HTMLElement | null>(null)
-const iconContainer = ref<HTMLElement | null>(null)
-const backgroundRef = ref<HTMLElement | null>(null)
-const copy = ref<HTMLElement | null>(null)
+const heroIconRef = ref<InstanceType<typeof HeroIcon> | null>(null)
+const headlineRef = ref<HTMLElement | null>(null)
+const copyContainerRef = ref<HTMLElement | null>(null)
 
-const sectionStyles = reactive({
-  '--background-size': '',
-  '--background-multiplier': '',
-  '--hero-offset': '180.5px',
-  '--icon-height': '92px',
-  '--background-blur': '0px',
-  '--background-alpha': 'rgba(0, 0, 0, 0)',
-})
+const isLoading = ref(true)
+const isFallbackMode = ref(false)
 
+const { width: windowWidth, height: windowHeight } = useWindowSize()
+
+// Animation variables
+const backgroundSize = ref('3292.0888888888894px 985.0000000000001px')
+const backgroundMultiplier = ref(1.0944444444444446)
+const heroOffset = ref('180.5px')
+const iconHeight = ref('92px')
+const backgroundBlur = ref(0)
+const backgroundAlpha = ref(0)
 const backgroundOpacity = ref(1)
-const iconContainerStyle = reactive({
-  visibility: 'hidden',
-  scale: 0.5,
-  transformOrigin: 'center center',
+const iconScale = ref(1)
+const iconTranslateY = ref(0)
+const copyTranslateY = ref(0)
+const copyOpacity = ref(0)
+
+// Computed styles
+const sectionStyles = computed(() => ({
+  '--background-size': backgroundSize.value,
+  '--background-multiplier': backgroundMultiplier.value,
+  '--hero-offset': heroOffset.value,
+  '--icon-height': iconHeight.value,
+  '--background-blur': `${backgroundBlur.value}px`,
+  '--background-alpha': `rgba(0, 0, 0, ${backgroundAlpha.value})`,
+}))
+
+const backgroundStyles = computed(() => ({
+  opacity: backgroundOpacity.value,
+}))
+
+const iconContainerStyles = computed(() => ({
+  transform: `matrix(${iconScale.value}, 0, 0, ${iconScale.value}, 0, ${iconTranslateY.value})`,
+}))
+
+const copyStyles = computed(() => ({
+  transform: `matrix(1, 0, 0, 1, 0, ${copyTranslateY.value})`,
+  opacity: copyOpacity.value,
+}))
+
+// Headline formatting
+const formattedHeadline = computed(() => {
+  return props.title
+    .split('')
+    .map((char, index) => {
+      return `<span class="animate-character" aria-hidden="true" style="transform: matrix(0, 0, 0, 0, ${299.2 - index * 29.75}, 0)">${char}</span>`
+    })
+    .join('')
 })
 
-const calculateBackgroundSize = () => {
-  const backgroundWidth = 3008 // Adjust based on your image dimensions
-  const backgroundHeight = 900
-  const multiplier = window.innerHeight / backgroundHeight
-  sectionStyles['--background-size'] =
-    `${backgroundWidth * multiplier}px ${backgroundHeight * multiplier}px`
-  sectionStyles['--background-multiplier'] = multiplier.toString()
-}
+const formattedMaskedHeadline = computed(() => {
+  return props.title
+    .split('')
+    .map((_, index) => {
+      return `<span class="animate-character dot-character" aria-hidden="true" style="transform: matrix(1, 0, 0, 1, ${299.2 - index * 29.75}, 0)"></span>`
+    })
+    .join('')
+})
 
+// Lifecycle hooks
 onMounted(() => {
-  calculateBackgroundSize()
+  initializeAnimation()
+  window.addEventListener('resize', handleResize)
+})
 
-  const characters =
-    headline.value?.querySelectorAll('.animate-character') || []
-  const dots = maskedHeadline.value?.querySelectorAll('.dot-character') || []
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
+})
 
-  // Initial styles
-  gsap.set(characters, { scale: 1 })
-  gsap.set(dots, { scale: 0 })
-  gsap.set(copy.value, { opacity: 0, y: 50 })
+// Methods
+const initializeAnimation = () => {
+  if (!sectionRef.value || !headlineRef.value || !copyContainerRef.value) {
+    return
+  }
 
-  // Create a timeline for the headline animation
-  const headlineTimeline = gsap.timeline({
+  const timeline = gsap.timeline({
     scrollTrigger: {
-      trigger: headline.value,
-      start: 'top center',
+      trigger: sectionRef.value,
+      start: 'top top',
       end: 'bottom top',
       scrub: true,
     },
   })
 
-  // Animate headline characters to scale down and disappear
-  characters.forEach((char, index) => {
-    headlineTimeline.to(
+  // Background animation
+  timeline
+    .to(backgroundBlur, { value: 50, duration: 1 })
+    .to(backgroundAlpha, { value: 0.6, duration: 1 }, '<')
+
+  // Icon animation
+  timeline
+    .to(iconScale, { value: 1.35, duration: 0.2, ease: 'power2.out' })
+    .to(
+      iconTranslateY,
+      { value: -80, duration: 0.4, ease: 'power2.inOut' },
+      '<'
+    )
+
+  // Copy animation
+  timeline
+    .to(copyOpacity, { value: 1, duration: 0.3 }, '-=0.2')
+    .to(
+      copyTranslateY,
+      { value: -80, duration: 0.4, ease: 'power2.inOut' },
+      '<'
+    )
+
+  // Headline animation
+  const headlineChars =
+    headlineRef.value.querySelectorAll('.animate-character')
+  headlineChars.forEach((char, index) => {
+    timeline.fromTo(
       char,
-      {
-        scale: 0,
-        duration: 0.3,
-        ease: 'power2.inOut',
-      },
+      { opacity: 0, y: 20, scale: 0 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power2.out' },
       index * 0.05
     )
   })
 
-  // Animate dots to scale up and appear
-  dots.forEach((dot, index) => {
-    headlineTimeline.fromTo(
-      dot,
-      {
-        scale: 0,
-      },
-      {
-        scale: 1,
-        duration: 0.3,
-        ease: 'power2.inOut',
-      },
-      index * 0.05
+  // Masked headline animation
+  const maskedChars = headlineRef.value.querySelectorAll('.dot-character')
+  maskedChars.forEach((char, index) => {
+    timeline.to(
+      char,
+      { scale: 0, duration: 0.3, ease: 'power2.in' },
+      0.5 + index * 0.05
     )
   })
 
-  // Animate dots to converge to center
-  headlineTimeline.to(
-    dots,
-    {
-      x: (i) => {
-        const dot = dots[i] as HTMLElement
-        return (
-          -dot.offsetLeft +
-          (maskedHeadline.value ? maskedHeadline.value.offsetWidth / 2 : 0) -
-          dot.offsetWidth / 2
-        )
+  // Icon-specific animations
+  if (heroIconRef.value) {
+    const iconTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.value,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
       },
-      duration: 0.5,
-      ease: 'power2.inOut',
-    },
-    'converge'
-  )
+    })
 
-  // Fade out headline and show icon
-  headlineTimeline.to(
-    headline.value,
-    {
-      opacity: 0,
-      duration: 0.5,
-    },
-    'converge+=0.5'
-  )
-  headlineTimeline.to(
-    iconContainerStyle,
-    {
-      visibility: 'visible',
-      scale: 1.35,
-      duration: 0.5,
-      ease: 'power3.out',
-      onUpdate: () => {
-        if (iconContainer.value) {
-          gsap.set(iconContainer.value, { scale: iconContainerStyle.scale })
-        }
-      },
-    },
-    'converge+=0.5'
-  )
+    heroIconRef.value.animate(iconTimeline)
+  }
 
-  // Animate icon movement
-  headlineTimeline.to(
-    iconContainer.value,
-    {
-      y: '-80px', // Adjust based on your design
-      duration: 0.5,
-      ease: 'power2.out',
-    },
-    'converge+=1'
-  )
+  isLoading.value = false
+}
 
-  // Blur background
-  headlineTimeline.to(
-    sectionStyles,
-    {
-      '--background-blur': '50px',
-      '--background-alpha': 'rgba(0, 0, 0, 0.6)',
-      duration: 0.5,
-      onUpdate: () => {
-        if (!backgroundRef.value) return
-        backgroundRef.value.style.filter = `blur(${sectionStyles['--background-blur']}) brightness(0.7)`
-        backgroundRef.value.style.backgroundColor =
-          sectionStyles['--background-alpha']
-      },
-    },
-    'converge+=1'
-  )
+const handleResize = () => {
+  updateBackgroundSize()
+  checkFallbackState()
+}
 
-  // Fade in copy text
-  headlineTimeline.to(
-    copy.value,
-    {
-      opacity: 1,
-      y: 0,
-      duration: 0.5,
-      ease: 'power2.out',
-    },
-    'converge+=1'
+const updateBackgroundSize = () => {
+  const backgroundAspectRatio = 3292 / 985
+  const scale = Math.max(windowWidth.value / 3292, windowHeight.value / 985)
+  backgroundSize.value = `${3292 * scale}px ${985 * scale}px`
+  backgroundMultiplier.value = scale
+}
+
+const checkFallbackState = () => {
+  if (!sectionRef.value) return
+  const fallbackHeight = Number.parseInt(
+    getComputedStyle(sectionRef.value).getPropertyValue('--fallback-height')
   )
+  isFallbackMode.value = windowHeight.value <= fallbackHeight
+}
+
+// Watch for changes in window size
+watch([windowWidth, windowHeight], () => {
+  handleResize()
 })
 </script>
 
@@ -571,6 +463,7 @@ onMounted(() => {
   }
 }
 .section-hero {
+  --r-localnav-height: 52px;
   --section-offset: var(--r-localnav-height);
   --scroll-duration: 300px;
   --dot-size: 20px;
@@ -898,52 +791,5 @@ onMounted(() => {
   .section-hero .overview-hero-copy {
     margin-top: -18px;
   }
-}
-@media all {
-  * {
-    transform-box: fill-box;
-    transform-origin: center;
-  }
-  #arm {
-    clip-path: url(https://www.apple.com/privacy/#apple-clip);
-    fill: none;
-    stroke: #fff;
-    stroke-linecap: round;
-    stroke-width: 5px;
-  }
-}
-@media all {
-  * {
-    transform-box: fill-box;
-    transform-origin: center;
-  }
-  #arm-static {
-    clip-path: url(https://www.apple.com/privacy/#static-apple-clip);
-    fill: none;
-    stroke: #fff;
-    stroke-linecap: round;
-    stroke-width: 5px;
-  }
-}
-.trace {
-  opacity: 0;
-}
-svg > * {
-  transform-box: fill-box;
-  transform-origin: center;
-}
-#arm-static {
-  clip-path: url(#static-apple-clip);
-  fill: none;
-  stroke: #fff;
-  stroke-linecap: round;
-  stroke-width: 5px;
-}
-#arm {
-  clip-path: url(#apple-clip);
-  fill: none;
-  stroke: #fff;
-  stroke-linecap: round;
-  stroke-width: 5px;
 }
 </style>
