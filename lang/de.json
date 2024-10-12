@@ -8,6 +8,16 @@
           "route": "/",
           "children": [
             {
+              "id": "sequence-hero",
+              "label": "Sequence Hero",
+              "route": "/#sequence-hero"
+            },
+            {
+              "id": "code-hero",
+              "label": "Code Hero",
+              "route": "/#code-hero"
+            },
+            {
               "id": "about",
               "label": "About",
               "route": "/#about",

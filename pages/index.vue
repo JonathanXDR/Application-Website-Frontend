@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <HeroSequenceSection /> -->
     <template v-for="section in sections">
       <section
         v-for="(child, index) in section.children"
@@ -20,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import type { SectionType } from '~/types/common/section'
+import type { SectionType } from '~/types/common/section';
 
 defineOgImageComponent('Overview')
 
