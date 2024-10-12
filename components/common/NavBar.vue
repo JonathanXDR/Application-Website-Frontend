@@ -225,7 +225,9 @@ const navbarElement = ref<HTMLElement | undefined>(undefined)
 const backgroundElement = ref<HTMLElement | undefined>(undefined)
 const menustateTrayElement = ref<HTMLElement | undefined>(undefined)
 const trayHeight = ref<number | undefined>(undefined)
-const menuLinkReferences = reactive<Record<string, HTMLElement | undefined>>({})
+const menuLinkReferences = reactive<Record<string, HTMLElement | undefined>>(
+  {}
+)
 
 const borderTransformOrigin = ref<string>('50% 0%')
 const borderScaleX = ref<string>('scaleX(1)')
@@ -403,25 +405,25 @@ watch([() => route.path, () => currentSection.value.id], () => {
     var(--r-globalnav-height, 44px) * var(--r-localnav-text-zoom-factor)
   );
   --r-localnav-viewport-large-min-width: viewport-get-property-for(
-    'ac-localnav:large',
+    "ac-localnav:large",
     min-width
   );
   --r-localnav-viewport-large-query: min-width(1024px);
   --r-localnav-viewport-medium-min-width: viewport-get-property-for(
-    'ac-localnav:medium',
+    "ac-localnav:medium",
     min-width
   );
   --r-localnav-viewport-medium-max-width: viewport-get-property-for(
-    'ac-localnav:medium',
+    "ac-localnav:medium",
     max-width
   );
   --r-localnav-viewport-medium-query: min-width(834px);
   --r-localnav-viewport-small-min-width: viewport-get-property-for(
-    'ac-localnav:small',
+    "ac-localnav:small",
     min-width
   );
   --r-localnav-viewport-small-max-width: viewport-get-property-for(
-    'ac-localnav:small',
+    "ac-localnav:small",
     max-width
   );
   --r-localnav-viewport-small-query: min-width(320px);
@@ -456,7 +458,7 @@ watch([() => route.path, () => currentSection.value.id], () => {
   font-size: 17px;
   z-index: 9997;
 }
-#ac-localnav:not([dir='rtl']) {
+#ac-localnav:not([dir="rtl"]) {
   --r-localnav-start: var(--r-sk-start, left);
   --r-localnav-end: var(--r-sk-end, right);
   --r-localnav-safe-area-inset-start: var(
@@ -516,7 +518,7 @@ watch([() => route.path, () => currentSection.value.id], () => {
 }
 #ac-localnav .ac-ln-content::before,
 #ac-localnav .ac-ln-content::after {
-  content: ' ';
+  content: " ";
   display: table;
 }
 #ac-localnav .ac-ln-content::after {
@@ -725,7 +727,7 @@ watch([() => route.path, () => currentSection.value.id], () => {
     -webkit-backdrop-filter;
 }
 #ac-localnav .ac-ln-background:after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   bottom: 0;
@@ -838,9 +840,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   /* margin-top: -3px; */
   float: var(--r-localnav-end);
@@ -856,9 +858,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -872,9 +874,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
     padding-top: 0;
     margin-top: 0;
@@ -1162,7 +1164,7 @@ watch([() => route.path, () => currentSection.value.id], () => {
   }
 }
 #ac-localnav .ac-ln-menu-link.current::after {
-  content: '';
+  content: "";
   position: absolute;
   height: 1px;
   width: 100%;
@@ -1319,9 +1321,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   cursor: default;
   /* display: block; */
@@ -1341,9 +1343,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -1401,9 +1403,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   background: var(--sk-button-background);
   color: var(--sk-button-color);
@@ -1443,9 +1445,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 #ac-localnav .ac-ln-button:hover {
@@ -1479,9 +1481,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
     padding: 3px 10px;
     margin-top: -1px;
