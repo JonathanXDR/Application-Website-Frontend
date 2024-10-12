@@ -52,8 +52,8 @@ import { gsap } from 'gsap'
 import type { LanguageBarType } from '~/types/common/language-bar'
 
 defineProps<{
-  title: string
-}>()
+  title: string;
+}>();
 
 const { tm, locale } = useI18n()
 const viewport = useViewport()
@@ -63,7 +63,7 @@ const titleElements = ref<HTMLElement[]>([])
 const progressSpan = ref<HTMLElement[]>([])
 const funFacts = computed<LanguageBarType[]>(() =>
   tm('components.containers.funFacts')
-)
+);
 
 const updateChipClaimHeight = () => {
   nextTick(() => {

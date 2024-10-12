@@ -89,7 +89,7 @@
           >
             <ul class="ac-ln-menu-items">
               <li
-                v-for="(item, index) in visibleNavItems"
+                v-for="(item, index) in navItems"
                 :key="index"
                 :ref="(el) => (menuLinkReferences[item.id] = el as HTMLElement)"
                 class="ac-ln-menu-item"
@@ -188,7 +188,6 @@
 </template>
 
 <script setup lang="ts">
-import type { FeatureFlags } from '~/types/common/feature-flags'
 import type { ItemType } from '~/types/common/item'
 import type { NavBarType } from '~/types/common/nav-bar'
 import type { SectionType } from '~/types/common/section'
@@ -211,7 +210,6 @@ const config = useRuntimeConfig()
 const route = useRoute()
 const { tm } = useI18n()
 
-const featureFlags = inject<FeatureFlags>('featureFlags')
 const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'))
 const themeItems = computed<ItemType[]>(() =>
   tm('components.common.SegmentNav.theme')
@@ -241,16 +239,6 @@ const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
   const menuLinkElement = liElement.firstElementChild as HTMLElement
   return menuLinkElement
 })
-
-const visibleNavItems = computed(() => {
-  return navItems.value.filter(
-    (_item, index) => featureFlags?.pages.value[index] ?? false
-  )
-})
-
-if (!featureFlags) {
-  throw new Error('Feature flags not provided')
-}
 
 setState({
   autoHide: properties.autoHide,
@@ -415,25 +403,25 @@ watch([() => route.path, () => currentSection.value.id], () => {
     var(--r-globalnav-height, 44px) * var(--r-localnav-text-zoom-factor)
   );
   --r-localnav-viewport-large-min-width: viewport-get-property-for(
-    "ac-localnav:large",
+    'ac-localnav:large',
     min-width
   );
   --r-localnav-viewport-large-query: min-width(1024px);
   --r-localnav-viewport-medium-min-width: viewport-get-property-for(
-    "ac-localnav:medium",
+    'ac-localnav:medium',
     min-width
   );
   --r-localnav-viewport-medium-max-width: viewport-get-property-for(
-    "ac-localnav:medium",
+    'ac-localnav:medium',
     max-width
   );
   --r-localnav-viewport-medium-query: min-width(834px);
   --r-localnav-viewport-small-min-width: viewport-get-property-for(
-    "ac-localnav:small",
+    'ac-localnav:small',
     min-width
   );
   --r-localnav-viewport-small-max-width: viewport-get-property-for(
-    "ac-localnav:small",
+    'ac-localnav:small',
     max-width
   );
   --r-localnav-viewport-small-query: min-width(320px);
@@ -468,7 +456,7 @@ watch([() => route.path, () => currentSection.value.id], () => {
   font-size: 17px;
   z-index: 9997;
 }
-#ac-localnav:not([dir="rtl"]) {
+#ac-localnav:not([dir='rtl']) {
   --r-localnav-start: var(--r-sk-start, left);
   --r-localnav-end: var(--r-sk-end, right);
   --r-localnav-safe-area-inset-start: var(
@@ -528,7 +516,7 @@ watch([() => route.path, () => currentSection.value.id], () => {
 }
 #ac-localnav .ac-ln-content::before,
 #ac-localnav .ac-ln-content::after {
-  content: " ";
+  content: ' ';
   display: table;
 }
 #ac-localnav .ac-ln-content::after {
@@ -737,7 +725,7 @@ watch([() => route.path, () => currentSection.value.id], () => {
     -webkit-backdrop-filter;
 }
 #ac-localnav .ac-ln-background:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   bottom: 0;
@@ -850,9 +838,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   /* margin-top: -3px; */
   float: var(--r-localnav-end);
@@ -868,9 +856,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -884,9 +872,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
     padding-top: 0;
     margin-top: 0;
@@ -1174,7 +1162,7 @@ watch([() => route.path, () => currentSection.value.id], () => {
   }
 }
 #ac-localnav .ac-ln-menu-link.current::after {
-  content: "";
+  content: '';
   position: absolute;
   height: 1px;
   width: 100%;
@@ -1331,9 +1319,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   cursor: default;
   /* display: block; */
@@ -1353,9 +1341,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -1413,9 +1401,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   background: var(--sk-button-background);
   color: var(--sk-button-color);
@@ -1455,9 +1443,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 #ac-localnav .ac-ln-button:hover {
@@ -1491,9 +1479,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
     padding: 3px 10px;
     margin-top: -1px;
