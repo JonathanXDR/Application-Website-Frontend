@@ -1,66 +1,84 @@
 <template>
-  <div
-    class="tile tile-music-discovery tile-rounded media-full-bleed near-card"
-    :style="{ '--tile-height': tileHeight + 'px' }"
-  >
-    <div class="tile-foc">
-      <div class="tile-content">
-        <div class="tile-copy">
-          <h3 class="tile-eyebrow typography-eyebrow-super fade-in">
-            Music Discovery
-          </h3>
-          <h4
-            class="tile-headline typography-headline-super swipe-up-reveal text-gradient"
-            :class="{ animate: textRevealed }"
-          >
-            <span class="line">
-              <span class="words">Where your new</span>
-            </span>
-            <span class="line">
-              <span class="words">favorites find you.</span>
-            </span>
-          </h4>
-        </div>
-      </div>
-      <div
-        class="parallax"
-        :class="{ animate: isAnimated, paused: isPaused }"
-      >
+  <section class="section section-cards">
+    <div class="section-content-responsive">
+      <div class="cards-container">
         <div
-          v-for="(img, idx) in images"
-          :key="idx"
-          class="img-wrapper"
+          ref="tileRef"
+          class="tile tile-music-discovery tile-rounded media-full-bleed near-card"
+          :style="{ '--tile-height': tileHeight + 'px' }"
         >
-          <figure
-            class="parallax-item"
-            :class="{ float: isPlaying }"
-            :data-i="img"
-            :data-clone="idx >= images.length / 2 ? '' : null"
-            :style="getImageStyle(idx)"
-          />
+          <div class="tile-foc">
+            <div class="tile-content">
+              <div class="tile-copy">
+                <h3 class="tile-eyebrow typography-eyebrow-super fade-in">
+                  Music Discovery
+                </h3>
+                <h4
+                  ref="headlineRef"
+                  class="tile-headline typography-headline-super swipe-up-reveal text-gradient"
+                  :class="{ animate: textRevealed }"
+                >
+                  <span class="line">
+                    <span class="words">Where your</span>
+                  </span>
+                  <span class="line">
+                    <span class="words">new favorites</span>
+                  </span>
+                  <span class="line">
+                    <span class="words">find you.</span>
+                  </span>
+                </h4>
+              </div>
+            </div>
+            <div
+              ref="parallaxRef"
+              class="parallax"
+              :class="{ animate: isAnimated, paused: isPaused }"
+            >
+              <div
+                v-for="(img, idx) in images"
+                :key="idx"
+                class="img-wrapper"
+              >
+                <figure
+                  class="parallax-item"
+                  :class="{ float: isPlaying }"
+                  :data-i="img"
+                  :data-clone="idx >= images.length / 2 ? '' : null"
+                  :style="getImageStyle(idx)"
+                />
+              </div>
+            </div>
+            <button
+              ref="playPauseButtonRef"
+              class="play-pause-button"
+              :class="{ paused: !isPlaying }"
+              :aria-label="isPlaying ? ariaPauseLabel : ariaPlayLabel"
+              @click="togglePlayPause"
+            >
+              <!-- SVG icon goes here -->
+            </button>
+          </div>
         </div>
       </div>
-      <button
-        class="play-pause-button"
-        :class="{ paused: !isPlaying }"
-        :aria-label="isPlaying ? ariaPauseLabel : ariaPlayLabel"
-        @click="togglePlayPause"
-      >
-        <!-- SVG icon goes here -->
-      </button>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts" setup>
+import {
+  useIntersectionObserver,
+  useResizeObserver,
+  useWindowSize,
+} from '@vueuse/core'
+
+const { width } = useWindowSize()
 const isPlaying = ref(false)
 const isAnimated = ref(false)
 const textRevealed = ref(false)
 const tileHeight = ref(0)
 const images = ref<number[]>([])
-const imagePositions = ref<
-  { top: number, left: number, rotate: number }[]
->([])
+const imagePositions = ref<{ top: number, left: number, rotate: number }[]>([])
 
 const ariaPlayLabel =
   'Play animation of an array of personalized playlists covers animating upwards'
@@ -69,16 +87,21 @@ const ariaPauseLabel =
 
 const isPaused = computed(() => !isPlaying.value)
 
+const tileRef = ref<HTMLElement | null>(null)
+const parallaxRef = ref<HTMLElement | null>(null)
+const headlineRef = ref<HTMLElement | null>(null)
+const playPauseButtonRef = ref<HTMLElement | null>(null)
+
 function togglePlayPause () {
   isPlaying.value = !isPlaying.value
 }
 
 function shuffleImages () {
   const numImages = 32
-  const indices = Array.from({ length: numImages }, (_, i) => i)
+  const indices: number[] = Array.from({ length: numImages }, (_, i) => i)
   for (let i = indices.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [indices[i], indices[j]] = [indices[j], indices[i]]
+    [indices[i]!, indices[j]!] = [indices[j]!, indices[i]!]
   }
   images.value = indices
 }
@@ -97,50 +120,50 @@ function getRandom (min: number, max: number) {
 
 function getImageStyle (idx: number) {
   const position = imagePositions.value[idx]
-  return {
-    top: `${position.top}%`,
-    left: `${position.left}%`,
-    transform: `rotate(${position.rotate}deg)`,
+  if (position) {
+    return {
+      top: `${position.top}%`,
+      left: `${position.left}%`,
+      transform: `rotate(${position.rotate}deg)`,
+    }
+  } else {
+    return {}
   }
 }
 
-function measureTileHeight () {
-  const tile = document.querySelector(
-    '.tile-music-discovery'
-  ) as HTMLElement
-  if (tile) {
-    tileHeight.value = tile.offsetHeight
+async function measureTileHeight () {
+  await nextTick()
+  if (tileRef.value) {
+    tileHeight.value = tileRef.value.offsetHeight
   }
 }
 
 function setupParallaxObserver () {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        isAnimated.value = true
-        isPlaying.value = true
-        observer.unobserve(entry.target)
-      }
-    })
-  }, { threshold: 0.5 })
-  const target = document.querySelector('.parallax')
-  if (target) {
-    observer.observe(target)
+  if (parallaxRef.value) {
+    useIntersectionObserver(
+      parallaxRef,
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          isAnimated.value = true
+          isPlaying.value = true
+        }
+      },
+      { threshold: 0.5 }
+    )
   }
 }
 
 function setupTextRevealObserver () {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        textRevealed.value = true
-        observer.unobserve(entry.target)
-      }
-    })
-  }, { threshold: 0.5 })
-  const target = document.querySelector('h4.tile-headline')
-  if (target) {
-    observer.observe(target)
+  if (headlineRef.value) {
+    useIntersectionObserver(
+      headlineRef,
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          textRevealed.value = true
+        }
+      },
+      { threshold: 0.5 }
+    )
   }
 }
 
@@ -150,17 +173,17 @@ onMounted(() => {
   measureTileHeight()
   setupParallaxObserver()
   setupTextRevealObserver()
-  window.addEventListener('resize', measureTileHeight)
 })
 
+watch(width, measureTileHeight)
+
 watch(isPlaying, (newValue) => {
-  const playPauseButton = document.querySelector(
-    '.play-pause-button'
-  ) as HTMLElement
-  if (playPauseButton) {
-    playPauseButton.style.zIndex = newValue ? '6' : '1'
+  if (playPauseButtonRef.value) {
+    playPauseButtonRef.value.style.zIndex = newValue ? '6' : '1'
   }
 })
+
+useResizeObserver(tileRef, measureTileHeight)
 </script>
 
 <style scoped>
@@ -284,6 +307,16 @@ h3 + h4 {
     border-radius: var(--sk-tile-border-radius-xsmall);
   }
 }
+.section-content-responsive {
+  margin-inline: auto;
+  width: 87.5vw;
+  max-width: 1260px;
+}
+@media only screen and (max-width: 734px) {
+  .section-content-responsive {
+    max-width: 480px;
+  }
+}
 .text-gradient,
 .swipe-up-reveal.text-gradient .words {
   background: var(--color-fill-gray);
@@ -313,6 +346,9 @@ h3 + h4 {
 }
 .swipe-up-reveal .line:nth-child(2) .words {
   transition-delay: 600ms;
+}
+.swipe-up-reveal .line:nth-child(3) .words {
+  transition-delay: 900ms;
 }
 .swipe-up-reveal .words {
   display: block;
@@ -425,6 +461,16 @@ h3 + h4 {
   margin-top: 0;
 }
 /*! CSS Used from: https://www.apple.com/v/apple-music/ab/built/styles/overview.built.css */
+.section-content-responsive {
+  margin-inline: auto;
+  width: 87.5vw;
+  max-width: 1260px;
+}
+@media only screen and (max-width: 734px) {
+  .section-content-responsive {
+    max-width: 480px;
+  }
+}
 .text-gradient,
 .swipe-up-reveal.text-gradient .words {
   background: var(--color-fill-gray);
@@ -454,6 +500,9 @@ h3 + h4 {
 }
 .swipe-up-reveal .line:nth-child(2) .words {
   transition-delay: 600ms;
+}
+.swipe-up-reveal .line:nth-child(3) .words {
+  transition-delay: 900ms;
 }
 .swipe-up-reveal .words {
   display: block;
@@ -529,6 +578,18 @@ h3 + h4 {
 .play-pause-button.paused .control-icon-pause {
   display: none;
 }
+.play-pause-button.playing .control-icon-play {
+  display: none;
+}
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: stretch;
+  grid-column-gap: 30px;
+  column-gap: 30px;
+  grid-row-gap: 30px;
+  row-gap: 30px;
+}
 .cards-container .tile {
   --sk-tile-border-radius-large: 30px;
   --sk-tile-border-radius-small: 20px;
@@ -603,6 +664,11 @@ h3 + h4 {
 }
 .cards-container .tile.near-card {
   will-change: transform, opacity;
+}
+.section-cards {
+  position: relative;
+  overflow: hidden;
+  padding-block: 34px;
 }
 .section-cards .cards-container .tile {
   min-height: 718px;
@@ -3614,16 +3680,16 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i="4"] {
+  .parallax-item[data-i="3"] {
   background-repeat: no-repeat;
-  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/chill_mix__d7zvuzqnpa82_large.jpg);
+  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/catching_feelings__buamrwvfq2r6_large.jpg);
 }
 @media (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i="4"] {
-    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/chill_mix__d7zvuzqnpa82_large_2x.jpg);
+    .parallax-item[data-i="3"] {
+    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/catching_feelings__buamrwvfq2r6_large_2x.jpg);
   }
 }
 .section-cards
@@ -3719,21 +3785,6 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i="11"] {
-  background-repeat: no-repeat;
-  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/headliners__bv5warnjrz42_large.jpg);
-}
-@media (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
-  .section-cards
-    .cards-container
-    .tile-music-discovery
-    .parallax-item[data-i="11"] {
-    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/headliners__bv5warnjrz42_large_2x.jpg);
-  }
-}
-.section-cards
-  .cards-container
-  .tile-music-discovery
   .parallax-item[data-i="12"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/heartbreak__dczxshlrtoeq_large.jpg);
@@ -3794,6 +3845,21 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
+  .parallax-item[data-i="16"] {
+  background-repeat: no-repeat;
+  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/made_for_spatial_audio__jln6d02l12y6_large.jpg);
+}
+@media (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
+  .section-cards
+    .cards-container
+    .tile-music-discovery
+    .parallax-item[data-i="16"] {
+    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/made_for_spatial_audio__jln6d02l12y6_large_2x.jpg);
+  }
+}
+.section-cards
+  .cards-container
+  .tile-music-discovery
   .parallax-item[data-i="17"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/matt_wilkinson_show__kept4fmp2fe6_large.jpg);
@@ -3819,21 +3885,6 @@ h3 + h4 {
     .tile-music-discovery
     .parallax-item[data-i="18"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/melodic_rap__cz21ta25zeuu_large_2x.jpg);
-  }
-}
-.section-cards
-  .cards-container
-  .tile-music-discovery
-  .parallax-item[data-i="19"] {
-  background-repeat: no-repeat;
-  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/new_music_mix__dxtjnqmzqlci_large.jpg);
-}
-@media (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
-  .section-cards
-    .cards-container
-    .tile-music-discovery
-    .parallax-item[data-i="19"] {
-    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/new_music_mix__dxtjnqmzqlci_large_2x.jpg);
   }
 }
 .section-cards
@@ -3884,6 +3935,21 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
+  .parallax-item[data-i="23"] {
+  background-repeat: no-repeat;
+  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/pure_jazz__ccu97qu01x8i_large.jpg);
+}
+@media (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
+  .section-cards
+    .cards-container
+    .tile-music-discovery
+    .parallax-item[data-i="23"] {
+    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/pure_jazz__ccu97qu01x8i_large_2x.jpg);
+  }
+}
+.section-cards
+  .cards-container
+  .tile-music-discovery
   .parallax-item[data-i="24"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/pure_throwback__fy5fqu4wc4y2_large.jpg);
@@ -3894,21 +3960,6 @@ h3 + h4 {
     .tile-music-discovery
     .parallax-item[data-i="24"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/pure_throwback__fy5fqu4wc4y2_large_2x.jpg);
-  }
-}
-.section-cards
-  .cards-container
-  .tile-music-discovery
-  .parallax-item[data-i="25"] {
-  background-repeat: no-repeat;
-  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/rap_life__f2dwtu4tev2i_large.jpg);
-}
-@media (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
-  .section-cards
-    .cards-container
-    .tile-music-discovery
-    .parallax-item[data-i="25"] {
-    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/rap_life__f2dwtu4tev2i_large_2x.jpg);
   }
 }
 .section-cards
@@ -3974,6 +4025,21 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
+  .parallax-item[data-i="30"] {
+  background-repeat: no-repeat;
+  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/viral_hits__c09n3mnkdi0y_large.jpg);
+}
+@media (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
+  .section-cards
+    .cards-container
+    .tile-music-discovery
+    .parallax-item[data-i="30"] {
+    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/viral_hits__c09n3mnkdi0y_large_2x.jpg);
+  }
+}
+.section-cards
+  .cards-container
+  .tile-music-discovery
   .parallax-item[data-i="31"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/viral_rewind_playlist__cboty3hdk9yu_large.jpg);
@@ -3989,13 +4055,6 @@ h3 + h4 {
 .section-cards .cards-container .tile-music-discovery .parallax-item.float {
   animation: float-up var(--duration) linear 1;
   animation-fill-mode: forwards;
-}
-.section-cards
-  .cards-container
-  .tile-music-discovery
-  .parallax.paused
-  .parallax-item {
-  animation-play-state: paused;
 }
 /*! CSS Used keyframes */
 @keyframes float-up {

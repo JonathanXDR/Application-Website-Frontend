@@ -17,7 +17,6 @@ export default defineNuxtConfig({
   ],
 
   $development: {
-
     app: {
       head: {
         link: [
@@ -50,7 +49,6 @@ export default defineNuxtConfig({
   },
 
   $production: {
-
     app: {
       head: {
         link: [
