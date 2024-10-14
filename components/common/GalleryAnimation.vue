@@ -1,553 +1,167 @@
 <template>
   <div
     class="tile tile-music-discovery tile-rounded media-full-bleed near-card"
-    data-component-list="TileOverlay"
-    data-analytics-section-engagement="name:music discovery"
-    style="
-      --tile-height: 608px;
-      transform: matrix(1, 0, 0, 1, 0, 0);
-      opacity: 1;
-    "
+    :style="{ '--tile-height': tileHeight + 'px' }"
   >
     <div class="tile-foc">
       <div class="tile-content">
         <div class="tile-copy">
-          <h3
-            class="tile-eyebrow typography-eyebrow-super fade-in"
-            data-anim-classname="{&quot;start&quot;:&quot;t - 80vh&quot;, &quot;cssClass&quot;: &quot;fade-in&quot;, &quot;toggle&quot;: false}"
-          >
+          <h3 class="tile-eyebrow typography-eyebrow-super fade-in">
             Music Discovery
           </h3>
           <h4
-            class="tile-headline typography-headline-super swipe-up-reveal text-gradient animate"
-            data-component-list="TextReveal"
+            class="tile-headline typography-headline-super swipe-up-reveal text-gradient"
+            :class="{ animate: textRevealed }"
           >
-            <span class="line"><span
-              class="words"
-              style="
-                  background-image: linear-gradient(
-                    90deg,
-                    rgb(232, 50, 115),
-                    rgb(228, 50, 64),
-                    rgb(220, 76, 36),
-                    rgb(189, 39, 26),
-                    rgb(153, 30, 47)
-                  );
-                "
-            >Where your new</span></span><span class="line"><span
-              class="words"
-              style="
-                  background-image: linear-gradient(
-                    90deg,
-                    rgb(232, 50, 115),
-                    rgb(228, 50, 64),
-                    rgb(220, 76, 36),
-                    rgb(189, 39, 26),
-                    rgb(153, 30, 47)
-                  );
-                "
-            >favorites find you.</span></span>
+            <span class="line">
+              <span class="words">Where your new</span>
+            </span>
+            <span class="line">
+              <span class="words">favorites find you.</span>
+            </span>
           </h4>
         </div>
       </div>
       <div
-        class="parallax animate paused"
-        data-component-list="ImgParallax"
+        class="parallax"
+        :class="{ animate: isAnimated, paused: isPaused }"
       >
-        <span class="leave-empty" />
-        <span class="leave-empty-row" />
-        <span class="leave-empty-clone" />
-        <div class="img-wrapper">
+        <div
+          v-for="(img, idx) in images"
+          :key="idx"
+          class="img-wrapper"
+        >
           <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="21"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="0"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="17"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="2"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="4"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="15"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="11"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="8"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="6"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="29"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="7"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="1"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="24"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="13"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="19"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="5"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="25"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="26"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="20"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="10"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="18"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="27"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="12"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="28"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="9"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="22"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="14"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-child=""
-            data-i="31"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="21"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="0"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="17"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="2"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="4"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="15"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="11"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="8"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="6"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="29"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="7"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="1"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="24"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="13"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="19"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="5"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="25"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="26"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="20"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="10"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="18"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="27"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="12"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="28"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="9"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="22"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="14"
-          />
-        </div>
-        <div class="img-wrapper">
-          <figure
-            class="parallax-item float"
-            data-clone=""
-            data-child=""
-            data-download-area-keyframe="{&quot;start&quot;:&quot;a0t - 100vh&quot;, &quot;end&quot;:&quot;a0b&quot;, &quot;anchors&quot;: [&quot;.tile-music-discovery&quot;]}"
-            data-i="31"
+            class="parallax-item"
+            :class="{ float: isPlaying }"
+            :data-i="img"
+            :data-clone="idx >= images.length / 2 ? '' : null"
+            :style="getImageStyle(idx)"
           />
         </div>
       </div>
       <button
-        class="play-pause-button paused"
-        data-inline-media-control="PlayPause"
-        data-aria-playing="Pause animation of an array of personalized playlists covers animating upwards"
-        data-aria-paused="Play animation of an array of personalized playlists covers animating upwards"
-        aria-label="Play animation of an array of personalized playlists covers animating upwards"
-        data-analytics-intrapage-link=""
-        data-analytics-click="prop3:undefined"
-        data-analytics-title="undefined"
+        class="play-pause-button"
+        :class="{ paused: !isPlaying }"
+        :aria-label="isPlaying ? ariaPauseLabel : ariaPlayLabel"
+        @click="togglePlayPause"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          class="control-centered-small-icon"
-        >
-          <g class="control-icon-pause">
-            <rect
-              width="4.5"
-              height="14"
-              x="3.75"
-              y="3"
-              rx="1.5"
-            />
-            <rect
-              width="4.5"
-              height="14"
-              x="11.75"
-              y="3"
-              rx="1.5"
-            />
-          </g>
-          <path
-            class="control-icon-play"
-            d="M5 15.25V4.77a1.44 1.44 0 0 1 1.44-1.62 1.86 1.86 0 0 1 1.11.31l8.53 5c.76.44 1.17.8 1.17 1.51s-.41 1.07-1.17 1.51l-8.53 5a1.86 1.86 0 0 1-1.11.31A1.42 1.42 0 0 1 5 15.25Z"
-          />
-        </svg>
+        <!-- SVG icon goes here -->
       </button>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts" setup>
+const isPlaying = ref(false)
+const isAnimated = ref(false)
+const textRevealed = ref(false)
+const tileHeight = ref(0)
+const images = ref<number[]>([])
+const imagePositions = ref<
+  { top: number, left: number, rotate: number }[]
+>([])
+
+const ariaPlayLabel =
+  'Play animation of an array of personalized playlists covers animating upwards'
+const ariaPauseLabel =
+  'Pause animation of an array of personalized playlists covers animating upwards'
+
+const isPaused = computed(() => !isPlaying.value)
+
+function togglePlayPause () {
+  isPlaying.value = !isPlaying.value
+}
+
+function shuffleImages () {
+  const numImages = 32
+  const indices = Array.from({ length: numImages }, (_, i) => i)
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]]
+  }
+  images.value = indices
+}
+
+function setPosition () {
+  imagePositions.value = images.value.map(() => ({
+    top: getRandom(0, 100),
+    left: getRandom(0, 100),
+    rotate: getRandom(120, 180),
+  }))
+}
+
+function getRandom (min: number, max: number) {
+  return Math.random() * (max - min) + min
+}
+
+function getImageStyle (idx: number) {
+  const position = imagePositions.value[idx]
+  return {
+    top: `${position.top}%`,
+    left: `${position.left}%`,
+    transform: `rotate(${position.rotate}deg)`,
+  }
+}
+
+function measureTileHeight () {
+  const tile = document.querySelector(
+    '.tile-music-discovery'
+  ) as HTMLElement
+  if (tile) {
+    tileHeight.value = tile.offsetHeight
+  }
+}
+
+function setupParallaxObserver () {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        isAnimated.value = true
+        isPlaying.value = true
+        observer.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.5 })
+  const target = document.querySelector('.parallax')
+  if (target) {
+    observer.observe(target)
+  }
+}
+
+function setupTextRevealObserver () {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        textRevealed.value = true
+        observer.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.5 })
+  const target = document.querySelector('h4.tile-headline')
+  if (target) {
+    observer.observe(target)
+  }
+}
+
+onMounted(() => {
+  shuffleImages()
+  setPosition()
+  measureTileHeight()
+  setupParallaxObserver()
+  setupTextRevealObserver()
+  window.addEventListener('resize', measureTileHeight)
+})
+
+watch(isPlaying, (newValue) => {
+  const playPauseButton = document.querySelector(
+    '.play-pause-button'
+  ) as HTMLElement
+  if (playPauseButton) {
+    playPauseButton.style.zIndex = newValue ? '6' : '1'
+  }
+})
+</script>
 
 <style scoped>
 h3,
