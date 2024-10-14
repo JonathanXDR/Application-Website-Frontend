@@ -550,42 +550,10 @@
 <script setup lang="ts"></script>
 
 <style scoped>
-/*! CSS Used from: https://www.apple.com/v/apple-music/ab/built/styles/main.built.css */
-button,
-figure,
-h3,
-h4 {
-  margin: 0;
-  padding: 0;
-}
-button {
-  background: none;
-  border: 0;
-  box-sizing: initial;
-  color: inherit;
-  cursor: pointer;
-  font: inherit;
-  line-height: inherit;
-  overflow: visible;
-  vertical-align: inherit;
-}
-button:disabled {
-  cursor: default;
-}
-:focus-visible {
-  outline: 2px solid var(--sk-focus-color, #0071e3);
-  outline-offset: var(--sk-focus-offset, 1px);
-}
-button {
-  font-synthesis: none;
-  -moz-font-feature-settings: "kern";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 h3,
 h4 {
   font-weight: 600;
-  color: var(--sk-headline-text-color, rgb(29, 29, 31));
+  color: var(--sk-headline-text-color, var(--color-fill-gray));
 }
 h3 + * {
   margin-top: var(--sk-headline-plus-first-element-margin, 0.8em);
@@ -597,7 +565,7 @@ h3 + h4 {
   margin-inline-start: auto;
   margin-inline-end: auto;
   --sk-tile-box-shadow: initial;
-  --sk-tile-background: rgb(255, 255, 255);
+  --sk-tile-background: var(--color-fill);
   --sk-tile-button-background: rgba(210, 210, 215, 0.64);
   --sk-tile-button-background-hover: rgba(223, 223, 227, 0.6976);
   --sk-tile-button-background-active: rgba(193, 193, 198, 0.6544);
@@ -703,8 +671,8 @@ h3 + h4 {
   }
 }
 .text-gradient,
-html.no-reduced-motion .swipe-up-reveal.text-gradient .words {
-  background: #1d1d1f;
+.swipe-up-reveal.text-gradient .words {
+  background: var(--color-fill-gray);
   background-clip: text;
   -webkit-text-fill-color: rgba(0, 0, 0, 0);
   -webkit-box-decoration-break: clone;
@@ -718,29 +686,29 @@ html.no-reduced-motion .swipe-up-reveal.text-gradient .words {
     #991e2f
   );
 }
-html.no-reduced-motion .swipe-up-reveal {
+.swipe-up-reveal {
   opacity: 0;
 }
-html.no-reduced-motion .swipe-up-reveal .line {
+.swipe-up-reveal .line {
   display: block;
   position: relative;
   overflow: hidden;
 }
-html.no-reduced-motion .swipe-up-reveal .line:first-child .words {
+.swipe-up-reveal .line:first-child .words {
   transition-delay: 300ms;
 }
-html.no-reduced-motion .swipe-up-reveal .line:nth-child(2) .words {
+.swipe-up-reveal .line:nth-child(2) .words {
   transition-delay: 600ms;
 }
-html.no-reduced-motion .swipe-up-reveal .words {
+.swipe-up-reveal .words {
   display: block;
   transform: translateY(100%);
   transition: transform 0.5s;
 }
-html.no-reduced-motion .swipe-up-reveal.animate {
+.swipe-up-reveal.animate {
   opacity: 1;
 }
-html.no-reduced-motion .swipe-up-reveal.animate .words {
+.swipe-up-reveal.animate .words {
   transform: translateY(0);
 }
 .typography-headline-super {
@@ -749,11 +717,12 @@ html.no-reduced-motion .swipe-up-reveal.animate .words {
   font-weight: 600;
   letter-spacing: -0.015em;
   font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 @media only screen and (max-width: 1068px) {
@@ -763,11 +732,12 @@ html.no-reduced-motion .swipe-up-reveal.animate .words {
     font-weight: 600;
     letter-spacing: -0.009em;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -778,11 +748,12 @@ html.no-reduced-motion .swipe-up-reveal.animate .words {
     font-weight: 600;
     letter-spacing: -0.003em;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -792,11 +763,12 @@ html.no-reduced-motion .swipe-up-reveal.animate .words {
   font-weight: 600;
   letter-spacing: 0.004em;
   font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 @media only screen and (max-width: 1068px) {
@@ -806,11 +778,12 @@ html.no-reduced-motion .swipe-up-reveal.animate .words {
     font-weight: 600;
     letter-spacing: 0.007em;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -821,11 +794,12 @@ html.no-reduced-motion .swipe-up-reveal.animate .words {
     font-weight: 600;
     letter-spacing: 0.009em;
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -838,8 +812,8 @@ html.no-reduced-motion .swipe-up-reveal.animate .words {
 }
 /*! CSS Used from: https://www.apple.com/v/apple-music/ab/built/styles/overview.built.css */
 .text-gradient,
-html.no-reduced-motion .swipe-up-reveal.text-gradient .words {
-  background: #1d1d1f;
+.swipe-up-reveal.text-gradient .words {
+  background: var(--color-fill-gray);
   background-clip: text;
   -webkit-text-fill-color: rgba(0, 0, 0, 0);
   -webkit-box-decoration-break: clone;
@@ -853,29 +827,29 @@ html.no-reduced-motion .swipe-up-reveal.text-gradient .words {
     #991e2f
   );
 }
-html.no-reduced-motion .swipe-up-reveal {
+.swipe-up-reveal {
   opacity: 0;
 }
-html.no-reduced-motion .swipe-up-reveal .line {
+.swipe-up-reveal .line {
   display: block;
   position: relative;
   overflow: hidden;
 }
-html.no-reduced-motion .swipe-up-reveal .line:first-child .words {
+.swipe-up-reveal .line:first-child .words {
   transition-delay: 300ms;
 }
-html.no-reduced-motion .swipe-up-reveal .line:nth-child(2) .words {
+.swipe-up-reveal .line:nth-child(2) .words {
   transition-delay: 600ms;
 }
-html.no-reduced-motion .swipe-up-reveal .words {
+.swipe-up-reveal .words {
   display: block;
   transform: translateY(100%);
   transition: transform 0.5s;
 }
-html.no-reduced-motion .swipe-up-reveal.animate {
+.swipe-up-reveal.animate {
   opacity: 1;
 }
-html.no-reduced-motion .swipe-up-reveal.animate .words {
+.swipe-up-reveal.animate .words {
   transform: translateY(0);
 }
 .play-pause-button {
@@ -914,8 +888,8 @@ html.no-reduced-motion .swipe-up-reveal.animate .words {
     [data-focus-method="touch"]
   ):focus {
   box-shadow:
-    0px 0px 0px 3px #fff,
-    0px 0px 0px 5px #0071e3;
+    0px 0px 0px 3px var(--color-fill),
+    0px 0px 0px 5px var(--color-fill-blue);
 }
 .play-pause-button:hover {
   background-color: var(--scrim-hover-background-color);
@@ -946,7 +920,7 @@ html.no-reduced-motion .swipe-up-reveal.animate .words {
   --sk-tile-border-radius-small: 20px;
   --card-duration: 450ms;
   --card-delay: 900ms;
-  background-color: #f5f5f7;
+  background-color: var(--color-fill-tertiary);
   grid-column-start: span 2;
   width: 100%;
   clip-path: inset(1px 1px 1px 1px round var(--sk-tile-border-radius-large));
@@ -994,15 +968,12 @@ html.no-reduced-motion .swipe-up-reveal.animate .words {
 .cards-container .tile .tile-eyebrow {
   opacity: 0.6;
 }
-html.no-reduced-motion .page-overview .cards-container .tile .tile-eyebrow {
+.page-overview .cards-container .tile .tile-eyebrow {
   opacity: 0;
   transition: opacity 0.5s;
 }
-html.no-reduced-motion
-  .page-overview
-  .cards-container
-  .tile
-  .tile-eyebrow.fade-in {
+
+.page-overview .cards-container .tile .tile-eyebrow.fade-in {
   opacity: 0.6;
 }
 .cards-container .tile.media-full-bleed .play-pause-button {
