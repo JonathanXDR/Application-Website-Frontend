@@ -11,7 +11,7 @@
             <div class="tile-content">
               <div class="tile-copy">
                 <h3 class="tile-eyebrow typography-eyebrow-super fade-in">
-                  Music Discovery
+                  {{ title }}
                 </h3>
                 <h4
                   ref="headlineRef"
@@ -56,7 +56,32 @@
               :aria-label="isPlaying ? ariaPauseLabel : ariaPlayLabel"
               @click="togglePlayPause"
             >
-              <!-- SVG icon goes here -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                class="control-centered-small-icon"
+              >
+                <g class="control-icon-pause">
+                  <rect
+                    width="4.5"
+                    height="14"
+                    x="3.75"
+                    y="3"
+                    rx="1.5"
+                  />
+                  <rect
+                    width="4.5"
+                    height="14"
+                    x="11.75"
+                    y="3"
+                    rx="1.5"
+                  />
+                </g>
+                <path
+                  class="control-icon-play"
+                  d="M5 15.25V4.77a1.44 1.44 0 0 1 1.44-1.62 1.86 1.86 0 0 1 1.11.31l8.53 5c.76.44 1.17.8 1.17 1.51s-.41 1.07-1.17 1.51l-8.53 5a1.86 1.86 0 0 1-1.11.31A1.42 1.42 0 0 1 5 15.25Z"
+                />
+              </svg>
             </button>
           </div>
         </div>
@@ -67,10 +92,16 @@
 
 <script lang="ts" setup>
 import {
-  useIntersectionObserver,
-  useResizeObserver,
-  useWindowSize,
-} from '@vueuse/core'
+useIntersectionObserver,
+useResizeObserver,
+useWindowSize,
+} from '@vueuse/core';
+import type { BasicPropertiesType } from '~/types/common/basic-properties';
+
+const props = withDefaults(defineProps<BasicPropertiesType>(), {
+  title: 'Music Discovery',
+  description: 'Where your new favorites find you.',
+})
 
 const { width } = useWindowSize()
 const isPlaying = ref(false)
@@ -363,9 +394,8 @@ h3 + h4 {
 }
 .typography-headline-super {
   font-size: 80px;
-  line-height: 1.05;
+  line-height: 1.1;
   font-weight: 600;
-  letter-spacing: -0.015em;
   font-family:
     system-ui,
     -apple-system,
@@ -378,9 +408,8 @@ h3 + h4 {
 @media only screen and (max-width: 1068px) {
   .typography-headline-super {
     font-size: 64px;
-    line-height: 1.0625;
+    line-height: 1.1125;
     font-weight: 600;
-    letter-spacing: -0.009em;
     font-family:
       system-ui,
       -apple-system,
@@ -394,9 +423,8 @@ h3 + h4 {
 @media only screen and (max-width: 734px) {
   .typography-headline-super {
     font-size: 48px;
-    line-height: 1.0834933333;
+    line-height: 1.1334933333;
     font-weight: 600;
-    letter-spacing: -0.003em;
     font-family:
       system-ui,
       -apple-system,
@@ -409,9 +437,8 @@ h3 + h4 {
 }
 .typography-eyebrow-super {
   font-size: 32px;
-  line-height: 1.125;
+  line-height: 1.175;
   font-weight: 600;
-  letter-spacing: 0.004em;
   font-family:
     system-ui,
     -apple-system,
@@ -424,9 +451,8 @@ h3 + h4 {
 @media only screen and (max-width: 1068px) {
   .typography-eyebrow-super {
     font-size: 28px;
-    line-height: 1.1428571429;
+    line-height: 1.1928571429;
     font-weight: 600;
-    letter-spacing: 0.007em;
     font-family:
       system-ui,
       -apple-system,
@@ -440,9 +466,8 @@ h3 + h4 {
 @media only screen and (max-width: 734px) {
   .typography-eyebrow-super {
     font-size: 24px;
-    line-height: 1.1666666667;
+    line-height: 1.2166666667;
     font-weight: 600;
-    letter-spacing: 0.009em;
     font-family:
       system-ui,
       -apple-system,

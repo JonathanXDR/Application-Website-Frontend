@@ -9,9 +9,10 @@
       role="button"
       style="position: relative; z-index: 1"
     >
-      <span class="icon-copy">Explore more details</span>
+      <span class="icon-copy">{{ title }}</span>
       <span class="icon">
         <svg
+          v-if="icon.name === 'plus'"
           class="svg svg-plus"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 99.598 99.547"
@@ -23,10 +24,26 @@
             d="M25.94 49.825C25.94 47.277 27.743 45.515 30.29 45.515H45.577V30.23C45.577 27.69 47.236 25.929 49.711 25.929 52.26 25.93 54.021 27.68 54.021 30.23V45.515H69.36C71.856 45.515 73.66 47.277 73.66 49.825 73.659 52.301 71.845 54.011 69.359 54.011H54.021V69.297C54.021 71.845 52.26 73.597 49.711 73.597 47.236 73.596 45.577 71.782 45.577 69.296V54.01H30.291C27.753 54.01 25.94 52.3 25.94 49.825Z"
           />
         </svg>
+        <SFSymbol
+          v-else
+          class="icon icon-medium mr-1"
+          :name="icon.name"
+          :component-size="icon.componentSize"
+          :colors="icon.colors"
+        />
       </span>
     </a>
   </p>
 </template>
+
+<script setup lang="ts">
+import type { BasicPropertiesType } from '~/types/common/basic-properties';
+
+withDefaults(defineProps<Partial<BasicPropertiesType>>(), {
+  title: 'Explore more details',
+  icon: () => ({ name: 'plus' }),
+})
+</script>
 
 <style scoped>
 .drawer-toggle {
@@ -67,12 +84,12 @@
   text-align: center;
   margin-inline-start: auto;
   margin-inline-end: auto;
-  --modal-trigger-color: var(--color-fill-gray);
-  --modal-trigger-bg: #333;
+  --modal-trigger-color: var(--color-fill-tertiary);
+  --modal-trigger-bg: var(--color-fill-gray);
   margin-top: 15px;
   position: relative;
 }
-.section-compare .drawer-toggle-wrapper {
+.drawer-toggle-wrapper {
   margin-block-start: 50px;
 }
 </style>
