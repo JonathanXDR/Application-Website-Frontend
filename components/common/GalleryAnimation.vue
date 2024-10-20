@@ -101,7 +101,7 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicPropertiesType } from '~/types/common/basic-properties'
+import type { BasicPropertiesType } from '~/types/common/basic-properties';
 
 const props = withDefaults(defineProps<BasicPropertiesType>(), {
   title: 'Music Discovery',
@@ -513,8 +513,8 @@ h3 + h4 {
   transition:
     background-color 100ms linear,
     color 100ms linear;
-  background-color: var(--scrim-background-color);
-  color: var(--icon-color);
+  background: var(--sk-tile-button-background);
+  color: var(--sk-tile-button-icon-color);
 }
 
 @media only screen and (max-width: 734px) {
@@ -525,8 +525,12 @@ h3 + h4 {
 }
 
 .play-pause-button:hover {
-  background-color: var(--scrim-hover-background-color);
-  color: var(--icon-interaction-color);
+  background-color: var(--sk-tile-button-background-hover);
+  color: var(--sk-tile-button-icon-color-hover);
+}
+
+.play-pause-button:active {
+  background: var(--sk-tile-button-background-active);
 }
 
 .play-pause-button svg {
@@ -554,8 +558,7 @@ h3 + h4 {
   display: block;
 }
 
-.play-pause-button.paused .control-icon-pause,
-.play-pause-button {
+.play-pause-button.paused .control-icon-pause {
   display: none;
 }
 
