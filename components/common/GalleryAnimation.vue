@@ -95,7 +95,7 @@
   </section>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { BasicPropertiesType } from '~/types/common/basic-properties';
 
 const props = withDefaults(defineProps<BasicPropertiesType>(), {
@@ -104,7 +104,7 @@ const props = withDefaults(defineProps<BasicPropertiesType>(), {
 })
 
 const headlineRowCount = ref(2)
-const playing = ref(false)
+const playing = ref(true)
 const isParallaxAnimated = ref(false)
 
 const parallaxRef = ref<HTMLElement | null>(null)
@@ -117,23 +117,11 @@ const isParallaxVisible = useElementVisibility(parallaxRef)
 
 const headlineLines = computed(() => {
   const words = props.description.split(' ')
-  const lines: string[] = []
-  let currentLine = ''
+  const lines = []
+  const wordsPerLine = Math.ceil(words.length / headlineRowCount.value)
 
-  for (const word of words) {
-    if ((currentLine + ' ' + word).length <= 15 && lines.length < headlineRowCount.value - 1) {
-      currentLine += (currentLine ? ' ' : '') + word
-    } else {
-      if (lines.length < headlineRowCount.value - 1) {
-        lines.push(currentLine)
-        currentLine = word
-      } else {
-        currentLine += (currentLine ? ' ' : '') + word
-      }
-    }
-  }
-  if (currentLine) {
-    lines.push(currentLine)
+  for (let i = 0; i < words.length; i += wordsPerLine) {
+    lines.push(words.slice(i, i + wordsPerLine).join(' '))
   }
 
   return lines
