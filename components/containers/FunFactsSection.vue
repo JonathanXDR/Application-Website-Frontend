@@ -85,7 +85,7 @@ const animateNumber = (index: number) => {
       innerHTML: funFacts.value[index]?.progress.toString(),
       duration: 1,
       ease: 'power2.inOut',
-      onUpdate: function () {
+      onUpdate: () => {
         span.innerHTML = Number.parseInt(span.innerHTML).toLocaleString(
           locale.value,
           { notation: viewport.isLessThan('tablet') ? 'compact' : 'standard' }

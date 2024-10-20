@@ -7,11 +7,11 @@ export const useAnimation = () => {
     }[]
   >('headerAnimations', () => [])
 
-  function setHeaderAnimation (headerAnimation: {
+  const setHeaderAnimation = (headerAnimation: {
     element: HTMLElement
     class: string
     timeout: number
-  }) {
+  }) => {
     headerAnimations.value.push(headerAnimation)
   }
 

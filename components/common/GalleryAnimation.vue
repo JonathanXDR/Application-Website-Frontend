@@ -32,7 +32,10 @@
             </div>
             <div
               ref="parallaxRef"
-              :class="['parallax', { animate: isParallaxAnimated, paused: !playing }]"
+              :class="[
+                'parallax',
+                { animate: isParallaxAnimated, paused: !playing },
+              ]"
             >
               <template
                 v-for="(item, index) in parallaxItems"
@@ -96,7 +99,7 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicPropertiesType } from '~/types/common/basic-properties';
+import type { BasicPropertiesType } from '~/types/common/basic-properties'
 
 const props = withDefaults(defineProps<BasicPropertiesType>(), {
   title: 'Music Discovery',
@@ -143,16 +146,24 @@ const parallaxItems = ref<ParallaxItem[]>([
   { type: 'empty', class: 'leave-empty' },
   { type: 'empty', class: 'leave-empty-row' },
   { type: 'empty', class: 'leave-empty-clone' },
-  ...Array.from({ length: 32 }, (_, i): ImageItem => ({
-    type: 'image',
-    dataI: Math.floor(Math.random() * 32),
-  })),
+  ...Array.from(
+    { length: 32 },
+    (_, i): ImageItem => ({
+      type: 'image',
+      dataI: Math.floor(Math.random() * 32),
+    })
+  ),
 ])
 
 const getParallaxItemStyle = (item: ParallaxItem) => {
   if (item.type !== 'image') return {}
 
-  const duration = ['var(--duration-original)', 'var(--duration-fast-1)', 'var(--duration-fast-2)', 'var(--duration-fast-3)'][Math.floor(Math.random() * 4)]
+  const duration = [
+    'var(--duration-original)',
+    'var(--duration-fast-1)',
+    'var(--duration-fast-2)',
+    'var(--duration-fast-3)',
+  ][Math.floor(Math.random() * 4)]
   const transform = `calc(var(--tile-min-height) * -${Math.random() * 2 + 2} - var(--tile-anim-offset))`
   const zIndex = Math.random() > 0.5 ? 2 : 1
 
@@ -160,9 +171,47 @@ const getParallaxItemStyle = (item: ParallaxItem) => {
     '--duration': duration,
     '--transform': transform,
     'z-index': zIndex,
-    'background-image': 'url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/personal_station__eq6o2f0yqy6a_large.jpg)',
+    'background-image':
+      'url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/personal_station__eq6o2f0yqy6a_large.jpg)',
   }
 }
+
+// const shuffleImages = () => {
+//   const numImages = 32
+//   const indices: number[] = Array.from({ length: numImages }, (_, i) => i)
+//   for (let i = indices.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [indices[i]!, indices[j]!] = [indices[j]!, indices[i]!]
+//   }
+//   images.value = indices
+// }
+
+// interface Cover {
+//   id: number
+//   x: number
+//   y: number
+//   scale: number
+// }
+
+// const initializeCovers = () => {
+//   const numCovers = 32
+//   covers.value = Array.from({ length: numCovers }, (_, index) => ({
+//     id: index,
+//     x: Math.random() * 100,
+//     y: Math.random() * 100,
+//     scale: 0.8 + Math.random() * 0.4,
+//   }))
+//   shuffleCovers()
+// }
+
+// const shuffleCovers = () => {
+//   shuffledCovers.value = [...covers.value].sort(() => Math.random() - 0.5)
+// }
+
+// const getCoverStyle = (cover: Cover) => ({
+//   transform: `translate(${cover.x}%, ${cover.y}%) scale(${cover.scale})`,
+//   backgroundImage: `url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/cover_${cover.id + 1}.jpg)`,
+// })
 
 const togglePlayPause = useToggle(playing)
 
@@ -171,7 +220,10 @@ const setupParallaxAnimation = () => {
   isParallaxAnimated.value = true
 }
 
-const debouncedSetupParallaxAnimation = useDebounceFn(setupParallaxAnimation, 200)
+const debouncedSetupParallaxAnimation = useDebounceFn(
+  setupParallaxAnimation,
+  200
+)
 
 onMounted(() => {
   useIntervalFn(() => {

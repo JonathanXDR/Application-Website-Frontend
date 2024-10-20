@@ -259,7 +259,7 @@ const initHeaderAnimations = () => {
 }
 
 const toggleNav = () => {
-  navOpen.value = !navOpen.value
+  useToggle(navOpen)
   animateChevron(navOpen.value)
   checkboxTimeout()
 }

@@ -44,7 +44,7 @@
         </div>
         <button
           class="modal-close-button"
-          @click="toggle()"
+          @click="toggleOpen()"
         >
           <span class="modal-close-icon">
             <svg
@@ -72,9 +72,7 @@ withDefaults(defineProps<DialogModalType>(), {
 })
 
 const open = ref(true)
-const toggle = () => {
-  open.value = !open.value
-}
+const toggleOpen = useToggle(open)
 </script>
 
 <style scoped>
