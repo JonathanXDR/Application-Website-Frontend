@@ -3,57 +3,440 @@
     <div class="section-content-responsive">
       <div class="cards-container">
         <div
-          ref="tileRef"
           class="tile tile-music-discovery tile-rounded media-full-bleed near-card"
-          :style="{ '--tile-height': tileHeight + 'px' }"
+          style="
+            --tile-height: 608px;
+            transform: matrix(1, 0, 0, 1, 0, 0);
+            opacity: 1;
+          "
         >
           <div class="tile-foc">
             <div class="tile-content">
               <div class="tile-copy">
-                <h3 class="tile-eyebrow typography-eyebrow-super fade-in">
+                <h3
+                  class="tile-eyebrow typography-eyebrow-super fade-in"
+                  data-anim-classname="{start:t - 80vh, cssClass: fade-in, toggle: false}"
+                >
                   {{ title }}
                 </h3>
                 <h4
-                  ref="headlineRef"
+                  v-animation="{ add: 'animate' }"
                   class="tile-headline typography-headline-super swipe-up-reveal text-gradient"
-                  :class="{ animate: textRevealed }"
                 >
+                  <!-- Use the "description" and "headlineRowCount" here  -->
                   <span class="line">
-                    <span class="words">Where your</span>
+                    <span
+                      class="words"
+                      style="
+                        background-image: linear-gradient(
+                          90deg,
+                          rgb(232, 50, 115),
+                          rgb(228, 50, 64),
+                          rgb(220, 76, 36),
+                          rgb(189, 39, 26),
+                          rgb(153, 30, 47)
+                        );
+                      "
+                    >
+                      Where your new
+                    </span>
                   </span>
                   <span class="line">
-                    <span class="words">new favorites</span>
-                  </span>
-                  <span class="line">
-                    <span class="words">find you.</span>
+                    <span
+                      class="words"
+                      style="
+                        background-image: linear-gradient(
+                          90deg,
+                          rgb(232, 50, 115),
+                          rgb(228, 50, 64),
+                          rgb(220, 76, 36),
+                          rgb(189, 39, 26),
+                          rgb(153, 30, 47)
+                        );
+                      "
+                    >
+                      favorites find you.
+                    </span>
                   </span>
                 </h4>
               </div>
             </div>
             <div
-              ref="parallaxRef"
-              class="parallax"
-              :class="{ animate: isAnimated, paused: isPaused }"
+              v-animation="{ add: 'animate' }"
+              :class="['parallax', playing ? 'playing' : 'paused']"
             >
-              <div
-                v-for="(img, idx) in images"
-                :key="idx"
-                class="img-wrapper"
-              >
+              <span class="leave-empty" />
+              <span class="leave-empty-row" />
+              <span class="leave-empty-clone" />
+              <div class="img-wrapper">
                 <figure
-                  class="parallax-item"
-                  :class="{ float: isPlaying }"
-                  :data-i="img"
-                  :data-clone="idx >= images.length / 2 ? '' : null"
-                  :style="getImageStyle(idx)"
+                  class="parallax-item float"
+                  data-i="21"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="0"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="17"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="2"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="4"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="15"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="11"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="8"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="6"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="29"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="7"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="1"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="24"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="13"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="19"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="5"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="25"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="26"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="20"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="10"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="18"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="27"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="12"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="28"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="9"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="22"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="14"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-i="31"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="21"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="0"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="17"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="2"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="4"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="15"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="11"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="8"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="6"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="29"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="7"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="1"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="24"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="13"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="19"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="5"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="25"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="26"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="20"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="10"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="18"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="27"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="12"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="28"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="9"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="22"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="14"
+                />
+              </div>
+              <div class="img-wrapper">
+                <figure
+                  class="parallax-item float"
+                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
+                  data-i="31"
                 />
               </div>
             </div>
             <button
               ref="playPauseButtonRef"
               class="play-pause-button"
-              :class="{ paused: !isPlaying }"
-              :aria-label="isPlaying ? ariaPauseLabel : ariaPlayLabel"
+              :class="playing ? 'playing' : 'paused'"
               @click="togglePlayPause"
             >
               <svg
@@ -91,11 +474,6 @@
 </template>
 
 <script lang="ts" setup>
-import {
-useIntersectionObserver,
-useResizeObserver,
-useWindowSize,
-} from '@vueuse/core';
 import type { BasicPropertiesType } from '~/types/common/basic-properties';
 
 const props = withDefaults(defineProps<BasicPropertiesType>(), {
@@ -103,118 +481,16 @@ const props = withDefaults(defineProps<BasicPropertiesType>(), {
   description: 'Where your new favorites find you.',
 })
 
-const { width } = useWindowSize()
-const isPlaying = ref(false)
-const isAnimated = ref(false)
-const textRevealed = ref(false)
+const playing = ref(false)
 const tileHeight = ref(0)
-const images = ref<number[]>([])
-const imagePositions = ref<{ top: number, left: number, rotate: number }[]>([])
 
-const ariaPlayLabel =
-  'Play animation of an array of personalized playlists covers animating upwards'
-const ariaPauseLabel =
-  'Pause animation of an array of personalized playlists covers animating upwards'
+const tileRef = ref<HTMLElement | undefined>(undefined)
+const parallaxRef = ref<HTMLElement | undefined>(undefined)
+const headlineRef = ref<HTMLElement | undefined>(undefined)
+const headlineRowCount = ref(2)
+const playPauseButtonRef = ref<HTMLElement | undefined>(undefined)
 
-const isPaused = computed(() => !isPlaying.value)
-
-const tileRef = ref<HTMLElement | null>(null)
-const parallaxRef = ref<HTMLElement | null>(null)
-const headlineRef = ref<HTMLElement | null>(null)
-const playPauseButtonRef = ref<HTMLElement | null>(null)
-
-function togglePlayPause () {
-  isPlaying.value = !isPlaying.value
-}
-
-function shuffleImages () {
-  const numImages = 32
-  const indices: number[] = Array.from({ length: numImages }, (_, i) => i)
-  for (let i = indices.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [indices[i]!, indices[j]!] = [indices[j]!, indices[i]!]
-  }
-  images.value = indices
-}
-
-function setPosition () {
-  imagePositions.value = images.value.map(() => ({
-    top: getRandom(0, 100),
-    left: getRandom(0, 100),
-    rotate: getRandom(120, 180),
-  }))
-}
-
-function getRandom (min: number, max: number) {
-  return Math.random() * (max - min) + min
-}
-
-function getImageStyle (idx: number) {
-  const position = imagePositions.value[idx]
-  if (position) {
-    return {
-      top: `${position.top}%`,
-      left: `${position.left}%`,
-      transform: `rotate(${position.rotate}deg)`,
-    }
-  } else {
-    return {}
-  }
-}
-
-async function measureTileHeight () {
-  await nextTick()
-  if (tileRef.value) {
-    tileHeight.value = tileRef.value.offsetHeight
-  }
-}
-
-function setupParallaxObserver () {
-  if (parallaxRef.value) {
-    useIntersectionObserver(
-      parallaxRef,
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          isAnimated.value = true
-          isPlaying.value = true
-        }
-      },
-      { threshold: 0.5 }
-    )
-  }
-}
-
-function setupTextRevealObserver () {
-  if (headlineRef.value) {
-    useIntersectionObserver(
-      headlineRef,
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          textRevealed.value = true
-        }
-      },
-      { threshold: 0.5 }
-    )
-  }
-}
-
-onMounted(() => {
-  shuffleImages()
-  setPosition()
-  measureTileHeight()
-  setupParallaxObserver()
-  setupTextRevealObserver()
-})
-
-watch(width, measureTileHeight)
-
-watch(isPlaying, (newValue) => {
-  if (playPauseButtonRef.value) {
-    playPauseButtonRef.value.style.zIndex = newValue ? '6' : '1'
-  }
-})
-
-useResizeObserver(tileRef, measureTileHeight)
+const parallaxItemsRefs = ref<(HTMLElement | undefined)[]>([])
 </script>
 
 <style scoped>
@@ -568,16 +844,6 @@ h3 + h4 {
     height: 30px;
     width: 30px;
   }
-}
-.play-pause-button:focus {
-  outline: none;
-}
-.play-pause-button:not([data-focus-method="mouse"]):not(
-    [data-focus-method="touch"]
-  ):focus {
-  box-shadow:
-    0px 0px 0px 3px var(--color-fill),
-    0px 0px 0px 5px var(--color-fill-blue);
 }
 .play-pause-button:hover {
   background-color: var(--scrim-hover-background-color);
@@ -3705,16 +3971,16 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i="3"] {
+  .parallax-item[data-i="4"] {
   background-repeat: no-repeat;
-  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/catching_feelings__buamrwvfq2r6_large.jpg);
+  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/chill_mix__d7zvuzqnpa82_large.jpg);
 }
 @media (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i="3"] {
-    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/catching_feelings__buamrwvfq2r6_large_2x.jpg);
+    .parallax-item[data-i="4"] {
+    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/chill_mix__d7zvuzqnpa82_large_2x.jpg);
   }
 }
 .section-cards
@@ -3810,6 +4076,21 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
+  .parallax-item[data-i="11"] {
+  background-repeat: no-repeat;
+  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/headliners__bv5warnjrz42_large.jpg);
+}
+@media (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
+  .section-cards
+    .cards-container
+    .tile-music-discovery
+    .parallax-item[data-i="11"] {
+    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/headliners__bv5warnjrz42_large_2x.jpg);
+  }
+}
+.section-cards
+  .cards-container
+  .tile-music-discovery
   .parallax-item[data-i="12"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/heartbreak__dczxshlrtoeq_large.jpg);
@@ -3870,21 +4151,6 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i="16"] {
-  background-repeat: no-repeat;
-  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/made_for_spatial_audio__jln6d02l12y6_large.jpg);
-}
-@media (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
-  .section-cards
-    .cards-container
-    .tile-music-discovery
-    .parallax-item[data-i="16"] {
-    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/made_for_spatial_audio__jln6d02l12y6_large_2x.jpg);
-  }
-}
-.section-cards
-  .cards-container
-  .tile-music-discovery
   .parallax-item[data-i="17"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/matt_wilkinson_show__kept4fmp2fe6_large.jpg);
@@ -3910,6 +4176,21 @@ h3 + h4 {
     .tile-music-discovery
     .parallax-item[data-i="18"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/melodic_rap__cz21ta25zeuu_large_2x.jpg);
+  }
+}
+.section-cards
+  .cards-container
+  .tile-music-discovery
+  .parallax-item[data-i="19"] {
+  background-repeat: no-repeat;
+  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/new_music_mix__dxtjnqmzqlci_large.jpg);
+}
+@media (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
+  .section-cards
+    .cards-container
+    .tile-music-discovery
+    .parallax-item[data-i="19"] {
+    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/new_music_mix__dxtjnqmzqlci_large_2x.jpg);
   }
 }
 .section-cards
@@ -3960,21 +4241,6 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i="23"] {
-  background-repeat: no-repeat;
-  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/pure_jazz__ccu97qu01x8i_large.jpg);
-}
-@media (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
-  .section-cards
-    .cards-container
-    .tile-music-discovery
-    .parallax-item[data-i="23"] {
-    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/pure_jazz__ccu97qu01x8i_large_2x.jpg);
-  }
-}
-.section-cards
-  .cards-container
-  .tile-music-discovery
   .parallax-item[data-i="24"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/pure_throwback__fy5fqu4wc4y2_large.jpg);
@@ -3985,6 +4251,21 @@ h3 + h4 {
     .tile-music-discovery
     .parallax-item[data-i="24"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/pure_throwback__fy5fqu4wc4y2_large_2x.jpg);
+  }
+}
+.section-cards
+  .cards-container
+  .tile-music-discovery
+  .parallax-item[data-i="25"] {
+  background-repeat: no-repeat;
+  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/rap_life__f2dwtu4tev2i_large.jpg);
+}
+@media (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
+  .section-cards
+    .cards-container
+    .tile-music-discovery
+    .parallax-item[data-i="25"] {
+    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/rap_life__f2dwtu4tev2i_large_2x.jpg);
   }
 }
 .section-cards
@@ -4050,21 +4331,6 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i="30"] {
-  background-repeat: no-repeat;
-  background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/viral_hits__c09n3mnkdi0y_large.jpg);
-}
-@media (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
-  .section-cards
-    .cards-container
-    .tile-music-discovery
-    .parallax-item[data-i="30"] {
-    background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/viral_hits__c09n3mnkdi0y_large_2x.jpg);
-  }
-}
-.section-cards
-  .cards-container
-  .tile-music-discovery
   .parallax-item[data-i="31"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/viral_rewind_playlist__cboty3hdk9yu_large.jpg);
@@ -4080,6 +4346,13 @@ h3 + h4 {
 .section-cards .cards-container .tile-music-discovery .parallax-item.float {
   animation: float-up var(--duration) linear 1;
   animation-fill-mode: forwards;
+}
+.section-cards
+  .cards-container
+  .tile-music-discovery
+  .parallax.paused
+  .parallax-item {
+  animation-play-state: paused;
 }
 /*! CSS Used keyframes */
 @keyframes float-up {

@@ -109,6 +109,7 @@
             class="color"
           />
         </div>
+
         <div class="card-container">
           <CardItem
             v-for="(project, index) in currentProjects"

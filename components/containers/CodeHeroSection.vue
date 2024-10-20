@@ -34,7 +34,7 @@
         </p>
       </div>
     </div>
-    <ExploreMore />
+    <!-- <ExploreMore /> -->
   </section>
 </template>
 
