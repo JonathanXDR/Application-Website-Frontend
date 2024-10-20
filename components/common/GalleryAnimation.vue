@@ -101,7 +101,7 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicPropertiesType } from '~/types/common/basic-properties';
+import type { BasicPropertiesType } from '~/types/common/basic-properties'
 
 const props = withDefaults(defineProps<BasicPropertiesType>(), {
   title: 'Music Discovery',
@@ -185,16 +185,9 @@ h3 + h4 {
   margin-top: var(--sk-headline-plus-headline-margin, 0.4em);
 }
 .tile {
+  --sk-tile-box-shadow: initial;
   margin-inline-start: auto;
   margin-inline-end: auto;
-  --sk-tile-box-shadow: initial;
-  --sk-tile-background: rgb(255, 255, 255);
-  --sk-tile-button-background: rgba(210, 210, 215, 0.64);
-  --sk-tile-button-background-hover: rgba(223, 223, 227, 0.6976);
-  --sk-tile-button-background-active: rgba(193, 193, 198, 0.6544);
-  --sk-tile-button-icon-color: rgba(0, 0, 0, 0.56);
-  --sk-tile-button-icon-color-hover: rgba(0, 0, 0, 0.64);
-  box-sizing: border-box;
   height: 100%;
   position: relative;
   overflow: hidden;
@@ -320,7 +313,7 @@ h3 + h4 {
 
 .text-gradient,
 .swipe-up-reveal.text-gradient .words {
-  background: #1d1d1f;
+  background: var(--color-fill-gray);
   background-clip: text;
   -webkit-text-fill-color: rgba(0, 0, 0, 0);
   -webkit-box-decoration-break: clone;
@@ -501,11 +494,6 @@ h3 + h4 {
 }
 
 .play-pause-button {
-  --scrim-background-color: rgba(210, 210, 215, 0.64);
-  --scrim-hover-background-color: rgba(223, 223, 227, 0.6976);
-  --scrim-active-background-color: rgba(193, 193, 198, 0.6544);
-  --icon-color: rgba(0, 0, 0, 0.56);
-  --icon-interaction-color: rgba(0, 0, 0, 0.64);
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -534,14 +522,6 @@ h3 + h4 {
     height: 30px;
     width: 30px;
   }
-}
-
-.theme-dark .play-pause-button {
-  --scrim-background-color: rgba(66, 66, 69, 0.71);
-  --scrim-hover-background-color: rgba(29, 29, 31, 0.8);
-  --scrim-active-background-color: #2f2f32;
-  --icon-color: rgba(255, 255, 255, 0.79);
-  --icon-interaction-color: rgba(255, 255, 255, 0.9);
 }
 
 .play-pause-button:hover {
@@ -594,7 +574,8 @@ h3 + h4 {
   --sk-tile-border-radius-small: 20px;
   --card-duration: 450ms;
   --card-delay: 900ms;
-  background-color: #f5f5f7;
+  color: var(--color-fill-gray);
+  background-color: var(--color-fill-tertiary);
   grid-column-start: span 2;
   width: 100%;
   clip-path: inset(1px 1px 1px 1px round var(--sk-tile-border-radius-large));
@@ -638,6 +619,7 @@ h3 + h4 {
 }
 
 .cards-container .tile-foc {
+  background-color: var(--color-fill-tertiary);
   position: absolute;
   width: 100%;
   height: 100%;
@@ -681,28 +663,6 @@ h3 + h4 {
   opacity: 0.6;
 }
 
-.cards-container .tile.theme-dark {
-  color: #f5f5f7;
-  background-color: rgba(0, 0, 0, 0);
-}
-
-.cards-container .tile.theme-dark .tile-foc {
-  background-color: #1d1d1f;
-}
-
-.cards-container .tile.media-full-bleed .play-pause-button {
-  position: absolute;
-  z-index: 6;
-  bottom: 20px;
-  inset-inline-end: 71px;
-}
-
-@media only screen and (max-width: 734px) {
-  .cards-container .tile.media-full-bleed .play-pause-button {
-    inset-inline-end: 61px;
-  }
-}
-
 .cards-container .tile.near-card {
   will-change: transform, opacity;
 }
@@ -719,7 +679,7 @@ h3 + h4 {
 }
 
 .card {
-  background: #fff;
+  background: var(--color-fill);
   border-radius: 18px;
   box-sizing: border-box;
   overflow: hidden;
@@ -727,26 +687,17 @@ h3 + h4 {
 
 .card .card-caption,
 .card .card-headline {
-  color: #1d1d1f;
+  color: var(--color-fill-gray);
 }
 
 .card .card-subhead {
-  color: #6e6e73;
+  color: var(--color-figure-gray-secondary);
 }
 
-.card.theme-dark {
-  background: #000;
-}
-
-.card.theme-dark .card-caption,
-.card.theme-dark .card-headline {
-  color: #f5f5f7;
-}
-
-.card.theme-dark .card-subhead {
+/* .card.theme-dark .card-subhead {
   color: #f5f5f7;
   opacity: 0.8;
-}
+} */
 
 @media only screen and (max-width: 734px) {
   .card-half {
@@ -3946,7 +3897,7 @@ h3 + h4 {
   height: 180px;
   border-radius: 10px;
   background-size: cover;
-  background-color: #fff;
+  background-color: var(--color-fill);
 }
 
 @media only screen and (max-width: 734px) {

@@ -161,6 +161,23 @@ body main ::-webkit-scrollbar-track {
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-card-shadow: rgba(0, 0, 0, 0.04);
 
+  /* Scrim */
+  --scrim-background-color: rgba(210, 210, 215, 0.64);
+  --scrim-hover-background-color: rgba(223, 223, 227, 0.6976);
+  --scrim-active-background-color: rgba(193, 193, 198, 0.6544);
+
+  /* Icon */
+  --icon-color: rgba(0, 0, 0, 0.56);
+  --icon-interaction-color: rgba(0, 0, 0, 0.64);
+
+  /* Tile */
+  --sk-tile-background: rgb(255, 255, 255);
+  --sk-tile-button-icon-color: rgba(0, 0, 0, 0.56);
+  --sk-tile-button-background: rgba(210, 210, 215, 0.64);
+  --sk-tile-button-icon-color-hover: rgba(0, 0, 0, 0.64);
+  --sk-tile-button-background-hover: rgba(223, 223, 227, 0.6976);
+  --sk-tile-button-background-active: rgba(193, 193, 198, 0.6544);
+
   /* All Access Pass */
   --aap-background-color: rgb(232 232 237/70%);
   --aap-inner-glow-color: rgb(0 0 0/11%);
@@ -461,6 +478,23 @@ body main ::-webkit-scrollbar-track {
   /* Cards */
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-card-shadow: hsla(0, 0%, 100%, 0.04);
+
+  /* Scrim */
+  --scrim-background-color: rgba(66, 66, 69, 0.71);
+  --scrim-hover-background-color: rgba(29, 29, 31, 0.8);
+  --scrim-active-background-color: #2f2f32;
+
+  /* Icon */
+  --icon-color: rgba(255, 255, 255, 0.79);
+  --icon-interaction-color: rgba(255, 255, 255, 0.9);
+
+  /* Tile */
+  --sk-tile-background: rgb(0, 0, 0);
+  --sk-tile-button-icon-color: rgba(255, 255, 255, 0.8);
+  --sk-tile-button-background: rgba(66, 66, 69, 0.72);
+  --sk-tile-button-icon-color-hover: rgb(255, 255, 255);
+  --sk-tile-button-background-hover: rgba(73, 73, 76, 0.7256);
+  --sk-tile-button-background-active: rgba(57, 57, 60, 0.7424);
 
   /* All Access Pass */
   --aap-background-color: rgb(23 23 28/70%);
