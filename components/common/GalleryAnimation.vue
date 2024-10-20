@@ -17,7 +17,7 @@
                 </h3>
                 <h4
                   ref="headlineRef"
-                  v-animation="{ add: 'animate' }"
+                  v-animation="{ add: 'animate', onEnter: () => isParallaxAnimated = true }"
                   class="tile-headline typography-headline-super swipe-up-reveal text-gradient"
                 >
                   <span
@@ -52,8 +52,7 @@
                   <figure
                     class="parallax-item"
                     :class="{ float: isParallaxAnimated }"
-                    :data-i="item.dataI"
-                    :style="getParallaxItemStyle(item)"
+                    :data-i="item.index"
                   />
                 </div>
               </template>
@@ -99,7 +98,7 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicPropertiesType } from '~/types/common/basic-properties'
+import type { BasicPropertiesType } from '~/types/common/basic-properties';
 
 const props = withDefaults(defineProps<BasicPropertiesType>(), {
   title: 'Music Discovery',
@@ -107,16 +106,14 @@ const props = withDefaults(defineProps<BasicPropertiesType>(), {
 })
 
 const headlineRowCount = ref(2)
-const playing = ref(true)
+const playing = ref(false)
 const isParallaxAnimated = ref(false)
 
 const parallaxRef = ref<HTMLElement | null>(null)
 const headlineRef = ref<HTMLElement | null>(null)
 const playPauseButtonRef = ref<HTMLElement | null>(null)
 
-const { width: tileWidth, height: tileHeight } = useElementSize(parallaxRef)
-
-const isParallaxVisible = useElementVisibility(parallaxRef)
+const { height: tileHeight } = useElementSize(parallaxRef)
 
 const headlineLines = computed(() => {
   const words = props.description.split(' ')
@@ -137,99 +134,38 @@ interface EmptyItem {
 
 interface ImageItem {
   type: 'image'
-  dataI: number
+  index: number
 }
 
 type ParallaxItem = EmptyItem | ImageItem
 
-const parallaxItems = ref<ParallaxItem[]>([
-  { type: 'empty', class: 'leave-empty' },
-  { type: 'empty', class: 'leave-empty-row' },
-  { type: 'empty', class: 'leave-empty-clone' },
-  ...Array.from(
-    { length: 32 },
-    (_, i): ImageItem => ({
-      type: 'image',
-      dataI: Math.floor(Math.random() * 32),
-    })
-  ),
-])
-
-const getParallaxItemStyle = (item: ParallaxItem) => {
-  if (item.type !== 'image') return {}
-
-  const duration = [
-    'var(--duration-original)',
-    'var(--duration-fast-1)',
-    'var(--duration-fast-2)',
-    'var(--duration-fast-3)',
-  ][Math.floor(Math.random() * 4)]
-  const transform = `calc(var(--tile-min-height) * -${Math.random() * 2 + 2} - var(--tile-anim-offset))`
-  const zIndex = Math.random() > 0.5 ? 2 : 1
-
-  return {
-    '--duration': duration,
-    '--transform': transform,
-    'z-index': zIndex,
-    'background-image':
-      'url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/personal_station__eq6o2f0yqy6a_large.jpg)',
-  }
-}
-
-// const shuffleImages = () => {
-//   const numImages = 32
-//   const indices: number[] = Array.from({ length: numImages }, (_, i) => i)
-//   for (let i = indices.length - 1; i > 0; i--) {
-//     const j = Math.floor(Math.random() * (i + 1));
-//     [indices[i]!, indices[j]!] = [indices[j]!, indices[i]!]
-//   }
-//   images.value = indices
-// }
-
-// interface Cover {
-//   id: number
-//   x: number
-//   y: number
-//   scale: number
-// }
-
-// const initializeCovers = () => {
-//   const numCovers = 32
-//   covers.value = Array.from({ length: numCovers }, (_, index) => ({
-//     id: index,
-//     x: Math.random() * 100,
-//     y: Math.random() * 100,
-//     scale: 0.8 + Math.random() * 0.4,
-//   }))
-//   shuffleCovers()
-// }
-
-// const shuffleCovers = () => {
-//   shuffledCovers.value = [...covers.value].sort(() => Math.random() - 0.5)
-// }
-
-// const getCoverStyle = (cover: Cover) => ({
-//   transform: `translate(${cover.x}%, ${cover.y}%) scale(${cover.scale})`,
-//   backgroundImage: `url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/cover_${cover.id + 1}.jpg)`,
-// })
-
 const togglePlayPause = useToggle(playing)
 
-const setupParallaxAnimation = () => {
-  if (!isParallaxVisible.value) return
-  isParallaxAnimated.value = true
-}
+const parallaxItems = computed<ParallaxItem[]>(() => {
+  const emptyItems: EmptyItem[] = [
+    { type: 'empty', class: 'leave-empty' },
+    { type: 'empty', class: 'leave-empty-row' },
+    { type: 'empty', class: 'leave-empty-clone' },
+  ]
 
-const debouncedSetupParallaxAnimation = useDebounceFn(
-  setupParallaxAnimation,
-  200
-)
+  const indices = Array.from({ length: 32 }, (_, i) => i)
 
-onMounted(() => {
-  useIntervalFn(() => {
-    if (!isParallaxVisible.value) return
-    debouncedSetupParallaxAnimation()
-  }, 1000)
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i]!, indices[j]!] = [indices[j]!, indices[i]!]
+  }
+
+  const imageItems: ImageItem[] = indices.flatMap(index => [
+    { type: 'image', index },
+    { type: 'image', index }
+  ])
+
+  for (let i = imageItems.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [imageItems[i]!, imageItems[j]!] = [imageItems[j]!, imageItems[i]!]
+  }
+
+  return [...emptyItems, ...imageItems]
 })
 </script>
 
@@ -562,17 +498,22 @@ h3 + h4 {
   --scrim-active-background-color: rgba(193, 193, 198, 0.6544);
   --icon-color: rgba(0, 0, 0, 0.56);
   --icon-interaction-color: rgba(0, 0, 0, 0.64);
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  height: 36px;
-  width: 36px;
   outline: none;
   margin: var(--button-v-position) 0 0 0;
   padding: 0;
   border: 0;
-  justify-content: center;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
   cursor: pointer;
+  z-index: 6;
   transition:
     background-color 100ms linear,
     color 100ms linear;
@@ -681,17 +622,6 @@ h3 + h4 {
 
 .page-overview .cards-container .tile .tile-eyebrow.fade-in {
   opacity: 0.6;
-}
-.cards-container .tile.media-full-bleed .play-pause-button {
-  position: absolute;
-  z-index: 6;
-  bottom: 20px;
-  inset-inline-end: 71px;
-}
-@media only screen and (max-width: 734px) {
-  .cards-container .tile.media-full-bleed .play-pause-button {
-    inset-inline-end: 61px;
-  }
 }
 .cards-container .tile.near-card {
   will-change: transform, opacity;
