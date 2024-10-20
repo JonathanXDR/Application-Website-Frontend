@@ -819,10 +819,10 @@ h3 + h4 {
   }
 }
 
-.section-cards .cards-container .tile-music-discovery .parallax {
+/* .section-cards .cards-container .tile-music-discovery .parallax {
   opacity: 0.999;
   transform: translate(-50%, -10px);
-}
+} */
 
 .section-cards .cards-container .tile-music-discovery .parallax.animate {
   opacity: 0.999;
