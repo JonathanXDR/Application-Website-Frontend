@@ -59,7 +59,7 @@
               ref="playPauseButtonRef"
               class="play-pause-button"
               :class="{ playing, paused: !playing }"
-              @click="togglePlayPause"
+              @click="togglePlayPause()"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -96,12 +96,47 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref, watch } from 'vue';
 import type { BasicPropertiesType } from '~/types/common/basic-properties';
 
 const props = withDefaults(defineProps<BasicPropertiesType>(), {
   title: 'Music Discovery',
   description: 'Where your new favorites find you.',
+})
+
+const headlineRowCount = ref(2)
+const playing = ref(false)
+const isParallaxAnimated = ref(false)
+
+const parallaxRef = ref<HTMLElement | null>(null)
+const headlineRef = ref<HTMLElement | null>(null)
+const playPauseButtonRef = ref<HTMLElement | null>(null)
+
+const { width: tileWidth, height: tileHeight } = useElementSize(parallaxRef)
+
+const isParallaxVisible = useElementVisibility(parallaxRef)
+
+const headlineLines = computed(() => {
+  const words = props.description.split(' ')
+  const lines: string[] = []
+  let currentLine = ''
+
+  for (const word of words) {
+    if ((currentLine + ' ' + word).length <= 15 && lines.length < headlineRowCount.value - 1) {
+      currentLine += (currentLine ? ' ' : '') + word
+    } else {
+      if (lines.length < headlineRowCount.value - 1) {
+        lines.push(currentLine)
+        currentLine = word
+      } else {
+        currentLine += (currentLine ? ' ' : '') + word
+      }
+    }
+  }
+  if (currentLine) {
+    lines.push(currentLine)
+  }
+
+  return lines
 })
 
 interface EmptyItem {
@@ -115,25 +150,6 @@ interface ImageItem {
 }
 
 type ParallaxItem = EmptyItem | ImageItem
-
-const playing = ref(false)
-const tileHeight = ref(0)
-const isParallaxAnimated = ref(false)
-
-const parallaxRef = ref<HTMLElement | null>(null)
-const headlineRef = ref<HTMLElement | null>(null)
-const playPauseButtonRef = ref<HTMLElement | null>(null)
-
-const headlineLines = computed(() => {
-  return props.description.split(' ').reduce((acc: string[], word: string) => {
-    if (acc.length === 0 || (acc[acc.length - 1] + ' ' + word).length > 15) {
-      acc.push(word)
-    } else {
-      acc[acc.length - 1] += ' ' + word
-    }
-    return acc
-  }, [])
-})
 
 const parallaxItems = ref<ParallaxItem[]>([
   { type: 'empty', class: 'leave-empty' },
@@ -160,33 +176,20 @@ const getParallaxItemStyle = (item: ParallaxItem) => {
   }
 }
 
-const togglePlayPause = () => {
-  playing.value = !playing.value
-}
+const togglePlayPause = useToggle(playing)
 
 const setupParallaxAnimation = () => {
-  if (!parallaxRef.value) return
+  if (!isParallaxVisible.value) return
   isParallaxAnimated.value = true
 }
 
+const debouncedSetupParallaxAnimation = useDebounceFn(setupParallaxAnimation, 200)
+
 onMounted(() => {
-  if (!parallaxRef.value) return
-  tileHeight.value = parallaxRef.value.offsetHeight
-
-  const animationEvent = new CustomEvent('animate')
-  window.addEventListener('scroll', () => {
-    const rect = parallaxRef.value?.getBoundingClientRect()
-    if (rect && rect.top < window.innerHeight && rect.bottom > 0) {
-      window.dispatchEvent(animationEvent)
-    }
-  })
-
-  window.addEventListener('animate', setupParallaxAnimation)
-})
-
-watch(playing, (newValue) => {
-  if (!parallaxRef.value) return
-  parallaxRef.value.classList.toggle('paused', !newValue)
+  useIntervalFn(() => {
+    if (!isParallaxVisible.value) return
+    debouncedSetupParallaxAnimation()
+  }, 1000)
 })
 </script>
 
