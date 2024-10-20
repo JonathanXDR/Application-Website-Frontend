@@ -4,439 +4,61 @@
       <div class="cards-container">
         <div
           class="tile tile-music-discovery tile-rounded media-full-bleed near-card"
-          style="
-            --tile-height: 608px;
-            transform: matrix(1, 0, 0, 1, 0, 0);
-            opacity: 1;
-          "
+          :style="{ '--tile-height': `${tileHeight}px` }"
         >
           <div class="tile-foc">
             <div class="tile-content">
               <div class="tile-copy">
                 <h3
-                  class="tile-eyebrow typography-eyebrow-super fade-in"
-                  data-anim-classname="{start:t - 80vh, cssClass: fade-in, toggle: false}"
+                  v-animation="{ add: 'fade-in' }"
+                  class="tile-eyebrow typography-eyebrow-super"
                 >
                   {{ title }}
                 </h3>
                 <h4
+                  ref="headlineRef"
                   v-animation="{ add: 'animate' }"
                   class="tile-headline typography-headline-super swipe-up-reveal text-gradient"
                 >
-                  <!-- Use the "description" and "headlineRowCount" here  -->
-                  <span class="line">
-                    <span
-                      class="words"
-                      style="
-                        background-image: linear-gradient(
-                          90deg,
-                          rgb(232, 50, 115),
-                          rgb(228, 50, 64),
-                          rgb(220, 76, 36),
-                          rgb(189, 39, 26),
-                          rgb(153, 30, 47)
-                        );
-                      "
-                    >
-                      Where your new
-                    </span>
-                  </span>
-                  <span class="line">
-                    <span
-                      class="words"
-                      style="
-                        background-image: linear-gradient(
-                          90deg,
-                          rgb(232, 50, 115),
-                          rgb(228, 50, 64),
-                          rgb(220, 76, 36),
-                          rgb(189, 39, 26),
-                          rgb(153, 30, 47)
-                        );
-                      "
-                    >
-                      favorites find you.
-                    </span>
+                  <span
+                    v-for="(line, index) in headlineLines"
+                    :key="index"
+                    class="line"
+                  >
+                    <span class="words">{{ line }}</span>
                   </span>
                 </h4>
               </div>
             </div>
             <div
-              v-animation="{ add: 'animate' }"
-              :class="['parallax', playing ? 'playing' : 'paused']"
+              ref="parallaxRef"
+              :class="['parallax', { animate: isParallaxAnimated, paused: !playing }]"
             >
-              <span class="leave-empty" />
-              <span class="leave-empty-row" />
-              <span class="leave-empty-clone" />
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="21"
+              <template
+                v-for="(item, index) in parallaxItems"
+                :key="index"
+              >
+                <span
+                  v-if="item.type === 'empty'"
+                  :class="item.class"
                 />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="0"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="17"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="2"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="4"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="15"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="11"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="8"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="6"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="29"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="7"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="1"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="24"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="13"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="19"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="5"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="25"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="26"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="20"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="10"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="18"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="27"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="12"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="28"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="9"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="22"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="14"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-i="31"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="21"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="0"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="17"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="2"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="4"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="15"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="11"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="8"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="6"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="29"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="7"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="1"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="24"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="13"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="19"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="5"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="25"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="26"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="20"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="10"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="18"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="27"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="12"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="28"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="9"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="22"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="14"
-                />
-              </div>
-              <div class="img-wrapper">
-                <figure
-                  class="parallax-item float"
-                  data-download-area-keyframe="{start:a0t - 100vh, end:a0b, anchors: [.tile-music-discovery]}"
-                  data-i="31"
-                />
-              </div>
+                <div
+                  v-else
+                  class="img-wrapper"
+                >
+                  <figure
+                    class="parallax-item"
+                    :class="{ float: isParallaxAnimated }"
+                    :data-i="item.dataI"
+                    :style="getParallaxItemStyle(item)"
+                  />
+                </div>
+              </template>
             </div>
             <button
               ref="playPauseButtonRef"
               class="play-pause-button"
-              :class="playing ? 'playing' : 'paused'"
+              :class="{ playing, paused: !playing }"
               @click="togglePlayPause"
             >
               <svg
@@ -474,6 +96,7 @@
 </template>
 
 <script lang="ts" setup>
+import { computed, onMounted, ref, watch } from 'vue';
 import type { BasicPropertiesType } from '~/types/common/basic-properties';
 
 const props = withDefaults(defineProps<BasicPropertiesType>(), {
@@ -481,16 +104,90 @@ const props = withDefaults(defineProps<BasicPropertiesType>(), {
   description: 'Where your new favorites find you.',
 })
 
+interface EmptyItem {
+  type: 'empty'
+  class: string
+}
+
+interface ImageItem {
+  type: 'image'
+  dataI: number
+}
+
+type ParallaxItem = EmptyItem | ImageItem
+
 const playing = ref(false)
 const tileHeight = ref(0)
+const isParallaxAnimated = ref(false)
 
-const tileRef = ref<HTMLElement | undefined>(undefined)
-const parallaxRef = ref<HTMLElement | undefined>(undefined)
-const headlineRef = ref<HTMLElement | undefined>(undefined)
-const headlineRowCount = ref(2)
-const playPauseButtonRef = ref<HTMLElement | undefined>(undefined)
+const parallaxRef = ref<HTMLElement | null>(null)
+const headlineRef = ref<HTMLElement | null>(null)
+const playPauseButtonRef = ref<HTMLElement | null>(null)
 
-const parallaxItemsRefs = ref<(HTMLElement | undefined)[]>([])
+const headlineLines = computed(() => {
+  return props.description.split(' ').reduce((acc: string[], word: string) => {
+    if (acc.length === 0 || (acc[acc.length - 1] + ' ' + word).length > 15) {
+      acc.push(word)
+    } else {
+      acc[acc.length - 1] += ' ' + word
+    }
+    return acc
+  }, [])
+})
+
+const parallaxItems = ref<ParallaxItem[]>([
+  { type: 'empty', class: 'leave-empty' },
+  { type: 'empty', class: 'leave-empty-row' },
+  { type: 'empty', class: 'leave-empty-clone' },
+  ...Array.from({ length: 32 }, (_, i): ImageItem => ({
+    type: 'image',
+    dataI: Math.floor(Math.random() * 32),
+  })),
+])
+
+const getParallaxItemStyle = (item: ParallaxItem) => {
+  if (item.type !== 'image') return {}
+
+  const duration = ['var(--duration-original)', 'var(--duration-fast-1)', 'var(--duration-fast-2)', 'var(--duration-fast-3)'][Math.floor(Math.random() * 4)]
+  const transform = `calc(var(--tile-min-height) * -${Math.random() * 2 + 2} - var(--tile-anim-offset))`
+  const zIndex = Math.random() > 0.5 ? 2 : 1
+
+  return {
+    '--duration': duration,
+    '--transform': transform,
+    'z-index': zIndex,
+    'background-image': 'url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/personal_station__eq6o2f0yqy6a_large.jpg)',
+  }
+}
+
+const togglePlayPause = () => {
+  playing.value = !playing.value
+}
+
+const setupParallaxAnimation = () => {
+  if (!parallaxRef.value) return
+  isParallaxAnimated.value = true
+}
+
+onMounted(() => {
+  if (!parallaxRef.value) return
+  tileHeight.value = parallaxRef.value.offsetHeight
+
+  const animationEvent = new CustomEvent('animate')
+  window.addEventListener('scroll', () => {
+    const rect = parallaxRef.value?.getBoundingClientRect()
+    if (rect && rect.top < window.innerHeight && rect.bottom > 0) {
+      window.dispatchEvent(animationEvent)
+    }
+  })
+
+  window.addEventListener('animate', setupParallaxAnimation)
+})
+
+watch(playing, (newValue) => {
+  if (!parallaxRef.value) return
+  parallaxRef.value.classList.toggle('paused', !newValue)
+})
 </script>
 
 <style scoped>
