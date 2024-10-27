@@ -53,6 +53,7 @@
     "@vueuse/sound": "^2.0.1",
     "dayjs": "^1.11.13",
     "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "gsap": "^3.12.5",
     "husky": "^9.1.6",
