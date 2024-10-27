@@ -2,7 +2,7 @@
   <section
     class="section section-hero"
     data-component-list="HeroSequence"
-    data-component-json="{ &quot;characterClass&quot;: &quot;animate-character&quot;, &quot;dotClass&quot;: &quot;dot-character&quot;, &quot;els&quot;: [{&quot;_stickyContainer&quot;: &quot;.sticky-container&quot;}, {&quot;_stickyContent&quot;: &quot;.sticky-content&quot;}, {&quot;_gridContent&quot;: &quot;.grid-content&quot;}, {&quot;_headline&quot;: &quot;.overview-hero-headline&quot;}, {&quot;_background&quot;: &quot;.overview-hero-background&quot;}, {&quot;_iconSection&quot;: &quot;.overview-hero-icon&quot;}, {&quot;_iconContainer&quot;: &quot;.hero-lock-icon-container&quot;}, {&quot;_icon&quot;: &quot;.hero-lock-icon&quot;}, {&quot;_copy&quot;: &quot;.overview-hero-copy&quot;}, {&quot;_copyContainer&quot;: &quot;.overview-hero-copy-container&quot;}, {&quot;_scrollDuration&quot;: &quot;.scroll-duration&quot;}]}"
+    data-component-json='{ "characterClass": "animate-character", "dotClass": "dot-character", "els": [{"_stickyContainer": ".sticky-container"}, {"_stickyContent": ".sticky-content"}, {"_gridContent": ".grid-content"}, {"_headline": ".overview-hero-headline"}, {"_background": ".overview-hero-background"}, {"_iconSection": ".overview-hero-icon"}, {"_iconContainer": ".hero-lock-icon-container"}, {"_icon": ".hero-lock-icon"}, {"_copy": ".overview-hero-copy"}, {"_copyContainer": ".overview-hero-copy-container"}, {"_scrollDuration": ".scroll-duration"}]}'
     data-analytics-section-engagement="name:hero"
     style="
       --background-size: 3292.0888888888894px 985.0000000000001px;
@@ -19,10 +19,7 @@
     <div class="overview-hero-intro sticky-container">
       <div class="sticky-content">
         <!-- opacity starts from 1 and decreases towards 0 -->
-        <div
-          class="overview-hero-background"
-          style="opacity: 0"
-        />
+        <div class="overview-hero-background" style="opacity: 0" />
         <div class="enhanced-section-content">
           <div class="grid-content static-container">
             <div class="overview-hero-icon grid-content-overlay">
@@ -92,7 +89,7 @@
               data-default=".default-headline"
               data-masked=".masked-headline"
               data-component-list="FocusComponent"
-              data-focus-options="{ &quot;tabindex&quot;: &quot;-1&quot;, &quot;keyframeEvent&quot;: &quot;hero-headline-vo&quot;, &quot;disabledWhen&quot;: &quot;reduced-motion&quot; }"
+              data-focus-options='{ "tabindex": "-1", "keyframeEvent": "hero-headline-vo", "disabledWhen": "reduced-motion" }'
               tabindex="-1"
               style="
                 outline: none;
@@ -103,101 +100,116 @@
               <div class="aria-headline visuallyhidden">
                 {{ title }}
               </div>
-              <div
-                class="default-headline"
-                aria-hidden="true"
-              >
+              <div class="default-headline" aria-hidden="true">
                 <!-- use a v-for here using the "title" prop -->
                 <span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, 299.2, 0)"
-                >P</span><span
+                  >P</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, 269.45, 0)"
-                >r</span><span
+                  >r</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, 239.7, 0)"
-                >i</span><span
+                  >i</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, 209.1, 0)"
-                >v</span><span
+                  >v</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, 179.35, 0)"
-                >a</span><span
+                  >a</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, 149.6, 0)"
-                >c</span><span
+                  >c</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, 119.85, 0)"
-                >y</span><span
+                  >y</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, 90.1, 0)"
-                >.</span><span class="pseudo-space" /><span
+                  >.</span
+                ><span class="pseudo-space" /><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, 59.5, 0)"
-                >T</span><span
+                  >T</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, 29.75, 0)"
-                >h</span><span
+                  >h</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, 0, 0)"
-                >a</span><span
+                  >a</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, -29.75, 0)"
-                >t</span><span
+                  >t</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, -59.5, 0)"
-                >’</span><span
+                  >’</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, -89.25, 0)"
-                >s</span><span
+                  >s</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, -119.85, 0)"
-                >&nbsp;</span><span
+                  >&nbsp;</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, -149.6, 0)"
-                >A</span><span
+                  >A</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, -179.35, 0)"
-                >p</span><span
+                  >p</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, -209.1, 0)"
-                >p</span><span
+                  >p</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, -238.85, 0)"
-                >l</span><span
+                  >l</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, -269.45, 0)"
-                >e</span><span
+                  >e</span
+                ><span
                   class="animate-character"
                   aria-hidden="true"
                   style="transform: matrix(0, 0, 0, 0, -299.2, 0)"
-                >.</span>
+                  >.</span
+                >
               </div>
-              <div
-                class="masked-headline"
-                aria-hidden="true"
-              >
+              <div class="masked-headline" aria-hidden="true">
                 <span
                   class="animate-character dot-character"
                   aria-hidden="true"
@@ -289,7 +301,7 @@
           <div
             class="overview-hero-copy-container static-container"
             data-component-list="FocusComponent"
-            data-focus-options="{ &quot;tabindex&quot;: &quot;-1&quot;, &quot;keyframeEvent&quot;: &quot;hero-copy-vo&quot;, &quot;disabledWhen&quot;: &quot;reduced-motion&quot; }"
+            data-focus-options='{ "tabindex": "-1", "keyframeEvent": "hero-copy-vo", "disabledWhen": "reduced-motion" }'
             tabindex="-1"
             style="outline: none"
           >
@@ -361,23 +373,23 @@
 </template>
 
 <script setup lang="ts">
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const props = withDefaults(
   defineProps<{
-    title: string
-    description: string
-    background: string
+    title: string;
+    description: string;
+    background: string;
   }>(),
   {
     title: "Privacy. That's Apple.",
     description:
       "Privacy is a fundamental human right. It's also one of our core values. Which is why we design our products and services to protect it. That's the kind of innovation we believe&nbsp;in.",
     background:
-      'https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large.jpg',
-  }
-)
+      "https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large.jpg",
+  },
+);
 </script>

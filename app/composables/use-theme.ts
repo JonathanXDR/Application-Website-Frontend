@@ -1,19 +1,19 @@
 export const useTheme = () => {
-  const colorMode = useColorMode()
-  const themeCookie = useCookie('theme')
+  const colorMode = useColorMode();
+  const themeCookie = useCookie("theme");
 
   const setTheme = (theme: string) => {
-    colorMode.preference = theme === 'auto' ? 'system' : theme
-    themeCookie.value = theme
-  }
+    colorMode.preference = theme === "auto" ? "system" : theme;
+    themeCookie.value = theme;
+  };
 
-  const getTheme = () => themeCookie.value || 'auto'
+  const getTheme = () => themeCookie.value || "auto";
 
-  const initializeTheme = () => setTheme(getTheme())
+  const initializeTheme = () => setTheme(getTheme());
 
   if (import.meta.client) {
-    initializeTheme()
+    initializeTheme();
   }
 
-  return { getTheme, setTheme }
-}
+  return { getTheme, setTheme };
+};

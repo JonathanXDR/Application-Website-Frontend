@@ -40,26 +40,15 @@
 
         <ul>
           <li>
-            <router-link
-              to="/"
-              title="Home"
-            >
-              .is()
-            </router-link>
+            <router-link to="/" title="Home"> .is() </router-link>
           </li>
           <li>
-            <router-link
-              to="/about"
-              title="About me"
-            >
-              .about()
-            </router-link>
+            <router-link to="/about" title="About me"> .about() </router-link>
           </li>
           <li>
-            <a
-              href="mailto:depaula.iuri@gmail.com"
-              title="Send me an email"
-            >.email()</a>
+            <a href="mailto:depaula.iuri@gmail.com" title="Send me an email"
+              >.email()</a
+            >
           </li>
           <li class="social-link">
             <a
@@ -110,17 +99,17 @@
 </template>
 
 <script>
-import '@/styles/header.scss'
+import "@/styles/header.scss";
 
 export default {
-  name: 'HeaderSection',
+  name: "HeaderSection",
   methods: {
-    openMenu () {
-      document.body.classList.add('-open-nav')
+    openMenu() {
+      document.body.classList.add("-open-nav");
     },
-    closeMenu () {
-      document.body.classList.remove('-open-nav')
+    closeMenu() {
+      document.body.classList.remove("-open-nav");
     },
   },
-}
+};
 </script>

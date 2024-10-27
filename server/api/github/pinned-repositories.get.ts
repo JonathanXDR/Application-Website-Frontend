@@ -1,14 +1,14 @@
-import { graphql, type GraphQlQueryResponseData } from '@octokit/graphql'
-import type { Repository } from '@octokit/graphql-schema'
+import { graphql, type GraphQlQueryResponseData } from "@octokit/graphql";
+import type { Repository } from "@octokit/graphql-schema";
 
 export default defineEventHandler(async (event) => {
-  const { githubToken } = useRuntimeConfig()
+  const { githubToken } = useRuntimeConfig();
   const graphqlInstance = graphql.defaults({
     headers: { authorization: `token ${githubToken}` },
-  })
-  const parameters: { username: string, perPage?: number } = getQuery(event)
+  });
+  const parameters: { username: string; perPage?: number } = getQuery(event);
 
-  const { username, perPage = 30 } = parameters
+  const { username, perPage = 30 } = parameters;
 
   const query = `
     {
@@ -61,24 +61,24 @@ export default defineEventHandler(async (event) => {
           }
         }
       }
-    }`
+    }`;
 
   try {
-    const response = await graphqlInstance<GraphQlQueryResponseData>(query)
+    const response = await graphqlInstance<GraphQlQueryResponseData>(query);
     return response.user.pinnedItems.edges.map((edge: { node: Repository }) =>
-      remapProperties(edge.node)
-    )
+      remapProperties(edge.node),
+    );
   } catch (error) {
     console.error(
       `Error fetching pinned repositories for user ${username}:`,
-      error
-    )
+      error,
+    );
     throw createError({
       statusCode: 500,
-      statusMessage: 'Internal Server Error',
-    })
+      statusMessage: "Internal Server Error",
+    });
   }
-})
+});
 
 const remapProperties = (item: Repository) => {
   const {
@@ -93,20 +93,20 @@ const remapProperties = (item: Repository) => {
     issues,
     pullRequests,
     updatedAt,
-  } = item
+  } = item;
 
   return {
     name,
     description,
     html_url: url,
-    topics: repositoryTopics?.nodes?.map(node => node?.topic.name),
+    topics: repositoryTopics?.nodes?.map((node) => node?.topic.name),
     language: primaryLanguage?.name,
     license: licenseInfo,
     forks: forks?.totalCount,
     stars: stargazers?.totalCount,
-    issues: issues?.nodes?.filter(node => node && !node.closed).length,
-    pullRequests: pullRequests?.nodes?.filter(node => node && !node.closed)
+    issues: issues?.nodes?.filter((node) => node && !node.closed).length,
+    pullRequests: pullRequests?.nodes?.filter((node) => node && !node.closed)
       .length,
     updated_at: updatedAt,
-  }
-}
+  };
+};

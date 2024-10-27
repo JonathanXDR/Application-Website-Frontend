@@ -14,10 +14,7 @@
         {{ link.title }}
       </template>
       <template v-else>
-        <LoadingSkeleton
-          width="200px"
-          height="15px"
-        />
+        <LoadingSkeleton width="200px" height="15px" />
       </template>
 
       <SFSymbol
@@ -33,54 +30,54 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkType } from '~/types/common/link'
+import type { LinkType } from "~/types/common/link";
 
 const properties = withDefaults(
   defineProps<{
-    links: LinkType[]
-    divider?: boolean
-    shouldAnimate?: boolean
-    loading?: boolean
+    links: LinkType[];
+    divider?: boolean;
+    shouldAnimate?: boolean;
+    loading?: boolean;
   }>(),
   {
     links: () => [],
     divider: true,
     shouldAnimate: false,
     loading: false,
-  }
-)
+  },
+);
 
-const { links } = toRefs(properties)
+const { links } = toRefs(properties);
 
 const getLinkComponentType = (link: LinkType) => {
-  return link.url?.startsWith('#') || link.url?.startsWith('/')
-    ? 'RouterLink'
-    : 'a'
-}
+  return link.url?.startsWith("#") || link.url?.startsWith("/")
+    ? "RouterLink"
+    : "a";
+};
 
 const getLinkAttributes = (link: LinkType) => {
-  return link.url?.startsWith('#') || link.url?.startsWith('/')
-    ? { to: link.url, target: '_self' }
-    : { href: link.url, target: '_blank', rel: 'noopener noreferrer' }
-}
+  return link.url?.startsWith("#") || link.url?.startsWith("/")
+    ? { to: link.url, target: "_self" }
+    : { href: link.url, target: "_blank", rel: "noopener noreferrer" };
+};
 
 const enhancedLinks = computed(() => {
-  return links.value.map(link => ({
+  return links.value.map((link) => ({
     ...link,
     to:
-      link.url?.startsWith('#') || link.url?.startsWith('/')
+      link.url?.startsWith("#") || link.url?.startsWith("/")
         ? link.url
         : undefined,
     href:
-      link.url && !(link.url.startsWith('#') || link.url.startsWith('/'))
+      link.url && !(link.url.startsWith("#") || link.url.startsWith("/"))
         ? link.url
         : undefined,
     target:
-      link.url?.startsWith('#') || link.url?.startsWith('/')
-        ? '_self'
-        : '_blank',
-  }))
-})
+      link.url?.startsWith("#") || link.url?.startsWith("/")
+        ? "_self"
+        : "_blank",
+  }));
+});
 </script>
 
 <style scoped>

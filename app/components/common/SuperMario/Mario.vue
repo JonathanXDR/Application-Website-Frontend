@@ -6,8 +6,8 @@
 
 <script setup lang="ts">
 defineProps<{
-  state: string
-}>()
+  state: string;
+}>();
 </script>
 
 <style scoped>

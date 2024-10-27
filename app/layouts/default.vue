@@ -6,14 +6,8 @@
       :class="{ 'hide-localnav': shouldApplyHideLocalnav }"
     >
       <NavBar v-if="shouldShow('nav')" />
-      <div
-        v-if="shouldShow('ribbon')"
-        ref="ribbonBarElement"
-      >
-        <RibbonBar
-          :loading="false"
-          :items="items"
-        />
+      <div v-if="shouldShow('ribbon')" ref="ribbonBarElement">
+        <RibbonBar :loading="false" :items="items" />
       </div>
     </header>
     <main>
@@ -27,91 +21,91 @@
 </template>
 
 <script setup lang="ts">
-import { SpeedInsights } from '@vercel/speed-insights/vue'
-import FooterCompact from '~/components/common/Footer/Compact.vue'
-import FooterFull from '~/components/common/Footer/Full.vue'
-import type { RibbonBar } from '~/types/common/ribbon-bar'
+import { SpeedInsights } from "@vercel/speed-insights/vue";
+import FooterCompact from "~/components/common/Footer/Compact.vue";
+import FooterFull from "~/components/common/Footer/Full.vue";
+import type { RibbonBar } from "~/types/common/ribbon-bar";
 
-const { state, setState } = useNavbar()
-const { randomDevColor } = useColor()
-const route = useRoute()
-const { currentSection } = useSection()
-const { locale, tm } = useI18n()
-const { y, isScrolling } = useScroll(window)
-const error = useError()
-const config = useRuntimeConfig()
+const { state, setState } = useNavbar();
+const { randomDevColor } = useColor();
+const route = useRoute();
+const { currentSection } = useSection();
+const { locale, tm } = useI18n();
+const { y, isScrolling } = useScroll(window);
+const error = useError();
+const config = useRuntimeConfig();
 
-const ribbonBarElement = ref<HTMLElement | undefined>(undefined)
-const { height: ribbonBarHeight } = useElementSize(ribbonBarElement)
-const lastScrollY = ref(0)
-const shouldHideNavbar = useState<boolean>('shouldHideNavbar', () => false)
-const autoHideNavbar = ref(false)
+const ribbonBarElement = ref<HTMLElement | undefined>(undefined);
+const { height: ribbonBarHeight } = useElementSize(ribbonBarElement);
+const lastScrollY = ref(0);
+const shouldHideNavbar = useState<boolean>("shouldHideNavbar", () => false);
+const autoHideNavbar = ref(false);
 
-const items = computed<RibbonBar['items']>(() =>
-  tm('components.common.RibbonBar')
-)
+const items = computed<RibbonBar["items"]>(() =>
+  tm("components.common.RibbonBar"),
+);
 
-const faviconColor = randomDevColor.value?.hex
-const faviconGraphicData = ref('')
+const faviconColor = randomDevColor.value?.hex;
+const faviconGraphicData = ref("");
 
 const fetchSvgContent = async () => {
-  const response = await fetch('/img/dev/favicon-dev.svg')
-  const svgContent = await response.text()
+  const response = await fetch("/img/dev/favicon-dev.svg");
+  const svgContent = await response.text();
   faviconGraphicData.value = `data:image/svg+xml,${encodeURIComponent(
-    svgContent.replace('#color', `#${faviconColor}`)
-  )}`
-}
+    svgContent.replace("#color", `#${faviconColor}`),
+  )}`;
+};
 
 onMounted(async () => {
-  await fetchSvgContent()
-})
+  await fetchSvgContent();
+});
 
 watch([y, isScrolling], ([yNew, isScrollingNew]) => {
-  if (!isScrollingNew) return
+  if (!isScrollingNew) return;
 
   shouldHideNavbar.value = autoHideNavbar.value
     ? yNew > lastScrollY.value
-    : false
-  lastScrollY.value = yNew
-})
+    : false;
+  lastScrollY.value = yNew;
+});
 
 const shouldApplyHideLocalnav = computed(() => {
   return (
     y.value > ribbonBarHeight.value &&
     shouldHideNavbar.value &&
     autoHideNavbar.value
-  )
-})
+  );
+});
 
 watchEffect(() => {
   useHead({
     htmlAttrs: { lang: locale.value },
-    titleTemplate: currentSection.value.name ? 'JR %separator %s' : '%siteName',
+    titleTemplate: currentSection.value.name ? "JR %separator %s" : "%siteName",
     title: currentSection.value.name,
-  })
+  });
 
-  if (config.public.appEnvironment !== 'development') return
+  if (config.public.appEnvironment !== "development") return;
 
   useHead({
     link: [
-      { rel: 'icon', type: 'image/svg+xml', href: faviconGraphicData.value },
+      { rel: "icon", type: "image/svg+xml", href: faviconGraphicData.value },
       {
-        rel: 'apple-touch-icon',
+        rel: "apple-touch-icon",
         href: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
       },
     ],
     meta: [
       {
-        property: 'twitter:image',
+        property: "twitter:image",
         content: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
       },
       {
-        property: 'og:image',
+        property: "og:image",
         content: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
       },
     ],
-  })
-})
+  });
+});
 
 watch(
   () => [
@@ -122,9 +116,9 @@ watch(
     setState({
       border,
       autoHide,
-    })
-  }
-)
+    });
+  },
+);
 
 const errorConfig = {
   header: false,
@@ -132,21 +126,21 @@ const errorConfig = {
   ribbon: false,
   footerFull: false,
   footerCompact: true,
-}
+};
 
 const shouldShow = (component: string) =>
   error.value
     ? errorConfig[component as keyof typeof errorConfig]
-    : route.meta[component]
+    : route.meta[component];
 
 const footerClass = computed(() => ({
-  'footer-full': shouldShow('footerFull'),
-  'footer-compact': shouldShow('footerCompact'),
-}))
+  "footer-full": shouldShow("footerFull"),
+  "footer-compact": shouldShow("footerCompact"),
+}));
 
 const footerComponent = computed(() =>
-  shouldShow('footerFull') ? FooterFull : FooterCompact
-)
+  shouldShow("footerFull") ? FooterFull : FooterCompact,
+);
 </script>
 
 <style>

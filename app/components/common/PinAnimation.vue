@@ -1,28 +1,28 @@
 <template>
   <div
     class="pins animate will-change"
-    data-anim-classname-1="{&quot;start&quot;:&quot;t + 50% - 100vh&quot;,&quot;cssClass&quot;:&quot;animate&quot;}"
-    data-anim-classname-2="{&quot;start&quot;:&quot;t - 150vh&quot;,&quot;end&quot;:&quot;b + 150vh&quot;,&quot;cssClass&quot;:&quot;will-change&quot;,&quot;toggle&quot;:true}"
+    data-anim-classname-1='{"start":"t + 50% - 100vh","cssClass":"animate"}'
+    data-anim-classname-2='{"start":"t - 150vh","end":"b + 150vh","cssClass":"will-change","toggle":true}'
   >
     <div class="pin-wrapper pin-length">
       <span class="image-pin" />
       <span class="pin-caption typography-hardware-label">
-        One PCIe x4 gen 3<br>
+        One PCIe x4 gen 3<br />
         <span>Apple I/O card</span>
       </span>
     </div>
     <div class="pin-wrapper pin-single-wide">
       <span class="image-pin" />
       <span class="pin-caption typography-hardware-label">
-        Four PCIe x8 gen 4<br>
-        <span>Two single height</span><br>
+        Four PCIe x8 gen 4<br />
+        <span>Two single height</span><br />
         <span> Two double height</span>
       </span>
     </div>
     <div class="pin-wrapper pin-double-wide">
       <span class="image-pin" />
       <span class="pin-caption typography-hardware-label">
-        Two PCIe x16 gen 4<br>
+        Two PCIe x16 gen 4<br />
         <span>Double height</span>
       </span>
     </div>
@@ -31,9 +31,9 @@
 
 <script setup lang="ts">
 defineProps<{
-  title?: string
-  description?: string
-}>()
+  title?: string;
+  description?: string;
+}>();
 </script>
 
 <style scoped>

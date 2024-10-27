@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="files?.length"
-    class="hidden"
-  >
+  <div v-if="files?.length" class="hidden">
     <div
       v-for="(art, index) in files"
       :key="index"
@@ -11,57 +8,55 @@
       <pre :class="art.elementClass">{{ index }}<br><br>{{ art.content }}</pre>
     </div>
   </div>
-  <div v-else>
-    Loading...
-  </div>
+  <div v-else>Loading...</div>
 </template>
 
 <script setup lang="ts">
 interface ArtFile {
-  content: string
-  elementClass: string
+  content: string;
+  elementClass: string;
 }
 
-const files = ref<ArtFile[]>([])
+const files = ref<ArtFile[]>([]);
 
 const { data, error } = await useAsyncData<ArtFile[]>(
-  'ascii-files',
+  "ascii-files",
   async () => {
-    const txtFiles = import.meta.glob<string>('~/public/ascii/**/*.txt', {
-      query: '?raw',
-      import: 'default',
-    })
+    const txtFiles = import.meta.glob<string>("~/public/ascii/**/*.txt", {
+      query: "?raw",
+      import: "default",
+    });
 
     const fileLoaders = Object.entries(txtFiles).map(async ([path, loader]) => {
-      const content = await loader()
-      const folder = path.split('/')[3]
-      const elementClass = folder === 'monospace' ? 'monospace' : 'helvetica'
-      return { content, elementClass }
-    })
+      const content = await loader();
+      const folder = path.split("/")[3];
+      const elementClass = folder === "monospace" ? "monospace" : "helvetica";
+      return { content, elementClass };
+    });
 
-    return await Promise.all(fileLoaders)
-  }
-)
+    return await Promise.all(fileLoaders);
+  },
+);
 
 if (error.value) {
-  console.error('Error loading ASCII files:', error.value)
+  console.error("Error loading ASCII files:", error.value);
 } else {
-  files.value = data.value || []
+  files.value = data.value || [];
 }
 
 const randomFile = computed(() =>
   files.value.length > 0
     ? files.value[Math.floor(Math.random() * files.value.length)]
-    : undefined
-)
+    : undefined,
+);
 
 onMounted(() => {
-  if (!randomFile.value) return
+  if (!randomFile.value) return;
   console.log(
     `%cHey! You've found an Easter egg! 🥚 \n\n${randomFile.value.content}`,
-    `font-family: ${randomFile.value.elementClass}`
-  )
-})
+    `font-family: ${randomFile.value.elementClass}`,
+  );
+});
 </script>
 
 <style scoped>

@@ -26,10 +26,7 @@
         width: width === 'full' ? '100%' : `${progress}%`,
       }"
     >
-      <span
-        v-if="title"
-        class="bar-caption title pb-3 md:pb-4 lg:pb-5"
-      >
+      <span v-if="title" class="bar-caption title pb-3 md:pb-4 lg:pb-5">
         {{ title }}
       </span>
       <LoadingBar
@@ -37,31 +34,18 @@
         :background="width === 'full' ? true : false"
       />
       <div class="pt-3 md:pt-4 lg:pt-5">
-        <span
-          v-if="eyebrow"
-          class="stat-label"
-        >
+        <span v-if="eyebrow" class="stat-label">
           {{ description }}
         </span>
-        <BadgeBar
-          v-if="badges?.length"
-          :badges="badges"
-          :loading="loading"
-        />
-        <div
-          v-if="links?.length"
-          class="ctas-wrapper"
-        >
+        <BadgeBar v-if="badges?.length" :badges="badges" :loading="loading" />
+        <div v-if="links?.length" class="ctas-wrapper">
           <LinkCollection
             :links="links"
             :loading="loading"
             :class="{ link: applyHover }"
           />
         </div>
-        <InfoBar
-          v-if="info"
-          v-bind="{ ...info, loading }"
-        />
+        <InfoBar v-if="info" v-bind="{ ...info, loading }" />
       </div>
     </div>
 
@@ -69,10 +53,7 @@
       v-animation="{ add: 'visible' }"
       :class="['stat', `divider-${divider?.direction}`]"
     >
-      <span
-        v-if="progress"
-        class="stat-values title"
-      >{{ progress }}%</span>
+      <span v-if="progress" class="stat-values title">{{ progress }}%</span>
       <span
         v-if="eyebrow"
         :class="['stat-label eyebrow', { 'stat-label-full': width === 'full' }]"
@@ -84,24 +65,24 @@
 </template>
 
 <script setup lang="ts">
-import type { LanguageBarType } from '~/types/common/language-bar'
+import type { LanguageBarType } from "~/types/common/language-bar";
 
 const properties = withDefaults(defineProps<LanguageBarType>(), {
   progress: 0,
-  componentSize: 'medium',
+  componentSize: "medium",
   loading: false,
-  width: 'compact',
-  hover: 'false',
-  direction: 'left',
-})
+  width: "compact",
+  hover: "false",
+  direction: "left",
+});
 
 const applyHover = computed(
   () =>
-    (properties.hover === 'auto' &&
+    (properties.hover === "auto" &&
       properties.links &&
       properties.links.length > 0) ||
-      properties.hover === 'true'
-)
+    properties.hover === "true",
+);
 </script>
 
 <style scoped>

@@ -44,14 +44,11 @@
                   class="filter-input"
                   @focus="onFocus"
                   @blur="onBlur"
-                >
+                />
               </label>
             </div>
             <div class="filter-delete-button-wrapper">
-              <button
-                v-if="open"
-                class="filter-delete-button"
-              >
+              <button v-if="open" class="filter-delete-button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -87,21 +84,21 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/item'
+import type { ItemType } from "~/types/common/item";
 
-const { tm } = useI18n()
+const { tm } = useI18n();
 const options = computed<ItemType[]>(() =>
-  tm('components.common.FilterInput.sorts')
-)
-const open = ref(false)
+  tm("components.common.FilterInput.sorts"),
+);
+const open = ref(false);
 
 const onFocus = () => {
-  open.value = true
-}
+  open.value = true;
+};
 
 const onBlur = () => {
-  open.value = false
-}
+  open.value = false;
+};
 </script>
 
 <style scoped>

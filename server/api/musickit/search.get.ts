@@ -1,8 +1,8 @@
 export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig()
-  const token = generateToken()
-  const parameters = getQuery(event)
-  const searchTerm = parameters.term
+  const config = useRuntimeConfig();
+  const token = generateToken();
+  const parameters = getQuery(event);
+  const searchTerm = parameters.term;
 
   try {
     const response = await $fetch(
@@ -13,16 +13,16 @@ export default defineEventHandler(async (event) => {
         },
         params: {
           term: searchTerm,
-          types: 'albums,playlists,songs',
+          types: "albums,playlists,songs",
         },
-      }
-    )
-    return response
+      },
+    );
+    return response;
   } catch (error) {
-    console.error('Error searching music:', error)
+    console.error("Error searching music:", error);
     throw createError({
       statusCode: 500,
-      statusMessage: 'Internal Server Error',
-    })
+      statusMessage: "Internal Server Error",
+    });
   }
-})
+});

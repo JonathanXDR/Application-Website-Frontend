@@ -30,15 +30,15 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from '~/types/common/card-item'
+import type { CardItemType } from "~/types/common/card-item";
 
 defineProps<{
-  title: string
-}>()
+  title: string;
+}>();
 
-const { tm } = useI18n()
-const breakpoints = useAppBreakpoints()
+const { tm } = useI18n();
+const breakpoints = useAppBreakpoints();
 const cards = computed<CardItemType[]>(() =>
-  tm('components.containers.school')
-)
+  tm("components.containers.school"),
+);
 </script>

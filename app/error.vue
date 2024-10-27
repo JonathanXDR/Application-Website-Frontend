@@ -52,7 +52,7 @@
               <span>{{ title }}</span>
             </h1>
             <div class="rs-covers-desc">
-              {{ description[0] }}. <br>{{ description[1] }}
+              {{ description[0] }}. <br />{{ description[1] }}
             </div>
           </div>
         </div>
@@ -63,36 +63,36 @@
 </template>
 
 <script setup lang="ts">
-const error = useError()
-const { t, tm } = useI18n()
+const error = useError();
+const { t, tm } = useI18n();
 const pages = {
   notFound: 404,
   internalServerError: 500,
   serviceUnavailable: 503,
   error: error.value?.statusCode,
-}
+};
 
 const currentKey = computed(() => {
   return (
     Object.keys(pages).find(
       (key: string) =>
-        pages[key as keyof typeof pages] === error.value?.statusCode
-    ) || 'error'
-  )
-})
+        pages[key as keyof typeof pages] === error.value?.statusCode,
+    ) || "error"
+  );
+});
 
 const title = t(`pages.${currentKey.value}.title`, {
   statusCode: error.value?.statusCode,
-})
+});
 const colors = computed<object>(() =>
-  tm(`pages.${currentKey.value}.icon.colors`)
-)
+  tm(`pages.${currentKey.value}.icon.colors`),
+);
 const entireDescription = computed<string>(() =>
-  tm(`pages.${currentKey.value}.description`)
-)
+  tm(`pages.${currentKey.value}.description`),
+);
 const description = computed<string[]>(() =>
-  entireDescription.value.split('. ')
-)
+  entireDescription.value.split(". "),
+);
 </script>
 
 <style scoped>

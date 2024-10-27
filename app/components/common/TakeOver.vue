@@ -6,18 +6,12 @@
     <div class="image event-branding-img" />
 
     <div class="section-content">
-      <div
-        class="event-info"
-        :class="eventState"
-      >
+      <div class="event-info" :class="eventState">
         <div class="event-info-heading">
           <h2 class="section-head">
             {{ eventTitle }}
           </h2>
-          <div
-            v-if="eventState === 'pre-event'"
-            class="add-to-calendar"
-          >
+          <div v-if="eventState === 'pre-event'" class="add-to-calendar">
             <a
               :href="calendarLink"
               :aria-label="`add to calendar: ${eventTitle}`"
@@ -67,52 +61,52 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from 'dayjs'
+import dayjs from "dayjs";
 
 interface Properties {
-  eventTitle: string
+  eventTitle: string;
   eventDuration: {
-    start: Date
-    end: Date
-  }
-  showCountdown?: boolean
-  calendarLink: string
-  eventLink: string
+    start: Date;
+    end: Date;
+  };
+  showCountdown?: boolean;
+  calendarLink: string;
+  eventLink: string;
 }
 
 const properties = withDefaults(defineProps<Properties>(), {
   showCountdown: true,
-})
+});
 
-type EventState = 'pre-event' | 'live' | 'post-event'
-const eventState = ref<EventState>('pre-event')
+type EventState = "pre-event" | "live" | "post-event";
+const eventState = ref<EventState>("pre-event");
 
 const calculateEventState = () => {
-  const now = dayjs()
-  const start = dayjs(properties.eventDuration.start)
-  const end = dayjs(properties.eventDuration.end)
+  const now = dayjs();
+  const start = dayjs(properties.eventDuration.start);
+  const end = dayjs(properties.eventDuration.end);
 
   if (now.isBefore(start)) {
-    eventState.value = 'pre-event'
+    eventState.value = "pre-event";
   } else if (now.isAfter(end)) {
-    eventState.value = 'post-event'
+    eventState.value = "post-event";
   } else {
-    eventState.value = 'live'
+    eventState.value = "live";
   }
-}
+};
 
-let timer: NodeJS.Timeout | undefined
+let timer: NodeJS.Timeout | undefined;
 
 onMounted(() => {
-  calculateEventState()
-  timer = setInterval(calculateEventState, 1000)
-})
+  calculateEventState();
+  timer = setInterval(calculateEventState, 1000);
+});
 
 onUnmounted(() => {
   if (timer !== undefined) {
-    clearInterval(timer)
+    clearInterval(timer);
   }
-})
+});
 </script>
 
 <style scoped>

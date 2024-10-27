@@ -4,7 +4,7 @@
     class="filter-input-sticky-wrapper"
     :class="{ 'is-sticky': isSticky }"
     :style="{
-      'transform': transformValue,
+      transform: transformValue,
       '--navbar-height': `${navbarHeight}px`,
     }"
   >
@@ -17,38 +17,38 @@
 </template>
 
 <script setup lang="ts">
-const { setState } = useNavbar()
-const breakpoints = useAppBreakpoints()
+const { setState } = useNavbar();
+const breakpoints = useAppBreakpoints();
 
-const shouldHideNavbar = useState<boolean>('shouldHideNavbar')
-const stickyWrapper = ref<HTMLElement | undefined>(undefined)
-const isSticky = ref(false)
+const shouldHideNavbar = useState<boolean>("shouldHideNavbar");
+const stickyWrapper = ref<HTMLElement | undefined>(undefined);
+const isSticky = ref(false);
 const navbarHeight = computed(() =>
-  breakpoints.smaller('md').value ? 48 : 52
-)
+  breakpoints.smaller("md").value ? 48 : 52,
+);
 
 const handleScroll = () => {
-  if (!stickyWrapper.value) return
+  if (!stickyWrapper.value) return;
 
-  const stickyOffset = stickyWrapper.value.offsetTop
+  const stickyOffset = stickyWrapper.value.offsetTop;
   const adjustedScroll =
-    window.scrollY + (shouldHideNavbar.value ? 0 : navbarHeight.value)
+    window.scrollY + (shouldHideNavbar.value ? 0 : navbarHeight.value);
 
-  isSticky.value = adjustedScroll >= stickyOffset
-  setState({ extensionAttached: isSticky.value })
-}
+  isSticky.value = adjustedScroll >= stickyOffset;
+  setState({ extensionAttached: isSticky.value });
+};
 
 const transformValue = computed(() => {
-  if (!isSticky.value && !shouldHideNavbar.value) return 'translateY(0)'
+  if (!isSticky.value && !shouldHideNavbar.value) return "translateY(0)";
   return isSticky.value && shouldHideNavbar.value
-    ? 'translateY(0)'
-    : `translateY(${navbarHeight.value}px)`
-})
+    ? "translateY(0)"
+    : `translateY(${navbarHeight.value}px)`;
+});
 
-useEventListener(window, 'scroll', handleScroll, { passive: true })
+useEventListener(window, "scroll", handleScroll, { passive: true });
 onMounted(() => {
-  handleScroll()
-})
+  handleScroll();
+});
 </script>
 
 <style scoped>

@@ -18,27 +18,14 @@
     }"
     target="_blank"
   >
-    <div
-      v-if="hasCoverOrGraphs"
-      class="card-cover-wrap"
-    >
-      <picture
-        v-if="cover"
-        class="card-cover"
-      >
-        <NuxtImg
-          decoding="async"
-          loading="lazy"
-          :src="cover"
-        />
+    <div v-if="hasCoverOrGraphs" class="card-cover-wrap">
+      <picture v-if="cover" class="card-cover">
+        <NuxtImg decoding="async" loading="lazy" :src="cover" />
       </picture>
       <BarGraph v-if="graphs?.bar" />
       <DonutGraph v-if="graphs?.donut" />
     </div>
-    <div
-      class="details"
-      :style="detailsStyle"
-    >
+    <div class="details" :style="detailsStyle">
       <SFSymbol
         v-if="icon.name"
         :loading="loading"
@@ -48,19 +35,13 @@
         :class="iconClasses"
         :style="{ position: icon.absolute ? 'absolute' : 'relative' }"
       />
-      <div
-        class="body"
-        :style="{ alignItems: alignItems }"
-      >
+      <div class="body" :style="{ alignItems: alignItems }">
         <div class="eyebrow">
           <template v-if="!loading">
             {{ eyebrow }}
           </template>
           <template v-else>
-            <LoadingSkeleton
-              width="150px"
-              height="15px"
-            />
+            <LoadingSkeleton width="150px" height="15px" />
           </template>
         </div>
         <div class="title-wrapper">
@@ -69,10 +50,7 @@
               {{ title || name }}
             </template>
             <template v-else>
-              <LoadingSkeleton
-                width="200px"
-                height="15px"
-              />
+              <LoadingSkeleton width="200px" height="15px" />
             </template>
           </div>
 
@@ -108,18 +86,9 @@
               {{ description }}
             </template>
             <template v-else>
-              <LoadingSkeleton
-                width="300px"
-                height="15px"
-              />
-              <LoadingSkeleton
-                width="300px"
-                height="15px"
-              />
-              <LoadingSkeleton
-                width="250px"
-                height="15px"
-              />
+              <LoadingSkeleton width="300px" height="15px" />
+              <LoadingSkeleton width="300px" height="15px" />
+              <LoadingSkeleton width="250px" height="15px" />
             </template>
           </div>
         </div>
@@ -129,10 +98,7 @@
           :loading="loading"
         />
 
-        <div
-          v-if="hasLinksOrHtmlUrl"
-          class="ctas-wrapper"
-        >
+        <div v-if="hasLinksOrHtmlUrl" class="ctas-wrapper">
           <!-- <ButtonItem variant="secondary" componentSize="small"> Test </ButtonItem> -->
           <!-- <NuxtLink href="photos://" class="icon-wrapper button button-reduced button-neutral">
             <span class="icon-copy"> Open</span>
@@ -161,99 +127,99 @@
 </template>
 
 <script setup lang="ts">
-import type { CardRepositoryType } from '~/types/common/card-repository'
+import type { CardRepositoryType } from "~/types/common/card-repository";
 
 const properties = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
-  variant: 'card',
-  componentSize: 'medium',
+  variant: "card",
+  componentSize: "medium",
   colors: () => ({
-    primary: 'transparent',
-    secondary: 'transparent',
-    tertiary: 'var(--color-fill-gray-tertiary)',
-    quaternary: 'var(--color-figure-blue)',
+    primary: "transparent",
+    secondary: "transparent",
+    tertiary: "var(--color-fill-gray-tertiary)",
+    quaternary: "var(--color-figure-blue)",
   }),
-  alignment: 'start',
-  hover: 'auto',
-  cover: '',
+  alignment: "start",
+  hover: "auto",
+  cover: "",
   loading: false,
   graphs: () => ({
     donut: false,
     bar: false,
   }),
   icon: () => ({
-    name: '',
+    name: "",
     absolute: false,
-    position: 'left',
-    alignment: 'start',
+    position: "left",
+    alignment: "start",
   }),
-})
+});
 
-const { t } = useI18n()
-const { randomDevColor } = useColor()
+const { t } = useI18n();
+const { randomDevColor } = useColor();
 const applyHover = computed(
   () =>
-    (properties.hover === 'auto' &&
+    (properties.hover === "auto" &&
       ((properties.links && properties.links.length > 0) ||
         properties.html_url)) ||
-        properties.hover === 'true'
-)
+    properties.hover === "true",
+);
 const componentType = computed(() =>
-  properties.variant === 'article' || !applyHover.value ? 'div' : 'a'
-)
+  properties.variant === "article" || !applyHover.value ? "div" : "a",
+);
 const componentId = computed(() =>
-  properties.title?.toLowerCase().replaceAll(' ', '-')
-)
+  properties.title?.toLowerCase().replaceAll(" ", "-"),
+);
 const componentHref = computed(() =>
   applyHover.value && properties.links
     ? properties.links[0]?.url
-    : properties.html_url
-)
+    : properties.html_url,
+);
 const scrollAnimation = {
-  add: 'scroll-animation--on',
-  remove: 'scroll-animation--off',
-}
+  add: "scroll-animation--on",
+  remove: "scroll-animation--off",
+};
 
 const hasCoverOrGraphs = computed(
-  () => properties.cover || properties.graphs?.donut || properties.graphs?.bar
-)
+  () => properties.cover || properties.graphs?.donut || properties.graphs?.bar,
+);
 const hasBadgesOrTopics = computed(
-  () => properties.badges?.length || properties.topics?.length
-)
+  () => properties.badges?.length || properties.topics?.length,
+);
 const badgesOrTopics = computed(
-  () => properties.badges || properties.topics || []
-)
+  () => properties.badges || properties.topics || [],
+);
 const hasLinksOrHtmlUrl = computed(
-  () => properties.links?.length || properties.html_url
-)
+  () => properties.links?.length || properties.html_url,
+);
 const linkCollectionLinks = computed(
   () =>
     properties.links || [
       {
-        title: t('components.common.CardItem.learnMore'),
+        title: t("components.common.CardItem.learnMore"),
         url: properties.html_url,
-        icon: { name: 'chevron.right' },
+        icon: { name: "chevron.right" },
       },
-    ]
-)
+    ],
+);
 
 const hasInfo = computed(() => {
   const keys = [
-    'info',
-    'created_at',
-    'updated_at',
-    'language',
-    'license',
-    'forks_count',
-    'network_count',
-    'watchers_count',
-    'stargazers_count',
-    'open_issues_count',
-    'subscribers_count',
-  ]
+    "info",
+    "created_at",
+    "updated_at",
+    "language",
+    "license",
+    "forks_count",
+    "network_count",
+    "watchers_count",
+    "stargazers_count",
+    "open_issues_count",
+    "subscribers_count",
+  ];
   return keys.some(
-    (key: string) => (properties as Record<string, unknown>)[key]
-  )
-})
+    (key: string) => (properties as Record<string, unknown>)[key],
+  );
+});
 
 const info = computed(() => {
   return {
@@ -271,43 +237,43 @@ const info = computed(() => {
     // commits: props.commits_count,
     // branches: props.branches_count,
     // contributors: props.contributors_count
-  }
-})
+  };
+});
 
 const flexDirection = computed(
   () =>
     ({
-      top: 'column',
-      right: 'row-reverse',
-      bottom: 'column-reverse',
-      left: 'row',
-    })[properties.icon?.position || 'left']
-)
+      top: "column",
+      right: "row-reverse",
+      bottom: "column-reverse",
+      left: "row",
+    })[properties.icon?.position || "left"],
+);
 
 const alignItems = computed(
   () =>
     ({
-      start: 'flex-start',
-      center: 'center',
-      end: 'flex-end',
-    })[properties.alignment]
-)
+      start: "flex-start",
+      center: "center",
+      end: "flex-end",
+    })[properties.alignment],
+);
 
 const detailsStyle = computed((): Record<string, string> => {
   return {
     flexDirection: flexDirection.value,
     alignItems: alignItems.value,
-  }
-})
+  };
+});
 
 const iconClasses = computed(() => ({
   icon: true,
-  'icon-large':
-    properties.variant === 'article' && properties.componentSize === 'large',
-  'icon-xlarge': ['medium', 'small'].includes(properties.componentSize),
-  'icon-xxlarge':
-    properties.variant === 'card' && properties.componentSize === 'large',
-}))
+  "icon-large":
+    properties.variant === "article" && properties.componentSize === "large",
+  "icon-xlarge": ["medium", "small"].includes(properties.componentSize),
+  "icon-xxlarge":
+    properties.variant === "card" && properties.componentSize === "large",
+}));
 </script>
 
 <style scoped>

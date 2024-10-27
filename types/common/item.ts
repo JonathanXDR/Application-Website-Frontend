@@ -1,8 +1,8 @@
-import type { IconType } from './icon'
+import type { IconType } from "./icon";
 
 export interface ItemType {
-  id: string
-  category?: string
-  label?: string
-  icon?: IconType
+  id: string;
+  category?: string;
+  label?: string;
+  icon?: IconType;
 }

@@ -1,18 +1,12 @@
 <template>
-  <aside
-    class="countdown"
-    aria-label="Countdown"
-  >
+  <aside class="countdown" aria-label="Countdown">
     <div
       v-for="(value, label) in countdown"
       :key="label"
       class="countdown-zone"
     >
       <span class="countdown-volabel">{{ value.current }}, {{ label }}</span>
-      <div
-        class="countdown-digitsholder"
-        aria-hidden="true"
-      >
+      <div class="countdown-digitsholder" aria-hidden="true">
         <Transition enter-active-class="countdown-current">
           <span
             v-if="value.transition"
@@ -26,18 +20,12 @@
           enter-active-class="countdown-next"
           leave-active-class="countdown-prev"
         >
-          <span
-            :key="value.current"
-            class="countdown-current"
-          >
+          <span :key="value.current" class="countdown-current">
             {{ value.current }}
           </span>
         </Transition>
       </div>
-      <div
-        class="countdown-label"
-        aria-hidden="true"
-      >
+      <div class="countdown-label" aria-hidden="true">
         {{ label }}
       </div>
     </div>
@@ -45,95 +33,95 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from 'dayjs'
-import duration from 'dayjs/plugin/duration'
+import dayjs from "dayjs";
+import duration from "dayjs/plugin/duration";
 
-dayjs.extend(duration)
+dayjs.extend(duration);
 
 interface Properties {
-  endDate: Date
+  endDate: Date;
 }
 
-const properties = defineProps<Properties>()
+const properties = defineProps<Properties>();
 
 interface CountdownValue {
-  prev: string
-  current: string
-  transition: boolean
+  prev: string;
+  current: string;
+  transition: boolean;
 }
 
-type CountdownUnits = 'months' | 'days' | 'hours' | 'minutes' | 'seconds'
+type CountdownUnits = "months" | "days" | "hours" | "minutes" | "seconds";
 
 const countdown = ref<Record<CountdownUnits, CountdownValue>>({
-  months: { prev: '00', current: '00', transition: false },
-  days: { prev: '00', current: '00', transition: false },
-  hours: { prev: '00', current: '00', transition: false },
-  minutes: { prev: '00', current: '00', transition: false },
-  seconds: { prev: '00', current: '00', transition: false },
-})
+  months: { prev: "00", current: "00", transition: false },
+  days: { prev: "00", current: "00", transition: false },
+  hours: { prev: "00", current: "00", transition: false },
+  minutes: { prev: "00", current: "00", transition: false },
+  seconds: { prev: "00", current: "00", transition: false },
+});
 
 const updateCountdown = () => {
-  const now = dayjs()
-  const end = dayjs(properties.endDate)
-  const diff = dayjs.duration(end.diff(now))
+  const now = dayjs();
+  const end = dayjs(properties.endDate);
+  const diff = dayjs.duration(end.diff(now));
 
   const countdownNew: Record<CountdownUnits, CountdownValue> = {
     months: {
       prev: countdown.value.months.current,
-      current: diff.months().toString().padStart(2, '0'),
+      current: diff.months().toString().padStart(2, "0"),
       transition: false,
     },
     days: {
       prev: countdown.value.days.current,
-      current: diff.days().toString().padStart(2, '0'),
+      current: diff.days().toString().padStart(2, "0"),
       transition: false,
     },
     hours: {
       prev: countdown.value.hours.current,
-      current: diff.hours().toString().padStart(2, '0'),
+      current: diff.hours().toString().padStart(2, "0"),
       transition: false,
     },
     minutes: {
       prev: countdown.value.minutes.current,
-      current: diff.minutes().toString().padStart(2, '0'),
+      current: diff.minutes().toString().padStart(2, "0"),
       transition: false,
     },
     seconds: {
       prev: countdown.value.seconds.current,
-      current: diff.seconds().toString().padStart(2, '0'),
+      current: diff.seconds().toString().padStart(2, "0"),
       transition: false,
     },
-  }
+  };
 
   for (const key of Object.keys(countdownNew)) {
-    const unit = key as CountdownUnits
+    const unit = key as CountdownUnits;
     if (countdownNew[unit].current !== countdown.value[unit].current) {
-      countdownNew[unit].transition = true
+      countdownNew[unit].transition = true;
     }
   }
 
-  countdown.value = countdownNew
+  countdown.value = countdownNew;
 
   setTimeout(() => {
     for (const key of Object.keys(countdown.value)) {
-      const unit = key as CountdownUnits
-      countdown.value[unit].transition = false
+      const unit = key as CountdownUnits;
+      countdown.value[unit].transition = false;
     }
-  }, 400)
-}
+  }, 400);
+};
 
-let timer: NodeJS.Timeout | undefined
+let timer: NodeJS.Timeout | undefined;
 
 onMounted(() => {
-  updateCountdown()
-  timer = setInterval(updateCountdown, 1000)
-})
+  updateCountdown();
+  timer = setInterval(updateCountdown, 1000);
+});
 
 onUnmounted(() => {
   if (timer !== undefined) {
-    clearInterval(timer)
+    clearInterval(timer);
   }
-})
+});
 </script>
 
 <style scoped>

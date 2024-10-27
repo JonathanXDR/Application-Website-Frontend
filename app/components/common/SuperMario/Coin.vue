@@ -4,8 +4,8 @@
 
 <script setup lang="ts">
 defineProps<{
-  isPlaying: boolean
-}>()
+  isPlaying: boolean;
+}>();
 </script>
 
 <style scoped>
