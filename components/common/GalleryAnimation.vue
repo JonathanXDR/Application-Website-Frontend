@@ -217,13 +217,13 @@ h3 + h4 {
   padding: var(--sk-tile-padding-large);
 }
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1536px) {
   .tile-content {
     padding: var(--sk-tile-padding-xlarge);
   }
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .tile-content {
     padding: var(--sk-tile-padding-medium);
   }
@@ -235,13 +235,13 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .tile-content {
     padding: var(--sk-tile-padding-small);
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 474px) {
   .tile-content {
     padding: var(--sk-tile-padding-xsmall);
   }
@@ -269,13 +269,13 @@ h3 + h4 {
   border-radius: var(--sk-tile-border-radius-large);
 }
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1536px) {
   .tile-rounded {
     border-radius: var(--sk-tile-border-radius-xlarge);
   }
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .tile-rounded {
     border-radius: var(--sk-tile-border-radius-medium);
   }
@@ -287,13 +287,13 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .tile-rounded {
     border-radius: var(--sk-tile-border-radius-small);
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 474px) {
   .tile-rounded {
     border-radius: var(--sk-tile-border-radius-xsmall);
   }
@@ -305,7 +305,7 @@ h3 + h4 {
   max-width: 1260px;
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-content-responsive {
     max-width: 480px;
   }
@@ -406,7 +406,7 @@ h3 + h4 {
     sans-serif;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .typography-headline-super {
     font-size: 64px;
     line-height: 1.1125;
@@ -422,7 +422,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .typography-headline-super {
     font-size: 48px;
     line-height: 1.1334933333;
@@ -452,7 +452,7 @@ h3 + h4 {
     sans-serif;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .typography-eyebrow-super {
     font-size: 28px;
     line-height: 1.1928571429;
@@ -468,7 +468,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .typography-eyebrow-super {
     font-size: 24px;
     line-height: 1.2166666667;
@@ -517,7 +517,7 @@ h3 + h4 {
   color: var(--sk-tile-button-icon-color);
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .play-pause-button {
     height: 30px;
     width: 30px;
@@ -543,7 +543,7 @@ h3 + h4 {
   width: 20px;
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .play-pause-button .control-centered-small-icon {
     width: 16px;
     height: 16px;
@@ -589,19 +589,19 @@ h3 + h4 {
   --card-duration: 0ms;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .cards-container .tile {
     --sk-tile-padding: 48px;
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .cards-container .tile {
     --sk-tile-padding: 36px;
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 474px) {
   .cards-container .tile {
     --sk-tile-padding: 25px;
   }
@@ -611,7 +611,7 @@ h3 + h4 {
   grid-column-start: span 1;
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .cards-container .tile.tile-half {
     grid-column-start: span 2;
   }
@@ -640,7 +640,7 @@ h3 + h4 {
   z-index: 1;
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .cards-container .tile-content {
     padding-block: 60px 80px;
     text-align: initial;
@@ -670,7 +670,7 @@ h3 + h4 {
   will-change: transform, opacity;
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .cards-container .tile .tile-icon {
     width: 18px;
     height: 18px;
@@ -702,7 +702,7 @@ h3 + h4 {
   opacity: 0.8;
 } */
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .card-half {
     grid-column-start: span 2;
   }
@@ -722,19 +722,19 @@ h3 + h4 {
   min-height: 718px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards .cards-container .tile {
     min-height: 550px;
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards .cards-container .tile {
     min-height: 565px;
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 474px) {
   .section-cards .cards-container .tile-headline {
     font-size: 46px;
   }
@@ -749,7 +749,7 @@ h3 + h4 {
   min-height: var(--tile-min-height);
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards .cards-container .tile-music-discovery {
     --tile-min-height: 587px;
     --tile-row-height: 195px;
@@ -757,7 +757,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards .cards-container .tile-music-discovery {
     --tile-row-height: 230px;
     --tile-anim-offset: 175px;
@@ -799,13 +799,13 @@ h3 + h4 {
   opacity: 0.001;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards .cards-container .tile-music-discovery .parallax {
     min-width: 934px;
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards .cards-container .tile-music-discovery .parallax {
     min-width: 480px;
     grid-template-rows: repeat(var(--rows), var(--tile-row-height));
@@ -813,7 +813,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 474px) {
   .section-cards .cards-container .tile-music-discovery .parallax {
     top: calc(var(--tile-height) / 2 - var(--tile-min-height) / 2);
   }
@@ -835,7 +835,7 @@ h3 + h4 {
   height: var(--tile-row-height);
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards .cards-container .tile-music-discovery .parallax .leave-empty {
     grid-column: 1/6;
   }
@@ -851,7 +851,7 @@ h3 + h4 {
   height: var(--tile-row-height);
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -871,7 +871,7 @@ h3 + h4 {
   height: var(--tile-row-height);
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -889,7 +889,7 @@ h3 + h4 {
   --cover-sm: 130px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards .cards-container .tile-music-discovery .parallax .img-wrapper {
     --cover-sd: 130px;
     --cover-lg: 120px;
@@ -898,7 +898,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards .cards-container .tile-music-discovery .parallax .img-wrapper {
     --cover-sd: 120px;
     --cover-lg: 110px;
@@ -919,7 +919,7 @@ h3 + h4 {
   top: 0px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -931,7 +931,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -955,7 +955,7 @@ h3 + h4 {
   top: 84px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -967,7 +967,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -991,7 +991,7 @@ h3 + h4 {
   top: 18px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1003,7 +1003,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1027,7 +1027,7 @@ h3 + h4 {
   top: -55px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1039,7 +1039,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1063,7 +1063,7 @@ h3 + h4 {
   top: 40px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1075,7 +1075,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1099,7 +1099,7 @@ h3 + h4 {
   top: 41px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1111,7 +1111,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1135,7 +1135,7 @@ h3 + h4 {
   top: 0px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1147,7 +1147,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1171,7 +1171,7 @@ h3 + h4 {
   top: 87px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1183,7 +1183,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1207,7 +1207,7 @@ h3 + h4 {
   top: -38px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1219,7 +1219,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1243,7 +1243,7 @@ h3 + h4 {
   top: 63px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1255,7 +1255,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1279,7 +1279,7 @@ h3 + h4 {
   top: 28px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1291,7 +1291,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1315,7 +1315,7 @@ h3 + h4 {
   top: -82px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1327,7 +1327,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1351,7 +1351,7 @@ h3 + h4 {
   top: -15px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1363,7 +1363,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1387,7 +1387,7 @@ h3 + h4 {
   top: 72px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1399,7 +1399,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1423,7 +1423,7 @@ h3 + h4 {
   top: 0px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1435,7 +1435,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1459,7 +1459,7 @@ h3 + h4 {
   top: 100px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1471,7 +1471,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1495,7 +1495,7 @@ h3 + h4 {
   top: -134px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1507,7 +1507,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1531,7 +1531,7 @@ h3 + h4 {
   top: -50px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1543,7 +1543,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1567,7 +1567,7 @@ h3 + h4 {
   top: 60px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1579,7 +1579,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1603,7 +1603,7 @@ h3 + h4 {
   top: 0px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1615,7 +1615,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1639,7 +1639,7 @@ h3 + h4 {
   top: 66px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1651,7 +1651,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1675,7 +1675,7 @@ h3 + h4 {
   top: -200px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1687,7 +1687,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1711,7 +1711,7 @@ h3 + h4 {
   top: -60px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1723,7 +1723,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1747,7 +1747,7 @@ h3 + h4 {
   top: 105px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1759,7 +1759,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1783,7 +1783,7 @@ h3 + h4 {
   top: 0px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1795,7 +1795,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1819,7 +1819,7 @@ h3 + h4 {
   top: 80px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1831,7 +1831,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1855,7 +1855,7 @@ h3 + h4 {
   top: -270px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1867,7 +1867,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1891,7 +1891,7 @@ h3 + h4 {
   top: -370px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1903,7 +1903,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1927,7 +1927,7 @@ h3 + h4 {
   top: calc(-220px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1939,7 +1939,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1963,7 +1963,7 @@ h3 + h4 {
   top: calc(-136px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1975,7 +1975,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -1999,7 +1999,7 @@ h3 + h4 {
   top: calc(-202px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2011,7 +2011,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2035,7 +2035,7 @@ h3 + h4 {
   top: calc(-275px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2047,7 +2047,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2071,7 +2071,7 @@ h3 + h4 {
   top: calc(-180px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2083,7 +2083,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2107,7 +2107,7 @@ h3 + h4 {
   top: calc(-179px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2119,7 +2119,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2143,7 +2143,7 @@ h3 + h4 {
   top: calc(-220px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2155,7 +2155,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2179,7 +2179,7 @@ h3 + h4 {
   top: calc(-133px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2191,7 +2191,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2215,7 +2215,7 @@ h3 + h4 {
   top: calc(-258px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2227,7 +2227,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2251,7 +2251,7 @@ h3 + h4 {
   top: calc(-157px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2263,7 +2263,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2287,7 +2287,7 @@ h3 + h4 {
   top: calc(-192px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2299,7 +2299,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2323,7 +2323,7 @@ h3 + h4 {
   top: calc(-302px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2335,7 +2335,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2359,7 +2359,7 @@ h3 + h4 {
   top: calc(-235px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2371,7 +2371,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2395,7 +2395,7 @@ h3 + h4 {
   top: calc(-148px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2407,7 +2407,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2431,7 +2431,7 @@ h3 + h4 {
   top: calc(-220px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2443,7 +2443,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2467,7 +2467,7 @@ h3 + h4 {
   top: calc(-120px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2479,7 +2479,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2503,7 +2503,7 @@ h3 + h4 {
   top: calc(-354px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2515,7 +2515,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2539,7 +2539,7 @@ h3 + h4 {
   top: calc(-270px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2551,7 +2551,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2575,7 +2575,7 @@ h3 + h4 {
   top: calc(-160px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2587,7 +2587,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2611,7 +2611,7 @@ h3 + h4 {
   top: calc(-220px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2623,7 +2623,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2647,7 +2647,7 @@ h3 + h4 {
   top: calc(-154px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2659,7 +2659,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2683,7 +2683,7 @@ h3 + h4 {
   top: calc(-420px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2695,7 +2695,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2719,7 +2719,7 @@ h3 + h4 {
   top: calc(-280px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2731,7 +2731,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2755,7 +2755,7 @@ h3 + h4 {
   top: calc(-115px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2767,7 +2767,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2791,7 +2791,7 @@ h3 + h4 {
   top: calc(-220px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2803,7 +2803,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2827,7 +2827,7 @@ h3 + h4 {
   top: calc(-140px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2839,7 +2839,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2863,7 +2863,7 @@ h3 + h4 {
   top: calc(-490px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2875,7 +2875,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2899,7 +2899,7 @@ h3 + h4 {
   top: calc(-590px - var(--additional-offset, 0px));
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2911,7 +2911,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -2923,7 +2923,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (min-width: 735px) {
+@media only screen and (min-width: 768px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -3161,7 +3161,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -3447,7 +3447,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (min-width: 735px) {
+@media only screen and (min-width: 768px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -3512,7 +3512,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -3583,7 +3583,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (min-width: 735px) {
+@media only screen and (min-width: 768px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -3615,7 +3615,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (min-width: 1069px) {
+@media only screen and (min-width: 1024px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -3686,7 +3686,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (min-width: 735px) and (max-width: 1068px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -3745,7 +3745,7 @@ h3 + h4 {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards
     .cards-container
     .tile-music-discovery
@@ -3903,7 +3903,7 @@ h3 + h4 {
   background-color: var(--color-fill);
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 767px) {
   .section-cards .cards-container .tile-music-discovery .parallax-item {
     --duration-original: 100s;
     --duration-fast-1: 87.5s;
