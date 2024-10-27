@@ -61,7 +61,7 @@ const animate = (timeline: gsap.core.Timeline) => {
     .to(arm, { morphSVG: "#arm-6", duration: 0.1, ease: "power2.inOut" }, 1.7)
     .to(iconInner, { y: "+=5", duration: 0.3, ease: "power2.inOut" }, 1.5)
     .to(iconInner, { y: "-=5", duration: 0.3, ease: "power2.inOut" }, 1.8);
-};
+}
 
 defineExpose({ animate });
 </script>

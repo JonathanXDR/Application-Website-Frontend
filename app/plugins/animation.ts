@@ -44,7 +44,7 @@ const updateClasses = (
 
   animationState.set(element, state);
   onViewportChange?.(isInViewport, element);
-};
+}
 
 const createObserver = (
   element: MaybeElementRef,
@@ -60,8 +60,8 @@ const createObserver = (
       }
     },
     { threshold: 0.5, rootMargin },
-  );
-};
+  )
+}
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive("animation", {
@@ -83,7 +83,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
         stop();
         ({ stop } = createObserver(element, value, rootMargin));
-      };
+      }
 
       useEventListener(window, "scroll", updateObserver, { passive: true });
 
@@ -106,4 +106,4 @@ export default defineNuxtPlugin((nuxtApp) => {
       animationState.delete(element);
     },
   });
-});
+})

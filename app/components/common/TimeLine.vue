@@ -45,7 +45,7 @@ const initializePath = () => {
   viewBox.value = `0 0 8 ${roundedHeight}`;
   strokeDashArray.value = listHeight;
   strokeDashOffset.value = listHeight;
-};
+}
 
 const animatePath = () => {
   const height = timelineHeight.value || 0;
@@ -59,14 +59,14 @@ const animatePath = () => {
 
   strokeDashOffset.value = drawLength < height ? height - drawLength : 0;
   properties.onUpdateHeight(strokeDashOffset.value);
-};
+}
 
 const initialAnimatePath = () => {
   if (initialAnimationDone.value) return;
 
   animatePath();
   initialAnimationDone.value = true;
-};
+}
 
 const setupIntersectionObserver = () => {
   if (!svgElement.value) return;
@@ -81,21 +81,21 @@ const setupIntersectionObserver = () => {
       removeEventListener("resize", initializePath);
     }
   });
-};
+}
 
 onMounted(async () => {
   await nextTick();
   initializePath();
   setupIntersectionObserver();
-});
+})
 
 watch(
   () => properties.initialHeight,
   async () => {
     await nextTick();
     initializePath();
-  },
-);
+  }
+)
 </script>
 
 <style scoped>

@@ -24,7 +24,7 @@ withDefaults(
     borderRadius: "reduced",
     icon: undefined,
   },
-);
+)
 </script>
 
 <style scoped>

@@ -173,7 +173,7 @@ const componentHref = computed(() =>
   applyHover.value && properties.links
     ? properties.links[0]?.url
     : properties.html_url,
-);
+)
 const scrollAnimation = {
   add: "scroll-animation--on",
   remove: "scroll-animation--off",
@@ -181,16 +181,16 @@ const scrollAnimation = {
 
 const hasCoverOrGraphs = computed(
   () => properties.cover || properties.graphs?.donut || properties.graphs?.bar,
-);
+)
 const hasBadgesOrTopics = computed(
   () => properties.badges?.length || properties.topics?.length,
-);
+)
 const badgesOrTopics = computed(
   () => properties.badges || properties.topics || [],
-);
+)
 const hasLinksOrHtmlUrl = computed(
   () => properties.links?.length || properties.html_url,
-);
+)
 const linkCollectionLinks = computed(
   () =>
     properties.links || [
@@ -200,7 +200,7 @@ const linkCollectionLinks = computed(
         icon: { name: "chevron.right" },
       },
     ],
-);
+)
 
 const hasInfo = computed(() => {
   const keys = [
@@ -218,7 +218,7 @@ const hasInfo = computed(() => {
   ];
   return keys.some(
     (key: string) => (properties as Record<string, unknown>)[key],
-  );
+  )
 });
 
 const info = computed(() => {
@@ -238,7 +238,7 @@ const info = computed(() => {
     // branches: props.branches_count,
     // contributors: props.contributors_count
   };
-});
+})
 
 const flexDirection = computed(
   () =>
@@ -257,14 +257,14 @@ const alignItems = computed(
       center: "center",
       end: "flex-end",
     })[properties.alignment],
-);
+)
 
 const detailsStyle = computed((): Record<string, string> => {
   return {
     flexDirection: flexDirection.value,
     alignItems: alignItems.value,
   };
-});
+})
 
 const iconClasses = computed(() => ({
   icon: true,

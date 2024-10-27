@@ -100,7 +100,7 @@ let timer: NodeJS.Timeout | undefined;
 onMounted(() => {
   calculateEventState();
   timer = setInterval(calculateEventState, 1000);
-});
+})
 
 onUnmounted(() => {
   if (timer !== undefined) {

@@ -79,17 +79,17 @@ const currentKey = computed(() => {
         pages[key as keyof typeof pages] === error.value?.statusCode,
     ) || "error"
   );
-});
+})
 
 const title = t(`pages.${currentKey.value}.title`, {
   statusCode: error.value?.statusCode,
 });
 const colors = computed<object>(() =>
   tm(`pages.${currentKey.value}.icon.colors`),
-);
+)
 const entireDescription = computed<string>(() =>
   tm(`pages.${currentKey.value}.description`),
-);
+)
 const description = computed<string[]>(() =>
   entireDescription.value.split(". "),
 );

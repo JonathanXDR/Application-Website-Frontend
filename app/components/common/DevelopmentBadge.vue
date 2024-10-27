@@ -18,7 +18,7 @@ withDefaults(
       primary: "var(--color-figure-orange)",
     }),
   },
-);
+)
 </script>
 
 <style scoped>

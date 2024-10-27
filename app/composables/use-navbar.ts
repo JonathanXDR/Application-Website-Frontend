@@ -11,10 +11,10 @@ const state = reactive<NavBarType>({
 export const useNavbar = () => {
   const setState = (stateNew: Partial<NavBarType>) => {
     Object.assign(state, stateNew);
-  };
+  }
 
   return {
     state: computed(() => state),
     setState,
   };
-};
+}

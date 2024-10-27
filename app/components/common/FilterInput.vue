@@ -94,11 +94,11 @@ const open = ref(false);
 
 const onFocus = () => {
   open.value = true;
-};
+}
 
 const onBlur = () => {
   open.value = false;
-};
+}
 </script>
 
 <style scoped>

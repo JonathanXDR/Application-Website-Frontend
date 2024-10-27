@@ -40,7 +40,7 @@ withDefaults(
     color: "gray",
     direction: "left",
   },
-);
+)
 </script>
 
 <style scoped>

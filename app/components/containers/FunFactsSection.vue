@@ -65,10 +65,10 @@ const updateChipClaimHeight = () => {
   nextTick(() => {
     const maxHeight = Math.max(
       ...titleElements.value.map((element) => element.clientHeight),
-    );
+    )
     chipClaimHeight.value = maxHeight;
-  });
-};
+  })
+}
 
 const animateNumber = (index: number) => {
   const span = progressSpan.value[index];
@@ -87,15 +87,15 @@ const animateNumber = (index: number) => {
           {
             notation: breakpoints.smaller("md").value ? "compact" : "standard",
           },
-        );
+        )
       },
     },
-  );
-};
+  )
+}
 
 onMounted(() => {
   updateChipClaimHeight();
-});
+})
 
 useEventListener(window, "resize", updateChipClaimHeight);
 </script>

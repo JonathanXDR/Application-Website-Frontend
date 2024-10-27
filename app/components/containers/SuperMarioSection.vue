@@ -61,7 +61,7 @@ const random = (min: number, max: number) => {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+}
 
 const randomBlock = ref(random(1, 3));
 
@@ -110,8 +110,8 @@ const jumpMario = (blockCenter: number, blockBottom: number) => {
           marioState.value = hasFoundAllCoins.value ? "celebrate" : undefined;
         },
       },
-    );
-};
+    )
+}
 
 const onJumped = (block: HTMLElement) => {
   const rect = block.getBoundingClientRect();
@@ -119,7 +119,7 @@ const onJumped = (block: HTMLElement) => {
   const blockBottom = rect.bottom;
 
   jumpMario(blockCenter, blockBottom);
-};
+}
 
 const onFoundCoin = (foundCoinsNew: number) => {
   foundCoins.value = foundCoinsNew;
@@ -132,7 +132,7 @@ const onFoundAllCoins = () => {
   hasFoundAllCoins.value = true;
   marioState.value = "celebrate";
   onOpenMessage();
-};
+}
 
 const onOpenMessage = () => {
   audioExit.play();
@@ -153,7 +153,7 @@ const onCloseMessage = () => {
     scale: 0,
     ease: "steps(12)",
   });
-};
+}
 </script>
 
 <style scoped>

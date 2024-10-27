@@ -55,14 +55,14 @@ const properties = withDefaults(
   {
     autoAnimation: false,
   },
-);
+)
 
 const words = computed(() =>
   properties.title
     .trim()
     .split(" ")
     .map((word) => [...word]),
-);
+)
 
 const isCursorBlinking = ref(false);
 const initialCursorOpacity = ref("1");
@@ -70,7 +70,7 @@ const currentLetterCount = ref(0);
 const originalStringLength = computed(
   () =>
     properties.title.trim().replaceAll(" ", "").length + words.value.length - 1,
-);
+)
 
 const getLetterStyle = (index: number) => ({
   "--letter-opacity": index < currentLetterCount.value ? "1" : "0",
@@ -83,7 +83,7 @@ const getGlobalIndex = (wordIndex: number, letterIndex: number) => {
     globalIndex += (words.value[index]?.length || 0) + 1;
   }
   return globalIndex + letterIndex;
-};
+}
 
 const isCursorBlinkingTimeout = ref(false);
 
@@ -95,7 +95,7 @@ const { start: startCursorBlinkTimeout, stop: stopCursorBlinkTimeout } =
     },
     1,
     { immediate: false },
-  );
+  )
 
 const setCursorBlink = (state: boolean) => {
   stopCursorBlinkTimeout();
@@ -123,14 +123,14 @@ const startAutoAnimation = () => {
     },
     100,
     { immediate: true },
-  );
+  )
   autoAnimationCleanup.value = pause;
-};
+}
 
 const stopAutoAnimation = () => {
   autoAnimationCleanup.value?.();
   autoAnimationCleanup.value = undefined;
-};
+}
 
 const stopScrollListener = ref<(() => void) | undefined>(undefined);
 
@@ -147,18 +147,18 @@ const updateLetterCount = () => {
       setCursorBlink(false);
       initialCursorOpacity.value = "0";
       lastScrollY = scrollY.value;
-      break;
+      break
     }
     case scrollY.value < lastScrollY - scrollThreshold &&
       currentLetterCount.value > 0: {
       currentLetterCount.value--;
       setCursorBlink(false);
       lastScrollY = scrollY.value;
-      break;
+      break
     }
     default: {
       setCursorBlink(true);
-      break;
+      break
     }
   }
 };
@@ -171,7 +171,7 @@ const animationConfig = {
           window,
           "scroll",
           updateLetterCount,
-        );
+        )
       } else {
         stopScrollListener.value?.();
         stopScrollListener.value = undefined;
@@ -196,14 +196,14 @@ onMounted(() => {
       }
     },
     { immediate: false },
-  );
+  )
 
   if (!properties.autoAnimation) {
     stopScrollListener.value = useEventListener(
       window,
       "scroll",
       updateLetterCount,
-    );
+    )
   }
 });
 
@@ -215,11 +215,11 @@ watch(currentLetterCount, (countNew, countOld) => {
     }
     case countNew === originalStringLength.value: {
       setCursorBlink(true);
-      break;
+      break
     }
     case countNew < countOld: {
       setCursorBlink(false);
-      break;
+      break
     }
   }
 });
@@ -228,7 +228,7 @@ onBeforeUnmount(() => {
   stopAutoAnimation();
   stopScrollListener.value?.();
   stopCursorBlinkTimeout();
-});
+})
 </script>
 
 <style scoped>

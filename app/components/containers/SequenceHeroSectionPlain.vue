@@ -391,5 +391,5 @@ const props = withDefaults(
     background:
       "https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large.jpg",
   },
-);
+)
 </script>

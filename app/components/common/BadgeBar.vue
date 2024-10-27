@@ -26,7 +26,7 @@ withDefaults(
     badges: () => [],
     loading: false,
   },
-);
+)
 </script>
 
 <style scoped>

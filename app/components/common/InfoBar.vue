@@ -83,14 +83,14 @@ const updatedYesterday = computed(() => {
   const updatedDate = dayjs(properties.date.fixed);
   const currentDate = dayjs();
   return currentDate.diff(updatedDate, "day") <= 1;
-});
+})
 
 const formatDate = (
   dateString: string,
   formatOptions: Intl.DateTimeFormatOptions,
 ) => {
   return new Date(dateString).toLocaleDateString(locale.value, formatOptions);
-};
+}
 
 const getDate = () => {
   const { duration, formatOptions, fixed, event } = properties.date;
@@ -120,7 +120,7 @@ const dateTitle = ref(getDate());
 watch([locale, () => properties.date], () => {
   dayjs.locale(locale.value);
   dateTitle.value = getDate();
-});
+})
 </script>
 
 <style scoped>

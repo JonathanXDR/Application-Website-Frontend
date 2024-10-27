@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
     console.error(
       `Error fetching tags for repository ${parameters.repo}:`,
       error,
-    );
+    )
     throw createError({
       statusCode: 500,
       statusMessage: "Internal Server Error",

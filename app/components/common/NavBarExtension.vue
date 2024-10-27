@@ -25,7 +25,7 @@ const stickyWrapper = ref<HTMLElement | undefined>(undefined);
 const isSticky = ref(false);
 const navbarHeight = computed(() =>
   breakpoints.smaller("md").value ? 48 : 52,
-);
+)
 
 const handleScroll = () => {
   if (!stickyWrapper.value) return;
@@ -36,19 +36,19 @@ const handleScroll = () => {
 
   isSticky.value = adjustedScroll >= stickyOffset;
   setState({ extensionAttached: isSticky.value });
-};
+}
 
 const transformValue = computed(() => {
   if (!isSticky.value && !shouldHideNavbar.value) return "translateY(0)";
   return isSticky.value && shouldHideNavbar.value
     ? "translateY(0)"
     : `translateY(${navbarHeight.value}px)`;
-});
+})
 
 useEventListener(window, "scroll", handleScroll, { passive: true });
 onMounted(() => {
   handleScroll();
-});
+})
 </script>
 
 <style scoped>

@@ -45,7 +45,7 @@ const properties = withDefaults(
     shouldAnimate: false,
     loading: false,
   },
-);
+)
 
 const { links } = toRefs(properties);
 
@@ -59,7 +59,7 @@ const getLinkAttributes = (link: LinkType) => {
   return link.url?.startsWith("#") || link.url?.startsWith("/")
     ? { to: link.url, target: "_self" }
     : { href: link.url, target: "_blank", rel: "noopener noreferrer" };
-};
+}
 
 const enhancedLinks = computed(() => {
   return links.value.map((link) => ({
@@ -77,7 +77,7 @@ const enhancedLinks = computed(() => {
         ? "_self"
         : "_blank",
   }));
-});
+})
 </script>
 
 <style scoped>

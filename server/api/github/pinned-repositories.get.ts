@@ -67,12 +67,12 @@ export default defineEventHandler(async (event) => {
     const response = await graphqlInstance<GraphQlQueryResponseData>(query);
     return response.user.pinnedItems.edges.map((edge: { node: Repository }) =>
       remapProperties(edge.node),
-    );
+    )
   } catch (error) {
     console.error(
       `Error fetching pinned repositories for user ${username}:`,
       error,
-    );
+    )
     throw createError({
       statusCode: 500,
       statusMessage: "Internal Server Error",
@@ -109,4 +109,4 @@ const remapProperties = (item: Repository) => {
       .length,
     updated_at: updatedAt,
   };
-};
+}

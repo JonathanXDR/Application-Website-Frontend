@@ -15,7 +15,7 @@ export default defineEventHandler(async () => {
       {
         headers,
       },
-    );
+    )
     return response;
   } catch (error) {
     console.error("Error fetching user library albums:", error);

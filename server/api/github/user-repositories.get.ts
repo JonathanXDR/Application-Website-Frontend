@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
     console.error(
       `Error fetching repositories for user ${parameters.username}:`,
       error,
-    );
+    )
     throw createError({
       statusCode: 500,
       statusMessage: "Internal Server Error",

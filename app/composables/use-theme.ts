@@ -5,7 +5,7 @@ export const useTheme = () => {
   const setTheme = (theme: string) => {
     colorMode.preference = theme === "auto" ? "system" : theme;
     themeCookie.value = theme;
-  };
+  }
 
   const getTheme = () => themeCookie.value || "auto";
 
@@ -16,4 +16,4 @@ export const useTheme = () => {
   }
 
   return { getTheme, setTheme };
-};
+}

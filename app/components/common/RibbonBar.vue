@@ -145,7 +145,7 @@ const updateBaseItems = () => {
   }));
   totalItems.value = baseItems.value.length;
   updateDisplayItems();
-};
+}
 
 const updateDisplayItems = () => {
   const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value;
@@ -156,8 +156,8 @@ const updateDisplayItems = () => {
         description: "",
         links: [],
       },
-  );
-};
+  )
+}
 
 const scrollContent = (direction: "left" | "right") => {
   if (!isTransitioning.value && totalItems.value > 2) {
@@ -196,14 +196,14 @@ const transformStyle = computed(() => {
     };
   }
   return {};
-});
+})
 
 watch(currentIndex, () => {
   setTimeout(() => {
     isTransitioning.value = false;
     updateDisplayItems();
   }, 1000);
-});
+})
 
 watch(
   repositoryTags,
@@ -218,11 +218,11 @@ watch(
     }
   },
   { immediate: true },
-);
+)
 
 watch(locale, () => {
   updateBaseItems();
-});
+})
 </script>
 
 <style scoped>

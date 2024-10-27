@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
           types: "albums,playlists,songs",
         },
       },
-    );
+    )
     return response;
   } catch (error) {
     console.error("Error searching music:", error);

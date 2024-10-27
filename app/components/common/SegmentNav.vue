@@ -91,13 +91,13 @@ const selectedItemElement = ref<HTMLElement | undefined>(undefined);
 
 const setItemReference = (element: HTMLElement | undefined) => {
   if (element) itemElements.value.push(element);
-};
+}
 
 const updateBubblePosition = () => {
   isTransitioning.value = true;
   const selectedItemIndex = properties.items.findIndex(
     (item) => item.id === selectedItem.value,
-  );
+  )
   selectedItemElement.value =
     itemElements.value[selectedItemIndex] || undefined;
   if (selectedItemElement.value) {
@@ -109,7 +109,7 @@ const updateBubblePosition = () => {
   }
 
   setTimeout(() => (isTransitioning.value = false), 400);
-};
+}
 
 const bubbleStyle = ref<Record<string, string>>({});
 
@@ -121,7 +121,7 @@ const computedHeight = computed(() => {
     large: 56,
   };
   return sizes[properties.componentSize || "medium"] || 48;
-});
+})
 
 const fontSize = computed(() => {
   const sizes: Record<string, number> = {
@@ -151,14 +151,14 @@ watch(
     updateBubblePosition();
   },
   { immediate: true },
-);
+)
 
 onMounted(updateBubblePosition);
 
 useResizeObserver(navContainer, () => {
   nextTick(() => {
     updateBubblePosition();
-  });
+  })
 });
 </script>
 

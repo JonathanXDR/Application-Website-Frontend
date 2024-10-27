@@ -202,7 +202,7 @@ export default {
               progress: this.tweeners[index].progress(),
               ease: Power0.easeNone,
             });
-          });
+          })
       }
     },
     playIntro() {
@@ -645,7 +645,7 @@ export default {
             progress: cloudsTweener.progress(),
             ease: Power3.easeOut,
           });
-        });
+        })
 
       cloudsTimeline
         .addLabel("start", 0)
@@ -766,7 +766,7 @@ export default {
             progress: pepeTweener.progress(),
             ease: Power3.easeOut,
           });
-        });
+        })
 
       pepeTimeline.addLabel("start").to(
         ".pepe",
@@ -857,7 +857,7 @@ export default {
             progress: grassTweener.progress(),
             ease: Power3.easeOut,
           });
-        });
+        })
 
       grassTimeline
         .addLabel("start", 0)
@@ -902,7 +902,7 @@ export default {
             progress: gCloudsTweener.progress(),
             ease: Power3.easeOut,
           });
-        });
+        })
 
       gCloudsTimeline
         .addLabel("start", 0)
@@ -949,7 +949,7 @@ export default {
           (window.innerWidth +
             document.querySelector(".castle-container").offsetWidth +
             16) +
-          "px";
+          'px';
       }
 
       castleTweener
@@ -959,7 +959,7 @@ export default {
             progress: castleTweener.progress(),
             ease: Power3.easeOut,
           });
-        });
+        })
 
       castleTimeline.to(".castle-container", 10, {
         x: castleLength,

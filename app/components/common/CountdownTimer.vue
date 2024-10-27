@@ -108,14 +108,14 @@ const updateCountdown = () => {
       countdown.value[unit].transition = false;
     }
   }, 400);
-};
+}
 
 let timer: NodeJS.Timeout | undefined;
 
 onMounted(() => {
   updateCountdown();
   timer = setInterval(updateCountdown, 1000);
-});
+})
 
 onUnmounted(() => {
   if (timer !== undefined) {

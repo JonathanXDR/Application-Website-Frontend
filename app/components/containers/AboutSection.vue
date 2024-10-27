@@ -69,14 +69,14 @@ const calculateYears = (date: string) => {
   const difference = new Date(currentDate.getTime() - birthDate.getTime());
   const years = Math.abs(difference.getUTCFullYear() - 1970);
   return years;
-};
+}
 
 onMounted(async () => {
   for (const item of dateItems.value) {
     if (item.key in dates.value) {
       dates.value[item.key as keyof typeof dates.value] = calculateYears(
         item.date,
-      );
+      )
     }
   }
 });

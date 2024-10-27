@@ -29,11 +29,11 @@ const properties = withDefaults(defineProps<IconType>(), {
 
 const icon = computed(
   () => `${getSpriteUrl(properties.componentSize)}#${properties.name}`,
-);
+)
 
 const getSpriteUrl = (size: BasicSizeType) => {
   return `/icons/${size}.svg`;
-};
+}
 
 const styles = reactive({
   "--color-primary": properties.colors.primary || "currentColor",

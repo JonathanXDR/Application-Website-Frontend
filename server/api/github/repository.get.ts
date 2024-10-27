@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
     console.error(
       `Error fetching repository for owner ${parameters.owner}:`,
       error,
-    );
+    )
     throw createError({
       statusCode: 500,
       statusMessage: "Internal Server Error",

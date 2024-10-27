@@ -3,7 +3,7 @@ export const useLanguage = () => {
 
   const availableLocales = computed(() => {
     return locales.value.filter((index) => index.code !== locale.value);
-  });
+  })
 
   const isLocaleAvailable = (localeCode: string) =>
     locales.value.some((index) => index.code === localeCode);
@@ -18,4 +18,4 @@ export const useLanguage = () => {
     availableLocales,
     changeLanguage,
   };
-};
+}
