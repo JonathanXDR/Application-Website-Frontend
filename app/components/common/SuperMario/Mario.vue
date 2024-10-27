@@ -14,7 +14,7 @@ defineProps<{
 .mario {
   width: 128px;
   height: 248px;
-  background: url("~/public/mario/bg-mario.png") no-repeat -256px -384px;
+  background: url("~~/public/mario/bg-mario.png") no-repeat -256px -384px;
 }
 .mario.up {
   background-position: 0 -384px;

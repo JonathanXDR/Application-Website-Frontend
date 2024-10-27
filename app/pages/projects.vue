@@ -87,7 +87,7 @@
                 ...project?.info,
                 date: {
                   ...project?.info?.date,
-                  event: $t('components.common.CardItem.updated'),
+                  event: t('components.common.CardItem.updated'),
                 },
               },
             }"
@@ -113,7 +113,7 @@
                 ...project.info,
                 date: {
                   ...project?.info?.date,
-                  event: $t('components.common.CardItem.updated'),
+                  event: t('components.common.CardItem.updated'),
                 },
               },
             }"
@@ -129,11 +129,11 @@
 
 <script setup lang="ts">
 import type { Repository } from "@octokit/graphql-schema";
-import type { CardItemType } from "~/types/common/card-item";
-import type { CardRepositoryType } from "~/types/common/card-repository";
-import type { IconType } from "~/types/common/icon";
-import type { ItemType } from "~/types/common/item";
-import type { MinimalRepository } from "~/types/services/github/repository";
+import type { CardItemType } from "~~/types/common/card-item";
+import type { CardRepositoryType } from "~~/types/common/card-repository";
+import type { IconType } from "~~/types/common/icon";
+import type { ItemType } from "~~/types/common/item";
+import type { MinimalRepository } from "~~/types/services/github/repository";
 
 type PinnedRepository = Repository & {
   icon?: IconType;
@@ -157,7 +157,7 @@ definePageMeta({
   footerCompact: false,
 });
 
-const { tm } = useI18n();
+const { t, tm } = useI18n();
 const { randomDevColor } = useColor();
 const breakpoints = useAppBreakpoints();
 const config = useRuntimeConfig();

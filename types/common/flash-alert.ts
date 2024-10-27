@@ -1,4 +1,4 @@
-import type { IconType } from "./icon";
+import type { IconType } from "~~/types/common/icon";
 
 export interface FlashAlertType {
   variant?:

@@ -2,7 +2,7 @@
   <section id="copyright">
     <p>
       {{
-        $t("components.common.Footer.allRightsReserved", {
+        t("components.common.Footer.allRightsReserved", {
           currentYear,
         })
       }}
@@ -13,5 +13,7 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n();
+
 const currentYear = ref(new Date().getFullYear());
 </script>

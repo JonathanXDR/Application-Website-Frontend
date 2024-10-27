@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkType } from "~/types/common/link";
+import type { LinkType } from "~~/types/common/link";
 
 const properties = withDefaults(
   defineProps<{

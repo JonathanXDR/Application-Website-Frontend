@@ -2,7 +2,7 @@
   <div class="rs-covers-footer">
     <div class="as-l-container">
       {{
-        $t("components.common.Footer.allRightsReserved", {
+        t("components.common.Footer.allRightsReserved", {
           currentYear,
         })
       }}
@@ -11,6 +11,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n();
+
 const currentYear = ref(new Date().getFullYear());
 </script>
 

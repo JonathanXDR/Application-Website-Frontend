@@ -1,5 +1,5 @@
-import type { BasicSizeType } from "./basic-size";
-import type { ExtendedPropertiesType } from "./extended-properties";
+import type { BasicSizeType } from "~~/types/common/basic-size";
+import type { ExtendedPropertiesType } from "~~/types/common/extended-properties";
 
 export interface LanguageBarType extends ExtendedPropertiesType {
   progress: number;

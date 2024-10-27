@@ -1,7 +1,7 @@
 <template>
   <section class="lang-switcher-container">
     <span v-if="introText" class="language-switcher-text">
-      {{ $t("components.common.LanguagePickerBar.chooseYourLanguage") }}:
+      {{ t("components.common.LanguagePickerBar.chooseYourLanguage") }}:
     </span>
     <ul class="locale-lang language-picker-wrapper">
       <li v-for="computedLocale in computedLocales" :key="computedLocale.code">
@@ -33,7 +33,7 @@ const properties = withDefaults(
 );
 
 const { changeLanguage } = useLanguage();
-const { locale, locales } = useI18n();
+const { t, locale, locales } = useI18n();
 
 const computedLocales = computed(() =>
   locales.value.map((l) => {

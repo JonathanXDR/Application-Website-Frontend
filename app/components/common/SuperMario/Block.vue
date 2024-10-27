@@ -15,10 +15,10 @@
 
 <script setup lang="ts">
 import { gsap, SteppedEase } from "gsap";
-import AudioPowerUp from "~/public/mario/audio/smw_power-up.ogg";
-import AudioAppears from "~/public/mario/audio/smw_power-up_appears.ogg";
-import AudioStomp from "~/public/mario/audio/smw_stomp.ogg";
-import AudioNoDamage from "~/public/mario/audio/smw_stomp_no_damage.ogg";
+import AudioPowerUp from "~~/public/mario/audio/smw_power-up.ogg";
+import AudioAppears from "~~/public/mario/audio/smw_power-up_appears.ogg";
+import AudioStomp from "~~/public/mario/audio/smw_stomp.ogg";
+import AudioNoDamage from "~~/public/mario/audio/smw_stomp_no_damage.ogg";
 
 const properties = defineProps<{
   hasCoins: boolean;
@@ -149,7 +149,7 @@ const onTouchBlock = () => {
   left: 0;
   width: 128px;
   height: 128px;
-  background: url("~/public/mario/bg-mario.png") no-repeat 0 0;
+  background: url("~~/public/mario/bg-mario.png") no-repeat 0 0;
   animation: marioBox 0.6s steps(4) infinite;
 }
 .mario-box .mario-coin {

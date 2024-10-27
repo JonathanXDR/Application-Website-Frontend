@@ -42,8 +42,8 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import type { IconType } from "~/types/common/icon";
-import type { InfoType } from "~/types/common/info";
+import type { IconType } from "~~/types/common/icon";
+import type { InfoType } from "~~/types/common/info";
 
 const properties = withDefaults(defineProps<InfoType>(), {
   loading: false,

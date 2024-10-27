@@ -45,7 +45,7 @@
 
 <script setup lang="ts">
 import { gsap } from "gsap";
-import type { LanguageBarType } from "~/types/common/language-bar";
+import type { LanguageBarType } from "~~/types/common/language-bar";
 
 defineProps<{
   title: string;

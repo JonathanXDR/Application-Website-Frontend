@@ -22,8 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import type { FaLinkType } from "~/types/common/fa-link";
-import type { ShareSheet } from "~/types/common/share-sheet";
+import type { FaLinkType } from "~~/types/common/fa-link";
+import type { ShareSheet } from "~~/types/common/share-sheet";
 
 defineProps<ShareSheet>();
 

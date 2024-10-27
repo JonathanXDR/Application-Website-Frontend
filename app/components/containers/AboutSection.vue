@@ -29,9 +29,9 @@
             ? 'medium'
             : 'large',
         loading: false,
-        eyebrow: $t('components.containers.about.eyebrow'),
-        title: $t('components.containers.about.title'),
-        description: $t('components.containers.about.description', {
+        eyebrow: t('components.containers.about.eyebrow'),
+        title: t('components.containers.about.title'),
+        description: t('components.containers.about.description', {
           age: dates.age,
           apprenticeshipYear:
             dates.apprenticeshipYear && dates.apprenticeshipYear + 1,
@@ -44,13 +44,13 @@
 </template>
 
 <script setup lang="ts">
-import type { DateItemType } from "~/types/common/date-item";
+import type { DateItemType } from "~~/types/common/date-item";
 
 defineProps<{
   title: string;
 }>();
 
-const { tm } = useI18n();
+const { t, tm } = useI18n();
 const dateItems = computed<DateItemType[]>(() =>
   tm("components.containers.about.dates"),
 );

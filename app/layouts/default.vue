@@ -24,7 +24,7 @@
 import { SpeedInsights } from "@vercel/speed-insights/vue";
 import FooterCompact from "~/components/common/Footer/Compact.vue";
 import FooterFull from "~/components/common/Footer/Full.vue";
-import type { RibbonBar } from "~/types/common/ribbon-bar";
+import type { RibbonBar } from "~~/types/common/ribbon-bar";
 
 const { state, setState } = useNavbar();
 const { randomDevColor } = useColor();

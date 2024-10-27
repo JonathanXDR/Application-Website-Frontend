@@ -50,7 +50,7 @@
 
 <script setup lang="ts">
 import { gsap } from "gsap";
-import AudioExit from "~/public/mario/audio/smw_keyhole_exit.ogg";
+import AudioExit from "~~/public/mario/audio/smw_keyhole_exit.ogg";
 
 const foundCoins = ref(0);
 const marioState = ref<string | undefined>(undefined);
@@ -216,7 +216,7 @@ body.is-playing-mario:before {
   margin-right: 0.5rem;
   width: 2rem;
   height: 2rem;
-  background: url("~/public/mario/bg-mario.png") no-repeat 0 -64px;
+  background: url("~~/public/mario/bg-mario.png") no-repeat 0 -64px;
   background-size: 160px 158px;
 }
 @media screen and (max-width: 1024px) {

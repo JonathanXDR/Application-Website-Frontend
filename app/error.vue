@@ -14,7 +14,7 @@
               class="rc-videoplayer rs-covers-media-wrapper rc-videoplayer-muted rc-videoplayer-stalled rc-videoplayer-medium"
             >
               <SFSymbol
-                :name="$t(`pages.${currentKey}.icon.name`)"
+                :name="t(`pages.${currentKey}.icon.name`)"
                 :colors="colors"
                 class="rs-covers-media-icon media-icon"
               />

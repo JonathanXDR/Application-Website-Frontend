@@ -22,7 +22,7 @@ const files = ref<ArtFile[]>([]);
 const { data, error } = await useAsyncData<ArtFile[]>(
   "ascii-files",
   async () => {
-    const txtFiles = import.meta.glob<string>("~/public/ascii/**/*.txt", {
+    const txtFiles = import.meta.glob<string>("~~/public/ascii/**/*.txt", {
       query: "?raw",
       import: "default",
     });

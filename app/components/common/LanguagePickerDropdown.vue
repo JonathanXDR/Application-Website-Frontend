@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ExtendedSizeType } from "~/types/common/extended-size";
+import type { ExtendedSizeType } from "~~/types/common/extended-size";
 
 const properties = withDefaults(
   defineProps<{
