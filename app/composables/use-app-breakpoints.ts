@@ -1,4 +1,4 @@
-import { breakpointsTailwind, } from '@vueuse/core'
+import { breakpointsTailwind } from '@vueuse/core'
 
 export const useAppBreakpoints = () => {
   const breakpoints = {
