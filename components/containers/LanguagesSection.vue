@@ -10,12 +10,12 @@
         v-if="language"
         v-bind="{
           ...language,
-          componentSize: viewport.isLessThan('tablet')
+          componentSize: breakpoints.smaller('md').value
             ? 'small'
-            : viewport.isLessThan('desktopMedium')
+            : breakpoints.smaller('xl').value
               ? 'medium'
               : 'large',
-          width: viewport.isLessThan('tablet') ? 'full' : 'compact',
+          width: breakpoints.smaller('md').value ? 'full' : 'compact',
         }"
       />
     </template>
@@ -30,7 +30,7 @@ defineProps<{
 }>()
 
 const { tm } = useI18n()
-const viewport = useViewport()
+const breakpoints = useAppBreakpoints()
 const languages = computed<LanguageBarType[]>(() =>
   tm('components.containers.languages')
 )

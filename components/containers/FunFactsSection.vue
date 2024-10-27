@@ -33,7 +33,7 @@
             >
               {{
                 item.progress.toLocaleString(locale, {
-                  notation: viewport.isLessThan("tablet")
+                  notation: breakpoints.smaller("md").value
                     ? "compact"
                     : "standard",
                 })
@@ -56,7 +56,7 @@ defineProps<{
 }>()
 
 const { tm, locale } = useI18n()
-const viewport = useViewport()
+const breakpoints = useAppBreakpoints()
 
 const chipClaimHeight = ref(0)
 const titleElements = ref<HTMLElement[]>([])
@@ -88,7 +88,9 @@ const animateNumber = (index: number) => {
       onUpdate: () => {
         span.innerHTML = Number.parseInt(span.innerHTML).toLocaleString(
           locale.value,
-          { notation: viewport.isLessThan('tablet') ? 'compact' : 'standard' }
+          {
+            notation: breakpoints.smaller('md').value ? 'compact' : 'standard',
+          }
         )
       },
     }

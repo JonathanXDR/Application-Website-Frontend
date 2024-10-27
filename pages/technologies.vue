@@ -9,10 +9,10 @@
       <div class="flex flex-col items-center gap-2">
         <SegmentNav
           :items="segmentNavItems"
-          :label="viewport.isLessThan('tablet') ? 'icon' : 'combination'"
-          :padding="viewport.isLessThan('tablet') ? undefined : '0 21px'"
+          :label="breakpoints.smaller('md').value ? 'icon' : 'combination'"
+          :padding="breakpoints.smaller('md').value ? undefined : '0 21px'"
           size="small"
-          :separator="viewport.isLessThan('tablet') ? false : true"
+          :separator="breakpoints.smaller('md').value ? false : true"
           gray-labels
           :focus="false"
           :outer-padding="3"

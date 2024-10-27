@@ -168,7 +168,9 @@
                 gap="5px"
                 component-size="xsmall"
                 :focus="false"
-                :label="viewport.isGreaterOrEquals('desktop') ? 'text' : 'icon'"
+                :label="
+                  breakpoints.greaterOrEqual('lg').value ? 'text' : 'icon'
+                "
                 :selected-item="getTheme()"
                 :on-select="(themeNew: string) => setTheme(themeNew)"
               />
@@ -204,7 +206,7 @@ const { randomDevColor } = useColor()
 const { currentSection } = useSection()
 const { getTheme, setTheme } = useTheme()
 const { y: scrollY } = useWindowScroll()
-const viewport = useViewport()
+const breakpoints = useAppBreakpoints()
 const { headerAnimations, setHeaderAnimation } = useAnimation()
 const config = useRuntimeConfig()
 const route = useRoute()

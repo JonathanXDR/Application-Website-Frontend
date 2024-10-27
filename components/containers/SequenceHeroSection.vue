@@ -64,7 +64,6 @@
 </template>
 
 <script setup lang="ts">
-import { useWindowSize } from '@vueuse/core'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import HeroIcon from '~/components/common/HeroIcon.vue'

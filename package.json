@@ -53,7 +53,6 @@
     "neostandard": "^0.11.7",
     "nuxt": "^3.13.2",
     "nuxt-security": "^2.0.0",
-    "nuxt-viewport": "^2.2.0",
     "octokit": "^4.0.2",
     "prettier": "^3.3.3",
     "prettier-eslint": "^16.3.0",
