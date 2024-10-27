@@ -18,52 +18,49 @@
       {{ title }}
     </template>
     <template v-else>
-      <LoadingSkeleton
-        width="80px"
-        height="15px"
-      />
+      <LoadingSkeleton width="80px" height="15px" />
     </template>
   </component>
 </template>
 
 <script setup lang="ts">
-import type { BadgeItemType } from '~/types/common/badge-item'
+import type { BadgeItemType } from "~/types/common/badge-item";
 
 const properties = withDefaults(defineProps<BadgeItemType>(), {
-  variant: 'a',
-  componentSize: 'medium',
+  variant: "a",
+  componentSize: "medium",
   colors: () => ({
-    primary: 'var(--color-fill-gray)',
-    secondary: 'var(--color-fill-tertiary)',
-    tertiary: 'var(--color-figure-blue)',
+    primary: "var(--color-fill-gray)",
+    secondary: "var(--color-fill-tertiary)",
+    tertiary: "var(--color-figure-blue)",
   }),
   border: false,
   hover: true,
   loading: false,
   onClick: () => {},
-})
+});
 
 const defaultColors = {
-  primary: 'var(--color-fill-gray)',
-  secondary: 'var(--color-fill-tertiary)',
-  tertiary: 'var(--color-figure-blue)',
-}
+  primary: "var(--color-fill-gray)",
+  secondary: "var(--color-fill-tertiary)",
+  tertiary: "var(--color-figure-blue)",
+};
 
 const computedStyle = computed(() => ({
-  '--color-figure': properties.loading
+  "--color-figure": properties.loading
     ? defaultColors.primary
     : properties.colors?.primary,
-  '--color-figure-background': properties.loading
+  "--color-figure-background": properties.loading
     ? defaultColors.secondary
     : properties.colors?.secondary,
-  '--color-figure-background-hover': properties.loading
+  "--color-figure-background-hover": properties.loading
     ? defaultColors.tertiary
     : properties.colors?.tertiary,
-  '--color-figure-border':
+  "--color-figure-border":
     properties.loading || !properties.border
-      ? 'transparent'
+      ? "transparent"
       : properties.colors?.tertiary,
-}))
+}));
 </script>
 
 <style scoped>

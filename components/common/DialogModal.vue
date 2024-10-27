@@ -21,10 +21,7 @@
               >
                 {{ eyebrow }}
               </h3>
-              <h4
-                v-if="title"
-                class="typography-modal-headline modal-headline"
-              >
+              <h4 v-if="title" class="typography-modal-headline modal-headline">
                 {{ title }}
               </h4>
               <p
@@ -42,15 +39,9 @@
             </div>
           </div>
         </div>
-        <button
-          class="modal-close-button"
-          @click="toggleOpen()"
-        >
+        <button class="modal-close-button" @click="toggleOpen()">
           <span class="modal-close-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path
                 d="M12.12,10l4.07-4.06a1.5,1.5,0,1,0-2.11-2.12L10,7.88,5.94,3.81A1.5,1.5,0,1,0,3.82,5.93L7.88,10,3.81,14.06a1.5,1.5,0,0,0,0,2.12,1.51,1.51,0,0,0,2.13,0L10,12.12l4.06,4.07a1.45,1.45,0,0,0,1.06.44,1.5,1.5,0,0,0,1.06-2.56Z"
               />
@@ -63,16 +54,16 @@
 </template>
 
 <script setup lang="ts">
-import type { DialogModalType } from '~/types/common/dialog-modal'
+import type { DialogModalType } from "~/types/common/dialog-modal";
 
 withDefaults(defineProps<DialogModalType>(), {
-  orientation: 'vertical',
+  orientation: "vertical",
   full: false,
   blurredBackground: false,
-})
+});
 
-const open = ref(true)
-const toggleOpen = useToggle(open)
+const open = ref(true);
+const toggleOpen = useToggle(open);
 </script>
 
 <style scoped>

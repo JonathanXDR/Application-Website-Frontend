@@ -6,7 +6,7 @@
     <div :class="`message message--${color}`">
       <p class="typography-imessage-text message-copy">
         <span class="visuallyhidden">Text message reading:&nbsp;</span> One sec.
-        <br class="small">Moving to my iPhone.
+        <br class="small" />Moving to my iPhone.
       </p>
       <svg
         :class="`message-tail message-tail--${
@@ -33,13 +33,13 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    color?: 'gray' | 'blue' | 'green'
-    direction?: 'left' | 'right'
+    color?: "gray" | "blue" | "green";
+    direction?: "left" | "right";
   }>(),
   {
-    color: 'gray',
-    direction: 'left',
-  }
+    color: "gray",
+    direction: "left",
+  },
 )
 </script>
 

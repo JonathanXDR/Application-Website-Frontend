@@ -9,19 +9,16 @@
         :name="child.label"
         :class="child.class"
       >
-        <component
-          :is="`${child.id}Section`"
-          :title="child.label"
-        />
+        <component :is="`${child.id}Section`" :title="child.label" />
       </section>
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { SectionType } from '~/types/common/section'
+import type { SectionType } from "~/types/common/section";
 
-defineOgImageComponent('Overview')
+defineOgImageComponent("Overview");
 
 definePageMeta({
   header: true,
@@ -29,10 +26,10 @@ definePageMeta({
   ribbon: true,
   footerFull: true,
   footerCompact: false,
-})
+});
 
-const { tm } = useI18n()
-const sections = computed<SectionType[]>(() => tm('components.common.NavBar'))
+const { tm } = useI18n();
+const sections = computed<SectionType[]>(() => tm("components.common.NavBar"));
 </script>
 
 <style scoped>

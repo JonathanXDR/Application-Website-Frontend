@@ -1,9 +1,9 @@
 export default defineEventHandler(async () => {
-  const config = useRuntimeConfig()
-  const { authToken, musicUserToken } = generateToken()
+  const config = useRuntimeConfig();
+  const { authToken, musicUserToken } = generateToken();
 
-  if (typeof musicUserToken !== 'string') {
-    throw new TypeError('Music User Token is not a string')
+  if (typeof musicUserToken !== "string") {
+    throw new TypeError("Music User Token is not a string");
   }
 
   try {
@@ -12,16 +12,16 @@ export default defineEventHandler(async () => {
       {
         headers: {
           Authorization: `Bearer ${authToken}`,
-          'Music-User-Token': musicUserToken,
+          "Music-User-Token": musicUserToken,
         },
-      }
+      },
     )
-    return response
+    return response;
   } catch (error) {
-    console.error('Error fetching user library playlists:', error)
+    console.error("Error fetching user library playlists:", error);
     throw createError({
       statusCode: 500,
-      statusMessage: 'Internal Server Error',
-    })
+      statusMessage: "Internal Server Error",
+    });
   }
-})
+});

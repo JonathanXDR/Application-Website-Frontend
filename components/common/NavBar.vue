@@ -8,7 +8,7 @@
     aria-expanded="false"
     :disabled="navOpening"
     @input="toggleNav"
-  >
+  />
   <div
     id="ac-ln-fixed-placeholder"
     :class="[
@@ -39,16 +39,10 @@
     aria-label="Local"
   >
     <div class="ac-ln-wrapper">
-      <div
-        ref="backgroundElement"
-        class="ac-ln-background"
-      />
+      <div ref="backgroundElement" class="ac-ln-background" />
       <div class="ac-ln-content">
         <div class="ac-ln-title">
-          <NuxtLink
-            to="/"
-            aria-label="JR"
-          >
+          <NuxtLink to="/" aria-label="JR">
             <SiteLogo :style="{ height: '13px !important', width: 'auto' }" />
           </NuxtLink>
           <DevelopmentBadge
@@ -108,14 +102,8 @@
             </ul>
           </div>
           <div class="ac-ln-actions">
-            <div
-              class="ac-ln-action ac-ln-action-menucta"
-              aria-hidden="true"
-            >
-              <label
-                for="ac-ln-menustate"
-                class="ac-ln-menucta"
-              >
+            <div class="ac-ln-action ac-ln-action-menucta" aria-hidden="true">
+              <label for="ac-ln-menustate" class="ac-ln-menucta">
                 <span class="ac-ln-menucta-chevron">
                   <svg
                     viewBox="0 0 16 9"
@@ -183,65 +171,62 @@
       </div>
     </div>
   </nav>
-  <label
-    id="ac-ln-curtain"
-    for="ac-ln-menustate"
-  />
+  <label id="ac-ln-curtain" for="ac-ln-menustate" />
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from '~/types/common/item'
-import type { NavBarType } from '~/types/common/nav-bar'
-import type { SectionType } from '~/types/common/section'
+import type { ItemType } from "~/types/common/item";
+import type { NavBarType } from "~/types/common/nav-bar";
+import type { SectionType } from "~/types/common/section";
 
 const properties = withDefaults(defineProps<NavBarType>(), {
   autoHide: false,
   border: true,
   scrim: true,
-  position: 'fixed',
-})
+  position: "fixed",
+});
 
-const { state, setState } = useNavbar()
-const { randomDevColor } = useColor()
-const { currentSection } = useSection()
-const { getTheme, setTheme } = useTheme()
-const { y: scrollY } = useWindowScroll()
-const breakpoints = useAppBreakpoints()
-const { headerAnimations, setHeaderAnimation } = useAnimation()
-const config = useRuntimeConfig()
-const route = useRoute()
-const { tm } = useI18n()
+const { state, setState } = useNavbar();
+const { randomDevColor } = useColor();
+const { currentSection } = useSection();
+const { getTheme, setTheme } = useTheme();
+const { y: scrollY } = useWindowScroll();
+const breakpoints = useAppBreakpoints();
+const { headerAnimations, setHeaderAnimation } = useAnimation();
+const config = useRuntimeConfig();
+const route = useRoute();
+const { tm } = useI18n();
 
-const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'))
+const navItems = computed<SectionType[]>(() => tm("components.common.NavBar"));
 const themeItems = computed<ItemType[]>(() =>
-  tm('components.common.SegmentNav.theme')
-)
+  tm("components.common.SegmentNav.theme"),
+);
 
-const navOpen = ref(false)
-const navOpening = ref(false)
+const navOpen = ref(false);
+const navOpening = ref(false);
 
-const expandAnimation = ref<SVGAnimateElement | undefined>(undefined)
-const collapseAnimation = ref<SVGAnimateElement | undefined>(undefined)
+const expandAnimation = ref<SVGAnimateElement | undefined>(undefined);
+const collapseAnimation = ref<SVGAnimateElement | undefined>(undefined);
 
-const navbarElement = ref<HTMLElement | undefined>(undefined)
-const backgroundElement = ref<HTMLElement | undefined>(undefined)
-const menustateTrayElement = ref<HTMLElement | undefined>(undefined)
-const trayHeight = ref<number | undefined>(undefined)
+const navbarElement = ref<HTMLElement | undefined>(undefined);
+const backgroundElement = ref<HTMLElement | undefined>(undefined);
+const menustateTrayElement = ref<HTMLElement | undefined>(undefined);
+const trayHeight = ref<number | undefined>(undefined);
 const menuLinkReferences = reactive<Record<string, HTMLElement | undefined>>(
-  {}
+  {},
 )
 
-const borderTransformOrigin = ref<string>('50% 0%')
-const borderScaleX = ref<string>('scaleX(1)')
+const borderTransformOrigin = ref<string>("50% 0%");
+const borderScaleX = ref<string>("scaleX(1)");
 
 const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
-  const currentId = navItems.value.find(item => isCurrent(item))?.id
-  const liElement = currentId ? menuLinkReferences[currentId] : undefined
+  const currentId = navItems.value.find((item) => isCurrent(item))?.id;
+  const liElement = currentId ? menuLinkReferences[currentId] : undefined;
 
-  if (!liElement) return
+  if (!liElement) return;
 
-  const menuLinkElement = liElement.firstElementChild as HTMLElement
-  return menuLinkElement
+  const menuLinkElement = liElement.firstElementChild as HTMLElement;
+  return menuLinkElement;
 })
 
 setState({
@@ -249,108 +234,108 @@ setState({
   border: properties.border,
   scrim: properties.scrim,
   position: properties.position,
-})
+});
 
 const initHeaderAnimations = () => {
   const animation = {
     element: backgroundElement.value as HTMLElement,
-    class: 'ac-ln-background-transition',
+    class: "ac-ln-background-transition",
     timeout: 500,
-  }
-  setHeaderAnimation(animation)
+  };
+  setHeaderAnimation(animation);
 }
 
 const toggleNav = () => {
-  useToggle(navOpen)
-  animateChevron(navOpen.value)
-  checkboxTimeout()
+  useToggle(navOpen);
+  animateChevron(navOpen.value);
+  checkboxTimeout();
 }
 
 const animateChevron = (isOpen: boolean) => {
   if (isOpen) {
-    expandAnimation.value?.beginElement()
+    expandAnimation.value?.beginElement();
   } else {
-    collapseAnimation.value?.beginElement()
+    collapseAnimation.value?.beginElement();
   }
-}
+};
 
 const checkboxTimeout = () => {
-  navOpening.value = true
+  navOpening.value = true;
   setTimeout(() => {
-    navOpening.value = false
-  }, 1000)
+    navOpening.value = false;
+  }, 1000);
 }
 
 const handleScroll = () => {
   if (navOpen.value && scrollY.value > 0) {
-    navOpen.value = false
-    animateChevron(false)
+    navOpen.value = false;
+    animateChevron(false);
   }
-}
+};
 
 const isCurrent = (item: SectionType) =>
-  item.id === currentSection.value.id || route.path === item.route
+  item.id === currentSection.value.id || route.path === item.route;
 
 const updateAnimations = () => {
   for (const element of headerAnimations.value) {
-    element.element.classList.remove(element.class)
+    element.element.classList.remove(element.class);
 
     setTimeout(() => {
-      element.element.classList.add(element.class)
-    }, element.timeout)
+      element.element.classList.add(element.class);
+    }, element.timeout);
   }
-}
+};
 
 const updateTrayHeight = () => {
-  if (!menustateTrayElement.value) return
-  trayHeight.value = menustateTrayElement.value.scrollHeight
+  if (!menustateTrayElement.value) return;
+  trayHeight.value = menustateTrayElement.value.scrollHeight;
 }
 
 const updateBorderPosition = () => {
   if (currentMenuLinkElement.value && navbarElement.value) {
-    const menuLinkRect = currentMenuLinkElement.value.getBoundingClientRect()
-    const navbarRect = navbarElement.value.getBoundingClientRect()
+    const menuLinkRect = currentMenuLinkElement.value.getBoundingClientRect();
+    const navbarRect = navbarElement.value.getBoundingClientRect();
 
     const centerPosition =
-      menuLinkRect.left + menuLinkRect.width / 2 - navbarRect.left
+      menuLinkRect.left + menuLinkRect.width / 2 - navbarRect.left;
 
-    const transformOriginPercent = (centerPosition / navbarRect.width) * 100
+    const transformOriginPercent = (centerPosition / navbarRect.width) * 100;
 
-    borderTransformOrigin.value = `${transformOriginPercent}% 0%`
-    borderScaleX.value = 'scaleX(0)'
+    borderTransformOrigin.value = `${transformOriginPercent}% 0%`;
+    borderScaleX.value = "scaleX(0)";
 
     requestAnimationFrame(() => {
-      borderScaleX.value = 'scaleX(1)'
-    })
+      borderScaleX.value = "scaleX(1)";
+    });
   } else {
-    borderTransformOrigin.value = '50% 0%'
-    borderScaleX.value = 'scaleX(1)'
+    borderTransformOrigin.value = "50% 0%";
+    borderScaleX.value = "scaleX(1)";
   }
-}
+};
 
-useEventListener(window, 'scroll', handleScroll)
-useEventListener(window, 'resize', () => {
-  updateBorderPosition()
-  updateTrayHeight()
+useEventListener(window, "scroll", handleScroll);
+useEventListener(window, "resize", () => {
+  updateBorderPosition();
+  updateTrayHeight();
 })
 
 onMounted(() => {
-  initHeaderAnimations()
-  updateBorderPosition()
-  updateTrayHeight()
+  initHeaderAnimations();
+  updateBorderPosition();
+  updateTrayHeight();
 })
 
 watch(getTheme, (themeNew, themeOld) => {
-  if (themeNew === themeOld) return
-  updateAnimations()
+  if (themeNew === themeOld) return;
+  updateAnimations();
 })
 
 watch(currentMenuLinkElement, () => {
-  updateBorderPosition()
+  updateBorderPosition();
 })
 
 watch([() => route.path, () => currentSection.value.id], () => {
-  updateBorderPosition()
+  updateBorderPosition();
 })
 </script>
 

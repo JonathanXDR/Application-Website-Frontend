@@ -1,4 +1,4 @@
-import type { MinimalRepository } from '../services/github/repository'
-import type { CardItemType } from './card-item'
+import type { MinimalRepository } from "../services/github/repository";
+import type { CardItemType } from "./card-item";
 
-export type CardRepositoryType = CardItemType & MinimalRepository
+export type CardRepositoryType = CardItemType & MinimalRepository;

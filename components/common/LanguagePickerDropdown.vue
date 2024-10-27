@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="language-picker-dropdown"
-    :style="{ fontSize: `${fontSize}px` }"
-  >
+  <div class="language-picker-dropdown" :style="{ fontSize: `${fontSize}px` }">
     <div class="dropdown-container legacy-form">
       <select
         id="language-picker-dropdown"
@@ -24,34 +21,31 @@
           }}
         </option>
       </select>
-      <SFSymbol
-        name="chevron.down"
-        :class="`icon icon-${componentSize}`"
-      />
+      <SFSymbol name="chevron.down" :class="`icon icon-${componentSize}`" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { ExtendedSizeType } from '~/types/common/extended-size'
+import type { ExtendedSizeType } from "~/types/common/extended-size";
 
 const properties = withDefaults(
   defineProps<{
-    componentSize?: Exclude<ExtendedSizeType, 'xlarge'>
+    componentSize?: Exclude<ExtendedSizeType, "xlarge">;
   }>(),
   {
-    componentSize: 'small',
-  }
+    componentSize: "small",
+  },
 )
 
-const breakpoints = useAppBreakpoints()
-const { changeLanguage } = useLanguage()
-const { locale, locales } = useI18n()
-const selectedLocale = ref(locale.value)
+const breakpoints = useAppBreakpoints();
+const { changeLanguage } = useLanguage();
+const { locale, locales } = useI18n();
+const selectedLocale = ref(locale.value);
 
 const computedLocales = computed(() =>
   locales.value.map((l) => {
-    return typeof l === 'string' ? { code: l, name: l } : l
+    return typeof l === "string" ? { code: l, name: l } : l;
   })
 )
 
@@ -61,12 +55,12 @@ const fontSize = computed(() => {
     small: 14,
     medium: 16,
     large: 18,
-  }
-  return sizes[properties.componentSize || 'medium']
-})
+  };
+  return sizes[properties.componentSize || "medium"];
+});
 
 watch(locale, (localeNew) => {
-  selectedLocale.value = localeNew
+  selectedLocale.value = localeNew;
 })
 </script>
 

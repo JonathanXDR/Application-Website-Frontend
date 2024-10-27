@@ -1,9 +1,5 @@
 <template>
-  <svg
-    class="hero-lock-icon"
-    viewBox="0 0 64 84"
-    data-thing="true"
-  >
+  <svg class="hero-lock-icon" viewBox="0 0 64 84" data-thing="true">
     <defs>
       <clipPath id="static-apple-clip">
         <path
@@ -52,22 +48,22 @@
 
 <script setup lang="ts">
 const animate = (timeline: gsap.core.Timeline) => {
-  const leaf = document.querySelector('#leaf')
-  const arm = document.querySelector('#arm')
-  const iconInner = document.querySelector('#privacy-icon-inner')
+  const leaf = document.querySelector("#leaf");
+  const arm = document.querySelector("#arm");
+  const iconInner = document.querySelector("#privacy-icon-inner");
 
   timeline
-    .to(leaf, { scale: 0, duration: 0.2, ease: 'power2.in' }, 0.3)
+    .to(leaf, { scale: 0, duration: 0.2, ease: "power2.in" }, 0.3)
     .fromTo(arm, { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.4)
-    .to(arm, { morphSVG: '#arm-3', duration: 0.3, ease: 'power2.out' }, 0.4)
-    .to(arm, { morphSVG: '#arm-4', duration: 0.5, ease: 'power2.out' }, 0.5)
-    .to(arm, { morphSVG: '#arm-5', duration: 0.7, ease: 'power2.inOut' }, 1)
-    .to(arm, { morphSVG: '#arm-6', duration: 0.1, ease: 'power2.inOut' }, 1.7)
-    .to(iconInner, { y: '+=5', duration: 0.3, ease: 'power2.inOut' }, 1.5)
-    .to(iconInner, { y: '-=5', duration: 0.3, ease: 'power2.inOut' }, 1.8)
+    .to(arm, { morphSVG: "#arm-3", duration: 0.3, ease: "power2.out" }, 0.4)
+    .to(arm, { morphSVG: "#arm-4", duration: 0.5, ease: "power2.out" }, 0.5)
+    .to(arm, { morphSVG: "#arm-5", duration: 0.7, ease: "power2.inOut" }, 1)
+    .to(arm, { morphSVG: "#arm-6", duration: 0.1, ease: "power2.inOut" }, 1.7)
+    .to(iconInner, { y: "+=5", duration: 0.3, ease: "power2.inOut" }, 1.5)
+    .to(iconInner, { y: "-=5", duration: 0.3, ease: "power2.inOut" }, 1.8);
 }
 
-defineExpose({ animate })
+defineExpose({ animate });
 </script>
 
 <style scoped>

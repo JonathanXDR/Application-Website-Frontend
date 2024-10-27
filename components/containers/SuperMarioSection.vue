@@ -1,13 +1,6 @@
 <template>
-  <SceneSection
-    id="Mario"
-    role="img"
-    aria-labelledby="marioDesc"
-  >
-    <p
-      id="marioDesc"
-      class="ariaLabel"
-    >
+  <SceneSection id="Mario" role="img" aria-labelledby="marioDesc">
+    <p id="marioDesc" class="ariaLabel">
       Three boxes with a question mark, from the Super Mario Bros game, are
       standing in the center of the screen ... try to find the coin in one of
       them by using the numbers 1, 2, and 3 on your keyboard!
@@ -24,24 +17,18 @@
         />
       </div>
 
-      <SuperMario
-        class="mario-container"
-        :state="marioState || ''"
-      />
+      <SuperMario class="mario-container" :state="marioState || ''" />
 
-      <div
-        v-show="foundCoins"
-        class="mario-coin-counter"
-      >
+      <div v-show="foundCoins" class="mario-coin-counter">
         {{ foundCoins }}
       </div>
 
       <div v-show="hasFoundAllCoins">
         <div class="mario-msg-overlay" />
         <div class="mario-msg">
-          Hooray! Thanks for jumping so many times. <br>
+          Hooray! Thanks for jumping so many times. <br />
           <span class="-purple">You found all the coins!</span>
-          <br>&nbsp;<br>
+          <br />&nbsp;<br />
           Keep scrolling, you're near the end!
 
           <div class="later">
@@ -62,28 +49,28 @@
 </template>
 
 <script setup lang="ts">
-import { gsap } from 'gsap'
-import AudioExit from '~/public/mario/audio/smw_keyhole_exit.ogg'
+import { gsap } from "gsap";
+import AudioExit from "~/public/mario/audio/smw_keyhole_exit.ogg";
 
-const foundCoins = ref(0)
-const marioState = ref<string | undefined>(undefined)
-const hasFoundAllCoins = ref(false)
-const audioExit = new Audio(AudioExit)
+const foundCoins = ref(0);
+const marioState = ref<string | undefined>(undefined);
+const hasFoundAllCoins = ref(false);
+const audioExit = new Audio(AudioExit);
 
 const random = (min: number, max: number) => {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min + 1)) + min
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const randomBlock = ref(random(1, 3))
+const randomBlock = ref(random(1, 3));
 
 const jumpMario = (blockCenter: number, blockBottom: number) => {
-  const mario = document.querySelector('.mario') as HTMLElement
-  const marioRect = mario.getBoundingClientRect()
-  const isJumpingLeft = marioRect.x > blockCenter
-  const marioFloor = window.innerHeight - marioRect.height
-  const marioAnimation = gsap.timeline()
+  const mario = document.querySelector(".mario") as HTMLElement;
+  const marioRect = mario.getBoundingClientRect();
+  const isJumpingLeft = marioRect.x > blockCenter;
+  const marioFloor = window.innerHeight - marioRect.height;
+  const marioAnimation = gsap.timeline();
 
   marioAnimation
     .clear(true)
@@ -97,7 +84,7 @@ const jumpMario = (blockCenter: number, blockBottom: number) => {
         left: marioRect.x,
         top: marioFloor,
         onStart: () => {
-          marioState.value = 'up'
+          marioState.value = "up";
         },
       },
       {
@@ -112,60 +99,60 @@ const jumpMario = (blockCenter: number, blockBottom: number) => {
               left: isJumpingLeft ? blockCenter - 128 : blockCenter + 128,
               top: window.innerWidth <= 1024 ? marioFloor * 0.9 : marioFloor,
               onStart: () => {
-                marioState.value = 'down'
+                marioState.value = "down";
               },
             },
           ],
           autoRotate: false,
         },
-        ease: 'steps(12)',
+        ease: "steps(12)",
         onComplete: () => {
-          marioState.value = hasFoundAllCoins.value ? 'celebrate' : undefined
+          marioState.value = hasFoundAllCoins.value ? "celebrate" : undefined;
         },
-      }
+      },
     )
 }
 
 const onJumped = (block: HTMLElement) => {
-  const rect = block.getBoundingClientRect()
-  const blockCenter = Math.floor(rect.x + rect.width / 2)
-  const blockBottom = rect.bottom
+  const rect = block.getBoundingClientRect();
+  const blockCenter = Math.floor(rect.x + rect.width / 2);
+  const blockBottom = rect.bottom;
 
-  jumpMario(blockCenter, blockBottom)
+  jumpMario(blockCenter, blockBottom);
 }
 
 const onFoundCoin = (foundCoinsNew: number) => {
-  foundCoins.value = foundCoinsNew
-  document.body.classList.remove('is-playing-mario')
-  document.body.classList.add('has-played-mario')
-  document.body.classList.add('blue-background')
-}
+  foundCoins.value = foundCoinsNew;
+  document.body.classList.remove("is-playing-mario");
+  document.body.classList.add("has-played-mario");
+  document.body.classList.add("blue-background");
+};
 
 const onFoundAllCoins = () => {
-  hasFoundAllCoins.value = true
-  marioState.value = 'celebrate'
-  onOpenMessage()
+  hasFoundAllCoins.value = true;
+  marioState.value = "celebrate";
+  onOpenMessage();
 }
 
 const onOpenMessage = () => {
-  audioExit.play()
-  const timeline = gsap.timeline()
+  audioExit.play();
+  const timeline = gsap.timeline();
   timeline
-    .to('#Mario .mario-msg', {
+    .to("#Mario .mario-msg", {
       duration: 1,
       scale: 1,
-      ease: 'steps(12)',
+      ease: "steps(12)",
     })
-    .to('#Mario .mario-msg .later', { duration: 0.1, autoAlpha: 1 }, '+=2')
-}
+    .to("#Mario .mario-msg .later", { duration: 0.1, autoAlpha: 1 }, "+=2");
+};
 
 const onCloseMessage = () => {
-  const timeline = gsap.timeline()
-  timeline.to('#Mario .mario-msg, #Mario .mario-msg-overlay', {
+  const timeline = gsap.timeline();
+  timeline.to("#Mario .mario-msg, #Mario .mario-msg-overlay", {
     duration: 1,
     scale: 0,
-    ease: 'steps(12)',
-  })
+    ease: "steps(12)",
+  });
 }
 </script>
 

@@ -1,102 +1,102 @@
 <script setup lang="ts">
-import { computed, defineComponent, h, resolveComponent } from 'vue'
-import { useSiteConfig } from '#imports'
-import { useOgImageRuntimeConfig } from '#nuxt-og-image-utils'
+import { computed, defineComponent, h, resolveComponent } from "vue";
+import { useSiteConfig } from "#imports";
+import { useOgImageRuntimeConfig } from "#nuxt-og-image-utils";
 
 const props = withDefaults(
   defineProps<{
-    title?: string
-    description?: string
-    headline?: string
-    colorMode?: 'dark' | 'light'
-    icon?: string | boolean
-    siteName?: string
-    siteLogo?: string
-    theme?: string
+    title?: string;
+    description?: string;
+    headline?: string;
+    colorMode?: "dark" | "light";
+    icon?: string | boolean;
+    siteName?: string;
+    siteLogo?: string;
+    theme?: string;
   }>(),
   {
-    title: 'title',
-    description: 'description',
-    headline: 'headline',
-    theme: '#00dc82',
-  }
+    title: "title",
+    description: "description",
+    headline: "headline",
+    theme: "#00dc82",
+  },
 )
 
-const HexRegex = /^#(?:[0-9a-f]{3}){1,2}$/i
+const HexRegex = /^#(?:[0-9a-f]{3}){1,2}$/i;
 
-const runtimeConfig = useOgImageRuntimeConfig()
+const runtimeConfig = useOgImageRuntimeConfig();
 
 const colorMode = computed(() => {
-  return props.colorMode || runtimeConfig.colorPreference || 'light'
-})
+  return props.colorMode || runtimeConfig.colorPreference || "light";
+});
 
 const themeHex = computed(() => {
   // regex test if valid hex
   if (HexRegex.test(props.theme)) {
-    return props.theme
+    return props.theme;
   }
 
   // if it's hex without the hash, just add the hash
   if (HexRegex.test(`#${props.theme}`)) {
-    return `#${props.theme}`
+    return `#${props.theme}`;
   }
 
   // if it's rgb or rgba, we convert it to hex
-  if (props.theme.startsWith('rgb')) {
+  if (props.theme.startsWith("rgb")) {
     const rgb = props.theme
-      .replace('rgb(', '')
-      .replace('rgba(', '')
-      .replace(')', '')
-      .split(',')
-      .map(v => Number.parseInt(v.trim(), 10))
+      .replace("rgb(", "")
+      .replace("rgba(", "")
+      .replace(")", "")
+      .split(",")
+      .map((v) => Number.parseInt(v.trim(), 10));
     const hex = rgb
       .map((v) => {
-        const hex = v.toString(16)
-        return hex.length === 1 ? `0${hex}` : hex
+        const hex = v.toString(16);
+        return hex.length === 1 ? `0${hex}` : hex;
       })
-      .join('')
-    return `#${hex}`
+      .join("");
+    return `#${hex}`;
   }
-  return '#FFFFFF'
-})
+  return "#FFFFFF";
+});
 
 const themeRgb = computed(() => {
   // Convert hex to RGB values
   return themeHex.value
-    .replace('#', '')
+    .replace("#", "")
     .match(/.{1,2}/g)
-    ?.map(v => Number.parseInt(v, 16))
-    .join(', ')
-})
+    ?.map((v) => Number.parseInt(v, 16))
+    .join(", ");
+});
 
-const siteConfig = useSiteConfig()
+const siteConfig = useSiteConfig();
 const siteName = computed(() => {
-  return props.siteName || siteConfig.name
+  return props.siteName || siteConfig.name;
 })
 const siteLogo = computed(() => {
-  return props.siteLogo || siteConfig.logo
+  return props.siteLogo || siteConfig.logo;
 })
 
 const IconComponent = runtimeConfig.hasNuxtIcon
-  ? resolveComponent('Icon')
+  ? resolveComponent("Icon")
   : defineComponent({
-    render () {
-      return h('div', 'missing @nuxt/icon')
-    },
-  })
+      render() {
+        return h("div", "missing @nuxt/icon");
+      },
+    });
 if (
-  typeof props.icon === 'string' &&
+  typeof props.icon === "string" &&
   !runtimeConfig.hasNuxtIcon &&
   import.meta.dev
 ) {
   console.warn(
-    'Please install `@nuxt/icon` to use icons with the fallback OG Image component.'
-  )
+    "Please install `@nuxt/icon` to use icons with the fallback OG Image component.",
+  );
 
-  console.log('\nnpx nuxi module add icon\n')
+  console.log("\nnpx nuxi module add icon\n");
 }
 
-const title = computed(() => props.title.slice(0, 60))
+const title = computed(() => props.title.slice(0, 60));
 </script>
 
 <template>
@@ -121,24 +121,9 @@ const title = computed(() => props.title.slice(0, 60))
         opacity="0.7"
         filter="url(#filter0_f_448_25)"
       >
-        <circle
-          cx="901.5"
-          cy="45.5"
-          r="199.5"
-          :fill="themeHex"
-        />
-        <circle
-          cx="600.5"
-          cy="216.5"
-          r="199.5"
-          :fill="themeHex"
-        />
-        <circle
-          cx="179.5"
-          cy="317.5"
-          r="199.5"
-          :fill="themeHex"
-        />
+        <circle cx="901.5" cy="45.5" r="199.5" :fill="themeHex" />
+        <circle cx="600.5" cy="216.5" r="199.5" :fill="themeHex" />
+        <circle cx="179.5" cy="317.5" r="199.5" :fill="themeHex" />
       </g>
       <defs>
         <filter
@@ -150,10 +135,7 @@ const title = computed(() => props.title.slice(0, 60))
           filterUnits="userSpaceOnUse"
           color-interpolation-filters="sRGB"
         >
-          <feFlood
-            flood-opacity="0"
-            result="BackgroundImageFix"
-          />
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -190,15 +172,8 @@ const title = computed(() => props.title.slice(0, 60))
       </p>
     </div>
 
-    <div
-      v-if="Boolean(icon)"
-      class="absolute top-[250px] right-[190px]"
-    >
-      <IconComponent
-        :name="icon"
-        size="150px"
-        style="opacity: 0.7"
-      />
+    <div v-if="Boolean(icon)" class="absolute top-[250px] right-[190px]">
+      <IconComponent :name="icon" size="150px" style="opacity: 0.7" />
     </div>
 
     <svg
@@ -234,22 +209,10 @@ const title = computed(() => props.title.slice(0, 60))
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(120.426 126.822) rotate(90) scale(20.943 88.4261)"
         >
-          <stop
-            offset="0.0677083"
-            :stop-color="themeHex"
-          />
-          <stop
-            offset="0.333333"
-            :stop-color="themeHex"
-          />
-          <stop
-            offset="0.666667"
-            :stop-color="themeHex"
-          />
-          <stop
-            offset="1"
-            :stop-color="themeHex"
-          />
+          <stop offset="0.0677083" :stop-color="themeHex" />
+          <stop offset="0.333333" :stop-color="themeHex" />
+          <stop offset="0.666667" :stop-color="themeHex" />
+          <stop offset="1" :stop-color="themeHex" />
         </radialGradient>
         <radialGradient
           id="paint1_diamond_563_6"
@@ -259,15 +222,8 @@ const title = computed(() => props.title.slice(0, 60))
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(303.899 145.741) rotate(-155.036) scale(253.361 239.508)"
         >
-          <stop
-            offset="0.333674"
-            :stop-color="themeHex"
-          />
-          <stop
-            offset="1"
-            stop-color="white"
-            stop-opacity="0"
-          />
+          <stop offset="0.333674" :stop-color="themeHex" />
+          <stop offset="1" stop-color="white" stop-opacity="0" />
         </radialGradient>
 
         <filter

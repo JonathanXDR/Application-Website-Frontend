@@ -26,18 +26,9 @@
         />
       </div>
     </NavBarExtension>
-    <div
-      v-if="currentIndex === 0"
-      class="timeline-wrapper"
-    >
-      <TimeLine
-        :initial-height="ulHeight"
-        :on-update-height="updateHeight"
-      />
-      <div
-        ref="ul"
-        class="timeline"
-      >
+    <div v-if="currentIndex === 0" class="timeline-wrapper">
+      <TimeLine :initial-height="ulHeight" :on-update-height="updateHeight" />
+      <div ref="ul" class="timeline">
         <CardItem
           v-for="(project, index) in currentProjects"
           :key="index"
@@ -67,19 +58,13 @@
         />
       </div>
     </div>
-    <div
-      v-else
-      class="w-full"
-    >
+    <div v-else class="w-full">
       <div v-if="projects.personal.length > 0 && projects.school.length > 0">
         <LiveResultSummary
           :total-results="currentProjects.length + pinned.length"
           :pinned-results="pinned.length"
         />
-        <div
-          v-if="pinned"
-          class="card-container pinned-items"
-        >
+        <div v-if="pinned" class="card-container pinned-items">
           <CardItem
             v-for="(project, index) in pinned as Partial<CardItemType>[]"
             :key="index"
@@ -137,35 +122,32 @@
           <ResultBlankState v-if="currentProjects.length === 0" />
         </div>
       </div>
-      <LoadingSpinner
-        v-else
-        class="center-horizontal center-vertical pt-24"
-      />
+      <LoadingSpinner v-else class="center-horizontal center-vertical pt-24" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { Repository } from '@octokit/graphql-schema'
-import type { CardItemType } from '~/types/common/card-item'
-import type { CardRepositoryType } from '~/types/common/card-repository'
-import type { IconType } from '~/types/common/icon'
-import type { ItemType } from '~/types/common/item'
-import type { MinimalRepository } from '~/types/services/github/repository'
+import type { Repository } from "@octokit/graphql-schema";
+import type { CardItemType } from "~/types/common/card-item";
+import type { CardRepositoryType } from "~/types/common/card-repository";
+import type { IconType } from "~/types/common/icon";
+import type { ItemType } from "~/types/common/item";
+import type { MinimalRepository } from "~/types/services/github/repository";
 
 type PinnedRepository = Repository & {
-  icon?: IconType
-}
+  icon?: IconType;
+};
 
 type CategorizedRepository = CardRepositoryType & {
-  category: string
-}
+  category: string;
+};
 
 type Projects = {
-  swisscom: CardItemType[]
-  personal: MinimalRepository[]
-  school: MinimalRepository[]
-}
+  swisscom: CardItemType[];
+  personal: MinimalRepository[];
+  school: MinimalRepository[];
+};
 
 definePageMeta({
   header: true,
@@ -173,134 +155,134 @@ definePageMeta({
   ribbon: true,
   footerFull: true,
   footerCompact: false,
-})
+});
 
-const { tm } = useI18n()
-const { randomDevColor } = useColor()
-const breakpoints = useAppBreakpoints()
-const config = useRuntimeConfig()
+const { tm } = useI18n();
+const { randomDevColor } = useColor();
+const breakpoints = useAppBreakpoints();
+const config = useRuntimeConfig();
 
-const ul = ref<HTMLElement | undefined>(undefined)
-const ulHeight = ref<number>(0)
+const ul = ref<HTMLElement | undefined>(undefined);
+const ulHeight = ref<number>(0);
 
 const updateHeight = () => {
-  if (!ul.value) return
-  ulHeight.value = ul.value.getBoundingClientRect().height
+  if (!ul.value) return;
+  ulHeight.value = ul.value.getBoundingClientRect().height;
 }
 
-const pinned = ref<PinnedRepository[]>([])
-const currentIndex = ref(0)
+const pinned = ref<PinnedRepository[]>([]);
+const currentIndex = ref(0);
 
 const { data: userRepositories } = await useFetch(
-  '/api/github/user-repositories',
+  "/api/github/user-repositories",
   {
-    key: 'user-repositories',
+    key: "user-repositories",
     lazy: true,
     params: { username: config.public.githubRepoOwner, perPage: 100 },
     getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
-  }
+  },
 )
 
 const { data: pinnedProjects } = await useFetch(
-  '/api/github/pinned-repositories',
+  "/api/github/pinned-repositories",
   {
-    key: 'pinned-repositories',
+    key: "pinned-repositories",
     lazy: true,
     params: { username: config.public.githubRepoOwner, perPage: 100 },
     getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
-  }
+  },
 )
 
 const projects: Projects = reactive({
   swisscom: computed<CardItemType[]>(() =>
-    tm('components.containers.projects')
+    tm("components.containers.projects"),
   ),
   personal: [],
   school: [],
-})
+});
 
-const allProjects = computed(() => userRepositories.value || [])
+const allProjects = computed(() => userRepositories.value || []);
 const filteredProjects = computed(() =>
   allProjects.value.filter(
-    project =>
+    (project) =>
       !pinned.value.some(
-        pinnedProject => pinnedProject.name === project.name
+        (pinnedProject) => pinnedProject.name === project.name,
       )
   )
-)
+);
 
 const currentProjects = computed(
   () =>
     projects[
       Object.keys(projects)[currentIndex.value] as keyof typeof projects
-    ]
-) as Ref<CardItemType[]>
+    ],
+) as Ref<CardItemType[]>;
 
 const segmentNavItems = computed<ItemType[]>(() =>
-  tm('components.common.SegmentNav.projects')
-)
+  tm("components.common.SegmentNav.projects"),
+);
 
 const updateCurrentIndex = (index: number) => {
-  currentIndex.value = index
+  currentIndex.value = index;
 }
 
 const categorizeProject = (
-  project: MinimalRepository
+  project: MinimalRepository,
 ): CategorizedRepository => {
-  const schoolProjectPattern = /M\d{3}|UEK-\d{3}(?:-\w+)?|(?:UEK|TBZ)-Modules/
+  const schoolProjectPattern = /M\d{3}|UEK-\d{3}(?:-\w+)?|(?:UEK|TBZ)-Modules/;
   const category = schoolProjectPattern.test(project.name)
-    ? 'school'
-    : 'personal'
+    ? "school"
+    : "personal";
   return {
     ...project,
     category,
     title: project.name,
-    description: project.description || '',
-  }
+    description: project.description || "",
+  };
 }
 
 const updateUlHeightAndInitializePath = async () => {
-  await nextTick()
-  updateHeight()
+  await nextTick();
+  updateHeight();
 }
 
-useEventListener(window, 'resize', updateUlHeightAndInitializePath)
+useEventListener(window, "resize", updateUlHeightAndInitializePath);
 
 onMounted(() => {
-  updateUlHeightAndInitializePath()
+  updateUlHeightAndInitializePath();
 })
 
 watch(
   pinnedProjects,
   (pinnedProjectsNew) => {
-    if (!pinnedProjectsNew) return
+    if (!pinnedProjectsNew) return;
     for (const project of pinnedProjectsNew) {
       project.icon = {
-        name: 'pin.fill',
+        name: "pin.fill",
         colors: {
           primary: `var(--color-figure-${randomDevColor.value?.name})`,
         },
-      }
+      };
     }
-    pinned.value = pinnedProjectsNew || []
+    pinned.value = pinnedProjectsNew || [];
   },
-  { immediate: true }
+  { immediate: true },
 )
 
 watchEffect(() => {
-  projects.personal = []
-  projects.school = []
-  const categorizedProjects = filteredProjects.value.map(project =>
-    categorizeProject(project)
+  projects.personal = [];
+  projects.school = [];
+  const categorizedProjects = filteredProjects.value.map((project) =>
+    categorizeProject(project),
   )
   for (const project of categorizedProjects) {
-    const category = project.category as keyof Projects
-    projects[category].push(project)
+    const category = project.category as keyof Projects;
+    projects[category].push(project);
   }
-})
+});
 
 onUnmounted(() => {
-  removeEventListener('resize', updateUlHeightAndInitializePath)
+  removeEventListener("resize", updateUlHeightAndInitializePath);
 })
 </script>
 
