@@ -118,10 +118,9 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  if (timer !== undefined) {
-    clearInterval(timer);
-  }
-});
+  if (timer === undefined) return;
+  clearInterval(timer);
+})
 </script>
 
 <style scoped>

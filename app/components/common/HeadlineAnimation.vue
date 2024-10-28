@@ -100,11 +100,10 @@ const { start: startCursorBlinkTimeout, stop: stopCursorBlinkTimeout } =
 const setCursorBlink = (state: boolean) => {
   stopCursorBlinkTimeout();
   isCursorBlinking.value = state;
-  if (!state) {
-    isCursorBlinkingTimeout.value = true;
-    startCursorBlinkTimeout();
-  }
-};
+  if (state) return;
+  isCursorBlinkingTimeout.value = true;
+  startCursorBlinkTimeout();
+}
 
 const autoAnimationCleanup = ref<(() => void) | undefined>(undefined);
 
@@ -165,26 +164,24 @@ const updateLetterCount = () => {
 
 const animationConfig = {
   onViewportChange: (isInViewport: boolean) => {
-    if (!properties.autoAnimation) {
-      if (isInViewport) {
-        stopScrollListener.value = useEventListener(
-          window,
-          "scroll",
-          updateLetterCount,
-        )
-      } else {
-        stopScrollListener.value?.();
-        stopScrollListener.value = undefined;
-        stopCursorBlinkTimeout();
-      }
+    if (properties.autoAnimation) return;
+    if (isInViewport) {
+      stopScrollListener.value = useEventListener(
+        window,
+        "scroll",
+        updateLetterCount,
+      )
+    } else {
+      stopScrollListener.value?.();
+      stopScrollListener.value = undefined;
+      stopCursorBlinkTimeout();
     }
   },
 };
 
 onMounted(() => {
-  if (properties.autoAnimation) {
-    startAutoAnimation();
-  }
+  if (!properties.autoAnimation) return;
+  startAutoAnimation();
 
   watch(
     () => properties.autoAnimation,
@@ -198,13 +195,12 @@ onMounted(() => {
     { immediate: false },
   )
 
-  if (!properties.autoAnimation) {
-    stopScrollListener.value = useEventListener(
-      window,
-      "scroll",
-      updateLetterCount,
-    )
-  }
+  if (properties.autoAnimation) return;
+  stopScrollListener.value = useEventListener(
+    window,
+    "scroll",
+    updateLetterCount,
+  )
 });
 
 watch(currentLetterCount, (countNew, countOld) => {

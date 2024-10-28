@@ -219,18 +219,17 @@ const initializeAnimation = () => {
   });
 
   // Icon-specific animations
-  if (heroIconRef.value) {
-    const iconTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.value,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
+  if (!heroIconRef.value) return;
+  const iconTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: sectionRef.value,
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
 
-    heroIconRef.value.animate(iconTimeline);
-  }
+  heroIconRef.value.animate(iconTimeline);
 
   isLoading.value = false;
 }

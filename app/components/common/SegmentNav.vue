@@ -90,7 +90,8 @@ const itemElements = ref<Array<HTMLElement>>([]);
 const selectedItemElement = ref<HTMLElement | undefined>(undefined);
 
 const setItemReference = (element: HTMLElement | undefined) => {
-  if (element) itemElements.value.push(element);
+  if (!element) return;
+  itemElements.value.push(element);
 }
 
 const updateBubblePosition = () => {
@@ -100,13 +101,12 @@ const updateBubblePosition = () => {
   )
   selectedItemElement.value =
     itemElements.value[selectedItemIndex] || undefined;
-  if (selectedItemElement.value) {
-    bubbleStyle.value = {
-      "--bubble-position": `${selectedItemElement.value.offsetLeft}px`,
-      "--bubble-width": `${selectedItemElement.value.offsetWidth}px`,
-      opacity: "1",
-    };
-  }
+  if (!selectedItemElement.value) return;
+  bubbleStyle.value = {
+    "--bubble-position": `${selectedItemElement.value.offsetLeft}px`,
+    "--bubble-width": `${selectedItemElement.value.offsetWidth}px`,
+    opacity: "1",
+  };
 
   setTimeout(() => (isTransitioning.value = false), 400);
 }

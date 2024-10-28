@@ -87,20 +87,18 @@ export default defineNuxtPlugin((nuxtApp) => {
 
       useEventListener(window, "scroll", updateObserver, { passive: true });
 
-      if (animationState.get(element)?.wasInViewport) {
-        element.classList.add(...toArray(value.add));
-      }
+      if (!animationState.get(element)?.wasInViewport) return;
+      element.classList.add(...toArray(value.add));
     },
     updated(
       element: HTMLElement,
       binding: DirectiveBinding<AnimationOperations>,
     ) {
-      if (animationState.get(element)?.wasInViewport) {
-        const { add, remove, toggle } = binding.value;
-        element.classList.add(...toArray(add));
-        element.classList.remove(...toArray(remove));
-        toArray(toggle).forEach((cls) => element.classList.toggle(cls));
-      }
+      if (!animationState.get(element)?.wasInViewport) return;
+      const { add, remove, toggle } = binding.value;
+      element.classList.add(...toArray(add));
+      element.classList.remove(...toArray(remove));
+      toArray(toggle).forEach((cls) => element.classList.toggle(cls));
     },
     unmounted(element: HTMLElement) {
       animationState.delete(element);

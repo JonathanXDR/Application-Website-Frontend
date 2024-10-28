@@ -4,13 +4,12 @@ export default defineNuxtPlugin((nuxtApp) => {
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) {
-            useSection().setCurrentSection(
-              element.getAttribute("id"),
-              element.getAttribute("name"),
-              binding.value,
-            )
-          }
+          if (!entry.isIntersecting) return;
+          useSection().setCurrentSection(
+            element.getAttribute("id"),
+            element.getAttribute("name"),
+            binding.value,
+          )
         }
       },
       {
