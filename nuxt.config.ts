@@ -221,7 +221,7 @@ export default defineNuxtConfig({
 
   i18n: {
     baseUrl: process.env.SITE_URL,
-    vueI18n: '~/i18n.config.ts',
+    vueI18n: "i18n.config.ts",
     // lazy: true,
     // langDir: 'lang',
     strategy: "prefix_and_default",

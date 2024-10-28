@@ -1,4 +1,4 @@
-import { generateToken } from "~/server/utils/generate-token";
+import { generateToken } from "~~/server/utils/generate-token";
 
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig();
