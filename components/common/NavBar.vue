@@ -7,7 +7,7 @@
     aria-controls="ac-ln-menustate-tray"
     aria-expanded="false"
     :disabled="navOpening"
-    @input="toggleNav"
+    @input="handleNav()"
   />
   <div
     id="ac-ln-fixed-placeholder"
@@ -95,6 +95,7 @@
                   :role="isCurrent(item) ? 'link' : undefined"
                   :aria-disabled="isCurrent(item) ? 'true' : undefined"
                   :aria-current="isCurrent(item) ? 'page' : undefined"
+                  @click="handleMenuClick"
                 >
                   {{ item.label }}
                 </component>
@@ -204,6 +205,7 @@ const themeItems = computed<ItemType[]>(() =>
 
 const navOpen = ref(false);
 const navOpening = ref(false);
+const toggleNav = useToggle(navOpen);
 
 const expandAnimation = ref<SVGAnimateElement | undefined>(undefined);
 const collapseAnimation = ref<SVGAnimateElement | undefined>(undefined);
@@ -245,10 +247,15 @@ const initHeaderAnimations = () => {
   setHeaderAnimation(animation);
 }
 
-const toggleNav = () => {
-  useToggle(navOpen);
+const handleNav = () => {
+  toggleNav();
   animateChevron(navOpen.value);
   checkboxTimeout();
+}
+
+const handleMenuClick = () => {
+  if (!navOpen.value) return
+  handleNav();
 }
 
 const animateChevron = (isOpen: boolean) => {
