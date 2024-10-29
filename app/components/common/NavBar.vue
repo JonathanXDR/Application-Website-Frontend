@@ -254,7 +254,7 @@ const handleNav = () => {
 }
 
 const handleMenuClick = () => {
-  if (!navOpen.value) return
+  if (!navOpen.value) return;
   handleNav();
 }
 
