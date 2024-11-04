@@ -1,4 +1,4 @@
-import routerOptions from "./router.options";
+
 
 export default defineNuxtConfig({
   modules: [
@@ -142,10 +142,6 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css"],
 
-  router: {
-    options: routerOptions,
-  },
-
   site: {
     url: process.env.SITE_URL,
     name: process.env.SITE_NAME,
@@ -221,9 +217,7 @@ export default defineNuxtConfig({
 
   i18n: {
     baseUrl: process.env.SITE_URL,
-    vueI18n: "i18n.config.ts",
     // lazy: true,
-    // langDir: 'lang',
     strategy: "prefix_and_default",
     defaultLocale: "de",
     detectBrowserLanguage: {

@@ -80,7 +80,7 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicPropertiesType } from "~~/types/common/basic-properties";
+import type { BasicPropertiesType } from "#shared/types/common/basic-properties";
 
 const props = withDefaults(defineProps<BasicPropertiesType>(), {
   title: "Music Discovery",

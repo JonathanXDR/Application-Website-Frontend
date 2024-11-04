@@ -1,4 +1,4 @@
-import type { IconType } from "~~/types/common/icon";
+import type { IconType } from "#shared/types/common/icon";
 
 export interface SectionType {
   id: string;

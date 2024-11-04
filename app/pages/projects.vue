@@ -128,12 +128,12 @@
 </template>
 
 <script setup lang="ts">
+import type { CardItemType } from "#shared/types/common/card-item";
+import type { CardRepositoryType } from "#shared/types/common/card-repository";
+import type { IconType } from "#shared/types/common/icon";
+import type { ItemType } from "#shared/types/common/item";
+import type { MinimalRepository } from "#shared/types/services/github/repository";
 import type { Repository } from "@octokit/graphql-schema";
-import type { CardItemType } from "~~/types/common/card-item";
-import type { CardRepositoryType } from "~~/types/common/card-repository";
-import type { IconType } from "~~/types/common/icon";
-import type { ItemType } from "~~/types/common/item";
-import type { MinimalRepository } from "~~/types/services/github/repository";
 
 type PinnedRepository = Repository & {
   icon?: IconType;

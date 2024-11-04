@@ -23,6 +23,3 @@ logs
 .env.*
 !.env.example
 .vercel
-
-# Binaries
-package-lock.json

@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicSizeType } from "~~/types/common/basic-size";
-import type { IconType } from "~~/types/common/icon";
+import type { BasicSizeType } from "#shared/types/common/basic-size";
+import type { IconType } from "#shared/types/common/icon";
 
 withDefaults(
   defineProps<{

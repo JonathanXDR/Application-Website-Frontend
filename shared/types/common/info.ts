@@ -1,4 +1,4 @@
-import type { DateType } from "~~/types/common/date";
+import type { DateType } from "#shared/types/common/date";
 
 export interface InfoType {
   loading?: boolean;

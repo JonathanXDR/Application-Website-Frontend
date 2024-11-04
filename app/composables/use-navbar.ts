@@ -1,4 +1,4 @@
-import type { NavBarType } from "~~/types/common/nav-bar";
+import type { NavBarType } from "#shared/types/common/nav-bar";
 
 const state = reactive<NavBarType>({
   autoHide: false,

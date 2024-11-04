@@ -1,5 +1,5 @@
+import type { GetOwnerRepositoryParameters } from "#shared/types/services/github/repository";
 import { Octokit } from "octokit";
-import type { GetOwnerRepositoryParameters } from "~~/types/services/github/repository";
 
 export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig();

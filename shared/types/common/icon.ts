@@ -1,5 +1,5 @@
-import type { BasicSizeType } from "~~/types/common/basic-size";
-import type { ColorType } from "~~/types/common/color";
+import type { BasicSizeType } from "#shared/types/common/basic-size";
+import type { ColorType } from "#shared/types/common/color";
 
 export interface IconType {
   name: string;

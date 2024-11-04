@@ -1,5 +1,5 @@
+import type { GetRepositoryIssuesParameters } from "#shared/types/services/github/issue";
 import { Octokit } from "octokit";
-import type { GetRepositoryIssuesParameters } from "~~/types/services/github/issue";
 
 export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig();

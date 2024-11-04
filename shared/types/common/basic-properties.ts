@@ -1,5 +1,5 @@
-import type { IconType } from "~~/types/common/icon";
-import type { LinkType } from "~~/types/common/link";
+import type { IconType } from "#shared/types/common/icon";
+import type { LinkType } from "#shared/types/common/link";
 
 export interface BasicPropertiesType {
   icon?: IconType;

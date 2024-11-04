@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import type { BadgeItemType } from "~~/types/common/badge-item";
+import type { BadgeItemType } from "#shared/types/common/badge-item";
 
 const properties = withDefaults(defineProps<BadgeItemType>(), {
   variant: "a",

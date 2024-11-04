@@ -176,9 +176,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from "~~/types/common/item";
-import type { NavBarType } from "~~/types/common/nav-bar";
-import type { SectionType } from "~~/types/common/section";
+import type { ItemType } from "#shared/types/common/item";
+import type { NavBarType } from "#shared/types/common/nav-bar";
+import type { SectionType } from "#shared/types/common/section";
 
 const properties = withDefaults(defineProps<NavBarType>(), {
   autoHide: false,

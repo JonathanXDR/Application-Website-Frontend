@@ -54,7 +54,7 @@
 </template>
 
 <script setup lang="ts">
-import type { DialogModalType } from "~~/types/common/dialog-modal";
+import type { DialogModalType } from "#shared/types/common/dialog-modal";
 
 withDefaults(defineProps<DialogModalType>(), {
   orientation: "vertical",
