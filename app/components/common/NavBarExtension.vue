@@ -18,63 +18,55 @@
 </template>
 
 <script setup lang="ts">
+const stickyWrapper = ref<HTMLElement | null>(null);
+const initialOffset = ref<number | null>(null);
+const isSticky = ref(false);
+
 const { state: navbarState, setState } = useNavbar();
+const shouldHideNavbar = useState<boolean>('shouldHideNavbar', () => false);
 const breakpoints = useAppBreakpoints();
 
-const stickyWrapper = ref<HTMLElement | null>(null);
-const isSticky = ref(false);
-const shouldHideNavbar = useState<boolean>("shouldHideNavbar", () => false);
-const initialOffset = ref<number | null>(null);
-
-const navbarHeight = computed(() =>
-  breakpoints.smaller("md").value ? 48 : 52,
-)
+const navbarHeight = computed(() => (breakpoints.smaller('md').value ? 48 : 52));
 
 const containerStyle = computed(() => {
   const styles: Record<string, string> = {
-    "--navbar-height": `${navbarHeight.value}px`,
+    '--navbar-height': `${navbarHeight.value}px`,
   };
 
-  if (!isSticky.value) {
-    return styles;
-  }
-
-  if (shouldHideNavbar.value) {
-    styles.transform = "translateY(0)";
-  } else {
-    styles.top = `${navbarHeight.value}px`;
-    styles.transform = "translateY(0)";
+  if (isSticky.value) {
+    styles.transform = 'translateY(0)';
+    if (!shouldHideNavbar.value) {
+      styles.top = `${navbarHeight.value}px`;
+    }
   }
 
   return styles;
-})
+});
+
+const updateInitialOffset = () => {
+  if (stickyWrapper.value) {
+    initialOffset.value = stickyWrapper.value.offsetTop;
+  }
+};
 
 const handleScroll = () => {
-  if (!stickyWrapper.value || initialOffset.value === null) return;
+  if (initialOffset.value === null) return;
 
-  const previousState = isSticky.value;
   const currentScroll = window.scrollY;
-
-  const triggerPoint = shouldHideNavbar.value
-    ? initialOffset.value
-    : initialOffset.value - navbarHeight.value;
+  const triggerPoint = initialOffset.value - (shouldHideNavbar.value ? 0 : navbarHeight.value);
 
   isSticky.value = currentScroll >= triggerPoint;
   setState({ extensionAttached: isSticky.value });
 };
 
 onMounted(() => {
-  if (stickyWrapper.value) {
-    initialOffset.value = stickyWrapper.value.offsetTop;
-  }
+  updateInitialOffset();
   handleScroll();
-  useEventListener(window, "scroll", handleScroll, { passive: true });
-})
+  useEventListener(window, 'scroll', handleScroll, { passive: true });
+});
 
-watch([navbarHeight], () => {
-  if (stickyWrapper.value) {
-    initialOffset.value = stickyWrapper.value.offsetTop;
-  }
+watch(navbarHeight, () => {
+  updateInitialOffset();
 });
 </script>
 
@@ -88,8 +80,7 @@ watch([navbarHeight], () => {
 }
 
 .filter-input-sticky-wrapper.is-animating {
-  transition: transform 0.23s ease;
-  transition: top 0.23s ease;
+  transition: transform 0.23s ease, top 0.23s ease;
 }
 
 .filter-input-sticky-wrapper.is-hiding {
