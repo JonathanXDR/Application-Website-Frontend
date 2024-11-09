@@ -28,10 +28,11 @@
   "devDependencies": {
     "@iconify-json/fa6-brands": "^1.2.1",
     "@iconify-json/fa6-solid": "^1.2.1",
+    "@iconify-json/logos": "^1.2.3",
     "@nuxt/devtools": "^1.6.0",
     "@nuxt/eslint": "^0.6.1",
     "@nuxt/fonts": "^0.10.2",
-    "@nuxt/icon": "^1.6.1",
+    "@nuxt/icon": "^1.7.0",
     "@nuxt/image": "^1.8.1",
     "@nuxt/scripts": "^0.9.5",
     "@nuxtjs/color-mode": "^3.5.2",
