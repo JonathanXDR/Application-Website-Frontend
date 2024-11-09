@@ -40,7 +40,7 @@ const properties = withDefaults(
     items: () => [],
     activeTabId: "0",
   },
-)
+);
 
 const emit = defineEmits(["change"]);
 const selectedTab = ref(properties.activeTabId);
@@ -49,12 +49,12 @@ watch(
   () => properties.activeTabId,
   (valueNew) => {
     selectedTab.value = valueNew;
-  }
-)
+  },
+);
 
 const emitChange = (id: string) => {
   emit("change", id);
-}
+};
 
 // function (e, t, i) {
 //   'use strict';

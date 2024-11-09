@@ -20,7 +20,7 @@ const props = withDefaults(
     headline: "headline",
     theme: "#00dc82",
   },
-)
+);
 
 const HexRegex = /^#(?:[0-9a-f]{3}){1,2}$/i;
 
@@ -72,10 +72,10 @@ const themeRgb = computed(() => {
 const siteConfig = useSiteConfig();
 const siteName = computed(() => {
   return props.siteName || siteConfig.name;
-})
+});
 const siteLogo = computed(() => {
   return props.siteLogo || siteConfig.logo;
-})
+});
 
 const IconComponent = runtimeConfig.hasNuxtIcon
   ? resolveComponent("Icon")

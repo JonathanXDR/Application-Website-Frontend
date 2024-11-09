@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
         },
         params: parameters,
       },
-    )
+    );
     return response;
   } catch (error) {
     console.error("Error fetching stations:", error);

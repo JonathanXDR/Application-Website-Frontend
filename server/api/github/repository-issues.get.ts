@@ -1,5 +1,5 @@
-import type { GetRepositoryIssuesParameters } from "#shared/types/services/github/issue";
 import { Octokit } from "octokit";
+import type { GetRepositoryIssuesParameters } from "#shared/types/services/github/issue";
 
 export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig();
@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
     console.error(
       `Error fetching issues for repository ${parameters.repo}:`,
       error,
-    )
+    );
     throw createError({
       statusCode: 500,
       statusMessage: "Internal Server Error",

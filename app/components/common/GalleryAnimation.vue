@@ -107,7 +107,7 @@ const headlineLines = computed(() => {
   }
 
   return lines;
-})
+});
 
 interface EmptyItem {
   type: "empty";
@@ -148,7 +148,7 @@ const parallaxItems = computed<ParallaxItem[]>(() => {
   }
 
   return [...emptyItems, ...imageItems];
-})
+});
 </script>
 
 <style scoped>

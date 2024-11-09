@@ -15,7 +15,7 @@ export default defineEventHandler(async () => {
           "Music-User-Token": musicUserToken,
         },
       },
-    )
+    );
     return response;
   } catch (error) {
     console.error("Error fetching user library playlists:", error);

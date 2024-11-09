@@ -23,4 +23,4 @@ export default defineI18nConfig(() => {
       it,
     },
   };
-})
+});

@@ -80,7 +80,7 @@ const props = withDefaults(
     background:
       "https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large.jpg",
   },
-)
+);
 
 const sectionRef = ref<HTMLElement | null>(null);
 
@@ -152,11 +152,11 @@ const formattedMaskedHeadline = computed(() => {
 onMounted(() => {
   initializeAnimation();
   window.addEventListener("resize", handleResize);
-})
+});
 
 onUnmounted(() => {
   window.removeEventListener("resize", handleResize);
-})
+});
 
 // Methods
 const initializeAnimation = () => {
@@ -205,7 +205,7 @@ const initializeAnimation = () => {
       { opacity: 0, y: 20, scale: 0 },
       { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power2.out" },
       index * 0.05,
-    )
+    );
   });
 
   // Masked headline animation
@@ -215,7 +215,7 @@ const initializeAnimation = () => {
       char,
       { scale: 0, duration: 0.3, ease: "power2.in" },
       0.5 + index * 0.05,
-    )
+    );
   });
 
   // Icon-specific animations
@@ -232,19 +232,19 @@ const initializeAnimation = () => {
   heroIconRef.value.animate(iconTimeline);
 
   isLoading.value = false;
-}
+};
 
 const handleResize = () => {
   updateBackgroundSize();
   checkFallbackState();
-}
+};
 
 const updateBackgroundSize = () => {
   const backgroundAspectRatio = 3292 / 985;
   const scale = Math.max(windowWidth.value / 3292, windowHeight.value / 985);
   backgroundSize.value = `${3292 * scale}px ${985 * scale}px`;
   backgroundMultiplier.value = scale;
-}
+};
 
 const checkFallbackState = () => {
   if (!sectionRef.value) return;
@@ -252,12 +252,12 @@ const checkFallbackState = () => {
     getComputedStyle(sectionRef.value).getPropertyValue("--fallback-height"),
   );
   isFallbackMode.value = windowHeight.value <= fallbackHeight;
-}
+};
 
 // Watch for changes in window size
 watch([windowWidth, windowHeight], () => {
   handleResize();
-})
+});
 </script>
 
 <style scoped>

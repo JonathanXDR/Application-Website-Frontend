@@ -182,7 +182,7 @@ router.beforeEach((to, _from, next) => {
   // Remove any stale meta tags from the document using the key attribute we set below.
   [...document.querySelectorAll("[data-vue-router-controlled]")].map(
     (element) => element.parentNode.removeChild(element),
-  )
+  );
   // Skip rendering meta tags if there are none.
   if (!nearestWithMeta) return next();
   // Turn the meta tag definitions into actual elements in the head.
@@ -199,7 +199,7 @@ router.beforeEach((to, _from, next) => {
   }
 
   next();
-})
+});
 
 router.afterEach(() => {
   // wait for intro transitions
@@ -220,6 +220,6 @@ router.afterEach(() => {
       "-desbravando-bg",
     );
   }, 1000);
-})
+});
 
 export default router;

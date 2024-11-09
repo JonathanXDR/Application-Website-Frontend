@@ -216,7 +216,7 @@ const menustateTrayElement = ref<HTMLElement | undefined>(undefined);
 const trayHeight = ref<number | undefined>(undefined);
 const menuLinkReferences = reactive<Record<string, HTMLElement | undefined>>(
   {},
-)
+);
 
 const borderTransformOrigin = ref<string>("50% 0%");
 const borderScaleX = ref<string>("scaleX(1)");
@@ -229,7 +229,7 @@ const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
 
   const menuLinkElement = liElement.firstElementChild as HTMLElement;
   return menuLinkElement;
-})
+});
 
 setState({
   autoHide: properties.autoHide,
@@ -245,18 +245,18 @@ const initHeaderAnimations = () => {
     timeout: 500,
   };
   setHeaderAnimation(animation);
-}
+};
 
 const handleNav = () => {
   toggleNav();
   animateChevron(navOpen.value);
   checkboxTimeout();
-}
+};
 
 const handleMenuClick = () => {
   if (!navOpen.value) return;
   handleNav();
-}
+};
 
 const animateChevron = (isOpen: boolean) => {
   if (isOpen) {
@@ -271,7 +271,7 @@ const checkboxTimeout = () => {
   setTimeout(() => {
     navOpening.value = false;
   }, 1000);
-}
+};
 
 const handleScroll = () => {
   if (navOpen.value && scrollY.value > 0) {
@@ -296,7 +296,7 @@ const updateAnimations = () => {
 const updateTrayHeight = () => {
   if (!menustateTrayElement.value) return;
   trayHeight.value = menustateTrayElement.value.scrollHeight;
-}
+};
 
 const updateBorderPosition = () => {
   if (currentMenuLinkElement.value && navbarElement.value) {
@@ -324,26 +324,26 @@ useEventListener(window, "scroll", handleScroll);
 useEventListener(window, "resize", () => {
   updateBorderPosition();
   updateTrayHeight();
-})
+});
 
 onMounted(() => {
   initHeaderAnimations();
   updateBorderPosition();
   updateTrayHeight();
-})
+});
 
 watch(getTheme, (themeNew, themeOld) => {
   if (themeNew === themeOld) return;
   updateAnimations();
-})
+});
 
 watch(currentMenuLinkElement, () => {
   updateBorderPosition();
-})
+});
 
 watch([() => route.path, () => currentSection.value.id], () => {
   updateBorderPosition();
-})
+});
 </script>
 
 <style scoped>

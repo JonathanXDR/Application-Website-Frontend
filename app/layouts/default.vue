@@ -21,8 +21,8 @@
 </template>
 
 <script setup lang="ts">
-import type { RibbonBar } from "#shared/types/common/ribbon-bar";
 import { SpeedInsights } from "@vercel/speed-insights/vue";
+import type { RibbonBar } from "#shared/types/common/ribbon-bar";
 import FooterCompact from "~/components/common/Footer/Compact.vue";
 import FooterFull from "~/components/common/Footer/Full.vue";
 
@@ -53,12 +53,12 @@ const fetchSvgContent = async () => {
   const svgContent = await response.text();
   faviconGraphicData.value = `data:image/svg+xml,${encodeURIComponent(
     svgContent.replace("#color", `#${faviconColor}`),
-  )}`
-}
+  )}`;
+};
 
 onMounted(async () => {
   await fetchSvgContent();
-})
+});
 
 watch([y, isScrolling], ([yNew, isScrollingNew]) => {
   if (!isScrollingNew) return;
@@ -67,7 +67,7 @@ watch([y, isScrolling], ([yNew, isScrollingNew]) => {
     ? yNew > lastScrollY.value
     : false;
   lastScrollY.value = yNew;
-})
+});
 
 const shouldApplyHideLocalnav = computed(() => {
   return (
@@ -75,7 +75,7 @@ const shouldApplyHideLocalnav = computed(() => {
     shouldHideNavbar.value &&
     autoHideNavbar.value
   );
-})
+});
 
 watchEffect(() => {
   useHead({
@@ -105,7 +105,7 @@ watchEffect(() => {
       },
     ],
   });
-})
+});
 
 watch(
   () => [
@@ -117,8 +117,8 @@ watch(
       border,
       autoHide,
     });
-  }
-)
+  },
+);
 
 const errorConfig = {
   header: false,
@@ -140,7 +140,7 @@ const footerClass = computed(() => ({
 
 const footerComponent = computed(() =>
   shouldShow("footerFull") ? FooterFull : FooterCompact,
-)
+);
 </script>
 
 <style>

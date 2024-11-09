@@ -47,7 +47,7 @@ const random = (min: number, max: number) => {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+};
 
 const animateCoin = () => {
   const coin = document.querySelectorAll(".mario-coin")[
@@ -84,7 +84,7 @@ const animateCoin = () => {
 
   audioAppears.play();
   emits("foundCoin", foundCoins.value);
-}
+};
 
 const animateBlock = () => {
   const box = document.querySelector(".mario-box") as HTMLElement;
@@ -95,7 +95,7 @@ const animateBlock = () => {
     .set(box, { yPercent: 0 })
     .to(box, { duration: 0.07, yPercent: -40, ease: SteppedEase.config(2) })
     .to(box, { duration: 0.07, yPercent: 0, ease: SteppedEase.config(2) });
-}
+};
 
 const onTouchBlock = () => {
   hasTouched.value = true;
@@ -104,7 +104,7 @@ const onTouchBlock = () => {
 
   if (hasFoundAllCoins.value) {
     audioNoDamage.play();
-    return
+    return;
   }
 
   if (properties.hasCoins) {

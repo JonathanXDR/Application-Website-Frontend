@@ -1,5 +1,5 @@
-import type { GetOwnerRepositoryParameters } from "#shared/types/services/github/repository";
 import { Octokit } from "octokit";
+import type { GetOwnerRepositoryParameters } from "#shared/types/services/github/repository";
 
 export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig();
@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
     console.error(
       `Error fetching repository for owner ${parameters.owner}:`,
       error,
-    )
+    );
     throw createError({
       statusCode: 500,
       statusMessage: "Internal Server Error",

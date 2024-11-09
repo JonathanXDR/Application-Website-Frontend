@@ -31,7 +31,7 @@ withDefaults(
     options: () => [],
     label: undefined,
   },
-)
+);
 </script>
 
 <style scoped>

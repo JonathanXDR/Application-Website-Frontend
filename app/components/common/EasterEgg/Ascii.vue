@@ -32,11 +32,11 @@ const { data, error } = await useAsyncData<ArtFile[]>(
       const folder = path.split("/")[3];
       const elementClass = folder === "monospace" ? "monospace" : "helvetica";
       return { content, elementClass };
-    })
+    });
 
     return await Promise.all(fileLoaders);
-  }
-)
+  },
+);
 
 if (error.value) {
   console.error("Error loading ASCII files:", error.value);
@@ -48,14 +48,14 @@ const randomFile = computed(() =>
   files.value.length > 0
     ? files.value[Math.floor(Math.random() * files.value.length)]
     : undefined,
-)
+);
 
 onMounted(() => {
   if (!randomFile.value) return;
   console.log(
     `%cHey! You've found an Easter egg! 🥚 \n\n${randomFile.value.content}`,
     `font-family: ${randomFile.value.elementClass}`,
-  )
+  );
 });
 </script>
 

@@ -30,7 +30,7 @@ const properties = withDefaults(
     introText: true,
     shortForm: false,
   },
-)
+);
 
 const { changeLanguage } = useLanguage();
 const { t, locale, locales } = useI18n();
@@ -38,13 +38,13 @@ const { t, locale, locales } = useI18n();
 const computedLocales = computed(() =>
   locales.value.map((l) => {
     return typeof l === "string" ? { code: l, name: l } : l;
-  })
-)
+  }),
+);
 
 const getLabel = (locale: { code: string; name?: string }) => {
   const label = locale.name || locale.code;
   return properties.shortForm ? locale.code.toUpperCase() : label;
-}
+};
 </script>
 
 <style scoped>

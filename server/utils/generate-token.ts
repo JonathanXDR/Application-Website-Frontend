@@ -24,4 +24,4 @@ export const generateToken = () => {
     },
   });
   return { authToken, musicUserToken };
-}
+};

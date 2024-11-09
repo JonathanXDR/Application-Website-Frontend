@@ -35,7 +35,7 @@ withDefaults(
     }),
     background: false,
   },
-)
+);
 </script>
 
 <style scoped>

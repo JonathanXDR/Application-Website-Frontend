@@ -9,13 +9,13 @@ export default defineNuxtPlugin((nuxtApp) => {
             element.getAttribute("id"),
             element.getAttribute("name"),
             binding.value,
-          )
+          );
         }
       },
       {
         rootMargin: `-${width.value < 1281 ? 48 : 52}px 0px -95% 0px`,
       },
-    )
+    );
     observer.observe(element);
-  })
+  });
 });

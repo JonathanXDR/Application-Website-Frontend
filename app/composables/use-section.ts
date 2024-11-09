@@ -13,12 +13,12 @@ export const useSection = () => {
     currentSection.value.id = sectionId;
     currentSection.value.name = sectionName.replace(/^\w/, (c) =>
       c.toUpperCase(),
-    )
+    );
     currentSection.value.index = sectionIndex;
-  }
+  };
 
   return {
     currentSection,
     setCurrentSection,
   };
-}
+};

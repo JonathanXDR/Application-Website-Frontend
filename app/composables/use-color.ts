@@ -28,12 +28,12 @@ export const useColor = () => {
     () => {
       const randomNumber = Math.floor(
         Math.random() * developmentColors.value.length,
-      )
+      );
       return developmentColors.value[randomNumber];
-    }
-  )
+    },
+  );
 
   return {
     randomDevColor: randomDevelopmentColor,
   };
-}
+};

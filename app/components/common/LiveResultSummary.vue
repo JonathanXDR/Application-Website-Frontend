@@ -41,7 +41,7 @@ withDefaults(
     totalResults: 0,
     pinnedResults: 0,
   },
-)
+);
 
 const { t } = useI18n();
 const { randomDevColor } = useColor();

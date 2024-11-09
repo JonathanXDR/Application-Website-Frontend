@@ -1,5 +1,5 @@
-import type { GetRepositoryTagsParameters } from "#shared/types/services/github/tag";
 import { Octokit } from "octokit";
+import type { GetRepositoryTagsParameters } from "#shared/types/services/github/tag";
 
 export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig();
@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
     console.error(
       `Error fetching tags for repository ${parameters.repo}:`,
       error,
-    )
+    );
     throw createError({
       statusCode: 500,
       statusMessage: "Internal Server Error",

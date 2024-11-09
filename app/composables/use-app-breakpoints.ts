@@ -7,4 +7,4 @@ export const useAppBreakpoints = () => {
     ...breakpointsTailwind,
   };
   return useBreakpoints(breakpoints);
-}
+};

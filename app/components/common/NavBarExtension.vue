@@ -23,18 +23,20 @@ const initialOffset = ref<number | null>(null);
 const isSticky = ref(false);
 
 const { state: navbarState, setState } = useNavbar();
-const shouldHideNavbar = useState<boolean>('shouldHideNavbar', () => false);
+const shouldHideNavbar = useState<boolean>("shouldHideNavbar", () => false);
 const breakpoints = useAppBreakpoints();
 
-const navbarHeight = computed(() => (breakpoints.smaller('md').value ? 48 : 52));
+const navbarHeight = computed(() =>
+  breakpoints.smaller("md").value ? 48 : 52,
+);
 
 const containerStyle = computed(() => {
   const styles: Record<string, string> = {
-    '--navbar-height': `${navbarHeight.value}px`,
+    "--navbar-height": `${navbarHeight.value}px`,
   };
 
   if (isSticky.value) {
-    styles.transform = 'translateY(0)';
+    styles.transform = "translateY(0)";
     if (!shouldHideNavbar.value) {
       styles.top = `${navbarHeight.value}px`;
     }
@@ -53,7 +55,8 @@ const handleScroll = () => {
   if (initialOffset.value === null) return;
 
   const currentScroll = window.scrollY;
-  const triggerPoint = initialOffset.value - (shouldHideNavbar.value ? 0 : navbarHeight.value);
+  const triggerPoint =
+    initialOffset.value - (shouldHideNavbar.value ? 0 : navbarHeight.value);
 
   isSticky.value = currentScroll >= triggerPoint;
   setState({ extensionAttached: isSticky.value });
@@ -62,7 +65,7 @@ const handleScroll = () => {
 onMounted(() => {
   updateInitialOffset();
   handleScroll();
-  useEventListener(window, 'scroll', handleScroll, { passive: true });
+  useEventListener(window, "scroll", handleScroll, { passive: true });
 });
 
 watch(navbarHeight, () => {
@@ -80,7 +83,9 @@ watch(navbarHeight, () => {
 }
 
 .filter-input-sticky-wrapper.is-animating {
-  transition: transform 0.23s ease, top 0.23s ease;
+  transition:
+    transform 0.23s ease,
+    top 0.23s ease;
 }
 
 .filter-input-sticky-wrapper.is-hiding {

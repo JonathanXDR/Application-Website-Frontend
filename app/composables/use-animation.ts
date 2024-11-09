@@ -13,10 +13,10 @@ export const useAnimation = () => {
     timeout: number;
   }) => {
     headerAnimations.value.push(headerAnimation);
-  }
+  };
 
   return {
     headerAnimations,
     setHeaderAnimation,
   };
-}
+};

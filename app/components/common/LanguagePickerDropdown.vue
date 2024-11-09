@@ -36,7 +36,7 @@ const properties = withDefaults(
   {
     componentSize: "small",
   },
-)
+);
 
 const breakpoints = useAppBreakpoints();
 const { changeLanguage } = useLanguage();
@@ -46,8 +46,8 @@ const selectedLocale = ref(locale.value);
 const computedLocales = computed(() =>
   locales.value.map((l) => {
     return typeof l === "string" ? { code: l, name: l } : l;
-  })
-)
+  }),
+);
 
 const fontSize = computed(() => {
   const sizes: Record<string, number> = {
@@ -61,7 +61,7 @@ const fontSize = computed(() => {
 
 watch(locale, (localeNew) => {
   selectedLocale.value = localeNew;
-})
+});
 </script>
 
 <style scoped>
