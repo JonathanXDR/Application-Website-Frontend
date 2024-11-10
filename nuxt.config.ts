@@ -169,13 +169,6 @@ export default defineNuxtConfig({
 
   compatibilityDate: "2024-10-14",
 
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-      failOnError: true,
-    },
-  },
-
   typescript: {
     typeCheck: true,
     strict: true,
@@ -342,7 +335,7 @@ export default defineNuxtConfig({
 
   sitemap: {
     defaults: {
-      lastmod: process.env.LAST_COMMIT_DATE || new Date().toISOString(),
+      lastmod: process.env.APP_DATE || new Date().toISOString(),
     },
     exclude: ["/de/**", "/en/**", "/fr/**", "/it/**"],
   },
