@@ -42,9 +42,9 @@
       <div ref="backgroundElement" class="ac-ln-background" />
       <div class="ac-ln-content">
         <div class="ac-ln-title">
-          <NuxtLink to="/" aria-label="JR">
+          <SiteLink to="/" aria-label="JR">
             <SiteLogo :style="{ height: '13px !important', width: 'auto' }" />
-          </NuxtLink>
+          </SiteLink>
           <DevelopmentBadge
             v-if="config.public.appEnvironment === 'development'"
             :color="{

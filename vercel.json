@@ -1,8 +1,22 @@
 {
+  "trailingSlash": true,
   "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?jonathan-russ\\.com"
+        }
+      ],
+      "destination": "https://jonathan-russ.com/:path*",
+      "permanent": true
     }
   ]
 }

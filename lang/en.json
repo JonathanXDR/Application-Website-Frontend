@@ -1,4 +1,7 @@
 {
+  "nuxtSiteConfig": {
+    "description": "Explore my journey as a Software Engineer, showcasing my skills, projects, and dedication to building efficient, user-centered solutions in web development and beyond."
+  },
   "components": {
     "common": {
       "NavBar": [

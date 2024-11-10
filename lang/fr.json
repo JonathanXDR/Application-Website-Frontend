@@ -1,4 +1,7 @@
 {
+  "nuxtSiteConfig": {
+    "description": "Découvrez mon parcours en tant qu'ingénieur logiciel, avec des projets, des compétences et mon engagement pour des solutions efficaces et centrées sur l'utilisateur dans le développement web et au-delà."
+  },
   "components": {
     "common": {
       "NavBar": [

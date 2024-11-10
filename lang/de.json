@@ -1,4 +1,7 @@
 {
+  "nuxtSiteConfig": {
+    "description": "Entdecke meinen Weg als Softwareentwickler, mit Projekten, Fähigkeiten und meiner Leidenschaft für effiziente, benutzerorientierte Lösungen in der Webentwicklung und darüber hinaus."
+  },
   "components": {
     "common": {
       "NavBar": [

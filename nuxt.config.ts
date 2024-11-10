@@ -1,5 +1,3 @@
-
-
 export default defineNuxtConfig({
   modules: [
     "@nuxt/scripts",
@@ -104,27 +102,17 @@ export default defineNuxtConfig({
         site: {
           name: process.env.SITE_NAME,
           url: process.env.SITE_URL,
-          description: process.env.SITE_DESCRIPTION,
         },
       },
       link: [{ rel: "apple-touch-icon", href: process.env.SITE_LOGO }],
       // seoMeta: {
-      //   description: process.env.SITE_DESCRIPTION,
       //   ogImage: process.env.SITE_LOGO,
       //   ogSiteName: process.env.SITE_NAME
       // },
       meta: [
         { name: "title", content: process.env.SITE_NAME },
-        {
-          name: "description",
-          content: process.env.SITE_DESCRIPTION,
-        },
         { property: "og:image", content: process.env.SITE_LOGO },
         { property: "og:title", content: process.env.SITE_NAME },
-        {
-          property: "og:description",
-          content: process.env.SITE_DESCRIPTION,
-        },
         { property: "og:url", content: process.env.SITE_URL },
         {
           property: "twitter:image",
@@ -132,10 +120,6 @@ export default defineNuxtConfig({
         },
         { property: "twitter:card", content: "summary_large_image" },
         { property: "twitter:title", content: process.env.SITE_NAME },
-        {
-          property: "twitter:description",
-          content: process.env.SITE_DESCRIPTION,
-        },
       ],
     },
   },
@@ -145,7 +129,7 @@ export default defineNuxtConfig({
   site: {
     url: process.env.SITE_URL,
     name: process.env.SITE_NAME,
-    description: process.env.SITE_DESCRIPTION,
+    trailingSlash: true,
   },
 
   colorMode: {
@@ -172,11 +156,25 @@ export default defineNuxtConfig({
     appleMusicUserToken: process.env.APPLE_MUSIC_USER_TOKEN,
   },
 
+  routeRules: {
+    "/de/**": { robots: false },
+    "/en/**": { robots: false },
+    "/fr/**": { robots: false },
+    "/it/**": { robots: false },
+  },
+
   future: {
     compatibilityVersion: 4,
   },
 
   compatibilityDate: "2024-10-14",
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      failOnError: true,
+    },
+  },
 
   typescript: {
     typeCheck: true,
@@ -217,8 +215,9 @@ export default defineNuxtConfig({
 
   i18n: {
     baseUrl: process.env.SITE_URL,
+    trailingSlash: true,
     // lazy: true,
-    strategy: "prefix_and_default",
+    strategy: "prefix_except_default",
     defaultLocale: "de",
     detectBrowserLanguage: {
       useCookie: true,
@@ -234,6 +233,7 @@ export default defineNuxtConfig({
         code: "de",
         language: "de-DE",
         name: "Deutsch",
+        isCatchallLocale: true,
         // file: 'de.json'
       },
       {
@@ -263,6 +263,14 @@ export default defineNuxtConfig({
       name: process.env.SITE_NAME || "Jonathan Russ",
       url: process.env.SITE_URL,
       logo: process.env.SITE_LOGO,
+      sameAs: [
+        "https://x.com/JonathanXD12_",
+        "https://github.com/JonathanXDR",
+        "https://www.linkedin.com/in/jonathan-russ-swisscom/",
+        "https://www.instagram.com/jonathan_russ_/",
+        "https://www.threads.net/jonathan_russ_",
+        "https://www.reddit.com/user/JonathanXD12/",
+      ],
     },
   },
 
@@ -330,5 +338,12 @@ export default defineNuxtConfig({
         ],
       },
     },
+  },
+
+  sitemap: {
+    defaults: {
+      lastmod: process.env.LAST_COMMIT_DATE || new Date().toISOString(),
+    },
+    exclude: ["/de/**", "/en/**", "/fr/**", "/it/**"],
   },
 });
