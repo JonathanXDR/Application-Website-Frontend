@@ -21,6 +21,8 @@
 </template>
 
 <script setup lang="ts">
+import type { LocaleObject } from "@nuxtjs/i18n";
+
 const properties = withDefaults(
   defineProps<{
     introText?: boolean;
@@ -35,9 +37,13 @@ const properties = withDefaults(
 const { changeLanguage } = useLanguage();
 const { t, locale, locales } = useI18n();
 
-const computedLocales = computed(() =>
-  locales.value.map((l) => {
-    return typeof l === "string" ? { code: l, name: l } : l;
+const computedLocales = computed<LocaleObject[]>(() =>
+  locales.value.map((l: string | LocaleObject): LocaleObject => {
+    if (typeof l === "string") {
+      return { code: l as LocaleObject["code"], name: l };
+    } else {
+      return { code: l.code as LocaleObject["code"], name: l.name };
+    }
   }),
 );
 

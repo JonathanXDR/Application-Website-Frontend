@@ -1,3 +1,5 @@
+import type { LocaleObject } from "@nuxtjs/i18n";
+
 export const useLanguage = () => {
   const { locale, locales, setLocale } = useI18n();
 
@@ -8,7 +10,7 @@ export const useLanguage = () => {
   const isLocaleAvailable = (localeCode: string) =>
     locales.value.some((index) => index.code === localeCode);
 
-  const changeLanguage = (localeNew: "de" | "en" | "fr" | "it") => {
+  const changeLanguage = (localeNew: LocaleObject["code"]) => {
     if (isLocaleAvailable(localeNew)) {
       setLocale(localeNew);
     }
