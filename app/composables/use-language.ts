@@ -8,7 +8,7 @@ export const useLanguage = () => {
   const isLocaleAvailable = (localeCode: string) =>
     locales.value.some((index) => index.code === localeCode);
 
-  const changeLanguage = (localeNew: string) => {
+  const changeLanguage = (localeNew: "de" | "en" | "fr" | "it") => {
     if (isLocaleAvailable(localeNew)) {
       setLocale(localeNew);
     }
