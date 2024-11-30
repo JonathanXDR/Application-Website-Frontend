@@ -12,7 +12,7 @@ declare namespace MusicKit {
     music(
       path: string,
       queryParameters?: QueryParameters,
-      options?: { fetchOptions?: RequestInit },
-    ): Promise<any>;
+      options?: { fetchOptions?: RequestInit }
+    ): Promise<any>
   }
 }

@@ -1,25 +1,25 @@
-import { Octokit } from "octokit";
-import type { GetRepositoryIssuesParameters } from "#shared/types/services/github/issue";
+import { Octokit } from 'octokit'
+import type { GetRepositoryIssuesParameters } from '#shared/types/services/github/issue'
 
-export default defineEventHandler(async (event) => {
-  const { githubToken } = useRuntimeConfig();
-  const octokit = new Octokit({ auth: githubToken });
-  const parameters: GetRepositoryIssuesParameters = getQuery(event);
+export default defineEventHandler(async event => {
+  const { githubToken } = useRuntimeConfig()
+  const octokit = new Octokit({ auth: githubToken })
+  const parameters: GetRepositoryIssuesParameters = getQuery(event)
 
   try {
-    const response = await octokit.request("GET /repos/{owner}/{repo}/issues", {
+    const response = await octokit.request('GET /repos/{owner}/{repo}/issues', {
       ...parameters,
-      headers: { accept: "application/vnd.github+json" },
-    });
-    return response.data;
+      headers: { accept: 'application/vnd.github+json' },
+    })
+    return response.data
   } catch (error) {
     console.error(
       `Error fetching issues for repository ${parameters.repo}:`,
-      error,
-    );
+      error
+    )
     throw createError({
       statusCode: 500,
-      statusMessage: "Internal Server Error",
-    });
+      statusMessage: 'Internal Server Error',
+    })
   }
-});
+})

@@ -20,17 +20,17 @@
 </template>
 
 <script setup lang="ts">
-import type { LanguageBarType } from "#shared/types/common/language-bar";
+import type { LanguageBarType } from '#shared/types/common/language-bar'
 
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
-const { tm } = useI18n();
-const breakpoints = useAppBreakpoints();
+const { tm } = useI18n()
+const breakpoints = useAppBreakpoints()
 const languages = computed<LanguageBarType[]>(() =>
-  tm("components.containers.languages"),
-);
+  tm('components.containers.languages')
+)
 </script>
 
 <style scoped>

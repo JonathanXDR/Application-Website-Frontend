@@ -43,7 +43,12 @@
       <div class="ac-ln-content">
         <div class="ac-ln-title">
           <SiteLink to="/" aria-label="JR">
-            <SiteLogo :style="{ height: '13px !important', width: 'auto' }" />
+            <SiteLogo
+              :style="{
+                height: '13px !important',
+                width: 'auto',
+              }"
+            />
           </SiteLink>
           <DevelopmentBadge
             v-if="config.public.appEnvironment === 'development'"
@@ -85,7 +90,7 @@
               <li
                 v-for="(item, index) in navItems"
                 :key="index"
-                :ref="(el) => (menuLinkReferences[item.id] = el as HTMLElement)"
+                :ref="el => (menuLinkReferences[item.id] = el as HTMLElement)"
                 class="ac-ln-menu-item"
               >
                 <component
@@ -176,174 +181,172 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from "#shared/types/common/item";
-import type { NavBarType } from "#shared/types/common/nav-bar";
-import type { SectionType } from "#shared/types/common/section";
+import type { ItemType } from '#shared/types/common/item'
+import type { NavBarType } from '#shared/types/common/nav-bar'
+import type { SectionType } from '#shared/types/common/section'
 
 const properties = withDefaults(defineProps<NavBarType>(), {
   autoHide: false,
   border: true,
   scrim: true,
-  position: "fixed",
-});
+  position: 'fixed',
+})
 
-const { state, setState } = useNavbar();
-const { randomDevColor } = useColor();
-const { currentSection } = useSection();
-const { getTheme, setTheme } = useTheme();
-const { y: scrollY } = useWindowScroll();
-const breakpoints = useAppBreakpoints();
-const { headerAnimations, setHeaderAnimation } = useAnimation();
-const config = useRuntimeConfig();
-const route = useRoute();
-const { tm } = useI18n();
+const { state, setState } = useNavbar()
+const { randomDevColor } = useColor()
+const { currentSection } = useSection()
+const { getTheme, setTheme } = useTheme()
+const { y: scrollY } = useWindowScroll()
+const breakpoints = useAppBreakpoints()
+const { headerAnimations, setHeaderAnimation } = useAnimation()
+const config = useRuntimeConfig()
+const route = useRoute()
+const { tm } = useI18n()
 
-const navItems = computed<SectionType[]>(() => tm("components.common.NavBar"));
+const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'))
 const themeItems = computed<ItemType[]>(() =>
-  tm("components.common.SegmentNav.theme"),
-);
+  tm('components.common.SegmentNav.theme')
+)
 
-const navOpen = ref(false);
-const navOpening = ref(false);
-const toggleNav = useToggle(navOpen);
+const navOpen = ref(false)
+const navOpening = ref(false)
+const toggleNav = useToggle(navOpen)
 
-const expandAnimation = ref<SVGAnimateElement | undefined>(undefined);
-const collapseAnimation = ref<SVGAnimateElement | undefined>(undefined);
+const expandAnimation = ref<SVGAnimateElement | undefined>(undefined)
+const collapseAnimation = ref<SVGAnimateElement | undefined>(undefined)
 
-const navbarElement = ref<HTMLElement | undefined>(undefined);
-const backgroundElement = ref<HTMLElement | undefined>(undefined);
-const menustateTrayElement = ref<HTMLElement | undefined>(undefined);
-const trayHeight = ref<number | undefined>(undefined);
-const menuLinkReferences = reactive<Record<string, HTMLElement | undefined>>(
-  {},
-);
+const navbarElement = ref<HTMLElement | undefined>(undefined)
+const backgroundElement = ref<HTMLElement | undefined>(undefined)
+const menustateTrayElement = ref<HTMLElement | undefined>(undefined)
+const trayHeight = ref<number | undefined>(undefined)
+const menuLinkReferences = reactive<Record<string, HTMLElement | undefined>>({})
 
-const borderTransformOrigin = ref<string>("50% 0%");
-const borderScaleX = ref<string>("scaleX(1)");
+const borderTransformOrigin = ref<string>('50% 0%')
+const borderScaleX = ref<string>('scaleX(1)')
 
 const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
-  const currentId = navItems.value.find((item) => isCurrent(item))?.id;
-  const liElement = currentId ? menuLinkReferences[currentId] : undefined;
+  const currentId = navItems.value.find(item => isCurrent(item))?.id
+  const liElement = currentId ? menuLinkReferences[currentId] : undefined
 
-  if (!liElement) return;
+  if (!liElement) return
 
-  const menuLinkElement = liElement.firstElementChild as HTMLElement;
-  return menuLinkElement;
-});
+  const menuLinkElement = liElement.firstElementChild as HTMLElement
+  return menuLinkElement
+})
 
 setState({
   autoHide: properties.autoHide,
   border: properties.border,
   scrim: properties.scrim,
   position: properties.position,
-});
+})
 
 const initHeaderAnimations = () => {
   const animation = {
     element: backgroundElement.value as HTMLElement,
-    class: "ac-ln-background-transition",
+    class: 'ac-ln-background-transition',
     timeout: 500,
-  };
-  setHeaderAnimation(animation);
-};
+  }
+  setHeaderAnimation(animation)
+}
 
 const handleNav = () => {
-  toggleNav();
-  animateChevron(navOpen.value);
-  checkboxTimeout();
-};
+  toggleNav()
+  animateChevron(navOpen.value)
+  checkboxTimeout()
+}
 
 const handleMenuClick = () => {
-  if (!navOpen.value) return;
-  handleNav();
-};
+  if (!navOpen.value) return
+  handleNav()
+}
 
 const animateChevron = (isOpen: boolean) => {
   if (isOpen) {
-    expandAnimation.value?.beginElement();
+    expandAnimation.value?.beginElement()
   } else {
-    collapseAnimation.value?.beginElement();
+    collapseAnimation.value?.beginElement()
   }
-};
+}
 
 const checkboxTimeout = () => {
-  navOpening.value = true;
+  navOpening.value = true
   setTimeout(() => {
-    navOpening.value = false;
-  }, 1000);
-};
+    navOpening.value = false
+  }, 1000)
+}
 
 const handleScroll = () => {
   if (navOpen.value && scrollY.value > 0) {
-    navOpen.value = false;
-    animateChevron(false);
+    navOpen.value = false
+    animateChevron(false)
   }
-};
+}
 
 const isCurrent = (item: SectionType) =>
-  item.id === currentSection.value.id || route.path === item.route;
+  item.id === currentSection.value.id || route.path === item.route
 
 const updateAnimations = () => {
   for (const element of headerAnimations.value) {
-    element.element.classList.remove(element.class);
+    element.element.classList.remove(element.class)
 
     setTimeout(() => {
-      element.element.classList.add(element.class);
-    }, element.timeout);
+      element.element.classList.add(element.class)
+    }, element.timeout)
   }
-};
+}
 
 const updateTrayHeight = () => {
-  if (!menustateTrayElement.value) return;
-  trayHeight.value = menustateTrayElement.value.scrollHeight;
-};
+  if (!menustateTrayElement.value) return
+  trayHeight.value = menustateTrayElement.value.scrollHeight
+}
 
 const updateBorderPosition = () => {
   if (currentMenuLinkElement.value && navbarElement.value) {
-    const menuLinkRect = currentMenuLinkElement.value.getBoundingClientRect();
-    const navbarRect = navbarElement.value.getBoundingClientRect();
+    const menuLinkRect = currentMenuLinkElement.value.getBoundingClientRect()
+    const navbarRect = navbarElement.value.getBoundingClientRect()
 
     const centerPosition =
-      menuLinkRect.left + menuLinkRect.width / 2 - navbarRect.left;
+      menuLinkRect.left + menuLinkRect.width / 2 - navbarRect.left
 
-    const transformOriginPercent = (centerPosition / navbarRect.width) * 100;
+    const transformOriginPercent = (centerPosition / navbarRect.width) * 100
 
-    borderTransformOrigin.value = `${transformOriginPercent}% 0%`;
-    borderScaleX.value = "scaleX(0)";
+    borderTransformOrigin.value = `${transformOriginPercent}% 0%`
+    borderScaleX.value = 'scaleX(0)'
 
     requestAnimationFrame(() => {
-      borderScaleX.value = "scaleX(1)";
-    });
+      borderScaleX.value = 'scaleX(1)'
+    })
   } else {
-    borderTransformOrigin.value = "50% 0%";
-    borderScaleX.value = "scaleX(1)";
+    borderTransformOrigin.value = '50% 0%'
+    borderScaleX.value = 'scaleX(1)'
   }
-};
+}
 
-useEventListener(window, "scroll", handleScroll);
-useEventListener(window, "resize", () => {
-  updateBorderPosition();
-  updateTrayHeight();
-});
+useEventListener(window, 'scroll', handleScroll)
+useEventListener(window, 'resize', () => {
+  updateBorderPosition()
+  updateTrayHeight()
+})
 
 onMounted(() => {
-  initHeaderAnimations();
-  updateBorderPosition();
-  updateTrayHeight();
-});
+  initHeaderAnimations()
+  updateBorderPosition()
+  updateTrayHeight()
+})
 
 watch(getTheme, (themeNew, themeOld) => {
-  if (themeNew === themeOld) return;
-  updateAnimations();
-});
+  if (themeNew === themeOld) return
+  updateAnimations()
+})
 
 watch(currentMenuLinkElement, () => {
-  updateBorderPosition();
-});
+  updateBorderPosition()
+})
 
 watch([() => route.path, () => currentSection.value.id], () => {
-  updateBorderPosition();
-});
+  updateBorderPosition()
+})
 </script>
 
 <style scoped>
@@ -399,25 +402,25 @@ watch([() => route.path, () => currentSection.value.id], () => {
     var(--r-globalnav-height, 44px) * var(--r-localnav-text-zoom-factor)
   );
   --r-localnav-viewport-large-min-width: viewport-get-property-for(
-    "ac-localnav:large",
+    'ac-localnav:large',
     min-width
   );
   --r-localnav-viewport-large-query: min-width(1024px);
   --r-localnav-viewport-medium-min-width: viewport-get-property-for(
-    "ac-localnav:medium",
+    'ac-localnav:medium',
     min-width
   );
   --r-localnav-viewport-medium-max-width: viewport-get-property-for(
-    "ac-localnav:medium",
+    'ac-localnav:medium',
     max-width
   );
   --r-localnav-viewport-medium-query: min-width(834px);
   --r-localnav-viewport-small-min-width: viewport-get-property-for(
-    "ac-localnav:small",
+    'ac-localnav:small',
     min-width
   );
   --r-localnav-viewport-small-max-width: viewport-get-property-for(
-    "ac-localnav:small",
+    'ac-localnav:small',
     max-width
   );
   --r-localnav-viewport-small-query: min-width(320px);
@@ -452,7 +455,7 @@ watch([() => route.path, () => currentSection.value.id], () => {
   font-size: 17px;
   z-index: 9997;
 }
-#ac-localnav:not([dir="rtl"]) {
+#ac-localnav:not([dir='rtl']) {
   --r-localnav-start: var(--r-sk-start, left);
   --r-localnav-end: var(--r-sk-end, right);
   --r-localnav-safe-area-inset-start: var(
@@ -512,7 +515,7 @@ watch([() => route.path, () => currentSection.value.id], () => {
 }
 #ac-localnav .ac-ln-content::before,
 #ac-localnav .ac-ln-content::after {
-  content: " ";
+  content: ' ';
   display: table;
 }
 #ac-localnav .ac-ln-content::after {
@@ -721,7 +724,7 @@ watch([() => route.path, () => currentSection.value.id], () => {
     -webkit-backdrop-filter;
 }
 #ac-localnav .ac-ln-background:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   bottom: 0;
@@ -834,9 +837,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   /* margin-top: -3px; */
   float: var(--r-localnav-end);
@@ -852,9 +855,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -868,9 +871,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
     padding-top: 0;
     margin-top: 0;
@@ -1158,7 +1161,7 @@ watch([() => route.path, () => currentSection.value.id], () => {
   }
 }
 #ac-localnav .ac-ln-menu-link.current::after {
-  content: "";
+  content: '';
   position: absolute;
   height: 1px;
   width: 100%;
@@ -1315,9 +1318,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   cursor: default;
   /* display: block; */
@@ -1337,9 +1340,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -1397,9 +1400,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   background: var(--sk-button-background);
   color: var(--sk-button-color);
@@ -1439,9 +1442,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 #ac-localnav .ac-ln-button:hover {
@@ -1475,9 +1478,9 @@ watch([() => route.path, () => currentSection.value.id], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
     padding: 3px 10px;
     margin-top: -1px;

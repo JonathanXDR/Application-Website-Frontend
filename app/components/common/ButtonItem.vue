@@ -5,26 +5,26 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicSizeType } from "#shared/types/common/basic-size";
-import type { IconType } from "#shared/types/common/icon";
+import type { BasicSizeType } from '#shared/types/common/basic-size'
+import type { IconType } from '#shared/types/common/icon'
 
 withDefaults(
   defineProps<{
-    as?: keyof HTMLElementTagNameMap;
-    variant?: "primary" | "secondary" | "tertiary";
-    componentSize?: BasicSizeType;
-    borderRadius?: "reduced" | "full";
-    label: string;
-    icon?: IconType;
+    as?: keyof HTMLElementTagNameMap
+    variant?: 'primary' | 'secondary' | 'tertiary'
+    componentSize?: BasicSizeType
+    borderRadius?: 'reduced' | 'full'
+    label: string
+    icon?: IconType
   }>(),
   {
-    as: "button",
-    variant: "primary",
-    componentSize: "medium",
-    borderRadius: "reduced",
+    as: 'button',
+    variant: 'primary',
+    componentSize: 'medium',
+    borderRadius: 'reduced',
     icon: undefined,
-  },
-);
+  }
+)
 </script>
 
 <style scoped>
@@ -50,9 +50,9 @@ withDefaults(
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   background: var(--color-code-plain);
   color: var(--sk-button-color);
@@ -93,9 +93,9 @@ withDefaults(
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   min-width: 28px;
   padding: 8px 16px;
@@ -144,9 +144,9 @@ withDefaults(
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 
@@ -172,9 +172,9 @@ withDefaults(
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 
@@ -218,7 +218,7 @@ button:disabled {
 }
 button {
   font-synthesis: none;
-  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: 'kern';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: ltr;
@@ -239,9 +239,9 @@ button:focus {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   border-style: solid;
   border-width: 1px;
@@ -296,9 +296,9 @@ button:focus {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   border-style: solid;
   border-width: 1px;
@@ -384,7 +384,7 @@ button:disabled {
 }
 button {
   font-synthesis: none;
-  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: 'kern';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: ltr;
@@ -406,9 +406,9 @@ button:focus {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   border-style: solid;
   border-width: 1px;
@@ -490,9 +490,9 @@ button:focus {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   border-style: solid;
   border-width: 1px;
@@ -569,9 +569,9 @@ button:focus {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   border-style: solid;
   border-width: 1px;
@@ -653,9 +653,9 @@ button:focus {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   border-style: solid;
   border-width: 1px;

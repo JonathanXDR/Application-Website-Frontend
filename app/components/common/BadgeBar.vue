@@ -19,14 +19,14 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    badges: string[];
-    loading?: boolean;
+    badges: string[]
+    loading?: boolean
   }>(),
   {
     badges: () => [],
     loading: false,
-  },
-);
+  }
+)
 </script>
 
 <style scoped>

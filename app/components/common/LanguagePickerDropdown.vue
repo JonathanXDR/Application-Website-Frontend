@@ -15,7 +15,7 @@
           :value="computedLocale.code"
         >
           {{
-            breakpoints.greaterOrEqual("lg").value
+            breakpoints.greaterOrEqual('lg').value
               ? computedLocale.name
               : computedLocale.code.toUpperCase()
           }}
@@ -27,27 +27,27 @@
 </template>
 
 <script setup lang="ts">
-import type { ExtendedSizeType } from "#shared/types/common/extended-size";
+import type { ExtendedSizeType } from '#shared/types/common/extended-size'
 
 const properties = withDefaults(
   defineProps<{
-    componentSize?: Exclude<ExtendedSizeType, "xlarge">;
+    componentSize?: Exclude<ExtendedSizeType, 'xlarge'>
   }>(),
   {
-    componentSize: "small",
-  },
-);
+    componentSize: 'small',
+  }
+)
 
-const breakpoints = useAppBreakpoints();
-const { changeLanguage } = useLanguage();
-const { locale, locales } = useI18n();
-const selectedLocale = ref(locale.value);
+const breakpoints = useAppBreakpoints()
+const { changeLanguage } = useLanguage()
+const { locale, locales } = useI18n()
+const selectedLocale = ref(locale.value)
 
 const computedLocales = computed(() =>
-  locales.value.map((l) => {
-    return typeof l === "string" ? { code: l, name: l } : l;
-  }),
-);
+  locales.value.map(l => {
+    return typeof l === 'string' ? { code: l, name: l } : l
+  })
+)
 
 const fontSize = computed(() => {
   const sizes: Record<string, number> = {
@@ -55,13 +55,13 @@ const fontSize = computed(() => {
     small: 14,
     medium: 16,
     large: 18,
-  };
-  return sizes[properties.componentSize || "medium"];
-});
+  }
+  return sizes[properties.componentSize || 'medium']
+})
 
-watch(locale, (localeNew) => {
-  selectedLocale.value = localeNew;
-});
+watch(locale, localeNew => {
+  selectedLocale.value = localeNew
+})
 </script>
 
 <style scoped>

@@ -44,42 +44,42 @@
 </template>
 
 <script setup lang="ts">
-import type { DateItemType } from "#shared/types/common/date-item";
+import type { DateItemType } from '#shared/types/common/date-item'
 
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
-const { t, tm } = useI18n();
+const { t, tm } = useI18n()
 const dateItems = computed<DateItemType[]>(() =>
-  tm("components.containers.about.dates"),
-);
+  tm('components.containers.about.dates')
+)
 const dates = ref<{
-  age: number | undefined;
-  apprenticeshipYear: number | undefined;
+  age: number | undefined
+  apprenticeshipYear: number | undefined
 }>({
   age: undefined,
   apprenticeshipYear: undefined,
-});
-const breakpoints = useAppBreakpoints();
+})
+const breakpoints = useAppBreakpoints()
 
 const calculateYears = (date: string) => {
-  const currentDate = new Date(Date.now());
-  const birthDate = new Date(date);
-  const difference = new Date(currentDate.getTime() - birthDate.getTime());
-  const years = Math.abs(difference.getUTCFullYear() - 1970);
-  return years;
-};
+  const currentDate = new Date(Date.now())
+  const birthDate = new Date(date)
+  const difference = new Date(currentDate.getTime() - birthDate.getTime())
+  const years = Math.abs(difference.getUTCFullYear() - 1970)
+  return years
+}
 
 onMounted(async () => {
   for (const item of dateItems.value) {
     if (item.key in dates.value) {
       dates.value[item.key as keyof typeof dates.value] = calculateYears(
-        item.date,
-      );
+        item.date
+      )
     }
   }
-});
+})
 </script>
 
 <style scoped>

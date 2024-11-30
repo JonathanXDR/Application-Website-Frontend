@@ -57,60 +57,60 @@
 </template>
 
 <script setup lang="ts">
-import type { FlashAlertType } from "#shared/types/common/flash-alert";
+import type { FlashAlertType } from '#shared/types/common/flash-alert'
 
 const properties = withDefaults(defineProps<FlashAlertType>(), {
-  variant: "note",
+  variant: 'note',
   title: undefined,
-  icon: () => ({ variant: "default", name: "" }),
-});
+  icon: () => ({ variant: 'default', name: '' }),
+})
 
 const icons = {
   deprecated: {
-    name: "nosign",
+    name: 'nosign',
     colors: {
       primary: `var(--color-aside-${properties.variant})`,
     },
   },
   experiment: {
-    name: "flask.fill",
+    name: 'flask.fill',
     colors: {
       primary: `var(--color-aside-${properties.variant})`,
       tertiary: `var(--color-aside-${properties.variant})`,
     },
   },
   important: {
-    name: "exclamationmark.triangle.fill",
+    name: 'exclamationmark.triangle.fill',
     colors: {
-      primary: "var(--color-fill)",
+      primary: 'var(--color-fill)',
       tertiary: `var(--color-aside-${properties.variant})`,
     },
   },
   note: {
-    name: "info.circle.fill",
+    name: 'info.circle.fill',
     colors: {
-      primary: "var(--color-fill)",
+      primary: 'var(--color-fill)',
       tertiary: `var(--color-aside-${properties.variant})`,
     },
   },
   tip: {
-    name: "questionmark.circle.fill",
+    name: 'questionmark.circle.fill',
     colors: {
-      primary: "var(--color-fill)",
+      primary: 'var(--color-fill)',
       tertiary: `var(--color-aside-${properties.variant})`,
     },
   },
   warning: {
-    name: "exclamationmark.octagon.fill",
+    name: 'exclamationmark.octagon.fill',
     colors: {
-      primary: "var(--color-fill)",
+      primary: 'var(--color-fill)',
       tertiary: `var(--color-aside-${properties.variant})`,
     },
   },
-};
+}
 
-const open = ref(true);
-const toggleOpen = useToggle(open);
+const open = ref(true)
+const toggleOpen = useToggle(open)
 </script>
 
 <style scoped>
@@ -141,9 +141,9 @@ aside .label {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 
@@ -249,7 +249,7 @@ aside {
   height: var(--modal-close-icon-svg-size);
   width: var(--modal-close-icon-svg-size);
 }
-html:not([dir="rtl"]) .modal-close-button .modal-close-icon svg {
+html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }

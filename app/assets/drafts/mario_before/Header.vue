@@ -99,17 +99,17 @@
 </template>
 
 <script>
-import "@/styles/header.scss";
+import '@/styles/header.scss'
 
 export default {
-  name: "HeaderSection",
+  name: 'HeaderSection',
   methods: {
     openMenu() {
-      document.body.classList.add("-open-nav");
+      document.body.classList.add('-open-nav')
     },
     closeMenu() {
-      document.body.classList.remove("-open-nav");
+      document.body.classList.remove('-open-nav')
     },
   },
-};
+}
 </script>

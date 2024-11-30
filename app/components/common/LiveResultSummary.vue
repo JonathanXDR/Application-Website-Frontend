@@ -2,7 +2,9 @@
   <div id="live-result-summary" class="results">
     <div class="number-results">
       {{
-        t(`components.common.LiveResultSummary.title`, { count: totalResults })
+        t(`components.common.LiveResultSummary.title`, {
+          count: totalResults,
+        })
       }}
     </div>
     <div v-if="pinnedResults" class="changesnav-totals">
@@ -15,7 +17,7 @@
           }"
           class="icon icon-medium"
         />
-        <span>{{ t("components.common.LiveResultSummary.description") }}</span>
+        <span>{{ t('components.common.LiveResultSummary.description') }}</span>
         <span class="total"> ({{ pinnedResults }})</span>
       </div>
       <!-- <div class="changed-total changed-total-modified">
@@ -34,17 +36,17 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    totalResults: number;
-    pinnedResults?: number;
+    totalResults: number
+    pinnedResults?: number
   }>(),
   {
     totalResults: 0,
     pinnedResults: 0,
-  },
-);
+  }
+)
 
-const { t } = useI18n();
-const { randomDevColor } = useColor();
+const { t } = useI18n()
+const { randomDevColor } = useColor()
 </script>
 
 <style scoped>
@@ -154,9 +156,9 @@ const { randomDevColor } = useColor();
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   color: var(--color-figure-gray-secondary);
   margin-right: 20px;

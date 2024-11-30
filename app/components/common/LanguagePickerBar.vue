@@ -1,7 +1,7 @@
 <template>
   <section class="lang-switcher-container">
     <span v-if="introText" class="language-switcher-text">
-      {{ t("components.common.LanguagePickerBar.chooseYourLanguage") }}:
+      {{ t('components.common.LanguagePickerBar.chooseYourLanguage') }}:
     </span>
     <ul class="locale-lang language-picker-wrapper">
       <li v-for="computedLocale in computedLocales" :key="computedLocale.code">
@@ -21,36 +21,36 @@
 </template>
 
 <script setup lang="ts">
-import type { LocaleObject } from "@nuxtjs/i18n";
+import type { LocaleObject } from '@nuxtjs/i18n'
 
 const properties = withDefaults(
   defineProps<{
-    introText?: boolean;
-    shortForm?: boolean;
+    introText?: boolean
+    shortForm?: boolean
   }>(),
   {
     introText: true,
     shortForm: false,
-  },
-);
+  }
+)
 
-const { changeLanguage } = useLanguage();
-const { t, locale, locales } = useI18n();
+const { changeLanguage } = useLanguage()
+const { t, locale, locales } = useI18n()
 
 const computedLocales = computed<LocaleObject[]>(() =>
   locales.value.map((l: string | LocaleObject): LocaleObject => {
-    if (typeof l === "string") {
-      return { code: l as LocaleObject["code"], name: l };
+    if (typeof l === 'string') {
+      return { code: l as LocaleObject['code'], name: l }
     } else {
-      return { code: l.code as LocaleObject["code"], name: l.name };
+      return { code: l.code as LocaleObject['code'], name: l.name }
     }
-  }),
-);
+  })
+)
 
 const getLabel = (locale: { code: string; name?: string }) => {
-  const label = locale.name || locale.code;
-  return properties.shortForm ? locale.code.toUpperCase() : label;
-};
+  const label = locale.name || locale.code
+  return properties.shortForm ? locale.code.toUpperCase() : label
+}
 </script>
 
 <style scoped>
@@ -69,7 +69,7 @@ const getLabel = (locale: { code: string; name?: string }) => {
   flex-wrap: wrap;
 }
 
-.language-picker-wrapper li > input[type="radio"] {
+.language-picker-wrapper li > input[type='radio'] {
   display: none;
 }
 
@@ -85,7 +85,7 @@ const getLabel = (locale: { code: string; name?: string }) => {
   margin-right: 0;
 }
 
-input[name="language"]:checked ~ label {
+input[name='language']:checked ~ label {
   color: var(--color-figure-gray-secondary) !important;
   pointer-events: none;
 }

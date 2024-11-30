@@ -70,8 +70,8 @@
             v-if="open && options.length > 0"
             :badges="
               options
-                .filter((option) => option.label)
-                .map((option) => option.label!)
+                .filter(option => option.label)
+                .map(option => option.label!)
             "
           />
         </div>
@@ -84,21 +84,21 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from "#shared/types/common/item";
+import type { ItemType } from '#shared/types/common/item'
 
-const { tm } = useI18n();
+const { tm } = useI18n()
 const options = computed<ItemType[]>(() =>
-  tm("components.common.FilterInput.sorts"),
-);
-const open = ref(false);
+  tm('components.common.FilterInput.sorts')
+)
+const open = ref(false)
 
 const onFocus = () => {
-  open.value = true;
-};
+  open.value = true
+}
 
 const onBlur = () => {
-  open.value = false;
-};
+  open.value = false
+}
 </script>
 
 <style scoped>
@@ -282,9 +282,9 @@ const onBlur = () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   color: var(--color-text);
   width: 100%;
@@ -304,9 +304,9 @@ const onBlur = () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }

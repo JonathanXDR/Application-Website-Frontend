@@ -4,15 +4,15 @@
 
 <script setup lang="ts">
 defineProps<{
-  isPlaying: boolean;
-}>();
+  isPlaying: boolean
+}>()
 </script>
 
 <style scoped>
 .mario-coin {
   width: 128px;
   height: 128px;
-  background: url("~~/public/mario/bg-mario.png") no-repeat 0 -256px;
+  background: url('~~/public/mario/bg-mario.png') no-repeat 0 -256px;
   animation: marioCoin 0.6s steps(4) infinite;
   pointer-events: none;
 }

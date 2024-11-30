@@ -373,23 +373,23 @@
 </template>
 
 <script setup lang="ts">
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 const props = withDefaults(
   defineProps<{
-    title: string;
-    description: string;
-    background: string;
+    title: string
+    description: string
+    background: string
   }>(),
   {
     title: "Privacy. That's Apple.",
     description:
       "Privacy is a fundamental human right. It's also one of our core values. Which is why we design our products and services to protect it. That's the kind of innovation we believe&nbsp;in.",
     background:
-      "https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large.jpg",
-  },
-);
+      'https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large.jpg',
+  }
+)
 </script>

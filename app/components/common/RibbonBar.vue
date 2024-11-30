@@ -27,7 +27,7 @@
                       :style="totalItems <= 2 && 'width: 100% !important'"
                     >
                       <template v-if="!loading">
-                        {{ item.description && item.description + "&ensp;" }}
+                        {{ item.description && item.description + '&ensp;' }}
                       </template>
                       <template v-else>
                         <LoadingSkeleton width="200px" height="15px" />
@@ -84,31 +84,31 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkType } from "#shared/types/common/link";
-import type { RibbonBar } from "#shared/types/common/ribbon-bar";
+import type { LinkType } from '#shared/types/common/link'
+import type { RibbonBar } from '#shared/types/common/ribbon-bar'
 
 const properties = withDefaults(defineProps<RibbonBar>(), {
   loading: false,
-});
+})
 
-const { t, tm, rt, locale } = useI18n();
-const config = useRuntimeConfig();
+const { t, tm, rt, locale } = useI18n()
+const config = useRuntimeConfig()
 
 const tags = ref<{
-  latest: string | undefined;
-  previous: string | undefined;
-}>({ latest: undefined, previous: undefined });
+  latest: string | undefined
+  previous: string | undefined
+}>({ latest: undefined, previous: undefined })
 
-const baseItems = ref<{ description: string; links: LinkType[] }[]>([]);
-const currentIndex = ref(0);
-const totalItems = ref(0);
-const isTransitioning = ref(false);
-const scrollDirection = ref<"left" | "right">("right");
-const displayItems = ref<{ description: string; links: LinkType[] }[]>([]);
-const initialAnimationPlayed = ref(false);
+const baseItems = ref<{ description: string; links: LinkType[] }[]>([])
+const currentIndex = ref(0)
+const totalItems = ref(0)
+const isTransitioning = ref(false)
+const scrollDirection = ref<'left' | 'right'>('right')
+const displayItems = ref<{ description: string; links: LinkType[] }[]>([])
+const initialAnimationPlayed = ref(false)
 
-const { data: repositoryTags } = await useFetch("/api/github/repository-tags", {
-  key: "repository-tags",
+const { data: repositoryTags } = await useFetch('/api/github/repository-tags', {
+  key: 'repository-tags',
   lazy: true,
   params: {
     owner: config.public.githubRepoOwner,
@@ -116,12 +116,12 @@ const { data: repositoryTags } = await useFetch("/api/github/repository-tags", {
     perPage: 2,
   },
   getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
-});
+})
 
 const updateBaseItems = () => {
-  const { latest: latestTag, previous: previousTag } = tags.value;
+  const { latest: latestTag, previous: previousTag } = tags.value
 
-  if (!latestTag || !previousTag) return;
+  if (!latestTag || !previousTag) return
   baseItems.value = properties.items.map((item, index) => ({
     description:
       item.description &&
@@ -132,7 +132,7 @@ const updateBaseItems = () => {
     links:
       item.links &&
       (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map(
-        (link) => ({
+        link => ({
           ...link,
           url: link.url
             ? rt(link.url, {
@@ -140,89 +140,92 @@ const updateBaseItems = () => {
                 previousTag,
               })
             : undefined,
-        }),
+        })
       ),
-  }));
-  totalItems.value = baseItems.value.length;
-  updateDisplayItems();
-};
+  }))
+  totalItems.value = baseItems.value.length
+  updateDisplayItems()
+}
 
 const updateDisplayItems = () => {
-  const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value;
+  const start = (currentIndex.value - 1 + totalItems.value) % totalItems.value
   displayItems.value = Array.from(
     { length: totalItems.value },
     (_, index) =>
       baseItems.value[(start + index) % totalItems.value] || {
-        description: "",
+        description: '',
         links: [],
-      },
-  );
-};
+      }
+  )
+}
 
-const scrollContent = (direction: "left" | "right") => {
+const scrollContent = (direction: 'left' | 'right') => {
   if (!isTransitioning.value && totalItems.value > 2) {
-    isTransitioning.value = true;
-    scrollDirection.value = direction;
+    isTransitioning.value = true
+    scrollDirection.value = direction
 
     nextTick(() => {
-      if (direction === "left") {
+      if (direction === 'left') {
         currentIndex.value =
           currentIndex.value === 0
             ? totalItems.value - 1
-            : currentIndex.value - 1;
+            : currentIndex.value - 1
       } else {
-        currentIndex.value = (currentIndex.value + 1) % totalItems.value;
+        currentIndex.value = (currentIndex.value + 1) % totalItems.value
       }
-    });
+    })
   }
-};
+}
 
 const transformStyle = computed(() => {
   if (totalItems.value > 2) {
-    let translateXValue = -100 / totalItems.value;
-    if (scrollDirection.value === "left") {
-      translateXValue = Math.abs(translateXValue);
+    let translateXValue = -100 / totalItems.value
+    if (scrollDirection.value === 'left') {
+      translateXValue = Math.abs(translateXValue)
     }
 
     return {
       transform: `translateX(${
-        isTransitioning.value ? translateXValue + "%" : "0px"
+        isTransitioning.value ? translateXValue + '%' : '0px'
       })`,
       width: `${100 * totalItems.value}%`,
-      left: "-100%",
+      left: '-100%',
       transition: isTransitioning.value
-        ? "transform 1000ms ease 0s"
-        : "none 0s ease 0s",
-    };
+        ? 'transform 1000ms ease 0s'
+        : 'none 0s ease 0s',
+    }
   }
-  return {};
-});
+  return {}
+})
 
 watch(currentIndex, () => {
   setTimeout(() => {
-    isTransitioning.value = false;
-    updateDisplayItems();
-  }, 1000);
-});
+    isTransitioning.value = false
+    updateDisplayItems()
+  }, 1000)
+})
 
 watch(
   repositoryTags,
-  (tagsNew) => {
+  tagsNew => {
     if (tagsNew && tagsNew.length >= 2) {
-      tags.value = { latest: tagsNew[0]?.name, previous: tagsNew[1]?.name };
-      updateBaseItems();
+      tags.value = {
+        latest: tagsNew[0]?.name,
+        previous: tagsNew[1]?.name,
+      }
+      updateBaseItems()
 
       setTimeout(() => {
-        initialAnimationPlayed.value = true;
-      }, 2800);
+        initialAnimationPlayed.value = true
+      }, 2800)
     }
   },
-  { immediate: true },
-);
+  { immediate: true }
+)
 
 watch(locale, () => {
-  updateBaseItems();
-});
+  updateBaseItems()
+})
 </script>
 
 <style scoped>
@@ -247,9 +250,9 @@ watch(locale, () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   color: inherit;
   display: inline-block;
@@ -259,7 +262,7 @@ watch(locale, () => {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: "";
+  alt: '';
   text-decoration: none;
 }
 .more:before {
@@ -271,7 +274,7 @@ watch(locale, () => {
 }
 .more:after,
 .more:before {
-  content: "";
+  content: '';
 }
 
 .rc-ribbon-content-gallery {
@@ -341,9 +344,9 @@ watch(locale, () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   color: inherit;
   display: inline-block;
@@ -353,7 +356,7 @@ watch(locale, () => {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: "";
+  alt: '';
   text-decoration: none;
 }
 .paddlenav .paddlenav-arrow-next:before {
@@ -368,9 +371,9 @@ watch(locale, () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   color: inherit;
   display: inline-block;
@@ -380,7 +383,7 @@ watch(locale, () => {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: "";
+  alt: '';
   text-decoration: none;
 }
 .paddlenav .paddlenav-arrow-previous:before {
@@ -427,9 +430,9 @@ watch(locale, () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
     color: inherit;
     display: inline-block;
@@ -439,7 +442,7 @@ watch(locale, () => {
     text-decoration: underline;
     position: relative;
     z-index: 1;
-    alt: "";
+    alt: '';
     text-decoration: none;
   }
   .paddlenav .paddlenav-arrow-next:before {
@@ -454,9 +457,9 @@ watch(locale, () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
     color: inherit;
     display: inline-block;
@@ -466,7 +469,7 @@ watch(locale, () => {
     text-decoration: underline;
     position: relative;
     z-index: 1;
-    alt: "";
+    alt: '';
     text-decoration: none;
   }
   .paddlenav .paddlenav-arrow-previous:before {
@@ -493,9 +496,9 @@ watch(locale, () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   color: inherit;
   display: inline-block;
@@ -505,7 +508,7 @@ watch(locale, () => {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: "";
+  alt: '';
   text-decoration: none;
 }
 .paddlenav-compact .paddlenav-arrow-next:before {
@@ -520,9 +523,9 @@ watch(locale, () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   color: inherit;
   display: inline-block;
@@ -532,7 +535,7 @@ watch(locale, () => {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: "";
+  alt: '';
   text-decoration: none;
 }
 .paddlenav-compact .paddlenav-arrow-previous:before {
@@ -584,9 +587,9 @@ watch(locale, () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 .ribbon .ribbon-content-wrapper {
@@ -633,9 +636,9 @@ watch(locale, () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   color: var(--color-fill-gray-secondary);
 }
@@ -647,9 +650,9 @@ watch(locale, () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -709,7 +712,7 @@ watch(locale, () => {
 }
 .with-paddlenav .rc-ribbon-content-autoscroll:after,
 .with-paddlenav .rc-ribbon-content-autoscroll:before {
-  content: "";
+  content: '';
   display: block;
   width: 41px;
   height: 100%;
@@ -785,7 +788,7 @@ watch(locale, () => {
 .rc-ribbon-content-gallery {
   min-height: auto;
 }
-.rc-ribbon-gallery-item[aria-hidden="true"] a {
+.rc-ribbon-gallery-item[aria-hidden='true'] a {
   visibility: hidden;
 }
 .rc-ribbon-content-item {

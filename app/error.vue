@@ -63,36 +63,36 @@
 </template>
 
 <script setup lang="ts">
-const error = useError();
-const { t, tm } = useI18n();
+const error = useError()
+const { t, tm } = useI18n()
 const pages = {
   notFound: 404,
   internalServerError: 500,
   serviceUnavailable: 503,
   error: error.value?.statusCode,
-};
+}
 
 const currentKey = computed(() => {
   return (
     Object.keys(pages).find(
       (key: string) =>
-        pages[key as keyof typeof pages] === error.value?.statusCode,
-    ) || "error"
-  );
-});
+        pages[key as keyof typeof pages] === error.value?.statusCode
+    ) || 'error'
+  )
+})
 
 const title = t(`pages.${currentKey.value}.title`, {
   statusCode: error.value?.statusCode,
-});
+})
 const colors = computed<object>(() =>
-  tm(`pages.${currentKey.value}.icon.colors`),
-);
+  tm(`pages.${currentKey.value}.icon.colors`)
+)
 const entireDescription = computed<string>(() =>
-  tm(`pages.${currentKey.value}.description`),
-);
+  tm(`pages.${currentKey.value}.description`)
+)
 const description = computed<string[]>(() =>
-  entireDescription.value.split(". "),
-);
+  entireDescription.value.split('. ')
+)
 </script>
 
 <style scoped>
@@ -179,9 +179,9 @@ h1 + * {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   color: inherit;
   display: inline-block;
@@ -191,7 +191,7 @@ h1 + * {
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: "";
+  alt: '';
 }
 .icon:after,
 .icon:before {
@@ -206,7 +206,7 @@ h1 + * {
 }
 .icon-thumbnailplay:after,
 .icon-thumbnailplay:before {
-  content: "";
+  content: '';
 }
 .as-l-container {
   margin-left: auto;
@@ -387,9 +387,9 @@ h1 + * {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   padding-top: 50px;
 }
@@ -401,9 +401,9 @@ h1 + * {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -415,9 +415,9 @@ h1 + * {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -429,9 +429,9 @@ h1 + * {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -443,9 +443,9 @@ h1 + * {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -457,9 +457,9 @@ h1 + * {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -470,9 +470,9 @@ h1 + * {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   padding-top: 38px;
 }
@@ -484,9 +484,9 @@ h1 + * {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -498,9 +498,9 @@ h1 + * {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -512,9 +512,9 @@ h1 + * {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
     padding-top: 42px;
   }
@@ -527,9 +527,9 @@ h1 + * {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -541,9 +541,9 @@ h1 + * {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -554,9 +554,9 @@ h1 + * {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   font-weight: 500;
   padding: 19px 0 48px;
@@ -574,9 +574,9 @@ h1 + * {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   padding-top: 16px;
 }
@@ -588,9 +588,9 @@ h1 + * {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -602,9 +602,9 @@ h1 + * {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -615,9 +615,9 @@ h1 + * {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   color: var(--color-fill-gray-secondary);
   display: flex;

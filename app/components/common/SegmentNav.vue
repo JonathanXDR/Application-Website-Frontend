@@ -65,53 +65,52 @@
 </template>
 
 <script setup lang="ts">
-import type { SegmentNavType } from "#shared/types/common/segment-nav";
+import type { SegmentNavType } from '#shared/types/common/segment-nav'
 
 const properties = withDefaults(defineProps<SegmentNavType>(), {
-  componentSize: "medium",
-  label: "text",
+  componentSize: 'medium',
+  label: 'text',
   focus: true,
   separator: false,
   shadow: false,
   grayLabels: false,
-  gap: "0px",
+  gap: '0px',
   outerPadding: 4,
   selectedItem: (properties_: SegmentNavType) => {
-    return properties_.items[0]?.id || "";
+    return properties_.items[0]?.id || ''
   },
   onSelect: () => {},
-});
+})
 
-const selectedItem = ref<string>(properties.selectedItem);
-const isTransitioning = ref<boolean>(false);
+const selectedItem = ref<string>(properties.selectedItem)
+const isTransitioning = ref<boolean>(false)
 
-const navContainer = ref<HTMLElement | undefined>(undefined);
-const itemElements = ref<Array<HTMLElement>>([]);
-const selectedItemElement = ref<HTMLElement | undefined>(undefined);
+const navContainer = ref<HTMLElement | undefined>(undefined)
+const itemElements = ref<Array<HTMLElement>>([])
+const selectedItemElement = ref<HTMLElement | undefined>(undefined)
 
 const setItemReference = (element: HTMLElement | undefined) => {
-  if (!element) return;
-  itemElements.value.push(element);
-};
+  if (!element) return
+  itemElements.value.push(element)
+}
 
 const updateBubblePosition = () => {
-  isTransitioning.value = true;
+  isTransitioning.value = true
   const selectedItemIndex = properties.items.findIndex(
-    (item) => item.id === selectedItem.value,
-  );
-  selectedItemElement.value =
-    itemElements.value[selectedItemIndex] || undefined;
-  if (!selectedItemElement.value) return;
+    item => item.id === selectedItem.value
+  )
+  selectedItemElement.value = itemElements.value[selectedItemIndex] || undefined
+  if (!selectedItemElement.value) return
   bubbleStyle.value = {
-    "--bubble-position": `${selectedItemElement.value.offsetLeft}px`,
-    "--bubble-width": `${selectedItemElement.value.offsetWidth}px`,
-    opacity: "1",
-  };
+    '--bubble-position': `${selectedItemElement.value.offsetLeft}px`,
+    '--bubble-width': `${selectedItemElement.value.offsetWidth}px`,
+    opacity: '1',
+  }
 
-  setTimeout(() => (isTransitioning.value = false), 400);
-};
+  setTimeout(() => (isTransitioning.value = false), 400)
+}
 
-const bubbleStyle = ref<Record<string, string>>({});
+const bubbleStyle = ref<Record<string, string>>({})
 
 const computedHeight = computed(() => {
   const sizes: Record<string, number> = {
@@ -119,9 +118,9 @@ const computedHeight = computed(() => {
     small: 40,
     medium: 48,
     large: 56,
-  };
-  return sizes[properties.componentSize || "medium"] || 48;
-});
+  }
+  return sizes[properties.componentSize || 'medium'] || 48
+})
 
 const fontSize = computed(() => {
   const sizes: Record<string, number> = {
@@ -129,37 +128,37 @@ const fontSize = computed(() => {
     small: 14,
     medium: 16,
     large: 18,
-  };
-  return sizes[properties.componentSize || "medium"];
-});
+  }
+  return sizes[properties.componentSize || 'medium']
+})
 
 const containerStyle = computed(() => ({
-  width: "fit-content",
-  "--sizenav-width": `${navContainer.value?.offsetWidth}px`,
-  "--sizenav-outer-padding": `${properties.outerPadding}px`,
-  "--aap-min-height": `${computedHeight.value}px`,
-}));
+  width: 'fit-content',
+  '--sizenav-width': `${navContainer.value?.offsetWidth}px`,
+  '--sizenav-outer-padding': `${properties.outerPadding}px`,
+  '--aap-min-height': `${computedHeight.value}px`,
+}))
 
 const computedPadding = computed(() => {
-  return properties.padding ?? (properties.label === "icon" ? "0" : "0 12px");
-});
+  return properties.padding ?? (properties.label === 'icon' ? '0' : '0 12px')
+})
 
 watch(
   selectedItem,
-  (itemNew) => {
-    properties.onSelect(itemNew);
-    updateBubblePosition();
+  itemNew => {
+    properties.onSelect(itemNew)
+    updateBubblePosition()
   },
-  { immediate: true },
-);
+  { immediate: true }
+)
 
-onMounted(updateBubblePosition);
+onMounted(updateBubblePosition)
 
 useResizeObserver(navContainer, () => {
   nextTick(() => {
-    updateBubblePosition();
-  });
-});
+    updateBubblePosition()
+  })
+})
 </script>
 
 <style scoped>
@@ -172,7 +171,7 @@ useResizeObserver(navContainer, () => {
   text-align: center;
 }
 .viewer-sizenav-item.separator:not(:first-child)::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 0;
@@ -254,7 +253,10 @@ useResizeObserver(navContainer, () => {
   pointer-events: all;
 }
 .viewer-sizenav__bubble {
-  --abs-calc: max(var(--bubble-hint-position), -1 * var(--bubble-hint-position)) /
+  --abs-calc: max(
+      var(--bubble-hint-position),
+      -1 * var(--bubble-hint-position)
+    ) /
     10;
   border-radius: 28px;
   box-sizing: border-box;
@@ -296,7 +298,7 @@ useResizeObserver(navContainer, () => {
   top: 0;
 }
 .viewer-sizenav__bubble-inner:before {
-  content: "";
+  content: '';
   height: 100%;
   transform: translateX(calc(var(--bubble-hint-position) * 1px))
     scaleX(calc(1 + var(--abs-calc) * 0.15));

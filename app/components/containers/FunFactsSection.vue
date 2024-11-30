@@ -22,16 +22,16 @@
           <strong ref="titleElements">
             <span
               :ref="
-                (el) => {
-                  if (el) progressSpan[index] = el as HTMLElement;
+                el => {
+                  if (el) progressSpan[index] = el as HTMLElement
                 }
               "
             >
               {{
                 item.progress.toLocaleString(locale, {
-                  notation: breakpoints.smaller("md").value
-                    ? "compact"
-                    : "standard",
+                  notation: breakpoints.smaller('md').value
+                    ? 'compact'
+                    : 'standard',
                 })
               }}
             </span>
@@ -44,60 +44,60 @@
 </template>
 
 <script setup lang="ts">
-import { gsap } from "gsap";
-import type { LanguageBarType } from "#shared/types/common/language-bar";
+import { gsap } from 'gsap'
+import type { LanguageBarType } from '#shared/types/common/language-bar'
 
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
-const { tm, locale } = useI18n();
-const breakpoints = useAppBreakpoints();
+const { tm, locale } = useI18n()
+const breakpoints = useAppBreakpoints()
 
-const chipClaimHeight = ref(0);
-const titleElements = ref<HTMLElement[]>([]);
-const progressSpan = ref<HTMLElement[]>([]);
+const chipClaimHeight = ref(0)
+const titleElements = ref<HTMLElement[]>([])
+const progressSpan = ref<HTMLElement[]>([])
 const funFacts = computed<LanguageBarType[]>(() =>
-  tm("components.containers.funFacts"),
-);
+  tm('components.containers.funFacts')
+)
 
 const updateChipClaimHeight = () => {
   nextTick(() => {
     const maxHeight = Math.max(
-      ...titleElements.value.map((element) => element.clientHeight),
-    );
-    chipClaimHeight.value = maxHeight;
-  });
-};
+      ...titleElements.value.map(element => element.clientHeight)
+    )
+    chipClaimHeight.value = maxHeight
+  })
+}
 
 const animateNumber = (index: number) => {
-  const span = progressSpan.value[index];
-  if (!span) return;
+  const span = progressSpan.value[index]
+  if (!span) return
 
   gsap.fromTo(
     span,
-    { innerHTML: "0" },
+    { innerHTML: '0' },
     {
       innerHTML: funFacts.value[index]?.progress.toString(),
       duration: 1,
-      ease: "power2.inOut",
+      ease: 'power2.inOut',
       onUpdate: () => {
         span.innerHTML = Number.parseInt(span.innerHTML).toLocaleString(
           locale.value,
           {
-            notation: breakpoints.smaller("md").value ? "compact" : "standard",
-          },
-        );
+            notation: breakpoints.smaller('md').value ? 'compact' : 'standard',
+          }
+        )
       },
-    },
-  );
-};
+    }
+  )
+}
 
 onMounted(() => {
-  updateChipClaimHeight();
-});
+  updateChipClaimHeight()
+})
 
-useEventListener(window, "resize", updateChipClaimHeight);
+useEventListener(window, 'resize', updateChipClaimHeight)
 </script>
 
 <style scoped>
@@ -117,7 +117,7 @@ useEventListener(window, "resize", updateChipClaimHeight);
 }
 .chip-claim:before {
   margin-right: 20px;
-  content: "";
+  content: '';
   display: inline-block;
   position: relative;
   height: var(--chip-claim-height);
@@ -148,9 +148,9 @@ useEventListener(window, "resize", updateChipClaimHeight);
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 @media only screen and (max-width: 767px) {
@@ -162,9 +162,9 @@ useEventListener(window, "resize", updateChipClaimHeight);
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -205,9 +205,9 @@ useEventListener(window, "resize", updateChipClaimHeight);
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 
@@ -220,9 +220,9 @@ useEventListener(window, "resize", updateChipClaimHeight);
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }

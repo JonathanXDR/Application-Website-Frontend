@@ -10,16 +10,16 @@
 
 <script>
 // GSAP + ScrollMagic
-import { Power3, TimelineMax, TweenMax } from "gsap";
-import * as ScrollMagic from "scrollmagic";
-import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
-import Spine from "@/components/Spine.vue";
-import HeaderSection from "@/components/Header.vue";
+import { Power3, TimelineMax, TweenMax } from 'gsap'
+import * as ScrollMagic from 'scrollmagic'
+import { ScrollMagicPluginGsap } from 'scrollmagic-plugin-gsap'
+import Spine from '@/components/Spine.vue'
+import HeaderSection from '@/components/Header.vue'
 
-ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax)
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     HeaderSection,
     Spine,
@@ -29,16 +29,16 @@ export default {
       isSpinePlaying: false,
       introTimeline: new TimelineMax(),
       leaveTimeline: new TimelineMax(),
-    };
+    }
   },
   methods: {
     enter(element, done) {
       // intro animations
       this.introTimeline
         .clear()
-        .addLabel("enter", 0)
+        .addLabel('enter', 0)
         .fromTo(
-          ".header-breadcrumb",
+          '.header-breadcrumb',
           1,
           {
             autoAlpha: 0,
@@ -49,7 +49,7 @@ export default {
             x: 0,
             ease: Power3.easeOut,
           },
-          "enter",
+          'enter'
         )
         .fromTo(
           element,
@@ -61,17 +61,17 @@ export default {
             autoAlpha: 1,
             onComplete: done,
           },
-          "enter",
-        );
+          'enter'
+        )
 
-      this.isSpinePlaying = true;
+      this.isSpinePlaying = true
     },
     leave(element, done) {
       // leave animations
       this.leaveTimeline
         .clear()
-        .addLabel("leave", 0)
-        .set(".header-breadcrumb", { autoAlpha: 0 }, "leave")
+        .addLabel('leave', 0)
+        .set('.header-breadcrumb', { autoAlpha: 0 }, 'leave')
         .to(
           element,
           1,
@@ -79,13 +79,13 @@ export default {
             autoAlpha: 0,
             onComplete: done,
           },
-          "leave",
-        );
+          'leave'
+        )
 
-      this.isSpinePlaying = false;
+      this.isSpinePlaying = false
     },
   },
-};
+}
 </script>
 
 <style lang="scss">
@@ -118,7 +118,7 @@ export default {
 // layout
 html {
   background: var(--bg);
-  font-family: "Roboto Mono", monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 100%;
   color: #888;
 }
@@ -140,7 +140,7 @@ body {
   transition: opacity 0.5s linear;
 
   &:after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     top: 50vh;

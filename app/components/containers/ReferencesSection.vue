@@ -24,15 +24,15 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItemType } from "#shared/types/common/card-item";
+import type { CardItemType } from '#shared/types/common/card-item'
 
 defineProps<{
-  title: string;
-}>();
+  title: string
+}>()
 
-const { tm } = useI18n();
-const breakpoints = useAppBreakpoints();
+const { tm } = useI18n()
+const breakpoints = useAppBreakpoints()
 const articles = computed<CardItemType[]>(() =>
-  tm("components.containers.references"),
-);
+  tm('components.containers.references')
+)
 </script>

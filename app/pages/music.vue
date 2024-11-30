@@ -12,7 +12,7 @@ definePageMeta({
   ribbon: true,
   footerFull: true,
   footerCompact: false,
-});
+})
 
 // const {
 //   data: view,

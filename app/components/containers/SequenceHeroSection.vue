@@ -61,203 +61,202 @@
 </template>
 
 <script setup lang="ts">
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import HeroIcon from "~/components/common/HeroIcon.vue";
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import HeroIcon from '~/components/common/HeroIcon.vue'
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 const props = withDefaults(
   defineProps<{
-    title: string;
-    description: string;
-    background: string;
+    title: string
+    description: string
+    background: string
   }>(),
   {
     title: "Privacy. That's Apple.",
     description:
       "Privacy is a fundamental human right. It's also one of our core values. Which is why we design our products and services to protect it. That's the kind of innovation we believe&nbsp;in.",
     background:
-      "https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large.jpg",
-  },
-);
+      'https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large.jpg',
+  }
+)
 
-const sectionRef = ref<HTMLElement | null>(null);
+const sectionRef = ref<HTMLElement | null>(null)
 
-const heroIconRef = ref<InstanceType<typeof HeroIcon> | null>(null);
-const headlineRef = ref<HTMLElement | null>(null);
-const copyContainerRef = ref<HTMLElement | null>(null);
+const heroIconRef = ref<InstanceType<typeof HeroIcon> | null>(null)
+const headlineRef = ref<HTMLElement | null>(null)
+const copyContainerRef = ref<HTMLElement | null>(null)
 
-const isLoading = ref(true);
-const isFallbackMode = ref(false);
+const isLoading = ref(true)
+const isFallbackMode = ref(false)
 
-const { width: windowWidth, height: windowHeight } = useWindowSize();
+const { width: windowWidth, height: windowHeight } = useWindowSize()
 
 // Animation variables
-const backgroundSize = ref("3292.0888888888894px 985.0000000000001px");
-const backgroundMultiplier = ref(1.0944444444444446);
-const heroOffset = ref("180.5px");
-const iconHeight = ref("92px");
-const backgroundBlur = ref(0);
-const backgroundAlpha = ref(0);
-const backgroundOpacity = ref(1);
-const iconScale = ref(1);
-const iconTranslateY = ref(0);
-const copyTranslateY = ref(0);
-const copyOpacity = ref(0);
+const backgroundSize = ref('3292.0888888888894px 985.0000000000001px')
+const backgroundMultiplier = ref(1.0944444444444446)
+const heroOffset = ref('180.5px')
+const iconHeight = ref('92px')
+const backgroundBlur = ref(0)
+const backgroundAlpha = ref(0)
+const backgroundOpacity = ref(1)
+const iconScale = ref(1)
+const iconTranslateY = ref(0)
+const copyTranslateY = ref(0)
+const copyOpacity = ref(0)
 
 // Computed styles
 const sectionStyles = computed(() => ({
-  "--background-size": backgroundSize.value,
-  "--background-multiplier": backgroundMultiplier.value,
-  "--hero-offset": heroOffset.value,
-  "--icon-height": iconHeight.value,
-  "--background-blur": `${backgroundBlur.value}px`,
-  "--background-alpha": `rgba(0, 0, 0, ${backgroundAlpha.value})`,
-}));
+  '--background-size': backgroundSize.value,
+  '--background-multiplier': backgroundMultiplier.value,
+  '--hero-offset': heroOffset.value,
+  '--icon-height': iconHeight.value,
+  '--background-blur': `${backgroundBlur.value}px`,
+  '--background-alpha': `rgba(0, 0, 0, ${backgroundAlpha.value})`,
+}))
 
 const backgroundStyles = computed(() => ({
   opacity: backgroundOpacity.value,
-}));
+}))
 
 const iconContainerStyles = computed(() => ({
   transform: `matrix(${iconScale.value}, 0, 0, ${iconScale.value}, 0, ${iconTranslateY.value})`,
-}));
+}))
 
 const copyStyles = computed(() => ({
   transform: `matrix(1, 0, 0, 1, 0, ${copyTranslateY.value})`,
   opacity: copyOpacity.value,
-}));
+}))
 
 // Headline formatting
 const formattedHeadline = computed(() => {
   return props.title
-    .split("")
+    .split('')
     .map((char, index) => {
-      return `<span class="animate-character" aria-hidden="true" style="transform: matrix(0, 0, 0, 0, ${299.2 - index * 29.75}, 0)">${char}</span>`;
+      return `<span class="animate-character" aria-hidden="true" style="transform: matrix(0, 0, 0, 0, ${299.2 - index * 29.75}, 0)">${char}</span>`
     })
-    .join("");
-});
+    .join('')
+})
 
 const formattedMaskedHeadline = computed(() => {
   return props.title
-    .split("")
+    .split('')
     .map((_, index) => {
-      return `<span class="animate-character dot-character" aria-hidden="true" style="transform: matrix(1, 0, 0, 1, ${299.2 - index * 29.75}, 0)"></span>`;
+      return `<span class="animate-character dot-character" aria-hidden="true" style="transform: matrix(1, 0, 0, 1, ${299.2 - index * 29.75}, 0)"></span>`
     })
-    .join("");
-});
+    .join('')
+})
 
 // Lifecycle hooks
 onMounted(() => {
-  initializeAnimation();
-  window.addEventListener("resize", handleResize);
-});
+  initializeAnimation()
+  window.addEventListener('resize', handleResize)
+})
 
 onUnmounted(() => {
-  window.removeEventListener("resize", handleResize);
-});
+  window.removeEventListener('resize', handleResize)
+})
 
 // Methods
 const initializeAnimation = () => {
   if (!sectionRef.value || !headlineRef.value || !copyContainerRef.value) {
-    return;
+    return
   }
 
   const timeline = gsap.timeline({
     scrollTrigger: {
       trigger: sectionRef.value,
-      start: "top top",
-      end: "bottom top",
+      start: 'top top',
+      end: 'bottom top',
       scrub: true,
     },
-  });
+  })
 
   // Background animation
   timeline
     .to(backgroundBlur, { value: 50, duration: 1 })
-    .to(backgroundAlpha, { value: 0.6, duration: 1 }, "<");
+    .to(backgroundAlpha, { value: 0.6, duration: 1 }, '<')
 
   // Icon animation
   timeline
-    .to(iconScale, { value: 1.35, duration: 0.2, ease: "power2.out" })
+    .to(iconScale, { value: 1.35, duration: 0.2, ease: 'power2.out' })
     .to(
       iconTranslateY,
-      { value: -80, duration: 0.4, ease: "power2.inOut" },
-      "<",
-    );
+      { value: -80, duration: 0.4, ease: 'power2.inOut' },
+      '<'
+    )
 
   // Copy animation
   timeline
-    .to(copyOpacity, { value: 1, duration: 0.3 }, "-=0.2")
+    .to(copyOpacity, { value: 1, duration: 0.3 }, '-=0.2')
     .to(
       copyTranslateY,
-      { value: -80, duration: 0.4, ease: "power2.inOut" },
-      "<",
-    );
+      { value: -80, duration: 0.4, ease: 'power2.inOut' },
+      '<'
+    )
 
   // Headline animation
-  const headlineChars =
-    headlineRef.value.querySelectorAll(".animate-character");
+  const headlineChars = headlineRef.value.querySelectorAll('.animate-character')
   headlineChars.forEach((char, index) => {
     timeline.fromTo(
       char,
       { opacity: 0, y: 20, scale: 0 },
-      { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power2.out" },
-      index * 0.05,
-    );
-  });
+      { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power2.out' },
+      index * 0.05
+    )
+  })
 
   // Masked headline animation
-  const maskedChars = headlineRef.value.querySelectorAll(".dot-character");
+  const maskedChars = headlineRef.value.querySelectorAll('.dot-character')
   maskedChars.forEach((char, index) => {
     timeline.to(
       char,
-      { scale: 0, duration: 0.3, ease: "power2.in" },
-      0.5 + index * 0.05,
-    );
-  });
+      { scale: 0, duration: 0.3, ease: 'power2.in' },
+      0.5 + index * 0.05
+    )
+  })
 
   // Icon-specific animations
-  if (!heroIconRef.value) return;
+  if (!heroIconRef.value) return
   const iconTimeline = gsap.timeline({
     scrollTrigger: {
       trigger: sectionRef.value,
-      start: "top top",
-      end: "bottom top",
+      start: 'top top',
+      end: 'bottom top',
       scrub: true,
     },
-  });
+  })
 
-  heroIconRef.value.animate(iconTimeline);
+  heroIconRef.value.animate(iconTimeline)
 
-  isLoading.value = false;
-};
+  isLoading.value = false
+}
 
 const handleResize = () => {
-  updateBackgroundSize();
-  checkFallbackState();
-};
+  updateBackgroundSize()
+  checkFallbackState()
+}
 
 const updateBackgroundSize = () => {
-  const backgroundAspectRatio = 3292 / 985;
-  const scale = Math.max(windowWidth.value / 3292, windowHeight.value / 985);
-  backgroundSize.value = `${3292 * scale}px ${985 * scale}px`;
-  backgroundMultiplier.value = scale;
-};
+  const backgroundAspectRatio = 3292 / 985
+  const scale = Math.max(windowWidth.value / 3292, windowHeight.value / 985)
+  backgroundSize.value = `${3292 * scale}px ${985 * scale}px`
+  backgroundMultiplier.value = scale
+}
 
 const checkFallbackState = () => {
-  if (!sectionRef.value) return;
+  if (!sectionRef.value) return
   const fallbackHeight = Number.parseInt(
-    getComputedStyle(sectionRef.value).getPropertyValue("--fallback-height"),
-  );
-  isFallbackMode.value = windowHeight.value <= fallbackHeight;
-};
+    getComputedStyle(sectionRef.value).getPropertyValue('--fallback-height')
+  )
+  isFallbackMode.value = windowHeight.value <= fallbackHeight
+}
 
 // Watch for changes in window size
 watch([windowWidth, windowHeight], () => {
-  handleResize();
-});
+  handleResize()
+})
 </script>
 
 <style scoped>
@@ -270,9 +269,9 @@ watch([windowWidth, windowHeight], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 @media only screen and (max-width: 1068px) {
@@ -285,9 +284,9 @@ watch([windowWidth, windowHeight], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -301,9 +300,9 @@ watch([windowWidth, windowHeight], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -316,9 +315,9 @@ watch([windowWidth, windowHeight], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 @media only screen and (max-width: 1068px) {
@@ -331,9 +330,9 @@ watch([windowWidth, windowHeight], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -347,9 +346,9 @@ watch([windowWidth, windowHeight], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -374,9 +373,9 @@ watch([windowWidth, windowHeight], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 @media only screen and (max-width: 1068px) {
@@ -389,9 +388,9 @@ watch([windowWidth, windowHeight], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -405,9 +404,9 @@ watch([windowWidth, windowHeight], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -420,9 +419,9 @@ watch([windowWidth, windowHeight], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 @media only screen and (max-width: 1068px) {
@@ -435,9 +434,9 @@ watch([windowWidth, windowHeight], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -451,9 +450,9 @@ watch([windowWidth, windowHeight], () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -503,7 +502,7 @@ watch([windowWidth, windowHeight], () => {
 }
 @media only screen and (min-width: 735px) {
   .section-hero .pseudo-space:before {
-    content: "\00a0";
+    content: '\00a0';
   }
 }
 @media only screen and (max-width: 734px) {
@@ -565,7 +564,7 @@ watch([windowWidth, windowHeight], () => {
 .section-hero .overview-hero-background:before {
   background-repeat: no-repeat;
   background-image: var(--background-image);
-  content: "";
+  content: '';
   position: absolute;
   background-size: var(--background-size);
   background-position-y: 12px;
@@ -585,33 +584,33 @@ watch([windowWidth, windowHeight], () => {
   (-webkit-min-device-pixel-ratio: 1.5),
   (min-resolution: 144dpi) {
   .section-hero .overview-hero-background:before {
-    background-image: url("https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large_2x.jpg");
+    background-image: url('https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large_2x.jpg');
   }
 }
 @media only screen and (max-width: 1068px) {
   .section-hero .overview-hero-background:before {
     background-repeat: no-repeat;
-    background-image: url("https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_medium.jpg");
+    background-image: url('https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_medium.jpg');
   }
 }
 @media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
   only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
   only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
   .section-hero .overview-hero-background:before {
-    background-image: url("https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_medium_2x.jpg");
+    background-image: url('https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_medium_2x.jpg');
   }
 }
 @media only screen and (max-width: 734px) {
   .section-hero .overview-hero-background:before {
     background-repeat: no-repeat;
-    background-image: url("https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_small.jpg");
+    background-image: url('https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_small.jpg');
   }
 }
 @media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
   only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
   only screen and (max-width: 734px) and (min-resolution: 144dpi) {
   .section-hero .overview-hero-background:before {
-    background-image: url("https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_small_2x.jpg");
+    background-image: url('https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_small_2x.jpg');
   }
 }
 @media only screen and (max-width: 1068px) {
@@ -629,7 +628,7 @@ watch([windowWidth, windowHeight], () => {
   background-attachment: fixed;
 }
 .section-hero .overview-hero-background:after {
-  content: "";
+  content: '';
   background: var(--background-alpha);
   height: 110%;
 }

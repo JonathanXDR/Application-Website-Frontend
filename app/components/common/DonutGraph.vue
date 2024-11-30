@@ -72,10 +72,10 @@ br.medium {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica
-Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica
+Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 @media only screen and (max-width: 1023px) {
@@ -87,9 +87,9 @@ Neue",
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -102,9 +102,9 @@ Neue",
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -132,9 +132,9 @@ br.medium {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 @media only screen and (max-width: 1023px) {
@@ -146,9 +146,9 @@ br.medium {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -161,9 +161,9 @@ br.medium {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -211,7 +211,7 @@ svg.ac-graph-svg {
 }
 .wedge-legend:before {
   display: inline-block;
-  content: "";
+  content: '';
   width: var(--size);
   height: var(--size);
   border-radius: 50%; /* --size: 10px; */

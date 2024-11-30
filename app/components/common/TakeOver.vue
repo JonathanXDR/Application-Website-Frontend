@@ -61,52 +61,52 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from "dayjs";
+import dayjs from 'dayjs'
 
 interface Properties {
-  eventTitle: string;
+  eventTitle: string
   eventDuration: {
-    start: Date;
-    end: Date;
-  };
-  showCountdown?: boolean;
-  calendarLink: string;
-  eventLink: string;
+    start: Date
+    end: Date
+  }
+  showCountdown?: boolean
+  calendarLink: string
+  eventLink: string
 }
 
 const properties = withDefaults(defineProps<Properties>(), {
   showCountdown: true,
-});
+})
 
-type EventState = "pre-event" | "live" | "post-event";
-const eventState = ref<EventState>("pre-event");
+type EventState = 'pre-event' | 'live' | 'post-event'
+const eventState = ref<EventState>('pre-event')
 
 const calculateEventState = () => {
-  const now = dayjs();
-  const start = dayjs(properties.eventDuration.start);
-  const end = dayjs(properties.eventDuration.end);
+  const now = dayjs()
+  const start = dayjs(properties.eventDuration.start)
+  const end = dayjs(properties.eventDuration.end)
 
   if (now.isBefore(start)) {
-    eventState.value = "pre-event";
+    eventState.value = 'pre-event'
   } else if (now.isAfter(end)) {
-    eventState.value = "post-event";
+    eventState.value = 'post-event'
   } else {
-    eventState.value = "live";
+    eventState.value = 'live'
   }
-};
+}
 
-let timer: NodeJS.Timeout | undefined;
+let timer: NodeJS.Timeout | undefined
 
 onMounted(() => {
-  calculateEventState();
-  timer = setInterval(calculateEventState, 1000);
-});
+  calculateEventState()
+  timer = setInterval(calculateEventState, 1000)
+})
 
 onUnmounted(() => {
   if (timer !== undefined) {
-    clearInterval(timer);
+    clearInterval(timer)
   }
-});
+})
 </script>
 
 <style scoped>
@@ -118,9 +118,9 @@ onUnmounted(() => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   margin-bottom: 24px;
 }
@@ -133,9 +133,9 @@ onUnmounted(() => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -148,9 +148,9 @@ onUnmounted(() => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -210,9 +210,9 @@ onUnmounted(() => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   margin-bottom: 24px;
 }
@@ -225,9 +225,9 @@ onUnmounted(() => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -240,9 +240,9 @@ onUnmounted(() => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -389,9 +389,9 @@ onUnmounted(() => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   padding: 8px 16px;
   background: var(--color-fill-gray-quaternary);
@@ -468,9 +468,9 @@ onUnmounted(() => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   padding: 10px 24px 9px;
   background: var(--color-fill-gray-quaternary);
@@ -482,9 +482,9 @@ onUnmounted(() => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   padding: 12px 24px 11px;
   transition:
@@ -511,7 +511,7 @@ onUnmounted(() => {
   align-items: center;
 }
 .takeover .event-info-cta-area .watch-live::before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 0.5882352941em;
   height: 0.5882352941em;

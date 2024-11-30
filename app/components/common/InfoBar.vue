@@ -40,31 +40,31 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-import type { IconType } from "#shared/types/common/icon";
-import type { InfoType } from "#shared/types/common/info";
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import type { IconType } from '#shared/types/common/icon'
+import type { InfoType } from '#shared/types/common/info'
 
 const properties = withDefaults(defineProps<InfoType>(), {
   loading: false,
   date: () => ({
     formatOptions: () => ({
-      year: "numeric",
-      month: "long",
-      day: "numeric",
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
     }),
   }),
-});
+})
 
-dayjs.extend(relativeTime);
+dayjs.extend(relativeTime)
 
-const { locale } = useI18n();
+const { locale } = useI18n()
 const infoItems: { id: keyof InfoType; icon: IconType }[] = [
-  { id: "location", icon: { name: "location.fill" } },
-  { id: "supervisor", icon: { name: "person.fill" } },
-  { id: "department", icon: { name: "tag.fill" } },
-  { id: "language", icon: { name: "bubble.left.fill" } },
-  { id: "license", icon: { name: "scroll.fill" } },
+  { id: 'location', icon: { name: 'location.fill' } },
+  { id: 'supervisor', icon: { name: 'person.fill' } },
+  { id: 'department', icon: { name: 'tag.fill' } },
+  { id: 'language', icon: { name: 'bubble.left.fill' } },
+  { id: 'license', icon: { name: 'scroll.fill' } },
   // { id: "forks", icon: { name: "document.on.document.fill" } },
   // { id: "networks", icon: { name: "network" } },
   // { id: "watchers", icon: { name: "eye.fill" } },
@@ -76,51 +76,51 @@ const infoItems: { id: keyof InfoType; icon: IconType }[] = [
   // { id: "commits", icon: { name: "doc.text.fill" } },
   // { id: "branches", icon: { name: "arrow.branch" } },
   // { id: "contributors", icon: { name: "person.2.fill" } },
-];
+]
 
 const updatedYesterday = computed(() => {
-  if (!properties.date.fixed) return false;
-  const updatedDate = dayjs(properties.date.fixed);
-  const currentDate = dayjs();
-  return currentDate.diff(updatedDate, "day") <= 1;
-});
+  if (!properties.date.fixed) return false
+  const updatedDate = dayjs(properties.date.fixed)
+  const currentDate = dayjs()
+  return currentDate.diff(updatedDate, 'day') <= 1
+})
 
 const formatDate = (
   dateString: string,
-  formatOptions: Intl.DateTimeFormatOptions,
+  formatOptions: Intl.DateTimeFormatOptions
 ) => {
-  return new Date(dateString).toLocaleDateString(locale.value, formatOptions);
-};
+  return new Date(dateString).toLocaleDateString(locale.value, formatOptions)
+}
 
 const getDate = () => {
-  const { duration, formatOptions, fixed, event } = properties.date;
+  const { duration, formatOptions, fixed, event } = properties.date
 
   if (duration && formatOptions) {
     const formattedDuration = `${formatDate(
       duration.from,
-      formatOptions(),
-    )} - ${formatDate(duration.to, formatOptions())}`;
+      formatOptions()
+    )} - ${formatDate(duration.to, formatOptions())}`
 
-    return formattedDuration;
+    return formattedDuration
   } else if (fixed && event) {
     const formattedevent = `${event?.charAt(0).toUpperCase()}${event?.slice(
-      1,
-    )} ${dayjs(fixed).locale(locale.value).fromNow()}`;
+      1
+    )} ${dayjs(fixed).locale(locale.value).fromNow()}`
 
-    return formattedevent;
+    return formattedevent
   } else if (fixed && formatOptions) {
-    const formattedFixedDate = formatDate(fixed.toString(), formatOptions());
+    const formattedFixedDate = formatDate(fixed.toString(), formatOptions())
 
-    return formattedFixedDate;
+    return formattedFixedDate
   }
-};
+}
 
-const dateTitle = ref(getDate());
+const dateTitle = ref(getDate())
 
 watch([locale, () => properties.date], () => {
-  dayjs.locale(locale.value);
-  dateTitle.value = getDate();
-});
+  dayjs.locale(locale.value)
+  dateTitle.value = getDate()
+})
 </script>
 
 <style scoped>
@@ -136,9 +136,9 @@ watch([locale, () => properties.date], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   display: flex;
   justify-content: flex-start;

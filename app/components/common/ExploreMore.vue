@@ -37,12 +37,12 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicPropertiesType } from "#shared/types/common/basic-properties";
+import type { BasicPropertiesType } from '#shared/types/common/basic-properties'
 
 withDefaults(defineProps<Partial<BasicPropertiesType>>(), {
-  title: "Explore more details",
-  icon: () => ({ name: "plus" }),
-});
+  title: 'Explore more details',
+  icon: () => ({ name: 'plus' }),
+})
 </script>
 
 <style scoped>

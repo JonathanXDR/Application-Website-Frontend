@@ -20,22 +20,22 @@
 </template>
 
 <script setup lang="ts">
-import type { ColorType } from "#shared/types/common/color";
+import type { ColorType } from '#shared/types/common/color'
 
 withDefaults(
   defineProps<{
-    progress: number;
-    colors?: ColorType;
-    background?: boolean;
+    progress: number
+    colors?: ColorType
+    background?: boolean
   }>(),
   {
     colors: () => ({
-      primary: "var(--color-fill-gray)",
-      secondary: "var(--color-fill-gray-secondary)",
+      primary: 'var(--color-fill-gray)',
+      secondary: 'var(--color-fill-gray-secondary)',
     }),
     background: false,
-  },
-);
+  }
+)
 </script>
 
 <style scoped>

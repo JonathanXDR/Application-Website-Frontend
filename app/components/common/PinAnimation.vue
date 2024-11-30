@@ -31,9 +31,9 @@
 
 <script setup lang="ts">
 defineProps<{
-  title?: string;
-  description?: string;
-}>();
+  title?: string
+  description?: string
+}>()
 </script>
 
 <style scoped>
@@ -46,9 +46,9 @@ defineProps<{
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 @media only screen and (max-width: 1023px) {
@@ -61,9 +61,9 @@ defineProps<{
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -77,9 +77,9 @@ defineProps<{
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -160,7 +160,7 @@ defineProps<{
   height: 72%;
 }
 .pin-single-wide .image-pin:before {
-  content: "";
+  content: '';
   position: absolute;
   top: -52%;
   left: -2%;
@@ -185,7 +185,7 @@ defineProps<{
   height: 100%;
 }
 .pin-double-wide .image-pin:before {
-  content: "";
+  content: '';
   position: absolute;
   top: -50%;
   left: -2%;

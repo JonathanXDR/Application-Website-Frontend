@@ -20,18 +20,18 @@
 </template>
 
 <script setup lang="ts">
-import type { ItemType } from "#shared/types/common/item";
+import type { ItemType } from '#shared/types/common/item'
 
 withDefaults(
   defineProps<{
-    options: ItemType[];
-    label?: string;
+    options: ItemType[]
+    label?: string
   }>(),
   {
     options: () => [],
     label: undefined,
-  },
-);
+  }
+)
 </script>
 
 <style scoped>
@@ -46,9 +46,9 @@ withDefaults(
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   display: flex;
   justify-content: center;
@@ -99,9 +99,9 @@ withDefaults(
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
   position: absolute;
   top: 8px;

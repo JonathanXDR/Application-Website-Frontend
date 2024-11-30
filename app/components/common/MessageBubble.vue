@@ -5,8 +5,8 @@
   >
     <div :class="`message message--${color}`">
       <p class="typography-imessage-text message-copy">
-        <span class="visuallyhidden">Text message reading:&nbsp;</span> One sec.
-        <br class="small" />Moving to my iPhone.
+        <span class="visuallyhidden">Text message reading:&nbsp;</span>
+        One sec. <br class="small" />Moving to my iPhone.
       </p>
       <svg
         :class="`message-tail message-tail--${
@@ -33,14 +33,14 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    color?: "gray" | "blue" | "green";
-    direction?: "left" | "right";
+    color?: 'gray' | 'blue' | 'green'
+    direction?: 'left' | 'right'
   }>(),
   {
-    color: "gray",
-    direction: "left",
-  },
-);
+    color: 'gray',
+    direction: 'left',
+  }
+)
 </script>
 
 <style scoped>
@@ -96,9 +96,9 @@ br.small {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
     sans-serif;
 }
 @media only screen and (max-width: 1023px) {
@@ -109,9 +109,9 @@ br.small {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -123,9 +123,9 @@ br.small {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      'Helvetica Neue',
+      'Helvetica',
+      'Arial',
       sans-serif;
   }
 }
@@ -307,7 +307,7 @@ br.small {
 }
 .message:after,
 .message:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   aspect-ratio: 1/1;

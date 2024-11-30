@@ -16,9 +16,9 @@
 </template>
 
 <script setup lang="ts">
-import type { SectionType } from "#shared/types/common/section";
+import type { SectionType } from '#shared/types/common/section'
 
-defineOgImageComponent("Overview");
+defineOgImageComponent('Overview')
 
 definePageMeta({
   header: true,
@@ -26,10 +26,10 @@ definePageMeta({
   ribbon: true,
   footerFull: true,
   footerCompact: false,
-});
+})
 
-const { tm } = useI18n();
-const sections = computed<SectionType[]>(() => tm("components.common.NavBar"));
+const { tm } = useI18n()
+const sections = computed<SectionType[]>(() => tm('components.common.NavBar'))
 </script>
 
 <style scoped>
