@@ -7,7 +7,7 @@
         v-animation="{ add: 'visible' }"
         class="social-option"
       >
-        <SiteLink
+        <NuxtLink
           class="link"
           :to="link.url"
           :title="link.title"
@@ -15,7 +15,7 @@
           external
         >
           <Icon :name="`fa6-${link.category}:${link.icon?.name}`" />
-        </SiteLink>
+        </NuxtLink>
       </li>
     </ul>
   </section>

@@ -8,7 +8,7 @@
     aria-expanded="false"
     :disabled="navOpening"
     @input="handleNav()"
-  />
+  >
   <div
     id="ac-ln-fixed-placeholder"
     :class="[
@@ -39,17 +39,23 @@
     aria-label="Local"
   >
     <div class="ac-ln-wrapper">
-      <div ref="backgroundElement" class="ac-ln-background" />
+      <div
+        ref="backgroundElement"
+        class="ac-ln-background"
+      />
       <div class="ac-ln-content">
         <div class="ac-ln-title">
-          <SiteLink to="/" aria-label="JR">
+          <NuxtLink
+            to="/"
+            aria-label="JR"
+          >
             <SiteLogo
               :style="{
                 height: '13px !important',
                 width: 'auto',
               }"
             />
-          </SiteLink>
+          </NuxtLink>
           <DevelopmentBadge
             v-if="config.public.appEnvironment === 'development'"
             :color="{
@@ -108,8 +114,14 @@
             </ul>
           </div>
           <div class="ac-ln-actions">
-            <div class="ac-ln-action ac-ln-action-menucta" aria-hidden="true">
-              <label for="ac-ln-menustate" class="ac-ln-menucta">
+            <div
+              class="ac-ln-action ac-ln-action-menucta"
+              aria-hidden="true"
+            >
+              <label
+                for="ac-ln-menustate"
+                class="ac-ln-menucta"
+              >
                 <span class="ac-ln-menucta-chevron">
                   <svg
                     viewBox="0 0 16 9"
@@ -177,7 +189,10 @@
       </div>
     </div>
   </nav>
-  <label id="ac-ln-curtain" for="ac-ln-menustate" />
+  <label
+    id="ac-ln-curtain"
+    for="ac-ln-menustate"
+  />
 </template>
 
 <script setup lang="ts">
