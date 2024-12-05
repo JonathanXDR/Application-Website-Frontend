@@ -12,6 +12,11 @@
           aria-hidden="true"
           style="color: var(--replay-text-color); width: 17px; height: 17px"
         >
+          <!-- <SFSymbol
+            name="chevron.down"
+            size="small"
+            class="icon icon-show-more"
+          /> -->
           <svg
             viewBox="0 0 70.041 40.874"
             fill="none"
@@ -98,144 +103,6 @@
   opacity: 1;
   transform: translateY(0);
 }
-.text:lang(ar) {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Apple Color Emoji,
-    SF Pro,
-    Arabic UI Display,
-    SF Pro Icons,
-    Segoe UI,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
-  line-height: 1.75;
-}
-.text:lang(hi) {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Apple Color Emoji,
-    SF Pro,
-    Kohinoor Devanagari,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
-  line-height: 1.7875;
-}
-.text:lang(ja) {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Apple Color Emoji,
-    SF Pro,
-    Hiragino Sans,
-    SF Pro Icons,
-    Hiragino Kaku Gothic Pro,
-    ヒラギノ角ゴ Pro W3,
-    メイリオ,
-    Meiryo,
-    ＭＳ Ｐゴシック,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
-  line-height: 1.34375;
-}
-.text:lang(ko) {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Apple Color Emoji,
-    SF Pro,
-    Apple SD Gothic Neo,
-    SF Pro Icons,
-    Apple Gothic,
-    HY Gulim,
-    MalgunGothic,
-    HY Dotum,
-    Lexi Gulim,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
-  line-height: 1.375;
-}
-.text:lang(th) {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Apple Color Emoji,
-    SF Pro,
-    Thonburi Pro,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
-  line-height: 1.7875;
-}
-.text:lang(zh) {
-  line-height: 1.34375;
-}
-.text:lang(he) {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Apple Color Emoji,
-    SF Pro,
-    Arial Hebrew,
-    SF Pro Icons,
-    Segoe UI,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
-}
-.text:lang(zh-CN) {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Apple Color Emoji,
-    SF Pro,
-    PingFang SC,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
-}
-.text:lang(zh-HK),
-.text:lang(zh-MO) {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Apple Color Emoji,
-    SF Pro,
-    PingFang HK,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
-}
-.text:lang(zh-TW) {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Apple Color Emoji,
-    SF Pro,
-    PingFang TC,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
-}
 @media (min-width: 1260px) {
   .text {
     font-family:
@@ -253,144 +120,6 @@
     grid-column: 4 / span 6;
     letter-spacing: 0;
     line-height: 1.0834933333;
-  }
-  .text:lang(ar) {
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Apple Color Emoji,
-      SF Pro,
-      Arabic UI Display,
-      SF Pro Icons,
-      Segoe UI,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
-    line-height: 1.5166666667;
-  }
-  .text:lang(hi) {
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Apple Color Emoji,
-      SF Pro,
-      Kohinoor Devanagari,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
-    line-height: 1.5491666667;
-  }
-  .text:lang(ja) {
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Apple Color Emoji,
-      SF Pro,
-      Hiragino Sans,
-      SF Pro Icons,
-      Hiragino Kaku Gothic Pro,
-      ヒラギノ角ゴ Pro W3,
-      メイリオ,
-      Meiryo,
-      ＭＳ Ｐゴシック,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
-    line-height: 1.1459933333;
-  }
-  .text:lang(ko) {
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Apple Color Emoji,
-      SF Pro,
-      Apple SD Gothic Neo,
-      SF Pro Icons,
-      Apple Gothic,
-      HY Gulim,
-      MalgunGothic,
-      HY Dotum,
-      Lexi Gulim,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
-    line-height: 1.1916666667;
-  }
-  .text:lang(th) {
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Apple Color Emoji,
-      SF Pro,
-      Thonburi Pro,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
-    line-height: 1.5491666667;
-  }
-  .text:lang(zh) {
-    line-height: 1.1459933333;
-  }
-  .text:lang(he) {
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Apple Color Emoji,
-      SF Pro,
-      Arial Hebrew,
-      SF Pro Icons,
-      Segoe UI,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
-  }
-  .text:lang(zh-CN) {
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Apple Color Emoji,
-      SF Pro,
-      PingFang SC,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
-  }
-  .text:lang(zh-HK),
-  .text:lang(zh-MO) {
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Apple Color Emoji,
-      SF Pro,
-      PingFang HK,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
-  }
-  .text:lang(zh-TW) {
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Apple Color Emoji,
-      SF Pro,
-      PingFang TC,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
   }
 }
 .text em {
@@ -488,7 +217,7 @@
 }
 
 .icon-show-more {
-  width: 3em;
-  height: 3em;
+  width: 1.0625em;
+  height: 1.0625em;
 }
 </style>
