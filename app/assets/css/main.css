@@ -682,7 +682,21 @@ body main ::-webkit-scrollbar-track {
   --color-syntax-urls: #69f;
 }
 
-:host {
+:root {
+  --keyline-border-style: 0.5px solid var(--labelDivider);
+  --z-unset: unset;
+  --z-default: 1;
+  --z-bubbles: 50;
+  --z-gpu: 1001;
+  --z-web-chrome: 9901;
+  --z-contextual-menus: 9951;
+  --z-modal: 10001;
+  --global-transition-property: opacity;
+  --global-transition-duration: 0.1s;
+  --global-transition-timing-function: ease-in;
+  --global-transition: var(--global-transition-property, opacity)
+    var(--global-transition-duration, 0.1s)
+    var(--global-transition-timing-function, ease-in);
   --systemRed: #ff3b30;
   --systemRed-vibrant: #f53126;
   --systemRed-default_IC: #d70015;
@@ -855,8 +869,8 @@ body main ::-webkit-scrollbar-track {
   --systemToolbarTitlebarMaterialSover-inactive_IC: #ececec;
   --labelDivider: rgba(0, 0, 0, 0.15);
   --vibrantDivider: rgba(60, 60, 67, 0.29);
-  --pageBG: #fffcf1;
-  --pageBG-rgb: 255, 252, 241;
+  --pageBG: #fff;
+  --pageBG-rgb: 255, 255, 255;
   --shelfBG: rgba(0, 0, 0, 0.05);
   --genericJoeColor: #ebebeb;
   --fallbackMaterialBG: hsla(0, 0%, 100%, 0.97);
@@ -916,30 +930,24 @@ body main ::-webkit-scrollbar-track {
   --musicKeyColor-disabled_IC: rgba(214, 0, 23, 0.25);
   --circularArtistHeaderGradientBottom: rgba(0, 0, 0, 0.05);
   --fallbackButtonMaterial: hsla(240, 2%, 57%, 0.8);
+  --playerMissingArtworkIcon: #dcdcdc;
+  --playerMissingArtworkBg: #e9e9e9;
   --playerPlatterButtonBGFill: #6c6c6c;
   --playerPlatterButtonIconFill: #fff;
-  --shareButtonBackground: rgba(0, 0, 0, 0.3);
-  --shareButtonIconFill: #fff;
   --stickyHeaderDropShadow2: rgba(0, 0, 0, 0.07);
   --stickyHeaderInnerShadow: hsla(0, 0%, 100%, 0.45);
-  --opaqueText: #000;
-  --opaqueText-rgb: 0, 0, 0;
-  --opaqueTextInverted: #fff;
-  --opaqueTextInverted-rgb: 255, 255, 255;
-  --text70: rgba(0, 0, 0, 0.7);
-  --text70-default_IC: rgba(0, 0, 0, 0.9);
-  --text80: rgba(0, 0, 0, 0.8);
-  --text80-default_IC: rgba(0, 0, 0, 0.95);
   --tracklistAltRowColor: rgba(0, 0, 0, 0.015);
   --tracklistAltRowColor-default_IC: rgba(0, 0, 0, 0.05);
   --tracklistHoverColor: rgba(0, 0, 0, 0.06);
   --tracklistHoverColor-default_IC: rgba(0, 0, 0, 0.1);
-  --tracklistWorksTrackHoverColor: rgba(0, 0, 0, 0.12);
+  --tracklistWorksTrackHoverColor: rgba(0, 0, 0, 0.1);
   --tracklistWorksTrackHoverColor-default_IC: rgba(0, 0, 0, 0.18);
   --trackLockupArtworkOverlay: rgba(51, 51, 51, 0.3);
   --lyricsBg: #fff;
-  --searchBarBorderColorSidebarHidden: rgba(0, 0, 0, 0.15);
-  --iPhoneNowPlayingBackdropBG: #dbccc4;
+  --nowPlayingBackdropBG: #878787;
+  --tracklistBadgeBorderColor: #fbfbfb;
+  --tracklistBadgeBackgroundColor: #e9e9ea;
+  --systemGroupedBackgroundSecondary: #fff;
   --keyColorBG: #fa233b;
   --keyColorBG-default_IC: #d60017;
   --selectionColor: #dd1f34;
@@ -949,8 +957,9 @@ body main ::-webkit-scrollbar-track {
   --profileBadgeBG: #e2e4e7;
   color-scheme: light dark;
 }
+
 @supports not (font: -apple-system-body) {
-  :host {
+  :root {
     --systemPrimary: rgba(0, 0, 0, 0.88);
     --systemPrimary-vibrant: #1d1d1f;
     --systemPrimary-onLight: rgba(0, 0, 0, 0.88);
@@ -982,7 +991,8 @@ body main ::-webkit-scrollbar-track {
     --selectionColor: #d60017;
   }
 }
-:host .increase-contrast {
+
+:root .increase-contrast {
   --systemRed: #d70015;
   --systemRed-vibrant: #c20618;
   --systemOrange: #c93400;
@@ -1078,16 +1088,15 @@ body main ::-webkit-scrollbar-track {
   --musicKeyColor-pressed: #b00;
   --musicKeyColor-deepPressed: #a20000;
   --musicKeyColor-disabled: rgba(214, 0, 23, 0.25);
-  --text70: rgba(0, 0, 0, 0.9);
-  --text80: rgba(0, 0, 0, 0.95);
   --tracklistAltRowColor: rgba(0, 0, 0, 0.05);
   --tracklistHoverColor: rgba(0, 0, 0, 0.1);
   --tracklistWorksTrackHoverColor: rgba(0, 0, 0, 0.18);
   --keyColorBG: #d60017;
   --selectionColor: #d60017;
 }
+
 @media (prefers-contrast: more) {
-  :host {
+  :root {
     --systemRed: #d70015;
     --systemRed-vibrant: #c20618;
     --systemOrange: #c93400;
@@ -1183,8 +1192,6 @@ body main ::-webkit-scrollbar-track {
     --musicKeyColor-pressed: #b00;
     --musicKeyColor-deepPressed: #a20000;
     --musicKeyColor-disabled: rgba(214, 0, 23, 0.25);
-    --text70: rgba(0, 0, 0, 0.9);
-    --text80: rgba(0, 0, 0, 0.95);
     --tracklistAltRowColor: rgba(0, 0, 0, 0.05);
     --tracklistHoverColor: rgba(0, 0, 0, 0.1);
     --tracklistWorksTrackHoverColor: rgba(0, 0, 0, 0.18);
@@ -1192,8 +1199,9 @@ body main ::-webkit-scrollbar-track {
     --selectionColor: #d60017;
   }
 }
+
 @media (prefers-color-scheme: dark) {
-  :host {
+  :root {
     --systemRed: #ff453a;
     --systemRed-vibrant: #ff4f44;
     --systemRed-default_IC: #ff6961;
@@ -1366,8 +1374,8 @@ body main ::-webkit-scrollbar-track {
     --systemToolbarTitlebarMaterialSover-inactive_IC: #141414;
     --labelDivider: hsla(0, 0%, 100%, 0.1);
     --vibrantDivider: rgba(235, 235, 245, 0.19);
-    --pageBG: #0e0e0e;
-    --pageBG-rgb: 14, 14, 14;
+    --pageBG: #1f1f1f;
+    --pageBG-rgb: 31, 31, 31;
     --shelfBG: hsla(0, 0%, 100%, 0.05);
     --genericJoeColor: #323232;
     --fallbackMaterialBG: rgba(31, 31, 31, 0.97);
@@ -1400,7 +1408,7 @@ body main ::-webkit-scrollbar-track {
     --dropdownActiveOutlineColor: #06c;
     --dropdownActiveOutlineColorShadow: rgba(0, 102, 204, 0.6);
     --radiosityShadowColor: rgba(0, 0, 0, 0.3);
-    --searchBarBorderColor: rgba(0, 0, 0, 0.15);
+    --searchBarBorderColor: hsla(0, 0%, 100%, 0.15);
     --modalScrimColor: rgba(0, 0, 0, 0.45);
     --segmentedControlBG: hsla(240, 4%, 48%, 0.24);
     --segmentedControlBG-default_IC: hsla(0, 0%, 100%, 0.24);
@@ -1427,30 +1435,24 @@ body main ::-webkit-scrollbar-track {
     --musicKeyColor-disabled_IC: rgba(250, 88, 106, 0.35);
     --circularArtistHeaderGradientBottom: hsla(0, 0%, 100%, 0.03);
     --fallbackButtonMaterial: hsla(240, 2%, 61%, 0.8);
+    --playerMissingArtworkIcon: #434343;
+    --playerMissingArtworkBg: #323232;
     --playerPlatterButtonBGFill: #fff;
     --playerPlatterButtonIconFill: rgba(0, 0, 0, 0.7);
-    --shareButtonBackground: #fff;
-    --shareButtonIconFill: #000;
     --stickyHeaderDropShadow2: rgba(0, 0, 0, 0.1);
     --stickyHeaderInnerShadow: hsla(0, 0%, 100%, 0.1);
-    --opaqueText: #fff;
-    --opaqueText-rgb: 255, 255, 255;
-    --opaqueTextInverted: #000;
-    --opaqueTextInverted-rgb: 0, 0, 0;
-    --text70: hsla(0, 0%, 100%, 0.7);
-    --text70-default_IC: hsla(0, 0%, 100%, 0.9);
-    --text80: hsla(0, 0%, 100%, 0.8);
-    --text80-default_IC: hsla(0, 0%, 100%, 0.95);
     --tracklistAltRowColor: hsla(0, 0%, 100%, 0.015);
     --tracklistAltRowColor-default_IC: hsla(0, 0%, 100%, 0.05);
     --tracklistHoverColor: hsla(0, 0%, 100%, 0.06);
     --tracklistHoverColor-default_IC: hsla(0, 0%, 100%, 0.1);
-    --tracklistWorksTrackHoverColor: hsla(0, 0%, 100%, 0.12);
+    --tracklistWorksTrackHoverColor: hsla(0, 0%, 100%, 0.1);
     --tracklistWorksTrackHoverColor-default_IC: hsla(0, 0%, 100%, 0.18);
     --trackLockupArtworkOverlay: rgba(51, 51, 51, 0.3);
     --lyricsBg: #2d2d2d;
-    --searchBarBorderColorSidebarHidden: hsla(0, 0%, 100%, 0.15);
-    --iPhoneNowPlayingBackdropBG: #dbccc4;
+    --nowPlayingBackdropBG: #878787;
+    --tracklistBadgeBorderColor: #232323;
+    --tracklistBadgeBackgroundColor: #4d4d4d;
+    --systemGroupedBackgroundSecondary: #2c2c2e;
     --keyColorBG: #fa233b;
     --keyColorBG-default_IC: #d60017;
     --selectionColor: #c11b2e;
@@ -1459,8 +1461,9 @@ body main ::-webkit-scrollbar-track {
     --librarySongsTrackInactiveBG: rgba(255, 255, 240, 0.12);
     --profileBadgeBG: #e2e4e7;
   }
+
   @supports not (font: -apple-system-body) {
-    :host {
+    :root {
       --systemPrimary: hsla(0, 0%, 100%, 0.92);
       --systemPrimary-vibrant: #f5f5f7;
       --systemPrimary-onLight: rgba(0, 0, 0, 0.88);
@@ -1491,7 +1494,8 @@ body main ::-webkit-scrollbar-track {
       --selectionColor: #a60012;
     }
   }
-  :host .increase-contrast {
+
+  :root .increase-contrast {
     --systemRed: #ff6961;
     --systemRed-vibrant: #ff4136;
     --systemOrange: #ffb340;
@@ -1588,8 +1592,6 @@ body main ::-webkit-scrollbar-track {
     --musicKeyColor-pressed: #ff7183;
     --musicKeyColor-deepPressed: #ff8a9c;
     --musicKeyColor-disabled: rgba(250, 88, 106, 0.35);
-    --text70: hsla(0, 0%, 100%, 0.9);
-    --text80: hsla(0, 0%, 100%, 0.95);
     --tracklistAltRowColor: hsla(0, 0%, 100%, 0.05);
     --tracklistHoverColor: hsla(0, 0%, 100%, 0.1);
     --tracklistWorksTrackHoverColor: hsla(0, 0%, 100%, 0.18);
@@ -1597,8 +1599,9 @@ body main ::-webkit-scrollbar-track {
     --selectionColor: #a60012;
   }
 }
+
 @media (prefers-color-scheme: dark) and (prefers-contrast: more) {
-  :host {
+  :root {
     --systemRed: #ff6961;
     --systemRed-vibrant: #ff4136;
     --systemOrange: #ffb340;
@@ -1695,22 +1698,12 @@ body main ::-webkit-scrollbar-track {
     --musicKeyColor-pressed: #ff7183;
     --musicKeyColor-deepPressed: #ff8a9c;
     --musicKeyColor-disabled: rgba(250, 88, 106, 0.35);
-    --text70: hsla(0, 0%, 100%, 0.9);
-    --text80: hsla(0, 0%, 100%, 0.95);
     --tracklistAltRowColor: hsla(0, 0%, 100%, 0.05);
     --tracklistHoverColor: hsla(0, 0%, 100%, 0.1);
     --tracklistWorksTrackHoverColor: hsla(0, 0%, 100%, 0.18);
     --keyColorBG: #d60017;
     --selectionColor: #a60012;
   }
-}
-:host {
-  --viewport-grid-layout: 'grid-layout:xs-1';
-  --viewport-sidebar: 'sidebar:hidden';
-  --viewport-search-landing-grid: 'search-landing-grid:1';
-  --viewport-default: 'xsmall';
-  --viewport-lyrics-fullscreen: 'lyrics-fullscreen:xsmall';
-  --viewport-text-fullscreen: 'text-fullscreen:xsmall';
 }
 
 body {
