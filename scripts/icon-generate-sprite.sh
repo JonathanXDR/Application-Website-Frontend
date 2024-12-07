@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
   echo "Usage: $0 --dir <directory> --pattern <file-pattern> --output <output-directory>"

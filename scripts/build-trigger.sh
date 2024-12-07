@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 BUILD_INTERVAL_MINUTES="${BUILD_INTERVAL_MINUTES:-30}"
 

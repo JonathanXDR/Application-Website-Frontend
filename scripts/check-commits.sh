@@ -1,49 +1,137 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Number of commits to check for duplicates
-CHECK_LIMIT=5
+set -eu
 
-# Get the last N commits (hash and message)
-commit_info=$(git log -n $CHECK_LIMIT --pretty=format:"%H %s")
+readonly MAX_COMMITS_TO_CHECK=50
+readonly SCRIPT_NAME="$(basename "${0}")"
+readonly RED='\033[0;31m'
+readonly GREEN='\033[0;32m'
+readonly YELLOW='\033[1;33m'
+readonly NC='\033[0m'
+readonly MIN_GIT_VERSION="2.0.0"
 
-# Initialize variables
-prev_message=""
-commit_hashes=()
-duplicate_messages=()
+log_error() {
+  printf "${RED}%s: Error: %s${NC}\n" "${SCRIPT_NAME}" "${1}" >&2
+}
 
-# Check for consecutive duplicate commit messages
-while read -r hash message; do
-  if [ "$message" == "$prev_message" ]; then
-    duplicate_messages+=("$message")
-    if [ -z "${commit_hashes[-1]}" ]; then
-      commit_hashes+=("$hash")
+log_warning() {
+  printf "${YELLOW}%s: Warning: %s${NC}\n" "${SCRIPT_NAME}" "${1}" >&2
+}
+
+log_success() {
+  printf "${GREEN}%s: %s${NC}\n" "${SCRIPT_NAME}" "${1}"
+}
+
+log_info() {
+  printf "%s: %s\n" "${SCRIPT_NAME}" "${1}"
+}
+
+cleanup() {
+  exit_code=$?
+  if [ $exit_code -ne 0 ] && git rev-parse --verify HEAD >/dev/null 2>&1; then
+    log_warning "Script failed, attempting to reset git state..."
+    git reset --hard HEAD >/dev/null 2>&1 || true
+  fi
+  exit "${exit_code}"
+}
+
+trap cleanup EXIT
+
+check_git_repo() {
+  if ! git rev-parse --git-dir >/dev/null 2>&1; then
+    log_error "Not in a git repository"
+    return 1
+  fi
+}
+
+check_git_version() {
+  if ! command -v git >/dev/null 2>&1; then
+    log_error "Git is not installed"
+    return 1
+  fi
+
+  git_version=$(git --version | awk '{print $3}')
+  if [ "$(printf '%s\n' "$MIN_GIT_VERSION" "$git_version" | sort -V | head -n1)" != "$MIN_GIT_VERSION" ]; then
+    log_error "Git version ${MIN_GIT_VERSION} or higher is required"
+    return 1
+  fi
+}
+
+perform_squash() {
+  message="$1"
+  commits="$2"
+  commit_count=$(echo "$commits" | wc -w | tr -d ' ')
+  oldest_commit=$(echo "$commits" | tr ' ' '\n' | tail -n 1)
+
+  log_info "Squashing ${commit_count} commits with message: '${message}'"
+
+  if ! git reset --soft "${oldest_commit}~1" >/dev/null 2>&1; then
+    log_error "Failed to reset to commit ${oldest_commit%????????}"
+    return 1
+  fi
+
+  if ! git commit -m "${message}" >/dev/null 2>&1; then
+    log_error "Failed to create squashed commit"
+    return 1
+  fi
+
+  log_success "Squashed ${commit_count} commits successfully"
+}
+
+squash_duplicate_commits() {
+  prev_msg=""
+  prev_hash=""
+  commits_to_squash=""
+  in_duplicate_sequence=false
+
+  log_info "Analyzing commit history for consecutive duplicates..."
+
+  git log --pretty=format:"%H %s" -n "$MAX_COMMITS_TO_CHECK" 2>/dev/null | while IFS= read -r commit_line; do
+    [ -z "$commit_line" ] && continue
+
+    hash=${commit_line%% *}
+    message=${commit_line#* }
+
+    if [ "$message" = "$prev_msg" ]; then
+      if [ "$in_duplicate_sequence" = false ]; then
+        log_info "Found duplicate sequence with message: '$message'"
+        commits_to_squash="$prev_hash"
+        in_duplicate_sequence=true
+      fi
+      commits_to_squash="$commits_to_squash $hash"
+      log_info "  Adding commit ${hash%????????} to squash sequence"
+    elif [ "$in_duplicate_sequence" = true ]; then
+      perform_squash "$prev_msg" "$commits_to_squash"
+      commits_to_squash=""
+      in_duplicate_sequence=false
     fi
-  else
-    prev_message="$message"
-    commit_hashes+=("$hash")
+
+    prev_msg="$message"
+    prev_hash="$hash"
+  done
+
+  if [ "$in_duplicate_sequence" = true ] && [ -n "$commits_to_squash" ]; then
+    perform_squash "$prev_msg" "$commits_to_squash"
   fi
-done <<<"$commit_info"
+}
 
-# Check if duplicates are found
-if [ ${#duplicate_messages[@]} -gt 0 ]; then
-  echo "Auto-squashing commits with identical messages..."
+main() {
+  check_git_repo || exit 1
+  check_git_version || exit 1
 
-  # Count the total commits to include in the rebase
-  total_to_rebase=${#commit_hashes[@]}
+  last_commit_msg=$(git log -1 --pretty=%B 2>/dev/null) || {
+    log_error "Failed to get last commit message"
+    return 1
+  }
 
-  # Prepare the rebase sequence
-  squash_range="HEAD~$total_to_rebase"
-  git rebase -i "$squash_range" --autosquash --quiet
+  second_last_commit_msg=$(git log -2 --skip=1 --pretty=%B 2>/dev/null | head -n 1) || {
+    return 0
+  }
 
-  # Check the result of the rebase
-  if [ $? -eq 0 ]; then
-    echo "Squashing completed successfully."
-  else
-    echo "Error occurred during the rebase. Resolving conflicts manually may be required."
-    git rebase --abort
+  if [ -n "$second_last_commit_msg" ] && [ "$last_commit_msg" = "$second_last_commit_msg" ]; then
+    log_info "Detected consecutive commits with identical messages"
+    squash_duplicate_commits
   fi
-else
-  echo "No consecutive duplicate commit messages found."
-fi
+}
 
-exit 0
+main
