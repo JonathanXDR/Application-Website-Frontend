@@ -40,15 +40,26 @@
 
         <ul>
           <li>
-            <router-link to="/" title="Home"> .is() </router-link>
-          </li>
-          <li>
-            <router-link to="/about" title="About me"> .about() </router-link>
-          </li>
-          <li>
-            <a href="mailto:depaula.iuri@gmail.com" title="Send me an email"
-              >.email()</a
+            <router-link
+              to="/"
+              title="Home"
             >
+              .is()
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              to="/about"
+              title="About me"
+            >
+              .about()
+            </router-link>
+          </li>
+          <li>
+            <a
+              href="mailto:depaula.iuri@gmail.com"
+              title="Send me an email"
+            >.email()</a>
           </li>
           <li class="social-link">
             <a
@@ -104,10 +115,10 @@ import '@/styles/header.scss'
 export default {
   name: 'HeaderSection',
   methods: {
-    openMenu() {
+    openMenu () {
       document.body.classList.add('-open-nav')
     },
-    closeMenu() {
+    closeMenu () {
       document.body.classList.remove('-open-nav')
     },
   },

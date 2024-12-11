@@ -6,8 +6,14 @@
       :class="{ 'hide-localnav': shouldApplyHideLocalnav }"
     >
       <NavBar v-if="shouldShow('nav')" />
-      <div v-if="shouldShow('ribbon')" ref="ribbonBarElement">
-        <RibbonBar :loading="false" :items="items" />
+      <div
+        v-if="shouldShow('ribbon')"
+        ref="ribbonBarElement"
+      >
+        <RibbonBar
+          :loading="false"
+          :items="items"
+        />
       </div>
     </header>
     <main>

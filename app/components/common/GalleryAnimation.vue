@@ -43,9 +43,18 @@
                 },
               ]"
             >
-              <template v-for="(item, index) in parallaxItems" :key="index">
-                <span v-if="item.type === 'empty'" :class="item.class" />
-                <div v-else class="img-wrapper">
+              <template
+                v-for="(item, index) in parallaxItems"
+                :key="index"
+              >
+                <span
+                  v-if="item.type === 'empty'"
+                  :class="item.class"
+                />
+                <div
+                  v-else
+                  class="img-wrapper"
+                >
                   <figure
                     class="parallax-item"
                     :class="{ float: isParallaxAnimated }"
@@ -66,8 +75,20 @@
                 class="control-centered-small-icon"
               >
                 <g class="control-icon-pause">
-                  <rect width="4.5" height="14" x="3.75" y="3" rx="1.5" />
-                  <rect width="4.5" height="14" x="11.75" y="3" rx="1.5" />
+                  <rect
+                    width="4.5"
+                    height="14"
+                    x="3.75"
+                    y="3"
+                    rx="1.5"
+                  />
+                  <rect
+                    width="4.5"
+                    height="14"
+                    x="11.75"
+                    y="3"
+                    rx="1.5"
+                  />
                 </g>
                 <path
                   class="control-icon-play"

@@ -5,7 +5,7 @@
     role="img"
     aria-label="loading, please wait"
     :style="{
-      width: `${background ? 100 : progress}%`,
+      'width': `${background ? 100 : progress}%`,
       '--color-secondary': colors.secondary,
     }"
   >

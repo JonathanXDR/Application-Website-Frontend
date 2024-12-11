@@ -1,12 +1,18 @@
 <template>
-  <aside class="countdown" aria-label="Countdown">
+  <aside
+    class="countdown"
+    aria-label="Countdown"
+  >
     <div
       v-for="(value, label) in countdown"
       :key="label"
       class="countdown-zone"
     >
       <span class="countdown-volabel">{{ value.current }}, {{ label }}</span>
-      <div class="countdown-digitsholder" aria-hidden="true">
+      <div
+        class="countdown-digitsholder"
+        aria-hidden="true"
+      >
         <Transition enter-active-class="countdown-current">
           <span
             v-if="value.transition"
@@ -20,12 +26,18 @@
           enter-active-class="countdown-next"
           leave-active-class="countdown-prev"
         >
-          <span :key="value.current" class="countdown-current">
+          <span
+            :key="value.current"
+            class="countdown-current"
+          >
             {{ value.current }}
           </span>
         </Transition>
       </div>
-      <div class="countdown-label" aria-hidden="true">
+      <div
+        class="countdown-label"
+        aria-hidden="true"
+      >
         {{ label }}
       </div>
     </div>

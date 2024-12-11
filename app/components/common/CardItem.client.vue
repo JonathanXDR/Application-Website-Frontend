@@ -18,14 +18,27 @@
     }"
     target="_blank"
   >
-    <div v-if="hasCoverOrGraphs" class="card-cover-wrap">
-      <picture v-if="cover" class="card-cover">
-        <NuxtImg decoding="async" loading="lazy" :src="cover" />
+    <div
+      v-if="hasCoverOrGraphs"
+      class="card-cover-wrap"
+    >
+      <picture
+        v-if="cover"
+        class="card-cover"
+      >
+        <NuxtImg
+          decoding="async"
+          loading="lazy"
+          :src="cover"
+        />
       </picture>
       <BarGraph v-if="graphs?.bar" />
       <DonutGraph v-if="graphs?.donut" />
     </div>
-    <div class="details" :style="detailsStyle">
+    <div
+      class="details"
+      :style="detailsStyle"
+    >
       <SFSymbol
         v-if="icon.name"
         :loading="loading"
@@ -35,13 +48,19 @@
         :class="iconClasses"
         :style="{ position: icon.absolute ? 'absolute' : 'relative' }"
       />
-      <div class="body" :style="{ alignItems: alignItems }">
+      <div
+        class="body"
+        :style="{ alignItems: alignItems }"
+      >
         <div class="eyebrow">
           <template v-if="!loading">
             {{ eyebrow }}
           </template>
           <template v-else>
-            <LoadingSkeleton width="150px" height="15px" />
+            <LoadingSkeleton
+              width="150px"
+              height="15px"
+            />
           </template>
         </div>
         <div class="title-wrapper">
@@ -50,7 +69,10 @@
               {{ title || name }}
             </template>
             <template v-else>
-              <LoadingSkeleton width="200px" height="15px" />
+              <LoadingSkeleton
+                width="200px"
+                height="15px"
+              />
             </template>
           </div>
 
@@ -86,9 +108,18 @@
               {{ description }}
             </template>
             <template v-else>
-              <LoadingSkeleton width="300px" height="15px" />
-              <LoadingSkeleton width="300px" height="15px" />
-              <LoadingSkeleton width="250px" height="15px" />
+              <LoadingSkeleton
+                width="300px"
+                height="15px"
+              />
+              <LoadingSkeleton
+                width="300px"
+                height="15px"
+              />
+              <LoadingSkeleton
+                width="250px"
+                height="15px"
+              />
             </template>
           </div>
         </div>
@@ -98,7 +129,10 @@
           :loading="loading"
         />
 
-        <div v-if="hasLinksOrHtmlUrl" class="ctas-wrapper">
+        <div
+          v-if="hasLinksOrHtmlUrl"
+          class="ctas-wrapper"
+        >
           <!-- <ButtonItem variant="secondary" componentSize="small"> Test </ButtonItem> -->
           <!-- <NuxtLink href="photos://" class="icon-wrapper button button-reduced button-neutral">
             <span class="icon-copy"> Open</span>
@@ -161,7 +195,7 @@ const applyHover = computed(
     (properties.hover === 'auto' &&
       ((properties.links && properties.links.length > 0) ||
         properties.html_url)) ||
-    properties.hover === 'true'
+        properties.hover === 'true'
 )
 const componentType = computed(() =>
   properties.variant === 'article' || !applyHover.value ? 'div' : 'a'

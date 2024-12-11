@@ -12,7 +12,11 @@
       @click="onTouchBlock"
     >
       <div class="in" />
-      <SuperMarioCoin v-for="i in coinsToBeFound" :key="i" :is-playing="true" />
+      <SuperMarioCoin
+        v-for="i in coinsToBeFound"
+        :key="i"
+        :is-playing="true"
+      />
     </div>
   </div>
 </template>

@@ -6,12 +6,18 @@
     <div class="image event-branding-img" />
 
     <div class="section-content">
-      <div class="event-info" :class="eventState">
+      <div
+        class="event-info"
+        :class="eventState"
+      >
         <div class="event-info-heading">
           <h2 class="section-head">
             {{ eventTitle }}
           </h2>
-          <div v-if="eventState === 'pre-event'" class="add-to-calendar">
+          <div
+            v-if="eventState === 'pre-event'"
+            class="add-to-calendar"
+          >
             <a
               :href="calendarLink"
               :aria-label="`add to calendar: ${eventTitle}`"

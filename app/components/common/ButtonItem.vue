@@ -1,5 +1,8 @@
 <template>
-  <component :is="as" :class="['button', variant, componentSize]">
+  <component
+    :is="as"
+    :class="['button', variant, componentSize]"
+  >
     <slot />
   </component>
 </template>

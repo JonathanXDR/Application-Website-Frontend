@@ -1,8 +1,8 @@
-export default defineNuxtPlugin(nuxtApp => {
+export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive('section', (element, binding) => {
     const { width } = useWindowSize()
     const observer = new IntersectionObserver(
-      entries => {
+      (entries) => {
         for (const entry of entries) {
           if (!entry.isIntersecting) return
           useSection().setCurrentSection(

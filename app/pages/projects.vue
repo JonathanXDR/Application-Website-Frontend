@@ -20,15 +20,24 @@
           :on-select="
             (id: string) =>
               updateCurrentIndex(
-                segmentNavItems.findIndex(item => item.id === id)
+                segmentNavItems.findIndex(item => item.id === id),
               )
           "
         />
       </div>
     </NavBarExtension>
-    <div v-if="currentIndex === 0" class="timeline-wrapper">
-      <TimeLine :initial-height="ulHeight" :on-update-height="updateHeight" />
-      <div ref="ul" class="timeline">
+    <div
+      v-if="currentIndex === 0"
+      class="timeline-wrapper"
+    >
+      <TimeLine
+        :initial-height="ulHeight"
+        :on-update-height="updateHeight"
+      />
+      <div
+        ref="ul"
+        class="timeline"
+      >
         <CardItem
           v-for="(project, index) in currentProjects"
           :key="index"
@@ -58,13 +67,19 @@
         />
       </div>
     </div>
-    <div v-else class="w-full">
+    <div
+      v-else
+      class="w-full"
+    >
       <div v-if="projects.personal.length > 0 && projects.school.length > 0">
         <LiveResultSummary
           :total-results="currentProjects.length + pinned.length"
           :pinned-results="pinned.length"
         />
-        <div v-if="pinned" class="card-container pinned-items">
+        <div
+          v-if="pinned"
+          class="card-container pinned-items"
+        >
           <CardItem
             v-for="(project, index) in pinned as Partial<CardItemType>[]"
             :key="index"
@@ -122,7 +137,10 @@
           <ResultBlankState v-if="currentProjects.length === 0" />
         </div>
       </div>
-      <LoadingSpinner v-else class="center-horizontal center-vertical pt-24" />
+      <LoadingSpinner
+        v-else
+        class="center-horizontal center-vertical pt-24"
+      />
     </div>
   </div>
 </template>
@@ -250,7 +268,7 @@ onMounted(() => {
 
 watch(
   pinnedProjects,
-  pinnedProjectsNew => {
+  (pinnedProjectsNew) => {
     if (!pinnedProjectsNew) return
     for (const project of pinnedProjectsNew) {
       project.icon = {

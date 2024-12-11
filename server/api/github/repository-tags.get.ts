@@ -1,7 +1,7 @@
 import { Octokit } from 'octokit'
 import type { GetRepositoryTagsParameters } from '#shared/types/services/github/tag'
 
-export default defineEventHandler(async event => {
+export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig()
   const octokit = new Octokit({ auth: githubToken })
   const parameters: GetRepositoryTagsParameters = getQuery(event)

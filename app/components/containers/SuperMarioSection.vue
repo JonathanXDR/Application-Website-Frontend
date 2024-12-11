@@ -1,6 +1,13 @@
 <template>
-  <SceneSection id="Mario" role="img" aria-labelledby="marioDesc">
-    <p id="marioDesc" class="ariaLabel">
+  <SceneSection
+    id="Mario"
+    role="img"
+    aria-labelledby="marioDesc"
+  >
+    <p
+      id="marioDesc"
+      class="ariaLabel"
+    >
       Three boxes with a question mark, from the Super Mario Bros game, are
       standing in the center of the screen ... try to find the coin in one of
       them by using the numbers 1, 2, and 3 on your keyboard!
@@ -17,18 +24,24 @@
         />
       </div>
 
-      <SuperMario class="mario-container" :state="marioState || ''" />
+      <SuperMario
+        class="mario-container"
+        :state="marioState || ''"
+      />
 
-      <div v-show="foundCoins" class="mario-coin-counter">
+      <div
+        v-show="foundCoins"
+        class="mario-coin-counter"
+      >
         {{ foundCoins }}
       </div>
 
       <div v-show="hasFoundAllCoins">
         <div class="mario-msg-overlay" />
         <div class="mario-msg">
-          Hooray! Thanks for jumping so many times. <br />
+          Hooray! Thanks for jumping so many times. <br>
           <span class="-purple">You found all the coins!</span>
-          <br />&nbsp;<br />
+          <br>&nbsp;<br>
           Keep scrolling, you're near the end!
 
           <div class="later">

@@ -2,7 +2,7 @@ import type { RouterConfig } from '@nuxt/schema'
 
 export default <RouterConfig>{
   scrollBehaviorType: 'smooth',
-  scrollBehavior(to) {
+  scrollBehavior (to) {
     const { width } = useWindowSize()
     if (!to.hash) return
     return {

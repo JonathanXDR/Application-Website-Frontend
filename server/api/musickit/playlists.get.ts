@@ -1,6 +1,6 @@
 import { generateToken } from '~~/server/utils/generate-token'
 
-export default defineEventHandler(async event => {
+export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
   const token = generateToken()
   const parameters = getQuery(event)

@@ -4,8 +4,14 @@
     :class="['viewer-sizenav all-access-pass__background', { shadow }]"
     :style="containerStyle"
   >
-    <div v-if="selectedItemElement" class="viewer-sizenav__bubble">
-      <div class="viewer-sizenav__bubble-inner" :style="bubbleStyle" />
+    <div
+      v-if="selectedItemElement"
+      class="viewer-sizenav__bubble"
+    >
+      <div
+        class="viewer-sizenav__bubble-inner"
+        :style="bubbleStyle"
+      />
     </div>
     <ul
       class="viewer-sizenav-items"
@@ -26,7 +32,7 @@
           :aria-label="item.label"
           :value="item.id"
           :disabled="item.id !== selectedItem && isTransitioning"
-        />
+        >
         <label
           :for="`viewer-sizenav-value-${item.id}`"
           class="viewer-sizenav-link"
@@ -145,7 +151,7 @@ const computedPadding = computed(() => {
 
 watch(
   selectedItem,
-  itemNew => {
+  (itemNew) => {
     properties.onSelect(itemNew)
     updateBubblePosition()
   },

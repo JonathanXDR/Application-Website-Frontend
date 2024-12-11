@@ -2,7 +2,11 @@
   <div class="tablist-wrapper">
     <div class="tabnav">
       <ul class="tabnav-items">
-        <li v-for="(item, index) in items" :key="index" class="tabnav-item">
+        <li
+          v-for="(item, index) in items"
+          :key="index"
+          class="tabnav-item"
+        >
           <input
             :id="`tab-${item.id}`"
             v-model="selectedTab"
@@ -10,18 +14,33 @@
             name="category"
             :value="item.id"
             @change="() => emitChange(item.id)"
-          />
-          <label :for="`tab-${item.id}`" class="tabnav-link">
+          >
+          <label
+            :for="`tab-${item.id}`"
+            class="tabnav-link"
+          >
             {{ item.label }}
           </label>
         </li>
       </ul>
       <div class="tabnav-paddles">
-        <button class="tabnav-paddle tabnav-paddle-left" disabled>
-          <SFSymbol name="chevron.left" class="icon icon-small" />
+        <button
+          class="tabnav-paddle tabnav-paddle-left"
+          disabled
+        >
+          <SFSymbol
+            name="chevron.left"
+            class="icon icon-small"
+          />
         </button>
-        <button class="tabnav-paddle tabnav-paddle-right" disabled>
-          <SFSymbol name="chevron.right" class="icon icon-small" />
+        <button
+          class="tabnav-paddle tabnav-paddle-right"
+          disabled
+        >
+          <SFSymbol
+            name="chevron.right"
+            class="icon icon-small"
+          />
         </button>
       </div>
     </div>
@@ -47,7 +66,7 @@ const selectedTab = ref(properties.activeTabId)
 
 watch(
   () => properties.activeTabId,
-  valueNew => {
+  (valueNew) => {
     selectedTab.value = valueNew
   }
 )

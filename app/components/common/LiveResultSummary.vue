@@ -1,5 +1,8 @@
 <template>
-  <div id="live-result-summary" class="results">
+  <div
+    id="live-result-summary"
+    class="results"
+  >
     <div class="number-results">
       {{
         t(`components.common.LiveResultSummary.title`, {
@@ -7,7 +10,10 @@
         })
       }}
     </div>
-    <div v-if="pinnedResults" class="changesnav-totals">
+    <div
+      v-if="pinnedResults"
+      class="changesnav-totals"
+    >
       <div class="changed-total">
         <SFSymbol
           name="pin.fill"

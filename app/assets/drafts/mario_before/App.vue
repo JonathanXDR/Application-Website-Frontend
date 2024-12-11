@@ -1,7 +1,16 @@
 <template>
-  <div id="app" :class="$route.meta.bodyClass">
+  <div
+    id="app"
+    :class="$route.meta.bodyClass"
+  >
     <HeaderSection />
-    <transition appear mode="out-in" :css="false" @leave="leave" @enter="enter">
+    <transition
+      appear
+      mode="out-in"
+      :css="false"
+      @leave="leave"
+      @enter="enter"
+    >
       <router-view />
     </transition>
     <Spine :is-playing="isSpinePlaying" />
@@ -24,7 +33,7 @@ export default {
     HeaderSection,
     Spine,
   },
-  data() {
+  data () {
     return {
       isSpinePlaying: false,
       introTimeline: new TimelineMax(),
@@ -32,7 +41,7 @@ export default {
     }
   },
   methods: {
-    enter(element, done) {
+    enter (element, done) {
       // intro animations
       this.introTimeline
         .clear()
@@ -66,7 +75,7 @@ export default {
 
       this.isSpinePlaying = true
     },
-    leave(element, done) {
+    leave (element, done) {
       // leave animations
       this.leaveTimeline
         .clear()

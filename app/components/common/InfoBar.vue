@@ -1,7 +1,13 @@
 <template>
   <div class="info">
-    <template v-for="item in infoItems" :key="item.id">
-      <div v-if="properties[item.id]" class="info-item">
+    <template
+      v-for="item in infoItems"
+      :key="item.id"
+    >
+      <div
+        v-if="properties[item.id]"
+        class="info-item"
+      >
         <SFSymbol
           v-if="item.icon"
           :name="item.icon.name"
@@ -12,7 +18,10 @@
           {{ properties[item.id] }}
         </template>
         <template v-else>
-          <LoadingSkeleton width="100px" height="15px" />
+          <LoadingSkeleton
+            width="100px"
+            height="15px"
+          />
         </template>
       </div>
     </template>
@@ -28,12 +37,15 @@
       />
       <template v-if="!loading">
         {{
-          dateTitle ||
-          `${properties.date.duration?.from} - ${properties.date.duration?.to}`
+          dateTitle
+            || `${properties.date.duration?.from} - ${properties.date.duration?.to}`
         }}
       </template>
       <template v-else>
-        <LoadingSkeleton width="100px" height="15px" />
+        <LoadingSkeleton
+          width="100px"
+          height="15px"
+        />
       </template>
     </div>
   </div>
@@ -59,7 +71,7 @@ const properties = withDefaults(defineProps<InfoType>(), {
 dayjs.extend(relativeTime)
 
 const { locale } = useI18n()
-const infoItems: { id: keyof InfoType; icon: IconType }[] = [
+const infoItems: { id: keyof InfoType, icon: IconType }[] = [
   { id: 'location', icon: { name: 'location.fill' } },
   { id: 'supervisor', icon: { name: 'person.fill' } },
   { id: 'department', icon: { name: 'tag.fill' } },

@@ -1,7 +1,7 @@
 import { Octokit } from 'octokit'
 import type { GetUserGistsParameters } from '#shared/types/services/github/gist'
 
-export default defineEventHandler(async event => {
+export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig()
   const octokit = new Octokit({ auth: githubToken })
   const parameters: GetUserGistsParameters = getQuery(event)

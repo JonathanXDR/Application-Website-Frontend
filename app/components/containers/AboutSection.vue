@@ -13,8 +13,17 @@
           />
         </clipPath>
       </defs>
-      <foreignObject x="0" y="10" width="100%" height="100%">
-        <NuxtImg src="/img/portrait.jpg" alt="Portrait" class="portrait" />
+      <foreignObject
+        x="0"
+        y="10"
+        width="100%"
+        height="100%"
+      >
+        <NuxtImg
+          src="/img/portrait.jpg"
+          alt="Portrait"
+          class="portrait"
+        />
       </foreignObject>
     </svg>
 

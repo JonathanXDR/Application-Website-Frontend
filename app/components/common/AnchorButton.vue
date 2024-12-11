@@ -1,6 +1,9 @@
 <template>
   <div class="cta-circular-icon cta-open">
-    <SFSymbol name="plus" component-size="small" />
+    <SFSymbol
+      name="plus"
+      component-size="small"
+    />
   </div>
 </template>
 

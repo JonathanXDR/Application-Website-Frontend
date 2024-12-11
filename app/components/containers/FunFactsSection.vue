@@ -1,6 +1,10 @@
 <template>
   <h1>{{ title }}</h1>
-  <ul role="list" aria-label="Fun Facts" class="chip-claims-list stat">
+  <ul
+    role="list"
+    aria-label="Fun Facts"
+    class="chip-claims-list stat"
+  >
     <li
       v-for="(item, index) in funFacts"
       :key="index"

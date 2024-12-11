@@ -15,7 +15,10 @@
       <span class="cursor" />
     </span>
 
-    <template v-for="(word, wordIndex) in words" :key="wordIndex">
+    <template
+      v-for="(word, wordIndex) in words"
+      :key="wordIndex"
+    >
       <span class="word">
         <span
           v-for="(char, letterIndex) in word"
@@ -185,7 +188,7 @@ onMounted(() => {
 
   watch(
     () => properties.autoAnimation,
-    valueNew => {
+    (valueNew) => {
       if (valueNew) {
         startAutoAnimation()
       } else {

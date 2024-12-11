@@ -30,7 +30,10 @@
                         {{ item.description && item.description + '&ensp;' }}
                       </template>
                       <template v-else>
-                        <LoadingSkeleton width="200px" height="15px" />
+                        <LoadingSkeleton
+                          width="200px"
+                          height="15px"
+                        />
                       </template>
 
                       <LinkCollection
@@ -99,12 +102,12 @@ const tags = ref<{
   previous: string | undefined
 }>({ latest: undefined, previous: undefined })
 
-const baseItems = ref<{ description: string; links: LinkType[] }[]>([])
+const baseItems = ref<{ description: string, links: LinkType[] }[]>([])
 const currentIndex = ref(0)
 const totalItems = ref(0)
 const isTransitioning = ref(false)
 const scrollDirection = ref<'left' | 'right'>('right')
-const displayItems = ref<{ description: string; links: LinkType[] }[]>([])
+const displayItems = ref<{ description: string, links: LinkType[] }[]>([])
 const initialAnimationPlayed = ref(false)
 
 const { data: repositoryTags } = await useFetch('/api/github/repository-tags', {
@@ -136,9 +139,9 @@ const updateBaseItems = () => {
           ...link,
           url: link.url
             ? rt(link.url, {
-                latestTag,
-                previousTag,
-              })
+              latestTag,
+              previousTag,
+            })
             : undefined,
         })
       ),
@@ -207,7 +210,7 @@ watch(currentIndex, () => {
 
 watch(
   repositoryTags,
-  tagsNew => {
+  (tagsNew) => {
     if (tagsNew && tagsNew.length >= 2) {
       tags.value = {
         latest: tagsNew[0]?.name,

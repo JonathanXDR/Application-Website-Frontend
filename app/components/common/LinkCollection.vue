@@ -14,7 +14,10 @@
         {{ link.title }}
       </template>
       <template v-else>
-        <LoadingSkeleton width="200px" height="15px" />
+        <LoadingSkeleton
+          width="200px"
+          height="15px"
+        />
       </template>
 
       <SFSymbol

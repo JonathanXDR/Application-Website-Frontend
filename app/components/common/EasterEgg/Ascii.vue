@@ -1,5 +1,8 @@
 <template>
-  <div v-if="files?.length" class="hidden">
+  <div
+    v-if="files?.length"
+    class="hidden"
+  >
     <div
       v-for="(art, index) in files"
       :key="index"
@@ -8,7 +11,9 @@
       <pre :class="art.elementClass">{{ index }}<br><br>{{ art.content }}</pre>
     </div>
   </div>
-  <div v-else>Loading...</div>
+  <div v-else>
+    Loading...
+  </div>
 </template>
 
 <script setup lang="ts">

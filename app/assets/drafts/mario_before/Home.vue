@@ -1,10 +1,16 @@
 <template>
-  <div id="home" class="wrapper">
+  <div
+    id="home"
+    class="wrapper"
+  >
     <Intro />
     <Gap />
 
     <TitleSection scene="curriculum">
-      <TitleFunction params="/^.*$/gi" subtitle="&lt;WorkShowcase&gt;">
+      <TitleFunction
+        params="/^.*$/gi"
+        subtitle="&lt;WorkShowcase&gt;"
+      >
         myCV
       </TitleFunction>
     </TitleSection>
@@ -16,19 +22,9 @@
 
     <TitleSection scene="ArtPhiGamesTitle">
       <TitleFunction subtitle="background.bmp">
-        <span class="line"
-          ><span class="params">`${</span>Art<span class="params">}</span></span
-        >
-        <span class="line"
-          ><span class="params">&nbsp;${</span>Philosophy<span class="params"
-            >}</span
-          ></span
-        >
-        <span class="line"
-          ><span class="params">&nbsp;${</span>VideoGames<span class="params"
-            >}`</span
-          ></span
-        >
+        <span class="line"><span class="params">`${</span>Art<span class="params">}</span></span>
+        <span class="line"><span class="params">&nbsp;${</span>Philosophy<span class="params">}</span></span>
+        <span class="line"><span class="params">&nbsp;${</span>VideoGames<span class="params">}`</span></span>
       </TitleFunction>
     </TitleSection>
     <SuperMario />
@@ -58,11 +54,11 @@ import Mario from '@/js/mario'
 import Castle from '@/js/ghibli'
 import Gap from '@/components/Gap.vue'
 
-function removeBodyClass(...classes) {
+function removeBodyClass (...classes) {
   document.body.classList.remove(...classes)
 }
 
-function addBodyClass(...classes) {
+function addBodyClass (...classes) {
   if (document.querySelector('#app.page-home')) {
     document.body.classList.add(...classes)
   }
@@ -82,7 +78,7 @@ export default {
     Thanks,
     Gap,
   },
-  data() {
+  data () {
     return {
       intro: new TimelineMax(),
       scroller: new ScrollMagic.Controller(),
@@ -105,10 +101,10 @@ export default {
       },
     }
   },
-  created() {
+  created () {
     window.addEventListener('beforeunload', () => window.scroll(0, 0))
   },
-  mounted() {
+  mounted () {
     // 01. play Intro
     this.playIntro()
     // 02. setup time lines and scenes
@@ -136,7 +132,7 @@ export default {
     // </wrapper>
     this.sceneWrapper()
   },
-  beforeUnmount() {
+  beforeUnmount () {
     // stop loop animations
     for (const character of Object.keys(this.isPlaying.Biz)) {
       this.isPlaying.Biz[character] = false
@@ -163,7 +159,7 @@ export default {
     this.scenes = []
   },
   methods: {
-    setupScenes() {
+    setupScenes () {
       /**
        * @desc
        * Where the magic happens
@@ -205,7 +201,7 @@ export default {
           })
       }
     },
-    playIntro() {
+    playIntro () {
       /**
        * @desc
        * intro scene
@@ -234,19 +230,19 @@ export default {
           'enter+=1.5'
         )
     },
-    hookLoops() {
+    hookLoops () {
       /**
        * @desc
        * play and stop loop animations
        * based on the scenes been played
        */
-      this.scenes[0].on('enter', e => {
+      this.scenes[0].on('enter', (e) => {
         if (e.scrollDirection === 'REVERSE') {
           this.isPlaying.Biz.ABiz = false
           this.isPlaying.Biz.Shapes = false
         }
       })
-      this.scenes[1].on('enter', e => {
+      this.scenes[1].on('enter', (e) => {
         if (e.scrollDirection === 'FORWARD') {
           this.isPlaying.Biz.ABiz = true
           this.isPlaying.Biz.Shapes = true
@@ -255,7 +251,7 @@ export default {
           this.isPlaying.Biz.Zen = false
         }
       })
-      this.scenes[2].on('enter', e => {
+      this.scenes[2].on('enter', (e) => {
         if (e.scrollDirection === 'FORWARD') {
           this.isPlaying.Biz.Zen = true
         }
@@ -272,7 +268,7 @@ export default {
           this.isPlaying.Biz.CoffeeMug = false
         }
       })
-      this.scenes[3].on('enter', e => {
+      this.scenes[3].on('enter', (e) => {
         if (e.scrollDirection === 'FORWARD') {
           // stop
           this.isPlaying.Biz.ABiz = false
@@ -289,7 +285,7 @@ export default {
           this.isPlaying.Biz.Zen = true
         }
       })
-      this.scenes[4].on('enter', e => {
+      this.scenes[4].on('enter', (e) => {
         if (e.scrollDirection === 'FORWARD') {
           this.isPlaying.Biz.Zen = false
         }
@@ -300,7 +296,7 @@ export default {
           this.isPlaying.Biz.Octopus = true
         }
       })
-      this.scenes[5].on('enter', e => {
+      this.scenes[5].on('enter', (e) => {
         if (e.scrollDirection === 'FORWARD') {
           this.isPlaying.Biz.Shrimp = false
           this.isPlaying.Biz.Dino = false
@@ -314,7 +310,7 @@ export default {
           this.isPlaying.EarlyDays = false
         }
       })
-      this.scenes[6].on('enter', e => {
+      this.scenes[6].on('enter', (e) => {
         if (e.scrollDirection === 'FORWARD') {
           this.isPlaying.Biz.Astronaut = false
           this.isPlaying.Biz.CoffeeMug = false
@@ -322,7 +318,7 @@ export default {
           this.isPlaying.EarlyDays = true
         }
       })
-      this.scenes[9].on('enter', e => {
+      this.scenes[9].on('enter', (e) => {
         if (e.scrollDirection === 'REVERSE') {
           this.isPlaying.EarlyDays = true
           // release mario body lock and remove bg
@@ -330,7 +326,7 @@ export default {
         }
       })
       this.scenes[10] /** @Mario **/
-        .on('enter', e => {
+        .on('enter', (e) => {
           if (e.scrollDirection === 'FORWARD') {
             this.isPlaying.EarlyDays = false
             // mario bg is added inside mario.js
@@ -340,12 +336,12 @@ export default {
             addBodyClass('-mario-bg')
           }
         })
-        .on('leave', e => {
+        .on('leave', (e) => {
           if (e.scrollDirection === 'REVERSE') {
             Castle.stop()
           }
         })
-      this.scenes[11].on('enter', e => {
+      this.scenes[11].on('enter', (e) => {
         if (e.scrollDirection === 'FORWARD') {
           Castle.play()
           // release mario body lock
@@ -366,7 +362,7 @@ export default {
         addBodyClass('-mario-bg')
       })
       this.scenes[15]
-        .on('enter', e => {
+        .on('enter', (e) => {
           if (e.scrollDirection === 'FORWARD') {
             // remove bg
             removeBodyClass('-mario-bg')
@@ -377,20 +373,20 @@ export default {
             Potion.stop()
           }
         })
-        .on('leave', e => {
+        .on('leave', (e) => {
           if (e.scrollDirection === 'REVERSE') {
             // add bg
             addBodyClass('-mario-bg')
           }
         })
-      this.scenes[16].on('enter', e => {
+      this.scenes[16].on('enter', (e) => {
         if (e.scrollDirection === 'FORWARD') {
           Castle.stop()
           Potion.play()
         }
       })
     },
-    buildLoops() {
+    buildLoops () {
       /**
        * @desc
        * mount loop animations
@@ -404,7 +400,7 @@ export default {
         Castle.build()
       }
     },
-    sceneCurriculumVitae() {
+    sceneCurriculumVitae () {
       /**
        * @desc
        * Scrolling animations time lines
@@ -442,7 +438,7 @@ export default {
           yPercent: -100,
         })
     },
-    sceneBizTitle() {
+    sceneBizTitle () {
       // biz()
       this.timeLines[1]
         // next scene characters
@@ -504,7 +500,7 @@ export default {
           'start+=2'
         )
     },
-    sceneBizZen() {
+    sceneBizZen () {
       // Biz Commerce 1
       this.timeLines[2]
         .addLabel('start', 0)
@@ -539,7 +535,7 @@ export default {
           'start'
         )
     },
-    sceneBizEverybody() {
+    sceneBizEverybody () {
       // Biz Commerce 2
       this.timeLines[3]
         .addLabel('start', 0)
@@ -566,7 +562,7 @@ export default {
           'start'
         )
     },
-    sceneBizEnding() {
+    sceneBizEnding () {
       // Biz Commerce 3
       this.timeLines[4]
         .addLabel('start', 0)
@@ -636,7 +632,7 @@ export default {
           'start'
         )
     },
-    sceneEarlyDays() {
+    sceneEarlyDays () {
       // Clouds parallax
       const cloudsTimeline = new TimelineMax({ paused: true })
       const cloudsTweener = new TimelineMax()
@@ -754,7 +750,7 @@ export default {
           yPercent: -100,
         })
     },
-    sceneOcean() {
+    sceneOcean () {
       // Pepe parallax
       const pepeTimeline = new TimelineMax({ paused: true })
       const pepeTweener = new TimelineMax()
@@ -793,17 +789,17 @@ export default {
         .set('#biz1 .container', { autoAlpha: 0 })
         .to('.pepe-scenery', 8, { autoAlpha: 1 })
     },
-    sceneFloatingHead() {
+    sceneFloatingHead () {
       // first company
       this.timeLines[7].addLabel('start', 0)
     },
-    sceneSunset() {
+    sceneSunset () {
       // porta, kibe etc.
       this.timeLines[8]
         .set('#Mario .container', { autoAlpha: 0 })
         .to('.pepe-scenery', 8, { autoAlpha: 0 })
     },
-    sceneArtPhiGames() {
+    sceneArtPhiGames () {
       this.timeLines[9]
         .set('#Mario .container', { autoAlpha: 0 })
         .addLabel('start', 1)
@@ -834,7 +830,7 @@ export default {
         })
         .set('#earlyTitle .title-container', { autoAlpha: 1 })
     },
-    sceneMario() {
+    sceneMario () {
       // Mario
       // using the tweener here
       // because I need to be precise about time, and the momentum would ruin it
@@ -847,7 +843,7 @@ export default {
         })
       this.timeLines[10].set('.mario', { yPercent: 200, autoAlpha: 0 })
     },
-    sceneGhibli() {
+    sceneGhibli () {
       // Ghibli Grass parallax
       const grassTimeline = new TimelineMax({ paused: true })
       const grassTweener = new TimelineMax()
@@ -951,7 +947,7 @@ export default {
           (window.innerWidth +
             document.querySelector('.castle-container').offsetWidth +
             16) +
-          'px'
+            'px'
       }
 
       castleTweener
@@ -991,7 +987,7 @@ export default {
       // Ghibli 4 (gap)
       this.timeLines[14].addLabel('start', 0)
     },
-    sceneWrapper() {
+    sceneWrapper () {
       this.timeLines[15]
         .addLabel('start', 0)
         .to('#Ghibli .container', 2, { autoAlpha: 0 }, 'start')

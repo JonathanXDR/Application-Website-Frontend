@@ -18,7 +18,10 @@
       {{ title }}
     </template>
     <template v-else>
-      <LoadingSkeleton width="80px" height="15px" />
+      <LoadingSkeleton
+        width="80px"
+        height="15px"
+      />
     </template>
   </component>
 </template>

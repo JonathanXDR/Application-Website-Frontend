@@ -53,7 +53,7 @@ const createObserver = (
 ) => {
   return useIntersectionObserver(
     element,
-    entries => {
+    (entries) => {
       for (const entry of entries) {
         const resolvedElement = unref(element) as HTMLElement
         updateClasses(resolvedElement, options, entry.isIntersecting)
@@ -63,9 +63,9 @@ const createObserver = (
   )
 }
 
-export default defineNuxtPlugin(nuxtApp => {
+export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive('animation', {
-    mounted(
+    mounted (
       element: HTMLElement,
       binding: DirectiveBinding<AnimationOperations>
     ) {
@@ -92,7 +92,7 @@ export default defineNuxtPlugin(nuxtApp => {
       if (!animationState.get(element)?.wasInViewport) return
       element.classList.add(...toArray(value.add))
     },
-    updated(
+    updated (
       element: HTMLElement,
       binding: DirectiveBinding<AnimationOperations>
     ) {
@@ -102,7 +102,7 @@ export default defineNuxtPlugin(nuxtApp => {
       element.classList.remove(...toArray(remove))
       toArray(toggle).forEach(cls => element.classList.toggle(cls))
     },
-    unmounted(element: HTMLElement) {
+    unmounted (element: HTMLElement) {
       animationState.delete(element)
     },
   })

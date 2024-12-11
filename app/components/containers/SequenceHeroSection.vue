@@ -7,7 +7,10 @@
   >
     <div class="overview-hero-intro sticky-container">
       <div class="sticky-content">
-        <div class="overview-hero-background" :style="backgroundStyles" />
+        <div
+          class="overview-hero-background"
+          :style="backgroundStyles"
+        />
         <div class="enhanced-section-content">
           <div class="grid-content static-container">
             <div class="overview-hero-icon grid-content-overlay">

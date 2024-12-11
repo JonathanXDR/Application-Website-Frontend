@@ -2,7 +2,10 @@
   <h1>{{ title }}</h1>
 
   <div class="graph">
-    <template v-for="(language, index) in languages" :key="index">
+    <template
+      v-for="(language, index) in languages"
+      :key="index"
+    >
       <LanguageBar
         v-if="language"
         v-bind="{

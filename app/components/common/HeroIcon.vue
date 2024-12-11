@@ -1,5 +1,9 @@
 <template>
-  <svg class="hero-lock-icon" viewBox="0 0 64 84" data-thing="true">
+  <svg
+    class="hero-lock-icon"
+    viewBox="0 0 64 84"
+    data-thing="true"
+  >
     <defs>
       <clipPath id="static-apple-clip">
         <path

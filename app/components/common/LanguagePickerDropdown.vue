@@ -1,5 +1,8 @@
 <template>
-  <div class="language-picker-dropdown" :style="{ fontSize: `${fontSize}px` }">
+  <div
+    class="language-picker-dropdown"
+    :style="{ fontSize: `${fontSize}px` }"
+  >
     <div class="dropdown-container legacy-form">
       <select
         id="language-picker-dropdown"
@@ -21,7 +24,10 @@
           }}
         </option>
       </select>
-      <SFSymbol name="chevron.down" :class="`icon icon-${componentSize}`" />
+      <SFSymbol
+        name="chevron.down"
+        :class="`icon icon-${componentSize}`"
+      />
     </div>
   </div>
 </template>
@@ -44,7 +50,7 @@ const { locale, locales } = useI18n()
 const selectedLocale = ref(locale.value)
 
 const computedLocales = computed(() =>
-  locales.value.map(l => {
+  locales.value.map((l) => {
     return typeof l === 'string' ? { code: l, name: l } : l
   })
 )
@@ -59,7 +65,7 @@ const fontSize = computed(() => {
   return sizes[properties.componentSize || 'medium']
 })
 
-watch(locale, localeNew => {
+watch(locale, (localeNew) => {
   selectedLocale.value = localeNew
 })
 </script>

@@ -1,7 +1,7 @@
 import { Octokit } from 'octokit'
 import type { GetRepositoryIssuesParameters } from '#shared/types/services/github/issue'
 
-export default defineEventHandler(async event => {
+export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig()
   const octokit = new Octokit({ auth: githubToken })
   const parameters: GetRepositoryIssuesParameters = getQuery(event)

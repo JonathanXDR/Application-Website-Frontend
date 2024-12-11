@@ -44,11 +44,14 @@
                   class="filter-input"
                   @focus="onFocus"
                   @blur="onBlur"
-                />
+                >
               </label>
             </div>
             <div class="filter-delete-button-wrapper">
-              <button v-if="open" class="filter-delete-button">
+              <button
+                v-if="open"
+                class="filter-delete-button"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"

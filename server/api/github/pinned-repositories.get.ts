@@ -1,12 +1,12 @@
 import { graphql, type GraphQlQueryResponseData } from '@octokit/graphql'
 import type { Repository } from '@octokit/graphql-schema'
 
-export default defineEventHandler(async event => {
+export default defineEventHandler(async (event) => {
   const { githubToken } = useRuntimeConfig()
   const graphqlInstance = graphql.defaults({
     headers: { authorization: `token ${githubToken}` },
   })
-  const parameters: { username: string; perPage?: number } = getQuery(event)
+  const parameters: { username: string, perPage?: number } = getQuery(event)
 
   const { username, perPage = 30 } = parameters
 

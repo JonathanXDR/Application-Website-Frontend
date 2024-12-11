@@ -9,7 +9,10 @@
         :name="child.label"
         :class="child.class"
       >
-        <component :is="`${child.id}Section`" :title="child.label" />
+        <component
+          :is="`${child.id}Section`"
+          :title="child.label"
+        />
       </section>
     </template>
   </div>
