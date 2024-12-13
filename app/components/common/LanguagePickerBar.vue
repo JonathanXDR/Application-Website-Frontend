@@ -40,7 +40,7 @@ const properties = withDefaults(
   {
     introText: true,
     shortForm: false,
-  }
+  },
 )
 
 const { changeLanguage } = useLanguage()
@@ -50,10 +50,11 @@ const computedLocales = computed<LocaleObject[]>(() =>
   locales.value.map((l: string | LocaleObject): LocaleObject => {
     if (typeof l === 'string') {
       return { code: l as LocaleObject['code'], name: l }
-    } else {
+    }
+    else {
       return { code: l.code as LocaleObject['code'], name: l.name }
     }
-  })
+  }),
 )
 
 const getLabel = (locale: { code: string, name?: string }) => {

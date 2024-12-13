@@ -76,7 +76,7 @@ const currentKey = computed(() => {
   return (
     Object.keys(pages).find(
       (key: string) =>
-        pages[key as keyof typeof pages] === error.value?.statusCode
+        pages[key as keyof typeof pages] === error.value?.statusCode,
     ) || 'error'
   )
 })
@@ -85,13 +85,13 @@ const title = t(`pages.${currentKey.value}.title`, {
   statusCode: error.value?.statusCode,
 })
 const colors = computed<object>(() =>
-  tm(`pages.${currentKey.value}.icon.colors`)
+  tm(`pages.${currentKey.value}.icon.colors`),
 )
 const entireDescription = computed<string>(() =>
-  tm(`pages.${currentKey.value}.description`)
+  tm(`pages.${currentKey.value}.description`),
 )
 const description = computed<string[]>(() =>
-  entireDescription.value.split('. ')
+  entireDescription.value.split('. '),
 )
 </script>
 

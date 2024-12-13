@@ -17,7 +17,7 @@ withDefaults(
     color: () => ({
       primary: 'var(--color-figure-orange)',
     }),
-  }
+  },
 )
 </script>
 

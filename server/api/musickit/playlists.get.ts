@@ -13,10 +13,11 @@ export default defineEventHandler(async (event) => {
           Authorization: `Bearer ${token}`,
         },
         params: parameters,
-      }
+      },
     )
     return response
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Error fetching playlists:', error)
     throw createError({
       statusCode: 500,

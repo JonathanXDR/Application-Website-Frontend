@@ -33,6 +33,6 @@ defineProps<{
 const { tm } = useI18n()
 const breakpoints = useAppBreakpoints()
 const articles = computed<CardItemType[]>(() =>
-  tm('components.containers.references')
+  tm('components.containers.references'),
 )
 </script>

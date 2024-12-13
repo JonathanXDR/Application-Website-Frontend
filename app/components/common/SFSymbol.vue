@@ -28,7 +28,7 @@ const properties = withDefaults(defineProps<IconType>(), {
 })
 
 const icon = computed(
-  () => `${getSpriteUrl(properties.componentSize)}#${properties.name}`
+  () => `${getSpriteUrl(properties.componentSize)}#${properties.name}`,
 )
 
 const getSpriteUrl = (size: BasicSizeType) => {

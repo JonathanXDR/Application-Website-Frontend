@@ -7,8 +7,8 @@ Vue.use(Router)
 
 const TITLE = 'iuri.is'
 const URL = 'https://iuri.is/'
-const ABOUT =
-  'Frontend developer heavily influenced by storytelling, interactions, and UX. Addicted to music, visual arts, and games.'
+const ABOUT
+  = 'Frontend developer heavily influenced by storytelling, interactions, and UX. Addicted to music, visual arts, and games.'
 
 const router = new Router({
   mode: 'history',
@@ -166,7 +166,7 @@ router.beforeEach((to, _from, next) => {
     '-mario-bg',
     '-admin-bg',
     '-confianca-bg',
-    '-desbravando-bg'
+    '-desbravando-bg',
   )
 
   // Update meta tags
@@ -182,7 +182,7 @@ router.beforeEach((to, _from, next) => {
     document.title = nearestWithTitle.meta.title
     // Remove any stale meta tags from the document using the key attribute we set below.
   }[...document.querySelectorAll('[data-vue-router-controlled]')].map(element =>
-    element.parentNode.removeChild(element)
+    element.parentNode.removeChild(element),
   )
   // Skip rendering meta tags if there are none.
   if (!nearestWithMeta) return next()
@@ -218,7 +218,7 @@ router.afterEach(() => {
       '-mario-bg',
       '-admin-bg',
       '-confianca-bg',
-      '-desbravando-bg'
+      '-desbravando-bg',
     )
   }, 1000)
 })

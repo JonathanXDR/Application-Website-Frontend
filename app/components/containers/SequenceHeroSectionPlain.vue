@@ -373,11 +373,11 @@ const props = withDefaults(
     background: string
   }>(),
   {
-    title: "Privacy. That's Apple.",
+    title: 'Privacy. That\'s Apple.',
     description:
-      "Privacy is a fundamental human right. It's also one of our core values. Which is why we design our products and services to protect it. That's the kind of innovation we believe&nbsp;in.",
+      'Privacy is a fundamental human right. It\'s also one of our core values. Which is why we design our products and services to protect it. That\'s the kind of innovation we believe&nbsp;in.',
     background:
       'https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large.jpg',
-  }
+  },
 )
 </script>

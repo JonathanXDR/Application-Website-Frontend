@@ -127,23 +127,23 @@ const updateBaseItems = () => {
   if (!latestTag || !previousTag) return
   baseItems.value = properties.items.map((item, index) => ({
     description:
-      item.description &&
-      t(`components.common.RibbonBar[${index}].description`, {
+      item.description
+      && t(`components.common.RibbonBar[${index}].description`, {
         latestTag,
         previousTag,
       }),
     links:
-      item.links &&
-      (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map(
+      item.links
+      && (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map(
         link => ({
           ...link,
           url: link.url
             ? rt(link.url, {
-              latestTag,
-              previousTag,
-            })
+                latestTag,
+                previousTag,
+              })
             : undefined,
-        })
+        }),
       ),
   }))
   totalItems.value = baseItems.value.length
@@ -158,7 +158,7 @@ const updateDisplayItems = () => {
       baseItems.value[(start + index) % totalItems.value] || {
         description: '',
         links: [],
-      }
+      },
   )
 }
 
@@ -169,11 +169,12 @@ const scrollContent = (direction: 'left' | 'right') => {
 
     nextTick(() => {
       if (direction === 'left') {
-        currentIndex.value =
-          currentIndex.value === 0
+        currentIndex.value
+          = currentIndex.value === 0
             ? totalItems.value - 1
             : currentIndex.value - 1
-      } else {
+      }
+      else {
         currentIndex.value = (currentIndex.value + 1) % totalItems.value
       }
     })
@@ -223,7 +224,7 @@ watch(
       }, 2800)
     }
   },
-  { immediate: true }
+  { immediate: true },
 )
 
 watch(locale, () => {

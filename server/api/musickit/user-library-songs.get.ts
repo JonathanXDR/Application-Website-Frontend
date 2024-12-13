@@ -13,13 +13,14 @@ export default defineEventHandler(async () => {
       `${config.public.appleMusicBaseUrl}/me/library/songs`,
       {
         headers: {
-          Authorization: `Bearer ${authToken}`,
+          'Authorization': `Bearer ${authToken}`,
           'Music-User-Token': musicUserToken,
         },
-      }
+      },
     )
     return response
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Error fetching user library songs:', error)
     throw createError({
       statusCode: 500,

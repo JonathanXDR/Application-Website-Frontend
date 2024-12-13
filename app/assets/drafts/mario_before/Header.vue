@@ -115,10 +115,10 @@ import '@/styles/header.scss'
 export default {
   name: 'HeaderSection',
   methods: {
-    openMenu () {
+    openMenu() {
       document.body.classList.add('-open-nav')
     },
-    closeMenu () {
+    closeMenu() {
       document.body.classList.remove('-open-nav')
     },
   },

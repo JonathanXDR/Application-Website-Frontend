@@ -37,7 +37,7 @@ withDefaults(
   {
     options: () => [],
     label: undefined,
-  }
+  },
 )
 </script>
 

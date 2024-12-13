@@ -77,12 +77,12 @@ const props = withDefaults(
     background: string
   }>(),
   {
-    title: "Privacy. That's Apple.",
+    title: 'Privacy. That\'s Apple.',
     description:
-      "Privacy is a fundamental human right. It's also one of our core values. Which is why we design our products and services to protect it. That's the kind of innovation we believe&nbsp;in.",
+      'Privacy is a fundamental human right. It\'s also one of our core values. Which is why we design our products and services to protect it. That\'s the kind of innovation we believe&nbsp;in.',
     background:
       'https://www.apple.com/v/privacy/u/images/overview/hero__j7g6erczcr2u_large.jpg',
-  }
+  },
 )
 
 const sectionRef = ref<HTMLElement | null>(null)
@@ -187,7 +187,7 @@ const initializeAnimation = () => {
     .to(
       iconTranslateY,
       { value: -80, duration: 0.4, ease: 'power2.inOut' },
-      '<'
+      '<',
     )
 
   // Copy animation
@@ -196,7 +196,7 @@ const initializeAnimation = () => {
     .to(
       copyTranslateY,
       { value: -80, duration: 0.4, ease: 'power2.inOut' },
-      '<'
+      '<',
     )
 
   // Headline animation
@@ -206,7 +206,7 @@ const initializeAnimation = () => {
       char,
       { opacity: 0, y: 20, scale: 0 },
       { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power2.out' },
-      index * 0.05
+      index * 0.05,
     )
   })
 
@@ -216,7 +216,7 @@ const initializeAnimation = () => {
     timeline.to(
       char,
       { scale: 0, duration: 0.3, ease: 'power2.in' },
-      0.5 + index * 0.05
+      0.5 + index * 0.05,
     )
   })
 
@@ -251,7 +251,7 @@ const updateBackgroundSize = () => {
 const checkFallbackState = () => {
   if (!sectionRef.value) return
   const fallbackHeight = Number.parseInt(
-    getComputedStyle(sectionRef.value).getPropertyValue('--fallback-height')
+    getComputedStyle(sectionRef.value).getPropertyValue('--fallback-height'),
   )
   isFallbackMode.value = windowHeight.value <= fallbackHeight
 }

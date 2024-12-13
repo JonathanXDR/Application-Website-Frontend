@@ -12,10 +12,11 @@ export default defineEventHandler(async (event) => {
       headers: { accept: 'application/vnd.github+json' },
     })
     return response.data
-  } catch (error) {
+  }
+  catch (error) {
     console.error(
       `Error fetching repository for owner ${parameters.owner}:`,
-      error
+      error,
     )
     throw createError({
       statusCode: 500,

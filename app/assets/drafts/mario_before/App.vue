@@ -33,7 +33,7 @@ export default {
     HeaderSection,
     Spine,
   },
-  data () {
+  data() {
     return {
       isSpinePlaying: false,
       introTimeline: new TimelineMax(),
@@ -41,7 +41,7 @@ export default {
     }
   },
   methods: {
-    enter (element, done) {
+    enter(element, done) {
       // intro animations
       this.introTimeline
         .clear()
@@ -58,7 +58,7 @@ export default {
             x: 0,
             ease: Power3.easeOut,
           },
-          'enter'
+          'enter',
         )
         .fromTo(
           element,
@@ -70,12 +70,12 @@ export default {
             autoAlpha: 1,
             onComplete: done,
           },
-          'enter'
+          'enter',
         )
 
       this.isSpinePlaying = true
     },
-    leave (element, done) {
+    leave(element, done) {
       // leave animations
       this.leaveTimeline
         .clear()
@@ -88,7 +88,7 @@ export default {
             autoAlpha: 0,
             onComplete: done,
           },
-          'leave'
+          'leave',
         )
 
       this.isSpinePlaying = false

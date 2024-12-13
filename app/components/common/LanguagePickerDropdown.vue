@@ -41,7 +41,7 @@ const properties = withDefaults(
   }>(),
   {
     componentSize: 'small',
-  }
+  },
 )
 
 const breakpoints = useAppBreakpoints()
@@ -52,7 +52,7 @@ const selectedLocale = ref(locale.value)
 const computedLocales = computed(() =>
   locales.value.map((l) => {
     return typeof l === 'string' ? { code: l, name: l } : l
-  })
+  }),
 )
 
 const fontSize = computed(() => {

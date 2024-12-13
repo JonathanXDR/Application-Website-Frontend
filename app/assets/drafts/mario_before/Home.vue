@@ -54,11 +54,11 @@ import Mario from '@/js/mario'
 import Castle from '@/js/ghibli'
 import Gap from '@/components/Gap.vue'
 
-function removeBodyClass (...classes) {
+function removeBodyClass(...classes) {
   document.body.classList.remove(...classes)
 }
 
-function addBodyClass (...classes) {
+function addBodyClass(...classes) {
   if (document.querySelector('#app.page-home')) {
     document.body.classList.add(...classes)
   }
@@ -78,7 +78,7 @@ export default {
     Thanks,
     Gap,
   },
-  data () {
+  data() {
     return {
       intro: new TimelineMax(),
       scroller: new ScrollMagic.Controller(),
@@ -101,10 +101,10 @@ export default {
       },
     }
   },
-  created () {
+  created() {
     window.addEventListener('beforeunload', () => window.scroll(0, 0))
   },
-  mounted () {
+  mounted() {
     // 01. play Intro
     this.playIntro()
     // 02. setup time lines and scenes
@@ -132,7 +132,7 @@ export default {
     // </wrapper>
     this.sceneWrapper()
   },
-  beforeUnmount () {
+  beforeUnmount() {
     // stop loop animations
     for (const character of Object.keys(this.isPlaying.Biz)) {
       this.isPlaying.Biz[character] = false
@@ -159,7 +159,7 @@ export default {
     this.scenes = []
   },
   methods: {
-    setupScenes () {
+    setupScenes() {
       /**
        * @desc
        * Where the magic happens
@@ -201,7 +201,7 @@ export default {
           })
       }
     },
-    playIntro () {
+    playIntro() {
       /**
        * @desc
        * intro scene
@@ -217,7 +217,7 @@ export default {
             transformOrigin: '50% 50% -100px',
             ease: Power3.easeOut,
           },
-          'enter'
+          'enter',
         )
         .from(
           '#intro .std',
@@ -227,10 +227,10 @@ export default {
             x: -32,
             ease: Power3.easeOut,
           },
-          'enter+=1.5'
+          'enter+=1.5',
         )
     },
-    hookLoops () {
+    hookLoops() {
       /**
        * @desc
        * play and stop loop animations
@@ -386,7 +386,7 @@ export default {
         }
       })
     },
-    buildLoops () {
+    buildLoops() {
       /**
        * @desc
        * mount loop animations
@@ -396,11 +396,12 @@ export default {
       Potion.build()
       if (this.$viewport.isMobile) {
         Castle.build568()
-      } else {
+      }
+      else {
         Castle.build()
       }
     },
-    sceneCurriculumVitae () {
+    sceneCurriculumVitae() {
       /**
        * @desc
        * Scrolling animations time lines
@@ -419,7 +420,7 @@ export default {
             transformOrigin: '50% 50% -100px',
             ease: Power3.easeOut,
           },
-          'start'
+          'start',
         )
         .from(
           '#curriculum .std',
@@ -431,14 +432,14 @@ export default {
             transformOrigin: '50% 50% -100px',
             ease: Power3.easeOut,
           },
-          'start'
+          'start',
         )
         .to('#curriculum .title, #curriculum .std', 2, {
           autoAlpha: 0,
           yPercent: -100,
         })
     },
-    sceneBizTitle () {
+    sceneBizTitle() {
       // biz()
       this.timeLines[1]
         // next scene characters
@@ -474,7 +475,7 @@ export default {
             transformOrigin: '50% 50% -100px',
             ease: Power3.easeOut,
           },
-          'start'
+          'start',
         )
         .to('#bizTitle .title', 6, {
           autoAlpha: 0,
@@ -489,7 +490,7 @@ export default {
             ease: Power3.easeOut,
           },
           0.2,
-          'start+=2'
+          'start+=2',
         )
         .from(
           '#abiz',
@@ -497,10 +498,10 @@ export default {
           {
             scale: 0,
           },
-          'start+=2'
+          'start+=2',
         )
     },
-    sceneBizZen () {
+    sceneBizZen() {
       // Biz Commerce 1
       this.timeLines[2]
         .addLabel('start', 0)
@@ -511,7 +512,7 @@ export default {
             xPercent: 70,
             ease: Power3.easeOut,
           },
-          'start'
+          'start',
         )
         .to(
           '#abiz',
@@ -521,7 +522,7 @@ export default {
             xPercent: -100,
             ease: Power3.easeIn,
           },
-          'start'
+          'start',
         )
         .staggerTo(
           '#smart, #open',
@@ -532,10 +533,10 @@ export default {
             ease: Power3.easeOut,
           },
           0.2,
-          'start'
+          'start',
         )
     },
-    sceneBizEverybody () {
+    sceneBizEverybody() {
       // Biz Commerce 2
       this.timeLines[3]
         .addLabel('start', 0)
@@ -546,7 +547,7 @@ export default {
             yPercent: 130,
             ease: Power3.easeIn,
           },
-          'start'
+          'start',
         )
         .staggerTo(
           '#dino, #astro, #coffee, #et, #filomena, #octo',
@@ -559,10 +560,10 @@ export default {
             ease: Power3.easeOut,
           },
           0.2,
-          'start'
+          'start',
         )
     },
-    sceneBizEnding () {
+    sceneBizEnding() {
       // Biz Commerce 3
       this.timeLines[4]
         .addLabel('start', 0)
@@ -574,7 +575,7 @@ export default {
             scale: 1.5,
             ease: Power3.easeIn,
           },
-          'start'
+          'start',
         )
         .to(
           '#et',
@@ -585,7 +586,7 @@ export default {
             autoAlpha: 0,
             ease: Power3.easeIn,
           },
-          'start'
+          'start',
         )
         .to(
           '#filomena',
@@ -596,7 +597,7 @@ export default {
             autoAlpha: 0,
             ease: Power3.easeIn,
           },
-          'start'
+          'start',
         )
         .to(
           '#octo',
@@ -607,7 +608,7 @@ export default {
             autoAlpha: 0,
             ease: Power3.easeIn,
           },
-          'start'
+          'start',
         )
         .to(
           '#astro',
@@ -618,7 +619,7 @@ export default {
             scale: 4,
             ease: Power3.easeInOut,
           },
-          'start'
+          'start',
         )
         .to(
           '#coffee',
@@ -629,10 +630,10 @@ export default {
             scale: 4,
             ease: Power3.easeInOut,
           },
-          'start'
+          'start',
         )
     },
-    sceneEarlyDays () {
+    sceneEarlyDays() {
       // Clouds parallax
       const cloudsTimeline = new TimelineMax({ paused: true })
       const cloudsTweener = new TimelineMax()
@@ -658,7 +659,7 @@ export default {
             yPercent: -85,
             xPercent: -20,
           },
-          'action'
+          'action',
         )
         .fromTo(
           '.cloud-2',
@@ -671,7 +672,7 @@ export default {
             yPercent: -40,
             xPercent: 85,
           },
-          'action'
+          'action',
         )
         .fromTo(
           '.cloud-3',
@@ -684,7 +685,7 @@ export default {
             yPercent: -85,
             xPercent: -40,
           },
-          'action'
+          'action',
         )
 
       new ScrollMagic.Scene({
@@ -708,7 +709,7 @@ export default {
             xPercent: 200,
             ease: Power2.easeIn,
           },
-          'start'
+          'start',
         )
         .to(
           '#coffee',
@@ -718,7 +719,7 @@ export default {
             xPercent: -200,
             ease: Power2.easeIn,
           },
-          'start'
+          'start',
         )
         .to('#earlyTitle .title-container', 2, { autoAlpha: 1 }, 'start')
         .from(
@@ -731,7 +732,7 @@ export default {
             transformOrigin: '50% 50% -100px',
             ease: Power3.easeOut,
           },
-          'start'
+          'start',
         )
         .from(
           '#earlyTitle .std',
@@ -743,19 +744,19 @@ export default {
             transformOrigin: '50% 50% 100px',
             ease: Power3.easeOut,
           },
-          'start'
+          'start',
         )
         .to('#earlyTitle .title, #earlyTitle .std', 4, {
           autoAlpha: 0,
           yPercent: -100,
         })
     },
-    sceneOcean () {
+    sceneOcean() {
       // Pepe parallax
       const pepeTimeline = new TimelineMax({ paused: true })
       const pepeTweener = new TimelineMax()
-      const pepeLength =
-        window.innerWidth + document.querySelector('.pepe').offsetWidth + 16
+      const pepeLength
+        = window.innerWidth + document.querySelector('.pepe').offsetWidth + 16
 
       pepeTweener
         .to('.pepe', 20, { rotation: 0 })
@@ -773,7 +774,7 @@ export default {
           x: `-${pepeLength}px`,
           scale: 0.5,
         },
-        'start'
+        'start',
       )
 
       new ScrollMagic.Scene({
@@ -789,17 +790,17 @@ export default {
         .set('#biz1 .container', { autoAlpha: 0 })
         .to('.pepe-scenery', 8, { autoAlpha: 1 })
     },
-    sceneFloatingHead () {
+    sceneFloatingHead() {
       // first company
       this.timeLines[7].addLabel('start', 0)
     },
-    sceneSunset () {
+    sceneSunset() {
       // porta, kibe etc.
       this.timeLines[8]
         .set('#Mario .container', { autoAlpha: 0 })
         .to('.pepe-scenery', 8, { autoAlpha: 0 })
     },
-    sceneArtPhiGames () {
+    sceneArtPhiGames() {
       this.timeLines[9]
         .set('#Mario .container', { autoAlpha: 0 })
         .addLabel('start', 1)
@@ -822,7 +823,7 @@ export default {
             transformOrigin: '50% 50% 100px',
             ease: Power3.easeOut,
           },
-          '-=1'
+          '-=1',
         )
         .to('#ArtPhiGamesTitle .title, #ArtPhiGamesTitle .std', 3, {
           yPercent: -100,
@@ -830,7 +831,7 @@ export default {
         })
         .set('#earlyTitle .title-container', { autoAlpha: 1 })
     },
-    sceneMario () {
+    sceneMario() {
       // Mario
       // using the tweener here
       // because I need to be precise about time, and the momentum would ruin it
@@ -843,7 +844,7 @@ export default {
         })
       this.timeLines[10].set('.mario', { yPercent: 200, autoAlpha: 0 })
     },
-    sceneGhibli () {
+    sceneGhibli() {
       // Ghibli Grass parallax
       const grassTimeline = new TimelineMax({ paused: true })
       const grassTweener = new TimelineMax()
@@ -867,7 +868,7 @@ export default {
             xPercent: -100,
             ease: Power1.easeIn,
           },
-          'start'
+          'start',
         )
         .to(
           '#Ghibli .grass2',
@@ -877,7 +878,7 @@ export default {
             xPercent: 100,
             ease: Power1.easeIn,
           },
-          'start'
+          'start',
         )
         .addLabel('start')
 
@@ -914,7 +915,7 @@ export default {
             scale: 1.5,
             ease: Power1.easeIn,
           },
-          'start'
+          'start',
         )
         .to(
           '#Ghibli .sky .c2',
@@ -925,7 +926,7 @@ export default {
             scale: 1.5,
             ease: Power1.easeIn,
           },
-          'start'
+          'start',
         )
 
       new ScrollMagic.Scene({
@@ -942,12 +943,12 @@ export default {
       let castleLength = '-120vw'
 
       if (this.$viewport.isMobile) {
-        castleLength =
-          '-' +
-          (window.innerWidth +
-            document.querySelector('.castle-container').offsetWidth +
-            16) +
-            'px'
+        castleLength
+          = '-'
+          + (window.innerWidth
+            + document.querySelector('.castle-container').offsetWidth
+            + 16)
+          + 'px'
       }
 
       castleTweener
@@ -987,7 +988,7 @@ export default {
       // Ghibli 4 (gap)
       this.timeLines[14].addLabel('start', 0)
     },
-    sceneWrapper () {
+    sceneWrapper() {
       this.timeLines[15]
         .addLabel('start', 0)
         .to('#Ghibli .container', 2, { autoAlpha: 0 }, 'start')

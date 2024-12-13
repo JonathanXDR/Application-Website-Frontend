@@ -68,7 +68,7 @@ definePageMeta({
 
 const { tm } = useI18n()
 const cards = computed<CardItemType[]>(() =>
-  tm('components.containers.technologies')
+  tm('components.containers.technologies'),
 )
 
 // const segmentNavItems = computed<ItemType[]>(() =>

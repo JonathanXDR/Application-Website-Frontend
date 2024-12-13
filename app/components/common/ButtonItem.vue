@@ -26,7 +26,7 @@ withDefaults(
     componentSize: 'medium',
     borderRadius: 'reduced',
     icon: undefined,
-  }
+  },
 )
 </script>
 

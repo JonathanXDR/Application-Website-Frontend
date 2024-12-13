@@ -57,14 +57,14 @@ const properties = withDefaults(
   }>(),
   {
     autoAnimation: false,
-  }
+  },
 )
 
 const words = computed(() =>
   properties.title
     .trim()
     .split(' ')
-    .map(word => [...word])
+    .map(word => [...word]),
 )
 
 const isCursorBlinking = ref(false)
@@ -72,7 +72,7 @@ const initialCursorOpacity = ref('1')
 const currentLetterCount = ref(0)
 const originalStringLength = computed(
   () =>
-    properties.title.trim().replaceAll(' ', '').length + words.value.length - 1
+    properties.title.trim().replaceAll(' ', '').length + words.value.length - 1,
 )
 
 const getLetterStyle = (index: number) => ({
@@ -90,14 +90,14 @@ const getGlobalIndex = (wordIndex: number, letterIndex: number) => {
 
 const isCursorBlinkingTimeout = ref(false)
 
-const { start: startCursorBlinkTimeout, stop: stopCursorBlinkTimeout } =
-  useTimeoutFn(
+const { start: startCursorBlinkTimeout, stop: stopCursorBlinkTimeout }
+  = useTimeoutFn(
     () => {
       isCursorBlinking.value = true
       isCursorBlinkingTimeout.value = false
     },
     1,
-    { immediate: false }
+    { immediate: false },
   )
 
 const setCursorBlink = (state: boolean) => {
@@ -118,13 +118,14 @@ const startAutoAnimation = () => {
         currentLetterCount.value++
         setCursorBlink(false)
         initialCursorOpacity.value = '0'
-      } else {
+      }
+      else {
         pause()
         setCursorBlink(true)
       }
     },
     100,
-    { immediate: true }
+    { immediate: true },
   )
   autoAnimationCleanup.value = pause
 }
@@ -143,16 +144,16 @@ const updateLetterCount = () => {
   const scrollThreshold = 20
 
   switch (true) {
-    case scrollY.value > lastScrollY + scrollThreshold &&
-      currentLetterCount.value < originalStringLength.value: {
+    case scrollY.value > lastScrollY + scrollThreshold
+      && currentLetterCount.value < originalStringLength.value: {
       currentLetterCount.value++
       setCursorBlink(false)
       initialCursorOpacity.value = '0'
       lastScrollY = scrollY.value
       break
     }
-    case scrollY.value < lastScrollY - scrollThreshold &&
-      currentLetterCount.value > 0: {
+    case scrollY.value < lastScrollY - scrollThreshold
+      && currentLetterCount.value > 0: {
       currentLetterCount.value--
       setCursorBlink(false)
       lastScrollY = scrollY.value
@@ -172,9 +173,10 @@ const animationConfig = {
       stopScrollListener.value = useEventListener(
         window,
         'scroll',
-        updateLetterCount
+        updateLetterCount,
       )
-    } else {
+    }
+    else {
       stopScrollListener.value?.()
       stopScrollListener.value = undefined
       stopCursorBlinkTimeout()
@@ -191,18 +193,19 @@ onMounted(() => {
     (valueNew) => {
       if (valueNew) {
         startAutoAnimation()
-      } else {
+      }
+      else {
         stopAutoAnimation()
       }
     },
-    { immediate: false }
+    { immediate: false },
   )
 
   if (properties.autoAnimation) return
   stopScrollListener.value = useEventListener(
     window,
     'scroll',
-    updateLetterCount
+    updateLetterCount,
   )
 })
 

@@ -58,7 +58,7 @@ const properties = withDefaults(
   {
     items: () => [],
     activeTabId: '0',
-  }
+  },
 )
 
 const emit = defineEmits(['change'])
@@ -68,7 +68,7 @@ watch(
   () => properties.activeTabId,
   (valueNew) => {
     selectedTab.value = valueNew
-  }
+  },
 )
 
 const emitChange = (id: string) => {

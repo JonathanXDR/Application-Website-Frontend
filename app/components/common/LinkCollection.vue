@@ -47,7 +47,7 @@ const properties = withDefaults(
     divider: true,
     shouldAnimate: false,
     loading: false,
-  }
+  },
 )
 
 const { links } = toRefs(properties)

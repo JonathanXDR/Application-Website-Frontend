@@ -198,7 +198,7 @@ const { data: userRepositories } = await useFetch(
     lazy: true,
     params: { username: config.public.githubRepoOwner, perPage: 100 },
     getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
-  }
+  },
 )
 
 const { data: pinnedProjects } = await useFetch(
@@ -208,12 +208,12 @@ const { data: pinnedProjects } = await useFetch(
     lazy: true,
     params: { username: config.public.githubRepoOwner, perPage: 100 },
     getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
-  }
+  },
 )
 
 const projects: Projects = reactive({
   swisscom: computed<CardItemType[]>(() =>
-    tm('components.containers.projects')
+    tm('components.containers.projects'),
   ),
   personal: [],
   school: [],
@@ -223,17 +223,17 @@ const allProjects = computed(() => userRepositories.value || [])
 const filteredProjects = computed(() =>
   allProjects.value.filter(
     project =>
-      !pinned.value.some(pinnedProject => pinnedProject.name === project.name)
-  )
+      !pinned.value.some(pinnedProject => pinnedProject.name === project.name),
+  ),
 )
 
 const currentProjects = computed(
   () =>
-    projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects]
+    projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects],
 ) as Ref<CardItemType[]>
 
 const segmentNavItems = computed<ItemType[]>(() =>
-  tm('components.common.SegmentNav.projects')
+  tm('components.common.SegmentNav.projects'),
 )
 
 const updateCurrentIndex = (index: number) => {
@@ -241,7 +241,7 @@ const updateCurrentIndex = (index: number) => {
 }
 
 const categorizeProject = (
-  project: MinimalRepository
+  project: MinimalRepository,
 ): CategorizedRepository => {
   const schoolProjectPattern = /M\d{3}|UEK-\d{3}(?:-\w+)?|(?:UEK|TBZ)-Modules/
   const category = schoolProjectPattern.test(project.name)
@@ -280,14 +280,14 @@ watch(
     }
     pinned.value = pinnedProjectsNew || []
   },
-  { immediate: true }
+  { immediate: true },
 )
 
 watchEffect(() => {
   projects.personal = []
   projects.school = []
   const categorizedProjects = filteredProjects.value.map(project =>
-    categorizeProject(project)
+    categorizeProject(project),
   )
   for (const project of categorizedProjects) {
     const category = project.category as keyof Projects

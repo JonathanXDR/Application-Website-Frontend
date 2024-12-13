@@ -192,21 +192,21 @@ const { t } = useI18n()
 const { randomDevColor } = useColor()
 const applyHover = computed(
   () =>
-    (properties.hover === 'auto' &&
-      ((properties.links && properties.links.length > 0) ||
-        properties.html_url)) ||
-        properties.hover === 'true'
+    (properties.hover === 'auto'
+      && ((properties.links && properties.links.length > 0)
+        || properties.html_url))
+      || properties.hover === 'true',
 )
 const componentType = computed(() =>
-  properties.variant === 'article' || !applyHover.value ? 'div' : 'a'
+  properties.variant === 'article' || !applyHover.value ? 'div' : 'a',
 )
 const componentId = computed(() =>
-  properties.title?.toLowerCase().replaceAll(' ', '-')
+  properties.title?.toLowerCase().replaceAll(' ', '-'),
 )
 const componentHref = computed(() =>
   applyHover.value && properties.links
     ? properties.links[0]?.url
-    : properties.html_url
+    : properties.html_url,
 )
 const scrollAnimation = {
   add: 'scroll-animation--on',
@@ -214,16 +214,16 @@ const scrollAnimation = {
 }
 
 const hasCoverOrGraphs = computed(
-  () => properties.cover || properties.graphs?.donut || properties.graphs?.bar
+  () => properties.cover || properties.graphs?.donut || properties.graphs?.bar,
 )
 const hasBadgesOrTopics = computed(
-  () => properties.badges?.length || properties.topics?.length
+  () => properties.badges?.length || properties.topics?.length,
 )
 const badgesOrTopics = computed(
-  () => properties.badges || properties.topics || []
+  () => properties.badges || properties.topics || [],
 )
 const hasLinksOrHtmlUrl = computed(
-  () => properties.links?.length || properties.html_url
+  () => properties.links?.length || properties.html_url,
 )
 const linkCollectionLinks = computed(
   () =>
@@ -233,7 +233,7 @@ const linkCollectionLinks = computed(
         url: properties.html_url,
         icon: { name: 'chevron.right' },
       },
-    ]
+    ],
 )
 
 const hasInfo = computed(() => {
@@ -251,7 +251,7 @@ const hasInfo = computed(() => {
     'subscribers_count',
   ]
   return keys.some(
-    (key: string) => (properties as Record<string, unknown>)[key]
+    (key: string) => (properties as Record<string, unknown>)[key],
   )
 })
 
@@ -281,7 +281,7 @@ const flexDirection = computed(
       right: 'row-reverse',
       bottom: 'column-reverse',
       left: 'row',
-    })[properties.icon?.position || 'left']
+    })[properties.icon?.position || 'left'],
 )
 
 const alignItems = computed(
@@ -290,7 +290,7 @@ const alignItems = computed(
       start: 'flex-start',
       center: 'center',
       end: 'flex-end',
-    })[properties.alignment]
+    })[properties.alignment],
 )
 
 const detailsStyle = computed((): Record<string, string> => {
@@ -301,7 +301,7 @@ const detailsStyle = computed((): Record<string, string> => {
 })
 
 const iconClasses = computed(() => ({
-  icon: true,
+  'icon': true,
   'icon-large':
     properties.variant === 'article' && properties.componentSize === 'large',
   'icon-xlarge': ['medium', 'small'].includes(properties.componentSize),

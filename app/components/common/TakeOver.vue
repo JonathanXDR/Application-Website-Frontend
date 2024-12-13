@@ -94,9 +94,11 @@ const calculateEventState = () => {
 
   if (now.isBefore(start)) {
     eventState.value = 'pre-event'
-  } else if (now.isAfter(end)) {
+  }
+  else if (now.isAfter(end)) {
     eventState.value = 'post-event'
-  } else {
+  }
+  else {
     eventState.value = 'live'
   }
 }

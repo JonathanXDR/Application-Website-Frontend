@@ -76,7 +76,8 @@ const setupIntersectionObserver = () => {
       initialAnimatePath()
       useEventListener(window, 'scroll', animatePath)
       useEventListener(window, 'resize', initializePath)
-    } else {
+    }
+    else {
       removeEventListener('scroll', animatePath)
       removeEventListener('resize', initializePath)
     }
@@ -94,7 +95,7 @@ watch(
   async () => {
     await nextTick()
     initializePath()
-  }
+  },
 )
 </script>
 

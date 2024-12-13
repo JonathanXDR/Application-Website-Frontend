@@ -220,7 +220,7 @@ const { tm } = useI18n()
 
 const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'))
 const themeItems = computed<ItemType[]>(() =>
-  tm('components.common.SegmentNav.theme')
+  tm('components.common.SegmentNav.theme'),
 )
 
 const navOpen = ref(false)
@@ -279,7 +279,8 @@ const handleMenuClick = () => {
 const animateChevron = (isOpen: boolean) => {
   if (isOpen) {
     expandAnimation.value?.beginElement()
-  } else {
+  }
+  else {
     collapseAnimation.value?.beginElement()
   }
 }
@@ -321,8 +322,8 @@ const updateBorderPosition = () => {
     const menuLinkRect = currentMenuLinkElement.value.getBoundingClientRect()
     const navbarRect = navbarElement.value.getBoundingClientRect()
 
-    const centerPosition =
-      menuLinkRect.left + menuLinkRect.width / 2 - navbarRect.left
+    const centerPosition
+      = menuLinkRect.left + menuLinkRect.width / 2 - navbarRect.left
 
     const transformOriginPercent = (centerPosition / navbarRect.width) * 100
 
@@ -332,7 +333,8 @@ const updateBorderPosition = () => {
     requestAnimationFrame(() => {
       borderScaleX.value = 'scaleX(1)'
     })
-  } else {
+  }
+  else {
     borderTransformOrigin.value = '50% 0%'
     borderScaleX.value = 'scaleX(1)'
   }

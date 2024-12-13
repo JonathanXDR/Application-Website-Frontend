@@ -39,7 +39,7 @@ withDefaults(
   {
     color: 'gray',
     direction: 'left',
-  }
+  },
 )
 </script>
 

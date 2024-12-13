@@ -48,7 +48,7 @@ const shouldHideNavbar = useState<boolean>('shouldHideNavbar', () => false)
 const autoHideNavbar = ref(false)
 
 const items = computed<RibbonBar['items']>(() =>
-  tm('components.common.RibbonBar')
+  tm('components.common.RibbonBar'),
 )
 
 const faviconColor = randomDevColor.value?.hex
@@ -58,7 +58,7 @@ const fetchSvgContent = async () => {
   const response = await fetch('/img/dev/favicon-dev.svg')
   const svgContent = await response.text()
   faviconGraphicData.value = `data:image/svg+xml,${encodeURIComponent(
-    svgContent.replace('#color', `#${faviconColor}`)
+    svgContent.replace('#color', `#${faviconColor}`),
   )}`
 }
 
@@ -77,9 +77,9 @@ watch([y, isScrolling], ([yNew, isScrollingNew]) => {
 
 const shouldApplyHideLocalnav = computed(() => {
   return (
-    y.value > ribbonBarHeight.value &&
-    shouldHideNavbar.value &&
-    autoHideNavbar.value
+    y.value > ribbonBarHeight.value
+    && shouldHideNavbar.value
+    && autoHideNavbar.value
   )
 })
 
@@ -127,7 +127,7 @@ watch(
       border,
       autoHide,
     })
-  }
+  },
 )
 
 const errorConfig = {
@@ -149,7 +149,7 @@ const footerClass = computed(() => ({
 }))
 
 const footerComponent = computed(() =>
-  shouldShow('footerFull') ? FooterFull : FooterCompact
+  shouldShow('footerFull') ? FooterFull : FooterCompact,
 )
 </script>
 

@@ -27,7 +27,7 @@ export default defineNuxtConfig({
     scripts: {
       globals: {
         meticulousAi: {
-          src: 'https://snippet.meticulous.ai/v1/meticulous.js',
+          'src': 'https://snippet.meticulous.ai/v1/meticulous.js',
           'data-project-id': '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
           'data-is-production-environment': false,
         },
@@ -57,7 +57,7 @@ export default defineNuxtConfig({
     scripts: {
       globals: {
         meticulousAi: {
-          src: 'https://snippet.meticulous.ai/v1/meticulous.js',
+          'src': 'https://snippet.meticulous.ai/v1/meticulous.js',
           'data-project-id': '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
           'data-is-production-environment': true,
         },
@@ -269,8 +269,8 @@ export default defineNuxtConfig({
     },
     globals: {
       musicKit: {
-        src: 'https://js-cdn.music.apple.com/musickit/v3/musickit.js',
-        async: true,
+        'src': 'https://js-cdn.music.apple.com/musickit/v3/musickit.js',
+        'async': true,
         'data-web-components': true,
       },
     },
@@ -280,12 +280,12 @@ export default defineNuxtConfig({
     csrf: true,
     headers: {
       contentSecurityPolicy: {
-        'default-src': ["'self'", process.env.SITE_URL || ''],
-        'style-src': ["'self'", "'unsafe-inline'", process.env.SITE_URL || ''],
+        'default-src': ['\'self\'', process.env.SITE_URL || ''],
+        'style-src': ['\'self\'', '\'unsafe-inline\'', process.env.SITE_URL || ''],
         'script-src': [
-          "'self'",
-          "'strict-dynamic'",
-          "'nonce-{{nonce}}'",
+          '\'self\'',
+          '\'strict-dynamic\'',
+          '\'nonce-{{nonce}}\'',
           'https://*.googletagmanager.com',
           'https://snippet.meticulous.ai',
           'https://browser.sentry-cdn.com',
@@ -293,7 +293,7 @@ export default defineNuxtConfig({
           process.env.SITE_URL || '',
         ],
         'img-src': [
-          "'self'",
+          '\'self\'',
           'data:',
           'https://*.google-analytics.com',
           'https://*.analytics.google.com',
@@ -304,7 +304,7 @@ export default defineNuxtConfig({
           process.env.SITE_URL || '',
         ],
         'connect-src': [
-          "'self'",
+          '\'self\'',
           'https://*.google-analytics.com',
           'https://*.analytics.google.com',
           'https://*.googletagmanager.com',

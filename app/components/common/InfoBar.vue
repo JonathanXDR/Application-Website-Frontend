@@ -99,7 +99,7 @@ const updatedYesterday = computed(() => {
 
 const formatDate = (
   dateString: string,
-  formatOptions: Intl.DateTimeFormatOptions
+  formatOptions: Intl.DateTimeFormatOptions,
 ) => {
   return new Date(dateString).toLocaleDateString(locale.value, formatOptions)
 }
@@ -110,17 +110,19 @@ const getDate = () => {
   if (duration && formatOptions) {
     const formattedDuration = `${formatDate(
       duration.from,
-      formatOptions()
+      formatOptions(),
     )} - ${formatDate(duration.to, formatOptions())}`
 
     return formattedDuration
-  } else if (fixed && event) {
+  }
+  else if (fixed && event) {
     const formattedevent = `${event?.charAt(0).toUpperCase()}${event?.slice(
-      1
+      1,
     )} ${dayjs(fixed).locale(locale.value).fromNow()}`
 
     return formattedevent
-  } else if (fixed && formatOptions) {
+  }
+  else if (fixed && formatOptions) {
     const formattedFixedDate = formatDate(fixed.toString(), formatOptions())
 
     return formattedFixedDate

@@ -53,8 +53,8 @@ const handleScroll = () => {
   if (initialOffset.value === null) return
 
   const currentScroll = window.scrollY
-  const triggerPoint =
-    initialOffset.value - (shouldHideNavbar.value ? 0 : navbarHeight.value)
+  const triggerPoint
+    = initialOffset.value - (shouldHideNavbar.value ? 0 : navbarHeight.value)
 
   isSticky.value = currentScroll >= triggerPoint
   setState({ extensionAttached: isSticky.value })

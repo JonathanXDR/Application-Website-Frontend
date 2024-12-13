@@ -122,7 +122,7 @@ const jumpMario = (blockCenter: number, blockBottom: number) => {
         onComplete: () => {
           marioState.value = hasFoundAllCoins.value ? 'celebrate' : undefined
         },
-      }
+      },
     )
 }
 

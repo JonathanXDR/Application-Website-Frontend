@@ -14,10 +14,11 @@ export default defineEventHandler(async () => {
       `${config.public.appleMusicBaseUrl}/me/library/albums`,
       {
         headers,
-      }
+      },
     )
     return response
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Error fetching user library albums:', error)
     throw createError({
       statusCode: 500,

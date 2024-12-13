@@ -97,10 +97,10 @@ const properties = withDefaults(defineProps<LanguageBarType>(), {
 
 const applyHover = computed(
   () =>
-    (properties.hover === 'auto' &&
-      properties.links &&
-      properties.links.length > 0) ||
-      properties.hover === 'true'
+    (properties.hover === 'auto'
+      && properties.links
+      && properties.links.length > 0)
+    || properties.hover === 'true',
 )
 </script>
 

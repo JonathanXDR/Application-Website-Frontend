@@ -27,10 +27,10 @@ export const useColor = () => {
     'randomDevColor',
     () => {
       const randomNumber = Math.floor(
-        Math.random() * developmentColors.value.length
+        Math.random() * developmentColors.value.length,
       )
       return developmentColors.value[randomNumber]
-    }
+    },
   )
 
   return {

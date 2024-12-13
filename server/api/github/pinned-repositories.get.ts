@@ -66,12 +66,13 @@ export default defineEventHandler(async (event) => {
   try {
     const response = await graphqlInstance<GraphQlQueryResponseData>(query)
     return response.user.pinnedItems.edges.map((edge: { node: Repository }) =>
-      remapProperties(edge.node)
+      remapProperties(edge.node),
     )
-  } catch (error) {
+  }
+  catch (error) {
     console.error(
       `Error fetching pinned repositories for user ${username}:`,
-      error
+      error,
     )
     throw createError({
       statusCode: 500,

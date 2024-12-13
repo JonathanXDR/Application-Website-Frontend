@@ -40,26 +40,27 @@ const { data, error } = await useAsyncData<ArtFile[]>(
     })
 
     return await Promise.all(fileLoaders)
-  }
+  },
 )
 
 if (error.value) {
   console.error('Error loading ASCII files:', error.value)
-} else {
+}
+else {
   files.value = data.value || []
 }
 
 const randomFile = computed(() =>
   files.value.length > 0
     ? files.value[Math.floor(Math.random() * files.value.length)]
-    : undefined
+    : undefined,
 )
 
 onMounted(() => {
   if (!randomFile.value) return
   console.log(
     `%cHey! You've found an Easter egg! 🥚 \n\n${randomFile.value.content}`,
-    `font-family: ${randomFile.value.elementClass}`
+    `font-family: ${randomFile.value.elementClass}`,
   )
 })
 </script>

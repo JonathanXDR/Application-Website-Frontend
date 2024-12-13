@@ -118,7 +118,8 @@ const onTouchBlock = () => {
   if (properties.hasCoins) {
     audioStomp.play()
     animateCoin()
-  } else {
+  }
+  else {
     audioNoDamage.play()
   }
 }

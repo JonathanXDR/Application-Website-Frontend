@@ -62,13 +62,13 @@ const chipClaimHeight = ref(0)
 const titleElements = ref<HTMLElement[]>([])
 const progressSpan = ref<HTMLElement[]>([])
 const funFacts = computed<LanguageBarType[]>(() =>
-  tm('components.containers.funFacts')
+  tm('components.containers.funFacts'),
 )
 
 const updateChipClaimHeight = () => {
   nextTick(() => {
     const maxHeight = Math.max(
-      ...titleElements.value.map(element => element.clientHeight)
+      ...titleElements.value.map(element => element.clientHeight),
     )
     chipClaimHeight.value = maxHeight
   })
@@ -90,10 +90,10 @@ const animateNumber = (index: number) => {
           locale.value,
           {
             notation: breakpoints.smaller('md').value ? 'compact' : 'standard',
-          }
+          },
         )
       },
-    }
+    },
   )
 }
 

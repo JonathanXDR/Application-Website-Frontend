@@ -17,10 +17,11 @@ export default defineEventHandler(async (event) => {
           term: searchTerm,
           types: 'albums,playlists,songs',
         },
-      }
+      },
     )
     return response
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Error searching music:', error)
     throw createError({
       statusCode: 500,

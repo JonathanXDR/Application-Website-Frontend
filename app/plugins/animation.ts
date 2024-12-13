@@ -23,7 +23,7 @@ const toArray = (input?: string | string[]): string[] =>
 const updateClasses = (
   element: HTMLElement,
   { add, remove, toggle, onViewportChange, onEnter }: AnimationOperations,
-  isInViewport: boolean
+  isInViewport: boolean,
 ) => {
   const state = animationState.get(element) ?? {
     inViewport: false,
@@ -37,7 +37,8 @@ const updateClasses = (
     state.inViewport = true
     state.wasInViewport = true
     onEnter?.()
-  } else if (!isInViewport) {
+  }
+  else if (!isInViewport) {
     toArray(toggle).forEach(cls => element.classList.toggle(cls))
     state.inViewport = false
   }
@@ -49,7 +50,7 @@ const updateClasses = (
 const createObserver = (
   element: MaybeElementRef,
   options: AnimationOperations,
-  rootMargin: string
+  rootMargin: string,
 ) => {
   return useIntersectionObserver(
     element,
@@ -59,23 +60,23 @@ const createObserver = (
         updateClasses(resolvedElement, options, entry.isIntersecting)
       }
     },
-    { threshold: 0.5, rootMargin }
+    { threshold: 0.5, rootMargin },
   )
 }
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive('animation', {
-    mounted (
+    mounted(
       element: HTMLElement,
-      binding: DirectiveBinding<AnimationOperations>
+      binding: DirectiveBinding<AnimationOperations>,
     ) {
       const { value } = binding
 
       let { stop } = createObserver(element, value, '0px 0px -200px 0px')
 
       const updateObserver = () => {
-        const { scrollTop, scrollHeight, clientHeight } =
-          document.documentElement
+        const { scrollTop, scrollHeight, clientHeight }
+          = document.documentElement
         const isAtBottom = scrollTop + clientHeight >= scrollHeight
         const rootMargin = isAtBottom
           ? '-100px 0px 0px 0px'
@@ -92,9 +93,9 @@ export default defineNuxtPlugin((nuxtApp) => {
       if (!animationState.get(element)?.wasInViewport) return
       element.classList.add(...toArray(value.add))
     },
-    updated (
+    updated(
       element: HTMLElement,
-      binding: DirectiveBinding<AnimationOperations>
+      binding: DirectiveBinding<AnimationOperations>,
     ) {
       if (!animationState.get(element)?.wasInViewport) return
       const { add, remove, toggle } = binding.value
@@ -102,7 +103,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       element.classList.remove(...toArray(remove))
       toArray(toggle).forEach(cls => element.classList.toggle(cls))
     },
-    unmounted (element: HTMLElement) {
+    unmounted(element: HTMLElement) {
       animationState.delete(element)
     },
   })

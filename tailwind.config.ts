@@ -6,7 +6,7 @@ export default {
   theme: {
     screens: {
       '2xs': '320px',
-      xs: '475px',
+      'xs': '475px',
       ...defaultTheme.screens,
     },
     extend: {},

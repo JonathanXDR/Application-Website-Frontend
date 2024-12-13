@@ -34,7 +34,7 @@ withDefaults(
       secondary: 'var(--color-fill-gray-secondary)',
     }),
     background: false,
-  }
+  },
 )
 </script>
 

@@ -91,7 +91,7 @@ import type { ItemType } from '#shared/types/common/item'
 
 const { tm } = useI18n()
 const options = computed<ItemType[]>(() =>
-  tm('components.common.FilterInput.sorts')
+  tm('components.common.FilterInput.sorts'),
 )
 const open = ref(false)
 

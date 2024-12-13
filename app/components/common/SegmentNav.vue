@@ -103,14 +103,14 @@ const setItemReference = (element: HTMLElement | undefined) => {
 const updateBubblePosition = () => {
   isTransitioning.value = true
   const selectedItemIndex = properties.items.findIndex(
-    item => item.id === selectedItem.value
+    item => item.id === selectedItem.value,
   )
   selectedItemElement.value = itemElements.value[selectedItemIndex] || undefined
   if (!selectedItemElement.value) return
   bubbleStyle.value = {
     '--bubble-position': `${selectedItemElement.value.offsetLeft}px`,
     '--bubble-width': `${selectedItemElement.value.offsetWidth}px`,
-    opacity: '1',
+    'opacity': '1',
   }
 
   setTimeout(() => (isTransitioning.value = false), 400)
@@ -139,7 +139,7 @@ const fontSize = computed(() => {
 })
 
 const containerStyle = computed(() => ({
-  width: 'fit-content',
+  'width': 'fit-content',
   '--sizenav-width': `${navContainer.value?.offsetWidth}px`,
   '--sizenav-outer-padding': `${properties.outerPadding}px`,
   '--aap-min-height': `${computedHeight.value}px`,
@@ -155,7 +155,7 @@ watch(
     properties.onSelect(itemNew)
     updateBubblePosition()
   },
-  { immediate: true }
+  { immediate: true },
 )
 
 onMounted(updateBubblePosition)

@@ -61,7 +61,7 @@ defineProps<{
 
 const { t, tm } = useI18n()
 const dateItems = computed<DateItemType[]>(() =>
-  tm('components.containers.about.dates')
+  tm('components.containers.about.dates'),
 )
 const dates = ref<{
   age: number | undefined
@@ -84,7 +84,7 @@ onMounted(async () => {
   for (const item of dateItems.value) {
     if (item.key in dates.value) {
       dates.value[item.key as keyof typeof dates.value] = calculateYears(
-        item.date
+        item.date,
       )
     }
   }

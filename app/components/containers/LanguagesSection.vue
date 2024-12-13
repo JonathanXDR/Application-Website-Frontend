@@ -32,7 +32,7 @@ defineProps<{
 const { tm } = useI18n()
 const breakpoints = useAppBreakpoints()
 const languages = computed<LanguageBarType[]>(() =>
-  tm('components.containers.languages')
+  tm('components.containers.languages'),
 )
 </script>
 
