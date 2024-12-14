@@ -1,82 +1,121 @@
 <template>
   <div
     v-if="tags.latest?.length && tags.previous?.length"
-    class="rc-ribbon ribbon ribbon-blue-to-default rs-storehome-banner"
+    id="rotating-promo-banner"
   >
-    <div class="ribbon-drop-wrapper">
-      <div class="ribbon-content-wrapper">
-        <div class="ribbon-content rc-ribbon-content-container">
-          <div class="rc-ribbon-content with-paddlenav">
-            <div class="rc-inline-gallery rc-ribbon-content-autoscroll">
-              <div class="rc-ribbon-content-gallery">
+    <div class="rc-ribbon ribbon ribbon-blue-to-default rs-storehome-banner">
+      <div class="ribbon-drop-wrapper">
+        <div class="ribbon-content-wrapper">
+          <div class="ribbon-content rc-ribbon-content-container row">
+            <div class="column large-12 small-12 large-centered">
+              <div class="rc-ribbon-content with-paddlenav">
                 <div
-                  class="rc-ribbon-content-scroller"
-                  :style="[
-                    transformStyle,
-                    totalItems <= 2 && 'justify-content: center; gap: 16px',
-                  ]"
+                  class="rc-inline-gallery rc-ribbon-content-autoscroll"
+                  role="group"
+                  aria-label="Gallery"
                 >
                   <div
-                    v-for="(item, index) in displayItems"
-                    :key="index"
-                    class="rc-ribbon-gallery-item rc-inline-gallery-item"
-                    :style="totalItems <= 2 && 'width: unset !important'"
+                    id=":r5:"
+                    class="rc-ribbon-content-gallery"
+                    data-core-gallery="true"
+                    data-core-gallery-fade="false"
                   >
                     <div
-                      class="rc-ribbon-content-item-base rc-ribbon-content-item"
-                      :style="totalItems <= 2 && 'width: 100% !important'"
+                      data-core-gallery-scroller="true"
+                      class="rc-ribbon-content-scroller"
+                      :style="[
+                        transformStyle,
+                        totalItems <= 2 && 'justify-content: center; gap: 16px',
+                      ]"
                     >
-                      <template v-if="!loading">
-                        {{ item.description && item.description + '&ensp;' }}
-                      </template>
-                      <template v-else>
-                        <LoadingSkeleton
-                          width="200px"
-                          height="15px"
-                        />
-                      </template>
-
-                      <LinkCollection
-                        v-if="item.links.length > 0"
-                        class="ribbon-link"
-                        :loading="loading"
-                        :links="item.links"
-                        :should-animate="!initialAnimationPlayed"
-                      />
+                      <div
+                        id="ribbon_0_0"
+                        data-core-gallery-item="true"
+                        aria-hidden="true"
+                        class="rc-ribbon-gallery-item rc-inline-gallery-item"
+                      >
+                        <div
+                          class="rc-ribbon-content-item-base rc-ribbon-content-item-0 rc-ribbon-content-item"
+                        >
+                          <div>
+                            Pay monthly at 0% APR when you choose to check out
+                            with Apple Card Monthly Installments.<sup>◊</sup>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        id="ribbon_1_1"
+                        data-core-gallery-item="true"
+                        aria-hidden="false"
+                        class="rc-ribbon-gallery-item rc-inline-gallery-item"
+                      >
+                        <div
+                          class="rc-ribbon-content-item-base rc-ribbon-content-item-1 rc-ribbon-content-item"
+                        >
+                          Order by 9 p.m. on&nbsp;12/21 for free delivery of
+                          in-stock items by 12/24. See Checkout for specific
+                          delivery dates and options.
+                        </div>
+                      </div>
+                      <div
+                        id="ribbon_0_2"
+                        data-core-gallery-item="true"
+                        aria-hidden="true"
+                        class="rc-ribbon-gallery-item rc-inline-gallery-item"
+                      >
+                        <div
+                          class="rc-ribbon-content-item-base rc-ribbon-content-item-0 rc-ribbon-content-item"
+                        >
+                          <div>
+                            Pay monthly at 0% APR when you choose to check out
+                            with Apple Card Monthly Installments.<sup>◊</sup>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  <div
+                    v-if="totalItems > 2"
+                    class="rc-gallery-paddlenav paddlenav paddlenav-alpha paddlenav-elevated"
+                  >
+                    <button
+                      type="button"
+                      class="paddlenav paddlenav-arrow paddlenav-arrow-previous"
+                      aria-hidden="false"
+                      aria-label="Previous"
+                      data-autom="paddlenav-previous"
+                      :disabled="isTransitioning"
+                      @click="scrollContent('left')"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 36 36"
+                      >
+                        <path
+                          d="M21.559,12.062 L15.618,17.984 L21.5221,23.944 C22.105,24.533 22.1021,25.482 21.5131,26.065 C21.2211,26.355 20.8391,26.4999987 20.4571,26.4999987 C20.0711,26.4999987 19.6851,26.352 19.3921,26.056 L12.4351,19.034 C11.8531,18.446 11.8551,17.4999987 12.4411,16.916 L19.4411,9.938 C20.0261,9.353 20.9781,9.354 21.5621,9.941 C22.1471,10.528 22.1451,11.478 21.5591,12.062 L21.559,12.062 Z"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      :disabled="isTransitioning"
+                      type="button"
+                      class="paddlenav paddlenav-arrow paddlenav-arrow-next"
+                      aria-hidden="false"
+                      aria-label="Next"
+                      data-autom="paddlenav-next"
+                      @click="scrollContent('right')"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 36 36"
+                      >
+                        <path
+                          d="M23.5587,16.916 C24.1447,17.4999987 24.1467,18.446 23.5647,19.034 L16.6077,26.056 C16.3147,26.352 15.9287,26.4999987 15.5427,26.4999987 C15.1607,26.4999987 14.7787,26.355 14.4867,26.065 C13.8977,25.482 13.8947,24.533 14.4777,23.944 L20.3818,17.984 L14.4408,12.062 C13.8548,11.478 13.8528,10.5279 14.4378,9.941 C15.0218,9.354 15.9738,9.353 16.5588,9.938 L23.5588,16.916 L23.5587,16.916 Z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <div
-                v-if="totalItems > 2"
-                class="rc-gallery-paddlenav paddlenav paddlenav-compact"
-              >
-                <button
-                  class="paddlenav-arrow paddlenav-arrow-previous"
-                  aria-label="Previous"
-                  :disabled="isTransitioning"
-                  @click="scrollContent('left')"
-                >
-                  <SFSymbol
-                    :loading="loading"
-                    name="chevron.left"
-                    component-size="small"
-                    class="icon"
-                  />
-                </button>
-                <button
-                  class="paddlenav-arrow paddlenav-arrow-next"
-                  aria-label="Next"
-                  :disabled="isTransitioning"
-                  @click="scrollContent('right')"
-                >
-                  <SFSymbol
-                    :loading="loading"
-                    name="chevron.right"
-                    component-size="small"
-                    class="icon"
-                  />
-                </button>
               </div>
             </div>
           </div>
@@ -233,616 +272,407 @@ watch(locale, () => {
 </script>
 
 <style scoped>
-.ribbon {
-  margin-top: 48px;
-}
-
-@media screen and (min-width: 768px) {
+/*! CSS Used from: https://store.storeimages.cdn-apple.com/4982/store.apple.com/static-resources/rs-vendor-1.24.0-a7250/dist/common-css@1.0.7/dist/common.css ; media=screen, print */
+@media screen, print {
+  button {
+    margin: 0;
+    padding: 0;
+  }
+  button {
+    background: none;
+    border: 0;
+    box-sizing: initial;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    line-height: inherit;
+    overflow: visible;
+    vertical-align: inherit;
+  }
+  button:disabled {
+    cursor: default;
+  }
+  :focus-visible {
+    outline: 2px solid var(--sk-focus-color, #0071e3);
+    outline-offset: var(--sk-focus-offset, 1px);
+  }
+  button {
+    -moz-font-feature-settings: 'kern';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+  }
+  sup {
+    font-size: var(--sk-footnote-font-size, 0.6em);
+    position: relative;
+    vertical-align: initial;
+  }
+  sup {
+    top: var(--sk-footnote-offset-top, -0.5em);
+  }
+  .row {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+  }
+  .column {
+    box-sizing: border-box;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+  }
+  .large-12 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .large-centered {
+    margin-inline-end: auto;
+    margin-inline-start: auto;
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    .small-12 {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+  }
   .ribbon {
-    margin-top: 52px;
+    --ribbon-link-inline-color: inherit;
+    --ribbon-link-color: #06c;
+    --ribbon-focus-color: #0071e3;
+    --ribbon-text-color: #1d1d1f;
+    --ribbon-background-color: #f5f5f7;
+    --ribbon-content-padding-top: 16px;
+    --ribbon-content-padding-bottom: var(--ribbon-content-padding-top);
+    --ribbon-content-width: 83.33333%;
+    --ribbon-content-minimum-width: 320px;
+    font-family:
+      SF Pro Text,
+      SF Pro Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.016em;
+    line-height: 1.4285914286;
+    overflow: hidden;
+    padding-bottom: var(--ribbon-padding-bottom);
+    padding-top: var(--ribbon-padding-top);
+    width: var(--ribbon-width);
+  }
+  .ribbon-content-wrapper {
+    text-align: center;
+  }
+  .ribbon-content {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: var(--ribbon-content-minimum-width);
+    width: var(--ribbon-content-width);
+  }
+  .ribbon-content-wrapper {
+    -webkit-backdrop-filter: blur(var(--ribbon-background-blur));
+    backdrop-filter: blur(var(--ribbon-background-blur));
+    background-color: var(--ribbon-background-color);
+    border-radius: var(--ribbon-border-radius);
+    padding-bottom: var(--ribbon-content-padding-bottom);
+    padding-top: var(--ribbon-content-padding-top);
+  }
+  .ribbon-content {
+    color: var(--ribbon-text-color);
+  }
+  .ribbon-blue-to-default {
+    --ribbon-background-color: #f5f5f7;
+    --ribbon-background-color-initial: #0071e3;
+    --ribbon-text-color: #1d1d1f;
+    --ribbon-text-color-initial: #fff;
+    --ribbon-link-color: #06c;
+    --ribbon-link-color-initial: #fff;
+  }
+  .ribbon-drop-wrapper {
+    animation: ribbon-drop 0.8s ease-in-out forwards;
+  }
+  @media (prefers-reduced-motion) {
+    .ribbon-drop-wrapper {
+      animation: none;
+    }
   }
 }
-
-.ribbon .links {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.more:after,
-.more:before {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif;
-  color: inherit;
-  display: inline-block;
-  font-style: normal;
-  font-weight: inherit;
-  font-size: inherit;
-  text-decoration: underline;
-  position: relative;
-  z-index: 1;
-  alt: '';
-  text-decoration: none;
-}
-.more:before {
-  display: none;
-}
-.more:after {
-  padding-left: 0.3em;
-  top: 0;
-}
-.more:after,
-.more:before {
-  content: '';
-}
-
-.rc-ribbon-content-gallery {
-  overflow: hidden;
-  position: relative;
-  min-height: 100px;
-}
-.rc-ribbon-content-scroller {
-  width: 100%;
-  white-space: nowrap;
-  display: flex;
-  position: relative;
-}
-.rc-inline-gallery-item {
-  cursor: pointer;
-  width: 100%;
-  overflow: hidden;
-}
-.rc-inline-gallery-item {
-  text-align: center;
-}
-.paddlenav {
-  margin: 0;
-  list-style: none;
-}
-.paddlenav .paddlenav-arrow {
-  display: block;
-  font-style: normal;
-  overflow: hidden;
-  position: absolute;
-  text-align: center;
-  transition:
-    background-color 0.1s linear,
-    color 0.1s linear,
-    opacity 0.1s linear;
-}
-.paddlenav .paddlenav-arrow .icon {
-  width: 0.5em;
-  height: 0.5em;
-}
-.paddlenav .paddlenav-arrow-next,
-.paddlenav .paddlenav-arrow-previous {
-  top: 50%;
-}
-.paddlenav .paddlenav-arrow:hover {
-  cursor: pointer;
-  text-decoration: none;
-}
-.paddlenav .paddlenav-arrow:disabled {
-  cursor: default;
-  opacity: 0;
-}
-.paddlenav .paddlenav-arrow {
-  font-weight: 300;
-  width: 90px;
-  height: 90px;
-  border-radius: 90px;
-  font-size: 53px;
-}
-.paddlenav .paddlenav-arrow-next,
-.paddlenav .paddlenav-arrow-previous {
-  margin-top: -45px;
-}
-.paddlenav .paddlenav-arrow-next:after,
-.paddlenav .paddlenav-arrow-next:before {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif;
-  color: inherit;
-  display: inline-block;
-  font-style: normal;
-  font-weight: inherit;
-  font-size: inherit;
-  text-decoration: underline;
-  position: relative;
-  z-index: 1;
-  alt: '';
-  text-decoration: none;
-}
-.paddlenav .paddlenav-arrow-next:before {
-  display: none;
-}
-.paddlenav .paddlenav-arrow-next:after {
-  margin-right: -0.056em;
-}
-.paddlenav .paddlenav-arrow-previous:after,
-.paddlenav .paddlenav-arrow-previous:before {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif;
-  color: inherit;
-  display: inline-block;
-  font-style: normal;
-  font-weight: inherit;
-  font-size: inherit;
-  text-decoration: underline;
-  position: relative;
-  z-index: 1;
-  alt: '';
-  text-decoration: none;
-}
-.paddlenav .paddlenav-arrow-previous:before {
-  display: none;
-}
-.paddlenav .paddlenav-arrow-previous:after {
-  margin-left: -0.056em;
-}
-.paddlenav .paddlenav-arrow {
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.56);
-}
-.paddlenav .paddlenav-arrow:hover {
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.64);
-}
-.paddlenav .paddlenav-arrow-next {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  right: 18px;
-}
-.paddlenav .paddlenav-arrow-previous {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  left: 18px;
-}
-@media only screen and (max-width: 1023px) and (max-device-width: 767px) {
+/*! CSS Used from: https://store.storeimages.cdn-apple.com/4982/store.apple.com/static-resources/rs-merch-4.6.0-c5ed4/dist/store-home.css ; media=screen, print */
+@media screen, print {
+  [data-core-gallery] {
+    min-height: 100px;
+    overflow: hidden;
+    position: relative;
+  }
+  [data-core-gallery-scroller] {
+    display: flex;
+    position: relative;
+    white-space: nowrap;
+    width: 100%;
+  }
+  [data-core-gallery-item] {
+    cursor: pointer;
+    overflow: hidden;
+    width: 100%;
+  }
+  .rc-inline-gallery-item {
+    text-align: center;
+  }
+  .paddlenav {
+    --sk-paddlenav-diameter: 36px;
+    --sk-paddlenav-arrow-color: #0000008f;
+    --sk-paddlenav-arrow-color-hover: #000000a3;
+    --sk-paddlenav-arrow-color-active: #000000a3;
+    --sk-paddlenav-background: #0000;
+    --sk-paddlenav-background-hover: #0000;
+    --sk-paddlenav-background-active: #0000;
+  }
+  .paddlenav {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+  }
   .paddlenav .paddlenav-arrow {
-    font-weight: 300;
-    width: 52px;
-    height: 52px;
-    border-radius: 52px;
-    font-size: 53px;
+    background: var(--sk-paddlenav-background);
+    border-radius: var(--sk-paddlenav-diameter);
+    color: var(--sk-paddlenav-arrow-color);
+    display: block;
+    font-style: normal;
+    height: var(--sk-paddlenav-diameter);
+    line-height: 1;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    transition:
+      background 0.1s linear,
+      color 0.1s linear,
+      opacity 0.1s linear;
+    width: var(--sk-paddlenav-diameter);
   }
   .paddlenav .paddlenav-arrow-next,
   .paddlenav .paddlenav-arrow-previous {
-    margin-top: -26px;
+    margin-top: calc(var(--sk-paddlenav-diameter) * -0.5);
+    top: 50%;
   }
-  .paddlenav .paddlenav-arrow-next:after,
-  .paddlenav .paddlenav-arrow-next:before {
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif;
-    color: inherit;
-    display: inline-block;
-    font-style: normal;
-    font-weight: inherit;
-    font-size: inherit;
-    text-decoration: underline;
-    position: relative;
-    z-index: 1;
-    alt: '';
+  .paddlenav .paddlenav-arrow svg path {
+    fill: var(--sk-paddlenav-arrow-color);
+    transition: fill 0.1s linear;
+  }
+  .paddlenav .paddlenav-arrow:hover {
+    background: var(--sk-paddlenav-background-hover);
+    color: var(--sk-paddlenav-arrow-color-hover);
     text-decoration: none;
   }
-  .paddlenav .paddlenav-arrow-next:before {
-    display: none;
+  .paddlenav .paddlenav-arrow:hover svg path {
+    fill: var(--sk-paddlenav-arrow-color-hover);
   }
-  .paddlenav .paddlenav-arrow-next:after {
-    margin-right: -0.1em;
+  .paddlenav .paddlenav-arrow:active {
+    background: var(--sk-paddlenav-background-active);
+    color: var(--sk-paddlenav-arrow-color-active);
   }
-  .paddlenav .paddlenav-arrow-previous:after,
-  .paddlenav .paddlenav-arrow-previous:before {
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
-      sans-serif;
-    color: inherit;
-    display: inline-block;
-    font-style: normal;
-    font-weight: inherit;
-    font-size: inherit;
-    text-decoration: underline;
+  .paddlenav .paddlenav-arrow:active svg path {
+    fill: var(--sk-paddlenav-arrow-color-active);
+  }
+  .paddlenav .paddlenav-arrow:disabled {
+    opacity: var(--sk-link-disabled-opacity, 0.42);
+    pointer-events: none;
+  }
+  .paddlenav .paddlenav-arrow-previous {
+    inset-inline-start: 18px;
+  }
+  .paddlenav .paddlenav-arrow-next {
+    inset-inline-end: 18px;
+  }
+  .paddlenav-elevated {
+    --sk-paddlenav-diameter: 56px;
+  }
+  .paddlenav-alpha {
+    --sk-paddlenav-background: #d2d2d7a3;
+    --sk-paddlenav-background-hover: hsla(240, 6%, 88%, 0.698);
+    --sk-paddlenav-background-active: hsla(240, 4%, 77%, 0.654);
+  }
+  .with-paddlenav {
     position: relative;
+  }
+  .rc-gallery-paddlenav button {
     z-index: 1;
-    alt: '';
-    text-decoration: none;
   }
-  .paddlenav .paddlenav-arrow-previous:before {
-    display: none;
+  .rc-inline-gallery {
+    position: relative;
   }
-  .paddlenav .paddlenav-arrow-previous:after {
-    margin-left: -0.1em;
+  .rc-ribbon-content {
+    width: 100%;
   }
-}
-.paddlenav-compact .paddlenav-arrow {
-  font-weight: 300;
-  width: 52px;
-  height: 52px;
-  border-radius: 52px;
-  font-size: 53px;
-}
-.paddlenav-compact .paddlenav-arrow-next,
-.paddlenav-compact .paddlenav-arrow-previous {
-  margin-top: -26px;
-}
-.paddlenav-compact .paddlenav-arrow-next:after,
-.paddlenav-compact .paddlenav-arrow-next:before {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif;
-  color: inherit;
-  display: inline-block;
-  font-style: normal;
-  font-weight: inherit;
-  font-size: inherit;
-  text-decoration: underline;
-  position: relative;
-  z-index: 1;
-  alt: '';
-  text-decoration: none;
-}
-.paddlenav-compact .paddlenav-arrow-next:before {
-  display: none;
-}
-.paddlenav-compact .paddlenav-arrow-next:after {
-  margin-right: -0.1em;
-}
-.paddlenav-compact .paddlenav-arrow-previous:after,
-.paddlenav-compact .paddlenav-arrow-previous:before {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif;
-  color: inherit;
-  display: inline-block;
-  font-style: normal;
-  font-weight: inherit;
-  font-size: inherit;
-  text-decoration: underline;
-  position: relative;
-  z-index: 1;
-  alt: '';
-  text-decoration: none;
-}
-.paddlenav-compact .paddlenav-arrow-previous:before {
-  display: none;
-}
-.paddlenav-compact .paddlenav-arrow-previous:after {
-  margin-left: -0.1em;
-}
-.with-paddlenav {
-  position: relative;
-}
-.rc-gallery-paddlenav button {
-  z-index: 1;
-}
-.rc-inline-gallery {
-  position: relative;
-}
-.ribbon {
-  overflow: hidden;
-  --ribbon-focus-color: rgba(0, 125, 250, 0.6);
-}
-.ribbon-content-wrapper {
-  text-align: center;
-}
-.ribbon-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-}
-@media screen and (min-width: 768px) {
-  .ribbon-content {
-    width: 82.5%;
+  .rc-ribbon-content [data-core-gallery-item] {
+    cursor: auto;
   }
-}
-.ribbon-link {
-  white-space: nowrap;
-}
-.ribbon .ribbon-content-wrapper {
-  padding-top: 0.94118em;
-  padding-bottom: 0.94118em;
-}
-.ribbon .ribbon-content {
-  font-size: 14px;
-  font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif;
-}
-.ribbon .ribbon-content-wrapper {
-  background-color: var(--color-fill-tertiary);
-}
-.ribbon .ribbon-content {
-  color: var(--color-fill-gray);
-}
-.ribbon .ribbon-link {
-  color: var(--color-figure-blue);
-}
-.ribbon-blue-to-default .ribbon-content-wrapper {
-  background-color: var(--color-fill-blue);
-  animation: animate-background-0071e3-f5f5f7 1s ease-in-out 1.8s forwards;
-}
-.ribbon-blue-to-default .ribbon-content {
-  color: white;
-  animation: animate-color-fff-1d1d1f 1s ease-in-out 1.8s forwards;
-}
-.ribbon-blue-to-default .ribbon-link {
-  color: white;
-  animation: animate-color-fff-06c 1s ease-in-out 1.8s forwards;
-}
-.ribbon-drop-wrapper {
-  animation: ribbon-drop 0.8s ease-in-out forwards;
-}
-@media only screen and (max-width: 1023px) and (max-device-width: 767px) and (orientation: landscape) {
-  .rc-ribbon-content-container {
-    margin-left: calc(max(22px, env(safe-area-inset-left)));
-    margin-right: calc(max(22px, env(safe-area-inset-left)));
-    width: auto;
-  }
-}
-.rc-ribbon-content {
-  width: 100%;
-}
-.rc-ribbon-content .rc-inline-gallery-item {
-  cursor: auto;
-}
-.rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
-  font-size: 24px;
-  font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
-    sans-serif;
-  color: var(--color-fill-gray-secondary);
-}
-@media only screen and (max-width: 1023px) and (max-device-width: 767px) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
-    font-size: 21px;
-    font-weight: 400;
+    color: #86868b;
     font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      SF Pro Display,
+      SF Pro Icons,
+      Helvetica Neue,
+      Helvetica,
+      Arial,
       sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.009em;
+    line-height: 1.3334133333;
   }
-}
-.rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous {
-  opacity: 0;
-  width: 25px;
-  left: 0;
-  animation: animate-opacity 1s ease 2.8s forwards;
-  z-index: 3;
-}
-@media only screen and (max-width: 1023px) and (max-device-width: 767px) {
+  @media (max-width: 1023px) and (max-device-width: 736px) {
+    .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
+      font-family:
+        SF Pro Display,
+        SF Pro Icons,
+        Helvetica Neue,
+        Helvetica,
+        Arial,
+        sans-serif;
+      font-size: 21px;
+      font-weight: 400;
+      letter-spacing: 0.011em;
+      line-height: 1.381002381;
+    }
+  }
+  .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow > svg {
+    display: block;
+  }
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous {
-    width: 24px;
-    /* left: -12px; */
+    animation: animate-opacity 1s ease 2.8s forwards;
+    inset-inline-start: -9px;
+    opacity: 0;
+    width: 1.4705882353rem;
+    z-index: 3;
   }
-}
-/* @media only screen and (max-width: 1023px) and (max-device-width: 767px) and (orientation: landscape) {
-  .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous {
-    left: -6px;
+  @media (max-width: 1023px) and (max-device-width: 736px) {
+    .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous {
+      width: 24px;
+    }
   }
-} */
-.rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous:after {
-  width: 10px;
-  margin-left: -18px;
-}
-@media only screen and (max-width: 1023px) and (max-device-width: 767px) {
-  .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-previous:after {
-    margin-left: -9px;
-  }
-}
-.rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next {
-  opacity: 0;
-  width: 25px;
-  right: 0;
-  animation: animate-opacity 1s ease 2.8s forwards;
-  z-index: 3;
-}
-@media only screen and (max-width: 1023px) and (max-device-width: 767px) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next {
-    width: 24px;
-    /* right: -12px; */
+    animation: animate-opacity 1s ease 2.8s forwards;
+    inset-inline-end: -9px;
+    opacity: 0;
+    width: 1.4705882353rem;
+    z-index: 3;
   }
-}
-/* @media only screen and (max-width: 1023px) and (max-device-width: 767px) and (orientation: landscape) {
-  .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next {
-    right: -6px;
+  @media (max-width: 1023px) and (max-device-width: 736px) {
+    .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next {
+      width: 24px;
+    }
   }
-} */
-.rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next:after {
-  width: 10px;
-  margin-right: -18px;
-}
-@media only screen and (max-width: 1023px) and (max-device-width: 767px) {
-  .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow-next:after {
-    margin-right: -9px;
-  }
-}
-.with-paddlenav .rc-ribbon-content-autoscroll:after,
-.with-paddlenav .rc-ribbon-content-autoscroll:before {
-  content: '';
-  display: block;
-  width: 41px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  opacity: 0;
-  animation: animate-opacity 1s ease 2.8s forwards;
-  z-index: 2;
-}
-@media only screen and (max-width: 1023px) and (max-device-width: 767px) {
   .with-paddlenav .rc-ribbon-content-autoscroll:after,
   .with-paddlenav .rc-ribbon-content-autoscroll:before {
-    width: 16px;
+    animation: animate-opacity 1s ease 2.8s forwards;
+    content: '';
+    display: block;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 41px;
+    z-index: 2;
   }
-}
-.with-paddlenav .rc-ribbon-content-autoscroll:before {
-  left: 0;
-  background-image: linear-gradient(
-    90deg,
-    var(--color-fill-tertiary) 16px,
-    hsla(0, 0%, 100%, 0)
-  );
-}
-@media only screen and (max-width: 1023px) and (max-device-width: 767px) {
+  @media (max-width: 1023px) and (max-device-width: 736px) {
+    .with-paddlenav .rc-ribbon-content-autoscroll:after,
+    .with-paddlenav .rc-ribbon-content-autoscroll:before {
+      width: 16px;
+    }
+  }
   .with-paddlenav .rc-ribbon-content-autoscroll:before {
     background-image: linear-gradient(
-      90deg,
-      var(--color-fill-tertiary),
-      hsla(0, 0%, 100%, 0)
+      to right,
+      var(--ribbon-background-color) 16px,
+      #fff0
     );
+    inset-inline-start: 0;
   }
-}
-.with-paddlenav .rc-ribbon-content-autoscroll:after {
-  right: 0;
-  background-image: linear-gradient(
-    270deg,
-    var(--color-fill-tertiary) 16px,
-    hsla(0, 0%, 100%, 0)
-  );
-}
-@media only screen and (max-width: 1023px) and (max-device-width: 767px) {
+  @media (max-width: 1023px) and (max-device-width: 736px) {
+    .with-paddlenav .rc-ribbon-content-autoscroll:before {
+      background-image: linear-gradient(
+        to right,
+        var(--ribbon-background-color),
+        #fff0
+      );
+    }
+  }
   .with-paddlenav .rc-ribbon-content-autoscroll:after {
     background-image: linear-gradient(
-      270deg,
-      var(--color-fill-tertiary),
-      hsla(0, 0%, 100%, 0)
+      to left,
+      var(--ribbon-background-color) 16px,
+      #fff0
     );
+    inset-inline-end: 0;
   }
-}
-.ribbon-blue-to-default
-  .rc-ribbon-content-autoscroll
-  .rc-ribbon-content-item:not(.rc-ribbon-content-item-0)
-  .ribbon-link,
-.ribbon-blue-to-default
-  .rc-ribbon-content-autoscroll:not(.rc-inline-gallery-autoscroll)
-  .ribbon-link {
-  animation: none;
-  color: var(--color-figure-blue);
-}
-.rc-ribbon-content-item-base {
-  padding: 3px 0;
-  white-space: normal;
-}
-.rc-ribbon-content-item-base .more {
-  display: inline-block;
-}
-.rc-ribbon .ribbon-content-wrapper {
-  padding: 0.76471em 0;
-}
-.rc-ribbon-content-scroller {
-  align-items: center;
-}
-.rc-ribbon-content-gallery {
-  min-height: auto;
-}
-.rc-ribbon-gallery-item[aria-hidden='true'] a {
-  visibility: hidden;
-}
-.rc-ribbon-content-item {
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media screen and (min-width: 768px) {
+  @media (max-width: 1023px) and (max-device-width: 736px) {
+    .with-paddlenav .rc-ribbon-content-autoscroll:after {
+      background-image: linear-gradient(
+        to left,
+        var(--ribbon-background-color),
+        #fff0
+      );
+    }
+  }
+  .rc-ribbon-content-item-base {
+    padding: 3px 0;
+    white-space: normal;
+  }
+  .rc-ribbon .ribbon-content-wrapper {
+    padding: em(13px) 0;
+  }
+  .rc-ribbon .ribbon-content-wrapper .ribbon-content {
+    margin-inline-end: auto;
+    margin-inline-start: auto;
+    width: 980px;
+  }
+  @media (min-width: 1441px) {
+    .rc-ribbon .ribbon-content-wrapper .ribbon-content {
+      margin-inline-end: auto;
+      margin-inline-start: auto;
+      width: 980px;
+    }
+  }
+  @media (max-width: 1023px) and (max-device-width: 736px) {
+    .rc-ribbon .ribbon-content-wrapper .ribbon-content {
+      margin-inline-end: auto;
+      margin-inline-start: auto;
+      width: 87.5%;
+    }
+  }
+  @media (max-width: 1023px) and (max-device-width: 736px) and (orientation: landscape) {
+    .rc-ribbon .ribbon-content-wrapper .rc-ribbon-content-container {
+      margin-inline: max(22px, env(safe-area-inset-left))
+        max(22px, env(safe-area-inset-left));
+      width: auto;
+    }
+  }
+  .rc-ribbon-content-scroller {
+    align-items: center;
+  }
+  .rc-ribbon-content-gallery {
+    min-height: auto;
+  }
   .rc-ribbon-content-item {
-    width: 82.5%;
+    margin-inline: auto;
+    position: relative;
+    width: 816px;
+  }
+  @media (max-width: 1023px) and (max-device-width: 736px) {
+    .rc-ribbon-content-item {
+      width: 87.5%;
+    }
+  }
+  .rs-storehome-banner.ribbon-blue-to-default {
+    --ribbon-background-color: #fff;
+  }
+  .rc-ribbon-content-scroller .rc-inline-gallery-item > div {
+    white-space: normal;
   }
 }
-.rc-ribbon .ribbon-link {
-  position: relative;
-}
-.rs-storehome-banner.ribbon-blue-to-default {
-  --ribbon-background-color: var(--color-fill);
-}
-.rc-ribbon-content-scroller .rc-inline-gallery-item > div {
-  white-space: normal;
-}
-@keyframes animate-background-0071e3-f5f5f7 {
-  0% {
-    background-color: var(--color-fill-blue);
-  }
-  to {
-    background-color: var(--color-fill-tertiary);
-  }
-}
-@keyframes animate-color-fff-1d1d1f {
-  0% {
-    color: white;
-  }
-  to {
-    color: var(--color-fill-gray);
-  }
-}
-@keyframes animate-color-fff-06c {
-  0% {
-    color: white;
-  }
-  to {
-    color: var(--color-figure-blue);
-  }
-}
+/*! CSS Used keyframes */
 @keyframes ribbon-drop {
   0% {
     transform: translateY(-100%);
