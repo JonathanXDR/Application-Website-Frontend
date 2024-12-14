@@ -1,6 +1,6 @@
 <template>
   <div
-    class="filter-container"
+    class="filter-container text-glow-active"
     data-component-list="TextGlow"
   >
     <svg
@@ -22,25 +22,25 @@
           <feGaussianBlur
             in="SourceGraphic"
             data-target-blur="4"
-            stdDeviation="4, 4"
+            stdDeviation="4,4"
             result="blur4"
           />
           <feGaussianBlur
             in="SourceGraphic"
             data-target-blur="19"
-            stdDeviation="19, 19"
+            stdDeviation="19,19"
             result="blur19"
           />
           <feGaussianBlur
             in="SourceGraphic"
             data-target-blur="9"
-            stdDeviation="9, 9"
+            stdDeviation="9,9"
             result="blur9"
           />
           <feGaussianBlur
             in="SourceGraphic"
             data-target-blur="30"
-            stdDeviation="30, 30"
+            stdDeviation="30,30"
             result="blur30"
           />
           <feColorMatrix
@@ -717,17 +717,13 @@
     >
       Strength. Beauty.<br><span
         class="filter"
-        style="filter: url('#glow-1')"
+        style="filter: url('#glow-1'); opacity: 1"
       >Titanium.</span>
     </div>
   </div>
 </template>
 
 <style scoped>
-:focus-visible {
-  outline: 2px solid var(--sk-focus-color, #0071e3);
-  outline-offset: var(--sk-focus-offset, 1px);
-}
 .filter-container {
   color: #c8c2bd;
   position: relative;
@@ -748,8 +744,11 @@
   color: #fffaf6;
   transform: translateZ(0);
 }
-html.js.no-safari .filter-container .filter {
+.filter-container .filter {
   margin: -80px 0;
   padding: 80px 0;
+}
+.filter-container .filter {
+  will-change: opacity;
 }
 </style>
