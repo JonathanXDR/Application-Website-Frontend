@@ -26,112 +26,101 @@
 </template>
 
 <style scoped>
-/*! CSS Used from: https://store.storeimages.cdn-apple.com/4982/store.apple.com/static-resources/rs-vendor-1.24.0-a7250/dist/common-css@1.0.7/dist/common.css ; media=screen, print */
-@media screen, print {
-  :focus-visible {
-    outline: 2px solid var(--sk-focus-color, #0071e3);
-    outline-offset: var(--sk-focus-offset, 1px);
-  }
-  .as-l-fullwidth {
-    overflow: hidden;
-    width: 100%;
-  }
+.as-l-fullwidth {
+  overflow: hidden;
+  width: 100%;
 }
-/*! CSS Used from: https://store.storeimages.cdn-apple.com/4982/store.apple.com/shop/Catalog/global/css/dd/merch/step-zero.css ; media=screen, print */
-@media screen, print {
+.dd-l-plate {
+  position: relative;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  width: 980px;
+}
+@media (max-width: 734px) and (max-device-width: 736px) {
   .dd-l-plate {
-    position: relative;
     margin-inline-start: auto;
     margin-inline-end: auto;
-    width: 980px;
-  }
-  @media (max-width: 734px) and (max-device-width: 736px) {
-    .dd-l-plate {
-      margin-inline-start: auto;
-      margin-inline-end: auto;
-      width: 87.5%;
-    }
-  }
-  .dd-l-plate::after,
-  .dd-l-plate::before {
-    content: ' ';
-    display: table;
-  }
-  .dd-l-plate::after {
-    clear: both;
-  }
-  .dd-fill-tertiary {
-    background-color: #f5f5f7;
-    --ribbon-background-color: rgb(245, 245, 247);
-  }
-  .dd-holiday-animation-header-202411 .dd-holiday-animation-container {
-    width: 100%;
-    height: 75px;
-  }
-  .dd-holiday-animation-header-202411 .dd-holiday-animation-colors {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-  .dd-holiday-animation-header-202411 .dd-holiday-animation-color {
-    filter: blur(20px);
-    position: absolute;
-    border-radius: 50%;
-  }
-  .dd-holiday-animation-header-202411 .dd-holiday-animation-yellow {
-    width: 40vw;
-    height: 50px;
-    background: #fd8c1f;
-    top: -75px;
-    right: 10vw;
-    animation: yellowAnimation 1.5s ease-out forwards 0.5s;
-  }
-  .dd-holiday-animation-header-202411 .dd-holiday-animation-pink-one {
-    width: 40vw;
-    height: 150px;
-    background: #ff3f98;
-    top: -200px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    opacity: 0.5;
-    animation: pinkOneAnimation 2s ease-in-out forwards;
-  }
-  .dd-holiday-animation-header-202411 .dd-holiday-animation-pink-two {
-    width: 30vw;
-    height: 150px;
-    background: #e9a5ff;
-    top: -200px;
-    left: -25%;
-    right: 0;
-    margin: 0 auto;
-    animation: pinkTwoAnimation 1.2s ease-in-out forwards;
-  }
-  .dd-holiday-animation-header-202411 .dd-holiday-animation-blue {
-    width: 60vw;
-    height: 75px;
-    top: -100px;
-    left: 0;
-    background: #4186fd;
-    opacity: 0.5;
-    animation: blueAnimation 1s ease 0.2s forwards;
-  }
-  .dd-holiday-animation-header-202411 .dd-image {
-    position: absolute;
-    height: 300px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0;
-    animation: imageAnimation 1s ease 1s forwards;
-    min-width: 100vw;
-    margin: 0 auto;
-  }
-  @media (max-width: 600px) {
-    .dd-holiday-animation-header-202411 .dd-image {
-      background-size: cover;
-    }
+    width: 87.5%;
   }
 }
-/*! CSS Used keyframes */
+.dd-l-plate::after,
+.dd-l-plate::before {
+  content: ' ';
+  display: table;
+}
+.dd-l-plate::after {
+  clear: both;
+}
+.dd-fill-tertiary {
+  background-color: var(--color-fill-tertiary);
+  --ribbon-background-color: var(--aap-icon-color-alt);
+}
+.dd-holiday-animation-header-202411 .dd-holiday-animation-container {
+  width: 100%;
+  height: 75px;
+}
+.dd-holiday-animation-header-202411 .dd-holiday-animation-colors {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.dd-holiday-animation-header-202411 .dd-holiday-animation-color {
+  filter: blur(20px);
+  position: absolute;
+  border-radius: 50%;
+}
+.dd-holiday-animation-header-202411 .dd-holiday-animation-yellow {
+  width: 40vw;
+  height: 50px;
+  background: #fd8c1f;
+  top: -75px;
+  right: 10vw;
+  animation: yellowAnimation 1.5s ease-out forwards 0.5s;
+}
+.dd-holiday-animation-header-202411 .dd-holiday-animation-pink-one {
+  width: 40vw;
+  height: 150px;
+  background: #ff3f98;
+  top: -200px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  opacity: 0.5;
+  animation: pinkOneAnimation 2s ease-in-out forwards;
+}
+.dd-holiday-animation-header-202411 .dd-holiday-animation-pink-two {
+  width: 30vw;
+  height: 150px;
+  background: #e9a5ff;
+  top: -200px;
+  left: -25%;
+  right: 0;
+  margin: 0 auto;
+  animation: pinkTwoAnimation 1.2s ease-in-out forwards;
+}
+.dd-holiday-animation-header-202411 .dd-holiday-animation-blue {
+  width: 60vw;
+  height: 75px;
+  top: -100px;
+  left: 0;
+  background: #4186fd;
+  opacity: 0.5;
+  animation: blueAnimation 1s ease 0.2s forwards;
+}
+.dd-holiday-animation-header-202411 .dd-image {
+  position: absolute;
+  height: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: imageAnimation 1s ease 1s forwards;
+  min-width: 100vw;
+  margin: 0 auto;
+}
+@media (max-width: 600px) {
+  .dd-holiday-animation-header-202411 .dd-image {
+    background-size: cover;
+  }
+}
 @keyframes yellowAnimation {
   0% {
     top: -75px;
