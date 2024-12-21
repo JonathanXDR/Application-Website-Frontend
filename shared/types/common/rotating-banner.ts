@@ -1,6 +1,6 @@
 import type { LinkType } from '#shared/types/common/link'
 
-export interface RibbonBar {
+export interface RotatingBanner {
   items: {
     description: string
     links: LinkType[]

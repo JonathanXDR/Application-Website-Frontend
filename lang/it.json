@@ -52,7 +52,7 @@
           "route": "/music"
         }
       ],
-      "RibbonBar": [
+      "RotatingBanner": [
         {
           "description": "Cosa c'è di nuovo in {latestTag}?",
           "links": [

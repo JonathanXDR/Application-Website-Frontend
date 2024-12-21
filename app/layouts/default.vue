@@ -8,9 +8,9 @@
       <NavBar v-if="shouldShow('nav')" />
       <div
         v-if="shouldShow('ribbon')"
-        ref="ribbonBarElement"
+        ref="rotatingBannerElement"
       >
-        <RibbonBar
+        <RotatingBanner
           :loading="false"
           :items="items"
         />
@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { SpeedInsights } from '@vercel/speed-insights/vue'
-import type { RibbonBar } from '#shared/types/common/ribbon-bar'
+import type { RotatingBanner } from '#shared/types/common/rotating-banner'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterFull from '~/components/common/Footer/Full.vue'
 
@@ -41,14 +41,14 @@ const { y, isScrolling } = useScroll(window)
 const error = useError()
 const config = useRuntimeConfig()
 
-const ribbonBarElement = ref<HTMLElement | undefined>(undefined)
-const { height: ribbonBarHeight } = useElementSize(ribbonBarElement)
+const rotatingBannerElement = ref<HTMLElement | undefined>(undefined)
+const { height: rotatingBannerHeight } = useElementSize(rotatingBannerElement)
 const lastScrollY = ref(0)
 const shouldHideNavbar = useState<boolean>('shouldHideNavbar', () => false)
 const autoHideNavbar = ref(false)
 
-const items = computed<RibbonBar['items']>(() =>
-  tm('components.common.RibbonBar'),
+const items = computed<RotatingBanner['items']>(() =>
+  tm('components.common.RotatingBanner'),
 )
 
 const faviconColor = randomDevColor.value?.hex
@@ -77,7 +77,7 @@ watch([y, isScrolling], ([yNew, isScrollingNew]) => {
 
 const shouldApplyHideLocalnav = computed(() => {
   return (
-    y.value > ribbonBarHeight.value
+    y.value > rotatingBannerHeight.value
     && shouldHideNavbar.value
     && autoHideNavbar.value
   )
@@ -119,7 +119,7 @@ watchEffect(() => {
 
 watch(
   () => [
-    y.value < ribbonBarHeight.value || state.value.extensionAttached,
+    y.value < rotatingBannerHeight.value || state.value.extensionAttached,
     autoHideNavbar.value,
   ],
   ([border, autoHide]) => {

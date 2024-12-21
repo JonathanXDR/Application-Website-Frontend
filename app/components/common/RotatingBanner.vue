@@ -127,9 +127,9 @@
 
 <script setup lang="ts">
 import type { LinkType } from '#shared/types/common/link'
-import type { RibbonBar } from '#shared/types/common/ribbon-bar'
+import type { RotatingBanner } from '#shared/types/common/rotating-banner'
 
-const properties = withDefaults(defineProps<RibbonBar>(), {
+const properties = withDefaults(defineProps<RotatingBanner>(), {
   loading: false,
 })
 
@@ -167,23 +167,23 @@ const updateBaseItems = () => {
   baseItems.value = properties.items.map((item, index) => ({
     description:
       item.description
-      && t(`components.common.RibbonBar[${index}].description`, {
+      && t(`components.common.RotatingBanner[${index}].description`, {
         latestTag,
         previousTag,
       }),
     links:
       item.links
-      && (tm(`components.common.RibbonBar[${index}].links`) as LinkType[]).map(
-        link => ({
-          ...link,
-          url: link.url
-            ? rt(link.url, {
-                latestTag,
-                previousTag,
-              })
-            : undefined,
-        }),
-      ),
+      && (
+        tm(`components.common.RotatingBanner[${index}].links`) as LinkType[]
+      ).map(link => ({
+        ...link,
+        url: link.url
+          ? rt(link.url, {
+              latestTag,
+              previousTag,
+            })
+          : undefined,
+      })),
   }))
   totalItems.value = baseItems.value.length
   updateDisplayItems()
