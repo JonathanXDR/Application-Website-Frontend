@@ -178,6 +178,17 @@ body main ::-webkit-scrollbar-track {
   --sk-tile-button-background-hover: rgba(223, 223, 227, 0.6976);
   --sk-tile-button-background-active: rgba(193, 193, 198, 0.6544);
 
+  /* Paddle Nav */
+  --sk-paddlenav-background: #d2d2d7a3;
+  --sk-paddlenav-background-hover: hsla(240, 6%, 88%, 0.698);
+  --sk-paddlenav-background-active: hsla(240, 4%, 77%, 0.654);
+  --sk-paddlenav-arrow-color: #0000008f;
+  --sk-paddlenav-arrow-color-hover: #000000a3;
+  --sk-paddlenav-arrow-color-active: #000000a3;
+  --sk-paddlenav-background: #00000000;
+  --sk-paddlenav-background-hover: #00000000;
+  --sk-paddlenav-background-active: #00000000;
+
   /* All Access Pass */
   --aap-background-color: rgb(232 232 237/70%);
   --aap-inner-glow-color: rgb(0 0 0/11%);
@@ -495,6 +506,17 @@ body main ::-webkit-scrollbar-track {
   --sk-tile-button-icon-color-hover: rgb(255, 255, 255);
   --sk-tile-button-background-hover: rgba(73, 73, 76, 0.7256);
   --sk-tile-button-background-active: rgba(57, 57, 60, 0.7424);
+
+  /* Paddle Nav */
+  --sk-paddlenav-background: #424245a3;
+  --sk-paddlenav-background-hover: hsla(60, 6%, 88%, 0.698);
+  --sk-paddlenav-background-active: hsla(60, 4%, 77%, 0.654);
+  --sk-paddlenav-arrow-color: #ffffff8f;
+  --sk-paddlenav-arrow-color-hover: #ffffffa3;
+  --sk-paddlenav-arrow-color-active: #ffffffa3;
+  --sk-paddlenav-background: #ffffff00;
+  --sk-paddlenav-background-hover: #ffffff00;
+  --sk-paddlenav-background-active: #ffffff00;
 
   /* All Access Pass */
   --aap-background-color: rgb(23 23 28/70%);
