@@ -6,7 +6,7 @@ const config: Linter.Config[] = [
   ...neostandard({
     noStyle: true,
     ts: true,
-    globals: ['NodeJS'],
+    globals: ['NodeJS', 'MusicKit'],
   }),
 ]
 
