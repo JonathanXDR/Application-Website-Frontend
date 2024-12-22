@@ -5,7 +5,7 @@ type IconifyIconCustomiseCallback = (
   content: string,
   name: string,
   prefix: string,
-  provider: string,
+  provider: string
 ) => string
 
 interface IconifyProps {

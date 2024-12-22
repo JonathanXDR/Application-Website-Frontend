@@ -50,7 +50,7 @@
 <script setup lang="ts">
 import type { ItemType } from '#shared/types/common/item'
 
-const properties = withDefaults(
+const props = withDefaults(
   defineProps<{
     items: ItemType[]
     activeTabId: string
@@ -62,10 +62,10 @@ const properties = withDefaults(
 )
 
 const emit = defineEmits(['change'])
-const selectedTab = ref(properties.activeTabId)
+const selectedTab = ref(props.activeTabId)
 
 watch(
-  () => properties.activeTabId,
+  () => props.activeTabId,
   (valueNew) => {
     selectedTab.value = valueNew
   },

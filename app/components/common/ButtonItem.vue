@@ -13,6 +13,7 @@ import type { IconType } from '#shared/types/common/icon'
 
 withDefaults(
   defineProps<{
+    // eslint-disable-next-line no-undef
     as?: keyof HTMLElementTagNameMap
     variant?: 'primary' | 'secondary' | 'tertiary'
     componentSize?: BasicSizeType

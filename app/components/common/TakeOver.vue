@@ -80,7 +80,7 @@ interface Properties {
   eventLink: string
 }
 
-const properties = withDefaults(defineProps<Properties>(), {
+const props = withDefaults(defineProps<Properties>(), {
   showCountdown: true,
 })
 
@@ -89,8 +89,8 @@ const eventState = ref<EventState>('pre-event')
 
 const calculateEventState = () => {
   const now = dayjs()
-  const start = dayjs(properties.eventDuration.start)
-  const end = dayjs(properties.eventDuration.end)
+  const start = dayjs(props.eventDuration.start)
+  const end = dayjs(props.eventDuration.end)
 
   if (now.isBefore(start)) {
     eventState.value = 'pre-event'

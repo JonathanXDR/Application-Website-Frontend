@@ -50,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-const properties = withDefaults(
+const props = withDefaults(
   defineProps<{
     title: string
     autoAnimation?: boolean
@@ -61,7 +61,7 @@ const properties = withDefaults(
 )
 
 const words = computed(() =>
-  properties.title
+  props.title
     .trim()
     .split(' ')
     .map(word => [...word]),
@@ -71,8 +71,7 @@ const isCursorBlinking = ref(false)
 const initialCursorOpacity = ref('1')
 const currentLetterCount = ref(0)
 const originalStringLength = computed(
-  () =>
-    properties.title.trim().replaceAll(' ', '').length + words.value.length - 1,
+  () => props.title.trim().replaceAll(' ', '').length + words.value.length - 1,
 )
 
 const getLetterStyle = (index: number) => ({
@@ -168,7 +167,7 @@ const updateLetterCount = () => {
 
 const animationConfig = {
   onViewportChange: (isInViewport: boolean) => {
-    if (properties.autoAnimation) return
+    if (props.autoAnimation) return
     if (isInViewport) {
       stopScrollListener.value = useEventListener(
         window,
@@ -185,11 +184,11 @@ const animationConfig = {
 }
 
 onMounted(() => {
-  if (!properties.autoAnimation) return
+  if (!props.autoAnimation) return
   startAutoAnimation()
 
   watch(
-    () => properties.autoAnimation,
+    () => props.autoAnimation,
     (valueNew) => {
       if (valueNew) {
         startAutoAnimation()
@@ -201,7 +200,7 @@ onMounted(() => {
     { immediate: false },
   )
 
-  if (properties.autoAnimation) return
+  if (props.autoAnimation) return
   stopScrollListener.value = useEventListener(
     window,
     'scroll',

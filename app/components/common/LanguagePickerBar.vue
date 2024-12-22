@@ -32,7 +32,7 @@
 <script setup lang="ts">
 import type { LocaleObject } from '@nuxtjs/i18n'
 
-const properties = withDefaults(
+const props = withDefaults(
   defineProps<{
     introText?: boolean
     shortForm?: boolean
@@ -59,7 +59,7 @@ const computedLocales = computed<LocaleObject[]>(() =>
 
 const getLabel = (locale: { code: string, name?: string }) => {
   const label = locale.name || locale.code
-  return properties.shortForm ? locale.code.toUpperCase() : label
+  return props.shortForm ? locale.code.toUpperCase() : label
 }
 </script>
 

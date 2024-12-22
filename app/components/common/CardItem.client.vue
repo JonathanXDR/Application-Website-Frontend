@@ -40,15 +40,15 @@
       :style="detailsStyle"
     >
       <div
+        class="flex justify-center items-center p-2 rounded-lg"
         :style="{
           position: icon.absolute ? 'absolute' : 'relative',
           backgroundColor: icon.background,
         }"
-        class="flex justify-center items-center p-2 rounded-lg"
       >
         <Icon
           v-if="icon"
-          v-bind:="icon"
+          v-bind="icon"
           :loading="loading"
           :class="iconClasses"
           :style="{
@@ -100,7 +100,7 @@
           />
           <BadgeItem
             v-if="badge"
-            v-bind:="badge"
+            v-bind="badge"
             :loading="loading"
             :colors="{
               primary: `var(--color-figure-${randomDevColor?.name})`,
@@ -171,7 +171,7 @@
 <script setup lang="ts">
 import type { CardRepositoryType } from '#shared/types/common/card-repository'
 
-const properties = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
+const props = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
   variant: 'card',
   componentSize: 'medium',
   colors: () => ({
@@ -200,21 +200,18 @@ const { t } = useI18n()
 const { randomDevColor } = useColor()
 const applyHover = computed(
   () =>
-    (properties.hover === 'auto'
-      && ((properties.links && properties.links.length > 0)
-        || properties.html_url))
-      || properties.hover === 'true',
+    (props.hover === 'auto'
+      && ((props.links && props.links.length > 0) || props.html_url))
+    || props.hover === 'true',
 )
 const componentType = computed(() =>
-  properties.variant === 'article' || !applyHover.value ? 'div' : 'a',
+  props.variant === 'article' || !applyHover.value ? 'div' : 'a',
 )
 const componentId = computed(() =>
-  properties.title?.toLowerCase().replaceAll(' ', '-'),
+  props.title?.toLowerCase().replaceAll(' ', '-'),
 )
 const componentHref = computed(() =>
-  applyHover.value && properties.links
-    ? properties.links[0]?.url
-    : properties.html_url,
+  applyHover.value && props.links ? props.links[0]?.url : props.html_url,
 )
 const scrollAnimation = {
   add: 'scroll-animation--on',
@@ -222,23 +219,19 @@ const scrollAnimation = {
 }
 
 const hasCoverOrGraphs = computed(
-  () => properties.cover || properties.graphs?.donut || properties.graphs?.bar,
+  () => props.cover || props.graphs?.donut || props.graphs?.bar,
 )
 const hasBadgesOrTopics = computed(
-  () => properties.badges?.length || properties.topics?.length,
+  () => props.badges?.length || props.topics?.length,
 )
-const badgesOrTopics = computed(
-  () => properties.badges || properties.topics || [],
-)
-const hasLinksOrHtmlUrl = computed(
-  () => properties.links?.length || properties.html_url,
-)
+const badgesOrTopics = computed(() => props.badges || props.topics || [])
+const hasLinksOrHtmlUrl = computed(() => props.links?.length || props.html_url)
 const linkCollectionLinks = computed(
   () =>
-    properties.links || [
+    props.links || [
       {
         title: t('components.common.CardItem.learnMore'),
-        url: properties.html_url,
+        url: props.html_url,
         icon: { name: 'chevron.right' },
       },
     ],
@@ -258,16 +251,14 @@ const hasInfo = computed(() => {
     'open_issues_count',
     'subscribers_count',
   ]
-  return keys.some(
-    (key: string) => (properties as Record<string, unknown>)[key],
-  )
+  return keys.some((key: string) => (props as Record<string, unknown>)[key])
 })
 
 const info = computed(() => {
   return {
-    ...properties.info,
-    language: properties.language || undefined,
-    license: properties.license?.name,
+    ...props.info,
+    language: props.language || undefined,
+    license: props.license?.name,
     // forks: props.forks_count,
     // networks: props.network_count,
     // watchers: props.watchers_count,
@@ -289,7 +280,7 @@ const flexDirection = computed(
       right: 'row-reverse',
       bottom: 'column-reverse',
       left: 'row',
-    })[properties.icon?.position || 'left'],
+    })[props.icon?.position || 'left'],
 )
 
 const alignItems = computed(
@@ -298,7 +289,7 @@ const alignItems = computed(
       start: 'flex-start',
       center: 'center',
       end: 'flex-end',
-    })[properties.alignment],
+    })[props.alignment],
 )
 
 const detailsStyle = computed((): Record<string, string> => {
@@ -310,11 +301,9 @@ const detailsStyle = computed((): Record<string, string> => {
 
 const iconClasses = computed(() => ({
   'icon': true,
-  'icon-large':
-    properties.variant === 'article' && properties.componentSize === 'large',
-  'icon-xlarge': ['medium', 'small'].includes(properties.componentSize),
-  'icon-xxlarge':
-    properties.variant === 'card' && properties.componentSize === 'large',
+  'icon-large': props.variant === 'article' && props.componentSize === 'large',
+  'icon-xlarge': ['medium', 'small'].includes(props.componentSize),
+  'icon-xxlarge': props.variant === 'card' && props.componentSize === 'large',
 }))
 </script>
 

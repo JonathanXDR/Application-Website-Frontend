@@ -1,17 +1,13 @@
 import type { Linter } from 'eslint'
-import pluginPrettier from 'eslint-plugin-prettier/recommended'
 import neostandard from 'neostandard'
 import withNuxt from './.nuxt/eslint.config.mjs'
 
 const config: Linter.Config[] = [
-  ...neostandard({ noStyle: true }),
-  {
-    ...pluginPrettier,
-    rules: {
-      // Because auto imports -.-
-      'no-undef': 'off',
-    },
-  },
+  ...neostandard({
+    noStyle: true,
+    ts: true,
+    globals: ['NodeJS'],
+  }),
 ]
 
 export default withNuxt(config)

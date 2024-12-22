@@ -35,7 +35,7 @@
 <script setup lang="ts">
 import type { ExtendedSizeType } from '#shared/types/common/extended-size'
 
-const properties = withDefaults(
+const props = withDefaults(
   defineProps<{
     componentSize?: Exclude<ExtendedSizeType, 'xlarge'>
   }>(),
@@ -62,7 +62,7 @@ const fontSize = computed(() => {
     medium: 16,
     large: 18,
   }
-  return sizes[properties.componentSize || 'medium']
+  return sizes[props.componentSize || 'medium']
 })
 
 watch(locale, (localeNew) => {

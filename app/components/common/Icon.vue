@@ -2,7 +2,7 @@
   <template v-if="!loading">
     <component
       :is="component"
-      v-bind:="properties"
+      v-bind="props"
     />
   </template>
 </template>
@@ -11,7 +11,7 @@
 import { NuxtIcon, SFSymbol } from '#components'
 import type { IconType } from '#shared/types/common/icon'
 
-const properties = withDefaults(defineProps<IconType>(), {
+const props = withDefaults(defineProps<IconType>(), {
   size: '24px',
   weight: 'medium',
   loading: false,
@@ -25,7 +25,7 @@ const properties = withDefaults(defineProps<IconType>(), {
 const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
 
 const component = computed(() => {
-  return sfSymbolRegex.test(properties.name) ? SFSymbol : NuxtIcon
+  return sfSymbolRegex.test(props.name) ? SFSymbol : NuxtIcon
 })
 </script>
 

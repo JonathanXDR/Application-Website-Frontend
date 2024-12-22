@@ -568,7 +568,8 @@
         },
         {
           "icon": {
-            "name": "books.vertical.fill"
+            "name": "books.vertical.fill",
+            "background": "var(--ribbon-neutral-alpha-background-color)"
           },
           "eyebrow": "Bibliothek",
           "title": "SDX",

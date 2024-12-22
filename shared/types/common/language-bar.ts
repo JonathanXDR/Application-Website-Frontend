@@ -1,7 +1,7 @@
 import type { BasicSizeType } from '#shared/types/common/basic-size'
-import type { ExtendedPropertiesType } from '#shared/types/common/extended-properties'
+import type { ExtendedPropsType } from '~~/shared/types/common/extended-props'
 
-export interface LanguageBarType extends ExtendedPropertiesType {
+export interface LanguageBarType extends ExtendedPropsType {
   progress: number
   componentSize?: BasicSizeType | 'full'
   loading?: boolean

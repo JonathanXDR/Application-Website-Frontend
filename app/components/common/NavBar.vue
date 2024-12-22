@@ -56,7 +56,7 @@
               }"
             />
           </NuxtLink>
-          <DevelopmentBadge
+          <DevBadge
             v-if="config.public.appEnvironment === 'development'"
             :color="{
               primary: `var(--color-figure-${randomDevColor?.name})`,
@@ -200,7 +200,7 @@ import type { ItemType } from '#shared/types/common/item'
 import type { NavBarType } from '#shared/types/common/nav-bar'
 import type { SectionType } from '#shared/types/common/section'
 
-const properties = withDefaults(defineProps<NavBarType>(), {
+const props = withDefaults(defineProps<NavBarType>(), {
   autoHide: false,
   border: true,
   scrim: true,
@@ -250,10 +250,10 @@ const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
 })
 
 setState({
-  autoHide: properties.autoHide,
-  border: properties.border,
-  scrim: properties.scrim,
-  position: properties.position,
+  autoHide: props.autoHide,
+  border: props.border,
+  scrim: props.scrim,
+  position: props.position,
 })
 
 const initHeaderAnimations = () => {

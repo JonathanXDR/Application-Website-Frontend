@@ -8,7 +8,7 @@
   >
     <Icon
       v-if="icon"
-      v-bind:="icon"
+      v-bind="icon"
       class="icon icon-medium mr-1"
       :loading="loading"
     />
@@ -27,7 +27,7 @@
 <script setup lang="ts">
 import type { BadgeItemType } from '#shared/types/common/badge-item'
 
-const properties = withDefaults(defineProps<BadgeItemType>(), {
+const props = withDefaults(defineProps<BadgeItemType>(), {
   variant: 'a',
   componentSize: 'medium',
   colors: () => ({
@@ -48,19 +48,17 @@ const defaultColors = {
 }
 
 const computedStyle = computed(() => ({
-  '--color-figure': properties.loading
+  '--color-figure': props.loading
     ? defaultColors.primary
-    : properties.colors?.primary,
-  '--color-figure-background': properties.loading
+    : props.colors?.primary,
+  '--color-figure-background': props.loading
     ? defaultColors.secondary
-    : properties.colors?.secondary,
-  '--color-figure-background-hover': properties.loading
+    : props.colors?.secondary,
+  '--color-figure-background-hover': props.loading
     ? defaultColors.tertiary
-    : properties.colors?.tertiary,
+    : props.colors?.tertiary,
   '--color-figure-border':
-    properties.loading || !properties.border
-      ? 'transparent'
-      : properties.colors?.tertiary,
+    props.loading || !props.border ? 'transparent' : props.colors?.tertiary,
 }))
 </script>
 

@@ -43,17 +43,13 @@
             <router-link
               to="/"
               title="Home"
-            >
-              .is()
-            </router-link>
+            > .is() </router-link>
           </li>
           <li>
             <router-link
               to="/about"
               title="About me"
-            >
-              .about()
-            </router-link>
+            > .about() </router-link>
           </li>
           <li>
             <a

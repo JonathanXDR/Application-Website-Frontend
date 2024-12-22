@@ -1,6 +1,6 @@
 <template>
   <NuxtIcon
-    :name="`sf-s-${properties.weight}:${properties.name}`"
+    :name="`sf-s-${props.weight}:${props.name}`"
     :customize="customize"
   />
 </template>
@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import type { IconType } from '#shared/types/common/icon'
 
-const properties = withDefaults(defineProps<IconType>(), {
+const props = withDefaults(defineProps<IconType>(), {
   weight: 'medium',
   colors: () => ({
     primary: 'currentColor',
@@ -19,60 +19,20 @@ const properties = withDefaults(defineProps<IconType>(), {
 
 const customize = (content: string) => {
   return content
-    .replace(
-      /var\(--color-primary\)/g,
-      properties.colors.primary || 'currentColor',
-    )
+    .replace(/var\(--color-primary\)/g, props.colors.primary || 'currentColor')
     .replace(
       /var\(--color-secondary\)/g,
-      properties.colors.secondary || 'currentColor',
+      props.colors.secondary || 'currentColor',
     )
     .replace(
       /var\(--color-tertiary\)/g,
-      properties.colors.tertiary || 'currentColor',
+      props.colors.tertiary || 'currentColor',
     )
 }
 </script>
 
-<style>
-.icon.icon-xsmall {
-  width: 0.5em;
-  height: 0.5em;
-}
-
-.icon.icon-small {
-  width: 0.75em;
-  height: 0.75em;
-}
-
-.icon.icon-medium {
-  width: 1em;
-  height: 1em;
-}
-
-.icon.icon-large {
-  width: 1.25em;
-  height: 1.25em;
-}
-
-.icon.icon-xlarge {
-  width: 1.5em;
-  height: 1.5em;
-}
-
-.icon.icon-xxlarge {
-  width: 1.75em;
-  height: 1.75em;
-}
-
-.apple-logo {
-  width: 100%;
-  height: 330px;
-}
-
-.apple-logo path {
-  fill: none;
-  stroke: var(--color-fill-gray);
-  stroke-width: 0.2;
+<style scoped>
+.icon {
+  display: inline-block;
 }
 </style>

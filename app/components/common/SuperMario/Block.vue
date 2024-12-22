@@ -28,7 +28,7 @@ import AudioAppears from '~~/public/mario/audio/smw_power-up_appears.ogg'
 import AudioStomp from '~~/public/mario/audio/smw_stomp.ogg'
 import AudioNoDamage from '~~/public/mario/audio/smw_stomp_no_damage.ogg'
 
-const properties = defineProps<{
+const props = defineProps<{
   hasCoins: boolean
 }>()
 
@@ -115,7 +115,7 @@ const onTouchBlock = () => {
     return
   }
 
-  if (properties.hasCoins) {
+  if (props.hasCoins) {
     audioStomp.play()
     animateCoin()
   }

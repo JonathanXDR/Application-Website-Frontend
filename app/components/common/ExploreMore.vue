@@ -26,7 +26,7 @@
         </svg>
         <Icon
           v-else
-          v-bind:="icon"
+          v-bind="icon"
           class="icon icon-medium mr-1"
         />
       </span>
@@ -35,9 +35,9 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicPropertiesType } from '#shared/types/common/basic-properties'
+import type { BasicPropsType } from '#shared/types/common/basic-props'
 
-withDefaults(defineProps<Partial<BasicPropertiesType>>(), {
+withDefaults(defineProps<Partial<BasicPropsType>>(), {
   title: 'Explore more details',
   icon: () => ({ name: 'plus' }),
 })

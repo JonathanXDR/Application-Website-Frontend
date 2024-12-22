@@ -1,5 +1,5 @@
-import type { ExtendedPropertiesType } from '#shared/types/common/extended-properties'
+import type { ExtendedPropsType } from '~~/shared/types/common/extended-props'
 
-export interface References extends ExtendedPropertiesType {
-  references: ExtendedPropertiesType[]
+export interface References extends ExtendedPropsType {
+  references: ExtendedPropsType[]
 }

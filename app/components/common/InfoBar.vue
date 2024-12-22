@@ -5,7 +5,7 @@
       :key="item.id"
     >
       <div
-        v-if="properties[item.id]"
+        v-if="props[item.id]"
         class="info-item"
       >
         <Icon
@@ -15,7 +15,7 @@
           class="info-icon"
         />
         <template v-if="!loading">
-          {{ properties[item.id] }}
+          {{ props[item.id] }}
         </template>
         <template v-else>
           <LoadingSkeleton
@@ -27,7 +27,7 @@
     </template>
 
     <div
-      v-if="properties.date.fixed || properties.date.duration"
+      v-if="props.date.fixed || props.date.duration"
       class="info-item"
     >
       <Icon
@@ -38,7 +38,7 @@
       <template v-if="!loading">
         {{
           dateTitle
-            || `${properties.date.duration?.from} - ${properties.date.duration?.to}`
+            || `${props.date.duration?.from} - ${props.date.duration?.to}`
         }}
       </template>
       <template v-else>
@@ -57,7 +57,7 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 import type { IconType } from '#shared/types/common/icon'
 import type { InfoType } from '#shared/types/common/info'
 
-const properties = withDefaults(defineProps<InfoType>(), {
+const props = withDefaults(defineProps<InfoType>(), {
   loading: false,
   date: () => ({
     formatOptions: () => ({
@@ -91,8 +91,8 @@ const infoItems: { id: keyof InfoType, icon: IconType }[] = [
 ]
 
 const updatedYesterday = computed(() => {
-  if (!properties.date.fixed) return false
-  const updatedDate = dayjs(properties.date.fixed)
+  if (!props.date.fixed) return false
+  const updatedDate = dayjs(props.date.fixed)
   const currentDate = dayjs()
   return currentDate.diff(updatedDate, 'day') <= 1
 })
@@ -105,7 +105,7 @@ const formatDate = (
 }
 
 const getDate = () => {
-  const { duration, formatOptions, fixed, event } = properties.date
+  const { duration, formatOptions, fixed, event } = props.date
 
   if (duration && formatOptions) {
     const formattedDuration = `${formatDate(
@@ -131,7 +131,7 @@ const getDate = () => {
 
 const dateTitle = ref(getDate())
 
-watch([locale, () => properties.date], () => {
+watch([locale, () => props.date], () => {
   dayjs.locale(locale.value)
   dateTitle.value = getDate()
 })

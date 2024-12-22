@@ -50,11 +50,11 @@ import duration from 'dayjs/plugin/duration'
 
 dayjs.extend(duration)
 
-interface Properties {
+interface Props {
   endDate: Date
 }
 
-const properties = defineProps<Properties>()
+const props = defineProps<Props>()
 
 interface CountdownValue {
   prev: string
@@ -74,7 +74,7 @@ const countdown = ref<Record<CountdownUnits, CountdownValue>>({
 
 const updateCountdown = () => {
   const now = dayjs()
-  const end = dayjs(properties.endDate)
+  const end = dayjs(props.endDate)
   const diff = dayjs.duration(end.diff(now))
 
   const countdownNew: Record<CountdownUnits, CountdownValue> = {

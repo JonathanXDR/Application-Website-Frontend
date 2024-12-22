@@ -35,7 +35,7 @@
 <script setup lang="ts">
 import type { LinkType } from '#shared/types/common/link'
 
-const properties = withDefaults(
+const props = withDefaults(
   defineProps<{
     links: LinkType[]
     divider?: boolean
@@ -50,7 +50,7 @@ const properties = withDefaults(
   },
 )
 
-const { links } = toRefs(properties)
+const { links } = toRefs(props)
 
 const getLinkComponentType = (link: LinkType) => {
   return link.url?.startsWith('#') || link.url?.startsWith('/')

@@ -104,9 +104,9 @@
 </template>
 
 <script setup lang="ts">
-import type { BasicPropertiesType } from '#shared/types/common/basic-properties'
+import type { BasicPropsType } from '#shared/types/common/basic-props'
 
-const properties = withDefaults(defineProps<BasicPropertiesType>(), {
+const props = withDefaults(defineProps<BasicPropsType>(), {
   title: 'Music Discovery',
   description: 'Where your new favorites find you.',
 })
@@ -122,7 +122,7 @@ const playPauseButtonRef = ref<HTMLElement | null>(null)
 const { height: tileHeight } = useElementSize(parallaxRef)
 
 const headlineLines = computed(() => {
-  const words = properties.description.split(' ')
+  const words = props.description.split(' ')
   const lines = []
   const wordsPerLine = Math.ceil(words.length / headlineRowCount.value)
 
