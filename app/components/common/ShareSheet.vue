@@ -15,7 +15,8 @@
           external
         >
           <Icon
-            :name="`fa6-${link.category}:${link.icon?.name}`"
+            v-if="link.icon"
+            :name="link.icon?.name"
             size="17px"
           />
         </NuxtLink>

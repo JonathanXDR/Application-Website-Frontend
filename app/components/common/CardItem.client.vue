@@ -40,14 +40,20 @@
       :style="detailsStyle"
     >
       <div
-        :style="{ position: icon.absolute ? 'absolute' : 'relative' }"
-        class="flex justify-center items-center p-2 rounded-lg bg-[#007acc26]"
+        :style="{
+          position: icon.absolute ? 'absolute' : 'relative',
+          backgroundColor: icon.background,
+        }"
+        class="flex justify-center items-center p-2 rounded-lg"
       >
         <Icon
-          v-if="icon.name"
+          v-if="icon"
           v-bind:="icon"
           :loading="loading"
           :class="iconClasses"
+          :style="{
+            color: icon.colors?.primary,
+          }"
         />
       </div>
 

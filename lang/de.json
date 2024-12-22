@@ -219,33 +219,29 @@
           {
             "title": "Mail",
             "url": "mailto:contact@jonathan-russ.com",
-            "category": "solid",
             "icon": {
-              "name": "envelope"
+              "name": "fa6-solid:envelope"
             }
           },
           {
             "title": "LinkedIn",
             "url": "https://linkedin.com/in/jonathan-russ-b7442a228",
-            "category": "brands",
             "icon": {
-              "name": "linkedin-in"
+              "name": "fa6-brands:linkedin-in"
             }
           },
           {
             "title": "GitHub",
             "url": "https://github.com/JonathanXDR",
-            "category": "brands",
             "icon": {
-              "name": "github"
+              "name": "fa6-brands:github"
             }
           },
           {
             "title": "X (Twitter)",
             "url": "https://x.com/JonathanXD12_",
-            "category": "brands",
             "icon": {
-              "name": "x-twitter"
+              "name": "fa6-brands:x-twitter"
             }
           }
         ]
@@ -512,7 +508,8 @@
       "technologies": [
         {
           "icon": {
-            "name": "ion:logo-html5"
+            "name": "devicon:html5",
+            "background": "#f1652926"
           },
           "eyebrow": "Sprache",
           "title": "HTML",
@@ -530,7 +527,11 @@
         },
         {
           "icon": {
-            "name": "ion:logo-css3"
+            "name": "fa6-brands:css",
+            "background": "#66339926",
+            "colors": {
+              "primary": "#663399"
+            }
           },
           "eyebrow": "Sprache",
           "title": "CSS",
@@ -548,7 +549,8 @@
         },
         {
           "icon": {
-            "name": "ion:logo-javascript"
+            "name": "devicon:javascript",
+            "background": "#f0db4f26"
           },
           "eyebrow": "Sprache",
           "title": "JavaScript",
@@ -584,7 +586,8 @@
         },
         {
           "icon": {
-            "name": "ion:logo-nodejs"
+            "name": "logos:nodejs-icon",
+            "background": "#539e4326"
           },
           "eyebrow": "Runtime",
           "title": "Node.js",
@@ -602,7 +605,8 @@
         },
         {
           "icon": {
-            "name": "logos:mysql-icon"
+            "name": "devicon:mysql",
+            "background": "#00618a26"
           },
           "eyebrow": "Sprache",
           "title": "SQL",
@@ -620,7 +624,8 @@
         },
         {
           "icon": {
-            "name": "logos:express"
+            "name": "devicon:express",
+            "background": "#00000026"
           },
           "eyebrow": "Framework",
           "title": "Express.js",
@@ -638,7 +643,8 @@
         },
         {
           "icon": {
-            "name": "ion:logo-vue"
+            "name": "logos:vue",
+            "background": "#41b88326"
           },
           "eyebrow": "Framework",
           "title": "Vue.js",
@@ -656,7 +662,8 @@
         },
         {
           "icon": {
-            "name": "logos:typescript-icon"
+            "name": "devicon:typescript",
+            "background": "#007acc26"
           },
           "eyebrow": "Sprache",
           "title": "TypeScript",
@@ -674,7 +681,8 @@
         },
         {
           "icon": {
-            "name": "logos:c-sharp"
+            "name": "devicon:csharp",
+            "background": "#9b4f9626"
           },
           "eyebrow": "Sprache",
           "title": "C#",
@@ -692,7 +700,8 @@
         },
         {
           "icon": {
-            "name": "logos:java"
+            "name": "logos:java",
+            "background": "#5382a126"
           },
           "eyebrow": "Sprache",
           "title": "Java",
@@ -710,7 +719,8 @@
         },
         {
           "icon": {
-            "name": "logos:bash-icon"
+            "name": "logos:bash-icon",
+            "background": "#2f3a3e26"
           },
           "eyebrow": "Sprache",
           "title": "Bash",
@@ -728,7 +738,8 @@
         },
         {
           "icon": {
-            "name": "ion:logo-react"
+            "name": "logos:react",
+            "background": "#00d8ff26"
           },
           "eyebrow": "Framework",
           "title": "React",
@@ -746,7 +757,8 @@
         },
         {
           "icon": {
-            "name": "logos:nextjs-icon"
+            "name": "logos:nextjs-icon",
+            "background": "#ffffff26"
           },
           "eyebrow": "Framework",
           "title": "Next.js",
@@ -764,7 +776,8 @@
         },
         {
           "icon": {
-            "name": "ion:logo-docker"
+            "name": "logos:docker-icon",
+            "background": "#2396ed26"
           },
           "eyebrow": "Container Management",
           "title": "Docker",
@@ -782,7 +795,8 @@
         },
         {
           "icon": {
-            "name": "logos:kubernetes"
+            "name": "devicon:kubernetes",
+            "background": "#326ce526"
           },
           "eyebrow": "Container Management",
           "title": "Kubernetes",
@@ -800,7 +814,8 @@
         },
         {
           "icon": {
-            "name": "logos:nestjs"
+            "name": "logos:nestjs",
+            "background": "#e0234e26"
           },
           "eyebrow": "Framework",
           "title": "Nest.js",
@@ -818,7 +833,8 @@
         },
         {
           "icon": {
-            "name": "logos:prisma"
+            "name": "logos:prisma",
+            "background": "#ffffff14"
           },
           "eyebrow": "ORM",
           "title": "Prisma",
@@ -836,7 +852,8 @@
         },
         {
           "icon": {
-            "name": "logos:typeorm"
+            "name": "logos:typeorm",
+            "background": "#fe090226"
           },
           "eyebrow": "ORM",
           "title": "TypeORM",
@@ -854,7 +871,11 @@
         },
         {
           "icon": {
-            "name": "ion:logo-github"
+            "name": "logos:github-icon",
+            "background": "#16161426",
+            "colors": {
+              "primary": "#2188FF"
+            }
           },
           "eyebrow": "Bibliothek",
           "title": "GitHub Primer",
@@ -872,7 +893,8 @@
         },
         {
           "icon": {
-            "name": "logos:tailwindcss-icon"
+            "name": "devicon:tailwindcss",
+            "background": "#38bdf826"
           },
           "eyebrow": "Bibliothek",
           "title": "Tailwind CSS",
@@ -890,7 +912,8 @@
         },
         {
           "icon": {
-            "name": "ion:logo-python"
+            "name": "logos:python",
+            "background": "#387eb826"
           },
           "eyebrow": "Sprache",
           "title": "Python",
@@ -908,7 +931,8 @@
         },
         {
           "icon": {
-            "name": "logos:kotlin-icon"
+            "name": "devicon:kotlin",
+            "background": "#c711e126"
           },
           "eyebrow": "Sprache",
           "title": "Kotlin",
@@ -926,7 +950,8 @@
         },
         {
           "icon": {
-            "name": "ion:logo-android"
+            "name": "devicon:jetpackcompose",
+            "background": "#4285f426"
           },
           "eyebrow": "Sprache",
           "title": "Jetpack Compose",
@@ -944,7 +969,8 @@
         },
         {
           "icon": {
-            "name": "ion:logo-android"
+            "name": "logos:android-icon",
+            "background": "#34a85326"
           },
           "eyebrow": "Bibliothek",
           "title": "Material Design 3",
@@ -962,7 +988,8 @@
         },
         {
           "icon": {
-            "name": "logos:nuxt-icon"
+            "name": "logos:nuxt-icon",
+            "background": "#00dc8226"
           },
           "eyebrow": "Framework",
           "title": "Nuxt",
@@ -980,7 +1007,8 @@
         },
         {
           "icon": {
-            "name": "ion:logo-angular"
+            "name": "logos:angular-icon",
+            "background": "#ff5be126"
           },
           "eyebrow": "Framework",
           "title": "Angular",
@@ -998,7 +1026,8 @@
         },
         {
           "icon": {
-            "name": "logos:bun"
+            "name": "logos:bun",
+            "background": "#fbf0df26"
           },
           "eyebrow": "Runtime",
           "title": "Bun",
@@ -1016,7 +1045,8 @@
         },
         {
           "icon": {
-            "name": "logos:scala"
+            "name": "devicon:scala",
+            "background": "#de342326"
           },
           "eyebrow": "Sprache",
           "title": "Scala",

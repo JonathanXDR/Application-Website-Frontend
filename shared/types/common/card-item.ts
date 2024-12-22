@@ -15,5 +15,7 @@ export interface CardItemType extends ExtendedPropertiesType {
   badge?: BadgeItemType
   loading?: boolean
   graphs?: GraphType
-  icon?: IconType
+  icon?: IconType & {
+    background?: string
+  }
 }
