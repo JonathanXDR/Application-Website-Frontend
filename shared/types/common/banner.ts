@@ -12,7 +12,7 @@ export interface RotatingBannerProps {
   paddleNav?: boolean
   dropAnimation?: boolean
   themeAnimation?: boolean
-  opacityDelay?: number
+  visibilityDelay?: number
   transitionDelay?: number
   transitionDuration?: number
   autoScroll?: boolean

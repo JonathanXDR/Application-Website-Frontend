@@ -178,16 +178,46 @@ body main ::-webkit-scrollbar-track {
   --sk-tile-button-background-hover: rgba(223, 223, 227, 0.6976);
   --sk-tile-button-background-active: rgba(193, 193, 198, 0.6544);
 
+  /* Ribbon */
+  --ribbon-text-color: #1d1d1f;
+  --ribbon-background-color: #f5f5f7;
+  --ribbon-link-color: #06c;
+  --ribbon-focus-color: utilities.$ribbon-focus-color;
+  --ribbon-blue-background-color: #0071e3;
+  --ribbon-blue-text-color: #fff;
+  --ribbon-blue-link-color: #fff;
+  --ribbon-blue-focus-color: #000;
+  --ribbon-neutral-alpha-background-color: #f5f5f7cc;
+  --ribbon-neutral-alt-background-color: #fff;
+  --ribbon-blue-to-default-background-color: #f5f5f7;
+  --ribbon-blue-to-default-text-color: #1d1d1f;
+  --ribbon-blue-to-default-link-color: #06c;
+
+  /* Dot Nav */
+  --sk-dotnav-background: #ffffff5c;
+  --sk-dotnav-background-hover: #ffffff7a;
+  --sk-dotnav-background-current: #fffc;
+
   /* Paddle Nav */
-  --sk-paddlenav-background: #d2d2d7a3;
-  --sk-paddlenav-background-hover: hsla(240, 6%, 88%, 0.698);
-  --sk-paddlenav-background-active: hsla(240, 4%, 77%, 0.654);
   --sk-paddlenav-arrow-color: #0000008f;
   --sk-paddlenav-arrow-color-hover: #000000a3;
   --sk-paddlenav-arrow-color-active: #000000a3;
-  --sk-paddlenav-background: #00000000;
-  --sk-paddlenav-background-hover: #00000000;
-  --sk-paddlenav-background-active: #00000000;
+  --sk-paddlenav-background: #0000008f;
+  --sk-paddlenav-background-hover: #000000a3;
+  --sk-paddlenav-background-active: #000000a3;
+  --sk-paddlenav-alpha-arrow-color: #0000008f;
+  --sk-paddlenav-alpha-arrow-color-hover: #000000a3;
+  --sk-paddlenav-alpha-arrow-color-active: #000000a3;
+  --sk-paddlenav-alpha-background: #d2d2d7a3;
+  --sk-paddlenav-alpha-background-hover: hsla(240, 6%, 88%, 0.698);
+  --sk-paddlenav-alpha-background-active: hsla(240, 4%, 77%, 0.654);
+  --sk-paddlenav-solid-arrow-color: #0000008f;
+  --sk-paddlenav-solid-arrow-color-hover: #000000a3;
+  --sk-paddlenav-solid-arrow-color-active: #000000a3;
+  --sk-paddlenav-solid-background: #e8e8ed;
+  --sk-paddlenav-solid-background-hover: #ececf0;
+  --sk-paddlenav-solid-background-active: #dfdfe4;
+  
 
   /* All Access Pass */
   --aap-background-color: rgb(232 232 237/70%);
@@ -507,16 +537,46 @@ body main ::-webkit-scrollbar-track {
   --sk-tile-button-background-hover: rgba(73, 73, 76, 0.7256);
   --sk-tile-button-background-active: rgba(57, 57, 60, 0.7424);
 
+  /* Ribbon */
+  --ribbon-text-color: #f5f5f7;
+  --ribbon-background-color: #1d1d1f;
+  --ribbon-link-color: #2997ff;
+  --ribbon-focus-color: utilities.$ribbon-focus-color;
+  --ribbon-blue-background-color: #0071e3;
+  --ribbon-blue-text-color: #fff;
+  --ribbon-blue-link-color: #fff;
+  --ribbon-blue-focus-color: #000;
+  --ribbon-neutral-alpha-background-color: #1d1d1fcc;
+  --ribbon-neutral-alt-background-color: #000;
+  --ribbon-blue-to-default-background-color: #1d1d1f;
+  --ribbon-blue-to-default-text-color: #f5f5f7;
+  --ribbon-blue-to-default-link-color: #2997ff;
+
+  /* Dot Nav */
+  --sk-dotnav-background: #0000006b;
+  --sk-dotnav-background-hover: #0000008a;
+  --sk-dotnav-background-current: #000c;
+
   /* Paddle Nav */
-  --sk-paddlenav-background: #424245a3;
-  --sk-paddlenav-background-hover: hsla(60, 6%, 88%, 0.698);
-  --sk-paddlenav-background-active: hsla(60, 4%, 77%, 0.654);
-  --sk-paddlenav-arrow-color: #ffffff8f;
-  --sk-paddlenav-arrow-color-hover: #ffffffa3;
-  --sk-paddlenav-arrow-color-active: #ffffffa3;
-  --sk-paddlenav-background: #ffffff00;
-  --sk-paddlenav-background-hover: #ffffff00;
-  --sk-paddlenav-background-active: #ffffff00;
+  --sk-paddlenav-arrow-color: #0000008f;
+  --sk-paddlenav-arrow-color-hover: #000000a3;
+  --sk-paddlenav-arrow-color-active: #000000a3;
+  --sk-paddlenav-background: #e8e8ed;
+  --sk-paddlenav-background-hover: #fff;
+  --sk-paddlenav-background-active: #fff;
+  --sk-paddlenav-alpha-arrow-color: #fffc;
+  --sk-paddlenav-alpha-arrow-color-hover: #fff;
+  --sk-paddlenav-alpha-arrow-color-active: #fff;
+  --sk-paddlenav-alpha-background: #424245b8;
+  --sk-paddlenav-alpha-background-hover: rgba(73, 73, 76, 0.726);
+  --sk-paddlenav-alpha-background-active: rgba(57, 57, 60, 0.742);
+  --sk-paddlenav-solid-arrow-color: #fffc;
+  --sk-paddlenav-solid-arrow-color-hover: #fff;
+  --sk-paddlenav-solid-arrow-color-active: #fff;
+  --sk-paddlenav-solid-background: #333336;
+  --sk-paddlenav-solid-background-hover: #37373a;
+  --sk-paddlenav-solid-background-active: #2f2f32;
+  
 
   /* All Access Pass */
   --aap-background-color: rgb(23 23 28/70%);

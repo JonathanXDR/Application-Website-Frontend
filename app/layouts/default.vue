@@ -10,7 +10,10 @@
         v-if="shouldShow('ribbon')"
         ref="rotatingBannerElement"
       >
-        <RotatingBanner :items="items" />
+        <RotatingBanner
+          :items="items"
+          :auto-scroll="false"
+        />
       </div>
     </header>
     <main>
