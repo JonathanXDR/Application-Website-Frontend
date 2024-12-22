@@ -18,7 +18,7 @@
     >
       <Icon
         v-if="icon.variant === 'default' || (icon.variant === 'custom' && icon)"
-        class="icon icon-medium m-1"
+        class="icon icon-md m-1"
         :name="
           icon.variant === 'custom' ? icon?.name || '' : icons[variant].name
         "

@@ -26,7 +26,7 @@
         :name="link.icon.name"
         :weight="link.icon.weight"
         :colors="link.icon.colors"
-        class="icon icon-small"
+        class="icon icon-sm"
       />
     </component>
   </div>

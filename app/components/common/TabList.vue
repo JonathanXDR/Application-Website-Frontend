@@ -30,7 +30,7 @@
         >
           <Icon
             name="chevron.left"
-            class="icon icon-small"
+            class="icon icon-sm"
           />
         </button>
         <button
@@ -39,7 +39,7 @@
         >
           <Icon
             name="chevron.right"
-            class="icon icon-small"
+            class="icon icon-sm"
           />
         </button>
       </div>

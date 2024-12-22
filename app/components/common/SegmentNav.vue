@@ -59,7 +59,7 @@
               <Icon
                 v-if="item.icon && label !== 'text'"
                 :name="item.icon.name"
-                class="icon icon-large"
+                class="icon icon-lg"
               />
               <div v-if="label !== 'icon'">{{ item.label }}</div>
             </span>

@@ -301,9 +301,9 @@ const detailsStyle = computed((): Record<string, string> => {
 
 const iconClasses = computed(() => ({
   'icon': true,
-  'icon-large': props.variant === 'article' && props.componentSize === 'large',
-  'icon-xlarge': ['medium', 'small'].includes(props.componentSize),
-  'icon-xxlarge': props.variant === 'card' && props.componentSize === 'large',
+  'icon-lg': props.variant === 'article' && props.componentSize === 'large',
+  'icon-xl': ['medium', 'small'].includes(props.componentSize),
+  'icon-xxl': props.variant === 'card' && props.componentSize === 'large',
 }))
 </script>
 

@@ -9,7 +9,7 @@
     <Icon
       v-if="icon"
       v-bind="icon"
-      class="icon icon-medium mr-1"
+      class="icon icon-md mr-1"
       :loading="loading"
     />
     <template v-if="!loading">

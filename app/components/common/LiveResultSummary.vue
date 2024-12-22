@@ -21,7 +21,7 @@
           :colors="{
             primary: `var(--color-figure-${randomDevColor?.name})`,
           }"
-          class="icon icon-medium"
+          class="icon icon-md"
         />
         <span>{{ t('components.common.LiveResultSummary.description') }}</span>
         <span class="total"> ({{ pinnedResults }})</span>

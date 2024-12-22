@@ -30,34 +30,64 @@ const component = computed(() => {
 </script>
 
 <style>
-.icon.icon-xsmall {
+.icon.icon-xxs {
+  width: 0.25em;
+  height: 0.25em;
+}
+
+.icon.icon-xs {
   width: 0.5em;
   height: 0.5em;
 }
 
-.icon.icon-small {
+.icon.icon-sm {
   width: 0.75em;
   height: 0.75em;
 }
 
-.icon.icon-medium {
+.icon.icon-md {
   width: 1em;
   height: 1em;
 }
 
-.icon.icon-large {
+.icon.icon-lg {
   width: 1.25em;
   height: 1.25em;
 }
 
-.icon.icon-xlarge {
+.icon.icon-xl {
   width: 1.5em;
   height: 1.5em;
 }
 
-.icon.icon-xxlarge {
+.icon.icon-xxl {
   width: 1.75em;
   height: 1.75em;
+}
+
+.icon.icon-3xl {
+  width: 2em;
+  height: 2em;
+}
+
+.icon.icon-4xl {
+  width: 2.25em;
+  height: 2.25em;
+}
+
+.icon.icon-5xl {
+  width: 2.5em;
+  height: 2.5em;
+}
+
+.icon.icon-6xl {
+  width: 2.75em;
+  height: 2.75em;
+}
+
+.icon.icon-7xl {
+  width: 3em;
+  height: 3em;
 }
 
 .apple-logo {

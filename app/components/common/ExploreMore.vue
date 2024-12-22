@@ -27,7 +27,7 @@
         <Icon
           v-else
           v-bind="icon"
-          class="icon icon-medium mr-1"
+          class="icon icon-md mr-1"
         />
       </span>
     </a>
