@@ -31,10 +31,10 @@
       v-bind="{
         variant: 'article',
         hover: 'false',
-        alignment: breakpoints.smaller('xl').value ? 'center' : 'start',
-        componentSize: breakpoints.smaller('md').value
+        alignment: viewport.isLessThan('desktopMedium') ? 'center' : 'start',
+        componentSize: viewport.isLessThan('tablet')
           ? 'small'
-          : breakpoints.smaller('xl').value
+          : viewport.isLessThan('desktopMedium')
             ? 'medium'
             : 'large',
         loading: false,
@@ -70,7 +70,7 @@ const dates = ref<{
   age: undefined,
   apprenticeshipYear: undefined,
 })
-const breakpoints = useAppBreakpoints()
+const viewport = useViewport()
 
 const calculateYears = (date: string) => {
   const currentDate = new Date(Date.now())

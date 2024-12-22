@@ -9,10 +9,10 @@
       <div class="flex flex-col items-center gap-2">
         <SegmentNav
           :items="segmentNavItems"
-          :label="breakpoints.smaller('md').value ? 'text' : 'combination'"
+          :label="viewport.isLessThan('tablet') ? 'text' : 'combination'"
           padding="0 21px"
           component-size="small"
-          :separator="breakpoints.greaterOrEqual('md').value"
+          :separator="viewport.isGreaterOrEquals('tablet')"
           gray-labels
           :focus="false"
           :outer-padding="3"
@@ -47,7 +47,7 @@
             variant: 'article',
             hover: 'false',
             loading: false,
-            componentSize: breakpoints.smaller('md').value ? 'small' : 'medium',
+            componentSize: viewport.isLessThan('tablet') ? 'small' : 'medium',
             info: {
               ...project.info,
               date: {
@@ -60,8 +60,7 @@
             },
             icon: {
               ...project.icon,
-              name: project.icon?.name || '',
-              position: breakpoints.smaller('md').value ? 'top' : 'left',
+              position: viewport.isLessThan('tablet') ? 'top' : 'left',
             },
           }"
         />
@@ -177,7 +176,7 @@ definePageMeta({
 
 const { t, tm } = useI18n()
 const { randomDevColor } = useColor()
-const breakpoints = useAppBreakpoints()
+const viewport = useViewport()
 const config = useRuntimeConfig()
 
 const ul = ref<HTMLElement | undefined>(undefined)
@@ -223,13 +222,17 @@ const allProjects = computed(() => userRepositories.value || [])
 const filteredProjects = computed(() =>
   allProjects.value.filter(
     project =>
-      !pinned.value.some(pinnedProject => pinnedProject.name === project.name),
+      !pinned.value.some(
+        pinnedProject => pinnedProject.name === project.name,
+      ),
   ),
 )
 
 const currentProjects = computed(
   () =>
-    projects[Object.keys(projects)[currentIndex.value] as keyof typeof projects],
+    projects[
+      Object.keys(projects)[currentIndex.value] as keyof typeof projects
+    ],
 ) as Ref<CardItemType[]>
 
 const segmentNavItems = computed<ItemType[]>(() =>
@@ -282,6 +285,13 @@ watch(
   },
   { immediate: true },
 )
+
+const { width } = useWindowSize()
+// add a watch for the viewport change
+watch(width, () => {
+  console.log('viewport changed:', viewport.breakpoint.value)
+  console.log('isLessThanOrEquals tablet:', viewport.isLessThan('tablet'))
+})
 
 watchEffect(() => {
   projects.personal = []

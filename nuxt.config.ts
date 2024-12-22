@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
     'nuxt-security',
+    'nuxt-viewport',
   ],
   $development: {
     app: {
@@ -345,5 +346,18 @@ export default defineNuxtConfig({
       lastmod: process.env.APP_DATE || new Date().toISOString(),
     },
     exclude: ['/de/**', '/en/**', '/fr/**', '/it/**'],
+  },
+  viewport: {
+    breakpoints: {
+      mobile: 320,
+      mobileMedium: 475,
+      mobileWide: 640,
+      tablet: 768,
+      desktop: 1024,
+      desktopMedium: 1280,
+      desktopWide: 1536,
+    },
+
+    fallbackBreakpoint: 'lg',
   },
 })

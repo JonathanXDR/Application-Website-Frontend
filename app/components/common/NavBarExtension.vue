@@ -24,9 +24,11 @@ const isSticky = ref(false)
 
 const { state: navbarState, setState } = useNavbar()
 const shouldHideNavbar = useState<boolean>('shouldHideNavbar', () => false)
-const breakpoints = useAppBreakpoints()
+const viewport = useViewport()
 
-const navbarHeight = computed(() => (breakpoints.smaller('md').value ? 48 : 52))
+const navbarHeight = computed(() =>
+  viewport.isLessThan('tablet').value ? 48 : 52,
+)
 
 const containerStyle = computed(() => {
   const styles: Record<string, string> = {

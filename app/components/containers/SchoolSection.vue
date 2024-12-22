@@ -9,11 +9,10 @@
         variant: 'article',
         hover: 'false',
         loading: false,
-        componentSize: breakpoints.smaller('md').value ? 'small' : 'medium',
+        componentSize: viewport.isLessThan('tablet') ? 'small' : 'medium',
         icon: {
           ...card.icon,
-          name: card.icon?.name || '',
-          position: breakpoints.smaller('md').value ? 'top' : 'left',
+          position: viewport.isLessThan('tablet') ? 'top' : 'left',
         },
         info: {
           ...card?.info,
@@ -37,6 +36,8 @@ defineProps<{
 }>()
 
 const { tm } = useI18n()
-const breakpoints = useAppBreakpoints()
-const cards = computed<CardItemType[]>(() => tm('components.containers.school'))
+const viewport = useViewport()
+const cards = computed<CardItemType[]>(() =>
+  tm('components.containers.school'),
+)
 </script>

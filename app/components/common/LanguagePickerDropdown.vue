@@ -18,7 +18,7 @@
           :value="computedLocale.code"
         >
           {{
-            breakpoints.greaterOrEqual('lg').value
+            viewport.isGreaterOrEquals("desktop")
               ? computedLocale.name
               : computedLocale.code.toUpperCase()
           }}
@@ -44,7 +44,14 @@ const props = withDefaults(
   },
 )
 
-const breakpoints = useAppBreakpoints()
+const sizes = {
+  xsmall: 'xs',
+  small: 'sm',
+  medium: 'md',
+  large: 'lg',
+}
+
+const viewport = useViewport()
 const { changeLanguage } = useLanguage()
 const { locale, locales } = useI18n()
 const selectedLocale = ref(locale.value)

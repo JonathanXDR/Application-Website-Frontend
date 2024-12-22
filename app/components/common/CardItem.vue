@@ -39,23 +39,35 @@
       class="details"
       :style="detailsStyle"
     >
-      <div
-        class="flex justify-center items-center p-2 rounded-lg"
-        :style="{
-          position: icon.absolute ? 'absolute' : 'relative',
-          backgroundColor: icon.background,
-        }"
-      >
-        <Icon
-          v-if="icon"
+      <template v-if="icon">
+        <div
+          v-if="icon.background"
+          class="flex justify-center items-center p-2 rounded-lg"
+          :style="{
+            position: icon.absolute ? 'absolute' : 'relative',
+            backgroundColor: icon.background,
+          }"
+        >
+          <!-- <Icon
+            v-bind="icon"
+            :loading="loading"
+            :class="iconClasses"
+            size="20px"
+            :style="{
+              color: icon.colors?.primary,
+            }"
+          /> -->
+        </div>
+        <!-- <Icon
+          v-else
           v-bind="icon"
           :loading="loading"
           :class="iconClasses"
           :style="{
             color: icon.colors?.primary,
           }"
-        />
-      </div>
+        /> -->
+      </template>
 
       <div
         class="body"

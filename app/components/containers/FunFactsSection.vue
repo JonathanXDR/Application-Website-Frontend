@@ -26,16 +26,16 @@
           <strong ref="titleElements">
             <span
               :ref="
-                el => {
-                  if (el) progressSpan[index] = el as HTMLElement
+                (el) => {
+                  if (el) progressSpan[index] = el as HTMLElement;
                 }
               "
             >
               {{
                 item.progress.toLocaleString(locale, {
-                  notation: breakpoints.smaller('md').value
-                    ? 'compact'
-                    : 'standard',
+                  notation: viewport.isLessThan("tablet")
+                    ? "compact"
+                    : "standard",
                 })
               }}
             </span>
@@ -56,7 +56,7 @@ defineProps<{
 }>()
 
 const { tm, locale } = useI18n()
-const breakpoints = useAppBreakpoints()
+const viewport = useViewport()
 
 const chipClaimHeight = ref(0)
 const titleElements = ref<HTMLElement[]>([])
@@ -88,9 +88,7 @@ const animateNumber = (index: number) => {
       onUpdate: () => {
         span.innerHTML = Number.parseInt(span.innerHTML).toLocaleString(
           locale.value,
-          {
-            notation: breakpoints.smaller('md').value ? 'compact' : 'standard',
-          },
+          { notation: viewport.isLessThan('tablet') ? 'compact' : 'standard' },
         )
       },
     },
@@ -121,7 +119,7 @@ useEventListener(window, 'resize', updateChipClaimHeight)
 }
 .chip-claim:before {
   margin-right: 20px;
-  content: '';
+  content: "";
   display: inline-block;
   position: relative;
   height: var(--chip-claim-height);
@@ -152,9 +150,9 @@ useEventListener(window, 'resize', updateChipClaimHeight)
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 @media only screen and (max-width: 767px) {
@@ -166,9 +164,9 @@ useEventListener(window, 'resize', updateChipClaimHeight)
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -209,9 +207,9 @@ useEventListener(window, 'resize', updateChipClaimHeight)
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -224,9 +222,9 @@ useEventListener(window, 'resize', updateChipClaimHeight)
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
