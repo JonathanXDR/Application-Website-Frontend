@@ -15,9 +15,9 @@
       class="changesnav-totals"
     >
       <div class="changed-total">
-        <SFSymbol
+        <Icon
           name="pin.fill"
-          component-size="small"
+          weight="small"
           :colors="{
             primary: `var(--color-figure-${randomDevColor?.name})`,
           }"

@@ -8,7 +8,7 @@
         v-if="properties[item.id]"
         class="info-item"
       >
-        <SFSymbol
+        <Icon
           v-if="item.icon"
           :name="item.icon.name"
           :loading="loading"
@@ -30,7 +30,7 @@
       v-if="properties.date.fixed || properties.date.duration"
       class="info-item"
     >
-      <SFSymbol
+      <Icon
         :loading="loading"
         :name="updatedYesterday ? 'clock.fill' : 'calendar'"
         class="info-icon"

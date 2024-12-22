@@ -28,7 +28,7 @@
           class="tabnav-paddle tabnav-paddle-left"
           disabled
         >
-          <SFSymbol
+          <Icon
             name="chevron.left"
             class="icon icon-small"
           />
@@ -37,7 +37,7 @@
           class="tabnav-paddle tabnav-paddle-right"
           disabled
         >
-          <SFSymbol
+          <Icon
             name="chevron.right"
             class="icon icon-small"
           />

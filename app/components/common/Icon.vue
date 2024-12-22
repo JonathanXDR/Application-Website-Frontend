@@ -1,15 +1,20 @@
 <template>
-  <NuxtIcon
-    :name="`sf-s-${properties.weight}:${properties.name}`"
-    :customize="customize"
-  />
+  <template v-if="!loading">
+    <component
+      :is="component"
+      v-bind:="properties"
+    />
+  </template>
 </template>
 
 <script setup lang="ts">
+import { NuxtIcon, SFSymbol } from '#components'
 import type { IconType } from '#shared/types/common/icon'
 
 const properties = withDefaults(defineProps<IconType>(), {
+  size: '24px',
   weight: 'medium',
+  loading: false,
   colors: () => ({
     primary: 'currentColor',
     secondary: 'currentColor',
@@ -17,21 +22,11 @@ const properties = withDefaults(defineProps<IconType>(), {
   }),
 })
 
-const customize = (content: string) => {
-  return content
-    .replace(
-      /var\(--color-primary\)/g,
-      properties.colors.primary || 'currentColor',
-    )
-    .replace(
-      /var\(--color-secondary\)/g,
-      properties.colors.secondary || 'currentColor',
-    )
-    .replace(
-      /var\(--color-tertiary\)/g,
-      properties.colors.tertiary || 'currentColor',
-    )
-}
+const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
+
+const component = computed(() => {
+  return sfSymbolRegex.test(properties.name) ? SFSymbol : NuxtIcon
+})
 </script>
 
 <style>

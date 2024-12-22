@@ -236,6 +236,27 @@ export default defineNuxtConfig({
     ],
   },
 
+  icon: {
+    componentName: 'NuxtIcon',
+    customCollections: [
+      {
+        prefix: 'sf-s-small',
+        dir: './app/assets/icons/small',
+        normalizeIconName: false,
+      },
+      {
+        prefix: 'sf-s-medium',
+        dir: './app/assets/icons/medium',
+        normalizeIconName: false,
+      },
+      {
+        prefix: 'sf-s-large',
+        dir: './app/assets/icons/large',
+        normalizeIconName: false,
+      },
+    ],
+  },
+
   robots: {
     disallow: ['/de/**', '/en/**', '/fr/**', '/it/**'],
   },

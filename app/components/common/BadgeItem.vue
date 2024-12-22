@@ -6,13 +6,11 @@
     :style="computedStyle"
     @click="onClick"
   >
-    <SFSymbol
+    <Icon
       v-if="icon"
+      v-bind:="icon"
       class="icon icon-medium mr-1"
       :loading="loading"
-      :name="icon.name"
-      :component-size="icon.componentSize"
-      :colors="icon.colors"
     />
     <template v-if="!loading">
       {{ title }}

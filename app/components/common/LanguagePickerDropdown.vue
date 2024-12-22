@@ -24,7 +24,7 @@
           }}
         </option>
       </select>
-      <SFSymbol
+      <Icon
         name="chevron.down"
         :class="`icon icon-${componentSize}`"
       />

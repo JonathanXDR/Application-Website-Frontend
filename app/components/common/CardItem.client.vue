@@ -39,15 +39,18 @@
       class="details"
       :style="detailsStyle"
     >
-      <SFSymbol
-        v-if="icon.name"
-        :loading="loading"
-        :name="icon.name"
-        :component-size="icon.componentSize"
-        :colors="icon.colors"
-        :class="iconClasses"
+      <div
         :style="{ position: icon.absolute ? 'absolute' : 'relative' }"
-      />
+        class="flex justify-center items-center p-2 rounded-lg bg-[#007acc26]"
+      >
+        <Icon
+          v-if="icon.name"
+          v-bind:="icon"
+          :loading="loading"
+          :class="iconClasses"
+        />
+      </div>
+
       <div
         class="body"
         :style="{ alignItems: alignItems }"
@@ -91,8 +94,7 @@
           />
           <BadgeItem
             v-if="badge"
-            :title="badge.title"
-            :icon="badge.icon"
+            v-bind:="badge"
             :loading="loading"
             :colors="{
               primary: `var(--color-figure-${randomDevColor?.name})`,

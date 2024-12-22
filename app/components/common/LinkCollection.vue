@@ -20,11 +20,11 @@
         />
       </template>
 
-      <SFSymbol
+      <Icon
         v-if="link.icon"
         :loading="loading"
         :name="link.icon.name"
-        :component-size="link.icon.componentSize"
+        :weight="link.icon.weight"
         :colors="link.icon.colors"
         class="icon icon-small"
       />

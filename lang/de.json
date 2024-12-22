@@ -512,7 +512,7 @@
       "technologies": [
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "ion:logo-html5"
           },
           "eyebrow": "Sprache",
           "title": "HTML",
@@ -530,7 +530,7 @@
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "ion:logo-css3"
           },
           "eyebrow": "Sprache",
           "title": "CSS",
@@ -548,7 +548,7 @@
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "ion:logo-javascript"
           },
           "eyebrow": "Sprache",
           "title": "JavaScript",
@@ -584,7 +584,7 @@
         },
         {
           "icon": {
-            "name": "gear"
+            "name": "ion:logo-nodejs"
           },
           "eyebrow": "Runtime",
           "title": "Node.js",
@@ -602,7 +602,7 @@
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "logos:mysql-icon"
           },
           "eyebrow": "Sprache",
           "title": "SQL",
@@ -620,7 +620,7 @@
         },
         {
           "icon": {
-            "name": "inset.filled.square.dashed"
+            "name": "logos:express"
           },
           "eyebrow": "Framework",
           "title": "Express.js",
@@ -638,7 +638,7 @@
         },
         {
           "icon": {
-            "name": "inset.filled.square.dashed"
+            "name": "ion:logo-vue"
           },
           "eyebrow": "Framework",
           "title": "Vue.js",
@@ -656,7 +656,7 @@
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "logos:typescript-icon"
           },
           "eyebrow": "Sprache",
           "title": "TypeScript",
@@ -674,7 +674,7 @@
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "logos:c-sharp"
           },
           "eyebrow": "Sprache",
           "title": "C#",
@@ -692,7 +692,7 @@
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "logos:java"
           },
           "eyebrow": "Sprache",
           "title": "Java",
@@ -710,7 +710,7 @@
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "logos:bash-icon"
           },
           "eyebrow": "Sprache",
           "title": "Bash",
@@ -728,7 +728,7 @@
         },
         {
           "icon": {
-            "name": "inset.filled.square.dashed"
+            "name": "ion:logo-react"
           },
           "eyebrow": "Framework",
           "title": "React",
@@ -746,7 +746,7 @@
         },
         {
           "icon": {
-            "name": "inset.filled.square.dashed"
+            "name": "logos:nextjs-icon"
           },
           "eyebrow": "Framework",
           "title": "Next.js",
@@ -764,7 +764,7 @@
         },
         {
           "icon": {
-            "name": "shippingbox.fill"
+            "name": "ion:logo-docker"
           },
           "eyebrow": "Container Management",
           "title": "Docker",
@@ -782,7 +782,7 @@
         },
         {
           "icon": {
-            "name": "shippingbox.fill"
+            "name": "logos:kubernetes"
           },
           "eyebrow": "Container Management",
           "title": "Kubernetes",
@@ -800,7 +800,7 @@
         },
         {
           "icon": {
-            "name": "inset.filled.square.dashed"
+            "name": "logos:nestjs"
           },
           "eyebrow": "Framework",
           "title": "Nest.js",
@@ -818,7 +818,7 @@
         },
         {
           "icon": {
-            "name": "gear"
+            "name": "logos:prisma"
           },
           "eyebrow": "ORM",
           "title": "Prisma",
@@ -836,7 +836,7 @@
         },
         {
           "icon": {
-            "name": "gear"
+            "name": "logos:typeorm"
           },
           "eyebrow": "ORM",
           "title": "TypeORM",
@@ -854,7 +854,7 @@
         },
         {
           "icon": {
-            "name": "books.vertical.fill"
+            "name": "ion:logo-github"
           },
           "eyebrow": "Bibliothek",
           "title": "GitHub Primer",
@@ -872,7 +872,7 @@
         },
         {
           "icon": {
-            "name": "books.vertical.fill"
+            "name": "logos:tailwindcss-icon"
           },
           "eyebrow": "Bibliothek",
           "title": "Tailwind CSS",
@@ -890,7 +890,7 @@
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "ion:logo-python"
           },
           "eyebrow": "Sprache",
           "title": "Python",
@@ -908,7 +908,7 @@
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "logos:kotlin-icon"
           },
           "eyebrow": "Sprache",
           "title": "Kotlin",
@@ -926,7 +926,7 @@
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "ion:logo-android"
           },
           "eyebrow": "Sprache",
           "title": "Jetpack Compose",
@@ -944,7 +944,7 @@
         },
         {
           "icon": {
-            "name": "books.vertical.fill"
+            "name": "ion:logo-android"
           },
           "eyebrow": "Bibliothek",
           "title": "Material Design 3",
@@ -962,7 +962,7 @@
         },
         {
           "icon": {
-            "name": "inset.filled.square.dashed"
+            "name": "logos:nuxt-icon"
           },
           "eyebrow": "Framework",
           "title": "Nuxt",
@@ -980,7 +980,7 @@
         },
         {
           "icon": {
-            "name": "inset.filled.square.dashed"
+            "name": "ion:logo-angular"
           },
           "eyebrow": "Framework",
           "title": "Angular",
@@ -998,7 +998,7 @@
         },
         {
           "icon": {
-            "name": "gear"
+            "name": "logos:bun"
           },
           "eyebrow": "Runtime",
           "title": "Bun",
@@ -1016,7 +1016,7 @@
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "logos:scala"
           },
           "eyebrow": "Sprache",
           "title": "Scala",
