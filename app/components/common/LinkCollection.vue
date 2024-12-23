@@ -33,6 +33,7 @@
 </template>
 
 <script setup lang="ts">
+import { NuxtLink } from '#components'
 import type { LinkType } from '#shared/types/common/link'
 
 const props = withDefaults(
@@ -54,7 +55,7 @@ const { links } = toRefs(props)
 
 const getLinkComponentType = (link: LinkType) => {
   return link.url?.startsWith('#') || link.url?.startsWith('/')
-    ? 'RouterLink'
+    ? NuxtLink
     : 'a'
 }
 

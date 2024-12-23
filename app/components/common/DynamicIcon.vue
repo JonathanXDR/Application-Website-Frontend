@@ -1,5 +1,5 @@
 <template>
-  <template v-if="!loading">
+  <template v-if="!loading && name">
     <component
       :is="component"
       v-bind="props"
