@@ -848,11 +848,12 @@ html.no-touch .with-paddlenav-onhover .paddlenav-arrow:disabled {
   --ribbon-content-width: 83.33333%;
   --ribbon-content-minimum-width: 320px;
   font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -917,11 +918,12 @@ html.no-touch .with-paddlenav-onhover .paddlenav-arrow:disabled {
 .ribbon-elevated {
   --ribbon-content-padding-top: 24px;
   font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   font-size: 17px;
   font-weight: 400;
@@ -1138,11 +1140,12 @@ html.no-touch .with-paddlenav-onhover .paddlenav-arrow:disabled {
 .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
   color: var(--color-fill-gray-secondary);
   font-family:
-    SF Pro Display,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   font-size: 24px;
   font-weight: 400;
@@ -1153,11 +1156,12 @@ html.no-touch .with-paddlenav-onhover .paddlenav-arrow:disabled {
 @media (max-width: 1023px) and (max-device-width: 736px) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
     font-family:
-      SF Pro Display,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
     font-size: 21px;
     font-weight: 400;
