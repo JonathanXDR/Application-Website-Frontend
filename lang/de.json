@@ -540,7 +540,9 @@
             "name": "fa6-brands:css",
             "background": "#663399",
             "colors": {
-              "primary": "#663399"
+              "primary": "#663399",
+              "secondary": "#66339926",
+              "tertiary": "#66339952"
             }
           },
           "eyebrow": "Sprache",
@@ -641,16 +643,21 @@
           "description": "Diese Technologie habe ich im NexCC das allererste mal gelernt und angewendet. Dabei habe ich zuerst kennengelernt was Node.js überhaupt ist und auch wie man dependencies mit NPM installiert und verwaltet.",
           "badges": [
             {
-              "title": "Javascript",
-              "icon": {
-                "name": "devicon:javascript"
-              }
-            },
-            {
               "title": "Server"
             },
             {
               "title": "Backend"
+            },
+            {
+              "title": "Javascript",
+              "icon": {
+                "name": "devicon:javascript"
+              },
+              "colors": {
+                "primary": "#f0db4f",
+                "secondary": "#f0db4f26",
+                "tertiary": "#f0db4f52"
+              }
             }
           ],
           "links": [
@@ -702,16 +709,21 @@
           "description": "Meine CRUD-App im NexCC habe ich damit erstellt, was sehr lehrreich für mich war. Später hatte ich auch noch einen entsprechenden ÜK, welcher darum ging ein Backend mit Express.js zu erstellen.",
           "badges": [
             {
-              "title": "Node",
-              "icon": {
-                "name": "logos:nodejs-icon"
-              }
-            },
-            {
               "title": "Web"
             },
             {
               "title": "Backend"
+            },
+            {
+              "title": "Node",
+              "icon": {
+                "name": "logos:nodejs-icon"
+              },
+              "colors": {
+                "primary": "#539e43",
+                "secondary": "#539e4326",
+                "tertiary": "#539e4352"
+              }
             }
           ],
           "links": [
@@ -734,16 +746,21 @@
           "description": "Diese Webseite ist mit Vue.js erstellt worden und ich habe damit auch anderweitig gearbeitet. Beispiele sind meine Memory App im Apps Team oder das Zukunftstagstool und die Berufsschulapp, welche ich wiederrum im NexCC erstellt habe.",
           "badges": [
             {
-              "title": "Javascript",
-              "icon": {
-                "name": "devicon:javascript"
-              }
-            },
-            {
               "title": "Frontend"
             },
             {
               "title": "Web"
+            },
+            {
+              "title": "Javascript",
+              "icon": {
+                "name": "devicon:javascript"
+              },
+              "colors": {
+                "primary": "#f0db4f",
+                "secondary": "#f0db4f26",
+                "tertiary": "#f0db4f52"
+              }
             }
           ],
           "links": [
@@ -766,19 +783,21 @@
           "description": "Diese Technologie habe ich das erste mal bei meiner Memory-App im Apps Team verwendet und benutze seither wenn möglich nur noch TypeScript anstelle von JavaScript. Projekte, bei denen ich TypeScript gearbeitet habe, sind z.B. die Apps Team Webseite, die CRUD-App im Apps Team oder auch das Fleetmanagement Tool.",
           "badges": [
             {
-              "title": "Javascript",
-              "icon": {
-                "name": "devicon:javascript"
-              }
-            },
-            {
               "title": "Typed"
             },
             {
-              "title": "Frontend"
+              "title": "Full Stack"
             },
             {
-              "title": "Backend"
+              "title": "Javascript",
+              "icon": {
+                "name": "devicon:javascript"
+              },
+              "colors": {
+                "primary": "#f0db4f",
+                "secondary": "#f0db4f26",
+                "tertiary": "#f0db4f52"
+              }
             }
           ],
           "links": [
@@ -888,12 +907,6 @@
           "description": "React selbst habe ich erst gelernt, nachdem ich bereits mit Next.js gearbeitet habe, daher war die Lernkurve nicht mehr so steil. Beispiele für Projekte, bei denen ich React verwendet habe, sind z.B. die Medienkurse, das Fleetmanagement Tool oder auch die neuen Webfrontends.",
           "badges": [
             {
-              "title": "Javascript",
-              "icon": {
-                "name": "devicon:javascript"
-              }
-            },
-            {
               "title": "Frontend"
             },
             {
@@ -901,6 +914,17 @@
             },
             {
               "title": "UI"
+            },
+            {
+              "title": "Javascript",
+              "icon": {
+                "name": "devicon:javascript"
+              },
+              "colors": {
+                "primary": "#f0db4f",
+                "secondary": "#f0db4f26",
+                "tertiary": "#f0db4f52"
+              }
             }
           ],
           "links": [
@@ -923,12 +947,6 @@
           "description": "Das erste mal kennenlernen durte ich Next.js im Apps Team, wo ich damit die neue Apps Team Webseite erstellt habe. Dort habe ich gleichzeitig auch sehr viel über React gelernt und konnte so meine Kenntnisse gleich in beiden Frameworks verbessern.",
           "badges": [
             {
-              "title": "React",
-              "icon": {
-                "name": "logos:react"
-              }
-            },
-            {
               "title": "Frontend"
             },
             {
@@ -936,6 +954,17 @@
             },
             {
               "title": "SSR"
+            },
+            {
+              "title": "React",
+              "icon": {
+                "name": "logos:react"
+              },
+              "colors": {
+                "primary": "#00d8ff",
+                "secondary": "#00d8ff26",
+                "tertiary": "#00d8ff52"
+              }
             }
           ],
           "links": [
@@ -1016,18 +1045,28 @@
           "description": "Dieses Backend-Framework habe ich im Apps Team kennengelernt und habe damit meine CRUD-App erstellt. Dabei habe ich viel über die Architektur und die verschiedenen Module gelernt. Ausserdem habe ich auch in produktiven Projekten im Apps Team, wie z.B. dem Fleetmanagement Tool oder den neuen Webfrontends damit gearbeitet.",
           "badges": [
             {
+              "title": "Backend"
+            },
+            {
               "title": "Node",
               "icon": {
                 "name": "logos:nodejs-icon"
+              },
+              "colors": {
+                "primary": "#539e43",
+                "secondary": "#539e4326",
+                "tertiary": "#539e4352"
               }
-            },
-            {
-              "title": "Backend"
             },
             {
               "title": "TypeScript",
               "icon": {
                 "name": "devicon:typescript"
+              },
+              "colors": {
+                "primary": "#007acc",
+                "secondary": "#007acc26",
+                "tertiary": "#007acc52"
               }
             }
           ],
@@ -1054,13 +1093,18 @@
               "title": "Database"
             },
             {
+              "title": "ORM"
+            },
+            {
               "title": "TypeScript",
               "icon": {
                 "name": "devicon:typescript"
+              },
+              "colors": {
+                "primary": "#007acc",
+                "secondary": "#007acc26",
+                "tertiary": "#007acc52"
               }
-            },
-            {
-              "title": "ORM"
             }
           ],
           "links": [
@@ -1086,13 +1130,18 @@
               "title": "Database"
             },
             {
+              "title": "ORM"
+            },
+            {
               "title": "TypeScript",
               "icon": {
                 "name": "devicon:typescript"
+              },
+              "colors": {
+                "primary": "#007acc",
+                "secondary": "#007acc26",
+                "tertiary": "#007acc52"
               }
-            },
-            {
-              "title": "ORM"
             }
           ],
           "links": [
@@ -1118,12 +1167,6 @@
           "description": "Ich habe GitHub Primer benutzt, um ein Frontend zusammen mit React für meine CRUD-App im Apps Team zu erstellen.",
           "badges": [
             {
-              "title": "React",
-              "icon": {
-                "name": "logos:react"
-              }
-            },
-            {
               "title": "Frontend"
             },
             {
@@ -1131,6 +1174,17 @@
             },
             {
               "title": "UI"
+            },
+            {
+              "title": "React",
+              "icon": {
+                "name": "logos:react"
+              },
+              "colors": {
+                "primary": "#00d8ff",
+                "secondary": "#00d8ff26",
+                "tertiary": "#00d8ff52"
+              }
             }
           ],
           "links": [
@@ -1153,12 +1207,6 @@
           "description": "Tailwind CSS wurde zusammen mit SDX in vielen Projekten im Apps Team verwendet. Das Fleetmanagement Tool und die neuen Webfrontends sind zwei Beispiele dafür.",
           "badges": [
             {
-              "title": "CSS",
-              "icon": {
-                "name": "fa6-brands:css"
-              }
-            },
-            {
               "title": "Frontend"
             },
             {
@@ -1166,6 +1214,17 @@
             },
             {
               "title": "UI"
+            },
+            {
+              "title": "CSS",
+              "icon": {
+                "name": "fa6-brands:css"
+              },
+              "colors": {
+                "primary": "#663399",
+                "secondary": "#66339926",
+                "tertiary": "#66339952"
+              }
             }
           ],
           "links": [
@@ -1217,13 +1276,21 @@
           "description": "Kotlin habe ich im ÜK 335 gelernt, wo wir als Projektarbeit eine Android App erstellt haben. Dabei konnten wir selbst entscheiden, ob wir Java oder Kotlin verwenden. Ich habe mich für Kotlin entschieden, da ich es interessant fand und es auch eine moderne Programmiersprache ist.",
           "badges": [
             {
-              "title": "Android"
-            },
-            {
               "title": "Mobile"
             },
             {
               "title": "Object-Oriented"
+            },
+            {
+              "title": "Android",
+              "icon": {
+                "name": "logos:android-icon"
+              },
+              "colors": {
+                "primary": "#34a853",
+                "secondary": "#34a85326",
+                "tertiary": "#34a85352"
+              }
             }
           ],
           "links": [
@@ -1246,13 +1313,21 @@
           "description": "Ich habe Jetpack Compose das erste mal zusammen mit Kotlin im ÜK 335 verwendet, wo wir eine Android App erstellt haben.",
           "badges": [
             {
-              "title": "Android"
-            },
-            {
               "title": "Mobile"
             },
             {
               "title": "UI"
+            },
+            {
+              "title": "Android",
+              "icon": {
+                "name": "logos:android-icon"
+              },
+              "colors": {
+                "primary": "#34a853",
+                "secondary": "#34a85326",
+                "tertiary": "#34a85352"
+              }
             }
           ],
           "links": [
@@ -1275,9 +1350,6 @@
           "description": "Während meiner Projektarbeit im ÜK 335 habe ich Material Design 3 verwendet, um die Android App zu gestalten.",
           "badges": [
             {
-              "title": "Android"
-            },
-            {
               "title": "Mobile"
             },
             {
@@ -1288,6 +1360,17 @@
             },
             {
               "title": "Google"
+            },
+            {
+              "title": "Android",
+              "icon": {
+                "name": "logos:android-icon"
+              },
+              "colors": {
+                "primary": "#34a853",
+                "secondary": "#34a85326",
+                "tertiary": "#34a85352"
+              }
             }
           ],
           "links": [
@@ -1310,12 +1393,6 @@
           "description": "Nuxt habe ich mir selbst beigebracht, da ich es interessant fand und auch gerne mit Vue programmiere, worauf Nuxt aufbaut. Bisher habe ich es allerdings bei keinen Projeken ausser dieser Webseite verwendet.",
           "badges": [
             {
-              "title": "Vue",
-              "icon": {
-                "name": "logos:vue"
-              }
-            },
-            {
               "title": "Frontend"
             },
             {
@@ -1323,6 +1400,17 @@
             },
             {
               "title": "SSR"
+            },
+            {
+              "title": "Vue",
+              "icon": {
+                "name": "logos:vue"
+              },
+              "colors": {
+                "primary": "#41b883",
+                "secondary": "#41b88326",
+                "tertiary": "#41b88352"
+              }
             }
           ],
           "links": [
@@ -1345,12 +1433,6 @@
           "description": "Während ich im Piz Tofana Team war, habe ich Angular kennengelernt und auch damit gearbeitet. Damit haben wir nämlich während der Entwicklung des Frontends von Daedalus gearbeitet.",
           "badges": [
             {
-              "title": "Javascript",
-              "icon": {
-                "name": "devicon:javascript"
-              }
-            },
-            {
               "title": "Frontend"
             },
             {
@@ -1358,6 +1440,17 @@
             },
             {
               "title": "UI"
+            },
+            {
+              "title": "Javascript",
+              "icon": {
+                "name": "devicon:javascript"
+              },
+              "colors": {
+                "primary": "#f0db4f",
+                "secondary": "#f0db4f26",
+                "tertiary": "#f0db4f52"
+              }
             }
           ],
           "links": [
@@ -1380,16 +1473,21 @@
           "description": "Ich habe Bun kennengelernt, als ich meine Webseite auf Nuxt umgestellt habe. Vorallem die Einfachheit und die Geschwindigkeit im Gegensatz zu Node.js haben mich dabei überzeugt, weswegen ich wenn möglich nur noch Bun verwende.",
           "badges": [
             {
-              "title": "TypeScript",
-              "icon": {
-                "name": "devicon:typescript"
-              }
-            },
-            {
               "title": "Server"
             },
             {
               "title": "Backend"
+            },
+            {
+              "title": "TypeScript",
+              "icon": {
+                "name": "devicon:typescript"
+              },
+              "colors": {
+                "primary": "#007acc",
+                "secondary": "#007acc26",
+                "tertiary": "#007acc52"
+              }
             }
           ],
           "links": [
@@ -1424,6 +1522,11 @@
               "title": "Java",
               "icon": {
                 "name": "logos:java"
+              },
+              "colors": {
+                "primary": "#5382a1",
+                "secondary": "#5382a126",
+                "tertiary": "#5382a152"
               }
             }
           ],
@@ -1487,51 +1590,86 @@
               "title": "Frontend"
             },
             {
+              "title": "Backend"
+            },
+            {
+              "title": "CRUD"
+            },
+            {
               "title": "HTML",
               "icon": {
                 "name": "devicon:html5"
+              },
+              "colors": {
+                "primary": "#f16529",
+                "secondary": "#f1652926",
+                "tertiary": "#f1652952"
               }
             },
             {
               "title": "CSS",
               "icon": {
                 "name": "fa6-brands:css"
+              },
+              "colors": {
+                "primary": "#663399",
+                "secondary": "#66339926",
+                "tertiary": "#66339952"
               }
             },
             {
               "title": "JavaScript",
               "icon": {
                 "name": "devicon:javascript"
+              },
+              "colors": {
+                "primary": "#f0db4f",
+                "secondary": "#f0db4f26",
+                "tertiary": "#f0db4f52"
               }
-            },
-            {
-              "title": "CRUD"
             },
             {
               "title": "SQL",
               "icon": {
                 "name": "devicon:mysql"
+              },
+              "colors": {
+                "primary": "#00618a",
+                "secondary": "#00618a26",
+                "tertiary": "#00618a52"
               }
-            },
-            {
-              "title": "Backend"
             },
             {
               "title": "Node",
               "icon": {
                 "name": "logos:nodejs-icon"
+              },
+              "colors": {
+                "primary": "#539e43",
+                "secondary": "#539e4326",
+                "tertiary": "#539e4352"
               }
             },
             {
               "title": "Express",
               "icon": {
                 "name": "devicon:express"
+              },
+              "colors": {
+                "primary": "#000000",
+                "secondary": "#00000026",
+                "tertiary": "#00000052"
               }
             },
             {
               "title": "Vue",
               "icon": {
                 "name": "logos:vue"
+              },
+              "colors": {
+                "primary": "#41b883",
+                "secondary": "#41b88326",
+                "tertiary": "#41b88352"
               }
             }
           ],
@@ -1574,10 +1712,23 @@
               "title": "C#",
               "icon": {
                 "name": "devicon:csharp"
+              },
+              "colors": {
+                "primary": "#9b4f96",
+                "secondary": "#9b4f9626",
+                "tertiary": "#9b4f9652"
               }
             },
             {
-              "title": ".NET"
+              "title": ".NET",
+              "icon": {
+                "name": "logos:dotnet"
+              },
+              "colors": {
+                "primary": "#512bd4",
+                "secondary": "#512bd426",
+                "tertiary": "#512bd452"
+              }
             }
           ],
           "info": {
@@ -1641,6 +1792,11 @@
               "title": "Next",
               "icon": {
                 "name": "logos:nextjs-icon"
+              },
+              "colors": {
+                "primary": "#ffffff",
+                "secondary": "#ffffff26",
+                "tertiary": "#ffffff52"
               }
             }
           ],
@@ -1680,30 +1836,50 @@
               "title": "CRUD"
             },
             {
-              "title": "Nest",
-              "icon": {
-                "name": "logos:nestjs"
-              }
-            },
-            {
               "title": "ORM"
             },
             {
-              "title": "Prisma",
+              "title": "Nest",
               "icon": {
-                "name": "logos:prisma"
+                "name": "logos:nestjs"
+              },
+              "colors": {
+                "primary": "#e0234e",
+                "secondary": "#e0234e26",
+                "tertiary": "#e0234e52"
               }
             },
             {
               "title": "TypeORM",
               "icon": {
                 "name": "logos:typeorm"
+              },
+              "colors": {
+                "primary": "#fe0902",
+                "secondary": "#fe090226",
+                "tertiary": "#fe090252"
+              }
+            },
+            {
+              "title": "Prisma",
+              "icon": {
+                "name": "logos:prisma"
+              },
+              "colors": {
+                "primary": "#ffffff",
+                "secondary": "#ffffff26",
+                "tertiary": "#ffffff52"
               }
             },
             {
               "title": "GitHub Primer",
               "icon": {
                 "name": "logos:github-icon"
+              },
+              "colors": {
+                "primary": "#2188FF",
+                "secondary": "#2188FF26",
+                "tertiary": "#2188FF52"
               }
             }
           ],
@@ -1746,31 +1922,54 @@
               "title": "Database Activity Monitoring"
             },
             {
+              "title": "DevOps"
+            },
+            {
+              "title": "OPA"
+            },
+            {
               "title": "Python",
               "icon": {
                 "name": "logos:python"
+              },
+              "colors": {
+                "primary": "#387eb8",
+                "secondary": "#387eb826",
+                "tertiary": "#387eb852"
               }
             },
             {
               "title": "Docker",
               "icon": {
                 "name": "logos:docker-icon"
+              },
+              "colors": {
+                "primary": "#2396ed",
+                "secondary": "#2396ed26",
+                "tertiary": "#2396ed52"
               }
             },
             {
               "title": "Kubernetes",
               "icon": {
                 "name": "devicon:kubernetes"
+              },
+              "colors": {
+                "primary": "#326ce5",
+                "secondary": "#326ce526",
+                "tertiary": "#326ce552"
               }
             },
             {
-              "title": "OPA"
-            },
-            {
-              "title": "DevOps"
-            },
-            {
-              "title": "Elastic"
+              "title": "Elastic",
+              "icon": {
+                "name": "logos:elasticsearch"
+              },
+              "colors": {
+                "primary": "#00bfb3",
+                "secondary": "#00bfb326",
+                "tertiary": "#00bfb352"
+              }
             }
           ],
           "info": {
@@ -1800,15 +1999,33 @@
               "title": "Java",
               "icon": {
                 "name": "logos:java"
+              },
+              "colors": {
+                "primary": "#5382a1",
+                "secondary": "#5382a126",
+                "tertiary": "#5382a152"
               }
             },
             {
-              "title": "Spring Boot"
+              "title": "Spring Boot",
+              "icon": {
+                "name": "logos:spring-icon"
+              },
+              "colors": {
+                "primary": "#6db33f",
+                "secondary": "#6db33f26",
+                "tertiary": "#6db33f52"
+              }
             },
             {
               "title": "Angular",
               "icon": {
                 "name": "logos:angular-icon"
+              },
+              "colors": {
+                "primary": "#ff5be1",
+                "secondary": "#ff5be126",
+                "tertiary": "#ff5be152"
               }
             }
           ],
@@ -1829,31 +2046,40 @@
             "name": "airplane.arrival"
           },
           "eyebrow": "Full-Stack",
-          "title": "Apps Team - Full-Stack (IPA)",
-          "description": "Für meine IPA (Individuelle Praktische Arbeit) habe ich mich entschieden, nochmals ins Apps Team zu gehen, da ich dort bereits viele Erfahrungen sammeln konnte und auch die Leute dort sehr nett sind. Aktuell arbeite ich hier mit Next.js als Frontend-Framework und Nest.js als Backend-Framework.",
+          "title": "Apps Team - Full Stack (IPA)",
+          "description": "Für meine IPA (Individuelle Praktische Arbeit) habe ich mich entschieden, nochmals ins Apps Team zu gehen, da ich dort bereits viele Erfahrungen sammeln konnte und mich das Team, sowie dessen Zusammenhalt wirklich begeistert hat. Von Anfang an durfte ich bereits an produktiven Projekten mitarbeiten, wie z.B. dem Trade Compliance Tool oder den Enterprise Connect Demos. Bei beiden Tools verwenden wir hauptsächlich mit Next.js und Nest.js, inklusive Prisma als ORM.",
           "badges": [
             {
               "title": "Next",
               "icon": {
                 "name": "logos:nextjs-icon"
+              },
+              "colors": {
+                "primary": "#ffffff",
+                "secondary": "#ffffff26",
+                "tertiary": "#ffffff52"
               }
             },
             {
               "title": "Nest",
               "icon": {
                 "name": "logos:nestjs"
-              }
-            },
-            {
-              "title": "TypeORM",
-              "icon": {
-                "name": "logos:typeorm"
+              },
+              "colors": {
+                "primary": "#e0234e",
+                "secondary": "#e0234e26",
+                "tertiary": "#e0234e52"
               }
             },
             {
               "title": "Prisma",
               "icon": {
                 "name": "logos:prisma"
+              },
+              "colors": {
+                "primary": "#ffffff",
+                "secondary": "#ffffff26",
+                "tertiary": "#ffffff52"
               }
             },
             {
