@@ -56,7 +56,7 @@
                 fontSize: `${fontSize}px`,
               }"
             >
-              <Icon
+              <DynamicIcon
                 v-if="item.icon && label !== 'text'"
                 :name="item.icon.name"
                 class="icon icon-lg"
@@ -105,7 +105,8 @@ const updateBubblePosition = () => {
   const selectedItemIndex = props.items.findIndex(
     item => item.id === selectedItem.value,
   )
-  selectedItemElement.value = itemElements.value[selectedItemIndex] || undefined
+  selectedItemElement.value
+    = itemElements.value[selectedItemIndex] || undefined
   if (!selectedItemElement.value) return
   bubbleStyle.value = {
     '--bubble-position': `${selectedItemElement.value.offsetLeft}px`,
@@ -177,7 +178,7 @@ useResizeObserver(navContainer, () => {
   text-align: center;
 }
 .viewer-sizenav-item.separator:not(:first-child)::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   top: 0;
@@ -304,7 +305,7 @@ useResizeObserver(navContainer, () => {
   top: 0;
 }
 .viewer-sizenav__bubble-inner:before {
-  content: '';
+  content: "";
   height: 100%;
   transform: translateX(calc(var(--bubble-hint-position) * 1px))
     scaleX(calc(1 + var(--abs-calc) * 0.15));

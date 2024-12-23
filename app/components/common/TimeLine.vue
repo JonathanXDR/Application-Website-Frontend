@@ -25,7 +25,7 @@ const props = defineProps<{
 }>()
 
 const { height: windowHeight } = useWindowSize()
-const pathData = ref<string>('')
+const pathData = ref<string | undefined>(undefined)
 const timelineHeight = ref<number>(props.initialHeight)
 const viewBox = ref<string>('0 0 8 0')
 const strokeDashArray = ref<number>(props.initialHeight)

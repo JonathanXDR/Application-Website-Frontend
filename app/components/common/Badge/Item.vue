@@ -6,7 +6,7 @@
     :style="computedStyle"
     @click="onClick"
   >
-    <Icon
+    <DynamicIcon
       v-if="icon"
       v-bind="icon"
       class="icon icon-md mr-1"
@@ -74,9 +74,9 @@ const computedStyle = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   white-space: nowrap;
   background: var(--color-figure-background);

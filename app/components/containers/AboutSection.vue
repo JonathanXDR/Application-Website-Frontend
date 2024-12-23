@@ -59,6 +59,7 @@ defineProps<{
   title: string
 }>()
 
+const viewport = useViewport()
 const { t, tm } = useI18n()
 const dateItems = computed<DateItemType[]>(() =>
   tm('components.containers.about.dates'),
@@ -70,7 +71,6 @@ const dates = ref<{
   age: undefined,
   apprenticeshipYear: undefined,
 })
-const viewport = useViewport()
 
 const calculateYears = (date: string) => {
   const currentDate = new Date(Date.now())

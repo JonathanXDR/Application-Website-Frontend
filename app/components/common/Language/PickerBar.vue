@@ -4,7 +4,7 @@
       v-if="introText"
       class="language-switcher-text"
     >
-      {{ t('components.common.LanguagePickerBar.chooseYourLanguage') }}:
+      {{ t("components.common.LanguagePickerBar.chooseYourLanguage") }}:
     </span>
     <ul class="locale-lang language-picker-wrapper">
       <li
@@ -79,7 +79,7 @@ const getLabel = (locale: { code: string, name?: string }) => {
   flex-wrap: wrap;
 }
 
-.language-picker-wrapper li > input[type='radio'] {
+.language-picker-wrapper li > input[type="radio"] {
   display: none;
 }
 
@@ -95,7 +95,7 @@ const getLabel = (locale: { code: string, name?: string }) => {
   margin-right: 0;
 }
 
-input[name='language']:checked ~ label {
+input[name="language"]:checked ~ label {
   color: var(--color-figure-gray-secondary) !important;
   pointer-events: none;
 }

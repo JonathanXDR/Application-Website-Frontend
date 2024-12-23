@@ -45,28 +45,30 @@
           class="flex justify-center items-center p-2 rounded-lg"
           :style="{
             position: icon.absolute ? 'absolute' : 'relative',
-            backgroundColor: icon.background,
+            backgroundColor: icon.background
+              ? `${icon.background}26`
+              : undefined,
           }"
         >
-          <!-- <Icon
+          <DynamicIcon
             v-bind="icon"
             :loading="loading"
-            :class="iconClasses"
+            :class="['icon', iconClasses]"
             size="20px"
             :style="{
               color: icon.colors?.primary,
             }"
-          /> -->
+          />
         </div>
-        <!-- <Icon
+        <DynamicIcon
           v-else
           v-bind="icon"
           :loading="loading"
-          :class="iconClasses"
+          :class="['icon', iconClasses]"
           :style="{
             color: icon.colors?.primary,
           }"
-        /> -->
+        />
       </template>
 
       <div
@@ -143,12 +145,15 @@
             </template>
           </div>
         </div>
+
+        <!-- TODO: Fix hydration mismatches -->
         <BadgeBar
           v-if="hasBadgesOrTopics"
           :badges="badgesOrTopics"
           :loading="loading"
         />
 
+        <!-- TODO: Fix hydration mismatches -->
         <div
           v-if="hasLinksOrHtmlUrl"
           class="ctas-wrapper"
@@ -194,14 +199,12 @@ const props = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
   }),
   alignment: 'start',
   hover: 'auto',
-  cover: '',
   loading: false,
   graphs: () => ({
     donut: false,
     bar: false,
   }),
   icon: () => ({
-    name: '',
     absolute: false,
     position: 'left',
     alignment: 'start',
@@ -312,7 +315,6 @@ const detailsStyle = computed((): Record<string, string> => {
 })
 
 const iconClasses = computed(() => ({
-  'icon': true,
   'icon-lg': props.variant === 'article' && props.componentSize === 'large',
   'icon-xl': ['medium', 'small'].includes(props.componentSize),
   'icon-xxl': props.variant === 'card' && props.componentSize === 'large',
@@ -471,9 +473,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -485,9 +487,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -500,9 +502,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -514,9 +516,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -527,9 +529,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   width: 100%;
   height: 100%;
@@ -552,9 +554,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -584,9 +586,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -597,9 +599,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -610,9 +612,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -623,9 +625,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -636,9 +638,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   color: var(--color-welcome-featured-card-eyebrow-text);
 }
@@ -658,9 +660,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -671,9 +673,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -685,9 +687,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -698,9 +700,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 
   /* Styles without cover */
@@ -714,9 +716,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -806,9 +808,9 @@ const iconClasses = computed(() => ({
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 

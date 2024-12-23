@@ -1,6 +1,6 @@
-import type { NavBarType } from '#shared/types/common/nav-bar'
+import type { NavbarType } from '#shared/types/common/nav-bar'
 
-const state = reactive<NavBarType>({
+const state = reactive<NavbarType>({
   autoHide: false,
   border: true,
   scrim: true,
@@ -9,7 +9,7 @@ const state = reactive<NavBarType>({
 })
 
 export const useNavbar = () => {
-  const setState = (stateNew: Partial<NavBarType>) => {
+  const setState = (stateNew: Partial<NavbarType>) => {
     Object.assign(state, stateNew)
   }
 

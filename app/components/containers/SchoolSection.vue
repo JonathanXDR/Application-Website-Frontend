@@ -35,8 +35,9 @@ defineProps<{
   title: string
 }>()
 
-const { tm } = useI18n()
 const viewport = useViewport()
+const { tm } = useI18n()
+
 const cards = computed<CardItemType[]>(() =>
   tm('components.containers.school'),
 )

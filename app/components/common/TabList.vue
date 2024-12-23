@@ -28,7 +28,7 @@
           class="tabnav-paddle tabnav-paddle-left"
           disabled
         >
-          <Icon
+          <DynamicIcon
             name="chevron.left"
             class="icon icon-sm"
           />
@@ -37,7 +37,7 @@
           class="tabnav-paddle tabnav-paddle-right"
           disabled
         >
-          <Icon
+          <DynamicIcon
             name="chevron.right"
             class="icon icon-sm"
           />
@@ -368,9 +368,9 @@ const emitChange = (id: string) => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   border: 0 solid var(--color-fill-gray-tertiary);
   border-radius: 0;
@@ -463,11 +463,11 @@ const emitChange = (id: string) => {
   border-bottom-color: var(--color-figure-gray-secondary);
 }
 
-.tabnav-item > input[type='radio'] {
+.tabnav-item > input[type="radio"] {
   display: none;
 }
 
-.tabnav-item > input[type='radio']:checked ~ label.tabnav-link {
+.tabnav-item > input[type="radio"]:checked ~ label.tabnav-link {
   color: var(--color-fill-gray);
   pointer-events: none;
   text-decoration: none;
@@ -475,15 +475,15 @@ const emitChange = (id: string) => {
   z-index: 10;
 }
 
-#music .tabnav-item > input[type='radio']:checked ~ label.tabnav-link {
+#music .tabnav-item > input[type="radio"]:checked ~ label.tabnav-link {
   color: #e85f82 !important;
 }
 
-.tabnav-item > input[type='radio']:checked ~ label.tabnav-link:after {
+.tabnav-item > input[type="radio"]:checked ~ label.tabnav-link:after {
   border-bottom-color: var(--color-fill-gray);
 }
 
-#music .tabnav-item > input[type='radio']:checked ~ label.tabnav-link:after {
+#music .tabnav-item > input[type="radio"]:checked ~ label.tabnav-link:after {
   border-bottom-width: 2px !important;
   border-bottom-color: #e85f82 !important;
 }
@@ -512,9 +512,9 @@ const emitChange = (id: string) => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   padding: 9px 0 11px;
   margin-top: 2px;
@@ -533,9 +533,9 @@ const emitChange = (id: string) => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   color: var(--color-figure-gray-secondary);
 }
@@ -556,7 +556,7 @@ const emitChange = (id: string) => {
   bottom: -5px;
   width: 100%;
   border-bottom: 1px solid transparent;
-  content: '';
+  content: "";
 }
 
 @media only screen and (max-width: 1023px) {
@@ -567,9 +567,9 @@ const emitChange = (id: string) => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -582,9 +582,9 @@ const emitChange = (id: string) => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }

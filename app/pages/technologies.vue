@@ -43,7 +43,6 @@
           componentSize: 'small',
           icon: {
             ...card.icon,
-            name: card.icon?.name || '',
             position: 'right',
             alignment: 'start',
             absolute: true,

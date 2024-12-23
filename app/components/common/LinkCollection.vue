@@ -20,7 +20,7 @@
         />
       </template>
 
-      <Icon
+      <DynamicIcon
         v-if="link.icon"
         :loading="loading"
         :name="link.icon.name"

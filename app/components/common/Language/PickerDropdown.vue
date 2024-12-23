@@ -24,9 +24,9 @@
           }}
         </option>
       </select>
-      <Icon
+      <DynamicIcon
         name="chevron.down"
-        :class="`icon icon-${componentSize}`"
+        :class="`icon icon-${sizes[props.componentSize]}`"
       />
     </div>
   </div>

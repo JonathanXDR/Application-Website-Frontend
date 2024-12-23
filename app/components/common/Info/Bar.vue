@@ -8,7 +8,7 @@
         v-if="props[item.id]"
         class="info-item"
       >
-        <Icon
+        <DynamicIcon
           v-if="item.icon"
           :name="item.icon.name"
           :loading="loading"
@@ -30,7 +30,7 @@
       v-if="props.date.fixed || props.date.duration"
       class="info-item"
     >
-      <Icon
+      <DynamicIcon
         :loading="loading"
         :name="updatedYesterday ? 'clock.fill' : 'calendar'"
         class="info-icon"
@@ -150,9 +150,9 @@ watch([locale, () => props.date], () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   display: flex;
   justify-content: flex-start;

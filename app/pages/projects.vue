@@ -20,7 +20,7 @@
           :on-select="
             (id: string) =>
               updateCurrentIndex(
-                segmentNavItems.findIndex(item => item.id === id),
+                segmentNavItems.findIndex((item) => item.id === id),
               )
           "
         />
@@ -43,7 +43,6 @@
           :key="index"
           v-bind="{
             ...project,
-            description: project.description || '',
             variant: 'article',
             hover: 'false',
             loading: false,
@@ -93,7 +92,6 @@
               },
               icon: {
                 ...project.icon,
-                name: project.icon?.name || '',
                 position: 'right',
                 absolute: true,
               },
@@ -115,12 +113,10 @@
             :key="index"
             v-bind="{
               ...project,
-              description: project.description || '',
               loading: false,
               componentSize: 'small',
               icon: {
                 ...project.icon,
-                name: project.icon?.name || '',
                 position: 'right',
               },
               info: {
@@ -174,9 +170,9 @@ definePageMeta({
   footerCompact: false,
 })
 
+const viewport = useViewport()
 const { t, tm } = useI18n()
 const { randomDevColor } = useColor()
-const viewport = useViewport()
 const config = useRuntimeConfig()
 
 const ul = ref<HTMLElement | undefined>(undefined)

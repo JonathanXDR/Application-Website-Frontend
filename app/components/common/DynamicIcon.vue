@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<IconType>(), {
 const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
 
 const component = computed(() => {
-  return sfSymbolRegex.test(props.name) ? SFSymbol : NuxtIcon
+  return props.name && sfSymbolRegex.test(props.name) ? SFSymbol : NuxtIcon
 })
 </script>
 

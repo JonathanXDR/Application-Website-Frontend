@@ -53,7 +53,7 @@
                           ]"
                         >
                           <template v-if="gallery.item && !loading">
-                            {{ gallery.item.description + '&ensp;' }}
+                            {{ gallery.item.description + "&ensp;" }}
                           </template>
                           <template v-else>
                             <LoadingSkeleton
@@ -129,11 +129,10 @@
 <script setup lang="ts">
 import type {
   GalleryState,
-  RotatingBannerProps,
+  InfoBannerProps,
 } from '#shared/types/common/banner'
-import type { LinkType } from '#shared/types/common/link'
 
-const props = withDefaults(defineProps<RotatingBannerProps>(), {
+const props = withDefaults(defineProps<InfoBannerProps>(), {
   loading: false, // working
   step: 1, // working but calculateGalleryItems needs to be adjusted
   paddleNav: true, // working
@@ -154,7 +153,7 @@ const state = ref<GalleryState>({
   pendingUpdate: null,
 })
 
-const { t, tm, rt } = useI18n()
+// const { t, tm, rt } = useI18n()
 const config = useRuntimeConfig()
 
 const isVisible = ref(false)
@@ -165,7 +164,7 @@ const tags = ref<{
   latest: string | undefined
   previous: string | undefined
 }>({ latest: undefined, previous: undefined })
-const links = tm('components.common.RotatingBanner.links') as LinkType[]
+// const links = tm('components.common.InfoBanner.links') as LinkType[]
 
 let autoScrollInterval: ReturnType<typeof setInterval> | null = null
 let restartTimeout: ReturnType<typeof setTimeout> | null = null
@@ -446,8 +445,8 @@ watch(
   top: 50%;
 }
 
-html[dir='rtl'] .paddlenav .paddlenav-arrow-next,
-html[dir='rtl'] .paddlenav .paddlenav-arrow-previous {
+html[dir="rtl"] .paddlenav .paddlenav-arrow-next,
+html[dir="rtl"] .paddlenav .paddlenav-arrow-previous {
   transform: rotate(180deg);
 }
 
@@ -785,22 +784,22 @@ html.no-touch .with-paddlenav-onhover .paddlenav-arrow:disabled {
   width: 100%;
 }
 
-[data-core-gallery-fade='true'] [data-core-gallery-scroller] {
+[data-core-gallery-fade="true"] [data-core-gallery-scroller] {
   position: relative;
 }
 
-[data-core-gallery-fade='true'] [data-core-gallery-scroller] > * {
+[data-core-gallery-fade="true"] [data-core-gallery-scroller] > * {
   transition: opacity 0.4s ease;
 }
 
-[data-core-gallery-fade='true']
+[data-core-gallery-fade="true"]
   [data-core-gallery-scroller]
   > :not(:first-child) {
   inset-inline-start: -50%;
   position: relative;
 }
 
-[data-core-gallery-fade='true'] [data-core-gallery-scroller] > :first-child {
+[data-core-gallery-fade="true"] [data-core-gallery-scroller] > :first-child {
   opacity: 0;
   z-index: 1;
 }
@@ -1202,7 +1201,7 @@ html.no-touch .with-paddlenav-onhover .paddlenav-arrow:disabled {
 .with-paddlenav .rc-ribbon-content-autoscroll:after,
 .with-paddlenav .rc-ribbon-content-autoscroll:before {
   animation: animate-opacity 1s ease 2.8s forwards;
-  content: '';
+  content: "";
   display: block;
   height: 100%;
   opacity: 0;
@@ -1238,7 +1237,7 @@ html.no-touch .with-paddlenav-onhover .paddlenav-arrow:disabled {
   }
 }
 
-html[dir='rtl'] .with-paddlenav .rc-ribbon-content-autoscroll:before {
+html[dir="rtl"] .with-paddlenav .rc-ribbon-content-autoscroll:before {
   background-image: linear-gradient(
     to left,
     var(--ribbon-background-color) 16px,
@@ -1247,7 +1246,7 @@ html[dir='rtl'] .with-paddlenav .rc-ribbon-content-autoscroll:before {
 }
 
 @media (max-width: 1023px) and (max-device-width: 736px) {
-  html[dir='rtl'] .with-paddlenav .rc-ribbon-content-autoscroll:before {
+  html[dir="rtl"] .with-paddlenav .rc-ribbon-content-autoscroll:before {
     background-image: linear-gradient(
       to left,
       var(--ribbon-background-color),
@@ -1275,7 +1274,7 @@ html[dir='rtl'] .with-paddlenav .rc-ribbon-content-autoscroll:before {
   }
 }
 
-html[dir='rtl'] .with-paddlenav .rc-ribbon-content-autoscroll:after {
+html[dir="rtl"] .with-paddlenav .rc-ribbon-content-autoscroll:after {
   background-image: linear-gradient(
     to right,
     var(--ribbon-background-color) 16px,
@@ -1284,7 +1283,7 @@ html[dir='rtl'] .with-paddlenav .rc-ribbon-content-autoscroll:after {
 }
 
 @media (max-width: 1023px) and (max-device-width: 736px) {
-  html[dir='rtl'] .with-paddlenav .rc-ribbon-content-autoscroll:after {
+  html[dir="rtl"] .with-paddlenav .rc-ribbon-content-autoscroll:after {
     background-image: linear-gradient(
       to right,
       var(--ribbon-background-color),
@@ -1355,8 +1354,8 @@ html[dir='rtl'] .with-paddlenav .rc-ribbon-content-autoscroll:after {
   min-height: auto;
 }
 
-.rc-ribbon-gallery-item[aria-hidden='true'] a,
-.rc-ribbon-gallery-item[aria-hidden='true'] button {
+.rc-ribbon-gallery-item[aria-hidden="true"] a,
+.rc-ribbon-gallery-item[aria-hidden="true"] button {
   display: inline-block;
   visibility: hidden;
 }

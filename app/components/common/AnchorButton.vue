@@ -1,6 +1,6 @@
 <template>
   <div class="cta-circular-icon cta-open">
-    <Icon
+    <DynamicIcon
       name="plus"
       weight="small"
     />
@@ -18,9 +18,9 @@
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   align-items: center;
   border-radius: 50%;
@@ -47,9 +47,9 @@
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }

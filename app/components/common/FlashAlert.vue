@@ -16,12 +16,10 @@
       class="w-full flex items-start gap-3"
       :style="{ overflowWrap: 'anywhere' }"
     >
-      <Icon
+      <DynamicIcon
         v-if="icon.variant === 'default' || (icon.variant === 'custom' && icon)"
         class="icon icon-md m-1"
-        :name="
-          icon.variant === 'custom' ? icon?.name || '' : icons[variant].name
-        "
+        :name="icon.variant === 'custom' ? icon?.name : icons[variant].name"
         :colors="
           icon.variant === 'custom' ? icon?.colors : icons[variant].colors
         "
@@ -65,7 +63,7 @@ import type { FlashAlertType } from '#shared/types/common/flash-alert'
 const props = withDefaults(defineProps<FlashAlertType>(), {
   variant: 'note',
   title: undefined,
-  icon: () => ({ variant: 'default', name: '' }),
+  icon: () => ({ variant: 'default' }),
 })
 
 const icons = {
@@ -144,9 +142,9 @@ aside .label {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -252,7 +250,7 @@ aside {
   height: var(--modal-close-icon-svg-size);
   width: var(--modal-close-icon-svg-size);
 }
-html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
+html:not([dir="rtl"]) .modal-close-button .modal-close-icon svg {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }

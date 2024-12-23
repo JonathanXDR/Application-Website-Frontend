@@ -48,7 +48,7 @@
 } */
 .apple-intelligence-glow::after {
   --bg-size: calc(100% + 14px);
-  content: '';
+  content: "";
   pointer-events: none;
   position: absolute;
   inset: 0;

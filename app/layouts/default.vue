@@ -10,7 +10,7 @@
         v-if="shouldShow('ribbon')"
         ref="rotatingBannerElement"
       >
-        <RotatingBanner
+        <InfoBanner
           :items="items"
           :auto-scroll="false"
         />
@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { SpeedInsights } from '@vercel/speed-insights/vue'
-import type { RotatingBanner } from '#shared/types/common/rotating-banner'
+import type { InfoBanner } from '#shared/types/common/rotating-banner'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterFull from '~/components/common/Footer/Full.vue'
 
@@ -44,15 +44,15 @@ const config = useRuntimeConfig()
 const rotatingBannerElement = ref<HTMLElement | undefined>(undefined)
 const { height: rotatingBannerHeight } = useElementSize(rotatingBannerElement)
 const lastScrollY = ref(0)
-const shouldHideNavbar = useState<boolean>('shouldHideNavbar', () => false)
-const autoHideNavbar = ref(false)
+const shouldHideNavBar = useState<boolean>('shouldHideNavBar', () => false)
+const autoHideNavBar = ref(false)
 
-const items = computed<RotatingBanner['items']>(() =>
-  tm('components.common.RotatingBanner'),
+const items = computed<InfoBanner['items']>(() =>
+  tm('components.common.InfoBanner'),
 )
 
 const faviconColor = randomDevColor.value?.hex
-const faviconGraphicData = ref('')
+const faviconGraphicData = ref<string | undefined>(undefined)
 
 const fetchSvgContent = async () => {
   const response = await fetch('/img/dev/favicon-dev.svg')
@@ -69,7 +69,7 @@ onMounted(async () => {
 watch([y, isScrolling], ([yNew, isScrollingNew]) => {
   if (!isScrollingNew) return
 
-  shouldHideNavbar.value = autoHideNavbar.value
+  shouldHideNavBar.value = autoHideNavBar.value
     ? yNew > lastScrollY.value
     : false
   lastScrollY.value = yNew
@@ -78,8 +78,8 @@ watch([y, isScrolling], ([yNew, isScrollingNew]) => {
 const shouldApplyHideLocalnav = computed(() => {
   return (
     y.value > rotatingBannerHeight.value
-    && shouldHideNavbar.value
-    && autoHideNavbar.value
+    && shouldHideNavBar.value
+    && autoHideNavBar.value
   )
 })
 
@@ -120,7 +120,7 @@ watchEffect(() => {
 watch(
   () => [
     y.value < rotatingBannerHeight.value || state.value.extensionAttached,
-    autoHideNavbar.value,
+    autoHideNavBar.value,
   ],
   ([border, autoHide]) => {
     setState({

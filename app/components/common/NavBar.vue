@@ -195,22 +195,22 @@
 
 <script setup lang="ts">
 import type { ItemType } from '#shared/types/common/item'
-import type { NavBarType } from '#shared/types/common/nav-bar'
+import type { NavbarType } from '#shared/types/common/nav-bar'
 import type { SectionType } from '#shared/types/common/section'
 
-const props = withDefaults(defineProps<NavBarType>(), {
+const props = withDefaults(defineProps<NavbarType>(), {
   autoHide: false,
   border: true,
   scrim: true,
   position: 'fixed',
 })
 
+const viewport = useViewport()
 const { state, setState } = useNavbar()
 const { randomDevColor } = useColor()
 const { currentSection } = useSection()
 const { getTheme, setTheme } = useTheme()
 const { y: scrollY } = useWindowScroll()
-const viewport = useViewport()
 const { headerAnimations, setHeaderAnimation } = useAnimation()
 const config = useRuntimeConfig()
 const route = useRoute()

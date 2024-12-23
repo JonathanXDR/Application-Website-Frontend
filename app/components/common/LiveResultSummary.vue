@@ -15,7 +15,7 @@
       class="changesnav-totals"
     >
       <div class="changed-total">
-        <Icon
+        <DynamicIcon
           name="pin.fill"
           weight="small"
           :colors="{
@@ -23,7 +23,7 @@
           }"
           class="icon icon-md"
         />
-        <span>{{ t('components.common.LiveResultSummary.description') }}</span>
+        <span>{{ t("components.common.LiveResultSummary.description") }}</span>
         <span class="total"> ({{ pinnedResults }})</span>
       </div>
       <!-- <div class="changed-total changed-total-modified">
@@ -162,9 +162,9 @@ const { randomDevColor } = useColor()
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   color: var(--color-figure-gray-secondary);
   margin-right: 20px;

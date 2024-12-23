@@ -14,7 +14,7 @@
           target="_blank"
           external
         >
-          <Icon
+          <DynamicIcon
             v-if="link.icon"
             :name="link.icon?.name"
             size="17px"

@@ -14,9 +14,6 @@
           ...article.icon,
           position: viewport.isLessThan('tablet') ? 'top' : 'left',
         },
-        info: {
-          ...article?.info,
-        },
       }"
     />
   </div>
@@ -29,8 +26,9 @@ defineProps<{
   title: string
 }>()
 
-const { tm } = useI18n()
 const viewport = useViewport()
+const { tm } = useI18n()
+
 const articles = computed<CardItemType[]>(() =>
   tm('components.containers.references'),
 )

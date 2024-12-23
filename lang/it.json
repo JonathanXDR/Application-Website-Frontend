@@ -52,7 +52,7 @@
           "route": "/music"
         }
       ],
-      "RotatingBanner": [
+      "InfoBanner": [
         {
           "description": "Cosa c'è di nuovo in {latestTag}?",
           "links": [

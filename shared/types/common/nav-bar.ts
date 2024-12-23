@@ -1,4 +1,4 @@
-export interface NavBarType {
+export interface NavbarType {
   autoHide?: boolean
   border?: boolean
   extensionAttached?: boolean

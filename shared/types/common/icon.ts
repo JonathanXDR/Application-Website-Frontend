@@ -5,11 +5,11 @@ type IconifyIconCustomiseCallback = (
   content: string,
   name: string,
   prefix: string,
-  provider: string
+  provider: string,
 ) => string
 
 interface IconifyProps {
-  name: string
+  name?: string
   mode?: 'svg' | 'css' | null
   size?: string | number | null
   customize?: IconifyIconCustomiseCallback

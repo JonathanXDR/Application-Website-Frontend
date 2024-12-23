@@ -55,8 +55,8 @@ defineProps<{
   title: string
 }>()
 
-const { tm, locale } = useI18n()
 const viewport = useViewport()
+const { tm, locale } = useI18n()
 
 const chipClaimHeight = ref(0)
 const titleElements = ref<HTMLElement[]>([])

@@ -5,7 +5,7 @@ export interface BannerItem {
   links: LinkType[]
 }
 
-export interface RotatingBannerProps {
+export interface InfoBannerProps {
   items: BannerItem[]
   loading?: boolean
   step?: number
