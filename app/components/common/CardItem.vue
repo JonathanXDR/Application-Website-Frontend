@@ -239,7 +239,9 @@ const hasCoverOrGraphs = computed(
 const hasBadgesOrTopics = computed(
   () => props.badges?.length || props.topics?.length,
 )
-const badgesOrTopics = computed(() => props.badges || props.topics || [])
+const badgesOrTopics = computed(
+  () => props.badges || props.topics?.map(topic => ({ title: topic })) || [],
+)
 const hasLinksOrHtmlUrl = computed(() => props.links?.length || props.html_url)
 const linkCollectionLinks = computed(
   () =>

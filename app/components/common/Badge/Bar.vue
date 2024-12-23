@@ -4,12 +4,11 @@
       <div class="suggested-badges-badges">
         <BadgeItem
           v-for="(badge, index) in badges"
+          v-bind="badge"
           :key="index"
           class="badge"
-          :loading="loading"
-          :title="badge"
           component-size="small"
-          :url="`https://github.com/topics/${badge}`"
+          :url="`https://github.com/topics/${badge.title}`"
         />
       </div>
     </div>
@@ -17,14 +16,14 @@
 </template>
 
 <script setup lang="ts">
+import type { BadgeItemType } from '#shared/types/common/badge-item'
+
 withDefaults(
   defineProps<{
-    badges: string[]
-    loading?: boolean
+    badges: BadgeItemType[]
   }>(),
   {
     badges: () => [],
-    loading: false,
   },
 )
 </script>

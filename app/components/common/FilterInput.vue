@@ -73,8 +73,8 @@
             v-if="open && options.length > 0"
             :badges="
               options
-                .filter(option => option.label)
-                .map(option => option.label!)
+                .filter((option) => option.label)
+                .map((option) => ({ title: option.label! }))
             "
           />
         </div>
@@ -285,9 +285,9 @@ const onBlur = () => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   color: var(--color-text);
   width: 100%;
@@ -307,9 +307,9 @@ const onBlur = () => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
