@@ -53,7 +53,7 @@
           <DynamicIcon
             v-bind="icon"
             :loading="loading"
-            :class="['icon', iconClasses]"
+            :class="`icon', icon-${icon.name && sfSymbolRegex.test(icon.name) ? iconSize : iconLogoSize}`"
             size="20px"
             :style="{
               color: icon.colors?.primary,
@@ -64,7 +64,7 @@
           v-else
           v-bind="icon"
           :loading="loading"
-          :class="['icon', iconClasses]"
+          :class="`icon', icon-${icon.name && sfSymbolRegex.test(icon.name) ? iconSize : iconLogoSize}`"
           :style="{
             color: icon.colors?.primary,
           }"
@@ -316,11 +316,26 @@ const detailsStyle = computed((): Record<string, string> => {
   }
 })
 
-const iconClasses = computed(() => ({
-  'icon-lg': props.variant === 'article' && props.componentSize === 'large',
-  'icon-xl': ['medium', 'small'].includes(props.componentSize),
-  'icon-xxl': props.variant === 'card' && props.componentSize === 'large',
+const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
+
+const iconSize = computed(() => ({
+  lg: props.variant === 'article' && props.componentSize === 'large',
+  xl: ['medium', 'small'].includes(props.componentSize),
+  xxl: props.variant === 'card' && props.componentSize === 'large',
 }))
+
+const iconLogoSize = computed(() => {
+  switch (props.componentSize) {
+    case 'small':
+      return 'xs'
+    case 'medium':
+      return 'sm'
+    case 'large':
+      return 'sm'
+    default:
+      return 'sm'
+  }
+})
 </script>
 
 <style scoped>

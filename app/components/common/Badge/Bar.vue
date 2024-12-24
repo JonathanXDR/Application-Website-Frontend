@@ -18,14 +18,9 @@
 <script setup lang="ts">
 import type { BadgeItemType } from '#shared/types/common/badge-item'
 
-withDefaults(
-  defineProps<{
-    badges: BadgeItemType[]
-  }>(),
-  {
-    badges: () => [],
-  },
-)
+defineProps<{
+  badges?: BadgeItemType[]
+}>()
 </script>
 
 <style scoped>
