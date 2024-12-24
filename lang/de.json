@@ -350,7 +350,7 @@
           ],
           "info": {
             "location": "Zür-För181",
-            "department": "INI-EOG-SPA"
+            "department": "INI-DOS-QSA"
           }
         },
         {
@@ -362,7 +362,7 @@
           "description": "Test Automation Engineer",
           "info": {
             "location": "Zür-Pfi51",
-            "department": "B2B-BAN-COB-ASO-AUT"
+            "department": "B2B-BAN-BPO-AUT"
           }
         },
         {
@@ -395,7 +395,7 @@
           ],
           "info": {
             "location": "Itt-Ey10",
-            "department": "GHR-POD-LES-APP"
+            "department": "GHR-POD-LES-APP (EXT)"
           }
         },
         {
@@ -407,7 +407,7 @@
           "description": "Enterprise & System Architect EAS",
           "info": {
             "location": "Zür-För181",
-            "department": "INI-EAI-EAV"
+            "department": "INI-EOG-EA-EAF"
           }
         },
         {
@@ -1740,7 +1740,7 @@
             },
             "supervisor": "Alessio Iantosca",
             "location": "Zür-Pfi51",
-            "department": "B2B-BAN-COB-ASO-AUT"
+            "department": "B2B-BAN-BPO-AUT"
           }
         },
         {
@@ -1981,7 +1981,7 @@
             },
             "supervisor": "Radu Margineanu",
             "location": "Zür-Mas10",
-            "department": "INI-CIT-MCS"
+            "department": "INI-EOG-EA-EAF"
           }
         },
         {
