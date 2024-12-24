@@ -21,7 +21,7 @@
     "build:trigger": "sh ./scripts/build-trigger.sh"
   },
   "devDependencies": {
-    "@iconify-json/devicon": "^1.2.9",
+    "@iconify-json/devicon": "^1.2.10",
     "@iconify-json/fa6-brands": "^1.2.5",
     "@iconify-json/fa6-solid": "^1.2.3",
     "@iconify-json/logos": "^1.2.4",
@@ -44,9 +44,9 @@
     "@types/node": "^22.10.2",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
-    "@vueuse/core": "^12.1.0",
-    "@vueuse/integrations": "^12.1.0",
-    "@vueuse/nuxt": "^12.1.0",
+    "@vueuse/core": "^12.2.0",
+    "@vueuse/integrations": "^12.2.0",
+    "@vueuse/nuxt": "^12.2.0",
     "@vueuse/sound": "^2.0.1",
     "dayjs": "^1.11.13",
     "eslint": "^9.17.0",
@@ -64,6 +64,6 @@
     "typescript": "5.7.2",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
-    "vue-tsc": "2.1.10"
+    "vue-tsc": "2.2.0"
   }
 }
