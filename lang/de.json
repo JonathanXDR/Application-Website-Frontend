@@ -509,7 +509,7 @@
         {
           "icon": {
             "name": "devicon:html5",
-            "background": "#f16529"
+            "background": "#f1652926"
           },
           "eyebrow": "Sprache",
           "title": "HTML",
@@ -538,7 +538,7 @@
         {
           "icon": {
             "name": "fa6-brands:css",
-            "background": "#663399",
+            "background": "#66339926",
             "colors": {
               "primary": "#663399",
               "secondary": "#66339926",
@@ -575,7 +575,7 @@
         {
           "icon": {
             "name": "devicon:javascript",
-            "background": "#f0db4f"
+            "background": "#f0db4f26"
           },
           "eyebrow": "Sprache",
           "title": "JavaScript",
@@ -636,7 +636,7 @@
         {
           "icon": {
             "name": "logos:nodejs-icon",
-            "background": "#539e43"
+            "background": "#539e4326"
           },
           "eyebrow": "Runtime",
           "title": "Node.js",
@@ -673,7 +673,7 @@
         {
           "icon": {
             "name": "devicon:mysql",
-            "background": "#00618a"
+            "background": "#00618a26"
           },
           "eyebrow": "Sprache",
           "title": "SQL",
@@ -702,7 +702,7 @@
         {
           "icon": {
             "name": "devicon:express",
-            "background": "#000000"
+            "background": "#00000026"
           },
           "eyebrow": "Framework",
           "title": "Express.js",
@@ -739,7 +739,7 @@
         {
           "icon": {
             "name": "logos:vue",
-            "background": "#41b883"
+            "background": "#41b88326"
           },
           "eyebrow": "Framework",
           "title": "Vue.js",
@@ -776,7 +776,7 @@
         {
           "icon": {
             "name": "devicon:typescript",
-            "background": "#007acc"
+            "background": "#007acc26"
           },
           "eyebrow": "Sprache",
           "title": "TypeScript",
@@ -813,7 +813,7 @@
         {
           "icon": {
             "name": "devicon:csharp",
-            "background": "#9b4f96"
+            "background": "#9b4f9626"
           },
           "eyebrow": "Sprache",
           "title": "C#",
@@ -842,7 +842,7 @@
         {
           "icon": {
             "name": "logos:java",
-            "background": "#5382a1"
+            "background": "#5382a126"
           },
           "eyebrow": "Sprache",
           "title": "Java",
@@ -871,7 +871,7 @@
         {
           "icon": {
             "name": "logos:bash-icon",
-            "background": "#2f3a3e"
+            "background": "#2f3a3e26"
           },
           "eyebrow": "Sprache",
           "title": "Bash",
@@ -900,7 +900,7 @@
         {
           "icon": {
             "name": "logos:react",
-            "background": "#00d8ff"
+            "background": "#00d8ff26"
           },
           "eyebrow": "Framework",
           "title": "React",
@@ -940,7 +940,7 @@
         {
           "icon": {
             "name": "logos:nextjs-icon",
-            "background": "#ffffff"
+            "background": "#ffffff26"
           },
           "eyebrow": "Framework",
           "title": "Next.js",
@@ -980,7 +980,7 @@
         {
           "icon": {
             "name": "logos:docker-icon",
-            "background": "#2396ed"
+            "background": "#2396ed26"
           },
           "eyebrow": "Container Management",
           "title": "Docker",
@@ -1009,7 +1009,7 @@
         {
           "icon": {
             "name": "devicon:kubernetes",
-            "background": "#326ce5"
+            "background": "#326ce526"
           },
           "eyebrow": "Container Management",
           "title": "Kubernetes",
@@ -1038,7 +1038,7 @@
         {
           "icon": {
             "name": "logos:nestjs",
-            "background": "#e0234e"
+            "background": "#e0234e26"
           },
           "eyebrow": "Framework",
           "title": "Nest.js",
@@ -1083,7 +1083,7 @@
         {
           "icon": {
             "name": "logos:prisma",
-            "background": "#ffffff14"
+            "background": "#ffffff1426"
           },
           "eyebrow": "ORM",
           "title": "Prisma",
@@ -1120,7 +1120,7 @@
         {
           "icon": {
             "name": "logos:typeorm",
-            "background": "#fe0902"
+            "background": "#fe090226"
           },
           "eyebrow": "ORM",
           "title": "TypeORM",
@@ -1157,7 +1157,7 @@
         {
           "icon": {
             "name": "logos:github-icon",
-            "background": "#161614",
+            "background": "#16161426",
             "colors": {
               "primary": "#2188FF"
             }
@@ -1200,7 +1200,7 @@
         {
           "icon": {
             "name": "devicon:tailwindcss",
-            "background": "#38bdf8"
+            "background": "#38bdf826"
           },
           "eyebrow": "Bibliothek",
           "title": "Tailwind CSS",
@@ -1240,7 +1240,7 @@
         {
           "icon": {
             "name": "logos:python",
-            "background": "#387eb8"
+            "background": "#387eb826"
           },
           "eyebrow": "Sprache",
           "title": "Python",
@@ -1269,7 +1269,7 @@
         {
           "icon": {
             "name": "devicon:kotlin",
-            "background": "#c711e1"
+            "background": "#c711e126"
           },
           "eyebrow": "Sprache",
           "title": "Kotlin",
@@ -1306,7 +1306,7 @@
         {
           "icon": {
             "name": "devicon:jetpackcompose",
-            "background": "#4285f4"
+            "background": "#4285f426"
           },
           "eyebrow": "Sprache",
           "title": "Jetpack Compose",
@@ -1343,7 +1343,7 @@
         {
           "icon": {
             "name": "logos:android-icon",
-            "background": "#34a853"
+            "background": "#34a85326"
           },
           "eyebrow": "Bibliothek",
           "title": "Material Design 3",
@@ -1386,7 +1386,7 @@
         {
           "icon": {
             "name": "logos:nuxt-icon",
-            "background": "#00dc82"
+            "background": "#00dc8226"
           },
           "eyebrow": "Framework",
           "title": "Nuxt",
@@ -1426,7 +1426,7 @@
         {
           "icon": {
             "name": "logos:angular-icon",
-            "background": "#ff5be1"
+            "background": "#ff5be126"
           },
           "eyebrow": "Framework",
           "title": "Angular",
@@ -1466,7 +1466,7 @@
         {
           "icon": {
             "name": "logos:bun",
-            "background": "#fbf0df"
+            "background": "#fbf0df26"
           },
           "eyebrow": "Runtime",
           "title": "Bun",
@@ -1503,7 +1503,7 @@
         {
           "icon": {
             "name": "devicon:scala",
-            "background": "#de3423"
+            "background": "#de342326"
           },
           "eyebrow": "Sprache",
           "title": "Scala",

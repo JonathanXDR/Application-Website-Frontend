@@ -158,7 +158,7 @@ const onTouchBlock = () => {
   left: 0;
   width: 128px;
   height: 128px;
-  background: url('~~/public/mario/bg-mario.png') no-repeat 0 0;
+  background: url("~~/public/mario/bg-mario.png") no-repeat 0 0;
   animation: marioBox 0.6s steps(4) infinite;
 }
 .mario-box .mario-coin {

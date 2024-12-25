@@ -82,8 +82,8 @@ export default defineNuxtPlugin((nuxtApp) => {
           ? '-100px 0px 0px 0px'
           : '0px 0px -200px 0px'
 
-        stop()
-        ;({ stop } = createObserver(element, value, rootMargin))
+        stop();
+        ({ stop } = createObserver(element, value, rootMargin))
       }
 
       useEventListener(window, 'scroll', updateObserver, {

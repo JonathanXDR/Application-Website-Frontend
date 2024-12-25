@@ -12,7 +12,6 @@ import { NuxtIcon, SFSymbol } from '#components'
 import type { IconType } from '#shared/types/common/icon'
 
 const props = withDefaults(defineProps<IconType>(), {
-  size: '24px',
   weight: 'medium',
   loading: false,
   colors: () => ({

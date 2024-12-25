@@ -45,7 +45,7 @@
 }
 .dd-l-plate::after,
 .dd-l-plate::before {
-  content: ' ';
+  content: " ";
   display: table;
 }
 .dd-l-plate::after {

@@ -2,7 +2,7 @@
   <section id="copyright">
     <p>
       {{
-        t('components.common.Footer.allRightsReserved', {
+        t("components.common.Footer.allRightsReserved", {
           currentYear,
         })
       }}

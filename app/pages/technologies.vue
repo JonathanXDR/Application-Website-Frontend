@@ -43,7 +43,10 @@
           componentSize: 'small',
           icon: {
             ...card.icon,
-            size: '25px',
+            size:
+              card.icon?.name && sfSymbolRegex.test(card.icon?.name)
+                ? '20px'
+                : '25px',
             position: 'right',
             alignment: 'start',
             absolute: true,
@@ -65,6 +68,8 @@ definePageMeta({
   footerFull: true,
   footerCompact: false,
 })
+
+const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
 
 const { tm } = useI18n()
 const cards = computed<CardItemType[]>(() =>

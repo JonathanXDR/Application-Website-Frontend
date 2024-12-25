@@ -21,9 +21,9 @@ body {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   font-style: normal;
   background-color: var(--color-fill);
@@ -217,7 +217,6 @@ body main ::-webkit-scrollbar-track {
   --sk-paddlenav-solid-background: #e8e8ed;
   --sk-paddlenav-solid-background-hover: #ececf0;
   --sk-paddlenav-solid-background-active: #dfdfe4;
-  
 
   /* All Access Pass */
   --aap-background-color: rgb(232 232 237/70%);
@@ -576,7 +575,6 @@ body main ::-webkit-scrollbar-track {
   --sk-paddlenav-solid-background: #333336;
   --sk-paddlenav-solid-background-hover: #37373a;
   --sk-paddlenav-solid-background-active: #2f2f32;
-  
 
   /* All Access Pass */
   --aap-background-color: rgb(23 23 28/70%);
@@ -1881,9 +1879,9 @@ h1 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -1894,9 +1892,9 @@ h2 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -1907,9 +1905,9 @@ h3 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -1920,9 +1918,9 @@ h4 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -1933,9 +1931,9 @@ h5 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -1946,9 +1944,9 @@ h6 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -1961,9 +1959,9 @@ h6 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -2005,9 +2003,9 @@ fieldset {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -2018,9 +2016,9 @@ fieldset {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -2031,9 +2029,9 @@ fieldset {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   left: -2px;
   display: block;
@@ -2049,9 +2047,9 @@ fieldset {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   left: 0;
   color: #333;
@@ -2069,9 +2067,9 @@ fieldset {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -2082,9 +2080,9 @@ fieldset {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -2095,9 +2093,9 @@ fieldset {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   font-weight: 700;
   margin-bottom: 2px;
@@ -2110,9 +2108,9 @@ fieldset {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   font-weight: 500;
   color: #888;
@@ -2126,9 +2124,9 @@ fieldset {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   text-align: center;
 }

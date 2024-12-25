@@ -80,6 +80,6 @@ code {
 }
 
 .helvetica {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 </style>

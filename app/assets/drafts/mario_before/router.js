@@ -182,8 +182,8 @@ router.beforeEach((to, _from, next) => {
     document.title = nearestWithTitle.meta.title
     // Remove any stale meta tags from the document using the key attribute we set below.
   }
-  ;[...document.querySelectorAll('[data-vue-router-controlled]')].map(element =>
-    element.parentNode.removeChild(element),
+  [...document.querySelectorAll('[data-vue-router-controlled]')].map(
+    element => element.parentNode.removeChild(element),
   )
   // Skip rendering meta tags if there are none.
   if (!nearestWithMeta) return next()

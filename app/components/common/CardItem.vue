@@ -45,9 +45,7 @@
           class="flex justify-center items-center p-2 rounded-lg"
           :style="{
             position: icon.absolute ? 'absolute' : 'relative',
-            backgroundColor: icon.background
-              ? `${icon.background}26`
-              : undefined,
+            backgroundColor: icon.background,
           }"
         >
           <DynamicIcon

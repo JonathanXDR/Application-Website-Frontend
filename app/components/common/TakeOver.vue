@@ -126,9 +126,9 @@ onUnmounted(() => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   margin-bottom: 24px;
 }
@@ -141,9 +141,9 @@ onUnmounted(() => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -156,9 +156,9 @@ onUnmounted(() => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -218,9 +218,9 @@ onUnmounted(() => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   margin-bottom: 24px;
 }
@@ -233,9 +233,9 @@ onUnmounted(() => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -248,9 +248,9 @@ onUnmounted(() => {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -397,9 +397,9 @@ onUnmounted(() => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   padding: 8px 16px;
   background: var(--color-fill-gray-quaternary);
@@ -476,9 +476,9 @@ onUnmounted(() => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   padding: 10px 24px 9px;
   background: var(--color-fill-gray-quaternary);
@@ -490,9 +490,9 @@ onUnmounted(() => {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   padding: 12px 24px 11px;
   transition:
@@ -519,7 +519,7 @@ onUnmounted(() => {
   align-items: center;
 }
 .takeover .event-info-cta-area .watch-live::before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 0.5882352941em;
   height: 0.5882352941em;

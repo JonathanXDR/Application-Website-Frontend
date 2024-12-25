@@ -157,8 +157,8 @@ const parallaxItems = computed<ParallaxItem[]>(() => {
   const indices = Array.from({ length: 32 }, (_, i) => i)
 
   for (let i = indices.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[indices[i]!, indices[j]!] = [indices[j]!, indices[i]!]
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i]!, indices[j]!] = [indices[j]!, indices[i]!]
   }
 
   const imageItems: ImageItem[] = indices.flatMap(index => [
@@ -167,8 +167,8 @@ const parallaxItems = computed<ParallaxItem[]>(() => {
   ])
 
   for (let i = imageItems.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[imageItems[i]!, imageItems[j]!] = [imageItems[j]!, imageItems[i]!]
+    const j = Math.floor(Math.random() * (i + 1));
+    [imageItems[i]!, imageItems[j]!] = [imageItems[j]!, imageItems[i]!]
   }
 
   return [...emptyItems, ...imageItems]
@@ -403,9 +403,9 @@ h3 + h4 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -418,9 +418,9 @@ h3 + h4 {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -434,9 +434,9 @@ h3 + h4 {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -449,9 +449,9 @@ h3 + h4 {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -464,9 +464,9 @@ h3 + h4 {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -480,19 +480,19 @@ h3 + h4 {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
 
-[class*='typography-eyebrow'] {
+[class*="typography-eyebrow"] {
   display: block;
   margin-bottom: 0.4em;
 }
 
-[class*='typography-eyebrow'] + * {
+[class*="typography-eyebrow"] + * {
   margin-top: 0;
 }
 
@@ -769,7 +769,7 @@ h3 + h4 {
 
 .section-cards .cards-container .tile-music-discovery .tile-foc:after {
   position: absolute;
-  content: '';
+  content: "";
   width: 100%;
   height: 100%;
   left: 0;
@@ -3918,7 +3918,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='0'] {
+  .parallax-item[data-i="0"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/a_list_pop__b3u1kn615hqu_large.jpg);
 }
@@ -3927,7 +3927,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='0'] {
+    .parallax-item[data-i="0"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/a_list_pop__b3u1kn615hqu_large_2x.jpg);
   }
 }
@@ -3935,7 +3935,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='1'] {
+  .parallax-item[data-i="1"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/alpha_playlist__dqp8jzo86piu_large.jpg);
 }
@@ -3944,7 +3944,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='1'] {
+    .parallax-item[data-i="1"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/alpha_playlist__dqp8jzo86piu_large_2x.jpg);
   }
 }
@@ -3952,7 +3952,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='2'] {
+  .parallax-item[data-i="2"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/altctrl_playlist__b6lgv9unrxw2_large.jpg);
 }
@@ -3961,7 +3961,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='2'] {
+    .parallax-item[data-i="2"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/altctrl_playlist__b6lgv9unrxw2_large_2x.jpg);
   }
 }
@@ -3969,7 +3969,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='3'] {
+  .parallax-item[data-i="3"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/catching_feelings__buamrwvfq2r6_large.jpg);
 }
@@ -3978,7 +3978,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='3'] {
+    .parallax-item[data-i="3"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/catching_feelings__buamrwvfq2r6_large_2x.jpg);
   }
 }
@@ -3986,7 +3986,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='4'] {
+  .parallax-item[data-i="4"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/chill_mix__d7zvuzqnpa82_large.jpg);
 }
@@ -3995,7 +3995,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='4'] {
+    .parallax-item[data-i="4"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/chill_mix__d7zvuzqnpa82_large_2x.jpg);
   }
 }
@@ -4003,7 +4003,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='5'] {
+  .parallax-item[data-i="5"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/country_roads__qypbfgpgbn6q_large.jpg);
 }
@@ -4012,7 +4012,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='5'] {
+    .parallax-item[data-i="5"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/country_roads__qypbfgpgbn6q_large_2x.jpg);
   }
 }
@@ -4020,7 +4020,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='6'] {
+  .parallax-item[data-i="6"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/country_spatial_audio__7owg4qjoguay_large.jpg);
 }
@@ -4029,7 +4029,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='6'] {
+    .parallax-item[data-i="6"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/country_spatial_audio__7owg4qjoguay_large_2x.jpg);
   }
 }
@@ -4037,7 +4037,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='7'] {
+  .parallax-item[data-i="7"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/family_dance_party__cx4yvgpfc342_large.jpg);
 }
@@ -4046,7 +4046,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='7'] {
+    .parallax-item[data-i="7"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/family_dance_party__cx4yvgpfc342_large_2x.jpg);
   }
 }
@@ -4054,7 +4054,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='8'] {
+  .parallax-item[data-i="8"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/friends_mix__6lsrj8fst0iu_large.jpg);
 }
@@ -4063,7 +4063,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='8'] {
+    .parallax-item[data-i="8"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/friends_mix__6lsrj8fst0iu_large_2x.jpg);
   }
 }
@@ -4071,7 +4071,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='9'] {
+  .parallax-item[data-i="9"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/get_Up_mix__d9xjje31m9km_large.jpg);
 }
@@ -4080,7 +4080,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='9'] {
+    .parallax-item[data-i="9"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/get_Up_mix__d9xjje31m9km_large_2x.jpg);
   }
 }
@@ -4088,7 +4088,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='10'] {
+  .parallax-item[data-i="10"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/good_vibes_only__bvs1ha3uuxsi_large.jpg);
 }
@@ -4097,7 +4097,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='10'] {
+    .parallax-item[data-i="10"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/good_vibes_only__bvs1ha3uuxsi_large_2x.jpg);
   }
 }
@@ -4105,7 +4105,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='11'] {
+  .parallax-item[data-i="11"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/headliners__bv5warnjrz42_large.jpg);
 }
@@ -4114,7 +4114,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='11'] {
+    .parallax-item[data-i="11"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/headliners__bv5warnjrz42_large_2x.jpg);
   }
 }
@@ -4122,7 +4122,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='12'] {
+  .parallax-item[data-i="12"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/heartbreak__dczxshlrtoeq_large.jpg);
 }
@@ -4131,7 +4131,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='12'] {
+    .parallax-item[data-i="12"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/heartbreak__dczxshlrtoeq_large_2x.jpg);
   }
 }
@@ -4139,7 +4139,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='13'] {
+  .parallax-item[data-i="13"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/heavy_rotation-mix__c4xphcgvopea_large.jpg);
 }
@@ -4148,7 +4148,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='13'] {
+    .parallax-item[data-i="13"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/heavy_rotation-mix__c4xphcgvopea_large_2x.jpg);
   }
 }
@@ -4156,7 +4156,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='14'] {
+  .parallax-item[data-i="14"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/jayde_donovan_2__e9mgsdgf7sy2_large.jpg);
 }
@@ -4165,7 +4165,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='14'] {
+    .parallax-item[data-i="14"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/jayde_donovan_2__e9mgsdgf7sy2_large_2x.jpg);
   }
 }
@@ -4173,7 +4173,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='15'] {
+  .parallax-item[data-i="15"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/love__exzitit2y4qe_large.jpg);
 }
@@ -4182,7 +4182,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='15'] {
+    .parallax-item[data-i="15"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/love__exzitit2y4qe_large_2x.jpg);
   }
 }
@@ -4190,7 +4190,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='16'] {
+  .parallax-item[data-i="16"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/made_for_spatial_audio__jln6d02l12y6_large.jpg);
 }
@@ -4199,7 +4199,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='16'] {
+    .parallax-item[data-i="16"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/made_for_spatial_audio__jln6d02l12y6_large_2x.jpg);
   }
 }
@@ -4207,7 +4207,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='17'] {
+  .parallax-item[data-i="17"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/matt_wilkinson_show__kept4fmp2fe6_large.jpg);
 }
@@ -4216,7 +4216,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='17'] {
+    .parallax-item[data-i="17"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/matt_wilkinson_show__kept4fmp2fe6_large_2x.jpg);
   }
 }
@@ -4224,7 +4224,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='18'] {
+  .parallax-item[data-i="18"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/melodic_rap__cz21ta25zeuu_large.jpg);
 }
@@ -4233,7 +4233,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='18'] {
+    .parallax-item[data-i="18"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/melodic_rap__cz21ta25zeuu_large_2x.jpg);
   }
 }
@@ -4241,7 +4241,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='19'] {
+  .parallax-item[data-i="19"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/new_music_mix__dxtjnqmzqlci_large.jpg);
 }
@@ -4250,7 +4250,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='19'] {
+    .parallax-item[data-i="19"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/new_music_mix__dxtjnqmzqlci_large_2x.jpg);
   }
 }
@@ -4258,7 +4258,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='20'] {
+  .parallax-item[data-i="20"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/party_starters__i01zo80xmrqm_large.jpg);
 }
@@ -4267,7 +4267,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='20'] {
+    .parallax-item[data-i="20"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/party_starters__i01zo80xmrqm_large_2x.jpg);
   }
 }
@@ -4275,7 +4275,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='21'] {
+  .parallax-item[data-i="21"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/personal_station__eq6o2f0yqy6a_large.jpg);
 }
@@ -4284,7 +4284,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='21'] {
+    .parallax-item[data-i="21"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/personal_station__eq6o2f0yqy6a_large_2x.jpg);
   }
 }
@@ -4292,7 +4292,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='22'] {
+  .parallax-item[data-i="22"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/piano_chill__cx1r2ibqsywm_large.jpg);
 }
@@ -4301,7 +4301,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='22'] {
+    .parallax-item[data-i="22"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/piano_chill__cx1r2ibqsywm_large_2x.jpg);
   }
 }
@@ -4309,7 +4309,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='23'] {
+  .parallax-item[data-i="23"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/pure_jazz__ccu97qu01x8i_large.jpg);
 }
@@ -4318,7 +4318,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='23'] {
+    .parallax-item[data-i="23"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/pure_jazz__ccu97qu01x8i_large_2x.jpg);
   }
 }
@@ -4326,7 +4326,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='24'] {
+  .parallax-item[data-i="24"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/pure_throwback__fy5fqu4wc4y2_large.jpg);
 }
@@ -4335,7 +4335,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='24'] {
+    .parallax-item[data-i="24"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/pure_throwback__fy5fqu4wc4y2_large_2x.jpg);
   }
 }
@@ -4343,7 +4343,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='25'] {
+  .parallax-item[data-i="25"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/rap_life__f2dwtu4tev2i_large.jpg);
 }
@@ -4352,7 +4352,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='25'] {
+    .parallax-item[data-i="25"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/rap_life__f2dwtu4tev2i_large_2x.jpg);
   }
 }
@@ -4360,7 +4360,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='26'] {
+  .parallax-item[data-i="26"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/rb_now__cg1pfypwvmc2_large.jpg);
 }
@@ -4369,7 +4369,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='26'] {
+    .parallax-item[data-i="26"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/rb_now__cg1pfypwvmc2_large_2x.jpg);
   }
 }
@@ -4377,7 +4377,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='27'] {
+  .parallax-item[data-i="27"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/rb_throwback__evkx4kvw8h0m_large.jpg);
 }
@@ -4386,7 +4386,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='27'] {
+    .parallax-item[data-i="27"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/rb_throwback__evkx4kvw8h0m_large_2x.jpg);
   }
 }
@@ -4394,7 +4394,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='28'] {
+  .parallax-item[data-i="28"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/todays_country__dej97kecdimq_large.jpg);
 }
@@ -4403,7 +4403,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='28'] {
+    .parallax-item[data-i="28"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/todays_country__dej97kecdimq_large_2x.jpg);
   }
 }
@@ -4411,7 +4411,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='29'] {
+  .parallax-item[data-i="29"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/todays_country_radio__bldq0xl1llpy_large.jpg);
 }
@@ -4420,7 +4420,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='29'] {
+    .parallax-item[data-i="29"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/todays_country_radio__bldq0xl1llpy_large_2x.jpg);
   }
 }
@@ -4428,7 +4428,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='30'] {
+  .parallax-item[data-i="30"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/viral_hits__c09n3mnkdi0y_large.jpg);
 }
@@ -4437,7 +4437,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='30'] {
+    .parallax-item[data-i="30"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/viral_hits__c09n3mnkdi0y_large_2x.jpg);
   }
 }
@@ -4445,7 +4445,7 @@ h3 + h4 {
 .section-cards
   .cards-container
   .tile-music-discovery
-  .parallax-item[data-i='31'] {
+  .parallax-item[data-i="31"] {
   background-repeat: no-repeat;
   background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/viral_rewind_playlist__cboty3hdk9yu_large.jpg);
 }
@@ -4454,7 +4454,7 @@ h3 + h4 {
   .section-cards
     .cards-container
     .tile-music-discovery
-    .parallax-item[data-i='31'] {
+    .parallax-item[data-i="31"] {
     background-image: url(https://www.apple.com/v/apple-music/ab/images/overview/discovery/foc/viral_rewind_playlist__cboty3hdk9yu_large_2x.jpg);
   }
 }

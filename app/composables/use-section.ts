@@ -11,7 +11,9 @@ export const useSection = () => {
     sectionIndex: number,
   ) => {
     currentSection.value.id = sectionId
-    currentSection.value.name = sectionName.replace(/^\w/, c => c.toUpperCase())
+    currentSection.value.name = sectionName.replace(/^\w/, c =>
+      c.toUpperCase(),
+    )
     currentSection.value.index = sectionIndex
   }
 

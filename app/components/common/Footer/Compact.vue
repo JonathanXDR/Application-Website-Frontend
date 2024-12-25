@@ -2,7 +2,7 @@
   <div class="rs-covers-footer">
     <div class="as-l-container">
       {{
-        t('components.common.Footer.allRightsReserved', {
+        t("components.common.Footer.allRightsReserved", {
           currentYear,
         })
       }}
@@ -24,9 +24,9 @@ const currentYear = ref(new Date().getFullYear())
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   color: var(--color-figure-gray-secondary);
   display: flex;

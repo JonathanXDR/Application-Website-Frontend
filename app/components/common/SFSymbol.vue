@@ -1,5 +1,6 @@
 <template>
   <NuxtIcon
+    v-bind="props"
     :name="`sf-s-${props.weight}:${props.name}`"
     :customize="customize"
   />

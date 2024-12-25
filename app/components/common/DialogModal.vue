@@ -94,9 +94,9 @@ const toggleOpen = useToggle(open)
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   color: inherit;
   display: inline-block;
@@ -107,7 +107,7 @@ const toggleOpen = useToggle(open)
   text-decoration: underline;
   position: relative;
   z-index: 1;
-  alt: '';
+  alt: "";
   text-decoration: none;
 }
 .icon:before,
@@ -119,9 +119,9 @@ const toggleOpen = useToggle(open)
   padding-inline-start: 0.3em;
   top: 0;
 }
-html:not([dir='rtl']) .more:after,
-html:not([dir='rtl']) .more:before {
-  content: '';
+html:not([dir="rtl"]) .more:after,
+html:not([dir="rtl"]) .more:before {
+  content: "";
 }
 .icon-wrapper .icon,
 .icon-wrapper .icon-after:after,
@@ -143,9 +143,9 @@ a.icon-wrapper:hover .icon-copy {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 @media only screen and (max-width: 767px) {
@@ -157,9 +157,9 @@ a.icon-wrapper:hover .icon-copy {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -171,9 +171,9 @@ a.icon-wrapper:hover .icon-copy {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 @media only screen and (max-width: 767px) {
@@ -185,9 +185,9 @@ a.icon-wrapper:hover .icon-copy {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -199,9 +199,9 @@ a.icon-wrapper:hover .icon-copy {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 @media only screen and (max-width: 1023px) {
@@ -213,9 +213,9 @@ a.icon-wrapper:hover .icon-copy {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -228,9 +228,9 @@ a.icon-wrapper:hover .icon-copy {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -242,9 +242,9 @@ a.icon-wrapper:hover .icon-copy {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    'Helvetica Neue',
-    'Helvetica',
-    'Arial',
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 @media only screen and (max-width: 767px) {
@@ -256,9 +256,9 @@ a.icon-wrapper:hover .icon-copy {
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      'Helvetica Neue',
-      'Helvetica',
-      'Arial',
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
   }
 }
@@ -311,7 +311,7 @@ a.icon-wrapper:hover .icon-copy {
   height: var(--modal-close-icon-svg-size);
   width: var(--modal-close-icon-svg-size);
 }
-html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
+html:not([dir="rtl"]) .modal-close-button .modal-close-icon svg {
   transform: translateX(-50%);
 }
 .modal-close-button .modal-close-icon * {
@@ -394,7 +394,7 @@ html:not([dir='rtl']) .modal-close-button .modal-close-icon svg {
     --modal-overlay-width: 100%;
     --modal-close-button-offset-top: max(16px, env(safe-area-inset-top));
   }
-  html:not([dir='rtl']) .modal-page-overlay {
+  html:not([dir="rtl"]) .modal-page-overlay {
     --modal-close-button-offset-inline-start: max(
       16px,
       env(safe-area-inset-left)

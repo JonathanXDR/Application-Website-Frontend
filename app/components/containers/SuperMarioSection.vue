@@ -181,8 +181,8 @@ body.is-playing-mario .spine-target {
   opacity: 0 !important;
 }
 body.is-playing-mario:before {
-  content: '?';
-  font-family: 'SMW', monospace;
+  content: "?";
+  font-family: "SMW", monospace;
   font-size: 3rem;
   color: #fff;
   position: fixed;
@@ -217,7 +217,7 @@ body.is-playing-mario:before {
   width: 7rem;
   text-align: center;
   line-height: 3rem;
-  font-family: 'SMW', monospace;
+  font-family: "SMW", monospace;
   font-size: 2rem;
   color: #fff;
   display: flex;
@@ -225,11 +225,11 @@ body.is-playing-mario:before {
 }
 #Mario .mario-coin-counter:before {
   flex: 0 0 auto;
-  content: '';
+  content: "";
   margin-right: 0.5rem;
   width: 2rem;
   height: 2rem;
-  background: url('~~/public/mario/bg-mario.png') no-repeat 0 -64px;
+  background: url("~~/public/mario/bg-mario.png") no-repeat 0 -64px;
   background-size: 160px 158px;
 }
 @media screen and (max-width: 1024px) {
@@ -271,7 +271,7 @@ body.is-playing-mario:before {
   max-height: 70vh;
   background: #000;
   color: #fff;
-  font-family: 'SMW', monospace;
+  font-family: "SMW", monospace;
   font-size: 2rem;
   text-align: center;
   letter-spacing: 2px;

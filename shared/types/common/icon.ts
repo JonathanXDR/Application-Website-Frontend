@@ -10,8 +10,8 @@ type IconifyIconCustomiseCallback = (
 
 interface IconifyProps {
   name?: string
-  mode?: 'svg' | 'css' | null
-  size?: string | number | null
+  mode?: 'svg' | 'css'
+  size?: string | number
   customize?: IconifyIconCustomiseCallback
 }
 

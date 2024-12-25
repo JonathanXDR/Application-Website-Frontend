@@ -717,7 +717,7 @@
     >
       Strength. Beauty.<br><span
         class="filter"
-        style="filter: url('#glow-1'); opacity: 1"
+        style="filter: url(&quot;#glow-1&quot;); opacity: 1"
       >Titanium.</span>
     </div>
   </div>
