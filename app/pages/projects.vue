@@ -170,6 +170,8 @@ definePageMeta({
   footerCompact: false,
 })
 
+const route = useRoute()
+const router = useRouter()
 const viewport = useViewport()
 const { t, tm } = useI18n()
 const { randomDevColor } = useColor()
@@ -177,14 +179,13 @@ const config = useRuntimeConfig()
 
 const ul = ref<HTMLElement | undefined>(undefined)
 const ulHeight = ref<number>(0)
+const pinned = ref<PinnedRepository[]>([])
+const currentIndex = ref(0)
 
 const updateHeight = () => {
   if (!ul.value) return
   ulHeight.value = ul.value.getBoundingClientRect().height
 }
-
-const pinned = ref<PinnedRepository[]>([])
-const currentIndex = ref(0)
 
 const { data: userRepositories } = await useFetch(
   '/api/github/user-repositories',
@@ -224,20 +225,27 @@ const filteredProjects = computed(() =>
   ),
 )
 
-const currentProjects = computed(
-  () =>
-    projects[
-      Object.keys(projects)[currentIndex.value] as keyof typeof projects
-    ],
-) as Ref<CardItemType[]>
+const updateCurrentIndex = (index: number) => {
+  const category = Object.keys(projects)[index]
+  router.push({
+    query: {
+      ...route.query,
+      category,
+    },
+  })
+  currentIndex.value = index
+}
+
+const currentProjects = computed(() => {
+  const category
+    = (route.query.category as keyof typeof projects)
+    || Object.keys(projects)[currentIndex.value]
+  return projects[category] || []
+}) as Ref<CardItemType[]>
 
 const segmentNavItems = computed<ItemType[]>(() =>
   tm('components.common.SegmentNav.projects'),
 )
-
-const updateCurrentIndex = (index: number) => {
-  currentIndex.value = index
-}
 
 const categorizeProject = (
   project: MinimalRepository,
@@ -266,6 +274,21 @@ onMounted(() => {
 })
 
 watch(
+  () => route.query.category,
+  (newCategory) => {
+    if (newCategory) {
+      const index = Object.keys(projects).findIndex(
+        key => key === newCategory,
+      )
+      if (index !== -1) {
+        currentIndex.value = index
+      }
+    }
+  },
+  { immediate: true },
+)
+
+watch(
   pinnedProjects,
   (pinnedProjectsNew) => {
     if (!pinnedProjectsNew) return
@@ -281,13 +304,6 @@ watch(
   },
   { immediate: true },
 )
-
-const { width } = useWindowSize()
-// add a watch for the viewport change
-watch(width, () => {
-  console.log('viewport changed:', viewport.breakpoint.value)
-  console.log('isLessThanOrEquals tablet:', viewport.isLessThan('tablet'))
-})
 
 watchEffect(() => {
   projects.personal = []
