@@ -174,7 +174,7 @@
               ...info?.date,
               fixed: updated_at || info?.date?.fixed,
             },
-            loading: loading,
+            loading,
           }"
         />
       </div>
