@@ -214,7 +214,7 @@ const applyHover = computed(
   () =>
     (props.hover === 'auto'
       && ((props.links && props.links.length > 0) || props.html_url))
-    || props.hover === 'true',
+    || props.hover === true,
 )
 const componentType = computed(() =>
   props.variant === 'article' || !applyHover.value ? 'div' : 'a',

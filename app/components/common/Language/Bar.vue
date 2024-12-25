@@ -91,14 +91,14 @@ const props = withDefaults(defineProps<LanguageBarType>(), {
   componentSize: 'medium',
   loading: false,
   width: 'compact',
-  hover: 'false',
+  hover: false,
   direction: 'left',
 })
 
 const applyHover = computed(
   () =>
     (props.hover === 'auto' && props.links && props.links.length > 0)
-    || props.hover === 'true',
+    || props.hover === true,
 )
 </script>
 

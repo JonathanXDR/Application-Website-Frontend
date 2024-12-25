@@ -6,7 +6,7 @@ export interface LanguageBarType extends ExtendedPropsType {
   componentSize?: BasicSizeType | 'full'
   loading?: boolean
   width?: 'full' | 'compact'
-  hover?: 'auto' | 'true' | 'false'
+  hover?: boolean | 'auto'
   direction?: 'left' | 'right'
   divider?: {
     direction: 'left' | 'right' | 'center'

@@ -30,7 +30,7 @@
     <CardItem
       v-bind="{
         variant: 'article',
-        hover: 'false',
+        hover: false,
         alignment: viewport.isLessThan('desktopMedium') ? 'center' : 'start',
         componentSize: viewport.isLessThan('tablet')
           ? 'small'

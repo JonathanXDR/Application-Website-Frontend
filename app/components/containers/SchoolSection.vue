@@ -7,7 +7,7 @@
       v-bind="{
         ...card,
         variant: 'article',
-        hover: 'false',
+        hover: false,
         loading: false,
         componentSize: viewport.isLessThan('tablet') ? 'small' : 'medium',
         icon: {

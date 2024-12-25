@@ -10,7 +10,7 @@ export interface CardItemType extends ExtendedPropsType {
   componentSize?: BasicSizeType | 'full'
   colors?: ColorType
   alignment?: 'start' | 'center' | 'end'
-  hover?: 'auto' | 'true' | 'false'
+  hover?: boolean | 'auto'
   cover?: string
   badge?: BadgeItemType
   loading?: boolean
