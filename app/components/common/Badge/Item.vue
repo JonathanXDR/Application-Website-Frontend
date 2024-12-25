@@ -9,7 +9,7 @@
     <DynamicIcon
       v-if="icon"
       v-bind="icon"
-      :class="`icon icon-${icon.name && sfSymbolRegex.test(icon.name) ? iconSize : iconLogoSize} mr-1`"
+      :class="`icon icon-md mr-1`"
       :loading="loading"
     />
     <template v-if="!loading">
@@ -46,42 +46,6 @@ const defaultColors = {
   secondary: 'var(--color-fill-tertiary)',
   tertiary: 'var(--color-figure-blue)',
 }
-
-const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
-
-const iconLogoSize = computed(() => {
-  switch (props.componentSize) {
-    case 'xsmall':
-      return 'xs'
-    case 'small':
-      return 'xs'
-    case 'medium':
-      return 'sm'
-    case 'large':
-      return 'sm'
-    case 'xlarge':
-      return 'sm'
-    default:
-      return 'sm'
-  }
-})
-
-const iconSize = computed(() => {
-  switch (props.componentSize) {
-    case 'xsmall':
-      return 'md'
-    case 'small':
-      return 'md'
-    case 'medium':
-      return 'md'
-    case 'large':
-      return 'md'
-    case 'xlarge':
-      return 'md'
-    default:
-      return 'md'
-  }
-})
 
 const computedStyle = computed(() => ({
   '--color-figure': props.loading
