@@ -607,7 +607,7 @@
         {
           "icon": {
             "name": "books.vertical.fill",
-            "background": "var(--ribbon-neutral-alpha-background-color)"
+            "background": "var(--color-fill-tertiary)"
           },
           "eyebrow": "Bibliothek",
           "title": "SDX",
@@ -702,7 +702,7 @@
         {
           "icon": {
             "name": "devicon:express",
-            "background": "#00000026"
+            "background": "var(--color-card-icon-background)"
           },
           "eyebrow": "Framework",
           "title": "Express.js",
@@ -871,7 +871,7 @@
         {
           "icon": {
             "name": "logos:bash-icon",
-            "background": "#2f3a3e26"
+            "background": "var(--color-card-icon-background)"
           },
           "eyebrow": "Sprache",
           "title": "Bash",
@@ -940,7 +940,7 @@
         {
           "icon": {
             "name": "logos:nextjs-icon",
-            "background": "#ffffff26"
+            "background": "var(--color-card-icon-background)"
           },
           "eyebrow": "Framework",
           "title": "Next.js",
@@ -1083,7 +1083,7 @@
         {
           "icon": {
             "name": "logos:prisma",
-            "background": "#ffffff1426"
+            "background": "var(--color-card-icon-background)"
           },
           "eyebrow": "ORM",
           "title": "Prisma",
@@ -1156,10 +1156,10 @@
         },
         {
           "icon": {
-            "name": "logos:github-icon",
-            "background": "#16161426",
+            "name": "fa6-brands:github",
+            "background": "#2188ff26",
             "colors": {
-              "primary": "#2188FF"
+              "primary": "#2188ff"
             }
           },
           "eyebrow": "Bibliothek",
@@ -1877,9 +1877,9 @@
                 "name": "logos:github-icon"
               },
               "colors": {
-                "primary": "#2188FF",
-                "secondary": "#2188FF26",
-                "tertiary": "#2188FF52"
+                "primary": "#2188ff",
+                "secondary": "#2188ff26",
+                "tertiary": "#2188ff52"
               }
             }
           ],

@@ -159,7 +159,9 @@ body main ::-webkit-scrollbar-track {
 
   /* Cards */
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
+  --color-card-accent: var(--color-figure-blue);
   --color-card-shadow: rgba(0, 0, 0, 0.04);
+  --color-card-icon-background: #ffffff80;
 
   /* Scrim */
   --scrim-background-color: rgba(210, 210, 215, 0.64);
@@ -345,7 +347,7 @@ body main ::-webkit-scrollbar-track {
   --color-tutorials-overview-navigation-link-active: #f5f5f7;
   --color-tutorials-overview-navigation-link-hover: #a1a1a6;
 
-  --color-card-accent: var(--color-figure-blue);
+  /* Navigator */
   --color-navigator-item-hover: rgba(0, 113, 227, 0.2);
 
   /* Type */
@@ -517,7 +519,9 @@ body main ::-webkit-scrollbar-track {
 
   /* Cards */
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
+  --color-card-accent: var(--color-figure-blue);
   --color-card-shadow: hsla(0, 0%, 100%, 0.04);
+  --color-card-icon-background: #ffffff14;
 
   /* Scrim */
   --scrim-background-color: rgba(66, 66, 69, 0.71);
@@ -702,7 +706,7 @@ body main ::-webkit-scrollbar-track {
   --color-tutorials-overview-navigation-link-active: #f5f5f7;
   --color-tutorials-overview-navigation-link-hover: #a1a1a6;
 
-  --color-card-accent: var(--color-figure-blue);
+  /* Navigator */
   --color-navigator-item-hover: rgba(0, 113, 227, 0.2);
 
   /* Type */
