@@ -626,7 +626,7 @@
           },
           "eyebrow": "Bibliothek",
           "title": "SDX",
-          "description": "Mit dieser Library bin ich schon mehrmals während meiner Ausbildung in Kontakt gekommen. Ich habe damit z.B. beim Entwickeln der Apps Team Webseite, der Medienkurse und noch vielen weiteren Swisscom-Applikationen gearbeitet.",
+          "description": "Mit der Swisscom Digital Experience (SDX) Library bin ich schon mehrmals während meiner Ausbildung in Kontakt gekommen. Ich habe damit z.B. beim Entwickeln der Apps Team Webseite, der Medienkurse und noch vielen weiteren Swisscom-Applikationen gearbeitet.",
           "badges": [
             {
               "title": "Swisscom"
@@ -687,8 +687,13 @@
         },
         {
           "icon": {
-            "name": "logos:mysql-icon",
-            "background": "#00618a"
+            "name": "simple-icons:mysql",
+            "background": "#4479A1",
+            "colors": {
+              "primary": "#4479A1",
+              "secondary": "#4479A1",
+              "tertiary": "#4479A1"
+            }
           },
           "eyebrow": "Sprache",
           "title": "SQL",
@@ -1653,7 +1658,7 @@
             {
               "title": "SQL",
               "icon": {
-                "name": "logos:mysql-icon"
+                "name": "simple-icons:mysql"
               }
             },
             {
@@ -1711,15 +1716,12 @@
               "title": "UiPath"
             },
             {
+              "title": ".NET"
+            },
+            {
               "title": "C#",
               "icon": {
                 "name": "simple-icons-extended:csharp"
-              }
-            },
-            {
-              "title": ".NET",
-              "icon": {
-                "name": "logos:dotnet"
               }
             }
           ],
@@ -1972,6 +1974,9 @@
           "description": "Für meine IPA (Individuelle Praktische Arbeit) habe ich mich entschieden, nochmals ins Apps Team zu gehen, da ich dort bereits viele Erfahrungen sammeln konnte und mich das Team, sowie dessen Zusammenhalt wirklich begeistert hat. Von Anfang an durfte ich bereits an produktiven Projekten mitarbeiten, wie z.B. dem Trade Compliance Tool oder den Enterprise Connect Demos. Bei beiden Tools verwenden wir hauptsächlich mit Next.js und Nest.js, inklusive Prisma als ORM.",
           "badges": [
             {
+              "title": "IPA"
+            },
+            {
               "title": "Next",
               "icon": {
                 "name": "simple-icons:nextdotjs"
@@ -1988,9 +1993,6 @@
               "icon": {
                 "name": "simple-icons:prisma"
               }
-            },
-            {
-              "title": "IPA"
             }
           ],
           "links": [
