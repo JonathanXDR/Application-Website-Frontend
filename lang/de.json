@@ -1743,7 +1743,7 @@
             }
           },
           "eyebrow": "Frontend",
-          "title": "Apps Team - Frontend",
+          "title": "Apps Team",
           "description": "Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.",
           "badges": [
             {
@@ -1803,7 +1803,7 @@
             "name": "gear"
           },
           "eyebrow": "Backend",
-          "title": "Apps Team - Backend",
+          "title": "Apps Team",
           "description": "Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD-App erstellen. Ich konnte viel Neues über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit GitHub Primer erstellt. Danach habe ich dann beim Tool für Medienkurse mitgeholfen und konnte dort einige Features hinzufügen und Fehler beheben. Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen Webfrontends mitwirken, was mir sehr gefallen hat :)",
           "badges": [
             {
@@ -1968,7 +1968,7 @@
             "name": "airplane.arrival"
           },
           "eyebrow": "Full-Stack",
-          "title": "Apps Team - Full Stack (IPA)",
+          "title": "Apps Team (IPA)",
           "description": "Für meine IPA (Individuelle Praktische Arbeit) habe ich mich entschieden, nochmals ins Apps Team zu gehen, da ich dort bereits viele Erfahrungen sammeln konnte und mich das Team, sowie dessen Zusammenhalt wirklich begeistert hat. Von Anfang an durfte ich bereits an produktiven Projekten mitarbeiten, wie z.B. dem Trade Compliance Tool oder den Enterprise Connect Demos. Bei beiden Tools verwenden wir hauptsächlich mit Next.js und Nest.js, inklusive Prisma als ORM.",
           "badges": [
             {

@@ -161,6 +161,7 @@ body main ::-webkit-scrollbar-track {
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-card-accent: var(--color-figure-blue);
   --color-card-shadow: rgba(0, 0, 0, 0.04);
+  --color-card-eyebrow-gray: #666;
   --color-card-logo-rgb: 0, 0, 0;
   --color-card-logo-primary: rgb(var(--color-card-logo-rgb));
   --color-card-logo-secondary: rgba(var(--color-card-logo-rgb), 0.15);
@@ -524,6 +525,7 @@ body main ::-webkit-scrollbar-track {
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-card-accent: var(--color-figure-blue);
   --color-card-shadow: hsla(0, 0%, 100%, 0.04);
+  --color-card-eyebrow-gray: #aaa;
   --color-card-logo-rgb: 255, 255, 255;
   --color-card-logo-primary: rgb(var(--color-card-logo-rgb));
   --color-card-logo-secondary: rgba(var(--color-card-logo-rgb), 0.15);

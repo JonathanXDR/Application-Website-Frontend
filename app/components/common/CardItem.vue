@@ -76,7 +76,10 @@
         class="body"
         :style="{ alignItems }"
       >
-        <div class="eyebrow">
+        <div
+          v-if="eyebrow && (variant === 'card' || !icon.name)"
+          class="eyebrow"
+        >
           <template v-if="!loading">
             {{ eyebrow }}
           </template>
@@ -88,7 +91,10 @@
           </template>
         </div>
         <div class="title-wrapper">
-          <div class="title">
+          <div
+            v-if="title || name"
+            class="title"
+          >
             <template v-if="!loading">
               {{ title || name }}
             </template>
@@ -125,6 +131,20 @@
             border
           />
         </div>
+        <p
+          v-if="eyebrow && variant === 'article' && icon.name"
+          class="lighter article-date"
+        >
+          <template v-if="!loading">
+            {{ eyebrow }}
+          </template>
+          <template v-else>
+            <LoadingSkeleton
+              width="150px"
+              height="15px"
+            />
+          </template>
+        </p>
         <div class="card-content">
           <div class="content">
             <template v-if="!loading">
@@ -855,4 +875,18 @@ const iconLogoSize = computed(() => {
     margin-bottom: 8px;
   }
 }
+
+.lighter {
+  font-weight: 600;
+  color: var(--color-figure-gray-secondary);
+}
+
+.article-date {
+  margin-top: 0.5em;
+  font-size: 0.875em;
+}
+
+/*.article-date:not(:last-child) {
+  margin-bottom: 0.4em;
+} */
 </style>
