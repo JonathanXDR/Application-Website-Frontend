@@ -21,7 +21,6 @@
     "build:trigger": "sh ./scripts/build-trigger.sh"
   },
   "devDependencies": {
-    "@iconify-json/devicon": "^1.2.10",
     "@iconify-json/fa6-brands": "^1.2.5",
     "@iconify-json/fa6-solid": "^1.2.3",
     "@iconify-json/logos": "^1.2.4",
