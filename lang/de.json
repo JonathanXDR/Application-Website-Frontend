@@ -509,7 +509,12 @@
         {
           "icon": {
             "name": "simple-icons:html5",
-            "background": "#f1652926"
+            "background": "#E34F2626",
+            "colors": {
+              "primary": "#E34F26",
+              "secondary": "#E34F2626",
+              "tertiary": "#E34F2652"
+            }
           },
           "eyebrow": "Sprache",
           "title": "HTML",
@@ -575,7 +580,12 @@
         {
           "icon": {
             "name": "simple-icons:javascript",
-            "background": "#f0db4f26"
+            "background": "#F7DF1E26",
+            "colors": {
+              "primary": "#F7DF1E",
+              "secondary": "#F7DF1E26",
+              "tertiary": "#F7DF1E52"
+            }
           },
           "eyebrow": "Sprache",
           "title": "JavaScript",
@@ -636,7 +646,12 @@
         {
           "icon": {
             "name": "simple-icons:nodedotjs",
-            "background": "#539e4326"
+            "background": "#5FA04E26",
+            "colors": {
+              "primary": "#5FA04E",
+              "secondary": "#5FA04E26",
+              "tertiary": "#5FA04E52"
+            }
           },
           "eyebrow": "Runtime",
           "title": "Node.js",
@@ -702,7 +717,12 @@
         {
           "icon": {
             "name": "simple-icons:express",
-            "background": "var(--color-card-icon-background)"
+            "background": "var(--color-card-logo-secondary)",
+            "colors": {
+              "primary": "var(--color-card-logo-primary)",
+              "secondary": "var(--color-card-logo-secondary)",
+              "tertiary": "var(--color-card-logo-tertiary)"
+            }
           },
           "eyebrow": "Framework",
           "title": "Express.js",
@@ -739,7 +759,12 @@
         {
           "icon": {
             "name": "simple-icons:vuedotjs",
-            "background": "#41b88326"
+            "background": "#4FC08D26",
+            "colors": {
+              "primary": "#4FC08D",
+              "secondary": "#4FC08D26",
+              "tertiary": "#4FC08D52"
+            }
           },
           "eyebrow": "Framework",
           "title": "Vue.js",
@@ -776,7 +801,12 @@
         {
           "icon": {
             "name": "simple-icons:typescript",
-            "background": "#007acc26"
+            "background": "#3178C626",
+            "colors": {
+              "primary": "#3178C6",
+              "secondary": "#3178C626",
+              "tertiary": "#3178C652"
+            }
           },
           "eyebrow": "Sprache",
           "title": "TypeScript",
@@ -812,8 +842,13 @@
         },
         {
           "icon": {
-            "name": "devicon:csharp",
-            "background": "#9b4f9626"
+            "name": "simple-icons-extended:csharp",
+            "background": "#7153DC26",
+            "colors": {
+              "primary": "#7153DC",
+              "secondary": "#7153DC26",
+              "tertiary": "#7153DC52"
+            }
           },
           "eyebrow": "Sprache",
           "title": "C#",
@@ -841,8 +876,13 @@
         },
         {
           "icon": {
-            "name": "logos:java",
-            "background": "#5382a126"
+            "name": "simple-icons-extended:java",
+            "background": "#00739626",
+            "colors": {
+              "primary": "#007396",
+              "secondary": "#00739626",
+              "tertiary": "#00739652"
+            }
           },
           "eyebrow": "Sprache",
           "title": "Java",
@@ -871,7 +911,12 @@
         {
           "icon": {
             "name": "simple-icons:gnubash",
-            "background": "var(--color-card-icon-background)"
+            "background": "#4EAA2526",
+            "colors": {
+              "primary": "#4EAA25",
+              "secondary": "#4EAA2526",
+              "tertiary": "#4EAA2552"
+            }
           },
           "eyebrow": "Sprache",
           "title": "Bash",
@@ -900,7 +945,12 @@
         {
           "icon": {
             "name": "simple-icons:react",
-            "background": "#00d8ff26"
+            "background": "#61DAFB26",
+            "colors": {
+              "primary": "#61DAFB",
+              "secondary": "#61DAFB26",
+              "tertiary": "#61DAFB52"
+            }
           },
           "eyebrow": "Framework",
           "title": "React",
@@ -940,7 +990,12 @@
         {
           "icon": {
             "name": "simple-icons:nextdotjs",
-            "background": "var(--color-card-icon-background)"
+            "background": "var(--color-card-logo-secondary)",
+            "colors": {
+              "primary": "var(--color-card-logo-primary)",
+              "secondary": "var(--color-card-logo-secondary)",
+              "tertiary": "var(--color-card-logo-tertiary)"
+            }
           },
           "eyebrow": "Framework",
           "title": "Next.js",
@@ -980,7 +1035,12 @@
         {
           "icon": {
             "name": "simple-icons:docker",
-            "background": "#2396ed26"
+            "background": "#2496ED26",
+            "colors": {
+              "primary": "#2496ED",
+              "secondary": "#2496ED26",
+              "tertiary": "#2496ED52"
+            }
           },
           "eyebrow": "Container Management",
           "title": "Docker",
@@ -1009,7 +1069,12 @@
         {
           "icon": {
             "name": "simple-icons:kubernetes",
-            "background": "#326ce526"
+            "background": "#326CE526",
+            "colors": {
+              "primary": "#326CE5",
+              "secondary": "#326CE526",
+              "tertiary": "#326CE552"
+            }
           },
           "eyebrow": "Container Management",
           "title": "Kubernetes",
@@ -1038,7 +1103,12 @@
         {
           "icon": {
             "name": "simple-icons:nestjs",
-            "background": "#e0234e26"
+            "background": "#E0234E26",
+            "colors": {
+              "primary": "#E0234E",
+              "secondary": "#E0234E26",
+              "tertiary": "#E0234E52"
+            }
           },
           "eyebrow": "Framework",
           "title": "Nest.js",
@@ -1083,7 +1153,12 @@
         {
           "icon": {
             "name": "simple-icons:prisma",
-            "background": "var(--color-card-icon-background)"
+            "background": "var(--color-card-logo-secondary)",
+            "colors": {
+              "primary": "var(--color-card-logo-primary)",
+              "secondary": "var(--color-card-logo-secondary)",
+              "tertiary": "var(--color-card-logo-tertiary)"
+            }
           },
           "eyebrow": "ORM",
           "title": "Prisma",
@@ -1120,7 +1195,12 @@
         {
           "icon": {
             "name": "simple-icons:typeorm",
-            "background": "#fe090226"
+            "background": "#FE080326",
+            "colors": {
+              "primary": "#FE0803",
+              "secondary": "#FE080326",
+              "tertiary": "#FE080352"
+            }
           },
           "eyebrow": "ORM",
           "title": "TypeORM",
@@ -1159,7 +1239,9 @@
             "name": "simple-icons:github",
             "background": "#2188ff26",
             "colors": {
-              "primary": "#2188ff"
+              "primary": "#2188ff",
+              "secondary": "#2188ff26",
+              "tertiary": "#2188ff52"
             }
           },
           "eyebrow": "Bibliothek",
@@ -1200,7 +1282,12 @@
         {
           "icon": {
             "name": "simple-icons:tailwindcss",
-            "background": "#38bdf826"
+            "background": "#06B6D426",
+            "colors": {
+              "primary": "#06B6D4",
+              "secondary": "#06B6D426",
+              "tertiary": "#06B6D452"
+            }
           },
           "eyebrow": "Bibliothek",
           "title": "Tailwind CSS",
@@ -1240,7 +1327,12 @@
         {
           "icon": {
             "name": "simple-icons:python",
-            "background": "#387eb826"
+            "background": "#3776AB26",
+            "colors": {
+              "primary": "#3776AB",
+              "secondary": "#3776AB26",
+              "tertiary": "#3776AB52"
+            }
           },
           "eyebrow": "Sprache",
           "title": "Python",
@@ -1269,7 +1361,12 @@
         {
           "icon": {
             "name": "simple-icons:kotlin",
-            "background": "#c711e126"
+            "background": "#7F52FF26",
+            "colors": {
+              "primary": "#7F52FF",
+              "secondary": "#7F52FF26",
+              "tertiary": "#7F52FF52"
+            }
           },
           "eyebrow": "Sprache",
           "title": "Kotlin",
@@ -1306,7 +1403,12 @@
         {
           "icon": {
             "name": "simple-icons:jetpackcompose",
-            "background": "#4285f426"
+            "background": "#4285F426",
+            "colors": {
+              "primary": "#4285F4",
+              "secondary": "#4285F426",
+              "tertiary": "#4285F452"
+            }
           },
           "eyebrow": "Sprache",
           "title": "Jetpack Compose",
@@ -1343,7 +1445,12 @@
         {
           "icon": {
             "name": "simple-icons:android",
-            "background": "#34a85326"
+            "background": "#34A85326",
+            "colors": {
+              "primary": "#34A853",
+              "secondary": "#34A85326",
+              "tertiary": "#34A85352"
+            }
           },
           "eyebrow": "Bibliothek",
           "title": "Material Design 3",
@@ -1386,7 +1493,12 @@
         {
           "icon": {
             "name": "simple-icons:nuxt",
-            "background": "#00dc8226"
+            "background": "#00DC8226",
+            "colors": {
+              "primary": "#00DC82",
+              "secondary": "#00DC8226",
+              "tertiary": "#00DC8252"
+            }
           },
           "eyebrow": "Framework",
           "title": "Nuxt",
@@ -1426,7 +1538,12 @@
         {
           "icon": {
             "name": "simple-icons:angular",
-            "background": "#ff5be126"
+            "background": "var(--color-card-logo-secondary)",
+            "colors": {
+              "primary": "var(--color-card-logo-primary)",
+              "secondary": "var(--color-card-logo-secondary)",
+              "tertiary": "var(--color-card-logo-tertiary)"
+            }
           },
           "eyebrow": "Framework",
           "title": "Angular",
@@ -1466,7 +1583,12 @@
         {
           "icon": {
             "name": "simple-icons:bun",
-            "background": "#fbf0df26"
+            "background": "var(--color-card-logo-secondary)",
+            "colors": {
+              "primary": "var(--color-card-logo-primary)",
+              "secondary": "var(--color-card-logo-secondary)",
+              "tertiary": "var(--color-card-logo-tertiary)"
+            }
           },
           "eyebrow": "Runtime",
           "title": "Bun",
@@ -1503,7 +1625,12 @@
         {
           "icon": {
             "name": "simple-icons:scala",
-            "background": "#de342326"
+            "background": "#DC322F26",
+            "colors": {
+              "primary": "#DC322F",
+              "secondary": "#DC322F26",
+              "tertiary": "#DC322F52"
+            }
           },
           "eyebrow": "Sprache",
           "title": "Scala",
@@ -1521,7 +1648,7 @@
             {
               "title": "Java",
               "icon": {
-                "name": "logos:java"
+                "name": "simple-icons-extended:java"
               },
               "colors": {
                 "primary": "#5382a1",
@@ -1711,7 +1838,7 @@
             {
               "title": "C#",
               "icon": {
-                "name": "devicon:csharp"
+                "name": "simple-icons-extended:csharp"
               },
               "colors": {
                 "primary": "#9b4f96",
@@ -1998,7 +2125,7 @@
             {
               "title": "Java",
               "icon": {
-                "name": "logos:java"
+                "name": "simple-icons-extended:java"
               },
               "colors": {
                 "primary": "#5382a1",
