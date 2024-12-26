@@ -143,7 +143,7 @@ watch([locale, () => props.date], () => {
 }
 
 .info {
-  margin-top: 8px;
+  margin-top: 0.5em;
   font-size: 12px;
   font-weight: 600;
   font-family:
@@ -159,6 +159,7 @@ watch([locale, () => props.date], () => {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
+  row-gap: 6px;
 }
 
 .info-item {
@@ -171,6 +172,7 @@ watch([locale, () => props.date], () => {
   .info {
     margin-top: 12px;
     gap: 16px;
+    row-gap: 8px;
   }
 }
 

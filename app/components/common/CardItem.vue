@@ -369,16 +369,16 @@ const iconLogoSize = computed(() => {
 
 <style scoped>
 .ctas-wrapper {
-  margin-top: 8px;
+  margin-top: 0.5em;
   display: flex;
   align-items: center;
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .ctas-wrapper {
     margin-top: 12px;
   }
-}
+} */
 
 .ctas-wrapper .button {
   margin-right: 10px;
@@ -616,13 +616,13 @@ const iconLogoSize = computed(() => {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 4px;
+  /* gap: 4px; */
 }
 
 .eyebrow {
   color: var(--color-figure-gray-secondary);
   display: block;
-  margin: 0;
+  margin-bottom: 4px;
 }
 
 .xsmall .eyebrow {
