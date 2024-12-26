@@ -508,7 +508,7 @@
       "technologies": [
         {
           "icon": {
-            "name": "devicon:html5",
+            "name": "simple-icons:html5",
             "background": "#f1652926"
           },
           "eyebrow": "Sprache",
@@ -537,7 +537,7 @@
         },
         {
           "icon": {
-            "name": "fa6-brands:css",
+            "name": "simple-icons:css",
             "background": "#66339926",
             "colors": {
               "primary": "#663399",
@@ -574,7 +574,7 @@
         },
         {
           "icon": {
-            "name": "devicon:javascript",
+            "name": "simple-icons:javascript",
             "background": "#f0db4f26"
           },
           "eyebrow": "Sprache",
@@ -635,7 +635,7 @@
         },
         {
           "icon": {
-            "name": "logos:nodejs-icon",
+            "name": "simple-icons:nodedotjs",
             "background": "#539e4326"
           },
           "eyebrow": "Runtime",
@@ -651,7 +651,7 @@
             {
               "title": "Javascript",
               "icon": {
-                "name": "devicon:javascript"
+                "name": "simple-icons:javascript"
               },
               "colors": {
                 "primary": "#f0db4f",
@@ -672,7 +672,7 @@
         },
         {
           "icon": {
-            "name": "devicon:mysql",
+            "name": "logos:mysql-icon",
             "background": "#00618a26"
           },
           "eyebrow": "Sprache",
@@ -701,7 +701,7 @@
         },
         {
           "icon": {
-            "name": "devicon:express",
+            "name": "simple-icons:express",
             "background": "var(--color-card-icon-background)"
           },
           "eyebrow": "Framework",
@@ -717,7 +717,7 @@
             {
               "title": "Node",
               "icon": {
-                "name": "logos:nodejs-icon"
+                "name": "simple-icons:nodedotjs"
               },
               "colors": {
                 "primary": "#539e43",
@@ -738,7 +738,7 @@
         },
         {
           "icon": {
-            "name": "logos:vue",
+            "name": "simple-icons:vuedotjs",
             "background": "#41b88326"
           },
           "eyebrow": "Framework",
@@ -754,7 +754,7 @@
             {
               "title": "Javascript",
               "icon": {
-                "name": "devicon:javascript"
+                "name": "simple-icons:javascript"
               },
               "colors": {
                 "primary": "#f0db4f",
@@ -775,7 +775,7 @@
         },
         {
           "icon": {
-            "name": "devicon:typescript",
+            "name": "simple-icons:typescript",
             "background": "#007acc26"
           },
           "eyebrow": "Sprache",
@@ -791,7 +791,7 @@
             {
               "title": "Javascript",
               "icon": {
-                "name": "devicon:javascript"
+                "name": "simple-icons:javascript"
               },
               "colors": {
                 "primary": "#f0db4f",
@@ -870,7 +870,7 @@
         },
         {
           "icon": {
-            "name": "logos:bash-icon",
+            "name": "simple-icons:gnubash",
             "background": "var(--color-card-icon-background)"
           },
           "eyebrow": "Sprache",
@@ -899,7 +899,7 @@
         },
         {
           "icon": {
-            "name": "logos:react",
+            "name": "simple-icons:react",
             "background": "#00d8ff26"
           },
           "eyebrow": "Framework",
@@ -918,7 +918,7 @@
             {
               "title": "Javascript",
               "icon": {
-                "name": "devicon:javascript"
+                "name": "simple-icons:javascript"
               },
               "colors": {
                 "primary": "#f0db4f",
@@ -939,7 +939,7 @@
         },
         {
           "icon": {
-            "name": "logos:nextjs-icon",
+            "name": "simple-icons:nextdotjs",
             "background": "var(--color-card-icon-background)"
           },
           "eyebrow": "Framework",
@@ -958,7 +958,7 @@
             {
               "title": "React",
               "icon": {
-                "name": "logos:react"
+                "name": "simple-icons:react"
               },
               "colors": {
                 "primary": "#00d8ff",
@@ -979,7 +979,7 @@
         },
         {
           "icon": {
-            "name": "logos:docker-icon",
+            "name": "simple-icons:docker",
             "background": "#2396ed26"
           },
           "eyebrow": "Container Management",
@@ -1008,7 +1008,7 @@
         },
         {
           "icon": {
-            "name": "devicon:kubernetes",
+            "name": "simple-icons:kubernetes",
             "background": "#326ce526"
           },
           "eyebrow": "Container Management",
@@ -1037,7 +1037,7 @@
         },
         {
           "icon": {
-            "name": "logos:nestjs",
+            "name": "simple-icons:nestjs",
             "background": "#e0234e26"
           },
           "eyebrow": "Framework",
@@ -1050,7 +1050,7 @@
             {
               "title": "Node",
               "icon": {
-                "name": "logos:nodejs-icon"
+                "name": "simple-icons:nodedotjs"
               },
               "colors": {
                 "primary": "#539e43",
@@ -1061,7 +1061,7 @@
             {
               "title": "TypeScript",
               "icon": {
-                "name": "devicon:typescript"
+                "name": "simple-icons:typescript"
               },
               "colors": {
                 "primary": "#007acc",
@@ -1082,7 +1082,7 @@
         },
         {
           "icon": {
-            "name": "logos:prisma",
+            "name": "simple-icons:prisma",
             "background": "var(--color-card-icon-background)"
           },
           "eyebrow": "ORM",
@@ -1098,7 +1098,7 @@
             {
               "title": "TypeScript",
               "icon": {
-                "name": "devicon:typescript"
+                "name": "simple-icons:typescript"
               },
               "colors": {
                 "primary": "#007acc",
@@ -1119,7 +1119,7 @@
         },
         {
           "icon": {
-            "name": "logos:typeorm",
+            "name": "simple-icons:typeorm",
             "background": "#fe090226"
           },
           "eyebrow": "ORM",
@@ -1135,7 +1135,7 @@
             {
               "title": "TypeScript",
               "icon": {
-                "name": "devicon:typescript"
+                "name": "simple-icons:typescript"
               },
               "colors": {
                 "primary": "#007acc",
@@ -1156,7 +1156,7 @@
         },
         {
           "icon": {
-            "name": "fa6-brands:github",
+            "name": "simple-icons:github",
             "background": "#2188ff26",
             "colors": {
               "primary": "#2188ff"
@@ -1178,7 +1178,7 @@
             {
               "title": "React",
               "icon": {
-                "name": "logos:react"
+                "name": "simple-icons:react"
               },
               "colors": {
                 "primary": "#00d8ff",
@@ -1199,7 +1199,7 @@
         },
         {
           "icon": {
-            "name": "devicon:tailwindcss",
+            "name": "simple-icons:tailwindcss",
             "background": "#38bdf826"
           },
           "eyebrow": "Bibliothek",
@@ -1218,7 +1218,7 @@
             {
               "title": "CSS",
               "icon": {
-                "name": "fa6-brands:css"
+                "name": "simple-icons:css"
               },
               "colors": {
                 "primary": "#663399",
@@ -1239,7 +1239,7 @@
         },
         {
           "icon": {
-            "name": "logos:python",
+            "name": "simple-icons:python",
             "background": "#387eb826"
           },
           "eyebrow": "Sprache",
@@ -1268,7 +1268,7 @@
         },
         {
           "icon": {
-            "name": "devicon:kotlin",
+            "name": "simple-icons:kotlin",
             "background": "#c711e126"
           },
           "eyebrow": "Sprache",
@@ -1284,7 +1284,7 @@
             {
               "title": "Android",
               "icon": {
-                "name": "logos:android-icon"
+                "name": "simple-icons:android"
               },
               "colors": {
                 "primary": "#34a853",
@@ -1305,7 +1305,7 @@
         },
         {
           "icon": {
-            "name": "devicon:jetpackcompose",
+            "name": "simple-icons:jetpackcompose",
             "background": "#4285f426"
           },
           "eyebrow": "Sprache",
@@ -1321,7 +1321,7 @@
             {
               "title": "Android",
               "icon": {
-                "name": "logos:android-icon"
+                "name": "simple-icons:android"
               },
               "colors": {
                 "primary": "#34a853",
@@ -1342,7 +1342,7 @@
         },
         {
           "icon": {
-            "name": "logos:android-icon",
+            "name": "simple-icons:android",
             "background": "#34a85326"
           },
           "eyebrow": "Bibliothek",
@@ -1364,7 +1364,7 @@
             {
               "title": "Android",
               "icon": {
-                "name": "logos:android-icon"
+                "name": "simple-icons:android"
               },
               "colors": {
                 "primary": "#34a853",
@@ -1385,7 +1385,7 @@
         },
         {
           "icon": {
-            "name": "logos:nuxt-icon",
+            "name": "simple-icons:nuxt",
             "background": "#00dc8226"
           },
           "eyebrow": "Framework",
@@ -1404,7 +1404,7 @@
             {
               "title": "Vue",
               "icon": {
-                "name": "logos:vue"
+                "name": "simple-icons:vuedotjs"
               },
               "colors": {
                 "primary": "#41b883",
@@ -1425,7 +1425,7 @@
         },
         {
           "icon": {
-            "name": "logos:angular-icon",
+            "name": "simple-icons:angular",
             "background": "#ff5be126"
           },
           "eyebrow": "Framework",
@@ -1444,7 +1444,7 @@
             {
               "title": "Javascript",
               "icon": {
-                "name": "devicon:javascript"
+                "name": "simple-icons:javascript"
               },
               "colors": {
                 "primary": "#f0db4f",
@@ -1465,7 +1465,7 @@
         },
         {
           "icon": {
-            "name": "logos:bun",
+            "name": "simple-icons:bun",
             "background": "#fbf0df26"
           },
           "eyebrow": "Runtime",
@@ -1481,7 +1481,7 @@
             {
               "title": "TypeScript",
               "icon": {
-                "name": "devicon:typescript"
+                "name": "simple-icons:typescript"
               },
               "colors": {
                 "primary": "#007acc",
@@ -1502,7 +1502,7 @@
         },
         {
           "icon": {
-            "name": "devicon:scala",
+            "name": "simple-icons:scala",
             "background": "#de342326"
           },
           "eyebrow": "Sprache",
@@ -1598,7 +1598,7 @@
             {
               "title": "HTML",
               "icon": {
-                "name": "devicon:html5"
+                "name": "simple-icons:html5"
               },
               "colors": {
                 "primary": "#f16529",
@@ -1609,7 +1609,7 @@
             {
               "title": "CSS",
               "icon": {
-                "name": "fa6-brands:css"
+                "name": "simple-icons:css"
               },
               "colors": {
                 "primary": "#663399",
@@ -1620,7 +1620,7 @@
             {
               "title": "JavaScript",
               "icon": {
-                "name": "devicon:javascript"
+                "name": "simple-icons:javascript"
               },
               "colors": {
                 "primary": "#f0db4f",
@@ -1631,7 +1631,7 @@
             {
               "title": "SQL",
               "icon": {
-                "name": "devicon:mysql"
+                "name": "logos:mysql-icon"
               },
               "colors": {
                 "primary": "#00618a",
@@ -1642,7 +1642,7 @@
             {
               "title": "Node",
               "icon": {
-                "name": "logos:nodejs-icon"
+                "name": "simple-icons:nodedotjs"
               },
               "colors": {
                 "primary": "#539e43",
@@ -1653,7 +1653,7 @@
             {
               "title": "Express",
               "icon": {
-                "name": "devicon:express"
+                "name": "simple-icons:express"
               },
               "colors": {
                 "primary": "#000000",
@@ -1664,7 +1664,7 @@
             {
               "title": "Vue",
               "icon": {
-                "name": "logos:vue"
+                "name": "simple-icons:vuedotjs"
               },
               "colors": {
                 "primary": "#41b883",
@@ -1763,7 +1763,7 @@
             {
               "title": "Vue",
               "icon": {
-                "name": "logos:vue"
+                "name": "simple-icons:vuedotjs"
               },
               "colors": {
                 "primary": "#41b883",
@@ -1774,7 +1774,7 @@
             {
               "title": "TypeScript",
               "icon": {
-                "name": "devicon:typescript"
+                "name": "simple-icons:typescript"
               },
               "colors": {
                 "primary": "#007acc",
@@ -1791,7 +1791,7 @@
             {
               "title": "Next",
               "icon": {
-                "name": "logos:nextjs-icon"
+                "name": "simple-icons:nextdotjs"
               },
               "colors": {
                 "primary": "#ffffff",
@@ -1841,7 +1841,7 @@
             {
               "title": "Nest",
               "icon": {
-                "name": "logos:nestjs"
+                "name": "simple-icons:nestjs"
               },
               "colors": {
                 "primary": "#e0234e",
@@ -1852,7 +1852,7 @@
             {
               "title": "TypeORM",
               "icon": {
-                "name": "logos:typeorm"
+                "name": "simple-icons:typeorm"
               },
               "colors": {
                 "primary": "#fe0902",
@@ -1863,7 +1863,7 @@
             {
               "title": "Prisma",
               "icon": {
-                "name": "logos:prisma"
+                "name": "simple-icons:prisma"
               },
               "colors": {
                 "primary": "#ffffff",
@@ -1874,7 +1874,7 @@
             {
               "title": "GitHub Primer",
               "icon": {
-                "name": "logos:github-icon"
+                "name": "simple-icons:github"
               },
               "colors": {
                 "primary": "#2188ff",
@@ -1930,7 +1930,7 @@
             {
               "title": "Python",
               "icon": {
-                "name": "logos:python"
+                "name": "simple-icons:python"
               },
               "colors": {
                 "primary": "#387eb8",
@@ -1941,7 +1941,7 @@
             {
               "title": "Docker",
               "icon": {
-                "name": "logos:docker-icon"
+                "name": "simple-icons:docker"
               },
               "colors": {
                 "primary": "#2396ed",
@@ -1952,7 +1952,7 @@
             {
               "title": "Kubernetes",
               "icon": {
-                "name": "devicon:kubernetes"
+                "name": "simple-icons:kubernetes"
               },
               "colors": {
                 "primary": "#326ce5",
@@ -1963,7 +1963,7 @@
             {
               "title": "Elastic",
               "icon": {
-                "name": "logos:elasticsearch"
+                "name": "simple-icons:elasticsearch"
               },
               "colors": {
                 "primary": "#00bfb3",
@@ -2009,7 +2009,7 @@
             {
               "title": "Spring Boot",
               "icon": {
-                "name": "logos:spring-icon"
+                "name": "simple-icons:springboot"
               },
               "colors": {
                 "primary": "#6db33f",
@@ -2020,7 +2020,7 @@
             {
               "title": "Angular",
               "icon": {
-                "name": "logos:angular-icon"
+                "name": "simple-icons:angular"
               },
               "colors": {
                 "primary": "#ff5be1",
@@ -2052,7 +2052,7 @@
             {
               "title": "Next",
               "icon": {
-                "name": "logos:nextjs-icon"
+                "name": "simple-icons:nextdotjs"
               },
               "colors": {
                 "primary": "#ffffff",
@@ -2063,7 +2063,7 @@
             {
               "title": "Nest",
               "icon": {
-                "name": "logos:nestjs"
+                "name": "simple-icons:nestjs"
               },
               "colors": {
                 "primary": "#e0234e",
@@ -2074,7 +2074,7 @@
             {
               "title": "Prisma",
               "icon": {
-                "name": "logos:prisma"
+                "name": "simple-icons:prisma"
               },
               "colors": {
                 "primary": "#ffffff",
