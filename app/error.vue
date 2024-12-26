@@ -294,6 +294,7 @@ h1 + * {
 }
 .media-icon {
   width: 127px;
+  height: fit-content;
 }
 .rs-covers-media-icon {
   display: flex;
