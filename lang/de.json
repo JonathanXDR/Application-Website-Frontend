@@ -509,11 +509,11 @@
         {
           "icon": {
             "name": "simple-icons:html5",
-            "background": "#E34F2626",
+            "background": "#E34F26",
             "colors": {
               "primary": "#E34F26",
-              "secondary": "#E34F2626",
-              "tertiary": "#E34F2652"
+              "secondary": "#E34F26",
+              "tertiary": "#E34F26"
             }
           },
           "eyebrow": "Sprache",
@@ -543,11 +543,11 @@
         {
           "icon": {
             "name": "simple-icons:css",
-            "background": "#66339926",
+            "background": "#663399",
             "colors": {
               "primary": "#663399",
-              "secondary": "#66339926",
-              "tertiary": "#66339952"
+              "secondary": "#663399",
+              "tertiary": "#663399"
             }
           },
           "eyebrow": "Sprache",
@@ -580,11 +580,11 @@
         {
           "icon": {
             "name": "simple-icons:javascript",
-            "background": "#F7DF1E26",
+            "background": "#F7DF1E",
             "colors": {
               "primary": "#F7DF1E",
-              "secondary": "#F7DF1E26",
-              "tertiary": "#F7DF1E52"
+              "secondary": "#F7DF1E",
+              "tertiary": "#F7DF1E"
             }
           },
           "eyebrow": "Sprache",
@@ -646,11 +646,11 @@
         {
           "icon": {
             "name": "simple-icons:nodedotjs",
-            "background": "#5FA04E26",
+            "background": "#5FA04E",
             "colors": {
               "primary": "#5FA04E",
-              "secondary": "#5FA04E26",
-              "tertiary": "#5FA04E52"
+              "secondary": "#5FA04E",
+              "tertiary": "#5FA04E"
             }
           },
           "eyebrow": "Runtime",
@@ -670,8 +670,8 @@
               },
               "colors": {
                 "primary": "#f0db4f",
-                "secondary": "#f0db4f26",
-                "tertiary": "#f0db4f52"
+                "secondary": "#f0db4f",
+                "tertiary": "#f0db4f"
               }
             }
           ],
@@ -688,7 +688,7 @@
         {
           "icon": {
             "name": "logos:mysql-icon",
-            "background": "#00618a26"
+            "background": "#00618a"
           },
           "eyebrow": "Sprache",
           "title": "SQL",
@@ -741,8 +741,8 @@
               },
               "colors": {
                 "primary": "#539e43",
-                "secondary": "#539e4326",
-                "tertiary": "#539e4352"
+                "secondary": "#539e43",
+                "tertiary": "#539e43"
               }
             }
           ],
@@ -759,11 +759,11 @@
         {
           "icon": {
             "name": "simple-icons:vuedotjs",
-            "background": "#4FC08D26",
+            "background": "#4FC08D",
             "colors": {
               "primary": "#4FC08D",
-              "secondary": "#4FC08D26",
-              "tertiary": "#4FC08D52"
+              "secondary": "#4FC08D",
+              "tertiary": "#4FC08D"
             }
           },
           "eyebrow": "Framework",
@@ -783,8 +783,8 @@
               },
               "colors": {
                 "primary": "#f0db4f",
-                "secondary": "#f0db4f26",
-                "tertiary": "#f0db4f52"
+                "secondary": "#f0db4f",
+                "tertiary": "#f0db4f"
               }
             }
           ],
@@ -801,11 +801,11 @@
         {
           "icon": {
             "name": "simple-icons:typescript",
-            "background": "#3178C626",
+            "background": "#3178C6",
             "colors": {
               "primary": "#3178C6",
-              "secondary": "#3178C626",
-              "tertiary": "#3178C652"
+              "secondary": "#3178C6",
+              "tertiary": "#3178C6"
             }
           },
           "eyebrow": "Sprache",
@@ -825,8 +825,8 @@
               },
               "colors": {
                 "primary": "#f0db4f",
-                "secondary": "#f0db4f26",
-                "tertiary": "#f0db4f52"
+                "secondary": "#f0db4f",
+                "tertiary": "#f0db4f"
               }
             }
           ],
@@ -843,11 +843,11 @@
         {
           "icon": {
             "name": "simple-icons-extended:csharp",
-            "background": "#7153DC26",
+            "background": "#7153DC",
             "colors": {
               "primary": "#7153DC",
-              "secondary": "#7153DC26",
-              "tertiary": "#7153DC52"
+              "secondary": "#7153DC",
+              "tertiary": "#7153DC"
             }
           },
           "eyebrow": "Sprache",
@@ -877,11 +877,11 @@
         {
           "icon": {
             "name": "simple-icons-extended:java",
-            "background": "#00739626",
+            "background": "#007396",
             "colors": {
               "primary": "#007396",
-              "secondary": "#00739626",
-              "tertiary": "#00739652"
+              "secondary": "#007396",
+              "tertiary": "#007396"
             }
           },
           "eyebrow": "Sprache",
@@ -911,11 +911,11 @@
         {
           "icon": {
             "name": "simple-icons:gnubash",
-            "background": "#4EAA2526",
+            "background": "var(--color-card-logo-secondary)",
             "colors": {
-              "primary": "#4EAA25",
-              "secondary": "#4EAA2526",
-              "tertiary": "#4EAA2552"
+              "primary": "var(--color-card-logo-primary)",
+              "secondary": "var(--color-card-logo-secondary)",
+              "tertiary": "var(--color-card-logo-tertiary)"
             }
           },
           "eyebrow": "Sprache",
@@ -945,11 +945,11 @@
         {
           "icon": {
             "name": "simple-icons:react",
-            "background": "#61DAFB26",
+            "background": "#61DAFB",
             "colors": {
               "primary": "#61DAFB",
-              "secondary": "#61DAFB26",
-              "tertiary": "#61DAFB52"
+              "secondary": "#61DAFB",
+              "tertiary": "#61DAFB"
             }
           },
           "eyebrow": "Framework",
@@ -972,8 +972,8 @@
               },
               "colors": {
                 "primary": "#f0db4f",
-                "secondary": "#f0db4f26",
-                "tertiary": "#f0db4f52"
+                "secondary": "#f0db4f",
+                "tertiary": "#f0db4f"
               }
             }
           ],
@@ -1017,8 +1017,8 @@
               },
               "colors": {
                 "primary": "#00d8ff",
-                "secondary": "#00d8ff26",
-                "tertiary": "#00d8ff52"
+                "secondary": "#00d8ff",
+                "tertiary": "#00d8ff"
               }
             }
           ],
@@ -1035,11 +1035,11 @@
         {
           "icon": {
             "name": "simple-icons:docker",
-            "background": "#2496ED26",
+            "background": "#2496ED",
             "colors": {
               "primary": "#2496ED",
-              "secondary": "#2496ED26",
-              "tertiary": "#2496ED52"
+              "secondary": "#2496ED",
+              "tertiary": "#2496ED"
             }
           },
           "eyebrow": "Container Management",
@@ -1069,11 +1069,11 @@
         {
           "icon": {
             "name": "simple-icons:kubernetes",
-            "background": "#326CE526",
+            "background": "#326CE5",
             "colors": {
               "primary": "#326CE5",
-              "secondary": "#326CE526",
-              "tertiary": "#326CE552"
+              "secondary": "#326CE5",
+              "tertiary": "#326CE5"
             }
           },
           "eyebrow": "Container Management",
@@ -1103,11 +1103,11 @@
         {
           "icon": {
             "name": "simple-icons:nestjs",
-            "background": "#E0234E26",
+            "background": "#E0234E",
             "colors": {
               "primary": "#E0234E",
-              "secondary": "#E0234E26",
-              "tertiary": "#E0234E52"
+              "secondary": "#E0234E",
+              "tertiary": "#E0234E"
             }
           },
           "eyebrow": "Framework",
@@ -1124,8 +1124,8 @@
               },
               "colors": {
                 "primary": "#539e43",
-                "secondary": "#539e4326",
-                "tertiary": "#539e4352"
+                "secondary": "#539e43",
+                "tertiary": "#539e43"
               }
             },
             {
@@ -1135,8 +1135,8 @@
               },
               "colors": {
                 "primary": "#007acc",
-                "secondary": "#007acc26",
-                "tertiary": "#007acc52"
+                "secondary": "#007acc",
+                "tertiary": "#007acc"
               }
             }
           ],
@@ -1177,8 +1177,8 @@
               },
               "colors": {
                 "primary": "#007acc",
-                "secondary": "#007acc26",
-                "tertiary": "#007acc52"
+                "secondary": "#007acc",
+                "tertiary": "#007acc"
               }
             }
           ],
@@ -1195,11 +1195,11 @@
         {
           "icon": {
             "name": "simple-icons:typeorm",
-            "background": "#FE080326",
+            "background": "#FE0803",
             "colors": {
               "primary": "#FE0803",
-              "secondary": "#FE080326",
-              "tertiary": "#FE080352"
+              "secondary": "#FE0803",
+              "tertiary": "#FE0803"
             }
           },
           "eyebrow": "ORM",
@@ -1219,8 +1219,8 @@
               },
               "colors": {
                 "primary": "#007acc",
-                "secondary": "#007acc26",
-                "tertiary": "#007acc52"
+                "secondary": "#007acc",
+                "tertiary": "#007acc"
               }
             }
           ],
@@ -1237,11 +1237,11 @@
         {
           "icon": {
             "name": "simple-icons:github",
-            "background": "#2188ff26",
+            "background": "#4493F8",
             "colors": {
-              "primary": "#2188ff",
-              "secondary": "#2188ff26",
-              "tertiary": "#2188ff52"
+              "primary": "#4493F8",
+              "secondary": "#4493F8",
+              "tertiary": "#4493F8"
             }
           },
           "eyebrow": "Bibliothek",
@@ -1264,8 +1264,8 @@
               },
               "colors": {
                 "primary": "#00d8ff",
-                "secondary": "#00d8ff26",
-                "tertiary": "#00d8ff52"
+                "secondary": "#00d8ff",
+                "tertiary": "#00d8ff"
               }
             }
           ],
@@ -1282,11 +1282,11 @@
         {
           "icon": {
             "name": "simple-icons:tailwindcss",
-            "background": "#06B6D426",
+            "background": "#06B6D4",
             "colors": {
               "primary": "#06B6D4",
-              "secondary": "#06B6D426",
-              "tertiary": "#06B6D452"
+              "secondary": "#06B6D4",
+              "tertiary": "#06B6D4"
             }
           },
           "eyebrow": "Bibliothek",
@@ -1309,8 +1309,8 @@
               },
               "colors": {
                 "primary": "#663399",
-                "secondary": "#66339926",
-                "tertiary": "#66339952"
+                "secondary": "#663399",
+                "tertiary": "#663399"
               }
             }
           ],
@@ -1327,11 +1327,11 @@
         {
           "icon": {
             "name": "simple-icons:python",
-            "background": "#3776AB26",
+            "background": "#3776AB",
             "colors": {
               "primary": "#3776AB",
-              "secondary": "#3776AB26",
-              "tertiary": "#3776AB52"
+              "secondary": "#3776AB",
+              "tertiary": "#3776AB"
             }
           },
           "eyebrow": "Sprache",
@@ -1361,11 +1361,11 @@
         {
           "icon": {
             "name": "simple-icons:kotlin",
-            "background": "#7F52FF26",
+            "background": "#7F52FF",
             "colors": {
               "primary": "#7F52FF",
-              "secondary": "#7F52FF26",
-              "tertiary": "#7F52FF52"
+              "secondary": "#7F52FF",
+              "tertiary": "#7F52FF"
             }
           },
           "eyebrow": "Sprache",
@@ -1385,8 +1385,8 @@
               },
               "colors": {
                 "primary": "#34a853",
-                "secondary": "#34a85326",
-                "tertiary": "#34a85352"
+                "secondary": "#34a853",
+                "tertiary": "#34a853"
               }
             }
           ],
@@ -1403,11 +1403,11 @@
         {
           "icon": {
             "name": "simple-icons:jetpackcompose",
-            "background": "#4285F426",
+            "background": "#4285F4",
             "colors": {
               "primary": "#4285F4",
-              "secondary": "#4285F426",
-              "tertiary": "#4285F452"
+              "secondary": "#4285F4",
+              "tertiary": "#4285F4"
             }
           },
           "eyebrow": "Sprache",
@@ -1427,8 +1427,8 @@
               },
               "colors": {
                 "primary": "#34a853",
-                "secondary": "#34a85326",
-                "tertiary": "#34a85352"
+                "secondary": "#34a853",
+                "tertiary": "#34a853"
               }
             }
           ],
@@ -1445,11 +1445,11 @@
         {
           "icon": {
             "name": "simple-icons:android",
-            "background": "#34A85326",
+            "background": "#34A853",
             "colors": {
               "primary": "#34A853",
-              "secondary": "#34A85326",
-              "tertiary": "#34A85352"
+              "secondary": "#34A853",
+              "tertiary": "#34A853"
             }
           },
           "eyebrow": "Bibliothek",
@@ -1475,8 +1475,8 @@
               },
               "colors": {
                 "primary": "#34a853",
-                "secondary": "#34a85326",
-                "tertiary": "#34a85352"
+                "secondary": "#34a853",
+                "tertiary": "#34a853"
               }
             }
           ],
@@ -1493,11 +1493,11 @@
         {
           "icon": {
             "name": "simple-icons:nuxt",
-            "background": "#00DC8226",
+            "background": "#00DC82",
             "colors": {
               "primary": "#00DC82",
-              "secondary": "#00DC8226",
-              "tertiary": "#00DC8252"
+              "secondary": "#00DC82",
+              "tertiary": "#00DC82"
             }
           },
           "eyebrow": "Framework",
@@ -1520,8 +1520,8 @@
               },
               "colors": {
                 "primary": "#41b883",
-                "secondary": "#41b88326",
-                "tertiary": "#41b88352"
+                "secondary": "#41b883",
+                "tertiary": "#41b883"
               }
             }
           ],
@@ -1565,8 +1565,8 @@
               },
               "colors": {
                 "primary": "#f0db4f",
-                "secondary": "#f0db4f26",
-                "tertiary": "#f0db4f52"
+                "secondary": "#f0db4f",
+                "tertiary": "#f0db4f"
               }
             }
           ],
@@ -1583,11 +1583,11 @@
         {
           "icon": {
             "name": "simple-icons:bun",
-            "background": "var(--color-card-logo-secondary)",
+            "background": "#FBF0DF",
             "colors": {
-              "primary": "var(--color-card-logo-primary)",
-              "secondary": "var(--color-card-logo-secondary)",
-              "tertiary": "var(--color-card-logo-tertiary)"
+              "primary": "#FBF0DF",
+              "secondary": "#FBF0DF",
+              "tertiary": "#FBF0DF"
             }
           },
           "eyebrow": "Runtime",
@@ -1607,8 +1607,8 @@
               },
               "colors": {
                 "primary": "#007acc",
-                "secondary": "#007acc26",
-                "tertiary": "#007acc52"
+                "secondary": "#007acc",
+                "tertiary": "#007acc"
               }
             }
           ],
@@ -1625,11 +1625,11 @@
         {
           "icon": {
             "name": "simple-icons:scala",
-            "background": "#DC322F26",
+            "background": "#DC322F",
             "colors": {
               "primary": "#DC322F",
-              "secondary": "#DC322F26",
-              "tertiary": "#DC322F52"
+              "secondary": "#DC322F",
+              "tertiary": "#DC322F"
             }
           },
           "eyebrow": "Sprache",
@@ -1652,8 +1652,8 @@
               },
               "colors": {
                 "primary": "#5382a1",
-                "secondary": "#5382a126",
-                "tertiary": "#5382a152"
+                "secondary": "#5382a1",
+                "tertiary": "#5382a1"
               }
             }
           ],
@@ -1729,8 +1729,8 @@
               },
               "colors": {
                 "primary": "#f16529",
-                "secondary": "#f1652926",
-                "tertiary": "#f1652952"
+                "secondary": "#f16529",
+                "tertiary": "#f16529"
               }
             },
             {
@@ -1740,8 +1740,8 @@
               },
               "colors": {
                 "primary": "#663399",
-                "secondary": "#66339926",
-                "tertiary": "#66339952"
+                "secondary": "#663399",
+                "tertiary": "#663399"
               }
             },
             {
@@ -1751,8 +1751,8 @@
               },
               "colors": {
                 "primary": "#f0db4f",
-                "secondary": "#f0db4f26",
-                "tertiary": "#f0db4f52"
+                "secondary": "#f0db4f",
+                "tertiary": "#f0db4f"
               }
             },
             {
@@ -1762,8 +1762,8 @@
               },
               "colors": {
                 "primary": "#00618a",
-                "secondary": "#00618a26",
-                "tertiary": "#00618a52"
+                "secondary": "#00618a",
+                "tertiary": "#00618a"
               }
             },
             {
@@ -1773,8 +1773,8 @@
               },
               "colors": {
                 "primary": "#539e43",
-                "secondary": "#539e4326",
-                "tertiary": "#539e4352"
+                "secondary": "#539e43",
+                "tertiary": "#539e43"
               }
             },
             {
@@ -1784,8 +1784,8 @@
               },
               "colors": {
                 "primary": "#000000",
-                "secondary": "#00000026",
-                "tertiary": "#00000052"
+                "secondary": "#000000",
+                "tertiary": "#000000"
               }
             },
             {
@@ -1795,8 +1795,8 @@
               },
               "colors": {
                 "primary": "#41b883",
-                "secondary": "#41b88326",
-                "tertiary": "#41b88352"
+                "secondary": "#41b883",
+                "tertiary": "#41b883"
               }
             }
           ],
@@ -1842,8 +1842,8 @@
               },
               "colors": {
                 "primary": "#9b4f96",
-                "secondary": "#9b4f9626",
-                "tertiary": "#9b4f9652"
+                "secondary": "#9b4f96",
+                "tertiary": "#9b4f96"
               }
             },
             {
@@ -1853,8 +1853,8 @@
               },
               "colors": {
                 "primary": "#512bd4",
-                "secondary": "#512bd426",
-                "tertiary": "#512bd452"
+                "secondary": "#512bd4",
+                "tertiary": "#512bd4"
               }
             }
           ],
@@ -1894,8 +1894,8 @@
               },
               "colors": {
                 "primary": "#41b883",
-                "secondary": "#41b88326",
-                "tertiary": "#41b88352"
+                "secondary": "#41b883",
+                "tertiary": "#41b883"
               }
             },
             {
@@ -1905,8 +1905,8 @@
               },
               "colors": {
                 "primary": "#007acc",
-                "secondary": "#007acc26",
-                "tertiary": "#007acc52"
+                "secondary": "#007acc",
+                "tertiary": "#007acc"
               }
             },
             {
@@ -1922,8 +1922,8 @@
               },
               "colors": {
                 "primary": "#ffffff",
-                "secondary": "#ffffff26",
-                "tertiary": "#ffffff52"
+                "secondary": "#ffffff",
+                "tertiary": "#ffffff"
               }
             }
           ],
@@ -1972,8 +1972,8 @@
               },
               "colors": {
                 "primary": "#e0234e",
-                "secondary": "#e0234e26",
-                "tertiary": "#e0234e52"
+                "secondary": "#e0234e",
+                "tertiary": "#e0234e"
               }
             },
             {
@@ -1983,8 +1983,8 @@
               },
               "colors": {
                 "primary": "#fe0902",
-                "secondary": "#fe090226",
-                "tertiary": "#fe090252"
+                "secondary": "#fe0902",
+                "tertiary": "#fe0902"
               }
             },
             {
@@ -1994,8 +1994,8 @@
               },
               "colors": {
                 "primary": "#ffffff",
-                "secondary": "#ffffff26",
-                "tertiary": "#ffffff52"
+                "secondary": "#ffffff",
+                "tertiary": "#ffffff"
               }
             },
             {
@@ -2005,8 +2005,8 @@
               },
               "colors": {
                 "primary": "#2188ff",
-                "secondary": "#2188ff26",
-                "tertiary": "#2188ff52"
+                "secondary": "#2188ff",
+                "tertiary": "#2188ff"
               }
             }
           ],
@@ -2061,8 +2061,8 @@
               },
               "colors": {
                 "primary": "#387eb8",
-                "secondary": "#387eb826",
-                "tertiary": "#387eb852"
+                "secondary": "#387eb8",
+                "tertiary": "#387eb8"
               }
             },
             {
@@ -2072,8 +2072,8 @@
               },
               "colors": {
                 "primary": "#2396ed",
-                "secondary": "#2396ed26",
-                "tertiary": "#2396ed52"
+                "secondary": "#2396ed",
+                "tertiary": "#2396ed"
               }
             },
             {
@@ -2083,8 +2083,8 @@
               },
               "colors": {
                 "primary": "#326ce5",
-                "secondary": "#326ce526",
-                "tertiary": "#326ce552"
+                "secondary": "#326ce5",
+                "tertiary": "#326ce5"
               }
             },
             {
@@ -2094,8 +2094,8 @@
               },
               "colors": {
                 "primary": "#00bfb3",
-                "secondary": "#00bfb326",
-                "tertiary": "#00bfb352"
+                "secondary": "#00bfb3",
+                "tertiary": "#00bfb3"
               }
             }
           ],
@@ -2129,8 +2129,8 @@
               },
               "colors": {
                 "primary": "#5382a1",
-                "secondary": "#5382a126",
-                "tertiary": "#5382a152"
+                "secondary": "#5382a1",
+                "tertiary": "#5382a1"
               }
             },
             {
@@ -2140,8 +2140,8 @@
               },
               "colors": {
                 "primary": "#6db33f",
-                "secondary": "#6db33f26",
-                "tertiary": "#6db33f52"
+                "secondary": "#6db33f",
+                "tertiary": "#6db33f"
               }
             },
             {
@@ -2151,8 +2151,8 @@
               },
               "colors": {
                 "primary": "#ff5be1",
-                "secondary": "#ff5be126",
-                "tertiary": "#ff5be152"
+                "secondary": "#ff5be1",
+                "tertiary": "#ff5be1"
               }
             }
           ],
@@ -2183,8 +2183,8 @@
               },
               "colors": {
                 "primary": "#ffffff",
-                "secondary": "#ffffff26",
-                "tertiary": "#ffffff52"
+                "secondary": "#ffffff",
+                "tertiary": "#ffffff"
               }
             },
             {
@@ -2194,8 +2194,8 @@
               },
               "colors": {
                 "primary": "#e0234e",
-                "secondary": "#e0234e26",
-                "tertiary": "#e0234e52"
+                "secondary": "#e0234e",
+                "tertiary": "#e0234e"
               }
             },
             {
@@ -2205,8 +2205,8 @@
               },
               "colors": {
                 "primary": "#ffffff",
-                "secondary": "#ffffff26",
-                "tertiary": "#ffffff52"
+                "secondary": "#ffffff",
+                "tertiary": "#ffffff"
               }
             },
             {

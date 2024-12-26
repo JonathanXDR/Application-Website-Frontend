@@ -45,7 +45,10 @@
           class="flex justify-center items-center p-2 rounded-lg"
           :style="{
             position: icon.absolute ? 'absolute' : 'relative',
-            backgroundColor: icon.background,
+            backgroundColor:
+              colorMode.value === 'dark'
+                ? `${icon.background}40`
+                : `${icon.background}26`,
           }"
         >
           <DynamicIcon
@@ -210,6 +213,7 @@ const props = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
 
 const { t } = useI18n()
 const { randomDevColor } = useColor()
+const colorMode = useColorMode()
 const applyHover = computed(
   () =>
     (props.hover === 'auto'
