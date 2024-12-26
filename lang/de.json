@@ -617,7 +617,12 @@
         {
           "icon": {
             "name": "books.vertical.fill",
-            "background": "var(--color-fill-tertiary)"
+            "background": "var(--color-card-logo-secondary)",
+            "colors": {
+              "primary": "var(--color-card-logo-primary)",
+              "secondary": "var(--color-card-logo-secondary)",
+              "tertiary": "var(--color-card-logo-tertiary)"
+            }
           },
           "eyebrow": "Bibliothek",
           "title": "SDX",
@@ -1583,11 +1588,11 @@
         {
           "icon": {
             "name": "simple-icons:bun",
-            "background": "#FBF0DF",
+            "background": "var(--color-card-logo-secondary)",
             "colors": {
-              "primary": "#FBF0DF",
-              "secondary": "#FBF0DF",
-              "tertiary": "#FBF0DF"
+              "primary": "var(--color-card-logo-primary)",
+              "secondary": "var(--color-card-logo-secondary)",
+              "tertiary": "var(--color-card-logo-tertiary)"
             }
           },
           "eyebrow": "Runtime",

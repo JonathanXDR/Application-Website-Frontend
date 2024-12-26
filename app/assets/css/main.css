@@ -161,9 +161,10 @@ body main ::-webkit-scrollbar-track {
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-card-accent: var(--color-figure-blue);
   --color-card-shadow: rgba(0, 0, 0, 0.04);
-  --color-card-logo-primary: #000000;
-  --color-card-logo-secondary: #00000026;
-  --color-card-logo-tertiary: #00000052;
+  --color-card-logo-rgb: 0, 0, 0;
+  --color-card-logo-primary: rgb(var(--color-card-logo-rgb));
+  --color-card-logo-secondary: rgba(var(--color-card-logo-rgb), 0.15);
+  --color-card-logo-tertiary: rgba(var(--color-card-logo-rgb), 0.25);
 
   /* Scrim */
   --scrim-background-color: rgba(210, 210, 215, 0.64);
@@ -523,9 +524,10 @@ body main ::-webkit-scrollbar-track {
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-card-accent: var(--color-figure-blue);
   --color-card-shadow: hsla(0, 0%, 100%, 0.04);
-  --color-card-logo-primary: #ffffff;
-  --color-card-logo-secondary: #ffffff26;
-  --color-card-logo-tertiary: #ffffff52;
+  --color-card-logo-rgb: 255, 255, 255;
+  --color-card-logo-primary: rgb(var(--color-card-logo-rgb));
+  --color-card-logo-secondary: rgba(var(--color-card-logo-rgb), 0.15);
+  --color-card-logo-tertiary: rgba(var(--color-card-logo-rgb), 0.25);
 
   /* Scrim */
   --scrim-background-color: rgba(66, 66, 69, 0.71);

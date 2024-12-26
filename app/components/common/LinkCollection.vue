@@ -22,10 +22,8 @@
 
       <DynamicIcon
         v-if="link.icon"
+        v-bind="link.icon"
         :loading="loading"
-        :name="link.icon.name"
-        :weight="link.icon.weight"
-        :colors="link.icon.colors"
         class="icon icon-sm"
       />
     </component>
