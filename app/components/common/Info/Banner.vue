@@ -75,7 +75,7 @@
                   </div>
 
                   <div
-                    v-if="items.length > 1"
+                    v-if="baseItems.length > 1"
                     class="rc-gallery-paddlenav paddlenav paddlenav-alpha paddlenav-elevated"
                   >
                     <button
@@ -131,20 +131,24 @@ import type {
   GalleryState,
   InfoBannerProps,
 } from '#shared/types/common/banner'
+import type { LinkType } from '#shared/types/common/link'
 
 const props = withDefaults(defineProps<InfoBannerProps>(), {
-  loading: false, // working
-  step: 1, // working but calculateGalleryItems needs to be adjusted
-  paddleNav: true, // working
-  dropAnimation: true, // working
-  themeAnimation: true, // working
-  visibilityDelay: 700, // working
-  transitionDelay: 1000, // unused
-  transitionDuration: 1000, // working
-  autoScroll: true, // working
-  autoScrollDelay: 5000, // working
-  autoScrollRestartDelay: 5000, // working
+  loading: false,
+  step: 1,
+  paddleNav: true,
+  dropAnimation: true,
+  themeAnimation: true,
+  visibilityDelay: 700,
+  transitionDelay: 1000,
+  transitionDuration: 1000,
+  autoScroll: true,
+  autoScrollDelay: 5000,
+  autoScrollRestartDelay: 5000,
 })
+
+const { t, tm, rt, locale } = useI18n()
+const config = useRuntimeConfig()
 
 const state = ref<GalleryState>({
   sequence: 0,
@@ -152,9 +156,6 @@ const state = ref<GalleryState>({
   direction: 'neutral',
   pendingUpdate: null,
 })
-
-// const { t, tm, rt } = useI18n()
-const config = useRuntimeConfig()
 
 const isVisible = ref(false)
 const isAnimating = ref(false)
@@ -164,7 +165,8 @@ const tags = ref<{
   latest: string | undefined
   previous: string | undefined
 }>({ latest: undefined, previous: undefined })
-// const links = tm('components.common.InfoBanner.links') as LinkType[]
+
+const baseItems = ref<{ description: string, links: LinkType[] }[]>([])
 
 let autoScrollInterval: ReturnType<typeof setInterval> | null = null
 let restartTimeout: ReturnType<typeof setTimeout> | null = null
@@ -180,27 +182,7 @@ const { data: repositoryTags } = await useFetch('/api/github/repository-tags', {
   getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
 })
 
-onMounted(() => {
-  if (props.dropAnimation) {
-    setTimeout(() => {
-      isVisible.value = true
-    }, props.visibilityDelay)
-  }
-  else {
-    isVisible.value = true
-  }
-
-  if (props.autoScroll && !props.loading) {
-    startAutoScroll()
-  }
-})
-
-onUnmounted(() => {
-  stopAutoScroll()
-  clearRestartTimeout()
-})
-
-const totalWidth = computed(() => `${props.items.length * 100}%`)
+const totalWidth = computed(() => `${baseItems.value.length * 100}%`)
 const insetStart = computed(() => `-100%`)
 
 const transformValue = computed(() => {
@@ -227,7 +209,7 @@ const galleryStyle = computed(() => {
       : 'none',
   }
 
-  if (props.items.length <= 2) {
+  if (baseItems.value.length <= 2) {
     base['justify-content'] = 'center'
     base.gap = '16px'
   }
@@ -235,16 +217,16 @@ const galleryStyle = computed(() => {
 })
 
 const calculateGalleryItems = () => {
-  const count = Math.min(props.items.length, 3)
+  const items = baseItems.value
+  const count = Math.min(items.length, 3)
   const mid = Math.floor(count / 2)
 
   return Array.from({ length: count }, (_, pos) => {
     const index
-      = (state.value.activeItem + (pos - mid) + props.items.length)
-      % props.items.length
+      = (state.value.activeItem + (pos - mid) + items.length) % items.length
     return {
       id: `ribbon_${index}_${pos}`,
-      item: props.items[index],
+      item: items[index],
       itemIndex: index,
       position: pos,
       isActive: pos === mid,
@@ -254,13 +236,13 @@ const calculateGalleryItems = () => {
 
 const galleryItems = computed(() => calculateGalleryItems())
 
-function next() {
+const next = () => {
   if (isAnimating.value || props.loading) return
   isAnimating.value = true
 
   const stepSize = props.step
   const nextSequence = state.value.sequence + 1
-  const nextItem = (state.value.activeItem + stepSize) % props.items.length
+  const nextItem = (state.value.activeItem + stepSize) % baseItems.value.length
 
   state.value = {
     ...state.value,
@@ -272,15 +254,15 @@ function next() {
   }
 }
 
-function previous() {
+const previous = () => {
   if (isAnimating.value || props.loading) return
   isAnimating.value = true
 
   const stepSize = props.step
   const nextSequence = state.value.sequence + 1
   const nextItem
-    = (state.value.activeItem - stepSize + props.items.length)
-    % props.items.length
+    = (state.value.activeItem - stepSize + baseItems.value.length)
+    % baseItems.value.length
 
   state.value = {
     ...state.value,
@@ -292,7 +274,7 @@ function previous() {
   }
 }
 
-function handleTransitionEnd() {
+const handleTransitionEnd = () => {
   if (!isAnimating.value) return
   if (state.value.pendingUpdate) {
     state.value = {
@@ -309,8 +291,8 @@ function handleTransitionEnd() {
   })
 }
 
-function startAutoScroll() {
-  if (props.items.length <= 1) return
+const startAutoScroll = () => {
+  if (baseItems.value.length <= 1) return
   if (!props.autoScroll || props.loading) return
 
   stopAutoScroll()
@@ -319,20 +301,21 @@ function startAutoScroll() {
   }, props.autoScrollDelay)
 }
 
-function stopAutoScroll() {
+const stopAutoScroll = () => {
   if (autoScrollInterval) {
     clearInterval(autoScrollInterval)
     autoScrollInterval = null
   }
 }
 
-function clearRestartTimeout() {
+const clearRestartTimeout = () => {
   if (restartTimeout) {
     clearTimeout(restartTimeout)
     restartTimeout = null
   }
 }
-function scheduleAutoScrollRestart() {
+
+const scheduleAutoScrollRestart = () => {
   clearRestartTimeout()
   if (!props.autoScrollRestartDelay) return
   restartTimeout = setTimeout(() => {
@@ -340,13 +323,62 @@ function scheduleAutoScrollRestart() {
   }, props.autoScrollRestartDelay)
 }
 
-function onMouseEnterOrFocus() {
+const onMouseEnterOrFocus = () => {
   stopAutoScroll()
 }
-function onMouseLeaveOrBlur() {
+
+const onMouseLeaveOrBlur = () => {
   if (!props.autoScroll) return
   scheduleAutoScrollRestart()
 }
+
+const updateBaseItems = () => {
+  const { latest: latestTag, previous: previousTag } = tags.value
+
+  if (!latestTag || !previousTag) return
+
+  baseItems.value = props.items.map((item, index) => ({
+    description:
+      item.description
+      && t(`components.common.InfoBanner[${index}].description`, {
+        latestTag,
+        previousTag,
+      }),
+    links:
+      item.links
+      && (tm(`components.common.InfoBanner[${index}].links`) as LinkType[]).map(
+        link => ({
+          ...link,
+          url: link.url
+            ? rt(link.url, {
+                latestTag,
+                previousTag,
+              })
+            : undefined,
+        }),
+      ),
+  }))
+}
+
+onMounted(() => {
+  if (props.dropAnimation) {
+    setTimeout(() => {
+      isVisible.value = true
+    }, props.visibilityDelay)
+  }
+  else {
+    isVisible.value = true
+  }
+
+  if (props.autoScroll && !props.loading) {
+    startAutoScroll()
+  }
+})
+
+onUnmounted(() => {
+  stopAutoScroll()
+  clearRestartTimeout()
+})
 
 watch(
   () => props.loading,
@@ -368,6 +400,7 @@ watch(
         latest: tagsNew[0]?.name,
         previous: tagsNew[1]?.name,
       }
+      updateBaseItems()
 
       setTimeout(() => {
         initialAnimationPlayed.value = true
@@ -376,6 +409,10 @@ watch(
   },
   { immediate: true },
 )
+
+watch(locale, () => {
+  updateBaseItems()
+})
 </script>
 
 <style scoped>
