@@ -672,11 +672,6 @@
               "title": "Javascript",
               "icon": {
                 "name": "simple-icons:javascript"
-              },
-              "colors": {
-                "primary": "#f0db4f",
-                "secondary": "#f0db4f",
-                "tertiary": "#f0db4f"
               }
             }
           ],
@@ -743,11 +738,6 @@
               "title": "Node",
               "icon": {
                 "name": "simple-icons:nodedotjs"
-              },
-              "colors": {
-                "primary": "#539e43",
-                "secondary": "#539e43",
-                "tertiary": "#539e43"
               }
             }
           ],
@@ -785,11 +775,6 @@
               "title": "Javascript",
               "icon": {
                 "name": "simple-icons:javascript"
-              },
-              "colors": {
-                "primary": "#f0db4f",
-                "secondary": "#f0db4f",
-                "tertiary": "#f0db4f"
               }
             }
           ],
@@ -827,11 +812,6 @@
               "title": "Javascript",
               "icon": {
                 "name": "simple-icons:javascript"
-              },
-              "colors": {
-                "primary": "#f0db4f",
-                "secondary": "#f0db4f",
-                "tertiary": "#f0db4f"
               }
             }
           ],
@@ -974,11 +954,6 @@
               "title": "Javascript",
               "icon": {
                 "name": "simple-icons:javascript"
-              },
-              "colors": {
-                "primary": "#f0db4f",
-                "secondary": "#f0db4f",
-                "tertiary": "#f0db4f"
               }
             }
           ],
@@ -1019,11 +994,6 @@
               "title": "React",
               "icon": {
                 "name": "simple-icons:react"
-              },
-              "colors": {
-                "primary": "#00d8ff",
-                "secondary": "#00d8ff",
-                "tertiary": "#00d8ff"
               }
             }
           ],
@@ -1126,22 +1096,12 @@
               "title": "Node",
               "icon": {
                 "name": "simple-icons:nodedotjs"
-              },
-              "colors": {
-                "primary": "#539e43",
-                "secondary": "#539e43",
-                "tertiary": "#539e43"
               }
             },
             {
               "title": "TypeScript",
               "icon": {
                 "name": "simple-icons:typescript"
-              },
-              "colors": {
-                "primary": "#007acc",
-                "secondary": "#007acc",
-                "tertiary": "#007acc"
               }
             }
           ],
@@ -1179,11 +1139,6 @@
               "title": "TypeScript",
               "icon": {
                 "name": "simple-icons:typescript"
-              },
-              "colors": {
-                "primary": "#007acc",
-                "secondary": "#007acc",
-                "tertiary": "#007acc"
               }
             }
           ],
@@ -1221,11 +1176,6 @@
               "title": "TypeScript",
               "icon": {
                 "name": "simple-icons:typescript"
-              },
-              "colors": {
-                "primary": "#007acc",
-                "secondary": "#007acc",
-                "tertiary": "#007acc"
               }
             }
           ],
@@ -1266,11 +1216,6 @@
               "title": "React",
               "icon": {
                 "name": "simple-icons:react"
-              },
-              "colors": {
-                "primary": "#00d8ff",
-                "secondary": "#00d8ff",
-                "tertiary": "#00d8ff"
               }
             }
           ],
@@ -1311,11 +1256,6 @@
               "title": "CSS",
               "icon": {
                 "name": "simple-icons:css"
-              },
-              "colors": {
-                "primary": "#663399",
-                "secondary": "#663399",
-                "tertiary": "#663399"
               }
             }
           ],
@@ -1387,11 +1327,6 @@
               "title": "Android",
               "icon": {
                 "name": "simple-icons:android"
-              },
-              "colors": {
-                "primary": "#34a853",
-                "secondary": "#34a853",
-                "tertiary": "#34a853"
               }
             }
           ],
@@ -1429,11 +1364,6 @@
               "title": "Android",
               "icon": {
                 "name": "simple-icons:android"
-              },
-              "colors": {
-                "primary": "#34a853",
-                "secondary": "#34a853",
-                "tertiary": "#34a853"
               }
             }
           ],
@@ -1477,11 +1407,6 @@
               "title": "Android",
               "icon": {
                 "name": "simple-icons:android"
-              },
-              "colors": {
-                "primary": "#34a853",
-                "secondary": "#34a853",
-                "tertiary": "#34a853"
               }
             }
           ],
@@ -1522,11 +1447,6 @@
               "title": "Vue",
               "icon": {
                 "name": "simple-icons:vuedotjs"
-              },
-              "colors": {
-                "primary": "#41b883",
-                "secondary": "#41b883",
-                "tertiary": "#41b883"
               }
             }
           ],
@@ -1567,11 +1487,6 @@
               "title": "Javascript",
               "icon": {
                 "name": "simple-icons:javascript"
-              },
-              "colors": {
-                "primary": "#f0db4f",
-                "secondary": "#f0db4f",
-                "tertiary": "#f0db4f"
               }
             }
           ],
@@ -1609,11 +1524,6 @@
               "title": "TypeScript",
               "icon": {
                 "name": "simple-icons:typescript"
-              },
-              "colors": {
-                "primary": "#007acc",
-                "secondary": "#007acc",
-                "tertiary": "#007acc"
               }
             }
           ],
@@ -1654,11 +1564,6 @@
               "title": "Java",
               "icon": {
                 "name": "simple-icons-extended:java"
-              },
-              "colors": {
-                "primary": "#5382a1",
-                "secondary": "#5382a1",
-                "tertiary": "#5382a1"
               }
             }
           ],
@@ -1731,77 +1636,42 @@
               "title": "HTML",
               "icon": {
                 "name": "simple-icons:html5"
-              },
-              "colors": {
-                "primary": "#f16529",
-                "secondary": "#f16529",
-                "tertiary": "#f16529"
               }
             },
             {
               "title": "CSS",
               "icon": {
                 "name": "simple-icons:css"
-              },
-              "colors": {
-                "primary": "#663399",
-                "secondary": "#663399",
-                "tertiary": "#663399"
               }
             },
             {
               "title": "JavaScript",
               "icon": {
                 "name": "simple-icons:javascript"
-              },
-              "colors": {
-                "primary": "#f0db4f",
-                "secondary": "#f0db4f",
-                "tertiary": "#f0db4f"
               }
             },
             {
               "title": "SQL",
               "icon": {
                 "name": "logos:mysql-icon"
-              },
-              "colors": {
-                "primary": "#00618a",
-                "secondary": "#00618a",
-                "tertiary": "#00618a"
               }
             },
             {
               "title": "Node",
               "icon": {
                 "name": "simple-icons:nodedotjs"
-              },
-              "colors": {
-                "primary": "#539e43",
-                "secondary": "#539e43",
-                "tertiary": "#539e43"
               }
             },
             {
               "title": "Express",
               "icon": {
                 "name": "simple-icons:express"
-              },
-              "colors": {
-                "primary": "#000000",
-                "secondary": "#000000",
-                "tertiary": "#000000"
               }
             },
             {
               "title": "Vue",
               "icon": {
                 "name": "simple-icons:vuedotjs"
-              },
-              "colors": {
-                "primary": "#41b883",
-                "secondary": "#41b883",
-                "tertiary": "#41b883"
               }
             }
           ],
@@ -1844,22 +1714,12 @@
               "title": "C#",
               "icon": {
                 "name": "simple-icons-extended:csharp"
-              },
-              "colors": {
-                "primary": "#9b4f96",
-                "secondary": "#9b4f96",
-                "tertiary": "#9b4f96"
               }
             },
             {
               "title": ".NET",
               "icon": {
                 "name": "logos:dotnet"
-              },
-              "colors": {
-                "primary": "#512bd4",
-                "secondary": "#512bd4",
-                "tertiary": "#512bd4"
               }
             }
           ],
@@ -1896,22 +1756,12 @@
               "title": "Vue",
               "icon": {
                 "name": "simple-icons:vuedotjs"
-              },
-              "colors": {
-                "primary": "#41b883",
-                "secondary": "#41b883",
-                "tertiary": "#41b883"
               }
             },
             {
               "title": "TypeScript",
               "icon": {
                 "name": "simple-icons:typescript"
-              },
-              "colors": {
-                "primary": "#007acc",
-                "secondary": "#007acc",
-                "tertiary": "#007acc"
               }
             },
             {
@@ -1924,11 +1774,6 @@
               "title": "Next",
               "icon": {
                 "name": "simple-icons:nextdotjs"
-              },
-              "colors": {
-                "primary": "#ffffff",
-                "secondary": "#ffffff",
-                "tertiary": "#ffffff"
               }
             }
           ],
@@ -1974,44 +1819,24 @@
               "title": "Nest",
               "icon": {
                 "name": "simple-icons:nestjs"
-              },
-              "colors": {
-                "primary": "#e0234e",
-                "secondary": "#e0234e",
-                "tertiary": "#e0234e"
               }
             },
             {
               "title": "TypeORM",
               "icon": {
                 "name": "simple-icons:typeorm"
-              },
-              "colors": {
-                "primary": "#fe0902",
-                "secondary": "#fe0902",
-                "tertiary": "#fe0902"
               }
             },
             {
               "title": "Prisma",
               "icon": {
                 "name": "simple-icons:prisma"
-              },
-              "colors": {
-                "primary": "#ffffff",
-                "secondary": "#ffffff",
-                "tertiary": "#ffffff"
               }
             },
             {
               "title": "GitHub Primer",
               "icon": {
                 "name": "simple-icons:github"
-              },
-              "colors": {
-                "primary": "#2188ff",
-                "secondary": "#2188ff",
-                "tertiary": "#2188ff"
               }
             }
           ],
@@ -2063,44 +1888,24 @@
               "title": "Python",
               "icon": {
                 "name": "simple-icons:python"
-              },
-              "colors": {
-                "primary": "#387eb8",
-                "secondary": "#387eb8",
-                "tertiary": "#387eb8"
               }
             },
             {
               "title": "Docker",
               "icon": {
                 "name": "simple-icons:docker"
-              },
-              "colors": {
-                "primary": "#2396ed",
-                "secondary": "#2396ed",
-                "tertiary": "#2396ed"
               }
             },
             {
               "title": "Kubernetes",
               "icon": {
                 "name": "simple-icons:kubernetes"
-              },
-              "colors": {
-                "primary": "#326ce5",
-                "secondary": "#326ce5",
-                "tertiary": "#326ce5"
               }
             },
             {
               "title": "Elastic",
               "icon": {
                 "name": "simple-icons:elasticsearch"
-              },
-              "colors": {
-                "primary": "#00bfb3",
-                "secondary": "#00bfb3",
-                "tertiary": "#00bfb3"
               }
             }
           ],
@@ -2131,33 +1936,18 @@
               "title": "Java",
               "icon": {
                 "name": "simple-icons-extended:java"
-              },
-              "colors": {
-                "primary": "#5382a1",
-                "secondary": "#5382a1",
-                "tertiary": "#5382a1"
               }
             },
             {
               "title": "Spring Boot",
               "icon": {
                 "name": "simple-icons:springboot"
-              },
-              "colors": {
-                "primary": "#6db33f",
-                "secondary": "#6db33f",
-                "tertiary": "#6db33f"
               }
             },
             {
               "title": "Angular",
               "icon": {
                 "name": "simple-icons:angular"
-              },
-              "colors": {
-                "primary": "#ff5be1",
-                "secondary": "#ff5be1",
-                "tertiary": "#ff5be1"
               }
             }
           ],
@@ -2185,33 +1975,18 @@
               "title": "Next",
               "icon": {
                 "name": "simple-icons:nextdotjs"
-              },
-              "colors": {
-                "primary": "#ffffff",
-                "secondary": "#ffffff",
-                "tertiary": "#ffffff"
               }
             },
             {
               "title": "Nest",
               "icon": {
                 "name": "simple-icons:nestjs"
-              },
-              "colors": {
-                "primary": "#e0234e",
-                "secondary": "#e0234e",
-                "tertiary": "#e0234e"
               }
             },
             {
               "title": "Prisma",
               "icon": {
                 "name": "simple-icons:prisma"
-              },
-              "colors": {
-                "primary": "#ffffff",
-                "secondary": "#ffffff",
-                "tertiary": "#ffffff"
               }
             },
             {
