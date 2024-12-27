@@ -1,12 +1,7 @@
 <template>
   <div
-    :class="
-      cn(
-        'h-screen w-screen relative overflow-hidden top-0 left-0',
-        'bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]',
-        props.containerClassName,
-      )
-    "
+    :style="cssVars"
+    class="h-screen w-screen relative overflow-hidden top-0 left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]"
   >
     <svg class="hidden">
       <defs>
@@ -30,42 +25,35 @@
       </defs>
     </svg>
 
-    <div :class="cn('', props.className)">
+    <div :class="className">
       <slot />
     </div>
 
     <div
-      :class="
-        cn(
-          'gradients-container h-full w-full blur-lg',
-          isSafari ? 'blur-2xl' : '[filter:url(#blurMe)_blur(40px)]',
-        )
-      "
+      :class="[
+        'gradients-container h-full w-full blur-lg',
+        isSafari ? 'blur-2xl' : '[filter:url(#blurMe)_blur(40px)]',
+      ]"
     >
       <div
-        class="absolute [background:radial-gradient(circle_at_center,var(--first-color)_0,var(--first-color)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:center_center] animate-first opacity-100"
+        class="absolute [background:radial-gradient(circle_at_center,_var(--first-color)_0,_var(--first-color)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:center_center] opacity-100 animation-first"
       />
-
       <div
-        class="absolute [background:radial-gradient(circle_at_center,rgba(var(--second-color),0.8)_0,rgba(var(--second-color),0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%-400px)] animate-second opacity-100"
+        class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--second-color),_0.8)_0,_rgba(var(--second-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%-400px)] opacity-100 animation-second"
       />
-
       <div
-        class="absolute [background:radial-gradient(circle_at_center,rgba(var(--third-color),0.8)_0,rgba(var(--third-color),0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%+400px)] animate-third opacity-100"
+        class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--third-color),_0.8)_0,_rgba(var(--third-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%+400px)] opacity-100 animation-third"
       />
-
       <div
-        class="absolute [background:radial-gradient(circle_at_center,rgba(var(--fourth-color),0.8)_0,rgba(var(--fourth-color),0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%-200px)] animate-fourth opacity-70"
+        class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--fourth-color),_0.8)_0,_rgba(var(--fourth-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%-200px)] opacity-70 animation-fourth"
       />
-
       <div
-        class="absolute [background:radial-gradient(circle_at_center,rgba(var(--fifth-color),0.8)_0,rgba(var(--fifth-color),0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%-800px)_calc(50%+800px)] animate-fifth opacity-100"
+        class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--fifth-color),_0.8)_0,_rgba(var(--fifth-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%-800px)_calc(50%+800px)] opacity-100 animation-fifth"
       />
-
       <div
-        v-if="props.interactive"
+        v-if="interactive"
         ref="interactiveRef"
-        class="absolute [background:radial-gradient(circle_at_center,rgba(var(--pointer-color),0.8)_0,rgba(var(--pointer-color),0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-full h-full -top-1/2 -left-1/2 opacity-70"
+        class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--pointer-color),_0.8)_0,_rgba(var(--pointer-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-full h-full -top-1/2 -left-1/2 opacity-70"
         @mousemove="handleMouseMove"
       />
     </div>
@@ -73,10 +61,6 @@
 </template>
 
 <script setup lang="ts">
-function cn(...classes: (string | undefined | false)[]) {
-  return classes.filter(Boolean).join(' ')
-}
-
 const props = withDefaults(
   defineProps<{
     gradientBackgroundStart?: string
@@ -111,55 +95,102 @@ const props = withDefaults(
 )
 
 const interactiveRef = ref<HTMLElement | null>(null)
+const isSafari = ref(false)
 const curX = ref(0)
 const curY = ref(0)
 const tgX = ref(0)
 const tgY = ref(0)
 
-const isSafari = ref(false)
+const cssVars = computed(() => ({
+  '--gradient-background-start': props.gradientBackgroundStart,
+  '--gradient-background-end': props.gradientBackgroundEnd,
+  '--first-color': props.firstColor,
+  '--second-color': props.secondColor,
+  '--third-color': props.thirdColor,
+  '--fourth-color': props.fourthColor,
+  '--fifth-color': props.fifthColor,
+  '--pointer-color': props.pointerColor,
+  '--size': props.size,
+  '--blending-value': props.blendingValue,
+}))
 
-const { pause, resume } = useRafFn(() => {
-  if (!props.interactive || !interactiveRef.value) return
-  curX.value += (tgX.value - curX.value) / 20
-  curY.value += (tgY.value - curY.value) / 20
-  interactiveRef.value.style.transform = `translate(${Math.round(curX.value)}px, ${Math.round(curY.value)}px)`
-})
-
-function handleMouseMove(event: MouseEvent) {
+const handleMouseMove = (event: MouseEvent) => {
   if (!interactiveRef.value) return
+
   const rect = interactiveRef.value.getBoundingClientRect()
   tgX.value = event.clientX - rect.left
   tgY.value = event.clientY - rect.top
 }
 
-onMounted(() => {
-  document.body.style.setProperty(
-    '--gradient-background-start',
-    props.gradientBackgroundStart,
-  )
-  document.body.style.setProperty(
-    '--gradient-background-end',
-    props.gradientBackgroundEnd,
-  )
-  document.body.style.setProperty('--first-color', props.firstColor)
-  document.body.style.setProperty('--second-color', props.secondColor)
-  document.body.style.setProperty('--third-color', props.thirdColor)
-  document.body.style.setProperty('--fourth-color', props.fourthColor)
-  document.body.style.setProperty('--fifth-color', props.fifthColor)
-  document.body.style.setProperty('--pointer-color', props.pointerColor)
-  document.body.style.setProperty('--size', props.size)
-  document.body.style.setProperty('--blending-value', props.blendingValue)
+useRafFn(() => {
+  if (!interactiveRef.value || !props.interactive) return
 
-  // eslint-disable-next-line regexp/no-unused-capturing-group
-  isSafari.value = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
-  resume()
+  curX.value += (tgX.value - curX.value) / 20
+  curY.value += (tgY.value - curY.value) / 20
+
+  interactiveRef.value.style.transform = `translate(${Math.round(curX.value)}px, ${Math.round(curY.value)}px)`
 })
 
-watch(
-  () => props.interactive,
-  (newVal) => {
-    if (newVal) resume()
-    else pause()
-  },
-)
+onMounted(() => {
+  // eslint-disable-next-line regexp/no-unused-capturing-group
+  isSafari.value = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+})
 </script>
+
+<style scoped>
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animation-first {
+  animation: moveVertical 30s ease infinite;
+}
+
+.animation-second {
+  animation: moveInCircle 20s reverse infinite;
+}
+
+.animation-third {
+  animation: moveInCircle 40s linear infinite;
+}
+
+.animation-fourth {
+  animation: moveHorizontal 40s ease infinite;
+}
+
+.animation-fifth {
+  animation: moveInCircle 20s ease infinite;
+}
+</style>
