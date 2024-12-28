@@ -2,15 +2,15 @@
   <component
     :is="as"
     ref="elementRef"
-    class="overflow-hidden py-2 text-4xl font-bold"
+    class="hypertext overflow-hidden py-2 text-4xl font-bold"
     @mouseenter="handleMouseEnter"
   >
     <span
       v-for="(letter, index) in displayText"
       :key="index"
-      :class="['font-mono', letter === ' ' ? 'inline-block w-3' : '']"
+      :class="[letter === ' ' ? 'inline-block w-3' : '']"
     >
-      {{ letter.toUpperCase() }}
+      {{ letter }}
     </span>
   </component>
 </template>
@@ -153,3 +153,9 @@ watch(
   },
 )
 </script>
+
+<style scoped>
+.hypertext {
+  font-family: Menlo, monospace;
+}
+</style>
