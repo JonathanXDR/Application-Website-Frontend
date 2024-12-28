@@ -32,7 +32,6 @@
         <span
           class="container"
           aria-hidden="true"
-          style="color: var(--replay-text-color); width: 17px; height: 17px"
         >
           <!-- <SFSymbol
             name="chevron.down"
@@ -58,17 +57,34 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  shadow?: boolean
-  animation?: boolean
-  embedded?: boolean
-  show?: boolean
-}>()
+import type { ExtendedSizeType } from '../../../shared/types/common/extended-size'
 
-const containerClass = computed(() => ({
-  'down-chevron-container': !props.animation,
-  'scroll-down-arrow': props.animation,
-}))
+const props = withDefaults(
+  defineProps<{
+    componentSize?: ExtendedSizeType
+    shadow?: boolean
+    animation?: boolean
+    embedded?: boolean
+    sticky?: boolean
+    show?: boolean
+  }>(),
+  {
+    componentSize: 'medium',
+    shadow: true,
+    animation: true,
+    embedded: false,
+    sticky: false,
+    show: false,
+  },
+)
+
+const { componentSize, sticky } = props
+const containerClass = computed(() => [
+  componentSize,
+  { 'down-chevron-container': !props.animation },
+  { 'scroll-down-arrow': props.animation },
+  { sticky },
+])
 </script>
 
 <style scoped>
@@ -108,6 +124,10 @@ svg.chevron-icon path.chevron-icon {
   );
 }
 
+.down-chevron-container.sticky {
+  position: sticky !important;
+}
+
 .icon-show-more {
   width: 0.9375em;
   height: 0.5em;
@@ -115,7 +135,7 @@ svg.chevron-icon path.chevron-icon {
 
 /* ---------------------------- Animated chevron ---------------------------- */
 .text-module {
-  color: var(--replay-text-color);
+  color: var(--color-fill-gray);
   display: flex;
   justify-content: center;
   margin-block: var(--textModuleMarginBlockMdStart, 148px)
@@ -143,14 +163,12 @@ svg.chevron-icon path.chevron-icon {
 .text {
   text-wrap: balance;
   font-family:
+    system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    Apple Color Emoji,
-    SF Pro,
-    SF Pro Icons,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   font-size: 32px;
   font-weight: 600;
@@ -182,14 +200,12 @@ svg.chevron-icon path.chevron-icon {
 @media (min-width: 1260px) {
   .text {
     font-family:
+      system-ui,
       -apple-system,
       BlinkMacSystemFont,
-      Apple Color Emoji,
-      SF Pro,
-      SF Pro Icons,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
       sans-serif;
     font-size: 48px;
     font-weight: 600;
@@ -208,7 +224,7 @@ svg.chevron-icon path.chevron-icon {
   }
 }
 .scroll-down-arrow {
-  bottom: -43px;
+  /* bottom: -43px; */
   position: absolute;
   right: 0;
   transition: opacity 0.66s ease;
@@ -254,7 +270,7 @@ svg.chevron-icon path.chevron-icon {
 }
 .arrow-btn {
   align-items: center;
-  animation: -arrow-shimmer 2.8s ease infinite;
+  animation: arrow-shimmer 2.8s ease infinite;
   display: flex;
   height: 7px;
   justify-content: center;
@@ -266,7 +282,7 @@ svg.chevron-icon path.chevron-icon {
     padding-block-end: 24px;
   }
 }
-@keyframes -arrow-shimmer {
+@keyframes arrow-shimmer {
   0% {
     opacity: 0;
     transform: translateY(0);
@@ -290,6 +306,37 @@ svg.chevron-icon path.chevron-icon {
   align-items: center;
   display: flex;
   justify-content: center;
+  color: var(--color-fill-gray);
+}
+
+.xsmall .container,
+.xsmall .container svg {
+  height: 1em;
+  width: 1em;
+}
+
+.small .container,
+.small .container svg {
+  height: 1.25em;
+  width: 1.25em;
+}
+
+.medium .container,
+.medium .container svg {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.large .container,
+.large .container svg {
+  height: 2em;
+  width: 2em;
+}
+
+.xlarge .container,
+.xlarge .container svg {
+  height: 3em;
+  width: 3em;
 }
 
 .icon-show-more {

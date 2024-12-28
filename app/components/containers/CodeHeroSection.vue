@@ -34,11 +34,20 @@
         </p>
       </div>
     </div>
-    <!-- <ExploreMore /> -->
+    <ScrollDown
+      v-animation="{
+        onEnter: () => (show = true),
+      }"
+      :show="show"
+      class="p-6"
+      animation
+    />
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const show = ref(false)
+</script>
 
 <style scoped>
 .section-content {
