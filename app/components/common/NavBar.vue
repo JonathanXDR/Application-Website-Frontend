@@ -214,34 +214,11 @@ const { y: scrollY } = useWindowScroll()
 const { headerAnimations, setHeaderAnimation } = useAnimation()
 const config = useRuntimeConfig()
 const route = useRoute()
+const { tm } = useI18n()
 
-const { tm, rt } = useI18n()
-
-const rawNavItems = computed<SectionType[]>(() =>
-  tm('components.common.NavBar'),
-)
-
-const navItems = computed<SectionType[]>(() =>
-  rawNavItems.value.map(item => ({
-    ...item,
-    label: rt(item.label),
-    children:
-      item.children?.map(child => ({
-        ...child,
-        label: rt(child.label),
-      })) ?? [],
-  })),
-)
-
-const rawThemeItems = computed<ItemType[]>(() =>
-  tm('components.common.SegmentNav.theme'),
-)
-
+const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'))
 const themeItems = computed<ItemType[]>(() =>
-  rawThemeItems.value.map(theme => ({
-    ...theme,
-    label: rt(theme.label),
-  })),
+  tm('components.common.SegmentNav.theme'),
 )
 
 const navOpen = ref(false)
@@ -263,10 +240,13 @@ const borderTransformOrigin = ref<string>('50% 0%')
 const borderScaleX = ref<string>('scaleX(1)')
 
 const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
-  const currentId = navItems.value.find(i => isCurrent(i))?.id
+  const currentId = navItems.value.find(item => isCurrent(item))?.id
   const liElement = currentId ? menuLinkReferences[currentId] : undefined
+
   if (!liElement) return
-  return liElement.firstElementChild as HTMLElement
+
+  const menuLinkElement = liElement.firstElementChild as HTMLElement
+  return menuLinkElement
 })
 
 setState({

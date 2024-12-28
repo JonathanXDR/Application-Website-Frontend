@@ -31,23 +31,8 @@ definePageMeta({
   footerCompact: false,
 })
 
-const { tm, rt } = useI18n()
-
-const rawSections = computed<SectionType[]>(() =>
-  tm('components.common.NavBar'),
-)
-
-const sections = computed<SectionType[]>(() =>
-  rawSections.value.map(section => ({
-    ...section,
-    label: rt(section.label),
-    children:
-      section.children?.map(child => ({
-        ...child,
-        label: rt(child.label),
-      })) ?? [],
-  })),
-)
+const { tm } = useI18n()
+const sections = computed<SectionType[]>(() => tm('components.common.NavBar'))
 </script>
 
 <style scoped>

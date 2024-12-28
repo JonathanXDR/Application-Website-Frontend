@@ -173,8 +173,7 @@ definePageMeta({
 const route = useRoute()
 const router = useRouter()
 const viewport = useViewport()
-
-const { t, tm, rt } = useI18n()
+const { t, tm } = useI18n()
 const { randomDevColor } = useColor()
 const config = useRuntimeConfig()
 
@@ -208,19 +207,9 @@ const { data: pinnedProjects } = await useFetch(
   },
 )
 
-const rawProjects = computed<CardItemType[]>(() =>
-  tm('components.containers.projects'),
-)
-
-const projects = reactive<Projects>({
+const projects: Projects = reactive({
   swisscom: computed<CardItemType[]>(() =>
-    rawProjects.value.map(proj => ({
-      ...proj,
-      title: rt(proj.title),
-      label: rt(proj.label),
-      description: rt(proj.description),
-      // If deeper text fields exist, also call rt(...) on them
-    })),
+    tm('components.containers.projects'),
   ),
   personal: [],
   school: [],
@@ -247,23 +236,16 @@ const updateCurrentIndex = (index: number) => {
   currentIndex.value = index
 }
 
-const rawSegmentNavItems = computed<ItemType[]>(() =>
-  tm('components.common.SegmentNav.projects'),
-)
-
-const segmentNavItems = computed<ItemType[]>(() =>
-  rawSegmentNavItems.value.map(item => ({
-    ...item,
-    label: rt(item.label),
-  })),
-)
-
 const currentProjects = computed(() => {
   const category
     = (route.query.category as keyof typeof projects)
     || Object.keys(projects)[currentIndex.value]
   return projects[category] || []
 }) as Ref<CardItemType[]>
+
+const segmentNavItems = computed<ItemType[]>(() =>
+  tm('components.common.SegmentNav.projects'),
+)
 
 const categorizeProject = (
   project: MinimalRepository,
@@ -326,8 +308,8 @@ watch(
 watchEffect(() => {
   projects.personal = []
   projects.school = []
-  const categorizedProjects = filteredProjects.value.map(pr =>
-    categorizeProject(pr),
+  const categorizedProjects = filteredProjects.value.map(project =>
+    categorizeProject(project),
   )
   for (const project of categorizedProjects) {
     const category = project.category as keyof Projects

@@ -64,8 +64,7 @@
 
 <script setup lang="ts">
 const error = useError()
-const { t, tm, rt } = useI18n()
-
+const { t, tm } = useI18n()
 const pages = {
   notFound: 404,
   internalServerError: 500,
@@ -85,21 +84,14 @@ const currentKey = computed(() => {
 const title = t(`pages.${currentKey.value}.title`, {
   statusCode: error.value?.statusCode,
 })
-
-const rawColors = computed<object>(() =>
+const colors = computed<object>(() =>
   tm(`pages.${currentKey.value}.icon.colors`),
 )
-
-const colors = computed<object>(() => {
-  return rawColors.value
-})
-
-const rawDescription = computed<string>(() =>
+const entireDescription = computed<string>(() =>
   tm(`pages.${currentKey.value}.description`),
 )
-
 const description = computed<string[]>(() =>
-  rt(rawDescription.value).split('. '),
+  entireDescription.value.split('. '),
 )
 </script>
 

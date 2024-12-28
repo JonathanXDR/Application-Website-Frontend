@@ -89,19 +89,10 @@
 <script setup lang="ts">
 import type { ItemType } from '#shared/types/common/item'
 
-const { tm, rt } = useI18n()
-
-const rawOptions = computed<ItemType[]>(() =>
+const { tm } = useI18n()
+const options = computed<ItemType[]>(() =>
   tm('components.common.FilterInput.sorts'),
 )
-
-const options = computed<ItemType[]>(() =>
-  rawOptions.value.map(opt => ({
-    ...opt,
-    label: rt(opt.label),
-  })),
-)
-
 const open = ref(false)
 
 const onFocus = () => {

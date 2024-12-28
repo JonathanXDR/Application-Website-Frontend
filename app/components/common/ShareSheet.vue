@@ -31,18 +31,9 @@ import type { ShareSheet } from '#shared/types/common/share-sheet'
 
 defineProps<ShareSheet>()
 
-const { tm, rt } = useI18n()
-
-const rawLinks = computed<FaLinkType[]>(() =>
-  tm('components.common.ShareSheet.links'),
-)
-
+const { tm } = useI18n()
 const links = computed<FaLinkType[]>(() =>
-  rawLinks.value.map(l => ({
-    ...l,
-    title: rt(l.title),
-    url: rt(l.url),
-  })),
+  tm('components.common.ShareSheet.links'),
 )
 </script>
 

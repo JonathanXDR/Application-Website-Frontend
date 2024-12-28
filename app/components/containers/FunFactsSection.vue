@@ -56,25 +56,25 @@ defineProps<{
 }>()
 
 const viewport = useViewport()
-const { tm, rt, locale } = useI18n()
+const { tm, locale } = useI18n()
 
 const chipClaimHeight = ref(0)
 const titleElements = ref<HTMLElement[]>([])
 const progressSpan = ref<HTMLElement[]>([])
-
-const rawFunFacts = computed<LanguageBarType[]>(() =>
+const funFacts = computed<LanguageBarType[]>(() =>
   tm('components.containers.funFacts'),
 )
 
-const funFacts = computed<LanguageBarType[]>(() =>
-  rawFunFacts.value.map(fact => ({
-    ...fact,
-    name: rt(fact.name),
-    description: rt(fact.description),
-  })),
-)
+const updateChipClaimHeight = () => {
+  nextTick(() => {
+    const maxHeight = Math.max(
+      ...titleElements.value.map(element => element.clientHeight),
+    )
+    chipClaimHeight.value = maxHeight
+  })
+}
 
-function animateNumber(index: number) {
+const animateNumber = (index: number) => {
   const span = progressSpan.value[index]
   if (!span) return
 
@@ -93,15 +93,6 @@ function animateNumber(index: number) {
       },
     },
   )
-}
-
-const updateChipClaimHeight = () => {
-  nextTick(() => {
-    const maxHeight = Math.max(
-      ...titleElements.value.map(element => element.clientHeight),
-    )
-    chipClaimHeight.value = maxHeight
-  })
 }
 
 onMounted(() => {
