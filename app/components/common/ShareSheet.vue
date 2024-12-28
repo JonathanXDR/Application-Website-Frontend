@@ -41,7 +41,7 @@ const links = computed<FaLinkType[]>(() =>
   rawLinks.value.map(l => ({
     ...l,
     title: rt(l.title),
-    url: rt(l.url ?? ''),
+    url: rt(l.url),
   })),
 )
 </script>

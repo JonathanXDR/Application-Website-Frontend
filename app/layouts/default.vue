@@ -51,12 +51,13 @@ const rawItems = computed<InfoBanner['items']>(() =>
 const items = computed<InfoBanner['items']>(() =>
   rawItems.value.map(banner => ({
     ...banner,
+    title: rt(banner.title),
     description: rt(banner.description),
     links:
       banner.links?.map(lk => ({
         ...lk,
-        title: rt(lk.title),
-        url: rt(lk.url ?? ''),
+        label: rt(lk.label),
+        url: rt(lk.url),
       })) ?? [],
   })),
 )

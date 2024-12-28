@@ -356,7 +356,7 @@ const updateBaseItems = () => {
                 previousTag,
               })
             : undefined,
-          title: rt(lnk.title),
+          label: rt(lnk.label),
         }),
       ),
   }))

@@ -240,7 +240,7 @@ const rawThemeItems = computed<ItemType[]>(() =>
 const themeItems = computed<ItemType[]>(() =>
   rawThemeItems.value.map(theme => ({
     ...theme,
-    label: rt(theme.label ?? ''),
+    label: rt(theme.label),
   })),
 )
 

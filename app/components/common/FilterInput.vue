@@ -98,7 +98,7 @@ const rawOptions = computed<ItemType[]>(() =>
 const options = computed<ItemType[]>(() =>
   rawOptions.value.map(opt => ({
     ...opt,
-    label: rt(opt.label ?? ''),
+    label: rt(opt.label),
   })),
 )
 

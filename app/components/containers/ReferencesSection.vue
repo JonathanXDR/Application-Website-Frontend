@@ -37,7 +37,8 @@ const articles = computed<CardItemType[]>(() =>
   rawArticles.value.map(art => ({
     ...art,
     title: rt(art.title),
-    description: rt(art.description ?? ''),
+    label: rt(art.label),
+    description: rt(art.description),
   })),
 )
 </script>

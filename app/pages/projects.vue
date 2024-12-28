@@ -213,7 +213,15 @@ const rawProjects = computed<CardItemType[]>(() =>
 )
 
 const projects = reactive<Projects>({
-  swisscom: [],
+  swisscom: computed<CardItemType[]>(() =>
+    rawProjects.value.map(proj => ({
+      ...proj,
+      title: rt(proj.title),
+      label: rt(proj.label),
+      description: rt(proj.description),
+      // If deeper text fields exist, also call rt(...) on them
+    })),
+  ),
   personal: [],
   school: [],
 })
@@ -221,7 +229,7 @@ const projects = reactive<Projects>({
 const allProjects = computed(() => userRepositories.value || [])
 const filteredProjects = computed(() =>
   allProjects.value.filter(
-    (project: MinimalRepository) =>
+    project =>
       !pinned.value.some(
         pinnedProject => pinnedProject.name === project.name,
       ),
@@ -246,7 +254,7 @@ const rawSegmentNavItems = computed<ItemType[]>(() =>
 const segmentNavItems = computed<ItemType[]>(() =>
   rawSegmentNavItems.value.map(item => ({
     ...item,
-    label: rt(item.label ?? ''),
+    label: rt(item.label),
   })),
 )
 
@@ -281,14 +289,6 @@ useEventListener(window, 'resize', updateUlHeightAndInitializePath)
 
 onMounted(() => {
   updateUlHeightAndInitializePath()
-})
-
-watchEffect(() => {
-  projects.swisscom = rawProjects.value.map(proj => ({
-    ...proj,
-    title: rt(proj.title ?? ''),
-    description: rt(proj.description ?? ''),
-  }))
 })
 
 watch(
@@ -326,8 +326,8 @@ watch(
 watchEffect(() => {
   projects.personal = []
   projects.school = []
-  const categorizedProjects = filteredProjects.value.map(
-    (pr: MinimalRepository) => categorizeProject(pr),
+  const categorizedProjects = filteredProjects.value.map(pr =>
+    categorizeProject(pr),
   )
   for (const project of categorizedProjects) {
     const category = project.category as keyof Projects

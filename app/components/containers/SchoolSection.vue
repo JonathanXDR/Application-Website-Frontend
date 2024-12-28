@@ -46,7 +46,8 @@ const cards = computed<CardItemType[]>(() =>
   rawCards.value.map(c => ({
     ...c,
     title: rt(c.title),
-    description: rt(c.description ?? ''),
+    label: rt(c.label),
+    description: rt(c.description),
   })),
 )
 </script>
