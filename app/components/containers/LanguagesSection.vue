@@ -39,8 +39,8 @@ const rawLanguages = computed<LanguageBarType[]>(() =>
 const languages = computed<LanguageBarType[]>(() =>
   rawLanguages.value.map(lang => ({
     ...lang,
-    label: rt(lang.label),
-    description: rt(lang.description),
+    title: rt(lang.title),
+    description: rt(lang.description ?? ''),
   })),
 )
 </script>

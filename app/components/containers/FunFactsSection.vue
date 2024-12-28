@@ -69,8 +69,8 @@ const rawFunFacts = computed<LanguageBarType[]>(() =>
 const funFacts = computed<LanguageBarType[]>(() =>
   rawFunFacts.value.map(fact => ({
     ...fact,
-    name: rt(fact.name),
-    description: rt(fact.description),
+    title: rt(fact.title),
+    description: rt(fact.description ?? ''),
   })),
 )
 
