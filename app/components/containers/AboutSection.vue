@@ -80,7 +80,7 @@ const calculateYears = (date: string) => {
   return years
 }
 
-onMounted(async () => {
+onMounted(() => {
   for (const item of dateItems.value) {
     if (item.key in dates.value) {
       dates.value[item.key as keyof typeof dates.value] = calculateYears(

@@ -29,10 +29,19 @@ defineProps<{
   title: string
 }>()
 
-const { tm } = useI18n()
+const { tm, rt } = useI18n()
 const viewport = useViewport()
-const languages = computed<LanguageBarType[]>(() =>
+
+const rawLanguages = computed<LanguageBarType[]>(() =>
   tm('components.containers.languages'),
+)
+
+const languages = computed<LanguageBarType[]>(() =>
+  rawLanguages.value.map(lang => ({
+    ...lang,
+    label: rt(lang.label),
+    description: rt(lang.description),
+  })),
 )
 </script>
 

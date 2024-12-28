@@ -33,7 +33,7 @@ const { state, setState } = useNavbar()
 const { randomDevColor } = useColor()
 const route = useRoute()
 const { currentSection } = useSection()
-const { locale, tm } = useI18n()
+const { locale, tm, rt } = useI18n()
 const { y, isScrolling } = useScroll(window)
 const error = useError()
 const config = useRuntimeConfig()
@@ -44,8 +44,22 @@ const lastScrollY = ref(0)
 const shouldHideNavBar = useState<boolean>('shouldHideNavBar', () => false)
 const autoHideNavBar = ref(false)
 
-const items = computed<InfoBanner['items']>(() =>
+const rawItems = computed<InfoBanner['items']>(() =>
   tm('components.common.InfoBanner'),
+)
+
+const items = computed<InfoBanner['items']>(() =>
+  rawItems.value.map(banner => ({
+    ...banner,
+    title: rt(banner.title),
+    description: rt(banner.description),
+    links:
+      banner.links?.map(lk => ({
+        ...lk,
+        label: rt(lk.label),
+        url: rt(lk.url),
+      })) ?? [],
+  })),
 )
 
 const faviconColor = randomDevColor.value?.hex

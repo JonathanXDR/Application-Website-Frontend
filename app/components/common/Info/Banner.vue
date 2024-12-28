@@ -161,10 +161,10 @@ const isVisible = ref(false)
 const isAnimating = ref(false)
 const initialAnimationPlayed = ref(false)
 
-const tags = ref<{
-  latest: string | undefined
-  previous: string | undefined
-}>({ latest: undefined, previous: undefined })
+const tags = ref<{ latest: string | undefined, previous: string | undefined }>({
+  latest: undefined,
+  previous: undefined,
+})
 
 const baseItems = ref<{ description: string, links: LinkType[] }[]>([])
 
@@ -347,14 +347,16 @@ const updateBaseItems = () => {
     links:
       item.links
       && (tm(`components.common.InfoBanner[${index}].links`) as LinkType[]).map(
-        link => ({
-          ...link,
-          url: link.url
-            ? rt(link.url, {
+        lnk => ({
+          ...lnk,
+
+          url: lnk.url
+            ? rt(lnk.url, {
                 latestTag,
                 previousTag,
               })
             : undefined,
+          label: rt(lnk.label),
         }),
       ),
   }))

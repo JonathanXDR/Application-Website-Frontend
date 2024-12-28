@@ -71,20 +71,20 @@ definePageMeta({
 
 const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
 
-const { tm } = useI18n()
-const cards = computed<CardItemType[]>(() =>
+const { tm, rt } = useI18n()
+
+const rawCards = computed<CardItemType[]>(() =>
   tm('components.containers.technologies'),
 )
 
-// const segmentNavItems = computed<ItemType[]>(() =>
-//   tm("components.common.SegmentNav.technologies"),
-// );
-// const { windowWidth } = useWidth();
-// const currentIndex = ref(0);
-
-// const updateCurrentIndex = (index: number) => {
-//   currentIndex.value = index;
-// };
+const cards = computed<CardItemType[]>(() =>
+  rawCards.value.map(card => ({
+    ...card,
+    title: rt(card.title),
+    label: rt(card.label),
+    description: rt(card.description),
+  })),
+)
 </script>
 
 <style scoped>

@@ -27,9 +27,18 @@ defineProps<{
 }>()
 
 const viewport = useViewport()
-const { tm } = useI18n()
+const { tm, rt } = useI18n()
+
+const rawArticles = computed<CardItemType[]>(() =>
+  tm('components.containers.references'),
+)
 
 const articles = computed<CardItemType[]>(() =>
-  tm('components.containers.references'),
+  rawArticles.value.map(art => ({
+    ...art,
+    title: rt(art.title),
+    label: rt(art.label),
+    description: rt(art.description),
+  })),
 )
 </script>
