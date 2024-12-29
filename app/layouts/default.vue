@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 import { SpeedInsights } from '@vercel/speed-insights/vue'
-import type { InfoBanner } from '#shared/types/common/rotating-banner'
+import type { InfoBanner } from '#shared/types/common/info-banner'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterFull from '~/components/common/Footer/Full.vue'
 

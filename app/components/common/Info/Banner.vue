@@ -14,7 +14,9 @@
             <div class="column large-12 small-12 large-centered">
               <div
                 class="rc-ribbon-content"
-                :class="{ 'with-paddlenav': paddleNav }"
+                :class="{
+                  'with-paddlenav': baseItems.length > 1 && paddleNav,
+                }"
               >
                 <div
                   class="rc-inline-gallery rc-ribbon-content-autoscroll"
@@ -42,7 +44,9 @@
                         :id="gallery.id"
                         :key="`${gallery.id}-${state.sequence}-${state.activeItem}`"
                         data-core-gallery-item="true"
-                        :aria-hidden="!gallery.isActive"
+                        :aria-hidden="
+                          baseItems.length > 1 ? !gallery.isActive : false
+                        "
                         class="rc-ribbon-gallery-item rc-inline-gallery-item"
                       >
                         <div
@@ -53,7 +57,7 @@
                           ]"
                         >
                           <template v-if="gallery.item && !loading">
-                            {{ gallery.item.description + "&ensp;" }}
+                            {{ gallery.item.description }}&ensp;
                           </template>
                           <template v-else>
                             <LoadingSkeleton
@@ -63,7 +67,7 @@
                           </template>
 
                           <LinkCollection
-                            v-if="gallery.item && gallery.item.links.length > 0"
+                            v-if="gallery.item?.links"
                             class="ribbon-link"
                             :loading="loading"
                             :links="gallery.item.links"
@@ -156,7 +160,6 @@ const state = ref<GalleryState>({
   direction: 'neutral',
   pendingUpdate: null,
 })
-
 const isVisible = ref(false)
 const isAnimating = ref(false)
 const initialAnimationPlayed = ref(false)
@@ -166,7 +169,7 @@ const tags = ref<{
   previous: string | undefined
 }>({ latest: undefined, previous: undefined })
 
-const baseItems = ref<{ description: string, links: LinkType[] }[]>([])
+const baseItems = ref<Array<{ description: string, links: LinkType[] }>>([])
 
 let autoScrollInterval: ReturnType<typeof setInterval> | null = null
 let restartTimeout: ReturnType<typeof setTimeout> | null = null
@@ -182,48 +185,60 @@ const { data: repositoryTags } = await useFetch('/api/github/repository-tags', {
   getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
 })
 
-const totalWidth = computed(() => `${baseItems.value.length * 100}%`)
-const insetStart = computed(() => `-100%`)
-
 const transformValue = computed(() => {
-  if (!isAnimating.value) {
-    return 'translateX(0)'
-  }
+  if (baseItems.value.length < 2) return 'none'
+
+  if (!isAnimating.value) return 'translateX(0)'
+  const shift = 100 / 3
+
   switch (state.value.direction) {
     case 'right':
-      return 'translateX(33.333%)'
+      return `translateX(${shift}%)`
     case 'left':
-      return 'translateX(-33.333%)'
+      return `translateX(-${shift}%)`
     default:
       return 'translateX(0)'
   }
 })
 
 const galleryStyle = computed(() => {
-  const base: Record<string, string> = {
-    'width': totalWidth.value,
-    'inset-inline-start': insetStart.value,
+  if (baseItems.value.length < 2) {
+    return {
+      justifyContent: 'center',
+      gap: '16px',
+    }
+  }
+
+  return {
+    'width': `${3 * 100}%`,
+    'inset-inline-start': '-100%',
     'transform': transformValue.value,
     'transition': isAnimating.value
       ? `transform ${props.transitionDuration}ms`
       : 'none',
   }
-
-  if (baseItems.value.length <= 2) {
-    base['justify-content'] = 'center'
-    base.gap = '16px'
-  }
-  return base
 })
 
 const calculateGalleryItems = () => {
   const items = baseItems.value
-  const count = Math.min(items.length, 3)
-  const mid = Math.floor(count / 2)
+  const length = items.length
+  if (!length) return []
 
-  return Array.from({ length: count }, (_, pos) => {
-    const index
-      = (state.value.activeItem + (pos - mid) + items.length) % items.length
+  if (length === 1) {
+    return [
+      {
+        id: 'ribbon_0',
+        item: items[0],
+        itemIndex: 0,
+        position: 0,
+        isActive: true,
+      },
+    ]
+  }
+
+  const mid = 1
+  return Array.from({ length: 3 }, (_, pos) => {
+    const index = (state.value.activeItem + (pos - mid) + length) % length
     return {
       id: `ribbon_${index}_${pos}`,
       item: items[index],
@@ -237,7 +252,7 @@ const calculateGalleryItems = () => {
 const galleryItems = computed(() => calculateGalleryItems())
 
 const next = () => {
-  if (isAnimating.value || props.loading) return
+  if (baseItems.value.length < 2 || isAnimating.value || props.loading) return
   isAnimating.value = true
 
   const stepSize = props.step
@@ -255,7 +270,7 @@ const next = () => {
 }
 
 const previous = () => {
-  if (isAnimating.value || props.loading) return
+  if (baseItems.value.length < 2 || isAnimating.value || props.loading) return
   isAnimating.value = true
 
   const stepSize = props.step
@@ -291,10 +306,9 @@ const handleTransitionEnd = () => {
   })
 }
 
+/** Auto-scroll logic. */
 const startAutoScroll = () => {
-  if (baseItems.value.length <= 1) return
-  if (!props.autoScroll || props.loading) return
-
+  if (baseItems.value.length < 2 || !props.autoScroll || props.loading) return
   stopAutoScroll()
   autoScrollInterval = setInterval(() => {
     next()
@@ -332,9 +346,9 @@ const onMouseLeaveOrBlur = () => {
   scheduleAutoScrollRestart()
 }
 
+/** Once we have the tags, build the base items. */
 const updateBaseItems = () => {
   const { latest: latestTag, previous: previousTag } = tags.value
-
   if (!latestTag || !previousTag) return
 
   baseItems.value = props.items.map((item, index) => ({
@@ -349,12 +363,7 @@ const updateBaseItems = () => {
       && (tm(`components.common.InfoBanner[${index}].links`) as LinkType[]).map(
         link => ({
           ...link,
-          url: link.url
-            ? rt(link.url, {
-                latestTag,
-                previousTag,
-              })
-            : undefined,
+          url: link.url ? rt(link.url, { latestTag, previousTag }) : undefined,
         }),
       ),
   }))
@@ -395,7 +404,7 @@ watch(
 watch(
   repositoryTags,
   (tagsNew) => {
-    if (tagsNew && tagsNew.length >= 2) {
+    if (tagsNew) {
       tags.value = {
         latest: tagsNew[0]?.name,
         previous: tagsNew[1]?.name,
