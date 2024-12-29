@@ -20,6 +20,12 @@
         style="opacity: 1; transform: none"
       >
         <em class="">Hey there, I'm Jonathan :)</em>
+        <HyperText
+          as="h2"
+          class="mt-2"
+          text="I'm a software engineer at Swisscom."
+          :duration="1200"
+        />
       </h1>
       <div
         class="hero-description"
@@ -39,7 +45,8 @@
         onEnter: () => (show = true),
       }"
       :show="show"
-      class="p-6"
+      component-size="large"
+      class="p-32"
       animation
     />
   </section>
@@ -66,17 +73,17 @@ const show = ref(false)
 }
 /*! CSS Used from: https://security.apple.com/_next/static/css/87e47c498c059d9c.css */
 .hero {
-  padding-bottom: 60px;
+  padding-bottom: 240px;
   overflow: hidden;
 }
 @media only screen and (min-width: 768px) {
   .hero {
-    padding-bottom: 70px;
+    padding-bottom: 280px;
   }
 }
 @media only screen and (min-width: 1024px) {
   .hero {
-    padding-bottom: 75px;
+    padding-bottom: 296px;
   }
 }
 .hero .hero-content {
