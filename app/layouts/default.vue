@@ -41,8 +41,8 @@ const config = useRuntimeConfig()
 const rotatingBannerElement = ref<HTMLElement | undefined>(undefined)
 const { height: rotatingBannerHeight } = useElementSize(rotatingBannerElement)
 const lastScrollY = ref(0)
-const shouldHideNavBar = useState<boolean>('shouldHideNavBar', () => false)
-const autoHideNavBar = ref(false)
+const shouldHideNavbar = useState<boolean>('shouldHideNavbar', () => false)
+const autoHideNavbar = ref(true)
 
 const items = computed<InfoBanner['items']>(() =>
   tm('components.common.InfoBanner'),
@@ -66,7 +66,7 @@ onMounted(async () => {
 watch([y, isScrolling], ([yNew, isScrollingNew]) => {
   if (!isScrollingNew) return
 
-  shouldHideNavBar.value = autoHideNavBar.value
+  shouldHideNavbar.value = autoHideNavbar.value
     ? yNew > lastScrollY.value
     : false
   lastScrollY.value = yNew
@@ -75,8 +75,8 @@ watch([y, isScrolling], ([yNew, isScrollingNew]) => {
 const shouldApplyHideLocalnav = computed(() => {
   return (
     y.value > rotatingBannerHeight.value
-    && shouldHideNavBar.value
-    && autoHideNavBar.value
+    && shouldHideNavbar.value
+    && autoHideNavbar.value
   )
 })
 
@@ -117,7 +117,7 @@ watchEffect(() => {
 watch(
   () => [
     y.value < rotatingBannerHeight.value || state.value.extensionAttached,
-    autoHideNavBar.value,
+    autoHideNavbar.value,
   ],
   ([border, autoHide]) => {
     setState({
