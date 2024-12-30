@@ -23,8 +23,9 @@ const { state: navbarState, setState } = useNavbar()
 const shouldHideNavbar = useState<boolean>('shouldHideNavbar', () => false)
 
 const stickyWrapper = ref<HTMLElement | null>(null)
-const initialOffset = ref<number | null>(null)
+const originalOffset = ref<number | null>(null)
 const isSticky = ref(false)
+const isInitialized = ref(false)
 
 const navbarHeight = computed(() =>
   viewport.isLessThan('tablet').value ? 48 : 52,
@@ -45,32 +46,58 @@ const containerStyle = computed(() => {
   return styles
 })
 
-const updateInitialOffset = () => {
-  if (stickyWrapper.value) {
-    initialOffset.value = stickyWrapper.value.offsetTop
-  }
+const calculateOriginalOffset = (): void => {
+  if (!stickyWrapper.value || isInitialized.value) return
+
+  const currentScroll = window.scrollY
+  window.scrollTo(0, 0)
+
+  originalOffset.value
+    = stickyWrapper.value.getBoundingClientRect().top + window.scrollY
+  isInitialized.value = true
+
+  window.scrollTo(0, currentScroll)
 }
 
-const handleScroll = () => {
-  if (initialOffset.value === null) return
+const updateStickiness = (): void => {
+  if (originalOffset.value === null) return
 
   const currentScroll = window.scrollY
   const triggerPoint
-    = initialOffset.value - (shouldHideNavbar.value ? 0 : navbarHeight.value)
+    = originalOffset.value - (shouldHideNavbar.value ? 0 : navbarHeight.value)
 
-  isSticky.value = currentScroll >= triggerPoint
-  setState({ extensionAttached: isSticky.value })
+  const newIsSticky = currentScroll >= triggerPoint
+  if (newIsSticky !== isSticky.value) {
+    isSticky.value = newIsSticky
+    setState({ extensionAttached: newIsSticky })
+  }
 }
 
 onMounted(() => {
-  updateInitialOffset()
-  handleScroll()
-  useEventListener(window, 'scroll', handleScroll, { passive: true })
+  nextTick(() => {
+    calculateOriginalOffset()
+    updateStickiness()
+    useEventListener(window, 'scroll', updateStickiness, { passive: true })
+  })
 })
 
-watch(navbarHeight, () => {
-  updateInitialOffset()
+watch([navbarHeight, shouldHideNavbar], () => {
+  if (!isInitialized.value) {
+    calculateOriginalOffset()
+  }
+  updateStickiness()
 })
+
+useEventListener(
+  window,
+  'resize',
+  () => {
+    isInitialized.value = false
+    calculateOriginalOffset()
+    updateStickiness()
+  },
+  { passive: true },
+)
 </script>
 
 <style scoped>
