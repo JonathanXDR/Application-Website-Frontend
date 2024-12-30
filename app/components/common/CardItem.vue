@@ -65,7 +65,7 @@
           v-else
           v-bind="icon"
           :loading="loading"
-          :class="`icon icon-${icon.name && sfSymbolRegex.test(icon.name) ? iconSize : iconLogoSize}`"
+          :class="`mt-[3px] icon icon-${icon.name && sfSymbolRegex.test(icon.name) ? iconSize : iconLogoSize}`"
           :style="{
             color: icon.colors?.primary,
           }"

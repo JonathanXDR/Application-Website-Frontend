@@ -18,13 +18,13 @@
 </template>
 
 <script setup lang="ts">
-const stickyWrapper = ref<HTMLElement | null>(null)
-const initialOffset = ref<number | null>(null)
-const isSticky = ref(false)
-
 const viewport = useViewport()
 const { state: navbarState, setState } = useNavbar()
 const shouldHideNavbar = useState<boolean>('shouldHideNavbar', () => false)
+
+const stickyWrapper = ref<HTMLElement | null>(null)
+const initialOffset = ref<number | null>(null)
+const isSticky = ref(false)
 
 const navbarHeight = computed(() =>
   viewport.isLessThan('tablet').value ? 48 : 52,
