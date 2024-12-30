@@ -11,6 +11,12 @@ const state = reactive<NavbarType>({
 export const useNavbar = () => {
   const setState = (stateNew: Partial<NavbarType>) => {
     Object.assign(state, stateNew)
+    if (stateNew.extensionAttached !== undefined) {
+      const triggerPoint = stateNew.extensionAttached
+        ? stateNew.extensionAttached
+        : state.extensionAttached
+      state.extensionAttached = triggerPoint
+    }
   }
 
   return {

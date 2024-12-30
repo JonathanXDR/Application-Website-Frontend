@@ -48,6 +48,9 @@ const containerStyle = computed(() => {
 const updateInitialOffset = () => {
   if (stickyWrapper.value) {
     initialOffset.value = stickyWrapper.value.offsetTop
+    if (navbarState.extensionAttached) {
+      initialOffset.value += navbarHeight.value
+    }
   }
 }
 
