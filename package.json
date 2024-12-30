@@ -4,21 +4,19 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --dotenv .env.local",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview --dotenv .env.production",
-    "postinstall": "nuxt prepare",
-    "check:types": "vue-tsc --noEmit",
+    "check:build": "sh ./scripts/check-build.sh",
     "check:commits": "sh ./scripts/check-commits.sh",
+    "check:types": "vue-tsc --noEmit",
+    "cleanup:icons": "sh ./scripts/cleanup-icons.sh",
+    "dev": "nuxt dev --dotenv .env.local",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
+    "generate": "nuxt generate",
     "lint": "eslint --flag unstable_ts_config .",
     "lint:fix": "eslint --flag unstable_ts_config --fix .",
+    "postinstall": "nuxt prepare",
     "prepare": "husky",
-    "icon:cleanup-svgs": "sh ./scripts/icon-cleanup-svgs.sh",
-    "icon:generate-sprite": "sh ./scripts/icon-generate-sprite.sh",
-    "component:merge": "sh ./scripts/component-merge.sh",
-    "build:trigger": "sh ./scripts/build-trigger.sh"
+    "preview": "nuxt preview --dotenv .env.production"
   },
   "devDependencies": {
     "@iconify-json/fa6-brands": "^1.2.5",
