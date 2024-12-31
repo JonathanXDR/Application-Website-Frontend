@@ -757,14 +757,14 @@
   --color-switch-track-disabled-bg: #21262d;
   --color-switch-track-fg: #848d97;
   --color-switch-track-disabled-fg: #010409;
-  --color-switch-track-border: transparent --color-switch-track-checked-bg:
-    rgba(31, 111, 235, 0.35);
+  --color-switch-track-border: transparent
+    --color-switch-track-checked-bg: rgba(31, 111, 235, 0.35);
   --color-switch-track-checked-hover-bg: rgba(31, 111, 235, 0.5);
   --color-switch-track-checked-active-bg: rgba(31, 111, 235, 0.65);
   --color-switch-track-checked-fg: #ffffff;
   --color-switch-track-checked-disabled-fg: #010409;
-  --color-switch-track-checked-border: transparent --color-switch-knob-bg:
-    #0d1117;
+  --color-switch-track-checked-border: transparent
+    --color-switch-knob-bg: #0d1117;
   --color-switch-knob-border: #606771;
   --color-switch-knob-disabled-bg: #161b22;
   --color-switch-knob-checked-bg: #0d1117;

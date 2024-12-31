@@ -253,7 +253,10 @@ useResizeObserver(navContainer, () => {
   pointer-events: all;
 }
 .viewer-sizenav__bubble {
-  --abs-calc: max(var(--bubble-hint-position), -1 * var(--bubble-hint-position)) /
+  --abs-calc: max(
+      var(--bubble-hint-position),
+      -1 * var(--bubble-hint-position)
+    ) /
     10;
   border-radius: 28px;
   box-sizing: border-box;
