@@ -1374,7 +1374,7 @@
           "links": [
             {
               "title": "Mehr erfahren",
-              "url": "https://kotlinlang.org",
+              "url": "https://developer.android.com/compose",
               "icon": {
                 "name": "chevron.right"
               }
@@ -1417,7 +1417,7 @@
           "links": [
             {
               "title": "Mehr erfahren",
-              "url": "https://kotlinlang.org",
+              "url": "https://m3.material.io",
               "icon": {
                 "name": "chevron.right"
               }
@@ -1457,7 +1457,7 @@
           "links": [
             {
               "title": "Mehr erfahren",
-              "url": "https://nextjs.org",
+              "url": "https://nuxt.com",
               "icon": {
                 "name": "chevron.right"
               }
