@@ -1,46 +1,51 @@
 <script setup lang="ts">
-// import { useOgImageRuntimeConfig } from '#nuxt-og-image-utils'
+/**
+ * @credits Nuxt SEO <https://nuxtseo.com/>
+ */
 
+import { computed, defineComponent, h, resolveComponent } from 'vue'
+import { useOgImageRuntimeConfig } from '#og-image/shared'
+
+// convert to typescript props
 const props = withDefaults(
   defineProps<{
+    colorMode?: 'dark' | 'light'
+    headline?: string
     title?: string
     description?: string
-    headline?: string
-    colorMode?: 'dark' | 'light'
     icon?: string | boolean
     siteName?: string
     siteLogo?: string
     theme?: string
   }>(),
   {
+    theme: '#00dc82',
+    headline: 'headline',
     title: 'title',
     description: 'description',
-    headline: 'headline',
-    theme: '#00dc82',
   },
 )
 
 const HexRegex = /^#(?:[0-9a-f]{3}){1,2}$/i
 
-// const runtimeConfig = useOgImageRuntimeConfig()
+const runtimeConfig = useOgImageRuntimeConfig()
 
 const colorMode = computed(() => {
-  return (
-    props.colorMode
-    // || runtimeConfig.colorPreference
-    || 'light'
-  )
+  return props.colorMode || runtimeConfig.colorPreference || 'light'
 })
 
 const themeHex = computed(() => {
+  // regex test if valid hex
   if (HexRegex.test(props.theme)) {
     return props.theme
   }
 
+  // if it's hex without the hash, just add the hash
   if (HexRegex.test(`#${props.theme}`)) {
     return `#${props.theme}`
   }
 
+  // if it's rgb or rgba, we convert it to hex
   if (props.theme.startsWith('rgb')) {
     const rgb = props.theme
       .replace('rgb(', '')
@@ -60,6 +65,7 @@ const themeHex = computed(() => {
 })
 
 // const themeRgb = computed(() => {
+//   // we want to convert it so it's just `<red>, <green>, <blue>` (255, 255, 255)
 //   return themeHex.value
 //     .replace('#', '')
 //     .match(/.{1,2}/g)
@@ -75,17 +81,16 @@ const themeHex = computed(() => {
 //   return props.siteLogo || siteConfig.logo
 // })
 
-const IconComponent
-  // runtimeConfig.hasNuxtIcon ?
-  = resolveComponent('NuxtIcon')
-// : defineComponent({
-//     render() {
-//       return h('div', 'missing @nuxt/icon')
-//     },
-//   })
+const IconComponent = runtimeConfig.hasNuxtIcon
+  ? resolveComponent('Icon')
+  : defineComponent({
+      render() {
+        return h('div', 'missing @nuxt/icon')
+      },
+    })
 if (
   typeof props.icon === 'string'
-  // !runtimeConfig.hasNuxtIcon &&
+  && !runtimeConfig.hasNuxtIcon
   && import.meta.dev
 ) {
   console.warn(
@@ -93,9 +98,8 @@ if (
   )
 
   console.log('\nnpx nuxi module add icon\n')
+  // create simple div renderer component
 }
-
-const title = computed(() => props.title.slice(0, 60))
 </script>
 
 <template>
