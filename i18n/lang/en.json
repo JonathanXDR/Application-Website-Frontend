@@ -250,7 +250,7 @@
       "about": {
         "eyebrow": "Hey ;)",
         "title": "I'm  Jonathan",
-        "description": "Hello, my name is Jonathan and I'm {age} years old. I'm currently in my {apprenticeshipYear}. year of my apprenticeship as a computer scientist - application development. I live in Egg near Einsiedeln in the canton of Schwyz. I'm fascinated by programming and find it exciting what you can achieve with it. In my free time, I like to play computer and console games and often meet up with friends. I also listen to music a lot and sometimes produce it myself.",
+        "description": "I'm {age} years old and from Switzerland.\nFrom an early age, I was fascinated by computers, and this passion has stayed with me ever since. My first steps into programming were through Minecraft Commands and Command Blocks, which sparked my fascination for the world of software development.\nCurrently, I'm in my {apprenticeshipYear} year of apprenticeship as a software engineer and I work in a field that is constantly evolving and full of new challenges. I find it fascinating what can be achieved with code. From complex applications to innovative approaches. The nearly unlimited possibilities excite me, and I especially love bringing creative projects to life in the digital world.\nWhen I'm not coding, I enjoy playing computer and console games or spending time with my friends. Music often accompanies me throughout the day and is an important part of my life too.",
         "dates": [
           {
             "title": "Years",

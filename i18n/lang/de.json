@@ -256,7 +256,7 @@
     "containers": {
       "about": {
         "title": "About Me",
-        "description": "Hallo mein Name ist Jonathan und ich bin {age} Jahre alt. Aktuell bin ich im {apprenticeshipYear}. Lehrjahr als Informatiker - Applikationsentwicklung. Ich wohne in Egg bei Einsiedeln im Kanton Schwyz. Das Programmieren fasziniert mich sehr und ich finde es spannend, was man damit alles erreichen kann. In meiner Freizeit spiele ich gerne Computer -und Konsolenspiele und treffe mich oft mit Freunden. Ausserdem höre ich häufig Musik und produziere sie auch manchmal selbst.",
+        "description": "Hey, ich bin Jonathan! Ich bin {age} Jahre alt und komme aus der Schweiz.\nSchon früh war ich von Computern begeistert, und diese Leidenschaft begleitet mich bis heute. Mein erster Einstieg ins Programmieren begann mit Minecraft Commands und Command-Blöcken, was meine Faszination für die Welt der Softwareentwicklung geweckt hat.\nAktuell bin ich im {apprenticeshipYear}. Lehrjahr meiner Ausbildung zum Applikationsentwickler. Ich arbeite in einem Bereich, der sich ständig weiterentwickelt und immer neue Herausforderungen bietet. Ich finde es faszinierend, was man mit Code alles erreichen kann. Egal, ob komplexe Anwendungen oder innovative Ansätze. Die nahezu unbegrenzten Möglichkeiten begeistern mich. Besonders liebe ich es, kreative Projekte zu realisieren und Ideen in der digitalen Welt zum Leben zu erwecken.\nWenn ich nicht gerade programmiere, spiele ich gerne Computer- und Konsolenspiele oder verbringe Zeit mit meinen Freunden. Musik begleitet mich oft durch den Tag und ist ein wichtiger Teil meines Lebens.",
         "dates": [
           {
             "title": "Jahre",
