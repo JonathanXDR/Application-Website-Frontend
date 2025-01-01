@@ -232,7 +232,7 @@
       "about": {
         "eyebrow": "Hey ;)",
         "title": "Sono Jonathan",
-        "description": "Ciao, mi chiamo Jonathan e ho {age} anni. Attualmente sto frequentando il mio {apprenticeshipYear} di apprendistato come informatico - sviluppo applicazioni. Vivo a Egg, vicino a Einsiedeln, nel cantone di Svitto. Sono affascinata dalla programmazione e trovo entusiasmante ciò che si può ottenere con essa. Nel tempo libero mi piace giocare al computer e alle console e spesso mi incontro con gli amici. Ascolto anche molta musica e a volte la produco io stesso.",
+        "description": "Ho {age} anni e vengo dalla Svizzera.\nSin da piccolo sono stato affascinato dai computer, e questa passione mi accompagna ancora oggi. I miei primi passi nella programmazione sono stati con i comandi e i blocchi comandi di Minecraft – un'esperienza che ha acceso la mia curiosità per il mondo dello sviluppo software.\nAttualmente sono al {apprenticeshipYear} anno della mia formazione come sviluppatore di applicazioni. Lavoro in un settore in continua evoluzione, ricco di sfide sempre nuove. Trovo affascinante ciò che si può ottenere con il codice – dalle applicazioni complesse agli approcci innovativi. Le possibilità quasi illimitate mi entusiasmano, e amo in particolare realizzare progetti creativi e dare vita alle idee nel mondo digitale.\nQuando non programmo, mi piace giocare a videogiochi per computer e console o passare del tempo con i miei amici. La musica mi accompagna spesso durante la giornata ed è una parte importante della mia vita.",
         "dates": [
           {
             "title": "Anni",
