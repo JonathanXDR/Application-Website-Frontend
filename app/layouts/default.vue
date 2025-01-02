@@ -101,16 +101,16 @@ watchEffect(() => {
         href: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
       },
     ],
-    meta: [
-      {
-        property: 'twitter:image',
-        content: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
-      },
-      {
-        property: 'og:image',
-        content: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
-      },
-    ],
+    // meta: [
+    //   {
+    //     property: 'twitter:image',
+    //     content: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
+    //   },
+    //   {
+    //     property: 'og:image',
+    //     content: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
+    //   },
+    // ],
   })
 })
 
