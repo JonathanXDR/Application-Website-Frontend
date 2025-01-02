@@ -23,9 +23,12 @@
           src="/img/portrait.jpg"
           alt="Portrait"
           class="portrait"
-          width="3696"
-          height="3696"
+          width="320"
+          height="320"
           layout="responsive"
+          fit="cover"
+          placeholder
+          :nonce="nonce"
         />
       </foreignObject>
     </svg>
@@ -61,6 +64,7 @@ defineProps<{
   title: string
 }>()
 
+const nonce = useNonce()
 const viewport = useViewport()
 const { t, tm } = useI18n()
 const dateItems = computed<DateItemType[]>(() =>

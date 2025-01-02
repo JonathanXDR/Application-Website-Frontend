@@ -1,3 +1,5 @@
+import { definePerson } from 'nuxt-schema-org/schema'
+
 export default defineNuxtConfig({
   modules: [
     '@nuxt/scripts',
@@ -111,13 +113,13 @@ export default defineNuxtConfig({
       link: [{ rel: 'apple-touch-icon', href: process.env.SITE_LOGO }],
       meta: [
         { name: 'title', content: process.env.SITE_NAME },
-        { property: 'og:image', content: process.env.SITE_LOGO },
+        // { property: 'og:image', content: process.env.SITE_LOGO },
         { property: 'og:title', content: process.env.SITE_NAME },
         { property: 'og:url', content: process.env.SITE_URL },
-        {
-          property: 'twitter:image',
-          content: process.env.SITE_LOGO,
-        },
+        // {
+        //   property: 'twitter:image',
+        //   content: process.env.SITE_LOGO,
+        // },
         { property: 'twitter:card', content: 'summary_large_image' },
         { property: 'twitter:title', content: process.env.SITE_NAME },
       ],
@@ -263,6 +265,7 @@ export default defineNuxtConfig({
     ],
   },
   image: {
+    provider: 'vercel',
     screens: {
       '2xs': 320,
       'xs': 475,
@@ -277,20 +280,34 @@ export default defineNuxtConfig({
     disallow: ['/de/**', '/en/**', '/fr/**', '/it/**'],
   },
   schemaOrg: {
-    identity: {
-      type: 'Person',
-      name: process.env.SITE_NAME || 'Jonathan Russ',
+    identity: definePerson({
+      name: 'Jonathan Elias Russ',
+      givenName: 'Jonathan',
+      familyName: 'Russ',
+      additionalName: 'Elias',
+
+      image: `${process.env.SITE_URL}/img/portrait.jpg`,
+      description: 'Software Engineer, Musician, and Creator',
+      jobTitle: 'Software Engineer',
+
+      email: 'contact@jonathan-russ.com',
       url: process.env.SITE_URL,
       logo: process.env.SITE_LOGO,
       sameAs: [
         'https://x.com/JonathanXD12_',
         'https://github.com/JonathanXDR',
-        'https://www.linkedin.com/in/jonathan-russ-swisscom/',
-        'https://www.instagram.com/jonathan_russ_/',
+        'https://linkedin.com/in/jonathan-russ-b7442a228',
+        'https://www.instagram.com/jonathan_russ_',
         'https://www.threads.net/jonathan_russ_',
-        'https://www.reddit.com/user/JonathanXD12/',
+        'https://www.reddit.com/user/JonathanXD12',
       ],
-    },
+
+      worksFor: {
+        '@type': 'Organization',
+        'name': 'Swisscom',
+        'url': 'https://www.swisscom.ch',
+      },
+    }),
   },
   scripts: {
     defaultScriptOptions: {
