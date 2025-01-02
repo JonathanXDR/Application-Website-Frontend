@@ -23,6 +23,9 @@
           src="/img/portrait.jpg"
           alt="Portrait"
           class="portrait"
+          width="3696"
+          height="3696"
+          layout="responsive"
         />
       </foreignObject>
     </svg>
