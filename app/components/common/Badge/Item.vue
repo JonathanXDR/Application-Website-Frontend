@@ -33,7 +33,7 @@ const props = withDefaults(defineProps<BadgeItemType>(), {
   colors: () => ({
     primary: 'var(--color-fill-gray)',
     secondary: 'var(--color-fill-tertiary)',
-    tertiary: 'var(--color-figure-blue)',
+    tertiary: 'var(--color-fill-blue)',
   }),
   border: false,
   hover: true,
@@ -44,7 +44,7 @@ const props = withDefaults(defineProps<BadgeItemType>(), {
 const defaultColors = {
   primary: 'var(--color-fill-gray)',
   secondary: 'var(--color-fill-tertiary)',
-  tertiary: 'var(--color-figure-blue)',
+  tertiary: 'var(--color-fill-blue)',
 }
 
 const computedStyle = computed(() => ({
