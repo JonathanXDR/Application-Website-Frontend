@@ -39,7 +39,7 @@ const links = computed<FaLinkType[]>(() =>
 
 <style scoped>
 .link:hover {
-  color: var(--color-figure-blue) !important;
+  color: var(--color-fill-blue) !important;
 }
 
 .sharesheet {
