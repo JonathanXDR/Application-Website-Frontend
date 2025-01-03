@@ -25,6 +25,7 @@ const VARIANT_TEXT = {
 }
 
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: 'Badge',
   props: {
     variant: {

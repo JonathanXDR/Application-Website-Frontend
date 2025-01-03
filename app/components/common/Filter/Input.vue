@@ -27,7 +27,7 @@
           @mousedown.prevent
         >
           <slot name="icon">
-            <FilterIcon />
+            <IconsFilterIcon />
           </slot>
         </button>
         <div
@@ -92,7 +92,7 @@
             @keydown.enter.exact.stop="resetFilters(true)"
             @mousedown.prevent
           >
-            <ClearRoundedIcon class="clear-rounded-icon" />
+            <IconsClearRoundedIcon class="clear-rounded-icon" />
           </button>
         </div>
       </div>
@@ -121,8 +121,6 @@
 
 <script setup lang="ts">
 import FilterTagList from '~/components/common/Filter/TagList.vue'
-import ClearRoundedIcon from '~/components/common/New/Icons/ClearRoundedIcon.vue'
-import FilterIcon from '~/components/common/New/Icons/FilterIcon.vue'
 import {
   parseDataFromClipboard,
   prepareDataForHTMLClipboard,
