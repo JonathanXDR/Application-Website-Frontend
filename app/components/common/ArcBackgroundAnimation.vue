@@ -25,31 +25,20 @@
       role="presentation"
     >
       <defs>
-        <filter
-          id="blobBlurFilter"
-          x="0"
-          y="0"
-          width="120%"
-          height="120%"
-        >
+        <filter id="blobBlurFilter">
           <feGaussianBlur
             in="SourceGraphic"
-            stdDeviation="10"
+            stdDeviation="50"
           />
         </filter>
-        <mask
-          id="blobMask"
-          y="0"
-          x="0"
-          width="100%"
-          height="100%"
-        >
+        <mask id="blobMask">
           <path
             clip-rule="evenodd"
             d="M629.065 331.931C620.15 412.726 536.796 456.471 473.587 507.58C407.549 560.976 345.737 635.263 261.006 629.532C173.547 623.616 106.601 551.968 57.3863 479.429C11.2122 411.371-4.25079 330.487 2.50807 248.522C9.70229 161.277 19.1436 56.0458 95.7866 13.7457C170.335-27.3982 254.143 41.7608 336.247 64.3281C399.881 81.8189 466.636 84.5495 515.351 129.07C574.838 183.434 637.903 251.83 629.065 331.931Z"
             fill="white"
             fill-rule="evenodd"
             filter="url(#blobBlurFilter)"
+            transform="translate(85 85)"
           />
         </mask>
       </defs>
@@ -77,12 +66,14 @@ const handlePlay = () => {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  aspect-ratio: 1;
 }
 
 .masked-video {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   filter: blur(30px);
   mask: url(#blobMask);
   -webkit-mask: url(#blobMask);
