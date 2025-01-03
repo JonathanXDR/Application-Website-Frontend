@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import InlineCloseIcon from 'theme/components/Icons/InlineCloseIcon.vue'
+import InlineCloseIcon from '~/components/common/New/Icons/InlineCloseIcon.vue'
 import { baseNavOpenSidenavButtonId } from '~/constants/nav'
 import { SIDEBAR_HIDE_BUTTON_ID } from '~/constants/sidebar'
 
@@ -65,7 +65,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 $navigator-card-vertical-spacing: 10px !default;
 $close-icon-size: 19px;

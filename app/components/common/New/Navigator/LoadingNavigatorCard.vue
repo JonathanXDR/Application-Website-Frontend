@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import BaseNavigatorCard from 'docc-render/components/Navigator/BaseNavigatorCard.vue'
-import LoadingNavigatorItem from 'docc-render/components/Navigator/LoadingNavigatorItem.vue'
+import BaseNavigatorCard from '~/components/common/New/Navigator/BaseNavigatorCard.vue'
+import LoadingNavigatorItem from '~/components/common/New/Navigator/LoadingNavigatorItem.vue'
 
 const LOADER_ROWS = [
   { width: '30%', hideNavigatorIcon: true },
@@ -60,7 +60,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 .delay-visibility-enter-active {
   transition: visibility var(--visibility-delay);

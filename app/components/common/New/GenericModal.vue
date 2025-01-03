@@ -50,11 +50,11 @@
 </template>
 
 <script>
-import FocusTrap from 'docc-render/utils/FocusTrap'
-import changeElementVOVisibility from 'docc-render/utils/changeElementVOVisibility'
-import scrollLock from 'docc-render/utils/scroll-lock'
 import { Portal } from 'portal-vue'
-import CloseIcon from 'theme/components/Icons/CloseIcon.vue'
+import CloseIcon from '~/components/common/New/Icons/CloseIcon.vue'
+import FocusTrap from '~/utils/FocusTrap'
+import changeElementVOVisibility from '~/utils/changeElementVOVisibility'
+import scrollLock from '~/utils/scroll-lock'
 
 const Theme = {
   // Light theme.
@@ -260,7 +260,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 $-modal-close-font-size: 40px;
 $-modal-close-font-size-medium: 32px;

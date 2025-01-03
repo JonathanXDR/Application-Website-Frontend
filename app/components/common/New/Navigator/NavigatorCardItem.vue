@@ -118,16 +118,16 @@
 </template>
 
 <script>
-import Badge from 'docc-render/components/Badge.vue'
-import Reference from 'docc-render/components/ContentNode/Reference.vue'
-import BaseNavigatorCardItem from 'docc-render/components/Navigator/BaseNavigatorCardItem.vue'
-import HighlightMatches from 'docc-render/components/Navigator/HighlightMatches.vue'
-import TopicTypeIcon from 'docc-render/components/TopicTypeIcon.vue'
-import { waitFrames } from 'docc-render/utils/loading'
-import InlineChevronRightIcon from 'theme/components/Icons/InlineChevronRightIcon.vue'
 import { IdState } from 'vue-virtual-scroller'
+import Badge from '~/components/common/New/Badge.vue'
+import Reference from '~/components/common/New/ContentNode/Reference.vue'
+import InlineChevronRightIcon from '~/components/common/New/Icons/InlineChevronRightIcon.vue'
+import BaseNavigatorCardItem from '~/components/common/New/Navigator/BaseNavigatorCardItem.vue'
+import HighlightMatches from '~/components/common/New/Navigator/HighlightMatches.vue'
+import TopicTypeIcon from '~/components/common/New/TopicTypeIcon.vue'
 import { ChangeTypesOrder } from '~/constants/Changes'
 import { TopicTypes } from '~/constants/TopicTypes'
+import { waitFrames } from '~/utils/loading'
 
 export default {
   name: 'NavigatorCardItem',
@@ -274,7 +274,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 $tree-toggle-padding: $nav-card-horizontal-spacing-small;
 $chevron-width: $nav-card-horizontal-spacing;

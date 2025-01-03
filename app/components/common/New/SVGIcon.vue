@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { getSetting } from 'docc-render/utils/theme-settings'
+import { getSetting } from '~/utils/theme-settings'
 
 export default {
   name: 'SVGIcon',
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 .svg-icon {
   fill: var(--colors-svg-icon-fill-light, var(--color-svg-icon));

@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 $item-height: 32px;
 $chevron-width: $nav-card-horizontal-spacing;

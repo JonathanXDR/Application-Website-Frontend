@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import SVGIcon from 'docc-render/components/SVGIcon.vue'
+import SVGIcon from '~/components/common/New/SVGIcon.vue'
 
 export default {
   name: 'DiagonalArrowIcon',

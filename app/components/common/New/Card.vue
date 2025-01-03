@@ -73,10 +73,10 @@
 </template>
 
 <script>
-import ButtonLink from 'docc-render/components/ButtonLink.vue'
-import DiagonalArrowIcon from 'theme/components/Icons/DiagonalArrowIcon.vue'
-import InlineChevronRightIcon from 'theme/components/Icons/InlineChevronRightIcon.vue'
-import CardCover from '../New/CardCover.vue'
+import ButtonLink from '~/components/common/New/ButtonLink.vue'
+import CardCover from '~/components/common/New/CardCover.vue'
+import DiagonalArrowIcon from '~/components/common/New/Icons/DiagonalArrowIcon.vue'
+import InlineChevronRightIcon from '~/components/common/New/Icons/InlineChevronRightIcon.vue'
 
 const CardSize = {
   small: 'small',
@@ -158,7 +158,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 .card {
   --margin-link: #{$details-padding-card};

@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { prepareDataForHTMLClipboard } from 'docc-render/utils/clipboard'
+import { prepareDataForHTMLClipboard } from '~/utils/clipboard'
 
 export default {
   name: 'Tag',
@@ -192,7 +192,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 .tag {
   display: inline-block;

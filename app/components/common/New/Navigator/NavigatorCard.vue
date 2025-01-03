@@ -136,30 +136,30 @@
 </template>
 
 <script>
-import Badge from 'docc-render/components/Badge.vue'
-import FilterInput from 'docc-render/components/Filter/FilterInput.vue'
-import BaseNavigatorCard from 'docc-render/components/Navigator/BaseNavigatorCard.vue'
-import keyboardNavigation from 'docc-render/mixins/keyboardNavigation'
-import { isEqual, last } from 'docc-render/utils/arrays'
-import { clone } from 'docc-render/utils/data'
-import debounce from 'docc-render/utils/debounce'
-import { waitFor, waitFrames } from 'docc-render/utils/loading'
+import { DynamicScroller, DynamicScrollerItem } from 'vue-virtual-scroller'
+import Badge from '~/components/common/New/Badge.vue'
+import FilterInput from '~/components/common/New/Filter/FilterInput.vue'
+import BaseNavigatorCard from '~/components/common/New/Navigator/BaseNavigatorCard.vue'
+import NavigatorCardItem from '~/components/common/New/Navigator/NavigatorCardItem.vue'
+import { INDEX_ROOT_KEY, SIDEBAR_ITEM_SIZE } from '~/constants/sidebar'
+import { CHANGES_TAGS, FILTER_TAGS } from '~/constants/Tags'
+import { TopicTypes } from '~/constants/TopicTypes'
+import keyboardNavigation from '~/mixins/keyboardNavigation'
+import filteredChildrenMixin from '~/mixins/navigator/filteredChildren'
+import tagsProvider from '~/mixins/navigator/tagsProvider'
+import { isEqual, last } from '~/utils/arrays'
+import { clone } from '~/utils/data'
+import debounce from '~/utils/debounce'
+import { waitFor, waitFrames } from '~/utils/loading'
 import {
   convertChildrenArrayToObject,
   getAllChildren,
   getChildren,
   getParents,
   getSiblings,
-} from 'docc-render/utils/navigatorData'
-import { safeHighlightPattern } from 'docc-render/utils/search-utils'
-import { sessionStorage } from 'docc-render/utils/storage'
-import NavigatorCardItem from 'theme/components/Navigator/NavigatorCardItem.vue'
-import filteredChildrenMixin from 'theme/mixins/navigator/filteredChildren'
-import tagsProvider from 'theme/mixins/navigator/tagsProvider'
-import { DynamicScroller, DynamicScrollerItem } from 'vue-virtual-scroller'
-import { CHANGES_TAGS, FILTER_TAGS } from '~/constants/Tags'
-import { TopicTypes } from '~/constants/TopicTypes'
-import { INDEX_ROOT_KEY, SIDEBAR_ITEM_SIZE } from '~/constants/sidebar'
+} from '~/utils/navigatorData'
+import { safeHighlightPattern } from '~/utils/search-utils'
+import { sessionStorage } from '~/utils/storage'
 
 const STORAGE_KEY = 'navigator.state'
 
@@ -1063,7 +1063,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 @import "~vue-virtual-scroller/dist/vue-virtual-scroller.css";
 
 // unfortunately we need to hard-code the filter height
