@@ -38,7 +38,7 @@
               class="quick-navigation__magnifier-icon-container"
               :class="{ blue: userInput.length }"
             >
-              <MagnifierIcon />
+              <IconMagnifier />
             </div>
           </template>
         </FilterInput>
@@ -140,7 +140,6 @@
 <script>
 import FilterInput from '~/components/common/New/Filter/FilterInput.vue'
 import GenericModal from '~/components/common/New/GenericModal.vue'
-import MagnifierIcon from '~/components/common/New/Icons/MagnifierIcon.vue'
 import QuickNavigationHighlighter from '~/components/common/New/Navigator/QuickNavigationHighlighter.vue'
 import TopicTypeIcon from '~/components/common/New/TopicTypeIcon.vue'
 import keyboardNavigation from '~/mixins/keyboardNavigation'
@@ -168,7 +167,6 @@ export default {
   components: {
     FilterInput,
     GenericModal,
-    MagnifierIcon,
     TopicTypeIcon,
     QuickNavigationHighlighter,
   },

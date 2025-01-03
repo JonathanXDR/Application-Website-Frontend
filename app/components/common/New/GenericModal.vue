@@ -21,7 +21,7 @@
           :aria-label="t('verbs.close')"
           @click.prevent="closeModal"
         >
-          <IconsCloseIcon />
+          <IconClose />
         </button>
         <div
           ref="content"
