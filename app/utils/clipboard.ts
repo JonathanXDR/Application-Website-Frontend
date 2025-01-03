@@ -13,7 +13,7 @@
  * @param {string} payload
  * @return {object | null}
  */
-export function parseDataFromClipboard(payload) {
+export function parseDataFromClipboard(payload: string): object | null {
   const match = payload.match(/<data [^>]*id="copy-data"[^>]*>(.*?)<\/data>/)
   try {
     return match && match[1] ? JSON.parse(match[1]) : null
@@ -28,7 +28,7 @@ export function parseDataFromClipboard(payload) {
  * @param {*} payload
  * @return {string}
  */
-export function prepareDataForHTMLClipboard(payload) {
+export function prepareDataForHTMLClipboard(payload: string | object): string {
   if (typeof payload !== 'string') {
     payload = JSON.stringify(payload)
   }

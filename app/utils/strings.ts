@@ -23,7 +23,7 @@ const HTML_UNSAFE_RE = /["'&<>]/g
  * @param {string} str string to transform to kebab case
  */
 
-export function anchorize(str) {
+export function anchorize(str: string): string {
   return str
     .trim()
     .replace(NON_URL_CHARS_RE, '-')
@@ -31,15 +31,21 @@ export function anchorize(str) {
     .toLowerCase()
 }
 
-export function escapeHtml(str) {
-  const sanitize = character =>
-    ({
-      '"': '&quot;',
-      '\'': '&apos;',
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-    })[character] || character
+export function escapeHtml(str: string): string {
+  interface CharacterMap {
+    [character: string]: string
+  }
+
+  const sanitize = (character: string): string =>
+    (
+      ({
+        '"': '&quot;',
+        '\'': '&apos;',
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+      }) as CharacterMap
+    )[character] || character
   return str.replace(HTML_UNSAFE_RE, sanitize)
 }
 
@@ -69,8 +75,11 @@ export const PluralRuleType = {
 // Source: https://www.w3.org/International/questions/qa-escapes#css_identifiers
 //
 // Example: cssEscapeTopicIdHash('#42') => '#\34 2'
-export function cssEscapeTopicIdHash(hash) {
-  return hash.replace(/#(.*)/, (str, match) => `#${CSS.escape(match)}`)
+export function cssEscapeTopicIdHash(hash: string): string {
+  return hash.replace(
+    /#(.*)/,
+    (str: string, match: string): string => `#${CSS.escape(match)}`,
+  )
 }
 
 // Escape a string for use in a `RegExp`, which will escape any special regular
@@ -80,12 +89,12 @@ export function cssEscapeTopicIdHash(hash) {
 //
 // For more information, see:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Escaping
-export function escapeRegExp(str) {
+export function escapeRegExp(str: string) {
   return str.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')
 }
 
 // Deletes spaces on any string
-export function deleteSpaces(str) {
+export function deleteSpaces(str: string) {
   return str.replace(/\s/g, '')
 }
 
@@ -95,7 +104,7 @@ export function deleteSpaces(str) {
  * @param {string} stringToSanitize - the string to sanitize and add matches to
  * @return {string}
  */
-export function whiteSpaceIgnorantRegex(stringToSanitize) {
+export function whiteSpaceIgnorantRegex(stringToSanitize: string): string {
   let i
   let char
   const spaceMatch = '\\s*'
@@ -139,7 +148,7 @@ export function whiteSpaceIgnorantRegex(stringToSanitize) {
  * @param {number} pos - position index to insert at
  * @returns {string} The resulting string after insertion
  */
-export function insertAt(str, sub, pos = 0) {
+export function insertAt(str: string, sub: string, pos: number = 0) {
   return `${str.slice(0, pos)}${sub}${str.slice(pos)}`
 }
 
@@ -152,7 +161,7 @@ export function insertAt(str, sub, pos = 0) {
 //
 // firstParagraph("abcdefghi") // "abcdefghi"
 // firstParagraph("abc\ndef\nghi") // "abc"
-export function firstParagraph(text) {
+export function firstParagraph(text: string): string | undefined {
   const paragraphs = text.split(/(?:\r?\n)+/)
   return paragraphs[0]
 }
