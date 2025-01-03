@@ -31,33 +31,31 @@ const props = withDefaults(
   },
 )
 
+const textLower = computed(() => props.text.toLowerCase())
+const matcherChars = computed(() => props.matcherText.split(''))
+
+const matcherCharsLower = useArrayMap(matcherChars, c => c.toLowerCase())
+
 const highlightedChunks = computed(() => {
-  const t = props.text
-  const m = props.matcherText
   const result: { content: string, isMatch: boolean }[] = []
-  if (!m) {
-    result.push({ content: t, isMatch: false })
-    return result
-  }
   let lastIndex = 0
-  for (const char of m) {
-    const lowerT = t.toLowerCase()
-    const charIndex = lowerT.indexOf(char.toLowerCase(), lastIndex)
-    if (charIndex < 0) break
+  matcherCharsLower.value.forEach((char) => {
+    const charIndex = textLower.value.indexOf(char, lastIndex)
+    if (charIndex < 0) return
     if (charIndex > lastIndex) {
       result.push({
-        content: t.slice(lastIndex, charIndex),
+        content: props.text.slice(lastIndex, charIndex),
         isMatch: false,
       })
     }
     result.push({
-      content: t.slice(charIndex, charIndex + 1),
+      content: props.text.slice(charIndex, charIndex + 1),
       isMatch: true,
     })
     lastIndex = charIndex + 1
-  }
-  if (lastIndex < t.length) {
-    result.push({ content: t.slice(lastIndex), isMatch: false })
+  })
+  if (lastIndex < props.text.length) {
+    result.push({ content: props.text.slice(lastIndex), isMatch: false })
   }
   return result
 })
