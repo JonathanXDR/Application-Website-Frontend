@@ -1,23 +1,12 @@
-<!--
-  This source file is part of the Swift.org open source project
-
-  Copyright (c) 2021-2023 Apple Inc. and the Swift project authors
-  Licensed under Apache License v2.0 with Runtime Library Exception
-
-  See https://swift.org/LICENSE.txt for license information
-  See https://swift.org/CONTRIBUTORS.txt for Swift project authors
--->
-
 <template>
-  <PortalSource
-    to="modal-destination"
-    :disabled="!isVisible"
+  <Teleport
+    v-if="isVisible"
+    to="#modal-destination"
   >
     <div
-      v-show="isVisible"
       class="generic-modal"
       role="dialog"
-      :class="[stateClasses]"
+      :class="stateClasses"
     >
       <div
         class="backdrop"
@@ -26,13 +15,13 @@
       <div
         ref="container"
         class="container"
-        :style="{ width }"
+        :style="{ width: props.width }"
       >
         <button
-          v-if="showClose"
-          ref="close"
+          v-if="props.showClose"
+          ref="closeBtn"
           class="close"
-          :aria-label="$t('verbs.close')"
+          :aria-label="t('verbs.close')"
           @click.prevent="closeModal"
         >
           <CloseIcon />
@@ -45,161 +34,129 @@
         </div>
       </div>
     </div>
-  </PortalSource>
+  </Teleport>
 </template>
 
-<script>
-import { Portal } from 'portal-vue'
+<script setup lang="ts">
 import CloseIcon from '~/components/common/New/Icons/CloseIcon.vue'
 import FocusTrap from '~/utils/FocusTrap'
 import changeElementVOVisibility from '~/utils/changeElementVOVisibility'
 import scrollLock from '~/utils/scroll-lock'
 
-export default {
-  name: 'GenericModal',
-  components: { CloseIcon, PortalSource: Portal },
-  model: {
-    prop: 'visible',
-    event: 'update:visible',
+const props = withDefaults(
+  defineProps<{
+    visible: boolean
+    isFullscreen: boolean
+    width: string | undefined
+    showClose: boolean
+  }>(),
+  {
+    visible: false,
+    isFullscreen: false,
+    width: undefined,
+    showClose: true,
   },
-  props: {
-    visible: {
-      type: Boolean,
-      default: false,
-    },
-    isFullscreen: {
-      type: Boolean,
-      default: false,
-    },
-    width: {
-      type: String,
-      default: null,
-    },
-    showClose: {
-      type: Boolean,
-      default: true,
-    },
-  },
-  emits: ['update:visible', 'close', 'open'],
-  data() {
-    return {
-      lastFocusItem: null,
-      focusTrapInstance: null,
-    }
-  },
-  computed: {
-    isVisible: {
-      get: ({ visible }) => visible,
-      set(value) {
-        this.$emit('update:visible', value)
-      },
-    },
-    stateClasses: ({ isFullscreen, isVisible, showClose }) => ({
-      'modal-fullscreen': isFullscreen,
-      'modal-standard': !isFullscreen,
-      'modal-open': isVisible,
-      'modal-with-close': showClose,
-    }),
-  },
-  watch: {
-    isVisible(isVisible) {
-      if (isVisible) {
-        this.onShow()
-      }
-      else {
-        this.onHide()
-      }
-    },
-  },
-  mounted() {
-    this.focusTrapInstance = new FocusTrap()
-    document.addEventListener('keydown', this.onKeydown)
-  },
-  beforeUnmount() {
-    // make sure we unlock scrolling before navigating to a new page.
-    if (this.isVisible) {
-      scrollLock.unlockScroll(this.$refs.container)
-    }
-    matchMedia.removeListener(this.onColorSchemePreferenceChange)
-    document.removeEventListener('keydown', this.onKeydown)
-    this.focusTrapInstance.destroy()
-  },
-  methods: {
-    async onShow() {
-      // make sure PortalVue is ready
-      await this.$nextTick()
-      // lock scroll
-      scrollLock.lockScroll(this.$refs.container)
-      // remember last focus item
-      await this.focusCloseButton()
-      // update the focus container
-      this.focusTrapInstance.updateFocusContainer(this.$refs.container)
-      // lock focus
-      this.focusTrapInstance.start()
-      // hide sibling elements from VO
-      changeElementVOVisibility.hide(this.$refs.container)
-    },
-    onHide() {
-      // unlock scroll
-      scrollLock.unlockScroll(this.$refs.container)
-      // unlock focus
-      this.focusTrapInstance.stop()
-      // return focus to last item
-      if (this.lastFocusItem) {
-        this.lastFocusItem.focus({ preventScroll: true })
-        this.lastFocusItem = null
-      }
-      this.$emit('close')
-      // unhide elements from VO
-      changeElementVOVisibility.show(this.$refs.container)
-    },
-    closeModal() {
-      this.isVisible = false
-    },
-    /**
-     * Select all modal's content
-     */
-    selectContent() {
-      window.getSelection().selectAllChildren(this.$refs.content)
-    },
-    /**
-     * Closes the modal when clicking on the backdrop
-     */
-    onClickOutside() {
-      this.closeModal()
-    },
-    /**
-     * Handle the keydown body event listener.
-     * Used to:
-     * - Overwrite cmd+a and ctrl+a behavior to select modal content only
-     * - Close the modal on `Escape` click.
-     * @param {KeyboardEvent} event
-     * @param {string} event.key
-     */
-    onKeydown(event) {
-      const { metaKey = false, ctrlKey = false, key } = event
+)
 
-      if (!this.isVisible) return
-      if (key === 'a' && (metaKey || ctrlKey)) {
-        event.preventDefault()
-        this.selectContent()
-      }
-      if (key !== 'Escape') return
-      event.preventDefault()
-      this.closeModal()
-    },
-    async focusCloseButton() {
-      this.lastFocusItem = document.activeElement
-      // focus close button
-      await this.$nextTick()
-      if (this.$refs.close) this.$refs.close.focus()
-      this.$emit('open')
-    },
+const emit = defineEmits(['update:visible', 'close', 'open'])
+
+const { t } = useI18n()
+const isVisible = ref(props.visible)
+watch(
+  () => props.visible,
+  (val) => {
+    isVisible.value = val
   },
+)
+watch(isVisible, (val) => {
+  emit('update:visible', val)
+})
+
+const container = ref<HTMLElement | null>(null)
+const content = ref<HTMLElement | null>(null)
+const closeBtn = ref<HTMLElement | null>(null)
+let lastFocusItem: HTMLElement | null = null
+let focusTrapInstance: FocusTrap
+
+const stateClasses = computed(() => ({
+  'modal-fullscreen': props.isFullscreen,
+  'modal-standard': !props.isFullscreen,
+  'modal-open': isVisible.value,
+  'modal-with-close': props.showClose,
+}))
+
+const onShow = () => {
+  nextTick(() => {
+    if (container.value) scrollLock.lockScroll(container.value)
+    focusCloseButton().then(() => {
+      focusTrapInstance.updateFocusContainer(container.value)
+      focusTrapInstance.start()
+      if (container.value) changeElementVOVisibility.hide(container.value)
+    })
+  })
+}
+
+const onHide = () => {
+  if (container.value) scrollLock.unlockScroll(container.value)
+  focusTrapInstance.stop()
+  if (lastFocusItem) {
+    lastFocusItem.focus({ preventScroll: true })
+    lastFocusItem = null
+  }
+  emit('close')
+  if (container.value) changeElementVOVisibility.show(container.value)
+}
+
+watch(isVisible, (val) => {
+  if (val) onShow()
+  else onHide()
+})
+
+onMounted(() => {
+  focusTrapInstance = new FocusTrap()
+  document.addEventListener('keydown', onKeydown)
+})
+
+onBeforeUnmount(() => {
+  if (isVisible.value && container.value) scrollLock.unlockScroll(container.value)
+  document.removeEventListener('keydown', onKeydown)
+  focusTrapInstance.destroy()
+})
+
+const closeModal = () => {
+  isVisible.value = false
+}
+
+const onClickOutside = () => {
+  closeModal()
+}
+
+const onKeydown = (event: KeyboardEvent) => {
+  const { metaKey = false, ctrlKey = false, key } = event
+  if (!isVisible.value) return
+  if (key === 'a' && (metaKey || ctrlKey)) {
+    event.preventDefault()
+    selectContent()
+  }
+  if (key === 'Escape') {
+    event.preventDefault()
+    closeModal()
+  }
+}
+
+const selectContent = () => {
+  if (content.value) window.getSelection()?.selectAllChildren(content.value)
+}
+
+const focusCloseButton = async () => {
+  lastFocusItem = document.activeElement as HTMLElement
+  await nextTick()
+  if (closeBtn.value) closeBtn.value.focus()
+  emit('open')
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 // @import "docc-render/styles/_core.scss";
 
 $-modal-close-font-size: 40px;

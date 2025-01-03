@@ -61,7 +61,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 // @import "docc-render/styles/_core.scss";
 
 $-tabnav-top-margin: rem(15px);
