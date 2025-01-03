@@ -1,13 +1,3 @@
-<!--
-  This source file is part of the Swift.org open source project
-
-  Copyright (c) 2022-2023 Apple Inc. and the Swift project authors
-  Licensed under Apache License v2.0 with Runtime Library Exception
-
-  See https://swift.org/LICENSE.txt for license information
-  See https://swift.org/CONTRIBUTORS.txt for Swift project authors
--->
-
 <template>
   <li
     class="tag"
@@ -19,16 +9,14 @@
       role="option"
       :aria-selected="ariaSelected"
       aria-roledescription="tag"
-      @focus="$emit('focus', { event: $event, tagName: name })"
-      @click.prevent="$emit('click', { event: $event, tagName: name })"
+      @focus="emitFocus"
+      @click.prevent="emitClick"
       @dblclick.prevent="!keyboardIsVirtual && deleteTag()"
-      @keydown.exact="$emit('keydown', { event: $event, tagName: name })"
-      @keydown.shift.exact="$emit('keydown', { event: $event, tagName: name })"
-      @keydown.shift.meta.exact="
-        $emit('keydown', { event: $event, tagName: name })
-      "
-      @keydown.meta.exact="$emit('keydown', { event: $event, tagName: name })"
-      @keydown.ctrl.exact="$emit('keydown', { event: $event, tagName: name })"
+      @keydown.exact="emitKeydown"
+      @keydown.shift.exact="emitKeydown"
+      @keydown.shift.meta.exact="emitKeydown"
+      @keydown.meta.exact="emitKeydown"
+      @keydown.ctrl.exact="emitKeydown"
       @keydown.delete.prevent="deleteTag"
       @mousedown.prevent="focusButton"
       @copy="handleCopy"
@@ -36,11 +24,9 @@
       <span
         v-if="!isRemovableTag"
         class="visuallyhidden"
-      >
-        {{ $t("filter.add-tag") }} -
-      </span>
+      >{{ t("filter.add-tag") }} -</span>
       <template v-if="isTranslatableTag">
-        {{ $t(name) }}
+        {{ t(name) }}
       </template>
       <template v-else>
         {{ name }}
@@ -48,147 +34,103 @@
       <span
         v-if="isRemovableTag"
         class="visuallyhidden"
-      >
-        – {{ $t("filter.tag-select-remove") }}
-      </span>
+      >– {{ t("filter.tag-select-remove") }}</span>
     </button>
   </li>
 </template>
 
-<script>
+<script setup lang="ts">
 import { prepareDataForHTMLClipboard } from '~/utils/clipboard'
 
-export default {
-  name: 'Tag',
-  props: {
-    name: {
-      type: String,
-      required: true,
-    },
-    isFocused: {
-      type: Boolean,
-      default: () => false,
-    },
-    isRemovableTag: {
-      type: Boolean,
-      default: false,
-    },
-    isTranslatableTag: {
-      type: Boolean,
-      default: false,
-    },
-    isActiveTag: {
-      type: Boolean,
-      default: false,
-    },
-    activeTags: {
-      type: Array,
-      required: false,
-    },
-    keyboardIsVirtual: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  emits: [
-    'focus',
-    'click',
-    'keydown',
-    'paste-content',
-    'delete-tag',
-    'prevent-blur',
-  ],
-  computed: {
-    ariaSelected: ({ isActiveTag, isRemovableTag }) => {
-      if (!isRemovableTag) return null
-      return isActiveTag ? 'true' : 'false'
-    },
-  },
-  watch: {
-    isFocused(newVal) {
-      if (newVal) {
-        this.focusButton()
-      }
-    },
-    mounted() {
-      // initialize global clipboard listeners
-      document.addEventListener('copy', this.handleCopy)
-      document.addEventListener('cut', this.handleCut)
-      document.addEventListener('paste', this.handlePaste)
-    },
-    beforeDestroy() {
-      document.removeEventListener('copy', this.handleCopy)
-      document.removeEventListener('cut', this.handleCut)
-      document.removeEventListener('paste', this.handlePaste)
-    },
-  },
-  methods: {
-    isCurrentlyActiveElement() {
-      return document.activeElement === this.$refs.button
-    },
-    /**
-     * Handles copy event
-     * @param {ClipboardEvent} event
-     */
-    handleCopy(event) {
-      // handle only if the current focused item is the button
-      if (!this.isCurrentlyActiveElement()) return
-      // stop the event.
-      event.preventDefault()
-      // copy as JSON
-      let tags = []
-      if (this.activeTags.length > 0) {
-        tags = this.activeTags
-      }
-      else {
-        tags = [this.name]
-      }
-      event.clipboardData.setData(
-        'text/html',
-        prepareDataForHTMLClipboard({ tags }),
-      )
-      // copy as plain text
-      event.clipboardData.setData('text/plain', tags.join(' '))
-    },
-    handleCut(event) {
-      if (!this.isCurrentlyActiveElement() || !this.isRemovableTag) return
-      this.handleCopy(event)
-      this.deleteTag(event)
-    },
-    /**
-     * Handles pasting into the page, when the focused element,
-     * is the button of the current Tag instance
-     * @param {ClipboardEvent} event
-     */
-    handlePaste(event) {
-      if (!this.isCurrentlyActiveElement() || !this.isRemovableTag) return
-      // stop the `paste` event.
-      event.preventDefault()
-      // delete the current tag, as we are pasting over it
-      this.deleteTag(event)
-      // emit up the event data, for the `FilterInput` to handle
-      this.$emit('paste-content', event)
-    },
-    deleteTag(event) {
-      this.$emit('delete-tag', { tagName: this.name, event })
-      this.$emit('prevent-blur')
-    },
-    /**
-     * Handles clicking on tags.
-     * Works for Mouse clicks and VO clicks.
-     * @param {MouseEvent} event
-     */
-    focusButton(event = {}) {
-      if (!this.keyboardIsVirtual) {
-        this.$refs.button.focus()
-      }
-      // if the mouse click has no buttons clicked, its coming from VO
-      if (event.buttons === 0 && this.isFocused) {
-        this.deleteTag(event)
-      }
-    },
-  },
+const props = defineProps<{
+  name: string
+  isFocused?: boolean
+  isRemovableTag?: boolean
+  isTranslatableTag?: boolean
+  isActiveTag?: boolean
+  activeTags?: string[]
+  keyboardIsVirtual?: boolean
+}>()
+
+const emit = defineEmits([
+  'focus',
+  'click',
+  'keydown',
+  'paste-content',
+  'delete-tag',
+  'prevent-blur',
+])
+
+const { t } = useI18n()
+const button = ref<HTMLButtonElement | null>(null)
+
+const ariaSelected = computed(() => {
+  if (!props.isRemovableTag) return undefined
+  return props.isActiveTag ? 'true' : 'false'
+})
+
+const activeElement = useActiveElement()
+
+const isCurrentlyActiveElement = () => {
+  return activeElement.value === button.value
 }
+
+const handleCopy = (e: ClipboardEvent) => {
+  if (!isCurrentlyActiveElement()) return
+  e.preventDefault()
+  const tags
+    = props.activeTags && props.activeTags.length
+      ? props.activeTags
+      : [props.name]
+  e.clipboardData?.setData('text/html', prepareDataForHTMLClipboard({ tags }))
+  e.clipboardData?.setData('text/plain', tags.join(' '))
+}
+
+const handleCut = (e: ClipboardEvent) => {
+  if (!isCurrentlyActiveElement() || !props.isRemovableTag) return
+  handleCopy(e)
+  deleteTag(e)
+}
+
+const handlePaste = (e: ClipboardEvent) => {
+  if (!isCurrentlyActiveElement() || !props.isRemovableTag) return
+  e.preventDefault()
+  deleteTag(e)
+  emit('paste-content', e)
+}
+
+const deleteTag = (e?: Event) => {
+  emit('delete-tag', { tagName: props.name, event: e })
+  emit('prevent-blur')
+}
+
+const focusButton = (e?: MouseEvent) => {
+  if (!props.keyboardIsVirtual && button.value) button.value.focus()
+  if (e?.buttons === 0 && props.isFocused) deleteTag(e)
+}
+
+const emitFocus = (e: FocusEvent) => {
+  emit('focus', { event: e, tagName: props.name })
+}
+
+const emitClick = (e: MouseEvent) => {
+  emit('click', { event: e, tagName: props.name })
+}
+
+const emitKeydown = (e: KeyboardEvent) => {
+  emit('keydown', { event: e, tagName: props.name })
+}
+
+useEventListener(document, 'copy', handleCopy)
+useEventListener(document, 'cut', handleCut)
+useEventListener(document, 'paste', handlePaste)
+
+watch(
+  () => props.isFocused,
+  (val) => {
+    if (val) focusButton()
+  },
+)
 </script>
 
 <style scoped lang="scss">
