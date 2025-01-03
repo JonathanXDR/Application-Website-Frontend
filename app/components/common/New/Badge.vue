@@ -36,7 +36,7 @@ export default {
   computed: {
     /**
      * Returns text for pre-defined badge types, when there is no default slot.
-     * @param variant
+     * @param {{variant: string}} param0
      * @return {'Deprecated' | 'Beta'}
      */
     text: ({ variant }) => VARIANT_TEXT[variant],

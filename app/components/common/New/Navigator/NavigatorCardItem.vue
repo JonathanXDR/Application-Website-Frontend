@@ -123,19 +123,14 @@ import Reference from 'docc-render/components/ContentNode/Reference.vue'
 import BaseNavigatorCardItem from 'docc-render/components/Navigator/BaseNavigatorCardItem.vue'
 import HighlightMatches from 'docc-render/components/Navigator/HighlightMatches.vue'
 import TopicTypeIcon from 'docc-render/components/TopicTypeIcon.vue'
-import { ChangeTypesOrder } from 'docc-render/constants/Changes'
-import { TopicTypes } from 'docc-render/constants/TopicTypes'
 import { waitFrames } from 'docc-render/utils/loading'
 import InlineChevronRightIcon from 'theme/components/Icons/InlineChevronRightIcon.vue'
 import { IdState } from 'vue-virtual-scroller'
+import { ChangeTypesOrder } from '~/constants/Changes'
+import { TopicTypes } from '~/constants/TopicTypes'
 
 export default {
   name: 'NavigatorCardItem',
-  mixins: [
-    IdState({
-      idProp: vm => vm.item.uid,
-    }),
-  ],
   components: {
     BaseNavigatorCardItem,
     HighlightMatches,
@@ -144,6 +139,11 @@ export default {
     Reference,
     Badge,
   },
+  mixins: [
+    IdState({
+      idProp: vm => vm.item.uid,
+    }),
+  ],
   props: {
     isRendered: {
       type: Boolean,
@@ -191,6 +191,13 @@ export default {
       default: () => ({}),
     },
   },
+  emits: [
+    'toggle',
+    'toggle-full',
+    'toggle-siblings',
+    'focus-parent',
+    'navigate',
+  ],
   idState() {
     return {
       // special state to track opening animations for a few seconds, after toggling on/off

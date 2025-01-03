@@ -130,9 +130,9 @@
 </template>
 
 <script>
-import ClearRoundedIcon from 'theme/components/Icons/ClearRoundedIcon.vue'
-import multipleSelection from 'docc-render/mixins/multipleSelection'
 import handleScrollbar from 'docc-render/mixins/handleScrollbar'
+import multipleSelection from 'docc-render/mixins/multipleSelection'
+import ClearRoundedIcon from 'theme/components/Icons/ClearRoundedIcon.vue'
 import FilterIcon from 'theme/components/Icons/FilterIcon.vue'
 import TagList from './TagList.vue'
 
@@ -161,13 +161,6 @@ export default {
     FilterIcon,
   },
   mixins: [handleScrollbar, multipleSelection],
-  constants: {
-    FilterInputId,
-    SelectedTagsId,
-    SuggestedTagsId,
-    AXinputProperties,
-    TagLimit,
-  },
   props: {
     positionReversed: {
       type: Boolean,
@@ -222,6 +215,24 @@ export default {
       default: () => [],
     },
   },
+  emits: [
+    'update:preventedBlur',
+    'update:selectedTags',
+    'input',
+    'blur',
+    'focus',
+    'focus-next',
+    'focus-prev',
+    'suggested-tags',
+    'show-suggested-tags',
+  ],
+  constants: {
+    FilterInputId,
+    SelectedTagsId,
+    SuggestedTagsId,
+    AXinputProperties,
+    TagLimit,
+  },
   data() {
     return {
       resetedTagsViaDeleteButton: false,
@@ -251,7 +262,7 @@ export default {
     /**
      * Filters out the selected tags, from the tags.
      * Can also truncate the tags, at a certain limit, via the `shouldTruncateTags` prop.
-     * @returns {string[]}
+     * @returns {string[]} An array of filtered and optionally truncated tags
      */
     suggestedTags: ({ tags, selectedTags, shouldTruncateTags }) => {
       const suggestedTags = tags.filter(tag => !selectedTags.includes(tag))

@@ -52,6 +52,7 @@ export default {
       required: true,
     },
   },
+  emits: ['input'],
   methods: {
     selectTab(value) {
       this.$emit('input', value)

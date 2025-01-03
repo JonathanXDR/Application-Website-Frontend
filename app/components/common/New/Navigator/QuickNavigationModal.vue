@@ -105,7 +105,7 @@
                     </div>
                     <div class="symbol-path">
                       <div
-                        v-for="(parent, index) in symbol.parents"
+                        v-for="(parent, parentIndex) in symbol.parents"
                         :key="parent.title"
                       >
                         <span
@@ -113,7 +113,7 @@
                           v-text="parent.title"
                         />
                         <span
-                          v-if="index !== symbol.parents.length - 1"
+                          v-if="parentIndex !== symbol.parents.length - 1"
                           class="parent-path"
                           v-text="`/`"
                         />
@@ -187,6 +187,7 @@ export default {
       required: false,
     },
   },
+  emits: ['update:showQuickNavigationModal'],
   data() {
     return {
       debouncedInput: '',
@@ -416,9 +417,10 @@ export default {
 
         try {
           // load render JSON for the selected /documentation/ page
-          const json = await fetchDataForPreview(symbol.path, {
-            signal: this.abortController.signal,
-          })
+          // const json = await fetchDataForPreview(symbol.path, {
+          //   signal: this.abortController.signal,
+          // })
+          const json = {}
           this.$cachedSymbolResults.set(symbol.uid, {
             success: true,
             json,
