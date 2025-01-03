@@ -102,8 +102,8 @@ const enhancedLinks = computed(() => {
 
 .links.divider .link:last-of-type {
   border-right: none;
-  padding-right: 10px;
-  margin-right: 20px;
+  padding-right: 0;
+  margin-right: 0;
 }
 
 .card.color .link {
