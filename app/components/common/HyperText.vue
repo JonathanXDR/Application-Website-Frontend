@@ -54,18 +54,18 @@ const charSet = computed<string[]>(() => {
   return props.characterSet
 })
 
-function handleMouseEnter() {
+const handleMouseEnter = () => {
   if (props.animateOnHover && !isAnimating.value && props.trigger) {
     iterationCount.value = 0
     isAnimating.value = true
   }
 }
 
-function getRandomInt(max: number) {
+const getRandomInt = (max: number) => {
   return Math.floor(Math.random() * max)
 }
 
-function scrambleStep() {
+const scrambleStep = () => {
   const text = props.text
   const maxIterations = text.length
 

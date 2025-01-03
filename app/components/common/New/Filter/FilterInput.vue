@@ -116,9 +116,9 @@
 </template>
 
 <script setup lang="ts">
+import TagList from '~/components/common/New/Filter/TagList.vue'
 import ClearRoundedIcon from '~/components/common/New/Icons/ClearRoundedIcon.vue'
 import FilterIcon from '~/components/common/New/Icons/FilterIcon.vue'
-import TagList from '~/components/common/New/Filter/TagList.vue'
 import {
   parseDataFromClipboard,
   prepareDataForHTMLClipboard,
@@ -209,7 +209,7 @@ const searchAriaLabelledBy = computed(() => {
 })
 
 const { focused: inputFocus } = useFocus(inputRef, { initialValue: false })
-function setFocusInput() {
+const setFocusInput = () => {
   inputFocus.value = !inputFocus.value
 }
 
@@ -236,7 +236,7 @@ const deleteScroll = useDebounceFn(() => {
   scrollRemovedAt.value = Date.now()
 }, ScrollingDebounceDelay)
 
-function onScroll(e: Event) {
+const onScroll = (e: Event) => {
   const target = e.target as HTMLElement
   if (target.scrollTop !== 0) {
     target.scrollTop = 0
@@ -270,7 +270,7 @@ const updateKeyboardTypeDebounced = useDebounceFn((event) => {
   }
 }, DebounceDelay)
 
-function updateKeyboardType(event: VisualViewport) {
+const updateKeyboardType = (event: VisualViewport) => {
   updateKeyboardTypeDebounced(event)
 }
 
@@ -350,11 +350,11 @@ watch(showSuggestedTags, (v) => {
   emits('show-suggested-tags', v)
 })
 
-function inputIsSelected() {
+const inputIsSelected = () => {
   return modelValue.value.length > 0 && selectedText.value === modelValue.value
 }
 
-// function inputHasPartialTextSelected() {
+// const inputHasPartialTextSelected = () => {
 //   return (
 //     !inputIsSelected()
 //     && selectedText.value.length > 0
@@ -362,12 +362,12 @@ function inputIsSelected() {
 //   )
 // }
 
-function handleFocus() {
+const handleFocus = () => {
   showSuggestedTags.value = true
   emits('focus')
 }
 
-function handleBlur(event: FocusEvent) {
+const handleBlur = (event: FocusEvent) => {
   const target = event.relatedTarget as HTMLElement | null
   if (
     target
@@ -388,7 +388,7 @@ function handleBlur(event: FocusEvent) {
   })
 }
 
-function resetFilters(hideTags = false) {
+const resetFilters = (hideTags = false) => {
   modelValue.value = ''
   modelSelectedTags.value = []
   if (!hideTags) {
@@ -402,36 +402,36 @@ function resetFilters(hideTags = false) {
   inputRef.value?.blur()
 }
 
-function selectTag(tag: string) {
+const selectTag = (tag: string) => {
   updateSelectedTags([tag])
   modelValue.value = ''
 }
 
-function updateSelectedTags(tags: string[]) {
+const updateSelectedTags = (tags: string[]) => {
   const union = [...new Set([...modelSelectedTags.value, ...tags])]
   modelSelectedTags.value = union
 }
 
-function deleteTags(arr: string[]) {
+const deleteTags = (arr: string[]) => {
   modelSelectedTags.value = modelSelectedTags.value.filter(
     tag => !arr.includes(tag),
   )
 }
 
-function unselectActiveTags() {
+const unselectActiveTags = () => {
   if (activeTags.value.length) {
     deleteTags(activeTags.value)
     resetActiveTags()
   }
 }
 
-function resetActiveTags() {
+const resetActiveTags = () => {
   activeTags.value = []
   initTagIndex.value = null
   focusedTagIndex.value = null
 }
 
-function leftKeyInputHandler(event: KeyboardEvent) {
+const leftKeyInputHandler = (event: KeyboardEvent) => {
   if (!hasSelectedTags.value) return
   if (activeTags.value.length && !isShiftPressed.value) {
     event.preventDefault()
@@ -463,7 +463,7 @@ function leftKeyInputHandler(event: KeyboardEvent) {
   }
 }
 
-function rightKeyInputHandler(event: KeyboardEvent) {
+const rightKeyInputHandler = (event: KeyboardEvent) => {
   if (!activeTags.value.length) return
   if (
     isShiftPressed.value
@@ -483,14 +483,14 @@ function rightKeyInputHandler(event: KeyboardEvent) {
   }
 }
 
-function selectRangeActiveTags(
+const selectRangeActiveTags = (
   startIndex = focusedTagIndex.value || 0,
   endIndex = modelSelectedTags.value.length,
-) {
+) => {
   activeTags.value = modelSelectedTags.value.slice(startIndex, endIndex)
 }
 
-function selectTagsPressingShift() {
+const selectTagsPressingShift = () => {
   if (
     initTagIndex.value !== null
     && isShiftPressed.value
@@ -511,10 +511,10 @@ function selectTagsPressingShift() {
   }
 }
 
-function multipleTagsSelectionHandler(e: {
+const multipleTagsSelectionHandler = (e: {
   event?: KeyboardEvent | MouseEvent
   tagName: string
-}) {
+}) => {
   const evt = e.event || new KeyboardEvent('keydown')
   if (evt instanceof KeyboardEvent && evt.key === 'Enter') return
   if ((isShiftPressed.value || isMetaPressed.value) && !isTabPressed.value) {
@@ -528,7 +528,7 @@ function multipleTagsSelectionHandler(e: {
   }
 }
 
-function initTag(tagName: string) {
+const initTag = (tagName: string) => {
   if (initTagIndex.value === null && !activeTags.value.includes(tagName)) {
     if (tagName) {
       initTagIndex.value = modelSelectedTags.value.indexOf(tagName)
@@ -540,7 +540,7 @@ function initTag(tagName: string) {
   }
 }
 
-function selectToDirections(key: string) {
+const selectToDirections = (key: string) => {
   if (isMetaPressed.value && isShiftPressed.value) {
     if (key === 'ArrowRight') {
       selectRangeActiveTags(
@@ -565,7 +565,7 @@ function selectToDirections(key: string) {
   }
 }
 
-function focusTagHandler(e: { event: FocusEvent, tagName: string }) {
+const focusTagHandler = (e: { event: FocusEvent, tagName: string }) => {
   focusedTagIndex.value = modelSelectedTags.value.indexOf(e.tagName)
   const target = e.event.relatedTarget as HTMLElement
   if (
@@ -584,7 +584,7 @@ function focusTagHandler(e: { event: FocusEvent, tagName: string }) {
   selectTagsPressingShift()
 }
 
-function focusInputFromTags() {
+const focusInputFromTags = () => {
   setFocusInput()
   nextTick(() => {
     if (inputRef.value) {
@@ -593,7 +593,7 @@ function focusInputFromTags() {
   })
 }
 
-function selectInputAndTags() {
+const selectInputAndTags = () => {
   activeTags.value = [...modelSelectedTags.value]
   if (modelValue.value.length) {
     inputRef.value?.select()
@@ -606,7 +606,7 @@ function selectInputAndTags() {
   }
 }
 
-function selectInputTextToTags() {
+const selectInputTextToTags = () => {
   if (!inputRef.value) return
   if (inputRef.value.selectionStart === inputRef.value.selectionEnd) {
     inputRef.value.setSelectionRange(0, inputRef.value.selectionEnd)
@@ -620,7 +620,7 @@ function selectInputTextToTags() {
   inputRef.value.focus()
 }
 
-function handleFocusPrevOnSelectedTags() {
+const handleFocusPrevOnSelectedTags = () => {
   if (props.positionReversed) {
     focusFirstTag(() => emits('focus-prev'))
   }
@@ -629,7 +629,7 @@ function handleFocusPrevOnSelectedTags() {
   }
 }
 
-function focusFirstTag(cb: () => void) {
+const focusFirstTag = (cb: () => void) => {
   if (!showSuggestedTags.value) {
     showSuggestedTags.value = true
   }
@@ -646,10 +646,10 @@ const debouncedHandleDeleteTag = ref<
   | null
 >(null)
 
-function multipleSelectionHandlerForSelectedTags(e: {
+const multipleSelectionHandlerForSelectedTags = (e: {
   event?: KeyboardEvent | MouseEvent
   tagName: string
-}) {
+}) => {
   if (keyboardIsVirtual.value) {
     if (!debouncedHandleDeleteTag.value) {
       debouncedHandleDeleteTag.value = useDebounceFn(
@@ -668,7 +668,7 @@ function multipleSelectionHandlerForSelectedTags(e: {
   }
 }
 
-function metaKeyClickSelection(event: MouseEvent, tagName: string) {
+const metaKeyClickSelection = (event: MouseEvent, tagName: string) => {
   if (isMetaPressed.value && event instanceof MouseEvent) {
     if (activeTags.value.includes(tagName)) {
       activeTags.value.splice(activeTags.value.indexOf(tagName), 1)
@@ -685,7 +685,7 @@ function metaKeyClickSelection(event: MouseEvent, tagName: string) {
   }
 }
 
-function deleteHandler(e: KeyboardEvent) {
+const deleteHandler = (e: KeyboardEvent) => {
   if (activeTags.value.length > 0) {
     modelSelectedTags.value = modelSelectedTags.value.filter(
       tag => !activeTags.value.includes(tag),
@@ -714,7 +714,7 @@ function deleteHandler(e: KeyboardEvent) {
   unselectActiveTags()
 }
 
-function handleCopy(e: ClipboardEvent) {
+const handleCopy = (e: ClipboardEvent) => {
   e.preventDefault()
   const copyBuffer: string[] = []
   const copyJSONBuffer = {
@@ -737,7 +737,7 @@ function handleCopy(e: ClipboardEvent) {
   return copyJSONBuffer
 }
 
-function handleCut(e: ClipboardEvent) {
+const handleCut = (e: ClipboardEvent) => {
   e.preventDefault()
   const result = handleCopy(e)
   if (!result) return
@@ -749,7 +749,7 @@ function handleCut(e: ClipboardEvent) {
   modelValue.value = modelValue.value.replace(copiedInput, '')
 }
 
-function handlePaste(e: ClipboardEvent) {
+const handlePaste = (e: ClipboardEvent) => {
   e.preventDefault()
   const types = e.clipboardData?.types || []
   let parsedTags: string[] = []
@@ -784,7 +784,7 @@ function handlePaste(e: ClipboardEvent) {
   resetActiveTags()
 }
 
-function inputKeydownHandler(e: KeyboardEvent) {
+const inputKeydownHandler = (e: KeyboardEvent) => {
   if (inputIsSelected()) {
     if (
       isSingleCharacter(e.key)
@@ -796,36 +796,35 @@ function inputKeydownHandler(e: KeyboardEvent) {
   multipleTagsSelectionHandler({ event: e, tagName: '' })
 }
 
-function selectedTagsKeydownHandler(e: KeyboardEvent) {
+const selectedTagsKeydownHandler = (e: KeyboardEvent) => {
   if (e.key === 'Enter') {
     e.preventDefault()
   }
   multipleTagsSelectionHandler({ event: e, tagName: '' })
 }
 
-function enterHandler() {
+const enterHandler = () => {
   inputRef.value?.blur()
 }
 
-function downHandler(e: KeyboardEvent) {
+const downHandler = (e: KeyboardEvent) => {
   const cb = () => emits('focus-next', e)
   if (props.positionReversed) cb()
   else focusFirstTag(cb)
 }
 
-function upHandler(e: KeyboardEvent) {
+const upHandler = (e: KeyboardEvent) => {
   const cb = () => emits('focus-prev', e)
   if (props.positionReversed) focusFirstTag(cb)
   else cb()
 }
-
-async function handleDeleteTag({
+const handleDeleteTag = async ({
   tagName,
   event,
 }: {
   tagName: string
   event?: KeyboardEvent | MouseEvent
-}) {
+}) => {
   if (!activeTags.value.length) {
     deleteTags([tagName])
   }
