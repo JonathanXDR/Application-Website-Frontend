@@ -50,9 +50,9 @@
 </template>
 
 <script>
-import scrollLock from 'docc-render/utils/scroll-lock'
 import FocusTrap from 'docc-render/utils/FocusTrap'
 import changeElementVOVisibility from 'docc-render/utils/changeElementVOVisibility'
+import scrollLock from 'docc-render/utils/scroll-lock'
 import { Portal } from 'portal-vue'
 import CloseIcon from 'theme/components/Icons/CloseIcon.vue'
 
@@ -105,6 +105,7 @@ export default {
       default: true,
     },
   },
+  emits: ['update:visible', 'close', 'open'],
   data() {
     return {
       lastFocusItem: null,
@@ -161,11 +162,7 @@ export default {
     // add listeners for dynamic themes
     if (this.isThemeDynamic) {
       const matchMedia = window.matchMedia('(prefers-color-scheme: dark)')
-      matchMedia.addListener(this.onColorSchemePreferenceChange)
-      this.$once('hook:beforeDestroy', () => {
-        matchMedia.removeListener(this.onColorSchemePreferenceChange)
-      })
-
+      matchMedia.addEventListener(this.onColorSchemePreferenceChange)
       // Trigger a theme update when the modal is first loaded.
       this.onColorSchemePreferenceChange(matchMedia)
     }
@@ -175,6 +172,7 @@ export default {
     if (this.isVisible) {
       scrollLock.unlockScroll(this.$refs.container)
     }
+    matchMedia.removeListener(this.onColorSchemePreferenceChange)
     document.removeEventListener('keydown', this.onKeydown)
     this.focusTrapInstance.destroy()
   },
@@ -225,10 +223,10 @@ export default {
     /**
      * Handle the keydown body event listener.
      * Used to:
-     * - Overwrite cmd+a and ctrl+a behaviour to select modal content only
+     * - Overwrite cmd+a and ctrl+a behavior to select modal content only
      * - Close the modal on `Escape` click.
-     * @param {KeyboardEvent} params
-     * @param {string} params.key
+     * @param {KeyboardEvent} event
+     * @param {string} event.key
      */
     onKeydown(event) {
       const { metaKey = false, ctrlKey = false, key } = event

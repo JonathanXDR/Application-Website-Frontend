@@ -36,15 +36,16 @@
 </template>
 
 <script>
-import { SIDEBAR_HIDE_BUTTON_ID } from 'docc-render/constants/sidebar'
 import InlineCloseIcon from 'theme/components/Icons/InlineCloseIcon.vue'
-import { baseNavOpenSidenavButtonId } from 'docc-render/constants/nav'
+import { baseNavOpenSidenavButtonId } from '~/constants/nav'
+import { SIDEBAR_HIDE_BUTTON_ID } from '~/constants/sidebar'
 
 export default {
   name: 'BaseNavigatorCard',
   components: {
     InlineCloseIcon,
   },
+  emits: ['close'],
   data() {
     return {
       SIDEBAR_HIDE_BUTTON_ID,

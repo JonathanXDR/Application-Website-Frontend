@@ -139,12 +139,6 @@
 import Badge from 'docc-render/components/Badge.vue'
 import FilterInput from 'docc-render/components/Filter/FilterInput.vue'
 import BaseNavigatorCard from 'docc-render/components/Navigator/BaseNavigatorCard.vue'
-import {
-  INDEX_ROOT_KEY,
-  SIDEBAR_ITEM_SIZE,
-} from 'docc-render/constants/sidebar'
-import { CHANGES_TAGS, FILTER_TAGS } from 'docc-render/constants/Tags'
-import { TopicTypes } from 'docc-render/constants/TopicTypes'
 import keyboardNavigation from 'docc-render/mixins/keyboardNavigation'
 import { isEqual, last } from 'docc-render/utils/arrays'
 import { clone } from 'docc-render/utils/data'
@@ -163,6 +157,9 @@ import NavigatorCardItem from 'theme/components/Navigator/NavigatorCardItem.vue'
 import filteredChildrenMixin from 'theme/mixins/navigator/filteredChildren'
 import tagsProvider from 'theme/mixins/navigator/tagsProvider'
 import { DynamicScroller, DynamicScrollerItem } from 'vue-virtual-scroller'
+import { CHANGES_TAGS, FILTER_TAGS } from '~/constants/Tags'
+import { TopicTypes } from '~/constants/TopicTypes'
+import { INDEX_ROOT_KEY, SIDEBAR_ITEM_SIZE } from '~/constants/sidebar'
 
 const STORAGE_KEY = 'navigator.state'
 
@@ -242,6 +239,7 @@ export default {
       default: false,
     },
   },
+  emits: ['close', 'navigate'],
   data() {
     return {
       // value to v-model the filter to
@@ -249,7 +247,7 @@ export default {
       // debounced filter value, to reduce the computed property computations. Used in filter logic.
       debouncedFilter: '',
       selectedTags: [],
-      /** @type {Object.<string, boolean>} */
+      /** @type {{ [key: string]: boolean }} */
       openNodes: Object.freeze({}),
       /** @type {NavigatorFlatItem[]} */
       nodesToRender: Object.freeze([]),
@@ -275,18 +273,19 @@ export default {
       if (errorFetching) return ERROR_FETCHING
       return NO_CHILDREN
     },
-    filterPattern: ({ debouncedFilter }) =>
-      !debouncedFilter
+    filterPattern: ({ debouncedFilter }) => {
+      // remove the `g` for global, as that causes bugs when matching
+      return !debouncedFilter
         ? null
-        : // remove the `g` for global, as that causes bugs when matching
-        new RegExp(safeHighlightPattern(debouncedFilter), 'i'),
+        : new RegExp(safeHighlightPattern(debouncedFilter), 'i')
+    },
     /**
      * Return the item size for the Scroller element.
      */
     itemSize: () => SIDEBAR_ITEM_SIZE,
     /**
      * Generates a map of the children, with the uid as the key.
-     * @return {Object.<string, NavigatorFlatItem>}
+     * @returns {{ [key: string]: NavigatorFlatItem }} Map of children
      */
     childrenMap({ children }) {
       return convertChildrenArrayToObject(children)
@@ -308,7 +307,7 @@ export default {
     /**
      * This generates a map of all the nodes we are allowed to render at a certain time.
      * This is used on both toggling, as well as on navigation and filtering.
-     * @return {Object.<string, NavigatorFlatItem>}
+     * @returns {{ [key: string]: NavigatorFlatItem }} Map of renderable nodes
      */
     renderableChildNodesMap({
       hasFilter,
@@ -545,7 +544,7 @@ export default {
         // remove current node and all of it's children, from the open list
         const allChildren = getAllChildren(node.uid, this.childrenMap)
         allChildren.forEach(({ uid }) => {
-          delete openNodes[uid]
+          openNodes[uid] = undefined
         })
         // set the new open nodes. Should be faster than iterating each and calling `this.$delete`.
         this.setUnlessEqual('openNodes', openNodes)
@@ -575,7 +574,7 @@ export default {
       let include = []
       allChildren.forEach(({ uid }) => {
         if (isOpen) {
-          delete openNodes[uid]
+          openNodes[uid] = undefined
         }
         else {
           openNodes[uid] = true
@@ -605,10 +604,10 @@ export default {
           const children = getAllChildren(uid, this.childrenMap)
           // remove all children
           children.forEach((child) => {
-            delete openNodes[child.uid]
+            openNodes[child.uid] = undefined
           })
           // remove the sibling as well
-          delete openNodes[uid]
+          openNodes[uid] = undefined
           // augment the nodesToRender
           this.augmentRenderNodes({
             uid,
@@ -636,7 +635,7 @@ export default {
      * Removes deprecated items from a list
      * @param {NavigatorFlatItem[]} items
      * @param {boolean} deprecatedHidden
-     * @returns {NavigatorFlatItem[]}
+     * @returns {NavigatorFlatItem[]} Array of filtered navigator items without deprecated items
      */
     removeDeprecated(items, deprecatedHidden) {
       if (!deprecatedHidden) return items

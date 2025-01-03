@@ -94,7 +94,6 @@ export default {
   constants: {
     CardSize,
   },
-  mixins: [referencesProvider],
   props: {
     linkText: {
       type: String,

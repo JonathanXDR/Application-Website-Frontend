@@ -8,8 +8,8 @@
  * See https://swift.org/CONTRIBUTORS.txt for Swift project authors
  */
 
-import { TopicTypes } from 'docc-render/constants/TopicTypes'
-import { ChangeNames } from 'docc-render/constants/Changes'
+import { ChangeNames } from '~/constants/Changes'
+import { TopicTypes } from '~/constants/TopicTypes'
 
 export const TYPE_TAGS = {
   sampleCode: 'filter.tags.sample-code',

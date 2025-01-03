@@ -16,6 +16,7 @@
     <template #body="{ className }">
       <transition name="delay-visibility">
         <div
+          v-show="true"
           aria-hidden="true"
           class="loading-navigator"
           :class="className"
@@ -49,6 +50,7 @@ export default {
     BaseNavigatorCard,
     LoadingNavigatorItem,
   },
+  emits: ['close'],
   data() {
     return {
       LOADER_ROWS,

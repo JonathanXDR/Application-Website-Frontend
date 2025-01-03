@@ -9,17 +9,17 @@
  */
 
 import {
-  getSelectionText,
-  isSingleCharacter,
-  moveCursorToStart,
-  moveCursorToEnd,
-} from 'docc-render/utils/input-helper'
-import {
   parseDataFromClipboard,
   prepareDataForHTMLClipboard,
 } from 'docc-render/utils/clipboard'
-import { insertAt } from 'docc-render/utils/strings'
 import debounce from 'docc-render/utils/debounce'
+import {
+  getSelectionText,
+  isSingleCharacter,
+  moveCursorToEnd,
+  moveCursorToStart,
+} from 'docc-render/utils/input-helper'
+import { insertAt } from 'docc-render/utils/strings'
 
 const DebounceDelay = 280
 const VirtualKeyboardThreshold = 100
@@ -441,14 +441,14 @@ export default {
     },
     /**
      * Returns whether the entire input text is selected
-     * @returns {boolean}
+     * @returns {boolean} True if all text in the input is selected, false otherwise
      */
     inputIsSelected() {
       return this.input.length && getSelectionText() === this.input
     },
     /**
      * Return whether the input has a partial seleced
-     * @returns {boolean}
+     * @returns {boolean} True if the input has a partial text selection, false otherwise
      */
     inputHasPartialTextSelected() {
       const selectedText = getSelectionText()
@@ -493,7 +493,7 @@ export default {
     /**
      * Handles Copy-ing from the input or Selected tags
      * @param {ClipboardEvent} event
-     * @returns {{ input: string, tags string[] }}
+     * @returns {{ input: string, tags: string[] }} An object containing the copied input text and array of tags
      */
     handleCopy(event) {
       event.preventDefault()

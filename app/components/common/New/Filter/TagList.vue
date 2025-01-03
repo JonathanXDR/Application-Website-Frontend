@@ -59,9 +59,9 @@
 </template>
 
 <script>
-import { isSingleCharacter } from 'docc-render/utils/input-helper'
 import handleScrollbar from 'docc-render/mixins/handleScrollbar'
 import keyboardNavigation from 'docc-render/mixins/keyboardNavigation'
+import { isSingleCharacter } from 'docc-render/utils/input-helper'
 import Tag from './Tag.vue'
 
 export default {
@@ -104,6 +104,18 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'reset-filters',
+    'select-all',
+    'click-tags',
+    'delete-tag',
+    'prevent-blur',
+    'paste-tags',
+    'keydown',
+    'focus-prev',
+    'focus',
+    'focus-next',
+  ],
   computed: {
     totalItemsToNavigate: ({ tags }) => tags.length,
   },

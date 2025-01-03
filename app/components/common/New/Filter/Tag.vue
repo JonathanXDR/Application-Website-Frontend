@@ -90,6 +90,14 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'focus',
+    'click',
+    'keydown',
+    'paste-content',
+    'delete-tag',
+    'prevent-blur',
+  ],
   computed: {
     ariaSelected: ({ isActiveTag, isRemovableTag }) => {
       if (!isRemovableTag) return null
@@ -102,18 +110,17 @@ export default {
         this.focusButton()
       }
     },
-  },
-  mounted() {
-    // initialize global clipboard listeners
-    document.addEventListener('copy', this.handleCopy)
-    document.addEventListener('cut', this.handleCut)
-    document.addEventListener('paste', this.handlePaste)
-
-    this.$once('hook:beforeDestroy', () => {
+    mounted() {
+      // initialize global clipboard listeners
+      document.addEventListener('copy', this.handleCopy)
+      document.addEventListener('cut', this.handleCut)
+      document.addEventListener('paste', this.handlePaste)
+    },
+    beforeDestroy() {
       document.removeEventListener('copy', this.handleCopy)
       document.removeEventListener('cut', this.handleCut)
       document.removeEventListener('paste', this.handlePaste)
-    })
+    },
   },
   methods: {
     isCurrentlyActiveElement() {
