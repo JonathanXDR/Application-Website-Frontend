@@ -18,7 +18,7 @@ export function parseDataFromClipboard(payload: string): object | null {
   try {
     return match && match[1] ? JSON.parse(match[1]) : null
   }
-  catch (err) {
+  catch {
     return null
   }
 }
