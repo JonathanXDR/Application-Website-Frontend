@@ -8,10 +8,8 @@
       role="dialog"
       :class="stateClasses"
     >
-      <div
-        class="backdrop"
-        @click="onClickOutside"
-      />
+      <!-- backdrop with no @click; `onClickOutside` is handled via VueUse -->
+      <div class="backdrop" />
       <div
         ref="container"
         class="container"
@@ -38,10 +36,8 @@
 </template>
 
 <script setup lang="ts">
+import { useFocusTrap } from '@vueuse/integrations'
 import CloseIcon from '~/components/common/New/Icons/CloseIcon.vue'
-import FocusTrap from '~/utils/FocusTrap'
-import changeElementVOVisibility from '~/utils/changeElementVOVisibility'
-import scrollLock from '~/utils/scroll-lock'
 
 const props = withDefaults(
   defineProps<{
@@ -76,7 +72,6 @@ const container = ref<HTMLElement | null>(null)
 const content = ref<HTMLElement | null>(null)
 const closeBtn = ref<HTMLElement | null>(null)
 let lastFocusItem: HTMLElement | null = null
-let focusTrapInstance: FocusTrap
 
 const stateClasses = computed(() => ({
   'modal-fullscreen': props.isFullscreen,
@@ -85,26 +80,29 @@ const stateClasses = computed(() => ({
   'modal-with-close': props.showClose,
 }))
 
+const { activate: activateFocusTrap, deactivate: deactivateFocusTrap }
+  = useFocusTrap(container)
+const isBodyScrollLocked = useScrollLock(document.body, false)
+
+onClickOutside(container, () => {
+  if (isVisible.value) closeModal()
+})
+
 const onShow = () => {
   nextTick(() => {
-    if (container.value) scrollLock.lockScroll(container.value)
-    focusCloseButton().then(() => {
-      focusTrapInstance.updateFocusContainer(container.value)
-      focusTrapInstance.start()
-      if (container.value) changeElementVOVisibility.hide(container.value)
-    })
+    isBodyScrollLocked.value = true
+    focusCloseButton().then(() => activateFocusTrap())
   })
 }
 
 const onHide = () => {
-  if (container.value) scrollLock.unlockScroll(container.value)
-  focusTrapInstance.stop()
+  isBodyScrollLocked.value = false
+  deactivateFocusTrap()
   if (lastFocusItem) {
     lastFocusItem.focus({ preventScroll: true })
     lastFocusItem = null
   }
   emit('close')
-  if (container.value) changeElementVOVisibility.show(container.value)
 }
 
 watch(isVisible, (val) => {
@@ -112,23 +110,8 @@ watch(isVisible, (val) => {
   else onHide()
 })
 
-onMounted(() => {
-  focusTrapInstance = new FocusTrap()
-  document.addEventListener('keydown', onKeydown)
-})
-
-onBeforeUnmount(() => {
-  if (isVisible.value && container.value) scrollLock.unlockScroll(container.value)
-  document.removeEventListener('keydown', onKeydown)
-  focusTrapInstance.destroy()
-})
-
 const closeModal = () => {
   isVisible.value = false
-}
-
-const onClickOutside = () => {
-  closeModal()
 }
 
 const onKeydown = (event: KeyboardEvent) => {
@@ -145,7 +128,9 @@ const onKeydown = (event: KeyboardEvent) => {
 }
 
 const selectContent = () => {
-  if (content.value) window.getSelection()?.selectAllChildren(content.value)
+  if (content.value) {
+    window.getSelection()?.selectAllChildren(content.value)
+  }
 }
 
 const focusCloseButton = async () => {
@@ -154,6 +139,8 @@ const focusCloseButton = async () => {
   if (closeBtn.value) closeBtn.value.focus()
   emit('open')
 }
+
+useEventListener(document, 'keydown', onKeydown)
 </script>
 
 <style scoped lang="scss">
