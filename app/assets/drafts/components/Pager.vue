@@ -86,7 +86,7 @@
 
 <script>
 import DocumentationTopicStore from 'docc-render/stores/DocumentationTopicStore'
-import PagerControl from '~/components/common/New/PagerControl.vue'
+import PagerControl from '~/assets/drafts/components/PagerControl.vue'
 import { BreakpointAttributes } from '~/utils/breakpoints'
 
 const GUTTERS_WIDTH = 174
@@ -167,6 +167,7 @@ function waitForScrollIntoView(element) {
  *     content—each individual item will be provided as a prop to `page` slots.
  */
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: 'Pager',
   components: {
     ControlNext: {

@@ -8,7 +8,6 @@
       role="dialog"
       :class="stateClasses"
     >
-      <!-- backdrop with no @click; `onClickOutside` is handled via VueUse -->
       <div class="backdrop" />
       <div
         ref="container"
@@ -22,7 +21,7 @@
           :aria-label="t('verbs.close')"
           @click.prevent="closeModal"
         >
-          <CloseIcon />
+          <IconsCloseIcon />
         </button>
         <div
           ref="content"
@@ -37,7 +36,6 @@
 
 <script setup lang="ts">
 import { useFocusTrap } from '@vueuse/integrations'
-import CloseIcon from '~/components/common/New/Icons/CloseIcon.vue'
 
 const props = withDefaults(
   defineProps<{

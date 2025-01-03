@@ -73,8 +73,8 @@
 </template>
 
 <script>
-import ButtonLink from '~/components/common/New/ButtonLink.vue'
-import CardCover from '~/components/common/New/CardCover.vue'
+import ButtonLink from '~/assets/drafts/components/ButtonLink.vue'
+import CardCover from '~/assets/drafts/components/CardCover.vue'
 import DiagonalArrowIcon from '~/components/common/New/Icons/DiagonalArrowIcon.vue'
 import InlineChevronRightIcon from '~/components/common/New/Icons/InlineChevronRightIcon.vue'
 
@@ -84,6 +84,7 @@ const CardSize = {
 }
 
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: 'Card',
   components: {
     DiagonalArrowIcon,

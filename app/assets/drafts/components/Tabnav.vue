@@ -22,6 +22,7 @@
 <script>
 const ProvideKey = 'tabnavData'
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: 'Tabnav',
   constants: { ProvideKey },
   provide() {
