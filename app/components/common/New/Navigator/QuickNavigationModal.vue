@@ -138,19 +138,19 @@
 </template>
 
 <script>
-import FilterInput from 'docc-render/components/Filter/FilterInput.vue'
-import GenericModal from 'docc-render/components/GenericModal.vue'
-import QuickNavigationHighlighter from 'docc-render/components/Navigator/QuickNavigationHighlighter.vue'
-import TopicTypeIcon from 'docc-render/components/TopicTypeIcon.vue'
-import keyboardNavigation from 'docc-render/mixins/keyboardNavigation'
-import debounce from 'docc-render/utils/debounce'
-import LRUMap from 'docc-render/utils/lru-map'
+import FilterInput from '~/components/common/New/Filter/FilterInput.vue'
+import GenericModal from '~/components/common/New/GenericModal.vue'
+import MagnifierIcon from '~/components/common/New/Icons/MagnifierIcon.vue'
+import QuickNavigationHighlighter from '~/components/common/New/Navigator/QuickNavigationHighlighter.vue'
+import TopicTypeIcon from '~/components/common/New/TopicTypeIcon.vue'
+import keyboardNavigation from '~/mixins/keyboardNavigation'
+import debounce from '~/utils/debounce'
+import LRUMap from '~/utils/lru-map'
 import {
   convertChildrenArrayToObject,
   getParents,
-} from 'docc-render/utils/navigatorData'
-import { SCROLL_LOCK_DISABLE_ATTR } from 'docc-render/utils/scroll-lock'
-import MagnifierIcon from 'theme/components/Icons/MagnifierIcon.vue'
+} from '~/utils/navigatorData'
+import { SCROLL_LOCK_DISABLE_ATTR } from '~/utils/scroll-lock'
 
 const PreviewState = {
   error: 'error',
@@ -473,7 +473,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 $base-border-width: 1px;
 $input-horizontal-spacing: rem(15px);

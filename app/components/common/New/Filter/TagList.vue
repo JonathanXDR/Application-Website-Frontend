@@ -59,10 +59,10 @@
 </template>
 
 <script>
-import handleScrollbar from 'docc-render/mixins/handleScrollbar'
-import keyboardNavigation from 'docc-render/mixins/keyboardNavigation'
-import { isSingleCharacter } from 'docc-render/utils/input-helper'
 import Tag from './Tag.vue'
+import handleScrollbar from '~/mixins/handleScrollbar'
+import keyboardNavigation from '~/mixins/keyboardNavigation'
+import { isSingleCharacter } from '~/utils/input-helper'
 
 export default {
   name: 'Tags',
@@ -156,7 +156,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 .tags {
   position: relative;

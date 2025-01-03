@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 .card-cover-wrap {
   &.rounded {

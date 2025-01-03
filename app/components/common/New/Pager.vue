@@ -85,9 +85,9 @@
 </template>
 
 <script>
-import PagerControl from 'docc-render/components/PagerControl.vue'
 import DocumentationTopicStore from 'docc-render/stores/DocumentationTopicStore'
-import { BreakpointAttributes } from 'docc-render/utils/breakpoints'
+import PagerControl from '~/components/common/New/PagerControl.vue'
+import { BreakpointAttributes } from '~/utils/breakpoints'
 
 const GUTTERS_WIDTH = 174
 
@@ -303,7 +303,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 .pager {
   --control-size: 3em;

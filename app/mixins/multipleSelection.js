@@ -11,15 +11,15 @@
 import {
   parseDataFromClipboard,
   prepareDataForHTMLClipboard,
-} from 'docc-render/utils/clipboard'
-import debounce from 'docc-render/utils/debounce'
+} from '~/utils/clipboard'
+import debounce from '~/utils/debounce'
 import {
   getSelectionText,
   isSingleCharacter,
   moveCursorToEnd,
   moveCursorToStart,
-} from 'docc-render/utils/input-helper'
-import { insertAt } from 'docc-render/utils/strings'
+} from '~/utils/input-helper'
+import { insertAt } from '~/utils/strings'
 
 const DebounceDelay = 280
 const VirtualKeyboardThreshold = 100

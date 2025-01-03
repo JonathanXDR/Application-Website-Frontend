@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import BaseNavigatorCardItem from 'docc-render/components/Navigator/BaseNavigatorCardItem.vue'
+import BaseNavigatorCardItem from '~/components/common/New/Navigator/BaseNavigatorCardItem.vue'
 
 export default {
   name: 'LoadingNavigatorItem',
@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 .loader {
   height: rem(12px);

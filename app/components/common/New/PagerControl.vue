@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import ChevronRoundedIcon from 'theme/components/Icons/ChevronRoundedIcon.vue'
+import ChevronRoundedIcon from '~/components/common/New/Icons/ChevronRoundedIcon.vue'
 
 const Action = {
   previous: 'previous',
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 .pager-control {
   align-items: center;

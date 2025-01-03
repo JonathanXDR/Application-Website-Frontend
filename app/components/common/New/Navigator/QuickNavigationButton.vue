@@ -23,7 +23,7 @@ export default { name: 'QuickNavigationButton' }
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 .quick-navigation-open {
   display: flex;

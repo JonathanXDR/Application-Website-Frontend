@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Reference from 'docc-render/components/ContentNode/Reference.vue'
+import Reference from '~/components/common/New/ContentNode/Reference.vue'
 
 export default {
   name: 'ButtonLink',
@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 .button-cta {
   background: var(

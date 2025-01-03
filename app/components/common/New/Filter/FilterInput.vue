@@ -130,11 +130,11 @@
 </template>
 
 <script>
-import handleScrollbar from 'docc-render/mixins/handleScrollbar'
-import multipleSelection from 'docc-render/mixins/multipleSelection'
-import ClearRoundedIcon from 'theme/components/Icons/ClearRoundedIcon.vue'
-import FilterIcon from 'theme/components/Icons/FilterIcon.vue'
-import TagList from './TagList.vue'
+import ClearRoundedIcon from '~/components/common/New/Icons/ClearRoundedIcon.vue'
+import FilterIcon from '~/components/common/New/Icons/FilterIcon.vue'
+import TagList from '~/components/common/New/TagList.vue'
+import handleScrollbar from '~/mixins/handleScrollbar'
+import multipleSelection from '~/mixins/multipleSelection'
 
 // Max number of tags to show
 export const TagLimit = 5
@@ -451,7 +451,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "docc-render/styles/_core.scss";
+// @import "docc-render/styles/_core.scss";
 
 $tag-outline-padding: 4px !default;
 $input-vertical-padding: rem(13px) !default;
