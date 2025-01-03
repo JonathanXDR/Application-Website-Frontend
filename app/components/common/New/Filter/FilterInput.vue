@@ -1,20 +1,10 @@
-<!--
-  This source file is part of the Swift.org open source project
-
-  Copyright (c) 2022-2024 Apple Inc. and the Swift project authors
-  Licensed under Apache License v2.0 with Runtime Library Exception
-
-  See https://swift.org/LICENSE.txt for license information
-  See https://swift.org/CONTRIBUTORS.txt for Swift project authors
--->
-
 <template>
   <div
     class="filter"
     role="search"
     tabindex="0"
     :aria-labelledby="searchAriaLabelledBy"
-    :class="{ focus: showSuggestedTags && !preventBorderStyle }"
+    :class="{ focus: displaySuggestedTags && !preventBorderStyle }"
     @blur.capture="handleBlur"
     @focus.capture="handleFocus"
   >
@@ -48,14 +38,13 @@
             v-if="hasSelectedTags"
             :id="SelectedTagsId"
             v-bind="virtualKeyboardBind"
-            ref="selectedTags"
+            ref="selectedTagsRef"
             :input="input"
             :tags="selectedTags"
-            :aria-label="$tc('filter.selected-tags', suggestedTags.length)"
+            :aria-label="`${selectedTagsAriaLabel}`"
             :active-tags="activeTags"
             :translatable-tags="translatableTags"
             class="filter__selected-tags"
-            are-tags-removable
             v-on="selectedTagsMultipleSelectionListeners"
             @focus-prev="handleFocusPrevOnSelectedTags"
             @focus-next="focusInputFromTags"
@@ -63,15 +52,14 @@
             @prevent-blur="$emit('update:preventedBlur', true)"
           />
           <label
-            id="filter-label"
+            :id="FilterInputId"
             :for="FilterInputId"
             :data-value="modelValue"
             :aria-label="placeholder"
             class="filter__input-label"
           >
             <input
-              :id="FilterInputId"
-              ref="input"
+              ref="inputRef"
               v-model="modelValue"
               :placeholder="hasSelectedTags ? '' : placeholder"
               :aria-expanded="displaySuggestedTags ? 'true' : 'false'"
@@ -100,21 +88,21 @@
         <div class="filter__delete-button-wrapper">
           <button
             v-if="input.length || displaySuggestedTags || hasSelectedTags"
-            :aria-label="$t('filter.reset-filter')"
+            :aria-label="deleteButtonAriaLabel"
             class="filter__delete-button"
             @click="resetFilters(true)"
             @keydown.enter.exact.stop="resetFilters(true)"
             @mousedown.prevent
           >
-            <ClearRoundedIcon />
+            <ClearRoundedIcon class="clear-rounded-icon" />
           </button>
         </div>
       </div>
       <TagList
         v-if="displaySuggestedTags"
         :id="SuggestedTagsId"
-        ref="suggestedTags"
-        :aria-label="$tc('filter.suggested-tags', suggestedTags.length)"
+        ref="suggestedTagsRef"
+        :aria-label="`${suggestedTagsAriaLabel}`"
         :input="input"
         :tags="suggestedTags"
         :translatable-tags="translatableTags"
@@ -129,16 +117,25 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { useDebounceFn } from '@vueuse/core'
+import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import ClearRoundedIcon from '~/components/common/New/Icons/ClearRoundedIcon.vue'
 import FilterIcon from '~/components/common/New/Icons/FilterIcon.vue'
 import TagList from '~/components/common/New/TagList.vue'
-import handleScrollbar from '~/mixins/handleScrollbar'
-import multipleSelection from '~/mixins/multipleSelection'
+import {
+  parseDataFromClipboard,
+  prepareDataForHTMLClipboard,
+} from '~/utils/clipboard'
+import {
+  getSelectionText,
+  isSingleCharacter,
+  moveCursorToEnd,
+  moveCursorToStart,
+} from '~/utils/input-helper'
+import { insertAt } from '~/utils/strings'
 
-// Max number of tags to show
-export const TagLimit = 5
-
+const TagLimit = 5
 const FilterInputId = 'filter-input'
 const SelectedTagsId = 'selected-tags'
 const SuggestedTagsId = 'suggested-tags'
@@ -153,300 +150,712 @@ const AXinputProperties = {
   'aria-controls': 'suggestedTags',
 }
 
-export default {
-  name: 'FilterInput',
-  components: {
-    TagList,
-    ClearRoundedIcon,
-    FilterIcon,
-  },
-  mixins: [handleScrollbar, multipleSelection],
-  props: {
-    positionReversed: {
-      type: Boolean,
-      default: () => false,
-    },
-    tags: {
-      type: Array,
-      default: () => [],
-    },
-    selectedTags: {
-      type: Array,
-      default: () => [],
-    },
-    preventedBlur: {
-      type: Boolean,
-      default: () => false,
-    },
-    placeholder: {
-      type: String,
-      default: () => '',
-    },
-    disabled: {
-      type: Boolean,
-      default: () => false,
-    },
-    value: {
-      type: String,
-      default: () => '',
-    },
-    shouldTruncateTags: {
-      type: Boolean,
-      default: false,
-    },
-    focusInputWhenCreated: {
-      type: Boolean,
-      default: false,
-    },
-    focusInputWhenEmpty: {
-      type: Boolean,
-      default: false,
-    },
-    selectInputOnFocus: {
-      type: Boolean,
-      default: false,
-    },
-    preventBorderStyle: {
-      type: Boolean,
-      default: false,
-    },
-    translatableTags: {
-      type: Array,
-      default: () => [],
-    },
-  },
-  emits: [
-    'update:preventedBlur',
-    'update:selectedTags',
-    'input',
-    'blur',
-    'focus',
-    'focus-next',
-    'focus-prev',
-    'suggested-tags',
-    'show-suggested-tags',
-  ],
-  constants: {
-    FilterInputId,
-    SelectedTagsId,
-    SuggestedTagsId,
-    AXinputProperties,
-    TagLimit,
-  },
-  data() {
-    return {
-      resetedTagsViaDeleteButton: false,
-      FilterInputId,
-      SelectedTagsId,
-      SuggestedTagsId,
-      AXinputProperties,
-      showSuggestedTags: false,
+interface Props {
+  positionReversed: boolean
+  tags: string[]
+  selectedTags: string[]
+  preventedBlur: boolean
+  placeholder: string
+  disabled: boolean
+  value: string
+  shouldTruncateTags: boolean
+  focusInputWhenCreated: boolean
+  focusInputWhenEmpty: boolean
+  selectInputOnFocus: boolean
+  preventBorderStyle: boolean
+  translatableTags: string[]
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  positionReversed: false,
+  tags: () => [],
+  selectedTags: () => [],
+  preventedBlur: false,
+  placeholder: '',
+  disabled: false,
+  value: '',
+  shouldTruncateTags: false,
+  focusInputWhenCreated: false,
+  focusInputWhenEmpty: false,
+  selectInputOnFocus: false,
+  preventBorderStyle: false,
+  translatableTags: () => [],
+})
+
+const emits = defineEmits([
+  'update:preventedBlur',
+  'update:selectedTags',
+  'input',
+  'blur',
+  'focus',
+  'focus-next',
+  'focus-prev',
+  'suggested-tags',
+  'show-suggested-tags',
+])
+
+const inputRef = ref<HTMLInputElement | null>(null)
+const selectedTagsRef = ref<InstanceType<typeof TagList> | null>(null)
+const suggestedTagsRef = ref<InstanceType<typeof TagList> | null>(null)
+
+const modelValue = computed({
+  get: () => props.value,
+  set: v => emits('input', v),
+})
+
+const input = computed(() => props.value)
+
+const isScrolling = ref(false)
+const scrollRemovedAt = ref(0)
+const ScrollingDebounceDelay = 1000
+const deleteScroll = useDebounceFn(() => {
+  isScrolling.value = false
+  scrollRemovedAt.value = Date.now()
+}, ScrollingDebounceDelay)
+
+function handleScroll(event: Event) {
+  const target = event.target as HTMLElement
+  if (target.scrollTop !== 0) {
+    target.scrollTop = 0
+    event.preventDefault()
+    return
+  }
+  const safeExtraWidth = 150
+  const listWidth = target.offsetWidth
+  const noScrollBarsWidth = listWidth + safeExtraWidth
+  if (target.scrollWidth < noScrollBarsWidth) return
+  const difference = Date.now() - scrollRemovedAt.value
+  if (difference < ScrollingDebounceDelay / 10) return
+  isScrolling.value = true
+  if (!target.style.getPropertyValue('--scroll-target-height')) {
+    target.style.setProperty(
+      '--scroll-target-height',
+      `${target.offsetHeight}px`,
+    )
+  }
+  deleteScroll()
+}
+
+const keyboardIsVirtual = ref(false)
+const activeTags = ref<string[]>([])
+const initTagIndex = ref<number | null>(null)
+const focusedTagIndex = ref<number | null>(null)
+const metaKey = ref(false)
+const shiftKey = ref(false)
+const tabbing = ref(false)
+const debouncedHandleDeleteTag = ref<ReturnType<typeof useDebounceFn> | null>(
+  null,
+)
+const DebounceDelay = 280
+const VirtualKeyboardThreshold = 100
+
+const resetedTagsViaDeleteButton = ref(false)
+const showSuggestedTags = ref(false)
+
+const hasSuggestedTags = computed(() => suggestedTags.value.length > 0)
+const hasSelectedTags = computed(() => props.selectedTags.length > 0)
+const inputIsNotEmpty = computed(
+  () => input.value.length > 0 || hasSelectedTags.value,
+)
+const selectedTagsAriaLabel = computed(() => props.selectedTags.length)
+const suggestedTagsAriaLabel = computed(() => suggestedTags.value.length)
+const deleteButtonAriaLabel = computed(() => 'Reset filter')
+
+const suggestedTags = computed(() => {
+  const filtered = props.tags.filter(
+    tag => !props.selectedTags.includes(tag),
+  )
+  return props.shouldTruncateTags ? filtered.slice(0, TagLimit) : filtered
+})
+
+const displaySuggestedTags = computed(
+  () => showSuggestedTags.value && hasSuggestedTags.value,
+)
+
+const virtualKeyboardBind = computed(() => ({
+  keyboardIsVirtual: keyboardIsVirtual.value,
+}))
+
+watch(
+  () => props.selectedTags,
+  async () => {
+    if (!resetedTagsViaDeleteButton.value) {
+      if (inputRef.value && inputRef.value === document.activeElement) {
+        await focusInput()
+      }
     }
-  },
-  computed: {
-    hasSuggestedTags: ({ suggestedTags }) => suggestedTags.length,
-    hasSelectedTags: ({ selectedTags }) => selectedTags.length,
-    inputIsNotEmpty: ({ input, hasSelectedTags }) =>
-      input.length || hasSelectedTags,
-    searchAriaLabelledBy: ({ hasSelectedTags }) =>
-      hasSelectedTags
-        ? FilterInputId.concat(' ', SelectedTagsId)
-        : FilterInputId,
-    modelValue: {
-      get: ({ value }) => value,
-      set(v) {
-        this.$emit('input', v)
-      },
-    },
-    input: ({ value }) => value,
-    /**
-     * Filters out the selected tags, from the tags.
-     * Can also truncate the tags, at a certain limit, via the `shouldTruncateTags` prop.
-     * @returns {string[]} An array of filtered and optionally truncated tags
-     */
-    suggestedTags: ({ tags, selectedTags, shouldTruncateTags }) => {
-      const suggestedTags = tags.filter(tag => !selectedTags.includes(tag))
-
-      return shouldTruncateTags
-        ? suggestedTags.slice(0, TagLimit)
-        : suggestedTags
-    },
-    displaySuggestedTags: ({ showSuggestedTags, suggestedTags }) =>
-      showSuggestedTags && suggestedTags.length > 0,
-    inputMultipleSelectionListeners: ({
-      resetActiveTags,
-      handleCopy,
-      handleCut,
-      handlePaste,
-    }) => ({
-      click: resetActiveTags,
-      copy: handleCopy,
-      cut: handleCut,
-      paste: handlePaste,
-    }),
-    selectedTagsMultipleSelectionListeners: ({
-      handleSingleTagClick,
-      selectInputAndTags,
-      handleDeleteTag,
-      selectedTagsKeydownHandler,
-      focusTagHandler,
-      handlePaste,
-    }) => ({
-      'click-tags': handleSingleTagClick,
-      'select-all': selectInputAndTags,
-      'delete-tag': handleDeleteTag,
-      'keydown': selectedTagsKeydownHandler,
-      'focus': focusTagHandler,
-      'paste-tags': handlePaste,
-    }),
-  },
-  watch: {
-    async selectedTags() {
-      if (!this.resetedTagsViaDeleteButton) {
-        // make sure we are inside the component, if we are moving the focus
-        if (this.$el.contains(document.activeElement)) {
-          await this.focusInput()
-        }
-      }
-      else {
-        this.resetedTagsViaDeleteButton = false
-      }
-
-      if (this.displaySuggestedTags && this.hasSuggestedTags) {
-        this.$refs.suggestedTags.resetScroll()
-      }
-    },
-
-    suggestedTags: {
-      immediate: true,
-      handler(value) {
-        this.$emit('suggested-tags', value)
-      },
-    },
-
-    showSuggestedTags(value) {
-      this.$emit('show-suggested-tags', value)
-    },
-  },
-  created() {
+    else {
+      resetedTagsViaDeleteButton.value = false
+    }
     if (
-      this.focusInputWhenCreated
-      && document.activeElement !== this.$refs.input
-      && (this.inputIsNotEmpty || this.focusInputWhenEmpty)
+      displaySuggestedTags.value
+      && hasSuggestedTags.value
+      && suggestedTagsRef.value
     ) {
-      this.focusInput()
+      suggestedTagsRef.value.resetScroll()
     }
   },
-  methods: {
-    /**
-     * Focuses the input
-     * @returns {Promise<void>}
-     */
-    async focusInput() {
-      // make sure everything is rendered
-      await this.$nextTick()
-      // focus the input
-      this.$refs.input.focus()
-      if (!this.input && this.resetActiveTags) {
-        this.resetActiveTags()
-      }
-    },
-    async resetFilters(hideTags = false) {
-      this.setFilterInput('')
-      this.setSelectedTags([])
+)
 
-      if (!hideTags) {
-        // We prevent blur from hiding tags
-        this.$emit('update:preventedBlur', true)
-        if (this.resetActiveTags) {
-          this.resetActiveTags()
-        }
-        await this.focusInput()
-        return
-      }
-
-      this.resetedTagsViaDeleteButton = true
-      this.showSuggestedTags = false
-      this.$refs.input.blur()
-    },
-    focusFirstTag(cb = () => {}) {
-      // make sure we show the suggestedTags, in case we lost focus
-      if (!this.showSuggestedTags) {
-        this.showSuggestedTags = true
-      }
-      // make sure that the suggestedTags ref exists
-      if (this.hasSuggestedTags && this.$refs.suggestedTags) {
-        this.$refs.suggestedTags.focusFirst()
-      }
-      else {
-        cb()
-      }
-    },
-    setFilterInput(value) {
-      this.$emit('input', value)
-    },
-    setSelectedTags(tags) {
-      this.$emit('update:selectedTags', tags)
-    },
-    deleteTags(array) {
-      this.setSelectedTags(
-        this.selectedTags.filter(tag => !array.includes(tag)),
-      )
-    },
-    async handleBlur(event) {
-      // if the blur came from clicking a button or the input
-      const target = event.relatedTarget
-      if (
-        target
-        && target.matches
-        && target.matches('button, input, ul')
-        && this.$el.contains(target)
-      ) {
-        return
-      }
-      // Wait for mousedown to send event listeners
-      await this.$nextTick()
-
-      this.resetActiveTags()
-
-      if (this.preventedBlur) {
-        this.$emit('update:preventedBlur', false)
-        return
-      }
-      this.showSuggestedTags = false
-      this.$emit('blur')
-    },
-    downHandler($event) {
-      const cb = () => this.$emit('focus-next', $event)
-      if (this.positionReversed) {
-        cb()
-      }
-      else {
-        this.focusFirstTag(cb)
-      }
-    },
-    upHandler($event) {
-      const cb = () => this.$emit('focus-prev', $event)
-      if (this.positionReversed) {
-        this.focusFirstTag(cb)
-      }
-      else {
-        cb()
-      }
-    },
-    handleFocusPrevOnSelectedTags() {
-      if (this.positionReversed) {
-        this.focusFirstTag(() => this.$emit('focus-prev'))
-      }
-      else {
-        this.$emit('focus-prev')
-      }
-    },
-    handleFocus() {
-      this.showSuggestedTags = true
-      this.$emit('focus')
-    },
+watch(
+  () => suggestedTags.value,
+  (v) => {
+    emits('suggested-tags', v)
   },
+  { immediate: true },
+)
+
+watch(showSuggestedTags, (v) => {
+  emits('show-suggested-tags', v)
+})
+
+onMounted(() => {
+  if (
+    props.focusInputWhenCreated
+    && inputRef.value
+    && document.activeElement !== inputRef.value
+    && (input.value || props.focusInputWhenEmpty)
+  ) {
+    focusInput()
+  }
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', updateKeyboardType)
+  }
+})
+
+function updateKeyboardType(event: any) {
+  updateKeyboardTypeDebounced(event)
+}
+
+const updateKeyboardTypeDebounced = useDebounceFn((event: any) => {
+  const heightDifference = window.innerHeight - event.target.height
+  if (heightDifference >= VirtualKeyboardThreshold) {
+    keyboardIsVirtual.value = true
+  }
+}, DebounceDelay)
+
+function focusInput() {
+  return nextTick(() => {
+    inputRef.value?.focus()
+    if (!input.value && resetActiveTags) {
+      resetActiveTags()
+    }
+  })
+}
+
+function resetFilters(hideTags = false) {
+  setFilterInput('')
+  setSelectedTags([])
+  if (!hideTags) {
+    emits('update:preventedBlur', true)
+    resetActiveTags()
+    focusInput()
+    return
+  }
+  resetedTagsViaDeleteButton.value = true
+  showSuggestedTags.value = false
+  inputRef.value?.blur()
+}
+
+function handleFocus() {
+  showSuggestedTags.value = true
+  emits('focus')
+}
+
+function handleBlur(event: FocusEvent) {
+  const target = event.relatedTarget as HTMLElement | null
+  if (
+    target
+    && target.matches
+    && target.matches('button, input, ul')
+    && (event.currentTarget as HTMLElement).contains(target)
+  ) {
+    return
+  }
+  nextTick(() => {
+    resetActiveTags()
+    if (props.preventedBlur) {
+      emits('update:preventedBlur', false)
+      return
+    }
+    showSuggestedTags.value = false
+    emits('blur')
+  })
+}
+
+function setFilterInput(value: string) {
+  emits('input', value)
+}
+
+function setSelectedTags(tags: string[]) {
+  emits('update:selectedTags', tags)
+}
+
+function deleteTags(arr: string[]) {
+  setSelectedTags(props.selectedTags.filter(tag => !arr.includes(tag)))
+}
+
+function selectTag(tag: string) {
+  updateSelectedTags([tag])
+  setFilterInput('')
+}
+
+function updateSelectedTags(tags: string[]) {
+  setSelectedTags([...new Set([...props.selectedTags, ...tags])])
+}
+
+function unselectActiveTags() {
+  if (activeTags.value.length) {
+    deleteTags(activeTags.value)
+    resetActiveTags()
+  }
+}
+
+function assignEventValues(event: KeyboardEvent) {
+  shiftKey.value = event.shiftKey
+  metaKey.value = event.metaKey || event.ctrlKey
+  tabbing.value = event.key === 'Tab'
+}
+
+function selectRangeActiveTags(
+  startIndex = focusedTagIndex.value || 0,
+  endIndex = props.selectedTags.length,
+) {
+  activeTags.value = props.selectedTags.slice(startIndex, endIndex)
+}
+
+function selectInputOnFocusHandler() {
+  if (!input.value && resetActiveTags) {
+    resetActiveTags()
+  }
+}
+
+function inputIsSelected() {
+  return input.value.length > 0 && getSelectionText() === input.value
+}
+
+function inputHasPartialTextSelected() {
+  const sel = getSelectionText()
+  return !inputIsSelected() && sel.length && input.value.includes(sel)
+}
+
+function resetActiveTags() {
+  activeTags.value = []
+  initTagIndex.value = null
+  metaKey.value = false
+  tabbing.value = false
+  shiftKey.value = false
+  focusedTagIndex.value = null
+}
+
+function leftKeyInputHandler(event: KeyboardEvent) {
+  assignEventValues(event)
+  if (hasSelectedTags.value) {
+    if (activeTags.value.length && !shiftKey.value) {
+      event.preventDefault()
+      selectedTagsRef.value?.focusTag(activeTags.value[0])
+      return
+    }
+    if (
+      shiftKey.value
+      && inputRef.value
+      && inputRef.value.selectionStart === 0
+    ) {
+      if (inputRef.value.selectionDirection !== 'forward') {
+        if (focusedTagIndex.value === null) {
+          focusedTagIndex.value = props.selectedTags.length
+        }
+        if (focusedTagIndex.value > 0) {
+          focusedTagIndex.value = focusedTagIndex.value - 1
+        }
+        initTagIndex.value = props.selectedTags.length
+        selectTagsPressingShift()
+        return
+      }
+    }
+    if (
+      inputRef.value
+      && (inputRef.value.selectionEnd === 0 || inputIsSelected())
+    ) {
+      selectedTagsRef.value?.focusLast()
+    }
+  }
+}
+
+function rightKeyInputHandler(event: KeyboardEvent) {
+  assignEventValues(event)
+  if (activeTags.value.length) {
+    if (
+      shiftKey.value
+      && focusedTagIndex.value !== null
+      && focusedTagIndex.value < props.selectedTags.length
+    ) {
+      if (
+        initTagIndex.value !== null
+        && initTagIndex.value < props.selectedTags.length
+      ) {
+        selectRangeActiveTags(initTagIndex.value, focusedTagIndex.value + 1)
+        return
+      }
+      event.preventDefault()
+      focusedTagIndex.value += 1
+      selectRangeActiveTags()
+    }
+  }
+}
+
+function multipleTagsSelectionHandler(e: {
+  event?: KeyboardEvent
+  tagName: string
+}) {
+  const event = e.event || new KeyboardEvent('keydown')
+  if (event.key === 'Enter') return
+  assignEventValues(event)
+  if ((shiftKey.value || metaKey.value) && !tabbing.value) {
+    initTag(e.tagName)
+  }
+  else if (event.key !== 'Backspace') {
+    resetActiveTags()
+  }
+  selectToDirections(event.key)
+}
+
+function initTag(tagName: string) {
+  if (initTagIndex.value === null && !activeTags.value.includes(tagName)) {
+    if (tagName) {
+      initTagIndex.value = props.selectedTags.indexOf(tagName)
+      activeTags.value.push(tagName)
+    }
+    else {
+      initTagIndex.value = props.selectedTags.length
+    }
+  }
+}
+
+function selectToDirections(key: string) {
+  if (metaKey.value && shiftKey.value) {
+    if (key === 'ArrowRight') {
+      selectRangeActiveTags(initTagIndex.value || 0, props.selectedTags.length)
+      if (input.value.length) {
+        inputRef.value?.select()
+      }
+      else {
+        selectedTagsRef.value?.focusTag(
+          props.selectedTags[props.selectedTags.length - 1],
+        )
+      }
+    }
+    else if (key === 'ArrowLeft') {
+      selectRangeActiveTags(0, (initTagIndex.value || 0) + 1)
+      if (!input.value.length) {
+        selectedTagsRef.value?.focusTag(props.selectedTags[0])
+      }
+    }
+  }
+}
+
+function focusTagHandler(e: { event: FocusEvent, tagName: string }) {
+  focusedTagIndex.value = props.selectedTags.indexOf(e.tagName)
+  const target = e.event.relatedTarget as HTMLElement
+  if (
+    target
+    && target.matches('input')
+    && shiftKey.value
+    && !metaKey.value
+    && !tabbing.value
+    && inputRef.value
+    && inputRef.value.selectionEnd !== 0
+  ) {
+    selectInputTextToTags()
+    selectRangeActiveTags()
+    return
+  }
+  selectTagsPressingShift()
+}
+
+function focusInputFromTags() {
+  focusInput().then(() => {
+    if (inputRef.value) {
+      moveCursorToStart(inputRef.value)
+    }
+  })
+}
+
+function selectInputTextToTags() {
+  const el = inputRef.value
+  if (!el) return
+  if (el.selectionStart === el.selectionEnd) {
+    el.setSelectionRange(0, el.selectionEnd)
+  }
+  else {
+    el.setSelectionRange(el.selectionStart, el.selectionEnd)
+  }
+  el.focus()
+}
+
+function selectTagsPressingShift() {
+  if (initTagIndex.value !== null) {
+    if (shiftKey.value && !metaKey.value) {
+      if (initTagIndex.value < (focusedTagIndex.value || 0)) {
+        selectRangeActiveTags(
+          initTagIndex.value,
+          (focusedTagIndex.value || 0) + 1,
+        )
+      }
+      else {
+        selectRangeActiveTags(
+          focusedTagIndex.value || 0,
+          (initTagIndex.value || 0) + 1,
+        )
+      }
+    }
+  }
+}
+
+function metaKeyClickSelection(event: MouseEvent, tagName: string) {
+  if (metaKey.value && event instanceof MouseEvent) {
+    if (activeTags.value.includes(tagName)) {
+      activeTags.value.splice(activeTags.value.indexOf(tagName), 1)
+      if (activeTags.value.length) {
+        selectedTagsRef.value?.focusTag(activeTags.value[0])
+      }
+      else {
+        focusInput()
+      }
+    }
+    else {
+      activeTags.value.push(tagName)
+    }
+  }
+}
+
+function multipleSelectionHandlerForSelectedTags(e: {
+  event?: KeyboardEvent | MouseEvent
+  tagName: string
+}) {
+  if (keyboardIsVirtual.value) {
+    if (!debouncedHandleDeleteTag.value) {
+      debouncedHandleDeleteTag.value = useDebounceFn(
+        handleDeleteTag,
+        DebounceDelay,
+      )
+    }
+    debouncedHandleDeleteTag.value({ tagName: e.tagName, event: e.event })
+  }
+  else {
+    if (e.event instanceof KeyboardEvent) assignEventValues(e.event)
+    metaKeyClickSelection(e.event as MouseEvent, e.tagName)
+    multipleTagsSelectionHandler({
+      event: e.event as KeyboardEvent,
+      tagName: e.tagName,
+    })
+  }
+}
+
+async function handleDeleteTag({
+  tagName,
+  event,
+}: {
+  tagName: string
+  event?: KeyboardEvent
+}) {
+  if (!activeTags.value.length) {
+    deleteTags([tagName])
+  }
+  unselectActiveTags()
+  await nextTick()
+  if (inputRef.value) {
+    moveCursorToEnd(inputRef.value)
+  }
+  if (props.selectedTags.length && inputRef.value) {
+    await focusInput()
+    if (event && event.key === 'Backspace') {
+      moveCursorToStart(inputRef.value)
+    }
+  }
+}
+
+function deleteHandler(e: KeyboardEvent) {
+  if (activeTags.value.length > 0) {
+    setSelectedTags(
+      props.selectedTags.filter(tag => !activeTags.value.includes(tag)),
+    )
+  }
+  if (
+    inputIsSelected()
+    && props.selectedTags.every(t => activeTags.value.includes(t))
+  ) {
+    e.preventDefault()
+    resetFilters()
+  }
+  else if (
+    inputRef.value
+    && inputRef.value.selectionEnd === 0
+    && hasSelectedTags.value
+  ) {
+    e.preventDefault()
+    if (keyboardIsVirtual.value) {
+      setSelectedTags(props.selectedTags.slice(0, -1))
+    }
+    else {
+      selectedTagsRef.value?.focusLast()
+    }
+  }
+  unselectActiveTags()
+}
+
+function handleCopy(e: ClipboardEvent) {
+  e.preventDefault()
+  const copyBuffer: string[] = []
+  const copyJSONBuffer = {
+    tags: [] as string[],
+    input: getSelectionText(),
+  }
+  if (activeTags.value.length) {
+    copyJSONBuffer.tags = activeTags.value
+    copyBuffer.push(activeTags.value.join(' '))
+  }
+  copyBuffer.push(copyJSONBuffer.input)
+  if (!copyJSONBuffer.tags.length && !copyJSONBuffer.input.length) {
+    return copyJSONBuffer
+  }
+  e.clipboardData?.setData(
+    'text/html',
+    prepareDataForHTMLClipboard(copyJSONBuffer),
+  )
+  e.clipboardData?.setData('text/plain', copyBuffer.join(' '))
+  return copyJSONBuffer
+}
+
+function handleCut(e: ClipboardEvent) {
+  e.preventDefault()
+  const { input: copiedInput, tags } = handleCopy(e)
+  if (!copiedInput && !tags.length) return
+  const remainingTags = props.selectedTags.filter(tag => !tags.includes(tag))
+  const remainingInput = input.value.replace(copiedInput, '')
+  setSelectedTags(remainingTags)
+  setFilterInput(remainingInput)
+}
+
+function handlePaste(e: ClipboardEvent) {
+  e.preventDefault()
+  const types = e.clipboardData?.types || []
+  let parsedTags: string[] = []
+  let newInput = e.clipboardData?.getData('text/plain') || ''
+  if (types.includes('text/html')) {
+    const pasteBuffer = e.clipboardData?.getData('text/html') || ''
+    const data = parseDataFromClipboard(pasteBuffer)
+    if (data) {
+      parsedTags = data.tags || []
+      newInput = data.input || ''
+    }
+  }
+  const selection = getSelectionText()
+  if (selection.length) {
+    newInput = input.value.replace(selection, newInput)
+  }
+  else if (document.activeElement instanceof HTMLInputElement) {
+    newInput = insertAt(
+      input.value,
+      newInput,
+      document.activeElement.selectionStart || 0,
+    )
+  }
+  setFilterInput(newInput.trim())
+  if (parsedTags.length) {
+    if (props.selectedTags.every(t => activeTags.value.includes(t))) {
+      setSelectedTags(parsedTags)
+    }
+    else {
+      updateSelectedTags(parsedTags)
+    }
+  }
+  resetActiveTags()
+}
+
+function downHandler(e: KeyboardEvent) {
+  const cb = () => emits('focus-next', e)
+  if (props.positionReversed) cb()
+  else focusFirstTag(cb)
+}
+
+function upHandler(e: KeyboardEvent) {
+  const cb = () => emits('focus-prev', e)
+  if (props.positionReversed) focusFirstTag(cb)
+  else cb()
+}
+
+function handleFocusPrevOnSelectedTags() {
+  if (props.positionReversed) {
+    focusFirstTag(() => emits('focus-prev'))
+  }
+  else {
+    emits('focus-prev')
+  }
+}
+
+function inputKeydownHandler(e: KeyboardEvent) {
+  if (inputIsSelected()) {
+    if (
+      isSingleCharacter(e.key)
+      && props.selectedTags.every(t => activeTags.value.includes(t))
+    ) {
+      resetFilters()
+    }
+  }
+  multipleTagsSelectionHandler({ event: e, tagName: '' })
+}
+
+function selectedTagsKeydownHandler(e: KeyboardEvent) {
+  if (e.key === 'Enter') {
+    e.preventDefault()
+  }
+  multipleTagsSelectionHandler({ event: e, tagName: '' })
+}
+
+function enterHandler() {
+  inputRef.value?.blur()
+}
+
+function selectInputAndTags() {
+  activeTags.value = [...props.selectedTags]
+  if (input.value.length) {
+    inputRef.value?.select()
+    initTagIndex.value = activeTags.value.length
+    focusedTagIndex.value = 0
+  }
+  else if (activeTags.value.length) {
+    initTagIndex.value = activeTags.value.length - 1
+    selectedTagsRef.value?.focusTag(activeTags.value[0])
+  }
+}
+
+function focusFirstTag(cb: () => void) {
+  if (!showSuggestedTags.value) {
+    showSuggestedTags.value = true
+  }
+  if (hasSuggestedTags.value && suggestedTagsRef.value) {
+    suggestedTagsRef.value.focusFirst()
+  }
+  else {
+    cb()
+  }
+}
+
+const inputMultipleSelectionListeners = {
+  click: resetActiveTags,
+  copy: handleCopy,
+  cut: handleCut,
+  paste: handlePaste,
+}
+
+const selectedTagsMultipleSelectionListeners = {
+  'click-tags': multipleSelectionHandlerForSelectedTags,
+  'select-all': selectInputAndTags,
+  'delete-tag': handleDeleteTag,
+  'keydown': selectedTagsKeydownHandler,
+  'focus': focusTagHandler,
+  'paste-tags': handlePaste,
 }
 </script>
 
