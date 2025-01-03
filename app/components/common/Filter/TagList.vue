@@ -23,7 +23,7 @@
         @keydown.exact.capture="handleKeydown"
         @keydown.shift.exact.capture="handleKeydown"
       >
-        <Tag
+        <FilterTag
           v-for="(tag, index) in props.tags"
           :key="index"
           :name="tag"
@@ -47,7 +47,6 @@
 </template>
 
 <script setup lang="ts">
-import Tag from './Tag.vue'
 import { isSingleCharacter } from '~/utils/input-helper'
 
 const ScrollingDebounceDelay = 1000

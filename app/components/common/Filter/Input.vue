@@ -34,7 +34,7 @@
           ref="scrollWrapperRef"
           :class="['filter__input-box-wrapper', { scrolling: isScrolling }]"
         >
-          <TagList
+          <FilterTagList
             v-if="hasSelectedTags"
             :id="SelectedTagsId"
             v-bind="virtualKeyboardBind"
@@ -96,7 +96,7 @@
           </button>
         </div>
       </div>
-      <TagList
+      <FilterTagList
         v-if="displaySuggestedTags"
         :id="SuggestedTagsId"
         ref="suggestedTagsRef"
@@ -120,7 +120,7 @@
 </template>
 
 <script setup lang="ts">
-import TagList from '~/components/common/New/Filter/TagList.vue'
+import FilterTagList from '#components'
 import ClearRoundedIcon from '~/components/common/New/Icons/ClearRoundedIcon.vue'
 import FilterIcon from '~/components/common/New/Icons/FilterIcon.vue'
 import {
@@ -195,8 +195,8 @@ const AXinputProperties: Record<string, string | boolean> = {
 
 const inputRef = ref<HTMLInputElement | null>(null)
 const scrollWrapperRef = ref<HTMLElement | null>(null)
-const selectedTagsRef = ref<InstanceType<typeof TagList> | null>(null)
-const suggestedTagsRef = ref<InstanceType<typeof TagList> | null>(null)
+const selectedTagsRef = ref<InstanceType<typeof FilterTagList> | null>(null)
+const suggestedTagsRef = ref<InstanceType<typeof FilterTagList> | null>(null)
 
 const modelValue = useVModel(props, 'value', emits)
 const modelSelectedTags = useVModel(props, 'selectedTags', emits)
