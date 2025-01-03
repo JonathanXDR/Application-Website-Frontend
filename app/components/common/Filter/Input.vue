@@ -27,7 +27,7 @@
           @mousedown.prevent
         >
           <slot name="icon">
-            <IconsFilterIcon />
+            <IconFilter />
           </slot>
         </button>
         <div

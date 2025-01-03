@@ -1,5 +1,5 @@
 <template>
-  <GalleryAnimation
+  <AnimatingGallery
     title="Music Discovery"
     description="Where your new favorites find you."
   />

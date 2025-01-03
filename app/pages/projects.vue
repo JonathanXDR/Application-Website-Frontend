@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center mt-24">
-    <HeadlineAnimation
+    <AnimatingHeadline
       title="Projects"
       class="typography-magical-headline pb-12"
       :auto-animation="true"
