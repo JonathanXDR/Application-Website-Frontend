@@ -56,11 +56,6 @@
           "id": "projects",
           "label": "Projekte",
           "route": "/projects"
-        },
-        {
-          "id": "music",
-          "label": "Musik",
-          "route": "/music"
         }
       ],
       "InfoBanner": [
