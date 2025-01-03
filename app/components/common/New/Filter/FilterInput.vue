@@ -103,10 +103,14 @@
         :aria-label="`${suggestedTagsAriaLabel}`"
         :input="modelValue"
         :tags="computedSuggestedTags"
+        :active-tags="activeTags"
         :translatable-tags="translatableTags"
         v-bind="virtualKeyboardBind"
         class="filter__suggested-tags"
-        @click-tags="selectTag($event.tagName)"
+        @click-tags="
+          (event: MouseEvent) =>
+            selectTag((event.target as HTMLElement).dataset.tagName || '')
+        "
         @prevent-blur="$emit('update:preventedBlur', true)"
         @focus-next="positionReversed ? setFocusInput() : $emit('focus-next')"
         @focus-prev="positionReversed ? $emit('focus-prev') : setFocusInput()"
@@ -435,7 +439,7 @@ const leftKeyInputHandler = (event: KeyboardEvent) => {
   if (!hasSelectedTags.value) return
   if (activeTags.value.length && !isShiftPressed.value) {
     event.preventDefault()
-    selectedTagsRef.value?.focusTag(activeTags.value[0])
+    selectedTagsRef.value?.focusTag(activeTags.value[0] || '')
     return
   }
   if (
@@ -552,14 +556,14 @@ const selectToDirections = (key: string) => {
       }
       else {
         selectedTagsRef.value?.focusTag(
-          modelSelectedTags.value[modelSelectedTags.value.length - 1],
+          modelSelectedTags.value[modelSelectedTags.value.length - 1] || '',
         )
       }
     }
     else if (key === 'ArrowLeft') {
       selectRangeActiveTags(0, (initTagIndex.value || 0) + 1)
       if (!modelValue.value.length) {
-        selectedTagsRef.value?.focusTag(modelSelectedTags.value[0])
+        selectedTagsRef.value?.focusTag(modelSelectedTags.value[0] || '')
       }
     }
   }
@@ -602,7 +606,7 @@ const selectInputAndTags = () => {
   }
   else if (activeTags.value.length) {
     initTagIndex.value = activeTags.value.length - 1
-    selectedTagsRef.value?.focusTag(activeTags.value[0])
+    selectedTagsRef.value?.focusTag(activeTags.value[0] || '')
   }
 }
 
@@ -673,7 +677,7 @@ const metaKeyClickSelection = (event: MouseEvent, tagName: string) => {
     if (activeTags.value.includes(tagName)) {
       activeTags.value.splice(activeTags.value.indexOf(tagName), 1)
       if (activeTags.value.length) {
-        selectedTagsRef.value?.focusTag(activeTags.value[0])
+        selectedTagsRef.value?.focusTag(activeTags.value[0] || '')
       }
       else {
         setFocusInput()

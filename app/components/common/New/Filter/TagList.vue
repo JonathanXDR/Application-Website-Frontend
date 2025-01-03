@@ -156,34 +156,12 @@ const focusNext = (e: KeyboardEvent) => {
   }
 }
 
-// const focusFirst = async () => {
-//   externalFocusChange.value = false
-//   focusIndex(null)
-//   await nextTick()
-//   focusIndex(0)
-//   scrollToFocus()
-// }
-
-// const focusLast = async () => {
-//   externalFocusChange.value = false
-//   focusIndex(null)
-//   await nextTick()
-//   focusIndex(totalItemsToNavigate.value - 1)
-//   scrollToFocus()
-// }
-
-// const scrollToFocus = () => {}
-// const focusTag = (tag: TagItem) => {
-//   focusIndex(props.tags.indexOf(tag))
-// }
 const handleFocus = (event: FocusEvent, index: number) => {
   focusIndex(index)
   isScrolling.value = false
   emit('focus', event)
 }
-// const resetScroll = () => {
-//   if (scrollWrapper.value) scrollWrapper.value.scrollLeft = 0
-// }
+
 const handleKeydown = (e: KeyboardEvent) => {
   const { key } = e
   const tag = props.tags[focusedIndex.value]
@@ -191,6 +169,35 @@ const handleKeydown = (e: KeyboardEvent) => {
     emit('delete-tag', { tagName: tag, event: e })
   }
 }
+
+const focusFirst = async () => {
+  externalFocusChange.value = false
+  focusIndex(null)
+  await nextTick()
+  focusIndex(0)
+}
+
+const focusLast = async () => {
+  externalFocusChange.value = false
+  focusIndex(null)
+  await nextTick()
+  focusIndex(totalItemsToNavigate.value - 1)
+}
+
+const focusTag = (tag: string) => {
+  focusIndex(props.tags.indexOf(tag))
+}
+
+const resetScroll = () => {
+  if (scrollWrapper.value) scrollWrapper.value.scrollLeft = 0
+}
+
+defineExpose({
+  focusFirst,
+  focusLast,
+  focusTag,
+  resetScroll,
+})
 </script>
 
 <style scoped lang="scss">
