@@ -9,7 +9,7 @@
         variant: 'article',
         hover: false,
         loading: false,
-        componentSize: viewport.isLessThan('tablet') ? 'small' : 'medium',
+        componentSize: 'medium',
         icon: {
           ...article.icon,
           position: viewport.isLessThan('tablet') ? 'top' : 'left',

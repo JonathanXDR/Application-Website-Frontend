@@ -152,7 +152,7 @@ const applyHover = computed(
   padding-right: 20px;
 }
 .stat .stat-label {
-  white-space: nowrap;
+  /* white-space: nowrap; */
   display: block;
   color: var(--color-figure-gray-secondary);
 }
