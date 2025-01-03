@@ -37,7 +37,6 @@
       v-bind="{
         variant: 'article',
         hover: false,
-        alignment: viewport.isLessThan('desktopMedium') ? 'center' : 'start',
         componentSize: viewport.isLessThan('tablet')
           ? 'small'
           : viewport.isLessThan('desktopMedium')
@@ -104,7 +103,6 @@ onMounted(async () => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   gap: 16px;
 }
 
