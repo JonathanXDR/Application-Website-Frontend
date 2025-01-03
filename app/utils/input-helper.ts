@@ -12,58 +12,57 @@
  * A window.getSelection utility that works with all browsers.
  * Firefox does not work with window.getSelection on `input` elements,
  * IE does not support it at all.
- * @returns {string} The selected text from the current document or input element
  */
-export function getSelectionText() {
+export function getSelectionText(): string {
   if (window.getSelection) {
     try {
       const { activeElement } = document
-      if (activeElement && activeElement.value) {
+      if (activeElement instanceof HTMLInputElement) {
         // firefox bug https://bugzilla.mozilla.org/show_bug.cgi?id=85686
         return activeElement.value.substring(
-          activeElement.selectionStart,
-          activeElement.selectionEnd,
+          activeElement.selectionStart ?? 0,
+          activeElement.selectionEnd ?? 0,
         )
       }
-      return window.getSelection().toString()
+      return window.getSelection?.toString()
     }
     catch (e) {
       return ''
     }
   }
-  else if (document.selection && document.selection.type !== 'Control') {
+  else if (
+    document.getSelection
+    && document.getSelection()?.type !== 'Control'
+  ) {
     // For IE
-    return document.selection.createRange().text
+    const selection = document.getSelection()
+    return selection ? selection.toString() : ''
   }
   return ''
 }
 
 /**
+/**
  * Moves a cursor to the end of an input
- * @param {HTMLInputElement} el
  */
-export function moveCursorToEnd(el) {
+export function moveCursorToEnd(el: HTMLInputElement): void {
   if (typeof el.selectionStart === 'number') {
-    // eslint-disable-next-line
-    el.selectionStart = el.selectionEnd = el.value.length;
+    el.selectionStart = el.selectionEnd = el.value.length
   }
-  else if (typeof el.createTextRange !== 'undefined') {
+  else if (typeof el.setRangeText !== 'undefined') {
     el.focus()
-    const range = el.createTextRange()
-    range.collapse(false)
-    range.select()
+    // const range = el.setRangeText
+    // range.collapse(false)
+    // range.select()
   }
 }
-
 /**
  * Moves a cursor to the start of an input
- * @param {HTMLInputElement} el
  */
-export function moveCursorToStart(el) {
-  // eslint-disable-next-line
-  el.selectionStart = el.selectionEnd = 0;
+export function moveCursorToStart(el: HTMLInputElement): void {
+  el.selectionStart = el.selectionEnd = 0
 }
 
-export function isSingleCharacter(key) {
+export function isSingleCharacter(key: string): boolean {
   return /^[\s\S]$/.test(key)
 }
