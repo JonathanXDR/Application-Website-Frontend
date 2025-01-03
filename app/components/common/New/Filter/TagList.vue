@@ -1,20 +1,9 @@
-<!--
-  This source file is part of the Swift.org open source project
-
-  Copyright (c) 2022-2023 Apple Inc. and the Swift project authors
-  Licensed under Apache License v2.0 with Runtime Library Exception
-
-  See https://swift.org/LICENSE.txt for license information
-  See https://swift.org/CONTRIBUTORS.txt for Swift project authors
--->
-
 <template>
   <div class="tags">
     <div
-      ref="scroll-wrapper"
+      ref="scrollWrapper"
       class="scroll-wrapper"
       :class="{ scrolling: isScrolling }"
-      @scroll="handleScroll"
     >
       <ul
         :id="`${id}-tags`"
@@ -28,130 +17,179 @@
         @keydown.right.capture.prevent="focusNext"
         @keydown.up.capture.prevent="focusPrev"
         @keydown.down.capture.prevent="focusNext"
-        @keydown.delete.prevent.self="$emit('reset-filters')"
-        @keydown.meta.a.capture.prevent="$emit('select-all')"
-        @keydown.ctrl.a.capture.prevent="$emit('select-all')"
+        @keydown.delete.prevent.self="() => emit('reset-filters')"
+        @keydown.meta.a.capture.prevent="() => emit('select-all')"
+        @keydown.ctrl.a.capture.prevent="() => emit('select-all')"
         @keydown.exact.capture="handleKeydown"
         @keydown.shift.exact.capture="handleKeydown"
       >
         <Tag
-          v-for="(tag, index) in tags"
-          ref="tag"
-          :key="tag.id || index"
-          :name="tag.label || tag"
+          v-for="(tag, index) in props.tags"
+          :key="index"
+          :name="tag"
           :is-focused="focusedIndex === index"
           :is-removable-tag="areTagsRemovable"
           :filter-text="input"
-          :is-translatable-tag="translatableTags.includes(tag)"
-          :is-active-tag="activeTags.includes(tag)"
-          :active-tags="activeTags"
+          :is-translatable-tag="props.translatableTags.includes(tag)"
+          :is-active-tag="props.activeTags.includes(tag)"
+          :active-tags="props.activeTags"
           :keyboard-is-virtual="keyboardIsVirtual"
           @focus="handleFocus($event, index)"
-          @click="$emit('click-tags', $event)"
-          @delete-tag="$emit('delete-tag', $event)"
-          @prevent-blur="$emit('prevent-blur')"
-          @paste-content="$emit('paste-tags', $event)"
-          @keydown="$emit('keydown', $event)"
+          @click="emit('click-tags', $event)"
+          @delete-tag="emit('delete-tag', $event)"
+          @prevent-blur="emit('prevent-blur')"
+          @paste-content="emit('paste-tags', $event)"
+          @keydown="emit('keydown', $event)"
         />
       </ul>
     </div>
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import Tag from './Tag.vue'
-import handleScrollbar from '~/mixins/handleScrollbar'
-import keyboardNavigation from '~/mixins/keyboardNavigation'
 import { isSingleCharacter } from '~/utils/input-helper'
 
-export default {
-  name: 'Tags',
-  components: {
-    Tag,
-  },
-  mixins: [handleScrollbar, keyboardNavigation],
-  props: {
-    tags: {
-      type: Array,
-      default: () => [],
-    },
-    activeTags: {
-      type: Array,
-      default: () => [],
-    },
-    translatableTags: {
-      type: Array,
-      default: () => [],
-    },
-    ariaLabel: {
-      type: String,
-      required: false,
-    },
-    id: {
-      type: String,
-      required: false,
-    },
-    input: {
-      type: String,
-      default: null,
-    },
-    areTagsRemovable: {
-      type: Boolean,
-      default: false,
-    },
-    keyboardIsVirtual: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  emits: [
-    'reset-filters',
-    'select-all',
-    'click-tags',
-    'delete-tag',
-    'prevent-blur',
-    'paste-tags',
-    'keydown',
-    'focus-prev',
-    'focus',
-    'focus-next',
-  ],
-  computed: {
-    totalItemsToNavigate: ({ tags }) => tags.length,
-  },
-  methods: {
-    focusTag(name) {
-      this.focusIndex(this.tags.indexOf(name))
-    },
-    startingPointHook() {
-      this.$emit('focus-prev')
-    },
-    handleFocus(event, index) {
-      this.focusIndex(index)
-      this.isScrolling = false
-      this.$emit('focus', event)
-    },
-    endingPointHook() {
-      this.$emit('focus-next')
-    },
-    resetScroll() {
-      this.$refs['scroll-wrapper'].scrollLeft = 0
-    },
+const ScrollingDebounceDelay = 1000
 
-    /**
-     * Handles typing while focused on tags.
-     * Should delete tag if a character is typed.
-     */
-    handleKeydown(event) {
-      const { key } = event
-      const tag = this.tags[this.focusedIndex]
-
-      // match if it is an alphanum key or space
-      if (isSingleCharacter(key) && tag) {
-        this.$emit('delete-tag', { tagName: tag.label || tag, event })
-      }
-    },
+const props = withDefaults(
+  defineProps<{
+    tags: string[]
+    activeTags: string[]
+    translatableTags: string[]
+    ariaLabel?: string
+    id?: string
+    input?: string
+    areTagsRemovable?: boolean
+    keyboardIsVirtual?: boolean
+  }>(),
+  {
+    tags: () => [],
+    activeTags: () => [],
+    translatableTags: () => [],
+    input: undefined,
+    areTagsRemovable: false,
+    keyboardIsVirtual: false,
   },
+)
+
+const emit = defineEmits<{
+  (
+    e:
+      | 'reset-filters'
+      | 'select-all'
+      | 'prevent-blur'
+      | 'focus-prev'
+      | 'focus-next',
+  ): void
+  (e: 'click-tags', payload: MouseEvent): void
+  (e: 'delete-tag', payload: { tagName: string, event: Event }): void
+  (e: 'paste-tags', payload: ClipboardEvent): void
+  (e: 'keydown', payload: KeyboardEvent): void
+  (e: 'focus', event: FocusEvent): void
+}>()
+
+const scrollWrapper = ref<HTMLElement | null>(null)
+const isScrolling = ref(false)
+const timestamp = useTimestamp()
+const scrollRemovedAt = ref(0)
+const doDeleteScroll = () => {
+  isScrolling.value = false
+  scrollRemovedAt.value = timestamp.value
+}
+const deleteScroll = useDebounceFn(doDeleteScroll, ScrollingDebounceDelay)
+
+const { width, height } = useElementSize(scrollWrapper)
+
+const handleScroll = (e: Event) => {
+  if (!scrollWrapper.value) return
+  if (scrollWrapper.value.scrollTop !== 0) {
+    scrollWrapper.value.scrollTop = 0
+    e.preventDefault?.()
+    return
+  }
+  const safeExtraWidth = 150
+  const noScrollBarsWidth = width.value + safeExtraWidth
+  if (scrollWrapper.value.scrollWidth < noScrollBarsWidth) return
+  const difference = timestamp.value - scrollRemovedAt.value
+  if (difference < ScrollingDebounceDelay / 10) return
+  isScrolling.value = true
+  if (!scrollWrapper.value.style.getPropertyValue('--scroll-target-height')) {
+    scrollWrapper.value.style.setProperty(
+      '--scroll-target-height',
+      `${height.value}px`,
+    )
+  }
+  deleteScroll()
+}
+
+useEventListener(scrollWrapper, 'scroll', handleScroll)
+
+const focusedIndex = ref(0)
+const externalFocusChange = ref(false)
+const totalItemsToNavigate = computed(() => props.tags.length)
+
+const focusIndex = (index: number | null) => {
+  if (index === null || index < 0) return
+  focusedIndex.value = index
+}
+
+const focusPrev = (e: KeyboardEvent) => {
+  if ((e.metaKey || e.ctrlKey) && e.shiftKey) return
+  externalFocusChange.value = false
+  if (focusedIndex.value > 0) {
+    focusIndex(focusedIndex.value - 1)
+  }
+  else {
+    emit('focus-prev')
+  }
+}
+
+const focusNext = (e: KeyboardEvent) => {
+  if ((e.metaKey || e.ctrlKey) && e.shiftKey) return
+  externalFocusChange.value = false
+  if (focusedIndex.value < totalItemsToNavigate.value - 1) {
+    focusIndex(focusedIndex.value + 1)
+  }
+  else {
+    emit('focus-next')
+  }
+}
+
+// const focusFirst = async () => {
+//   externalFocusChange.value = false
+//   focusIndex(null)
+//   await nextTick()
+//   focusIndex(0)
+//   scrollToFocus()
+// }
+
+// const focusLast = async () => {
+//   externalFocusChange.value = false
+//   focusIndex(null)
+//   await nextTick()
+//   focusIndex(totalItemsToNavigate.value - 1)
+//   scrollToFocus()
+// }
+
+// const scrollToFocus = () => {}
+// const focusTag = (tag: TagItem) => {
+//   focusIndex(props.tags.indexOf(tag))
+// }
+const handleFocus = (event: FocusEvent, index: number) => {
+  focusIndex(index)
+  isScrolling.value = false
+  emit('focus', event)
+}
+// const resetScroll = () => {
+//   if (scrollWrapper.value) scrollWrapper.value.scrollLeft = 0
+// }
+const handleKeydown = (e: KeyboardEvent) => {
+  const { key } = e
+  const tag = props.tags[focusedIndex.value]
+  if (isSingleCharacter(key) && tag) {
+    emit('delete-tag', { tagName: tag, event: e })
+  }
 }
 </script>
 
