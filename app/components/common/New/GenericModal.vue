@@ -17,8 +17,7 @@
       v-show="isVisible"
       class="generic-modal"
       role="dialog"
-      :class="[stateClasses, themeClass]"
-      :style="modalColors"
+      :class="[stateClasses]"
     >
       <div
         class="backdrop"
@@ -56,17 +55,6 @@ import FocusTrap from '~/utils/FocusTrap'
 import changeElementVOVisibility from '~/utils/changeElementVOVisibility'
 import scrollLock from '~/utils/scroll-lock'
 
-const Theme = {
-  // Light theme.
-  light: 'light',
-  // Dark theme.
-  dark: 'dark',
-  // Dynamic theme, light/dark colors based on system appearance.
-  dynamic: 'dynamic',
-  // Code (dynamic) theme, code background colors based on system appearance.
-  code: 'code',
-}
-
 export default {
   name: 'GenericModal',
   components: { CloseIcon, PortalSource: Portal },
@@ -83,19 +71,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    theme: {
-      type: String,
-      validator: type => Object.keys(Theme).includes(type),
-      default: Theme.light,
-    },
-    codeBackgroundColorOverride: {
-      type: String,
-      default: '',
-    },
-    backdropBackgroundColorOverride: {
-      type: String,
-      default: '',
-    },
     width: {
       type: String,
       default: null,
@@ -109,7 +84,6 @@ export default {
   data() {
     return {
       lastFocusItem: null,
-      prefersDarkStyle: false,
       focusTrapInstance: null,
     }
   },
@@ -120,31 +94,12 @@ export default {
         this.$emit('update:visible', value)
       },
     },
-    modalColors() {
-      return {
-        '--code-background': this.codeBackgroundColorOverride,
-        '--backdrop-background': this.backdropBackgroundColorOverride,
-      }
-    },
-    themeClass({ theme, prefersDarkStyle, isThemeDynamic }) {
-      let dynamicThemeClasses = {}
-      // if we use the `dynamic` theme, use the OS darkmode preference.
-      if (isThemeDynamic) {
-        dynamicThemeClasses = {
-          'theme-light': !prefersDarkStyle,
-          'theme-dark': prefersDarkStyle,
-        }
-      }
-      return [`theme-${theme}`, dynamicThemeClasses]
-    },
     stateClasses: ({ isFullscreen, isVisible, showClose }) => ({
       'modal-fullscreen': isFullscreen,
       'modal-standard': !isFullscreen,
       'modal-open': isVisible,
       'modal-with-close': showClose,
     }),
-    isThemeDynamic: ({ theme }) =>
-      theme === Theme.dynamic || theme === Theme.code,
   },
   watch: {
     isVisible(isVisible) {
@@ -159,13 +114,6 @@ export default {
   mounted() {
     this.focusTrapInstance = new FocusTrap()
     document.addEventListener('keydown', this.onKeydown)
-    // add listeners for dynamic themes
-    if (this.isThemeDynamic) {
-      const matchMedia = window.matchMedia('(prefers-color-scheme: dark)')
-      matchMedia.addEventListener(this.onColorSchemePreferenceChange)
-      // Trigger a theme update when the modal is first loaded.
-      this.onColorSchemePreferenceChange(matchMedia)
-    }
   },
   beforeUnmount() {
     // make sure we unlock scrolling before navigating to a new page.
@@ -239,14 +187,6 @@ export default {
       if (key !== 'Escape') return
       event.preventDefault()
       this.closeModal()
-    },
-    /**
-     * Handles changing between light/dark mode on OS.
-     * @param {MediaQueryList} params
-     * @param {boolean} params.matches
-     */
-    onColorSchemePreferenceChange({ matches }) {
-      this.prefersDarkStyle = matches
     },
     async focusCloseButton() {
       this.lastFocusItem = document.activeElement
