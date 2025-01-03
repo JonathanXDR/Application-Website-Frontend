@@ -1,56 +1,66 @@
-<!--
-  This source file is part of the Swift.org open source project
+<template>
+  <span
+    v-if="!props.matcherText"
+    class="highlight"
+  >{{ props.text }}</span>
+  <p
+    v-else
+    class="highlight"
+  >
+    <template
+      v-for="(chunk, idx) in highlightedChunks"
+      :key="idx"
+    >
+      <span
+        v-if="chunk.isMatch"
+        class="match"
+      >{{ chunk.content }}</span>
+      <span v-else>{{ chunk.content }}</span>
+    </template>
+  </p>
+</template>
 
-  Copyright (c) 2022 Apple Inc. and the Swift project authors
-  Licensed under Apache License v2.0 with Runtime Library Exception
-
-  See https://swift.org/LICENSE.txt for license information
-  See https://swift.org/CONTRIBUTORS.txt for Swift project authors
--->
-
-<script>
-/**
- * Component used to mark plain text.
- */
-export default {
-  name: 'QuickNavigationHighlighter',
-  props: {
-    text: {
-      type: String,
-      required: true,
-    },
-    matcherText: {
-      type: String,
-      default: '',
-    },
+<script setup lang="ts">
+const props = withDefaults(
+  defineProps<{
+    text: string
+    matcherText?: string
+  }>(),
+  {
+    matcherText: '',
   },
-  render(createElement) {
-    const { matcherText, text } = this
-    const children = []
-    let lastIndex = 0
-    if (!matcherText) {
-      return createElement('span', { class: 'highlight' }, text)
+)
+
+const highlightedChunks = computed(() => {
+  const t = props.text
+  const m = props.matcherText
+  const result: { content: string, isMatch: boolean }[] = []
+  if (!m) {
+    result.push({ content: t, isMatch: false })
+    return result
+  }
+  let lastIndex = 0
+  for (const char of m) {
+    const lowerT = t.toLowerCase()
+    const charIndex = lowerT.indexOf(char.toLowerCase(), lastIndex)
+    if (charIndex < 0) break
+    if (charIndex > lastIndex) {
+      result.push({
+        content: t.slice(lastIndex, charIndex),
+        isMatch: false,
+      })
     }
-    [...matcherText].forEach((char) => {
-      const charIndex = text
-        .toLowerCase()
-        .indexOf(char.toLowerCase(), lastIndex)
-      if (lastIndex) {
-        children.push(createElement('span', text.slice(lastIndex, charIndex)))
-      }
-      const nextIndex = charIndex + 1
-      children.push(
-        createElement(
-          'span',
-          { class: 'match' },
-          text.slice(charIndex, nextIndex),
-        ),
-      )
-      lastIndex = nextIndex
+    result.push({
+      content: t.slice(charIndex, charIndex + 1),
+      isMatch: true,
     })
-    return createElement('p', { class: 'highlight' }, children)
-  },
-}
+    lastIndex = charIndex + 1
+  }
+  if (lastIndex < t.length) {
+    result.push({ content: t.slice(lastIndex), isMatch: false })
+  }
+  return result
+})
 </script>
 
 <style scoped lang="scss">

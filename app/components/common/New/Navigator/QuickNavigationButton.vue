@@ -10,16 +10,16 @@
 
 <template>
   <button
-    :aria-label="$t('quicknav.button.label')"
+    :aria-label="t('quicknav.button.label')"
     class="quick-navigation-open"
-    :title="$t('quicknav.button.title')"
+    :title="t('quicknav.button.title')"
   >
     /
   </button>
 </template>
 
-<script>
-export default { name: 'QuickNavigationButton' }
+<script setup lang="ts">
+const { t } = useI18n()
 </script>
 
 <style scoped lang="scss">
