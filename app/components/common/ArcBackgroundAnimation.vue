@@ -25,9 +25,18 @@
       role="presentation"
     >
       <defs>
-        <!-- <filter id="blobBlurFilter" x="0" y="0" width="120%" height="120%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
-        </filter> -->
+        <filter
+          id="blobBlurFilter"
+          x="0"
+          y="0"
+          width="120%"
+          height="120%"
+        >
+          <feGaussianBlur
+            in="SourceGraphic"
+            stdDeviation="10"
+          />
+        </filter>
         <mask
           id="blobMask"
           y="0"
@@ -48,7 +57,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import audioSrc from '~/assets/drafts/background_animation/intro-music.mp3'
 import videoSrc from '~/assets/drafts/background_animation/orb/orb.mp4'
 
