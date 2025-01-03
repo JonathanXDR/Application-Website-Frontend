@@ -7,7 +7,7 @@
   </h1>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 // const props = defineProps<{
 //   title: string
 //   loading: boolean
