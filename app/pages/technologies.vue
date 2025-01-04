@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col items-center mt-24">
-    <!-- TODO: Use dynamic title here and for the current page title -->
     <AnimatingHeadline
-      title="Technologies"
+      v-if="pageTitle"
+      :title="pageTitle"
       class="typography-magical-headline pb-12"
       :auto-animation="true"
     />
@@ -70,9 +70,12 @@ definePageMeta({
   footerCompact: false,
 })
 
+const navbar = useNavbar()
+const { tm } = useI18n()
+
+const pageTitle = navbar.pageTitle
 const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
 
-const { tm } = useI18n()
 const cards = computed<CardItemType[]>(() =>
   tm('components.containers.technologies'),
 )

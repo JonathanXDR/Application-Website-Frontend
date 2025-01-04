@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col items-center mt-24">
-    <!-- TODO: Use dynamic title here and for the current page title -->
     <AnimatingHeadline
-      title="Projects"
+      v-if="pageTitle"
+      :title="pageTitle"
       class="typography-magical-headline pb-12"
       :auto-animation="true"
     />
@@ -177,6 +177,9 @@ const viewport = useViewport()
 const { t, tm } = useI18n()
 const { randomDevColor } = useColor()
 const config = useRuntimeConfig()
+const navbar = useNavbar()
+
+const pageTitle = navbar.pageTitle
 
 const ul = ref<HTMLElement | undefined>(undefined)
 const ulHeight = ref<number>(0)
