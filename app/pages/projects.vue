@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col items-center mt-24">
+    <!-- TODO: Use dynamic title here and for the current page title -->
     <AnimatingHeadline
       title="Projects"
       class="typography-magical-headline pb-12"
