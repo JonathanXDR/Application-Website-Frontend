@@ -16,31 +16,32 @@
 </template>
 
 <script setup lang="ts">
-interface HyperTextProps {
-  text: string
-  duration?: number
-  delay?: number
-  // eslint-disable-next-line no-undef
-  as?: keyof HTMLElementTagNameMap
-  startOnView?: boolean
-  animateOnHover?: boolean
-  characterSet?: string | string[]
-  onScrambleComplete?: () => void
-  trigger?: boolean
-  speed?: number
-}
-
-const props = withDefaults(defineProps<HyperTextProps>(), {
-  duration: 800,
-  delay: 0,
-  as: 'div',
-  startOnView: false,
-  animateOnHover: true,
-  characterSet:
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-  trigger: true,
-  speed: 0,
-})
+const props = withDefaults(
+  defineProps<{
+    text: string
+    duration?: number
+    delay?: number
+    // eslint-disable-next-line no-undef
+    as?: keyof HTMLElementTagNameMap
+    startOnView?: boolean
+    animateOnHover?: boolean
+    characterSet?: string | string[]
+    onScrambleComplete?: () => void
+    trigger?: boolean
+    speed?: number
+  }>(),
+  {
+    duration: 800,
+    delay: 0,
+    as: 'div',
+    startOnView: false,
+    animateOnHover: true,
+    characterSet:
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+    trigger: true,
+    speed: 0,
+  },
+)
 
 const elementRef = ref<HTMLElement | null>(null)
 const isAnimating = ref(false)
