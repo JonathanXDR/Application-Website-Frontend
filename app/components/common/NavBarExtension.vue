@@ -10,9 +10,7 @@
     :style="containerStyle"
   >
     <div class="filter-input-container">
-      <div class="container">
-        <slot />
-      </div>
+      <slot />
     </div>
   </div>
 </template>
@@ -122,11 +120,20 @@ useEventListener(
 }
 
 .filter-input-container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0.76471em 0;
   background-color: var(--color-menu);
   transition: border-bottom 0.2s ease-out;
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+@media screen and (min-width: 768px) {
+  .filter-input-container {
+    width: 82.5%;
+  }
 }
 
 .filter-input-sticky-wrapper.is-sticky .filter-input-container {
@@ -136,30 +143,6 @@ useEventListener(
 @media only screen and (max-width: 767px) {
   .filter-input-sticky-wrapper.is-sticky .filter-input-container {
     height: auto;
-  }
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 980px;
-}
-
-@media only screen and (max-width: 1279px) {
-  .container {
-    width: 692px;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .container {
-    width: 87.5%;
-  }
-}
-
-@media only screen and (max-width: 319px) {
-  .container {
-    width: 215px;
   }
 }
 </style>
