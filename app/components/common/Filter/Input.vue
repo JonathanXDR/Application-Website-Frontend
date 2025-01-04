@@ -1,6 +1,6 @@
 <template>
   <div
-    class="filter"
+    class="filter filter-component"
     role="search"
     tabindex="0"
     :aria-labelledby="searchAriaLabelledBy"
@@ -27,7 +27,20 @@
           @mousedown.prevent
         >
           <slot name="icon">
-            <IconFilter />
+            <svg
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              class="svg-icon filter-icon"
+              height="21"
+              width="21"
+              viewBox="0 0 21 21"
+              fill="currentColor"
+            >
+              <path
+                d="M2.8,6.8h15.5c0.3,0,0.5-0.2,0.5-0.5c0-0.3-0.2-0.5-0.5-0.5H2.8C2.5,5.8,2.2,6,2.2,6.3C2.2,6.6,2.5,6.8,2.8,6.8z M4.6,11h11.8c0.3,0,0.5-0.2,0.5-0.5c0-0.3-0.2-0.5-0.5-0.5H4.6c-0.3,0-0.5,0.2-0.5,0.5C4.1,10.8,4.4,11,4.6,11z M6.5,15.2h8.2c0.3,0,0.5-0.2,0.5-0.5c0-0.3-0.2-0.5-0.5-0.5H6.5c-0.3,0-0.5,0.2-0.5,0.5C6,14.9,6.2,15.2,6.5,15.2z"
+              />
+            </svg>
           </slot>
         </button>
         <div
@@ -52,13 +65,13 @@
             @prevent-blur="$emit('update:preventedBlur', true)"
           />
           <label
-            :id="FilterInputId"
             :for="FilterInputId"
             :data-value="modelValue"
             :aria-label="placeholder"
             class="filter__input-label"
           >
             <input
+              :id="FilterInputId"
               ref="inputRef"
               v-model="modelValue"
               :placeholder="hasSelectedTags ? '' : placeholder"
@@ -92,7 +105,21 @@
             @keydown.enter.exact.stop="resetFilters(true)"
             @mousedown.prevent
           >
-            <IconsClearRoundedIcon class="clear-rounded-icon" />
+            <svg
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              class="svg-icon clear-rounded-icon"
+              viewBox="0 0 16 16"
+            >
+              <title>Clear</title>
+              <path
+                d="M10.5,11.3a.7.7,0,0,1-.6-.2L8,9.2,6.1,11.1a.7.7,0,0,1-.6.2.8.8,0,0,1-.9-.8.9.9,0,0,
+    1,.3-.6L6.8,8,4.9,6.1a.9.9,0,0,1-.3-.6.8.8,0,0,1,.9-.8l.6.2L8,6.8,9.9,4.9a.7.7,0,0,1,
+    .6-.2.8.8,0,0,1,.9.8.9.9,0,0,1-.3.6L9.2,8l1.9,1.9a.9.9,0,0,1,.3.6A.8.8,0,0,1,10.5,11.3ZM8,
+    16A8,8,0,1,0,0,8,8,8,0,0,0,8,16Z"
+              />
+            </svg>
           </button>
         </div>
       </div>
@@ -120,7 +147,7 @@
 </template>
 
 <script setup lang="ts">
-import FilterTagList from '~/components/common/Filter/TagList.vue'
+import type FilterTagList from '~/components/common/Filter/TagList.vue'
 import {
   parseDataFromClipboard,
   prepareDataForHTMLClipboard,
@@ -168,6 +195,7 @@ const props = withDefaults(
 const emits = defineEmits([
   'update:preventedBlur',
   'update:selectedTags',
+  'update:value',
   'input',
   'blur',
   'focus',
@@ -863,7 +891,13 @@ const selectedTagsMultipleSelectionListeners = {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
+.svg-icon {
+  fill: var(--colors-svg-icon-fill-light, var(--color-svg-icon));
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  overflow: visible;
+}
 .filter {
   --input-vertical-padding: 13px;
   --input-horizontal-spacing: 10px;
@@ -873,146 +907,170 @@ const selectedTagsMultipleSelectionListeners = {
   position: relative;
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  border-radius: 6px;
-
-  &__top-wrapper {
-    display: flex;
+  border-radius: 13px;
+}
+.filter__top-wrapper {
+  display: flex;
+}
+.filter__filter-button {
+  position: relative;
+  z-index: 1;
+  cursor: text;
+  margin-left: var(--input-horizontal-spacing);
+  margin-right: 3px;
+}
+@media only screen and (max-width: 735px) {
+  .filter__filter-button {
+    margin-right: 7px;
   }
-
-  &__filter-button {
-    position: relative;
-    z-index: 1;
-    cursor: text;
-    margin-left: var(--input-horizontal-spacing);
-    margin-right: 3px;
-    .svg-icon {
-      fill: var(--input-text);
-      display: block;
-      height: 21px;
-    }
-    &.blue :deep(> *) {
-      fill: var(--color-figure-blue);
-      color: var(--color-figure-blue);
-    }
+}
+.filter__filter-button .svg-icon {
+  fill: var(--input-text);
+  display: block;
+  height: 21px;
+}
+.filter__filter-button.blue > * {
+  fill: var(--color-figure-blue);
+  color: var(--color-figure-blue);
+}
+.filter.focus .filter__wrapper {
+  box-shadow: 0 0 0 3pt var(--color-focus-color);
+  --input-border-color: var(--color-fill-blue);
+}
+.filter__wrapper {
+  border: 1px solid var(--input-border-color);
+  background: var(--color-fill);
+  border-radius: 12px;
+}
+.filter__wrapper--reversed {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.filter__delete-button {
+  position: relative;
+  margin: 0;
+  z-index: 1;
+  border-radius: 100%;
+}
+.filter__delete-button .clear-rounded-icon {
+  height: 12px;
+  width: 12px;
+  fill: var(--input-text);
+  display: block;
+}
+.filter__delete-button-wrapper {
+  display: flex;
+  align-items: center;
+  padding-right: var(--input-horizontal-spacing);
+  padding-left: 3px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.filter__input-label {
+  position: relative;
+  flex-grow: 1;
+  height: var(--input-height);
+  padding: var(--input-vertical-padding) 0;
+}
+.filter__input-label:after {
+  content: attr(data-value);
+  visibility: hidden;
+  width: auto;
+  white-space: nowrap;
+  min-width: 130px;
+  display: block;
+  text-indent: 7px;
+}
+@media only screen and (max-width: 735px) {
+  .filter__input-label:after {
+    text-indent: 3px;
   }
-
-  &.focus {
-    .filter__wrapper {
-      box-shadow: 0 0 0 3pt var(--color-focus-color);
-      --input-border-color: var(--color-fill-blue);
-    }
+}
+.filter__input-box-wrapper {
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-color: var(--color-figure-gray-tertiary) transparent;
+  scrollbar-width: thin;
+  display: flex;
+  overflow-x: auto;
+  align-items: center;
+  cursor: text;
+  flex: 1;
+}
+.filter__input-box-wrapper::-webkit-scrollbar {
+  height: 0;
+}
+.filter__input {
+  font-size: 21px;
+  line-height: 1.381002381;
+  font-weight: 400;
+  letter-spacing: 0.011em;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
+  color: var(--color-text);
+  height: var(--input-height);
+  border: none;
+  width: 100%;
+  position: absolute;
+  background: transparent;
+  z-index: 1;
+  text-indent: 7px;
+}
+@media only screen and (max-width: 735px) {
+  .filter__input {
+    font-size: 19px;
+    line-height: 1.4211026316;
+    font-weight: 400;
+    letter-spacing: 0.012em;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
   }
-
-  &__wrapper {
-    border: 1px solid var(--input-border-color);
-    background: var(--color-fill);
-    border-radius: 6px;
-    &--reversed {
-      display: flex;
-      flex-direction: column-reverse;
-    }
-    &--no-border-style {
-      border: none;
-    }
+}
+@media only screen and (max-width: 735px) {
+  .filter__input {
+    text-indent: 3px;
   }
-
-  &__suggested-tags {
-    border-top: 1px solid var(--color-fill-gray-tertiary);
-    z-index: 1;
-    overflow: hidden;
-    :deep(ul) {
-      padding: var(--input-vertical-padding) 9px;
-      border: 1px solid transparent;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-      &:focus {
-        outline: none;
-        box-shadow: 0 0 0 5px var(--color-focus-color);
-      }
-    }
-    .filter__wrapper--reversed & {
-      border-bottom: 1px solid var(--color-fill-gray-tertiary);
-      border-top: none;
-    }
-  }
-
-  &__selected-tags {
-    z-index: 1;
-    padding-left: 4px;
-    margin: -4px 0;
-    :deep() {
-      ul {
-        padding: 4px;
-        .tag:last-child {
-          padding-right: 0;
-        }
-      }
-    }
-  }
-
-  &__delete-button {
-    position: relative;
-    margin: 0;
-    z-index: 1;
-    border-radius: 100%;
-    .clear-rounded-icon {
-      height: 12px;
-      width: 12px;
-      fill: var(--input-text);
-      display: block;
-    }
-  }
-
-  &__delete-button-wrapper {
-    display: flex;
-    align-items: center;
-    padding-right: var(--input-horizontal-spacing);
-    padding-left: 3px;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-  }
-
-  &__input-label {
-    position: relative;
-    flex-grow: 1;
-    height: var(--input-height);
-    padding: var(--input-vertical-padding) 0;
-    &::after {
-      content: attr(data-value);
-      visibility: hidden;
-      width: auto;
-      white-space: nowrap;
-      min-width: 130px;
-      display: block;
-      text-indent: 7px;
-    }
-  }
-
-  &__input-box-wrapper {
-    display: flex;
-    overflow-x: auto;
-    align-items: center;
-    cursor: text;
-    flex: 1;
-  }
-
-  &__input {
-    color: var(--color-text);
-    height: var(--input-height);
-    border: none;
-    width: 100%;
-    position: absolute;
-    background: transparent;
-    z-index: 1;
-    text-indent: 7px;
-    &:focus {
-      outline: none;
-    }
-    &[placeholder] {
-      &::placeholder {
-        color: var(--input-text);
-      }
-    }
-  }
+}
+.filter__input:focus {
+  outline: none;
+}
+.filter__input[placeholder]::placeholder {
+  color: var(--input-text);
+  opacity: 1;
+}
+.filter-component {
+  --input-vertical-padding: 8px;
+  --input-height: 22px;
+  --input-border-color: var(--color-fill-gray-tertiary);
+  --input-text: var(--color-figure-gray-secondary);
+}
+.filter-component .filter__input {
+  font-size: 17px;
+  line-height: 1.4705882353;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
+}
+.filter-component .filter__input-label:after {
+  min-width: 70px;
 }
 </style>

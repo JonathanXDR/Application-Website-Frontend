@@ -91,18 +91,6 @@
   animation: loading-spinner 0.8s infinite linear;
 }
 
-.visuallyhidden {
-  position: absolute;
-  clip: rect(1px, 1px, 1px, 1px);
-  -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
-  clip-path: inset(0px 0px 99.9% 99.9%);
-  overflow: hidden;
-  height: 1px;
-  width: 1px;
-  padding: 0;
-  border: 0;
-}
-
 @-webkit-keyframes loading-spinner {
   0% {
     -webkit-transform: rotate(0deg);

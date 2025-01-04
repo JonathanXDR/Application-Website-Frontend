@@ -76,16 +76,6 @@ const toggleOpen = useToggle(open)
 </script>
 
 <style scoped>
-.visuallyhidden {
-  position: absolute;
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(0 0 99.9% 99.9%);
-  overflow: hidden;
-  height: 1px;
-  width: 1px;
-  padding: 0;
-  border: 0;
-}
 .icon:after,
 .icon:before,
 .more:after,

@@ -42,30 +42,24 @@
     preventBorderStyle: boolean
     translatableTags: string[] -->
 
-    <NavBarExtension>
-      <FilterInput
-        v-if="cards"
-        :position-reversed="true"
-        :tags="[
-          ...new Set(
-            cards
-              .flatMap((card) => card.badges?.map((badge) => badge.title))
-              .filter((title): title is string => title !== undefined),
-          ),
-        ]"
-        :selected-tags="[]"
-        :prevented-blur="false"
-        placeholder="Search for a technology"
-        :disabled="false"
-        :value="''"
-        :should-truncate-tags="true"
-        :focus-input-when-created="true"
-        :focus-input-when-empty="true"
-        :select-input-on-focus="true"
-        :prevent-border-style="true"
-        :translatable-tags="[]"
-      />
-    </NavBarExtension>
+    <!-- <NavBarExtension> -->
+    <FilterInput
+      v-if="cards"
+      :position-reversed="true"
+      :tags="tags"
+      :selected-tags="[tags[Math.floor(Math.random() * tags.length)] ?? '']"
+      :prevented-blur="false"
+      placeholder="Filter"
+      :disabled="false"
+      :value="''"
+      :should-truncate-tags="true"
+      :focus-input-when-created="true"
+      :focus-input-when-empty="true"
+      :select-input-on-focus="true"
+      :prevent-border-style="true"
+      :translatable-tags="[]"
+    />
+    <!-- </NavBarExtension> -->
 
     <LiveResultSummary :total-results="cards.length" />
 
@@ -114,6 +108,14 @@ const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
 const cards = computed<CardItemType[]>(() =>
   tm('components.containers.technologies'),
 )
+
+const tags = [
+  ...new Set(
+    cards.value
+      .flatMap(card => card.badges?.map(badge => badge.title))
+      .filter((title): title is string => title !== undefined),
+  ),
+]
 
 // const segmentNavItems = computed<ItemType[]>(() =>
 //   tm("components.common.SegmentNav.technologies"),

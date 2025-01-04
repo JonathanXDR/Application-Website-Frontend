@@ -200,6 +200,10 @@
           }
         ]
       },
+      "FilterInput": {
+        "addTag": "Tag hinzufügen",
+        "tagSelectRemove": "Tag entfernen"
+      },
       "LiveResultSummary": {
         "title": "Zeige {count} Ergebnisse",
         "description": "Angepinnt"

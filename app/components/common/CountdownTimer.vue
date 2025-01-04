@@ -194,7 +194,7 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   position: relative;
-  min-width: 3.2941176471rem;
+  min-width: 56px;
 }
 .countdown-zone:not(:first-child) {
   margin-left: 12px;
