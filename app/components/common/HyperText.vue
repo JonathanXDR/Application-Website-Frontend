@@ -156,6 +156,11 @@ watch(
 
 <style scoped>
 .hypertext {
+  font-size: 30px;
+  line-height: 1.5;
+  font-weight: 300;
+  letter-spacing: -0.02em;
   font-family: Menlo, monospace;
+  color: var(--color-fill-gray);
 }
 </style>
