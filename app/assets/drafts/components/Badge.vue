@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// @import "docc-render/styles/_core.scss";
+@import "/app/assets/scss/_core.scss";
 
 @mixin badge-variation($color) {
   --badge-color: var(--color-badge-#{$color});

@@ -62,7 +62,7 @@ const highlightedChunks = computed(() => {
 </script>
 
 <style scoped lang="scss">
-// @import "docc-render/styles/_core.scss";
+@import "/app/assets/scss/_core.scss";
 
 .highlight {
   display: inline;

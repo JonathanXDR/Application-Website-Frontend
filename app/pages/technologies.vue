@@ -28,11 +28,46 @@
       </div>
     </NavBarExtension> -->
 
-    <!-- <NavBarExtension>
-      <FilterInput />
+    <!-- positionReversed: boolean
+    tags: string[]
+    selectedTags: string[]
+    preventedBlur: boolean
+    placeholder: string
+    disabled: boolean
+    value: string
+    shouldTruncateTags: boolean
+    focusInputWhenCreated: boolean
+    focusInputWhenEmpty: boolean
+    selectInputOnFocus: boolean
+    preventBorderStyle: boolean
+    translatableTags: string[] -->
+
+    <NavBarExtension>
+      <FilterInput
+        v-if="cards"
+        :position-reversed="true"
+        :tags="[
+          ...new Set(
+            cards
+              .flatMap((card) => card.badges?.map((badge) => badge.title))
+              .filter((title): title is string => title !== undefined),
+          ),
+        ]"
+        :selected-tags="[]"
+        :prevented-blur="false"
+        placeholder="Search for a technology"
+        :disabled="false"
+        :value="''"
+        :should-truncate-tags="true"
+        :focus-input-when-created="true"
+        :focus-input-when-empty="true"
+        :select-input-on-focus="true"
+        :prevent-border-style="true"
+        :translatable-tags="[]"
+      />
     </NavBarExtension>
 
-    <LiveResultSummary :total-results="cards.length" /> -->
+    <LiveResultSummary :total-results="cards.length" />
 
     <div class="card-container">
       <CardItem

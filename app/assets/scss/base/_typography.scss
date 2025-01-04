@@ -1,0 +1,216 @@
+/**
+ * This source file is part of the Swift.org open source project
+ *
+ * Copyright (c) 2021-2023 Apple Inc. and the Swift project authors
+ * Licensed under Apache License v2.0 with Runtime Library Exception
+ *
+ * See https://swift.org/LICENSE.txt for license information
+ * See https://swift.org/CONTRIBUTORS.txt for Swift project authors
+*/
+
+////
+/// Typography styles
+///
+
+/// The base/default font-size for the html element in browsers is 16px.
+/// This makes the base font-size match our $-base-font-size.
+html {
+  @include inTargetWeb {
+    font: var(--typography-html-font, $body-font-size $font-content);
+  }
+  /// The quotes CSS property sets how the browser should render quotation marks
+  /// added through a CSS content field or the HTML q element
+  quotes: "“" "”";
+  @each $lang, $quotes in $localizedQuotes {
+    &:lang(#{$lang}) {
+      quotes: $quotes;
+    }
+  }
+}
+
+body {
+  @include font-styles(body);
+  background-color: var(--color-text-background);
+  color: var(--colors-text, var(--color-text));
+  font-style: normal;
+  word-wrap: break-word;
+
+  // Default margin for stacked elements.
+  --spacing-stacked-margin-small: 0.4em;
+
+  // Default margin-top for subsequent elements.
+  --spacing-stacked-margin-large: 0.8em;
+
+  // Default margin for elements that require extra spacing
+  --spacing-stacked-margin-xlarge: calc(
+    var(--spacing-stacked-margin-large) * 2
+  );
+
+  // Default param spacing
+  --spacing-param: #{rem(28px)};
+
+  // Default margin for Code Listing in Declaration
+  --declaration-code-listing-margin: 30px 0 0 0;
+
+  // Default padding for Code Blocks
+  --code-block-style-elements-padding: 8px 14px;
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font-synthesis: none;
+  -moz-font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: ltr;
+  text-align: left;
+}
+
+//
+// Headings
+//
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--colors-header-text, var(--color-header-text));
+
+  // Add top margin to any element that immediately follows a heading.
+  + * {
+    margin-top: var(--spacing-stacked-margin-large);
+  }
+
+  // Add top margin to headings that immediately follow paragraphs and lists.
+  p + &,
+  ul + &,
+  ol + & {
+    margin-top: 1.6em;
+  }
+}
+
+// Add a top margin to everything that follows a paragraph or a list
+p,
+ul,
+ol {
+  + * {
+    margin-top: var(--spacing-stacked-margin-large);
+  }
+}
+
+//
+// List margins
+//
+ul,
+ol {
+  margin-left: em(20px);
+
+  // remove the top margin when nesting lists
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  // relive list styles for lists inside nav el.
+  nav & {
+    margin: 0;
+    list-style: none;
+  }
+}
+
+li li {
+  font-size: 1em;
+}
+
+//
+// Links
+//
+
+a {
+  color: var(--colors-link, var(--color-link));
+
+  &:link,
+  &:visited {
+    text-decoration: none;
+  }
+
+  // Inline links need to be underline under WCAG 2.2 compliance
+  // More info: https://www.w3.org/WAI/WCAG22/Techniques/failures/F73
+  &:hover,
+  &.inline-link {
+    @include underline-text;
+  }
+
+  &:active {
+    text-decoration: none;
+  }
+
+  p + & {
+    display: inline-block; // for top margin
+  }
+}
+
+//
+// Inline Elements
+//
+
+b,
+strong {
+  font-weight: $font-weight-semibold;
+}
+
+em,
+i,
+cite,
+dfn {
+  font-style: italic;
+}
+
+sup {
+  font-size: 0.6em;
+  vertical-align: top;
+  position: relative;
+  bottom: -0.2em;
+
+  h1 &,
+  h2 &,
+  h3 & {
+    font-size: 0.4em;
+  }
+
+  a {
+    vertical-align: inherit;
+    color: inherit;
+
+    &:hover {
+      color: var(--figure-blue);
+      text-decoration: none;
+    }
+  }
+}
+
+sub {
+  line-height: 1;
+}
+
+abbr {
+  border: 0;
+}
+
+pre {
+  overflow: auto;
+  -webkit-overflow-scrolling: auto;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+code {
+  font-family: $font-mono;
+  font-weight: inherit;
+  letter-spacing: 0;
+}

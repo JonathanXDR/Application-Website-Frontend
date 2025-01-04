@@ -23,7 +23,7 @@ const { t } = useI18n()
 </script>
 
 <style scoped lang="scss">
-// @import "docc-render/styles/_core.scss";
+@import "/app/assets/scss/_core.scss";
 
 .quick-navigation-open {
   display: flex;
