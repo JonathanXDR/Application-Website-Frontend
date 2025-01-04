@@ -27,6 +27,7 @@ const originalOffset = ref<number | null>(null)
 const isSticky = ref(false)
 const isInitialized = ref(false)
 
+// TODO: This is not working
 const navbarHeight = computed(() =>
   viewport.isLessThan('tablet').value ? 48 : 52,
 )
