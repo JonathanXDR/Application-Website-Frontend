@@ -27,10 +27,7 @@ const originalOffset = ref<number | null>(null)
 const isSticky = ref(false)
 const isInitialized = ref(false)
 
-// TODO: This is not working
-const navbarHeight = computed(() =>
-  viewport.isLessThan('tablet').value ? 48 : 52,
-)
+const navbarHeight = computed(() => (viewport.isLessThan('tablet') ? 48 : 52))
 
 const containerStyle = computed(() => {
   const styles: Record<string, string> = {
@@ -82,7 +79,7 @@ onMounted(() => {
   })
 })
 
-watch([navbarHeight, shouldHideNavbar], () => {
+watch(shouldHideNavbar, () => {
   if (!isInitialized.value) {
     calculateOriginalOffset()
   }
