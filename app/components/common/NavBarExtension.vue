@@ -105,7 +105,7 @@ useEventListener(
   width: 100%;
   position: sticky;
   top: 0;
-  z-index: 5;
+  z-index: 9999;
   transform: translateY(0);
 }
 
