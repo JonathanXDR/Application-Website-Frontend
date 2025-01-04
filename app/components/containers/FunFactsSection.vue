@@ -110,8 +110,8 @@ useEventListener(window, 'resize', updateChipClaimHeight)
 }
 .chip-claims-list {
   margin-top: 3em;
-  font-size: 28px;
-  font-weight: 600;
+  /* font-size: 28px;
+  font-weight: 600; */
 }
 .chip-claim {
   max-width: 13em;
@@ -136,10 +136,16 @@ useEventListener(window, 'resize', updateChipClaimHeight)
   grid-gap: var(--stats-gap);
   gap: var(--stats-gap);
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1023px) {
   .chip-claims-list {
     --stats-gap: 50px;
     grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  }
+}
+@media only screen and (max-width: 767px) {
+  .chip-claims-list {
+    --stats-gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
 .typography-site-stat-caption {
@@ -155,10 +161,25 @@ useEventListener(window, 'resize', updateChipClaimHeight)
     "Arial",
     sans-serif;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1023px) {
   .typography-site-stat-caption {
     font-size: 17px;
     line-height: 1.4705882353;
+    font-weight: 600;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .typography-site-stat-caption {
+    font-size: 15px;
+    line-height: 1.5690140845;
     font-weight: 600;
     font-family:
       system-ui,
@@ -213,10 +234,26 @@ useEventListener(window, 'resize', updateChipClaimHeight)
     sans-serif;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1023px) {
   .stat strong {
     font-size: 32px;
     line-height: 1.125;
+    font-weight: 600;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      sans-serif;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .stat strong {
+    font-size: 24px;
+    line-height: 1.15;
     font-weight: 600;
     font-family:
       system-ui,
