@@ -81,6 +81,7 @@ const shouldApplyHideLocalnav = computed(() => {
 })
 
 watchEffect(() => {
+  // TODO: Show current page title or current section name (if available)
   useHead({
     htmlAttrs: { lang: locale.value },
     titleTemplate: currentSection.value.name ? 'JR %separator %s' : '%siteName',
