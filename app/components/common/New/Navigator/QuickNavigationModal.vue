@@ -471,7 +471,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// @import "docc-render/styles/_core.scss";
+@import "/app/assets/scss/_core.scss";
 
 $base-border-width: 1px;
 $input-horizontal-spacing: rem(15px);

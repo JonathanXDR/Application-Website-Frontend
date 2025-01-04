@@ -200,7 +200,7 @@ defineExpose({
 </script>
 
 <style scoped lang="scss">
-// @import "docc-render/styles/_core.scss";
+@import "/app/assets/scss/_core.scss";
 
 .tags {
   position: relative;

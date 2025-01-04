@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// @import "docc-render/styles/_core.scss";
+@import "/app/assets/scss/_core.scss";
 
 $tabnav-padding: 6px !default;
 $tabnav-margin: 4px !default;

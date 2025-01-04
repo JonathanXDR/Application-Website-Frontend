@@ -1,0 +1,21 @@
+/**
+ * This source file is part of the Swift.org open source project
+ *
+ * Copyright (c) 2021-2023 Apple Inc. and the Swift project authors
+ * Licensed under Apache License v2.0 with Runtime Library Exception
+ *
+ * See https://swift.org/LICENSE.txt for license information
+ * See https://swift.org/CONTRIBUTORS.txt for Swift project authors
+*/
+
+// Used to calculate `em()`s and to set the default `font-size` on `html`.
+$body-font-size: 17px;
+
+@mixin underline-text() {
+  text-decoration: underline;
+}
+
+@import "typography/font-style-utils";
+@import "typography/font-styles";
+@import "typography/font-attribute-utils";
+@import "typography/font-attributes";
