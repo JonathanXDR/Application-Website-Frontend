@@ -231,11 +231,11 @@ svg.chevron-icon path.chevron-icon {
   width: 100%;
   z-index: var(--z-default);
 }
-@media (max-width: 743px) {
+/* @media (max-width: 743px) {
   .scroll-down-arrow {
     bottom: -27px;
   }
-}
+} */
 
 .arrow {
   align-items: center;
