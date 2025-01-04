@@ -13,24 +13,15 @@
           />
         </clipPath>
       </defs>
-      <foreignObject
+      <image
+        :href="imgUrl"
+        clip-path="url(#image)"
+        height="100%"
+        width="100%"
         x="0"
         y="10"
-        width="100%"
-        height="100%"
-      >
-        <NuxtImg
-          src="/img/portrait.jpg"
-          alt="Portrait"
-          class="portrait"
-          width="320"
-          height="320"
-          layout="responsive"
-          fit="cover"
-          placeholder
-          :nonce="nonce"
-        />
-      </foreignObject>
+        preserveAspectRatio="xMidYMin slice"
+      />
     </svg>
 
     <CardItem
@@ -52,8 +43,6 @@
       }"
     />
   </div>
-
-  <ShareSheet />
 </template>
 
 <script setup lang="ts">
@@ -63,12 +52,18 @@ defineProps<{
   title: string
 }>()
 
-const nonce = useNonce()
 const viewport = useViewport()
 const { t, tm } = useI18n()
+const img = useImage()
+
 const dateItems = computed<DateItemType[]>(() =>
   tm('components.containers.about.dates'),
 )
+
+const imgUrl = computed(() => {
+  return img('/img/portrait.jpg', { width: 100 })
+})
+
 const dates = ref<{
   age: number | undefined
   apprenticeshipYear: number | undefined
@@ -100,9 +95,9 @@ onMounted(async () => {
 .info-container {
   z-index: 8;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
 }
 
@@ -120,11 +115,6 @@ onMounted(async () => {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.sharesheet {
-  margin-top: 24px;
-  justify-content: center;
 }
 
 @keyframes FadeIn {
@@ -164,10 +154,6 @@ onMounted(async () => {
 
   .info-container div {
     padding: 0;
-  }
-
-  .sharesheet {
-    justify-content: flex-start;
   }
 
   .links p {

@@ -12,7 +12,7 @@
       =======================================
     </div>
     <div
-      class="section-content hero-content"
+      class="section-content hero-content flex flex-col justify-center md:items-center"
       style="opacity: 1"
     >
       <h1
@@ -39,6 +39,7 @@
           for helping keep our users safe.
         </p>
       </div>
+      <ShareSheet class="mt-6" />
     </div>
     <ScrollDown
       v-animation="{
