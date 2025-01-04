@@ -239,7 +239,6 @@ const menuLinkReferences = reactive<Record<string, HTMLElement | undefined>>(
 const borderTransformOrigin = ref<string>('50% 0%')
 const borderScaleX = ref<string>('scaleX(1)')
 
-// TODO: Make sure routes like "/projects?category=swisscom" are also marked as current
 const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
   const currentId = navItems.value.find(item => isCurrent(item))?.id
   const liElement = currentId ? menuLinkReferences[currentId] : undefined
@@ -301,7 +300,8 @@ const handleScroll = () => {
 }
 
 const isCurrent = (item: SectionType) =>
-  item.id === currentSection.value.id || route.path === item.route
+  item.id === currentSection.value.id
+  || (item.route === '/' ? route.path === '/' : route.path.startsWith(item.route))
 
 const updateAnimations = () => {
   for (const element of headerAnimations.value) {
