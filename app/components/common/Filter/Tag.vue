@@ -24,7 +24,7 @@
       <span
         v-if="!isRemovableTag"
         class="visuallyhidden"
-      >{{ t("filter.add-tag") }} -</span>
+      >{{ t("components.common.FilterInput.addTag") }} -</span>
       <template v-if="isTranslatableTag">
         {{ t(name) }}
       </template>
@@ -34,7 +34,7 @@
       <span
         v-if="isRemovableTag"
         class="visuallyhidden"
-      >– {{ t("filter.tag-select-remove") }}</span>
+      >– {{ t("components.common.FilterInput.tagSelectRemove") }}</span>
     </button>
   </li>
 </template>
@@ -133,52 +133,50 @@ watch(
 )
 </script>
 
-<style scoped lang="scss">
-@import "/app/assets/scss/_core.scss";
-
+<style scoped>
 .tag {
   display: inline-block;
-  padding-right: rem(10px);
-
-  &:focus {
-    outline: none;
+  padding-right: 10px;
+}
+.tag:focus {
+  outline: none;
+}
+.tag button {
+  color: var(--color-figure-gray);
+  background-color: var(--color-fill-tertiary);
+  font-size: 14px;
+  line-height: 1.2857742857;
+  font-weight: 400;
+  letter-spacing: -0.016em;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
+  border-radius: 14px;
+  padding: 4px 10px;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+@media (hover: hover) {
+  .tag button:hover {
+    transition:
+      background-color 0.2s,
+      color 0.2s;
+    background-color: var(--color-fill-blue);
+    color: #fff;
   }
-
-  button {
-    color: var(--color-figure-gray);
-    background-color: var(--color-fill-tertiary);
-    @include font-styles(body-reduced-tight);
-    border-radius: rem(14px);
-    padding: rem(4px) rem(10px);
-    white-space: nowrap;
-    border: 1px solid transparent;
-
-    @media (hover: hover) {
-      // Prevent hover state to get stuck on iOS Safari
-      &:hover {
-        transition:
-          background-color 0.2s,
-          color 0.2s;
-        background-color: var(--color-fill-blue);
-        color: white;
-      }
-    }
-
-    // We only want to make active the tags when they are clicked (focus) to prevent
-    // ghost active states when deleting tags. https://stackoverflow.com/questions/1677990/
-    &:focus:active {
-      background-color: var(--color-fill-blue);
-      color: white;
-    }
-
-    &:focus,
-    &.focus {
-      @include focus-shadow-form-element();
-    }
-
-    @include on-keyboard-focus() {
-      @include focus-shadow-form-element();
-    }
-  }
+}
+.tag button:focus:active {
+  background-color: var(--color-fill-blue);
+  color: #fff;
+}
+.tag button:focus {
+  box-shadow: 0 0 0 4px var(--color-focus-color);
+  outline: none;
+  border-color: var(--color-focus-border-color);
 }
 </style>

@@ -1224,7 +1224,7 @@ html.no-touch .with-paddlenav-onhover .paddlenav-arrow:disabled {
   animation: animate-opacity 1s ease 2.8s forwards;
   inset-inline-start: -9px;
   opacity: 0;
-  width: 1.4705882353rem;
+  width: 25px;
   z-index: 3;
 }
 
@@ -1238,7 +1238,7 @@ html.no-touch .with-paddlenav-onhover .paddlenav-arrow:disabled {
   animation: animate-opacity 1s ease 2.8s forwards;
   inset-inline-end: -9px;
   opacity: 0;
-  width: 1.4705882353rem;
+  width: 25px;
   z-index: 3;
 }
 

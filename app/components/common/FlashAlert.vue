@@ -130,12 +130,12 @@ aside {
   border-radius: var(--aside-border-radius, 15px);
   border-style: var(--aside-border-style, solid);
   border-width: var(--aside-border-width, 1px 1px 1px 1px);
-  padding: 0.9411764706rem;
+  padding: 16px;
   text-align: start;
 }
 
 aside .label {
-  font-size: 1rem;
+  font-size: 17px;
   line-height: 1.5294417647;
   font-weight: 600;
   font-family:

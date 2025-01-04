@@ -96,16 +96,6 @@ const description = computed<string[]>(() =>
 </script>
 
 <style scoped>
-.visuallyhidden {
-  position: absolute;
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(0 0 99.9% 99.9%);
-  overflow: hidden;
-  height: 1px;
-  width: 1px;
-  padding: 0;
-  border: 0;
-}
 [data-core-fade-transition-wrapper] {
   opacity: 0;
   transition-property: opacity;
@@ -161,17 +151,6 @@ h1 {
 }
 h1 + * {
   margin-top: 0.8em;
-}
-.visuallyhidden {
-  position: absolute;
-  clip: rect(1px, 1px, 1px, 1px);
-  -webkit-clip-path: inset(0 0 99.9% 99.9%);
-  clip-path: inset(0 0 99.9% 99.9%);
-  overflow: hidden;
-  height: 1px;
-  width: 1px;
-  padding: 0;
-  border: 0;
 }
 .icon:after,
 .icon:before {

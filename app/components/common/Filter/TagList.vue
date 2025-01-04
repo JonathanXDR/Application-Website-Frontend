@@ -1,5 +1,5 @@
 <template>
-  <div class="tags">
+  <div class="tags filter__suggested-tags">
     <div
       ref="scrollWrapper"
       class="scroll-wrapper"
@@ -199,9 +199,7 @@ defineExpose({
 })
 </script>
 
-<style scoped lang="scss">
-@import "/app/assets/scss/_core.scss";
-
+<style scoped>
 .tags {
   position: relative;
   margin: 0;
@@ -213,16 +211,56 @@ defineExpose({
     max-height 1s,
     opacity 1s;
   padding: 0;
-
-  .scroll-wrapper {
-    overflow-x: auto;
-    @include custom-horizontal-scrollbar;
+}
+.tags .scroll-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-color: var(--color-figure-gray-tertiary) transparent;
+  scrollbar-width: thin;
+}
+.tags .scroll-wrapper::-webkit-scrollbar {
+  height: 0;
+}
+.tags ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.filter__suggested-tags {
+  border-top: 1px solid var(--color-fill-gray-tertiary);
+  z-index: 1;
+  overflow: hidden;
+}
+.filter__suggested-tags ul {
+  padding: var(--input-vertical-padding) 9px;
+  border: 1px solid transparent;
+  border-bottom-left-radius: 11px;
+  border-bottom-right-radius: 11px;
+}
+.filter__wrapper--reversed .filter__suggested-tags {
+  border-bottom: 1px solid var(--color-fill-gray-tertiary);
+  border-top: none;
+}
+.filter__selected-tags {
+  z-index: 1;
+  padding-left: 4px;
+  margin: -4px 0;
+}
+@media only screen and (max-width: 735px) {
+  .filter__selected-tags {
+    padding-left: 0;
   }
-
-  ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
+}
+.filter__selected-tags ul {
+  padding: 4px;
+}
+@media only screen and (max-width: 735px) {
+  .filter__selected-tags ul {
+    padding-right: 7px;
   }
+}
+.filter__selected-tags ul .tag:last-child {
+  padding-right: 0;
 }
 </style>
