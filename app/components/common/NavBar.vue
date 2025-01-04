@@ -30,6 +30,7 @@
       { 'ac-ln-opening': navOpening },
     ]"
     :style="{
+      // TODO: Add display: none once the hiding animation is done and vice versa
       '--border-transform-origin': borderTransformOrigin,
       '--border-scaleX': borderScaleX,
     }"
@@ -200,7 +201,9 @@ import type { SectionType } from '#shared/types/common/section'
 
 const props = withDefaults(defineProps<NavbarType>(), {
   autoHide: false,
+  autoHideDelay: 2000,
   border: true,
+  extensionAttached: false,
   scrim: true,
   position: 'fixed',
 })
@@ -244,14 +247,15 @@ const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
   const liElement = currentId ? menuLinkReferences[currentId] : undefined
 
   if (!liElement) return
-
-  const menuLinkElement = liElement.firstElementChild as HTMLElement
-  return menuLinkElement
+  return liElement.firstElementChild as HTMLElement
 })
 
 setState({
   autoHide: props.autoHide,
+  // TODO: Add delay, where navbar keeps showing for a certain amount of time after clicking a link
+  autoHideDelay: props.autoHideDelay,
   border: props.border,
+  extensionAttached: props.extensionAttached,
   scrim: props.scrim,
   position: props.position,
 })
@@ -306,7 +310,6 @@ const isCurrent = (item: SectionType) =>
 const updateAnimations = () => {
   for (const element of headerAnimations.value) {
     element.element.classList.remove(element.class)
-
     setTimeout(() => {
       element.element.classList.add(element.class)
     }, element.timeout)

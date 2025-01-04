@@ -1,5 +1,6 @@
 export interface NavbarType {
   autoHide?: boolean
+  autoHideDelay?: number
   border?: boolean
   extensionAttached?: boolean
   scrim?: boolean

@@ -1,13 +1,7 @@
 import type { NavbarType } from '#shared/types/common/nav-bar'
 import type { SectionType } from '#shared/types/common/section'
 
-const state = reactive<NavbarType>({
-  autoHide: false,
-  border: true,
-  scrim: true,
-  position: 'fixed',
-  extensionAttached: false,
-})
+const state = reactive<NavbarType>({})
 
 export const useNavbar = () => {
   const setState = (stateNew: Partial<NavbarType>) => {
