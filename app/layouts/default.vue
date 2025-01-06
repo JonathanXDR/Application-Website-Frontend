@@ -37,6 +37,7 @@ const { locale, tm } = useI18n()
 const { y, isScrolling } = useScroll(window)
 const error = useError()
 const config = useRuntimeConfig()
+const navbar = useNavbar()
 
 const rotatingBannerElement = ref<HTMLElement | undefined>(undefined)
 const { height: rotatingBannerHeight } = useElementSize(rotatingBannerElement)
@@ -81,11 +82,13 @@ const shouldApplyHideLocalnav = computed(() => {
 })
 
 watchEffect(() => {
-  // TODO: Show current page title or current section name (if available)
   useHead({
     htmlAttrs: { lang: locale.value },
-    titleTemplate: currentSection.value.name ? 'JR %separator %s' : '%siteName',
-    title: currentSection.value.name,
+    titleTemplate:
+      currentSection.value?.name || navbar.pageTitle.value
+        ? 'JR %separator %s'
+        : '%siteName',
+    title: currentSection.value?.name || navbar.pageTitle.value,
   })
 
   if (config.public.appEnvironment !== 'development') return
