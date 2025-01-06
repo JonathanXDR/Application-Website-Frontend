@@ -1,21 +1,11 @@
 <template>
   <component
-    :is="componentType"
+    :is="shouldRenderLink ? 'a' : 'div'"
     :id="componentId"
     v-animation="scrollAnimation"
-    :href="componentHref"
-    :class="[
-      'scroll-animation scroll-animation--off',
-      variant,
-      componentSize,
-      { hover: applyHover },
-    ]"
-    :style="{
-      '--color-background': colors.primary,
-      '--color-background-hover': colors.secondary,
-      '--color-border': colors.tertiary,
-      '--color-border-hover': colors.quaternary,
-    }"
+    :href="shouldRenderLink ? componentHref : undefined"
+    :class="cardClasses"
+    :style="styleObject"
     target="_blank"
   >
     <div
@@ -35,6 +25,7 @@
       <BarGraph v-if="graphs?.bar" />
       <DonutGraph v-if="graphs?.donut" />
     </div>
+
     <div
       class="details"
       :style="detailsStyle"
@@ -42,33 +33,23 @@
       <template v-if="icon">
         <div
           v-if="icon.background"
+          ref="iconWrapper"
           class="flex justify-center items-center p-2 rounded-lg"
-          :style="{
-            position: icon.absolute ? 'absolute' : 'relative',
-            backgroundColor: icon.background?.startsWith('var(--')
-              ? icon.background
-              : colorMode.value === 'dark'
-                ? `${icon.background}40`
-                : `${icon.background}26`,
-          }"
+          :style="iconWrapperStyle"
         >
           <DynamicIcon
             v-bind="icon"
             :loading="loading"
-            :class="`icon icon-${icon.name && sfSymbolRegex.test(icon.name) ? iconSize : iconLogoSize}`"
-            :style="{
-              color: icon.colors?.primary,
-            }"
+            :class="iconClass"
+            :style="{ color: icon.colors?.primary }"
           />
         </div>
         <DynamicIcon
           v-else
           v-bind="icon"
           :loading="loading"
-          :class="`mt-[3px] icon icon-${icon.name && sfSymbolRegex.test(icon.name) ? iconSize : iconLogoSize}`"
-          :style="{
-            color: icon.colors?.primary,
-          }"
+          :class="['mt-[3px]', iconClass]"
+          :style="{ color: icon.colors?.primary }"
         />
       </template>
 
@@ -90,6 +71,7 @@
             />
           </template>
         </div>
+
         <div class="title-wrapper">
           <div
             v-if="title || name"
@@ -131,6 +113,7 @@
             border
           />
         </div>
+
         <p
           v-if="eyebrow && variant === 'article' && icon.name"
           class="lighter article-date"
@@ -145,6 +128,7 @@
             />
           </template>
         </p>
+
         <div class="card-content">
           <div class="content">
             <template v-if="!loading">
@@ -167,7 +151,6 @@
           </div>
         </div>
 
-        <!-- TODO: Fix hydration mismatches -->
         <BadgeBar
           v-if="hasBadgesOrTopics"
           :badges="badgesOrTopics"
@@ -190,6 +173,7 @@
             :class="{ link: applyHover }"
           />
         </div>
+
         <InfoBar
           v-if="hasInfo"
           v-bind="{
@@ -235,36 +219,70 @@ const props = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
 const { t } = useI18n()
 const { randomDevColor } = useColor()
 const colorMode = useColorMode()
+
+const cardClasses = computed(() => [
+  'scroll-animation scroll-animation--off',
+  props.variant,
+  props.componentSize,
+  { hover: applyHover.value },
+])
+
 const applyHover = computed(
   () =>
     (props.hover === 'auto'
       && ((props.links && props.links.length > 0) || props.html_url))
     || props.hover === true,
 )
-const componentType = computed(() =>
-  props.variant === 'article' || !applyHover.value ? 'div' : 'a',
+
+const shouldRenderLink = computed(
+  () => props.variant !== 'article' && applyHover.value,
 )
+
 const componentId = computed(() =>
   props.title?.toLowerCase().replaceAll(' ', '-'),
 )
+
 const componentHref = computed(() =>
   applyHover.value && props.links ? props.links[0]?.url : props.html_url,
 )
+
 const scrollAnimation = {
   add: 'scroll-animation--on',
   remove: 'scroll-animation--off',
 }
 
+const styleObject = computed(() => ({
+  '--color-background': props.colors.primary,
+  '--color-background-hover': props.colors.secondary,
+  '--color-border': props.colors.tertiary,
+  '--color-border-hover': props.colors.quaternary,
+}))
+
+const iconWrapperStyle = computed((): Record<string, string> => {
+  return {
+    position: props.icon?.absolute ? 'absolute' : 'relative',
+    backgroundColor: props.icon?.background?.startsWith('var(--')
+      ? props.icon.background
+      : colorMode.value === 'dark'
+        ? `${props.icon.background}40`
+        : `${props.icon.background}26`,
+  }
+})
+
 const hasCoverOrGraphs = computed(
   () => props.cover || props.graphs?.donut || props.graphs?.bar,
 )
+
 const hasBadgesOrTopics = computed(
   () => props.badges?.length || props.topics?.length,
 )
+
 const badgesOrTopics = computed(
   () => props.badges || props.topics?.map(topic => ({ title: topic })) || [],
 )
+
 const hasLinksOrHtmlUrl = computed(() => props.links?.length || props.html_url)
+
 const linkCollectionLinks = computed(
   () =>
     props.links || [
@@ -339,6 +357,11 @@ const detailsStyle = computed((): Record<string, string> => {
 })
 
 const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
+
+const iconClass = computed(
+  () =>
+    `icon icon-${props.icon?.name && sfSymbolRegex.test(props.icon.name) ? iconSize.value : iconLogoSize.value}`,
+)
 
 const iconSize = computed(() => {
   switch (props.componentSize) {
