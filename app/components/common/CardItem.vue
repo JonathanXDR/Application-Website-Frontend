@@ -174,7 +174,6 @@
           :loading="loading"
         />
 
-        <!-- TODO: Fix hydration mismatches -->
         <div
           v-if="hasLinksOrHtmlUrl"
           class="ctas-wrapper"
@@ -184,6 +183,7 @@
             <span class="icon-copy"> Open</span>
           </NuxtLink> -->
 
+          <!-- TODO: Fix hydration mismatches -->
           <LinkCollection
             :links="linkCollectionLinks"
             :loading="loading"
