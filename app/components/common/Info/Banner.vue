@@ -1369,22 +1369,22 @@ html[dir="rtl"] .with-paddlenav .rc-ribbon-content-autoscroll:after {
 .rc-ribbon .ribbon-content-wrapper .ribbon-content {
   margin-inline-end: auto;
   margin-inline-start: auto;
-  width: 90%;
+  width: 82.5%;
 }
 
-@media (min-width: 1441px) {
+/* @media (min-width: 1441px) {
   .rc-ribbon .ribbon-content-wrapper .ribbon-content {
     margin-inline-end: auto;
     margin-inline-start: auto;
-    width: 90%;
+    width: 82.5%;
   }
-}
+} */
 
 @media (max-width: 1023px) and (max-device-width: 736px) {
   .rc-ribbon .ribbon-content-wrapper .ribbon-content {
     margin-inline-end: auto;
     margin-inline-start: auto;
-    width: 82.5%;
+    width: 90%;
   }
 }
 
