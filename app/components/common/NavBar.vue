@@ -304,7 +304,7 @@ const handleScroll = () => {
 }
 
 const isCurrent = (item: SectionType) =>
-  item.id === currentSection.value.id
+  item.id === currentSection.value?.id
   || (item.route === '/' ? route.path === '/' : route.path.startsWith(item.route))
 
 const updateAnimations = () => {
@@ -365,7 +365,7 @@ watch(currentMenuLinkElement, () => {
   updateBorderPosition()
 })
 
-watch([() => route.path, () => currentSection.value.id], () => {
+watch([() => route.path, () => currentSection.value?.id], () => {
   updateBorderPosition()
 })
 </script>
