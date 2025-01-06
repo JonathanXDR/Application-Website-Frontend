@@ -471,11 +471,11 @@
       "funFacts": [
         {
           "progress": 100000,
-          "description": "Kilometers traveled"
+          "description": "Zurückgelegte Kilometer"
         },
         {
           "progress": 10000,
-          "description": "Hours worked"
+          "description": "Geleistete Arbeitsstunden"
         },
         {
           "progress": 15000,
@@ -483,23 +483,23 @@
         },
         {
           "progress": 1000000,
-          "description": "Lines of code written"
+          "description": "Geschriebene Codezeilen"
         },
         {
           "progress": 1000,
-          "description": "Hours spent debugging"
+          "description": "Stunden für Debugging"
         },
         {
           "progress": 2000,
-          "description": "Bugs fixed"
+          "description": "Bugs gefixt"
         },
         {
           "progress": 2400,
-          "description": "Cups of coffee"
+          "description": "Getrunkene Tassen Kaffee"
         },
         {
           "progress": 7200,
-          "description": "Hours of music listened"
+          "description": "Stunden Musik gehört"
         }
       ],
       "technologies": [
