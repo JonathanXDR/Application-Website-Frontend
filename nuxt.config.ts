@@ -160,7 +160,7 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-  compatibilityDate: '2024-10-14',
+  compatibilityDate: '2025-01-07',
   typescript: {
     typeCheck: true,
     strict: true,

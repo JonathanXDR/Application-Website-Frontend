@@ -1,6 +1,6 @@
 export const useSection = () => {
   const currentSection = useState<
-    { id: string, name: string, index: number } | undefined
+    { id: string, name?: string, index: number } | undefined
   >('currentSection', () => undefined)
 
   const route = useRoute()
@@ -12,7 +12,9 @@ export const useSection = () => {
   ) => {
     currentSection.value = {
       id: sectionId,
-      name: sectionName.replace(/^\w/, c => c.toUpperCase()),
+      name: sectionName
+        ? sectionName.replace(/^\w/, c => c.toUpperCase())
+        : undefined,
       index: sectionIndex,
     }
   }
