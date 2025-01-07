@@ -175,6 +175,7 @@ body main ::-webkit-scrollbar-track {
   /* Icon */
   --icon-color: rgba(0, 0, 0, 0.56);
   --icon-interaction-color: rgba(0, 0, 0, 0.64);
+  --icon-opacity: 26;
 
   /* Tile */
   --sk-tile-background: rgb(255, 255, 255);
@@ -539,6 +540,7 @@ body main ::-webkit-scrollbar-track {
   /* Icon */
   --icon-color: rgba(255, 255, 255, 0.79);
   --icon-interaction-color: rgba(255, 255, 255, 0.9);
+  --icon-opacity: 40;
 
   /* Tile */
   --sk-tile-background: rgb(0, 0, 0);

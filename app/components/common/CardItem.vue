@@ -1,9 +1,9 @@
 <template>
   <component
-    :is="shouldRenderLink ? 'a' : 'div'"
+    :is="componentType"
     :id="componentId"
     v-animation="scrollAnimation"
-    :href="shouldRenderLink ? componentHref : undefined"
+    :href="componentType === 'a' ? componentHref : undefined"
     :class="cardClasses"
     :style="styleObject"
     target="_blank"
@@ -33,7 +33,6 @@
       <template v-if="icon">
         <div
           v-if="icon.background"
-          ref="iconWrapper"
           class="flex justify-center items-center p-2 rounded-lg"
           :style="iconWrapperStyle"
         >
@@ -166,7 +165,6 @@
             <span class="icon-copy"> Open</span>
           </NuxtLink> -->
 
-          <!-- TODO: Fix hydration mismatches -->
           <LinkCollection
             :links="linkCollectionLinks"
             :loading="loading"
@@ -220,6 +218,13 @@ const { t } = useI18n()
 const { randomDevColor } = useColor()
 const colorMode = useColorMode()
 
+const componentType = ref('div')
+
+const iconWrapperStyle = shallowRef<Record<string, string>>({
+  position: props.icon?.absolute ? 'absolute' : 'relative',
+  backgroundColor: props.icon?.background || 'transparent',
+})
+
 const cardClasses = computed(() => [
   'scroll-animation scroll-animation--off',
   props.variant,
@@ -232,10 +237,6 @@ const applyHover = computed(
     (props.hover === 'auto'
       && ((props.links && props.links.length > 0) || props.html_url))
     || props.hover === true,
-)
-
-const shouldRenderLink = computed(
-  () => props.variant !== 'article' && applyHover.value,
 )
 
 const componentId = computed(() =>
@@ -257,17 +258,6 @@ const styleObject = computed(() => ({
   '--color-border': props.colors.tertiary,
   '--color-border-hover': props.colors.quaternary,
 }))
-
-const iconWrapperStyle = computed((): Record<string, string> => {
-  return {
-    position: props.icon?.absolute ? 'absolute' : 'relative',
-    backgroundColor: props.icon?.background?.startsWith('var(--')
-      ? props.icon.background
-      : colorMode.value === 'dark'
-        ? `${props.icon.background}40`
-        : `${props.icon.background}26`,
-  }
-})
 
 const hasCoverOrGraphs = computed(
   () => props.cover || props.graphs?.donut || props.graphs?.bar,
@@ -387,6 +377,36 @@ const iconLogoSize = computed(() => {
     default:
       return 'lg'
   }
+})
+
+const updateIconWrapperStyle = () => {
+  const position = props.icon?.absolute ? 'absolute' : 'relative'
+  let backgroundColor = props.icon?.background || ''
+
+  if (backgroundColor && !backgroundColor.startsWith('var(--')) {
+    const opacity = colorMode.value === 'dark' ? '40' : '26'
+    backgroundColor = `${backgroundColor}${opacity}`
+  }
+
+  iconWrapperStyle.value = { position, backgroundColor }
+}
+
+onMounted(() => {
+  const shouldSetLink
+    = props.hover === true
+    || (props.hover === 'auto' && (props.links?.length || props.html_url))
+
+  if (shouldSetLink && props.variant !== 'article') {
+    componentType.value = 'a'
+  }
+})
+
+onMounted(() => {
+  updateIconWrapperStyle()
+})
+
+watch(colorMode, () => {
+  updateIconWrapperStyle()
 })
 </script>
 
