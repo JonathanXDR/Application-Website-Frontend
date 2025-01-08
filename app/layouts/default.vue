@@ -3,7 +3,7 @@
     <SpeedInsights />
     <header
       v-if="shouldShow('header')"
-      :class="{ 'hide-localnav': shouldApplyHideLocalnav }"
+      :class="{ 'hide-localnav': hidden }"
     >
       <NavBar v-if="shouldShow('nav')" />
       <div
@@ -13,9 +13,11 @@
         <InfoBanner :items="items" />
       </div>
     </header>
+
     <main>
       <slot />
     </main>
+
     <footer :class="footerClass">
       <component :is="footerComponent" />
     </footer>
@@ -29,7 +31,7 @@ import type { InfoBanner } from '#shared/types/common/info-banner'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterFull from '~/components/common/Footer/Full.vue'
 
-const { state, setState } = useNavbar()
+const { state, hidden } = useNavbar()
 const { randomDevColor } = useColor()
 const route = useRoute()
 const { currentSection } = useSection()
@@ -41,9 +43,7 @@ const navbar = useNavbar()
 
 const rotatingBannerElement = ref<HTMLElement | undefined>(undefined)
 const { height: rotatingBannerHeight } = useElementSize(rotatingBannerElement)
-const lastScrollY = ref(0)
-const shouldHideNavbar = useState<boolean>('shouldHideNavbar', () => false)
-const autoHideNavbar = ref(true)
+const hideNavbarTimeout = ref<NodeJS.Timeout | null>(null)
 
 const items = computed<InfoBanner['items']>(() =>
   tm('components.common.InfoBanner'),
@@ -64,21 +64,51 @@ onMounted(async () => {
   await fetchSvgContent()
 })
 
-watch([y, isScrolling], ([yNew, isScrollingNew]) => {
-  if (!isScrollingNew) return
+const resetHideNavbarTimer = () => {
+  if (hideNavbarTimeout.value) {
+    clearTimeout(hideNavbarTimeout.value)
+  }
 
-  shouldHideNavbar.value = autoHideNavbar.value
-    ? yNew > lastScrollY.value
-    : false
-  lastScrollY.value = yNew
+  if (!state.value.autoHide) return
+
+  hideNavbarTimeout.value = setTimeout(() => {
+    if (!isScrolling.value && y.value > rotatingBannerHeight.value) {
+      hidden.value = true
+    }
+  }, state.value.autoHideDelay)
+}
+
+watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
+  if (!state.value.autoHide) {
+    hidden.value = false
+    return
+  }
+
+  const isScrollingDown = yNew > yOld
+
+  if (isScrollingNew && yNew > rotatingBannerHeight.value) {
+    if (isScrollingDown) {
+      hidden.value = true
+      if (hideNavbarTimeout.value) {
+        clearTimeout(hideNavbarTimeout.value)
+      }
+    }
+    else {
+      hidden.value = false
+    }
+  }
+
+  if (!isScrollingNew) {
+    resetHideNavbarTimer()
+  }
 })
 
-const shouldApplyHideLocalnav = computed(() => {
-  return (
-    y.value > rotatingBannerHeight.value
-    && shouldHideNavbar.value
-    && autoHideNavbar.value
-  )
+watch(() => route.path, resetHideNavbarTimer)
+
+onBeforeUnmount(() => {
+  if (hideNavbarTimeout.value) {
+    clearTimeout(hideNavbarTimeout.value)
+  }
 })
 
 watchEffect(() => {
@@ -105,31 +135,8 @@ watchEffect(() => {
         href: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
       },
     ],
-    // meta: [
-    //   {
-    //     property: 'twitter:image',
-    //     content: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
-    //   },
-    //   {
-    //     property: 'og:image',
-    //     content: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
-    //   },
-    // ],
   })
 })
-
-watch(
-  () => [
-    y.value < rotatingBannerHeight.value || state.value.extensionAttached,
-    autoHideNavbar.value,
-  ],
-  ([border, autoHide]) => {
-    setState({
-      border,
-      autoHide,
-    })
-  },
-)
 
 const errorConfig = {
   header: false,

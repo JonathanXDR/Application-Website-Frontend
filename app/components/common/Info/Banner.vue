@@ -306,7 +306,6 @@ const handleTransitionEnd = () => {
   })
 }
 
-/** Auto-scroll logic. */
 const startAutoScroll = () => {
   if (baseItems.value.length < 2 || !props.autoScroll || props.loading) return
   stopAutoScroll()
@@ -346,7 +345,6 @@ const onMouseLeaveOrBlur = () => {
   scheduleAutoScrollRestart()
 }
 
-/** Once we have the tags, build the base items. */
 const updateBaseItems = () => {
   const { latest: latestTag, previous: previousTag } = tags.value
   if (!latestTag || !previousTag) return

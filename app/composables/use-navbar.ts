@@ -10,6 +10,8 @@ const state = reactive<NavbarType>({
   position: 'fixed',
 })
 
+const hidden = ref(false)
+
 export const useNavbar = () => {
   const setState = (newState: Partial<NavbarType>) =>
     Object.assign(state, newState)
@@ -34,5 +36,6 @@ export const useNavbar = () => {
     setState,
     navItems,
     pageTitle,
+    hidden,
   }
 }
