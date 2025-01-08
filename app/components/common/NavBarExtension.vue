@@ -5,7 +5,7 @@
     :class="{
       'is-sticky': isSticky,
       'is-animating': navbarState.autoHide,
-      'is-hiding': shouldHideNavbar,
+      'is-hiding': hidden,
     }"
     :style="containerStyle"
   >
@@ -17,8 +17,7 @@
 
 <script setup lang="ts">
 const viewport = useViewport()
-const { state: navbarState, setState } = useNavbar()
-const shouldHideNavbar = useState<boolean>('shouldHideNavbar', () => false)
+const { state: navbarState, setState, hidden } = useNavbar()
 
 const stickyWrapper = ref<HTMLElement | null>(null)
 const originalOffset = ref<number | null>(null)
@@ -34,7 +33,7 @@ const containerStyle = computed(() => {
 
   if (isSticky.value) {
     styles.transform = 'translateY(0)'
-    if (!shouldHideNavbar.value) {
+    if (!hidden.value) {
       styles.top = `${navbarHeight.value}px`
     }
   }
@@ -60,7 +59,7 @@ const updateStickiness = (): void => {
 
   const currentScroll = window.scrollY
   const triggerPoint
-    = originalOffset.value - (shouldHideNavbar.value ? 0 : navbarHeight.value)
+    = originalOffset.value - (hidden.value ? 0 : navbarHeight.value)
 
   const newIsSticky = currentScroll >= triggerPoint
   if (newIsSticky !== isSticky.value) {
@@ -77,7 +76,7 @@ onMounted(() => {
   })
 })
 
-watch(shouldHideNavbar, () => {
+watch(hidden, () => {
   if (!isInitialized.value) {
     calculateOriginalOffset()
   }

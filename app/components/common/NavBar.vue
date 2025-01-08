@@ -200,8 +200,8 @@ import type { NavbarType } from '#shared/types/common/nav-bar'
 import type { SectionType } from '#shared/types/common/section'
 
 const props = withDefaults(defineProps<NavbarType>(), {
-  autoHide: false,
-  autoHideDelay: 2000,
+  autoHide: true,
+  autoHideDelay: 5000,
   border: true,
   extensionAttached: false,
   scrim: true,
@@ -252,7 +252,6 @@ const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
 
 setState({
   autoHide: props.autoHide,
-  // TODO: Add delay, where navbar keeps showing for a certain amount of time after clicking a link
   autoHideDelay: props.autoHideDelay,
   border: props.border,
   extensionAttached: props.extensionAttached,
