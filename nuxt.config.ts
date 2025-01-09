@@ -274,7 +274,10 @@ export default defineNuxtConfig({
       'lg': 1024,
       'xl': 1280,
       '2xl': 1536,
+      'portrait': 411,
+      'portrait2x': 822,
     },
+    densities: [1, 2],
   },
   robots: {
     disallow: ['/de/**', '/en/**', '/fr/**', '/it/**'],

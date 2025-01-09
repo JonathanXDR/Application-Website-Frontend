@@ -13,15 +13,25 @@
           />
         </clipPath>
       </defs>
-      <image
-        :href="imgUrl"
+      <NuxtImg
+        v-slot="{ src, isLoaded, imgAttrs }"
+        src="/img/portrait.jpg"
+        alt="Portrait"
         clip-path="url(#image)"
-        height="100%"
-        width="100%"
+        height="411"
+        width="411"
         x="0"
         y="10"
         preserveAspectRatio="xMidYMin slice"
-      />
+        :custom="true"
+      >
+        <image
+          v-if="isLoaded"
+          v-bind="imgAttrs"
+          :href="src"
+          :nonce="nonce"
+        />
+      </NuxtImg>
     </svg>
 
     <CardItem
@@ -54,15 +64,11 @@ defineProps<{
 
 const viewport = useViewport()
 const { t, tm } = useI18n()
-const img = useImage()
+const nonce = useNonce()
 
 const dateItems = computed<DateItemType[]>(() =>
   tm('components.containers.about.dates'),
 )
-
-const imgUrl = computed(() => {
-  return img('/img/portrait.jpg', { width: 100 })
-})
 
 const dates = ref<{
   age: number | undefined
@@ -108,23 +114,6 @@ onMounted(async () => {
 
 .info-container div {
   padding: 0;
-}
-
-.portrait {
-  clip-path: url(#image);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@keyframes FadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
 @media screen and (min-width: 768px) {
