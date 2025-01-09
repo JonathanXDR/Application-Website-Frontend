@@ -57,12 +57,13 @@
               }"
             />
           </NuxtLink>
-          <DevBadge
-            v-if="config.public.appEnvironment === 'development'"
-            :color="{
-              primary: `var(--color-figure-${randomDevColor?.name})`,
-            }"
-          />
+          <DevOnly>
+            <DevBadge
+              :color="{
+                primary: `var(--color-figure-${randomDevColor?.name})`,
+              }"
+            />
+          </DevOnly>
         </div>
         <div class="ac-ln-menu">
           <a
@@ -215,7 +216,6 @@ const { currentSection } = useSection()
 const { getTheme, setTheme } = useTheme()
 const { y: scrollY } = useWindowScroll()
 const { headerAnimations, setHeaderAnimation } = useAnimation()
-const config = useRuntimeConfig()
 const route = useRoute()
 const { tm } = useI18n()
 
