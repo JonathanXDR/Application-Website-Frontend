@@ -1,9 +1,6 @@
-import type { LinkType } from '#shared/types/common/link'
+import type { ItemType } from '#shared/types/common/item'
 
 export interface InfoBanner {
-  items: {
-    description: string
-    links: LinkType[]
-  }[]
+  items: Extract<ItemType[], 'label' | 'links'>
   loading?: boolean
 }
