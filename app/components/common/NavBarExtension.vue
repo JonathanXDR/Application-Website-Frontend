@@ -1,11 +1,15 @@
 <script setup lang="ts">
 const viewport = useViewport()
-const { state: navbarState, setState } = useNavbar()
+const { navState } = useNavbar()
 
 const stickyWrapper = ref<HTMLElement | null>(null)
 const originalOffset = ref<number | null>(null)
+
 const isSticky = ref(false)
 const isInitialized = ref(false)
+const isHidden = ref(navState.value.hidden)
+const isAutoHiding = ref(navState.value.autoHide)
+const isExtensionAttached = ref(navState.value.extensionAttached)
 
 const navbarHeight = computed(() => (viewport.isLessThan('tablet') ? 48 : 52))
 
@@ -16,7 +20,7 @@ const containerStyle = computed(() => {
 
   if (isSticky.value) {
     styles.transform = 'translateY(0)'
-    if (!navbarState.value.isHidden) {
+    if (!isHidden.value) {
       styles.top = `${navbarHeight.value}px`
     }
   }
@@ -42,13 +46,12 @@ const updateStickiness = (): void => {
 
   const currentScroll = window.scrollY
   const triggerPoint
-    = originalOffset.value
-    - (navbarState.value.isHidden ? 0 : navbarHeight.value)
+    = originalOffset.value - (isHidden.value ? 0 : navbarHeight.value)
 
   const newIsSticky = currentScroll >= triggerPoint
   if (newIsSticky !== isSticky.value) {
     isSticky.value = newIsSticky
-    setState({ extensionAttached: newIsSticky })
+    isExtensionAttached.value = newIsSticky
   }
 }
 
@@ -61,7 +64,7 @@ onMounted(() => {
 })
 
 watch(
-  () => navbarState.value.isHidden,
+  () => isHidden.value,
   () => {
     if (!isInitialized.value) {
       calculateOriginalOffset()
@@ -88,8 +91,8 @@ useEventListener(
     class="filter-input-sticky-wrapper"
     :class="{
       'is-sticky': isSticky,
-      'is-animating': navbarState.autoHide,
-      'is-hiding': navbarState.isHidden,
+      'is-animating': isAutoHiding,
+      'is-hiding': isHidden,
     }"
     :style="containerStyle"
   >

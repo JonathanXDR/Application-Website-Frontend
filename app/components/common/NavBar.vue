@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<NavbarType>(), {
 })
 
 const viewport = useViewport()
-const { state, setState } = useNavbar()
+const { navState } = useNavbar()
 const { randomDevColor } = useColor()
 const { currentSection } = useSection()
 const { getTheme, setTheme } = useTheme()
@@ -27,10 +27,11 @@ const themeItems = computed<ItemType[]>(() =>
   tm('components.common.SegmentNav.theme'),
 )
 
-const autoHide = ref(state.value.autoHide)
-const isOpen = ref(state.value.isOpen)
-const isHidden = ref(state.value.isHidden)
-const isTransitioning = ref(state.value.isTransitioning)
+const isScrim = ref(navState.value.scrim)
+const isOpen = ref(navState.value.open)
+const isHidden = ref(navState.value.hidden)
+const isAutoHiding = ref(navState.value.autoHide)
+const isTransitioning = ref(navState.value.transitioning)
 
 const shouldHide = ref(false)
 const shouldOpen = ref(false)
@@ -59,15 +60,6 @@ const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
   return liElement.firstElementChild as HTMLElement
 })
 
-setState({
-  autoHide: props.autoHide,
-  autoHideDelay: props.autoHideDelay,
-  border: props.border,
-  extensionAttached: props.extensionAttached,
-  scrim: props.scrim,
-  position: props.position,
-})
-
 const initHeaderAnimations = () => {
   if (!backgroundElement.value) return
 
@@ -81,7 +73,7 @@ const initHeaderAnimations = () => {
 
 const handleNav = () => {
   toggleNav()
-  animateChevron(isOpen.value)
+  animateChevron(isOpen.value ?? false)
   checkboxTimeout()
 }
 
@@ -109,11 +101,11 @@ const checkboxTimeout = () => {
 const handleScroll = () => {
   if (isOpen.value && scrollY.value > 0) {
     isOpen.value = false
-    autoHide.value = false
+    isAutoHiding.value = false
     animateChevron(false)
   }
   else {
-    autoHide.value = true
+    isAutoHiding.value = true
   }
 }
 
@@ -159,7 +151,7 @@ const updateBorderPosition = () => {
 }
 
 const handleTransitionStart = (event: TransitionEvent) => {
-  if (!autoHide.value) return
+  if (!isAutoHiding.value) return
 
   if (event.propertyName === 'transform') {
     isTransitioning.value = true
@@ -167,7 +159,7 @@ const handleTransitionStart = (event: TransitionEvent) => {
 }
 
 const handleTransitionEnd = (event: TransitionEvent) => {
-  if (!autoHide.value) return
+  if (!isAutoHiding.value) return
 
   if (event.propertyName === 'transform') {
     isTransitioning.value = false
@@ -237,8 +229,8 @@ watch(
   <div
     id="ac-ln-fixed-placeholder"
     :class="[
-      { 'css-sticky ac-ln-sticking': state.position === 'sticky' },
-      { 'css-fixed ac-ln-sticking': state.position === 'fixed' },
+      { 'css-sticky ac-ln-sticking': navState.position === 'sticky' },
+      { 'css-fixed ac-ln-sticking': navState.position === 'fixed' },
     ]"
   />
   <nav
@@ -246,11 +238,11 @@ watch(
     ref="navbarElement"
     :class="[
       'ac-ln-allow-transitions',
-      { 'css-sticky ac-ln-sticking': state.position === 'sticky' },
-      { 'css-fixed ac-ln-sticking': state.position === 'fixed' },
-      { 'ac-localnav-noborder': !state.border },
-      { 'ac-localnav-scrim': state.scrim },
-      { 'ac-ln-hide': state.autoHide },
+      { 'css-sticky ac-ln-sticking': navState.position === 'sticky' },
+      { 'css-fixed ac-ln-sticking': navState.position === 'fixed' },
+      { 'ac-localnav-noborder': !navState.border },
+      { 'ac-localnav-scrim': isScrim },
+      { 'ac-ln-hide': isAutoHiding },
       { 'ac-ln-hidden': shouldHide },
       { 'ac-ln-open': isOpen },
       { 'ac-ln-opening': shouldOpen },
