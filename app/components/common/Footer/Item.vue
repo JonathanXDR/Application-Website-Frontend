@@ -33,7 +33,52 @@
           },
         ]"
       />
-      <FooterDirectory />
+      <FooterDirectory
+        :items="[
+          {
+            id: 'overview',
+            label: 'Übersicht',
+            route: '/',
+            children: [
+              {
+                id: 'about',
+                label: 'About',
+                route: '/#about',
+              },
+              {
+                id: 'languages',
+                label: 'Sprachen',
+                route: '/#languages',
+              },
+              {
+                id: 'fun-facts',
+                label: 'Fun Facts',
+                route: '/#funFacts',
+              },
+              {
+                id: 'references',
+                label: 'Referenzen',
+                route: '/#references',
+              },
+              {
+                id: 'school',
+                label: 'Schule',
+                route: '/#school',
+              },
+            ],
+          },
+          {
+            id: 'technologies',
+            label: 'Technologien',
+            route: '/technologies',
+          },
+          {
+            id: 'projects',
+            label: 'Projekte',
+            route: '/projects',
+          },
+        ]"
+      />
       <FooterMini
         :legal-links="[
           {

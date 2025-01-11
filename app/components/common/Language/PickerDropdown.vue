@@ -4,9 +4,11 @@ import type { ExtendedSizeType } from '#shared/types/common/extended-size'
 const props = withDefaults(
   defineProps<{
     componentSize?: Exclude<ExtendedSizeType, 'xlarge'>
+    label?: 'short' | 'long'
   }>(),
   {
     componentSize: 'small',
+    label: 'long',
   },
 )
 
@@ -17,7 +19,6 @@ const sizes = {
   large: 'lg',
 }
 
-const viewport = useViewport()
 const { changeLanguage } = useLanguage()
 const { locale, locales } = useI18n()
 const selectedLocale = ref(locale.value)
@@ -63,7 +64,7 @@ watch(locale, (localeNew) => {
           :value="computedLocale.code"
         >
           {{
-            viewport.isGreaterOrEquals("desktop")
+            label === "long"
               ? computedLocale.name
               : computedLocale.code.toUpperCase()
           }}
