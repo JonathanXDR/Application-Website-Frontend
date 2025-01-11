@@ -388,7 +388,7 @@ watch(
               </label>
             </div>
             <div class="ac-ln-action ac-ln-action-button">
-              <ColorSchemeToggle />
+              <ThemePicker />
             </div>
             <div class="ac-ln-action ac-ln-action-button">
               <LanguagePickerDropdown />
