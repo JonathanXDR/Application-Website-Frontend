@@ -38,7 +38,10 @@ withDefaults(
         <ColorSchemeToggle />
       </div>
     </div>
-    <LanguagePickerDropdown v-if="languageDropdown" />
+    <LanguagePickerDropdown
+      v-if="languageDropdown"
+      component-size="xsmall"
+    />
 
     <div class="footer-mini-legal">
       <!-- render FooterCopyright here if componentSize is small -->
@@ -50,15 +53,12 @@ withDefaults(
         v-if="legalLinks.length"
         class="footer-mini-legal-links"
       >
-        <template
+        <LinkItem
           v-for="(link, index) in legalLinks"
           :key="index"
-        >
-          <LinkItem
-            v-bind="link"
-            class="footer-mini-legal-link"
-          />
-        </template>
+          v-bind="link"
+          class="footer-mini-legal-link"
+        />
       </div>
       <!-- render FooterCopyright here if componentSize is large -->
       <FooterCopyright
