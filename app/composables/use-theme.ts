@@ -7,13 +7,16 @@ export const useTheme = () => {
     themeCookie.value = theme
   }
 
-  const getTheme = () => themeCookie.value || 'auto'
+  const getTheme = () => colorMode.value || themeCookie.value || 'auto'
 
-  const initializeTheme = () => setTheme(getTheme())
-
-  if (import.meta.client) {
-    initializeTheme()
+  const initializeTheme = () => {
+    const theme = getTheme()
+    return setTheme(theme)
   }
+
+  onMounted(() => {
+    initializeTheme()
+  })
 
   return { getTheme, setTheme }
 }
