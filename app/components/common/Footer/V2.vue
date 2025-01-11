@@ -1,9 +1,3 @@
-<script setup lang="ts">
-const { t } = useI18n()
-
-const currentYear = ref(new Date().getFullYear())
-</script>
-
 <template>
   <footer
     id="footer"
@@ -18,85 +12,13 @@ const currentYear = ref(new Date().getFullYear())
       >
         Apple Footer
       </h2>
-      <nav
-        class="footer-breadcrumbs"
-        aria-label="Breadcrumbs"
-      >
-        <a
-          class="home footer-breadcrumbs-home"
-          href="/"
-        >
-          <span class="footer-breadcrumbs-home-label">
-            Apple Security Research
-          </span>
-        </a>
-        <div class="footer-breadcrumbs-path">
-          <ol class="footer-breadcrumbs-list">
-            <li class="footer-breadcrumbs-item">
-              Overview
-            </li>
-          </ol>
-        </div>
-      </nav>
-      <section
-        class="footer-mini"
-        vocab="http://schema.org/"
-        typeof="Organization"
-      >
-        <div class="footer-mini-legal">
-          <div
-            class="footer-mini-legal-copyright footer-mini-legal-copyright--small"
-          >
-            Copyright <span aria-hidden="true">©</span>
-            {{
-              t("components.common.Footer.allRightsReserved", { currentYear })
-            }}
-          </div>
-          <div class="footer-mini-legal-links">
-            <a
-              href="https://support.apple.com/contact"
-              class="footer-mini-legal-link"
-              rel="nofollow"
-            >
-              Support
-            </a>
-            <a
-              href="https://support.apple.com/guide/security/welcome/web"
-              class="footer-mini-legal-link"
-              rel="nofollow"
-            >
-              Apple Platform Security
-            </a>
-            <a
-              href="https://www.apple.com/legal/privacy/"
-              class="footer-mini-legal-link"
-              rel="nofollow"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="https://www.apple.com/legal/"
-              class="footer-mini-legal-link"
-              rel="nofollow"
-            >
-              Legal
-            </a>
-          </div>
-          <div
-            class="footer-mini-legal-copyright footer-mini-legal-copyright--large"
-          >
-            Copyright <span aria-hidden="true">©</span>
-            {{
-              t("components.common.Footer.allRightsReserved", { currentYear })
-            }}
-          </div>
-        </div>
-      </section>
+      <FooterBreadcrumbs label="Jonathan Russ" />
+      <FooterMini />
     </div>
   </footer>
 </template>
 
-<style scoped>
+<style>
 .footer {
   font-size: 12px;
   line-height: 1.3333733333;
