@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<SegmentNavType>(), {
   onSelect: () => {},
 })
 
-const selectedItem = ref<string>(props.selectedItem)
+const selectedItem = computed<string>(() => props.selectedItem)
 const isTransitioning = ref<boolean>(false)
 
 const navContainer = ref<HTMLElement | undefined>(undefined)
