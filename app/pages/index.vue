@@ -7,7 +7,7 @@ definePageMeta({
   header: true,
   nav: true,
   ribbon: true,
-  footerFull: true,
+  footerPre: true,
   footerCompact: false,
 })
 
