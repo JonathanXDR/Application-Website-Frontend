@@ -12,8 +12,48 @@
       >
         Apple Footer
       </h2>
-      <FooterBreadcrumbs label="Jonathan Russ" />
-      <FooterMini />
+      <FooterBreadcrumbs
+        label="Jonathan Russ"
+        :icon="{
+          name: 'apple',
+          size: 'large',
+        }"
+        :links="[
+          {
+            title: 'Home',
+            url: '/',
+          },
+          {
+            title: 'About',
+            url: '/about/',
+          },
+          {
+            title: 'Contact',
+            url: '/contact/',
+          },
+        ]"
+      />
+
+      <FooterMini
+        :legal-links="[
+          {
+            title: 'Privacy Policy',
+            url: '/privacy/',
+          },
+          {
+            title: 'Terms of Use',
+            url: '/terms/',
+          },
+        ]"
+        :news-links="[
+          {
+            title: 'News and Updates',
+            url: '/news/',
+          },
+        ]"
+        :color-scheme-toggle="true"
+        :language-dropdown="true"
+      />
     </div>
   </footer>
 </template>
@@ -209,7 +249,7 @@
   height: 72px;
   background-size: 14px 72px;
   background-repeat: no-repeat;
-  background-image: url(/assets/image/ac-footer/breadcrumbs/apple/icon_large.svg);
+  background-image: url(https://developer.apple.com/assets/image/ac-footer/breadcrumbs/apple/icon_large.svg);
   height: 18px;
   display: block;
   position: relative;
@@ -221,7 +261,7 @@
 .footer.theme-dark .footer-breadcrumbs-home-icon,
 .theme-dark .footer .footer-breadcrumbs-home-icon {
   background-repeat: no-repeat;
-  background-image: url(/assets/image/ac-footer/breadcrumbs/apple/icon_dark_large.svg);
+  background-image: url(https://developer.apple.com/assets/image/ac-footer/breadcrumbs/apple/icon_dark_large.svg);
 }
 
 .footer-breadcrumbs-home:hover {
@@ -293,7 +333,7 @@
   height: 36px;
   background-size: 8px 36px;
   background-repeat: no-repeat;
-  background-image: url(/assets/image/ac-footer/breadcrumbs/separator/icon_large.svg);
+  background-image: url(https://developer.apple.com/assets/image/ac-footer/breadcrumbs/separator/icon_large.svg);
   margin-right: 11px;
   content: "";
   display: inline-block;
@@ -306,7 +346,7 @@
 .footer.theme-dark .footer-breadcrumbs-item:before,
 .theme-dark .footer .footer-breadcrumbs-item:before {
   background-repeat: no-repeat;
-  background-image: url(/assets/image/ac-footer/breadcrumbs/separator/icon_dark_large.svg);
+  background-image: url(https://developer.apple.com/assets/image/ac-footer/breadcrumbs/separator/icon_dark_large.svg);
 }
 
 html[dir="rtl"] .footer-breadcrumbs-item:before {
