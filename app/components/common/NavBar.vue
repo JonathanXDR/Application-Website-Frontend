@@ -1,12 +1,12 @@
 <template>
   <input
     id="ac-ln-menustate"
-    v-model="navOpen"
+    v-model="isOpen"
     type="checkbox"
     class="ac-ln-menustate"
     aria-controls="ac-ln-menustate-tray"
     aria-expanded="false"
-    :disabled="navOpening"
+    :disabled="shouldOpen"
     @input="handleNav()"
   >
   <div
@@ -26,11 +26,11 @@
       { 'ac-localnav-noborder': !state.border },
       { 'ac-localnav-scrim': state.scrim },
       { 'ac-ln-hide': state.autoHide },
-      { 'ac-ln-open': navOpen },
-      { 'ac-ln-opening': navOpening },
+      { 'ac-ln-hidden': shouldHide },
+      { 'ac-ln-open': isOpen },
+      { 'ac-ln-opening': shouldOpen },
     ]"
     :style="{
-      // TODO: Add display: none once the hiding animation is done and vice versa
       '--border-transform-origin': borderTransformOrigin,
       '--border-scaleX': borderScaleX,
     }"
@@ -38,8 +38,13 @@
     dir="ltr"
     role="navigation"
     aria-label="Local"
+    @transitionstart="handleTransitionStart"
+    @transitionend="handleTransitionEnd"
   >
-    <div class="ac-ln-wrapper">
+    <div
+      ref="wrapperElement"
+      class="ac-ln-wrapper"
+    >
       <div
         ref="backgroundElement"
         class="ac-ln-background"
@@ -224,17 +229,23 @@ const themeItems = computed<ItemType[]>(() =>
   tm('components.common.SegmentNav.theme'),
 )
 
-const navOpen = ref(false)
-const navOpening = ref(false)
-const toggleNav = useToggle(navOpen)
+const autoHide = ref(state.value.autoHide)
+const isOpen = ref(state.value.isOpen)
+const isHidden = ref(state.value.isHidden)
+const isTransitioning = ref(state.value.isTransitioning)
 
-const expandAnimation = ref<SVGAnimateElement | undefined>(undefined)
-const collapseAnimation = ref<SVGAnimateElement | undefined>(undefined)
+const shouldHide = ref(false)
+const shouldOpen = ref(false)
+const toggleNav = useToggle(isOpen)
 
-const navbarElement = ref<HTMLElement | undefined>(undefined)
-const backgroundElement = ref<HTMLElement | undefined>(undefined)
-const menustateTrayElement = ref<HTMLElement | undefined>(undefined)
-const trayHeight = ref<number | undefined>(undefined)
+const expandAnimation = ref<SVGAnimateElement | null>(null)
+const collapseAnimation = ref<SVGAnimateElement | null>(null)
+
+const navbarElement = ref<HTMLElement | null>(null)
+const wrapperElement = ref<HTMLElement | null>(null)
+const backgroundElement = ref<HTMLElement | null>(null)
+const menustateTrayElement = ref<HTMLElement | null>(null)
+const trayHeight = ref<number>()
 const menuLinkReferences = reactive<Record<string, HTMLElement | undefined>>(
   {},
 )
@@ -260,8 +271,10 @@ setState({
 })
 
 const initHeaderAnimations = () => {
+  if (!backgroundElement.value) return
+
   const animation = {
-    element: backgroundElement.value as HTMLElement,
+    element: backgroundElement.value,
     class: 'ac-ln-background-transition',
     timeout: 500,
   }
@@ -270,12 +283,12 @@ const initHeaderAnimations = () => {
 
 const handleNav = () => {
   toggleNav()
-  animateChevron(navOpen.value)
+  animateChevron(isOpen.value)
   checkboxTimeout()
 }
 
 const handleMenuClick = () => {
-  if (!navOpen.value) return
+  if (!isOpen.value) return
   handleNav()
 }
 
@@ -289,16 +302,20 @@ const animateChevron = (isOpen: boolean) => {
 }
 
 const checkboxTimeout = () => {
-  navOpening.value = true
+  shouldOpen.value = true
   setTimeout(() => {
-    navOpening.value = false
+    shouldOpen.value = false
   }, 1000)
 }
 
 const handleScroll = () => {
-  if (navOpen.value && scrollY.value > 0) {
-    navOpen.value = false
+  if (isOpen.value && scrollY.value > 0) {
+    isOpen.value = false
+    autoHide.value = false
     animateChevron(false)
+  }
+  else {
+    autoHide.value = true
   }
 }
 
@@ -343,6 +360,26 @@ const updateBorderPosition = () => {
   }
 }
 
+const handleTransitionStart = (event: TransitionEvent) => {
+  if (!autoHide.value) return
+
+  if (event.propertyName === 'transform') {
+    isTransitioning.value = true
+  }
+}
+
+const handleTransitionEnd = (event: TransitionEvent) => {
+  if (!autoHide.value) return
+
+  if (event.propertyName === 'transform') {
+    isTransitioning.value = false
+  }
+
+  if (isHidden.value) {
+    shouldHide.value = true
+  }
+}
+
 useEventListener(window, 'scroll', handleScroll)
 useEventListener(window, 'resize', () => {
   updateBorderPosition()
@@ -367,6 +404,25 @@ watch(currentMenuLinkElement, () => {
 watch([() => route.path, () => currentSection.value?.id], () => {
   updateBorderPosition()
 })
+
+watch(
+  () => isHidden.value,
+  async (newValue) => {
+    if (!props.autoHide || !wrapperElement.value) return
+
+    if (!newValue) {
+      shouldHide.value = false
+      await nextTick()
+      requestAnimationFrame(() => {
+        if (!wrapperElement.value) return
+        wrapperElement.value.style.transform = 'translateY(0)'
+      })
+    }
+    else {
+      wrapperElement.value.style.transform = 'translateY(-100%)'
+    }
+  },
+)
 </script>
 
 <style scoped>
@@ -402,6 +458,9 @@ watch([() => route.path, () => currentSection.value?.id], () => {
   transform: scale(1.2);
 } */
 
+.hide-localnav #ac-localnav.ac-ln-hidden {
+  display: none !important;
+}
 .hide-localnav #ac-localnav.ac-ln-hide {
   overflow: hidden;
 }
