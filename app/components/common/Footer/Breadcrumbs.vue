@@ -52,28 +52,7 @@ withDefaults(
           :key="index"
           class="footer-breadcrumbs-item"
         >
-          <component
-            :is="getLinkComponentType(link)"
-            v-bind="getLinkAttributes(link)"
-            class="link"
-          >
-            <template v-if="!loading">
-              {{ link.title }}
-            </template>
-            <template v-else>
-              <LoadingSkeleton
-                width="200px"
-                height="15px"
-              />
-            </template>
-
-            <DynamicIcon
-              v-if="link.icon"
-              v-bind="link.icon"
-              :loading="loading"
-              class="icon icon-sm"
-            />
-          </component>
+          <LinkItem v-bind="link" />
         </li>
       </ol>
     </div>
