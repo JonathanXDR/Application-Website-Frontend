@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import type { IconType } from '#shared/types/common/icon'
 import type { LinkType } from '#shared/types/common/link'
 
 withDefaults(
   defineProps<{
-    label: string
+    label?: string
+    icon?: IconType
     links?: LinkType[]
     loading?: boolean
   }>(),
@@ -19,14 +21,30 @@ withDefaults(
     class="footer-breadcrumbs"
     aria-label="Breadcrumbs"
   >
-    <a
+    <NuxtLink
+      v-if="icon || label"
+      to="/"
       class="home footer-breadcrumbs-home"
-      href="/"
     >
-      <span class="footer-breadcrumbs-home-label">
+      <span
+        v-if="icon"
+        class="footer-breadcrumbs-home-icon"
+        aria-hidden="true"
+        data-hires-status="pending"
+      >
+        <DynamicIcon
+          v-bind="icon"
+          :loading="loading"
+          class="icon icon-sm"
+        />
+      </span>
+      <span
+        v-if="label"
+        class="footer-breadcrumbs-home-label"
+      >
         {{ label }}
       </span>
-    </a>
+    </NuxtLink>
     <div class="footer-breadcrumbs-path">
       <ol class="footer-breadcrumbs-list">
         <li
