@@ -1,7 +1,20 @@
 <script setup lang="ts">
-const { t } = useI18n()
+import type { LinkType } from '#shared/types/common/link'
 
-const currentYear = ref(new Date().getFullYear())
+withDefaults(
+  defineProps<{
+    legalLinks?: LinkType[]
+    newsLinks?: LinkType[]
+    colorSchemeToggle?: boolean
+    languageDropdown?: boolean
+    loading?: boolean
+  }>(),
+  {
+    legalLinks: () => [],
+    newsLinks: () => [],
+    loading: false,
+  },
+)
 </script>
 
 <template>
@@ -10,49 +23,48 @@ const currentYear = ref(new Date().getFullYear())
     vocab="http://schema.org/"
     typeof="Organization"
   >
+    <div
+      v-if="newsLinks.length"
+      class="footer-mini-news"
+    >
+      <div class="copy">
+        To view the latest developer news, visit
+        <a href="/news/">News and Updates</a>.
+      </div>
+      <div
+        v-if="colorSchemeToggle"
+        class="content"
+      >
+        <ColorSchemeToggle />
+      </div>
+    </div>
+    <LanguagePickerDropdown v-if="languageDropdown" />
+
     <div class="footer-mini-legal">
+      <!-- render FooterCopyright here if componentSize is small -->
+      <FooterCopyright
+        v-if="!loading"
+        component-size="small"
+      />
       <div
-        class="footer-mini-legal-copyright footer-mini-legal-copyright--small"
+        v-if="legalLinks.length"
+        class="footer-mini-legal-links"
       >
-        Copyright <span aria-hidden="true">©</span>
-        {{ t("components.common.Footer.allRightsReserved", { currentYear }) }}
+        <template
+          v-for="(link, index) in legalLinks"
+          :key="index"
+        >
+          <LinkItem
+            v-bind="link"
+            class="footer-mini-legal-link"
+          />
+        </template>
       </div>
-      <div class="footer-mini-legal-links">
-        <a
-          href="https://support.apple.com/contact"
-          class="footer-mini-legal-link"
-          rel="nofollow"
-        >
-          Support
-        </a>
-        <a
-          href="https://support.apple.com/guide/security/welcome/web"
-          class="footer-mini-legal-link"
-          rel="nofollow"
-        >
-          Apple Platform Security
-        </a>
-        <a
-          href="https://www.apple.com/legal/privacy/"
-          class="footer-mini-legal-link"
-          rel="nofollow"
-        >
-          Privacy Policy
-        </a>
-        <a
-          href="https://www.apple.com/legal/"
-          class="footer-mini-legal-link"
-          rel="nofollow"
-        >
-          Legal
-        </a>
-      </div>
-      <div
-        class="footer-mini-legal-copyright footer-mini-legal-copyright--large"
-      >
-        Copyright <span aria-hidden="true">©</span>
-        {{ t("components.common.Footer.allRightsReserved", { currentYear }) }}
-      </div>
+      <!-- render FooterCopyright here if componentSize is large -->
+      <FooterCopyright
+        v-if="!loading"
+        component-size="large"
+      />
     </div>
   </section>
 </template>

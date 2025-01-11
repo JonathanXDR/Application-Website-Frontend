@@ -248,7 +248,13 @@
         "chooseYourLanguage": "Wähle deine Sprache"
       },
       "Footer": {
-        "allRightsReserved": "{currentYear} Jonathan Russ. Alle Rechte vorbehalten."
+        "allRightsReserved": "Alle Rechte vorbehalten.",
+        "links": [
+          {
+            "title": "Jonathan Russ",
+            "url": "https://jonathan-russ.com"
+          }
+        ]
       }
     },
     "containers": {
