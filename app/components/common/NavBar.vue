@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { ItemType } from '#shared/types/common/item'
 import type { NavbarType } from '#shared/types/common/nav-bar'
 import type { SectionType } from '#shared/types/common/section'
 
@@ -12,20 +11,16 @@ const props = withDefaults(defineProps<NavbarType>(), {
   position: 'fixed',
 })
 
-const viewport = useViewport()
 const { navState } = useNavbar()
 const { randomDevColor } = useColor()
 const { currentSection } = useSection()
-const { getTheme, setTheme } = useTheme()
+const { getTheme } = useTheme()
 const { y: scrollY } = useWindowScroll()
 const { headerAnimations, setHeaderAnimation } = useAnimation()
 const route = useRoute()
 const { tm } = useI18n()
 
 const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'))
-const themeItems = computed<ItemType[]>(() =>
-  tm('components.common.SegmentNav.theme'),
-)
 
 const isScrim = ref(navState.value.scrim)
 const isOpen = ref(navState.value.open)
@@ -393,15 +388,7 @@ watch(
               </label>
             </div>
             <div class="ac-ln-action ac-ln-action-button">
-              <SegmentNav
-                :items="themeItems"
-                gap="5px"
-                component-size="xsmall"
-                :focus="false"
-                :label="viewport.isGreaterOrEquals('desktop') ? 'text' : 'icon'"
-                :selected-item="getTheme()"
-                :on-select="(themeNew: string) => setTheme(themeNew)"
-              />
+              <ColorSchemeToggle />
             </div>
             <div class="ac-ln-action ac-ln-action-button">
               <LanguagePickerDropdown />
