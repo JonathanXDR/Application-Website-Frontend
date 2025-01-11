@@ -1,31 +1,21 @@
 import type { NavbarType } from '#shared/types/common/nav-bar'
 import type { SectionType } from '#shared/types/common/section'
 
-interface NavbarState extends NavbarType {
-  isOpen: boolean
-  isHidden: boolean
-  isTransitioning: boolean
-}
-
-const state = reactive<NavbarState>({
-  autoHide: false,
-  autoHideDelay: 2000,
-  border: true,
-  extensionAttached: false,
-  scrim: true,
-  position: 'fixed',
-  isOpen: false,
-  isHidden: false,
-  isTransitioning: false,
-})
-
 export const useNavbar = () => {
-  const setState = (newState: Partial<NavbarType>) => {
-    Object.assign(state, newState)
-  }
-
   const route = useRoute()
   const { tm } = useI18n()
+
+  const navState = useState<NavbarType>('navbarState', () => ({
+    autoHide: false,
+    autoHideDelay: 2000,
+    border: true,
+    extensionAttached: false,
+    scrim: true,
+    position: 'fixed',
+    open: false,
+    hidden: false,
+    transitioning: false,
+  }))
 
   const navItems = computed<SectionType[]>(() =>
     tm('components.common.NavBar'),
@@ -40,8 +30,7 @@ export const useNavbar = () => {
   })
 
   return {
-    state: computed(() => state),
-    setState,
+    navState,
     navItems,
     pageTitle,
   }

@@ -4,7 +4,7 @@ import type { InfoBanner } from '#shared/types/common/info-banner'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterFull from '~/components/common/Footer/Full.vue'
 
-const { state } = useNavbar()
+const { navState } = useNavbar()
 const { randomDevColor } = useColor()
 const route = useRoute()
 const { currentSection } = useSection()
@@ -13,6 +13,9 @@ const { y, isScrolling } = useScroll(window)
 const error = useError()
 const config = useRuntimeConfig()
 const navbar = useNavbar()
+
+const isHidden = ref(navState.value.hidden)
+const isAutoHiding = ref(navState.value.autoHide)
 
 const rotatingBannerElement = ref<HTMLElement | undefined>(undefined)
 const { height: rotatingBannerHeight } = useElementSize(rotatingBannerElement)
@@ -42,18 +45,18 @@ const resetHideNavbarTimer = () => {
     clearTimeout(hideNavbarTimeout.value)
   }
 
-  if (!state.value.autoHide) return
+  if (!isAutoHiding.value) return
 
   hideNavbarTimeout.value = setTimeout(() => {
     if (!isScrolling.value && y.value > rotatingBannerHeight.value) {
-      state.value.isHidden = true
+      isHidden.value = true
     }
-  }, state.value.autoHideDelay)
+  }, navState.value.autoHideDelay)
 }
 
 watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
-  if (!state.value.autoHide) {
-    state.value.isHidden = false
+  if (!isAutoHiding.value) {
+    isHidden.value = false
     return
   }
 
@@ -61,13 +64,13 @@ watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
 
   if (isScrollingNew && yNew > rotatingBannerHeight.value) {
     if (isScrollingDown) {
-      state.value.isHidden = true
+      isHidden.value = true
       if (hideNavbarTimeout.value) {
         clearTimeout(hideNavbarTimeout.value)
       }
     }
     else {
-      state.value.isHidden = false
+      isHidden.value = false
     }
   }
 
@@ -139,7 +142,7 @@ const footerComponent = computed(() =>
     <SpeedInsights />
     <header
       v-if="shouldShow('header')"
-      :class="{ 'hide-localnav': state.isHidden }"
+      :class="{ 'hide-localnav': isHidden }"
     >
       <NavBar v-if="shouldShow('nav')" />
       <div
