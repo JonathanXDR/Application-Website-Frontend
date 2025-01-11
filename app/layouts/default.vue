@@ -2,7 +2,7 @@
 import { SpeedInsights } from '@vercel/speed-insights/vue'
 import type { InfoBanner } from '#shared/types/common/info-banner'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
-import FooterFull from '~/components/common/Footer/Full.vue'
+import FooterPre from '~/components/common/Footer/Pre.vue'
 
 const { navState } = useNavbar()
 const { randomDevColor } = useColor()
@@ -118,7 +118,7 @@ const errorConfig = {
   header: false,
   nav: false,
   ribbon: false,
-  footerFull: false,
+  footerPre: false,
   footerCompact: true,
 }
 
@@ -128,12 +128,12 @@ const shouldShow = (component: string) =>
     : route.meta[component]
 
 const footerClass = computed(() => ({
-  'footer-full': shouldShow('footerFull'),
+  'footer-full': shouldShow('footerPre'),
   'footer-compact': shouldShow('footerCompact'),
 }))
 
 const footerComponent = computed(() =>
-  shouldShow('footerFull') ? FooterFull : FooterCompact,
+  shouldShow('footerPre') ? FooterPre : FooterCompact,
 )
 </script>
 
