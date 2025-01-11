@@ -7,7 +7,7 @@ export const useTheme = () => {
     themeCookie.value = theme
   }
 
-  const getTheme = () => colorMode.value || themeCookie.value || 'auto'
+  const getTheme = () => themeCookie.value || 'auto'
 
   const initializeTheme = () => {
     const theme = getTheme()

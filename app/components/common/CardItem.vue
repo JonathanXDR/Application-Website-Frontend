@@ -26,23 +26,13 @@ const props = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
 
 const { t } = useI18n()
 const { randomDevColor } = useColor()
-const { getTheme } = useTheme()
+const colorMode = useColorMode()
 
 const componentType = ref('div')
 
-const iconWrapperStyle = computed<Record<string, string>>(() => {
-  const theme = getTheme()
-  let backgroundColor = props.icon?.background || 'transparent'
-
-  if (backgroundColor && !backgroundColor.startsWith('var(--')) {
-    const opacity = theme === 'dark' ? '40' : '26'
-    backgroundColor = `${backgroundColor}${opacity}`
-  }
-
-  return {
-    position: props.icon?.absolute ? 'absolute' : 'relative',
-    backgroundColor,
-  }
+const iconWrapperStyle = shallowRef<Record<string, string>>({
+  position: props.icon?.absolute ? 'absolute' : 'relative',
+  backgroundColor: props.icon?.background || 'transparent',
 })
 
 const cardClasses = computed(() => [
@@ -199,6 +189,18 @@ const iconLogoSize = computed(() => {
   }
 })
 
+const updateIconWrapperStyle = () => {
+  const position = props.icon?.absolute ? 'absolute' : 'relative'
+  let backgroundColor = props.icon?.background || ''
+
+  if (backgroundColor && !backgroundColor.startsWith('var(--')) {
+    const opacity = colorMode.value === 'dark' ? '40' : '26'
+    backgroundColor = `${backgroundColor}${opacity}`
+  }
+
+  iconWrapperStyle.value = { position, backgroundColor }
+}
+
 onMounted(() => {
   const shouldSetLink
     = props.hover === true
@@ -207,6 +209,14 @@ onMounted(() => {
   if (shouldSetLink && props.variant !== 'article') {
     componentType.value = 'a'
   }
+})
+
+onMounted(() => {
+  updateIconWrapperStyle()
+})
+
+watch(colorMode, () => {
+  updateIconWrapperStyle()
 })
 </script>
 
