@@ -4,7 +4,7 @@ import type { LinkType } from '#shared/types/common/link'
 
 withDefaults(
   defineProps<{
-    componentSize?: BasicSizeType
+    componentSize?: Exclude<BasicSizeType, 'medium'>
     loading?: boolean
   }>(),
   {
@@ -20,10 +20,7 @@ const currentYear = ref(new Date().getFullYear())
 
 <template>
   <div
-    :class="[
-      'footer-mini-legal-copyright',
-      { 'footer-mini-legal-copyright--large': componentSize === 'large' },
-    ]"
+    :class="`footer-mini-legal-copyright footer-mini-legal-copyright--${componentSize}`"
   >
     Copyright <span aria-hidden="true">©</span>
     {{ currentYear }}
