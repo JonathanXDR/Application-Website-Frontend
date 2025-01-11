@@ -8,135 +8,6 @@
   See https://swift.org/CONTRIBUTORS.txt for Swift project authors
 -->
 
-<template>
-  <GenericModal
-    v-model:visible="isVisible"
-    is-fullscreen
-    :show-close="false"
-    backdrop-background-color-override="rgba(0, 0, 0, 0.7)"
-  >
-    <div class="quick-navigation">
-      <div
-        class="quick-navigation__container"
-        :class="{ focus: focusedInput }"
-      >
-        <FilterInput
-          v-model="userInput"
-          class="quick-navigation__filter"
-          :placeholder="placeholderText"
-          focus-input-when-created
-          focus-input-when-empty
-          prevent-border-style
-          select-input-on-focus
-          @keydown.down.exact.prevent="handleDownKeyInput"
-          @keydown.enter.exact="handleKeyEnter"
-          @focus="focusedInput = true"
-          @blur="focusedInput = false"
-        >
-          <template #icon>
-            <div
-              class="quick-navigation__magnifier-icon-container"
-              :class="{ blue: userInput.length }"
-            >
-              <IconMagnifier />
-            </div>
-          </template>
-        </FilterInput>
-        <div
-          class="quick-navigation__match-list"
-          :class="{ active: processedUserInput.length }"
-        >
-          <div
-            v-if="noResultsWereFound"
-            class="no-results"
-          >
-            <p>
-              {{ $t("navigator.no-results") }}
-            </p>
-          </div>
-          <template v-else>
-            <div
-              v-bind="{ [SCROLL_LOCK_DISABLE_ATTR]: true }"
-              class="quick-navigation__refs"
-              @keydown.down.exact.prevent="focusNext"
-              @keydown.up.exact.prevent="focusPrev"
-              @keydown.enter.exact="handleKeyEnter"
-            >
-              <!-- <div> or <a> -->
-              <a
-                v-for="(symbol, index) in filteredSymbols"
-                :key="symbol.uid"
-                ref="match"
-                class="quick-navigation__reference"
-                :url="symbol.path"
-                :tabindex="focusedIndex === index ? '0' : '-1'"
-                :data-index="index"
-                @click="closeQuickNavigationModal"
-              >
-                <div
-                  class="quick-navigation__symbol-match"
-                  role="list"
-                >
-                  <div class="symbol-info">
-                    <div class="symbol-name">
-                      <TopicTypeIcon
-                        class="navigator-icon"
-                        :type="symbol.type"
-                      />
-                      <div class="symbol-title">
-                        <span
-                          v-text="
-                            formatSymbolTitle(symbol.title, 0, symbol.start)
-                          "
-                        />
-                        <QuickNavigationHighlighter
-                          :text="symbol.substring"
-                          :matcher-text="processedUserInput"
-                        />
-                        <span
-                          v-text="
-                            formatSymbolTitle(
-                              symbol.title,
-                              symbol.start + symbol.matchLength,
-                            )
-                          "
-                        />
-                      </div>
-                    </div>
-                    <div class="symbol-path">
-                      <div
-                        v-for="(parent, parentIndex) in symbol.parents"
-                        :key="parent.title"
-                      >
-                        <span
-                          class="parent-path"
-                          v-text="parent.title"
-                        />
-                        <span
-                          v-if="parentIndex !== symbol.parents.length - 1"
-                          class="parent-path"
-                          v-text="`/`"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- <Preview
-              v-if="previewState"
-              class="quick-navigation__preview"
-              :json="previewJSON"
-              :state="previewState"
-              v-bind="{ [SCROLL_LOCK_DISABLE_ATTR]: true }"
-            /> -->
-          </template>
-        </div>
-      </div>
-    </div>
-  </GenericModal>
-</template>
-
 <script>
 import FilterInput from '~/components/common/New/Filter/FilterInput.vue'
 import GenericModal from '~/components/common/New/GenericModal.vue'
@@ -469,6 +340,135 @@ export default {
   },
 }
 </script>
+
+<template>
+  <GenericModal
+    v-model:visible="isVisible"
+    is-fullscreen
+    :show-close="false"
+    backdrop-background-color-override="rgba(0, 0, 0, 0.7)"
+  >
+    <div class="quick-navigation">
+      <div
+        class="quick-navigation__container"
+        :class="{ focus: focusedInput }"
+      >
+        <FilterInput
+          v-model="userInput"
+          class="quick-navigation__filter"
+          :placeholder="placeholderText"
+          focus-input-when-created
+          focus-input-when-empty
+          prevent-border-style
+          select-input-on-focus
+          @keydown.down.exact.prevent="handleDownKeyInput"
+          @keydown.enter.exact="handleKeyEnter"
+          @focus="focusedInput = true"
+          @blur="focusedInput = false"
+        >
+          <template #icon>
+            <div
+              class="quick-navigation__magnifier-icon-container"
+              :class="{ blue: userInput.length }"
+            >
+              <IconMagnifier />
+            </div>
+          </template>
+        </FilterInput>
+        <div
+          class="quick-navigation__match-list"
+          :class="{ active: processedUserInput.length }"
+        >
+          <div
+            v-if="noResultsWereFound"
+            class="no-results"
+          >
+            <p>
+              {{ $t("navigator.no-results") }}
+            </p>
+          </div>
+          <template v-else>
+            <div
+              v-bind="{ [SCROLL_LOCK_DISABLE_ATTR]: true }"
+              class="quick-navigation__refs"
+              @keydown.down.exact.prevent="focusNext"
+              @keydown.up.exact.prevent="focusPrev"
+              @keydown.enter.exact="handleKeyEnter"
+            >
+              <!-- <div> or <a> -->
+              <a
+                v-for="(symbol, index) in filteredSymbols"
+                :key="symbol.uid"
+                ref="match"
+                class="quick-navigation__reference"
+                :url="symbol.path"
+                :tabindex="focusedIndex === index ? '0' : '-1'"
+                :data-index="index"
+                @click="closeQuickNavigationModal"
+              >
+                <div
+                  class="quick-navigation__symbol-match"
+                  role="list"
+                >
+                  <div class="symbol-info">
+                    <div class="symbol-name">
+                      <TopicTypeIcon
+                        class="navigator-icon"
+                        :type="symbol.type"
+                      />
+                      <div class="symbol-title">
+                        <span
+                          v-text="
+                            formatSymbolTitle(symbol.title, 0, symbol.start)
+                          "
+                        />
+                        <QuickNavigationHighlighter
+                          :text="symbol.substring"
+                          :matcher-text="processedUserInput"
+                        />
+                        <span
+                          v-text="
+                            formatSymbolTitle(
+                              symbol.title,
+                              symbol.start + symbol.matchLength,
+                            )
+                          "
+                        />
+                      </div>
+                    </div>
+                    <div class="symbol-path">
+                      <div
+                        v-for="(parent, parentIndex) in symbol.parents"
+                        :key="parent.title"
+                      >
+                        <span
+                          class="parent-path"
+                          v-text="parent.title"
+                        />
+                        <span
+                          v-if="parentIndex !== symbol.parents.length - 1"
+                          class="parent-path"
+                          v-text="`/`"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- <Preview
+              v-if="previewState"
+              class="quick-navigation__preview"
+              :json="previewJSON"
+              :state="previewState"
+              v-bind="{ [SCROLL_LOCK_DISABLE_ATTR]: true }"
+            /> -->
+          </template>
+        </div>
+      </div>
+    </div>
+  </GenericModal>
+</template>
 
 <style scoped lang="scss">
 @import "/app/assets/scss/_core.scss";

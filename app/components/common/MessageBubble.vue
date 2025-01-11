@@ -1,3 +1,16 @@
+<script setup lang="ts">
+withDefaults(
+  defineProps<{
+    color?: 'gray' | 'blue' | 'green'
+    direction?: 'left' | 'right'
+  }>(),
+  {
+    color: 'gray',
+    direction: 'left',
+  },
+)
+</script>
+
 <template>
   <div
     v-animation="{ add: 'active' }"
@@ -29,19 +42,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-withDefaults(
-  defineProps<{
-    color?: 'gray' | 'blue' | 'green'
-    direction?: 'left' | 'right'
-  }>(),
-  {
-    color: 'gray',
-    direction: 'left',
-  },
-)
-</script>
 
 <style scoped>
 p {

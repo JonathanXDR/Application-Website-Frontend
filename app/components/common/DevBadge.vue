@@ -1,11 +1,3 @@
-<template>
-  <small
-    :style="{ color: color.primary }"
-    class="dev-badge"
-    data-tag-name="Dev"
-  />
-</template>
-
 <script setup lang="ts">
 import type { ColorType } from '#shared/types/common/color'
 
@@ -20,6 +12,14 @@ withDefaults(
   },
 )
 </script>
+
+<template>
+  <small
+    :style="{ color: color.primary }"
+    class="dev-badge"
+    data-tag-name="Dev"
+  />
+</template>
 
 <style scoped>
 .dev-badge {

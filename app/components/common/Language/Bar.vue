@@ -1,3 +1,22 @@
+<script setup lang="ts">
+import type { LanguageBarType } from '#shared/types/common/language-bar'
+
+const props = withDefaults(defineProps<LanguageBarType>(), {
+  progress: 0,
+  componentSize: 'medium',
+  loading: false,
+  width: 'compact',
+  hover: false,
+  direction: 'left',
+})
+
+const applyHover = computed(
+  () =>
+    (props.hover === 'auto' && props.links && props.links.length > 0)
+    || props.hover === true,
+)
+</script>
+
 <template>
   <div
     :class="[
@@ -82,25 +101,6 @@
     </figure>
   </div>
 </template>
-
-<script setup lang="ts">
-import type { LanguageBarType } from '#shared/types/common/language-bar'
-
-const props = withDefaults(defineProps<LanguageBarType>(), {
-  progress: 0,
-  componentSize: 'medium',
-  loading: false,
-  width: 'compact',
-  hover: false,
-  direction: 'left',
-})
-
-const applyHover = computed(
-  () =>
-    (props.hover === 'auto' && props.links && props.links.length > 0)
-    || props.hover === true,
-)
-</script>
 
 <style scoped>
 .stat {

@@ -1,3 +1,18 @@
+<script setup lang="ts">
+import type { CardItemType } from '#shared/types/common/card-item'
+
+defineProps<{
+  title: string
+}>()
+
+const viewport = useViewport()
+const { tm } = useI18n()
+
+const cards = computed<CardItemType[]>(() =>
+  tm('components.containers.school'),
+)
+</script>
+
 <template>
   <h1>{{ title }}</h1>
   <div class="card-grid">
@@ -27,18 +42,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-import type { CardItemType } from '#shared/types/common/card-item'
-
-defineProps<{
-  title: string
-}>()
-
-const viewport = useViewport()
-const { tm } = useI18n()
-
-const cards = computed<CardItemType[]>(() =>
-  tm('components.containers.school'),
-)
-</script>

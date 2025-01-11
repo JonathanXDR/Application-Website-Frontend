@@ -7,83 +7,6 @@
   See https://swift.org/LICENSE.txt for license information
   See https://swift.org/CONTRIBUTORS.txt for Swift project authors
 -->
-<template>
-  <div
-    :class="['pager', { 'with-compact-controls': shouldUseCompactControls }]"
-    role="region"
-    :aria-roledescription="$t('pager.roledescription')"
-  >
-    <template v-if="pages.length === 1">
-      <slot
-        name="page"
-        :page="pages[0]"
-      />
-    </template>
-    <template v-else>
-      <div class="container">
-        <Gutter class="left">
-          <ControlPrevious
-            :disabled="!hasPreviousPage"
-            @click="previous"
-          />
-        </Gutter>
-        <div
-          ref="viewport"
-          class="viewport"
-          role="group"
-        >
-          <div
-            v-for="({ page, key }, n) in keyedPages"
-            :id="key"
-            ref="pages"
-            :key="key"
-            :aria-label="
-              $t('pager.page.label', { index: n + 1, count: keyedPages.length })
-            "
-            :class="['page', pageStates(n)]"
-          >
-            <slot
-              name="page"
-              :page="page"
-            />
-          </div>
-        </div>
-        <Gutter class="right">
-          <ControlNext
-            :disabled="!hasNextPage"
-            @click="next"
-          />
-        </Gutter>
-      </div>
-      <div
-        class="compact-controls"
-        role="group"
-        aria-label="Controls"
-      >
-        <ControlPrevious
-          :disabled="!hasPreviousPage"
-          @click="previous"
-        />
-        <ControlNext
-          :disabled="!hasNextPage"
-          @click="next"
-        />
-      </div>
-      <div class="indicators">
-        <a
-          v-for="({ key }, n) in keyedPages"
-          :key="key"
-          :aria-current="isActivePage(n)"
-          :href="`#${key}`"
-          :class="['indicator', pageStates(n)]"
-          @click="setActivePage($event, n)"
-        />
-      </div>
-    </template>
-    <slot />
-  </div>
-</template>
-
 <script>
 import DocumentationTopicStore from 'docc-render/stores/DocumentationTopicStore'
 import PagerControl from '~/assets/drafts/components/PagerControl.vue'
@@ -302,6 +225,83 @@ export default {
   },
 }
 </script>
+
+<template>
+  <div
+    :class="['pager', { 'with-compact-controls': shouldUseCompactControls }]"
+    role="region"
+    :aria-roledescription="$t('pager.roledescription')"
+  >
+    <template v-if="pages.length === 1">
+      <slot
+        name="page"
+        :page="pages[0]"
+      />
+    </template>
+    <template v-else>
+      <div class="container">
+        <Gutter class="left">
+          <ControlPrevious
+            :disabled="!hasPreviousPage"
+            @click="previous"
+          />
+        </Gutter>
+        <div
+          ref="viewport"
+          class="viewport"
+          role="group"
+        >
+          <div
+            v-for="({ page, key }, n) in keyedPages"
+            :id="key"
+            ref="pages"
+            :key="key"
+            :aria-label="
+              $t('pager.page.label', { index: n + 1, count: keyedPages.length })
+            "
+            :class="['page', pageStates(n)]"
+          >
+            <slot
+              name="page"
+              :page="page"
+            />
+          </div>
+        </div>
+        <Gutter class="right">
+          <ControlNext
+            :disabled="!hasNextPage"
+            @click="next"
+          />
+        </Gutter>
+      </div>
+      <div
+        class="compact-controls"
+        role="group"
+        aria-label="Controls"
+      >
+        <ControlPrevious
+          :disabled="!hasPreviousPage"
+          @click="previous"
+        />
+        <ControlNext
+          :disabled="!hasNextPage"
+          @click="next"
+        />
+      </div>
+      <div class="indicators">
+        <a
+          v-for="({ key }, n) in keyedPages"
+          :key="key"
+          :aria-current="isActivePage(n)"
+          :href="`#${key}`"
+          :class="['indicator', pageStates(n)]"
+          @click="setActivePage($event, n)"
+        />
+      </div>
+    </template>
+    <slot />
+  </div>
+</template>
 
 <style scoped lang="scss">
 @import "/app/assets/scss/_core.scss";

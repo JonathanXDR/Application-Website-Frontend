@@ -1,29 +1,3 @@
-<template>
-  <component
-    :is="variant"
-    :href="url"
-    :class="['badge', componentSize, { hover }, { loading }]"
-    :style="computedStyle"
-    @click="onClick"
-  >
-    <DynamicIcon
-      v-if="icon"
-      v-bind="icon"
-      :class="`icon icon-md mr-1`"
-      :loading="loading"
-    />
-    <template v-if="!loading">
-      {{ title }}
-    </template>
-    <template v-else>
-      <LoadingSkeleton
-        width="80px"
-        height="15px"
-      />
-    </template>
-  </component>
-</template>
-
 <script setup lang="ts">
 import type { BadgeItemType } from '#shared/types/common/badge-item'
 
@@ -61,6 +35,32 @@ const computedStyle = computed(() => ({
     props.loading || !props.border ? 'transparent' : props.colors?.tertiary,
 }))
 </script>
+
+<template>
+  <component
+    :is="variant"
+    :href="url"
+    :class="['badge', componentSize, { hover }, { loading }]"
+    :style="computedStyle"
+    @click="onClick"
+  >
+    <DynamicIcon
+      v-if="icon"
+      v-bind="icon"
+      :class="`icon icon-md mr-1`"
+      :loading="loading"
+    />
+    <template v-if="!loading">
+      {{ title }}
+    </template>
+    <template v-else>
+      <LoadingSkeleton
+        width="80px"
+        height="15px"
+      />
+    </template>
+  </component>
+</template>
 
 <style scoped>
 .loading {

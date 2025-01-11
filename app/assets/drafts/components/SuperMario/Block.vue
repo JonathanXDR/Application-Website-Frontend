@@ -1,27 +1,4 @@
 <!-- eslint-disable vue/multi-word-component-names -->
-<template>
-  <div>
-    <div
-      :class="[
-        'mario-box',
-        {
-          '-jumped': hasTouched,
-          '-full': hasCoins,
-          '-off': hasFoundAllCoins,
-        },
-      ]"
-      @click="onTouchBlock"
-    >
-      <div class="in" />
-      <SuperMarioCoin
-        v-for="i in coinsToBeFound"
-        :key="i"
-        :is-playing="true"
-      />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { gsap, SteppedEase } from 'gsap'
 import AudioPowerUp from '~~/public/mario/audio/smw_power-up.ogg'
@@ -125,6 +102,29 @@ const onTouchBlock = () => {
   }
 }
 </script>
+
+<template>
+  <div>
+    <div
+      :class="[
+        'mario-box',
+        {
+          '-jumped': hasTouched,
+          '-full': hasCoins,
+          '-off': hasFoundAllCoins,
+        },
+      ]"
+      @click="onTouchBlock"
+    >
+      <div class="in" />
+      <SuperMarioCoin
+        v-for="i in coinsToBeFound"
+        :key="i"
+        :is-playing="true"
+      />
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .mario-box {

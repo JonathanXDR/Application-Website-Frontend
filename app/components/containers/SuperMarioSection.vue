@@ -1,66 +1,3 @@
-<template>
-  <SceneSection
-    id="Mario"
-    role="img"
-    aria-labelledby="marioDesc"
-  >
-    <p
-      id="marioDesc"
-      class="ariaLabel"
-    >
-      Three boxes with a question mark, from the Super Mario Bros game, are
-      standing in the center of the screen ... try to find the coin in one of
-      them by using the numbers 1, 2, and 3 on your keyboard!
-    </p>
-    <template #container>
-      <div class="blocks">
-        <SuperMarioBlock
-          v-for="i in 3"
-          :key="i"
-          :has-coins="randomBlock === i"
-          @jumped="onJumped"
-          @found-coin="onFoundCoin"
-          @found-all-coins="onFoundAllCoins"
-        />
-      </div>
-
-      <SuperMario
-        class="mario-container"
-        :state="marioState || ''"
-      />
-
-      <div
-        v-show="foundCoins"
-        class="mario-coin-counter"
-      >
-        {{ foundCoins }}
-      </div>
-
-      <div v-show="hasFoundAllCoins">
-        <div class="mario-msg-overlay" />
-        <div class="mario-msg">
-          Hooray! Thanks for jumping so many times. <br>
-          <span class="-purple">You found all the coins!</span>
-          <br>&nbsp;<br>
-          Keep scrolling, you're near the end!
-
-          <div class="later">
-            ;)
-            <button
-              class="mario-msg-close"
-              type="button"
-              title="Close message"
-              @click="onCloseMessage"
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-      </div>
-    </template>
-  </SceneSection>
-</template>
-
 <script setup lang="ts">
 import { gsap } from 'gsap'
 import AudioExit from '~~/public/mario/audio/smw_keyhole_exit.ogg'
@@ -168,6 +105,69 @@ const onCloseMessage = () => {
   })
 }
 </script>
+
+<template>
+  <SceneSection
+    id="Mario"
+    role="img"
+    aria-labelledby="marioDesc"
+  >
+    <p
+      id="marioDesc"
+      class="ariaLabel"
+    >
+      Three boxes with a question mark, from the Super Mario Bros game, are
+      standing in the center of the screen ... try to find the coin in one of
+      them by using the numbers 1, 2, and 3 on your keyboard!
+    </p>
+    <template #container>
+      <div class="blocks">
+        <SuperMarioBlock
+          v-for="i in 3"
+          :key="i"
+          :has-coins="randomBlock === i"
+          @jumped="onJumped"
+          @found-coin="onFoundCoin"
+          @found-all-coins="onFoundAllCoins"
+        />
+      </div>
+
+      <SuperMario
+        class="mario-container"
+        :state="marioState || ''"
+      />
+
+      <div
+        v-show="foundCoins"
+        class="mario-coin-counter"
+      >
+        {{ foundCoins }}
+      </div>
+
+      <div v-show="hasFoundAllCoins">
+        <div class="mario-msg-overlay" />
+        <div class="mario-msg">
+          Hooray! Thanks for jumping so many times. <br>
+          <span class="-purple">You found all the coins!</span>
+          <br>&nbsp;<br>
+          Keep scrolling, you're near the end!
+
+          <div class="later">
+            ;)
+            <button
+              class="mario-msg-close"
+              type="button"
+              title="Close message"
+              @click="onCloseMessage"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      </div>
+    </template>
+  </SceneSection>
+</template>
 
 <style scoped>
 body.is-playing-mario {

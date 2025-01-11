@@ -1,12 +1,3 @@
-<template>
-  <component
-    :is="as"
-    :class="['button', variant, componentSize]"
-  >
-    <slot />
-  </component>
-</template>
-
 <script setup lang="ts">
 import type { BasicSizeType } from '#shared/types/common/basic-size'
 import type { IconType } from '#shared/types/common/icon'
@@ -30,6 +21,15 @@ withDefaults(
   },
 )
 </script>
+
+<template>
+  <component
+    :is="as"
+    :class="['button', variant, componentSize]"
+  >
+    <slot />
+  </component>
+</template>
 
 <style scoped>
 .button {

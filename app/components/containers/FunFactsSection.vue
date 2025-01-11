@@ -1,52 +1,3 @@
-<template>
-  <h1>{{ title }}</h1>
-  <ul
-    role="list"
-    aria-label="Fun Facts"
-    class="chip-claims-list stat"
-  >
-    <li
-      v-for="(item, index) in funFacts"
-      :key="index"
-      v-animation="{
-        add: 'visible',
-        key: `chip-claim-${index}`,
-        onEnter: () => animateNumber(index),
-      }"
-      class="chip-claim"
-      role="listitem"
-      tabindex="-1"
-      data-textanim-1
-      :style="{
-        '--chip-claim-height': `${chipClaimHeight - 12}px`,
-      }"
-    >
-      <div>
-        <figure class="stat typography-site-stat-caption highlight">
-          <strong ref="titleElements">
-            <span
-              :ref="
-                (el) => {
-                  if (el) progressSpan[index] = el as HTMLElement;
-                }
-              "
-            >
-              {{
-                item.progress.toLocaleString(locale, {
-                  notation: viewport.isLessThan("tablet")
-                    ? "compact"
-                    : "standard",
-                })
-              }}
-            </span>
-          </strong>
-          {{ item.description }}
-        </figure>
-      </div>
-    </li>
-  </ul>
-</template>
-
 <script setup lang="ts">
 import { gsap } from 'gsap'
 import type { LanguageBarType } from '#shared/types/common/language-bar'
@@ -101,6 +52,55 @@ onMounted(() => {
 
 useEventListener(window, 'resize', updateChipClaimHeight)
 </script>
+
+<template>
+  <h1>{{ title }}</h1>
+  <ul
+    role="list"
+    aria-label="Fun Facts"
+    class="chip-claims-list stat"
+  >
+    <li
+      v-for="(item, index) in funFacts"
+      :key="index"
+      v-animation="{
+        add: 'visible',
+        key: `chip-claim-${index}`,
+        onEnter: () => animateNumber(index),
+      }"
+      class="chip-claim"
+      role="listitem"
+      tabindex="-1"
+      data-textanim-1
+      :style="{
+        '--chip-claim-height': `${chipClaimHeight - 12}px`,
+      }"
+    >
+      <div>
+        <figure class="stat typography-site-stat-caption highlight">
+          <strong ref="titleElements">
+            <span
+              :ref="
+                (el) => {
+                  if (el) progressSpan[index] = el as HTMLElement;
+                }
+              "
+            >
+              {{
+                item.progress.toLocaleString(locale, {
+                  notation: viewport.isLessThan("tablet")
+                    ? "compact"
+                    : "standard",
+                })
+              }}
+            </span>
+          </strong>
+          {{ item.description }}
+        </figure>
+      </div>
+    </li>
+  </ul>
+</template>
 
 <style scoped>
 .visible {

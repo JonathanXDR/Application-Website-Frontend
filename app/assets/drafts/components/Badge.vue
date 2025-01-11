@@ -8,16 +8,6 @@
   See https://swift.org/CONTRIBUTORS.txt for Swift project authors
 -->
 
-<template>
-  <span
-    class="badge"
-    :class="{ [`badge-${variant}`]: variant }"
-    role="presentation"
-  >
-    <slot>{{ text ? $t(text) : "" }}</slot>
-  </span>
-</template>
-
 <script>
 const VARIANT_TEXT = {
   beta: 'aside-kind.beta',
@@ -44,6 +34,16 @@ export default {
   },
 }
 </script>
+
+<template>
+  <span
+    class="badge"
+    :class="{ [`badge-${variant}`]: variant }"
+    role="presentation"
+  >
+    <slot>{{ text ? $t(text) : "" }}</slot>
+  </span>
+</template>
 
 <style scoped lang="scss">
 @import "/app/assets/scss/_core.scss";

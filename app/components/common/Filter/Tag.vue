@@ -1,44 +1,3 @@
-<template>
-  <li
-    class="tag"
-    role="presentation"
-  >
-    <button
-      ref="button"
-      :class="{ focus: isActiveTag }"
-      role="option"
-      :aria-selected="ariaSelected"
-      aria-roledescription="tag"
-      @focus="emitFocus"
-      @click.prevent="emitClick"
-      @dblclick.prevent="!keyboardIsVirtual && deleteTag()"
-      @keydown.exact="emitKeydown"
-      @keydown.shift.exact="emitKeydown"
-      @keydown.shift.meta.exact="emitKeydown"
-      @keydown.meta.exact="emitKeydown"
-      @keydown.ctrl.exact="emitKeydown"
-      @keydown.delete.prevent="deleteTag"
-      @mousedown.prevent="focusButton"
-      @copy="handleCopy"
-    >
-      <span
-        v-if="!isRemovableTag"
-        class="visuallyhidden"
-      >{{ t("components.common.FilterInput.addTag") }} -</span>
-      <template v-if="isTranslatableTag">
-        {{ t(name) }}
-      </template>
-      <template v-else>
-        {{ name }}
-      </template>
-      <span
-        v-if="isRemovableTag"
-        class="visuallyhidden"
-      >– {{ t("components.common.FilterInput.tagSelectRemove") }}</span>
-    </button>
-  </li>
-</template>
-
 <script setup lang="ts">
 import { prepareDataForHTMLClipboard } from '~/utils/clipboard'
 
@@ -132,6 +91,47 @@ watch(
   },
 )
 </script>
+
+<template>
+  <li
+    class="tag"
+    role="presentation"
+  >
+    <button
+      ref="button"
+      :class="{ focus: isActiveTag }"
+      role="option"
+      :aria-selected="ariaSelected"
+      aria-roledescription="tag"
+      @focus="emitFocus"
+      @click.prevent="emitClick"
+      @dblclick.prevent="!keyboardIsVirtual && deleteTag()"
+      @keydown.exact="emitKeydown"
+      @keydown.shift.exact="emitKeydown"
+      @keydown.shift.meta.exact="emitKeydown"
+      @keydown.meta.exact="emitKeydown"
+      @keydown.ctrl.exact="emitKeydown"
+      @keydown.delete.prevent="deleteTag"
+      @mousedown.prevent="focusButton"
+      @copy="handleCopy"
+    >
+      <span
+        v-if="!isRemovableTag"
+        class="visuallyhidden"
+      >{{ t("components.common.FilterInput.addTag") }} -</span>
+      <template v-if="isTranslatableTag">
+        {{ t(name) }}
+      </template>
+      <template v-else>
+        {{ name }}
+      </template>
+      <span
+        v-if="isRemovableTag"
+        class="visuallyhidden"
+      >– {{ t("components.common.FilterInput.tagSelectRemove") }}</span>
+    </button>
+  </li>
+</template>
 
 <style scoped>
 .tag {

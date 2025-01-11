@@ -1,65 +1,3 @@
-<template>
-  <div
-    :style="cssVars"
-    class="h-screen w-screen relative overflow-hidden top-0 left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]"
-  >
-    <svg class="hidden">
-      <defs>
-        <filter id="blurMe">
-          <feGaussianBlur
-            in="SourceGraphic"
-            stdDeviation="10"
-            result="blur"
-          />
-          <feColorMatrix
-            in="blur"
-            mode="matrix"
-            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
-            result="goo"
-          />
-          <feBlend
-            in="SourceGraphic"
-            in2="goo"
-          />
-        </filter>
-      </defs>
-    </svg>
-
-    <div :class="className">
-      <slot />
-    </div>
-
-    <div
-      :class="[
-        'gradients-container h-full w-full blur-lg',
-        isSafari ? 'blur-2xl' : '[filter:url(#blurMe)_blur(40px)]',
-      ]"
-    >
-      <div
-        class="absolute [background:radial-gradient(circle_at_center,_var(--first-color)_0,_var(--first-color)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:center_center] opacity-100 animation-first"
-      />
-      <div
-        class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--second-color),_0.8)_0,_rgba(var(--second-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%-400px)] opacity-100 animation-second"
-      />
-      <div
-        class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--third-color),_0.8)_0,_rgba(var(--third-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%+400px)] opacity-100 animation-third"
-      />
-      <div
-        class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--fourth-color),_0.8)_0,_rgba(var(--fourth-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%-200px)] opacity-70 animation-fourth"
-      />
-      <div
-        class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--fifth-color),_0.8)_0,_rgba(var(--fifth-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%-800px)_calc(50%+800px)] opacity-100 animation-fifth"
-      />
-      <div
-        v-if="interactive"
-        ref="interactiveRef"
-        class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--pointer-color),_0.8)_0,_rgba(var(--pointer-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-full h-full -top-1/2 -left-1/2 opacity-70"
-        @mousemove="handleMouseMove"
-      />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
@@ -136,6 +74,68 @@ onMounted(() => {
   isSafari.value = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
 })
 </script>
+
+<template>
+  <div
+    :style="cssVars"
+    class="h-screen w-screen relative overflow-hidden top-0 left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]"
+  >
+    <svg class="hidden">
+      <defs>
+        <filter id="blurMe">
+          <feGaussianBlur
+            in="SourceGraphic"
+            stdDeviation="10"
+            result="blur"
+          />
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+            result="goo"
+          />
+          <feBlend
+            in="SourceGraphic"
+            in2="goo"
+          />
+        </filter>
+      </defs>
+    </svg>
+
+    <div :class="className">
+      <slot />
+    </div>
+
+    <div
+      :class="[
+        'gradients-container h-full w-full blur-lg',
+        isSafari ? 'blur-2xl' : '[filter:url(#blurMe)_blur(40px)]',
+      ]"
+    >
+      <div
+        class="absolute [background:radial-gradient(circle_at_center,_var(--first-color)_0,_var(--first-color)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:center_center] opacity-100 animation-first"
+      />
+      <div
+        class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--second-color),_0.8)_0,_rgba(var(--second-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%-400px)] opacity-100 animation-second"
+      />
+      <div
+        class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--third-color),_0.8)_0,_rgba(var(--third-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%+400px)] opacity-100 animation-third"
+      />
+      <div
+        class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--fourth-color),_0.8)_0,_rgba(var(--fourth-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%-200px)] opacity-70 animation-fourth"
+      />
+      <div
+        class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--fifth-color),_0.8)_0,_rgba(var(--fifth-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] [transform-origin:calc(50%-800px)_calc(50%+800px)] opacity-100 animation-fifth"
+      />
+      <div
+        v-if="interactive"
+        ref="interactiveRef"
+        class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--pointer-color),_0.8)_0,_rgba(var(--pointer-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-full h-full -top-1/2 -left-1/2 opacity-70"
+        @mousemove="handleMouseMove"
+      />
+    </div>
+  </div>
+</template>
 
 <style scoped>
 @keyframes moveVertical {

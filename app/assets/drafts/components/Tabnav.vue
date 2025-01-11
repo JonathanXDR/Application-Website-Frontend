@@ -8,17 +8,6 @@
   See https://swift.org/CONTRIBUTORS.txt for Swift project authors
 -->
 
-<template>
-  <nav
-    class="tabnav"
-    :class="{ [`tabnav--${position}`]: position, 'tabnav--vertical': vertical }"
-  >
-    <ul class="tabnav-items">
-      <slot />
-    </ul>
-  </nav>
-</template>
-
 <script>
 const ProvideKey = 'tabnavData'
 export default {
@@ -61,6 +50,17 @@ export default {
   },
 }
 </script>
+
+<template>
+  <nav
+    class="tabnav"
+    :class="{ [`tabnav--${position}`]: position, 'tabnav--vertical': vertical }"
+  >
+    <ul class="tabnav-items">
+      <slot />
+    </ul>
+  </nav>
+</template>
 
 <style scoped lang="scss">
 @import "/app/assets/scss/_core.scss";

@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const { t } = useI18n()
+</script>
+
 <template>
   <svg
     aria-hidden="true"
@@ -14,7 +18,3 @@
     />
   </svg>
 </template>
-
-<script setup lang="ts">
-const { t } = useI18n()
-</script>

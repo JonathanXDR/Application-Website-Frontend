@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const show = ref(false)
+</script>
+
 <template>
   <section class="hero">
     <div
@@ -52,10 +56,6 @@
     />
   </section>
 </template>
-
-<script setup lang="ts">
-const show = ref(false)
-</script>
 
 <style scoped>
 .section-content {

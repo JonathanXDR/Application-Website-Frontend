@@ -1,3 +1,12 @@
+<script setup lang="ts">
+import type { BasicPropsType } from '#shared/types/common/basic-props'
+
+withDefaults(defineProps<Partial<BasicPropsType>>(), {
+  title: 'Explore more details',
+  icon: () => ({ name: 'plus' }),
+})
+</script>
+
 <template>
   <p class="drawer-toggle-wrapper">
     <a
@@ -33,15 +42,6 @@
     </a>
   </p>
 </template>
-
-<script setup lang="ts">
-import type { BasicPropsType } from '#shared/types/common/basic-props'
-
-withDefaults(defineProps<Partial<BasicPropsType>>(), {
-  title: 'Explore more details',
-  icon: () => ({ name: 'plus' }),
-})
-</script>
 
 <style scoped>
 .drawer-toggle {

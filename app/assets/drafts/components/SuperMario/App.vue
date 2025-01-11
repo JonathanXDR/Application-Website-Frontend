@@ -1,22 +1,3 @@
-<template>
-  <div
-    id="app"
-    :class="$route.meta.bodyClass"
-  >
-    <HeaderSection />
-    <transition
-      appear
-      mode="out-in"
-      :css="false"
-      @leave="leave"
-      @enter="enter"
-    >
-      <router-view />
-    </transition>
-    <Spine :is-playing="isSpinePlaying" />
-  </div>
-</template>
-
 <script>
 // GSAP + ScrollMagic
 import { Power3, TimelineMax, TweenMax } from 'gsap'
@@ -96,6 +77,25 @@ export default {
   },
 }
 </script>
+
+<template>
+  <div
+    id="app"
+    :class="$route.meta.bodyClass"
+  >
+    <HeaderSection />
+    <transition
+      appear
+      mode="out-in"
+      :css="false"
+      @leave="leave"
+      @enter="enter"
+    >
+      <router-view />
+    </transition>
+    <Spine :is-playing="isSpinePlaying" />
+  </div>
+</template>
 
 <style lang="scss">
 // vars

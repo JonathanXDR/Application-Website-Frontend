@@ -1,3 +1,19 @@
+<script>
+import '@/styles/header.scss'
+
+export default {
+  name: 'HeaderSection',
+  methods: {
+    openMenu() {
+      document.body.classList.add('-open-nav')
+    },
+    closeMenu() {
+      document.body.classList.remove('-open-nav')
+    },
+  },
+}
+</script>
+
 <template>
   <header id="header">
     <div class="header-bg">
@@ -104,19 +120,3 @@
     </div>
   </header>
 </template>
-
-<script>
-import '@/styles/header.scss'
-
-export default {
-  name: 'HeaderSection',
-  methods: {
-    openMenu() {
-      document.body.classList.add('-open-nav')
-    },
-    closeMenu() {
-      document.body.classList.remove('-open-nav')
-    },
-  },
-}
-</script>

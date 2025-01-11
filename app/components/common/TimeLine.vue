@@ -1,23 +1,3 @@
-<template>
-  <svg
-    ref="svgElement"
-    class="svg-timeline"
-    :viewBox="viewBox"
-    xmlns="http://www.w3.org/2000/svg"
-    :height="timelineHeight"
-  >
-    <path
-      ref="pathElement"
-      class="path-timeline"
-      stroke="var(--color-fill-gray)"
-      :stroke-width="strokeWidth"
-      :d="pathData"
-      :stroke-dashoffset="strokeDashOffset"
-      :stroke-dasharray="strokeDashArray"
-    />
-  </svg>
-</template>
-
 <script setup lang="ts">
 const props = defineProps<{
   initialHeight: number
@@ -98,6 +78,26 @@ watch(
   },
 )
 </script>
+
+<template>
+  <svg
+    ref="svgElement"
+    class="svg-timeline"
+    :viewBox="viewBox"
+    xmlns="http://www.w3.org/2000/svg"
+    :height="timelineHeight"
+  >
+    <path
+      ref="pathElement"
+      class="path-timeline"
+      stroke="var(--color-fill-gray)"
+      :stroke-width="strokeWidth"
+      :d="pathData"
+      :stroke-dashoffset="strokeDashOffset"
+      :stroke-dasharray="strokeDashArray"
+    />
+  </svg>
+</template>
 
 <style scoped>
 .svg-timeline {

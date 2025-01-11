@@ -1,30 +1,3 @@
-<template>
-  <div>
-    <SpeedInsights />
-    <header
-      v-if="shouldShow('header')"
-      :class="{ 'hide-localnav': state.isHidden }"
-    >
-      <NavBar v-if="shouldShow('nav')" />
-      <div
-        v-if="shouldShow('ribbon')"
-        ref="rotatingBannerElement"
-      >
-        <InfoBanner :items="items" />
-      </div>
-    </header>
-
-    <main>
-      <slot />
-    </main>
-
-    <footer :class="footerClass">
-      <component :is="footerComponent" />
-    </footer>
-    <EasterEggAscii />
-  </div>
-</template>
-
 <script setup lang="ts">
 import { SpeedInsights } from '@vercel/speed-insights/vue'
 import type { InfoBanner } from '#shared/types/common/info-banner'
@@ -160,6 +133,33 @@ const footerComponent = computed(() =>
   shouldShow('footerFull') ? FooterFull : FooterCompact,
 )
 </script>
+
+<template>
+  <div>
+    <SpeedInsights />
+    <header
+      v-if="shouldShow('header')"
+      :class="{ 'hide-localnav': state.isHidden }"
+    >
+      <NavBar v-if="shouldShow('nav')" />
+      <div
+        v-if="shouldShow('ribbon')"
+        ref="rotatingBannerElement"
+      >
+        <InfoBanner :items="items" />
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer :class="footerClass">
+      <component :is="footerComponent" />
+    </footer>
+    <EasterEggAscii />
+  </div>
+</template>
 
 <style>
 .footer-compact {

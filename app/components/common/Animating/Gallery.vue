@@ -1,3 +1,75 @@
+<script setup lang="ts">
+import type { BasicPropsType } from '#shared/types/common/basic-props'
+
+const props = withDefaults(defineProps<BasicPropsType>(), {
+  title: 'Music Discovery',
+  description: 'Where your new favorites find you.',
+})
+
+const headlineRowCount = ref(2)
+const playing = ref(false)
+const isParallaxAnimated = ref(false)
+
+const parallaxRef = ref<HTMLElement | null>(null)
+const headlineRef = ref<HTMLElement | null>(null)
+const playPauseButtonRef = ref<HTMLElement | null>(null)
+
+const { height: tileHeight } = useElementSize(parallaxRef)
+
+const headlineLines = computed(() => {
+  const words = props.description.split(' ')
+  const lines = []
+  const wordsPerLine = Math.ceil(words.length / headlineRowCount.value)
+
+  for (let i = 0; i < words.length; i += wordsPerLine) {
+    lines.push(words.slice(i, i + wordsPerLine).join(' '))
+  }
+
+  return lines
+})
+
+interface EmptyItem {
+  type: 'empty'
+  class: string
+}
+
+interface ImageItem {
+  type: 'image'
+  index: number
+}
+
+type ParallaxItem = EmptyItem | ImageItem
+
+const togglePlayPause = useToggle(playing)
+
+const parallaxItems = computed<ParallaxItem[]>(() => {
+  const emptyItems: EmptyItem[] = [
+    { type: 'empty', class: 'leave-empty' },
+    { type: 'empty', class: 'leave-empty-row' },
+    { type: 'empty', class: 'leave-empty-clone' },
+  ]
+
+  const indices = Array.from({ length: 32 }, (_, i) => i)
+
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i]!, indices[j]!] = [indices[j]!, indices[i]!]
+  }
+
+  const imageItems: ImageItem[] = indices.flatMap(index => [
+    { type: 'image', index },
+    { type: 'image', index },
+  ])
+
+  for (let i = imageItems.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [imageItems[i]!, imageItems[j]!] = [imageItems[j]!, imageItems[i]!]
+  }
+
+  return [...emptyItems, ...imageItems]
+})
+</script>
+
 <template>
   <section class="section section-cards">
     <div class="section-content-responsive">
@@ -102,78 +174,6 @@
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-import type { BasicPropsType } from '#shared/types/common/basic-props'
-
-const props = withDefaults(defineProps<BasicPropsType>(), {
-  title: 'Music Discovery',
-  description: 'Where your new favorites find you.',
-})
-
-const headlineRowCount = ref(2)
-const playing = ref(false)
-const isParallaxAnimated = ref(false)
-
-const parallaxRef = ref<HTMLElement | null>(null)
-const headlineRef = ref<HTMLElement | null>(null)
-const playPauseButtonRef = ref<HTMLElement | null>(null)
-
-const { height: tileHeight } = useElementSize(parallaxRef)
-
-const headlineLines = computed(() => {
-  const words = props.description.split(' ')
-  const lines = []
-  const wordsPerLine = Math.ceil(words.length / headlineRowCount.value)
-
-  for (let i = 0; i < words.length; i += wordsPerLine) {
-    lines.push(words.slice(i, i + wordsPerLine).join(' '))
-  }
-
-  return lines
-})
-
-interface EmptyItem {
-  type: 'empty'
-  class: string
-}
-
-interface ImageItem {
-  type: 'image'
-  index: number
-}
-
-type ParallaxItem = EmptyItem | ImageItem
-
-const togglePlayPause = useToggle(playing)
-
-const parallaxItems = computed<ParallaxItem[]>(() => {
-  const emptyItems: EmptyItem[] = [
-    { type: 'empty', class: 'leave-empty' },
-    { type: 'empty', class: 'leave-empty-row' },
-    { type: 'empty', class: 'leave-empty-clone' },
-  ]
-
-  const indices = Array.from({ length: 32 }, (_, i) => i)
-
-  for (let i = indices.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [indices[i]!, indices[j]!] = [indices[j]!, indices[i]!]
-  }
-
-  const imageItems: ImageItem[] = indices.flatMap(index => [
-    { type: 'image', index },
-    { type: 'image', index },
-  ])
-
-  for (let i = imageItems.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [imageItems[i]!, imageItems[j]!] = [imageItems[j]!, imageItems[i]!]
-  }
-
-  return [...emptyItems, ...imageItems]
-})
-</script>
 
 <style scoped>
 h3,

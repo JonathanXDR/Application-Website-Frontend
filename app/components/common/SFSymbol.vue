@@ -1,12 +1,3 @@
-<template>
-  <NuxtIcon
-    v-bind="props"
-    mode="svg"
-    :name="`sf-symbols-${props.weight}:${props.name}`"
-    :customize="customize"
-  />
-</template>
-
 <script setup lang="ts">
 import type { IconType } from '#shared/types/common/icon'
 
@@ -32,6 +23,15 @@ const customize = (content: string) => {
     )
 }
 </script>
+
+<template>
+  <NuxtIcon
+    v-bind="props"
+    mode="svg"
+    :name="`sf-symbols-${props.weight}:${props.name}`"
+    :customize="customize"
+  />
+</template>
 
 <style scoped>
 .icon {

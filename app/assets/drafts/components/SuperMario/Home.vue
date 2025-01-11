@@ -1,41 +1,3 @@
-<template>
-  <div
-    id="home"
-    class="wrapper"
-  >
-    <Intro />
-    <Gap />
-
-    <TitleSection scene="curriculum">
-      <TitleFunction
-        params="/^.*$/gi"
-        subtitle="&lt;WorkShowcase&gt;"
-      >
-        myCV
-      </TitleFunction>
-    </TitleSection>
-    <Biz :is-playing="{ ...isPlaying.Biz }" />
-    <Gap />
-
-    <EarlyDays :is-playing="isPlaying.EarlyDays" />
-    <Gap />
-
-    <TitleSection scene="ArtPhiGamesTitle">
-      <TitleFunction subtitle="background.bmp">
-        <span class="line"><span class="params">`${</span>Art<span class="params">}</span></span>
-        <span class="line"><span class="params">&nbsp;${</span>Philosophy<span class="params">}</span></span>
-        <span class="line"><span class="params">&nbsp;${</span>VideoGames<span class="params">}`</span></span>
-      </TitleFunction>
-    </TitleSection>
-    <SuperMario />
-    <Gap />
-
-    <Ghibli />
-    <Wrapper />
-    <Thanks />
-  </div>
-</template>
-
 <script>
 import '@/styles/home.scss'
 import { TimelineMax, TweenLite, Power0, Power1, Power2, Power3 } from 'gsap'
@@ -997,3 +959,41 @@ export default {
   },
 }
 </script>
+
+<template>
+  <div
+    id="home"
+    class="wrapper"
+  >
+    <Intro />
+    <Gap />
+
+    <TitleSection scene="curriculum">
+      <TitleFunction
+        params="/^.*$/gi"
+        subtitle="&lt;WorkShowcase&gt;"
+      >
+        myCV
+      </TitleFunction>
+    </TitleSection>
+    <Biz :is-playing="{ ...isPlaying.Biz }" />
+    <Gap />
+
+    <EarlyDays :is-playing="isPlaying.EarlyDays" />
+    <Gap />
+
+    <TitleSection scene="ArtPhiGamesTitle">
+      <TitleFunction subtitle="background.bmp">
+        <span class="line"><span class="params">`${</span>Art<span class="params">}</span></span>
+        <span class="line"><span class="params">&nbsp;${</span>Philosophy<span class="params">}</span></span>
+        <span class="line"><span class="params">&nbsp;${</span>VideoGames<span class="params">}`</span></span>
+      </TitleFunction>
+    </TitleSection>
+    <SuperMario />
+    <Gap />
+
+    <Ghibli />
+    <Wrapper />
+    <Thanks />
+  </div>
+</template>

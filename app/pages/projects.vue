@@ -1,146 +1,3 @@
-<template>
-  <div class="flex flex-col items-center mt-24">
-    <AnimatingHeadline
-      v-if="pageTitle"
-      :title="pageTitle"
-      class="typography-magical-headline pb-12"
-      :auto-animation="true"
-    />
-    <NavBarExtension>
-      <div class="flex flex-col items-center gap-2">
-        <SegmentNav
-          :items="segmentNavItems"
-          :label="viewport.isLessThan('tablet') ? 'text' : 'combination'"
-          padding="0 21px"
-          component-size="small"
-          :separator="viewport.isGreaterOrEquals('tablet')"
-          gray-labels
-          :focus="false"
-          :outer-padding="3"
-          :selected-item="segmentNavItems[currentIndex]?.id"
-          :on-select="
-            (id: string) =>
-              updateCurrentIndex(
-                segmentNavItems.findIndex((item) => item.id === id),
-              )
-          "
-        />
-      </div>
-    </NavBarExtension>
-    <div
-      v-if="currentIndex === 0"
-      class="timeline-wrapper"
-    >
-      <TimeLine
-        :initial-height="ulHeight"
-        :on-update-height="updateHeight"
-      />
-      <div
-        ref="ul"
-        class="timeline"
-      >
-        <CardItem
-          v-for="(project, index) in currentProjects"
-          :key="index"
-          v-bind="{
-            ...project,
-            variant: 'article',
-            hover: false,
-            loading: false,
-            componentSize: viewport.isLessThan('tablet') ? 'small' : 'medium',
-            info: {
-              ...project.info,
-              date: {
-                ...project?.info?.date,
-                formatOptions: () => ({
-                  year: 'numeric',
-                  month: 'long',
-                }),
-              },
-            },
-            icon: {
-              ...project.icon,
-              position: viewport.isLessThan('tablet') ? 'top' : 'left',
-            },
-          }"
-        />
-      </div>
-    </div>
-    <div
-      v-else
-      class="w-full"
-    >
-      <div v-if="projects.personal.length > 0 && projects.school.length > 0">
-        <LiveResultSummary
-          :total-results="currentProjects.length + pinned.length"
-          :pinned-results="pinned.length"
-        />
-        <div
-          v-if="pinned"
-          class="card-container pinned-items"
-        >
-          <CardItem
-            v-for="(project, index) in pinned as Partial<CardItemType>[]"
-            :key="index"
-            v-bind="{
-              ...project,
-              loading: false,
-              componentSize: 'small',
-              colors: {
-                secondary: `var(--color-fill-${randomDevColor?.name}-secondary)`,
-                tertiary: `var(--color-figure-${randomDevColor?.name})`,
-                quaternary: `var(--color-figure-${randomDevColor?.name})`,
-              },
-              icon: {
-                ...project.icon,
-                position: 'right',
-                absolute: true,
-              },
-              info: {
-                ...project?.info,
-                date: {
-                  ...project?.info?.date,
-                  event: t('components.common.CardItem.updated'),
-                },
-              },
-            }"
-            class="color"
-          />
-        </div>
-
-        <div class="card-container">
-          <CardItem
-            v-for="(project, index) in currentProjects"
-            :key="index"
-            v-bind="{
-              ...project,
-              loading: false,
-              componentSize: 'small',
-              icon: {
-                ...project.icon,
-                position: 'right',
-              },
-              info: {
-                ...project.info,
-                date: {
-                  ...project?.info?.date,
-                  event: t('components.common.CardItem.updated'),
-                },
-              },
-            }"
-          />
-
-          <ResultBlankState v-if="currentProjects.length === 0" />
-        </div>
-      </div>
-      <LoadingSpinner
-        v-else
-        class="center-horizontal center-vertical pt-24"
-      />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import type { Repository } from '@octokit/graphql-schema'
 import type { CardItemType } from '#shared/types/common/card-item'
@@ -325,6 +182,149 @@ onUnmounted(() => {
   removeEventListener('resize', updateUlHeightAndInitializePath)
 })
 </script>
+
+<template>
+  <div class="flex flex-col items-center mt-24">
+    <AnimatingHeadline
+      v-if="pageTitle"
+      :title="pageTitle"
+      class="typography-magical-headline pb-12"
+      :auto-animation="true"
+    />
+    <NavBarExtension>
+      <div class="flex flex-col items-center gap-2">
+        <SegmentNav
+          :items="segmentNavItems"
+          :label="viewport.isLessThan('tablet') ? 'text' : 'combination'"
+          padding="0 21px"
+          component-size="small"
+          :separator="viewport.isGreaterOrEquals('tablet')"
+          gray-labels
+          :focus="false"
+          :outer-padding="3"
+          :selected-item="segmentNavItems[currentIndex]?.id"
+          :on-select="
+            (id: string) =>
+              updateCurrentIndex(
+                segmentNavItems.findIndex((item) => item.id === id),
+              )
+          "
+        />
+      </div>
+    </NavBarExtension>
+    <div
+      v-if="currentIndex === 0"
+      class="timeline-wrapper"
+    >
+      <TimeLine
+        :initial-height="ulHeight"
+        :on-update-height="updateHeight"
+      />
+      <div
+        ref="ul"
+        class="timeline"
+      >
+        <CardItem
+          v-for="(project, index) in currentProjects"
+          :key="index"
+          v-bind="{
+            ...project,
+            variant: 'article',
+            hover: false,
+            loading: false,
+            componentSize: viewport.isLessThan('tablet') ? 'small' : 'medium',
+            info: {
+              ...project.info,
+              date: {
+                ...project?.info?.date,
+                formatOptions: () => ({
+                  year: 'numeric',
+                  month: 'long',
+                }),
+              },
+            },
+            icon: {
+              ...project.icon,
+              position: viewport.isLessThan('tablet') ? 'top' : 'left',
+            },
+          }"
+        />
+      </div>
+    </div>
+    <div
+      v-else
+      class="w-full"
+    >
+      <div v-if="projects.personal.length > 0 && projects.school.length > 0">
+        <LiveResultSummary
+          :total-results="currentProjects.length + pinned.length"
+          :pinned-results="pinned.length"
+        />
+        <div
+          v-if="pinned"
+          class="card-container pinned-items"
+        >
+          <CardItem
+            v-for="(project, index) in pinned as Partial<CardItemType>[]"
+            :key="index"
+            v-bind="{
+              ...project,
+              loading: false,
+              componentSize: 'small',
+              colors: {
+                secondary: `var(--color-fill-${randomDevColor?.name}-secondary)`,
+                tertiary: `var(--color-figure-${randomDevColor?.name})`,
+                quaternary: `var(--color-figure-${randomDevColor?.name})`,
+              },
+              icon: {
+                ...project.icon,
+                position: 'right',
+                absolute: true,
+              },
+              info: {
+                ...project?.info,
+                date: {
+                  ...project?.info?.date,
+                  event: t('components.common.CardItem.updated'),
+                },
+              },
+            }"
+            class="color"
+          />
+        </div>
+
+        <div class="card-container">
+          <CardItem
+            v-for="(project, index) in currentProjects"
+            :key="index"
+            v-bind="{
+              ...project,
+              loading: false,
+              componentSize: 'small',
+              icon: {
+                ...project.icon,
+                position: 'right',
+              },
+              info: {
+                ...project.info,
+                date: {
+                  ...project?.info?.date,
+                  event: t('components.common.CardItem.updated'),
+                },
+              },
+            }"
+          />
+
+          <ResultBlankState v-if="currentProjects.length === 0" />
+        </div>
+      </div>
+      <LoadingSpinner
+        v-else
+        class="center-horizontal center-vertical pt-24"
+      />
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .highlight {

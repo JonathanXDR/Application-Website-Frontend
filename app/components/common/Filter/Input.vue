@@ -1,151 +1,3 @@
-<template>
-  <div
-    class="filter filter-component"
-    role="search"
-    tabindex="0"
-    :aria-labelledby="searchAriaLabelledBy"
-    :class="{ focus: displaySuggestedTags && !preventBorderStyle }"
-    @blur.capture="handleBlur"
-    @focus.capture="handleFocus"
-  >
-    <div
-      :class="[
-        'filter__wrapper',
-        {
-          'filter__wrapper--reversed': positionReversed,
-          'filter__wrapper--no-border-style': preventBorderStyle,
-        },
-      ]"
-    >
-      <div class="filter__top-wrapper">
-        <button
-          class="filter__filter-button"
-          aria-hidden="true"
-          tabindex="-1"
-          :class="{ blue: inputIsNotEmpty }"
-          @click="setFocusInput"
-          @mousedown.prevent
-        >
-          <slot name="icon">
-            <svg
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              class="svg-icon filter-icon"
-              height="21"
-              width="21"
-              viewBox="0 0 21 21"
-              fill="currentColor"
-            >
-              <path
-                d="M2.8,6.8h15.5c0.3,0,0.5-0.2,0.5-0.5c0-0.3-0.2-0.5-0.5-0.5H2.8C2.5,5.8,2.2,6,2.2,6.3C2.2,6.6,2.5,6.8,2.8,6.8z M4.6,11h11.8c0.3,0,0.5-0.2,0.5-0.5c0-0.3-0.2-0.5-0.5-0.5H4.6c-0.3,0-0.5,0.2-0.5,0.5C4.1,10.8,4.4,11,4.6,11z M6.5,15.2h8.2c0.3,0,0.5-0.2,0.5-0.5c0-0.3-0.2-0.5-0.5-0.5H6.5c-0.3,0-0.5,0.2-0.5,0.5C6,14.9,6.2,15.2,6.5,15.2z"
-              />
-            </svg>
-          </slot>
-        </button>
-        <div
-          ref="scrollWrapperRef"
-          :class="['filter__input-box-wrapper', { scrolling: isScrolling }]"
-        >
-          <FilterTagList
-            v-if="hasSelectedTags"
-            :id="SelectedTagsId"
-            v-bind="virtualKeyboardBind"
-            ref="selectedTagsRef"
-            :input="modelValue"
-            :tags="modelSelectedTags"
-            :aria-label="`${selectedTagsAriaLabel}`"
-            :active-tags="activeTags"
-            :translatable-tags="translatableTags"
-            class="filter__selected-tags"
-            v-on="selectedTagsMultipleSelectionListeners"
-            @focus-prev="handleFocusPrevOnSelectedTags"
-            @focus-next="focusInputFromTags"
-            @reset-filters="resetFilters"
-            @prevent-blur="$emit('update:preventedBlur', true)"
-          />
-          <label
-            :for="FilterInputId"
-            :data-value="modelValue"
-            :aria-label="placeholder"
-            class="filter__input-label"
-          >
-            <input
-              :id="FilterInputId"
-              ref="inputRef"
-              v-model="modelValue"
-              :placeholder="hasSelectedTags ? '' : placeholder"
-              :aria-expanded="displaySuggestedTags ? 'true' : 'false'"
-              :disabled="disabled"
-              v-bind="AXinputProperties"
-              type="text"
-              class="filter__input"
-              v-on="inputMultipleSelectionListeners"
-              @focus="selectInputOnFocus && selectInputAndTags()"
-              @keydown.down.prevent="downHandler"
-              @keydown.up.prevent="upHandler"
-              @keydown.left="leftKeyInputHandler"
-              @keydown.right="rightKeyInputHandler"
-              @keydown.delete="deleteHandler"
-              @keydown.meta.a.prevent.stop="selectInputAndTags"
-              @keydown.ctrl.a.prevent="selectInputAndTags"
-              @keydown.exact="inputKeydownHandler"
-              @keydown.enter.exact="enterHandler"
-              @keydown.shift.exact="inputKeydownHandler"
-              @keydown.shift.meta.exact="inputKeydownHandler"
-            >
-          </label>
-        </div>
-        <div class="filter__delete-button-wrapper">
-          <button
-            v-if="modelValue.length || displaySuggestedTags || hasSelectedTags"
-            :aria-label="deleteButtonAriaLabel"
-            class="filter__delete-button"
-            @click="resetFilters(true)"
-            @keydown.enter.exact.stop="resetFilters(true)"
-            @mousedown.prevent
-          >
-            <svg
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              class="svg-icon clear-rounded-icon"
-              viewBox="0 0 16 16"
-            >
-              <title>Clear</title>
-              <path
-                d="M10.5,11.3a.7.7,0,0,1-.6-.2L8,9.2,6.1,11.1a.7.7,0,0,1-.6.2.8.8,0,0,1-.9-.8.9.9,0,0,
-    1,.3-.6L6.8,8,4.9,6.1a.9.9,0,0,1-.3-.6.8.8,0,0,1,.9-.8l.6.2L8,6.8,9.9,4.9a.7.7,0,0,1,
-    .6-.2.8.8,0,0,1,.9.8.9.9,0,0,1-.3.6L9.2,8l1.9,1.9a.9.9,0,0,1,.3.6A.8.8,0,0,1,10.5,11.3ZM8,
-    16A8,8,0,1,0,0,8,8,8,0,0,0,8,16Z"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <FilterTagList
-        v-if="displaySuggestedTags"
-        :id="SuggestedTagsId"
-        ref="suggestedTagsRef"
-        :aria-label="`${suggestedTagsAriaLabel}`"
-        :input="modelValue"
-        :tags="computedSuggestedTags"
-        :active-tags="activeTags"
-        :translatable-tags="translatableTags"
-        v-bind="virtualKeyboardBind"
-        class="filter__suggested-tags"
-        @click-tags="
-          (event: MouseEvent) =>
-            selectTag((event.target as HTMLElement).dataset.tagName || '')
-        "
-        @prevent-blur="$emit('update:preventedBlur', true)"
-        @focus-next="positionReversed ? setFocusInput() : $emit('focus-next')"
-        @focus-prev="positionReversed ? $emit('focus-prev') : setFocusInput()"
-      />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import type FilterTagList from '~/components/common/Filter/TagList.vue'
 import {
@@ -890,6 +742,154 @@ const selectedTagsMultipleSelectionListeners = {
   'paste-tags': handlePaste,
 }
 </script>
+
+<template>
+  <div
+    class="filter filter-component"
+    role="search"
+    tabindex="0"
+    :aria-labelledby="searchAriaLabelledBy"
+    :class="{ focus: displaySuggestedTags && !preventBorderStyle }"
+    @blur.capture="handleBlur"
+    @focus.capture="handleFocus"
+  >
+    <div
+      :class="[
+        'filter__wrapper',
+        {
+          'filter__wrapper--reversed': positionReversed,
+          'filter__wrapper--no-border-style': preventBorderStyle,
+        },
+      ]"
+    >
+      <div class="filter__top-wrapper">
+        <button
+          class="filter__filter-button"
+          aria-hidden="true"
+          tabindex="-1"
+          :class="{ blue: inputIsNotEmpty }"
+          @click="setFocusInput"
+          @mousedown.prevent
+        >
+          <slot name="icon">
+            <svg
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              class="svg-icon filter-icon"
+              height="21"
+              width="21"
+              viewBox="0 0 21 21"
+              fill="currentColor"
+            >
+              <path
+                d="M2.8,6.8h15.5c0.3,0,0.5-0.2,0.5-0.5c0-0.3-0.2-0.5-0.5-0.5H2.8C2.5,5.8,2.2,6,2.2,6.3C2.2,6.6,2.5,6.8,2.8,6.8z M4.6,11h11.8c0.3,0,0.5-0.2,0.5-0.5c0-0.3-0.2-0.5-0.5-0.5H4.6c-0.3,0-0.5,0.2-0.5,0.5C4.1,10.8,4.4,11,4.6,11z M6.5,15.2h8.2c0.3,0,0.5-0.2,0.5-0.5c0-0.3-0.2-0.5-0.5-0.5H6.5c-0.3,0-0.5,0.2-0.5,0.5C6,14.9,6.2,15.2,6.5,15.2z"
+              />
+            </svg>
+          </slot>
+        </button>
+        <div
+          ref="scrollWrapperRef"
+          :class="['filter__input-box-wrapper', { scrolling: isScrolling }]"
+        >
+          <FilterTagList
+            v-if="hasSelectedTags"
+            :id="SelectedTagsId"
+            v-bind="virtualKeyboardBind"
+            ref="selectedTagsRef"
+            :input="modelValue"
+            :tags="modelSelectedTags"
+            :aria-label="`${selectedTagsAriaLabel}`"
+            :active-tags="activeTags"
+            :translatable-tags="translatableTags"
+            class="filter__selected-tags"
+            v-on="selectedTagsMultipleSelectionListeners"
+            @focus-prev="handleFocusPrevOnSelectedTags"
+            @focus-next="focusInputFromTags"
+            @reset-filters="resetFilters"
+            @prevent-blur="$emit('update:preventedBlur', true)"
+          />
+          <label
+            :for="FilterInputId"
+            :data-value="modelValue"
+            :aria-label="placeholder"
+            class="filter__input-label"
+          >
+            <input
+              :id="FilterInputId"
+              ref="inputRef"
+              v-model="modelValue"
+              :placeholder="hasSelectedTags ? '' : placeholder"
+              :aria-expanded="displaySuggestedTags ? 'true' : 'false'"
+              :disabled="disabled"
+              v-bind="AXinputProperties"
+              type="text"
+              class="filter__input"
+              v-on="inputMultipleSelectionListeners"
+              @focus="selectInputOnFocus && selectInputAndTags()"
+              @keydown.down.prevent="downHandler"
+              @keydown.up.prevent="upHandler"
+              @keydown.left="leftKeyInputHandler"
+              @keydown.right="rightKeyInputHandler"
+              @keydown.delete="deleteHandler"
+              @keydown.meta.a.prevent.stop="selectInputAndTags"
+              @keydown.ctrl.a.prevent="selectInputAndTags"
+              @keydown.exact="inputKeydownHandler"
+              @keydown.enter.exact="enterHandler"
+              @keydown.shift.exact="inputKeydownHandler"
+              @keydown.shift.meta.exact="inputKeydownHandler"
+            >
+          </label>
+        </div>
+        <div class="filter__delete-button-wrapper">
+          <button
+            v-if="modelValue.length || displaySuggestedTags || hasSelectedTags"
+            :aria-label="deleteButtonAriaLabel"
+            class="filter__delete-button"
+            @click="resetFilters(true)"
+            @keydown.enter.exact.stop="resetFilters(true)"
+            @mousedown.prevent
+          >
+            <svg
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              class="svg-icon clear-rounded-icon"
+              viewBox="0 0 16 16"
+            >
+              <title>Clear</title>
+              <path
+                d="M10.5,11.3a.7.7,0,0,1-.6-.2L8,9.2,6.1,11.1a.7.7,0,0,1-.6.2.8.8,0,0,1-.9-.8.9.9,0,0,
+    1,.3-.6L6.8,8,4.9,6.1a.9.9,0,0,1-.3-.6.8.8,0,0,1,.9-.8l.6.2L8,6.8,9.9,4.9a.7.7,0,0,1,
+    .6-.2.8.8,0,0,1,.9.8.9.9,0,0,1-.3.6L9.2,8l1.9,1.9a.9.9,0,0,1,.3.6A.8.8,0,0,1,10.5,11.3ZM8,
+    16A8,8,0,1,0,0,8,8,8,0,0,0,8,16Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <FilterTagList
+        v-if="displaySuggestedTags"
+        :id="SuggestedTagsId"
+        ref="suggestedTagsRef"
+        :aria-label="`${suggestedTagsAriaLabel}`"
+        :input="modelValue"
+        :tags="computedSuggestedTags"
+        :active-tags="activeTags"
+        :translatable-tags="translatableTags"
+        v-bind="virtualKeyboardBind"
+        class="filter__suggested-tags"
+        @click-tags="
+          (event: MouseEvent) =>
+            selectTag((event.target as HTMLElement).dataset.tagName || '')
+        "
+        @prevent-blur="$emit('update:preventedBlur', true)"
+        @focus-next="positionReversed ? setFocusInput() : $emit('focus-next')"
+        @focus-prev="positionReversed ? $emit('focus-prev') : setFocusInput()"
+      />
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .svg-icon {

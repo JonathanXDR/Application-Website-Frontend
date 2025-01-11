@@ -1,13 +1,13 @@
 <!-- eslint-disable vue/multi-word-component-names -->
-<template>
-  <div :class="['mario-coin', { pause: !isPlaying }]" />
-</template>
-
 <script setup lang="ts">
 defineProps<{
   isPlaying: boolean
 }>()
 </script>
+
+<template>
+  <div :class="['mario-coin', { pause: !isPlaying }]" />
+</template>
 
 <style scoped>
 .mario-coin {

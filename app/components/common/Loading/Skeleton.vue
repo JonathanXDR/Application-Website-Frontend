@@ -1,3 +1,10 @@
+<script setup lang="ts">
+defineProps<{
+  width: string
+  height: string
+}>()
+</script>
+
 <template>
   <span
     class="loading-skeleton"
@@ -7,13 +14,6 @@
     }"
   />
 </template>
-
-<script setup lang="ts">
-defineProps<{
-  width: string
-  height: string
-}>()
-</script>
 
 <style scoped>
 .loading-skeleton {

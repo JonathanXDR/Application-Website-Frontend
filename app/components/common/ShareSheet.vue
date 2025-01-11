@@ -1,3 +1,15 @@
+<script setup lang="ts">
+import type { FaLinkType } from '#shared/types/common/fa-link'
+import type { ShareSheet } from '#shared/types/common/share-sheet'
+
+defineProps<ShareSheet>()
+
+const { tm } = useI18n()
+const links = computed<FaLinkType[]>(() =>
+  tm('components.common.ShareSheet.links'),
+)
+</script>
+
 <template>
   <section class="sharesheet">
     <ul class="sharesheet-options">
@@ -24,18 +36,6 @@
     </ul>
   </section>
 </template>
-
-<script setup lang="ts">
-import type { FaLinkType } from '#shared/types/common/fa-link'
-import type { ShareSheet } from '#shared/types/common/share-sheet'
-
-defineProps<ShareSheet>()
-
-const { tm } = useI18n()
-const links = computed<FaLinkType[]>(() =>
-  tm('components.common.ShareSheet.links'),
-)
-</script>
 
 <style scoped>
 .link:hover {

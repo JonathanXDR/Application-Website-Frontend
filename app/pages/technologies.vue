@@ -1,3 +1,43 @@
+<script setup lang="ts">
+import type { CardItemType } from '#shared/types/common/card-item'
+
+definePageMeta({
+  header: true,
+  nav: true,
+  ribbon: true,
+  footerFull: true,
+  footerCompact: false,
+})
+
+const navbar = useNavbar()
+const { tm } = useI18n()
+
+const pageTitle = navbar.pageTitle
+const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
+
+const cards = computed<CardItemType[]>(() =>
+  tm('components.containers.technologies'),
+)
+
+// const tags = [
+//   ...new Set(
+//     cards.value
+//       .flatMap((card) => card.badges?.map((badge) => badge.title))
+//       .filter((title): title is string => title !== undefined)
+//   ),
+// ]
+
+// const segmentNavItems = computed<ItemType[]>(() =>
+//   tm("components.common.SegmentNav.technologies"),
+// );
+// const { windowWidth } = useWidth();
+// const currentIndex = ref(0);
+
+// const updateCurrentIndex = (index: number) => {
+//   currentIndex.value = index;
+// };
+</script>
+
 <template>
   <div class="flex flex-col items-center mt-24">
     <AnimatingHeadline
@@ -73,46 +113,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import type { CardItemType } from '#shared/types/common/card-item'
-
-definePageMeta({
-  header: true,
-  nav: true,
-  ribbon: true,
-  footerFull: true,
-  footerCompact: false,
-})
-
-const navbar = useNavbar()
-const { tm } = useI18n()
-
-const pageTitle = navbar.pageTitle
-const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
-
-const cards = computed<CardItemType[]>(() =>
-  tm('components.containers.technologies'),
-)
-
-// const tags = [
-//   ...new Set(
-//     cards.value
-//       .flatMap((card) => card.badges?.map((badge) => badge.title))
-//       .filter((title): title is string => title !== undefined)
-//   ),
-// ]
-
-// const segmentNavItems = computed<ItemType[]>(() =>
-//   tm("components.common.SegmentNav.technologies"),
-// );
-// const { windowWidth } = useWidth();
-// const currentIndex = ref(0);
-
-// const updateCurrentIndex = (index: number) => {
-//   currentIndex.value = index;
-// };
-</script>
 
 <style scoped>
 .large-10 {

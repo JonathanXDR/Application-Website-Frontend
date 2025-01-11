@@ -1,10 +1,3 @@
-<template>
-  <AnimatingGallery
-    title="Music Discovery"
-    description="Where your new favorites find you."
-  />
-</template>
-
 <script setup lang="ts">
 definePageMeta({
   header: true,
@@ -28,3 +21,10 @@ definePageMeta({
 //   }
 // )
 </script>
+
+<template>
+  <AnimatingGallery
+    title="Music Discovery"
+    description="Where your new favorites find you."
+  />
+</template>

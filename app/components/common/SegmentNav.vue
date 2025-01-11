@@ -1,75 +1,3 @@
-<template>
-  <div
-    ref="navContainer"
-    :class="['viewer-sizenav all-access-pass__background', { shadow }]"
-    :style="containerStyle"
-  >
-    <div
-      v-if="selectedItemElement"
-      class="viewer-sizenav__bubble"
-    >
-      <div
-        class="viewer-sizenav__bubble-inner"
-        :style="bubbleStyle"
-      />
-    </div>
-    <ul
-      class="viewer-sizenav-items"
-      :style="{ '--viewer-sizenav-items-gap': gap }"
-    >
-      <li
-        v-for="(item, index) in items"
-        :key="index"
-        :ref="setItemReference as any"
-        :class="['viewer-sizenav-item', { separator }]"
-      >
-        <input
-          :id="`viewer-sizenav-value-${item.id}`"
-          v-model="selectedItem"
-          type="radio"
-          :name="`viewer-sizenav-value-${item.category}`"
-          :class="['viewer-sizenav-value', { focus }]"
-          :aria-label="item.label"
-          :value="item.id"
-          :disabled="item.id !== selectedItem && isTransitioning"
-        >
-        <label
-          :for="`viewer-sizenav-value-${item.id}`"
-          class="viewer-sizenav-link"
-          :style="{
-            minWidth:
-              label !== 'icon'
-                ? '48px'
-                : `${computedHeight - outerPadding * 2}px`,
-          }"
-        >
-          <span
-            :class="`viewer-sizenav-swatch viewer-sizenav-swatch-${item.id}`"
-          >
-            <span
-              class="viewer-sizenav-label"
-              :style="{
-                padding: computedPadding,
-                color: grayLabels
-                  ? 'var(--color-figure-gray-secondary)'
-                  : 'var(--aap-icon-color)',
-                fontSize: `${fontSize}px`,
-              }"
-            >
-              <DynamicIcon
-                v-if="item.icon && label !== 'text'"
-                :name="item.icon.name"
-                class="icon icon-lg"
-              />
-              <div v-if="label !== 'icon'">{{ item.label }}</div>
-            </span>
-          </span>
-        </label>
-      </li>
-    </ul>
-  </div>
-</template>
-
 <script setup lang="ts">
 import type { SegmentNavType } from '#shared/types/common/segment-nav'
 
@@ -167,6 +95,78 @@ useResizeObserver(navContainer, () => {
   })
 })
 </script>
+
+<template>
+  <div
+    ref="navContainer"
+    :class="['viewer-sizenav all-access-pass__background', { shadow }]"
+    :style="containerStyle"
+  >
+    <div
+      v-if="selectedItemElement"
+      class="viewer-sizenav__bubble"
+    >
+      <div
+        class="viewer-sizenav__bubble-inner"
+        :style="bubbleStyle"
+      />
+    </div>
+    <ul
+      class="viewer-sizenav-items"
+      :style="{ '--viewer-sizenav-items-gap': gap }"
+    >
+      <li
+        v-for="(item, index) in items"
+        :key="index"
+        :ref="setItemReference as any"
+        :class="['viewer-sizenav-item', { separator }]"
+      >
+        <input
+          :id="`viewer-sizenav-value-${item.id}`"
+          v-model="selectedItem"
+          type="radio"
+          :name="`viewer-sizenav-value-${item.category}`"
+          :class="['viewer-sizenav-value', { focus }]"
+          :aria-label="item.label"
+          :value="item.id"
+          :disabled="item.id !== selectedItem && isTransitioning"
+        >
+        <label
+          :for="`viewer-sizenav-value-${item.id}`"
+          class="viewer-sizenav-link"
+          :style="{
+            minWidth:
+              label !== 'icon'
+                ? '48px'
+                : `${computedHeight - outerPadding * 2}px`,
+          }"
+        >
+          <span
+            :class="`viewer-sizenav-swatch viewer-sizenav-swatch-${item.id}`"
+          >
+            <span
+              class="viewer-sizenav-label"
+              :style="{
+                padding: computedPadding,
+                color: grayLabels
+                  ? 'var(--color-figure-gray-secondary)'
+                  : 'var(--aap-icon-color)',
+                fontSize: `${fontSize}px`,
+              }"
+            >
+              <DynamicIcon
+                v-if="item.icon && label !== 'text'"
+                :name="item.icon.name"
+                class="icon icon-lg"
+              />
+              <div v-if="label !== 'icon'">{{ item.label }}</div>
+            </span>
+          </span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</template>
 
 <style scoped>
 .viewer-sizenav-item.separator {

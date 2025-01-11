@@ -1,13 +1,3 @@
-<template>
-  <NuxtLoadingIndicator
-    :color="color"
-    :error-color="`var(--color-figure-red)`"
-  />
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
-</template>
-
 <script setup lang="ts">
 const conifg = useRuntimeConfig()
 const { randomDevColor } = useColor()
@@ -17,3 +7,13 @@ const color
     ? `var(--color-figure-${randomDevColor.value?.name})`
     : 'var(--color-fill-blue)'
 </script>
+
+<template>
+  <NuxtLoadingIndicator
+    :color="color"
+    :error-color="`var(--color-figure-red)`"
+  />
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
+</template>

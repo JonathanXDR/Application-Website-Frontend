@@ -1,3 +1,18 @@
+<script setup lang="ts">
+import type { ItemType } from '#shared/types/common/item'
+
+withDefaults(
+  defineProps<{
+    options: ItemType[]
+    label?: string
+  }>(),
+  {
+    options: () => [],
+    label: undefined,
+  },
+)
+</script>
+
 <template>
   <div class="form-element form-has-value">
     <select class="form-dropdown">
@@ -25,21 +40,6 @@
     >{{ label }}</span>
   </div>
 </template>
-
-<script setup lang="ts">
-import type { ItemType } from '#shared/types/common/item'
-
-withDefaults(
-  defineProps<{
-    options: ItemType[]
-    label?: string
-  }>(),
-  {
-    options: () => [],
-    label: undefined,
-  },
-)
-</script>
 
 <style scoped>
 .form-element {

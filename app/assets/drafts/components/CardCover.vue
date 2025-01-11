@@ -8,6 +8,26 @@
   See https://swift.org/CONTRIBUTORS.txt for Swift project authors
 -->
 
+<script>
+export default {
+  name: 'CardCover',
+  props: {
+    variants: {
+      type: Array,
+      required: true,
+    },
+    rounded: {
+      type: Boolean,
+      default: false,
+    },
+    alt: {
+      type: String,
+      default: null,
+    },
+  },
+}
+</script>
+
 <template>
   <div
     class="card-cover-wrap"
@@ -34,26 +54,6 @@
     </slot>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'CardCover',
-  props: {
-    variants: {
-      type: Array,
-      required: true,
-    },
-    rounded: {
-      type: Boolean,
-      default: false,
-    },
-    alt: {
-      type: String,
-      default: null,
-    },
-  },
-}
-</script>
 
 <style scoped lang="scss">
 @import "/app/assets/scss/_core.scss";

@@ -1,3 +1,14 @@
+<script setup lang="ts">
+import audioSrc from '~/assets/drafts/background_animation/intro-music.mp3'
+import videoSrc from '~/assets/drafts/background_animation/orb/orb.mp4'
+
+const { play, isPlaying } = useSound(audioSrc, { volume: 1, autoplay: true })
+
+const handlePlay = () => {
+  if (!isPlaying.value) play()
+}
+</script>
+
 <template>
   <div
     class="video-container"
@@ -45,17 +56,6 @@
     </svg>
   </div>
 </template>
-
-<script setup lang="ts">
-import audioSrc from '~/assets/drafts/background_animation/intro-music.mp3'
-import videoSrc from '~/assets/drafts/background_animation/orb/orb.mp4'
-
-const { play, isPlaying } = useSound(audioSrc, { volume: 1, autoplay: true })
-
-const handlePlay = () => {
-  if (!isPlaying.value) play()
-}
-</script>
 
 <style scoped>
 .video-container {

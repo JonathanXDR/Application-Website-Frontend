@@ -1,49 +1,3 @@
-<template>
-  <aside
-    class="countdown"
-    aria-label="Countdown"
-  >
-    <div
-      v-for="(value, label) in countdown"
-      :key="label"
-      class="countdown-zone"
-    >
-      <span class="countdown-volabel">{{ value.current }}, {{ label }}</span>
-      <div
-        class="countdown-digitsholder"
-        aria-hidden="true"
-      >
-        <Transition enter-active-class="countdown-current">
-          <span
-            v-if="value.transition"
-            :key="value.prev"
-            class="countdown-prev"
-          >
-            {{ value.prev }}
-          </span>
-        </Transition>
-        <Transition
-          enter-active-class="countdown-next"
-          leave-active-class="countdown-prev"
-        >
-          <span
-            :key="value.current"
-            class="countdown-current"
-          >
-            {{ value.current }}
-          </span>
-        </Transition>
-      </div>
-      <div
-        class="countdown-label"
-        aria-hidden="true"
-      >
-        {{ label }}
-      </div>
-    </div>
-  </aside>
-</template>
-
 <script setup lang="ts">
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
@@ -134,6 +88,52 @@ onUnmounted(() => {
   clearInterval(timer)
 })
 </script>
+
+<template>
+  <aside
+    class="countdown"
+    aria-label="Countdown"
+  >
+    <div
+      v-for="(value, label) in countdown"
+      :key="label"
+      class="countdown-zone"
+    >
+      <span class="countdown-volabel">{{ value.current }}, {{ label }}</span>
+      <div
+        class="countdown-digitsholder"
+        aria-hidden="true"
+      >
+        <Transition enter-active-class="countdown-current">
+          <span
+            v-if="value.transition"
+            :key="value.prev"
+            class="countdown-prev"
+          >
+            {{ value.prev }}
+          </span>
+        </Transition>
+        <Transition
+          enter-active-class="countdown-next"
+          leave-active-class="countdown-prev"
+        >
+          <span
+            :key="value.current"
+            class="countdown-current"
+          >
+            {{ value.current }}
+          </span>
+        </Transition>
+      </div>
+      <div
+        class="countdown-label"
+        aria-hidden="true"
+      >
+        {{ label }}
+      </div>
+    </div>
+  </aside>
+</template>
 
 <style scoped>
 .countdown {

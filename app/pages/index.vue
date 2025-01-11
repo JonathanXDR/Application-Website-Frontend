@@ -1,3 +1,20 @@
+<script setup lang="ts">
+import type { SectionType } from '#shared/types/common/section'
+
+defineOgImageComponent('Overview')
+
+definePageMeta({
+  header: true,
+  nav: true,
+  ribbon: true,
+  footerFull: true,
+  footerCompact: false,
+})
+
+const { tm } = useI18n()
+const sections = computed<SectionType[]>(() => tm('components.common.NavBar'))
+</script>
+
 <template>
   <div>
     <template v-for="section in sections">
@@ -17,23 +34,6 @@
     </template>
   </div>
 </template>
-
-<script setup lang="ts">
-import type { SectionType } from '#shared/types/common/section'
-
-defineOgImageComponent('Overview')
-
-definePageMeta({
-  header: true,
-  nav: true,
-  ribbon: true,
-  footerFull: true,
-  footerCompact: false,
-})
-
-const { tm } = useI18n()
-const sections = computed<SectionType[]>(() => tm('components.common.NavBar'))
-</script>
 
 <style scoped>
 #vhs {

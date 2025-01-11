@@ -1,12 +1,3 @@
-<template>
-  <template v-if="!loading && name">
-    <component
-      :is="component"
-      v-bind="props"
-    />
-  </template>
-</template>
-
 <script setup lang="ts">
 import { NuxtIcon, SFSymbol } from '#components'
 import type { IconType } from '#shared/types/common/icon'
@@ -27,6 +18,15 @@ const component = computed(() => {
   return props.name && sfSymbolRegex.test(props.name) ? SFSymbol : NuxtIcon
 })
 </script>
+
+<template>
+  <template v-if="!loading && name">
+    <component
+      :is="component"
+      v-bind="props"
+    />
+  </template>
+</template>
 
 <style>
 .icon.icon-xxs {

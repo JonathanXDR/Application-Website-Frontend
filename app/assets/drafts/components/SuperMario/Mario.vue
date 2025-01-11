@@ -1,15 +1,15 @@
 <!-- eslint-disable vue/multi-word-component-names -->
-<template>
-  <div>
-    <div :class="['mario', state]" />
-  </div>
-</template>
-
 <script setup lang="ts">
 defineProps<{
   state: string
 }>()
 </script>
+
+<template>
+  <div>
+    <div :class="['mario', state]" />
+  </div>
+</template>
 
 <style scoped>
 .mario {

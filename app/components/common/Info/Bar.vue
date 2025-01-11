@@ -1,56 +1,3 @@
-<template>
-  <div class="info">
-    <template
-      v-for="item in infoItems"
-      :key="item.id"
-    >
-      <div
-        v-if="props[item.id]"
-        class="info-item"
-      >
-        <DynamicIcon
-          v-if="item.icon"
-          :name="item.icon.name"
-          :loading="loading"
-          class="info-icon"
-        />
-        <template v-if="!loading">
-          {{ props[item.id] }}
-        </template>
-        <template v-else>
-          <LoadingSkeleton
-            width="100px"
-            height="15px"
-          />
-        </template>
-      </div>
-    </template>
-
-    <div
-      v-if="props.date.fixed || props.date.duration"
-      class="info-item"
-    >
-      <DynamicIcon
-        :loading="loading"
-        :name="updatedYesterday ? 'clock.fill' : 'calendar'"
-        class="info-icon"
-      />
-      <template v-if="!loading">
-        {{
-          dateTitle
-            || `${props.date.duration?.from} - ${props.date.duration?.to}`
-        }}
-      </template>
-      <template v-else>
-        <LoadingSkeleton
-          width="100px"
-          height="15px"
-        />
-      </template>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
@@ -136,6 +83,59 @@ watch([locale, () => props.date], () => {
   dateTitle.value = getDate()
 })
 </script>
+
+<template>
+  <div class="info">
+    <template
+      v-for="item in infoItems"
+      :key="item.id"
+    >
+      <div
+        v-if="props[item.id]"
+        class="info-item"
+      >
+        <DynamicIcon
+          v-if="item.icon"
+          :name="item.icon.name"
+          :loading="loading"
+          class="info-icon"
+        />
+        <template v-if="!loading">
+          {{ props[item.id] }}
+        </template>
+        <template v-else>
+          <LoadingSkeleton
+            width="100px"
+            height="15px"
+          />
+        </template>
+      </div>
+    </template>
+
+    <div
+      v-if="props.date.fixed || props.date.duration"
+      class="info-item"
+    >
+      <DynamicIcon
+        :loading="loading"
+        :name="updatedYesterday ? 'clock.fill' : 'calendar'"
+        class="info-icon"
+      />
+      <template v-if="!loading">
+        {{
+          dateTitle
+            || `${props.date.duration?.from} - ${props.date.duration?.to}`
+        }}
+      </template>
+      <template v-else>
+        <LoadingSkeleton
+          width="100px"
+          height="15px"
+        />
+      </template>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .info {
