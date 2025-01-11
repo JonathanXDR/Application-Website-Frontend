@@ -248,7 +248,7 @@
         "chooseYourLanguage": "Wähle deine Sprache"
       },
       "Footer": {
-        "allRightsReserved": "Copyright © {currentYear} Jonathan Russ. Alle Rechte vorbehalten."
+        "allRightsReserved": "{currentYear} Jonathan Russ. Alle Rechte vorbehalten."
       }
     },
     "containers": {
