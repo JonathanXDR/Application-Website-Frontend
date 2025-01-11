@@ -17,6 +17,7 @@ const { currentSection } = useSection()
 const { getTheme } = useTheme()
 const { y: scrollY } = useWindowScroll()
 const { headerAnimations, setHeaderAnimation } = useAnimation()
+const viewport = useViewport()
 const route = useRoute()
 const { tm } = useI18n()
 
@@ -391,7 +392,11 @@ watch(
               <ThemePicker />
             </div>
             <div class="ac-ln-action ac-ln-action-button">
-              <LanguagePickerDropdown />
+              <LanguagePickerDropdown
+                :label="
+                  viewport.isGreaterOrEquals('desktop') ? 'long' : 'short'
+                "
+              />
             </div>
           </div>
         </div>
