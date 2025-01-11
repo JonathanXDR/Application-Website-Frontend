@@ -105,9 +105,15 @@ const handleScroll = () => {
   }
 }
 
-const isCurrent = (item: SectionType) =>
-  item.id === currentSection.value?.id
-  || (item.route === '/' ? route.path === '/' : route.path.startsWith(item.route))
+const isCurrent = (item: SectionType) => {
+  if (!item.route) return
+  return (
+    item.id === currentSection.value?.id
+    || (item.route === '/'
+      ? route.path === '/'
+      : route.path.startsWith(item.route))
+  )
+}
 
 const updateAnimations = () => {
   for (const element of headerAnimations.value) {

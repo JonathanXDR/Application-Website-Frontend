@@ -40,6 +40,7 @@ withDefaults(
     </div>
     <LanguagePickerDropdown
       v-if="languageDropdown"
+      class="float-right"
       component-size="xsmall"
     />
 
