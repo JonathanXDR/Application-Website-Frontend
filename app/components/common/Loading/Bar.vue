@@ -1,3 +1,22 @@
+<script setup lang="ts">
+import type { ColorType } from '#shared/types/common/color'
+
+withDefaults(
+  defineProps<{
+    progress: number
+    colors?: ColorType
+    background?: boolean
+  }>(),
+  {
+    colors: () => ({
+      primary: 'var(--color-fill-gray)',
+      secondary: 'var(--color-fill-gray-secondary)',
+    }),
+    background: false,
+  },
+)
+</script>
+
 <template>
   <div
     v-animation="{ add: 'visible' }"
@@ -18,25 +37,6 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-import type { ColorType } from '#shared/types/common/color'
-
-withDefaults(
-  defineProps<{
-    progress: number
-    colors?: ColorType
-    background?: boolean
-  }>(),
-  {
-    colors: () => ({
-      primary: 'var(--color-fill-gray)',
-      secondary: 'var(--color-fill-gray-secondary)',
-    }),
-    background: false,
-  },
-)
-</script>
 
 <style scoped>
 .loader-progress.visible .loader-progress-indicator {

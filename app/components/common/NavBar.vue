@@ -1,205 +1,3 @@
-<template>
-  <input
-    id="ac-ln-menustate"
-    v-model="isOpen"
-    type="checkbox"
-    class="ac-ln-menustate"
-    aria-controls="ac-ln-menustate-tray"
-    aria-expanded="false"
-    :disabled="shouldOpen"
-    @input="handleNav()"
-  >
-  <div
-    id="ac-ln-fixed-placeholder"
-    :class="[
-      { 'css-sticky ac-ln-sticking': state.position === 'sticky' },
-      { 'css-fixed ac-ln-sticking': state.position === 'fixed' },
-    ]"
-  />
-  <nav
-    id="ac-localnav"
-    ref="navbarElement"
-    :class="[
-      'ac-ln-allow-transitions',
-      { 'css-sticky ac-ln-sticking': state.position === 'sticky' },
-      { 'css-fixed ac-ln-sticking': state.position === 'fixed' },
-      { 'ac-localnav-noborder': !state.border },
-      { 'ac-localnav-scrim': state.scrim },
-      { 'ac-ln-hide': state.autoHide },
-      { 'ac-ln-hidden': shouldHide },
-      { 'ac-ln-open': isOpen },
-      { 'ac-ln-opening': shouldOpen },
-    ]"
-    :style="{
-      '--border-transform-origin': borderTransformOrigin,
-      '--border-scaleX': borderScaleX,
-    }"
-    lang="en-US"
-    dir="ltr"
-    role="navigation"
-    aria-label="Local"
-    @transitionstart="handleTransitionStart"
-    @transitionend="handleTransitionEnd"
-  >
-    <div
-      ref="wrapperElement"
-      class="ac-ln-wrapper"
-    >
-      <div
-        ref="backgroundElement"
-        class="ac-ln-background"
-      />
-      <div class="ac-ln-content">
-        <div class="ac-ln-title">
-          <NuxtLink
-            to="/"
-            aria-label="JR"
-          >
-            <SiteLogo
-              :style="{
-                height: '13px !important',
-                width: 'auto',
-              }"
-            />
-          </NuxtLink>
-          <DevOnly>
-            <DevBadge
-              :color="{
-                primary: `var(--color-figure-${randomDevColor?.name})`,
-              }"
-            />
-          </DevOnly>
-        </div>
-        <div class="ac-ln-menu">
-          <a
-            id="ac-ln-menustate-open"
-            href="#ac-ln-menustate"
-            class="ac-ln-menucta-anchor ac-ln-menucta-anchor-open"
-            role="button"
-            aria-controls="ac-ln-menustate-tray"
-            aria-expanded="false"
-          >
-            <span class="ac-ln-menucta-anchor-label">Local Nav Open Menu</span>
-          </a>
-          <a
-            id="ac-ln-menustate-close"
-            href="#"
-            class="ac-ln-menucta-anchor ac-ln-menucta-anchor-close"
-            role="button"
-            aria-controls="ac-ln-menustate-tray"
-            aria-expanded="true"
-          >
-            <span class="ac-ln-menucta-anchor-label">Local Nav Close Menu</span>
-          </a>
-          <div
-            id="ac-ln-menustate-tray"
-            ref="menustateTrayElement"
-            class="ac-ln-menu-tray"
-            :style="{
-              '--r-localnav-menu-tray-natural-height': `${trayHeight}px`,
-            }"
-          >
-            <ul class="ac-ln-menu-items">
-              <li
-                v-for="(item, index) in navItems"
-                :key="index"
-                :ref="(el) => (menuLinkReferences[item.id] = el as HTMLElement)"
-                class="ac-ln-menu-item"
-              >
-                <component
-                  :is="isCurrent(item) ? 'span' : 'RouterLink'"
-                  :to="isCurrent(item) ? undefined : item.route"
-                  :class="['ac-ln-menu-link', { current: isCurrent(item) }]"
-                  :role="isCurrent(item) ? 'link' : undefined"
-                  :aria-disabled="isCurrent(item) ? 'true' : undefined"
-                  :aria-current="isCurrent(item) ? 'page' : undefined"
-                  @click="handleMenuClick"
-                >
-                  {{ item.label }}
-                </component>
-              </li>
-            </ul>
-          </div>
-          <div class="ac-ln-actions">
-            <div
-              class="ac-ln-action ac-ln-action-menucta"
-              aria-hidden="true"
-            >
-              <label
-                for="ac-ln-menustate"
-                class="ac-ln-menucta"
-              >
-                <span class="ac-ln-menucta-chevron">
-                  <svg
-                    viewBox="0 0 16 9"
-                    data-chevron-icon
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <polyline
-                      shape-rendering="geometricPrecision"
-                      data-chevron-icon-shape
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      vector-effect="non-scaling-stroke"
-                      stroke-linejoin="round"
-                      fill="none"
-                      fill-rule="evenodd"
-                      points="15.265 .835 8 8.167 .735 .835"
-                    >
-                      <animate
-                        ref="expandAnimation"
-                        data-chevron-animate="expand"
-                        attributeName="points"
-                        values="15.265 .835 8 8.167 .735 .835; 15.25 4.5 8 4.5 .75 4.5; 15.265 8.165 8 .835 .735 8.165"
-                        dur="320ms"
-                        begin="indefinite"
-                        fill="freeze"
-                        keyTimes="0; 0.5; 1"
-                        calcMode="spline"
-                        keySplines="0.12, 0, 0.38, 0; 0.2, 1, 0.68, 1"
-                      />
-                      <animate
-                        ref="collapseAnimation"
-                        data-chevron-animate="collapse"
-                        attributeName="points"
-                        values="15.265 8.165 8 .835 .735 8.165; 15.25 4.5 8 4.5 .75 4.5; 15.265 .835 8 8.167 .735 .835"
-                        dur="320ms"
-                        begin="indefinite"
-                        fill="freeze"
-                        keyTimes="0; 0.5; 1"
-                        calcMode="spline"
-                        keySplines="0.2, 0, 0.68, 0; 0.2, 1, 0.68, 1"
-                      />
-                    </polyline>
-                  </svg>
-                </span>
-              </label>
-            </div>
-            <div class="ac-ln-action ac-ln-action-button">
-              <SegmentNav
-                :items="themeItems"
-                gap="5px"
-                component-size="xsmall"
-                :focus="false"
-                :label="viewport.isGreaterOrEquals('desktop') ? 'text' : 'icon'"
-                :selected-item="getTheme()"
-                :on-select="(themeNew: string) => setTheme(themeNew)"
-              />
-            </div>
-            <div class="ac-ln-action ac-ln-action-button">
-              <LanguagePickerDropdown />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <label
-    id="ac-ln-curtain"
-    for="ac-ln-menustate"
-  />
-</template>
-
 <script setup lang="ts">
 import type { ItemType } from '#shared/types/common/item'
 import type { NavbarType } from '#shared/types/common/nav-bar'
@@ -424,6 +222,208 @@ watch(
   },
 )
 </script>
+
+<template>
+  <input
+    id="ac-ln-menustate"
+    v-model="isOpen"
+    type="checkbox"
+    class="ac-ln-menustate"
+    aria-controls="ac-ln-menustate-tray"
+    aria-expanded="false"
+    :disabled="shouldOpen"
+    @input="handleNav()"
+  >
+  <div
+    id="ac-ln-fixed-placeholder"
+    :class="[
+      { 'css-sticky ac-ln-sticking': state.position === 'sticky' },
+      { 'css-fixed ac-ln-sticking': state.position === 'fixed' },
+    ]"
+  />
+  <nav
+    id="ac-localnav"
+    ref="navbarElement"
+    :class="[
+      'ac-ln-allow-transitions',
+      { 'css-sticky ac-ln-sticking': state.position === 'sticky' },
+      { 'css-fixed ac-ln-sticking': state.position === 'fixed' },
+      { 'ac-localnav-noborder': !state.border },
+      { 'ac-localnav-scrim': state.scrim },
+      { 'ac-ln-hide': state.autoHide },
+      { 'ac-ln-hidden': shouldHide },
+      { 'ac-ln-open': isOpen },
+      { 'ac-ln-opening': shouldOpen },
+    ]"
+    :style="{
+      '--border-transform-origin': borderTransformOrigin,
+      '--border-scaleX': borderScaleX,
+    }"
+    lang="en-US"
+    dir="ltr"
+    role="navigation"
+    aria-label="Local"
+    @transitionstart="handleTransitionStart"
+    @transitionend="handleTransitionEnd"
+  >
+    <div
+      ref="wrapperElement"
+      class="ac-ln-wrapper"
+    >
+      <div
+        ref="backgroundElement"
+        class="ac-ln-background"
+      />
+      <div class="ac-ln-content">
+        <div class="ac-ln-title">
+          <NuxtLink
+            to="/"
+            aria-label="JR"
+          >
+            <SiteLogo
+              :style="{
+                height: '13px !important',
+                width: 'auto',
+              }"
+            />
+          </NuxtLink>
+          <DevOnly>
+            <DevBadge
+              :color="{
+                primary: `var(--color-figure-${randomDevColor?.name})`,
+              }"
+            />
+          </DevOnly>
+        </div>
+        <div class="ac-ln-menu">
+          <a
+            id="ac-ln-menustate-open"
+            href="#ac-ln-menustate"
+            class="ac-ln-menucta-anchor ac-ln-menucta-anchor-open"
+            role="button"
+            aria-controls="ac-ln-menustate-tray"
+            aria-expanded="false"
+          >
+            <span class="ac-ln-menucta-anchor-label">Local Nav Open Menu</span>
+          </a>
+          <a
+            id="ac-ln-menustate-close"
+            href="#"
+            class="ac-ln-menucta-anchor ac-ln-menucta-anchor-close"
+            role="button"
+            aria-controls="ac-ln-menustate-tray"
+            aria-expanded="true"
+          >
+            <span class="ac-ln-menucta-anchor-label">Local Nav Close Menu</span>
+          </a>
+          <div
+            id="ac-ln-menustate-tray"
+            ref="menustateTrayElement"
+            class="ac-ln-menu-tray"
+            :style="{
+              '--r-localnav-menu-tray-natural-height': `${trayHeight}px`,
+            }"
+          >
+            <ul class="ac-ln-menu-items">
+              <li
+                v-for="(item, index) in navItems"
+                :key="index"
+                :ref="(el) => (menuLinkReferences[item.id] = el as HTMLElement)"
+                class="ac-ln-menu-item"
+              >
+                <component
+                  :is="isCurrent(item) ? 'span' : 'RouterLink'"
+                  :to="isCurrent(item) ? undefined : item.route"
+                  :class="['ac-ln-menu-link', { current: isCurrent(item) }]"
+                  :role="isCurrent(item) ? 'link' : undefined"
+                  :aria-disabled="isCurrent(item) ? 'true' : undefined"
+                  :aria-current="isCurrent(item) ? 'page' : undefined"
+                  @click="handleMenuClick"
+                >
+                  {{ item.label }}
+                </component>
+              </li>
+            </ul>
+          </div>
+          <div class="ac-ln-actions">
+            <div
+              class="ac-ln-action ac-ln-action-menucta"
+              aria-hidden="true"
+            >
+              <label
+                for="ac-ln-menustate"
+                class="ac-ln-menucta"
+              >
+                <span class="ac-ln-menucta-chevron">
+                  <svg
+                    viewBox="0 0 16 9"
+                    data-chevron-icon
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polyline
+                      shape-rendering="geometricPrecision"
+                      data-chevron-icon-shape
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      vector-effect="non-scaling-stroke"
+                      stroke-linejoin="round"
+                      fill="none"
+                      fill-rule="evenodd"
+                      points="15.265 .835 8 8.167 .735 .835"
+                    >
+                      <animate
+                        ref="expandAnimation"
+                        data-chevron-animate="expand"
+                        attributeName="points"
+                        values="15.265 .835 8 8.167 .735 .835; 15.25 4.5 8 4.5 .75 4.5; 15.265 8.165 8 .835 .735 8.165"
+                        dur="320ms"
+                        begin="indefinite"
+                        fill="freeze"
+                        keyTimes="0; 0.5; 1"
+                        calcMode="spline"
+                        keySplines="0.12, 0, 0.38, 0; 0.2, 1, 0.68, 1"
+                      />
+                      <animate
+                        ref="collapseAnimation"
+                        data-chevron-animate="collapse"
+                        attributeName="points"
+                        values="15.265 8.165 8 .835 .735 8.165; 15.25 4.5 8 4.5 .75 4.5; 15.265 .835 8 8.167 .735 .835"
+                        dur="320ms"
+                        begin="indefinite"
+                        fill="freeze"
+                        keyTimes="0; 0.5; 1"
+                        calcMode="spline"
+                        keySplines="0.2, 0, 0.68, 0; 0.2, 1, 0.68, 1"
+                      />
+                    </polyline>
+                  </svg>
+                </span>
+              </label>
+            </div>
+            <div class="ac-ln-action ac-ln-action-button">
+              <SegmentNav
+                :items="themeItems"
+                gap="5px"
+                component-size="xsmall"
+                :focus="false"
+                :label="viewport.isGreaterOrEquals('desktop') ? 'text' : 'icon'"
+                :selected-item="getTheme()"
+                :on-select="(themeNew: string) => setTheme(themeNew)"
+              />
+            </div>
+            <div class="ac-ln-action ac-ln-action-button">
+              <LanguagePickerDropdown />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <label
+    id="ac-ln-curtain"
+    for="ac-ln-menustate"
+  />
+</template>
 
 <style scoped>
 /* .item {

@@ -1,39 +1,3 @@
-<template>
-  <Teleport
-    v-if="isVisible"
-    to="#modal-destination"
-  >
-    <div
-      class="generic-modal"
-      role="dialog"
-      :class="stateClasses"
-    >
-      <div class="backdrop" />
-      <div
-        ref="container"
-        class="container"
-        :style="{ width: props.width }"
-      >
-        <button
-          v-if="props.showClose"
-          ref="closeBtn"
-          class="close"
-          :aria-label="t('verbs.close')"
-          @click.prevent="closeModal"
-        >
-          <IconClose />
-        </button>
-        <div
-          ref="content"
-          class="modal-content"
-        >
-          <slot />
-        </div>
-      </div>
-    </div>
-  </Teleport>
-</template>
-
 <script setup lang="ts">
 import { useFocusTrap } from '@vueuse/integrations'
 
@@ -140,6 +104,42 @@ const focusCloseButton = async () => {
 
 useEventListener(document, 'keydown', onKeydown)
 </script>
+
+<template>
+  <Teleport
+    v-if="isVisible"
+    to="#modal-destination"
+  >
+    <div
+      class="generic-modal"
+      role="dialog"
+      :class="stateClasses"
+    >
+      <div class="backdrop" />
+      <div
+        ref="container"
+        class="container"
+        :style="{ width: props.width }"
+      >
+        <button
+          v-if="props.showClose"
+          ref="closeBtn"
+          class="close"
+          :aria-label="t('verbs.close')"
+          @click.prevent="closeModal"
+        >
+          <IconClose />
+        </button>
+        <div
+          ref="content"
+          class="modal-content"
+        >
+          <slot />
+        </div>
+      </div>
+    </div>
+  </Teleport>
+</template>
 
 <style scoped lang="scss">
 @import "/app/assets/scss/_core.scss";

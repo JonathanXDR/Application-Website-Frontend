@@ -1,193 +1,3 @@
-<template>
-  <component
-    :is="componentType"
-    :id="componentId"
-    v-animation="scrollAnimation"
-    :href="componentType === 'a' ? componentHref : undefined"
-    :class="cardClasses"
-    :style="styleObject"
-    target="_blank"
-  >
-    <div
-      v-if="hasCoverOrGraphs"
-      class="card-cover-wrap"
-    >
-      <picture
-        v-if="cover"
-        class="card-cover"
-      >
-        <NuxtImg
-          decoding="async"
-          loading="lazy"
-          :src="cover"
-        />
-      </picture>
-      <BarGraph v-if="graphs?.bar" />
-      <DonutGraph v-if="graphs?.donut" />
-    </div>
-
-    <div
-      class="details"
-      :style="detailsStyle"
-    >
-      <template v-if="icon">
-        <div
-          v-if="icon.background"
-          class="flex justify-center items-center p-2 rounded-lg"
-          :style="iconWrapperStyle"
-        >
-          <DynamicIcon
-            v-bind="icon"
-            :loading="loading"
-            :class="iconClass"
-            :style="{ color: icon.colors?.primary }"
-          />
-        </div>
-        <DynamicIcon
-          v-else
-          v-bind="icon"
-          :loading="loading"
-          :class="['mt-[3px]', iconClass]"
-          :style="{ color: icon.colors?.primary }"
-        />
-      </template>
-
-      <div
-        class="body"
-        :style="{ alignItems }"
-      >
-        <div
-          v-if="eyebrow && (variant === 'card' || !icon.name)"
-          class="eyebrow"
-        >
-          <template v-if="!loading">
-            {{ eyebrow }}
-          </template>
-          <template v-else>
-            <LoadingSkeleton
-              width="150px"
-              height="15px"
-            />
-          </template>
-        </div>
-
-        <div class="title-wrapper">
-          <div
-            v-if="title || name"
-            class="title"
-          >
-            <template v-if="!loading">
-              {{ title || name }}
-            </template>
-            <template v-else>
-              <LoadingSkeleton
-                width="200px"
-                height="15px"
-              />
-            </template>
-          </div>
-
-          <BadgeItem
-            v-if="archived"
-            title="Public archive"
-            component-size="xsmall"
-            variant="span"
-            :loading="loading"
-            :colors="{
-              primary: 'var(--color-figure-yellow)',
-              tertiary: 'var(--color-figure-yellow)',
-            }"
-            border
-            :hover="false"
-          />
-          <BadgeItem
-            v-if="badge"
-            v-bind="badge"
-            :loading="loading"
-            :colors="{
-              primary: `var(--color-figure-${randomDevColor?.name})`,
-              tertiary: `var(--color-figure-${randomDevColor?.name})`,
-            }"
-            hover
-            border
-          />
-        </div>
-
-        <p
-          v-if="eyebrow && variant === 'article' && icon.name"
-          class="lighter article-date"
-        >
-          <template v-if="!loading">
-            {{ eyebrow }}
-          </template>
-          <template v-else>
-            <LoadingSkeleton
-              width="150px"
-              height="15px"
-            />
-          </template>
-        </p>
-
-        <div class="card-content">
-          <div class="content">
-            <template v-if="!loading">
-              {{ description }}
-            </template>
-            <template v-else>
-              <LoadingSkeleton
-                width="300px"
-                height="15px"
-              />
-              <LoadingSkeleton
-                width="300px"
-                height="15px"
-              />
-              <LoadingSkeleton
-                width="250px"
-                height="15px"
-              />
-            </template>
-          </div>
-        </div>
-
-        <BadgeBar
-          v-if="hasBadgesOrTopics"
-          :badges="badgesOrTopics"
-          :loading="loading"
-        />
-
-        <div
-          v-if="hasLinksOrHtmlUrl"
-          class="ctas-wrapper"
-        >
-          <!-- <ButtonItem variant="secondary" componentSize="small"> Test </ButtonItem> -->
-          <!-- <NuxtLink href="photos://" class="icon-wrapper button button-reduced button-neutral">
-            <span class="icon-copy"> Open</span>
-          </NuxtLink> -->
-
-          <LinkCollection
-            :links="linkCollectionLinks"
-            :loading="loading"
-            :class="{ link: applyHover }"
-          />
-        </div>
-
-        <InfoBar
-          v-if="hasInfo"
-          v-bind="{
-            ...info,
-            date: {
-              ...info?.date,
-              fixed: updated_at || info?.date?.fixed,
-            },
-            loading,
-          }"
-        />
-      </div>
-    </div>
-  </component>
-</template>
-
 <script setup lang="ts">
 import type { CardRepositoryType } from '#shared/types/common/card-repository'
 
@@ -409,6 +219,196 @@ watch(colorMode, () => {
   updateIconWrapperStyle()
 })
 </script>
+
+<template>
+  <component
+    :is="componentType"
+    :id="componentId"
+    v-animation="scrollAnimation"
+    :href="componentType === 'a' ? componentHref : undefined"
+    :class="cardClasses"
+    :style="styleObject"
+    target="_blank"
+  >
+    <div
+      v-if="hasCoverOrGraphs"
+      class="card-cover-wrap"
+    >
+      <picture
+        v-if="cover"
+        class="card-cover"
+      >
+        <NuxtImg
+          decoding="async"
+          loading="lazy"
+          :src="cover"
+        />
+      </picture>
+      <BarGraph v-if="graphs?.bar" />
+      <DonutGraph v-if="graphs?.donut" />
+    </div>
+
+    <div
+      class="details"
+      :style="detailsStyle"
+    >
+      <template v-if="icon">
+        <div
+          v-if="icon.background"
+          class="flex justify-center items-center p-2 rounded-lg"
+          :style="iconWrapperStyle"
+        >
+          <DynamicIcon
+            v-bind="icon"
+            :loading="loading"
+            :class="iconClass"
+            :style="{ color: icon.colors?.primary }"
+          />
+        </div>
+        <DynamicIcon
+          v-else
+          v-bind="icon"
+          :loading="loading"
+          :class="['mt-[3px]', iconClass]"
+          :style="{ color: icon.colors?.primary }"
+        />
+      </template>
+
+      <div
+        class="body"
+        :style="{ alignItems }"
+      >
+        <div
+          v-if="eyebrow && (variant === 'card' || !icon.name)"
+          class="eyebrow"
+        >
+          <template v-if="!loading">
+            {{ eyebrow }}
+          </template>
+          <template v-else>
+            <LoadingSkeleton
+              width="150px"
+              height="15px"
+            />
+          </template>
+        </div>
+
+        <div class="title-wrapper">
+          <div
+            v-if="title || name"
+            class="title"
+          >
+            <template v-if="!loading">
+              {{ title || name }}
+            </template>
+            <template v-else>
+              <LoadingSkeleton
+                width="200px"
+                height="15px"
+              />
+            </template>
+          </div>
+
+          <BadgeItem
+            v-if="archived"
+            title="Public archive"
+            component-size="xsmall"
+            variant="span"
+            :loading="loading"
+            :colors="{
+              primary: 'var(--color-figure-yellow)',
+              tertiary: 'var(--color-figure-yellow)',
+            }"
+            border
+            :hover="false"
+          />
+          <BadgeItem
+            v-if="badge"
+            v-bind="badge"
+            :loading="loading"
+            :colors="{
+              primary: `var(--color-figure-${randomDevColor?.name})`,
+              tertiary: `var(--color-figure-${randomDevColor?.name})`,
+            }"
+            hover
+            border
+          />
+        </div>
+
+        <p
+          v-if="eyebrow && variant === 'article' && icon.name"
+          class="lighter article-date"
+        >
+          <template v-if="!loading">
+            {{ eyebrow }}
+          </template>
+          <template v-else>
+            <LoadingSkeleton
+              width="150px"
+              height="15px"
+            />
+          </template>
+        </p>
+
+        <div class="card-content">
+          <div class="content">
+            <template v-if="!loading">
+              {{ description }}
+            </template>
+            <template v-else>
+              <LoadingSkeleton
+                width="300px"
+                height="15px"
+              />
+              <LoadingSkeleton
+                width="300px"
+                height="15px"
+              />
+              <LoadingSkeleton
+                width="250px"
+                height="15px"
+              />
+            </template>
+          </div>
+        </div>
+
+        <BadgeBar
+          v-if="hasBadgesOrTopics"
+          :badges="badgesOrTopics"
+          :loading="loading"
+        />
+
+        <div
+          v-if="hasLinksOrHtmlUrl"
+          class="ctas-wrapper"
+        >
+          <!-- <ButtonItem variant="secondary" componentSize="small"> Test </ButtonItem> -->
+          <!-- <NuxtLink href="photos://" class="icon-wrapper button button-reduced button-neutral">
+            <span class="icon-copy"> Open</span>
+          </NuxtLink> -->
+
+          <LinkCollection
+            :links="linkCollectionLinks"
+            :loading="loading"
+            :class="{ link: applyHover }"
+          />
+        </div>
+
+        <InfoBar
+          v-if="hasInfo"
+          v-bind="{
+            ...info,
+            date: {
+              ...info?.date,
+              fixed: updated_at || info?.date?.fixed,
+            },
+            loading,
+          }"
+        />
+      </div>
+    </div>
+  </component>
+</template>
 
 <style scoped>
 .ctas-wrapper {

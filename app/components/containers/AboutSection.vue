@@ -1,3 +1,45 @@
+<script setup lang="ts">
+import type { DateItemType } from '#shared/types/common/date-item'
+
+defineProps<{
+  title: string
+}>()
+
+const viewport = useViewport()
+const { t, tm } = useI18n()
+const nonce = useNonce()
+
+const dateItems = computed<DateItemType[]>(() =>
+  tm('components.containers.about.dates'),
+)
+
+const dates = ref<{
+  age: number | undefined
+  apprenticeshipYear: number | undefined
+}>({
+  age: undefined,
+  apprenticeshipYear: undefined,
+})
+
+const calculateYears = (date: string) => {
+  const currentDate = new Date(Date.now())
+  const birthDate = new Date(date)
+  const difference = new Date(currentDate.getTime() - birthDate.getTime())
+  const years = Math.abs(difference.getUTCFullYear() - 1970)
+  return years
+}
+
+onMounted(async () => {
+  for (const item of dateItems.value) {
+    if (item.key in dates.value) {
+      dates.value[item.key as keyof typeof dates.value] = calculateYears(
+        item.date,
+      )
+    }
+  }
+})
+</script>
+
 <template>
   <div class="info-container">
     <svg
@@ -54,48 +96,6 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-import type { DateItemType } from '#shared/types/common/date-item'
-
-defineProps<{
-  title: string
-}>()
-
-const viewport = useViewport()
-const { t, tm } = useI18n()
-const nonce = useNonce()
-
-const dateItems = computed<DateItemType[]>(() =>
-  tm('components.containers.about.dates'),
-)
-
-const dates = ref<{
-  age: number | undefined
-  apprenticeshipYear: number | undefined
-}>({
-  age: undefined,
-  apprenticeshipYear: undefined,
-})
-
-const calculateYears = (date: string) => {
-  const currentDate = new Date(Date.now())
-  const birthDate = new Date(date)
-  const difference = new Date(currentDate.getTime() - birthDate.getTime())
-  const years = Math.abs(difference.getUTCFullYear() - 1970)
-  return years
-}
-
-onMounted(async () => {
-  for (const item of dateItems.value) {
-    if (item.key in dates.value) {
-      dates.value[item.key as keyof typeof dates.value] = calculateYears(
-        item.date,
-      )
-    }
-  }
-})
-</script>
 
 <style scoped>
 .info-container {

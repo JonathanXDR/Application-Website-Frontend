@@ -1,3 +1,10 @@
+<script setup lang="ts">
+defineProps<{
+  title?: string
+  description?: string
+}>()
+</script>
+
 <template>
   <div
     class="pins animate will-change"
@@ -28,13 +35,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-defineProps<{
-  title?: string
-  description?: string
-}>()
-</script>
 
 <style scoped>
 .typography-hardware-label {

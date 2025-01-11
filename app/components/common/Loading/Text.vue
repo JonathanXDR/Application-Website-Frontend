@@ -1,3 +1,10 @@
+<script setup lang="ts">
+// const props = defineProps<{
+//   title: string
+//   loading: boolean
+// }>()
+</script>
+
 <template>
   <h1
     class="text loading"
@@ -6,13 +13,6 @@
     <span role="text">This is your <em>Replay</em>.</span>
   </h1>
 </template>
-
-<script setup lang="ts">
-// const props = defineProps<{
-//   title: string
-//   loading: boolean
-// }>()
-</script>
 
 <style scoped>
 .text {

@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import type { DialogModalType } from '#shared/types/common/dialog-modal'
+
+withDefaults(defineProps<DialogModalType>(), {
+  orientation: 'vertical',
+  full: false,
+  blurredBackground: false,
+})
+
+const open = ref(true)
+const toggleOpen = useToggle(open)
+</script>
+
 <template>
   <div
     id="icon-card-modal-delivery"
@@ -61,19 +74,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import type { DialogModalType } from '#shared/types/common/dialog-modal'
-
-withDefaults(defineProps<DialogModalType>(), {
-  orientation: 'vertical',
-  full: false,
-  blurredBackground: false,
-})
-
-const open = ref(true)
-const toggleOpen = useToggle(open)
-</script>
 
 <style scoped>
 .icon:after,

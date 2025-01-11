@@ -1,3 +1,9 @@
+<script setup lang="ts">
+const { t } = useI18n()
+
+const currentYear = ref(new Date().getFullYear())
+</script>
+
 <template>
   <div class="rs-covers-footer">
     <div class="as-l-container">
@@ -9,12 +15,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const { t } = useI18n()
-
-const currentYear = ref(new Date().getFullYear())
-</script>
 
 <style scoped>
 .rs-covers-footer {

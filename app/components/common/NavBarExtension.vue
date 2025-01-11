@@ -1,20 +1,3 @@
-<template>
-  <div
-    ref="stickyWrapper"
-    class="filter-input-sticky-wrapper"
-    :class="{
-      'is-sticky': isSticky,
-      'is-animating': navbarState.autoHide,
-      'is-hiding': navbarState.isHidden,
-    }"
-    :style="containerStyle"
-  >
-    <div class="filter-input-container">
-      <slot />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 const viewport = useViewport()
 const { state: navbarState, setState } = useNavbar()
@@ -98,6 +81,23 @@ useEventListener(
   { passive: true },
 )
 </script>
+
+<template>
+  <div
+    ref="stickyWrapper"
+    class="filter-input-sticky-wrapper"
+    :class="{
+      'is-sticky': isSticky,
+      'is-animating': navbarState.autoHide,
+      'is-hiding': navbarState.isHidden,
+    }"
+    :style="containerStyle"
+  >
+    <div class="filter-input-container">
+      <slot />
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .filter-input-sticky-wrapper {

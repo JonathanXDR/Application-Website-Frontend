@@ -1,35 +1,3 @@
-<template>
-  <div
-    :class="['links', { divider }, { loading }]"
-    :style="{ columnGap: !divider ? '12px' : '0' }"
-  >
-    <component
-      :is="getLinkComponentType(link)"
-      v-for="(link, index) in enhancedLinks"
-      :key="index"
-      v-bind="getLinkAttributes(link)"
-      :class="['link', { 'animate-color': shouldAnimate }]"
-    >
-      <template v-if="!loading">
-        {{ link.title }}
-      </template>
-      <template v-else>
-        <LoadingSkeleton
-          width="200px"
-          height="15px"
-        />
-      </template>
-
-      <DynamicIcon
-        v-if="link.icon"
-        v-bind="link.icon"
-        :loading="loading"
-        class="icon icon-sm"
-      />
-    </component>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { NuxtLink } from '#components'
 import type { LinkType } from '#shared/types/common/link'
@@ -81,6 +49,38 @@ const enhancedLinks = computed(() => {
   }))
 })
 </script>
+
+<template>
+  <div
+    :class="['links', { divider }, { loading }]"
+    :style="{ columnGap: !divider ? '12px' : '0' }"
+  >
+    <component
+      :is="getLinkComponentType(link)"
+      v-for="(link, index) in enhancedLinks"
+      :key="index"
+      v-bind="getLinkAttributes(link)"
+      :class="['link', { 'animate-color': shouldAnimate }]"
+    >
+      <template v-if="!loading">
+        {{ link.title }}
+      </template>
+      <template v-else>
+        <LoadingSkeleton
+          width="200px"
+          height="15px"
+        />
+      </template>
+
+      <DynamicIcon
+        v-if="link.icon"
+        v-bind="link.icon"
+        :loading="loading"
+        class="icon icon-sm"
+      />
+    </component>
+  </div>
+</template>
 
 <style scoped>
 .links.divider.loading .link {

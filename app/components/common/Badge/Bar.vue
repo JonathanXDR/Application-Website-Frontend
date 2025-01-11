@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import type { BadgeItemType } from '#shared/types/common/badge-item'
+
+defineProps<{
+  badges?: BadgeItemType[]
+}>()
+</script>
+
 <template>
   <div class="badges filter-suggested-badges">
     <div class="scroll-wrapper">
@@ -14,14 +22,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import type { BadgeItemType } from '#shared/types/common/badge-item'
-
-defineProps<{
-  badges?: BadgeItemType[]
-}>()
-</script>
 
 <style scoped>
 .badges {

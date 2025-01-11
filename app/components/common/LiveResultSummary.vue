@@ -1,3 +1,19 @@
+<script setup lang="ts">
+withDefaults(
+  defineProps<{
+    totalResults: number
+    pinnedResults?: number
+  }>(),
+  {
+    totalResults: 0,
+    pinnedResults: 0,
+  },
+)
+
+const { t } = useI18n()
+const { randomDevColor } = useColor()
+</script>
+
 <template>
   <div
     id="live-result-summary"
@@ -38,22 +54,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-withDefaults(
-  defineProps<{
-    totalResults: number
-    pinnedResults?: number
-  }>(),
-  {
-    totalResults: 0,
-    pinnedResults: 0,
-  },
-)
-
-const { t } = useI18n()
-const { randomDevColor } = useColor()
-</script>
 
 <style scoped>
 .changesnav-totals {

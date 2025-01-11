@@ -1,34 +1,3 @@
-<template>
-  <section class="lang-switcher-container">
-    <span
-      v-if="introText"
-      class="language-switcher-text"
-    >
-      {{ t("components.common.LanguagePickerBar.chooseYourLanguage") }}:
-    </span>
-    <ul class="locale-lang language-picker-wrapper">
-      <li
-        v-for="computedLocale in computedLocales"
-        :key="computedLocale.code"
-      >
-        <input
-          :id="computedLocale.code"
-          type="radio"
-          name="language"
-          :checked="locale === computedLocale.code"
-          @click="changeLanguage(computedLocale.code)"
-        >
-        <label
-          :for="computedLocale.code"
-          class="link"
-        >
-          {{ getLabel(computedLocale) }}
-        </label>
-      </li>
-    </ul>
-  </section>
-</template>
-
 <script setup lang="ts">
 import type { LocaleObject } from '@nuxtjs/i18n'
 
@@ -62,6 +31,37 @@ const getLabel = (locale: { code: string, name?: string }) => {
   return props.shortForm ? locale.code.toUpperCase() : label
 }
 </script>
+
+<template>
+  <section class="lang-switcher-container">
+    <span
+      v-if="introText"
+      class="language-switcher-text"
+    >
+      {{ t("components.common.LanguagePickerBar.chooseYourLanguage") }}:
+    </span>
+    <ul class="locale-lang language-picker-wrapper">
+      <li
+        v-for="computedLocale in computedLocales"
+        :key="computedLocale.code"
+      >
+        <input
+          :id="computedLocale.code"
+          type="radio"
+          name="language"
+          :checked="locale === computedLocale.code"
+          @click="changeLanguage(computedLocale.code)"
+        >
+        <label
+          :for="computedLocale.code"
+          class="link"
+        >
+          {{ getLabel(computedLocale) }}
+        </label>
+      </li>
+    </ul>
+  </section>
+</template>
 
 <style scoped>
 .lang-switcher-container {

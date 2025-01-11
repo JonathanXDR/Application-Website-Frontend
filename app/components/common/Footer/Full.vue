@@ -1,3 +1,9 @@
+<script setup lang="ts">
+const { t } = useI18n()
+
+const currentYear = ref(new Date().getFullYear())
+</script>
+
 <template>
   <section id="copyright">
     <p>
@@ -11,9 +17,3 @@
   <LanguagePickerBar />
   <ShareSheet />
 </template>
-
-<script setup lang="ts">
-const { t } = useI18n()
-
-const currentYear = ref(new Date().getFullYear())
-</script>

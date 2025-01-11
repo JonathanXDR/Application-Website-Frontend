@@ -8,20 +8,6 @@
   See https://swift.org/CONTRIBUTORS.txt for Swift project authors
 -->
 
-<template>
-  <li class="tabnav-item">
-    <a
-      href="#"
-      class="tabnav-link"
-      :class="{ active: isActive }"
-      :aria-current="isActive ? 'true' : 'false'"
-      @click.prevent="tabnavData.selectTab(value)"
-    >
-      <slot />
-    </a>
-  </li>
-</template>
-
 <script>
 export default {
   name: 'TabnavItem',
@@ -43,6 +29,20 @@ export default {
   },
 }
 </script>
+
+<template>
+  <li class="tabnav-item">
+    <a
+      href="#"
+      class="tabnav-link"
+      :class="{ active: isActive }"
+      :aria-current="isActive ? 'true' : 'false'"
+      @click.prevent="tabnavData.selectTab(value)"
+    >
+      <slot />
+    </a>
+  </li>
+</template>
 
 <style scoped lang="scss">
 @import "/app/assets/scss/_core.scss";

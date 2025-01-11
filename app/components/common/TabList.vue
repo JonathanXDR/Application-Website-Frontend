@@ -1,52 +1,3 @@
-<template>
-  <div class="tablist-wrapper">
-    <div class="tabnav">
-      <ul class="tabnav-items">
-        <li
-          v-for="(item, index) in items"
-          :key="index"
-          class="tabnav-item"
-        >
-          <input
-            :id="`tab-${item.id}`"
-            v-model="selectedTab"
-            type="radio"
-            name="category"
-            :value="item.id"
-            @change="() => emitChange(item.id)"
-          >
-          <label
-            :for="`tab-${item.id}`"
-            class="tabnav-link"
-          >
-            {{ item.label }}
-          </label>
-        </li>
-      </ul>
-      <div class="tabnav-paddles">
-        <button
-          class="tabnav-paddle tabnav-paddle-left"
-          disabled
-        >
-          <DynamicIcon
-            name="chevron.left"
-            class="icon icon-sm"
-          />
-        </button>
-        <button
-          class="tabnav-paddle tabnav-paddle-right"
-          disabled
-        >
-          <DynamicIcon
-            name="chevron.right"
-            class="icon icon-sm"
-          />
-        </button>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import type { ItemType } from '#shared/types/common/item'
 
@@ -341,6 +292,55 @@ const emitChange = (id: string) => {
 //   };
 // },
 </script>
+
+<template>
+  <div class="tablist-wrapper">
+    <div class="tabnav">
+      <ul class="tabnav-items">
+        <li
+          v-for="(item, index) in items"
+          :key="index"
+          class="tabnav-item"
+        >
+          <input
+            :id="`tab-${item.id}`"
+            v-model="selectedTab"
+            type="radio"
+            name="category"
+            :value="item.id"
+            @change="() => emitChange(item.id)"
+          >
+          <label
+            :for="`tab-${item.id}`"
+            class="tabnav-link"
+          >
+            {{ item.label }}
+          </label>
+        </li>
+      </ul>
+      <div class="tabnav-paddles">
+        <button
+          class="tabnav-paddle tabnav-paddle-left"
+          disabled
+        >
+          <DynamicIcon
+            name="chevron.left"
+            class="icon icon-sm"
+          />
+        </button>
+        <button
+          class="tabnav-paddle tabnav-paddle-right"
+          disabled
+        >
+          <DynamicIcon
+            name="chevron.right"
+            class="icon icon-sm"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .tabnav {

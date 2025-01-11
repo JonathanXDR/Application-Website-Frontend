@@ -8,17 +8,6 @@
   See https://swift.org/CONTRIBUTORS.txt for Swift project authors
 -->
 
-<template>
-  <component
-    :is="resolvedComponent"
-    class="button-cta"
-    :class="{ 'is-dark': isDark }"
-    v-bind="componentProps"
-  >
-    <slot />
-  </component>
-</template>
-
 <script>
 import Reference from '~/components/common/New/ContentNode/Reference.vue'
 
@@ -43,6 +32,17 @@ export default {
   },
 }
 </script>
+
+<template>
+  <component
+    :is="resolvedComponent"
+    class="button-cta"
+    :class="{ 'is-dark': isDark }"
+    v-bind="componentProps"
+  >
+    <slot />
+  </component>
+</template>
 
 <style scoped lang="scss">
 @import "/app/assets/scss/_core.scss";

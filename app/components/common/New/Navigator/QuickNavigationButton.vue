@@ -8,6 +8,10 @@
   See https://swift.org/CONTRIBUTORS.txt for Swift project authors
 -->
 
+<script setup lang="ts">
+const { t } = useI18n()
+</script>
+
 <template>
   <button
     :aria-label="t('quicknav.button.label')"
@@ -17,10 +21,6 @@
     /
   </button>
 </template>
-
-<script setup lang="ts">
-const { t } = useI18n()
-</script>
 
 <style scoped lang="scss">
 @import "/app/assets/scss/_core.scss";

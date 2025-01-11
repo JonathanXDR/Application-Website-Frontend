@@ -7,15 +7,6 @@
   See https://swift.org/LICENSE.txt for license information
   See https://swift.org/CONTRIBUTORS.txt for Swift project authors
 -->
-<template>
-  <button
-    :class="['pager-control', action]"
-    :aria-label="$t(`pager.control.navigate-${action}`)"
-  >
-    <ChevronRoundedIcon class="icon" />
-  </button>
-</template>
-
 <script>
 import ChevronRoundedIcon from '~/components/common/New/Icons/ChevronRoundedIcon.vue'
 
@@ -37,6 +28,15 @@ export default {
   Action,
 }
 </script>
+
+<template>
+  <button
+    :class="['pager-control', action]"
+    :aria-label="$t(`pager.control.navigate-${action}`)"
+  >
+    <ChevronRoundedIcon class="icon" />
+  </button>
+</template>
 
 <style scoped lang="scss">
 @import "/app/assets/scss/_core.scss";

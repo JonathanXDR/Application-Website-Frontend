@@ -1,3 +1,34 @@
+<script setup lang="ts">
+import type { ExtendedSizeType } from '../../../shared/types/common/extended-size'
+
+const props = withDefaults(
+  defineProps<{
+    componentSize?: ExtendedSizeType
+    shadow?: boolean
+    animation?: boolean
+    embedded?: boolean
+    sticky?: boolean
+    show?: boolean
+  }>(),
+  {
+    componentSize: 'medium',
+    shadow: true,
+    animation: true,
+    embedded: false,
+    sticky: false,
+    show: false,
+  },
+)
+
+const { componentSize, sticky } = props
+const containerClass = computed(() => [
+  componentSize,
+  { 'down-chevron-container': !props.animation },
+  { 'scroll-down-arrow': props.animation },
+  { sticky },
+])
+</script>
+
 <template>
   <div :class="containerClass">
     <div
@@ -55,37 +86,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import type { ExtendedSizeType } from '../../../shared/types/common/extended-size'
-
-const props = withDefaults(
-  defineProps<{
-    componentSize?: ExtendedSizeType
-    shadow?: boolean
-    animation?: boolean
-    embedded?: boolean
-    sticky?: boolean
-    show?: boolean
-  }>(),
-  {
-    componentSize: 'medium',
-    shadow: true,
-    animation: true,
-    embedded: false,
-    sticky: false,
-    show: false,
-  },
-)
-
-const { componentSize, sticky } = props
-const containerClass = computed(() => [
-  componentSize,
-  { 'down-chevron-container': !props.animation },
-  { 'scroll-down-arrow': props.animation },
-  { sticky },
-])
-</script>
 
 <style scoped>
 /* ----------------------------- Static chevron ----------------------------- */

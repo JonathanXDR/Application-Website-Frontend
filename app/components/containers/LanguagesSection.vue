@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import type { LanguageBarType } from '#shared/types/common/language-bar'
+
+defineProps<{
+  title: string
+}>()
+
+const { tm } = useI18n()
+const viewport = useViewport()
+const languages = computed<LanguageBarType[]>(() =>
+  tm('components.containers.languages'),
+)
+</script>
+
 <template>
   <h1>{{ title }}</h1>
 
@@ -21,20 +35,6 @@
     </template>
   </div>
 </template>
-
-<script setup lang="ts">
-import type { LanguageBarType } from '#shared/types/common/language-bar'
-
-defineProps<{
-  title: string
-}>()
-
-const { tm } = useI18n()
-const viewport = useViewport()
-const languages = computed<LanguageBarType[]>(() =>
-  tm('components.containers.languages'),
-)
-</script>
 
 <style scoped>
 .graph {

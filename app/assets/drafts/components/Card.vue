@@ -8,70 +8,6 @@
   See https://swift.org/CONTRIBUTORS.txt for Swift project authors
 -->
 
-<template>
-  <!-- <div> or <a> -->
-  <a
-    class="card"
-    :url="url"
-    :class="classes"
-    v-bind="linkAriaTags"
-  >
-    <CardCover
-      v-slot="coverProps"
-      :variants="imageVariants"
-      :rounded="floatingStyle"
-      :alt="imageReference.alt"
-      aria-hidden="true"
-    >
-      <slot
-        name="cover"
-        v-bind="coverProps"
-      />
-    </CardCover>
-    <div
-      class="details"
-      aria-hidden="true"
-    >
-      <div
-        v-if="eyebrow"
-        :id="eyebrowId"
-        class="eyebrow"
-        :aria-label="formatAriaLabel(`- ${eyebrow}`)"
-      >
-        {{ eyebrow }}
-      </div>
-      <div
-        :id="titleId"
-        class="title"
-      >
-        {{ title }}
-      </div>
-      <div
-        v-if="$slots.default"
-        :id="contentId"
-        class="card-content"
-      >
-        <slot />
-      </div>
-      <component
-        :is="hasButton ? 'ButtonLink' : 'div'"
-        v-if="linkText"
-        class="link"
-      >
-        {{ linkText }}
-        <DiagonalArrowIcon
-          v-if="showExternalLinks"
-          class="icon-inline link-icon"
-        />
-        <InlineChevronRightIcon
-          v-else-if="!hasButton"
-          class="icon-inline link-icon"
-        />
-      </component>
-    </div>
-  </a>
-</template>
-
 <script>
 import ButtonLink from '~/assets/drafts/components/ButtonLink.vue'
 import CardCover from '~/assets/drafts/components/CardCover.vue'
@@ -157,6 +93,70 @@ export default {
   },
 }
 </script>
+
+<template>
+  <!-- <div> or <a> -->
+  <a
+    class="card"
+    :url="url"
+    :class="classes"
+    v-bind="linkAriaTags"
+  >
+    <CardCover
+      v-slot="coverProps"
+      :variants="imageVariants"
+      :rounded="floatingStyle"
+      :alt="imageReference.alt"
+      aria-hidden="true"
+    >
+      <slot
+        name="cover"
+        v-bind="coverProps"
+      />
+    </CardCover>
+    <div
+      class="details"
+      aria-hidden="true"
+    >
+      <div
+        v-if="eyebrow"
+        :id="eyebrowId"
+        class="eyebrow"
+        :aria-label="formatAriaLabel(`- ${eyebrow}`)"
+      >
+        {{ eyebrow }}
+      </div>
+      <div
+        :id="titleId"
+        class="title"
+      >
+        {{ title }}
+      </div>
+      <div
+        v-if="$slots.default"
+        :id="contentId"
+        class="card-content"
+      >
+        <slot />
+      </div>
+      <component
+        :is="hasButton ? 'ButtonLink' : 'div'"
+        v-if="linkText"
+        class="link"
+      >
+        {{ linkText }}
+        <DiagonalArrowIcon
+          v-if="showExternalLinks"
+          class="icon-inline link-icon"
+        />
+        <InlineChevronRightIcon
+          v-else-if="!hasButton"
+          class="icon-inline link-icon"
+        />
+      </component>
+    </div>
+  </a>
+</template>
 
 <style scoped lang="scss">
 @import "/app/assets/scss/_core.scss";

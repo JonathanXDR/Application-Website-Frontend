@@ -1,37 +1,3 @@
-<template>
-  <div
-    class="language-picker-dropdown"
-    :style="{ fontSize: `${fontSize}px` }"
-  >
-    <div class="dropdown-container legacy-form">
-      <select
-        id="language-picker-dropdown"
-        v-model="selectedLocale"
-        class="dropdown-select"
-        name="language"
-        aria-label="Language Dropdown"
-        @change="changeLanguage(selectedLocale)"
-      >
-        <option
-          v-for="computedLocale in computedLocales"
-          :key="computedLocale.code"
-          :value="computedLocale.code"
-        >
-          {{
-            viewport.isGreaterOrEquals("desktop")
-              ? computedLocale.name
-              : computedLocale.code.toUpperCase()
-          }}
-        </option>
-      </select>
-      <DynamicIcon
-        name="chevron.down"
-        :class="`icon icon-${sizes[props.componentSize]}`"
-      />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import type { ExtendedSizeType } from '#shared/types/common/extended-size'
 
@@ -76,6 +42,40 @@ watch(locale, (localeNew) => {
   selectedLocale.value = localeNew
 })
 </script>
+
+<template>
+  <div
+    class="language-picker-dropdown"
+    :style="{ fontSize: `${fontSize}px` }"
+  >
+    <div class="dropdown-container legacy-form">
+      <select
+        id="language-picker-dropdown"
+        v-model="selectedLocale"
+        class="dropdown-select"
+        name="language"
+        aria-label="Language Dropdown"
+        @change="changeLanguage(selectedLocale)"
+      >
+        <option
+          v-for="computedLocale in computedLocales"
+          :key="computedLocale.code"
+          :value="computedLocale.code"
+        >
+          {{
+            viewport.isGreaterOrEquals("desktop")
+              ? computedLocale.name
+              : computedLocale.code.toUpperCase()
+          }}
+        </option>
+      </select>
+      <DynamicIcon
+        name="chevron.down"
+        :class="`icon icon-${sizes[props.componentSize]}`"
+      />
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .legacy-form select {

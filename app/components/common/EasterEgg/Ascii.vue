@@ -1,21 +1,3 @@
-<template>
-  <div
-    v-if="files?.length"
-    class="hidden"
-  >
-    <div
-      v-for="(art, index) in files"
-      :key="index"
-      class="border border-gray-300 p-4"
-    >
-      <pre :class="art.elementClass">{{ index }}<br><br>{{ art.content }}</pre>
-    </div>
-  </div>
-  <div v-else>
-    Loading...
-  </div>
-</template>
-
 <script setup lang="ts">
 interface ArtFile {
   content: string
@@ -64,6 +46,24 @@ onMounted(() => {
   )
 })
 </script>
+
+<template>
+  <div
+    v-if="files?.length"
+    class="hidden"
+  >
+    <div
+      v-for="(art, index) in files"
+      :key="index"
+      class="border border-gray-300 p-4"
+    >
+      <pre :class="art.elementClass">{{ index }}<br><br>{{ art.content }}</pre>
+    </div>
+  </div>
+  <div v-else>
+    Loading...
+  </div>
+</template>
 
 <style scoped>
 pre,

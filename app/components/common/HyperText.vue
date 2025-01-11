@@ -1,20 +1,3 @@
-<template>
-  <component
-    :is="as"
-    ref="elementRef"
-    class="hypertext overflow-hidden py-2 text-4xl font-bold"
-    @mouseenter="handleMouseEnter"
-  >
-    <span
-      v-for="(letter, index) in displayText"
-      :key="index"
-      :class="[letter === ' ' ? 'inline-block w-3' : '']"
-    >
-      {{ letter }}
-    </span>
-  </component>
-</template>
-
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
@@ -154,6 +137,23 @@ watch(
   },
 )
 </script>
+
+<template>
+  <component
+    :is="as"
+    ref="elementRef"
+    class="hypertext overflow-hidden py-2 text-4xl font-bold"
+    @mouseenter="handleMouseEnter"
+  >
+    <span
+      v-for="(letter, index) in displayText"
+      :key="index"
+      :class="[letter === ' ' ? 'inline-block w-3' : '']"
+    >
+      {{ letter }}
+    </span>
+  </component>
+</template>
 
 <style scoped>
 .hypertext {

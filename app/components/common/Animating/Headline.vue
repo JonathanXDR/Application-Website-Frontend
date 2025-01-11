@@ -1,54 +1,3 @@
-<template>
-  <h2
-    ref="headline"
-    v-animation="animationConfig"
-    :class="[
-      'section-header-headline typography-section-headline-bold large-12 animated-headline',
-      { 'cursor-blink': isCursorBlinking },
-    ]"
-  >
-    <span
-      class="letter"
-      :style="{ '--cursor-opacity': initialCursorOpacity }"
-      data-initial-cursor
-    >
-      <span class="cursor" />
-    </span>
-
-    <template
-      v-for="(word, wordIndex) in words"
-      :key="wordIndex"
-    >
-      <span class="word">
-        <span
-          v-for="(char, letterIndex) in word"
-          :key="letterIndex"
-          class="letter"
-          :style="getLetterStyle(getGlobalIndex(wordIndex, letterIndex))"
-          :data-letter-index="getGlobalIndex(wordIndex, letterIndex)"
-        >
-          {{ char }}
-          <span
-            v-if="
-              getGlobalIndex(wordIndex, letterIndex) === currentLetterCount - 1
-            "
-            class="cursor"
-          />
-        </span>
-      </span>
-
-      <span
-        v-if="wordIndex < words.length - 1"
-        class="letter"
-        :style="getLetterStyle(getGlobalIndex(wordIndex, word.length))"
-        :data-letter-index="getGlobalIndex(wordIndex, word.length)"
-      >
-        &nbsp;<span class="cursor" />
-      </span>
-    </template>
-  </h2>
-</template>
-
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
@@ -231,6 +180,57 @@ onBeforeUnmount(() => {
   stopCursorBlinkTimeout()
 })
 </script>
+
+<template>
+  <h2
+    ref="headline"
+    v-animation="animationConfig"
+    :class="[
+      'section-header-headline typography-section-headline-bold large-12 animated-headline',
+      { 'cursor-blink': isCursorBlinking },
+    ]"
+  >
+    <span
+      class="letter"
+      :style="{ '--cursor-opacity': initialCursorOpacity }"
+      data-initial-cursor
+    >
+      <span class="cursor" />
+    </span>
+
+    <template
+      v-for="(word, wordIndex) in words"
+      :key="wordIndex"
+    >
+      <span class="word">
+        <span
+          v-for="(char, letterIndex) in word"
+          :key="letterIndex"
+          class="letter"
+          :style="getLetterStyle(getGlobalIndex(wordIndex, letterIndex))"
+          :data-letter-index="getGlobalIndex(wordIndex, letterIndex)"
+        >
+          {{ char }}
+          <span
+            v-if="
+              getGlobalIndex(wordIndex, letterIndex) === currentLetterCount - 1
+            "
+            class="cursor"
+          />
+        </span>
+      </span>
+
+      <span
+        v-if="wordIndex < words.length - 1"
+        class="letter"
+        :style="getLetterStyle(getGlobalIndex(wordIndex, word.length))"
+        :data-letter-index="getGlobalIndex(wordIndex, word.length)"
+      >
+        &nbsp;<span class="cursor" />
+      </span>
+    </template>
+  </h2>
+</template>
 
 <style scoped>
 .typography-section-headline-bold {

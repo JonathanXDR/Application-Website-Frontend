@@ -1,3 +1,60 @@
+<script setup lang="ts">
+import type { FlashAlertType } from '#shared/types/common/flash-alert'
+
+const props = withDefaults(defineProps<FlashAlertType>(), {
+  variant: 'note',
+  title: undefined,
+  icon: () => ({ variant: 'default' }),
+})
+
+const icons = {
+  deprecated: {
+    name: 'nosign',
+    colors: {
+      primary: `var(--color-aside-${props.variant})`,
+    },
+  },
+  experiment: {
+    name: 'flask.fill',
+    colors: {
+      primary: `var(--color-aside-${props.variant})`,
+      tertiary: `var(--color-aside-${props.variant})`,
+    },
+  },
+  important: {
+    name: 'exclamationmark.triangle.fill',
+    colors: {
+      primary: 'var(--color-fill)',
+      tertiary: `var(--color-aside-${props.variant})`,
+    },
+  },
+  note: {
+    name: 'info.circle.fill',
+    colors: {
+      primary: 'var(--color-fill)',
+      tertiary: `var(--color-aside-${props.variant})`,
+    },
+  },
+  tip: {
+    name: 'questionmark.circle.fill',
+    colors: {
+      primary: 'var(--color-fill)',
+      tertiary: `var(--color-aside-${props.variant})`,
+    },
+  },
+  warning: {
+    name: 'exclamationmark.octagon.fill',
+    colors: {
+      primary: 'var(--color-fill)',
+      tertiary: `var(--color-aside-${props.variant})`,
+    },
+  },
+}
+
+const open = ref(true)
+const toggleOpen = useToggle(open)
+</script>
+
 <template>
   <aside
     :class="[
@@ -56,63 +113,6 @@
     </button>
   </aside>
 </template>
-
-<script setup lang="ts">
-import type { FlashAlertType } from '#shared/types/common/flash-alert'
-
-const props = withDefaults(defineProps<FlashAlertType>(), {
-  variant: 'note',
-  title: undefined,
-  icon: () => ({ variant: 'default' }),
-})
-
-const icons = {
-  deprecated: {
-    name: 'nosign',
-    colors: {
-      primary: `var(--color-aside-${props.variant})`,
-    },
-  },
-  experiment: {
-    name: 'flask.fill',
-    colors: {
-      primary: `var(--color-aside-${props.variant})`,
-      tertiary: `var(--color-aside-${props.variant})`,
-    },
-  },
-  important: {
-    name: 'exclamationmark.triangle.fill',
-    colors: {
-      primary: 'var(--color-fill)',
-      tertiary: `var(--color-aside-${props.variant})`,
-    },
-  },
-  note: {
-    name: 'info.circle.fill',
-    colors: {
-      primary: 'var(--color-fill)',
-      tertiary: `var(--color-aside-${props.variant})`,
-    },
-  },
-  tip: {
-    name: 'questionmark.circle.fill',
-    colors: {
-      primary: 'var(--color-fill)',
-      tertiary: `var(--color-aside-${props.variant})`,
-    },
-  },
-  warning: {
-    name: 'exclamationmark.octagon.fill',
-    colors: {
-      primary: 'var(--color-fill)',
-      tertiary: `var(--color-aside-${props.variant})`,
-    },
-  },
-}
-
-const open = ref(true)
-const toggleOpen = useToggle(open)
-</script>
 
 <style scoped>
 p + * {

@@ -1,51 +1,3 @@
-<template>
-  <div class="tags filter__suggested-tags">
-    <div
-      ref="scrollWrapper"
-      class="scroll-wrapper"
-      :class="{ scrolling: isScrolling }"
-    >
-      <ul
-        :id="`${id}-tags`"
-        ref="tags"
-        :aria-label="ariaLabel"
-        tabindex="0"
-        role="listbox"
-        :aria-multiselectable="areTagsRemovable ? 'true' : 'false'"
-        aria-orientation="horizontal"
-        @keydown.left.capture.prevent="focusPrev"
-        @keydown.right.capture.prevent="focusNext"
-        @keydown.up.capture.prevent="focusPrev"
-        @keydown.down.capture.prevent="focusNext"
-        @keydown.delete.prevent.self="() => emit('reset-filters')"
-        @keydown.meta.a.capture.prevent="() => emit('select-all')"
-        @keydown.ctrl.a.capture.prevent="() => emit('select-all')"
-        @keydown.exact.capture="handleKeydown"
-        @keydown.shift.exact.capture="handleKeydown"
-      >
-        <FilterTag
-          v-for="(tag, index) in props.tags"
-          :key="index"
-          :name="tag"
-          :is-focused="focusedIndex === index"
-          :is-removable-tag="areTagsRemovable"
-          :filter-text="input"
-          :is-translatable-tag="props.translatableTags.includes(tag)"
-          :is-active-tag="props.activeTags.includes(tag)"
-          :active-tags="props.activeTags"
-          :keyboard-is-virtual="keyboardIsVirtual"
-          @focus="handleFocus($event, index)"
-          @click="emit('click-tags', $event)"
-          @delete-tag="emit('delete-tag', $event)"
-          @prevent-blur="emit('prevent-blur')"
-          @paste-content="emit('paste-tags', $event)"
-          @keydown="emit('keydown', $event)"
-        />
-      </ul>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { isSingleCharacter } from '~/utils/input-helper'
 
@@ -198,6 +150,54 @@ defineExpose({
   resetScroll,
 })
 </script>
+
+<template>
+  <div class="tags filter__suggested-tags">
+    <div
+      ref="scrollWrapper"
+      class="scroll-wrapper"
+      :class="{ scrolling: isScrolling }"
+    >
+      <ul
+        :id="`${id}-tags`"
+        ref="tags"
+        :aria-label="ariaLabel"
+        tabindex="0"
+        role="listbox"
+        :aria-multiselectable="areTagsRemovable ? 'true' : 'false'"
+        aria-orientation="horizontal"
+        @keydown.left.capture.prevent="focusPrev"
+        @keydown.right.capture.prevent="focusNext"
+        @keydown.up.capture.prevent="focusPrev"
+        @keydown.down.capture.prevent="focusNext"
+        @keydown.delete.prevent.self="() => emit('reset-filters')"
+        @keydown.meta.a.capture.prevent="() => emit('select-all')"
+        @keydown.ctrl.a.capture.prevent="() => emit('select-all')"
+        @keydown.exact.capture="handleKeydown"
+        @keydown.shift.exact.capture="handleKeydown"
+      >
+        <FilterTag
+          v-for="(tag, index) in props.tags"
+          :key="index"
+          :name="tag"
+          :is-focused="focusedIndex === index"
+          :is-removable-tag="areTagsRemovable"
+          :filter-text="input"
+          :is-translatable-tag="props.translatableTags.includes(tag)"
+          :is-active-tag="props.activeTags.includes(tag)"
+          :active-tags="props.activeTags"
+          :keyboard-is-virtual="keyboardIsVirtual"
+          @focus="handleFocus($event, index)"
+          @click="emit('click-tags', $event)"
+          @delete-tag="emit('delete-tag', $event)"
+          @prevent-blur="emit('prevent-blur')"
+          @paste-content="emit('paste-tags', $event)"
+          @keydown="emit('keydown', $event)"
+        />
+      </ul>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .tags {
