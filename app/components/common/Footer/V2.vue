@@ -1,3 +1,9 @@
+<script setup lang="ts">
+const { t } = useI18n()
+
+const currentYear = ref(new Date().getFullYear())
+</script>
+
 <template>
   <footer
     id="footer"
@@ -42,7 +48,9 @@
             class="footer-mini-legal-copyright footer-mini-legal-copyright--small"
           >
             Copyright <span aria-hidden="true">©</span>
-            2024 Apple Inc. All rights reserved.
+            {{
+              t("components.common.Footer.allRightsReserved", { currentYear })
+            }}
           </div>
           <div class="footer-mini-legal-links">
             <a
@@ -78,15 +86,15 @@
             class="footer-mini-legal-copyright footer-mini-legal-copyright--large"
           >
             Copyright <span aria-hidden="true">©</span>
-            2024 Apple Inc. All rights reserved.
+            {{
+              t("components.common.Footer.allRightsReserved", { currentYear })
+            }}
           </div>
         </div>
       </section>
     </div>
   </footer>
 </template>
-
-<script lang="ts" setup></script>
 
 <style scoped>
 .footer {
