@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { NuxtLink } from '#components'
 import type { LinkType } from '#shared/types/common/link'
 
 const props = withDefaults(
@@ -17,37 +16,7 @@ const props = withDefaults(
   },
 )
 
-const { links } = toRefs(props)
-
-const getLinkComponentType = (link: LinkType) => {
-  return link.url?.startsWith('#') || link.url?.startsWith('/')
-    ? NuxtLink
-    : 'a'
-}
-
-const getLinkAttributes = (link: LinkType) => {
-  return link.url?.startsWith('#') || link.url?.startsWith('/')
-    ? { to: link.url, target: '_self' }
-    : { href: link.url, target: '_blank', rel: 'noopener noreferrer' }
-}
-
-const enhancedLinks = computed(() => {
-  return links.value.map(link => ({
-    ...link,
-    to:
-      link.url?.startsWith('#') || link.url?.startsWith('/')
-        ? link.url
-        : undefined,
-    href:
-      link.url && !(link.url.startsWith('#') || link.url.startsWith('/'))
-        ? link.url
-        : undefined,
-    target:
-      link.url?.startsWith('#') || link.url?.startsWith('/')
-        ? '_self'
-        : '_blank',
-  }))
-})
+const enhancedLinks = computed(() => getEnhancedLinks(props.links))
 </script>
 
 <template>
