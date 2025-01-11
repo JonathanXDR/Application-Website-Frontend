@@ -3,7 +3,7 @@
     <SpeedInsights />
     <header
       v-if="shouldShow('header')"
-      :class="{ 'hide-localnav': hidden }"
+      :class="{ 'hide-localnav': state.isHidden }"
     >
       <NavBar v-if="shouldShow('nav')" />
       <div
@@ -31,7 +31,7 @@ import type { InfoBanner } from '#shared/types/common/info-banner'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterFull from '~/components/common/Footer/Full.vue'
 
-const { state, hidden } = useNavbar()
+const { state } = useNavbar()
 const { randomDevColor } = useColor()
 const route = useRoute()
 const { currentSection } = useSection()
@@ -73,14 +73,14 @@ const resetHideNavbarTimer = () => {
 
   hideNavbarTimeout.value = setTimeout(() => {
     if (!isScrolling.value && y.value > rotatingBannerHeight.value) {
-      hidden.value = true
+      state.value.isHidden = true
     }
   }, state.value.autoHideDelay)
 }
 
 watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
   if (!state.value.autoHide) {
-    hidden.value = false
+    state.value.isHidden = false
     return
   }
 
@@ -88,13 +88,13 @@ watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
 
   if (isScrollingNew && yNew > rotatingBannerHeight.value) {
     if (isScrollingDown) {
-      hidden.value = true
+      state.value.isHidden = true
       if (hideNavbarTimeout.value) {
         clearTimeout(hideNavbarTimeout.value)
       }
     }
     else {
-      hidden.value = false
+      state.value.isHidden = false
     }
   }
 
