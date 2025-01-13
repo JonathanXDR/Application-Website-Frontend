@@ -1,15 +1,15 @@
 <script setup lang="ts">
 const viewport = useViewport()
-const { navState } = useNavbar()
+const { state } = useNavbar()
 
 const stickyWrapper = ref<HTMLElement | null>(null)
 const originalOffset = ref<number | null>(null)
 
 const isSticky = ref(false)
 const isInitialized = ref(false)
-const isHidden = ref(navState.value.hidden)
-const isAutoHiding = ref(navState.value.autoHide)
-const isExtensionAttached = ref(navState.value.extensionAttached)
+const isHidden = ref(state.value.hidden)
+const isAutoHiding = ref(state.value.autoHide)
+const isExtensionAttached = ref(state.value.extensionAttached)
 
 const navbarHeight = computed(() => (viewport.isLessThan('tablet') ? 48 : 52))
 

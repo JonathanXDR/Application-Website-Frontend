@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<NavbarType>(), {
   position: 'fixed',
 })
 
-const { navState } = useNavbar()
+const { state, setState } = useNavbar()
 const { randomDevColor } = useColor()
 const { currentSection } = useSection()
 const { getTheme } = useTheme()
@@ -23,11 +23,11 @@ const { tm } = useI18n()
 
 const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'))
 
-const isScrim = ref(navState.value.scrim)
-const isOpen = ref(navState.value.open)
-const isHidden = ref(navState.value.hidden)
-const isAutoHiding = ref(navState.value.autoHide)
-const isTransitioning = ref(navState.value.transitioning)
+const isScrim = ref(state.value.scrim)
+const isOpen = ref(state.value.open)
+const isHidden = ref(state.value.hidden)
+const isAutoHiding = ref(state.value.autoHide)
+const isTransitioning = ref(state.value.transitioning)
 
 const shouldHide = ref(false)
 const shouldOpen = ref(false)
@@ -55,6 +55,8 @@ const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
   if (!liElement) return
   return liElement.firstElementChild as HTMLElement
 })
+
+setState({ ...props })
 
 const initHeaderAnimations = () => {
   if (!backgroundElement.value) return
@@ -231,8 +233,8 @@ watch(
   <div
     id="ac-ln-fixed-placeholder"
     :class="[
-      { 'css-sticky ac-ln-sticking': navState.position === 'sticky' },
-      { 'css-fixed ac-ln-sticking': navState.position === 'fixed' },
+      { 'css-sticky ac-ln-sticking': state.position === 'sticky' },
+      { 'css-fixed ac-ln-sticking': state.position === 'fixed' },
     ]"
   />
   <nav
@@ -240,9 +242,9 @@ watch(
     ref="navbarElement"
     :class="[
       'ac-ln-allow-transitions',
-      { 'css-sticky ac-ln-sticking': navState.position === 'sticky' },
-      { 'css-fixed ac-ln-sticking': navState.position === 'fixed' },
-      { 'ac-localnav-noborder': !navState.border },
+      { 'css-sticky ac-ln-sticking': state.position === 'sticky' },
+      { 'css-fixed ac-ln-sticking': state.position === 'fixed' },
+      { 'ac-localnav-noborder': !state.border },
       { 'ac-localnav-scrim': isScrim },
       { 'ac-ln-hide': isAutoHiding },
       { 'ac-ln-hidden': shouldHide },
