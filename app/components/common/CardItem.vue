@@ -204,7 +204,7 @@ const updateIconWrapperStyle = () => {
 onMounted(() => {
   const shouldSetLink
     = props.hover === true
-    || (props.hover === 'auto' && (props.links?.length || props.html_url))
+      || (props.hover === 'auto' && (props.links?.length || props.html_url))
 
   if (shouldSetLink && props.variant !== 'article') {
     componentType.value = 'a'

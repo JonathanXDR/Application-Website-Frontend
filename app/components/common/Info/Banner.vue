@@ -145,7 +145,7 @@ const previous = () => {
   const nextSequence = state.value.sequence + 1
   const nextItem
     = (state.value.activeItem - stepSize + baseItems.value.length)
-    % baseItems.value.length
+      % baseItems.value.length
 
   state.value = {
     ...state.value,
