@@ -1288,7 +1288,7 @@ body[data-supports-auto-color-scheme="false"]
 .footer-mini-news .content {
   --toggle-border-radius-outer: 12px;
   --toggle-border-radius-inner: 10px;
-  --toggle-color-fill: var(--color-button-background-active);
+  --toggle-color-fill: var(--color-fill-blue);
   --toggle-color-text: var(--color-fill-blue);
   flex-shrink: 0;
 }

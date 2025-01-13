@@ -100,7 +100,7 @@ const updateCurrentIndex = (index: number) => {
 const currentProjects = computed(() => {
   const category
     = (route.query.category as keyof typeof projects)
-    || Object.keys(projects)[currentIndex.value]
+      || Object.keys(projects)[currentIndex.value]
   return projects[category] || []
 }) as Ref<CardItemType[]>
 

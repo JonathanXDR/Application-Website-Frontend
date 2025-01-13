@@ -907,10 +907,10 @@ export default {
       if (this.$viewport.isMobile) {
         castleLength
           = '-'
-          + (window.innerWidth
-            + document.querySelector('.castle-container').offsetWidth
-            + 16)
-          + 'px'
+            + (window.innerWidth
+              + document.querySelector('.castle-container').offsetWidth
+              + 16)
+            + 'px'
       }
 
       castleTweener
