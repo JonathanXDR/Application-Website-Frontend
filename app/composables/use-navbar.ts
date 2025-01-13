@@ -5,7 +5,7 @@ export const useNavbar = () => {
   const route = useRoute()
   const { tm } = useI18n()
 
-  const navState = useState<NavbarType>('navbarState', () => ({
+  const state = useState<NavbarType>('navbarState', () => ({
     autoHide: false,
     autoHideDelay: 2000,
     border: true,
@@ -16,6 +16,10 @@ export const useNavbar = () => {
     hidden: false,
     transitioning: false,
   }))
+
+  const setState = (updates: Partial<NavbarType>) => {
+    Object.assign(state.value, updates)
+  }
 
   const navItems = computed<SectionType[]>(() =>
     tm('components.common.NavBar'),
@@ -31,7 +35,8 @@ export const useNavbar = () => {
   })
 
   return {
-    navState,
+    state,
+    setState,
     navItems,
     pageTitle,
   }
