@@ -79,6 +79,13 @@ const computedPadding = computed(() => {
 })
 
 watch(
+  () => props.selectedItem,
+  (newValue) => {
+    selectedItem.value = newValue
+  },
+)
+
+watch(
   selectedItem,
   (itemNew) => {
     props.onSelect(itemNew)
