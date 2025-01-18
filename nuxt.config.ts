@@ -151,6 +151,7 @@ export default defineNuxtConfig({
     appleDeveloperTeamId: process.env.APPLE_DEVELOPER_TEAM_ID,
     appleMusicUserToken: process.env.APPLE_MUSIC_USER_TOKEN,
   },
+  ignore: ['~/assets/drafts/**'],
   routeRules: {
     '/de/**': { robots: false },
     '/en/**': { robots: false },
