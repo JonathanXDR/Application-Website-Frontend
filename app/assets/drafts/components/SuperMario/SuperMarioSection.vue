@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { gsap } from 'gsap'
-import AudioExit from '~~/public/mario/audio/smw_keyhole_exit.ogg'
+import AudioExit from '~/assets/drafts/SuperMario/audio/smw_keyhole_exit.ogg'
 
 const foundCoins = ref(0)
 const marioState = ref<string | undefined>(undefined)
