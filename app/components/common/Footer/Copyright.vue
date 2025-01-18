@@ -24,12 +24,12 @@ const currentYear = ref(new Date().getFullYear())
   >
     Copyright <span aria-hidden="true">©</span>
     {{ currentYear }}
-    <template
+
+    <LinkItem
       v-for="(link, index) in links"
       :key="index"
-    >
-      <LinkItem v-bind="link" />
-    </template>
+      v-bind="link"
+    />
 
     {{ t("components.common.Footer.allRightsReserved") }}
   </div>
