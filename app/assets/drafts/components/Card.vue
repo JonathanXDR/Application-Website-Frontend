@@ -11,8 +11,8 @@
 <script>
 import ButtonLink from '~/assets/drafts/components/ButtonLink.vue'
 import CardCover from '~/assets/drafts/components/CardCover.vue'
-import DiagonalArrowIcon from '~/components/common/New/Icons/DiagonalArrowIcon.vue'
-import InlineChevronRightIcon from '~/components/common/New/Icons/InlineChevronRightIcon.vue'
+import DiagonalArrowIcon from '~/assets/drafts/components/Icon/DiagonalArrow.vue'
+import InlineChevronRightIcon from '~/assets/drafts/components/Icon/InlineChevronRight.vue'
 
 const CardSize = {
   small: 'small',
@@ -159,7 +159,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "/app/assets/scss/_core.scss";
+@import "/app/assets/drafts/scss/_core.scss";
 
 .card {
   --margin-link: #{$details-padding-card};

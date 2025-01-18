@@ -8,7 +8,7 @@
   See https://swift.org/CONTRIBUTORS.txt for Swift project authors
 -->
 <script>
-import ChevronRoundedIcon from '~/components/common/New/Icons/ChevronRoundedIcon.vue'
+import ChevronRoundedIcon from '~/assets/drafts/components/Icon/ChevronRounded.vue'
 
 const Action = {
   previous: 'previous',
@@ -39,7 +39,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "/app/assets/scss/_core.scss";
+@import "/app/assets/drafts/scss/_core.scss";
 
 .pager-control {
   align-items: center;

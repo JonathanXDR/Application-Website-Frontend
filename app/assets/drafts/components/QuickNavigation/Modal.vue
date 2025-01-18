@@ -9,13 +9,13 @@
 -->
 
 <script>
-import FilterInput from '~/components/common/New/Filter/FilterInput.vue'
-import GenericModal from '~/components/common/New/GenericModal.vue'
-import QuickNavigationHighlighter from '~/components/common/New/Navigator/QuickNavigationHighlighter.vue'
-import TopicTypeIcon from '~/components/common/New/TopicTypeIcon.vue'
-import keyboardNavigation from '~/mixins/keyboardNavigation'
-import debounce from '~/utils/debounce'
-import LRUMap from '~/utils/lru-map'
+import GenericModal from '~/assets/drafts/components/GenericModal.vue'
+import FilterInput from '~/assets/drafts/components/common/New/Filter/FilterInput.vue'
+import QuickNavigationHighlighter from '~/assets/drafts/components/common/New/Navigator/QuickNavigationHighlighter.vue'
+import TopicTypeIcon from '~/assets/drafts/components/common/New/TopicTypeIcon.vue'
+import keyboardNavigation from '~/assets/drafts/mixins/keyboardNavigation'
+import debounce from '~/assets/drafts/utils/debounce'
+import LRUMap from '~/assets/drafts/utils/lru-map'
 import {
   convertChildrenArrayToObject,
   getParents,
@@ -471,7 +471,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "/app/assets/scss/_core.scss";
+@import "/app/assets/drafts/scss/_core.scss";
 
 $base-border-width: 1px;
 $input-horizontal-spacing: rem(15px);

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { isSingleCharacter } from '~/utils/input-helper'
+import { isSingleCharacter } from '~/assets/drafts/utils/input-helper'
 
 const ScrollingDebounceDelay = 1000
 

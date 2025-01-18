@@ -63,7 +63,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "/app/assets/scss/_core.scss";
+@import "/app/assets/drafts/scss/_core.scss";
 
 $-tabnav-top-margin: rem(15px);
 $-tabnav-bottom-margin: rem(25px);

@@ -142,7 +142,7 @@ useEventListener(document, 'keydown', onKeydown)
 </template>
 
 <style scoped lang="scss">
-@import "/app/assets/scss/_core.scss";
+@import "/app/assets/drafts/scss/_core.scss";
 
 $-modal-close-font-size: 40px;
 $-modal-close-font-size-medium: 32px;

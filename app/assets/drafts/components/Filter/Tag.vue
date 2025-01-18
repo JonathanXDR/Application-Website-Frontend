@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { prepareDataForHTMLClipboard } from '~/utils/clipboard'
+import { prepareDataForHTMLClipboard } from '~/assets/drafts/utils/clipboard'
 
 const props = defineProps<{
   name: string

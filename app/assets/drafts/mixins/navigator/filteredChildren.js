@@ -8,7 +8,7 @@
  * See https://swift.org/CONTRIBUTORS.txt for Swift project authors
  */
 
-import { FILTER_TAGS, TOPIC_TYPE_TO_TAG } from '~/constants/Tags'
+import { FILTER_TAGS, TOPIC_TYPE_TO_TAG } from '~/assets/drafts/constants/Tags'
 
 export default {
   computed: {

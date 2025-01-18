@@ -8,7 +8,11 @@
  * See https://swift.org/CONTRIBUTORS.txt for Swift project authors
  */
 
-import { FILTER_TAGS, TOPIC_TYPE_TO_TAG, TYPE_TAGS } from '~/constants/Tags'
+import {
+  FILTER_TAGS,
+  TOPIC_TYPE_TO_TAG,
+  TYPE_TAGS,
+} from '~/assets/drafts/constants/Tags'
 
 export default {
   name: 'TagsDataProvider',

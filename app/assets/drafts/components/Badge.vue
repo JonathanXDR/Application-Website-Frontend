@@ -46,7 +46,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@import "/app/assets/scss/_core.scss";
+@import "/app/assets/drafts/scss/_core.scss";
 
 @mixin badge-variation($color) {
   --badge-color: var(--color-badge-#{$color});

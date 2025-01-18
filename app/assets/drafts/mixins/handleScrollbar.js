@@ -8,7 +8,7 @@
  * See https://swift.org/CONTRIBUTORS.txt for Swift project authors
  */
 
-import debounce from '~/utils/debounce'
+import debounce from '~/assets/drafts/utils/debounce'
 
 const ScrollingDebounceDelay = 1000
 

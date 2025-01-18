@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type FilterTagList from '~/components/common/Filter/TagList.vue'
+import type FilterTagList from '~/assets/drafts/components/Filter/TagList.vue'
 import {
   parseDataFromClipboard,
   prepareDataForHTMLClipboard,
-} from '~/utils/clipboard'
+} from '~/assets/drafts/utils/clipboard'
 import {
   isSingleCharacter,
   moveCursorToEnd,
   moveCursorToStart,
-} from '~/utils/input-helper'
-import { insertAt } from '~/utils/strings'
+} from '~/assets/drafts/utils/input-helper'
+import { insertAt } from '~/assets/drafts/utils/strings'
 
 const props = withDefaults(
   defineProps<{
