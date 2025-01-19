@@ -14,7 +14,9 @@ withDefaults(
 )
 
 const { t, tm } = useI18n()
-const links = computed<LinkType[]>(() => tm('components.common.Footer.links'))
+const links = computed<LinkType[]>(() =>
+  tm('components.common.FooterCopyright.links'),
+)
 const currentYear = ref(new Date().getFullYear())
 </script>
 
@@ -31,6 +33,6 @@ const currentYear = ref(new Date().getFullYear())
       v-bind="link"
     />
 
-    {{ t("components.common.Footer.allRightsReserved") }}
+    {{ t("components.common.FooterCopyright.allRightsReserved") }}
   </div>
 </template>
