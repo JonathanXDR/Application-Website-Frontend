@@ -38,6 +38,10 @@ withDefaults(
           class="icon icon-sm"
         />
       </span>
+      <SiteLogo
+        v-else
+        class="footer-breadcrumbs-home-logo h-3 w-auto"
+      />
       <span
         v-if="label"
         class="footer-breadcrumbs-home-label"

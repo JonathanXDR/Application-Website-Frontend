@@ -7,11 +7,7 @@ const currentYear = ref(new Date().getFullYear())
 <template>
   <div class="rs-covers-footer">
     <div class="as-l-container">
-      {{
-        t("components.common.Footer.allRightsReserved", {
-          currentYear,
-        })
-      }}
+      {{ t("components.common.Footer.allRightsReserved", { currentYear }) }}
     </div>
   </div>
 </template>
