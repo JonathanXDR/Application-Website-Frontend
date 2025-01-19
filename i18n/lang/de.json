@@ -493,11 +493,11 @@
         },
         {
           "progress": 1000,
-          "description": "Stunden für Debugging"
+          "description": "Investierte Stunden ins Debugging"
         },
         {
           "progress": 2000,
-          "description": "Bugs gefixt"
+          "description": "Gefixte Bugs"
         },
         {
           "progress": 2400,
@@ -505,7 +505,7 @@
         },
         {
           "progress": 7200,
-          "description": "Stunden Musik gehört"
+          "description": "Gehörte Stunden Musik"
         }
       ],
       "technologies": [
