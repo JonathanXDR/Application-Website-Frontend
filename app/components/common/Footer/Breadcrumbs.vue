@@ -18,7 +18,7 @@ const props = withDefaults(
 
 const route = useRoute()
 const requestURL = useRequestURL()
-const { pageTitle } = useNavbar()
+const { currentRoute } = useNavbar()
 
 const shouldShowBreadcrumbs = computed(() => route.path !== '/')
 
@@ -41,7 +41,7 @@ const computedLinks = computed<LinkType[]>(() => {
   }
 
   result.push({
-    title: pageTitle.value ?? route.path,
+    title: currentRoute.value?.label ?? route.path,
     url: route.path,
   })
 
@@ -68,7 +68,7 @@ const computedLinks = computed<LinkType[]>(() => {
       />
       <SiteLogo
         v-else
-        class="h-3 !w-auto"
+        class="h-[12px] !w-auto"
       />
       <span
         v-if="label"

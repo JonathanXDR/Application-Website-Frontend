@@ -8,11 +8,11 @@ const { state } = useNavbar()
 const { randomDevColor } = useColor()
 const route = useRoute()
 const { currentSection } = useSection()
+const { currentRoute } = useNavbar()
 const { locale, tm } = useI18n()
 const { y, isScrolling } = useScroll(window)
 const error = useError()
 const config = useRuntimeConfig()
-const navbar = useNavbar()
 
 const isHidden = ref(state.value.hidden)
 const isAutoHiding = ref(state.value.autoHide)
@@ -91,10 +91,10 @@ watchEffect(() => {
   useHead({
     htmlAttrs: { lang: locale.value },
     titleTemplate:
-      currentSection.value?.name || navbar.pageTitle.value
+      currentSection.value?.name || currentRoute.value?.label
         ? 'JR %separator %s'
         : '%siteName',
-    title: currentSection.value?.name || navbar.pageTitle.value,
+    title: currentSection.value?.name || currentRoute.value?.label,
   })
 
   if (config.public.appEnvironment !== 'development') return
@@ -138,7 +138,7 @@ const footerComponent = computed(() =>
 </script>
 
 <template>
-  <div>
+  <div :id="currentRoute?.id">
     <SpeedInsights />
     <header
       v-if="shouldShow('header')"

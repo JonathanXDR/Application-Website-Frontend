@@ -781,7 +781,7 @@ html[dir="rtl"] .footer-breadcrumbs-item:before {
   padding-top: 5px;
 }
 
-#home .footer-directory {
+#overview .footer-directory {
   padding-top: 20px;
 }
 

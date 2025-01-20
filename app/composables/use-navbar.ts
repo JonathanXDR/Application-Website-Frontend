@@ -25,19 +25,19 @@ export const useNavbar = () => {
     tm('components.common.NavBar'),
   )
 
-  const pageTitle = computed(() => {
+  const currentRoute = computed(() => {
     return navItems.value.find((item) => {
       if (!item.route) return false
       return route.path === '/'
         ? item.route === '/'
         : item.route !== '/' && route.path.startsWith(item.route)
-    })?.label
+    })
   })
 
   return {
     state,
     setState,
     navItems,
-    pageTitle,
+    currentRoute,
   }
 }

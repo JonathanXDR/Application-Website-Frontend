@@ -9,10 +9,9 @@ definePageMeta({
   footerCompact: false,
 })
 
-const navbar = useNavbar()
 const { tm } = useI18n()
+const { currentRoute } = useNavbar()
 
-const pageTitle = navbar.pageTitle
 const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
 
 const cards = computed<CardItemType[]>(() =>
@@ -41,8 +40,8 @@ const cards = computed<CardItemType[]>(() =>
 <template>
   <div class="flex flex-col items-center mt-24">
     <AnimatingHeadline
-      v-if="pageTitle"
-      :title="pageTitle"
+      v-if="currentRoute?.label"
+      :title="currentRoute?.label"
       class="typography-magical-headline pb-12"
       :auto-animation="true"
     />

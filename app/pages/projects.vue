@@ -32,11 +32,9 @@ const route = useRoute()
 const router = useRouter()
 const viewport = useViewport()
 const { t, tm } = useI18n()
+const { currentRoute } = useNavbar()
 const { randomDevColor } = useColor()
 const config = useRuntimeConfig()
-const navbar = useNavbar()
-
-const pageTitle = navbar.pageTitle
 
 const ul = ref<HTMLElement | undefined>(undefined)
 const ulHeight = ref<number>(0)
@@ -186,8 +184,8 @@ onUnmounted(() => {
 <template>
   <div class="flex flex-col items-center mt-24">
     <AnimatingHeadline
-      v-if="pageTitle"
-      :title="pageTitle"
+      v-if="currentRoute?.label"
+      :title="currentRoute?.label"
       class="typography-magical-headline pb-12"
       :auto-animation="true"
     />
