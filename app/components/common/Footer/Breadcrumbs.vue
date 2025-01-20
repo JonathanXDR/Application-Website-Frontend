@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import type { IconType } from '#shared/types/common/icon'
 import type { LinkType } from '#shared/types/common/link'
+import { useNavbar } from '~/composables/use-navbar'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     label?: string
     icon?: IconType
@@ -14,34 +15,60 @@ withDefaults(
     loading: false,
   },
 )
+
+const route = useRoute()
+const requestURL = useRequestURL()
+const { pageTitle } = useNavbar()
+
+const shouldShowBreadcrumbs = computed(() => route.path !== '/')
+
+const computedLinks = computed<LinkType[]>(() => {
+  if (props.links.length) return props.links
+  if (route.path === '/') return []
+
+  const domainParts = requestURL.host?.split('.') ?? []
+  const mainDomain = domainParts.slice(-2).join('.')
+  const subDomain = domainParts.slice(0, -2).join('.')
+
+  const result: LinkType[] = []
+
+  if (subDomain) {
+    const capitalized = subDomain[0]?.toUpperCase() + subDomain.slice(1)
+    result.push({
+      title: capitalized,
+      url: `//${subDomain}.${mainDomain}`,
+    })
+  }
+
+  result.push({
+    title: pageTitle.value ?? route.path,
+    url: route.path,
+  })
+
+  return result
+})
 </script>
 
 <template>
   <nav
+    v-if="shouldShowBreadcrumbs"
     class="footer-breadcrumbs"
     aria-label="Breadcrumbs"
   >
     <NuxtLink
       v-if="icon || label"
-      to="/"
+      :to="`//${requestURL.host?.split('.').slice(-2).join('.')}`"
       class="home footer-breadcrumbs-home"
     >
-      <!-- width: 14px; padding-left: 25px; -->
-      <span
+      <DynamicIcon
         v-if="icon"
-        class="footer-breadcrumbs-home-icon"
-        aria-hidden="true"
-        data-hires-status="pending"
-      >
-        <DynamicIcon
-          v-bind="icon"
-          :loading="loading"
-          class="icon icon-sm"
-        />
-      </span>
+        v-bind="icon"
+        :loading="loading"
+        class="icon icon-sm"
+      />
       <SiteLogo
         v-else
-        class="footer-breadcrumbs-home-icon !w-auto"
+        class="h-3 !w-auto"
       />
       <span
         v-if="label"
@@ -50,14 +77,20 @@ withDefaults(
         {{ label }}
       </span>
     </NuxtLink>
+
     <div class="footer-breadcrumbs-path">
       <ol class="footer-breadcrumbs-list">
         <li
-          v-for="(link, index) in links"
+          v-for="(link, index) in computedLinks"
           :key="index"
           class="footer-breadcrumbs-item"
         >
-          <LinkItem v-bind="link" />
+          <template v-if="link.url === route.path">
+            {{ link.title }}
+          </template>
+          <template v-else>
+            <LinkItem v-bind="link" />
+          </template>
         </li>
       </ol>
     </div>

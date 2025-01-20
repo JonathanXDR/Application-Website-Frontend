@@ -21,19 +21,7 @@ const items = computed<SectionType[]>(() =>
       >
         Developer Footer
       </h2>
-      <FooterBreadcrumbs
-        label="Jonathan Russ"
-        :links="[
-          {
-            title: 'Developer',
-            url: '/',
-          },
-          {
-            title: 'Develop',
-            url: '/develop/',
-          },
-        ]"
-      />
+      <FooterBreadcrumbs label="Jonathan Russ" />
       <FooterDirectory :items="items" />
       <FooterMini
         :legal-links="[
@@ -64,6 +52,15 @@ const items = computed<SectionType[]>(() =>
 </template>
 
 <style>
+h1 + *,
+h2 + *,
+h3 + *,
+h4 + *,
+h5 + *,
+h6 + * {
+  margin-top: 0.8em;
+}
+
 .footer {
   font-size: 12px;
   line-height: 1.33337;
@@ -179,6 +176,8 @@ const items = computed<SectionType[]>(() =>
 }
 
 .footer-breadcrumbs {
+  display: flex;
+  align-items: center;
   padding: 17px 0;
   position: relative;
   z-index: 1;
@@ -202,10 +201,10 @@ const items = computed<SectionType[]>(() =>
 }
 
 .footer-breadcrumbs-home {
-  left: 0;
-  position: absolute;
+  /* left: 0; */
+  /* position: absolute; */
   z-index: 2;
-  top: 17px;
+  /* top: 17px; */
 }
 
 .footer-breadcrumbs-home-icon {
@@ -274,7 +273,8 @@ const items = computed<SectionType[]>(() =>
 
 .footer-breadcrumbs-list {
   max-height: 9999px;
-  padding-left: 25px;
+  /* padding-left: 25px; */
+  padding-left: 11px;
   direction: ltr;
   list-style: none;
 }
@@ -901,17 +901,6 @@ body[data-supports-auto-color-scheme="false"]
   opacity: 1;
   background-position-y: calc(100% + 2px);
 }
-
-/* .footer .footer-breadcrumbs-home-icon {
-  background-image: url("https://developer.apple.com/assets/elements/icons/brandmark/icon_large.svg");
-  background-size: 14px 74px;
-}
-
-.theme-dark .footer .footer-breadcrumbs-home-icon,
-.footer.theme-dark .footer-breadcrumbs-home-icon {
-  background-size: 14px 74px;
-  background-image: url("https://developer.apple.com/assets/elements/icons/brandmark/icon_dark_large.svg");
-} */
 
 .footer .footer-breadcrumbs-item:before {
   /* content: '';
