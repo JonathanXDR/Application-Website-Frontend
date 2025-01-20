@@ -26,6 +26,7 @@ withDefaults(
       to="/"
       class="home footer-breadcrumbs-home"
     >
+      <!-- width: 14px; padding-left: 25px; -->
       <span
         v-if="icon"
         class="footer-breadcrumbs-home-icon"
@@ -40,7 +41,7 @@ withDefaults(
       </span>
       <SiteLogo
         v-else
-        class="footer-breadcrumbs-home-logo h-3 w-auto"
+        class="footer-breadcrumbs-home-icon !w-auto"
       />
       <span
         v-if="label"
