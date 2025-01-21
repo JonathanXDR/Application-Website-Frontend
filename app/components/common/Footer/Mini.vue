@@ -4,7 +4,10 @@ import type { LinkType } from '#shared/types/common/link'
 withDefaults(
   defineProps<{
     legalLinks?: LinkType[]
-    newsLinks?: LinkType[]
+    news?: {
+      title: string
+      link: LinkType
+    }
     colorSchemeToggle?: boolean
     languageDropdown?: boolean
     loading?: boolean
@@ -24,12 +27,12 @@ withDefaults(
     typeof="Organization"
   >
     <div
-      v-if="newsLinks.length"
+      v-if="news"
       class="footer-mini-news"
     >
       <div class="copy">
-        To view the latest developer news, visit
-        <a href="/news/">News and Updates</a>.
+        {{ news.title }}
+        <LinkItem v-bind="news.link" />
       </div>
       <div
         v-if="colorSchemeToggle"

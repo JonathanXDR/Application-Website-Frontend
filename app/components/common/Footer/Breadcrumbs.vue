@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { IconType } from '#shared/types/common/icon'
 import type { LinkType } from '#shared/types/common/link'
-import { useNavbar } from '~/composables/use-navbar'
 
 const props = withDefaults(
   defineProps<{
@@ -36,7 +35,7 @@ const computedLinks = computed<LinkType[]>(() => {
     const capitalized = subDomain[0]?.toUpperCase() + subDomain.slice(1)
     result.push({
       title: capitalized,
-      url: `//${subDomain}.${mainDomain}`,
+      url: `${subDomain}.${mainDomain}`,
     })
   }
 
@@ -57,7 +56,7 @@ const computedLinks = computed<LinkType[]>(() => {
   >
     <NuxtLink
       v-if="icon || label"
-      :to="`//${requestURL.host?.split('.').slice(-2).join('.')}`"
+      :to="requestURL.host?.split('.').slice(-2).join('.')"
       class="home footer-breadcrumbs-home"
     >
       <DynamicIcon

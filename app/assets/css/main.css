@@ -273,6 +273,9 @@ body main ::-webkit-scrollbar-track {
   --color-button-background-active: var(--color-fill-blue);
   --color-button-background-hover: #0077ed;
 
+  /* Breadcrumbs */
+  --color-breadcrumbs: #515154;
+
   /* Changes */
   --color-changes-added: var(--color-figure-green);
   --color-changes-added-hover: var(--color-fill-green-secondary);
@@ -637,6 +640,9 @@ body main ::-webkit-scrollbar-track {
   /* Button */
   --color-button-background-active: var(--color-fill-blue);
   --color-button-background-hover: #0077ed;
+
+  /* Breadcrumbs */
+  --color-breadcrumbs: #6e6e73;
 
   /* Changes */
   --color-changes-added: var(--color-figure-green);

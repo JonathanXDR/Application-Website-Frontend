@@ -38,12 +38,13 @@ const items = computed<SectionType[]>(() =>
             url: '/agreements/',
           },
         ]"
-        :news-links="[
-          {
-            title: 'News and Updates',
-            url: '/news/',
+        :news="{
+          title: 'Get the',
+          link: {
+            title: 'Apple Developer app',
+            url: 'https://apps.apple.com/us/app/apple-developer/id640199958',
           },
-        ]"
+        }"
         :color-scheme-toggle="true"
         :language-dropdown="true"
       />
@@ -181,7 +182,7 @@ h6 + * {
   padding: 17px 0;
   position: relative;
   z-index: 1;
-  color: var(--color-figure-gray-secondary-alt);
+  color: var(--color-breadcrumbs);
 }
 
 .footer-breadcrumbs::before,
