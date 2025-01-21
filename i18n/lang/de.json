@@ -2395,8 +2395,11 @@
       ]
     }
   },
-  "pages": {
-    "notFound": {
+  "pages": [
+    {
+      "id": "notFound",
+      "label": "Seite nicht gefunden",
+      "statusCode": 404,
       "icon": {
         "name": "exclamationmark.triangle.fill",
         "colors": {
@@ -2405,10 +2408,12 @@
         }
       },
       "title": "{statusCode} Not Found",
-      "description": "Die Seite, die du suchst, kann nicht gefunden werden. Bitte überprüfe sie und versuche es erneut.",
-      "links": []
+      "description": "Die Seite, die du suchst, kann nicht gefunden werden. Bitte überprüfe sie und versuche es erneut."
     },
-    "internalServerError": {
+    {
+      "id": "internalServerError",
+      "label": "Interner Serverfehler",
+      "statusCode": 500,
       "icon": {
         "name": "exclamationmark.octagon.fill",
         "colors": {
@@ -2417,10 +2422,12 @@
         }
       },
       "title": "{statusCode} Internal Server Error",
-      "description": "Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem weiterhin besteht.",
-      "links": []
+      "description": "Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem weiterhin besteht."
     },
-    "serviceUnavailable": {
+    {
+      "id": "serviceUnavailable",
+      "label": "Service nicht verfügbar",
+      "statusCode": 503,
       "icon": {
         "name": "wrench.and.screwdriver.fill",
         "colors": {
@@ -2429,10 +2436,11 @@
         }
       },
       "title": "Be right back.",
-      "description": "Ich führe Aktualisierungen auf der Seite durch. Schau bald wieder vorbei.",
-      "links": []
+      "description": "Ich führe Aktualisierungen auf der Seite durch. Schau bald wieder vorbei."
     },
-    "error": {
+    {
+      "id": "error",
+      "label": "Fehler",
       "icon": {
         "name": "exclamationmark.octagon.fill",
         "colors": {
@@ -2440,8 +2448,7 @@
         }
       },
       "title": "Error {statusCode}",
-      "description": "Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem weiterhin besteht.",
-      "links": []
+      "description": "Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem weiterhin besteht."
     }
-  }
+  ]
 }

@@ -1,34 +1,22 @@
 <script setup lang="ts">
-const error = useError()
-const { t, tm } = useI18n()
-const pages = {
-  notFound: 404,
-  internalServerError: 500,
-  serviceUnavailable: 503,
-  error: error.value?.statusCode,
-}
+import type { ErrorPageType } from '~~/shared/types/error-page'
 
-const currentKey = computed(() => {
+const error = useError()
+const { rt, tm } = useI18n()
+
+const pages = computed<ErrorPageType[]>(() => tm(`pages`))
+
+const currentPage = computed<ErrorPageType>(() => {
+  const matchedPage = pages.value.find(
+    (page: ErrorPageType) => page.statusCode === error.value?.statusCode,
+  )
   return (
-    Object.keys(pages).find(
-      (key: string) =>
-        pages[key as keyof typeof pages] === error.value?.statusCode,
-    ) || 'error'
+    matchedPage
+    || pages.value.find((page: ErrorPageType) => page.id === 'error')!
   )
 })
 
-const title = t(`pages.${currentKey.value}.title`, {
-  statusCode: error.value?.statusCode,
-})
-const colors = computed<object>(() =>
-  tm(`pages.${currentKey.value}.icon.colors`),
-)
-const entireDescription = computed<string>(() =>
-  tm(`pages.${currentKey.value}.description`),
-)
-const description = computed<string[]>(() =>
-  entireDescription.value.split('. '),
-)
+const description = currentPage.value.description?.split('. ')
 </script>
 
 <template>
@@ -47,8 +35,8 @@ const description = computed<string[]>(() =>
               class="rc-videoplayer rs-covers-media-wrapper rc-videoplayer-muted rc-videoplayer-stalled rc-videoplayer-medium"
             >
               <DynamicIcon
-                :name="t(`pages.${currentKey}.icon.name`)"
-                :colors="colors"
+                v-if="currentPage.icon"
+                v-bind="currentPage.icon"
                 class="rs-covers-media-icon media-icon"
               />
               <!-- <video
@@ -80,11 +68,22 @@ const description = computed<string[]>(() =>
               <span class="visuallyhidden">play animation</span>
             </button>
           </div>
-          <div class="rs-covers-content-container">
-            <h1 class="rs-covers-heading">
-              <span>{{ title }}</span>
+          <div
+            v-if="currentPage.title || description"
+            class="rs-covers-content-container"
+          >
+            <h1
+              v-if="currentPage.title"
+              class="rs-covers-heading"
+            >
+              <span>{{
+                rt(currentPage.title, { statusCode: error?.statusCode })
+              }}</span>
             </h1>
-            <div class="rs-covers-desc">
+            <div
+              v-if="description"
+              class="rs-covers-desc"
+            >
               {{ description[0] }}. <br>{{ description[1] }}
             </div>
           </div>
