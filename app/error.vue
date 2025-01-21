@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ErrorPageType } from '~~/shared/types/error-page'
+import type { ErrorPageType } from '#shared/types/common/error-page'
 
 const error = useError()
 const { rt, tm } = useI18n()

@@ -15,37 +15,8 @@ const props = withDefaults(
   },
 )
 
-const route = useRoute()
-const requestURL = useRequestURL()
-const { currentRoute } = useNavbar()
-
-const shouldShowBreadcrumbs = computed(() => route.path !== '/')
-
-const computedLinks = computed<LinkType[]>(() => {
-  if (props.links.length) return props.links
-  if (route.path === '/') return []
-
-  const domainParts = requestURL.host?.split('.') ?? []
-  const mainDomain = domainParts.slice(-2).join('.')
-  const subDomain = domainParts.slice(0, -2).join('.')
-
-  const result: LinkType[] = []
-
-  if (subDomain) {
-    const capitalized = subDomain[0]?.toUpperCase() + subDomain.slice(1)
-    result.push({
-      title: capitalized,
-      url: `${subDomain}.${mainDomain}`,
-    })
-  }
-
-  result.push({
-    title: currentRoute.value?.label ?? route.path,
-    url: route.path,
-  })
-
-  return result
-})
+const { shouldShowBreadcrumbs, computedLinks, requestURL, route }
+  = useBreadcrumbs(props)
 </script>
 
 <template>
