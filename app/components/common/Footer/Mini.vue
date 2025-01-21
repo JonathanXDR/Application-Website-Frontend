@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import type { BasicSizeType } from '#shared/types/common/basic-size'
 import type { LinkType } from '#shared/types/common/link'
 
 withDefaults(
   defineProps<{
+    componentSize?: Exclude<BasicSizeType, 'medium'>
     legalLinks?: LinkType[]
     news?: {
       title: string
@@ -48,10 +50,9 @@ withDefaults(
     />
 
     <div class="footer-mini-legal">
-      <!-- render FooterCopyright here if componentSize is small -->
       <FooterCopyright
-        v-if="!loading"
-        component-size="small"
+        v-if="!loading && componentSize === 'small'"
+        :component-size="componentSize"
       />
       <div
         v-if="legalLinks.length"
@@ -64,10 +65,10 @@ withDefaults(
           class="footer-mini-legal-link"
         />
       </div>
-      <!-- render FooterCopyright here if componentSize is large -->
+
       <FooterCopyright
-        v-if="!loading"
-        component-size="large"
+        v-if="!loading && componentSize === 'large'"
+        :component-size="componentSize"
       />
     </div>
   </section>

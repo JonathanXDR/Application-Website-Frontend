@@ -24,6 +24,7 @@ const items = computed<SectionType[]>(() =>
       <FooterBreadcrumbs label="Jonathan Russ" />
       <FooterDirectory :items="items" />
       <FooterMini
+        component-size="small"
         :legal-links="[
           {
             title: 'Terms of Use',
@@ -83,7 +84,7 @@ h6 + * {
   z-index: 1;
 }
 
-@media only screen and (max-width: 1044px) {
+@media only screen and (max-width: 1023px) {
   .footer {
     min-width: 320px;
   }
@@ -843,18 +844,6 @@ body[data-supports-auto-color-scheme="false"]
   border-radius: var(--toggle-border-radius-outer, 2px);
   display: inline-flex;
   padding: 1px;
-}
-
-@media screen {
-  [data-color-scheme="dark"] .footer-mini-news .content .color-scheme-toggle {
-    --toggle-color-text: var(--color-figure-blue);
-  }
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  [data-color-scheme="auto"] .footer-mini-news .content .color-scheme-toggle {
-    --toggle-color-text: var(--color-figure-blue);
-  }
 }
 
 .footer-mini-news .content [role="radiogroup"]:focus {
