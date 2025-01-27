@@ -7,7 +7,11 @@ const currentYear = ref(new Date().getFullYear())
 <template>
   <section id="copyright">
     <p>
-      {{ t("components.common.Footer.allRightsReserved", { currentYear }) }}
+      {{
+        t("components.common.FooterCopyright.allRightsReserved", {
+          currentYear,
+        })
+      }}
     </p>
   </section>
   <LanguagePickerBar />

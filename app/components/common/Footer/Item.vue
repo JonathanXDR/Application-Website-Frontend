@@ -1,10 +1,18 @@
 <script setup lang="ts">
-import type { SectionType } from '~~/shared/types/common/section'
+import type { LinkType } from '#shared/types/common/link'
+import type { SectionType } from '#shared/types/common/section'
 
 const { tm } = useI18n()
-const items = computed<SectionType[]>(() =>
+const footerDirectoryItems = computed<SectionType[]>(() =>
   tm('components.common.FooterDirectory'),
 )
+const footerMiniLegalLinks = computed<LinkType[]>(() =>
+  tm('components.common.FooterMini.legalLinks'),
+)
+const footerMiniNews = computed<{
+  title: string
+  link: LinkType
+}>(() => tm('components.common.FooterMini.news'))
 </script>
 
 <template>
@@ -22,30 +30,11 @@ const items = computed<SectionType[]>(() =>
         Developer Footer
       </h2>
       <FooterBreadcrumbs label="Jonathan Russ" />
-      <FooterDirectory :items="items" />
+      <FooterDirectory :items="footerDirectoryItems" />
       <FooterMini
         component-size="small"
-        :legal-links="[
-          {
-            title: 'Terms of Use',
-            url: '/terms/',
-          },
-          {
-            title: 'Privacy Policy',
-            url: '/privacy/',
-          },
-          {
-            title: 'Agreements and Guidelines',
-            url: '/agreements/',
-          },
-        ]"
-        :news="{
-          title: 'Get the',
-          link: {
-            title: 'Apple Developer app',
-            url: 'https://apps.apple.com/us/app/apple-developer/id640199958',
-          },
-        }"
+        :legal-links="footerMiniLegalLinks"
+        :news="footerMiniNews"
         :color-scheme-toggle="true"
         :language-dropdown="true"
       />

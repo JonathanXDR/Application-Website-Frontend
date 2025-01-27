@@ -160,7 +160,7 @@ const footerComponent = computed(() =>
     <footer :class="footerClass">
       <component :is="footerComponent" />
     </footer>
-    <FooterItem />
+    <!-- <FooterItem /> -->
     <EasterEggAscii />
   </div>
 </template>
