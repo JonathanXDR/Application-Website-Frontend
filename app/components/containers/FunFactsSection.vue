@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { gsap } from 'gsap'
+import { animate } from 'motion'
 import type { LanguageBarType } from '#shared/types/common/language-bar'
 
 defineProps<{
@@ -27,23 +27,16 @@ const updateChipClaimHeight = () => {
 
 const animateNumber = (index: number) => {
   const span = progressSpan.value[index]
-  if (!span) return
+  if (!span || !funFacts.value[index]) return
 
-  gsap.fromTo(
-    span,
-    { innerHTML: '0' },
-    {
-      innerHTML: funFacts.value[index]?.progress.toString(),
-      duration: 1,
-      ease: 'power2.inOut',
-      onUpdate: () => {
-        span.innerHTML = Number.parseInt(span.innerHTML).toLocaleString(
-          locale.value,
-          { notation: viewport.isLessThan('tablet') ? 'compact' : 'standard' },
-        )
-      },
-    },
-  )
+  animate(0, funFacts.value[index].progress, {
+    duration: 1,
+    ease: 'easeInOut',
+    onUpdate: latest =>
+      (span.innerHTML = Math.round(latest).toLocaleString(locale.value, {
+        notation: viewport.isLessThan('tablet') ? 'compact' : 'standard',
+      })),
+  })
 }
 
 onMounted(() => {
