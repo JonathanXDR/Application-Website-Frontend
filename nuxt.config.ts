@@ -126,6 +126,11 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/main.css'],
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth',
+    },
+  },
   site: {
     url: process.env.SITE_URL,
     name: process.env.SITE_NAME,
