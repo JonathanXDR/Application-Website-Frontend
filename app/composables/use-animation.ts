@@ -1,22 +1,22 @@
 export const useAnimation = () => {
-  const headerAnimations = useState<
+  const animations = useState<
     {
       element: HTMLElement
       class: string
       timeout: number
     }[]
-  >('headerAnimations', () => [])
+  >('header-animations', () => [])
 
-  const setHeaderAnimation = (headerAnimation: {
+  const setAnimation = (headerAnimation: {
     element: HTMLElement
     class: string
     timeout: number
   }) => {
-    headerAnimations.value.push(headerAnimation)
+    animations.value.push(headerAnimation)
   }
 
   return {
-    headerAnimations,
-    setHeaderAnimation,
+    animations,
+    setAnimation,
   }
 }

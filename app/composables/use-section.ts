@@ -1,7 +1,7 @@
 export const useSection = () => {
   const currentSection = useState<
     { id: string, name?: string, index: number } | undefined
-  >('currentSection', () => undefined)
+  >('current-section', () => undefined)
 
   const route = useRoute()
 

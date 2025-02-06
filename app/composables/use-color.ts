@@ -5,7 +5,7 @@ interface Color {
 }
 
 export const useColor = () => {
-  const developmentColors = useState<Color[]>('devColors', () => [
+  const developmentColors = useState<Color[]>('dev-colors', () => [
     {
       name: 'orange',
       var: 'var(--color-figure-orange)',
@@ -23,17 +23,14 @@ export const useColor = () => {
     },
   ])
 
-  const randomDevelopmentColor = useState<Color | undefined>(
-    'randomDevColor',
-    () => {
-      const randomNumber = Math.floor(
-        Math.random() * developmentColors.value.length,
-      )
-      return developmentColors.value[randomNumber]
-    },
-  )
+  const color = useState<Color | undefined>('random-color', () => {
+    const randomNumber = Math.floor(
+      Math.random() * developmentColors.value.length,
+    )
+    return developmentColors.value[randomNumber]
+  })
 
   return {
-    randomDevColor: randomDevelopmentColor,
+    randomDevColor: color,
   }
 }

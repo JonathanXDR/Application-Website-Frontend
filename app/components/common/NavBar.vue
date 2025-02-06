@@ -16,7 +16,7 @@ const { randomDevColor } = useColor()
 const { currentSection } = useSection()
 const { getTheme } = useTheme()
 const { y: scrollY } = useWindowScroll()
-const { headerAnimations, setHeaderAnimation } = useAnimation()
+const { animations: headerAnimations, setAnimation } = useAnimation()
 const viewport = useViewport()
 const route = useRoute()
 const { tm } = useI18n()
@@ -66,7 +66,7 @@ const initHeaderAnimations = () => {
     class: 'ac-ln-background-transition',
     timeout: 500,
   }
-  setHeaderAnimation(animation)
+  setAnimation(animation)
 }
 
 const handleNav = () => {
