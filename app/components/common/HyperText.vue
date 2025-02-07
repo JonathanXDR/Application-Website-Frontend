@@ -3,165 +3,88 @@ const props = withDefaults(
   defineProps<{
     text: string
     duration?: number
-    delay?: number
+    speed?: number
+    characterSet?: string
     // eslint-disable-next-line no-undef
     as?: keyof HTMLElementTagNameMap
-    startOnView?: boolean
-    animateOnHover?: boolean
-    characterSet?: string | string[]
-    onScrambleComplete?: () => void
     trigger?: boolean
-    speed?: number
+    onScrambleComplete?: () => void
   }>(),
   {
-    duration: 800,
-    delay: 0,
-    as: 'div',
-    startOnView: false,
-    animateOnHover: true,
+    duration: 0.8,
+    speed: 0.04,
     characterSet:
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+    as: 'p',
     trigger: true,
-    speed: 0,
   },
 )
 
-const elementRef = ref<HTMLElement | null>(null)
+const displayText = ref(props.text)
 const isAnimating = ref(false)
-const displayText = ref<string[]>(props.text.split(''))
-const iterationCount = ref(0)
 
-const charSet = computed<string[]>(() => {
-  if (typeof props.characterSet === 'string') {
-    return props.characterSet.split('')
-  }
-  return props.characterSet
-})
+function scramble() {
+  if (isAnimating.value) return
+  isAnimating.value = true
 
-const handleMouseEnter = () => {
-  if (props.animateOnHover && !isAnimating.value && props.trigger) {
-    iterationCount.value = 0
-    isAnimating.value = true
-  }
-}
+  const steps = props.duration / props.speed
+  let step = 0
+  const originalText = props.text
 
-const getRandomInt = (max: number) => {
-  return Math.floor(Math.random() * max)
-}
+  const interval = setInterval(() => {
+    let scrambled = ''
+    const progress = step / steps
 
-const scrambleStep = () => {
-  const text = props.text
-  const maxIterations = text.length
-
-  if (iterationCount.value < maxIterations) {
-    displayText.value = displayText.value.map((char, index) => {
-      if (char === ' ') return ' '
-
-      if (index <= iterationCount.value) {
-        return text[index]
+    for (let i = 0; i < originalText.length; i++) {
+      if (originalText[i] === ' ') {
+        scrambled += ' '
+        continue
       }
-      return charSet.value[getRandomInt(charSet.value.length)]
-    }) as string[]
-    iterationCount.value += 0.1
-  }
-  else {
-    isAnimating.value = false
-    props.onScrambleComplete?.()
-  }
+      if (progress * originalText.length > i) {
+        scrambled += originalText[i]
+      }
+      else {
+        scrambled
+          += props.characterSet[
+            Math.floor(Math.random() * props.characterSet.length)
+          ]
+      }
+    }
+
+    displayText.value = scrambled
+    step++
+
+    if (step > steps) {
+      clearInterval(interval)
+      displayText.value = originalText
+      isAnimating.value = false
+
+      props.onScrambleComplete?.()
+    }
+  }, props.speed * 1000)
 }
-
-const intervalMs = ref(0)
-const { pause, resume } = useIntervalFn(scrambleStep, intervalMs, {
-  immediate: false,
-})
-
-onMounted(() => {
-  if (!props.trigger) return
-
-  if (!props.startOnView) {
-    useTimeoutFn(() => {
-      isAnimating.value = true
-    }, props.delay)
-  }
-  else if (elementRef.value) {
-    const { stop } = useIntersectionObserver(
-      elementRef,
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          useTimeoutFn(() => {
-            isAnimating.value = true
-          }, props.delay)
-          stop()
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '-30% 0px -30% 0px',
-      },
-    )
-  }
-})
-
-watch(isAnimating, (newVal) => {
-  if (newVal) {
-    iterationCount.value = 0
-    displayText.value = props.text.split('')
-
-    if (props.speed > 0) {
-      intervalMs.value = props.speed * 1000
-    }
-    else {
-      const length = props.text.length || 1
-      intervalMs.value = props.duration / (length * 10)
-    }
-    resume()
-  }
-  else {
-    pause()
-  }
-})
 
 watch(
   () => props.trigger,
-  (newVal, oldVal) => {
-    if (newVal && !oldVal) {
-      if (!props.startOnView) {
-        useTimeoutFn(() => {
-          isAnimating.value = true
-        }, props.delay)
-      }
-    }
-    else if (!newVal && oldVal) {
-      isAnimating.value = false
+  (newVal) => {
+    if (newVal) {
+      scramble()
     }
   },
 )
+
+onMounted(() => {
+  if (props.trigger) {
+    scramble()
+  }
+})
 </script>
 
 <template>
   <component
     :is="as"
-    ref="elementRef"
-    class="hypertext overflow-hidden py-2 text-4xl font-bold"
-    @mouseenter="handleMouseEnter"
+    v-bind="$attrs"
   >
-    <span
-      v-for="(letter, index) in displayText"
-      :key="index"
-      :class="[letter === ' ' ? 'inline-block w-3' : '']"
-    >
-      {{ letter }}
-    </span>
+    {{ displayText }}
   </component>
 </template>
-
-<style scoped>
-.hypertext {
-  font-size: 30px;
-  line-height: 1.5;
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  font-family: Menlo, monospace;
-  color: var(--color-fill-gray);
-}
-</style>
