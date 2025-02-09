@@ -730,7 +730,7 @@
         },
         {
           "icon": {
-            "name": "books.vertical.fill",
+            "name": "simple-icons-extended:swisscom",
             "background": "var(--color-card-logo-secondary)",
             "colors": {
               "primary": "var(--color-card-logo-primary)",
@@ -1883,7 +1883,7 @@
             {
               "title": "SDX",
               "icon": {
-                "name": "books.vertical.fill"
+                "name": "simple-icons-extended:swisscom"
               }
             },
             {
