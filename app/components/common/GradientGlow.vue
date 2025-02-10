@@ -55,7 +55,8 @@
   background: var(--igradient) 50% / var(--bg-size) var(--bg-size);
   border-radius: 28px;
   border: 3px solid rgba(0, 0, 0, 0);
-  mask: linear-gradient(hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0)),
+  mask:
+    linear-gradient(hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0)),
     linear-gradient(hsl(0, 0%, 100%), hsl(0, 0%, 100%));
   mask-clip: padding-box, border-box;
   mask-composite: intersect;

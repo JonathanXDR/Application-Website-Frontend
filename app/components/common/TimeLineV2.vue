@@ -631,8 +631,8 @@
   --color-mktg-btn-bg: #f6f8fa;
   --color-mktg-btn-shadow-outline: rgb(255 255 255 / 25%) 0 0 0 1px inset;
   --color-mktg-btn-shadow-focus: rgb(255 255 255 / 25%) 0 0 0 4px;
-  --color-mktg-btn-shadow-hover: 0 4px 7px rgba(0, 0, 0, 0.15),
-    0 100px 80px rgba(255, 255, 255, 0.02),
+  --color-mktg-btn-shadow-hover:
+    0 4px 7px rgba(0, 0, 0, 0.15), 0 100px 80px rgba(255, 255, 255, 0.02),
     0 42px 33px rgba(255, 255, 255, 0.024),
     0 22px 18px rgba(255, 255, 255, 0.028),
     0 12px 10px rgba(255, 255, 255, 0.034), 0 7px 5px rgba(255, 255, 255, 0.04),
@@ -1214,8 +1214,8 @@ button:focus:not(:focus-visible) {
 .btn-mktg {
   -webkit-appearance: none !important;
   appearance: none !important;
-  background: linear-gradient(180deg, #ffffff26 0, #fff0 100%),
-    var(--color-mktg-btn-bg) !important;
+  background:
+    linear-gradient(180deg, #ffffff26 0, #fff0 100%), var(--color-mktg-btn-bg) !important;
   border: 0;
   border-radius: 0.375rem;
   color: var(--bgColor-default, var(--color-canvas-default));
@@ -1388,8 +1388,8 @@ button:focus:not(:focus-visible) {
   --color-marketing-icon-secondary: var(--color-scale-blue-5);
   --color-mktg-btn-bg: #f6f8fa;
   --color-mktg-btn-shadow-focus: rgba(255, 255, 255, 0.25) 0 0 0 4px;
-  --color-mktg-btn-shadow-hover: 0 4px 7px rgba(0, 0, 0, 0.15),
-    0 100px 80px rgba(255, 255, 255, 0.02),
+  --color-mktg-btn-shadow-hover:
+    0 4px 7px rgba(0, 0, 0, 0.15), 0 100px 80px rgba(255, 255, 255, 0.02),
     0 42px 33px rgba(255, 255, 255, 0.024),
     0 22px 18px rgba(255, 255, 255, 0.028),
     0 12px 10px rgba(255, 255, 255, 0.034), 0 7px 5px rgba(255, 255, 255, 0.04),
@@ -1402,8 +1402,8 @@ button:focus:not(:focus-visible) {
   --color-marketing-icon-secondary: var(--color-scale-blue-5);
   --color-mktg-btn-bg: #f6f8fa;
   --color-mktg-btn-shadow-focus: rgba(255, 255, 255, 0.25) 0 0 0 4px;
-  --color-mktg-btn-shadow-hover: 0 4px 7px rgba(0, 0, 0, 0.15),
-    0 100px 80px rgba(255, 255, 255, 0.02),
+  --color-mktg-btn-shadow-hover:
+    0 4px 7px rgba(0, 0, 0, 0.15), 0 100px 80px rgba(255, 255, 255, 0.02),
     0 42px 33px rgba(255, 255, 255, 0.024),
     0 22px 18px rgba(255, 255, 255, 0.028),
     0 12px 10px rgba(255, 255, 255, 0.034), 0 7px 5px rgba(255, 255, 255, 0.04),
@@ -1438,8 +1438,8 @@ button:focus:not(:focus-visible) {
   --color-marketing-icon-secondary: var(--color-scale-blue-5);
   --color-mktg-btn-bg: #f6f8fa;
   --color-mktg-btn-shadow-focus: rgba(255, 255, 255, 0.25) 0 0 0 4px;
-  --color-mktg-btn-shadow-hover: 0 4px 7px rgba(0, 0, 0, 0.15),
-    0 100px 80px rgba(255, 255, 255, 0.02),
+  --color-mktg-btn-shadow-hover:
+    0 4px 7px rgba(0, 0, 0, 0.15), 0 100px 80px rgba(255, 255, 255, 0.02),
     0 42px 33px rgba(255, 255, 255, 0.024),
     0 22px 18px rgba(255, 255, 255, 0.028),
     0 12px 10px rgba(255, 255, 255, 0.034), 0 7px 5px rgba(255, 255, 255, 0.04),
@@ -1460,7 +1460,8 @@ button:focus:not(:focus-visible) {
   vertical-align: middle;
   -webkit-user-select: none;
   user-select: none;
-  background: linear-gradient(
+  background:
+    linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.15) 0%,
       rgba(255, 255, 255, 0) 100%
@@ -1536,8 +1537,8 @@ button:focus:not(:focus-visible) {
   --color-marketing-icon-secondary: var(--color-scale-blue-5);
   --color-mktg-btn-bg: #f6f8fa;
   --color-mktg-btn-shadow-focus: rgba(255, 255, 255, 0.25) 0 0 0 4px;
-  --color-mktg-btn-shadow-hover: 0 4px 7px rgba(0, 0, 0, 0.15),
-    0 100px 80px rgba(255, 255, 255, 0.02),
+  --color-mktg-btn-shadow-hover:
+    0 4px 7px rgba(0, 0, 0, 0.15), 0 100px 80px rgba(255, 255, 255, 0.02),
     0 42px 33px rgba(255, 255, 255, 0.024),
     0 22px 18px rgba(255, 255, 255, 0.028),
     0 12px 10px rgba(255, 255, 255, 0.034), 0 7px 5px rgba(255, 255, 255, 0.04),
@@ -1550,8 +1551,8 @@ button:focus:not(:focus-visible) {
   --color-marketing-icon-secondary: var(--color-scale-blue-5);
   --color-mktg-btn-bg: #f6f8fa;
   --color-mktg-btn-shadow-focus: rgba(255, 255, 255, 0.25) 0 0 0 4px;
-  --color-mktg-btn-shadow-hover: 0 4px 7px rgba(0, 0, 0, 0.15),
-    0 100px 80px rgba(255, 255, 255, 0.02),
+  --color-mktg-btn-shadow-hover:
+    0 4px 7px rgba(0, 0, 0, 0.15), 0 100px 80px rgba(255, 255, 255, 0.02),
     0 42px 33px rgba(255, 255, 255, 0.024),
     0 22px 18px rgba(255, 255, 255, 0.028),
     0 12px 10px rgba(255, 255, 255, 0.034), 0 7px 5px rgba(255, 255, 255, 0.04),
@@ -1648,8 +1649,9 @@ button:focus:not(:focus-visible) {
     0 1px 1px rgba(0, 0, 0, 0.1);
 }
 :root [data-color-mode="dark"] {
-  --sub-nav-mktg-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3),
-    0 3px 2px rgba(0, 0, 0, 0.2), 0 7px 7px rgba(0, 0, 0, 0.15);
+  --sub-nav-mktg-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.3), 0 3px 2px rgba(0, 0, 0, 0.2),
+    0 7px 7px rgba(0, 0, 0, 0.15);
 }
 .init-hidden:not(.is-stuck) {
   visibility: hidden;
@@ -1712,8 +1714,8 @@ button:focus:not(:focus-visible) {
   --color-marketing-icon-secondary: var(--color-scale-blue-5);
   --color-mktg-btn-bg: #f6f8fa;
   --color-mktg-btn-shadow-focus: rgba(255, 255, 255, 0.25) 0 0 0 4px;
-  --color-mktg-btn-shadow-hover: 0 4px 7px rgba(0, 0, 0, 0.15),
-    0 100px 80px rgba(255, 255, 255, 0.02),
+  --color-mktg-btn-shadow-hover:
+    0 4px 7px rgba(0, 0, 0, 0.15), 0 100px 80px rgba(255, 255, 255, 0.02),
     0 42px 33px rgba(255, 255, 255, 0.024),
     0 22px 18px rgba(255, 255, 255, 0.028),
     0 12px 10px rgba(255, 255, 255, 0.034), 0 7px 5px rgba(255, 255, 255, 0.04),
@@ -1726,8 +1728,8 @@ button:focus:not(:focus-visible) {
   --color-marketing-icon-secondary: var(--color-scale-blue-5);
   --color-mktg-btn-bg: #f6f8fa;
   --color-mktg-btn-shadow-focus: rgba(255, 255, 255, 0.25) 0 0 0 4px;
-  --color-mktg-btn-shadow-hover: 0 4px 7px rgba(0, 0, 0, 0.15),
-    0 100px 80px rgba(255, 255, 255, 0.02),
+  --color-mktg-btn-shadow-hover:
+    0 4px 7px rgba(0, 0, 0, 0.15), 0 100px 80px rgba(255, 255, 255, 0.02),
     0 42px 33px rgba(255, 255, 255, 0.024),
     0 22px 18px rgba(255, 255, 255, 0.028),
     0 12px 10px rgba(255, 255, 255, 0.034), 0 7px 5px rgba(255, 255, 255, 0.04),
@@ -1779,8 +1781,8 @@ button:focus:not(:focus-visible) {
   --color-marketing-icon-secondary: var(--color-scale-blue-5);
   --color-mktg-btn-bg: #f6f8fa;
   --color-mktg-btn-shadow-focus: rgba(255, 255, 255, 0.25) 0 0 0 4px;
-  --color-mktg-btn-shadow-hover: 0 4px 7px rgba(0, 0, 0, 0.15),
-    0 100px 80px rgba(255, 255, 255, 0.02),
+  --color-mktg-btn-shadow-hover:
+    0 4px 7px rgba(0, 0, 0, 0.15), 0 100px 80px rgba(255, 255, 255, 0.02),
     0 42px 33px rgba(255, 255, 255, 0.024),
     0 22px 18px rgba(255, 255, 255, 0.028),
     0 12px 10px rgba(255, 255, 255, 0.034), 0 7px 5px rgba(255, 255, 255, 0.04),
@@ -1793,8 +1795,8 @@ button:focus:not(:focus-visible) {
   --color-marketing-icon-secondary: var(--color-scale-blue-5);
   --color-mktg-btn-bg: #f6f8fa;
   --color-mktg-btn-shadow-focus: rgba(255, 255, 255, 0.25) 0 0 0 4px;
-  --color-mktg-btn-shadow-hover: 0 4px 7px rgba(0, 0, 0, 0.15),
-    0 100px 80px rgba(255, 255, 255, 0.02),
+  --color-mktg-btn-shadow-hover:
+    0 4px 7px rgba(0, 0, 0, 0.15), 0 100px 80px rgba(255, 255, 255, 0.02),
     0 42px 33px rgba(255, 255, 255, 0.024),
     0 22px 18px rgba(255, 255, 255, 0.028),
     0 12px 10px rgba(255, 255, 255, 0.034), 0 7px 5px rgba(255, 255, 255, 0.04),
