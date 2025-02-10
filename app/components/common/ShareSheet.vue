@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { LinkType } from '#shared/types/common/link'
+import type { LinkItemType } from '#shared/types/components/link-item'
 
-defineProps<{ links?: LinkType[] }>()
+defineProps<{ links?: LinkItemType[] }>()
 
 const { tm } = useI18n()
-const socialLinks = computed<LinkType[]>(() =>
+const socialLinks = computed<LinkItemType[]>(() =>
   tm('components.common.ShareSheet.links'),
 )
 </script>

@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import type { LinkType } from '#shared/types/common/link'
 import type { SectionType } from '#shared/types/common/section'
+import type { LinkItemType } from '#shared/types/components/link-item'
 
 const { tm } = useI18n()
 const footerDirectoryItems = computed<SectionType[]>(() =>
   tm('components.common.FooterDirectory'),
 )
-const footerMiniLegalLinks = computed<LinkType[]>(() =>
+const footerMiniLegalLinks = computed<LinkItemType[]>(() =>
   tm('components.common.FooterMini.legalLinks'),
 )
 const footerMiniNews = computed<{
   title: string
-  link: LinkType
+  link: LinkItemType
 }>(() => tm('components.common.FooterMini.news'))
 </script>
 

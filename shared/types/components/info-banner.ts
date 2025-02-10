@@ -1,6 +1,6 @@
 import type { BasicPropsType } from '#shared/types/common/basic-props'
 
-export interface InfoBanner {
+export interface InfoBannerType {
   items: BasicPropsType[]
   loading?: boolean
   step?: number
@@ -15,7 +15,7 @@ export interface InfoBanner {
   autoScrollRestartDelay?: number
 }
 
-export interface GalleryState {
+export interface GalleryStateType {
   sequence: number
   activeItem: number
   direction: 'left' | 'right' | 'neutral'

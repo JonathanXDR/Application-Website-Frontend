@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import type { IconType } from '#shared/types/common/icon'
-import type { InfoType } from '#shared/types/common/info'
+import type { IconItemType } from '#shared/types/components/icon-item'
+import type { InfoBarType } from '#shared/types/components/info-bar'
 
-const props = withDefaults(defineProps<InfoType>(), {
+const props = withDefaults(defineProps<InfoBarType>(), {
   loading: false,
   date: () => ({
     formatOptions: () => ({
@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<InfoType>(), {
 dayjs.extend(relativeTime)
 
 const { locale } = useI18n()
-const infoItems: { id: keyof InfoType, icon: IconType }[] = [
+const infoItems: { id: keyof InfoBarType, icon: IconItemType }[] = [
   { id: 'location', icon: { name: 'location.fill' } },
   { id: 'supervisor', icon: { name: 'person.fill' } },
   { id: 'department', icon: { name: 'tag.fill' } },

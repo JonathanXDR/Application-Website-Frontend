@@ -15,7 +15,7 @@ interface IconifyProps {
   customize?: IconifyIconCustomiseCallback
 }
 
-export interface IconType extends IconifyProps {
+export interface IconItemType extends IconifyProps {
   variant?: 'default' | 'outline' | 'fill' | 'custom'
   weight?: BasicSizeType
   colors?: ColorType

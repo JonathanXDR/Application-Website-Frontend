@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { NavbarType } from '#shared/types/common/nav-bar'
 import type { SectionType } from '#shared/types/common/section'
+import type { NavbarType } from '#shared/types/components/nav-bar'
 
 const props = withDefaults(defineProps<NavbarType>(), {
   autoHide: true,
@@ -1616,8 +1616,8 @@ watch(
 }
 @media (max-width: 767px) {
   #ac-localnav ~ #ac-ln-curtain {
-    --r-localnav-curtain-transition: opacity 320ms cubic-bezier(0.4, 0, 0.6, 1)
-        240ms,
+    --r-localnav-curtain-transition:
+      opacity 320ms cubic-bezier(0.4, 0, 0.6, 1) 240ms,
       backdrop-filter 320ms cubic-bezier(0.4, 0, 0.6, 1) 240ms,
       -webkit-backdrop-filter 320ms cubic-bezier(0.4, 0, 0.6, 1) 240ms,
       width 0s ease 560ms, height 0s ease 560ms;
@@ -1628,8 +1628,8 @@ watch(
   #ac-ln-menustate:target ~ #ac-localnav ~ #ac-ln-curtain {
     --r-localnav-curtain-width: 100%;
     --r-localnav-curtain-height: 100%;
-    --r-localnav-curtain-transition: opacity 320ms cubic-bezier(0.4, 0, 0.6, 1)
-        0s,
+    --r-localnav-curtain-transition:
+      opacity 320ms cubic-bezier(0.4, 0, 0.6, 1) 0s,
       backdrop-filter 320ms cubic-bezier(0.4, 0, 0.6, 1) 0s,
       -webkit-backdrop-filter 320ms cubic-bezier(0.4, 0, 0.6, 1) 0s,
       width 0s ease 0s, height 0s ease 0s;

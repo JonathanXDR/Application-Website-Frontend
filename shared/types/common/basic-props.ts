@@ -1,10 +1,10 @@
-import type { IconType } from '#shared/types/common/icon'
-import type { LinkType } from '#shared/types/common/link'
+import type { IconItemType } from '#shared/types/components/icon-item'
+import type { LinkItemType } from '#shared/types/components/link-item'
 
 export interface BasicPropsType {
-  icon?: IconType
+  icon?: IconItemType
   eyebrow?: string
   title: string
   description?: string
-  links?: LinkType[]
+  links?: LinkItemType[]
 }

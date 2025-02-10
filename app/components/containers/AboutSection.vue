@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { DateItemType } from '#shared/types/common/date-item'
+import type { DateType } from '#shared/types/common/date'
 
 defineProps<{
   title: string
@@ -9,7 +9,7 @@ const viewport = useViewport()
 const { t, tm } = useI18n()
 const nonce = useNonce()
 
-const dateItems = computed<DateItemType[]>(() =>
+const dateItems = computed<DateType[]>(() =>
   tm('components.containers.about.dates'),
 )
 

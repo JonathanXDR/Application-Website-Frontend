@@ -1,6 +1,11 @@
-import type { DateType } from '#shared/types/common/date'
+interface DateType {
+  formatOptions?: () => Intl.DateTimeFormatOptions
+  event?: string
+  fixed?: string | null | Date
+  duration?: { from: string, to: string }
+}
 
-export interface InfoType {
+export interface InfoBarType {
   loading?: boolean
   date?: DateType
 

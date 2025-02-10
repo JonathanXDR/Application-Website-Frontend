@@ -1,4 +1,4 @@
-import type { IconType } from '#shared/types/common/icon'
+import type { IconItemType } from '#shared/types/components/icon-item'
 
 export interface SectionType {
   id: string
@@ -6,5 +6,5 @@ export interface SectionType {
   route?: string
   children?: SectionType[]
   class?: string
-  icon?: IconType
+  icon?: IconItemType
 }

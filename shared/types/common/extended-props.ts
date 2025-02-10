@@ -1,8 +1,8 @@
-import type { BadgeItemType } from '#shared/types/common/badge-item'
 import type { BasicPropsType } from '#shared/types/common/basic-props'
-import type { InfoType } from '#shared/types/common/info'
+import type { BadgeItemType } from '#shared/types/components/badge-item'
+import type { InfoBarType } from '#shared/types/components/info-bar'
 
 export interface ExtendedPropsType extends BasicPropsType {
   badges?: BadgeItemType[]
-  info?: InfoType
+  info?: InfoBarType
 }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { IconType } from '#shared/types/common/icon'
+import type { IconItemType } from '#shared/types/components/icon-item'
 
-const props = withDefaults(defineProps<IconType>(), {
+const props = withDefaults(defineProps<IconItemType>(), {
   weight: 'medium',
   colors: () => ({
     primary: 'currentColor',

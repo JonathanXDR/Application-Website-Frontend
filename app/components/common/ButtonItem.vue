@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BasicSizeType } from '#shared/types/common/basic-size'
-import type { IconType } from '#shared/types/common/icon'
+import type { IconItemType } from '#shared/types/components/icon-item'
 
 withDefaults(
   defineProps<{
@@ -10,7 +10,7 @@ withDefaults(
     componentSize?: BasicSizeType
     borderRadius?: 'reduced' | 'full'
     label: string
-    icon?: IconType
+    icon?: IconItemType
   }>(),
   {
     as: 'button',

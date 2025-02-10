@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { LinkType } from '#shared/types/common/link'
+import type { LinkItemType } from '#shared/types/components/link-item'
 
 const props = withDefaults(
   defineProps<{
-    links: LinkType[]
+    links: LinkItemType[]
     divider?: boolean
     shouldAnimate?: boolean
     loading?: boolean

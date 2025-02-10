@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BasicSizeType } from '#shared/types/common/basic-size'
-import type { LinkType } from '#shared/types/common/link'
+import type { LinkItemType } from '#shared/types/components/link-item'
 
 withDefaults(
   defineProps<{
@@ -14,7 +14,7 @@ withDefaults(
 )
 
 const { t, tm } = useI18n()
-const links = computed<LinkType[]>(() =>
+const links = computed<LinkItemType[]>(() =>
   tm('components.common.FooterCopyright.links'),
 )
 const currentYear = ref(new Date().getFullYear())

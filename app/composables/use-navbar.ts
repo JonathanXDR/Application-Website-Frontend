@@ -1,5 +1,5 @@
-import type { NavbarType } from '#shared/types/common/nav-bar'
 import type { SectionType } from '#shared/types/common/section'
+import type { NavbarType } from '#shared/types/components/nav-bar'
 
 export const useNavbar = () => {
   const route = useRoute()
@@ -34,10 +34,5 @@ export const useNavbar = () => {
     })
   })
 
-  return {
-    state,
-    setState,
-    navItems,
-    currentRoute,
-  }
+  return { state, setState, navItems, currentRoute }
 }

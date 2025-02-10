@@ -1,17 +1,17 @@
-import type { IconType } from '#shared/types/common/icon'
-import type { LinkType } from '#shared/types/common/link'
 import type { PageType } from '#shared/types/common/page'
+import type { IconItemType } from '#shared/types/components/icon-item'
+import type { LinkItemType } from '#shared/types/components/link-item'
 
 interface UseBreadcrumbsProps {
   label?: string
-  icon?: IconType
-  links?: LinkType[]
+  icon?: IconItemType
+  links?: LinkItemType[]
   loading?: boolean
 }
 
 interface UseBreadcrumbsReturn {
   shouldShowBreadcrumbs: ComputedRef<boolean>
-  computedLinks: ComputedRef<LinkType[]>
+  computedLinks: ComputedRef<LinkItemType[]>
   requestURL: ReturnType<typeof useRequestURL>
   route: ReturnType<typeof useRoute>
 }
@@ -36,7 +36,7 @@ export function useBreadcrumbs(
   })
 
   const shouldShowBreadcrumbs = computed(() => route.path !== '/')
-  const computedLinks = computed<LinkType[]>(() => {
+  const computedLinks = computed<LinkItemType[]>(() => {
     if (props.links?.length) {
       return props.links
     }
@@ -49,7 +49,7 @@ export function useBreadcrumbs(
     const mainDomain = domainParts.slice(-2).join('.')
     const subDomain = domainParts.slice(0, -2).join('.')
 
-    const result: LinkType[] = []
+    const result: LinkItemType[] = []
 
     if (subDomain) {
       const capitalized = subDomain[0]?.toUpperCase() + subDomain.slice(1)

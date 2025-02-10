@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import type { BasicSizeType } from '#shared/types/common/basic-size'
-import type { LinkType } from '#shared/types/common/link'
+import type { LinkItemType } from '#shared/types/components/link-item'
 
 withDefaults(
   defineProps<{
     componentSize?: Exclude<BasicSizeType, 'medium'>
-    legalLinks?: LinkType[]
+    legalLinks?: LinkItemType[]
     news?: {
       title: string
-      link: LinkType
+      link: LinkItemType
     }
     colorSchemeToggle?: boolean
     languageDropdown?: boolean

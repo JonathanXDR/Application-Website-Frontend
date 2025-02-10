@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { SpeedInsights } from '@vercel/speed-insights/vue'
-import type { InfoBanner } from '#shared/types/common/info-banner'
+import type { InfoBannerType } from '#shared/types/components/info-banner'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterPre from '~/components/common/Footer/Pre.vue'
 
@@ -21,7 +21,7 @@ const rotatingBannerElement = ref<HTMLElement | undefined>(undefined)
 const { height: rotatingBannerHeight } = useElementSize(rotatingBannerElement)
 const hideNavbarTimeout = ref<NodeJS.Timeout | null>(null)
 
-const items = computed<InfoBanner['items']>(() =>
+const items = computed<InfoBannerType['items']>(() =>
   tm('components.common.InfoBanner'),
 )
 

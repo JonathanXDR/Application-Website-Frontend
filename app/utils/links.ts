@@ -1,19 +1,19 @@
 import { NuxtLink } from '#components'
-import type { LinkType } from '#shared/types/common/link'
+import type { LinkItemType } from '#shared/types/components/link-item'
 
-export const getLinkComponentType = (link: LinkType) => {
+export const getLinkComponentType = (link: LinkItemType) => {
   return link.url?.startsWith('#') || link.url?.startsWith('/')
     ? NuxtLink
     : 'a'
 }
 
-export const getLinkAttributes = (link: LinkType) => {
+export const getLinkAttributes = (link: LinkItemType) => {
   return link.url?.startsWith('#') || link.url?.startsWith('/')
     ? { to: link.url, target: '_self' }
     : { href: link.url, target: '_blank', rel: 'noopener noreferrer' }
 }
 
-export const getEnhancedLinks = (links: LinkType[]) => {
+export const getEnhancedLinks = (links: LinkItemType[]) => {
   return links.map(link => ({
     ...link,
     to:

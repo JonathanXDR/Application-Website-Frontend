@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SegmentNavType } from '#shared/types/common/segment-nav'
+import type { SegmentNavType } from '#shared/types/components/segment-nav'
 
 const props = withDefaults(defineProps<SegmentNavType>(), {
   componentSize: 'medium',

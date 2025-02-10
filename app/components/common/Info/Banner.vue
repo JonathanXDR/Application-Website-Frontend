@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type {
-  GalleryState,
-  InfoBanner,
-} from '#shared/types/common/info-banner'
-import type { LinkType } from '#shared/types/common/link'
+  GalleryStateType,
+  InfoBannerType,
+} from '#shared/types/components/info-banner'
+import type { LinkItemType } from '#shared/types/components/link-item'
 
-const props = withDefaults(defineProps<InfoBanner>(), {
+const props = withDefaults(defineProps<InfoBannerType>(), {
   loading: false,
   step: 1,
   paddleNav: true,
@@ -22,7 +22,7 @@ const props = withDefaults(defineProps<InfoBanner>(), {
 const { t, tm, rt, locale } = useI18n()
 const config = useRuntimeConfig()
 
-const state = ref<GalleryState>({
+const state = ref<GalleryStateType>({
   sequence: 0,
   activeItem: 0,
   direction: 'neutral',
@@ -37,7 +37,7 @@ const tags = ref<{
   previous: string | undefined
 }>({ latest: undefined, previous: undefined })
 
-const baseItems = ref<InfoBanner['items']>([])
+const baseItems = ref<InfoBannerType['items']>([])
 
 let autoScrollInterval: ReturnType<typeof setInterval> | null = null
 let restartTimeout: ReturnType<typeof setTimeout> | null = null
@@ -227,12 +227,12 @@ const updateBaseItems = () => {
       }),
     links:
       item.links
-      && (tm(`components.common.InfoBanner[${index}].links`) as LinkType[]).map(
-        link => ({
-          ...link,
-          url: link.url ? rt(link.url, { latestTag, previousTag }) : undefined,
-        }),
-      ),
+      && (
+        tm(`components.common.InfoBanner[${index}].links`) as LinkItemType[]
+      ).map(link => ({
+        ...link,
+        url: link.url ? rt(link.url, { latestTag, previousTag }) : undefined,
+      })),
   }))
 }
 
