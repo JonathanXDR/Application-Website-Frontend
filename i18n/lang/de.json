@@ -1737,7 +1737,7 @@
           },
           "eyebrow": "Full-Stack",
           "title": "Competence Center NexCC",
-          "description": "Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei viele neue Programmiersprachen gelernt. Darunter HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App erstellen, welche ich mit einer SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend hinzugefügt und so ein eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte Programmiersprachen, wie Node.js, Express.js oder Vue.js neu dazugelernt.",
+          "description": "Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei viele neue Programmiersprachen gelernt. Darunter HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App erstellen, welche ich mit einer SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend hinzugefügt und so ein eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte Programmiersprachen, wie Express.js oder Vue.js neu dazugelernt.",
           "badges": [
             {
               "title": "Web Development"
@@ -1770,27 +1770,27 @@
               }
             },
             {
-              "title": "SQL",
-              "icon": {
-                "name": "simple-icons:mysql"
-              }
-            },
-            {
-              "title": "Node",
-              "icon": {
-                "name": "simple-icons:nodedotjs"
-              }
-            },
-            {
               "title": "Express",
               "icon": {
                 "name": "simple-icons:express"
               }
             },
             {
+              "title": "SQL",
+              "icon": {
+                "name": "simple-icons:mysql"
+              }
+            },
+            {
               "title": "Vue",
               "icon": {
                 "name": "simple-icons:vuedotjs"
+              }
+            },
+            {
+              "title": "SDX",
+              "icon": {
+                "name": "simple-icons-extended:swisscom"
               }
             }
           ],
@@ -1869,27 +1869,27 @@
               "title": "Memory"
             },
             {
-              "title": "Vue",
-              "icon": {
-                "name": "simple-icons:vuedotjs"
-              }
-            },
-            {
               "title": "TypeScript",
               "icon": {
                 "name": "simple-icons:typescript"
               }
             },
             {
-              "title": "SDX",
+              "title": "Vue",
               "icon": {
-                "name": "simple-icons-extended:swisscom"
+                "name": "simple-icons:vuedotjs"
               }
             },
             {
               "title": "Next",
               "icon": {
                 "name": "simple-icons:nextdotjs"
+              }
+            },
+            {
+              "title": "SDX",
+              "icon": {
+                "name": "simple-icons-extended:swisscom"
               }
             }
           ],
@@ -1932,6 +1932,12 @@
               "title": "ORM"
             },
             {
+              "title": "TypeScript",
+              "icon": {
+                "name": "simple-icons:typescript"
+              }
+            },
+            {
               "title": "Nest",
               "icon": {
                 "name": "simple-icons:nestjs"
@@ -1947,6 +1953,24 @@
               "title": "Prisma",
               "icon": {
                 "name": "simple-icons:prisma"
+              }
+            },
+            {
+              "title": "React",
+              "icon": {
+                "name": "simple-icons:react"
+              }
+            },
+            {
+              "title": "Next.js",
+              "icon": {
+                "name": "simple-icons:nextdotjs"
+              }
+            },
+            {
+              "title": "SDX",
+              "icon": {
+                "name": "simple-icons-extended:swisscom"
               }
             },
             {
@@ -2061,6 +2085,12 @@
               }
             },
             {
+              "title": "TypeScript",
+              "icon": {
+                "name": "simple-icons:typescript"
+              }
+            },
+            {
               "title": "Angular",
               "icon": {
                 "name": "simple-icons:angular"
@@ -2089,6 +2119,12 @@
           "badges": [
             {
               "title": "IPA"
+            },
+            {
+              "title": "TypeScript",
+              "icon": {
+                "name": "simple-icons:typescript"
+              }
             },
             {
               "title": "Next",
