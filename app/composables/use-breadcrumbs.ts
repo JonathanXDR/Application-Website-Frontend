@@ -1,6 +1,6 @@
-import type { ErrorPageType } from '#shared/types/common/error-page'
 import type { IconType } from '#shared/types/common/icon'
 import type { LinkType } from '#shared/types/common/link'
+import type { PageType } from '#shared/types/common/page'
 
 interface UseBreadcrumbsProps {
   label?: string
@@ -25,9 +25,9 @@ export function useBreadcrumbs(
   const error = useError()
   const { tm } = useI18n()
 
-  const pages = computed<ErrorPageType[]>(() => tm('pages'))
+  const pages = computed<PageType[]>(() => tm('pages'))
 
-  const errorPage = computed<ErrorPageType | null>(() => {
+  const errorPage = computed<PageType | null>(() => {
     if (!error.value?.statusCode) return null
     const matched = pages.value.find(
       p => p.statusCode === error.value?.statusCode,
@@ -53,28 +53,17 @@ export function useBreadcrumbs(
 
     if (subDomain) {
       const capitalized = subDomain[0]?.toUpperCase() + subDomain.slice(1)
-      result.push({
-        title: capitalized,
-        url: `${subDomain}.${mainDomain}`,
-      })
+      result.push({ title: capitalized, url: `${subDomain}.${mainDomain}` })
     }
 
     const lastCrumbTitle = errorPage.value?.label
       ? errorPage.value.label
       : (currentRoute.value?.label ?? route.path)
 
-    result.push({
-      title: lastCrumbTitle,
-      url: route.path,
-    })
+    result.push({ title: lastCrumbTitle, url: route.path })
 
     return result
   })
 
-  return {
-    shouldShowBreadcrumbs,
-    computedLinks,
-    requestURL,
-    route,
-  }
+  return { shouldShowBreadcrumbs, computedLinks, requestURL, route }
 }

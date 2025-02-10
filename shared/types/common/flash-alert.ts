@@ -1,6 +1,6 @@
-import type { IconType } from '#shared/types/common/icon'
+import type { BasicPropsType } from '#shared/types/common/basic-props'
 
-export interface FlashAlertType {
+export interface FlashAlertType extends BasicPropsType {
   variant?:
     | 'deprecated'
     | 'experiment'
@@ -8,7 +8,4 @@ export interface FlashAlertType {
     | 'note'
     | 'tip'
     | 'warning'
-  title?: string
-  description: string
-  icon?: IconType
 }

@@ -1,18 +1,17 @@
 <script setup lang="ts">
-import type { ErrorPageType } from '#shared/types/common/error-page'
+import type { PageType } from '#shared/types/common/page'
 
 const error = useError()
 const { rt, tm } = useI18n()
 
-const pages = computed<ErrorPageType[]>(() => tm(`pages`))
+const pages = computed<PageType[]>(() => tm('pages'))
 
-const currentPage = computed<ErrorPageType>(() => {
+const currentPage = computed<PageType>(() => {
   const matchedPage = pages.value.find(
-    (page: ErrorPageType) => page.statusCode === error.value?.statusCode,
+    (page: PageType) => page.statusCode === error.value?.statusCode,
   )
   return (
-    matchedPage
-    || pages.value.find((page: ErrorPageType) => page.id === 'error')!
+    matchedPage || pages.value.find((page: PageType) => page.id === 'error')!
   )
 })
 

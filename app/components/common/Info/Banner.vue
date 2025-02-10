@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type {
   GalleryState,
-  InfoBannerProps,
-} from '#shared/types/common/banner'
+  InfoBanner,
+} from '#shared/types/common/info-banner'
 import type { LinkType } from '#shared/types/common/link'
 
-const props = withDefaults(defineProps<InfoBannerProps>(), {
+const props = withDefaults(defineProps<InfoBanner>(), {
   loading: false,
   step: 1,
   paddleNav: true,
@@ -37,7 +37,7 @@ const tags = ref<{
   previous: string | undefined
 }>({ latest: undefined, previous: undefined })
 
-const baseItems = ref<Array<{ description: string, links: LinkType[] }>>([])
+const baseItems = ref<InfoBanner['items']>([])
 
 let autoScrollInterval: ReturnType<typeof setInterval> | null = null
 let restartTimeout: ReturnType<typeof setTimeout> | null = null
@@ -218,6 +218,7 @@ const updateBaseItems = () => {
   if (!latestTag || !previousTag) return
 
   baseItems.value = props.items.map((item, index) => ({
+    ...item,
     description:
       item.description
       && t(`components.common.InfoBanner[${index}].description`, {

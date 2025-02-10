@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import type { FaLinkType } from '#shared/types/common/fa-link'
-import type { ShareSheet } from '#shared/types/common/share-sheet'
+import type { LinkType } from '#shared/types/common/link'
 
-defineProps<ShareSheet>()
+defineProps<{ links?: LinkType[] }>()
 
 const { tm } = useI18n()
-const links = computed<FaLinkType[]>(() =>
+const socialLinks = computed<LinkType[]>(() =>
   tm('components.common.ShareSheet.links'),
 )
 </script>
@@ -14,7 +13,7 @@ const links = computed<FaLinkType[]>(() =>
   <section class="sharesheet">
     <ul class="sharesheet-options">
       <li
-        v-for="(link, index) in links"
+        v-for="(link, index) in socialLinks"
         :key="index"
         v-animation="{ add: 'visible' }"
         class="social-option"
