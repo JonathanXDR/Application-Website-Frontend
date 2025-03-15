@@ -4,7 +4,7 @@ import type { InfoBannerType } from '#shared/types/components/info-banner'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterPre from '~/components/common/Footer/Pre.vue'
 
-const { state, setState } = useNavbar()
+const { navProps } = useNavbar()
 const { randomDevColor } = useColor()
 const route = useRoute()
 const { currentSection } = useSection()
@@ -13,9 +13,6 @@ const { locale, tm } = useI18n()
 const { y, isScrolling } = useScroll(window)
 const error = useError()
 const config = useRuntimeConfig()
-
-const isHidden = computed(() => state.value.hidden)
-const isAutoHiding = computed(() => state.value.autoHide)
 
 const rotatingBanner = useTemplateRef('rotatingBanner')
 const { height: rotatingBannerHeight } = useElementSize(rotatingBanner)
@@ -45,32 +42,36 @@ const resetHideNavbarTimer = () => {
     clearTimeout(hideNavbarTimeout.value)
   }
 
-  if (!isAutoHiding.value) return
+  if (!navProps.value?.autoHide) return
 
   hideNavbarTimeout.value = setTimeout(() => {
-    if (!isScrolling.value && y.value > rotatingBannerHeight.value) {
-      setState({ hidden: true })
+    if (
+      !isScrolling.value
+      && y.value > rotatingBannerHeight.value
+      && navProps.value
+    ) {
+      navProps.value.hidden = true
     }
-  }, state.value.autoHideDelay)
+  }, navProps.value?.autoHideDelay || 2000)
 }
 
 watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
-  if (!state.value.autoHide) {
-    setState({ hidden: false })
+  if (!navProps.value?.autoHide) {
+    if (navProps.value) navProps.value.hidden = false
     return
   }
 
   const isScrollingDown = yNew > yOld
 
-  if (isScrollingNew && yNew > rotatingBannerHeight.value) {
+  if (isScrollingNew && yNew > rotatingBannerHeight.value && navProps.value) {
     if (isScrollingDown) {
-      setState({ hidden: true })
+      navProps.value.hidden = true
       if (hideNavbarTimeout.value) {
         clearTimeout(hideNavbarTimeout.value)
       }
     }
     else {
-      setState({ hidden: false })
+      navProps.value.hidden = false
     }
   }
 
@@ -142,7 +143,7 @@ const footerComponent = computed(() =>
     <SpeedInsights />
     <header
       v-if="shouldShow('header')"
-      :class="{ 'hide-localnav': isHidden }"
+      :class="{ 'hide-localnav': navProps?.hidden }"
     >
       <NavBar v-if="shouldShow('nav')" />
       <div

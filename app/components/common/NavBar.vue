@@ -9,9 +9,12 @@ const props = withDefaults(defineProps<NavbarType>(), {
   extensionAttached: false,
   scrim: true,
   position: 'fixed',
+  open: false,
+  hidden: false,
+  transitioning: false,
 })
 
-const { state, setState } = useNavbar()
+const { navProps, navItems } = useNavbar()
 const { randomDevColor } = useColor()
 const { currentSection } = useSection()
 const { getTheme } = useTheme()
@@ -19,14 +22,10 @@ const { y: scrollY } = useWindowScroll()
 const { animations: headerAnimations, setAnimation } = useAnimation()
 const viewport = useViewport()
 const route = useRoute()
-const { tm } = useI18n()
 
-const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'))
-
-const isScrim = computed(() => state.value.scrim)
-const isOpen = computed(() => state.value.open)
-const isHidden = computed(() => state.value.hidden)
-const isAutoHiding = computed(() => state.value.autoHide)
+if (!navProps.value) {
+  navProps.value = { ...props }
+}
 
 const shouldHide = ref(false)
 const shouldOpen = ref(false)
@@ -54,8 +53,6 @@ const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
   return liElement.firstElementChild as HTMLElement
 })
 
-setState({ ...props })
-
 const initHeaderAnimations = () => {
   if (!background.value) return
 
@@ -68,13 +65,13 @@ const initHeaderAnimations = () => {
 }
 
 const handleNav = () => {
-  setState({ open: !isOpen.value })
-  animateChevron(isOpen.value ?? false)
+  navProps.value.open = !navProps.value.open
+  animateChevron(navProps.value.open)
   checkboxTimeout()
 }
 
 const handleMenuClick = () => {
-  if (!isOpen.value) return
+  if (!navProps.value.open) return
   handleNav()
 }
 
@@ -95,15 +92,13 @@ const checkboxTimeout = () => {
 }
 
 const handleScroll = () => {
-  if (isOpen.value && scrollY.value > 0) {
-    setState({
-      open: false,
-      autoHide: false,
-    })
+  if (navProps.value.open && scrollY.value > 0) {
+    navProps.value.open = false
+    navProps.value.autoHide = false
     animateChevron(false)
   }
   else {
-    setState({ autoHide: true })
+    navProps.value.autoHide = true
   }
 }
 
@@ -155,21 +150,21 @@ const updateBorderPosition = () => {
 }
 
 const handleTransitionStart = (event: TransitionEvent) => {
-  if (!isAutoHiding.value) return
+  if (!navProps.value.autoHide) return
 
   if (event.propertyName === 'transform') {
-    setState({ transitioning: true })
+    navProps.value.transitioning = true
   }
 }
 
 const handleTransitionEnd = (event: TransitionEvent) => {
-  if (!isAutoHiding.value) return
+  if (!navProps.value.autoHide) return
 
   if (event.propertyName === 'transform') {
-    setState({ transitioning: false })
+    navProps.value.transitioning = false
   }
 
-  if (isHidden.value) {
+  if (navProps.value.hidden) {
     shouldHide.value = true
   }
 }
@@ -186,6 +181,14 @@ onMounted(() => {
   updateTrayHeight()
 })
 
+watch(
+  () => props,
+  (newProps) => {
+    Object.assign(navProps.value, newProps)
+  },
+  { deep: true, immediate: true },
+)
+
 watch(getTheme, (themeNew, themeOld) => {
   if (themeNew === themeOld) return
   updateAnimations()
@@ -200,7 +203,7 @@ watch([() => route.path, () => currentSection.value?.id], () => {
 })
 
 watch(
-  () => isHidden.value,
+  () => navProps.value.hidden,
   async (newValue) => {
     if (!props.autoHide || !wrapper.value) return
 
@@ -222,7 +225,7 @@ watch(
 <template>
   <input
     id="ac-ln-menustate"
-    v-model="isOpen"
+    v-model="navProps.open"
     type="checkbox"
     class="ac-ln-menustate"
     aria-controls="ac-ln-menustate-tray"
@@ -233,8 +236,8 @@ watch(
   <div
     id="ac-ln-fixed-placeholder"
     :class="[
-      { 'css-sticky ac-ln-sticking': state.position === 'sticky' },
-      { 'css-fixed ac-ln-sticking': state.position === 'fixed' },
+      { 'css-sticky ac-ln-sticking': navProps.position === 'sticky' },
+      { 'css-fixed ac-ln-sticking': navProps.position === 'fixed' },
     ]"
   />
   <nav
@@ -242,13 +245,13 @@ watch(
     ref="navbar"
     :class="[
       'ac-ln-allow-transitions',
-      { 'css-sticky ac-ln-sticking': state.position === 'sticky' },
-      { 'css-fixed ac-ln-sticking': state.position === 'fixed' },
-      { 'ac-localnav-noborder': !state.border },
-      { 'ac-localnav-scrim': isScrim },
-      { 'ac-ln-hide': isAutoHiding },
+      { 'css-sticky ac-ln-sticking': navProps.position === 'sticky' },
+      { 'css-fixed ac-ln-sticking': navProps.position === 'fixed' },
+      { 'ac-localnav-noborder': !navProps.border },
+      { 'ac-localnav-scrim': navProps.scrim },
+      { 'ac-ln-hide': navProps.autoHide },
       { 'ac-ln-hidden': shouldHide },
-      { 'ac-ln-open': isOpen },
+      { 'ac-ln-open': navProps.open },
       { 'ac-ln-opening': shouldOpen },
     ]"
     :style="{
@@ -451,7 +454,7 @@ watch(
 } */
 
 .hide-localnav #ac-localnav.ac-ln-hidden {
-  display: none !important;
+  z-index: -9997 !important;
 }
 .hide-localnav #ac-localnav.ac-ln-hide {
   overflow: hidden;

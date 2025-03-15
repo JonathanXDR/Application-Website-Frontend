@@ -1,30 +1,11 @@
 import type { SectionType } from '#shared/types/common/section'
 import type { NavbarType } from '#shared/types/components/nav-bar'
 
-const DEFAULT_NAVBAR_STATE: NavbarType = {
-  autoHide: false,
-  autoHideDelay: 2000,
-  border: true,
-  extensionAttached: false,
-  scrim: true,
-  position: 'fixed',
-  open: false,
-  hidden: false,
-  transitioning: false,
-}
-
 export const useNavbar = () => {
   const route = useRoute()
   const { tm } = useI18n()
 
-  const state = useState<NavbarType>('navbarState', () => ({
-    ...DEFAULT_NAVBAR_STATE,
-  }))
-
-  const setState = (updates: Partial<NavbarType>): void => {
-    state.value = { ...state.value, ...updates }
-  }
-
+  const navProps = useState<NavbarType>('navbar-props')
   const navItems = computed<SectionType[]>(() =>
     tm('components.common.NavBar'),
   )
@@ -41,8 +22,7 @@ export const useNavbar = () => {
   )
 
   return {
-    state,
-    setState,
+    navProps,
     navItems,
     currentRoute,
     isCurrentRoute,

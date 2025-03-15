@@ -1,14 +1,12 @@
 <script setup lang="ts">
 const viewport = useViewport()
-const { state, setState } = useNavbar()
+const { navProps } = useNavbar()
 
 const stickyWrapper = useTemplateRef('stickyWrapper')
 const originalOffset = ref<number | null>(null)
 
 const isSticky = ref(false)
 const isInitialized = ref(false)
-const isHidden = computed(() => state.value.hidden)
-const isAutoHiding = computed(() => state.value.autoHide)
 
 const navbarHeight = computed(() => (viewport.isLessThan('tablet') ? 48 : 52))
 
@@ -19,7 +17,7 @@ const containerStyle = computed(() => {
 
   if (isSticky.value) {
     styles.transform = 'translateY(0)'
-    if (!isHidden.value) {
+    if (!navProps.value.hidden) {
       styles.top = `${navbarHeight.value}px`
     }
   }
@@ -45,12 +43,12 @@ const updateStickiness = (): void => {
 
   const currentScroll = window.scrollY
   const triggerPoint
-    = originalOffset.value - (isHidden.value ? 0 : navbarHeight.value)
+    = originalOffset.value - (navProps.value.hidden ? 0 : navbarHeight.value)
 
   const newIsSticky = currentScroll >= triggerPoint
   if (newIsSticky !== isSticky.value) {
     isSticky.value = newIsSticky
-    setState({ extensionAttached: newIsSticky })
+    navProps.value.extensionAttached = newIsSticky
   }
 }
 
@@ -63,7 +61,7 @@ onMounted(() => {
 })
 
 watch(
-  () => isHidden.value,
+  () => navProps.value.hidden,
   () => {
     if (!isInitialized.value) {
       calculateOriginalOffset()
@@ -90,8 +88,8 @@ useEventListener(
     class="filter-input-sticky-wrapper"
     :class="{
       'is-sticky': isSticky,
-      'is-animating': isAutoHiding,
-      'is-hiding': isHidden,
+      'is-animating': navProps.autoHide,
+      'is-hiding': navProps.hidden,
     }"
     :style="containerStyle"
   >
