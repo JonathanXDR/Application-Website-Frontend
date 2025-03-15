@@ -2,7 +2,7 @@
 const viewport = useViewport()
 const { state } = useNavbar()
 
-const stickyWrapper = ref<HTMLElement | null>(null)
+const stickyWrapper = useTemplateRef('stickyWrapper')
 const originalOffset = ref<number | null>(null)
 
 const isSticky = ref(false)

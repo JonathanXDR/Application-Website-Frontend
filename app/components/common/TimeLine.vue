@@ -12,8 +12,8 @@ const strokeDashArray = ref<number>(props.initialHeight)
 const strokeDashOffset = ref<number>(props.initialHeight)
 const strokeWidth = ref<number>(5)
 
-const svgElement = ref<SVGElement | undefined>(undefined)
-const pathElement = ref<SVGPathElement | undefined>(undefined)
+const svg = useTemplateRef('svg')
+const path = useTemplateRef('path')
 const initialAnimationDone = ref<boolean>(false)
 
 const initializePath = () => {
@@ -30,7 +30,7 @@ const initializePath = () => {
 const animatePath = () => {
   const height = timelineHeight.value || 0
   const centerY = windowHeight.value / 2
-  const pathBounds = pathElement.value?.getBoundingClientRect()
+  const pathBounds = path.value?.getBoundingClientRect()
 
   if (!pathBounds) return
 
@@ -49,9 +49,9 @@ const initialAnimatePath = () => {
 }
 
 const setupIntersectionObserver = () => {
-  if (!svgElement.value) return
+  if (!svg.value) return
 
-  useIntersectionObserver(svgElement, ([entry]) => {
+  useIntersectionObserver(svg, ([entry]) => {
     if (entry?.isIntersecting) {
       initialAnimatePath()
       useEventListener(window, 'scroll', animatePath)
@@ -81,14 +81,14 @@ watch(
 
 <template>
   <svg
-    ref="svgElement"
+    ref="svg"
     class="svg-timeline"
     :viewBox="viewBox"
     xmlns="http://www.w3.org/2000/svg"
     :height="timelineHeight"
   >
     <path
-      ref="pathElement"
+      ref="path"
       class="path-timeline"
       stroke="var(--color-fill-gray)"
       :stroke-width="strokeWidth"

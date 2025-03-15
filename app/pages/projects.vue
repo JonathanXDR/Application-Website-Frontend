@@ -36,7 +36,7 @@ const { currentRoute } = useNavbar()
 const { randomDevColor } = useColor()
 const config = useRuntimeConfig()
 
-const ul = ref<HTMLElement | undefined>(undefined)
+const ul = useTemplateRef('ul')
 const ulHeight = ref<number>(0)
 const pinned = ref<PinnedRepository[]>([])
 const currentIndex = ref(0)

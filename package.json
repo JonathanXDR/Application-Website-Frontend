@@ -6,7 +6,7 @@
     "build": "nuxt build",
     "check:build": "sh ./scripts/check-build.sh",
     "check:commits": "sh ./scripts/check-commits.sh",
-    "check:types": "vue-tsc --noEmit",
+    "check:types": "nlx nuxi typecheck",
     "cleanup:icons": "sh ./scripts/cleanup-icons.sh",
     "dev": "nuxt dev --dotenv .env.local",
     "format": "prettier --check .",

@@ -10,11 +10,9 @@ const headlineRowCount = ref(2)
 const playing = ref(false)
 const isParallaxAnimated = ref(false)
 
-const parallaxRef = ref<HTMLElement | null>(null)
-const headlineRef = ref<HTMLElement | null>(null)
-const playPauseButtonRef = ref<HTMLElement | null>(null)
+const parallax = useTemplateRef('parallax')
 
-const { height: tileHeight } = useElementSize(parallaxRef)
+const { height: tileHeight } = useElementSize(parallax)
 
 const headlineLines = computed(() => {
   const words = props.description.split(' ')
@@ -88,7 +86,6 @@ const parallaxItems = computed<ParallaxItem[]>(() => {
                   {{ title }}
                 </h3>
                 <h4
-                  ref="headlineRef"
                   v-animation="{
                     add: 'animate',
                     onEnter: () => (isParallaxAnimated = true),
@@ -106,7 +103,7 @@ const parallaxItems = computed<ParallaxItem[]>(() => {
               </div>
             </div>
             <div
-              ref="parallaxRef"
+              ref="parallax"
               :class="[
                 'parallax',
                 {
@@ -136,7 +133,6 @@ const parallaxItems = computed<ParallaxItem[]>(() => {
               </template>
             </div>
             <button
-              ref="playPauseButtonRef"
               class="play-pause-button"
               :class="{ playing, paused: !playing }"
               @click="togglePlayPause()"

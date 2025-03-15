@@ -32,7 +32,7 @@ const props = withDefaults(
   },
 )
 
-const interactiveRef = ref<HTMLElement | null>(null)
+const interactiveCircle = useTemplateRef('interactiveCircle')
 const isSafari = ref(false)
 const curX = ref(0)
 const curY = ref(0)
@@ -53,20 +53,20 @@ const cssVars = computed(() => ({
 }))
 
 const handleMouseMove = (event: MouseEvent) => {
-  if (!interactiveRef.value) return
+  if (!interactiveCircle.value) return
 
-  const rect = interactiveRef.value.getBoundingClientRect()
+  const rect = interactiveCircle.value.getBoundingClientRect()
   tgX.value = event.clientX - rect.left
   tgY.value = event.clientY - rect.top
 }
 
 useRafFn(() => {
-  if (!interactiveRef.value || !props.interactive) return
+  if (!interactiveCircle.value || !props.interactive) return
 
   curX.value += (tgX.value - curX.value) / 20
   curY.value += (tgY.value - curY.value) / 20
 
-  interactiveRef.value.style.transform = `translate(${Math.round(curX.value)}px, ${Math.round(curY.value)}px)`
+  interactiveCircle.value.style.transform = `translate(${Math.round(curX.value)}px, ${Math.round(curY.value)}px)`
 })
 
 onMounted(() => {
@@ -129,7 +129,7 @@ onMounted(() => {
       />
       <div
         v-if="interactive"
-        ref="interactiveRef"
+        ref="interactiveCircle"
         class="absolute [background:radial-gradient(circle_at_center,_rgba(var(--pointer-color),_0.8)_0,_rgba(var(--pointer-color),_0)_50%)_no-repeat] [mix-blend-mode:var(--blending-value)] w-full h-full -top-1/2 -left-1/2 opacity-70"
         @mousemove="handleMouseMove"
       />

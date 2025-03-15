@@ -17,8 +17,8 @@ const config = useRuntimeConfig()
 const isHidden = ref(state.value.hidden)
 const isAutoHiding = ref(state.value.autoHide)
 
-const rotatingBannerElement = ref<HTMLElement | undefined>(undefined)
-const { height: rotatingBannerHeight } = useElementSize(rotatingBannerElement)
+const rotatingBanner = useTemplateRef('rotatingBanner')
+const { height: rotatingBannerHeight } = useElementSize(rotatingBanner)
 const hideNavbarTimeout = ref<NodeJS.Timeout | null>(null)
 
 const items = computed<InfoBannerType['items']>(() =>
@@ -147,7 +147,7 @@ const footerComponent = computed(() =>
       <NavBar v-if="shouldShow('nav')" />
       <div
         v-if="shouldShow('ribbon')"
-        ref="rotatingBannerElement"
+        ref="rotatingBanner"
       >
         <InfoBanner :items="items" />
       </div>

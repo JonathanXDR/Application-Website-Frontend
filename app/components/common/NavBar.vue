@@ -33,13 +33,13 @@ const shouldHide = ref(false)
 const shouldOpen = ref(false)
 const toggleNav = useToggle(isOpen)
 
-const expandAnimation = ref<SVGAnimateElement | null>(null)
-const collapseAnimation = ref<SVGAnimateElement | null>(null)
+const expandAnimation = useTemplateRef('expandAnimation')
+const collapseAnimation = useTemplateRef('collapseAnimation')
 
-const navbarElement = ref<HTMLElement | null>(null)
-const wrapperElement = ref<HTMLElement | null>(null)
-const backgroundElement = ref<HTMLElement | null>(null)
-const menustateTrayElement = ref<HTMLElement | null>(null)
+const navbar = useTemplateRef('navbar')
+const wrapper = useTemplateRef('wrapper')
+const background = useTemplateRef('background')
+const menuStateTray = useTemplateRef('menuStateTray')
 const trayHeight = ref<number>()
 const menuLinkReferences = reactive<Record<string, HTMLElement | undefined>>(
   {},
@@ -59,10 +59,10 @@ const currentMenuLinkElement = computed<HTMLElement | undefined>(() => {
 setState({ ...props })
 
 const initHeaderAnimations = () => {
-  if (!backgroundElement.value) return
+  if (!background.value) return
 
   const animation = {
-    element: backgroundElement.value,
+    element: background.value,
     class: 'ac-ln-background-transition',
     timeout: 500,
   }
@@ -127,14 +127,14 @@ const updateAnimations = () => {
 }
 
 const updateTrayHeight = () => {
-  if (!menustateTrayElement.value) return
-  trayHeight.value = menustateTrayElement.value.scrollHeight
+  if (!menuStateTray.value) return
+  trayHeight.value = menuStateTray.value.scrollHeight
 }
 
 const updateBorderPosition = () => {
-  if (currentMenuLinkElement.value && navbarElement.value) {
+  if (currentMenuLinkElement.value && navbar.value) {
     const menuLinkRect = currentMenuLinkElement.value.getBoundingClientRect()
-    const navbarRect = navbarElement.value.getBoundingClientRect()
+    const navbarRect = navbar.value.getBoundingClientRect()
 
     const centerPosition
       = menuLinkRect.left + menuLinkRect.width / 2 - navbarRect.left
@@ -202,18 +202,18 @@ watch([() => route.path, () => currentSection.value?.id], () => {
 watch(
   () => isHidden.value,
   async (newValue) => {
-    if (!props.autoHide || !wrapperElement.value) return
+    if (!props.autoHide || !wrapper.value) return
 
     if (!newValue) {
       shouldHide.value = false
       await nextTick()
       requestAnimationFrame(() => {
-        if (!wrapperElement.value) return
-        wrapperElement.value.style.transform = 'translateY(0)'
+        if (!wrapper.value) return
+        wrapper.value.style.transform = 'translateY(0)'
       })
     }
     else {
-      wrapperElement.value.style.transform = 'translateY(-100%)'
+      wrapper.value.style.transform = 'translateY(-100%)'
     }
   },
 )
@@ -239,7 +239,7 @@ watch(
   />
   <nav
     id="ac-localnav"
-    ref="navbarElement"
+    ref="navbar"
     :class="[
       'ac-ln-allow-transitions',
       { 'css-sticky ac-ln-sticking': state.position === 'sticky' },
@@ -263,11 +263,11 @@ watch(
     @transitionend="handleTransitionEnd"
   >
     <div
-      ref="wrapperElement"
+      ref="wrapper"
       class="ac-ln-wrapper"
     >
       <div
-        ref="backgroundElement"
+        ref="background"
         class="ac-ln-background"
       />
       <div class="ac-ln-content">
@@ -314,7 +314,7 @@ watch(
           </a>
           <div
             id="ac-ln-menustate-tray"
-            ref="menustateTrayElement"
+            ref="menuStateTray"
             class="ac-ln-menu-tray"
             :style="{
               '--r-localnav-menu-tray-natural-height': `${trayHeight}px`,

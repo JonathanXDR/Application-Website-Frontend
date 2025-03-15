@@ -183,7 +183,6 @@ onBeforeUnmount(() => {
 
 <template>
   <h2
-    ref="headline"
     v-animation="animationConfig"
     :class="[
       'section-header-headline typography-section-headline-bold large-12 animated-headline',

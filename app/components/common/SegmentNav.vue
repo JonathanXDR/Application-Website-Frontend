@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<SegmentNavType>(), {
 const selectedItem = ref<string>(props.selectedItem)
 const isTransitioning = ref<boolean>(false)
 
-const navContainer = ref<HTMLElement | undefined>(undefined)
+const navContainer = useTemplateRef('navContainer')
 const itemElements = ref<Array<HTMLElement>>([])
 const selectedItemElement = ref<HTMLElement | undefined>(undefined)
 

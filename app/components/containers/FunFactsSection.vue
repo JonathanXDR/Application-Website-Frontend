@@ -10,7 +10,7 @@ const viewport = useViewport()
 const { tm, locale } = useI18n()
 
 const chipClaimHeight = ref(0)
-const titleElements = ref<HTMLElement[]>([])
+const titles = useTemplateRef<HTMLElement[]>('titles')
 const progressSpan = ref<HTMLElement[]>([])
 const funFacts = computed<LanguageBarType[]>(() =>
   tm('components.containers.funFacts'),
@@ -18,9 +18,8 @@ const funFacts = computed<LanguageBarType[]>(() =>
 
 const updateChipClaimHeight = () => {
   nextTick(() => {
-    const maxHeight = Math.max(
-      ...titleElements.value.map(element => element.clientHeight),
-    )
+    const heights = titles.value?.map(element => element.clientHeight) || []
+    const maxHeight = heights.length > 0 ? Math.max(...heights) : 0
     chipClaimHeight.value = maxHeight
   })
 }
@@ -71,7 +70,7 @@ useEventListener(window, 'resize', updateChipClaimHeight)
     >
       <div>
         <figure class="stat typography-site-stat-caption highlight">
-          <strong ref="titleElements">
+          <strong ref="titles">
             <span
               :ref="
                 (el) => {
