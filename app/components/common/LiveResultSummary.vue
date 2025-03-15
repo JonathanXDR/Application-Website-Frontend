@@ -1,14 +1,8 @@
 <script setup lang="ts">
-withDefaults(
-  defineProps<{
-    totalResults: number
-    pinnedResults?: number
-  }>(),
-  {
-    totalResults: 0,
-    pinnedResults: 0,
-  },
-)
+defineProps<{
+  totalResults: number
+  pinnedResults?: number
+}>()
 
 const { t } = useI18n()
 const { randomDevColor } = useColor()

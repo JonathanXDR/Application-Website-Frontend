@@ -9,7 +9,6 @@ const props = withDefaults(
     loading?: boolean
   }>(),
   {
-    links: () => [],
     divider: true,
     shouldAnimate: false,
     loading: false,

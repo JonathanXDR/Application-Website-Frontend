@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const conifg = useRuntimeConfig()
+const config = useRuntimeConfig()
 const { randomDevColor } = useColor()
 
 const color
-  = conifg.public.appEnvironment === 'development'
+  = config.public.appEnvironment === 'development'
     ? `var(--color-figure-${randomDevColor.value?.name})`
     : 'var(--color-fill-blue)'
 </script>

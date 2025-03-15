@@ -1,16 +1,9 @@
 <script setup lang="ts">
 import type { ColorType } from '#shared/types/common/color'
 
-withDefaults(
-  defineProps<{
-    color: ColorType
-  }>(),
-  {
-    color: () => ({
-      primary: 'var(--color-figure-orange)',
-    }),
-  },
-)
+defineProps<{
+  color: ColorType
+}>()
 </script>
 
 <template>

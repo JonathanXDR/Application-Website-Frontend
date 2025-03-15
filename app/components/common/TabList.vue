@@ -1,16 +1,10 @@
 <script setup lang="ts">
 import type { ItemType } from '#shared/types/common/item'
 
-const props = withDefaults(
-  defineProps<{
-    items: ItemType[]
-    activeTabId: string
-  }>(),
-  {
-    items: () => [],
-    activeTabId: '0',
-  },
-)
+const props = defineProps<{
+  items: ItemType[]
+  activeTabId: string
+}>()
 
 const emit = defineEmits(['change'])
 const selectedTab = ref(props.activeTabId)

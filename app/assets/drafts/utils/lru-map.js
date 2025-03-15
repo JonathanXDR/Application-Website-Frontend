@@ -63,7 +63,7 @@ export default class LRUMap {
     }
   }
 
-  *[Symbol.iterator]() {
-    yield * this.map
+  * [Symbol.iterator]() {
+    yield* this.map
   }
 }

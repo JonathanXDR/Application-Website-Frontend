@@ -7,7 +7,6 @@ withDefaults(
     label?: string
   }>(),
   {
-    options: () => [],
     label: undefined,
   },
 )
