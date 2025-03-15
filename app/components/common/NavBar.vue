@@ -23,15 +23,13 @@ const { tm } = useI18n()
 
 const navItems = computed<SectionType[]>(() => tm('components.common.NavBar'))
 
-const isScrim = ref(state.value.scrim)
-const isOpen = ref(state.value.open)
-const isHidden = ref(state.value.hidden)
-const isAutoHiding = ref(state.value.autoHide)
-const isTransitioning = ref(state.value.transitioning)
+const isScrim = computed(() => state.value.scrim)
+const isOpen = computed(() => state.value.open)
+const isHidden = computed(() => state.value.hidden)
+const isAutoHiding = computed(() => state.value.autoHide)
 
 const shouldHide = ref(false)
 const shouldOpen = ref(false)
-const toggleNav = useToggle(isOpen)
 
 const expandAnimation = useTemplateRef('expandAnimation')
 const collapseAnimation = useTemplateRef('collapseAnimation')
@@ -70,7 +68,7 @@ const initHeaderAnimations = () => {
 }
 
 const handleNav = () => {
-  toggleNav()
+  setState({ open: !isOpen.value })
   animateChevron(isOpen.value ?? false)
   checkboxTimeout()
 }
@@ -98,12 +96,14 @@ const checkboxTimeout = () => {
 
 const handleScroll = () => {
   if (isOpen.value && scrollY.value > 0) {
-    isOpen.value = false
-    isAutoHiding.value = false
+    setState({
+      open: false,
+      autoHide: false,
+    })
     animateChevron(false)
   }
   else {
-    isAutoHiding.value = true
+    setState({ autoHide: true })
   }
 }
 
@@ -158,7 +158,7 @@ const handleTransitionStart = (event: TransitionEvent) => {
   if (!isAutoHiding.value) return
 
   if (event.propertyName === 'transform') {
-    isTransitioning.value = true
+    setState({ transitioning: true })
   }
 }
 
@@ -166,7 +166,7 @@ const handleTransitionEnd = (event: TransitionEvent) => {
   if (!isAutoHiding.value) return
 
   if (event.propertyName === 'transform') {
-    isTransitioning.value = false
+    setState({ transitioning: false })
   }
 
   if (isHidden.value) {

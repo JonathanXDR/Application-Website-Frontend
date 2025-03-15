@@ -4,7 +4,7 @@ import type { InfoBannerType } from '#shared/types/components/info-banner'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterPre from '~/components/common/Footer/Pre.vue'
 
-const { state } = useNavbar()
+const { state, setState } = useNavbar()
 const { randomDevColor } = useColor()
 const route = useRoute()
 const { currentSection } = useSection()
@@ -14,8 +14,8 @@ const { y, isScrolling } = useScroll(window)
 const error = useError()
 const config = useRuntimeConfig()
 
-const isHidden = ref(state.value.hidden)
-const isAutoHiding = ref(state.value.autoHide)
+const isHidden = computed(() => state.value.hidden)
+const isAutoHiding = computed(() => state.value.autoHide)
 
 const rotatingBanner = useTemplateRef('rotatingBanner')
 const { height: rotatingBannerHeight } = useElementSize(rotatingBanner)
@@ -49,14 +49,14 @@ const resetHideNavbarTimer = () => {
 
   hideNavbarTimeout.value = setTimeout(() => {
     if (!isScrolling.value && y.value > rotatingBannerHeight.value) {
-      isHidden.value = true
+      setState({ hidden: true })
     }
   }, state.value.autoHideDelay)
 }
 
 watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
-  if (!isAutoHiding.value) {
-    isHidden.value = false
+  if (!state.value.autoHide) {
+    setState({ hidden: false })
     return
   }
 
@@ -64,13 +64,13 @@ watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
 
   if (isScrollingNew && yNew > rotatingBannerHeight.value) {
     if (isScrollingDown) {
-      isHidden.value = true
+      setState({ hidden: true })
       if (hideNavbarTimeout.value) {
         clearTimeout(hideNavbarTimeout.value)
       }
     }
     else {
-      isHidden.value = false
+      setState({ hidden: false })
     }
   }
 

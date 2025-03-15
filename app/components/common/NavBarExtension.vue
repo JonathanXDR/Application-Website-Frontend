@@ -1,15 +1,14 @@
 <script setup lang="ts">
 const viewport = useViewport()
-const { state } = useNavbar()
+const { state, setState } = useNavbar()
 
 const stickyWrapper = useTemplateRef('stickyWrapper')
 const originalOffset = ref<number | null>(null)
 
 const isSticky = ref(false)
 const isInitialized = ref(false)
-const isHidden = ref(state.value.hidden)
-const isAutoHiding = ref(state.value.autoHide)
-const isExtensionAttached = ref(state.value.extensionAttached)
+const isHidden = computed(() => state.value.hidden)
+const isAutoHiding = computed(() => state.value.autoHide)
 
 const navbarHeight = computed(() => (viewport.isLessThan('tablet') ? 48 : 52))
 
@@ -51,7 +50,7 @@ const updateStickiness = (): void => {
   const newIsSticky = currentScroll >= triggerPoint
   if (newIsSticky !== isSticky.value) {
     isSticky.value = newIsSticky
-    isExtensionAttached.value = newIsSticky
+    setState({ extensionAttached: newIsSticky })
   }
 }
 
