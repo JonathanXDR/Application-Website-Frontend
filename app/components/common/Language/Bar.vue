@@ -64,16 +64,16 @@ const applyHover = computed(
         </span>
         <BadgeBar
           v-if="badges?.length"
-          :badges="badges"
-          :loading="loading"
+          :badges
+          :loading
         />
         <div
           v-if="links?.length"
           class="ctas-wrapper"
         >
           <LinkCollection
-            :links="links"
-            :loading="loading"
+            :links
+            :loading
             :class="{ link: applyHover }"
           />
         </div>

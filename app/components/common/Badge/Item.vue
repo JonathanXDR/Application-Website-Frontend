@@ -48,7 +48,7 @@ const computedStyle = computed(() => ({
       v-if="icon"
       v-bind="icon"
       :class="`icon icon-md mr-1`"
-      :loading="loading"
+      :loading
     />
     <template v-if="!loading">
       {{ title }}

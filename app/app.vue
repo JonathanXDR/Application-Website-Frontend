@@ -10,7 +10,7 @@ const color
 
 <template>
   <NuxtLoadingIndicator
-    :color="color"
+    :color
     :error-color="`var(--color-figure-red)`"
   />
   <NuxtLayout>

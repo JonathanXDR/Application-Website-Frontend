@@ -71,7 +71,7 @@ onMounted(async () => {
           v-if="isLoaded"
           v-bind="imgAttrs"
           :href="src"
-          :nonce="nonce"
+          :nonce
         />
       </NuxtImg>
     </svg>

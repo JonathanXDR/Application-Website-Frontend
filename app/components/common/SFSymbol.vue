@@ -29,7 +29,7 @@ const customize = (content: string) => {
     v-bind="props"
     mode="svg"
     :name="`sf-symbols-${props.weight}:${props.name}`"
-    :customize="customize"
+    :customize
   />
 </template>
 

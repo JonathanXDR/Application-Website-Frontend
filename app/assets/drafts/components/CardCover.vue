@@ -45,7 +45,7 @@ export default {
       ref="img"
       decoding="async"
       :data-orientation="orientation"
-      :loading="loading"
+      :loading
       :alt="alt"
       :width="defaultAttributes.width || optimalWidth"
       :height="(defaultAttributes.width || optimalWidth) ? 'auto' : null"

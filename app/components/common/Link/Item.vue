@@ -22,7 +22,7 @@ const props = defineProps<LinkItemType>()
     <DynamicIcon
       v-if="props.icon"
       v-bind="props.icon"
-      :loading="loading"
+      :loading
       class="icon icon-sm"
     />
   </component>

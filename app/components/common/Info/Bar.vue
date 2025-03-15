@@ -97,7 +97,7 @@ watch([locale, () => props.date], () => {
         <DynamicIcon
           v-if="item.icon"
           :name="item.icon.name"
-          :loading="loading"
+          :loading
           class="info-icon"
         />
         <template v-if="!loading">
@@ -117,7 +117,7 @@ watch([locale, () => props.date], () => {
       class="info-item"
     >
       <DynamicIcon
-        :loading="loading"
+        :loading
         :name="updatedYesterday ? 'clock.fill' : 'calendar'"
         class="info-icon"
       />

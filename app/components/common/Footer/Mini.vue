@@ -52,7 +52,7 @@ withDefaults(
     <div class="footer-mini-legal">
       <FooterCopyright
         v-if="!loading && componentSize === 'small'"
-        :component-size="componentSize"
+        :component-size
       />
       <div
         v-if="legalLinks.length"
@@ -68,7 +68,7 @@ withDefaults(
 
       <FooterCopyright
         v-if="!loading && componentSize === 'large'"
-        :component-size="componentSize"
+        :component-size
       />
     </div>
   </section>

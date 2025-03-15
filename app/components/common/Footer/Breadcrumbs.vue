@@ -33,7 +33,7 @@ const { shouldShowBreadcrumbs, computedLinks, requestURL, route }
       <DynamicIcon
         v-if="icon"
         v-bind="icon"
-        :loading="loading"
+        :loading
         class="icon icon-sm"
       />
       <SiteLogo

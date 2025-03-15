@@ -362,7 +362,7 @@ watch(locale, () => {
                           <LinkCollection
                             v-if="gallery.item?.links"
                             class="ribbon-link"
-                            :loading="loading"
+                            :loading
                             :links="gallery.item.links"
                             :should-animate="!initialAnimationPlayed"
                           />

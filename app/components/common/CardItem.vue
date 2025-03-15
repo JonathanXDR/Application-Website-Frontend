@@ -260,7 +260,7 @@ watch(colorMode, () => {
         >
           <DynamicIcon
             v-bind="icon"
-            :loading="loading"
+            :loading
             :class="iconClass"
             :style="{ color: icon.colors?.primary }"
           />
@@ -268,7 +268,7 @@ watch(colorMode, () => {
         <DynamicIcon
           v-else
           v-bind="icon"
-          :loading="loading"
+          :loading
           :class="['mt-[3px]', iconClass]"
           :style="{ color: icon.colors?.primary }"
         />
@@ -314,7 +314,7 @@ watch(colorMode, () => {
             title="Public archive"
             component-size="xsmall"
             variant="span"
-            :loading="loading"
+            :loading
             :colors="{
               primary: 'var(--color-figure-yellow)',
               tertiary: 'var(--color-figure-yellow)',
@@ -325,7 +325,7 @@ watch(colorMode, () => {
           <BadgeItem
             v-if="badge"
             v-bind="badge"
-            :loading="loading"
+            :loading
             :colors="{
               primary: `var(--color-figure-${randomDevColor?.name})`,
               tertiary: `var(--color-figure-${randomDevColor?.name})`,
@@ -375,7 +375,7 @@ watch(colorMode, () => {
         <BadgeBar
           v-if="hasBadgesOrTopics"
           :badges="badgesOrTopics"
-          :loading="loading"
+          :loading
         />
 
         <div
@@ -389,7 +389,7 @@ watch(colorMode, () => {
 
           <LinkCollection
             :links="linkCollectionLinks"
-            :loading="loading"
+            :loading
             :class="{ link: applyHover }"
           />
         </div>

@@ -5,14 +5,14 @@ const { tm } = useI18n()
 const { getTheme, setTheme } = useTheme()
 const viewport = useViewport()
 
-const themeItems = computed<ItemType[]>(() =>
+const items = computed<ItemType[]>(() =>
   tm('components.common.SegmentNav.theme'),
 )
 </script>
 
 <template>
   <SegmentNav
-    :items="themeItems"
+    :items
     gap="5px"
     component-size="xsmall"
     :focus="false"
