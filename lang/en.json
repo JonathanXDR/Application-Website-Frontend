@@ -287,7 +287,19 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Supervisor",
+          "eyebrow": "Current Supervisor",
+          "title": "Patrice Stampfli",
+          "description": "Coach Next Generation",
+          "info": {
+            "location": "Itt-Ey10",
+            "department": "GHR-POD-NEX"
+          }
+        },
+        {
+          "icon": {
+            "name": "person.fill"
+          },
+          "eyebrow": "Former Supervisor",
           "title": "Steve Hess",
           "description": "Coach Next Generation",
           "info": {
@@ -299,9 +311,9 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Project provider",
+          "eyebrow": "Former Project Provider",
           "title": "Nick Zimmermann",
-          "description": "DevOps I Engineer",
+          "description": "DevOps Engineer I",
           "links": [
             {
               "title": "Learn more",
@@ -313,26 +325,26 @@
           ],
           "info": {
             "location": "Zür-För181",
-            "department": "INI-EOG-SPA"
+            "department": "INI-DOS-DVX"
           }
         },
         {
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Project provider",
+          "eyebrow": "Former Project Provider",
           "title": "Alessio Iantosca",
           "description": "Test Automation Engineer",
           "info": {
             "location": "Zür-Pfi51",
-            "department": "B2B-BAN-COB-ASO-AUT"
+            "department": "B2B-BAN-BPO-AUT"
           }
         },
         {
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Project provider",
+          "eyebrow": "Former Project Provider",
           "title": "Carlo Schmid",
           "description": "Full-Stack Developer",
           "info": {
@@ -344,7 +356,7 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Project provider",
+          "eyebrow": "Current Project Provider",
           "title": "Kim Eggler",
           "description": "Full-Stack Developer",
           "links": [
@@ -358,26 +370,26 @@
           ],
           "info": {
             "location": "Itt-Ey10",
-            "department": "GHR-POD-LES-APP"
+            "department": "GHR-POD-LES-APP (EXT)"
           }
         },
         {
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Project provider",
+          "eyebrow": "Former Project Provider",
           "title": "Radu Margineanu",
           "description": "Enterprise & System Architect EAS",
           "info": {
             "location": "Zür-För181",
-            "department": "INI-EAI-EAV"
+            "department": "INI-EOG-EA-EAF"
           }
         },
         {
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Project provider",
+          "eyebrow": "Former Project Provider",
           "title": "Oliver Kramer",
           "description": "Cyber Security Specialist",
           "info": {
@@ -391,9 +403,9 @@
           "icon": {
             "name": "graduationcap.fill"
           },
-          "eyebrow": "School",
-          "title": "Technical Vocational School Zurich",
-          "description": "I always go to vocational school in Zurich on Thursday afternoons.",
+          "eyebrow": "Former School",
+          "title": "Technical Vocational School Zürich",
+          "description": "I always attended vocational school in Zürich on Thursday afternoons.",
           "links": [
             {
               "title": "Learn more",
@@ -415,8 +427,8 @@
             "name": "graduationcap.fill"
           },
           "eyebrow": "School",
-          "title": "Vocational baccalaureate school Zurich",
-          "description": "On Fridays, I go to the vocational baccalaureate school in Zurich.",
+          "title": "Vocational Baccalaureate School Zürich",
+          "description": "I attend the vocational baccalaureate school in Zürich on Fridays.",
           "links": [
             {
               "title": "Learn more",

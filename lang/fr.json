@@ -287,7 +287,19 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Supérieur hiérarchique",
+          "eyebrow": "Supérieur hiérarchique actuel",
+          "title": "Patrice Stampfli",
+          "description": "Coach de la nouvelle génération",
+          "info": {
+            "location": "Itt-Ey10",
+            "department": "GHR-POD-NEX"
+          }
+        },
+        {
+          "icon": {
+            "name": "person.fill"
+          },
+          "eyebrow": "Ancien supérieur hiérarchique",
           "title": "Steve Hess",
           "description": "Coach Next Generation",
           "info": {
@@ -299,7 +311,7 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Fournisseur de projets",
+          "eyebrow": "Ancien fournisseur de projet",
           "title": "Nick Zimmermann",
           "description": "Ingénieur DevOps I",
           "links": [
@@ -313,26 +325,26 @@
           ],
           "info": {
             "location": "Zür-För181",
-            "department": "INI-EOG-SPA"
+            "department": "INI-DOS-DVX"
           }
         },
         {
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Fournisseur de projets",
+          "eyebrow": "Ancien fournisseur de projet",
           "title": "Alessio Iantosca",
           "description": "Ingénieur en automatisation des tests",
           "info": {
             "location": "Zür-Pfi51",
-            "department": "B2B-BAN-COB-ASO-AUT"
+            "department": "B2B-BAN-BPO-AUT"
           }
         },
         {
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Fournisseur de projets",
+          "eyebrow": "Ancien fournisseur de projet",
           "title": "Carlo Schmid",
           "description": "Développeur Full-Stack",
           "info": {
@@ -344,7 +356,7 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Fournisseur de projets",
+          "eyebrow": "Fournisseur de projet actuel",
           "title": "Kim Eggler",
           "description": "Développeur Full-Stack",
           "links": [
@@ -358,26 +370,26 @@
           ],
           "info": {
             "location": "Itt-Ey10",
-            "department": "GHR-POD-LES-APP"
+            "department": "GHR-POD-LES-APP (EXT)"
           }
         },
         {
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Fournisseur de projets",
+          "eyebrow": "Ancien fournisseur de projet",
           "title": "Radu Margineanu",
-          "description": "Enterprise & System Architect EAS",
+          "description": "Architecte d'entreprise et systèmes EAS",
           "info": {
             "location": "Zür-För181",
-            "department": "INI-EAI-EAV"
+            "department": "INI-EOG-EA-EAF"
           }
         },
         {
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Fournisseur de projets",
+          "eyebrow": "Ancien fournisseur de projet",
           "title": "Oliver Kramer",
           "description": "Spécialiste en cybersécurité",
           "info": {
@@ -391,9 +403,9 @@
           "icon": {
             "name": "graduationcap.fill"
           },
-          "eyebrow": "École",
-          "title": "École professionnelle technique de Zurich",
-          "description": "Je vais toujours à l'école professionnelle à Zurich le jeudi après-midi.",
+          "eyebrow": "Ancienne école",
+          "title": "École professionnelle technique de Zürich",
+          "description": "J'allais toujours à l'école professionnelle à Zürich les jeudis après-midi.",
           "links": [
             {
               "title": "En savoir plus",
@@ -415,8 +427,8 @@
             "name": "graduationcap.fill"
           },
           "eyebrow": "École",
-          "title": "Ecole de maturité professionnelle de Zurich",
-          "description": "Le vendredi, je vais toujours à l'école de maturité professionnelle à Zurich.",
+          "title": "École de maturité professionnelle de Zürich",
+          "description": "Le vendredi, je vais à l'école de maturité professionnelle à Zürich.",
           "links": [
             {
               "title": "En savoir plus",

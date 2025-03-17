@@ -287,7 +287,19 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Vorgesetzter",
+          "eyebrow": "Aktueller Vorgesetzter",
+          "title": "Patrice Stampfli",
+          "description": "Coach Next Generation",
+          "info": {
+            "location": "Itt-Ey10",
+            "department": "GHR-POD-NEX"
+          }
+        },
+        {
+          "icon": {
+            "name": "person.fill"
+          },
+          "eyebrow": "Ehemaliger Vorgesetzter",
           "title": "Steve Hess",
           "description": "Coach Next Generation",
           "info": {
@@ -299,9 +311,9 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Projektanbieter",
+          "eyebrow": "Ehemaliger Projektanbieter",
           "title": "Nick Zimmermann",
-          "description": "DevOps I Engineer",
+          "description": "DevOps Engineer I",
           "links": [
             {
               "title": "Mehr erfahren",
@@ -313,26 +325,26 @@
           ],
           "info": {
             "location": "Zür-För181",
-            "department": "INI-EOG-SPA"
+            "department": "INI-DOS-DVX"
           }
         },
         {
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Projektanbieter",
+          "eyebrow": "Ehemaliger Projektanbieter",
           "title": "Alessio Iantosca",
           "description": "Test Automation Engineer",
           "info": {
             "location": "Zür-Pfi51",
-            "department": "B2B-BAN-COB-ASO-AUT"
+            "department": "B2B-BAN-BPO-AUT"
           }
         },
         {
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Projektanbieter",
+          "eyebrow": "Ehemaliger Projektanbieter",
           "title": "Carlo Schmid",
           "description": "Full-Stack Developer",
           "info": {
@@ -344,7 +356,7 @@
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Projektanbieter",
+          "eyebrow": "Aktueller Projektanbieter",
           "title": "Kim Eggler",
           "description": "Full-Stack Developer",
           "links": [
@@ -358,26 +370,26 @@
           ],
           "info": {
             "location": "Itt-Ey10",
-            "department": "GHR-POD-LES-APP"
+            "department": "GHR-POD-LES-APP (EXT)"
           }
         },
         {
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Projektanbieter",
+          "eyebrow": "Ehemaliger Projektanbieter",
           "title": "Radu Margineanu",
           "description": "Enterprise & System Architect EAS",
           "info": {
             "location": "Zür-För181",
-            "department": "INI-EAI-EAV"
+            "department": "INI-EOG-EA-EAF"
           }
         },
         {
           "icon": {
             "name": "person.fill"
           },
-          "eyebrow": "Projektanbieter",
+          "eyebrow": "Ehemaliger Projektanbieter",
           "title": "Oliver Kramer",
           "description": "Cyber Security Specialist",
           "info": {
@@ -391,9 +403,9 @@
           "icon": {
             "name": "graduationcap.fill"
           },
-          "eyebrow": "Schule",
+          "eyebrow": "Ehemalige Schule",
           "title": "Technische Berufsschule Zürich",
-          "description": "Ich gehe immer donnerstags nachmittags zur Berufsschule in Zürich.",
+          "description": "Ich bin immer donnerstags nachmittags zur Berufsschule in Zürich gegangen.",
           "links": [
             {
               "title": "Mehr erfahren",
