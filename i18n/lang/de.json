@@ -516,6 +516,18 @@
           "icon": {
             "name": "person.fill"
           },
+          "eyebrow": "Vorgesetze Fachkrat IPA",
+          "title": "Micha Humbel",
+          "description": "Full-Stack Developer",
+          "info": {
+            "location": "Itt-Ey10",
+            "department": "GHR-POD-LES-APP (EXT)"
+          }
+        },
+        {
+          "icon": {
+            "name": "person.fill"
+          },
           "eyebrow": "Ehemaliger Projektanbieter",
           "title": "Radu Margineanu",
           "description": "Enterprise & System Architect EAS",
@@ -542,9 +554,9 @@
           "icon": {
             "name": "graduationcap.fill"
           },
-          "eyebrow": "Schule",
+          "eyebrow": "Ehemalige Schule",
           "title": "Technische Berufsschule Zürich",
-          "description": "Ich gehe immer donnerstags nachmittags zur Berufsschule in Zürich.",
+          "description": "Ich bin immer donnerstags nachmittags zur Berufsschule in Zürich gegangen.",
           "links": [
             {
               "title": "Mehr erfahren",
@@ -1895,8 +1907,15 @@
           ],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "Apps Team",
               "url": "https://appsteam.swisscom.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            },
+            {
+              "title": "Indigo online",
+              "url": "https://indigo.online",
               "icon": {
                 "name": "chevron.right"
               }
@@ -1982,8 +2001,15 @@
           ],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "Apps Team",
               "url": "https://appsteam.swisscom.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            },
+            {
+              "title": "Indigo online",
+              "url": "https://indigo.online",
               "icon": {
                 "name": "chevron.right"
               }
@@ -2147,8 +2173,15 @@
           ],
           "links": [
             {
-              "title": "Mehr erfahren",
+              "title": "Apps Team",
               "url": "https://appsteam.swisscom.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            },
+            {
+              "title": "Indigo online",
+              "url": "https://indigo.online",
               "icon": {
                 "name": "chevron.right"
               }
