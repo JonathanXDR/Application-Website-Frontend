@@ -207,6 +207,9 @@ export default defineNuxtConfig({
     // lazy: true,
     strategy: 'prefix_except_default',
     defaultLocale: 'de',
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
     detectBrowserLanguage: {
       useCookie: true,
       cookieCrossOrigin: true,
