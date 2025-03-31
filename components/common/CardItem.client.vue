@@ -105,6 +105,7 @@
           </NuxtLink> -->
 
           <LinkCollection
+            :divider="false"
             :links="linkCollectionLinks"
             :loading="loading"
             :class="{ link: applyHover }"
