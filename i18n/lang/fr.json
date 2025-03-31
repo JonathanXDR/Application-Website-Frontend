@@ -355,7 +355,7 @@
           "description": "Ingénieur en automatisation des tests",
           "info": {
             "location": "Zür-Pfi51",
-            "department": "B2B-BAN-BPO-AUT"
+            "department": "B2B-BAN-BPS-BPM-AU1"
           }
         },
         {
@@ -994,22 +994,22 @@
           "icon": {
             "name": "airplane.departure"
           },
-          "eyebrow": "Introduction",
-          "title": "NEX Premières étapes",
-          "description": "C'est dans les First Steps que mon apprentissage a commencé. J'y ai appris tout ce qui concerne Swisscom, par exemple comment utiliser les différents outils, comment collaborer correctement et aussi d'autres choses, comme la sécurité au travail.",
+          "eyebrow": "Introduzione",
+          "title": "NEX Primi Passi",
+          "description": "Il mio apprendistato è iniziato con il programma First Steps. Lì ho appreso tutto ciò che riguarda Swisscom – ad esempio, come utilizzare i vari strumenti, come lavorare in squadra e altri aspetti, come la sicurezza sul lavoro.",
           "badges": [
-            "Introduction",
+            "Introduzione",
             "Swisscom",
-            "Teamwork",
-            "Work Safety",
-            "Next Generation"
+            "Lavoro di squadra",
+            "Sicurezza sul lavoro",
+            "Nuova generazione"
           ],
           "info": {
             "date": {
               "fixed": "2021-08-01"
             },
             "supervisor": "Steve Hess",
-            "location": "Zurich & Berne",
+            "location": "Zürich & Bern",
             "department": "GHR-POD-NEX"
           }
         },
@@ -1018,10 +1018,10 @@
             "name": "chevron.left.forwardslash.chevron.right"
           },
           "eyebrow": "Full-Stack",
-          "title": "Centre de compétences NexCC",
-          "description": "Au NexCC, j'ai d'abord pu créer ce site web ici et j'ai appris de nombreux nouveaux langages de programmation. Notamment HTML, CSS et JavaScript. Ensuite, j'ai pu créer une application CRUD que j'ai reliée à une base de données SQL. Plus tard, j'ai également ajouté un frontend et créé mon propre système de connexion. J'ai surtout appris à connaître le backend et les langages de programmation basés sur les frameworks, comme Node.js, Express.js ou Vue.js.",
+          "title": "Centro di Competenza NexCC",
+          "description": "Al NexCC, ho avuto l'opportunità di creare questo sito web e ho imparato molti nuovi linguaggi di programmazione, tra cui HTML, CSS e JavaScript. Successivamente, ho sviluppato un'app CRUD che ho collegato a un database SQL. In seguito, ho aggiunto anche un frontend e creato il mio sistema di login. In questo modo, ho approfondito le mie conoscenze nel backend e ho appreso nuovi linguaggi di programmazione basati su framework come Express.js e Vue.js.",
           "badges": [
-            "Web Development",
+            "Sviluppo Web",
             "Frontend",
             "HTML",
             "CSS",
@@ -1049,13 +1049,13 @@
           "icon": {
             "name": "clock.arrow.trianglehead.2.counterclockwise.rotate.90"
           },
-          "eyebrow": "Automation",
-          "title": "Projets d'automatisation dans le domaine bancaire",
-          "description": "Ici, j'ai pu avoir un aperçu général de l'automatisation et de son environnement. J'ai participé activement et j'ai appris à tester ou à automatiser les différentes banques à l'aide de Ranorex & UiPath. J'ai aussi appris un peu de C# et plus de choses sur le framework .NET. Mais mon objectif est d'améliorer cela à l'avenir!",
+          "eyebrow": "Automazione",
+          "title": "Progetti di automazione nel settore bancario",
+          "description": "Qui ho ottenuto una panoramica generale sull'automazione e il suo contesto. Ho partecipato attivamente, imparando a testare e automatizzare le singole banche utilizzando Ranorex e UiPath. Inoltre, ho imparato un po' di C# e approfondito le mie conoscenze sul framework .NET. Il mio obiettivo è migliorare ulteriormente in futuro!",
           "badges": [
-            "Automation",
-            "Banking",
-            "Testing",
+            "Automazione",
+            "Bancario",
+            "Test",
             "Ranorex",
             "UiPath",
             "C#",
@@ -1070,7 +1070,7 @@
             },
             "supervisor": "Alessio Iantosca",
             "location": "Zür-Pfi51",
-            "department": "B2B-BAN-COB-ASO-AUT"
+            "department": "B2B-BAN-BPS-BPM-AU1"
           }
         },
         {
@@ -1081,12 +1081,12 @@
             }
           },
           "eyebrow": "Frontend",
-          "title": "Apps Team - Frontend",
-          "description": "Dans le Apps Team, j'ai d'abord pu créer ma propre application mémoire avec Vue.js, TypeScript et SDX. Ensuite, j'ai aidé à programmer le nouveau site web de le Apps Team. Là aussi, nous avons travaillé avec TypeScript et SDX, mais en utilisant Next.js comme framework.",
-          "badges": ["Frontend", "Memory", "Vue", "TypeScript", "SDX", "Next"],
+          "title": "Apps Team",
+          "description": "Nel team Apps, ho avuto inizialmente l'opportunità di creare una mia app di memoria con Vue.js, TypeScript e SDX. Successivamente, ho collaborato allo sviluppo del nuovo sito web del team Apps, dove abbiamo lavorato anch'essi con TypeScript e SDX, utilizzando Next.js come framework.",
+          "badges": ["Frontend", "Memoria", "Vue", "TypeScript", "SDX", "Next"],
           "links": [
             {
-              "title": "En savoir plus",
+              "title": "Maggiori informazioni sull'Apps Team",
               "url": "https://appsteam.swisscom.com",
               "icon": {
                 "name": "chevron.right"
@@ -1110,8 +1110,8 @@
             "name": "gear"
           },
           "eyebrow": "Backend",
-          "title": "Apps Team - Backend",
-          "description": "Après avoir travaillé dans le Apps Team en tant que développeur front-end, je voulais maintenant mieux connaître le back-end. J'ai d'abord pu créer ma propre application CRUD. J'ai appris beaucoup de choses sur Nest.js et les deux ORM Prisma et TypeORM, et j'ai acquis une expérience précieuse. Plus tard, j'ai également créé un front-end pour mon application CRUD avec GitHub Primer. Ensuite, j'ai aidé à l'outil pour les cours de médias et j'ai pu y ajouter quelques fonctionnalités et corriger des erreurs. Enfin, j'ai pu participer à l'outil de gestion de la flotte et aux nouveaux fronts web, ce qui m'a beaucoup plu :)",
+          "title": "Apps Team",
+          "description": "Dopo aver lavorato come sviluppatore frontend nel team Apps, ho voluto approfondire anche il backend. Prima ho avuto l'opportunità di creare la mia app CRUD. Ho imparato molto su Nest.js e sui due ORM, Prisma e TypeORM, acquisendo esperienze preziose. Successivamente, ho anche creato un frontend per la mia app CRUD usando GitHub Primer. In seguito, ho contribuito allo strumento per i corsi multimediali, aggiungendo diverse funzionalità e correggendo errori. Infine, ho partecipato al Fleet Management Tool e ai nuovi web frontend, che mi sono piaciuti molto :)",
           "badges": [
             "Backend",
             "CRUD",
@@ -1123,8 +1123,15 @@
           ],
           "links": [
             {
-              "title": "En savoir plus",
+              "title": "Maggiori informazioni sull'Apps Team",
               "url": "https://appsteam.swisscom.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            },
+            {
+              "title": "Maggiori informazioni su indigo online",
+              "url": "https://indigo.online",
               "icon": {
                 "name": "chevron.right"
               }
@@ -1146,13 +1153,13 @@
           "icon": {
             "name": "shield.lefthalf.filled"
           },
-          "eyebrow": "Parcours de sécurité",
-          "title": "Services de sécurité et de conformité ART",
-          "description": "Dans ce projet, j'ai commencé par quelques formations sur le cloud, la sécurité et DevOps, ce qui a été assez instructif pour moi. Ensuite, j'ai pu travailler sur le projet DAM Log Scanner, un outil qui enregistre l'activité de la base de données (Database Activity Monitoring) et agit selon des directives spécifiques. Celles-ci ont été mises en œuvre principalement avec OPA (Open Policy Agent), mais je n'ai pas eu beaucoup à faire avec. J'ai principalement utilisé Python, Docker et Kubernetes, Python étant nouveau pour moi. Vers la fin du projet, j'ai également commencé à mettre en œuvre Elasticsearch pour visualiser et analyser les données.",
+          "eyebrow": "Security Journey",
+          "title": "Security & Compliance Services ART",
+          "description": "In questo progetto ho iniziato con alcuni corsi di formazione su Cloud, Sicurezza e DevOps, che sono stati molto istruttivi per me. Successivamente, ho avuto l'opportunità di lavorare sul progetto DAM Log Scanner, uno strumento che registra le attività del database (Database Activity Monitoring) e agisce secondo linee guida specifiche. Queste sono state principalmente implementate con OPA (Open Policy Agent), anche se non ne ho fatto molto uso. Ho principalmente utilizzato Python, Docker e Kubernetes, con Python che era nuovo per me. Verso la fine del progetto, ho anche iniziato a implementare Elasticsearch per visualizzare e analizzare i dati.",
           "badges": [
-            "Security",
+            "Sicurezza",
             "Cloud",
-            "Database Activity Monitoring",
+            "Monitoraggio delle attività del database",
             "Python",
             "Docker",
             "Kubernetes",
@@ -1169,17 +1176,17 @@
             },
             "supervisor": "Radu Margineanu",
             "location": "Zür-Mas10",
-            "department": "INI-CIT-MCS"
+            "department": "INI-EOG-EA-EAF"
           }
         },
         {
           "icon": {
             "name": "shield.lefthalf.filled"
           },
-          "eyebrow": "Parcours de sécurité",
+          "eyebrow": "Security Journey",
           "title": "Piz Tofana Tooling Team",
-          "description": "Pendant mon séjour dans l'équipe Piz Tofana, j'ai principalement travaillé sur l'application Daedalus. Celle-ci offre différents modules d'auto-évaluation qui sont fournis par les départements spécialisés pour évaluer la protection des données, la sécurité, la conformité, la classification et autres pour les objets liés tels que les applications, les ressources, les services ou les offres. Les technologies utilisées sont Java Spring Boot pour le backend et Angular pour le frontend.",
-          "badges": ["Security", "Java", "Spring Boot", "Angular"],
+          "description": "Durante il mio periodo nel team Piz Tofana, ho lavorato principalmente sull'applicazione Daedalus. Quest'applicazione offre vari moduli di autovalutazione messi a disposizione dai reparti per valutare la protezione dei dati, la sicurezza, la conformità, la classificazione e altro per oggetti collegati come applicazioni, risorse, servizi o offerte. Le tecnologie utilizzate sono state Java Spring Boot per il backend e Angular per il frontend.",
+          "badges": ["Sicurezza", "Java", "Spring Boot", "Angular"],
           "info": {
             "date": {
               "duration": {
@@ -1197,13 +1204,20 @@
             "name": "airplane.arrival"
           },
           "eyebrow": "Full-Stack",
-          "title": "Apps Team - Full-Stack (IPA)",
-          "description": "Pour mon TPI (Travail Pratique Individuel), j'ai décidé d'intégrer à nouveau le Apps Team, car j'y ai déjà acquis beaucoup d'expérience et les gens y sont également très sympathiques. Actuellement, je travaille ici avec Next.js comme framework frontal et Nest.js comme framework dorsal.",
+          "title": "Apps Team (IPA)",
+          "description": "Per il mio IPA (Lavoro Pratico Individuale) ho nuovamente scelto il team Apps, poiché avevo già accumulato esperienze variegate lì e sia il team che la sua forte coesione mi hanno colpito profondamente. Fin dall'inizio, ho potuto partecipare a progetti produttivi, tra cui il Trade Compliance Tool e le Enterprise Connect Demos. Entrambe le applicazioni sono basate principalmente su Next.js e Nest.js, con Prisma utilizzato come ORM. Nell'ambito del mio IPA, ho anche lavorato sull'applicazione Trade Compliance, implementando una funzionalità FAQ che include una sezione FAQ dedicata e un'interfaccia di amministrazione per la gestione delle voci.",
           "badges": ["Next", "Nest", "TypeORM", "Prisma", "IPA"],
           "links": [
             {
-              "title": "En savoir plus",
+              "title": "Maggiori informazioni sull'Apps Team",
               "url": "https://appsteam.swisscom.com",
+              "icon": {
+                "name": "chevron.right"
+              }
+            },
+            {
+              "title": "Maggiori informazioni su indigo online",
+              "url": "https://indigo.online",
               "icon": {
                 "name": "chevron.right"
               }

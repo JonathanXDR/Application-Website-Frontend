@@ -388,6 +388,7 @@ watch(colorMode, () => {
           </NuxtLink> -->
 
           <LinkCollection
+            :divider="false"
             :links="linkCollectionLinks"
             :loading
             :class="{ link: applyHover }"
