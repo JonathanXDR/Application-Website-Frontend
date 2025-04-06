@@ -327,10 +327,10 @@ export default defineNuxtConfig({
     },
     registry: {
       googleAnalytics: {
-        id: process.env.GOOGLE_ANALYTICS_ID || '',
+        id: '',
       },
       googleTagManager: {
-        id: process.env.GOOGLE_TAG_MANAGER_ID || '',
+        id: '',
       },
     },
     globals: {
