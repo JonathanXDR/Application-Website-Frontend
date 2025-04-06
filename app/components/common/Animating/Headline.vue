@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useInView } from 'motion-v'
+
 const props = withDefaults(
   defineProps<{
     title: string
@@ -114,10 +116,18 @@ const updateLetterCount = () => {
   }
 }
 
-const animationConfig = {
-  onViewportChange: (isInViewport: boolean) => {
+const headlineRef = useTemplateRef('headlineRef')
+
+const isInView = useInView(headlineRef, {
+  amount: 0.1,
+  margin: '0px 0px -10% 0px',
+})
+
+watch(
+  isInView,
+  (inView) => {
     if (props.autoAnimation) return
-    if (isInViewport) {
+    if (inView) {
       stopScrollListener.value = useEventListener(
         window,
         'scroll',
@@ -130,7 +140,8 @@ const animationConfig = {
       stopCursorBlinkTimeout()
     }
   },
-}
+  { immediate: true },
+)
 
 onMounted(() => {
   if (!props.autoAnimation) return
@@ -183,7 +194,11 @@ onBeforeUnmount(() => {
 
 <template>
   <h2
-    v-animation="animationConfig"
+    ref="headlineRef"
+    v-animation="{
+      add: 'animated',
+      onEnter: () => {},
+    }"
     :class="[
       'section-header-headline typography-section-headline-bold large-12 animated-headline',
       { 'cursor-blink': isCursorBlinking },

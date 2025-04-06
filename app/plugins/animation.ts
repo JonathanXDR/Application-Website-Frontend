@@ -1,4 +1,4 @@
-import type { MaybeElementRef } from '@vueuse/core'
+import { useInView } from 'motion-v'
 import type { DirectiveBinding } from 'vue'
 
 interface AnimationOperations {
@@ -7,7 +7,6 @@ interface AnimationOperations {
   toggle?: string | string[]
   key?: string
   onEnter?: () => void
-  onViewportChange?: (isInViewport: boolean, element: HTMLElement) => void
 }
 
 interface AnimationState {
@@ -22,7 +21,7 @@ const toArray = (input?: string | string[]): string[] =>
 
 const updateClasses = (
   element: HTMLElement,
-  { add, remove, toggle, onViewportChange, onEnter }: AnimationOperations,
+  { add, remove, toggle, onEnter }: AnimationOperations,
   isInViewport: boolean,
 ) => {
   const state = animationState.get(element) ?? {
@@ -44,24 +43,6 @@ const updateClasses = (
   }
 
   animationState.set(element, state)
-  onViewportChange?.(isInViewport, element)
-}
-
-const createObserver = (
-  element: MaybeElementRef,
-  options: AnimationOperations,
-  rootMargin: string,
-) => {
-  return useIntersectionObserver(
-    element,
-    (entries) => {
-      for (const entry of entries) {
-        const resolvedElement = unref(element) as HTMLElement
-        updateClasses(resolvedElement, options, entry.isIntersecting)
-      }
-    },
-    { threshold: 0.5, rootMargin },
-  )
 }
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -71,24 +52,40 @@ export default defineNuxtPlugin((nuxtApp) => {
       binding: DirectiveBinding<AnimationOperations>,
     ) {
       const { value } = binding
+      const elementRef = ref(element)
 
-      let { stop } = createObserver(element, value, '0px 0px -200px 0px')
-
-      const updateObserver = () => {
-        const { scrollTop, scrollHeight, clientHeight }
-          = document.documentElement
-        const isAtBottom = scrollTop + clientHeight >= scrollHeight
-        const rootMargin = isAtBottom
-          ? '-100px 0px 0px 0px'
-          : '0px 0px -200px 0px'
-
-        stop();
-        ({ stop } = createObserver(element, value, rootMargin))
-      }
-
-      useEventListener(window, 'scroll', updateObserver, {
-        passive: true,
+      const isInView = useInView(elementRef, {
+        amount: 0.1,
+        margin: '0px 0px -10% 0px',
       })
+
+      watch(
+        isInView,
+        (inView) => {
+          updateClasses(element, value, inView)
+        },
+        { immediate: true },
+      )
+
+      if (document.readyState === 'complete') {
+        const bounds = element.getBoundingClientRect()
+
+        if (bounds.top < window.innerHeight && bounds.bottom > 0) {
+          updateClasses(element, value, true)
+        }
+      }
+      else {
+        window.addEventListener(
+          'load',
+          () => {
+            const bounds = element.getBoundingClientRect()
+            if (bounds.top < window.innerHeight && bounds.bottom > 0) {
+              updateClasses(element, value, true)
+            }
+          },
+          { once: true },
+        )
+      }
 
       if (!animationState.get(element)?.wasInViewport) return
       element.classList.add(...toArray(value.add))
