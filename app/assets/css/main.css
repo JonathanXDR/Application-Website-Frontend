@@ -1,15 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-2xs: 320px;
+  --breakpoint-xs: 475px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }
 
-*:focus-visible {
-  outline: none;
+@layer base {
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  *:focus-visible {
+    outline: none;
+  }
 }
 
 html,

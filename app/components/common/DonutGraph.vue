@@ -72,8 +72,7 @@ br.medium {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Helvetica
-Neue",
+    "Helvetica Neue",
     "Helvetica",
     "Arial",
     sans-serif;

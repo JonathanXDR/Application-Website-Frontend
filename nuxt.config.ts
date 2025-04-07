@@ -1,3 +1,4 @@
+import tailwindcss from '@tailwindcss/vite'
 import { definePerson } from 'nuxt-schema-org/schema'
 
 export default defineNuxtConfig({
@@ -10,7 +11,6 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
     '@nuxtjs/seo',
-    '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
     'nuxt-security',
     'nuxt-viewport',
@@ -167,6 +167,9 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   compatibilityDate: '2025-03-20',
+  vite: {
+    plugins: [tailwindcss()],
+  },
   typescript: {
     typeCheck: true,
     strict: true,
