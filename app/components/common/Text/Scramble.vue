@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Motion } from 'motion-v'
+
 const props = withDefaults(
   defineProps<{
     text: string
@@ -8,7 +10,6 @@ const props = withDefaults(
     // eslint-disable-next-line no-undef
     as?: keyof HTMLElementTagNameMap
     trigger?: boolean
-    onScrambleComplete?: () => void
   }>(),
   {
     duration: 0.8,
@@ -20,28 +21,35 @@ const props = withDefaults(
   },
 )
 
+const emit = defineEmits<{
+  'scramble-complete': []
+}>()
+
 const displayText = ref(props.text)
 const isAnimating = ref(false)
+let interval: ReturnType<typeof setInterval> | null = null
 
-function scramble() {
+const scramble = () => {
   if (isAnimating.value) return
   isAnimating.value = true
 
   const steps = props.duration / props.speed
   let step = 0
-  const originalText = props.text
 
-  const interval = setInterval(() => {
+  if (interval) clearInterval(interval)
+
+  interval = setInterval(() => {
     let scrambled = ''
     const progress = step / steps
 
-    for (let i = 0; i < originalText.length; i++) {
-      if (originalText[i] === ' ') {
+    for (let i = 0; i < props.text.length; i++) {
+      if (props.text[i] === ' ') {
         scrambled += ' '
         continue
       }
-      if (progress * originalText.length > i) {
-        scrambled += originalText[i]
+
+      if (progress * props.text.length > i) {
+        scrambled += props.text[i]
       }
       else {
         scrambled
@@ -55,36 +63,44 @@ function scramble() {
     step++
 
     if (step > steps) {
-      clearInterval(interval)
-      displayText.value = originalText
+      if (interval) clearInterval(interval)
+      interval = null
+      displayText.value = props.text
       isAnimating.value = false
-
-      props.onScrambleComplete?.()
+      emit('scramble-complete')
     }
   }, props.speed * 1000)
 }
 
 watch(
   () => props.trigger,
-  (newVal) => {
-    if (newVal) {
+  (newVal, oldVal) => {
+    if (newVal && (oldVal === false || oldVal === undefined)) {
       scramble()
+    }
+  },
+  { immediate: true },
+)
+
+watch(
+  () => props.text,
+  (newVal) => {
+    if (!isAnimating.value) {
+      displayText.value = newVal
     }
   },
 )
 
-onMounted(() => {
-  if (props.trigger) {
-    scramble()
-  }
+onBeforeUnmount(() => {
+  if (interval) clearInterval(interval)
 })
 </script>
 
 <template>
-  <component
-    :is="as"
+  <Motion
     v-bind="$attrs"
+    :as="props.as"
   >
     {{ displayText }}
-  </component>
+  </Motion>
 </template>
