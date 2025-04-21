@@ -3,7 +3,7 @@ import type { SectionType } from '#shared/types/common/section'
 import type { NavbarType } from '#shared/types/components/nav-bar'
 
 const props = withDefaults(defineProps<NavbarType>(), {
-  autoHide: true,
+  autoHide: false,
   autoHideDelay: 5000,
   border: true,
   extensionAttached: false,
@@ -96,9 +96,6 @@ const handleScroll = () => {
     navProps.value.open = false
     navProps.value.autoHide = false
     animateChevron(false)
-  }
-  else {
-    navProps.value.autoHide = true
   }
 }
 
