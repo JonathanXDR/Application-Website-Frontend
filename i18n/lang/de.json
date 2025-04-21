@@ -11,10 +11,6 @@
           "route": "/",
           "children": [
             {
-              "id": "code-hero",
-              "route": "/#code-hero"
-            },
-            {
               "id": "about",
               "label": "About",
               "route": "/#about",

@@ -521,6 +521,7 @@ watch(colorMode, () => {
 }
 
 .card-content {
+  white-space: pre-line;
   color: var(--color-card-content-text);
   /* margin-top: 4px; */
 }
