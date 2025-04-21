@@ -97,14 +97,19 @@ onMounted(async () => {
   </div>
 </template>
 
-<style scoped>
+<style>
 .info-container {
   z-index: 8;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   gap: 16px;
+}
+
+.info-container .body {
+  align-items: center !important;
 }
 
 .info-container > svg {
@@ -139,6 +144,10 @@ onMounted(async () => {
     align-items: center;
     text-align: left;
     gap: 0px;
+  }
+
+  .info-container .body {
+    align-items: unset !important;
   }
 
   .info-container div {
