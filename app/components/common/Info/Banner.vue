@@ -48,7 +48,7 @@ const { data: repositoryTags } = await useFetch('/api/github/repository-tags', {
   params: {
     owner: config.public.githubRepoOwner,
     repo: config.public.githubRepoName,
-    perPage: 2,
+    per_page: 2,
   },
   getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
 })
