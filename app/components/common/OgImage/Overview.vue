@@ -3,8 +3,8 @@
  * @credits Nuxt SEO <https://nuxtseo.com/>
  */
 
+import { useOgImageRuntimeConfig } from '#og-image/app/utils'
 import { computed, defineComponent, h, resolveComponent } from 'vue'
-import { useOgImageRuntimeConfig } from '#og-image/shared'
 
 // convert to typescript props
 const props = withDefaults(

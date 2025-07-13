@@ -525,8 +525,8 @@ const focusFirstTag = (cb: () => void) => {
 
 const debouncedHandleDeleteTag = ref<
   | ((arg: { tagName: string, event?: KeyboardEvent | MouseEvent }) => void)
-  | null
->(null)
+    | null
+    >(null)
 
 const multipleSelectionHandlerForSelectedTags = (e: {
   event?: KeyboardEvent | MouseEvent
