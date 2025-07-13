@@ -33,12 +33,6 @@
               "label": "Referenzen",
               "route": "/#references",
               "class": "section-separated"
-            },
-            {
-              "id": "school",
-              "label": "Schule",
-              "route": "/#school",
-              "class": "section-separated"
             }
           ]
         },
@@ -424,10 +418,10 @@
           },
           "eyebrow": "Aktueller Vorgesetzter",
           "title": "Patrice Stampfli",
-          "description": "Coach Next Generation",
+          "description": "Lernbegleiter (Coach) Next Generation",
           "info": {
             "location": "Itt-Ey10",
-            "department": "GHR-POD-NEX"
+            "department": "GHR-SCS-NEX"
           }
         },
         {
@@ -436,10 +430,10 @@
           },
           "eyebrow": "Ehemaliger Vorgesetzter",
           "title": "Steve Hess",
-          "description": "Coach Next Generation",
+          "description": "Lernbegleiter (Coach) Next Generation",
           "info": {
             "location": "Wor-Ati6",
-            "department": "GHR-POD-NEX"
+            "department": "GHR-SCS-NEX"
           }
         },
         {
@@ -448,7 +442,7 @@
           },
           "eyebrow": "Ehemaliger Projektanbieter",
           "title": "Nick Zimmermann",
-          "description": "DevOps Engineer I",
+          "description": "DevOps Engineer",
           "links": [
             {
               "title": "Mehr erfahren",
@@ -460,7 +454,7 @@
           ],
           "info": {
             "location": "Zür-För181",
-            "department": "INI-DOS-DVX"
+            "department": "SCS-INI-DOS-DVX"
           }
         },
         {
@@ -469,10 +463,10 @@
           },
           "eyebrow": "Ehemaliger Projektanbieter",
           "title": "Alessio Iantosca",
-          "description": "Test Automation Engineer",
+          "description": "RPA & Test-Automation Engineer",
           "info": {
             "location": "Zür-Pfi51",
-            "department": "B2B-BAN-BPS-BPM-AU1"
+            "department": "SCS-B2B-TBS-BPS-BPM-AU1"
           }
         },
         {
@@ -484,7 +478,7 @@
           "description": "Full-Stack Developer",
           "info": {
             "location": "Itt-Ey10",
-            "department": "GHR-POD-LES-APP"
+            "department": "GHR-OPD-CLE-LES-APP (EXT)"
           }
         },
         {
@@ -505,7 +499,7 @@
           ],
           "info": {
             "location": "Itt-Ey10",
-            "department": "GHR-POD-LES-APP (EXT)"
+            "department": "GHR-OPD-CLE-LES-APP (EXT)"
           }
         },
         {
@@ -517,7 +511,7 @@
           "description": "Full-Stack Developer",
           "info": {
             "location": "Itt-Ey10",
-            "department": "GHR-POD-LES-APP (EXT)"
+            "department": "GHR-OPD-CLE-LES-APP (EXT)"
           }
         },
         {
@@ -526,10 +520,10 @@
           },
           "eyebrow": "Ehemaliger Projektanbieter",
           "title": "Radu Margineanu",
-          "description": "Enterprise & System Architect EAS",
+          "description": "Enterprise & System Achitect",
           "info": {
             "location": "Zür-För181",
-            "department": "INI-EOG-EA-EAF"
+            "department": "SCS-INI-EOG-EA-EAF"
           }
         },
         {
@@ -542,54 +536,6 @@
           "info": {
             "location": "Zür-För181",
             "department": "INI-EOG-SPA"
-          }
-        }
-      ],
-      "school": [
-        {
-          "icon": {
-            "name": "graduationcap.fill"
-          },
-          "eyebrow": "Ehemalige Schule",
-          "title": "Technische Berufsschule Zürich",
-          "description": "Ich bin immer donnerstags nachmittags zur Berufsschule in Zürich gegangen.",
-          "links": [
-            {
-              "title": "Mehr erfahren",
-              "url": "https://tbz.ch",
-              "icon": {
-                "name": "chevron.right"
-              }
-            }
-          ],
-          "info": {
-            "date": {
-              "fixed": "2021-08-26"
-            },
-            "location": "Zürich"
-          }
-        },
-        {
-          "icon": {
-            "name": "graduationcap.fill"
-          },
-          "eyebrow": "Schule",
-          "title": "Berufsmaturitätsschule Zürich",
-          "description": "Am Freitag gehe ich jeweils zur Berufsmaturitätsschule in Zürich.",
-          "links": [
-            {
-              "title": "Mehr erfahren",
-              "url": "https://bms-zuerich.ch",
-              "icon": {
-                "name": "chevron.right"
-              }
-            }
-          ],
-          "info": {
-            "date": {
-              "fixed": "2021-08-27"
-            },
-            "location": "Zürich"
           }
         }
       ],
@@ -1736,7 +1682,7 @@
             },
             "supervisor": "Steve Hess",
             "location": "Zürich & Bern",
-            "department": "GHR-POD-NEX"
+            "department": "GHR-SCS-NEX"
           }
         },
         {
@@ -1811,7 +1757,7 @@
             },
             "supervisor": "Nick Zimmermann",
             "location": "Zür-Har3",
-            "department": "GHR-POD-NEX"
+            "department": "SCS-INI-DOS-DVX"
           }
         },
         {
@@ -1856,7 +1802,7 @@
             },
             "supervisor": "Alessio Iantosca",
             "location": "Zür-Pfi51",
-            "department": "B2B-BAN-BPS-BPM-AU1"
+            "department": "SCS-B2B-TBS-BPS-BPM-AU1"
           }
         },
         {
@@ -1926,7 +1872,7 @@
             },
             "supervisor": "Carlo Schmid",
             "location": "Itt-Ey10",
-            "department": "GHR-POD-LES-APP"
+            "department": "GHR-OPD-CLE-LES-APP (EXT)"
           }
         },
         {
@@ -2020,7 +1966,7 @@
             },
             "supervisor": "Kim Eggler",
             "location": "Itt-Ey10",
-            "department": "GHR-POD-LES-APP"
+            "department": "GHR-OPD-CLE-LES-APP (EXT)"
           }
         },
         {
@@ -2080,7 +2026,7 @@
             },
             "supervisor": "Radu Margineanu",
             "location": "Zür-Mas10",
-            "department": "INI-EOG-EA-EAF"
+            "department": "SCS-INI-EOG-EA-EAF"
           }
         },
         {
@@ -2192,7 +2138,7 @@
             },
             "supervisor": "Kim Eggler",
             "location": "Itt-Ey10",
-            "department": "GHR-POD-LES-APP"
+            "department": "GHR-OPD-CLE-LES-APP (EXT)"
           }
         }
       ]
