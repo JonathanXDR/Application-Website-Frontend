@@ -250,19 +250,8 @@
       "about": {
         "eyebrow": "Hey ;)",
         "title": "Je suis Jonathan",
-        "description": "J'ai {age} ans et je viens de Suisse.\nDepuis mon plus jeune âge, je suis passionné par les ordinateurs, et cette passion ne m'a jamais quitté. Mes premiers pas dans la programmation ont commencé avec les commandes et blocs de commandes de Minecraft – une expérience qui a éveillé ma fascination pour le développement logiciel.\nActuellement, je suis en {apprenticeshipYear}e année de formation en tant que développeur d'applications. Je travaille dans un domaine en constante évolution, riche en défis. Je trouve fascinant tout ce que l'on peut accomplir avec du code – des applications complexes aux approches innovantes. Les possibilités quasi infinies me passionnent, et j'aime particulièrement donner vie à des projets créatifs dans le monde numérique.\nQuand je ne programme pas, j'aime jouer à des jeux sur ordinateur et console ou passer du temps avec mes amis. La musique m'accompagne souvent tout au long de la journée et occupe une place importante dans ma vie.",
-        "dates": [
-          {
-            "title": "Années",
-            "key": "age",
-            "date": "2005-12-12"
-          },
-          {
-            "title": "Année d'apprentissage",
-            "key": "apprenticeshipYear",
-            "date": "2021-08-01"
-          }
-        ]
+        "description": "J'ai {age} ans et je viens de Suisse.\nDepuis mon plus jeune âge, je suis passionné par les ordinateurs, et cette passion ne m'a jamais quitté. Mes premiers pas dans la programmation ont commencé avec les commandes et blocs de commandes de Minecraft – une expérience qui a éveillé ma fascination pour le développement logiciel.\nJ'ai récemment terminé mon apprentissage en tant qu'«Informatiker EFZ Applikationsentwicklung» (CFC suisse en développement d'applications). Je travaille dans un domaine en constante évolution, riche en défis. Je trouve fascinant tout ce que l'on peut accomplir avec du code – des applications complexes aux approches innovantes. Les possibilités quasi infinies me passionnent, et j'aime particulièrement donner vie à des projets créatifs dans le monde numérique.\nQuand je ne programme pas, j'aime jouer à des jeux sur ordinateur et console ou passer du temps avec mes amis. La musique m'accompagne souvent tout au long de la journée et occupe une place importante dans ma vie.",
+        "birthDate": "2005-12-12"
       },
       "languages": [
         {

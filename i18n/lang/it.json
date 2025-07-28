@@ -250,19 +250,8 @@
       "about": {
         "eyebrow": "Hey ;)",
         "title": "Sono Jonathan",
-        "description": "Ho {age} anni e vengo dalla Svizzera.\nSin da piccolo sono stato affascinato dai computer, e questa passione mi accompagna ancora oggi. I miei primi passi nella programmazione sono stati con i comandi e i blocchi comandi di Minecraft – un'esperienza che ha acceso la mia curiosità per il mondo dello sviluppo software.\nAttualmente sono al {apprenticeshipYear} anno della mia formazione come sviluppatore di applicazioni. Lavoro in un settore in continua evoluzione, ricco di sfide sempre nuove. Trovo affascinante ciò che si può ottenere con il codice – dalle applicazioni complesse agli approcci innovativi. Le possibilità quasi illimitate mi entusiasmano, e amo in particolare realizzare progetti creativi e dare vita alle idee nel mondo digitale.\nQuando non programmo, mi piace giocare a videogiochi per computer e console o passare del tempo con i miei amici. La musica mi accompagna spesso durante la giornata ed è una parte importante della mia vita.",
-        "dates": [
-          {
-            "title": "Anni",
-            "key": "age",
-            "date": "2005-12-12"
-          },
-          {
-            "title": "Anno di apprendistato",
-            "key": "apprenticeshipYear",
-            "date": "2021-08-01"
-          }
-        ]
+        "description": "Ho {age} anni e vengo dalla Svizzera.\nSin da piccolo sono stato affascinato dai computer, e questa passione mi accompagna ancora oggi. I miei primi passi nella programmazione sono stati con i comandi e i blocchi comandi di Minecraft – un'esperienza che ha acceso la mia curiosità per il mondo dello sviluppo software.\nHo recentemente concluso il mio apprendistato come \"Informatiker EFZ Applikationsentwicklung\" (diploma federale svizzero in sviluppo di applicazioni). Lavoro in un settore in continua evoluzione, ricco di sfide sempre nuove. Trovo affascinante ciò che si può ottenere con il codice – dalle applicazioni complesse agli approcci innovativi. Le possibilità quasi illimitate mi entusiasmano, e amo in particolare realizzare progetti creativi e dare vita alle idee nel mondo digitale.\nQuando non programmo, mi piace giocare a videogiochi per computer e console o passare del tempo con i miei amici. La musica mi accompagna spesso durante la giornata ed è una parte importante della mia vita.",
+        "birthDate": "2005-12-12"
       },
       "languages": [
         {

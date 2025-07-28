@@ -1,43 +1,18 @@
 <script setup lang="ts">
-import type { DateType } from '#shared/types/common/date'
-
 defineProps<{
   title: string
 }>()
 
 const viewport = useViewport()
-const { t, tm } = useI18n()
 const nonce = useNonce()
 
-const dateItems = computed<DateType[]>(() =>
-  tm('components.containers.about.dates'),
-)
-
-const dates = ref<{
-  age: number | undefined
-  apprenticeshipYear: number | undefined
-}>({
-  age: undefined,
-  apprenticeshipYear: undefined,
-})
-
-const calculateYears = (date: string) => {
+const calculateAge = (date: string) => {
   const currentDate = new Date(Date.now())
   const birthDate = new Date(date)
   const difference = new Date(currentDate.getTime() - birthDate.getTime())
   const years = Math.abs(difference.getUTCFullYear() - 1970)
   return years
 }
-
-onMounted(async () => {
-  for (const item of dateItems.value) {
-    if (item.key in dates.value) {
-      dates.value[item.key as keyof typeof dates.value] = calculateYears(
-        item.date,
-      )
-    }
-  }
-})
 </script>
 
 <template>
@@ -86,18 +61,17 @@ onMounted(async () => {
             ? 'medium'
             : 'large',
         loading: false,
-        title: t('components.containers.about.title'),
-        description: t('components.containers.about.description', {
-          age: dates.age,
-          apprenticeshipYear:
-            dates.apprenticeshipYear && dates.apprenticeshipYear + 1,
+        eyebrow: $t('components.containers.about.eyebrow'),
+        title: $t('components.containers.about.title'),
+        description: $t('components.containers.about.description', {
+          age: calculateAge($t('components.containers.about.birthDate')),
         }),
       }"
     />
   </div>
 </template>
 
-<style>
+<style scoped>
 .info-container {
   z-index: 8;
   display: flex;
