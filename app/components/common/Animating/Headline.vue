@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useInView } from 'motion-v'
+import { useInView, type UseInViewOptions } from 'motion-v'
 
 const props = withDefaults(
   defineProps<{
@@ -121,7 +121,7 @@ const headlineRef = useTemplateRef('headlineRef')
 const isInView = useInView(headlineRef, {
   amount: 0.1,
   margin: '0px 0px -10% 0px',
-})
+} as UseInViewOptions)
 
 watch(
   isInView,

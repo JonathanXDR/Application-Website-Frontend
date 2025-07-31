@@ -61,7 +61,6 @@ const calculateAge = (date: string) => {
             ? 'medium'
             : 'large',
         loading: false,
-        eyebrow: $t('components.containers.about.eyebrow'),
         title: $t('components.containers.about.title'),
         description: $t('components.containers.about.description', {
           age: calculateAge($t('components.containers.about.birthDate')),

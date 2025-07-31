@@ -96,6 +96,13 @@ export default defineNuxtConfig({
       '~/components/common',
     ],
   },
+  imports: {
+    dirs: [
+      'shared/types/common',
+      'shared/types/components',
+      'shared/types/services/github',
+    ],
+  },
   devtools: {
     enabled: false,
     timeline: {
@@ -157,12 +164,6 @@ export default defineNuxtConfig({
     appleMusicUserToken: '',
   },
   ignore: ['~/assets/drafts/**'],
-  routeRules: {
-    '/de/**': { robots: false },
-    '/en/**': { robots: false },
-    '/fr/**': { robots: false },
-    '/it/**': { robots: false },
-  },
   future: {
     compatibilityVersion: 4,
   },
@@ -250,6 +251,12 @@ export default defineNuxtConfig({
 
   icon: {
     componentName: 'NuxtIcon',
+    serverBundle: {
+      externalizeIconsJson: true,
+    },
+    clientBundle: {
+      scan: true,
+    },
     customCollections: [
       {
         prefix: 'sf-symbols-small',
