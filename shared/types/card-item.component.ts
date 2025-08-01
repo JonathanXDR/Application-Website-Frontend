@@ -1,8 +1,8 @@
-import type { BasicSizeType } from '#shared/types/common/basic-size'
-import type { ColorType } from '#shared/types/common/color'
-import type { ExtendedPropsType } from '#shared/types/common/extended-props'
-import type { BadgeItemType } from '#shared/types/components/badge-item'
-import type { IconItemType } from '#shared/types/components/icon-item'
+import type { BadgeItemType } from './badge-item.component'
+import type { BasicSizeType } from './basic-size.common'
+import type { ColorType } from './color.common'
+import type { ExtendedPropsType } from './extended-props.common'
+import type { IconItemType } from './icon-item.component'
 
 interface GraphType {
   donut: boolean

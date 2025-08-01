@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { LinkItemType } from '#shared/types/components/link-item'
-
 const props = withDefaults(
   defineProps<{
     links: LinkItemType[]

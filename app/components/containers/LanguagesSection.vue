@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { LanguageBarType } from '#shared/types/components/language-bar'
-
 defineProps<{
   title: string
 }>()

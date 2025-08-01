@@ -96,13 +96,13 @@ export default defineNuxtConfig({
       '~/components/common',
     ],
   },
-  imports: {
-    dirs: [
-      'shared/types/common',
-      'shared/types/components',
-      'shared/types/services/github',
-    ],
-  },
+  // imports: {
+  //   dirs: [
+  //     '#/shared/types/common',
+  //     '#/shared/types/components',
+  //     '#/shared/types/services/github',
+  //   ],
+  // },
   devtools: {
     enabled: false,
     timeline: {
@@ -167,7 +167,7 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-  compatibilityDate: '2025-03-20',
+  compatibilityDate: '2025-07-15',
   vite: {
     plugins: [tailwindcss()],
   },
@@ -340,13 +340,14 @@ export default defineNuxtConfig({
         id: '',
       },
     },
-    globals: {
-      musicKit: {
-        'src': 'https://js-cdn.music.apple.com/musickit/v3/musickit.js',
-        'async': true,
-        'data-web-components': true,
-      },
-    },
+    // TODO: Implement once ready
+    // globals: {
+    //   musicKit: {
+    //     src: 'https://js-cdn.music.apple.com/musickit/v3/musickit.js',
+    //     async: true,
+    //     'data-web-components': true,
+    //   },
+    // },
   },
   security: {
     strict: true,

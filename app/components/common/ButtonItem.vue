@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import type { BasicSizeType } from '#shared/types/common/basic-size'
-import type { IconItemType } from '#shared/types/components/icon-item'
-
 withDefaults(
   defineProps<{
     // eslint-disable-next-line no-undef

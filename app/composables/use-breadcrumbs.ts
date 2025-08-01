@@ -1,7 +1,3 @@
-import type { PageType } from '#shared/types/common/page'
-import type { IconItemType } from '#shared/types/components/icon-item'
-import type { LinkItemType } from '#shared/types/components/link-item'
-
 interface UseBreadcrumbsProps {
   label?: string
   icon?: IconItemType

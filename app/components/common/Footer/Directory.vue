@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { SectionType } from '#shared/types/common/section'
-
 withDefaults(
   defineProps<{
     items?: SectionType[]

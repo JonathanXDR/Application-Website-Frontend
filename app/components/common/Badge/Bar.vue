@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { BadgeItemType } from '#shared/types/components/badge-item'
-
 defineProps<{
   badges?: BadgeItemType[]
 }>()

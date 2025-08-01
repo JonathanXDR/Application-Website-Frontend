@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { PageType } from '#shared/types/common/page'
-
 const error = useError()
 const { rt, tm } = useI18n()
 

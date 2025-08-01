@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import type { IconItemType } from '#shared/types/components/icon-item'
-import type { InfoBarType } from '#shared/types/components/info-bar'
 
 const props = withDefaults(defineProps<InfoBarType>(), {
   loading: false,

@@ -1,4 +1,4 @@
-import type { IconItemType } from '#shared/types/components/icon-item'
+import type { IconItemType } from './icon-item.component'
 
 export interface SectionType {
   id: string

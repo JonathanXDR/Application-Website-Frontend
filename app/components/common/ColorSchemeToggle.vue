@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import type { ItemType } from '#shared/types/common/item'
-import type { SegmentNavType } from '#shared/types/components/segment-nav'
-
 withDefaults(defineProps<Pick<SegmentNavType, 'label'>>(), {
   label: 'text',
 })

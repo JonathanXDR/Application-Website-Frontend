@@ -1,4 +1,4 @@
-import type { BasicPropsType } from '#shared/types/common/basic-props'
+import type { BasicPropsType } from './basic-props.common'
 
 export interface ItemType extends BasicPropsType {
   id: string
