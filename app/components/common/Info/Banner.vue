@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import type {
+  GalleryStateType,
+  InfoBannerType,
+} from '#shared/types/components/info-banner'
+import type { LinkItemType } from '#shared/types/components/link-item'
+
 const props = withDefaults(defineProps<InfoBannerType>(), {
   loading: false,
   step: 1,

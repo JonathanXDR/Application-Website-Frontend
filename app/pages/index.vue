@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { SectionType } from '#shared/types/common/section'
+
 defineOgImageComponent('Overview')
 
 definePageMeta({

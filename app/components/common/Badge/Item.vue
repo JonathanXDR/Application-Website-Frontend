@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { BadgeItemType } from '#shared/types/components/badge-item'
+
 const props = withDefaults(defineProps<BadgeItemType>(), {
   variant: 'a',
   componentSize: 'medium',

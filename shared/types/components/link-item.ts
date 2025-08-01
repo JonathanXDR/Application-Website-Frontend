@@ -1,4 +1,4 @@
-import type { IconItemType } from './icon-item.component'
+import type { IconItemType } from '#shared/types/components/icon-item'
 
 export interface LinkItemType {
   title: string

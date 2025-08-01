@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { animate } from 'motion-v'
+import type { LanguageBarType } from '#shared/types/components/language-bar'
 
 defineProps<{
   title: string

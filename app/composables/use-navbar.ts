@@ -1,3 +1,6 @@
+import type { SectionType } from '#shared/types/common/section'
+import type { NavbarType } from '#shared/types/components/nav-bar'
+
 export const useNavbar = () => {
   const route = useRoute()
   const { tm } = useI18n()

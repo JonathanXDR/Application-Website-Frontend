@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import type { SectionType } from '#shared/types/common/section'
+import type { LinkItemType } from '#shared/types/components/link-item'
+
 const { tm } = useI18n()
 const footerDirectoryItems = computed<SectionType[]>(() =>
   tm('components.common.FooterDirectory'),

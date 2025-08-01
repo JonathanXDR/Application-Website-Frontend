@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import type { BasicSizeType } from '#shared/types/common/basic-size'
+import type { LinkItemType } from '#shared/types/components/link-item'
+
 withDefaults(
   defineProps<{
     componentSize?: Exclude<BasicSizeType, 'medium'>

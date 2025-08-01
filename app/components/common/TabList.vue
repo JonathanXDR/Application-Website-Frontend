@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { ItemType } from '#shared/types/common/item'
+
 const props = defineProps<{
   items: ItemType[]
   activeTabId: string

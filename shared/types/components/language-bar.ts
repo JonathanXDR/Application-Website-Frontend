@@ -1,5 +1,5 @@
-import type { BasicSizeType } from './basic-size.common'
-import type { ExtendedPropsType } from './extended-props.common'
+import type { BasicSizeType } from '#shared/types/common/basic-size'
+import type { ExtendedPropsType } from '#shared/types/common/extended-props'
 
 export interface LanguageBarType extends ExtendedPropsType {
   progress: number

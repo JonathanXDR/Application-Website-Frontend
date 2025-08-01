@@ -1,4 +1,4 @@
-import type { BasicPropsType } from './basic-props.common'
+import type { BasicPropsType } from '#shared/types/common/basic-props'
 
 export interface InfoBannerType {
   items: BasicPropsType[]

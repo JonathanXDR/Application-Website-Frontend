@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { CardItemType } from '#shared/types/components/card-item'
+
 definePageMeta({
   header: true,
   nav: true,

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { ColorType } from '#shared/types/common/color'
+
 withDefaults(
   defineProps<{
     progress: number

@@ -42,7 +42,6 @@
     "@types/jsonwebtoken": "9.0.10",
     "@types/musickit-js": "1.0.10",
     "@types/node": "24.1.0",
-    "@unhead/vue": "^2.0.13",
     "@vercel/analytics": "1.5.0",
     "@vercel/speed-insights": "1.2.0",
     "@vueuse/core": "13.6.0",

@@ -1,5 +1,5 @@
-import type { BasicSizeType } from './basic-size.common'
-import type { ColorType } from './color.common'
+import type { BasicSizeType } from '#shared/types/common/basic-size'
+import type { ColorType } from '#shared/types/common/color'
 
 type IconifyIconCustomiseCallback = (
   content: string,

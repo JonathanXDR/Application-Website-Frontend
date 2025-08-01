@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { ColorType } from '#shared/types/common/color'
+
 defineProps<{
   color: ColorType
 }>()
