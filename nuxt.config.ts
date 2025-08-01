@@ -174,6 +174,18 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
     strict: true,
+    // Customize app/server TypeScript config
+    tsConfig: {
+      compilerOptions: {
+        strict: true,
+      },
+    },
+    // Customize build-time TypeScript config
+    nodeTsConfig: {
+      compilerOptions: {
+        strict: true,
+      },
+    },
   },
   eslint: {
     config: {

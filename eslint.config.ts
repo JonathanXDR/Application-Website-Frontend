@@ -1,5 +1,5 @@
 import type { Linter } from 'eslint'
-import neostandard from 'neostandard'
+import neostandard, { resolveIgnoresFromGitignore } from 'neostandard'
 import withNuxt from './.nuxt/eslint.config.mjs'
 
 const config: Linter.Config[] = [
@@ -7,6 +7,7 @@ const config: Linter.Config[] = [
     noStyle: true,
     ts: true,
     globals: ['NodeJS', 'MusicKit'],
+    ignores: ['app/assets/drafts/**/*', ...resolveIgnoresFromGitignore()],
   }),
 ]
 
