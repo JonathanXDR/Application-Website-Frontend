@@ -271,18 +271,8 @@ export default defineNuxtConfig({
     // },
     customCollections: [
       {
-        prefix: 'sf-symbols-small',
-        dir: './app/assets/icons/sf-symbols/small',
-        normalizeIconName: false,
-      },
-      {
-        prefix: 'sf-symbols-medium',
-        dir: './app/assets/icons/sf-symbols/medium',
-        normalizeIconName: false,
-      },
-      {
-        prefix: 'sf-symbols-large',
-        dir: './app/assets/icons/sf-symbols/large',
+        prefix: 'sf-symbols',
+        dir: './app/assets/icons/sf-symbols',
         normalizeIconName: false,
       },
       {
