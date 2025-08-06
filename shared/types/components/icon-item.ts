@@ -1,4 +1,3 @@
-import type { BasicSizeType } from '#shared/types/common/basic-size'
 import type { ColorType } from '#shared/types/common/color'
 
 type IconifyIconCustomiseCallback = (
@@ -17,7 +16,6 @@ interface IconifyProps {
 
 export interface IconItemType extends IconifyProps {
   variant?: 'default' | 'outline' | 'fill' | 'custom'
-  weight?: BasicSizeType
   colors?: ColorType
   loading?: boolean
   absolute?: boolean

@@ -2,7 +2,6 @@
 import type { IconItemType } from '#shared/types/components/icon-item'
 
 const props = withDefaults(defineProps<IconItemType>(), {
-  weight: 'medium',
   colors: () => ({
     primary: 'currentColor',
     secondary: 'currentColor',
@@ -28,7 +27,7 @@ const customize = (content: string) => {
   <NuxtIcon
     v-bind="props"
     mode="svg"
-    :name="`sf-symbols-${props.weight}:${props.name}`"
+    :name="`sf-symbols:${props.name}`"
     :customize
   />
 </template>
