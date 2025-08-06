@@ -263,12 +263,12 @@ export default defineNuxtConfig({
 
   icon: {
     componentName: 'NuxtIcon',
-    serverBundle: {
-      externalizeIconsJson: true,
-    },
-    clientBundle: {
-      scan: true,
-    },
+    // serverBundle: {
+    //   externalizeIconsJson: true,
+    // },
+    // clientBundle: {
+    //   scan: true,
+    // },
     customCollections: [
       {
         prefix: 'sf-symbols-small',
