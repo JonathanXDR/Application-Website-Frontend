@@ -6,7 +6,6 @@
     "build": "nuxt build",
     "check:build": "sh ./scripts/check-build.sh",
     "check:commits": "sh ./scripts/check-commits.sh",
-    "check:types": "nlx nuxi typecheck",
     "cleanup:icons": "sh ./scripts/cleanup-icons.sh",
     "dev": "nuxt dev --dotenv .env.local",
     "format": "prettier --check .",
@@ -16,9 +15,11 @@
     "lint:fix": "eslint --fix .",
     "postinstall": "nuxt prepare",
     "prepare": "husky",
-    "preview": "nuxt preview --dotenv .env.production"
+    "preview": "nuxt preview --dotenv .env.production",
+    "typecheck": "nlx nuxi typecheck"
   },
   "devDependencies": {
+    "@antfu/ni": "25.0.0",
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
     "@iconify-json/fa6-brands": "1.2.6",

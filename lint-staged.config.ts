@@ -5,7 +5,7 @@ const config: Configuration = {
     `prettier --write ${stagedFiles.join(' ')}`,
     `eslint --fix ${stagedFiles.join(' ')}`,
   ],
-  '**/*.{ts,tsx,vue}': () => 'vue-tsc --noEmit',
+  '**/*.{ts,tsx,vue}': () => 'nr typecheck',
 }
 
 export default config
