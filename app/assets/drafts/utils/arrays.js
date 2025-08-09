@@ -8,16 +8,16 @@
  * See https://swift.org/CONTRIBUTORS.txt for Swift project authors
  */
 
-export const last = array => array[array.length - 1]
+export const last = (array) => array[array.length - 1];
 
 export const isEqual = (first, second) =>
-  JSON.stringify(first) === JSON.stringify(second)
+  JSON.stringify(first) === JSON.stringify(second);
 
 // A generator that yields subarray chunks of an original array that are
 // up to `chunkSize` in length.
 function* chunk(list, chunkSize) {
   for (let i = 0; i < list.length; i += chunkSize) {
-    yield list.slice(i, i + chunkSize)
+    yield list.slice(i, i + chunkSize);
   }
 }
 
@@ -35,7 +35,7 @@ function* chunk(list, chunkSize) {
  */
 export function page(list, pageSize) {
   if (!pageSize || pageSize < 1) {
-    throw new Error('page size must be 1 or higher')
+    throw new Error("page size must be 1 or higher");
   }
-  return [...chunk(list, pageSize)]
+  return [...chunk(list, pageSize)];
 }

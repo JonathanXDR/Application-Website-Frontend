@@ -9,19 +9,19 @@
  */
 
 export const ChangeTypes = {
-  added: 'added',
-  modified: 'modified',
-  deprecated: 'deprecated',
-}
+  added: "added",
+  modified: "modified",
+  deprecated: "deprecated",
+};
 
 export const ChangeTypesOrder = [
   ChangeTypes.modified,
   ChangeTypes.added,
   ChangeTypes.deprecated,
-]
+];
 
 export const ChangeNames = {
-  [ChangeTypes.modified]: 'change-type.modified',
-  [ChangeTypes.added]: 'change-type.added',
-  [ChangeTypes.deprecated]: 'change-type.deprecated',
-}
+  [ChangeTypes.modified]: "change-type.modified",
+  [ChangeTypes.added]: "change-type.added",
+  [ChangeTypes.deprecated]: "change-type.deprecated",
+};

@@ -1,102 +1,99 @@
 <script setup lang="ts">
-import { prepareDataForHTMLClipboard } from '~/assets/drafts/utils/clipboard'
+import { prepareDataForHTMLClipboard } from "~/assets/drafts/utils/clipboard";
 
 const props = defineProps<{
-  name: string
-  isFocused?: boolean
-  isRemovableTag?: boolean
-  isTranslatableTag?: boolean
-  isActiveTag?: boolean
-  activeTags?: string[]
-  keyboardIsVirtual?: boolean
-}>()
+  name: string;
+  isFocused?: boolean;
+  isRemovableTag?: boolean;
+  isTranslatableTag?: boolean;
+  isActiveTag?: boolean;
+  activeTags?: string[];
+  keyboardIsVirtual?: boolean;
+}>();
 
 const emit = defineEmits([
-  'focus',
-  'click',
-  'keydown',
-  'paste-content',
-  'delete-tag',
-  'prevent-blur',
-])
+  "focus",
+  "click",
+  "keydown",
+  "paste-content",
+  "delete-tag",
+  "prevent-blur",
+]);
 
-const { t } = useI18n()
-const button = ref<HTMLButtonElement | null>(null)
+const { t } = useI18n();
+const button = ref<HTMLButtonElement | null>(null);
 
 const ariaSelected = computed(() => {
-  if (!props.isRemovableTag) return undefined
-  return props.isActiveTag ? 'true' : 'false'
-})
+  if (!props.isRemovableTag) return undefined;
+  return props.isActiveTag ? "true" : "false";
+});
 
-const activeElement = useActiveElement()
+const activeElement = useActiveElement();
 
 const isCurrentlyActiveElement = () => {
-  return activeElement.value === button.value
-}
+  return activeElement.value === button.value;
+};
 
 const handleCopy = (e: ClipboardEvent) => {
-  if (!isCurrentlyActiveElement()) return
-  e.preventDefault()
-  const tags
-    = props.activeTags && props.activeTags.length
+  if (!isCurrentlyActiveElement()) return;
+  e.preventDefault();
+  const tags =
+    props.activeTags && props.activeTags.length
       ? props.activeTags
-      : [props.name]
-  e.clipboardData?.setData('text/html', prepareDataForHTMLClipboard({ tags }))
-  e.clipboardData?.setData('text/plain', tags.join(' '))
-}
+      : [props.name];
+  e.clipboardData?.setData("text/html", prepareDataForHTMLClipboard({ tags }));
+  e.clipboardData?.setData("text/plain", tags.join(" "));
+};
 
 const handleCut = (e: ClipboardEvent) => {
-  if (!isCurrentlyActiveElement() || !props.isRemovableTag) return
-  handleCopy(e)
-  deleteTag(e)
-}
+  if (!isCurrentlyActiveElement() || !props.isRemovableTag) return;
+  handleCopy(e);
+  deleteTag(e);
+};
 
 const handlePaste = (e: ClipboardEvent) => {
-  if (!isCurrentlyActiveElement() || !props.isRemovableTag) return
-  e.preventDefault()
-  deleteTag(e)
-  emit('paste-content', e)
-}
+  if (!isCurrentlyActiveElement() || !props.isRemovableTag) return;
+  e.preventDefault();
+  deleteTag(e);
+  emit("paste-content", e);
+};
 
 const deleteTag = (e?: Event) => {
-  emit('delete-tag', { tagName: props.name, event: e })
-  emit('prevent-blur')
-}
+  emit("delete-tag", { tagName: props.name, event: e });
+  emit("prevent-blur");
+};
 
 const focusButton = (e?: MouseEvent) => {
-  if (!props.keyboardIsVirtual && button.value) button.value.focus()
-  if (e?.buttons === 0 && props.isFocused) deleteTag(e)
-}
+  if (!props.keyboardIsVirtual && button.value) button.value.focus();
+  if (e?.buttons === 0 && props.isFocused) deleteTag(e);
+};
 
 const emitFocus = (e: FocusEvent) => {
-  emit('focus', { event: e, tagName: props.name })
-}
+  emit("focus", { event: e, tagName: props.name });
+};
 
 const emitClick = (e: MouseEvent) => {
-  emit('click', { event: e, tagName: props.name })
-}
+  emit("click", { event: e, tagName: props.name });
+};
 
 const emitKeydown = (e: KeyboardEvent) => {
-  emit('keydown', { event: e, tagName: props.name })
-}
+  emit("keydown", { event: e, tagName: props.name });
+};
 
-useEventListener(document, 'copy', handleCopy)
-useEventListener(document, 'cut', handleCut)
-useEventListener(document, 'paste', handlePaste)
+useEventListener(document, "copy", handleCopy);
+useEventListener(document, "cut", handleCut);
+useEventListener(document, "paste", handlePaste);
 
 watch(
   () => props.isFocused,
   (val) => {
-    if (val) focusButton()
+    if (val) focusButton();
   },
-)
+);
 </script>
 
 <template>
-  <li
-    class="tag"
-    role="presentation"
-  >
+  <li class="tag" role="presentation">
     <button
       ref="button"
       :class="{ focus: isActiveTag }"
@@ -115,20 +112,18 @@ watch(
       @mousedown.prevent="focusButton"
       @copy="handleCopy"
     >
-      <span
-        v-if="!isRemovableTag"
-        class="visuallyhidden"
-      >{{ t("components.common.FilterInput.addTag") }} -</span>
+      <span v-if="!isRemovableTag" class="visuallyhidden"
+        >{{ t("components.common.FilterInput.addTag") }} -</span
+      >
       <template v-if="isTranslatableTag">
         {{ t(name) }}
       </template>
       <template v-else>
         {{ name }}
       </template>
-      <span
-        v-if="isRemovableTag"
-        class="visuallyhidden"
-      >– {{ t("components.common.FilterInput.tagSelectRemove") }}</span>
+      <span v-if="isRemovableTag" class="visuallyhidden"
+        >– {{ t("components.common.FilterInput.tagSelectRemove") }}</span
+      >
     </button>
   </li>
 </template>

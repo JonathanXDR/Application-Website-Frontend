@@ -8,7 +8,7 @@
  * See https://swift.org/CONTRIBUTORS.txt for Swift project authors
  */
 
-import { FILTER_TAGS, TOPIC_TYPE_TO_TAG } from '~/assets/drafts/constants/Tags'
+import { FILTER_TAGS, TOPIC_TYPE_TO_TAG } from "~/assets/drafts/constants/Tags";
 
 export default {
   computed: {
@@ -28,7 +28,7 @@ export default {
   methods: {
     filterChildren(children, selectedTags, apiChanges, filterPattern) {
       // use Set over Array for better performance
-      const selectedTagSet = new Set(selectedTags)
+      const selectedTagSet = new Set(selectedTags);
       // find children that match current filters
       return children.filter(
         ({
@@ -40,28 +40,28 @@ export default {
           childUIDs,
         }) => {
           // check if `title` matches the pattern, if provided
-          const titleMatch = filterPattern ? filterPattern.test(title) : true
+          const titleMatch = filterPattern ? filterPattern.test(title) : true;
           // groupMarkers know how many children they have and how many are deprecated
-          const isDeprecated
-            = deprecated || deprecatedChildrenCount === childUIDs.length
-          let tagMatch = true
+          const isDeprecated =
+            deprecated || deprecatedChildrenCount === childUIDs.length;
+          let tagMatch = true;
           if (selectedTagSet.size) {
-            tagMatch = selectedTagSet.has(TOPIC_TYPE_TO_TAG[type])
+            tagMatch = selectedTagSet.has(TOPIC_TYPE_TO_TAG[type]);
             // if there are API changes and there is no tag match, try to match change types
             if (apiChanges && !tagMatch) {
-              const change = apiChanges[path]
-              tagMatch = selectedTagSet.has(FILTER_TAGS[change])
+              const change = apiChanges[path];
+              tagMatch = selectedTagSet.has(FILTER_TAGS[change]);
             }
             if (selectedTagSet.has(FILTER_TAGS.hideDeprecated)) {
-              tagMatch = !isDeprecated
+              tagMatch = !isDeprecated;
             }
           }
           // find items, that have API changes
-          const hasAPIChanges = apiChanges ? !!apiChanges[path] : true
+          const hasAPIChanges = apiChanges ? !!apiChanges[path] : true;
           // make sure groupMarker's don't get matched
-          return titleMatch && tagMatch && hasAPIChanges
+          return titleMatch && tagMatch && hasAPIChanges;
         },
-      )
+      );
     },
   },
-}
+};

@@ -44,7 +44,7 @@ const computedStyle = computed(() => ({
     :style="computedStyle"
     @click="onClick"
   >
-    <DynamicIcon
+    <Icon
       v-if="icon"
       v-bind="icon"
       :class="`icon icon-md mr-1`"

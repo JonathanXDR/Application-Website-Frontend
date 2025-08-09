@@ -8,11 +8,11 @@
  * See https://swift.org/CONTRIBUTORS.txt for Swift project authors
  */
 
-export const baseNavHeight = 52
-export const baseNavHeightSmallBreakpoint = 48
-export const baseNavStickyAnchorId = 'nav-sticky-anchor'
-export const baseNavOpenSidenavButtonId = 'nav-open-navigator'
+export const baseNavHeight = 52;
+export const baseNavHeightSmallBreakpoint = 48;
+export const baseNavStickyAnchorId = "nav-sticky-anchor";
+export const baseNavOpenSidenavButtonId = "nav-open-navigator";
 
 export const MenuLinkModifierClasses = {
-  noClose: 'noclose',
-}
+  noClose: "noclose",
+};

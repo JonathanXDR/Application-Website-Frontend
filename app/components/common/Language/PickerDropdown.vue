@@ -70,8 +70,8 @@ watch(locale, (localeNew) => {
           }}
         </option>
       </select>
-      <DynamicIcon
-        name="chevron.down"
+      <Icon
+        name="sf-symbols:chevron.down"
         :class="`icon icon-${sizes[props.componentSize]}`"
       />
     </div>

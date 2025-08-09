@@ -9,32 +9,32 @@
 -->
 
 <script>
-import GenericModal from '~/assets/drafts/components/GenericModal.vue'
-import FilterInput from '~/assets/drafts/components/common/New/Filter/FilterInput.vue'
-import QuickNavigationHighlighter from '~/assets/drafts/components/common/New/Navigator/QuickNavigationHighlighter.vue'
-import TopicTypeIcon from '~/assets/drafts/components/common/New/TopicTypeIcon.vue'
-import keyboardNavigation from '~/assets/drafts/mixins/keyboardNavigation'
-import debounce from '~/assets/drafts/utils/debounce'
-import LRUMap from '~/assets/drafts/utils/lru-map'
+import GenericModal from "~/assets/drafts/components/GenericModal.vue";
+import FilterInput from "~/assets/drafts/components/common/New/Filter/FilterInput.vue";
+import QuickNavigationHighlighter from "~/assets/drafts/components/common/New/Navigator/QuickNavigationHighlighter.vue";
+import TopicTypeIcon from "~/assets/drafts/components/common/New/TopicTypeIcon.vue";
+import keyboardNavigation from "~/assets/drafts/mixins/keyboardNavigation";
+import debounce from "~/assets/drafts/utils/debounce";
+import LRUMap from "~/assets/drafts/utils/lru-map";
 import {
   convertChildrenArrayToObject,
   getParents,
-} from '~/utils/navigatorData'
-import { SCROLL_LOCK_DISABLE_ATTR } from '~/utils/scroll-lock'
+} from "~/utils/navigatorData";
+import { SCROLL_LOCK_DISABLE_ATTR } from "~/utils/scroll-lock";
 
 const PreviewState = {
-  error: 'error',
-  loading: 'loading',
-  loadingSlowly: 'loadingSlowly',
-  success: 'success',
-}
+  error: "error",
+  loading: "loading",
+  loadingSlowly: "loadingSlowly",
+  success: "success",
+};
 
-const ABORT_ERROR_NAME = 'AbortError'
-const MAX_RESULTS = 20
-const SLOW_LOADING_DELAY = 1000 // 1 second in milliseconds
+const ABORT_ERROR_NAME = "AbortError";
+const MAX_RESULTS = 20;
+const SLOW_LOADING_DELAY = 1000; // 1 second in milliseconds
 
 export default {
-  name: 'QuickNavigationModal',
+  name: "QuickNavigationModal",
   components: {
     FilterInput,
     GenericModal,
@@ -56,20 +56,20 @@ export default {
       required: false,
     },
   },
-  emits: ['update:showQuickNavigationModal'],
+  emits: ["update:showQuickNavigationModal"],
   data() {
     return {
-      debouncedInput: '',
-      userInput: '',
+      debouncedInput: "",
+      userInput: "",
       focusedInput: false,
       cachedSymbolResults: {},
       previewIsLoadingSlowly: false,
       SCROLL_LOCK_DISABLE_ATTR,
-    }
+    };
   },
   computed: {
     childrenMap({ children }) {
-      return convertChildrenArrayToObject(children)
+      return convertChildrenArrayToObject(children);
     },
     filteredSymbols: ({
       constructFuzzyRegex,
@@ -80,32 +80,32 @@ export default {
       orderSymbolsByPriority,
     }) => {
       const symbols = children.filter(
-        symbol => symbol.type !== 'groupMarker' && symbol.title != null,
-      )
-      if (!processedUserInput) return []
+        (symbol) => symbol.type !== "groupMarker" && symbol.title != null,
+      );
+      if (!processedUserInput) return [];
       const matches = fuzzyMatch({
         inputLength: processedUserInput.length,
         symbols,
         processedInputRegex: new RegExp(
           constructFuzzyRegex(processedUserInput),
-          'i',
+          "i",
         ),
         childrenMap,
-      })
+      });
       // Filter repeated matches and return the first 20
       const uniqueMatches = [
-        ...new Map(matches.map(match => [match.path, match])).values(),
-      ]
-      return orderSymbolsByPriority(uniqueMatches).slice(0, MAX_RESULTS)
+        ...new Map(matches.map((match) => [match.path, match])).values(),
+      ];
+      return orderSymbolsByPriority(uniqueMatches).slice(0, MAX_RESULTS);
     },
     placeholderText() {
-      if (!this.technology) return this.$t('filter.search')
-      return this.$t('filter.search-symbols', { technology: this.technology })
+      if (!this.technology) return this.$t("filter.search");
+      return this.$t("filter.search-symbols", { technology: this.technology });
     },
     isVisible: {
       get: ({ showQuickNavigationModal }) => showQuickNavigationModal,
       set(value) {
-        this.$emit('update:showQuickNavigationModal', value)
+        this.$emit("update:showQuickNavigationModal", value);
       },
     },
     noResultsWereFound: ({ processedUserInput, totalItemsToNavigate }) =>
@@ -113,19 +113,19 @@ export default {
     // Transformations required for filtering symbols
     // Remove space-character
     processedUserInput: ({ debouncedInput }) =>
-      debouncedInput.replace(/\s/g, ''),
+      debouncedInput.replace(/\s/g, ""),
     totalItemsToNavigate: ({ filteredSymbols }) => filteredSymbols.length,
     selectedSymbol: ({ filteredSymbols, focusedIndex }) =>
       focusedIndex !== null ? filteredSymbols[focusedIndex] : null,
     nextSymbol: ({ filteredSymbols, focusedIndex }) => {
       if (focusedIndex === null) {
-        return null
+        return null;
       }
-      let nextIndex = focusedIndex + 1
+      let nextIndex = focusedIndex + 1;
       if (nextIndex >= filteredSymbols.length) {
-        nextIndex = 0
+        nextIndex = 0;
       }
-      return filteredSymbols[nextIndex]
+      return filteredSymbols[nextIndex];
     },
     focusedMatchElement: ({
       $refs,
@@ -145,8 +145,8 @@ export default {
       previewIsLoadingSlowly,
       selectedSymbol,
     }) =>
-      selectedSymbol
-      && Object.hasOwnProperty.call(cachedSymbolResults, selectedSymbol.uid)
+      selectedSymbol &&
+      Object.hasOwnProperty.call(cachedSymbolResults, selectedSymbol.uid)
         ? cachedSymbolResults[selectedSymbol.uid].success
           ? PreviewState.success
           : PreviewState.error
@@ -155,23 +155,23 @@ export default {
           : PreviewState.loading,
   },
   watch: {
-    userInput: 'debounceInput',
+    userInput: "debounceInput",
     focusedIndex() {
-      if (this.focusedInput) return
-      this.scrollIntoView()
-      this.focusReference()
+      if (this.focusedInput) return;
+      this.scrollIntoView();
+      this.focusReference();
     },
-    selectedSymbol: 'fetchSelectedSymbolData',
-    $route: 'closeQuickNavigationModal',
+    selectedSymbol: "fetchSelectedSymbolData",
+    $route: "closeQuickNavigationModal",
   },
   created() {
-    this.abortController = null
-    this.$cachedSymbolResults = new LRUMap(MAX_RESULTS)
-    this.loadingTimeout = null
+    this.abortController = null;
+    this.$cachedSymbolResults = new LRUMap(MAX_RESULTS);
+    this.loadingTimeout = null;
   },
   methods: {
     closeQuickNavigationModal() {
-      this.$emit('update:showQuickNavigationModal', false)
+      this.$emit("update:showQuickNavigationModal", false);
     },
     constructFuzzyRegex(userInput) {
       // Construct regex for fuzzy match
@@ -182,32 +182,32 @@ export default {
           prev
             .concat(`[${char}]`)
             .concat(
-              index < userInput.length - 1 ? `[^${char.toLowerCase()}]*?` : '',
+              index < userInput.length - 1 ? `[^${char.toLowerCase()}]*?` : "",
             ),
-        '',
-      )
+        "",
+      );
     },
     debounceInput: debounce(function debounceInput(value) {
       // Remove space-character
-      this.debouncedInput = value
+      this.debouncedInput = value;
     }, 250),
     endingPointHook() {
       // Reset selected symbol to the first one of the list
-      this.focusedIndex = 0
+      this.focusedIndex = 0;
     },
     formatSymbolTitle(symbolTitle, symbolStart, symbolEnd) {
-      return symbolTitle.slice(symbolStart, symbolEnd)
+      return symbolTitle.slice(symbolStart, symbolEnd);
     },
     fuzzyMatch({ inputLength, symbols, processedInputRegex, childrenMap }) {
       return symbols
         .map((symbol) => {
-          const match = processedInputRegex.exec(symbol.title)
+          const match = processedInputRegex.exec(symbol.title);
           // Dismiss if symbol isn't matched
-          if (!match) return false
+          if (!match) return false;
 
-          const matchLength = match[0].length
+          const matchLength = match[0].length;
           // Dismiss if match length is greater than 3x the input's length
-          if (matchLength > inputLength * 3) return false
+          if (matchLength > inputLength * 3) return false;
           return {
             uid: symbol.uid,
             title: symbol.title,
@@ -219,43 +219,43 @@ export default {
             matchLengthDifference: matchLength - inputLength,
             start: match.index,
             substring: match[0],
-          }
+          };
         })
-        .filter(Boolean)
+        .filter(Boolean);
     },
     handleKeyEnter() {
-      if (this.noResultsWereFound || !this.userInput.length) return
-      this.$router.push(this.filteredSymbols[this.focusedIndex].path)
-      this.closeQuickNavigationModal()
+      if (this.noResultsWereFound || !this.userInput.length) return;
+      this.$router.push(this.filteredSymbols[this.focusedIndex].path);
+      this.closeQuickNavigationModal();
     },
     orderSymbolsByPriority(matchingSymbols) {
       return matchingSymbols.sort((a, b) => {
         // Shortests symbol match title have preference over larger titles
-        if (a.matchLengthDifference > b.matchLengthDifference) return 1
-        if (a.matchLengthDifference < b.matchLengthDifference) return -1
+        if (a.matchLengthDifference > b.matchLengthDifference) return 1;
+        if (a.matchLengthDifference < b.matchLengthDifference) return -1;
         // Matches at the beginning of string have relevance over matches at the end
-        if (a.start > b.start) return 1
-        if (a.start < b.start) return -1
+        if (a.start > b.start) return 1;
+        if (a.start < b.start) return -1;
         // Shortests symbol title have preference over larger titles
-        if (a.inputLengthDifference > b.inputLengthDifference) return 1
-        if (a.inputLengthDifference < b.inputLengthDifference) return -1
-        return 0
-      })
+        if (a.inputLengthDifference > b.inputLengthDifference) return 1;
+        if (a.inputLengthDifference < b.inputLengthDifference) return -1;
+        return 0;
+      });
     },
     focusReference() {
-      this.focusedMatchElement.focus()
+      this.focusedMatchElement.focus();
     },
     handleDownKeyInput() {
-      this.focusedIndex = 0
-      this.focusReference()
+      this.focusedIndex = 0;
+      this.focusReference();
     },
     scrollIntoView() {
       this.focusedMatchElement.scrollIntoView({
-        block: 'nearest',
-      })
+        block: "nearest",
+      });
     },
     startingPointHook() {
-      this.focusedIndex = this.totalItemsToNavigate - 1
+      this.focusedIndex = this.totalItemsToNavigate - 1;
     },
     async fetchSelectedSymbolData() {
       // start a timer: if a full second has elapsed and the network request for
@@ -264,24 +264,24 @@ export default {
       // message would be too distracting
       this.loadingTimeout = setTimeout(() => {
         if (this.previewState === PreviewState.loading) {
-          this.previewIsLoadingSlowly = true
+          this.previewIsLoadingSlowly = true;
         }
-      }, SLOW_LOADING_DELAY)
+      }, SLOW_LOADING_DELAY);
 
       // exit early if the previwe data is already cached for this symbol as
       // there is no additional work needed
       if (
-        !this.selectedSymbol
-        || this.$cachedSymbolResults.has(this.selectedSymbol.uid)
+        !this.selectedSymbol ||
+        this.$cachedSymbolResults.has(this.selectedSymbol.uid)
       ) {
-        clearTimeout(this.loadingTimeout)
-        this.previewIsLoadingSlowly = false
-        return
+        clearTimeout(this.loadingTimeout);
+        this.previewIsLoadingSlowly = false;
+        return;
       }
 
       const fetchSymbolData = async (symbol) => {
         if (!symbol || this.$cachedSymbolResults.has(symbol.uid)) {
-          return
+          return;
         }
 
         try {
@@ -289,32 +289,30 @@ export default {
           // const json = await fetchDataForPreview(symbol.path, {
           //   signal: this.abortController.signal,
           // })
-          const json = {}
+          const json = {};
           this.$cachedSymbolResults.set(symbol.uid, {
             success: true,
             json,
-          })
-        }
-        catch (e) {
+          });
+        } catch (e) {
           // errors triggered by the abort controller are safe to ignore since
           // we are only aborting them for performance reasons and would like
           // to later re-try them if possible
           if (e.name !== ABORT_ERROR_NAME) {
             this.$cachedSymbolResults.set(symbol.uid, {
               success: false,
-            })
+            });
           }
-        }
-        finally {
+        } finally {
           // `LRUMap` is a custom object that is very similar to a builtin `Map`
           // and since `Map` objects can't directly hook into the reactivity
           // in Vue 2, we need to convert this object into a plain `Object` every
           // time it is mutated to workaround this lack of reactivity
           this.cachedSymbolResults = Object.freeze(
             Object.fromEntries(this.$cachedSymbolResults),
-          )
+          );
         }
-      }
+      };
 
       // the abort controller is useful for clients with slower networks—if it
       // is taking a long time for page data to load, we don't want to create
@@ -323,22 +321,22 @@ export default {
       // immediately following it which can happen on a slow network if the
       // user quickly scrolls through the list of results
       if (this.abortController) {
-        this.abortController.abort()
+        this.abortController.abort();
       }
-      this.abortController = new AbortController()
+      this.abortController = new AbortController();
 
       await Promise.all([
         fetchSymbolData(this.selectedSymbol).finally(() => {
           // the timeout for the loading message only applies to the currently
           // selected symbol
-          clearTimeout(this.loadingTimeout)
-          this.previewIsLoadingSlowly = false
+          clearTimeout(this.loadingTimeout);
+          this.previewIsLoadingSlowly = false;
         }),
         fetchSymbolData(this.nextSymbol),
-      ])
+      ]);
     },
   },
-}
+};
 </script>
 
 <template>
@@ -349,10 +347,7 @@ export default {
     backdrop-background-color-override="rgba(0, 0, 0, 0.7)"
   >
     <div class="quick-navigation">
-      <div
-        class="quick-navigation__container"
-        :class="{ focus: focusedInput }"
-      >
+      <div class="quick-navigation__container" :class="{ focus: focusedInput }">
         <FilterInput
           v-model="userInput"
           class="quick-navigation__filter"
@@ -379,10 +374,7 @@ export default {
           class="quick-navigation__match-list"
           :class="{ active: processedUserInput.length }"
         >
-          <div
-            v-if="noResultsWereFound"
-            class="no-results"
-          >
+          <div v-if="noResultsWereFound" class="no-results">
             <p>
               {{ $t("navigator.no-results") }}
             </p>
@@ -406,10 +398,7 @@ export default {
                 :data-index="index"
                 @click="closeQuickNavigationModal"
               >
-                <div
-                  class="quick-navigation__symbol-match"
-                  role="list"
-                >
+                <div class="quick-navigation__symbol-match" role="list">
                   <div class="symbol-info">
                     <div class="symbol-name">
                       <TopicTypeIcon
@@ -441,10 +430,7 @@ export default {
                         v-for="(parent, parentIndex) in symbol.parents"
                         :key="parent.title"
                       >
-                        <span
-                          class="parent-path"
-                          v-text="parent.title"
-                        />
+                        <span class="parent-path" v-text="parent.title" />
                         <span
                           v-if="parentIndex !== symbol.parents.length - 1"
                           class="parent-path"

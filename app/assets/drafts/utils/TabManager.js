@@ -9,20 +9,20 @@
  */
 
 export const focusableElements = [
-  'input',
-  'select',
-  'textarea',
-  'button',
-  'optgroup',
-  'option',
-  'menuitem',
-  'fieldset',
-  'object',
-  'a[href]',
-  '*[tabindex]',
-  '*[contenteditable]',
-]
-export const focusableSelector = focusableElements.join(',')
+  "input",
+  "select",
+  "textarea",
+  "button",
+  "optgroup",
+  "option",
+  "menuitem",
+  "fieldset",
+  "object",
+  "a[href]",
+  "*[tabindex]",
+  "*[contenteditable]",
+];
+export const focusableSelector = focusableElements.join(",");
 
 export default {
   /**
@@ -30,19 +30,19 @@ export default {
    * @param {HTMLElement | Element} containerElement
    */
   getTabbableElements(containerElement) {
-    const elements = containerElement.querySelectorAll(focusableSelector)
+    const elements = containerElement.querySelectorAll(focusableSelector);
 
-    const len = elements.length
-    let i
-    const tabbableElements = []
+    const len = elements.length;
+    let i;
+    const tabbableElements = [];
 
     for (i = 0; i < len; i += 1) {
       if (this.isTabbableElement(elements[i])) {
-        tabbableElements.push(elements[i])
+        tabbableElements.push(elements[i]);
       }
     }
 
-    return tabbableElements
+    return tabbableElements;
   },
 
   /**
@@ -52,14 +52,14 @@ export default {
    */
   isTabbableElement(element) {
     // if element is hidden, it cant be tabbed or focused
-    if (!element.offsetParent) return false
+    if (!element.offsetParent) return false;
 
-    const tabIndex = Number.parseFloat(element.getAttribute('tabindex'))
+    const tabIndex = Number.parseFloat(element.getAttribute("tabindex"));
     if (Number.isNaN(tabIndex)) {
-      return this.isFocusableElement(element)
+      return this.isFocusableElement(element);
     }
 
-    return tabIndex >= 0
+    return tabIndex >= 0;
   },
 
   /**
@@ -67,16 +67,16 @@ export default {
    * @param {HTMLAnchorElement | HTMLInputElement | ElementContentEditable} element
    */
   isFocusableElement(element) {
-    const nodeName = element.nodeName.toLowerCase()
-    const isFocusable = focusableElements.includes(nodeName)
+    const nodeName = element.nodeName.toLowerCase();
+    const isFocusable = focusableElements.includes(nodeName);
     // if its an anchor, its focusable
-    if (nodeName === 'a' && element.getAttribute('href')) return true
+    if (nodeName === "a" && element.getAttribute("href")) return true;
 
     // if is directly focusable
-    if (isFocusable) return !element.disabled
+    if (isFocusable) return !element.disabled;
 
-    if (element.getAttribute('contenteditable') === 'true') return true
+    if (element.getAttribute("contenteditable") === "true") return true;
 
-    return !Number.isNaN(Number.parseFloat(element.getAttribute('tabindex')))
+    return !Number.isNaN(Number.parseFloat(element.getAttribute("tabindex")));
   },
-}
+};

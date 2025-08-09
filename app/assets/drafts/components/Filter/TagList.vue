@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { isSingleCharacter } from '~/assets/drafts/utils/input-helper'
+import { isSingleCharacter } from "~/assets/drafts/utils/input-helper";
 
-const ScrollingDebounceDelay = 1000
+const ScrollingDebounceDelay = 1000;
 
 const props = withDefaults(
   defineProps<{
-    tags: string[]
-    activeTags: string[]
-    translatableTags: string[]
-    ariaLabel?: string
-    id?: string
-    input?: string
-    areTagsRemovable?: boolean
-    keyboardIsVirtual?: boolean
+    tags: string[];
+    activeTags: string[];
+    translatableTags: string[];
+    ariaLabel?: string;
+    id?: string;
+    input?: string;
+    areTagsRemovable?: boolean;
+    keyboardIsVirtual?: boolean;
   }>(),
   {
     tags: () => [],
@@ -22,133 +22,131 @@ const props = withDefaults(
     areTagsRemovable: false,
     keyboardIsVirtual: false,
   },
-)
+);
 
 const emit = defineEmits<{
   (
     e:
-      | 'reset-filters'
-      | 'select-all'
-      | 'prevent-blur'
-      | 'focus-prev'
-      | 'focus-next',
-  ): void
-  (e: 'click-tags', payload: MouseEvent): void
-  (e: 'delete-tag', payload: { tagName: string, event: Event }): void
-  (e: 'paste-tags', payload: ClipboardEvent): void
-  (e: 'keydown', payload: KeyboardEvent): void
-  (e: 'focus', event: FocusEvent): void
-}>()
+      | "reset-filters"
+      | "select-all"
+      | "prevent-blur"
+      | "focus-prev"
+      | "focus-next",
+  ): void;
+  (e: "click-tags", payload: MouseEvent): void;
+  (e: "delete-tag", payload: { tagName: string; event: Event }): void;
+  (e: "paste-tags", payload: ClipboardEvent): void;
+  (e: "keydown", payload: KeyboardEvent): void;
+  (e: "focus", event: FocusEvent): void;
+}>();
 
-const scrollWrapper = ref<HTMLElement | null>(null)
-const isScrolling = ref(false)
-const timestamp = useTimestamp()
-const scrollRemovedAt = ref(0)
+const scrollWrapper = ref<HTMLElement | null>(null);
+const isScrolling = ref(false);
+const timestamp = useTimestamp();
+const scrollRemovedAt = ref(0);
 const doDeleteScroll = () => {
-  isScrolling.value = false
-  scrollRemovedAt.value = timestamp.value
-}
-const deleteScroll = useDebounceFn(doDeleteScroll, ScrollingDebounceDelay)
+  isScrolling.value = false;
+  scrollRemovedAt.value = timestamp.value;
+};
+const deleteScroll = useDebounceFn(doDeleteScroll, ScrollingDebounceDelay);
 
-const { width, height } = useElementSize(scrollWrapper)
+const { width, height } = useElementSize(scrollWrapper);
 
 const handleScroll = (e: Event) => {
-  if (!scrollWrapper.value) return
+  if (!scrollWrapper.value) return;
   if (scrollWrapper.value.scrollTop !== 0) {
-    scrollWrapper.value.scrollTop = 0
-    e.preventDefault?.()
-    return
+    scrollWrapper.value.scrollTop = 0;
+    e.preventDefault?.();
+    return;
   }
-  const safeExtraWidth = 150
-  const noScrollBarsWidth = width.value + safeExtraWidth
-  if (scrollWrapper.value.scrollWidth < noScrollBarsWidth) return
-  const difference = timestamp.value - scrollRemovedAt.value
-  if (difference < ScrollingDebounceDelay / 10) return
-  isScrolling.value = true
-  if (!scrollWrapper.value.style.getPropertyValue('--scroll-target-height')) {
+  const safeExtraWidth = 150;
+  const noScrollBarsWidth = width.value + safeExtraWidth;
+  if (scrollWrapper.value.scrollWidth < noScrollBarsWidth) return;
+  const difference = timestamp.value - scrollRemovedAt.value;
+  if (difference < ScrollingDebounceDelay / 10) return;
+  isScrolling.value = true;
+  if (!scrollWrapper.value.style.getPropertyValue("--scroll-target-height")) {
     scrollWrapper.value.style.setProperty(
-      '--scroll-target-height',
+      "--scroll-target-height",
       `${height.value}px`,
-    )
+    );
   }
-  deleteScroll()
-}
+  deleteScroll();
+};
 
-useEventListener(scrollWrapper, 'scroll', handleScroll)
+useEventListener(scrollWrapper, "scroll", handleScroll);
 
-const focusedIndex = ref(0)
-const externalFocusChange = ref(false)
-const totalItemsToNavigate = computed(() => props.tags.length)
+const focusedIndex = ref(0);
+const externalFocusChange = ref(false);
+const totalItemsToNavigate = computed(() => props.tags.length);
 
 const focusIndex = (index: number | null) => {
-  if (index === null || index < 0) return
-  focusedIndex.value = index
-}
+  if (index === null || index < 0) return;
+  focusedIndex.value = index;
+};
 
 const focusPrev = (e: KeyboardEvent) => {
-  if ((e.metaKey || e.ctrlKey) && e.shiftKey) return
-  externalFocusChange.value = false
+  if ((e.metaKey || e.ctrlKey) && e.shiftKey) return;
+  externalFocusChange.value = false;
   if (focusedIndex.value > 0) {
-    focusIndex(focusedIndex.value - 1)
+    focusIndex(focusedIndex.value - 1);
+  } else {
+    emit("focus-prev");
   }
-  else {
-    emit('focus-prev')
-  }
-}
+};
 
 const focusNext = (e: KeyboardEvent) => {
-  if ((e.metaKey || e.ctrlKey) && e.shiftKey) return
-  externalFocusChange.value = false
+  if ((e.metaKey || e.ctrlKey) && e.shiftKey) return;
+  externalFocusChange.value = false;
   if (focusedIndex.value < totalItemsToNavigate.value - 1) {
-    focusIndex(focusedIndex.value + 1)
+    focusIndex(focusedIndex.value + 1);
+  } else {
+    emit("focus-next");
   }
-  else {
-    emit('focus-next')
-  }
-}
+};
 
 const handleFocus = (event: FocusEvent, index: number) => {
-  focusIndex(index)
-  isScrolling.value = false
-  emit('focus', event)
-}
+  focusIndex(index);
+  isScrolling.value = false;
+  emit("focus", event);
+};
 
 const handleKeydown = (e: KeyboardEvent) => {
-  const { key } = e
-  const tag = props.tags[focusedIndex.value]
+  const { key } = e;
+  const tag = props.tags[focusedIndex.value];
   if (isSingleCharacter(key) && tag) {
-    emit('delete-tag', { tagName: tag, event: e })
+    emit("delete-tag", { tagName: tag, event: e });
   }
-}
+};
 
 const focusFirst = async () => {
-  externalFocusChange.value = false
-  focusIndex(null)
-  await nextTick()
-  focusIndex(0)
-}
+  externalFocusChange.value = false;
+  focusIndex(null);
+  await nextTick();
+  focusIndex(0);
+};
 
 const focusLast = async () => {
-  externalFocusChange.value = false
-  focusIndex(null)
-  await nextTick()
-  focusIndex(totalItemsToNavigate.value - 1)
-}
+  externalFocusChange.value = false;
+  focusIndex(null);
+  await nextTick();
+  focusIndex(totalItemsToNavigate.value - 1);
+};
 
 const focusTag = (tag: string) => {
-  focusIndex(props.tags.indexOf(tag))
-}
+  focusIndex(props.tags.indexOf(tag));
+};
 
 const resetScroll = () => {
-  if (scrollWrapper.value) scrollWrapper.value.scrollLeft = 0
-}
+  if (scrollWrapper.value) scrollWrapper.value.scrollLeft = 0;
+};
 
 defineExpose({
   focusFirst,
   focusLast,
   focusTag,
   resetScroll,
-})
+});
 </script>
 
 <template>

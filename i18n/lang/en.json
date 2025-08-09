@@ -60,7 +60,7 @@
               "title": "Learn more",
               "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/{previousTag}...{latestTag}",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -72,7 +72,7 @@
               "title": "Learn more",
               "url": "#projects",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -84,7 +84,7 @@
               "title": "Learn more",
               "url": "#technologies",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -97,7 +97,7 @@
             "category": "theme",
             "label": "Light",
             "icon": {
-              "name": "sun.max.fill"
+              "name": "sf-symbols:sun.max.fill"
             }
           },
           {
@@ -105,7 +105,7 @@
             "category": "theme",
             "label": "Dark",
             "icon": {
-              "name": "moon.fill"
+              "name": "sf-symbols:moon.fill"
             }
           },
           {
@@ -113,7 +113,7 @@
             "category": "theme",
             "label": "Auto",
             "icon": {
-              "name": "circle.lefthalf.filled"
+              "name": "sf-symbols:circle.lefthalf.filled"
             }
           }
         ],
@@ -123,7 +123,7 @@
             "category": "projects",
             "label": "Swisscom",
             "icon": {
-              "name": "building.2.fill"
+              "name": "sf-symbols:building.2.fill"
             }
           },
           {
@@ -131,7 +131,7 @@
             "category": "projects",
             "label": "Personal",
             "icon": {
-              "name": "person.fill"
+              "name": "sf-symbols:person.fill"
             }
           },
           {
@@ -139,7 +139,7 @@
             "category": "projects",
             "label": "School",
             "icon": {
-              "name": "graduationcap.fill"
+              "name": "sf-symbols:graduationcap.fill"
             }
           }
         ],
@@ -149,7 +149,7 @@
             "category": "technologies",
             "label": "Language",
             "icon": {
-              "name": "bubble.fill"
+              "name": "sf-symbols:bubble.fill"
             }
           },
           {
@@ -157,7 +157,7 @@
             "category": "technologies",
             "label": "Library",
             "icon": {
-              "name": "books.vertical.fill"
+              "name": "sf-symbols:books.vertical.fill"
             }
           },
           {
@@ -165,7 +165,7 @@
             "category": "technologies",
             "label": "Runtime",
             "icon": {
-              "name": "gear"
+              "name": "sf-symbols:gear"
             }
           },
           {
@@ -173,7 +173,7 @@
             "category": "technologies",
             "label": "Framework",
             "icon": {
-              "name": "inset.filled.square.dashed"
+              "name": "sf-symbols:inset.filled.square.dashed"
             }
           },
           {
@@ -181,7 +181,7 @@
             "category": "technologies",
             "label": "Container Management",
             "icon": {
-              "name": "shippingbox.fill"
+              "name": "sf-symbols:shippingbox.fill"
             }
           },
           {
@@ -189,7 +189,7 @@
             "category": "technologies",
             "label": "ORM",
             "icon": {
-              "name": "gear"
+              "name": "sf-symbols:gear"
             }
           }
         ]
@@ -210,7 +210,7 @@
             "url": "mailto:contact@jonathan-russ.com",
             "category": "solid",
             "icon": {
-              "name": "envelope"
+              "name": "sf-symbols:envelope"
             }
           },
           {
@@ -218,7 +218,7 @@
             "url": "https://linkedin.com/in/jonathan-russ-b7442a228",
             "category": "brands",
             "icon": {
-              "name": "linkedin-in"
+              "name": "sf-symbols:linkedin-in"
             }
           },
           {
@@ -226,7 +226,7 @@
             "url": "https://github.com/JonathanXDR",
             "category": "brands",
             "icon": {
-              "name": "github"
+              "name": "sf-symbols:github"
             }
           },
           {
@@ -234,7 +234,7 @@
             "url": "https://twitter.com/JonathanXD12_",
             "category": "brands",
             "icon": {
-              "name": "x-twitter"
+              "name": "sf-symbols:x-twitter"
             }
           }
         ]
@@ -292,7 +292,7 @@
       "references": [
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Current Supervisor",
           "title": "Patrice Stampfli",
@@ -304,7 +304,7 @@
         },
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Former Supervisor",
           "title": "Steve Hess",
@@ -316,7 +316,7 @@
         },
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Former Project Provider",
           "title": "Nick Zimmermann",
@@ -326,7 +326,7 @@
               "title": "Learn more",
               "url": "https://nickzimmermann.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ],
@@ -337,7 +337,7 @@
         },
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Former Project Provider",
           "title": "Alessio Iantosca",
@@ -349,7 +349,7 @@
         },
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Former Project Provider",
           "title": "Carlo Schmid",
@@ -361,7 +361,7 @@
         },
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Current Project Provider",
           "title": "Kim Eggler",
@@ -371,7 +371,7 @@
               "title": "Learn more",
               "url": "https://retrostories.ch",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ],
@@ -382,7 +382,7 @@
         },
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Former Project Provider",
           "title": "Radu Margineanu",
@@ -394,7 +394,7 @@
         },
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Former Project Provider",
           "title": "Oliver Kramer",
@@ -408,7 +408,7 @@
       "school": [
         {
           "icon": {
-            "name": "graduationcap.fill"
+            "name": "sf-symbols:graduationcap.fill"
           },
           "eyebrow": "Former School",
           "title": "Technical Vocational School Zürich",
@@ -418,7 +418,7 @@
               "title": "Learn more",
               "url": "https://tbz.ch",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ],
@@ -431,7 +431,7 @@
         },
         {
           "icon": {
-            "name": "graduationcap.fill"
+            "name": "sf-symbols:graduationcap.fill"
           },
           "eyebrow": "School",
           "title": "Vocational Baccalaureate School Zürich",
@@ -441,7 +441,7 @@
               "title": "Learn more",
               "url": "https://bms-zuerich.ch",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ],
@@ -457,7 +457,7 @@
       "technologies": [
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "sf-symbols:bubble.fill"
           },
           "eyebrow": "Language",
           "title": "HTML",
@@ -468,14 +468,14 @@
               "title": "Learn more",
               "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "sf-symbols:bubble.fill"
           },
           "eyebrow": "Language",
           "title": "CSS",
@@ -486,14 +486,14 @@
               "title": "Learn more",
               "url": "https://developer.mozilla.org/en-US/docs/Web/CSS",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "sf-symbols:bubble.fill"
           },
           "eyebrow": "Language",
           "title": "JavaScript",
@@ -504,14 +504,14 @@
               "title": "Learn more",
               "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "books.vertical.fill"
+            "name": "sf-symbols:books.vertical.fill"
           },
           "eyebrow": "Library",
           "title": "SDX",
@@ -522,14 +522,14 @@
               "title": "Learn more",
               "url": "https://sdx.swisscom.ch",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "gear"
+            "name": "sf-symbols:gear"
           },
           "eyebrow": "Runtime",
           "title": "Node.js",
@@ -540,14 +540,14 @@
               "title": "Learn more",
               "url": "https://nodejs.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "sf-symbols:bubble.fill"
           },
           "eyebrow": "Language",
           "title": "SQL",
@@ -558,14 +558,14 @@
               "title": "Learn more",
               "url": "https://developer.mozilla.org/en-US/docs/Glossary/SQL",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "inset.filled.square.dashed"
+            "name": "sf-symbols:inset.filled.square.dashed"
           },
           "eyebrow": "Framework",
           "title": "Express.js",
@@ -576,14 +576,14 @@
               "title": "Learn more",
               "url": "https://expressjs.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "inset.filled.square.dashed"
+            "name": "sf-symbols:inset.filled.square.dashed"
           },
           "eyebrow": "Framework",
           "title": "Vue.js",
@@ -594,14 +594,14 @@
               "title": "Learn more",
               "url": "https://vuejs.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "sf-symbols:bubble.fill"
           },
           "eyebrow": "Language",
           "title": "TypeScript",
@@ -612,14 +612,14 @@
               "title": "Learn more",
               "url": "https://typescriptlang.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "sf-symbols:bubble.fill"
           },
           "eyebrow": "Language",
           "title": "C#",
@@ -630,14 +630,14 @@
               "title": "Learn more",
               "url": "https://docs.microsoft.com/en-us/dotnet/csharp",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "sf-symbols:bubble.fill"
           },
           "eyebrow": "Language",
           "title": "Java",
@@ -648,14 +648,14 @@
               "title": "Learn more",
               "url": "https://java.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "sf-symbols:bubble.fill"
           },
           "eyebrow": "Language",
           "title": "Bash",
@@ -666,14 +666,14 @@
               "title": "Learn more",
               "url": "https://gnu.org/software/bash",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "inset.filled.square.dashed"
+            "name": "sf-symbols:inset.filled.square.dashed"
           },
           "eyebrow": "Framework",
           "title": "React",
@@ -684,14 +684,14 @@
               "title": "Learn more",
               "url": "https://reactjs.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "inset.filled.square.dashed"
+            "name": "sf-symbols:inset.filled.square.dashed"
           },
           "eyebrow": "Framework",
           "title": "Next.js",
@@ -702,14 +702,14 @@
               "title": "Learn more",
               "url": "https://nextjs.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "shippingbox.fill"
+            "name": "sf-symbols:shippingbox.fill"
           },
           "eyebrow": "Container Management",
           "title": "Docker",
@@ -720,14 +720,14 @@
               "title": "Learn more",
               "url": "https://docker.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "shippingbox.fill"
+            "name": "sf-symbols:shippingbox.fill"
           },
           "eyebrow": "Container Management",
           "title": "Kubernetes",
@@ -738,14 +738,14 @@
               "title": "Learn more",
               "url": "https://kubernetes.io",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "inset.filled.square.dashed"
+            "name": "sf-symbols:inset.filled.square.dashed"
           },
           "eyebrow": "Framework",
           "title": "Nest.js",
@@ -756,14 +756,14 @@
               "title": "Learn more",
               "url": "https://nestjs.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "gear"
+            "name": "sf-symbols:gear"
           },
           "eyebrow": "ORM",
           "title": "Prisma",
@@ -774,14 +774,14 @@
               "title": "Learn more",
               "url": "https://prisma.io",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "gear"
+            "name": "sf-symbols:gear"
           },
           "eyebrow": "ORM",
           "title": "TypeORM",
@@ -792,14 +792,14 @@
               "title": "Learn more",
               "url": "https://typeorm.io",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "books.vertical.fill"
+            "name": "sf-symbols:books.vertical.fill"
           },
           "eyebrow": "Library",
           "title": "GitHub Primer",
@@ -810,14 +810,14 @@
               "title": "Learn more",
               "url": "https://primer.style",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "books.vertical.fill"
+            "name": "sf-symbols:books.vertical.fill"
           },
           "eyebrow": "Library",
           "title": "Tailwind CSS",
@@ -828,14 +828,14 @@
               "title": "Learn more",
               "url": "https://tailwindcss.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "sf-symbols:bubble.fill"
           },
           "eyebrow": "Language",
           "title": "Python",
@@ -846,14 +846,14 @@
               "title": "Learn more",
               "url": "https://python.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "sf-symbols:bubble.fill"
           },
           "eyebrow": "Language",
           "title": "Kotlin",
@@ -864,14 +864,14 @@
               "title": "Learn more",
               "url": "https://kotlinlang.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "sf-symbols:bubble.fill"
           },
           "eyebrow": "Language",
           "title": "Jetpack Compose",
@@ -882,14 +882,14 @@
               "title": "Learn more",
               "url": "https://developer.android.com/compose",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "books.vertical.fill"
+            "name": "sf-symbols:books.vertical.fill"
           },
           "eyebrow": "Library",
           "title": "Material Design 3",
@@ -900,14 +900,14 @@
               "title": "Learn more",
               "url": "https://m3.material.io",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "inset.filled.square.dashed"
+            "name": "sf-symbols:inset.filled.square.dashed"
           },
           "eyebrow": "Framework",
           "title": "Nuxt",
@@ -918,14 +918,14 @@
               "title": "Learn more",
               "url": "https://nuxt.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "inset.filled.square.dashed"
+            "name": "sf-symbols:inset.filled.square.dashed"
           },
           "eyebrow": "Framework",
           "title": "Angular",
@@ -936,14 +936,14 @@
               "title": "Learn more",
               "url": "https://angular.io",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "gear"
+            "name": "sf-symbols:gear"
           },
           "eyebrow": "Runtime",
           "title": "Bun",
@@ -954,14 +954,14 @@
               "title": "Learn more",
               "url": "https://bun.sh",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
         },
         {
           "icon": {
-            "name": "bubble.fill"
+            "name": "sf-symbols:bubble.fill"
           },
           "eyebrow": "Language",
           "title": "Scala",
@@ -972,7 +972,7 @@
               "title": "Learn more",
               "url": "https://scala-lang.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -981,7 +981,7 @@
       "projects": [
         {
           "icon": {
-            "name": "airplane.departure"
+            "name": "sf-symbols:airplane.departure"
           },
           "eyebrow": "Introduction",
           "title": "NEX First Steps",
@@ -1004,7 +1004,7 @@
         },
         {
           "icon": {
-            "name": "chevron.left.forwardslash.chevron.right"
+            "name": "sf-symbols:chevron.left.forwardslash.chevron.right"
           },
           "eyebrow": "Full-Stack",
           "title": "Competence Center NexCC",
@@ -1036,7 +1036,7 @@
         },
         {
           "icon": {
-            "name": "clock.arrow.trianglehead.2.counterclockwise.rotate.90"
+            "name": "sf-symbols:clock.arrow.trianglehead.2.counterclockwise.rotate.90"
           },
           "eyebrow": "Automation",
           "title": "Automation Projects in the Banking Sector",
@@ -1064,7 +1064,7 @@
         },
         {
           "icon": {
-            "name": "display",
+            "name": "sf-symbols:display",
             "colors": {
               "tertiary": "none"
             }
@@ -1078,7 +1078,7 @@
               "title": "Learn more about the Apps Team",
               "url": "https://appsteam.swisscom.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ],
@@ -1096,7 +1096,7 @@
         },
         {
           "icon": {
-            "name": "gear"
+            "name": "sf-symbols:gear"
           },
           "eyebrow": "Backend",
           "title": "Apps Team",
@@ -1115,14 +1115,14 @@
               "title": "Learn more about the Apps Team",
               "url": "https://appsteam.swisscom.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             },
             {
               "title": "Learn more about indigo online",
               "url": "https://indigo.online",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ],
@@ -1140,7 +1140,7 @@
         },
         {
           "icon": {
-            "name": "shield.lefthalf.filled"
+            "name": "sf-symbols:shield.lefthalf.filled"
           },
           "eyebrow": "Security Journey",
           "title": "Security & Compliance Services ART",
@@ -1170,7 +1170,7 @@
         },
         {
           "icon": {
-            "name": "shield.lefthalf.filled"
+            "name": "sf-symbols:shield.lefthalf.filled"
           },
           "eyebrow": "Security Journey",
           "title": "Piz Tofana Tooling Team",
@@ -1190,7 +1190,7 @@
         },
         {
           "icon": {
-            "name": "airplane.arrival"
+            "name": "sf-symbols:airplane.arrival"
           },
           "eyebrow": "Full-Stack",
           "title": "Apps Team (IPA)",
@@ -1201,14 +1201,14 @@
               "title": "Learn more about the Apps Team",
               "url": "https://appsteam.swisscom.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             },
             {
               "title": "Learn more about indigo online",
               "url": "https://indigo.online",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ],
@@ -1230,7 +1230,7 @@
   "pages": {
     "notFound": {
       "icon": {
-        "name": "exclamationmark.triangle.fill",
+        "name": "sf-symbols:exclamationmark.triangle.fill",
         "colors": {
           "primary": "var(--color-system-yellow)"
         }
@@ -1241,7 +1241,7 @@
     },
     "internalServerError": {
       "icon": {
-        "name": "exclamationmark.octagon.fill",
+        "name": "sf-symbols:exclamationmark.octagon.fill",
         "colors": {
           "primary": "var(--color-system-red)"
         }
@@ -1252,7 +1252,7 @@
     },
     "serviceUnavailable": {
       "icon": {
-        "name": "wrench.and.screwdriver.fill",
+        "name": "sf-symbols:wrench.and.screwdriver.fill",
         "colors": {
           "secondary": "var(--color-system-blue)"
         }
@@ -1263,7 +1263,7 @@
     },
     "error": {
       "icon": {
-        "name": "exclamationmark.octagon.fill",
+        "name": "sf-symbols:exclamationmark.octagon.fill",
         "colors": {
           "primary": "var(--color-system-red)"
         }

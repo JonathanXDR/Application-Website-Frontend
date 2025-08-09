@@ -9,16 +9,16 @@
  */
 
 export const BreakpointName = {
-  xlarge: 'xlarge',
-  large: 'large',
-  medium: 'medium',
-  small: 'small',
-}
+  xlarge: "xlarge",
+  large: "large",
+  medium: "medium",
+  small: "small",
+};
 
 export const BreakpointScopes = {
-  default: 'default',
-  nav: 'nav',
-}
+  default: "default",
+  nav: "nav",
+};
 
 export const BreakpointAttributes = {
   [BreakpointScopes.default]: {
@@ -54,13 +54,13 @@ export const BreakpointAttributes = {
       maxWidth: 767,
     },
   },
-}
+};
 
 const breakpointWeights = {
   [BreakpointName.small]: 0,
   [BreakpointName.medium]: 1,
   [BreakpointName.large]: 2,
-}
+};
 
 /**
  * Returns whether the provided breakpoint is above the target
@@ -69,5 +69,5 @@ const breakpointWeights = {
  * @return {boolean}
  */
 export function isBreakpointAbove(breakpoint, target) {
-  return breakpointWeights[breakpoint] > breakpointWeights[target]
+  return breakpointWeights[breakpoint] > breakpointWeights[target];
 }

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
 import type { IconItemType } from '#shared/types/components/icon-item'
 import type { InfoBarType } from '#shared/types/components/info-bar'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 
 const props = withDefaults(defineProps<InfoBarType>(), {
   loading: false,
@@ -19,11 +19,11 @@ dayjs.extend(relativeTime)
 
 const { locale } = useI18n()
 const infoItems: { id: keyof InfoBarType, icon: IconItemType }[] = [
-  { id: 'location', icon: { name: 'location.fill' } },
-  { id: 'supervisor', icon: { name: 'person.fill' } },
-  { id: 'department', icon: { name: 'tag.fill' } },
-  { id: 'language', icon: { name: 'bubble.left.fill' } },
-  { id: 'license', icon: { name: 'scroll.fill' } },
+  { id: 'location', icon: { name: 'sf-symbols:location.fill' } },
+  { id: 'supervisor', icon: { name: 'sf-symbols:person.fill' } },
+  { id: 'department', icon: { name: 'sf-symbols:tag.fill' } },
+  { id: 'language', icon: { name: 'sf-symbols:bubble.left.fill' } },
+  { id: 'license', icon: { name: 'sf-symbols:scroll.fill' } },
   // { id: "forks", icon: { name: "document.on.document.fill" } },
   // { id: "networks", icon: { name: "network" } },
   // { id: "watchers", icon: { name: "eye.fill" } },
@@ -94,7 +94,7 @@ watch([locale, () => props.date], () => {
         v-if="props[item.id]"
         class="info-item"
       >
-        <DynamicIcon
+        <Icon
           v-if="item.icon"
           :name="item.icon.name"
           :loading
@@ -116,9 +116,11 @@ watch([locale, () => props.date], () => {
       v-if="props.date.fixed || props.date.duration"
       class="info-item"
     >
-      <DynamicIcon
+      <Icon
         :loading
-        :name="updatedYesterday ? 'clock.fill' : 'calendar'"
+        :name="
+          updatedYesterday ? 'sf-symbols:clock.fill' : 'sf-symbols:calendar'
+        "
         class="info-icon"
       />
       <template v-if="!loading">

@@ -37,7 +37,7 @@ const themeItems = computed<ItemType[]>(() =>
         @change="setTheme(item.id)"
       >
       <div class="text">
-        <DynamicIcon
+        <Icon
           v-if="item.icon && label !== 'text'"
           :name="item.icon.name"
           class="icon icon-lg"

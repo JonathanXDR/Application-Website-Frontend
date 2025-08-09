@@ -8,21 +8,21 @@
   See https://swift.org/CONTRIBUTORS.txt for Swift project authors
 -->
 <script>
-import DocumentationTopicStore from 'docc-render/stores/DocumentationTopicStore'
-import PagerControl from '~/assets/drafts/components/PagerControl.vue'
-import { BreakpointAttributes } from '~/assets/drafts/utils/breakpoints'
+import DocumentationTopicStore from "docc-render/stores/DocumentationTopicStore";
+import PagerControl from "~/assets/drafts/components/PagerControl.vue";
+import { BreakpointAttributes } from "~/assets/drafts/utils/breakpoints";
 
-const GUTTERS_WIDTH = 174
+const GUTTERS_WIDTH = 174;
 
 function waitForScrollIntoView(element) {
   // call `scrollIntoView` to start asynchronously scrollling the off-screen
   // page element into the viewport area (would be sync if the behavior is
   // instant, but there is an async animation for "smooth" behavior)
   element.scrollIntoView({
-    behavior: 'auto',
-    block: 'nearest',
-    inline: 'start',
-  })
+    behavior: "auto",
+    block: "nearest",
+    inline: "start",
+  });
 
   // until the "scrollend" event is more widely supported, we need to manually
   // poll every animation frame to manually check if the element is still being
@@ -31,38 +31,37 @@ function waitForScrollIntoView(element) {
     // scroll animation shouldn't realistically take longer than this, so this
     // will be used as a timeout to exit early and avoid looping forever if
     // something goes wrong down below
-    const maxFramesToWait = 60
+    const maxFramesToWait = 60;
     // shouldn't realistically go quicker than a couple frames either
-    const minFramesToWait = 2
+    const minFramesToWait = 2;
 
     // since the scroll animation is not necessarily immediate, we'll utilize
     // `requestAnimationFrame` to poll every frame and check if the element
     // has finished scrolling and wait to finish the promise until it has
     // finished (or we reach a timeout expressed as a maximum number of frames
     // to wait for)
-    let prevLeftPosition = null
-    let numFramesWaited = 0
+    let prevLeftPosition = null;
+    let numFramesWaited = 0;
     function waitForScrollEnd() {
-      const currentLeftPosition = element.getBoundingClientRect().left
+      const currentLeftPosition = element.getBoundingClientRect().left;
       // stop waiting and resolve the promise if the timeout is reached or the
       // scroll has finished as calculated from the element position
       if (
-        numFramesWaited > minFramesToWait
-        && (currentLeftPosition === prevLeftPosition
-          || numFramesWaited >= maxFramesToWait)
+        numFramesWaited > minFramesToWait &&
+        (currentLeftPosition === prevLeftPosition ||
+          numFramesWaited >= maxFramesToWait)
       ) {
-        resolve() // done waiting
-      }
-      else {
+        resolve(); // done waiting
+      } else {
         // otherwise, advance to the next frame to check again by recursively
         // calling this function
-        prevLeftPosition = currentLeftPosition
-        numFramesWaited += 1
-        requestAnimationFrame(waitForScrollEnd) // continue waiting
+        prevLeftPosition = currentLeftPosition;
+        numFramesWaited += 1;
+        requestAnimationFrame(waitForScrollEnd); // continue waiting
       }
     }
-    requestAnimationFrame(waitForScrollEnd) // start waiting
-  })
+    requestAnimationFrame(waitForScrollEnd); // start waiting
+  });
 }
 
 /**
@@ -91,25 +90,25 @@ function waitForScrollIntoView(element) {
  */
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Pager',
+  name: "Pager",
   components: {
     ControlNext: {
       render(createElement) {
         return createElement(PagerControl, {
           props: { action: PagerControl.Action.next },
-        })
+        });
       },
     },
     ControlPrevious: {
       render(createElement) {
         return createElement(PagerControl, {
           props: { action: PagerControl.Action.previous },
-        })
+        });
       },
     },
     Gutter: {
       render(createElement) {
-        return createElement('div', { class: 'gutter' }, this.$slots.default)
+        return createElement("div", { class: "gutter" }, this.$slots.default);
       },
     },
   },
@@ -117,7 +116,7 @@ export default {
     pages: {
       type: Array,
       required: true,
-      validator: value => value.length > 0,
+      validator: (value) => value.length > 0,
     },
   },
   data: () => ({
@@ -145,85 +144,85 @@ export default {
     shouldUseCompactControls: ({ contentWidth }) => {
       if (window.innerWidth > BreakpointAttributes.default.large.minWidth) {
         return (
-          contentWidth
-          < BreakpointAttributes.default.large.contentWidth + GUTTERS_WIDTH
-        )
+          contentWidth <
+          BreakpointAttributes.default.large.contentWidth + GUTTERS_WIDTH
+        );
       }
       return (
-        contentWidth
-        < BreakpointAttributes.default.medium.contentWidth + GUTTERS_WIDTH
-      )
+        contentWidth <
+        BreakpointAttributes.default.medium.contentWidth + GUTTERS_WIDTH
+      );
     },
   },
   mounted() {
     if (this.pages.length > 1) {
-      this.setupObserver()
+      this.setupObserver();
     }
   },
   beforeUnmount() {
-    this.observer?.disconnect()
+    this.observer?.disconnect();
   },
   methods: {
     isActivePage(index) {
-      return index === this.activePageIndex
+      return index === this.activePageIndex;
     },
     pageStates(index) {
-      return { active: this.isActivePage(index) }
+      return { active: this.isActivePage(index) };
     },
     async setActivePage(event, index) {
-      event.preventDefault()
+      event.preventDefault();
       if (
-        index === this.activePageIndex
-        || index < 0
-        || index >= this.$refs.pages.length
+        index === this.activePageIndex ||
+        index < 0 ||
+        index >= this.$refs.pages.length
       ) {
-        return
+        return;
       }
 
-      const ref = this.$refs.pages[index]
+      const ref = this.$refs.pages[index];
       // stop observing page elements visibility while scrolling to the active
       // one so that the indicators for pages in between the previous and
       // currently active one don't activate
-      this.pauseObservingPages()
-      await waitForScrollIntoView(ref)
-      this.startObservingPages()
+      this.pauseObservingPages();
+      await waitForScrollIntoView(ref);
+      this.startObservingPages();
 
-      this.activePageIndex = index
+      this.activePageIndex = index;
     },
     next(event) {
-      this.setActivePage(event, this.activePageIndex + 1)
+      this.setActivePage(event, this.activePageIndex + 1);
     },
     previous(event) {
-      this.setActivePage(event, this.activePageIndex - 1)
+      this.setActivePage(event, this.activePageIndex - 1);
     },
     observePages(entries) {
       // observe page visibility so that we can activate the indicator for the
       // right one as the user scrolls through the viewport
-      const visibleKey = entries.find(entry => entry.isIntersecting)?.target
-        ?.id
+      const visibleKey = entries.find((entry) => entry.isIntersecting)?.target
+        ?.id;
       if (visibleKey) {
-        this.activePageIndex = this.indices[visibleKey]
+        this.activePageIndex = this.indices[visibleKey];
       }
     },
     setupObserver() {
       this.observer = new IntersectionObserver(this.observePages, {
         root: this.$refs.viewport,
         threshold: 0.5,
-      })
-      this.startObservingPages()
+      });
+      this.startObservingPages();
     },
     startObservingPages() {
       this.$refs.pages.forEach((page) => {
-        this.observer?.observe(page)
-      })
+        this.observer?.observe(page);
+      });
     },
     pauseObservingPages() {
       this.$refs.pages.forEach((page) => {
-        this.observer?.unobserve(page)
-      })
+        this.observer?.unobserve(page);
+      });
     },
   },
-}
+};
 </script>
 
 <template>
@@ -233,24 +232,14 @@ export default {
     :aria-roledescription="$t('pager.roledescription')"
   >
     <template v-if="pages.length === 1">
-      <slot
-        name="page"
-        :page="pages[0]"
-      />
+      <slot name="page" :page="pages[0]" />
     </template>
     <template v-else>
       <div class="container">
         <Gutter class="left">
-          <ControlPrevious
-            :disabled="!hasPreviousPage"
-            @click="previous"
-          />
+          <ControlPrevious :disabled="!hasPreviousPage" @click="previous" />
         </Gutter>
-        <div
-          ref="viewport"
-          class="viewport"
-          role="group"
-        >
+        <div ref="viewport" class="viewport" role="group">
           <div
             v-for="({ page, key }, n) in keyedPages"
             :id="key"
@@ -261,32 +250,16 @@ export default {
             "
             :class="['page', pageStates(n)]"
           >
-            <slot
-              name="page"
-              :page="page"
-            />
+            <slot name="page" :page="page" />
           </div>
         </div>
         <Gutter class="right">
-          <ControlNext
-            :disabled="!hasNextPage"
-            @click="next"
-          />
+          <ControlNext :disabled="!hasNextPage" @click="next" />
         </Gutter>
       </div>
-      <div
-        class="compact-controls"
-        role="group"
-        aria-label="Controls"
-      >
-        <ControlPrevious
-          :disabled="!hasPreviousPage"
-          @click="previous"
-        />
-        <ControlNext
-          :disabled="!hasNextPage"
-          @click="next"
-        />
+      <div class="compact-controls" role="group" aria-label="Controls">
+        <ControlPrevious :disabled="!hasPreviousPage" @click="previous" />
+        <ControlNext :disabled="!hasNextPage" @click="next" />
       </div>
       <div class="indicators">
         <a

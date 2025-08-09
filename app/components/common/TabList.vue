@@ -317,7 +317,7 @@ const emitChange = (id: string) => {
           class="tabnav-paddle tabnav-paddle-left"
           disabled
         >
-          <DynamicIcon
+          <Icon
             name="chevron.left"
             class="icon icon-sm"
           />
@@ -326,8 +326,8 @@ const emitChange = (id: string) => {
           class="tabnav-paddle tabnav-paddle-right"
           disabled
         >
-          <DynamicIcon
-            name="chevron.right"
+          <Icon
+            name="sf-symbols:chevron.right"
             class="icon icon-sm"
           />
         </button>

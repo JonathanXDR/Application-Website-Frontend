@@ -8,7 +8,7 @@
  * See https://swift.org/CONTRIBUTORS.txt for Swift project authors
  */
 
-import TabManager from 'docc-render/utils/TabManager'
+import TabManager from "docc-render/utils/TabManager";
 
 /**
  * Allows trapping focus inside a specified container.
@@ -17,68 +17,67 @@ import TabManager from 'docc-render/utils/TabManager'
  */
 export default class FocusTrap {
   /** @type HTMLElement */
-  focusContainer = null
+  focusContainer = null;
 
   /** @type [HTMLElement] */
-  tabTargets = []
+  tabTargets = [];
 
   /** @type HTMLElement */
-  firstTabTarget = null
+  firstTabTarget = null;
 
   /** @type HTMLElement */
-  lastTabTarget = null
+  lastTabTarget = null;
 
   /** @type HTMLElement | Element */
-  lastFocusedElement = null
+  lastFocusedElement = null;
 
   constructor(focusContainer) {
-    this.focusContainer = focusContainer
-    this.onFocus = this.onFocus.bind(this)
+    this.focusContainer = focusContainer;
+    this.onFocus = this.onFocus.bind(this);
   }
 
   updateFocusContainer(container) {
-    this.focusContainer = container
+    this.focusContainer = container;
   }
 
   /**
    * Starts the focus trap.
    */
   start() {
-    this.collectTabTargets()
+    this.collectTabTargets();
     // If the current active element is not in the container,
     // focus the first tab target available.
     if (this.firstTabTarget) {
       if (
         // check if the focus container does not contain the current element
-        !this.focusContainer.contains(document.activeElement)
+        !this.focusContainer.contains(document.activeElement) ||
         // or if if the current element should not be focusable (mouse click still focuses)
-        || !TabManager.isTabbableElement(document.activeElement)
+        !TabManager.isTabbableElement(document.activeElement)
       ) {
-        this.firstTabTarget.focus()
+        this.firstTabTarget.focus();
       }
-    }
-    else {
+    } else {
       console.warn(
-        'There are no focusable elements. FocusTrap needs at least one.',
-      )
+        "There are no focusable elements. FocusTrap needs at least one.",
+      );
     }
 
-    this.lastFocusedElement = document.activeElement
-    document.addEventListener('focus', this.onFocus, true)
+    this.lastFocusedElement = document.activeElement;
+    document.addEventListener("focus", this.onFocus, true);
   }
 
   stop() {
-    document.removeEventListener('focus', this.onFocus, true)
+    document.removeEventListener("focus", this.onFocus, true);
   }
 
   collectTabTargets() {
     // collect tab targets
-    this.tabTargets = TabManager.getTabbableElements(this.focusContainer)
+    this.tabTargets = TabManager.getTabbableElements(this.focusContainer);
     // set first tab target
 
-    this.firstTabTarget = this.tabTargets[0]
+    this.firstTabTarget = this.tabTargets[0];
     // set last tab target
-    this.lastTabTarget = this.tabTargets[this.tabTargets.length - 1]
+    this.lastTabTarget = this.tabTargets[this.tabTargets.length - 1];
   }
 
   /**
@@ -89,39 +88,38 @@ export default class FocusTrap {
     // if the focus target is contained within the `focusContainer`
     if (this.focusContainer.contains(event.target)) {
       // save as a recent focus target
-      this.lastFocusedElement = event.target
-    }
-    else {
+      this.lastFocusedElement = event.target;
+    } else {
       // the focus target is outside of the container, stop the event.
-      event.preventDefault()
-      this.collectTabTargets()
+      event.preventDefault();
+      this.collectTabTargets();
 
       if (
         // if we are at the end of the tabbing list
-        this.lastFocusedElement === this.lastTabTarget
+        this.lastFocusedElement === this.lastTabTarget ||
         // or there is was no focused element at all
-        || !this.lastFocusedElement
+        !this.lastFocusedElement ||
         // or the document no longer holds the reference to that element
-        || !document.contains(this.lastFocusedElement)
+        !document.contains(this.lastFocusedElement)
       ) {
-        this.firstTabTarget.focus()
-        this.lastFocusedElement = this.firstTabTarget
-        return
+        this.firstTabTarget.focus();
+        this.lastFocusedElement = this.firstTabTarget;
+        return;
       }
 
       if (this.lastFocusedElement === this.firstTabTarget) {
-        this.lastTabTarget.focus()
-        this.lastFocusedElement = this.lastTabTarget
+        this.lastTabTarget.focus();
+        this.lastFocusedElement = this.lastTabTarget;
       }
     }
   }
 
   destroy() {
-    this.stop()
-    this.focusContainer = null
-    this.tabTargets = []
-    this.firstTabTarget = null
-    this.lastTabTarget = null
-    this.lastFocusedElement = null
+    this.stop();
+    this.focusContainer = null;
+    this.tabTargets = [];
+    this.firstTabTarget = null;
+    this.lastTabTarget = null;
+    this.lastFocusedElement = null;
   }
 }

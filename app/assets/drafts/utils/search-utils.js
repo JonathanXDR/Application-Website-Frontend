@@ -11,9 +11,9 @@
 import {
   escapeRegExp,
   whiteSpaceIgnorantRegex,
-} from 'docc-render/utils/strings'
+} from "docc-render/utils/strings";
 
 export function safeHighlightPattern(text) {
-  const sanitizedText = whiteSpaceIgnorantRegex(escapeRegExp(text))
-  return new RegExp(sanitizedText, 'gi')
+  const sanitizedText = whiteSpaceIgnorantRegex(escapeRegExp(text));
+  return new RegExp(sanitizedText, "gi");
 }

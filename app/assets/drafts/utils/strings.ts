@@ -8,15 +8,15 @@
  * See https://swift.org/CONTRIBUTORS.txt for Swift project authors
  */
 
-import 'css.escape'
+import "css.escape";
 
 // characters that we want to replace by a dash to make them valid in the hash section
 // https://url.spec.whatwg.org/#fragment-percent-encode-set
-const NON_URL_CHARS_RE = /\s+|[`"<>]/g
-const INITIAL_DASH_RE = /^-+/
+const NON_URL_CHARS_RE = /\s+|[`"<>]/g;
+const INITIAL_DASH_RE = /^-+/;
 
 // characters to escape for safe usage in HTML
-const HTML_UNSAFE_RE = /["'&<>]/g
+const HTML_UNSAFE_RE = /["'&<>]/g;
 
 /**
  * Transforms a string into a valid anchor by removing all uppercase letters
@@ -26,42 +26,42 @@ const HTML_UNSAFE_RE = /["'&<>]/g
 export function anchorize(str: string): string {
   return str
     .trim()
-    .replace(NON_URL_CHARS_RE, '-')
-    .replace(INITIAL_DASH_RE, '')
-    .toLowerCase()
+    .replace(NON_URL_CHARS_RE, "-")
+    .replace(INITIAL_DASH_RE, "")
+    .toLowerCase();
 }
 
 export function escapeHtml(str: string): string {
   interface CharacterMap {
-    [character: string]: string
+    [character: string]: string;
   }
 
   const sanitize = (character: string): string =>
     (
       ({
-        '"': '&quot;',
-        '\'': '&apos;',
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
+        '"': "&quot;",
+        "'": "&apos;",
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
       }) as CharacterMap
-    )[character] || character
-  return str.replace(HTML_UNSAFE_RE, sanitize)
+    )[character] || character;
+  return str.replace(HTML_UNSAFE_RE, sanitize);
 }
 
 export const PluralCategory = {
-  zero: 'zero',
-  one: 'one',
-  two: 'two',
-  few: 'few',
-  many: 'many',
-  other: 'other',
-}
+  zero: "zero",
+  one: "one",
+  two: "two",
+  few: "few",
+  many: "many",
+  other: "other",
+};
 
 export const PluralRuleType = {
-  cardinal: 'cardinal',
-  ordinal: 'ordinal',
-}
+  cardinal: "cardinal",
+  ordinal: "ordinal",
+};
 
 // Escape URL hash fragments for use in CSS selectors, which is needed to
 // utilize vue-router support for linking to on-page elements when the ID value
@@ -79,7 +79,7 @@ export function cssEscapeTopicIdHash(hash: string): string {
   return hash.replace(
     /#(.*)/,
     (str: string, match: string): string => `#${CSS.escape(match)}`,
-  )
+  );
 }
 
 // Escape a string for use in a `RegExp`, which will escape any special regular
@@ -90,12 +90,12 @@ export function cssEscapeTopicIdHash(hash: string): string {
 // For more information, see:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Escaping
 export function escapeRegExp(str: string) {
-  return str.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')
+  return str.replace(/[.*+\-?^${}()|[\]\\]/g, "\\$&");
 }
 
 // Deletes spaces on any string
 export function deleteSpaces(str: string) {
-  return str.replace(/\s/g, '')
+  return str.replace(/\s/g, "");
 }
 
 /**
@@ -105,39 +105,37 @@ export function deleteSpaces(str: string) {
  * @return {string}
  */
 export function whiteSpaceIgnorantRegex(stringToSanitize: string): string {
-  let i
-  let char
-  const spaceMatch = '\\s*'
-  const singleSpace = ' '
+  let i;
+  let char;
+  const spaceMatch = "\\s*";
+  const singleSpace = " ";
 
   // If string is only spaces, return a single space.
   // Otherwise the resulting regex may have infinite matches.
-  const trimmedString = stringToSanitize.trim()
-  const len = trimmedString.length
-  if (!len) return singleSpace
+  const trimmedString = stringToSanitize.trim();
+  const len = trimmedString.length;
+  if (!len) return singleSpace;
 
-  const collector = []
+  const collector = [];
   // loop over each character
   for (i = 0; i < len; i += 1) {
-    char = trimmedString[i]
+    char = trimmedString[i];
     // if the character is an escape char, pass it and the next character
-    if (char === '\\') {
+    if (char === "\\") {
       // pass both escape char and char, with an empty space match before, only if not first char
-      collector.push(`${i === 0 ? '' : spaceMatch}${char}`)
-      collector.push(trimmedString[i + 1])
+      collector.push(`${i === 0 ? "" : spaceMatch}${char}`);
+      collector.push(trimmedString[i + 1]);
       // skip one character in next iteration
-      i += 1
-    }
-    else if (i === 0) {
+      i += 1;
+    } else if (i === 0) {
       // skip the first character, if its not a `\`
-      collector.push(char)
+      collector.push(char);
       // add anything else, but empty spaces
-    }
-    else if (char !== singleSpace) {
-      collector.push(`${spaceMatch}${char}`)
+    } else if (char !== singleSpace) {
+      collector.push(`${spaceMatch}${char}`);
     }
   }
-  return collector.join('')
+  return collector.join("");
 }
 
 /**
@@ -149,7 +147,7 @@ export function whiteSpaceIgnorantRegex(stringToSanitize: string): string {
  * @returns {string} The resulting string after insertion
  */
 export function insertAt(str: string, sub: string, pos: number = 0) {
-  return `${str.slice(0, pos)}${sub}${str.slice(pos)}`
+  return `${str.slice(0, pos)}${sub}${str.slice(pos)}`;
 }
 
 // Returns the first paragraph of the given text.
@@ -162,6 +160,6 @@ export function insertAt(str: string, sub: string, pos: number = 0) {
 // firstParagraph("abcdefghi") // "abcdefghi"
 // firstParagraph("abc\ndef\nghi") // "abc"
 export function firstParagraph(text: string): string | undefined {
-  const paragraphs = text.split(/(?:\r?\n)+/)
-  return paragraphs[0]
+  const paragraphs = text.split(/(?:\r?\n)+/);
+  return paragraphs[0];
 }

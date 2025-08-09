@@ -25,8 +25,8 @@ const { randomDevColor } = useColor()
       class="changesnav-totals"
     >
       <div class="changed-total">
-        <DynamicIcon
-          name="pin.fill"
+        <Icon
+          name="sf-symbols:pin.fill"
           weight="small"
           :colors="{
             primary: `var(--color-figure-${randomDevColor?.name})`,

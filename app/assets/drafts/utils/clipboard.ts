@@ -14,12 +14,11 @@
  * @return {object | null}
  */
 export function parseDataFromClipboard(payload: string): object | null {
-  const match = payload.match(/<data [^>]*id="copy-data"[^>]*>(.*?)<\/data>/)
+  const match = payload.match(/<data [^>]*id="copy-data"[^>]*>(.*?)<\/data>/);
   try {
-    return match && match[1] ? JSON.parse(match[1]) : null
-  }
-  catch {
-    return null
+    return match && match[1] ? JSON.parse(match[1]) : null;
+  } catch {
+    return null;
   }
 }
 
@@ -29,8 +28,8 @@ export function parseDataFromClipboard(payload: string): object | null {
  * @return {string}
  */
 export function prepareDataForHTMLClipboard(payload: string | object): string {
-  if (typeof payload !== 'string') {
-    payload = JSON.stringify(payload)
+  if (typeof payload !== "string") {
+    payload = JSON.stringify(payload);
   }
-  return `<data id="copy-data">${payload}</data>`
+  return `<data id="copy-data">${payload}</data>`;
 }

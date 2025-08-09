@@ -25,7 +25,7 @@ const socialLinks = computed<LinkItemType[]>(() =>
           target="_blank"
           external
         >
-          <DynamicIcon
+          <Icon
             v-if="link.icon"
             :name="link.icon?.name"
             size="17px"

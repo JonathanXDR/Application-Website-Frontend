@@ -16,29 +16,27 @@
 export function getSelectionText(): string {
   if (window.getSelection) {
     try {
-      const { activeElement } = document
+      const { activeElement } = document;
       if (activeElement instanceof HTMLInputElement) {
         // firefox bug https://bugzilla.mozilla.org/show_bug.cgi?id=85686
         return activeElement.value.substring(
           activeElement.selectionStart ?? 0,
           activeElement.selectionEnd ?? 0,
-        )
+        );
       }
-      return window.getSelection?.toString()
+      return window.getSelection?.toString();
+    } catch (e) {
+      return "";
     }
-    catch (e) {
-      return ''
-    }
-  }
-  else if (
-    document.getSelection
-    && document.getSelection()?.type !== 'Control'
+  } else if (
+    document.getSelection &&
+    document.getSelection()?.type !== "Control"
   ) {
     // For IE
-    const selection = document.getSelection()
-    return selection ? selection.toString() : ''
+    const selection = document.getSelection();
+    return selection ? selection.toString() : "";
   }
-  return ''
+  return "";
 }
 
 /**
@@ -46,11 +44,10 @@ export function getSelectionText(): string {
  * Moves a cursor to the end of an input
  */
 export function moveCursorToEnd(el: HTMLInputElement): void {
-  if (typeof el.selectionStart === 'number') {
-    el.selectionStart = el.selectionEnd = el.value.length
-  }
-  else if (typeof el.setRangeText !== 'undefined') {
-    el.focus()
+  if (typeof el.selectionStart === "number") {
+    el.selectionStart = el.selectionEnd = el.value.length;
+  } else if (typeof el.setRangeText !== "undefined") {
+    el.focus();
     // const range = el.setRangeText
     // range.collapse(false)
     // range.select()
@@ -60,9 +57,9 @@ export function moveCursorToEnd(el: HTMLInputElement): void {
  * Moves a cursor to the start of an input
  */
 export function moveCursorToStart(el: HTMLInputElement): void {
-  el.selectionStart = el.selectionEnd = 0
+  el.selectionStart = el.selectionEnd = 0;
 }
 
 export function isSingleCharacter(key: string): boolean {
-  return /^[\s\S]$/.test(key)
+  return /^[\s\S]$/.test(key);
 }

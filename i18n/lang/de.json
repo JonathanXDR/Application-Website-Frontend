@@ -55,7 +55,7 @@
               "title": "Mehr erfahren",
               "url": "https://github.com/JonathanXDR/Application-Website-Frontend/compare/{previousTag}...{latestTag}",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -67,7 +67,7 @@
               "title": "Mehr erfahren",
               "url": "/projects",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -79,7 +79,7 @@
               "title": "Mehr erfahren",
               "url": "/technologies",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -92,7 +92,7 @@
             "category": "theme",
             "label": "Hell",
             "icon": {
-              "name": "sun.max.fill"
+              "name": "sf-symbols:sun.max.fill"
             }
           },
           {
@@ -100,7 +100,7 @@
             "category": "theme",
             "label": "Dunkel",
             "icon": {
-              "name": "moon.fill"
+              "name": "sf-symbols:moon.fill"
             }
           },
           {
@@ -108,7 +108,7 @@
             "category": "theme",
             "label": "Auto",
             "icon": {
-              "name": "circle.lefthalf.filled"
+              "name": "sf-symbols:circle.lefthalf.filled"
             }
           }
         ],
@@ -118,7 +118,7 @@
             "category": "projects",
             "label": "Swisscom",
             "icon": {
-              "name": "building.2.fill"
+              "name": "sf-symbols:building.2.fill"
             }
           },
           {
@@ -126,7 +126,7 @@
             "category": "projects",
             "label": "Persönlich",
             "icon": {
-              "name": "person.fill"
+              "name": "sf-symbols:person.fill"
             }
           },
           {
@@ -134,7 +134,7 @@
             "category": "projects",
             "label": "Schule",
             "icon": {
-              "name": "graduationcap.fill"
+              "name": "sf-symbols:graduationcap.fill"
             }
           }
         ],
@@ -144,7 +144,7 @@
             "category": "technologies",
             "label": "Sprache",
             "icon": {
-              "name": "bubble.fill"
+              "name": "sf-symbols:bubble.fill"
             }
           },
           {
@@ -152,7 +152,7 @@
             "category": "technologies",
             "label": "Bibliothek",
             "icon": {
-              "name": "books.vertical.fill"
+              "name": "sf-symbols:books.vertical.fill"
             }
           },
           {
@@ -160,7 +160,7 @@
             "category": "technologies",
             "label": "Runtime",
             "icon": {
-              "name": "gear"
+              "name": "sf-symbols:gear"
             }
           },
           {
@@ -168,7 +168,7 @@
             "category": "technologies",
             "label": "Framework",
             "icon": {
-              "name": "inset.filled.square.dashed"
+              "name": "sf-symbols:inset.filled.square.dashed"
             }
           },
           {
@@ -176,7 +176,7 @@
             "category": "technologies",
             "label": "Container Management",
             "icon": {
-              "name": "shippingbox.fill"
+              "name": "sf-symbols:shippingbox.fill"
             }
           },
           {
@@ -184,7 +184,7 @@
             "category": "technologies",
             "label": "ORM",
             "icon": {
-              "name": "gear"
+              "name": "sf-symbols:gear"
             }
           }
         ]
@@ -403,7 +403,7 @@
       "references": [
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Aktueller Vorgesetzter",
           "title": "Patrice Stampfli",
@@ -415,7 +415,7 @@
         },
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Ehemaliger Vorgesetzter",
           "title": "Steve Hess",
@@ -427,7 +427,7 @@
         },
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Ehemaliger Projektanbieter",
           "title": "Nick Zimmermann",
@@ -437,7 +437,7 @@
               "title": "Mehr erfahren",
               "url": "https://nickzimmermann.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ],
@@ -448,7 +448,7 @@
         },
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Ehemaliger Projektanbieter",
           "title": "Alessio Iantosca",
@@ -460,7 +460,7 @@
         },
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Ehemaliger Projektanbieter",
           "title": "Carlo Schmid",
@@ -472,7 +472,7 @@
         },
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Aktueller Projektanbieter",
           "title": "Kim Eggler",
@@ -482,7 +482,7 @@
               "title": "Mehr erfahren",
               "url": "https://retrostories.ch",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ],
@@ -493,7 +493,7 @@
         },
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Vorgesetze Fachkrat IPA",
           "title": "Micha Humbel",
@@ -505,7 +505,7 @@
         },
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Ehemaliger Projektanbieter",
           "title": "Radu Margineanu",
@@ -517,7 +517,7 @@
         },
         {
           "icon": {
-            "name": "person.fill"
+            "name": "sf-symbols:person.fill"
           },
           "eyebrow": "Ehemaliger Projektanbieter",
           "title": "Oliver Kramer",
@@ -592,7 +592,7 @@
               "title": "Mehr erfahren",
               "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -629,7 +629,7 @@
               "title": "Mehr erfahren",
               "url": "https://developer.mozilla.org/en-US/docs/Web/CSS",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -666,7 +666,7 @@
               "title": "Mehr erfahren",
               "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -700,7 +700,7 @@
               "title": "Mehr erfahren",
               "url": "https://sdx.swisscom.ch",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -737,7 +737,7 @@
               "title": "Mehr erfahren",
               "url": "https://nodejs.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -771,7 +771,7 @@
               "title": "Mehr erfahren",
               "url": "https://developer.mozilla.org/en-US/docs/Glossary/SQL",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -808,7 +808,7 @@
               "title": "Mehr erfahren",
               "url": "https://expressjs.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -845,7 +845,7 @@
               "title": "Mehr erfahren",
               "url": "https://vuejs.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -882,7 +882,7 @@
               "title": "Mehr erfahren",
               "url": "https://typescriptlang.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -916,7 +916,7 @@
               "title": "Mehr erfahren",
               "url": "https://docs.microsoft.com/en-us/dotnet/csharp",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -950,7 +950,7 @@
               "title": "Mehr erfahren",
               "url": "https://java.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -984,7 +984,7 @@
               "title": "Mehr erfahren",
               "url": "https://gnu.org/software/bash",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1024,7 +1024,7 @@
               "title": "Mehr erfahren",
               "url": "https://reactjs.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1064,7 +1064,7 @@
               "title": "Mehr erfahren",
               "url": "https://nextjs.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1098,7 +1098,7 @@
               "title": "Mehr erfahren",
               "url": "https://docker.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1132,7 +1132,7 @@
               "title": "Mehr erfahren",
               "url": "https://kubernetes.io",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1172,7 +1172,7 @@
               "title": "Mehr erfahren",
               "url": "https://nestjs.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1209,7 +1209,7 @@
               "title": "Mehr erfahren",
               "url": "https://prisma.io",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1246,7 +1246,7 @@
               "title": "Mehr erfahren",
               "url": "https://typeorm.io",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1286,7 +1286,7 @@
               "title": "Mehr erfahren",
               "url": "https://primer.style",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1326,7 +1326,7 @@
               "title": "Mehr erfahren",
               "url": "https://tailwindcss.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1360,7 +1360,7 @@
               "title": "Mehr erfahren",
               "url": "https://python.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1397,7 +1397,7 @@
               "title": "Mehr erfahren",
               "url": "https://kotlinlang.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1434,7 +1434,7 @@
               "title": "Mehr erfahren",
               "url": "https://developer.android.com/compose",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1477,7 +1477,7 @@
               "title": "Mehr erfahren",
               "url": "https://m3.material.io",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1517,7 +1517,7 @@
               "title": "Mehr erfahren",
               "url": "https://nuxt.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1557,7 +1557,7 @@
               "title": "Mehr erfahren",
               "url": "https://angular.io",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1594,7 +1594,7 @@
               "title": "Mehr erfahren",
               "url": "https://bun.sh",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1634,7 +1634,7 @@
               "title": "Mehr erfahren",
               "url": "https://scala-lang.org",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ]
@@ -1643,7 +1643,7 @@
       "projects": [
         {
           "icon": {
-            "name": "airplane.departure"
+            "name": "sf-symbols:airplane.departure"
           },
           "eyebrow": "Einführung",
           "title": "NEX First Steps",
@@ -1676,7 +1676,7 @@
         },
         {
           "icon": {
-            "name": "chevron.left.forwardslash.chevron.right"
+            "name": "sf-symbols:chevron.left.forwardslash.chevron.right"
           },
           "eyebrow": "Full-Stack",
           "title": "Competence Center NexCC",
@@ -1751,7 +1751,7 @@
         },
         {
           "icon": {
-            "name": "clock.arrow.trianglehead.2.counterclockwise.rotate.90"
+            "name": "sf-symbols:clock.arrow.trianglehead.2.counterclockwise.rotate.90"
           },
           "eyebrow": "Automation",
           "title": "Automatisierungsprojekte im Banking Bereich",
@@ -1796,7 +1796,7 @@
         },
         {
           "icon": {
-            "name": "display",
+            "name": "sf-symbols:display",
             "colors": {
               "tertiary": "none"
             }
@@ -1841,14 +1841,14 @@
               "title": "Apps Team",
               "url": "https://appsteam.swisscom.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             },
             {
               "title": "Indigo online",
               "url": "https://indigo.online",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ],
@@ -1866,7 +1866,7 @@
         },
         {
           "icon": {
-            "name": "gear"
+            "name": "sf-symbols:gear"
           },
           "eyebrow": "Backend",
           "title": "Apps Team",
@@ -1935,14 +1935,14 @@
               "title": "Apps Team",
               "url": "https://appsteam.swisscom.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             },
             {
               "title": "Indigo online",
               "url": "https://indigo.online",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ],
@@ -1960,7 +1960,7 @@
         },
         {
           "icon": {
-            "name": "shield.lefthalf.filled"
+            "name": "sf-symbols:shield.lefthalf.filled"
           },
           "eyebrow": "Security Journey",
           "title": "Security & Compliance Services ART",
@@ -2020,7 +2020,7 @@
         },
         {
           "icon": {
-            "name": "shield.lefthalf.filled"
+            "name": "sf-symbols:shield.lefthalf.filled"
           },
           "eyebrow": "Security Journey",
           "title": "Piz Tofana Tooling Team",
@@ -2068,7 +2068,7 @@
         },
         {
           "icon": {
-            "name": "airplane.arrival"
+            "name": "sf-symbols:airplane.arrival"
           },
           "eyebrow": "Full-Stack",
           "title": "Apps Team (IPA)",
@@ -2107,14 +2107,14 @@
               "title": "Apps Team",
               "url": "https://appsteam.swisscom.com",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             },
             {
               "title": "Indigo online",
               "url": "https://indigo.online",
               "icon": {
-                "name": "chevron.right"
+                "name": "sf-symbols:chevron.right"
               }
             }
           ],
@@ -2139,7 +2139,7 @@
       "label": "Seite nicht gefunden",
       "statusCode": 404,
       "icon": {
-        "name": "exclamationmark.triangle.fill",
+        "name": "sf-symbols:exclamationmark.triangle.fill",
         "colors": {
           "primary": "var(--color-fill)",
           "tertiary": "var(--color-system-yellow)"
@@ -2153,7 +2153,7 @@
       "label": "Interner Serverfehler",
       "statusCode": 500,
       "icon": {
-        "name": "exclamationmark.octagon.fill",
+        "name": "sf-symbols:exclamationmark.octagon.fill",
         "colors": {
           "primary": "var(--color-fill)",
           "tertiary": "var(--color-system-red)"
@@ -2167,7 +2167,7 @@
       "label": "Service nicht verfügbar",
       "statusCode": 503,
       "icon": {
-        "name": "wrench.and.screwdriver.fill",
+        "name": "sf-symbols:wrench.and.screwdriver.fill",
         "colors": {
           "primary": "var(--color-system-blue)",
           "secondary": "var(--color-system-blue)"
@@ -2180,7 +2180,7 @@
       "id": "error",
       "label": "Fehler",
       "icon": {
-        "name": "exclamationmark.octagon.fill",
+        "name": "sf-symbols:exclamationmark.octagon.fill",
         "colors": {
           "primary": "var(--color-system-red)"
         }

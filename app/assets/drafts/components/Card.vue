@@ -9,19 +9,19 @@
 -->
 
 <script>
-import ButtonLink from '~/assets/drafts/components/ButtonLink.vue'
-import CardCover from '~/assets/drafts/components/CardCover.vue'
-import DiagonalArrowIcon from '~/assets/drafts/components/Icon/DiagonalArrow.vue'
-import InlineChevronRightIcon from '~/assets/drafts/components/Icon/InlineChevronRight.vue'
+import ButtonLink from "~/assets/drafts/components/ButtonLink.vue";
+import CardCover from "~/assets/drafts/components/CardCover.vue";
+import DiagonalArrowIcon from "~/assets/drafts/components/Icon/DiagonalArrow.vue";
+import InlineChevronRightIcon from "~/assets/drafts/components/Icon/InlineChevronRight.vue";
 
 const CardSize = {
-  small: 'small',
-  large: 'large',
-}
+  small: "small",
+  large: "large",
+};
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Card',
+  name: "Card",
   components: {
     DiagonalArrowIcon,
     InlineChevronRightIcon,
@@ -39,7 +39,7 @@ export default {
     url: {
       type: String,
       required: false,
-      default: '',
+      default: "",
     },
     eyebrow: {
       type: String,
@@ -51,7 +51,7 @@ export default {
     },
     size: {
       type: String,
-      validator: s => Object.prototype.hasOwnProperty.call(CardSize, s),
+      validator: (s) => Object.prototype.hasOwnProperty.call(CardSize, s),
     },
     title: {
       type: String,
@@ -71,7 +71,7 @@ export default {
     },
     formatAriaLabel: {
       type: Function,
-      default: v => v,
+      default: (v) => v,
     },
   },
   computed: {
@@ -79,29 +79,24 @@ export default {
     contentId: ({ _uid }) => `card_content_${_uid}`,
     eyebrowId: ({ _uid }) => `card_eyebrow_${_uid}`,
     linkAriaTags: ({ titleId, eyebrowId, contentId, eyebrow, $slots }) => ({
-      'aria-labelledby': titleId.concat(eyebrow ? ` ${eyebrowId}` : ''),
-      'aria-describedby': $slots.default ? `${contentId}` : null,
+      "aria-labelledby": titleId.concat(eyebrow ? ` ${eyebrowId}` : ""),
+      "aria-describedby": $slots.default ? `${contentId}` : null,
     }),
     classes: ({ size, floatingStyle }) => [
       size,
       {
-        'floating-style': floatingStyle,
+        "floating-style": floatingStyle,
       },
     ],
     imageReference: ({ image, references }) => references[image] || {},
     imageVariants: ({ imageReference }) => imageReference.variants || [],
   },
-}
+};
 </script>
 
 <template>
   <!-- <div> or <a> -->
-  <a
-    class="card"
-    :url="url"
-    :class="classes"
-    v-bind="linkAriaTags"
-  >
+  <a class="card" :url="url" :class="classes" v-bind="linkAriaTags">
     <CardCover
       v-slot="coverProps"
       :variants="imageVariants"
@@ -109,15 +104,9 @@ export default {
       :alt="imageReference.alt"
       aria-hidden="true"
     >
-      <slot
-        name="cover"
-        v-bind="coverProps"
-      />
+      <slot name="cover" v-bind="coverProps" />
     </CardCover>
-    <div
-      class="details"
-      aria-hidden="true"
-    >
+    <div class="details" aria-hidden="true">
       <div
         v-if="eyebrow"
         :id="eyebrowId"
@@ -126,17 +115,10 @@ export default {
       >
         {{ eyebrow }}
       </div>
-      <div
-        :id="titleId"
-        class="title"
-      >
+      <div :id="titleId" class="title">
         {{ title }}
       </div>
-      <div
-        v-if="$slots.default"
-        :id="contentId"
-        class="card-content"
-      >
+      <div v-if="$slots.default" :id="contentId" class="card-content">
         <slot />
       </div>
       <component

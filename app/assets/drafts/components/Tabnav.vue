@@ -9,29 +9,29 @@
 -->
 
 <script>
-const ProvideKey = 'tabnavData'
+const ProvideKey = "tabnavData";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Tabnav',
+  name: "Tabnav",
   constants: { ProvideKey },
   provide() {
     const tabnavData = {
       selectTab: this.selectTab,
-    }
+    };
     // allows passing the `value` prop as a reactive property
-    Object.defineProperty(tabnavData, 'activeTab', {
+    Object.defineProperty(tabnavData, "activeTab", {
       enumerable: true,
       get: () => this.value,
-    })
+    });
     return {
       [ProvideKey]: tabnavData,
-    }
+    };
   },
   props: {
     position: {
       type: String,
       required: false,
-      validator: v => new Set(['start', 'center', 'end']).has(v),
+      validator: (v) => new Set(["start", "center", "end"]).has(v),
     },
     vertical: {
       type: Boolean,
@@ -42,13 +42,13 @@ export default {
       required: true,
     },
   },
-  emits: ['input'],
+  emits: ["input"],
   methods: {
     selectTab(value) {
-      this.$emit('input', value)
+      this.$emit("input", value);
     },
   },
-}
+};
 </script>
 
 <template>

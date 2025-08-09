@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'TabnavItem',
+  name: "TabnavItem",
   inject: {
     tabnavData: {
       default: { activeTab: null, selectTab: () => {} },
@@ -24,10 +24,10 @@ export default {
   },
   computed: {
     isActive({ tabnavData, value }) {
-      return tabnavData.activeTab === value
+      return tabnavData.activeTab === value;
     },
   },
-}
+};
 </script>
 
 <template>

@@ -89,7 +89,7 @@ const linkCollectionLinks = computed(
       {
         title: t('components.common.CardItem.learnMore'),
         url: props.html_url,
-        icon: { name: 'chevron.right' },
+        icon: { name: 'sf-symbols:chevron.right' },
       },
     ],
 )
@@ -258,14 +258,14 @@ watch(colorMode, () => {
           class="flex justify-center items-center p-2 rounded-lg"
           :style="iconWrapperStyle"
         >
-          <DynamicIcon
+          <Icon
             v-bind="icon"
             :loading
             :class="iconClass"
             :style="{ color: icon.colors?.primary }"
           />
         </div>
-        <DynamicIcon
+        <Icon
           v-else
           v-bind="icon"
           :loading

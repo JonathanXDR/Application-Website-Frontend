@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { Repository } from '@octokit/graphql-schema'
 import type { CardRepositoryType } from '#shared/types/common/card-repository'
 import type { ItemType } from '#shared/types/common/item'
 import type { CardItemType } from '#shared/types/components/card-item'
 import type { IconItemType } from '#shared/types/components/icon-item'
 import type { MinimalRepository } from '#shared/types/services/github/repository'
+import type { Repository } from '@octokit/graphql-schema'
 
 type PinnedRepository = Repository & {
   icon?: IconItemType
@@ -153,7 +153,7 @@ watch(
     if (!pinnedProjectsNew) return
     for (const project of pinnedProjectsNew) {
       project.icon = {
-        name: 'pin.fill',
+        name: 'sf-symbols:pin.fill',
         colors: {
           primary: `var(--color-figure-${randomDevColor.value?.name})`,
         },

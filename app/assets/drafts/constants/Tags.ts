@@ -8,23 +8,23 @@
  * See https://swift.org/CONTRIBUTORS.txt for Swift project authors
  */
 
-import { ChangeNames } from '~/assets/drafts/constants/Changes'
-import { TopicTypes } from '~/assets/drafts/constants/TopicTypes'
+import { ChangeNames } from "~/assets/drafts/constants/Changes";
+import { TopicTypes } from "~/assets/drafts/constants/TopicTypes";
 
 export const TYPE_TAGS = {
-  sampleCode: 'filter.tags.sample-code',
-  tutorials: 'filter.tags.tutorials',
-  articles: 'filter.tags.articles',
-  webServiceEndpoints: 'filter.tags.web-service-endpoints',
-}
+  sampleCode: "filter.tags.sample-code",
+  tutorials: "filter.tags.tutorials",
+  articles: "filter.tags.articles",
+  webServiceEndpoints: "filter.tags.web-service-endpoints",
+};
 
-export const CHANGES_TAGS = ChangeNames
+export const CHANGES_TAGS = ChangeNames;
 
 export const FILTER_TAGS = {
   ...TYPE_TAGS,
   ...CHANGES_TAGS,
-  hideDeprecated: 'filter.tags.hide-deprecated',
-}
+  hideDeprecated: "filter.tags.hide-deprecated",
+};
 
 export const TOPIC_TYPE_TO_TAG = {
   [TopicTypes.article]: FILTER_TAGS.articles,
@@ -36,4 +36,4 @@ export const TOPIC_TYPE_TO_TAG = {
   [TopicTypes.tutorial]: FILTER_TAGS.tutorials,
   [TopicTypes.project]: FILTER_TAGS.tutorials,
   [TopicTypes.httpRequest]: FILTER_TAGS.webServiceEndpoints,
-}
+};

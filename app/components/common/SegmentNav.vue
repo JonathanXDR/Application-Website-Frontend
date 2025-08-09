@@ -161,7 +161,7 @@ useResizeObserver(navContainer, () => {
                 fontSize: `${fontSize}px`,
               }"
             >
-              <DynamicIcon
+              <Icon
                 v-if="item.icon && label !== 'text'"
                 :name="item.icon.name"
                 class="icon icon-lg"

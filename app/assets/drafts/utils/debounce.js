@@ -17,33 +17,33 @@
  * @returns {Function} A debounced version of the passed function that delays its execution
  */
 export default function debounce(fn, delay, atStart, guarantee) {
-  let timeout
-  let self
+  let timeout;
+  let self;
 
   return function debounced(...args) {
-    self = this
+    self = this;
 
     function clear() {
-      clearTimeout(timeout)
-      timeout = null
+      clearTimeout(timeout);
+      timeout = null;
     }
 
     function run() {
-      clear()
-      fn.apply(self, args)
+      clear();
+      fn.apply(self, args);
     }
 
     if (timeout && (atStart || guarantee)) {
-      return
+      return;
     }
     if (!atStart) {
-      clear()
+      clear();
 
-      timeout = setTimeout(run, delay)
-      return
+      timeout = setTimeout(run, delay);
+      return;
     }
 
-    timeout = setTimeout(clear, delay)
-    fn.apply(self, args)
-  }
+    timeout = setTimeout(clear, delay);
+    fn.apply(self, args);
+  };
 }

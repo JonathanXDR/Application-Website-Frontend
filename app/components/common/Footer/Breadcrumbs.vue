@@ -30,7 +30,7 @@ const { shouldShowBreadcrumbs, computedLinks, requestURL, route }
       :to="requestURL.host?.split('.').slice(-2).join('.')"
       class="home footer-breadcrumbs-home"
     >
-      <DynamicIcon
+      <Icon
         v-if="icon"
         v-bind="icon"
         :loading

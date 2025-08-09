@@ -73,7 +73,7 @@ const toggleOpen = useToggle(open)
       class="w-full flex items-start gap-3"
       :style="{ overflowWrap: 'anywhere' }"
     >
-      <DynamicIcon
+      <Icon
         v-if="icon.variant === 'default' || (icon.variant === 'custom' && icon)"
         class="icon icon-md m-1"
         :name="icon.variant === 'custom' ? icon?.name : icons[variant].name"

@@ -33,7 +33,7 @@ const description = currentPage.value.description?.split('. ')
               data-analytics-id="rs-covers-media"
               class="rc-videoplayer rs-covers-media-wrapper rc-videoplayer-muted rc-videoplayer-stalled rc-videoplayer-medium"
             >
-              <DynamicIcon
+              <Icon
                 v-if="currentPage.icon"
                 v-bind="currentPage.icon"
                 class="rs-covers-media-icon media-icon"

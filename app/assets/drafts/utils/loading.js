@@ -15,26 +15,25 @@
  */
 
 export function waitFrames(numFrames) {
-  let resolve = null
-  let framesLeft = numFrames - 1
+  let resolve = null;
+  let framesLeft = numFrames - 1;
   // eslint-disable-next-line promise/param-names
   const promise = new Promise((res) => {
-    resolve = res
-  })
+    resolve = res;
+  });
   requestAnimationFrame(function loop() {
-    framesLeft -= 1
+    framesLeft -= 1;
     if (framesLeft <= 0) {
-      resolve()
+      resolve();
+    } else {
+      requestAnimationFrame(loop);
     }
-    else {
-      requestAnimationFrame(loop)
-    }
-  })
-  return promise
+  });
+  return promise;
 }
 
 export function waitFor(ms) {
   return new Promise((resolve) => {
-    setTimeout(resolve, ms)
-  })
+    setTimeout(resolve, ms);
+  });
 }

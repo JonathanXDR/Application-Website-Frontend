@@ -12,10 +12,10 @@ import {
   FILTER_TAGS,
   TOPIC_TYPE_TO_TAG,
   TYPE_TAGS,
-} from '~/assets/drafts/constants/Tags'
+} from "~/assets/drafts/constants/Tags";
 
 export default {
-  name: 'TagsDataProvider',
+  name: "TagsDataProvider",
   constants: {
     TOPIC_TYPE_TO_TAG,
   },
@@ -36,8 +36,8 @@ export default {
       extractTags,
     }) => extractTags(renderableChildNodesMap, apiChangesObject),
     suggestedTags({ availableTags, selectedTags, hideAvailableTags }) {
-      if (hideAvailableTags || selectedTags.length) return []
-      return availableTags
+      if (hideAvailableTags || selectedTags.length) return [];
+      return availableTags;
     },
     translatableTags: ({ availableTags }) => [
       FILTER_TAGS.hideDeprecated,
@@ -46,62 +46,61 @@ export default {
   },
   methods: {
     extractTags(nodes, apiChanges) {
-      const possibleTags = new Set(Object.values(TYPE_TAGS))
+      const possibleTags = new Set(Object.values(TYPE_TAGS));
       // create categories to order the availableTags
       const availableTags = {
         type: [],
         changes: [],
         other: [],
-      }
+      };
 
-      const availableApiChanges = new Set(Object.values(apiChanges))
+      const availableApiChanges = new Set(Object.values(apiChanges));
       if (availableApiChanges.size) {
         // only add change tag option if it's present
         availableApiChanges.forEach((changeType) => {
-          possibleTags.add(FILTER_TAGS[changeType])
-        })
-      }
-      else {
+          possibleTags.add(FILTER_TAGS[changeType]);
+        });
+      } else {
         // when API changes are not available, add hide deprecated option
-        possibleTags.add(FILTER_TAGS.hideDeprecated)
+        possibleTags.add(FILTER_TAGS.hideDeprecated);
       }
 
       // iterate over the nodes to render
       for (const childID in nodes) {
         if (!Object.hasOwnProperty.call(nodes, childID)) {
-          continue
+          continue;
         }
         // if there are no more tags to iterate over, end early
         if (!possibleTags.size) {
-          break
+          break;
         }
         // extract props
-        const { type, path, deprecated } = nodes[childID]
+        const { type, path, deprecated } = nodes[childID];
 
         // add type tag if not already added
-        const tag = TOPIC_TYPE_TO_TAG[type]
+        const tag = TOPIC_TYPE_TO_TAG[type];
         if (tag && possibleTags.has(tag)) {
           // if we have a match, store it
-          availableTags.type.push(tag)
+          availableTags.type.push(tag);
           // remove the match, so we can end the filter early
-          possibleTags.delete(tag)
+          possibleTags.delete(tag);
         }
 
         // add change tag
-        const changeType = apiChanges[path]
+        const changeType = apiChanges[path];
         if (changeType && possibleTags.has(FILTER_TAGS[changeType])) {
-          availableTags.changes.push(FILTER_TAGS[changeType])
-          possibleTags.delete(FILTER_TAGS[changeType])
+          availableTags.changes.push(FILTER_TAGS[changeType]);
+          possibleTags.delete(FILTER_TAGS[changeType]);
         }
 
         // add hide deprecated tag if there exists deprecated symbols
         // and API change is off
         if (deprecated && possibleTags.has(FILTER_TAGS.hideDeprecated)) {
-          availableTags.other.push(FILTER_TAGS.hideDeprecated)
-          possibleTags.delete(FILTER_TAGS.hideDeprecated)
+          availableTags.other.push(FILTER_TAGS.hideDeprecated);
+          possibleTags.delete(FILTER_TAGS.hideDeprecated);
         }
       }
-      return Object.values(availableTags).flat()
+      return Object.values(availableTags).flat();
     },
   },
-}
+};

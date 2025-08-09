@@ -1,5 +1,6 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import { NuxtIcon, SFSymbol } from '#components'
+import { NuxtIcon } from '#components'
 import type { IconItemType } from '#shared/types/components/icon-item'
 
 const props = withDefaults(defineProps<IconItemType>(), {
@@ -12,18 +13,27 @@ const props = withDefaults(defineProps<IconItemType>(), {
   }),
 })
 
-const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
-
-const component = computed(() => {
-  return props.name && sfSymbolRegex.test(props.name) ? SFSymbol : NuxtIcon
-})
+const customize = (content: string) => {
+  return content
+    .replace(/var\(--color-primary\)/g, props.colors.primary || 'currentColor')
+    .replace(
+      /var\(--color-secondary\)/g,
+      props.colors.secondary || 'currentColor',
+    )
+    .replace(
+      /var\(--color-tertiary\)/g,
+      props.colors.tertiary || 'currentColor',
+    )
+}
 </script>
 
 <template>
   <template v-if="!loading && name">
-    <component
-      :is="component"
+    <NuxtIcon
       v-bind="props"
+      mode="svg"
+      :name
+      :customize
     />
   </template>
 </template>

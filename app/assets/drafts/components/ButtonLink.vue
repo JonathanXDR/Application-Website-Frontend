@@ -9,10 +9,10 @@
 -->
 
 <script>
-import Reference from '~/assets/drafts/components/ContentNode/Reference.vue'
+import Reference from "~/assets/drafts/components/ContentNode/Reference.vue";
 
 export default {
-  name: 'ButtonLink',
+  name: "ButtonLink",
   components: {
     Reference,
   },
@@ -27,10 +27,10 @@ export default {
     },
   },
   computed: {
-    resolvedComponent: ({ url }) => (url ? Reference : 'button'),
+    resolvedComponent: ({ url }) => (url ? Reference : "button"),
     componentProps: ({ url }) => (url ? { url } : {}),
   },
-}
+};
 </script>
 
 <template>

@@ -10,17 +10,17 @@
 
 <script>
 const VARIANT_TEXT = {
-  beta: 'aside-kind.beta',
-  deprecated: 'aside-kind.deprecated',
-}
+  beta: "aside-kind.beta",
+  deprecated: "aside-kind.deprecated",
+};
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Badge',
+  name: "Badge",
   props: {
     variant: {
       type: String,
-      default: () => '',
+      default: () => "",
     },
   },
 
@@ -32,7 +32,7 @@ export default {
      */
     text: ({ variant }) => VARIANT_TEXT[variant],
   },
-}
+};
 </script>
 
 <template>

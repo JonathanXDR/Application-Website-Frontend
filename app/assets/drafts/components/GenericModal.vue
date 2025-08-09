@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useFocusTrap } from '@vueuse/integrations'
+import { useFocusTrap } from "@vueuse/integrations";
 
 const props = withDefaults(
   defineProps<{
-    visible: boolean
-    isFullscreen: boolean
-    width: string | undefined
-    showClose: boolean
+    visible: boolean;
+    isFullscreen: boolean;
+    width: string | undefined;
+    showClose: boolean;
   }>(),
   {
     visible: false,
@@ -14,113 +14,102 @@ const props = withDefaults(
     width: undefined,
     showClose: true,
   },
-)
+);
 
-const emit = defineEmits(['update:visible', 'close', 'open'])
+const emit = defineEmits(["update:visible", "close", "open"]);
 
-const { t } = useI18n()
-const isVisible = ref(props.visible)
+const { t } = useI18n();
+const isVisible = ref(props.visible);
 watch(
   () => props.visible,
   (val) => {
-    isVisible.value = val
+    isVisible.value = val;
   },
-)
+);
 watch(isVisible, (val) => {
-  emit('update:visible', val)
-})
+  emit("update:visible", val);
+});
 
-const container = ref<HTMLElement | null>(null)
-const content = ref<HTMLElement | null>(null)
-const closeBtn = ref<HTMLElement | null>(null)
-let lastFocusItem: HTMLElement | null = null
+const container = ref<HTMLElement | null>(null);
+const content = ref<HTMLElement | null>(null);
+const closeBtn = ref<HTMLElement | null>(null);
+let lastFocusItem: HTMLElement | null = null;
 
 const stateClasses = computed(() => ({
-  'modal-fullscreen': props.isFullscreen,
-  'modal-standard': !props.isFullscreen,
-  'modal-open': isVisible.value,
-  'modal-with-close': props.showClose,
-}))
+  "modal-fullscreen": props.isFullscreen,
+  "modal-standard": !props.isFullscreen,
+  "modal-open": isVisible.value,
+  "modal-with-close": props.showClose,
+}));
 
-const { activate: activateFocusTrap, deactivate: deactivateFocusTrap }
-  = useFocusTrap(container)
-const isBodyScrollLocked = useScrollLock(document.body, false)
+const { activate: activateFocusTrap, deactivate: deactivateFocusTrap } =
+  useFocusTrap(container);
+const isBodyScrollLocked = useScrollLock(document.body, false);
 
 onClickOutside(container, () => {
-  if (isVisible.value) closeModal()
-})
+  if (isVisible.value) closeModal();
+});
 
 const onShow = () => {
   nextTick(() => {
-    isBodyScrollLocked.value = true
-    focusCloseButton().then(() => activateFocusTrap())
-  })
-}
+    isBodyScrollLocked.value = true;
+    focusCloseButton().then(() => activateFocusTrap());
+  });
+};
 
 const onHide = () => {
-  isBodyScrollLocked.value = false
-  deactivateFocusTrap()
+  isBodyScrollLocked.value = false;
+  deactivateFocusTrap();
   if (lastFocusItem) {
-    lastFocusItem.focus({ preventScroll: true })
-    lastFocusItem = null
+    lastFocusItem.focus({ preventScroll: true });
+    lastFocusItem = null;
   }
-  emit('close')
-}
+  emit("close");
+};
 
 watch(isVisible, (val) => {
-  if (val) onShow()
-  else onHide()
-})
+  if (val) onShow();
+  else onHide();
+});
 
 const closeModal = () => {
-  isVisible.value = false
-}
+  isVisible.value = false;
+};
 
 const onKeydown = (event: KeyboardEvent) => {
-  const { metaKey = false, ctrlKey = false, key } = event
-  if (!isVisible.value) return
-  if (key === 'a' && (metaKey || ctrlKey)) {
-    event.preventDefault()
-    selectContent()
+  const { metaKey = false, ctrlKey = false, key } = event;
+  if (!isVisible.value) return;
+  if (key === "a" && (metaKey || ctrlKey)) {
+    event.preventDefault();
+    selectContent();
   }
-  if (key === 'Escape') {
-    event.preventDefault()
-    closeModal()
+  if (key === "Escape") {
+    event.preventDefault();
+    closeModal();
   }
-}
+};
 
 const selectContent = () => {
   if (content.value) {
-    window.getSelection()?.selectAllChildren(content.value)
+    window.getSelection()?.selectAllChildren(content.value);
   }
-}
+};
 
 const focusCloseButton = async () => {
-  lastFocusItem = document.activeElement as HTMLElement
-  await nextTick()
-  if (closeBtn.value) closeBtn.value.focus()
-  emit('open')
-}
+  lastFocusItem = document.activeElement as HTMLElement;
+  await nextTick();
+  if (closeBtn.value) closeBtn.value.focus();
+  emit("open");
+};
 
-useEventListener(document, 'keydown', onKeydown)
+useEventListener(document, "keydown", onKeydown);
 </script>
 
 <template>
-  <Teleport
-    v-if="isVisible"
-    to="#modal-destination"
-  >
-    <div
-      class="generic-modal"
-      role="dialog"
-      :class="stateClasses"
-    >
+  <Teleport v-if="isVisible" to="#modal-destination">
+    <div class="generic-modal" role="dialog" :class="stateClasses">
       <div class="backdrop" />
-      <div
-        ref="container"
-        class="container"
-        :style="{ width: props.width }"
-      >
+      <div ref="container" class="container" :style="{ width: props.width }">
         <button
           v-if="props.showClose"
           ref="closeBtn"
@@ -130,10 +119,7 @@ useEventListener(document, 'keydown', onKeydown)
         >
           <IconClose />
         </button>
-        <div
-          ref="content"
-          class="modal-content"
-        >
+        <div ref="content" class="modal-content">
           <slot />
         </div>
       </div>

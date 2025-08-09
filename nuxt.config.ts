@@ -167,7 +167,15 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
+  experimental: {
+    typedPages: true,
+    sharedPrerenderData: true,
+    checkOutdatedBuildInterval: 1000 * 10,
+  },
   compatibilityDate: '2025-07-15',
+  nitro: {
+    preset: 'bun',
+  },
   vite: {
     plugins: [tailwindcss()],
   },
@@ -263,12 +271,12 @@ export default defineNuxtConfig({
 
   icon: {
     componentName: 'NuxtIcon',
-    // serverBundle: {
-    //   externalizeIconsJson: true,
-    // },
-    // clientBundle: {
-    //   scan: true,
-    // },
+    serverBundle: {
+      externalizeIconsJson: true,
+    },
+    clientBundle: {
+      scan: true,
+    },
     customCollections: [
       {
         prefix: 'sf-symbols',

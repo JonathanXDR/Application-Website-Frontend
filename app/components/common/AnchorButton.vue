@@ -1,6 +1,6 @@
 <template>
   <div class="cta-circular-icon cta-open">
-    <DynamicIcon
+    <Icon
       name="plus"
       weight="small"
     />

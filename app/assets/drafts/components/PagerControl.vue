@@ -8,25 +8,25 @@
   See https://swift.org/CONTRIBUTORS.txt for Swift project authors
 -->
 <script>
-import ChevronRoundedIcon from '~/assets/drafts/components/Icon/ChevronRounded.vue'
+import ChevronRoundedIcon from "~/assets/drafts/components/Icon/ChevronRounded.vue";
 
 const Action = {
-  previous: 'previous',
-  next: 'next',
-}
+  previous: "previous",
+  next: "next",
+};
 
 export default {
-  name: 'PagerControl',
+  name: "PagerControl",
   components: { ChevronRoundedIcon },
   props: {
     action: {
       type: String,
       required: true,
-      validator: a => Object.hasOwnProperty.call(Action, a),
+      validator: (a) => Object.hasOwnProperty.call(Action, a),
     },
   },
   Action,
-}
+};
 </script>
 
 <template>

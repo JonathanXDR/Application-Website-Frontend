@@ -19,7 +19,7 @@ const props = defineProps<LinkItemType>()
       />
     </template>
 
-    <DynamicIcon
+    <Icon
       v-if="props.icon"
       v-bind="props.icon"
       :loading

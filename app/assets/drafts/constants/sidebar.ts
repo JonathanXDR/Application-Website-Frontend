@@ -9,7 +9,7 @@
  */
 
 // the key used as a parent UID, for the root items in the sidebar navigator. Used in Navigator.vue.
-export const INDEX_ROOT_KEY = '<root>'
+export const INDEX_ROOT_KEY = "<root>";
 // the height of a sidebar navigator item. Needs to be a constant height, for vue-virtual-scroller
-export const SIDEBAR_ITEM_SIZE = 32
-export const SIDEBAR_HIDE_BUTTON_ID = 'navigator-hide-button'
+export const SIDEBAR_ITEM_SIZE = 32;
+export const SIDEBAR_HIDE_BUTTON_ID = "navigator-hide-button";

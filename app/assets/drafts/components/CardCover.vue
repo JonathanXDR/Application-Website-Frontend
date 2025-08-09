@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'CardCover',
+  name: "CardCover",
   props: {
     variants: {
       type: Array,
@@ -25,20 +25,13 @@ export default {
       default: null,
     },
   },
-}
+};
 </script>
 
 <template>
-  <div
-    class="card-cover-wrap"
-    :class="{ rounded }"
-  >
+  <div class="card-cover-wrap" :class="{ rounded }">
     <slot classes="card-cover">
-      <img
-        :variants="variants"
-        :alt="alt"
-        class="card-cover"
-      >
+      <img :variants="variants" :alt="alt" class="card-cover" />
       <!-- <img
       v-else
       v-bind="defaultAttributes"
