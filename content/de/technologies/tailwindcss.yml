@@ -1,0 +1,20 @@
+icon:
+  name: simple-icons:tailwindcss
+  background: "#06B6D4"
+  colors: { primary: "#06B6D4", secondary: "#06B6D4", tertiary: "#06B6D4" }
+eyebrow: Bibliothek
+title: Tailwind CSS
+description: >-
+  Tailwind CSS wurde zusammen mit SDX in vielen Projekten im Apps Team verwendet. Das Fleetmanagement
+  Tool und die neuen Webfrontends sind zwei Beispiele dafür.
+badges:
+  - { title: Frontend }
+  - { title: Design }
+  - { title: UI }
+  - { title: CSS, icon: { name: simple-icons:css } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://tailwindcss.com",
+      icon: { name: sf-symbols:chevron.right },
+    }

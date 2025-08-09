@@ -1,0 +1,20 @@
+icon:
+  name: simple-icons:nuxt
+  background: "#00DC82"
+  colors: { primary: "#00DC82", secondary: "#00DC82", tertiary: "#00DC82" }
+eyebrow: Framework
+title: Nuxt
+description: >-
+  Nuxt habe ich mir selbst beigebracht, da ich es interessant fand und auch gerne mit Vue programmiere,
+  worauf Nuxt aufbaut. Bisher habe ich es allerdings bei keinen Projeken ausser dieser Webseite verwendet.
+badges:
+  - { title: Frontend }
+  - { title: Web }
+  - { title: SSR }
+  - { title: Vue, icon: { name: simple-icons:vuedotjs } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://nuxt.com",
+      icon: { name: sf-symbols:chevron.right },
+    }

@@ -1,0 +1,21 @@
+icon:
+  name: simple-icons:javascript
+  background: "#F7DF1E"
+  colors: { primary: "#F7DF1E", secondary: "#F7DF1E", tertiary: "#F7DF1E" }
+eyebrow: Sprache
+title: JavaScript
+description: >-
+  Das ist wahrscheinlich meine meist verwendete Programmiersprache. Ich habe damit schon bei
+  vielen Projekten gearbeitet und auch schon mit Frameworks und Libraries, wie Vue.js, React
+  oder Express.js angewendet, die ja darauf aufbauen.
+badges:
+  - { title: Scripting }
+  - { title: Web }
+  - { title: Frontend }
+  - { title: Backend }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      icon: { name: sf-symbols:chevron.right },
+    }

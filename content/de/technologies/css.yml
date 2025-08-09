@@ -1,0 +1,20 @@
+icon:
+  name: simple-icons:css
+  background: "#663399"
+  colors: { primary: "#663399", secondary: "#663399", tertiary: "#663399" }
+eyebrow: Sprache
+title: CSS
+description: >-
+  CSS habe ich ebenfalls während dem Aufbau dieser Webseite gelernt. Da CSS genau wie HTML
+  in fast jedem Projekt verwendet wird, habe ich auch hier schon viel Erfahrung gesammelt.
+badges:
+  - { title: Styling }
+  - { title: Web }
+  - { title: Frontend }
+  - { title: Design }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+      icon: { name: sf-symbols:chevron.right },
+    }

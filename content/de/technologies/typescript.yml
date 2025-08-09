@@ -1,0 +1,21 @@
+icon:
+  name: simple-icons:typescript
+  background: "#3178C6"
+  colors: { primary: "#3178C6", secondary: "#3178C6", tertiary: "#3178C6" }
+eyebrow: Sprache
+title: TypeScript
+description: >-
+  Diese Technologie habe ich das erste mal bei meiner Memory-App im Apps Team verwendet und benutze
+  seither wenn möglich nur noch TypeScript anstelle von JavaScript. Projekte, bei denen ich TypeScript
+  gearbeitet habe, sind z.B. die Apps Team Webseite, die CRUD-App im Apps Team oder auch das
+  Fleetmanagement Tool.
+badges:
+  - { title: Typed }
+  - { title: "Full Stack" }
+  - { title: Javascript, icon: { name: simple-icons:javascript } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://typescriptlang.org",
+      icon: { name: sf-symbols:chevron.right },
+    }

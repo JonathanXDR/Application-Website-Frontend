@@ -1,0 +1,13 @@
+title: Englisch
+eyebrow: Fliessend
+progress: 60
+divider: { direction: left }
+links:
+  - {
+      title: "B1 Preliminary",
+      url: "https://www.cambridgeenglish.org/de/exams-and-tests/preliminary",
+    }
+  - {
+      title: "B2 First",
+      url: "https://www.cambridgeenglish.org/de/exams-and-tests/first",
+    }

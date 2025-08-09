@@ -1,0 +1,25 @@
+icon:
+  name: simple-icons-extended:swisscom
+  background: "var(--color-card-logo-secondary)"
+  colors:
+    {
+      primary: "var(--color-card-logo-primary)",
+      secondary: "var(--color-card-logo-secondary)",
+      tertiary: "var(--color-card-logo-tertiary)",
+    }
+eyebrow: Bibliothek
+title: SDX
+description: >-
+  Mit der Swisscom Digital Experience (SDX) Library bin ich schon mehrmals während meiner Ausbildung
+  in Kontakt gekommen. Ich habe damit z.B. beim Entwickeln der Apps Team Webseite, der Medienkurse
+  und noch vielen weiteren Swisscom-Applikationen gearbeitet.
+badges:
+  - { title: Swisscom }
+  - { title: Design }
+  - { title: UI }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://sdx.swisscom.ch",
+      icon: { name: sf-symbols:chevron.right },
+    }

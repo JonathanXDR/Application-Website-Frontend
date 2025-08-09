@@ -1,0 +1,13 @@
+icon: { name: sf-symbols:person.fill }
+eyebrow: Ehemaliger Projektanbieter
+title: Nick Zimmermann
+description: DevOps Engineer
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://nickzimmermann.com",
+      icon: { name: sf-symbols:chevron.right },
+    }
+info:
+  location: Zür-För181
+  department: SCS-INI-DOS-DVX

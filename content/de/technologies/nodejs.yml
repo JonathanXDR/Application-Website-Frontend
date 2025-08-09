@@ -1,0 +1,20 @@
+icon:
+  name: simple-icons:nodedotjs
+  background: "#5FA04E"
+  colors: { primary: "#5FA04E", secondary: "#5FA04E", tertiary: "#5FA04E" }
+eyebrow: Runtime
+title: Node.js
+description: >-
+  Diese Technologie habe ich im NexCC das allererste mal gelernt und angewendet. Dabei habe ich
+  zuerst kennengelernt was Node.js überhaupt ist und auch wie man dependencies mit NPM installiert
+  und verwaltet.
+badges:
+  - { title: Server }
+  - { title: Backend }
+  - { title: Javascript, icon: { name: simple-icons:javascript } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://nodejs.org",
+      icon: { name: sf-symbols:chevron.right },
+    }

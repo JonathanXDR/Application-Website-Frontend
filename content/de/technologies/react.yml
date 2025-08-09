@@ -1,0 +1,21 @@
+icon:
+  name: simple-icons:react
+  background: "#61DAFB"
+  colors: { primary: "#61DAFB", secondary: "#61DAFB", tertiary: "#61DAFB" }
+eyebrow: Framework
+title: React
+description: >-
+  React selbst habe ich erst gelernt, nachdem ich bereits mit Next.js gearbeitet habe, daher war die
+  Lernkurve nicht mehr so steil. Beispiele für Projekte, bei denen ich React verwendet habe, sind z.B.
+  die Medienkurse, das Fleetmanagement Tool oder auch die neuen Webfrontends.
+badges:
+  - { title: Frontend }
+  - { title: Web }
+  - { title: UI }
+  - { title: Javascript, icon: { name: simple-icons:javascript } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://reactjs.org",
+      icon: { name: sf-symbols:chevron.right },
+    }

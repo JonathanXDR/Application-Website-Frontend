@@ -1,0 +1,22 @@
+icon: { name: sf-symbols:shield.lefthalf.filled }
+eyebrow: "Security Journey"
+title: Piz Tofana Tooling Team
+description: >-
+  Während meines Aufenthalts im Team Piz Tofana, habe ich hauptsächlich an der Daedalus Applikation
+  gearbeitet. Diese bietet verschiedene Selbstbeurteilungs‑Module, die von den Fachabteilungen zur
+  Bewertung von Datenschutz, Sicherheit, Compliance, Klassifizierung und Weiterem für verknüpfte
+  Objekte wie Anwendungen, Ressourcen, Dienste oder Angebote bereitgestellt werden. Als Technologien
+  wurden Java Spring Boot für das Backend und Angular für das Frontend verwendet.
+
+badges:
+  - { title: Security }
+  - { title: Java, icon: { name: simple-icons-extended:java } }
+  - { title: "Spring Boot", icon: { name: simple-icons:springboot } }
+  - { title: TypeScript, icon: { name: simple-icons:typescript } }
+  - { title: Angular, icon: { name: simple-icons:angular } }
+info:
+  date:
+    duration: { from: "2024-03-01", to: "2024-07-01" }
+  supervisor: Oliver Kramer
+  location: Zür-För181
+  department: INI-EOG-SPA

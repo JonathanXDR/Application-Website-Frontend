@@ -1,0 +1,5 @@
+description: "Erkunde meine neusten Projekte bei Swisscom!"
+links:
+  - title: Mehr erfahren
+    url: /projects
+    icon: { name: sf-symbols:chevron.right }

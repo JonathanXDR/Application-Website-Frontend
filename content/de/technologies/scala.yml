@@ -1,0 +1,21 @@
+icon:
+  name: simple-icons:scala
+  background: "#DC322F"
+  colors: { primary: "#DC322F", secondary: "#DC322F", tertiary: "#DC322F" }
+eyebrow: Sprache
+title: Scala
+description: >-
+  Scala habe ich im Berufsschulmodul 323 kennengelernt und fand es sehr interessant, da es viele
+  Parallelen zu Java hat, aber auch viele neue Konzepte, wie z.B. Traits oder Pattern Matching,
+  mitbringt.
+badges:
+  - { title: Backend }
+  - { title: "Object-Oriented" }
+  - { title: Functional }
+  - { title: Java, icon: { name: simple-icons-extended:java } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://scala-lang.org",
+      icon: { name: sf-symbols:chevron.right },
+    }

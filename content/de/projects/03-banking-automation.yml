@@ -1,0 +1,22 @@
+icon: { name: sf-symbols:clock.arrow.trianglehead.2.counterclockwise.rotate.90 }
+eyebrow: Automation
+title: Automatisierungsprojekte im Banking Bereich
+description: >-
+  Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld erhalten. Ich war aktiv
+  dabei und habe die einzelnen Banken mittls Ranorex & UiPath gelernt zu testen bzw. zu automatisieren.
+  Ausserdem habe ich dabei auch ein wenig C# gelernt und mehr über das .NET Framework erfahren. Mein Ziel
+  ist es aber in Zukunft das noch zu verbessern!
+badges:
+  - { title: Automation }
+  - { title: Banking }
+  - { title: Testing }
+  - { title: Ranorex }
+  - { title: UiPath }
+  - { title: .NET }
+  - { title: "C#", icon: { name: simple-icons-extended:csharp } }
+info:
+  date:
+    duration: { from: "2022-02-01", to: "2022-07-01" }
+  supervisor: Alessio Iantosca
+  location: Zür-Pfi51
+  department: SCS-B2B-TBS-BPS-BPM-AU1

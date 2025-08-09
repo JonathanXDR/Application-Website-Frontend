@@ -1,0 +1,21 @@
+icon:
+  name: simple-icons:nestjs
+  background: "#E0234E"
+  colors: { primary: "#E0234E", secondary: "#E0234E", tertiary: "#E0234E" }
+eyebrow: Framework
+title: Nest.js
+description: >-
+  Dieses Backend‑Framework habe ich im Apps Team kennengelernt und habe damit meine CRUD‑App erstellt.
+  Dabei habe ich viel über die Architektur und die verschiedenen Module gelernt. Ausserdem habe ich auch
+  in produktiven Projekten im Apps Team, wie z.B. dem Fleetmanagement Tool oder den neuen Webfrontends
+  damit gearbeitet.
+badges:
+  - { title: Backend }
+  - { title: Node, icon: { name: simple-icons:nodedotjs } }
+  - { title: TypeScript, icon: { name: simple-icons:typescript } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://nestjs.com",
+      icon: { name: sf-symbols:chevron.right },
+    }

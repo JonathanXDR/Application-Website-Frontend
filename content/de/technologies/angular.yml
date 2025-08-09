@@ -1,0 +1,25 @@
+icon:
+  name: simple-icons:angular
+  background: "var(--color-card-logo-secondary)"
+  colors:
+    {
+      primary: "var(--color-card-logo-primary)",
+      secondary: "var(--color-card-logo-secondary)",
+      tertiary: "var(--color-card-logo-tertiary)",
+    }
+eyebrow: Framework
+title: Angular
+description: >-
+  Während ich im Piz Tofana Team war, habe ich Angular kennengelernt und auch damit gearbeitet. Damit
+  haben wir nämlich während der Entwicklung des Frontends von Daedalus gearbeitet.
+badges:
+  - { title: Frontend }
+  - { title: Web }
+  - { title: UI }
+  - { title: Javascript, icon: { name: simple-icons:javascript } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://angular.io",
+      icon: { name: sf-symbols:chevron.right },
+    }

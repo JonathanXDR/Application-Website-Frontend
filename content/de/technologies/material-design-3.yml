@@ -1,0 +1,21 @@
+icon:
+  name: simple-icons:android
+  background: "#34A853"
+  colors: { primary: "#34A853", secondary: "#34A853", tertiary: "#34A853" }
+eyebrow: Bibliothek
+title: Material Design 3
+description: >-
+  Während meiner Projektarbeit im ÜK 335 habe ich Material Design 3 verwendet, um die Android App zu
+  gestalten.
+badges:
+  - { title: Mobile }
+  - { title: UI }
+  - { title: Design }
+  - { title: Google }
+  - { title: Android, icon: { name: simple-icons:android } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://m3.material.io",
+      icon: { name: sf-symbols:chevron.right },
+    }

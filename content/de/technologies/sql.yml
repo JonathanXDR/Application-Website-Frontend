@@ -1,0 +1,20 @@
+icon:
+  name: simple-icons:mysql
+  background: "#4479A1"
+  colors: { primary: "#4479A1", secondary: "#4479A1", tertiary: "#4479A1" }
+eyebrow: Sprache
+title: SQL
+description: >-
+  SQL habe ich erstmals während der Entwicklung meiner CRUD-App im NexCC verwendent, dabei habe ich
+  die Basics gelernt. Später gab es auch noch die beiden Berufsschulmodule 162 und 164 und den ÜK-106,
+  der auch fortgeschrittene Abfragen beinhaltete.
+badges:
+  - { title: Database }
+  - { title: Query }
+  - { title: Backend }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://developer.mozilla.org/en-US/docs/Glossary/SQL",
+      icon: { name: sf-symbols:chevron.right },
+    }
