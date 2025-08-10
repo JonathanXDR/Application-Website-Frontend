@@ -43,63 +43,77 @@ const InfoSchema = z.object({
 
 export default defineContentConfig({
   collections: {
-    sections: defineCollection({
+    pages: defineCollection({
       type: 'page',
-      source: {
-        include: 'sections/**/*.md',
-        prefix: '/',
-      },
-      schema: z.object({
-        title: z.string(),
-        description: z.string().optional(),
-        birthDate: z.string().optional(),
-        navigation: z.boolean().optional().default(false),
-      }),
+      source: { include: '{de,en}/pages/**.md', prefix: '/' },
     }),
 
     site: defineCollection({
       type: 'data',
-      source: 'site/**/**.yml',
-      schema: z
-        .object({
-          description: z.string().optional(),
-          links: z.array(LinkSchema).optional(),
-          copyright: z
-            .object({
-              allRightsReserved: z.string().optional(),
-              links: z.array(LinkSchema).optional(),
-            })
-            .optional(),
-          footerMini: z
-            .object({
-              legalLinks: z.array(LinkSchema).optional(),
-              news: z
-                .object({ title: z.string(), link: LinkSchema })
-                .optional(),
-            })
-            .optional(),
-        })
-        .partial(),
+      source: '{de,en}/site/**.yml',
+      schema: z.object({
+        description: z.string(),
+      }),
     }),
 
-    navigation: defineCollection({
+    navbar: defineCollection({
       type: 'data',
-      source: 'navigation/**/**.yml',
-      schema: z.object({}).passthrough(),
+      source: '{de,en}/navigation/navbar/**.yml',
+      schema: z.object({
+        id: z.string(),
+        label: z.string(),
+        route: z.string().optional(),
+        class: z.string().optional(),
+        icon: z.object({ name: z.string() }).optional(),
+        children: z.array(z.any()).optional(),
+      }),
+    }),
+    footerDirectory: defineCollection({
+      type: 'data',
+      source: '{de,en}/navigation/footer-directory/**.yml',
     }),
 
     banners: defineCollection({
       type: 'data',
-      source: 'banners/**/**.yml',
+      source: '{de,en}/banners/**.yml',
       schema: z.object({
         description: z.string(),
         links: z.array(LinkSchema).optional(),
       }),
     }),
 
+    segmentsTheme: defineCollection({
+      type: 'data',
+      source: '{de,en}/segments/theme/**.yml',
+    }),
+    segmentsProjects: defineCollection({
+      type: 'data',
+      source: '{de,en}/segments/projects/**.yml',
+    }),
+    segmentsTechnologies: defineCollection({
+      type: 'data',
+      source: '{de,en}/segments/technologies/**.yml',
+    }),
+
+    footerCopyright: defineCollection({
+      type: 'data',
+      source: '{de,en}/footer/copyright/**.yml',
+    }),
+    footerLegalLinks: defineCollection({
+      type: 'data',
+      source: '{de,en}/footer/legal-links/**.yml',
+    }),
+
+    social: defineCollection({ type: 'data', source: '{de,en}/social/**.yml' }),
+
+    sections: defineCollection({
+      type: 'page',
+      source: '{de,en}/sections/**/*.md',
+    }),
+
     languages: defineCollection({
       type: 'data',
-      source: 'languages/**/**.yml',
+      source: '{de,en}/languages/**.yml',
       schema: z.object({
         title: z.string(),
         eyebrow: z.string().optional(),
@@ -110,10 +124,9 @@ export default defineContentConfig({
         links: z.array(LinkSchema).optional(),
       }),
     }),
-
     references: defineCollection({
       type: 'data',
-      source: 'references/**/**.yml',
+      source: '{de,en}/references/**.yml',
       schema: z.object({
         icon: IconSchema.optional(),
         eyebrow: z.string().optional(),
@@ -123,10 +136,9 @@ export default defineContentConfig({
         info: InfoSchema.optional(),
       }),
     }),
-
-    funfacts: defineCollection({
+    funFacts: defineCollection({
       type: 'data',
-      source: 'facts/fun/**/**.yml',
+      source: '{de,en}/fun-facts/**.yml',
       schema: z.object({
         progress: z.number(),
         description: z.string(),
@@ -135,7 +147,7 @@ export default defineContentConfig({
 
     technologies: defineCollection({
       type: 'data',
-      source: 'technologies/**/**.yml',
+      source: '{de,en}/technologies/**.yml',
       schema: z.object({
         icon: IconSchema.optional(),
         eyebrow: z.string().optional(),
@@ -145,10 +157,9 @@ export default defineContentConfig({
         links: z.array(LinkSchema).optional(),
       }),
     }),
-
     projects: defineCollection({
       type: 'data',
-      source: 'projects/**/**.yml',
+      source: '{de,en}/projects/**.yml',
       schema: z.object({
         icon: IconSchema.optional(),
         eyebrow: z.string().optional(),
