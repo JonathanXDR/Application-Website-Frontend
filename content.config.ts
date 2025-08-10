@@ -1,4 +1,5 @@
 import { defineCollection, defineContentConfig, z } from '@nuxt/content'
+import type { z as zod } from 'zod'
 
 export const ColorSchema = z.object({
   primary: z.string().optional(),
@@ -103,7 +104,7 @@ export const SectionSchema: any = z.lazy(() =>
     children: z.array(SectionSchema).optional(),
     class: z.string().optional(),
     icon: IconSchema.optional(),
-  }),
+  })
 )
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -115,7 +116,7 @@ export const DirectoryItemSchema: any = z.lazy(() =>
     url: z.string().optional(),
     icon: IconSchema.optional(),
     children: z.array(DirectoryItemSchema).optional(),
-  }),
+  })
 )
 
 export const SegmentItemSchema = z.object({
@@ -261,3 +262,21 @@ export default defineContentConfig({
     }),
   },
 })
+
+export type ColorType = zod.infer<typeof ColorSchema>
+export type IconType = zod.infer<typeof IconSchema>
+export type LinkItemType = zod.infer<typeof LinkItemSchema>
+export type BasicPropsType = zod.infer<typeof BasicPropsSchema>
+export type ExtendedPropsType = zod.infer<typeof ExtendedPropsSchema>
+export type CardItemType = zod.infer<typeof CardItemSchema>
+export type SegmentItemType = zod.infer<typeof SegmentItemSchema>
+export type LanguageItemType = zod.infer<typeof LanguageItemSchema>
+export type FunFactType = zod.infer<typeof FunFactSchema>
+export type InfoBarType = zod.infer<typeof InfoBarSchema>
+export type BadgeItemType = zod.infer<typeof BadgeItemSchema>
+export type BasicSizeType = zod.infer<typeof BasicSizeSchema>
+export type ExtendedSizeType = zod.infer<typeof ExtendedSizeSchema>
+export type GraphType = zod.infer<typeof GraphSchema>
+export type InfoBarDateType = zod.infer<typeof InfoBarDateSchema>
+export type SectionType = zod.infer<typeof SectionSchema>
+export type DirectoryItemType = zod.infer<typeof DirectoryItemSchema>
