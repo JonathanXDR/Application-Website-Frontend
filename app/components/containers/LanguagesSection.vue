@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import type { LanguageBarType } from '#shared/types/components/language-bar'
-
 defineProps<{
   title: string
 }>()
 
 const { tm } = useI18n()
 const viewport = useViewport()
-const languages = computed<LanguageBarType[]>(() =>
+const languages = computed<LanguageType[]>(() =>
   tm('components.containers.languages'),
 )
 </script>

@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import type { LanguageBarType } from '#shared/types/components/language-bar'
-
-const props = withDefaults(defineProps<LanguageBarType>(), {
+const props = withDefaults(defineProps<LanguageType>(), {
   progress: 0,
   componentSize: 'medium',
   loading: false,

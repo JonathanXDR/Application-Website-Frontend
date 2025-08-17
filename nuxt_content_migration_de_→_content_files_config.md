@@ -6,38 +6,38 @@ Below is a **complete content folder** you can paste into your repo. It moves ev
 
 ```ts
 // content.config.ts
-import { defineCollection, defineContentConfig, z } from '@nuxt/content'
-import type { z as zod } from 'zod'
+import { defineCollection, defineContentConfig, z } from "@nuxt/content";
+import type { z as zod } from "zod";
 
 export const ColorSchema = z.object({
   primary: z.string().optional(),
   secondary: z.string().optional(),
   tertiary: z.string().optional(),
   quaternary: z.string().optional(),
-})
+});
 
 export const IconSchema = z
   .object({
     name: z.string(),
-    mode: z.enum(['svg', 'css']).optional(),
+    mode: z.enum(["svg", "css"]).optional(),
     size: z.union([z.string(), z.number()]).optional(),
-    variant: z.enum(['default', 'outline', 'fill', 'custom']).optional(),
+    variant: z.enum(["default", "outline", "fill", "custom"]).optional(),
     colors: ColorSchema.optional(),
     loading: z.boolean().optional(),
     absolute: z.boolean().optional(),
-    position: z.enum(['top', 'right', 'bottom', 'left']).optional(),
-    alignment: z.enum(['start', 'center', 'end']).optional(),
+    position: z.enum(["top", "right", "bottom", "left"]).optional(),
+    alignment: z.enum(["start", "center", "end"]).optional(),
 
     background: z.string().optional(),
   })
-  .passthrough()
+  .passthrough();
 
 export const LinkItemSchema = z.object({
   title: z.string(),
   url: z.string().optional(),
   icon: IconSchema.optional(),
   loading: z.boolean().optional(),
-})
+});
 
 export const BasicPropsSchema = z.object({
   icon: IconSchema.optional(),
@@ -45,13 +45,13 @@ export const BasicPropsSchema = z.object({
   title: z.string(),
   description: z.string().optional(),
   links: z.array(LinkItemSchema).optional(),
-})
+});
 
-export const BasicSizeSchema = z.enum(['small', 'medium', 'large'])
+export const BasicSizeSchema = z.enum(["small", "medium", "large"]);
 export const ExtendedSizeSchema = z.union([
   BasicSizeSchema,
-  z.enum(['xsmall', 'xlarge']),
-])
+  z.enum(["xsmall", "xlarge"]),
+]);
 
 export const BadgeItemSchema = LinkItemSchema.extend({
   variant: z.string().optional(),
@@ -60,7 +60,7 @@ export const BadgeItemSchema = LinkItemSchema.extend({
   border: z.boolean().optional(),
   hover: z.boolean().optional(),
   loading: z.boolean().optional(),
-})
+});
 
 export const InfoBarDateSchema = z
   .object({
@@ -68,7 +68,7 @@ export const InfoBarDateSchema = z
     fixed: z.union([z.string(), z.date(), z.null()]).optional(),
     duration: z.object({ from: z.string(), to: z.string() }).optional(),
   })
-  .passthrough()
+  .passthrough();
 
 export const InfoBarSchema = z.object({
   loading: z.boolean().optional(),
@@ -78,30 +78,30 @@ export const InfoBarSchema = z.object({
   department: z.string().optional(),
   language: z.string().optional(),
   license: z.string().optional(),
-})
+});
 
 export const ExtendedPropsSchema = BasicPropsSchema.extend({
   badges: z.array(BadgeItemSchema).optional(),
   info: InfoBarSchema.optional(),
-})
+});
 
 export const GraphSchema = z.object({
   donut: z.boolean().optional(),
   bar: z.boolean().optional(),
-})
+});
 
 export const CardItemSchema = ExtendedPropsSchema.extend({
-  variant: z.enum(['card', 'article']).optional(),
-  componentSize: z.union([BasicSizeSchema, z.literal('full')]).optional(),
+  variant: z.enum(["card", "article"]).optional(),
+  componentSize: z.union([BasicSizeSchema, z.literal("full")]).optional(),
   colors: ColorSchema.optional(),
-  alignment: z.enum(['start', 'center', 'end']).optional(),
-  hover: z.union([z.boolean(), z.literal('auto')]).optional(),
+  alignment: z.enum(["start", "center", "end"]).optional(),
+  hover: z.union([z.boolean(), z.literal("auto")]).optional(),
   cover: z.string().optional(),
   badge: BadgeItemSchema.optional(),
   loading: z.boolean().optional(),
   graphs: GraphSchema.optional(),
   icon: IconSchema.extend({ background: z.string().optional() }).optional(),
-})
+});
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const SectionSchema: any = z.lazy(() =>
@@ -112,8 +112,8 @@ export const SectionSchema: any = z.lazy(() =>
     children: z.array(SectionSchema).optional(),
     class: z.string().optional(),
     icon: IconSchema.optional(),
-  })
-)
+  }),
+);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const DirectoryItemSchema: any = z.lazy(() =>
@@ -124,15 +124,15 @@ export const DirectoryItemSchema: any = z.lazy(() =>
     url: z.string().optional(),
     icon: IconSchema.optional(),
     children: z.array(DirectoryItemSchema).optional(),
-  })
-)
+  }),
+);
 
 export const SegmentItemSchema = z.object({
   id: z.string(),
   category: z.string().optional(),
   label: z.string().optional(),
   icon: IconSchema.optional(),
-})
+});
 
 export const LanguageItemSchema = BasicPropsSchema.pick({
   title: true,
@@ -140,26 +140,26 @@ export const LanguageItemSchema = BasicPropsSchema.pick({
   links: true,
 }).extend({
   progress: z.number(),
-  componentSize: z.union([BasicSizeSchema, z.literal('full')]).optional(),
+  componentSize: z.union([BasicSizeSchema, z.literal("full")]).optional(),
   loading: z.boolean().optional(),
-  width: z.enum(['full', 'compact']).optional(),
-  hover: z.union([z.boolean(), z.literal('auto')]).optional(),
-  direction: z.enum(['left', 'right']).optional(),
+  width: z.enum(["full", "compact"]).optional(),
+  hover: z.union([z.boolean(), z.literal("auto")]).optional(),
+  direction: z.enum(["left", "right"]).optional(),
   divider: z
-    .object({ direction: z.enum(['left', 'right', 'center']) })
+    .object({ direction: z.enum(["left", "right", "center"]) })
     .optional(),
-})
+});
 
 export const FunFactSchema = z.object({
   progress: z.number(),
   description: z.string(),
-})
+});
 
 export default defineContentConfig({
   collections: {
     pages: defineCollection({
-      type: 'page',
-      source: { include: '{de,en}/pages/**.md', prefix: '/' },
+      type: "page",
+      source: { include: "{de,en}/pages/**.md", prefix: "/" },
       schema: z.object({
         title: z.string(),
         description: z.string().optional(),
@@ -171,19 +171,19 @@ export default defineContentConfig({
     }),
 
     site: defineCollection({
-      type: 'data',
-      source: '{de,en}/site/**.yml',
+      type: "data",
+      source: "{de,en}/site/**.yml",
       schema: z.object({ description: z.string() }),
     }),
 
     navbar: defineCollection({
-      type: 'data',
-      source: '{de,en}/navigation/navbar/**.yml',
+      type: "data",
+      source: "{de,en}/navigation/navbar/**.yml",
       schema: SectionSchema,
     }),
     footerDirectory: defineCollection({
-      type: 'data',
-      source: '{de,en}/navigation/footer-directory/**.yml',
+      type: "data",
+      source: "{de,en}/navigation/footer-directory/**.yml",
       schema: z.object({
         id: z.string(),
         label: z.string().optional(),
@@ -192,8 +192,8 @@ export default defineContentConfig({
     }),
 
     banners: defineCollection({
-      type: 'data',
-      source: '{de,en}/banners/**.yml',
+      type: "data",
+      source: "{de,en}/banners/**.yml",
       schema: z.object({
         description: z.string(),
         links: z.array(LinkItemSchema),
@@ -201,41 +201,41 @@ export default defineContentConfig({
     }),
 
     segmentsTheme: defineCollection({
-      type: 'data',
-      source: '{de,en}/segments/theme/**.yml',
+      type: "data",
+      source: "{de,en}/segments/theme/**.yml",
       schema: SegmentItemSchema,
     }),
     segmentsProjects: defineCollection({
-      type: 'data',
-      source: '{de,en}/segments/projects/**.yml',
+      type: "data",
+      source: "{de,en}/segments/projects/**.yml",
       schema: SegmentItemSchema,
     }),
     segmentsTechnologies: defineCollection({
-      type: 'data',
-      source: '{de,en}/segments/technologies/**.yml',
+      type: "data",
+      source: "{de,en}/segments/technologies/**.yml",
       schema: SegmentItemSchema,
     }),
 
     footerCopyright: defineCollection({
-      type: 'data',
-      source: '{de,en}/footer/copyright/**.yml',
+      type: "data",
+      source: "{de,en}/footer/copyright/**.yml",
       schema: z.object({ links: z.array(LinkItemSchema) }),
     }),
     footerLegalLinks: defineCollection({
-      type: 'data',
-      source: '{de,en}/footer/legal-links/**.yml',
+      type: "data",
+      source: "{de,en}/footer/legal-links/**.yml",
       schema: LinkItemSchema,
     }),
 
     social: defineCollection({
-      type: 'data',
-      source: '{de,en}/social/**.yml',
+      type: "data",
+      source: "{de,en}/social/**.yml",
       schema: LinkItemSchema,
     }),
 
     sections: defineCollection({
-      type: 'page',
-      source: '{de,en}/sections/**/*.md',
+      type: "page",
+      source: "{de,en}/sections/**/*.md",
       schema: BasicPropsSchema.pick({ title: true, eyebrow: true }).extend({
         id: z.string().optional(),
         birthDate: z.string().optional(),
@@ -243,51 +243,51 @@ export default defineContentConfig({
     }),
 
     languages: defineCollection({
-      type: 'data',
-      source: '{de,en}/languages/**.yml',
+      type: "data",
+      source: "{de,en}/languages/**.yml",
       schema: LanguageItemSchema,
     }),
     references: defineCollection({
-      type: 'data',
-      source: '{de,en}/references/**.yml',
+      type: "data",
+      source: "{de,en}/references/**.yml",
       schema: ExtendedPropsSchema,
     }),
     funFacts: defineCollection({
-      type: 'data',
-      source: '{de,en}/fun-facts/**.yml',
+      type: "data",
+      source: "{de,en}/fun-facts/**.yml",
       schema: FunFactSchema,
     }),
 
     technologies: defineCollection({
-      type: 'data',
-      source: '{de,en}/technologies/**.yml',
+      type: "data",
+      source: "{de,en}/technologies/**.yml",
       schema: CardItemSchema,
     }),
     projects: defineCollection({
-      type: 'data',
-      source: '{de,en}/projects/**.yml',
+      type: "data",
+      source: "{de,en}/projects/**.yml",
       schema: CardItemSchema,
     }),
   },
-})
+});
 
-export type ColorType = zod.infer<typeof ColorSchema>
-export type IconType = zod.infer<typeof IconSchema>
-export type LinkItemType = zod.infer<typeof LinkItemSchema>
-export type BasicPropsType = zod.infer<typeof BasicPropsSchema>
-export type ExtendedPropsType = zod.infer<typeof ExtendedPropsSchema>
-export type CardItemType = zod.infer<typeof CardItemSchema>
-export type SegmentItemType = zod.infer<typeof SegmentItemSchema>
-export type LanguageItemType = zod.infer<typeof LanguageItemSchema>
-export type FunFactType = zod.infer<typeof FunFactSchema>
-export type InfoBarType = zod.infer<typeof InfoBarSchema>
-export type BadgeItemType = zod.infer<typeof BadgeItemSchema>
-export type BasicSizeType = zod.infer<typeof BasicSizeSchema>
-export type ExtendedSizeType = zod.infer<typeof ExtendedSizeSchema>
-export type GraphType = zod.infer<typeof GraphSchema>
-export type InfoBarDateType = zod.infer<typeof InfoBarDateSchema>
-export type SectionType = zod.infer<typeof SectionSchema>
-export type DirectoryItemType = zod.infer<typeof DirectoryItemSchema>
+export type ColorType = zod.infer<typeof ColorSchema>;
+export type IconType = zod.infer<typeof IconSchema>;
+export type LinkItemType = zod.infer<typeof LinkItemSchema>;
+export type BasicPropsType = zod.infer<typeof BasicPropsSchema>;
+export type ExtendedPropsType = zod.infer<typeof ExtendedPropsSchema>;
+export type CardItemType = zod.infer<typeof CardItemSchema>;
+export type SegmentItemType = zod.infer<typeof SegmentItemSchema>;
+export type LanguageItemType = zod.infer<typeof LanguageItemSchema>;
+export type FunFactType = zod.infer<typeof FunFactSchema>;
+export type InfoBarType = zod.infer<typeof InfoBarSchema>;
+export type BadgeItemType = zod.infer<typeof BadgeItemSchema>;
+export type BasicSizeType = zod.infer<typeof BasicSizeSchema>;
+export type ExtendedSizeType = zod.infer<typeof ExtendedSizeSchema>;
+export type GraphType = zod.infer<typeof GraphSchema>;
+export type InfoBarDateType = zod.infer<typeof InfoBarDateSchema>;
+export type SectionType = zod.infer<typeof SectionSchema>;
+export type DirectoryItemType = zod.infer<typeof DirectoryItemSchema>;
 ```
 
 > You can extend schemas later for stricter typing. For brevity, only key fields are validated.
@@ -461,7 +461,7 @@ description: >-
 # content/de/navigation/navbar/01.overview.yml
 id: overview
 label: Übersicht
-route: '/'
+route: "/"
 children: []
 ```
 
@@ -485,7 +485,7 @@ route: /projects
 # content/de/navigation/navbar/overview/01.about.yml
 id: about
 label: About
-route: '/#about'
+route: "/#about"
 class: section-separated
 ```
 
@@ -493,7 +493,7 @@ class: section-separated
 # content/de/navigation/navbar/overview/02.languages.yml
 id: languages
 label: Sprachen
-route: '/#languages'
+route: "/#languages"
 class: section-separated
 ```
 
@@ -501,7 +501,7 @@ class: section-separated
 # content/de/navigation/navbar/overview/03.fun-facts.yml
 id: fun-facts
 label: Fun Facts
-route: '/#funFacts'
+route: "/#funFacts"
 class: section-separated
 ```
 
@@ -509,7 +509,7 @@ class: section-separated
 # content/de/navigation/navbar/overview/04.references.yml
 id: references
 label: Referenzen
-route: '/#references'
+route: "/#references"
 class: section-separated
 ```
 
@@ -517,16 +517,16 @@ class: section-separated
 
 ```yml
 # content/de/banners/01.latest-tag.yml
-description: 'Was ist neu in {latestTag}?'
+description: "Was ist neu in {latestTag}?"
 links:
   - title: Mehr erfahren
-    url: 'https://github.com/JonathanXDR/Application-Website-Frontend/compare/{previousTag}...{latestTag}'
+    url: "https://github.com/JonathanXDR/Application-Website-Frontend/compare/{previousTag}...{latestTag}"
     icon: { name: sf-symbols:chevron.right }
 ```
 
 ```yml
 # content/de/banners/02.swisscom-projects.yml
-description: 'Erkunde meine neusten Projekte bei Swisscom!'
+description: "Erkunde meine neusten Projekte bei Swisscom!"
 links:
   - title: Mehr erfahren
     url: /projects
@@ -535,7 +535,7 @@ links:
 
 ```yml
 # content/de/banners/03.technologies.yml
-description: 'Entdecke alle Technologien, mit denen ich bisher gearbeitet habe!'
+description: "Entdecke alle Technologien, mit denen ich bisher gearbeitet habe!"
 links:
   - title: Mehr erfahren
     url: /technologies
@@ -653,11 +653,11 @@ children:
   - id: overview
     label: Übersicht
     children:
-      - { id: about, label: 'Über mich', route: '/#about' }
-      - { id: languages, label: 'Sprachen', route: '/#languages' }
-      - { id: fun-facts, label: 'Fun Facts', route: '/#funFacts' }
-      - { id: references, label: 'Referenzen', route: '/#references' }
-      - { id: school, label: 'Schule', route: '/#school' }
+      - { id: about, label: "Über mich", route: "/#about" }
+      - { id: languages, label: "Sprachen", route: "/#languages" }
+      - { id: fun-facts, label: "Fun Facts", route: "/#funFacts" }
+      - { id: references, label: "Referenzen", route: "/#references" }
+      - { id: school, label: "Schule", route: "/#school" }
 ```
 
 ```yml
@@ -677,25 +677,25 @@ children:
   - {
       id: mail,
       label: Mail,
-      url: 'mailto:contact@jonathan-russ.com',
+      url: "mailto:contact@jonathan-russ.com",
       icon: { name: fa6-solid:envelope },
     }
   - {
       id: linkedin,
       label: LinkedIn,
-      url: 'https://linkedin.com/in/jonathan-russ-b7442a228',
+      url: "https://linkedin.com/in/jonathan-russ-b7442a228",
       icon: { name: fa6-brands:linkedin-in },
     }
   - {
       id: github,
       label: GitHub,
-      url: 'https://github.com/JonathanXDR',
+      url: "https://github.com/JonathanXDR",
       icon: { name: fa6-brands:github },
     }
   - {
       id: x,
-      label: 'X (Twitter)',
-      url: 'https://x.com/JonathanXD12_',
+      label: "X (Twitter)",
+      url: "https://x.com/JonathanXD12_",
       icon: { name: fa6-brands:x-twitter },
     }
 ```
@@ -705,7 +705,7 @@ children:
 ```yml
 # content/de/footer/copyright/01.links.yml
 links:
-  - { title: 'Jonathan Russ', url: 'https://jonathan-russ.com' }
+  - { title: "Jonathan Russ", url: "https://jonathan-russ.com" }
 ```
 
 ```yml
@@ -725,28 +725,28 @@ url: /privacy
 ```yml
 # content/de/social/01-mail.yml
 title: Mail
-url: 'mailto:contact@jonathan-russ.com'
+url: "mailto:contact@jonathan-russ.com"
 icon: { name: fa6-solid:envelope }
 ```
 
 ```yml
 # content/de/social/02-linkedin.yml
 title: LinkedIn
-url: 'https://linkedin.com/in/jonathan-russ-b7442a228'
+url: "https://linkedin.com/in/jonathan-russ-b7442a228"
 icon: { name: fa6-brands:linkedin-in }
 ```
 
 ```yml
 # content/de/social/03-github.yml
 title: GitHub
-url: 'https://github.com/JonathanXDR'
+url: "https://github.com/JonathanXDR"
 icon: { name: fa6-brands:github }
 ```
 
 ```yml
 # content/de/social/04-x.yml
-title: 'X (Twitter)'
-url: 'https://x.com/JonathanXD12_'
+title: "X (Twitter)"
+url: "https://x.com/JonathanXD12_"
 icon: { name: fa6-brands:x-twitter }
 ```
 
@@ -791,12 +791,12 @@ progress: 60
 divider: { direction: left }
 links:
   - {
-      title: 'B1 Preliminary',
-      url: 'https://www.cambridgeenglish.org/de/exams-and-tests/preliminary',
+      title: "B1 Preliminary",
+      url: "https://www.cambridgeenglish.org/de/exams-and-tests/preliminary",
     }
   - {
-      title: 'B2 First',
-      url: 'https://www.cambridgeenglish.org/de/exams-and-tests/first',
+      title: "B2 First",
+      url: "https://www.cambridgeenglish.org/de/exams-and-tests/first",
     }
 ```
 
@@ -840,8 +840,8 @@ title: Nick Zimmermann
 description: DevOps Engineer
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://nickzimmermann.com',
+      title: "Mehr erfahren",
+      url: "https://nickzimmermann.com",
       icon: { name: sf-symbols:chevron.right },
     }
 info:
@@ -879,8 +879,8 @@ title: Kim Eggler
 description: Full-Stack Developer
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://retrostories.ch',
+      title: "Mehr erfahren",
+      url: "https://retrostories.ch",
       icon: { name: sf-symbols:chevron.right },
     }
 info:
@@ -977,8 +977,8 @@ description: Gehörte Stunden Musik
 # content/de/technologies/html.yml
 icon:
   name: simple-icons:html5
-  background: '#E34F26'
-  colors: { primary: '#E34F26', secondary: '#E34F26', tertiary: '#E34F26' }
+  background: "#E34F26"
+  colors: { primary: "#E34F26", secondary: "#E34F26", tertiary: "#E34F26" }
 eyebrow: Sprache
 title: HTML
 description: >-
@@ -990,8 +990,8 @@ badges:
   - { title: Frontend }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+      title: "Mehr erfahren",
+      url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1000,8 +1000,8 @@ links:
 # content/de/technologies/css.yml
 icon:
   name: simple-icons:css
-  background: '#663399'
-  colors: { primary: '#663399', secondary: '#663399', tertiary: '#663399' }
+  background: "#663399"
+  colors: { primary: "#663399", secondary: "#663399", tertiary: "#663399" }
 eyebrow: Sprache
 title: CSS
 description: >-
@@ -1014,8 +1014,8 @@ badges:
   - { title: Design }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+      title: "Mehr erfahren",
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1024,8 +1024,8 @@ links:
 # content/de/technologies/javascript.yml
 icon:
   name: simple-icons:javascript
-  background: '#F7DF1E'
-  colors: { primary: '#F7DF1E', secondary: '#F7DF1E', tertiary: '#F7DF1E' }
+  background: "#F7DF1E"
+  colors: { primary: "#F7DF1E", secondary: "#F7DF1E", tertiary: "#F7DF1E" }
 eyebrow: Sprache
 title: JavaScript
 description: >-
@@ -1039,8 +1039,8 @@ badges:
   - { title: Backend }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+      title: "Mehr erfahren",
+      url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1049,12 +1049,12 @@ links:
 # content/de/technologies/sdx.yml
 icon:
   name: simple-icons-extended:swisscom
-  background: 'var(--color-card-logo-secondary)'
+  background: "var(--color-card-logo-secondary)"
   colors:
     {
-      primary: 'var(--color-card-logo-primary)',
-      secondary: 'var(--color-card-logo-secondary)',
-      tertiary: 'var(--color-card-logo-tertiary)',
+      primary: "var(--color-card-logo-primary)",
+      secondary: "var(--color-card-logo-secondary)",
+      tertiary: "var(--color-card-logo-tertiary)",
     }
 eyebrow: Bibliothek
 title: SDX
@@ -1068,8 +1068,8 @@ badges:
   - { title: UI }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://sdx.swisscom.ch',
+      title: "Mehr erfahren",
+      url: "https://sdx.swisscom.ch",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1078,8 +1078,8 @@ links:
 # content/de/technologies/nodejs.yml
 icon:
   name: simple-icons:nodedotjs
-  background: '#5FA04E'
-  colors: { primary: '#5FA04E', secondary: '#5FA04E', tertiary: '#5FA04E' }
+  background: "#5FA04E"
+  colors: { primary: "#5FA04E", secondary: "#5FA04E", tertiary: "#5FA04E" }
 eyebrow: Runtime
 title: Node.js
 description: >-
@@ -1092,8 +1092,8 @@ badges:
   - { title: Javascript, icon: { name: simple-icons:javascript } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://nodejs.org',
+      title: "Mehr erfahren",
+      url: "https://nodejs.org",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1102,8 +1102,8 @@ links:
 # content/de/technologies/sql.yml
 icon:
   name: simple-icons:mysql
-  background: '#4479A1'
-  colors: { primary: '#4479A1', secondary: '#4479A1', tertiary: '#4479A1' }
+  background: "#4479A1"
+  colors: { primary: "#4479A1", secondary: "#4479A1", tertiary: "#4479A1" }
 eyebrow: Sprache
 title: SQL
 description: >-
@@ -1116,8 +1116,8 @@ badges:
   - { title: Backend }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://developer.mozilla.org/en-US/docs/Glossary/SQL',
+      title: "Mehr erfahren",
+      url: "https://developer.mozilla.org/en-US/docs/Glossary/SQL",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1126,12 +1126,12 @@ links:
 # content/de/technologies/express.yml
 icon:
   name: simple-icons:express
-  background: 'var(--color-card-logo-secondary)'
+  background: "var(--color-card-logo-secondary)"
   colors:
     {
-      primary: 'var(--color-card-logo-primary)',
-      secondary: 'var(--color-card-logo-secondary)',
-      tertiary: 'var(--color-card-logo-tertiary)',
+      primary: "var(--color-card-logo-primary)",
+      secondary: "var(--color-card-logo-secondary)",
+      tertiary: "var(--color-card-logo-tertiary)",
     }
 eyebrow: Framework
 title: Express.js
@@ -1144,8 +1144,8 @@ badges:
   - { title: Node, icon: { name: simple-icons:nodedotjs } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://expressjs.com',
+      title: "Mehr erfahren",
+      url: "https://expressjs.com",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1154,8 +1154,8 @@ links:
 # content/de/technologies/vue.yml
 icon:
   name: simple-icons:vuedotjs
-  background: '#4FC08D'
-  colors: { primary: '#4FC08D', secondary: '#4FC08D', tertiary: '#4FC08D' }
+  background: "#4FC08D"
+  colors: { primary: "#4FC08D", secondary: "#4FC08D", tertiary: "#4FC08D" }
 eyebrow: Framework
 title: Vue.js
 description: >-
@@ -1168,8 +1168,8 @@ badges:
   - { title: Javascript, icon: { name: simple-icons:javascript } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://vuejs.org',
+      title: "Mehr erfahren",
+      url: "https://vuejs.org",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1178,8 +1178,8 @@ links:
 # content/de/technologies/typescript.yml
 icon:
   name: simple-icons:typescript
-  background: '#3178C6'
-  colors: { primary: '#3178C6', secondary: '#3178C6', tertiary: '#3178C6' }
+  background: "#3178C6"
+  colors: { primary: "#3178C6", secondary: "#3178C6", tertiary: "#3178C6" }
 eyebrow: Sprache
 title: TypeScript
 description: >-
@@ -1189,12 +1189,12 @@ description: >-
   Fleetmanagement Tool.
 badges:
   - { title: Typed }
-  - { title: 'Full Stack' }
+  - { title: "Full Stack" }
   - { title: Javascript, icon: { name: simple-icons:javascript } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://typescriptlang.org',
+      title: "Mehr erfahren",
+      url: "https://typescriptlang.org",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1203,8 +1203,8 @@ links:
 # content/de/technologies/csharp.yml
 icon:
   name: simple-icons-extended:csharp
-  background: '#7153DC'
-  colors: { primary: '#7153DC', secondary: '#7153DC', tertiary: '#7153DC' }
+  background: "#7153DC"
+  colors: { primary: "#7153DC", secondary: "#7153DC", tertiary: "#7153DC" }
 eyebrow: Sprache
 title: C#
 description: >-
@@ -1214,11 +1214,11 @@ description: >-
 badges:
   - { title: Microsoft }
   - { title: Backend }
-  - { title: 'Object-Oriented' }
+  - { title: "Object-Oriented" }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://docs.microsoft.com/en-us/dotnet/csharp',
+      title: "Mehr erfahren",
+      url: "https://docs.microsoft.com/en-us/dotnet/csharp",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1227,8 +1227,8 @@ links:
 # content/de/technologies/java.yml
 icon:
   name: simple-icons-extended:java
-  background: '#007396'
-  colors: { primary: '#007396', secondary: '#007396', tertiary: '#007396' }
+  background: "#007396"
+  colors: { primary: "#007396", secondary: "#007396", tertiary: "#007396" }
 eyebrow: Sprache
 title: Java
 description: >-
@@ -1238,12 +1238,12 @@ description: >-
   objektorientiert zu realisieren. Das haben wir mit einem Java‑Backend und einem ORM gemacht.
 badges:
   - { title: Backend }
-  - { title: 'Object-Oriented' }
+  - { title: "Object-Oriented" }
   - { title: Enterprise }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://java.com',
+      title: "Mehr erfahren",
+      url: "https://java.com",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1252,12 +1252,12 @@ links:
 # content/de/technologies/bash.yml
 icon:
   name: simple-icons:gnubash
-  background: 'var(--color-card-logo-secondary)'
+  background: "var(--color-card-logo-secondary)"
   colors:
     {
-      primary: 'var(--color-card-logo-primary)',
-      secondary: 'var(--color-card-logo-secondary)',
-      tertiary: 'var(--color-card-logo-tertiary)',
+      primary: "var(--color-card-logo-primary)",
+      secondary: "var(--color-card-logo-secondary)",
+      tertiary: "var(--color-card-logo-tertiary)",
     }
 eyebrow: Sprache
 title: Bash
@@ -1271,8 +1271,8 @@ badges:
   - { title: Linux }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://gnu.org/software/bash',
+      title: "Mehr erfahren",
+      url: "https://gnu.org/software/bash",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1281,8 +1281,8 @@ links:
 # content/de/technologies/react.yml
 icon:
   name: simple-icons:react
-  background: '#61DAFB'
-  colors: { primary: '#61DAFB', secondary: '#61DAFB', tertiary: '#61DAFB' }
+  background: "#61DAFB"
+  colors: { primary: "#61DAFB", secondary: "#61DAFB", tertiary: "#61DAFB" }
 eyebrow: Framework
 title: React
 description: >-
@@ -1296,8 +1296,8 @@ badges:
   - { title: Javascript, icon: { name: simple-icons:javascript } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://reactjs.org',
+      title: "Mehr erfahren",
+      url: "https://reactjs.org",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1306,12 +1306,12 @@ links:
 # content/de/technologies/nextjs.yml
 icon:
   name: simple-icons:nextdotjs
-  background: 'var(--color-card-logo-secondary)'
+  background: "var(--color-card-logo-secondary)"
   colors:
     {
-      primary: 'var(--color-card-logo-primary)',
-      secondary: 'var(--color-card-logo-secondary)',
-      tertiary: 'var(--color-card-logo-tertiary)',
+      primary: "var(--color-card-logo-primary)",
+      secondary: "var(--color-card-logo-secondary)",
+      tertiary: "var(--color-card-logo-tertiary)",
     }
 eyebrow: Framework
 title: Next.js
@@ -1326,8 +1326,8 @@ badges:
   - { title: React, icon: { name: simple-icons:react } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://nextjs.org',
+      title: "Mehr erfahren",
+      url: "https://nextjs.org",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1336,9 +1336,9 @@ links:
 # content/de/technologies/docker.yml
 icon:
   name: simple-icons:docker
-  background: '#2496ED'
-  colors: { primary: '#2496ED', secondary: '#2496ED', tertiary: '#2496ED' }
-eyebrow: 'Container Management'
+  background: "#2496ED"
+  colors: { primary: "#2496ED", secondary: "#2496ED", tertiary: "#2496ED" }
+eyebrow: "Container Management"
 title: Docker
 description: >-
   Richtig verstanden und mich damit beschäftigt habe ich Docker im Berufsschulmodul 347, wo wir eine
@@ -1350,8 +1350,8 @@ badges:
   - { title: Cloud }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://docker.com',
+      title: "Mehr erfahren",
+      url: "https://docker.com",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1360,9 +1360,9 @@ links:
 # content/de/technologies/kubernetes.yml
 icon:
   name: simple-icons:kubernetes
-  background: '#326CE5'
-  colors: { primary: '#326CE5', secondary: '#326CE5', tertiary: '#326CE5' }
-eyebrow: 'Container Management'
+  background: "#326CE5"
+  colors: { primary: "#326CE5", secondary: "#326CE5", tertiary: "#326CE5" }
+eyebrow: "Container Management"
 title: Kubernetes
 description: >-
   Auch Kubernetes habe ich im Berufsschulmodul 347 kennengelernt und dort verwendet, um eine Applikation
@@ -1374,8 +1374,8 @@ badges:
   - { title: DevOps }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://kubernetes.io',
+      title: "Mehr erfahren",
+      url: "https://kubernetes.io",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1384,8 +1384,8 @@ links:
 # content/de/technologies/nestjs.yml
 icon:
   name: simple-icons:nestjs
-  background: '#E0234E'
-  colors: { primary: '#E0234E', secondary: '#E0234E', tertiary: '#E0234E' }
+  background: "#E0234E"
+  colors: { primary: "#E0234E", secondary: "#E0234E", tertiary: "#E0234E" }
 eyebrow: Framework
 title: Nest.js
 description: >-
@@ -1399,8 +1399,8 @@ badges:
   - { title: TypeScript, icon: { name: simple-icons:typescript } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://nestjs.com',
+      title: "Mehr erfahren",
+      url: "https://nestjs.com",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1409,12 +1409,12 @@ links:
 # content/de/technologies/prisma.yml
 icon:
   name: simple-icons:prisma
-  background: 'var(--color-card-logo-secondary)'
+  background: "var(--color-card-logo-secondary)"
   colors:
     {
-      primary: 'var(--color-card-logo-primary)',
-      secondary: 'var(--color-card-logo-secondary)',
-      tertiary: 'var(--color-card-logo-tertiary)',
+      primary: "var(--color-card-logo-primary)",
+      secondary: "var(--color-card-logo-secondary)",
+      tertiary: "var(--color-card-logo-tertiary)",
     }
 eyebrow: ORM
 title: Prisma
@@ -1427,8 +1427,8 @@ badges:
   - { title: TypeScript, icon: { name: simple-icons:typescript } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://prisma.io',
+      title: "Mehr erfahren",
+      url: "https://prisma.io",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1437,8 +1437,8 @@ links:
 # content/de/technologies/typeorm.yml
 icon:
   name: simple-icons:typeorm
-  background: '#FE0803'
-  colors: { primary: '#FE0803', secondary: '#FE0803', tertiary: '#FE0803' }
+  background: "#FE0803"
+  colors: { primary: "#FE0803", secondary: "#FE0803", tertiary: "#FE0803" }
 eyebrow: ORM
 title: TypeORM
 description: >-
@@ -1450,8 +1450,8 @@ badges:
   - { title: TypeScript, icon: { name: simple-icons:typescript } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://typeorm.io',
+      title: "Mehr erfahren",
+      url: "https://typeorm.io",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1460,8 +1460,8 @@ links:
 # content/de/technologies/github-primer.yml
 icon:
   name: simple-icons:github
-  background: '#4493F8'
-  colors: { primary: '#4493F8', secondary: '#4493F8', tertiary: '#4493F8' }
+  background: "#4493F8"
+  colors: { primary: "#4493F8", secondary: "#4493F8", tertiary: "#4493F8" }
 eyebrow: Bibliothek
 title: GitHub Primer
 description: >-
@@ -1474,8 +1474,8 @@ badges:
   - { title: React, icon: { name: simple-icons:react } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://primer.style',
+      title: "Mehr erfahren",
+      url: "https://primer.style",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1484,8 +1484,8 @@ links:
 # content/de/technologies/tailwindcss.yml
 icon:
   name: simple-icons:tailwindcss
-  background: '#06B6D4'
-  colors: { primary: '#06B6D4', secondary: '#06B6D4', tertiary: '#06B6D4' }
+  background: "#06B6D4"
+  colors: { primary: "#06B6D4", secondary: "#06B6D4", tertiary: "#06B6D4" }
 eyebrow: Bibliothek
 title: Tailwind CSS
 description: >-
@@ -1498,8 +1498,8 @@ badges:
   - { title: CSS, icon: { name: simple-icons:css } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://tailwindcss.com',
+      title: "Mehr erfahren",
+      url: "https://tailwindcss.com",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1508,8 +1508,8 @@ links:
 # content/de/technologies/python.yml
 icon:
   name: simple-icons:python
-  background: '#3776AB'
-  colors: { primary: '#3776AB', secondary: '#3776AB', tertiary: '#3776AB' }
+  background: "#3776AB"
+  colors: { primary: "#3776AB", secondary: "#3776AB", tertiary: "#3776AB" }
 eyebrow: Sprache
 title: Python
 description: >-
@@ -1518,11 +1518,11 @@ description: >-
 badges:
   - { title: Scripting }
   - { title: Backend }
-  - { title: 'Object-Oriented' }
+  - { title: "Object-Oriented" }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://python.org',
+      title: "Mehr erfahren",
+      url: "https://python.org",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1531,8 +1531,8 @@ links:
 # content/de/technologies/kotlin.yml
 icon:
   name: simple-icons:kotlin
-  background: '#7F52FF'
-  colors: { primary: '#7F52FF', secondary: '#7F52FF', tertiary: '#7F52FF' }
+  background: "#7F52FF"
+  colors: { primary: "#7F52FF", secondary: "#7F52FF", tertiary: "#7F52FF" }
 eyebrow: Sprache
 title: Kotlin
 description: >-
@@ -1541,12 +1541,12 @@ description: >-
   da ich es interessant fand und es auch eine moderne Programmiersprache ist.
 badges:
   - { title: Mobile }
-  - { title: 'Object-Oriented' }
+  - { title: "Object-Oriented" }
   - { title: Android, icon: { name: simple-icons:android } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://kotlinlang.org',
+      title: "Mehr erfahren",
+      url: "https://kotlinlang.org",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1555,8 +1555,8 @@ links:
 # content/de/technologies/jetpack-compose.yml
 icon:
   name: simple-icons:jetpackcompose
-  background: '#4285F4'
-  colors: { primary: '#4285F4', secondary: '#4285F4', tertiary: '#4285F4' }
+  background: "#4285F4"
+  colors: { primary: "#4285F4", secondary: "#4285F4", tertiary: "#4285F4" }
 eyebrow: Sprache
 title: Jetpack Compose
 description: >-
@@ -1568,8 +1568,8 @@ badges:
   - { title: Android, icon: { name: simple-icons:android } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://developer.android.com/compose',
+      title: "Mehr erfahren",
+      url: "https://developer.android.com/compose",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1578,8 +1578,8 @@ links:
 # content/de/technologies/material-design-3.yml
 icon:
   name: simple-icons:android
-  background: '#34A853'
-  colors: { primary: '#34A853', secondary: '#34A853', tertiary: '#34A853' }
+  background: "#34A853"
+  colors: { primary: "#34A853", secondary: "#34A853", tertiary: "#34A853" }
 eyebrow: Bibliothek
 title: Material Design 3
 description: >-
@@ -1593,8 +1593,8 @@ badges:
   - { title: Android, icon: { name: simple-icons:android } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://m3.material.io',
+      title: "Mehr erfahren",
+      url: "https://m3.material.io",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1603,8 +1603,8 @@ links:
 # content/de/technologies/nuxt.yml
 icon:
   name: simple-icons:nuxt
-  background: '#00DC82'
-  colors: { primary: '#00DC82', secondary: '#00DC82', tertiary: '#00DC82' }
+  background: "#00DC82"
+  colors: { primary: "#00DC82", secondary: "#00DC82", tertiary: "#00DC82" }
 eyebrow: Framework
 title: Nuxt
 description: >-
@@ -1617,8 +1617,8 @@ badges:
   - { title: Vue, icon: { name: simple-icons:vuedotjs } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://nuxt.com',
+      title: "Mehr erfahren",
+      url: "https://nuxt.com",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1627,12 +1627,12 @@ links:
 # content/de/technologies/angular.yml
 icon:
   name: simple-icons:angular
-  background: 'var(--color-card-logo-secondary)'
+  background: "var(--color-card-logo-secondary)"
   colors:
     {
-      primary: 'var(--color-card-logo-primary)',
-      secondary: 'var(--color-card-logo-secondary)',
-      tertiary: 'var(--color-card-logo-tertiary)',
+      primary: "var(--color-card-logo-primary)",
+      secondary: "var(--color-card-logo-secondary)",
+      tertiary: "var(--color-card-logo-tertiary)",
     }
 eyebrow: Framework
 title: Angular
@@ -1646,8 +1646,8 @@ badges:
   - { title: Javascript, icon: { name: simple-icons:javascript } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://angular.io',
+      title: "Mehr erfahren",
+      url: "https://angular.io",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1656,12 +1656,12 @@ links:
 # content/de/technologies/bun.yml
 icon:
   name: simple-icons:bun
-  background: 'var(--color-card-logo-secondary)'
+  background: "var(--color-card-logo-secondary)"
   colors:
     {
-      primary: 'var(--color-card-logo-primary)',
-      secondary: 'var(--color-card-logo-secondary)',
-      tertiary: 'var(--color-card-logo-tertiary)',
+      primary: "var(--color-card-logo-primary)",
+      secondary: "var(--color-card-logo-secondary)",
+      tertiary: "var(--color-card-logo-tertiary)",
     }
 eyebrow: Runtime
 title: Bun
@@ -1675,8 +1675,8 @@ badges:
   - { title: TypeScript, icon: { name: simple-icons:typescript } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://bun.sh',
+      title: "Mehr erfahren",
+      url: "https://bun.sh",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1685,8 +1685,8 @@ links:
 # content/de/technologies/scala.yml
 icon:
   name: simple-icons:scala
-  background: '#DC322F'
-  colors: { primary: '#DC322F', secondary: '#DC322F', tertiary: '#DC322F' }
+  background: "#DC322F"
+  colors: { primary: "#DC322F", secondary: "#DC322F", tertiary: "#DC322F" }
 eyebrow: Sprache
 title: Scala
 description: >-
@@ -1695,13 +1695,13 @@ description: >-
   mitbringt.
 badges:
   - { title: Backend }
-  - { title: 'Object-Oriented' }
+  - { title: "Object-Oriented" }
   - { title: Functional }
   - { title: Java, icon: { name: simple-icons-extended:java } }
 links:
   - {
-      title: 'Mehr erfahren',
-      url: 'https://scala-lang.org',
+      title: "Mehr erfahren",
+      url: "https://scala-lang.org",
       icon: { name: sf-symbols:chevron.right },
     }
 ```
@@ -1721,12 +1721,12 @@ badges:
   - { title: Introduction }
   - { title: Swisscom }
   - { title: Teamwork }
-  - { title: 'Work Safety' }
-  - { title: 'Next Generation' }
+  - { title: "Work Safety" }
+  - { title: "Next Generation" }
 info:
-  date: { fixed: '2021-08-01' }
+  date: { fixed: "2021-08-01" }
   supervisor: Steve Hess
-  location: 'Zürich & Bern'
+  location: "Zürich & Bern"
   department: GHR-SCS-NEX
 ```
 
@@ -1742,7 +1742,7 @@ description: >-
   eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte
   Programmiersprachen, wie Express.js oder Vue.js neu dazugelernt.
 badges:
-  - { title: 'Web Development' }
+  - { title: "Web Development" }
   - { title: Frontend }
   - { title: Backend }
   - { title: CRUD }
@@ -1755,7 +1755,7 @@ badges:
   - { title: SDX, icon: { name: simple-icons-extended:swisscom } }
 info:
   date:
-    duration: { from: '2021-08-01', to: '2022-01-01' }
+    duration: { from: "2021-08-01", to: "2022-01-01" }
   supervisor: Nick Zimmermann
   location: Zür-Har3
   department: SCS-INI-DOS-DVX
@@ -1778,10 +1778,10 @@ badges:
   - { title: Ranorex }
   - { title: UiPath }
   - { title: .NET }
-  - { title: 'C#', icon: { name: simple-icons-extended:csharp } }
+  - { title: "C#", icon: { name: simple-icons-extended:csharp } }
 info:
   date:
-    duration: { from: '2022-02-01', to: '2022-07-01' }
+    duration: { from: "2022-02-01", to: "2022-07-01" }
   supervisor: Alessio Iantosca
   location: Zür-Pfi51
   department: SCS-B2B-TBS-BPS-BPM-AU1
@@ -1805,18 +1805,18 @@ badges:
   - { title: SDX, icon: { name: simple-icons-extended:swisscom } }
 links:
   - {
-      title: 'Apps Team',
-      url: 'https://appsteam.swisscom.com',
+      title: "Apps Team",
+      url: "https://appsteam.swisscom.com",
       icon: { name: sf-symbols:chevron.right },
     }
   - {
-      title: 'Indigo online',
-      url: 'https://indigo.online',
+      title: "Indigo online",
+      url: "https://indigo.online",
       icon: { name: sf-symbols:chevron.right },
     }
 info:
   date:
-    duration: { from: '2022-08-01', to: '2023-02-01' }
+    duration: { from: "2022-08-01", to: "2023-02-01" }
   supervisor: Carlo Schmid
   location: Itt-Ey10
   department: GHR-OPD-CLE-LES-APP (EXT)
@@ -1845,23 +1845,23 @@ badges:
   - { title: TypeORM, icon: { name: simple-icons:typeorm } }
   - { title: Prisma, icon: { name: simple-icons:prisma } }
   - { title: React, icon: { name: simple-icons:react } }
-  - { title: 'Next.js', icon: { name: simple-icons:nextdotjs } }
+  - { title: "Next.js", icon: { name: simple-icons:nextdotjs } }
   - { title: SDX, icon: { name: simple-icons-extended:swisscom } }
-  - { title: 'GitHub Primer', icon: { name: simple-icons:github } }
+  - { title: "GitHub Primer", icon: { name: simple-icons:github } }
 links:
   - {
-      title: 'Apps Team',
-      url: 'https://appsteam.swisscom.com',
+      title: "Apps Team",
+      url: "https://appsteam.swisscom.com",
       icon: { name: sf-symbols:chevron.right },
     }
   - {
-      title: 'Indigo online',
-      url: 'https://indigo.online',
+      title: "Indigo online",
+      url: "https://indigo.online",
       icon: { name: sf-symbols:chevron.right },
     }
 info:
   date:
-    duration: { from: '2023-02-01', to: '2023-08-01' }
+    duration: { from: "2023-02-01", to: "2023-08-01" }
   supervisor: Kim Eggler
   location: Itt-Ey10
   department: GHR-OPD-CLE-LES-APP (EXT)
@@ -1870,7 +1870,7 @@ info:
 ```yml
 # content/de/projects/06-security-art.yml
 icon: { name: sf-symbols:shield.lefthalf.filled }
-eyebrow: 'Security Journey'
+eyebrow: "Security Journey"
 title: Security & Compliance Services ART
 description: >-
   In diesem Projekt habe ich mit ein paar Trainings zu Cloud, Security und DevOps begonnen, was
@@ -1884,7 +1884,7 @@ description: >-
 badges:
   - { title: Security }
   - { title: Cloud }
-  - { title: 'Database Activity Monitoring' }
+  - { title: "Database Activity Monitoring" }
   - { title: DevOps }
   - { title: OPA }
   - { title: Python, icon: { name: simple-icons:python } }
@@ -1893,7 +1893,7 @@ badges:
   - { title: Elastic, icon: { name: simple-icons:elasticsearch } }
 info:
   date:
-    duration: { from: '2023-09-01', to: '2024-03-01' }
+    duration: { from: "2023-09-01", to: "2024-03-01" }
   supervisor: Radu Margineanu
   location: Zür-Mas10
   department: SCS-INI-EOG-EA-EAF
@@ -1902,7 +1902,7 @@ info:
 ```yml
 # content/de/projects/07-piz-tofana.yml
 icon: { name: sf-symbols:shield.lefthalf.filled }
-eyebrow: 'Security Journey'
+eyebrow: "Security Journey"
 title: Piz Tofana Tooling Team
 description: >-
   Während meines Aufenthalts im Team Piz Tofana, habe ich hauptsächlich an der Daedalus Applikation
@@ -1914,12 +1914,12 @@ description: >-
 badges:
   - { title: Security }
   - { title: Java, icon: { name: simple-icons-extended:java } }
-  - { title: 'Spring Boot', icon: { name: simple-icons:springboot } }
+  - { title: "Spring Boot", icon: { name: simple-icons:springboot } }
   - { title: TypeScript, icon: { name: simple-icons:typescript } }
   - { title: Angular, icon: { name: simple-icons:angular } }
 info:
   date:
-    duration: { from: '2024-03-01', to: '2024-07-01' }
+    duration: { from: "2024-03-01", to: "2024-07-01" }
   supervisor: Oliver Kramer
   location: Zür-För181
   department: INI-EOG-SPA
@@ -1929,7 +1929,7 @@ info:
 # content/de/projects/08-apps-ipa.yml
 icon: { name: sf-symbols:airplane.arrival }
 eyebrow: Full-Stack
-title: 'Apps Team (IPA)'
+title: "Apps Team (IPA)"
 description: >-
   Für meine IPA (Individuelle Praktische Arbeit) habe ich mich entschieden, nochmals ins Apps Team zu
   gehen, da ich dort bereits viele Erfahrungen sammeln konnte und mich das Team, sowie dessen Zusammenhalt
@@ -1945,18 +1945,18 @@ badges:
   - { title: Prisma, icon: { name: simple-icons:prisma } }
 links:
   - {
-      title: 'Apps Team',
-      url: 'https://appsteam.swisscom.com',
+      title: "Apps Team",
+      url: "https://appsteam.swisscom.com",
       icon: { name: sf-symbols:chevron.right },
     }
   - {
-      title: 'Indigo online',
-      url: 'https://indigo.online',
+      title: "Indigo online",
+      url: "https://indigo.online",
       icon: { name: sf-symbols:chevron.right },
     }
 info:
   date:
-    duration: { from: '2024-08-01', to: '2025-07-01' }
+    duration: { from: "2024-08-01", to: "2025-07-01" }
   supervisor: Kim Eggler
   location: Itt-Ey10
   department: GHR-OPD-CLE-LES-APP (EXT)
@@ -1968,33 +1968,33 @@ info:
 
 ```ts
 // Navbar (ordered by filename number)
-const navbar = await queryCollection('navbar').order('stem', 'ASC').all()
+const navbar = await queryCollection("navbar").order("stem", "ASC").all();
 
 // Footer directory
-const footer = await queryCollection('footerDirectory')
-  .order('stem', 'ASC')
-  .all()
+const footer = await queryCollection("footerDirectory")
+  .order("stem", "ASC")
+  .all();
 
 // Banners
-const banners = await queryCollection('banners').order('stem', 'ASC').all()
+const banners = await queryCollection("banners").order("stem", "ASC").all();
 
 // Segments (theme)
-const themeSegments = await queryCollection('segmentsTheme')
-  .order('stem', 'ASC')
-  .all()
+const themeSegments = await queryCollection("segmentsTheme")
+  .order("stem", "ASC")
+  .all();
 
 // Homepage sections
-const about = await queryCollection('sections')
-  .path('/de/sections/about')
-  .first()
+const about = await queryCollection("sections")
+  .path("/de/sections/about")
+  .first();
 
 // Technologies & Projects
-const technologies = await queryCollection('technologies')
-  .order('title', 'ASC')
-  .all()
-const projects = await queryCollection('projects')
-  .order('info.date', 'DESC')
-  .all()
+const technologies = await queryCollection("technologies")
+  .order("title", "ASC")
+  .all();
+const projects = await queryCollection("projects")
+  .order("info.date", "DESC")
+  .all();
 ```
 
 ## i18n setup sketch
@@ -2002,16 +2002,16 @@ const projects = await queryCollection('projects')
 ```ts
 // nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['@nuxt/content', '@nuxtjs/i18n'],
+  modules: ["@nuxt/content", "@nuxtjs/i18n"],
   i18n: {
     locales: [
-      { code: 'de', name: 'Deutsch', language: 'de-CH', dir: 'ltr' },
-      { code: 'en', name: 'English', language: 'en-US', dir: 'ltr' },
+      { code: "de", name: "Deutsch", language: "de-CH", dir: "ltr" },
+      { code: "en", name: "English", language: "en-US", dir: "ltr" },
     ],
-    defaultLocale: 'de',
-    strategy: 'prefix_except_default',
+    defaultLocale: "de",
+    strategy: "prefix_except_default",
   },
-})
+});
 ```
 
 > When you add English, mirror the `content/de/**` tree under `content/en/**` with translated text. The `pages` and `site` collections are already configured for both locales.

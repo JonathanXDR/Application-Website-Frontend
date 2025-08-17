@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { animate } from 'motion-v'
-import type { LanguageBarType } from '#shared/types/components/language-bar'
 
 defineProps<{
   title: string
@@ -12,7 +11,7 @@ const { tm, locale } = useI18n()
 const chipClaimHeight = ref(0)
 const titles = useTemplateRef<HTMLElement[]>('titles')
 const progressSpan = ref<HTMLElement[]>([])
-const funFacts = computed<LanguageBarType[]>(() =>
+const funFacts = computed<LanguageType[]>(() =>
   tm('components.containers.funFacts'),
 )
 
