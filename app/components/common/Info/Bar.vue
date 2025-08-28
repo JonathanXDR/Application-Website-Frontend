@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { IconItemType } from '#shared/types/components/icon-item'
-import type { InfoBarType } from '#shared/types/components/info-bar'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 
@@ -18,7 +16,7 @@ const props = withDefaults(defineProps<InfoBarType>(), {
 dayjs.extend(relativeTime)
 
 const { locale } = useI18n()
-const infoItems: { id: keyof InfoBarType, icon: IconItemType }[] = [
+const infoItems: { id: keyof InfoBarType, icon: IconType }[] = [
   { id: 'location', icon: { name: 'sf-symbols:location.fill' } },
   { id: 'supervisor', icon: { name: 'sf-symbols:person.fill' } },
   { id: 'department', icon: { name: 'sf-symbols:tag.fill' } },

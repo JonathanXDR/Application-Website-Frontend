@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { ItemType } from '#shared/types/common/item'
-
 withDefaults(
   defineProps<{
     options: ItemType[]

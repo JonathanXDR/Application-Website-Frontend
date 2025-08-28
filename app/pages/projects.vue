@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import type { CardRepositoryType } from '#shared/types/common/card-repository'
-import type { ItemType } from '#shared/types/common/item'
-import type { CardItemType } from '#shared/types/components/card-item'
-import type { IconItemType } from '#shared/types/components/icon-item'
-import type { MinimalRepository } from '#shared/types/services/github/repository'
 import type { Repository } from '@octokit/graphql-schema'
 
 type PinnedRepository = Repository & {
-  icon?: IconItemType
+  icon?: IconType
 }
 
 type CategorizedRepository = CardRepositoryType & {
@@ -241,7 +236,7 @@ onUnmounted(() => {
                 }),
               },
             },
-            icon: {
+            icon: project.icon && {
               ...project.icon,
               position: viewport.isLessThan('tablet') ? 'top' : 'left',
             },
@@ -274,7 +269,7 @@ onUnmounted(() => {
                 tertiary: `var(--color-figure-${randomDevColor?.name})`,
                 quaternary: `var(--color-figure-${randomDevColor?.name})`,
               },
-              icon: {
+              icon: project.icon && {
                 ...project.icon,
                 position: 'right',
                 absolute: true,
@@ -299,7 +294,7 @@ onUnmounted(() => {
               ...project,
               loading: false,
               componentSize: 'small',
-              icon: {
+              icon: project.icon && {
                 ...project.icon,
                 position: 'right',
               },

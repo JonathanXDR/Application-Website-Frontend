@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import type { SectionType } from '#shared/types/common/section'
-import type { NavbarType } from '#shared/types/components/nav-bar'
-
 const props = withDefaults(defineProps<NavbarType>(), {
   autoHide: false,
   autoHideDelay: 5000,

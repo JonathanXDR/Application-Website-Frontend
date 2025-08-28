@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import type { IconItemType } from '#shared/types/components/icon-item'
-import type { LinkItemType } from '#shared/types/components/link-item'
-
 const props = withDefaults(
   defineProps<{
     label?: string
-    icon?: IconItemType
+    icon?: IconType
     links?: LinkItemType[]
     loading?: boolean
   }>(),

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { LinkItemType } from '#shared/types/components/link-item'
-
 defineProps<{ links?: LinkItemType[] }>()
 
 const { tm } = useI18n()
