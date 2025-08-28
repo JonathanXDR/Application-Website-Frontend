@@ -7,8 +7,8 @@
         "@antfu/ni": "25.0.0",
         "@commitlint/cli": "19.8.1",
         "@commitlint/config-conventional": "19.8.1",
-        "@iconify-json/fa6-brands": "1.2.6",
-        "@iconify-json/fa6-solid": "1.2.4",
+        "@iconify-json/fa7-brands": "1.2.0",
+        "@iconify-json/fa7-solid": "1.2.0",
         "@iconify-json/logos": "1.2.9",
         "@iconify-json/simple-icons": "1.2.49",
         "@nuxt/content": "3.6.3",
@@ -270,9 +270,9 @@
 
     "@humanwhocodes/retry": ["@humanwhocodes/retry@0.4.3", "", {}, "sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ=="],
 
-    "@iconify-json/fa6-brands": ["@iconify-json/fa6-brands@1.2.6", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-twL3X4KWcxAhbc1vz/mIDsVr+CAItk1/EIfxKUVQtpv6O4eydk5KNYqTZWdvJNHGInUgd6vKg21aWfVgb5DXEg=="],
+    "@iconify-json/fa7-brands": ["@iconify-json/fa7-brands@1.2.0", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-OTdHSwRmycgQQXQr7wJQFyD08zj4OxoRfaWhCuI3a9MhbnHJApU4U2Qbp6hP4zicqOmQB9UII9+MA1IDNNLPlQ=="],
 
-    "@iconify-json/fa6-solid": ["@iconify-json/fa6-solid@1.2.4", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-LmDNNdJVyvF5mPm1yxWvL8KjCc/E8LzoqnF1LNTVpyY2ZJRUlGOWuPIThdbuFBF2IovgttkIyumhyqfmlHdwKg=="],
+    "@iconify-json/fa7-solid": ["@iconify-json/fa7-solid@1.2.0", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-J4qHWO94sv4RQgkyy4eMFO2NjPsMg6cDqmJPNHLTO0ChVkeg54hIPUAQp0I42cGotHaXix4kYY8sDQCXggC+nA=="],
 
     "@iconify-json/logos": ["@iconify-json/logos@1.2.9", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-G6VCdFnwZcrT6Eveq3m43oJfLw/CX8plwFcE+2jgv3fiGB64pTmnU7Yd1MNZ/eA+/Re2iEDhuCfSNOWTHwwK8w=="],
 
