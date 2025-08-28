@@ -27,12 +27,6 @@
               "label": "Références",
               "route": "/#references",
               "class": "section-separated"
-            },
-            {
-              "id": "school",
-              "label": "École",
-              "route": "/#school",
-              "class": "section-separated"
             }
           ]
         },
@@ -216,7 +210,7 @@
             "title": "LinkedIn",
             "url": "https://linkedin.com/in/jonathan-russ-b7442a228",
             "icon": {
-              "name": "fa7-brands:linkedin-in"
+              "name": "fa7-brands:linkedin"
             }
           },
           {

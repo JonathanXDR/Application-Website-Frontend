@@ -27,12 +27,6 @@
               "label": "References",
               "route": "/#references",
               "class": "section-separated"
-            },
-            {
-              "id": "school",
-              "label": "School",
-              "route": "/#school",
-              "class": "section-separated"
             }
           ]
         },
