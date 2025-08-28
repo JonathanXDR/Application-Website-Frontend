@@ -1,0 +1,4 @@
+id: languages
+label: Sprachen
+route: "/#languages"
+class: section-separated

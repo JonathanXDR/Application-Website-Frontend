@@ -1,0 +1,33 @@
+icon: { name: sf-symbols:airplane.arrival }
+eyebrow: Full-Stack
+title: "Apps Team (IPA)"
+description: >-
+  Für meine IPA (Individuelle Praktische Arbeit) habe ich mich entschieden, nochmals ins Apps Team zu
+  gehen, da ich dort bereits viele Erfahrungen sammeln konnte und mich das Team, sowie dessen Zusammenhalt
+  wirklich begeistert hat. Von Anfang an durfte ich bereits an produktiven Projekten mitarbeiten, wie z.B.
+  dem Trade Compliance Tool oder den Enterprise Connect Demos. Bei beiden Tools verwenden wir hauptsächlich
+  mit Next.js und Nest.js, inklusive Prisma als ORM.
+
+badges:
+  - { title: IPA }
+  - { title: TypeScript, icon: { name: simple-icons:typescript } }
+  - { title: Next, icon: { name: simple-icons:nextdotjs } }
+  - { title: Nest, icon: { name: simple-icons:nestjs } }
+  - { title: Prisma, icon: { name: simple-icons:prisma } }
+links:
+  - {
+      title: "Apps Team",
+      url: "https://appsteam.swisscom.com",
+      icon: { name: sf-symbols:chevron.right },
+    }
+  - {
+      title: "Indigo online",
+      url: "https://indigo.online",
+      icon: { name: sf-symbols:chevron.right },
+    }
+info:
+  date:
+    duration: { from: "2024-08-01", to: "2025-07-01" }
+  supervisor: Kim Eggler
+  location: Itt-Ey10
+  department: GHR-OPD-CLE-LES-APP (EXT)

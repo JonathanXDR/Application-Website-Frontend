@@ -1,0 +1,20 @@
+icon:
+  name: simple-icons:kubernetes
+  background: "#326CE5"
+  colors: { primary: "#326CE5", secondary: "#326CE5", tertiary: "#326CE5" }
+eyebrow: "Container Management"
+title: Kubernetes
+description: >-
+  Auch Kubernetes habe ich im Berufsschulmodul 347 kennengelernt und dort verwendet, um eine Applikation
+  mittels CI/CD zu deployen. Der ÜK 210 hat mir dann nochmal einen tieferen Einblick in die
+  Container‑Orchestrierung gegeben, da er sich mehr damit beschäftigt hat.
+badges:
+  - { title: Container }
+  - { title: Orchestration }
+  - { title: DevOps }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://kubernetes.io",
+      icon: { name: sf-symbols:chevron.right },
+    }

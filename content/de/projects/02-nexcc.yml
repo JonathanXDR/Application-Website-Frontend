@@ -1,0 +1,27 @@
+icon: { name: sf-symbols:chevron.left.forwardslash.chevron.right }
+eyebrow: Full-Stack
+title: Competence Center NexCC
+description: >-
+  Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei viele neue Programmiersprachen
+  gelernt. Darunter HTML, CSS und JavaScript. Danach durfte ich dann eine CRUD-App erstellen, welche ich
+  mit einer SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend hinzugefügt und so ein
+  eigenes Login-System erstellt. Dabei habe ich vor allem das Backend kennengelernt und Framework basierte
+  Programmiersprachen, wie Express.js oder Vue.js neu dazugelernt.
+badges:
+  - { title: "Web Development" }
+  - { title: Frontend }
+  - { title: Backend }
+  - { title: CRUD }
+  - { title: HTML, icon: { name: simple-icons:html5 } }
+  - { title: CSS, icon: { name: simple-icons:css } }
+  - { title: JavaScript, icon: { name: simple-icons:javascript } }
+  - { title: Express, icon: { name: simple-icons:express } }
+  - { title: SQL, icon: { name: simple-icons:mysql } }
+  - { title: Vue, icon: { name: simple-icons:vuedotjs } }
+  - { title: SDX, icon: { name: simple-icons-extended:swisscom } }
+info:
+  date:
+    duration: { from: "2021-08-01", to: "2022-01-01" }
+  supervisor: Nick Zimmermann
+  location: Zür-Har3
+  department: SCS-INI-DOS-DVX

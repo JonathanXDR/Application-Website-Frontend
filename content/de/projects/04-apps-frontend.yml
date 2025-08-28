@@ -1,0 +1,31 @@
+icon: { name: sf-symbols:display, colors: { tertiary: none } }
+eyebrow: Frontend
+title: Apps Team
+description: >-
+  Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js, TypeScript und SDX erstellen.
+  Anschliessend habe ich beim programmieren der neuen Apps Team Webseite mitgeholfen. Dort haben wir
+  ebenfalls mit TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.
+badges:
+  - { title: Frontend }
+  - { title: Memory }
+  - { title: TypeScript, icon: { name: simple-icons:typescript } }
+  - { title: Vue, icon: { name: simple-icons:vuedotjs } }
+  - { title: Next, icon: { name: simple-icons:nextdotjs } }
+  - { title: SDX, icon: { name: simple-icons-extended:swisscom } }
+links:
+  - {
+      title: "Apps Team",
+      url: "https://appsteam.swisscom.com",
+      icon: { name: sf-symbols:chevron.right },
+    }
+  - {
+      title: "Indigo online",
+      url: "https://indigo.online",
+      icon: { name: sf-symbols:chevron.right },
+    }
+info:
+  date:
+    duration: { from: "2022-08-01", to: "2023-02-01" }
+  supervisor: Carlo Schmid
+  location: Itt-Ey10
+  department: GHR-OPD-CLE-LES-APP (EXT)

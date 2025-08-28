@@ -1,0 +1,24 @@
+icon:
+  name: simple-icons:express
+  background: "var(--color-card-logo-secondary)"
+  colors:
+    {
+      primary: "var(--color-card-logo-primary)",
+      secondary: "var(--color-card-logo-secondary)",
+      tertiary: "var(--color-card-logo-tertiary)",
+    }
+eyebrow: Framework
+title: Express.js
+description: >-
+  Meine CRUD-App im NexCC habe ich damit erstellt, was sehr lehrreich für mich war. Später hatte ich
+  auch noch einen entsprechenden ÜK, welcher darum ging ein Backend mit Express.js zu erstellen.
+badges:
+  - { title: Web }
+  - { title: Backend }
+  - { title: Node, icon: { name: simple-icons:nodedotjs } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://expressjs.com",
+      icon: { name: sf-symbols:chevron.right },
+    }

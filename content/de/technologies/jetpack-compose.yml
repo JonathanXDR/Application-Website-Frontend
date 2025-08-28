@@ -1,0 +1,19 @@
+icon:
+  name: simple-icons:jetpackcompose
+  background: "#4285F4"
+  colors: { primary: "#4285F4", secondary: "#4285F4", tertiary: "#4285F4" }
+eyebrow: Sprache
+title: Jetpack Compose
+description: >-
+  Ich habe Jetpack Compose das erste mal zusammen mit Kotlin im ÜK 335 verwendet, wo wir eine Android
+  App erstellt haben.
+badges:
+  - { title: Mobile }
+  - { title: UI }
+  - { title: Android, icon: { name: simple-icons:android } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://developer.android.com/compose",
+      icon: { name: sf-symbols:chevron.right },
+    }

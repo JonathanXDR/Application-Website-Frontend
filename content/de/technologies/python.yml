@@ -1,0 +1,19 @@
+icon:
+  name: simple-icons:python
+  background: "#3776AB"
+  colors: { primary: "#3776AB", secondary: "#3776AB", tertiary: "#3776AB" }
+eyebrow: Sprache
+title: Python
+description: >-
+  Diese Programmiersprache habe ich im Security Journey gelernt und sie für die Entwicklung des DAM
+  Log Scanners verwendet, ein Tool, welches Datenbankaktivitäten aufzeichnet.
+badges:
+  - { title: Scripting }
+  - { title: Backend }
+  - { title: "Object-Oriented" }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://python.org",
+      icon: { name: sf-symbols:chevron.right },
+    }

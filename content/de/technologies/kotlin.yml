@@ -1,0 +1,20 @@
+icon:
+  name: simple-icons:kotlin
+  background: "#7F52FF"
+  colors: { primary: "#7F52FF", secondary: "#7F52FF", tertiary: "#7F52FF" }
+eyebrow: Sprache
+title: Kotlin
+description: >-
+  Kotlin habe ich im ÜK 335 gelernt, wo wir als Projektarbeit eine Android App erstellt haben. Dabei
+  konnten wir selbst entscheiden, ob wir Java oder Kotlin verwenden. Ich habe mich für Kotlin entschieden,
+  da ich es interessant fand und es auch eine moderne Programmiersprache ist.
+badges:
+  - { title: Mobile }
+  - { title: "Object-Oriented" }
+  - { title: Android, icon: { name: simple-icons:android } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://kotlinlang.org",
+      icon: { name: sf-symbols:chevron.right },
+    }

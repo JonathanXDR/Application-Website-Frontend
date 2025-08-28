@@ -1,0 +1,28 @@
+icon: { name: sf-symbols:shield.lefthalf.filled }
+eyebrow: "Security Journey"
+title: Security & Compliance Services ART
+description: >-
+  In diesem Projekt habe ich mit ein paar Trainings zu Cloud, Security und DevOps begonnen, was
+  ziemlich lehrreich für mich war. Danach durfte ich bereits am DAM Log Scanner Projekt arbeiten,
+  einem Tool, welches Datenbankaktivitäten aufzeichnet (Database Activity Monitoring) und nach
+  spezifischen Richtlinien handelt. Diese wurden primär mit OPA (Open Policy Agent) umgsetzt, womit ich
+  allerdings nicht allzu viel zu tun hatte. Ich habe nämlich hauptsächlich Python, Docker und Kubernetes
+  verwendet, wobei Python für mich neu war. Gegen Ende des Projekts habe ich dann auch noch begonnen
+  Elasticsearch zu implementieren, um die Daten zu visualisieren und zu analysieren.
+
+badges:
+  - { title: Security }
+  - { title: Cloud }
+  - { title: "Database Activity Monitoring" }
+  - { title: DevOps }
+  - { title: OPA }
+  - { title: Python, icon: { name: simple-icons:python } }
+  - { title: Docker, icon: { name: simple-icons:docker } }
+  - { title: Kubernetes, icon: { name: simple-icons:kubernetes } }
+  - { title: Elastic, icon: { name: simple-icons:elasticsearch } }
+info:
+  date:
+    duration: { from: "2023-09-01", to: "2024-03-01" }
+  supervisor: Radu Margineanu
+  location: Zür-Mas10
+  department: SCS-INI-EOG-EA-EAF

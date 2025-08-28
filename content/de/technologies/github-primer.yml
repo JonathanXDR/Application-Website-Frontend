@@ -1,0 +1,20 @@
+icon:
+  name: simple-icons:github
+  background: "#4493F8"
+  colors: { primary: "#4493F8", secondary: "#4493F8", tertiary: "#4493F8" }
+eyebrow: Bibliothek
+title: GitHub Primer
+description: >-
+  Ich habe GitHub Primer benutzt, um ein Frontend zusammen mit React für meine CRUD‑App im Apps Team
+  zu erstellen.
+badges:
+  - { title: Frontend }
+  - { title: Design }
+  - { title: UI }
+  - { title: React, icon: { name: simple-icons:react } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://primer.style",
+      icon: { name: sf-symbols:chevron.right },
+    }

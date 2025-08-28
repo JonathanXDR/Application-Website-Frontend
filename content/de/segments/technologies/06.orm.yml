@@ -1,0 +1,4 @@
+id: orm
+category: technologies
+label: ORM
+icon: { name: sf-symbols:gear }

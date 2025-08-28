@@ -1,0 +1,19 @@
+icon:
+  name: simple-icons:html5
+  background: "#E34F26"
+  colors: { primary: "#E34F26", secondary: "#E34F26", tertiary: "#E34F26" }
+eyebrow: Sprache
+title: HTML
+description: >-
+  Ich habe HTML beim Erstellen dieser Webseite gelernt und fühle mich damit sehr sicher,
+  da ich es in fast allen bisherigen Projekten verwendet habe.
+badges:
+  - { title: Markup }
+  - { title: Web }
+  - { title: Frontend }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      icon: { name: sf-symbols:chevron.right },
+    }

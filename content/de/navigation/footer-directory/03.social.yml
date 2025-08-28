@@ -1,0 +1,27 @@
+id: social
+label: Soziale Medien
+children:
+  - {
+      id: mail,
+      label: Mail,
+      url: "mailto:contact@jonathan-russ.com",
+      icon: { name: fa6-solid:envelope },
+    }
+  - {
+      id: linkedin,
+      label: LinkedIn,
+      url: "https://linkedin.com/in/jonathan-russ-b7442a228",
+      icon: { name: fa6-brands:linkedin-in },
+    }
+  - {
+      id: github,
+      label: GitHub,
+      url: "https://github.com/JonathanXDR",
+      icon: { name: fa6-brands:github },
+    }
+  - {
+      id: x,
+      label: "X (Twitter)",
+      url: "https://x.com/JonathanXD12_",
+      icon: { name: fa6-brands:x-twitter },
+    }

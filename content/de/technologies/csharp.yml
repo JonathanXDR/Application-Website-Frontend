@@ -1,0 +1,20 @@
+icon:
+  name: simple-icons-extended:csharp
+  background: "#7153DC"
+  colors: { primary: "#7153DC", secondary: "#7153DC", tertiary: "#7153DC" }
+eyebrow: Sprache
+title: C#
+description: >-
+  Ich habe C# bereits in der 3. Oberstufe kennengelernt, als ich ein eigenes Spiel mit Unity als
+  Abschlussarbeit erstellt habe. Bei den Automatisierungsprojekten im Banking Bereich habe ich dann
+  noch ein wenig mehr darüber gelernt.
+badges:
+  - { title: Microsoft }
+  - { title: Backend }
+  - { title: "Object-Oriented" }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://docs.microsoft.com/en-us/dotnet/csharp",
+      icon: { name: sf-symbols:chevron.right },
+    }

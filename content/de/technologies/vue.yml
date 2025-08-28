@@ -1,0 +1,20 @@
+icon:
+  name: simple-icons:vuedotjs
+  background: "#4FC08D"
+  colors: { primary: "#4FC08D", secondary: "#4FC08D", tertiary: "#4FC08D" }
+eyebrow: Framework
+title: Vue.js
+description: >-
+  Diese Webseite ist mit Vue.js erstellt worden und ich habe damit auch anderweitig gearbeitet.
+  Beispiele sind meine Memory App im Apps Team oder das Zukunftstagstool und die Berufsschulapp,
+  welche ich wiederrum im NexCC erstellt habe.
+badges:
+  - { title: Frontend }
+  - { title: Web }
+  - { title: Javascript, icon: { name: simple-icons:javascript } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://vuejs.org",
+      icon: { name: sf-symbols:chevron.right },
+    }

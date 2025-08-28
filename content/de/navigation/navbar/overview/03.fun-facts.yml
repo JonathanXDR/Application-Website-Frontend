@@ -1,0 +1,4 @@
+id: fun-facts
+label: Fun Facts
+route: "/#funFacts"
+class: section-separated

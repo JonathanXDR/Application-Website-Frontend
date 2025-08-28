@@ -1,0 +1,41 @@
+icon: { name: sf-symbols:gear }
+eyebrow: Backend
+title: Apps Team
+description: >-
+  Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte ich nun auch noch das
+  Backend besser kennenlernen. Zuerst durfte ich meine eigene CRUD‑App erstellen. Ich konnte viel Neues
+  über Nest.js und die beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen
+  gesammelt. Später habe ich auch noch ein Frontend für meine CRUD‑App mit GitHub Primer erstellt.
+  Danach habe ich dann beim Tool für Medienkurse mitgeholfen und konnte dort einige Features hinzufügen
+  und Fehler beheben. Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen Webfrontends
+  mitwirken, was mir sehr gefallen hat :)
+
+badges:
+  - { title: Backend }
+  - { title: CRUD }
+  - { title: ORM }
+  - { title: TypeScript, icon: { name: simple-icons:typescript } }
+  - { title: Nest, icon: { name: simple-icons:nestjs } }
+  - { title: TypeORM, icon: { name: simple-icons:typeorm } }
+  - { title: Prisma, icon: { name: simple-icons:prisma } }
+  - { title: React, icon: { name: simple-icons:react } }
+  - { title: "Next.js", icon: { name: simple-icons:nextdotjs } }
+  - { title: SDX, icon: { name: simple-icons-extended:swisscom } }
+  - { title: "GitHub Primer", icon: { name: simple-icons:github } }
+links:
+  - {
+      title: "Apps Team",
+      url: "https://appsteam.swisscom.com",
+      icon: { name: sf-symbols:chevron.right },
+    }
+  - {
+      title: "Indigo online",
+      url: "https://indigo.online",
+      icon: { name: sf-symbols:chevron.right },
+    }
+info:
+  date:
+    duration: { from: "2023-02-01", to: "2023-08-01" }
+  supervisor: Kim Eggler
+  location: Itt-Ey10
+  department: GHR-OPD-CLE-LES-APP (EXT)

@@ -1,0 +1,5 @@
+description: "Entdecke alle Technologien, mit denen ich bisher gearbeitet habe!"
+links:
+  - title: Mehr erfahren
+    url: /technologies
+    icon: { name: sf-symbols:chevron.right }

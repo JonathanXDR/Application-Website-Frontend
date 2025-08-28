@@ -1,0 +1,21 @@
+icon:
+  name: simple-icons-extended:java
+  background: "#007396"
+  colors: { primary: "#007396", secondary: "#007396", tertiary: "#007396" }
+eyebrow: Sprache
+title: Java
+description: >-
+  Java kenne ich hauptsächlich vom Berufsschulmodul 319, wo wir damit gearbeitet haben und kleinere
+  Aufgaben programmieren mussten. Im Modul 320 kam dann auch noch OOP dazu, was ich sehr interessant
+  fand. Ausserdem habe ich auch noch den ÜK-223 besucht, bei dem es darum ging Multi-User‑Applikationen
+  objektorientiert zu realisieren. Das haben wir mit einem Java‑Backend und einem ORM gemacht.
+badges:
+  - { title: Backend }
+  - { title: "Object-Oriented" }
+  - { title: Enterprise }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://java.com",
+      icon: { name: sf-symbols:chevron.right },
+    }

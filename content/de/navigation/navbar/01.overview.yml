@@ -1,0 +1,4 @@
+id: overview
+label: Übersicht
+route: "/"
+children: []

@@ -1,0 +1,4 @@
+id: personal
+category: projects
+label: Persönlich
+icon: { name: sf-symbols:person.fill }

@@ -1,0 +1,26 @@
+icon:
+  name: simple-icons:nextdotjs
+  background: "var(--color-card-logo-secondary)"
+  colors:
+    {
+      primary: "var(--color-card-logo-primary)",
+      secondary: "var(--color-card-logo-secondary)",
+      tertiary: "var(--color-card-logo-tertiary)",
+    }
+eyebrow: Framework
+title: Next.js
+description: >-
+  Das erste mal kennenlernen durte ich Next.js im Apps Team, wo ich damit die neue Apps Team Webseite
+  erstellt habe. Dort habe ich gleichzeitig auch sehr viel über React gelernt und konnte so meine
+  Kenntnisse gleich in beiden Frameworks verbessern.
+badges:
+  - { title: Frontend }
+  - { title: Web }
+  - { title: SSR }
+  - { title: React, icon: { name: simple-icons:react } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://nextjs.org",
+      icon: { name: sf-symbols:chevron.right },
+    }

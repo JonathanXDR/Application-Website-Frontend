@@ -1,0 +1,5 @@
+id: advanced
+label: Fortgeschritten
+children:
+  - { id: technologies, label: Technologien, route: /technologies }
+  - { id: projects, label: Projekte, route: /projects }

@@ -1,0 +1,25 @@
+icon:
+  name: simple-icons:bun
+  background: "var(--color-card-logo-secondary)"
+  colors:
+    {
+      primary: "var(--color-card-logo-primary)",
+      secondary: "var(--color-card-logo-secondary)",
+      tertiary: "var(--color-card-logo-tertiary)",
+    }
+eyebrow: Runtime
+title: Bun
+description: >-
+  Ich habe Bun kennengelernt, als ich meine Webseite auf Nuxt umgestellt habe. Vorallem die Einfachheit
+  und die Geschwindigkeit im Gegensatz zu Node.js haben mich dabei überzeugt, weswegen ich wenn möglich
+  nur noch Bun verwende.
+badges:
+  - { title: Server }
+  - { title: Backend }
+  - { title: TypeScript, icon: { name: simple-icons:typescript } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://bun.sh",
+      icon: { name: sf-symbols:chevron.right },
+    }

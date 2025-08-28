@@ -1,0 +1,24 @@
+icon:
+  name: simple-icons:prisma
+  background: "var(--color-card-logo-secondary)"
+  colors:
+    {
+      primary: "var(--color-card-logo-primary)",
+      secondary: "var(--color-card-logo-secondary)",
+      tertiary: "var(--color-card-logo-tertiary)",
+    }
+eyebrow: ORM
+title: Prisma
+description: >-
+  Das habe ich verwendet um meine CRUD‑App zu erstellen und ich bin dabei das erste mal mit einem ORM
+  in Berührung gekommen. Später habe ich auch beim Fleetmanagement Tool mit Prisma gearbeiet.
+badges:
+  - { title: Database }
+  - { title: ORM }
+  - { title: TypeScript, icon: { name: simple-icons:typescript } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://prisma.io",
+      icon: { name: sf-symbols:chevron.right },
+    }

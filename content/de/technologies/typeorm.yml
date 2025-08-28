@@ -1,0 +1,19 @@
+icon:
+  name: simple-icons:typeorm
+  background: "#FE0803"
+  colors: { primary: "#FE0803", secondary: "#FE0803", tertiary: "#FE0803" }
+eyebrow: ORM
+title: TypeORM
+description: >-
+  Als Alternative zu Prisma habe ich meine CRUD‑App, nachdem ich sie fertiggestellt habe, auch noch
+  mit TypeORM umgesetzt, da auch dieses ORM in diversen Projekten im Apps Team verwendet wird.
+badges:
+  - { title: Database }
+  - { title: ORM }
+  - { title: TypeScript, icon: { name: simple-icons:typescript } }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://typeorm.io",
+      icon: { name: sf-symbols:chevron.right },
+    }

@@ -1,0 +1,5 @@
+description: "Was ist neu in {latestTag}?"
+links:
+  - title: Mehr erfahren
+    url: "https://github.com/JonathanXDR/Application-Website-Frontend/compare/{previousTag}...{latestTag}"
+    icon: { name: sf-symbols:chevron.right }

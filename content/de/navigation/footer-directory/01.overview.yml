@@ -1,0 +1,10 @@
+id: overview
+children:
+  - id: overview
+    label: Übersicht
+    children:
+      - { id: about, label: "Über mich", route: "/#about" }
+      - { id: languages, label: "Sprachen", route: "/#languages" }
+      - { id: fun-facts, label: "Fun Facts", route: "/#funFacts" }
+      - { id: references, label: "Referenzen", route: "/#references" }
+      - { id: school, label: "Schule", route: "/#school" }

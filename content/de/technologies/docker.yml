@@ -1,0 +1,20 @@
+icon:
+  name: simple-icons:docker
+  background: "#2496ED"
+  colors: { primary: "#2496ED", secondary: "#2496ED", tertiary: "#2496ED" }
+eyebrow: "Container Management"
+title: Docker
+description: >-
+  Richtig verstanden und mich damit beschäftigt habe ich Docker im Berufsschulmodul 347, wo wir eine
+  Applikation mittels CI/CD deployen mussten. Dazu gab es den ÜK 210, bei dem es um das Thema Cloud ging
+  und wir auch dort nochmal mit Docker gearbeitet haben.
+badges:
+  - { title: Container }
+  - { title: DevOps }
+  - { title: Cloud }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://docker.com",
+      icon: { name: sf-symbols:chevron.right },
+    }

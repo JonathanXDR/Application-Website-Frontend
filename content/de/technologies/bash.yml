@@ -1,0 +1,25 @@
+icon:
+  name: simple-icons:gnubash
+  background: "var(--color-card-logo-secondary)"
+  colors:
+    {
+      primary: "var(--color-card-logo-primary)",
+      secondary: "var(--color-card-logo-secondary)",
+      tertiary: "var(--color-card-logo-tertiary)",
+    }
+eyebrow: Sprache
+title: Bash
+description: >-
+  Ich habe schon oft mit Bash gearbeitet und bin damit mittlerweile auch einigermassen vertraut.
+  Ich habe damit z.B. schon ein paar kleine Skripte geschrieben, um mir die Arbeit zu erleichtern.
+  Zudem gab es auch das Modul 122 in der Berufsschule, bei dem wir ebenfalls mit Bash gearbeitet haben.
+badges:
+  - { title: Scripting }
+  - { title: Shell }
+  - { title: Linux }
+links:
+  - {
+      title: "Mehr erfahren",
+      url: "https://gnu.org/software/bash",
+      icon: { name: sf-symbols:chevron.right },
+    }
