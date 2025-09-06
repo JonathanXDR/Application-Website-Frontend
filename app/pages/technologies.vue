@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { CardItemType } from '#shared/types/components/card-item'
-
 definePageMeta({
   header: true,
   nav: true,
@@ -96,12 +94,9 @@ const cards = computed<CardItemType[]>(() =>
           ...card,
           loading: false,
           componentSize: 'small',
-          icon: {
+          icon: card.icon && {
             ...card.icon,
-            size:
-              card.icon?.name && sfSymbolRegex.test(card.icon?.name)
-                ? '20px'
-                : '25px',
+            size: sfSymbolRegex.test(card.icon.name) ? '20px' : '25px',
             position: 'right',
             alignment: 'start',
             absolute: true,

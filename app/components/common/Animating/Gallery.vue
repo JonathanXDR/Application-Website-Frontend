@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { BasicPropsType } from '#shared/types/common/basic-props'
-
 const props = withDefaults(defineProps<BasicPropsType>(), {
   title: 'Music Discovery',
   description: 'Where your new favorites find you.',

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { FlashAlertType } from '#shared/types/components/flash-alert'
-
 const props = withDefaults(defineProps<FlashAlertType>(), {
   variant: 'note',
   title: undefined,

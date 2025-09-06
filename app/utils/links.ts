@@ -1,5 +1,4 @@
 import { NuxtLink } from '#components'
-import type { LinkItemType } from '#shared/types/components/link-item'
 
 export const getLinkComponentType = (link: LinkItemType) => {
   return link.url?.startsWith('#') || link.url?.startsWith('/')

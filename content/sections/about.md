@@ -1,8 +1,8 @@
 ---
 id: about
 title: About Me
-eyebrow: ''
-birthDate: '2005-12-12'
+eyebrow: ""
+birthDate: "2005-12-12"
 ---
 
 Hey, ich bin Jonathan! Ich bin {{ $doc.age || '' }} Jahre alt und komme aus der Schweiz.

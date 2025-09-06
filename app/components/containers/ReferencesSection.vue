@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { CardItemType } from '#shared/types/components/card-item'
-
 defineProps<{
   title: string
 }>()
@@ -25,7 +23,7 @@ const articles = computed<CardItemType[]>(() =>
         hover: false,
         loading: false,
         componentSize: viewport.isLessThan('tablet') ? 'small' : 'medium',
-        icon: {
+        icon: article.icon && {
           ...article.icon,
           position: viewport.isLessThan('tablet') ? 'top' : 'left',
         },

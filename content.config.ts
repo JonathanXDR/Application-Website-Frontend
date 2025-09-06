@@ -1,5 +1,4 @@
 import { defineCollection, defineContentConfig, z } from '@nuxt/content'
-import type { z as zod } from 'zod'
 
 export const ColorSchema = z.object({
   primary: z.string().optional(),
@@ -19,7 +18,6 @@ export const IconSchema = z
     absolute: z.boolean().optional(),
     position: z.enum(['top', 'right', 'bottom', 'left']).optional(),
     alignment: z.enum(['start', 'center', 'end']).optional(),
-
     background: z.string().optional(),
   })
   .passthrough()
@@ -104,7 +102,7 @@ export const SectionSchema: any = z.lazy(() =>
     children: z.array(SectionSchema).optional(),
     class: z.string().optional(),
     icon: IconSchema.optional(),
-  })
+  }),
 )
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -116,17 +114,17 @@ export const DirectoryItemSchema: any = z.lazy(() =>
     url: z.string().optional(),
     icon: IconSchema.optional(),
     children: z.array(DirectoryItemSchema).optional(),
-  })
+  }),
 )
 
-export const SegmentItemSchema = z.object({
+export const ItemSchema = z.object({
   id: z.string(),
   category: z.string().optional(),
   label: z.string().optional(),
   icon: IconSchema.optional(),
 })
 
-export const LanguageItemSchema = BasicPropsSchema.pick({
+export const LanguageSchema = BasicPropsSchema.pick({
   title: true,
   eyebrow: true,
   links: true,
@@ -151,31 +149,31 @@ export default defineContentConfig({
   collections: {
     pages: defineCollection({
       type: 'page',
-      source: { include: '{de,en}/pages/**.md', prefix: '/' },
+      source: { include: 'pages/**.md', prefix: '/' },
       schema: z.object({
         title: z.string(),
         description: z.string().optional(),
         eyebrow: z.string().optional(),
         id: z.string().optional(),
-
         birthDate: z.string().optional(),
       }),
     }),
 
     site: defineCollection({
       type: 'data',
-      source: '{de,en}/site/**.yml',
+      source: 'site/**.yml',
       schema: z.object({ description: z.string() }),
     }),
 
     navbar: defineCollection({
       type: 'data',
-      source: '{de,en}/navigation/navbar/**.yml',
+      source: 'navigation/navbar/**.yml',
       schema: SectionSchema,
     }),
+
     footerDirectory: defineCollection({
       type: 'data',
-      source: '{de,en}/navigation/footer-directory/**.yml',
+      source: 'navigation/footer-directory/**.yml',
       schema: z.object({
         id: z.string(),
         label: z.string().optional(),
@@ -185,7 +183,7 @@ export default defineContentConfig({
 
     banners: defineCollection({
       type: 'data',
-      source: '{de,en}/banners/**.yml',
+      source: 'banners/**.yml',
       schema: z.object({
         description: z.string(),
         links: z.array(LinkItemSchema),
@@ -194,40 +192,43 @@ export default defineContentConfig({
 
     segmentsTheme: defineCollection({
       type: 'data',
-      source: '{de,en}/segments/theme/**.yml',
-      schema: SegmentItemSchema,
+      source: 'segments/theme/**.yml',
+      schema: ItemSchema,
     }),
+
     segmentsProjects: defineCollection({
       type: 'data',
-      source: '{de,en}/segments/projects/**.yml',
-      schema: SegmentItemSchema,
+      source: 'segments/projects/**.yml',
+      schema: ItemSchema,
     }),
+
     segmentsTechnologies: defineCollection({
       type: 'data',
-      source: '{de,en}/segments/technologies/**.yml',
-      schema: SegmentItemSchema,
+      source: 'segments/technologies/**.yml',
+      schema: ItemSchema,
     }),
 
     footerCopyright: defineCollection({
       type: 'data',
-      source: '{de,en}/footer/copyright/**.yml',
+      source: 'footer/copyright/**.yml',
       schema: z.object({ links: z.array(LinkItemSchema) }),
     }),
+
     footerLegalLinks: defineCollection({
       type: 'data',
-      source: '{de,en}/footer/legal-links/**.yml',
+      source: 'footer/legal-links/**.yml',
       schema: LinkItemSchema,
     }),
 
     social: defineCollection({
       type: 'data',
-      source: '{de,en}/social/**.yml',
+      source: 'social/**.yml',
       schema: LinkItemSchema,
     }),
 
     sections: defineCollection({
       type: 'page',
-      source: '{de,en}/sections/**/*.md',
+      source: 'sections/**/*.md',
       schema: BasicPropsSchema.pick({ title: true, eyebrow: true }).extend({
         id: z.string().optional(),
         birthDate: z.string().optional(),
@@ -236,47 +237,32 @@ export default defineContentConfig({
 
     languages: defineCollection({
       type: 'data',
-      source: '{de,en}/languages/**.yml',
-      schema: LanguageItemSchema,
+      source: 'languages/**.yml',
+      schema: LanguageSchema,
     }),
+
     references: defineCollection({
       type: 'data',
-      source: '{de,en}/references/**.yml',
+      source: 'references/**.yml',
       schema: ExtendedPropsSchema,
     }),
+
     funFacts: defineCollection({
       type: 'data',
-      source: '{de,en}/fun-facts/**.yml',
+      source: 'fun-facts/**.yml',
       schema: FunFactSchema,
     }),
 
     technologies: defineCollection({
       type: 'data',
-      source: '{de,en}/technologies/**.yml',
+      source: 'technologies/**.yml',
       schema: CardItemSchema,
     }),
+
     projects: defineCollection({
       type: 'data',
-      source: '{de,en}/projects/**.yml',
+      source: 'projects/**.yml',
       schema: CardItemSchema,
     }),
   },
 })
-
-export type ColorType = zod.infer<typeof ColorSchema>
-export type IconType = zod.infer<typeof IconSchema>
-export type LinkItemType = zod.infer<typeof LinkItemSchema>
-export type BasicPropsType = zod.infer<typeof BasicPropsSchema>
-export type ExtendedPropsType = zod.infer<typeof ExtendedPropsSchema>
-export type CardItemType = zod.infer<typeof CardItemSchema>
-export type SegmentItemType = zod.infer<typeof SegmentItemSchema>
-export type LanguageItemType = zod.infer<typeof LanguageItemSchema>
-export type FunFactType = zod.infer<typeof FunFactSchema>
-export type InfoBarType = zod.infer<typeof InfoBarSchema>
-export type BadgeItemType = zod.infer<typeof BadgeItemSchema>
-export type BasicSizeType = zod.infer<typeof BasicSizeSchema>
-export type ExtendedSizeType = zod.infer<typeof ExtendedSizeSchema>
-export type GraphType = zod.infer<typeof GraphSchema>
-export type InfoBarDateType = zod.infer<typeof InfoBarDateSchema>
-export type SectionType = zod.infer<typeof SectionSchema>
-export type DirectoryItemType = zod.infer<typeof DirectoryItemSchema>
