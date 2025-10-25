@@ -1,5 +1,22 @@
 <script setup lang="ts">
+const config = useRuntimeConfig()
 const show = ref(false)
+
+const { data: user } = await useFetch('/api/github/user', {
+  key: 'user',
+  params: { username: config.public.githubRepoOwner },
+  getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
+})
+
+const bioSentences = computed(() => {
+  if (!user.value?.bio) return []
+  return user.value.bio
+    .split(/[.!?]+/)
+    .map(sentence => sentence.trim())
+    .filter(sentence => sentence.length > 0)
+})
+
+console.log('bio', bioSentences.value)
 </script>
 
 <template>
@@ -24,12 +41,13 @@ const show = ref(false)
         style="opacity: 1; transform: none"
       >
         <em class="">Hey there, I'm Jonathan :)</em>
-        <HyperText
+        <p>{{ bioSentences }}</p>
+        <!-- <TextScramble
           as="h2"
           class="mt-2"
           text="I'm a software engineer at Swisscom."
           :duration="1200"
-        />
+        /> -->
       </h1>
       <div
         class="hero-description"
