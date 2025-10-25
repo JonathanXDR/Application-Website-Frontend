@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { BasicSizeType } from '#shared/types/common/basic-size'
-import type { LinkItemType } from '#shared/types/components/link-item'
+import type { BasicSizeType } from '#shared/types/common/basic-size';
+import type { LinkItemType } from '#shared/types/components/link-item';
 
 withDefaults(
   defineProps<{
@@ -33,6 +33,6 @@ const currentYear = ref(new Date().getFullYear())
       v-bind="link"
     />
 
-    {{ t("components.common.FooterCopyright.allRightsReserved") }}
+    {{ t("components.common.Footer.allRightsReserved") }}
   </div>
 </template>

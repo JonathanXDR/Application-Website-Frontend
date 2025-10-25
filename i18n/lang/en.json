@@ -208,33 +208,29 @@
           {
             "title": "Mail",
             "url": "mailto:contact@jonathan-russ.com",
-            "category": "solid",
             "icon": {
-              "name": "sf-symbols:envelope"
+              "name": "fa7-solid:envelope"
             }
           },
           {
             "title": "LinkedIn",
             "url": "https://linkedin.com/in/jonathan-russ-b7442a228",
-            "category": "brands",
             "icon": {
-              "name": "sf-symbols:linkedin-in"
+              "name": "fa7-brands:linkedin"
             }
           },
           {
             "title": "GitHub",
             "url": "https://github.com/JonathanXDR",
-            "category": "brands",
             "icon": {
-              "name": "sf-symbols:github"
+              "name": "fa7-brands:github"
             }
           },
           {
             "title": "Twitter",
             "url": "https://twitter.com/JonathanXD12_",
-            "category": "brands",
             "icon": {
-              "name": "sf-symbols:x-twitter"
+              "name": "fa7-brands:x-twitter"
             }
           }
         ]

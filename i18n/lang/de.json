@@ -208,28 +208,28 @@
             "title": "Mail",
             "url": "mailto:contact@jonathan-russ.com",
             "icon": {
-              "name": "fa6-solid:envelope"
+              "name": "fa7-solid:envelope"
             }
           },
           {
             "title": "LinkedIn",
             "url": "https://linkedin.com/in/jonathan-russ-b7442a228",
             "icon": {
-              "name": "fa6-brands:linkedin-in"
+              "name": "fa7-brands:linkedin"
             }
           },
           {
             "title": "GitHub",
             "url": "https://github.com/JonathanXDR",
             "icon": {
-              "name": "fa6-brands:github"
+              "name": "fa7-brands:github"
             }
           },
           {
             "title": "X (Twitter)",
             "url": "https://x.com/JonathanXD12_",
             "icon": {
-              "name": "fa6-brands:x-twitter"
+              "name": "fa7-brands:x-twitter"
             }
           }
         ]
@@ -308,7 +308,7 @@
               "label": "Mail",
               "url": "mailto:contact@jonathan-russ.com",
               "icon": {
-                "name": "fa6-solid:envelope"
+                "name": "fa7-solid:envelope"
               }
             },
             {
@@ -316,7 +316,7 @@
               "label": "LinkedIn",
               "url": "https://linkedin.com/in/jonathan-russ-b7442a228",
               "icon": {
-                "name": "fa6-brands:linkedin-in"
+                "name": "fa7-brands:linkedin"
               }
             },
             {
@@ -324,7 +324,7 @@
               "label": "GitHub",
               "url": "https://github.com/JonathanXDR",
               "icon": {
-                "name": "fa6-brands:github"
+                "name": "fa7-brands:github"
               }
             },
             {
@@ -332,7 +332,7 @@
               "label": "X (Twitter)",
               "url": "https://x.com/JonathanXD12_",
               "icon": {
-                "name": "fa6-brands:x-twitter"
+                "name": "fa7-brands:x-twitter"
               }
             }
           ]
