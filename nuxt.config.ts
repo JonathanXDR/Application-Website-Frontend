@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-security',
     'nuxt-viewport',
+    '@nuxt/hints',
   ],
   $development: {
     app: {
