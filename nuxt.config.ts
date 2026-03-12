@@ -180,6 +180,17 @@ export default defineNuxtConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: [
+        'motion-v',
+        'dayjs/locale/de', // CJS
+        'dayjs/locale/en', // CJS
+        'dayjs/locale/fr', // CJS
+        'dayjs/locale/it', // CJS
+        'dayjs', // CJS
+        'dayjs/plugin/relativeTime', // CJS
+      ],
+    },
   },
   typescript: {
     typeCheck: true,
