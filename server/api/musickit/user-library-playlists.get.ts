@@ -1,29 +1,10 @@
-import { generateToken } from '~~/server/utils/generate-token'
-
 export default defineEventHandler(async () => {
-  const { authToken, musicUserToken } = generateToken()
-
-  if (typeof musicUserToken !== 'string') {
-    throw new TypeError('Music User Token is not a string')
-  }
+  const { request } = useMusicKit()
 
   try {
-    const response = await $fetch(
-      `${APPLE_MUSIC_BASE_URL}/me/library/playlists`,
-      {
-        headers: {
-          'Authorization': `Bearer ${authToken}`,
-          'Music-User-Token': musicUserToken,
-        },
-      },
-    )
-    return response
+    return await request('/me/library/playlists', { userToken: true })
   }
   catch (error) {
-    console.error('Error fetching user library playlists:', error)
-    throw createError({
-      statusCode: 500,
-      statusMessage: 'Internal Server Error',
-    })
+    handleMusicKitError(error)
   }
 })

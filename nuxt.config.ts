@@ -151,10 +151,11 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      appName: '',
-      appBuild: '',
-      appVersion: '',
-      appIcon: '',
+      // TODO: Currently unused — uncomment when needed
+      // appName: '',
+      // appBuild: '',
+      // appVersion: '',
+      // appIcon: '',
       appEnvironment: '',
       githubRepoName: '',
       githubRepoOwner: '',

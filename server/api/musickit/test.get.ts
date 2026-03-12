@@ -1,18 +1,10 @@
-import { generateToken } from '~~/server/utils/generate-token'
-
 export default defineEventHandler(async () => {
-  const token = generateToken()
+  const { request } = useMusicKit()
 
-  const response = await fetch(`${APPLE_MUSIC_BASE_URL}/test`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  })
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch data from Apple Music API')
+  try {
+    return await request('/test')
   }
-
-  const data = await response.json()
-  return data
+  catch (error) {
+    handleMusicKitError(error)
+  }
 })
