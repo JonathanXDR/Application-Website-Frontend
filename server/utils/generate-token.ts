@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken'
 
+export const APPLE_MUSIC_BASE_URL = 'https://api.music.apple.com/v1'
+
 export const generateToken = () => {
   const config = useRuntimeConfig()
 

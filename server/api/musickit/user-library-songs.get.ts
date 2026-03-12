@@ -1,7 +1,6 @@
 import { generateToken } from '~~/server/utils/generate-token'
 
 export default defineEventHandler(async () => {
-  const config = useRuntimeConfig()
   const { authToken, musicUserToken } = generateToken()
 
   if (typeof musicUserToken !== 'string') {
@@ -9,15 +8,12 @@ export default defineEventHandler(async () => {
   }
 
   try {
-    const response = await $fetch(
-      `${config.public.appleMusicBaseUrl}/me/library/songs`,
-      {
-        headers: {
-          'Authorization': `Bearer ${authToken}`,
-          'Music-User-Token': musicUserToken,
-        },
+    const response = await $fetch(`${APPLE_MUSIC_BASE_URL}/me/library/songs`, {
+      headers: {
+        'Authorization': `Bearer ${authToken}`,
+        'Music-User-Token': musicUserToken,
       },
-    )
+    })
     return response
   }
   catch (error) {

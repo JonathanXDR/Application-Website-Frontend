@@ -1,13 +1,12 @@
 import { generateToken } from '~~/server/utils/generate-token'
 
 export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig()
   const token = generateToken()
   const parameters = getQuery(event)
 
   try {
     const response = await $fetch(
-      `${config.public.appleMusicBaseUrl}/catalog/us/stations`,
+      `${APPLE_MUSIC_BASE_URL}/catalog/us/stations`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

@@ -156,7 +156,6 @@ export default defineNuxtConfig({
       appVersion: '',
       appIcon: '',
       appEnvironment: '',
-      appleMusicBaseUrl: '',
       githubRepoName: '',
       githubRepoOwner: '',
     },
