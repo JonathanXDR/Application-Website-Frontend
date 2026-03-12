@@ -11,6 +11,8 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
     '@nuxtjs/seo',
+    '@vercel/analytics',
+    '@vercel/speed-insights',
     '@vueuse/nuxt',
     'nuxt-security',
     'nuxt-viewport',

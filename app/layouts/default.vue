@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { SpeedInsights } from '@vercel/speed-insights/vue'
 import type { InfoBannerType } from '#shared/types/components/info-banner'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterPre from '~/components/common/Footer/Pre.vue'
@@ -140,7 +139,6 @@ const footerComponent = computed(() =>
 
 <template>
   <div :id="currentRoute?.id">
-    <SpeedInsights />
     <header
       v-if="shouldShow('header')"
       :class="{ 'hide-localnav': navProps?.hidden }"
