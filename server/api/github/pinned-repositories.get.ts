@@ -1,86 +1,59 @@
-import { graphql } from '@octokit/graphql'
 import type { GraphQlQueryResponseData } from '@octokit/graphql'
 import type { Repository } from '@octokit/graphql-schema'
 
-export default defineEventHandler(async (event) => {
-  const { githubToken } = useRuntimeConfig()
-  const graphqlInstance = graphql.defaults({
-    headers: { authorization: `token ${githubToken}` },
-  })
-  const parameters: { username: string, perPage?: number } = getQuery(event)
-
-  const { username, perPage = 30 } = parameters
-
-  const query = `
-    {
-      user(login: "${username}") {
-        pinnedItems(first: ${perPage}, types: REPOSITORY) {
-          edges {
-            node {
-              ... on Repository {
-                name
-                description
-                url
-                repositoryTopics(first: ${perPage}) {
-                  nodes {
-                    topic {
-                      name
-                    }
-                    url
+const query = `
+  query ($username: String!, $perPage: Int!) {
+    user(login: $username) {
+      pinnedItems(first: $perPage, types: REPOSITORY) {
+        edges {
+          node {
+            ... on Repository {
+              name
+              description
+              url
+              repositoryTopics(first: $perPage) {
+                nodes {
+                  topic {
+                    name
                   }
-                }
-                primaryLanguage {
-                  color
-                  name
-                }
-                licenseInfo {
-                  name
-                  nickname
                   url
                 }
-                forks {
-                  totalCount
-                }
-                stargazers {
-                  totalCount
-                }
-                issues(first: ${perPage}) {
-                  nodes {
-                    closed
-                    url
-                  }
-                }
-                pullRequests(first: ${perPage}) {
-                  nodes {
-                    closed
-                    url
-                  }
-                }
-                updatedAt
               }
+              primaryLanguage {
+                color
+                name
+              }
+              licenseInfo {
+                name
+                nickname
+                url
+              }
+              forks {
+                totalCount
+              }
+              stargazers {
+                totalCount
+              }
+              issues(first: $perPage) {
+                nodes {
+                  closed
+                  url
+                }
+              }
+              pullRequests(first: $perPage) {
+                nodes {
+                  closed
+                  url
+                }
+              }
+              updatedAt
             }
           }
         }
       }
-    }`
-
-  try {
-    const response = await graphqlInstance<GraphQlQueryResponseData>(query)
-    return response.user.pinnedItems.edges.map((edge: { node: Repository }) =>
-      remapProperties(edge.node),
-    )
+    }
   }
-  catch (error) {
-    console.error(
-      `Error fetching pinned repositories for user ${username}:`,
-      error,
-    )
-    throw createError({
-      statusCode: 500,
-      statusMessage: 'Internal Server Error',
-    })
-  }
-})
+`
 
 const remapProperties = (item: Repository) => {
   const {
@@ -112,3 +85,24 @@ const remapProperties = (item: Repository) => {
     updated_at: updatedAt,
   }
 }
+
+export default defineEventHandler(async (event) => {
+  const octokit = useOctokit()
+  const { username, perPage = 30 } = getQuery<{
+    username: string
+    perPage?: number
+  }>(event)
+
+  try {
+    const response = await octokit.graphql<GraphQlQueryResponseData>(query, {
+      username,
+      perPage: Number(perPage),
+    })
+    return response.user.pinnedItems.edges.map((edge: { node: Repository }) =>
+      remapProperties(edge.node),
+    )
+  }
+  catch (error) {
+    handleGitHubError(error)
+  }
+})

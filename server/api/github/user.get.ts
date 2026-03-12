@@ -1,23 +1,14 @@
 import type { GetUserParameters } from '#shared/types/services/github/user'
-import { Octokit } from 'octokit'
 
 export default defineEventHandler(async (event) => {
-  const { githubToken } = useRuntimeConfig()
-  const octokit = new Octokit({ auth: githubToken })
+  const octokit = useOctokit()
   const parameters: GetUserParameters = getQuery(event)
 
   try {
-    const response = await octokit.request('GET /users/{username}', {
-      ...parameters,
-      headers: { accept: 'application/vnd.github+json' },
-    })
-    return response.data
+    const { data } = await octokit.request('GET /users/{username}', parameters)
+    return data
   }
   catch (error) {
-    console.error('Error fetching authenticated user gists:', error)
-    throw createError({
-      statusCode: 500,
-      statusMessage: 'Internal Server Error',
-    })
+    handleGitHubError(error)
   }
 })
