@@ -168,14 +168,14 @@ export default defineNuxtConfig({
   },
   ignore: ['~/assets/drafts/**'],
   future: {
-    compatibilityVersion: 4,
+    compatibilityVersion: 5,
   },
   experimental: {
     typedPages: true,
     sharedPrerenderData: true,
     checkOutdatedBuildInterval: 1000 * 10,
   },
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: '2026-03-21',
   nitro: {
     preset: 'bun',
   },
@@ -190,6 +190,8 @@ export default defineNuxtConfig({
         'dayjs/locale/it', // CJS
         'dayjs', // CJS
         'dayjs/plugin/relativeTime', // CJS
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
       ],
     },
   },
