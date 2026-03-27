@@ -1,10 +1,5 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
-
-  // TODO: Implement once ready
-  // "compilerOptions": {
-  //   "types": ["@types/musickit-js"]
-  // },
   "files": [],
   "references": [
     {

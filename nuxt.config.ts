@@ -202,6 +202,7 @@ export default defineNuxtConfig({
     tsConfig: {
       compilerOptions: {
         strict: true,
+        types: ['@types/musickit-js'],
       },
     },
     // Customize build-time TypeScript config
@@ -366,14 +367,6 @@ export default defineNuxtConfig({
         id: '',
       },
     },
-    // TODO: Implement once ready
-    // globals: {
-    //   musicKit: {
-    //     src: 'https://js-cdn.music.apple.com/musickit/v3/musickit.js',
-    //     async: true,
-    //     'data-web-components': true,
-    //   },
-    // },
   },
   security: {
     strict: true,
