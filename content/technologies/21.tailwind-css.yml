@@ -1,0 +1,51 @@
+icon:
+  name: "simple-icons:tailwindcss"
+  background: "#06B6D4"
+  colors:
+    primary: "#06B6D4"
+    secondary: "#06B6D4"
+    tertiary: "#06B6D4"
+eyebrow: "Bibliothek"
+title: "Tailwind CSS"
+description: >-
+  Tailwind CSS wurde zusammen mit SDX in vielen Projekten im Apps Team
+  verwendet. Das Fleetmanagement Tool und die neuen Webfrontends sind zwei
+  Beispiele dafür.
+badges:
+  - title: "Frontend"
+  - title: "Design"
+  - title: "UI"
+  - title: "CSS"
+    icon:
+      name: "simple-icons:css"
+links:
+  - title: "Mehr erfahren"
+    url: "https://tailwindcss.com"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    eyebrow: "Library"
+    description: >-
+      Tailwind CSS was used together with SDX in many projects in the Apps
+      Team. The fleet management tool and the new web frontends are two
+      examples of this.
+    links:
+      - title: "Learn more"
+  fr:
+    eyebrow: "Bibliothèque"
+    description: >-
+      Tailwind CSS a été utilisé avec SDX dans de nombreux projets de le Apps
+      Team. L'outil de gestion de flotte et les nouveaux frontaux web en sont
+      deux exemples.
+    links:
+      - title: "En savoir plus"
+  it:
+    eyebrow: "Biblioteca"
+    description: >-
+      Tailwind CSS è stato utilizzato insieme a SDX in molti progetti del
+      Apps Team. Lo strumento di gestione della flotta e i nuovi frontend web
+      ne sono un esempio.
+    links:
+      - title: "Per saperne di più"

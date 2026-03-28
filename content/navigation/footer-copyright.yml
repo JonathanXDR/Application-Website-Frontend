@@ -1,0 +1,12 @@
+allRightsReserved: "Alle Rechte vorbehalten."
+links:
+  - title: "Jonathan Russ"
+    url: "https://jonathan-russ.com"
+
+i18n:
+  en:
+    allRightsReserved: "Copyright © {currentYear} Jonathan Russ. All rights reserved."
+  fr:
+    allRightsReserved: "Copyright © {currentYear} Jonathan Russ. Tous droits réservés."
+  it:
+    allRightsReserved: "Copyright © {currentYear} Jonathan Russ. Tutti i diritti riservati."

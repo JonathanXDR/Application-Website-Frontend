@@ -2,17 +2,26 @@
 import type { SectionType } from '#shared/types/common/section'
 import type { LinkItemType } from '#shared/types/components/link-item'
 
-const { tm } = useI18n()
-const footerDirectoryItems = computed<SectionType[]>(() =>
-  tm('components.common.FooterDirectory'),
+const { data: footerDirData } = await useQueryCollection('navigation').stem('footer-directory').first()
+const { data: footerMiniData } = await useQueryCollection('navigation').stem('footer-mini').first()
+
+const footerDirectoryItems = computed<SectionType[]>(
+  () =>
+    ((footerDirData.value as unknown as Record<string, unknown>)
+      ?.sections as SectionType[]) || [],
 )
-const footerMiniLegalLinks = computed<LinkItemType[]>(() =>
-  tm('components.common.FooterMini.legalLinks'),
+const footerMiniLegalLinks = computed<LinkItemType[]>(
+  () =>
+    ((footerMiniData.value as unknown as Record<string, unknown>)
+      ?.legalLinks as LinkItemType[]) || [],
 )
-const footerMiniNews = computed<{
-  title: string
-  link: LinkItemType
-}>(() => tm('components.common.FooterMini.news'))
+const footerMiniNews = computed<{ title: string, link: LinkItemType }>(
+  () =>
+    ((footerMiniData.value as unknown as Record<string, unknown>)?.news as {
+      title: string
+      link: LinkItemType
+    }) || { title: '', link: { title: '' } },
+)
 </script>
 
 <template>

@@ -22,6 +22,7 @@ const { y: scrollY } = useWindowScroll()
 const { animations: headerAnimations, setAnimation } = useAnimation()
 const viewport = useViewport()
 const route = useRoute()
+const localePath = useLocalePath()
 
 if (!navProps.value) {
   navProps.value = { ...props }
@@ -101,11 +102,12 @@ const handleScroll = () => {
 
 const isCurrent = (item: SectionType) => {
   if (!item.route) return
+  const resolved = localePath({ path: item.route } as any)
   return (
     item.id === currentSection.value?.id
     || (item.route === '/'
-      ? route.path === '/'
-      : route.path.startsWith(item.route))
+      ? route.path === resolved
+      : route.path.startsWith(resolved))
   )
 }
 
@@ -273,7 +275,7 @@ watch(
       <div class="ac-ln-content">
         <div class="ac-ln-title">
           <NuxtLink
-            to="/"
+            :to="localePath({ path: '/' } as any)"
             aria-label="JR"
           >
             <SiteLogo
@@ -329,7 +331,7 @@ watch(
               >
                 <component
                   :is="isCurrent(item) ? 'span' : 'RouterLink'"
-                  :to="isCurrent(item) ? undefined : item.route"
+                  :to="isCurrent(item) ? undefined : localePath({ path: item.route! } as any)"
                   :class="['ac-ln-menu-link', { current: isCurrent(item) }]"
                   :role="isCurrent(item) ? 'link' : undefined"
                   :aria-disabled="isCurrent(item) ? 'true' : undefined"

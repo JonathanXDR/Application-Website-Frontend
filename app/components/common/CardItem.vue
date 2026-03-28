@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { CardRepositoryType } from '#shared/types/common/card-repository'
 
-const props = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
+const props = withDefaults(defineProps<Partial<Omit<CardRepositoryType, 'id'>>>(), {
   variant: 'card',
   componentSize: 'medium',
   colors: () => ({
@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<Partial<CardRepositoryType>>(), {
   }),
 })
 
-const { t } = useI18n()
+const { data: uiLabels } = await useQueryCollection('siteConfig').stem('ui-labels').first()
 const { randomDevColor } = useColor()
 const colorMode = useColorMode()
 
@@ -87,7 +87,7 @@ const linkCollectionLinks = computed(
   () =>
     props.links || [
       {
-        title: t('components.common.CardItem.learnMore'),
+        title: uiLabels.value?.cardItem?.learnMore,
         url: props.html_url,
         icon: { name: 'sf-symbols:chevron.right' },
       },
@@ -108,7 +108,9 @@ const hasInfo = computed(() => {
     'open_issues_count',
     'subscribers_count',
   ]
-  return keys.some((key: string) => (props as Record<string, unknown>)[key])
+  return keys.some(
+    (key: string) => (props as unknown as Record<string, unknown>)[key],
+  )
 })
 
 const info = computed(() => {

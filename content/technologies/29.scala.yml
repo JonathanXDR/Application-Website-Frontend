@@ -1,0 +1,52 @@
+icon:
+  name: "simple-icons:scala"
+  background: "#DC322F"
+  colors:
+    primary: "#DC322F"
+    secondary: "#DC322F"
+    tertiary: "#DC322F"
+eyebrow: "Sprache"
+title: "Scala"
+description: >-
+  Scala habe ich im Berufsschulmodul 323 kennengelernt und fand es sehr
+  interessant, da es viele Parallelen zu Java hat, aber auch viele neue
+  Konzepte, wie z.B. Traits oder Pattern Matching, mitbringt.
+badges:
+  - title: "Backend"
+  - title: "Object-Oriented"
+  - title: "Functional"
+  - title: "Java"
+    icon:
+      name: "simple-icons-extended:java"
+links:
+  - title: "Mehr erfahren"
+    url: "https://scala-lang.org"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    eyebrow: "Language"
+    description: >-
+      I got to know Scala in the vocational school module 323 and found it
+      very interesting, as it has many parallels to Java, but also brings
+      many new concepts, such as traits or pattern matching.
+    links:
+      - title: "Learn more"
+  fr:
+    eyebrow: "Langue"
+    description: >-
+      J'ai découvert Scala dans le module 323 de l'école professionnelle et
+      je l'ai trouvé très intéressant, car il présente de nombreux
+      parallèles avec Java, tout en apportant de nombreux nouveaux concepts,
+      comme les traits ou le pattern matching.
+    links:
+      - title: "En savoir plus"
+  it:
+    eyebrow: "Lingua"
+    description: >-
+      Ho conosciuto Scala nel modulo 323 della scuola professionale e l'ho
+      trovata molto interessante, perché ha molti parallelismi con Java, ma
+      porta anche molti concetti nuovi, come i tratti o il pattern matching.
+    links:
+      - title: "Per saperne di più"

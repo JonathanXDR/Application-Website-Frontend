@@ -1,0 +1,45 @@
+icon:
+  name: "simple-icons:html5"
+  background: "#E34F26"
+  colors:
+    primary: "#E34F26"
+    secondary: "#E34F26"
+    tertiary: "#E34F26"
+eyebrow: "Sprache"
+title: "HTML"
+description: >-
+  Ich habe HTML beim Erstellen dieser Webseite gelernt und fühle mich damit
+  sehr sicher, da ich es in fast allen bisherigen Projekten verwendet habe.
+badges:
+  - title: "Markup"
+  - title: "Web"
+  - title: "Frontend"
+links:
+  - title: "Mehr erfahren"
+    url: "https://developer.mozilla.org/en-US/docs/Web/HTML"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    eyebrow: "Language"
+    description: >-
+      I learned HTML while creating this website and feel very confident with
+      it as I've used it in almost all of my previous projects.
+    links:
+      - title: "Learn more"
+  fr:
+    eyebrow: "Langue"
+    description: >-
+      J'ai appris le HTML en créant ce site web et je me sens très à l'aise
+      avec, car je l'ai utilisé dans presque tous mes projets précédents.
+    links:
+      - title: "En savoir plus"
+  it:
+    eyebrow: "Lingua"
+    description: >-
+      Ho imparato l'HTML durante la creazione di questo sito web e mi sento
+      molto sicuro, dato che l'ho usato in quasi tutti i miei progetti
+      precedenti.
+    links:
+      - title: "Per saperne di più"

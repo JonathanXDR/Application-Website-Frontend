@@ -9,14 +9,12 @@ definePageMeta({
   footerCompact: false,
 })
 
-const { tm } = useI18n()
 const { currentRoute } = useNavbar()
 
 const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
 
-const cards = computed<CardItemType[]>(() =>
-  tm('components.containers.technologies'),
-)
+const { data: cards }
+  = await useQueryCollection<CardItemType>('technologies').all()
 
 // const tags = [
 //   ...new Set(
@@ -108,7 +106,7 @@ const cards = computed<CardItemType[]>(() =>
           },
         }"
       />
-      <ResultBlankState v-if="cards.length === 0" />
+      <ResultBlankState v-if="!cards?.length" />
     </div>
   </div>
 </template>

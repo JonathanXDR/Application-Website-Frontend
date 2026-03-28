@@ -1,0 +1,56 @@
+icon:
+  name: "simple-icons:nestjs"
+  background: "#E0234E"
+  colors:
+    primary: "#E0234E"
+    secondary: "#E0234E"
+    tertiary: "#E0234E"
+eyebrow: "Framework"
+title: "Nest.js"
+description: >-
+  Dieses Backend-Framework habe ich im Apps Team kennengelernt und habe damit
+  meine CRUD-App erstellt. Dabei habe ich viel über die Architektur und die
+  verschiedenen Module gelernt. Ausserdem habe ich auch in produktiven
+  Projekten im Apps Team, wie z.B. dem Fleetmanagement Tool oder den neuen
+  Webfrontends damit gearbeitet.
+badges:
+  - title: "Backend"
+  - title: "Node"
+    icon:
+      name: "simple-icons:nodedotjs"
+  - title: "TypeScript"
+    icon:
+      name: "simple-icons:typescript"
+links:
+  - title: "Mehr erfahren"
+    url: "https://nestjs.com"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    description: >-
+      I got to know this backend framework in the Apps Team and used it to
+      create my CRUD app. I learned a lot about the architecture and the
+      various modules. I also worked with it in productive projects in the
+      Apps Team, such as the fleet management tool or the new web frontends.
+    links:
+      - title: "Learn more"
+  fr:
+    description: >-
+      J'ai découvert ce framework backend dans le Apps Team et l'ai utilisé
+      pour créer mon application CRUD. J'ai beaucoup appris sur
+      l'architecture et les différents modules. J'ai également travaillé avec
+      lui sur des projets productifs au sein de le Apps Team, comme l'outil
+      de gestion de flotte ou les nouveaux frontaux web.
+    links:
+      - title: "En savoir plus"
+  it:
+    description: >-
+      Ho imparato a conoscere questo framework backend nel Apps Team e l'ho
+      usato per creare la mia applicazione CRUD. Ho imparato molto
+      sull'architettura e sui vari moduli. Ho lavorato con questo framework
+      anche in progetti produttivi del Apps Team, come lo strumento di
+      gestione della flotta o i nuovi frontend web.
+    links:
+      - title: "Per saperne di più"

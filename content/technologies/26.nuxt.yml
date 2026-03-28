@@ -1,0 +1,48 @@
+icon:
+  name: "simple-icons:nuxt"
+  background: "#00DC82"
+  colors:
+    primary: "#00DC82"
+    secondary: "#00DC82"
+    tertiary: "#00DC82"
+eyebrow: "Framework"
+title: "Nuxt"
+description: >-
+  Nuxt habe ich mir selbst beigebracht, da ich es interessant fand und auch
+  gerne mit Vue programmiere, worauf Nuxt aufbaut. Bisher habe ich es
+  allerdings bei keinen Projeken ausser dieser Webseite verwendet.
+badges:
+  - title: "Frontend"
+  - title: "Web"
+  - title: "SSR"
+  - title: "Vue"
+    icon:
+      name: "simple-icons:vuedotjs"
+links:
+  - title: "Mehr erfahren"
+    url: "https://nuxt.com"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    description: >-
+      I taught myself Nuxt because I found it interesting and I also like
+      programming with Vue, which Nuxt is based on. So far, however, I
+      haven't used it for any projects other than this website.
+    links:
+      - title: "Learn more"
+  fr:
+    description: >-
+      J'ai appris Nuxt par moi-même, car je trouvais cela intéressant et
+      j'aime aussi programmer avec Vue, sur lequel Nuxt est basé. Jusqu'à
+      présent, je ne l'ai pas utilisé pour d'autres projets que ce site web.
+    links:
+      - title: "En savoir plus"
+  it:
+    description: >-
+      Ho imparato Nuxt da solo perché l'ho trovato interessante e mi piace
+      anche programmare con Vue, su cui Nuxt si basa. Finora, però, non l'ho
+      usato per nessun progetto, a parte questo sito web.
+    links:
+      - title: "Per saperne di più"

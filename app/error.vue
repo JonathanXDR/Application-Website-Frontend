@@ -2,20 +2,28 @@
 import type { PageType } from '#shared/types/common/page'
 
 const error = useError()
-const { rt, tm } = useI18n()
 
-const pages = computed<PageType[]>(() => tm('pages'))
+const { data: errorPages } = await useQueryCollection<
+  PageType & { pageId: string }
+>('errorPages').all()
 
 const currentPage = computed<PageType>(() => {
-  const matchedPage = pages.value.find(
-    (page: PageType) => page.statusCode === error.value?.statusCode,
+  const pages = errorPages.value || []
+  const matchedPage = pages.find(
+    page => page.statusCode === error.value?.statusCode,
   )
   return (
-    matchedPage || pages.value.find((page: PageType) => page.id === 'error')!
+    matchedPage
+    || pages.find(page => page.pageId === 'error') || {
+      id: 'error',
+      label: 'Error',
+      title: 'Error',
+      pageId: 'error',
+    }
   )
 })
 
-const description = currentPage.value.description?.split('. ')
+const description = computed(() => currentPage.value.description?.split('. '))
 </script>
 
 <template>
@@ -76,7 +84,10 @@ const description = currentPage.value.description?.split('. ')
               class="rs-covers-heading"
             >
               <span>{{
-                rt(currentPage.title, { statusCode: error?.statusCode })
+                currentPage.title?.replace(
+                  "{statusCode}",
+                  String(error?.statusCode || ""),
+                )
               }}</span>
             </h1>
             <div

@@ -1,0 +1,11 @@
+legalLinks:
+  - title: "Imprint"
+    url: "/imprint"
+  - title: "Privacy Policy"
+    url: "/privacy"
+
+news:
+  title: "Get the"
+  link:
+    title: "Apple Developer app"
+    url: "https://apps.apple.com/us/app/apple-developer/id640199958"

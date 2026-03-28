@@ -1,0 +1,52 @@
+icon:
+  name: "simple-icons:nextdotjs"
+  background: "var(--color-card-logo-secondary)"
+  colors:
+    primary: "var(--color-card-logo-primary)"
+    secondary: "var(--color-card-logo-secondary)"
+    tertiary: "var(--color-card-logo-tertiary)"
+eyebrow: "Framework"
+title: "Next.js"
+description: >-
+  Das erste mal kennenlernen durte ich Next.js im Apps Team, wo ich damit die
+  neue Apps Team Webseite erstellt habe. Dort habe ich gleichzeitig auch sehr
+  viel über React gelernt und konnte so meine Kenntnisse gleich in beiden
+  Frameworks verbessern.
+badges:
+  - title: "Frontend"
+  - title: "Web"
+  - title: "SSR"
+  - title: "React"
+    icon:
+      name: "simple-icons:react"
+links:
+  - title: "Mehr erfahren"
+    url: "https://nextjs.org"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    description: >-
+      The first time I got to know Next.js was in the Apps Team, where I used
+      it to create the new Apps Team website. I also learned a lot about
+      React there and was able to improve my knowledge of both frameworks at
+      the same time.
+    links:
+      - title: "Learn more"
+  fr:
+    description: >-
+      J'ai découvert Next.js pour la première fois dans le Apps Team, où j'ai
+      créé le nouveau site web de le Apps Team. J'ai également appris beaucoup
+      de choses sur React, ce qui m'a permis d'améliorer mes connaissances
+      dans les deux frameworks.
+    links:
+      - title: "En savoir plus"
+  it:
+    description: >-
+      La prima volta che ho conosciuto Next.js è stato nell'Apps Team, dove
+      l'ho utilizzato per creare il nuovo sito web dell'Apps Team. Ho
+      imparato molto anche su React e ho potuto migliorare la mia conoscenza
+      di entrambi i framework allo stesso tempo.
+    links:
+      - title: "Per saperne di più"

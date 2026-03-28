@@ -1,0 +1,51 @@
+icon:
+  name: "simple-icons-extended:csharp"
+  background: "#7153DC"
+  colors:
+    primary: "#7153DC"
+    secondary: "#7153DC"
+    tertiary: "#7153DC"
+eyebrow: "Sprache"
+title: "C#"
+description: >-
+  Ich habe C# bereits in der 3. Oberstufe kennengelernt, als ich ein eigenes
+  Spiel mit Unity als Abschlussarbeit erstellt habe. Bei den
+  Automatisierungsprojekten im Banking Bereich habe ich dann noch ein wenig
+  mehr darüber gelernt.
+badges:
+  - title: "Microsoft"
+  - title: "Backend"
+  - title: "Object-Oriented"
+links:
+  - title: "Mehr erfahren"
+    url: "https://docs.microsoft.com/en-us/dotnet/csharp"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    eyebrow: "Language"
+    description: >-
+      I got to know C# back in 3rd grade when I created my own game with
+      Unity as my final project. I then learned a bit more about it during
+      the automation projects in the banking sector.
+    links:
+      - title: "Learn more"
+  fr:
+    eyebrow: "Langue"
+    description: >-
+      J'ai découvert C# dès la 3e année secondaire, lorsque j'ai créé mon
+      propre jeu avec Unity comme projet de fin d'études. J'en ai ensuite
+      appris un peu plus en travaillant sur des projets d'automatisation dans
+      le domaine bancaire.
+    links:
+      - title: "En savoir plus"
+  it:
+    eyebrow: "Lingua"
+    description: >-
+      Ho conosciuto il C# durante il terzo anno di scuola secondaria quando
+      ho creato il mio gioco con Unity come progetto finale. Poi ho imparato
+      a conoscerlo meglio durante i progetti di automazione nel settore
+      bancario.
+    links:
+      - title: "Per saperne di più"

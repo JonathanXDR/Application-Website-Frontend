@@ -3,22 +3,37 @@ import type { InfoBannerType } from '#shared/types/components/info-banner'
 import FooterCompact from '~/components/common/Footer/Compact.vue'
 import FooterPre from '~/components/common/Footer/Pre.vue'
 
-const { navProps } = useNavbar()
+const { navProps, navData } = useNavbar()
 const { randomDevColor } = useColor()
 const route = useRoute()
 const { currentSection } = useSection()
 const { currentRoute } = useNavbar()
-const { locale, tm } = useI18n()
+const { locale } = useI18n()
 const { y, isScrolling } = useScroll(window)
 const error = useError()
 const config = useRuntimeConfig()
+
+// Load navbar and info banner content
+const { data: navbarContent } = await useQueryCollection('navigation').stem('navbar').first()
+const { data: infoBannerContent } = await useQueryCollection('navigation').stem('info-banners').first()
+
+// Populate navbar state for use-navbar composable
+watch(
+  navbarContent,
+  (val) => {
+    navData.value = val as unknown as Record<string, unknown>
+  },
+  { immediate: true },
+)
 
 const rotatingBanner = useTemplateRef('rotatingBanner')
 const { height: rotatingBannerHeight } = useElementSize(rotatingBanner)
 const hideNavbarTimeout = ref<NodeJS.Timeout | null>(null)
 
-const items = computed<InfoBannerType['items']>(() =>
-  tm('components.common.InfoBanner'),
+const items = computed<InfoBannerType['items']>(
+  () =>
+    ((infoBannerContent.value as unknown as Record<string, unknown>)
+      ?.items as InfoBannerType['items']) || [],
 )
 
 const faviconColor = randomDevColor.value?.hex

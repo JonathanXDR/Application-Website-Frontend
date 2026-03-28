@@ -1,0 +1,151 @@
+theme:
+  - id: light
+    category: theme
+    label: "Hell"
+    icon:
+      name: "sf-symbols:sun.max.fill"
+  - id: dark
+    category: theme
+    label: "Dunkel"
+    icon:
+      name: "sf-symbols:moon.fill"
+  - id: auto
+    category: theme
+    label: "Auto"
+    icon:
+      name: "sf-symbols:circle.lefthalf.filled"
+
+projects:
+  - id: swisscom
+    category: projects
+    label: "Swisscom"
+    icon:
+      name: "sf-symbols:building.2.fill"
+  - id: personal
+    category: projects
+    label: "Persönlich"
+    icon:
+      name: "sf-symbols:person.fill"
+  - id: school
+    category: projects
+    label: "Schule"
+    icon:
+      name: "sf-symbols:graduationcap.fill"
+
+technologies:
+  - id: language
+    category: technologies
+    label: "Sprache"
+    icon:
+      name: "sf-symbols:bubble.fill"
+  - id: library
+    category: technologies
+    label: "Bibliothek"
+    icon:
+      name: "sf-symbols:books.vertical.fill"
+  - id: runtime
+    category: technologies
+    label: "Runtime"
+    icon:
+      name: "sf-symbols:gear"
+  - id: framework
+    category: technologies
+    label: "Framework"
+    icon:
+      name: "sf-symbols:inset.filled.square.dashed"
+  - id: container-management
+    category: technologies
+    label: "Container Management"
+    icon:
+      name: "sf-symbols:shippingbox.fill"
+  - id: orm
+    category: technologies
+    label: "ORM"
+    icon:
+      name: "sf-symbols:gear"
+
+i18n:
+  en:
+    theme:
+      - id: light
+        label: "Light"
+      - id: dark
+        label: "Dark"
+      - id: auto
+        label: "Auto"
+    projects:
+      - id: swisscom
+        label: "Swisscom"
+      - id: personal
+        label: "Personal"
+      - id: school
+        label: "School"
+    technologies:
+      - id: language
+        label: "Language"
+      - id: library
+        label: "Library"
+      - id: runtime
+        label: "Runtime"
+      - id: framework
+        label: "Framework"
+      - id: container-management
+        label: "Container Management"
+      - id: orm
+        label: "ORM"
+  fr:
+    theme:
+      - id: light
+        label: "Clair"
+      - id: dark
+        label: "Foncé"
+      - id: auto
+        label: "Auto"
+    projects:
+      - id: swisscom
+        label: "Swisscom"
+      - id: personal
+        label: "Personnel"
+      - id: school
+        label: "École"
+    technologies:
+      - id: language
+        label: "Langue"
+      - id: library
+        label: "Bibliothèque"
+      - id: runtime
+        label: "Runtime"
+      - id: framework
+        label: "Framework"
+      - id: container-management
+        label: "Gestion des conteneurs"
+      - id: orm
+        label: "ORM"
+  it:
+    theme:
+      - id: light
+        label: "Luce"
+      - id: dark
+        label: "Scuro"
+      - id: auto
+        label: "Auto"
+    projects:
+      - id: swisscom
+        label: "Swisscom"
+      - id: personal
+        label: "Personale"
+      - id: school
+        label: "Scuola"
+    technologies:
+      - id: language
+        label: "Lingua"
+      - id: library
+        label: "Biblioteca"
+      - id: runtime
+        label: "Runtime"
+      - id: framework
+        label: "Framework"
+      - id: container-management
+        label: "Gestione dei contenitori"
+      - id: orm
+        label: "ORM"

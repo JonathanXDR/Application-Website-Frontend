@@ -1,0 +1,47 @@
+icon:
+  name: "simple-icons:nodedotjs"
+  background: "#5FA04E"
+  colors:
+    primary: "#5FA04E"
+    secondary: "#5FA04E"
+    tertiary: "#5FA04E"
+eyebrow: "Runtime"
+title: "Node.js"
+description: >-
+  Diese Technologie habe ich im NexCC das allererste mal gelernt und
+  angewendet. Dabei habe ich zuerst kennengelernt was Node.js überhaupt ist
+  und auch wie man dependencies mit NPM installiert und verwaltet.
+badges:
+  - title: "Server"
+  - title: "Backend"
+  - title: "Javascript"
+    icon:
+      name: "simple-icons:javascript"
+links:
+  - title: "Mehr erfahren"
+    url: "https://nodejs.org"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    description: >-
+      I learned and used this technology for the very first time at NexCC. I
+      first learned what Node.js actually is and also how to install and
+      manage dependencies with NPM.
+    links:
+      - title: "Learn more"
+  fr:
+    description: >-
+      J'ai appris et utilisé cette technologie pour la toute première fois à
+      NexCC. J'ai d'abord appris ce qu'était Node.js et comment installer et
+      gérer les dépendances avec NPM.
+    links:
+      - title: "En savoir plus"
+  it:
+    description: >-
+      Ho imparato e utilizzato questa tecnologia per la prima volta al NexCC.
+      Ho imparato per la prima volta cos'è Node.js e come installare e
+      gestire le dipendenze con NPM.
+    links:
+      - title: "Per saperne di più"

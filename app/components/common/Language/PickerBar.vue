@@ -13,7 +13,8 @@ const props = withDefaults(
 )
 
 const { changeLanguage } = useLanguage()
-const { t, locale, locales } = useI18n()
+const { locale, locales } = useI18n()
+const { data: uiLabelsData } = await useQueryCollection('siteConfig').stem('ui-labels').first()
 
 const computedLocales = computed<LocaleObject[]>(() =>
   locales.value.map((l: string | LocaleObject): LocaleObject => {
@@ -38,7 +39,7 @@ const getLabel = (locale: { code: string, name?: string }) => {
       v-if="introText"
       class="language-switcher-text"
     >
-      {{ t("components.common.LanguagePickerBar.chooseYourLanguage") }}:
+      {{ uiLabelsData?.languagePickerBar?.chooseYourLanguage }}:
     </span>
     <ul class="locale-lang language-picker-wrapper">
       <li

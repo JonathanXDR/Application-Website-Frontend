@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import type { ItemType } from '#shared/types/common/item'
 
-const { tm } = useI18n()
 const { getTheme, setTheme } = useTheme()
 const viewport = useViewport()
 
-const items = computed<ItemType[]>(() =>
-  tm('components.common.SegmentNav.theme'),
+const { data: segNavData } = await useQueryCollection('navigation').stem('segment-nav').first()
+const items = computed<ItemType[]>(
+  () =>
+    ((segNavData.value as unknown as Record<string, unknown>)
+      ?.theme as ItemType[]) || [],
 )
 </script>
 

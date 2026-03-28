@@ -1,0 +1,52 @@
+icon:
+  name: "simple-icons:kubernetes"
+  background: "#326CE5"
+  colors:
+    primary: "#326CE5"
+    secondary: "#326CE5"
+    tertiary: "#326CE5"
+eyebrow: "Container Management"
+title: "Kubernetes"
+description: >-
+  Auch Kubernetes habe ich im Berufsschulmodul 347 kennengelernt und dort
+  verwendet, um eine Applikation mittels CI/CD zu deployen. Der ÜK 210 hat
+  mir dann nochmal einen tieferen Einblick in die Container-Orchestrierung
+  gegeben, da er sich mehr damit beschäftigt hat.
+badges:
+  - title: "Container"
+  - title: "Orchestration"
+  - title: "DevOps"
+links:
+  - title: "Mehr erfahren"
+    url: "https://kubernetes.io"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    description: >-
+      I also got to know Kubernetes in vocational school module 347, where I
+      used it to deploy an application using CI/CD. The ÜK 210 then gave me
+      a deeper insight into container orchestration, as it dealt more with
+      this.
+    links:
+      - title: "Learn more"
+  fr:
+    eyebrow: "Gestion des conteneurs"
+    description: >-
+      J'ai également découvert Kubernetes dans le module 347 de l'école
+      professionnelle, où je l'ai utilisé pour déployer une application à
+      l'aide de CI/CD. Le ÜK-210 m'a ensuite donné un aperçu plus approfondi
+      de l'orchestration de conteneurs, car il s'y est davantage intéressé.
+    links:
+      - title: "En savoir plus"
+  it:
+    eyebrow: "Gestione dei contenitori"
+    description: >-
+      Ho imparato a conoscere Kubernetes anche nel modulo 347 della scuola
+      professionale, dove l'ho utilizzato per distribuire un'applicazione
+      utilizzando CI/CD. Il corso professionale 210 mi ha permesso di
+      approfondire la conoscenza dell'orchestrazione dei container, in quanto
+      si concentrava maggiormente su questo aspetto.
+    links:
+      - title: "Per saperne di più"

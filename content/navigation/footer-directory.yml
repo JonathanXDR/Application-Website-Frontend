@@ -1,0 +1,118 @@
+sections:
+  - id: overview
+    children:
+      - id: overview
+        label: "Übersicht"
+        children:
+          - id: about
+            label: "Über mich"
+            route: "/#about"
+          - id: languages
+            label: "Sprachen"
+            route: "/#languages"
+          - id: fun-facts
+            label: "Fun Facts"
+            route: "/#funFacts"
+          - id: references
+            label: "Referenzen"
+            route: "/#references"
+  - id: advanced
+    label: "Fortgeschritten"
+    children:
+      - id: technologies
+        label: "Technologien"
+        route: "/technologies"
+      - id: projects
+        label: "Projekte"
+        route: "/projects"
+  - id: social
+    label: "Soziale Medien"
+    children:
+      - id: mail
+        label: "Mail"
+        url: "mailto:contact@jonathan-russ.com"
+        icon:
+          name: "fa7-solid:envelope"
+      - id: linkedin
+        label: "LinkedIn"
+        url: "https://linkedin.com/in/jonathan-russ-b7442a228"
+        icon:
+          name: "fa7-brands:linkedin"
+      - id: github
+        label: "GitHub"
+        url: "https://github.com/JonathanXDR"
+        icon:
+          name: "fa7-brands:github"
+      - id: x
+        label: "X (Twitter)"
+        url: "https://x.com/JonathanXD12_"
+        icon:
+          name: "fa7-brands:x-twitter"
+
+i18n:
+  en:
+    sections:
+      - id: overview
+        children:
+          - id: overview
+            label: "Overview"
+            children:
+              - id: about
+                label: "About"
+              - id: languages
+                label: "Languages"
+              - id: references
+                label: "References"
+      - id: advanced
+        label: "Advanced"
+        children:
+          - id: technologies
+            label: "Technologies"
+          - id: projects
+            label: "Projects"
+      - id: social
+        label: "Social Media"
+  fr:
+    sections:
+      - id: overview
+        children:
+          - id: overview
+            label: "Vue d'ensemble"
+            children:
+              - id: about
+                label: "About"
+              - id: languages
+                label: "Langues"
+              - id: references
+                label: "Références"
+      - id: advanced
+        label: "Avancé"
+        children:
+          - id: technologies
+            label: "Technologies"
+          - id: projects
+            label: "Projets"
+      - id: social
+        label: "Réseaux sociaux"
+  it:
+    sections:
+      - id: overview
+        children:
+          - id: overview
+            label: "Panoramica"
+            children:
+              - id: about
+                label: "About"
+              - id: languages
+                label: "Lingue"
+              - id: references
+                label: "Riferimenti"
+      - id: advanced
+        label: "Avanzato"
+        children:
+          - id: technologies
+            label: "Tecnologie"
+          - id: projects
+            label: "Progetti"
+      - id: social
+        label: "Social media"

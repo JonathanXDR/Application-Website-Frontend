@@ -1,0 +1,64 @@
+icon:
+  name: "sf-symbols:shield.lefthalf.filled"
+eyebrow: "Security Journey"
+title: "Piz Tofana Tooling Team"
+description: >-
+  Während meines Aufenthalts im Team Piz Tofana, habe ich hauptsächlich an
+  der Daedalus Applikation gearbeitet. Diese bietet verschiedene
+  Selbstbeurteilungs-Module, die von den Fachabteilungen zur Bewertung von
+  Datenschutz, Sicherheit, Compliance, Klassifizierung und Weiterem für
+  verknüpfte Objekte wie Anwendungen, Ressourcen, Dienste oder Angebote
+  bereitgestellt werden. Als Technologien wurden Java Spring Boot für das
+  Backend und Angular für das Frontend verwendet.
+badges:
+  - title: "Security"
+  - title: "Java"
+    icon:
+      name: "simple-icons-extended:java"
+  - title: "Spring Boot"
+    icon:
+      name: "simple-icons:springboot"
+  - title: "TypeScript"
+    icon:
+      name: "simple-icons:typescript"
+  - title: "Angular"
+    icon:
+      name: "simple-icons:angular"
+info:
+  date:
+    duration:
+      from: "2024-03-01"
+      to: "2024-07-01"
+  supervisor: "Oliver Kramer"
+  location: "Zür-För181"
+  department: "INI-EOG-SPA"
+
+i18n:
+  en:
+    description: >-
+      During my time in the Piz Tofana team, I primarily worked on the
+      Daedalus application. This application offers various self-assessment
+      modules that are provided by the respective departments to evaluate
+      data protection, security, compliance, classification, and more for
+      linked objects such as applications, resources, services, or offers.
+      The technologies used were Java Spring Boot for the backend and Angular
+      for the frontend.
+  fr:
+    description: >-
+      Pendant mon séjour dans l'équipe Piz Tofana, j'ai principalement
+      travaillé sur l'application Daedalus. Cette application offre
+      différents modules d'auto-évaluation fournis par les départements
+      concernés pour évaluer la protection des données, la sécurité, la
+      conformité, la classification et plus encore pour des objets liés tels
+      que des applications, des ressources, des services ou des offres. Les
+      technologies utilisées étaient Java Spring Boot pour le backend et
+      Angular pour le frontend.
+  it:
+    description: >-
+      Durante il mio periodo nel team Piz Tofana, ho lavorato principalmente
+      sull'applicazione Daedalus. Quest'applicazione offre vari moduli di
+      autovalutazione messi a disposizione dai reparti per valutare la
+      protezione dei dati, la sicurezza, la conformità, la classificazione e
+      altro per oggetti collegati come applicazioni, risorse, servizi o
+      offerte. Le tecnologie utilizzate sono state Java Spring Boot per il
+      backend e Angular per il frontend.

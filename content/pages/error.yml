@@ -1,0 +1,28 @@
+id: error
+label: "Fehler"
+icon:
+  name: "sf-symbols:exclamationmark.octagon.fill"
+  colors:
+    primary: "var(--color-system-red)"
+title: "Error {statusCode}"
+description: >-
+  Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem
+  weiterhin besteht.
+
+i18n:
+  en:
+    label: "Error"
+    description: >-
+      Something has gone wrong. Check back soon if the problem persists.
+  fr:
+    label: "Erreur"
+    title: "Erreur {statusCode}"
+    description: >-
+      Quelque chose s'est mal passé. Reviens bientôt si le problème
+      persiste.
+  it:
+    label: "Errore"
+    title: "Errore {statusCode}"
+    description: >-
+      Qualcosa è andato storto. Torna presto a controllare se il problema
+      persiste.

@@ -1,0 +1,28 @@
+id: serviceUnavailable
+label: "Service nicht verfügbar"
+statusCode: 503
+icon:
+  name: "sf-symbols:wrench.and.screwdriver.fill"
+  colors:
+    primary: "var(--color-system-blue)"
+    secondary: "var(--color-system-blue)"
+title: "Be right back."
+description: >-
+  Ich führe Aktualisierungen auf der Seite durch. Schau bald wieder vorbei.
+
+i18n:
+  en:
+    label: "Service Unavailable"
+    description: >-
+      I'm making updates to the site. Check back soon.
+  fr:
+    label: "Service indisponible"
+    title: "Sois de retour."
+    description: >-
+      Je suis en train de faire des mises à jour sur le site. Reviens
+      bientôt.
+  it:
+    label: "Servizio non disponibile"
+    title: "Torno subito."
+    description: >-
+      Sto apportando degli aggiornamenti al sito. Torna a trovarmi presto.

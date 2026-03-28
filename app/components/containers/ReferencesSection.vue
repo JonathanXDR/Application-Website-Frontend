@@ -6,10 +6,11 @@ defineProps<{
 }>()
 
 const viewport = useViewport()
-const { tm } = useI18n()
-
-const articles = computed<CardItemType[]>(() =>
-  tm('components.containers.references'),
+const { data: refData } = await useQueryCollection('sections').stem('references').first()
+const articles = computed<CardItemType[]>(
+  () =>
+    ((refData.value as unknown as Record<string, unknown>)
+      ?.items as CardItemType[]) || [],
 )
 </script>
 

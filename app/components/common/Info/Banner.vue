@@ -19,7 +19,6 @@ const props = withDefaults(defineProps<InfoBannerType>(), {
   autoScrollRestartDelay: 5000,
 })
 
-const { t, tm, rt, locale } = useI18n()
 const config = useRuntimeConfig()
 
 const state = ref<GalleryStateType>({
@@ -213,26 +212,23 @@ const onMouseLeaveOrBlur = () => {
   scheduleAutoScrollRestart()
 }
 
+const interpolate = (str: string, vars: Record<string, string>) =>
+  str.replace(/\{(\w+)\}/g, (_, key) => vars[key] || `{${key}}`)
+
 const updateBaseItems = () => {
   const { latest: latestTag, previous: previousTag } = tags.value
   if (!latestTag || !previousTag) return
 
-  baseItems.value = props.items.map((item, index) => ({
+  const vars = { latestTag, previousTag }
+  baseItems.value = props.items.map(item => ({
     ...item,
-    description:
-      item.description
-      && t(`components.common.InfoBanner[${index}].description`, {
-        latestTag,
-        previousTag,
-      }),
-    links:
-      item.links
-      && (
-        tm(`components.common.InfoBanner[${index}].links`) as LinkItemType[]
-      ).map(link => ({
-        ...link,
-        url: link.url ? rt(link.url, { latestTag, previousTag }) : undefined,
-      })),
+    description: item.description
+      ? interpolate(item.description, vars)
+      : undefined,
+    links: item.links?.map(link => ({
+      ...link,
+      url: link.url ? interpolate(link.url, vars) : undefined,
+    })),
   }))
 }
 
@@ -286,7 +282,7 @@ watch(
   { immediate: true },
 )
 
-watch(locale, () => {
+watch(() => props.items, () => {
   updateBaseItems()
 })
 </script>

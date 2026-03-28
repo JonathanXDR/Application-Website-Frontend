@@ -1,0 +1,55 @@
+icon:
+  name: "simple-icons:kotlin"
+  background: "#7F52FF"
+  colors:
+    primary: "#7F52FF"
+    secondary: "#7F52FF"
+    tertiary: "#7F52FF"
+eyebrow: "Sprache"
+title: "Kotlin"
+description: >-
+  Kotlin habe ich im ÜK 335 gelernt, wo wir als Projektarbeit eine Android
+  App erstellt haben. Dabei konnten wir selbst entscheiden, ob wir Java oder
+  Kotlin verwenden. Ich habe mich für Kotlin entschieden, da ich es
+  interessant fand und es auch eine moderne Programmiersprache ist.
+badges:
+  - title: "Mobile"
+  - title: "Object-Oriented"
+  - title: "Android"
+    icon:
+      name: "simple-icons:android"
+links:
+  - title: "Mehr erfahren"
+    url: "https://kotlinlang.org"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    eyebrow: "Language"
+    description: >-
+      I learned Kotlin in ÜK 335, where we created an Android app as project
+      work. We could decide for ourselves whether we wanted to use Java or
+      Kotlin. I opted for Kotlin because I found it interesting and it is
+      also a modern programming language.
+    links:
+      - title: "Learn more"
+  fr:
+    eyebrow: "Langue"
+    description: >-
+      J'ai appris Kotlin lors du CI 335, où nous avons créé une application
+      Android dans le cadre d'un projet. Nous avons pu décider nous-mêmes si
+      nous voulions utiliser Java ou Kotlin. J'ai choisi Kotlin parce que je
+      le trouvais intéressant et que c'est aussi un langage de programmation
+      moderne.
+    links:
+      - title: "En savoir plus"
+  it:
+    eyebrow: "Lingua"
+    description: >-
+      Ho imparato Kotlin nel corso di ÜK 335, dove abbiamo creato
+      un'applicazione Android come progetto di lavoro. Potevamo decidere da
+      soli se utilizzare Java o Kotlin. Ho scelto Kotlin perché l'ho trovato
+      interessante ed è anche un linguaggio di programmazione moderno.
+    links:
+      - title: "Per saperne di più"

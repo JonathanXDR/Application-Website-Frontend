@@ -1,0 +1,47 @@
+icon:
+  name: "simple-icons:prisma"
+  background: "var(--color-card-logo-secondary)"
+  colors:
+    primary: "var(--color-card-logo-primary)"
+    secondary: "var(--color-card-logo-secondary)"
+    tertiary: "var(--color-card-logo-tertiary)"
+eyebrow: "ORM"
+title: "Prisma"
+description: >-
+  Das habe ich verwendet um meine CRUD-App zu erstellen und ich bin dabei das
+  erste mal mit einem ORM in Berührung gekommen. Später habe ich auch beim
+  Fleetmanagement Tool mit Prisma gearbeiet.
+badges:
+  - title: "Database"
+  - title: "ORM"
+  - title: "TypeScript"
+    icon:
+      name: "simple-icons:typescript"
+links:
+  - title: "Mehr erfahren"
+    url: "https://prisma.io"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    description: >-
+      I used this to create my CRUD app and it was the first time I came into
+      contact with an ORM. Later I also worked with Prisma for the fleet
+      management tool.
+    links:
+      - title: "Learn more"
+  fr:
+    description: >-
+      Je l'ai utilisé pour créer mon application CRUD et c'est la première
+      fois que j'ai été en contact avec un ORM. Plus tard, j'ai aussi
+      travaillé avec Prisma pour l'outil de gestion de flotte.
+    links:
+      - title: "En savoir plus"
+  it:
+    description: >-
+      L'ho utilizzato per creare la mia applicazione CRUD ed è stata la
+      prima volta che sono entrato in contatto con un ORM. In seguito ho
+      lavorato anche con Prisma per lo strumento di gestione della flotta.
+    links:
+      - title: "Per saperne di più"

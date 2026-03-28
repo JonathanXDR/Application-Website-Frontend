@@ -23,16 +23,20 @@ export function useBreadcrumbs(
   const requestURL = useRequestURL()
   const { currentRoute } = useNavbar()
   const error = useError()
-  const { tm } = useI18n()
 
-  const pages = computed<PageType[]>(() => tm('pages'))
+  const errorPages = useState<(PageType & { pageId: string })[]>(
+    'error-pages',
+    () => [],
+  )
 
   const errorPage = computed<PageType | null>(() => {
     if (!error.value?.statusCode) return null
-    const matched = pages.value.find(
+    const matched = errorPages.value.find(
       p => p.statusCode === error.value?.statusCode,
     )
-    return matched || pages.value.find(p => p.id === 'error') || null
+    return (
+      matched || errorPages.value.find(p => p.pageId === 'error') || null
+    )
   })
 
   const shouldShowBreadcrumbs = computed(() => route.path !== '/')

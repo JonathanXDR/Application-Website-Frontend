@@ -7,13 +7,16 @@ defineProps<{
 }>()
 
 const viewport = useViewport()
-const { tm, locale } = useI18n()
+const { locale } = useI18n()
 
 const chipClaimHeight = ref(0)
 const titles = useTemplateRef<HTMLElement[]>('titles')
 const progressSpan = ref<HTMLElement[]>([])
-const funFacts = computed<LanguageBarType[]>(() =>
-  tm('components.containers.funFacts'),
+const { data: factsData } = await useQueryCollection('sections').stem('fun-facts').first()
+const funFacts = computed<LanguageBarType[]>(
+  () =>
+    ((factsData.value as unknown as Record<string, unknown>)
+      ?.items as LanguageBarType[]) || [],
 )
 
 const updateChipClaimHeight = () => {

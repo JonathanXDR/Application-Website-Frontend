@@ -1,0 +1,52 @@
+icon:
+  name: "simple-icons:docker"
+  background: "#2496ED"
+  colors:
+    primary: "#2496ED"
+    secondary: "#2496ED"
+    tertiary: "#2496ED"
+eyebrow: "Container Management"
+title: "Docker"
+description: >-
+  Richtig verstanden und mich damit beschäftigt habe ich Docker im
+  Berufsschulmodul 347, wo wir eine Applikation mittels CI/CD deployen
+  mussten. Dazu gab es den ÜK 210, bei dem es um das Thema Cloud ging und
+  wir auch dort nochmal mit Docker gearbeitet haben.
+badges:
+  - title: "Container"
+  - title: "DevOps"
+  - title: "Cloud"
+links:
+  - title: "Mehr erfahren"
+    url: "https://docker.com"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    description: >-
+      I really understood and got to grips with Docker in vocational school
+      module 347, where we had to deploy an application using CI/CD. In
+      addition, there was the ÜK 210, which was about the cloud and we also
+      worked with Docker there again.
+    links:
+      - title: "Learn more"
+  fr:
+    eyebrow: "Gestion des conteneurs"
+    description: >-
+      J'ai vraiment compris et étudié Docker dans le module 347 de l'école
+      professionnelle, où nous devions déployer une application à l'aide de
+      CI/CD. Il y avait aussi le ÜK-210, qui traitait du cloud et où nous
+      avons également travaillé avec Docker.
+    links:
+      - title: "En savoir plus"
+  it:
+    eyebrow: "Gestione dei contenitori"
+    description: >-
+      Ho capito e imparato a conoscere Docker durante il modulo 347 della
+      scuola professionale, in cui abbiamo dovuto distribuire un'applicazione
+      utilizzando il CI/CD. Inoltre, c'è stato anche il corso di formazione
+      210, che riguardava il cloud e anche in questo caso abbiamo lavorato
+      con Docker.
+    links:
+      - title: "Per saperne di più"

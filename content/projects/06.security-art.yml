@@ -1,0 +1,83 @@
+icon:
+  name: "sf-symbols:shield.lefthalf.filled"
+eyebrow: "Security Journey"
+title: "Security & Compliance Services ART"
+description: >-
+  In diesem Projekt habe ich mit ein paar Trainings zu Cloud, Security und
+  DevOps begonnen, was ziemlich lehrreich für mich war. Danach durfte ich
+  bereits am DAM Log Scanner Projekt arbeiten, einem Tool, welches
+  Datenbankaktivitäten aufzeichnet (Database Activity Monitoring) und nach
+  spezifischen Richtlinien handelt. Diese wurden primär mit OPA (Open Policy
+  Agent) umgsetzt, womit ich allerdings nicht allzu viel zu tun hatte. Ich
+  habe nämlich hauptsächlich Python, Docker und Kubernetes verwendet, wobei
+  Python für mich neu war. Gegen Ende des Projekts habe ich dann auch noch
+  begonnen Elasticsearch zu implementieren, um die Daten zu visualisieren und
+  zu analysieren.
+badges:
+  - title: "Security"
+  - title: "Cloud"
+  - title: "Database Activity Monitoring"
+  - title: "DevOps"
+  - title: "OPA"
+  - title: "Python"
+    icon:
+      name: "simple-icons:python"
+  - title: "Docker"
+    icon:
+      name: "simple-icons:docker"
+  - title: "Kubernetes"
+    icon:
+      name: "simple-icons:kubernetes"
+  - title: "Elastic"
+    icon:
+      name: "simple-icons:elasticsearch"
+info:
+  date:
+    duration:
+      from: "2023-09-01"
+      to: "2024-03-01"
+  supervisor: "Radu Margineanu"
+  location: "Zür-Mas10"
+  department: "SCS-INI-EOG-EA-EAF"
+
+i18n:
+  en:
+    description: >-
+      In this project, I began with several trainings on Cloud, Security, and
+      DevOps, which were very instructive for me. Afterwards, I had the
+      opportunity to work on the DAM Log Scanner project, a tool that records
+      database activities (Database Activity Monitoring) and acts according
+      to specific guidelines. These were primarily implemented using OPA
+      (Open Policy Agent), although I didn't work much with it. I mainly used
+      Python, Docker, and Kubernetes, with Python being new to me. Towards
+      the end of the project, I also started implementing Elasticsearch to
+      visualize and analyse the data.
+    info:
+      department: "INI-EOG-EA-EAF"
+  fr:
+    description: >-
+      Dans ce projet, j'ai commencé avec plusieurs formations sur le Cloud,
+      la Sécurité et le DevOps, qui ont été très instructives. Ensuite, j'ai
+      eu l'opportunité de travailler sur le projet DAM Log Scanner, un outil
+      qui enregistre les activités de la base de données et agit selon des
+      directives spécifiques. Celles-ci ont été principalement mises en
+      oeuvre avec OPA. J'ai principalement utilisé Python, Docker et
+      Kubernetes, Python étant nouveau pour moi. Vers la fin du projet, j'ai
+      aussi commencé à implémenter Elasticsearch pour visualiser et analyser
+      les données.
+    info:
+      department: "INI-EOG-EA-EAF"
+  it:
+    description: >-
+      In questo progetto ho iniziato con alcuni corsi di formazione su Cloud,
+      Sicurezza e DevOps, che sono stati molto istruttivi per me.
+      Successivamente, ho avuto l'opportunità di lavorare sul progetto DAM
+      Log Scanner, uno strumento che registra le attività del database
+      (Database Activity Monitoring) e agisce secondo linee guida specifiche.
+      Queste sono state principalmente implementate con OPA (Open Policy
+      Agent), anche se non ne ho fatto molto uso. Ho principalmente
+      utilizzato Python, Docker e Kubernetes, con Python che era nuovo per
+      me. Verso la fine del progetto, ho anche iniziato a implementare
+      Elasticsearch per visualizzare e analizzare i dati.
+    info:
+      department: "INI-EOG-EA-EAF"

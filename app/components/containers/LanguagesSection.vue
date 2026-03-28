@@ -5,10 +5,12 @@ defineProps<{
   title: string
 }>()
 
-const { tm } = useI18n()
 const viewport = useViewport()
-const languages = computed<LanguageBarType[]>(() =>
-  tm('components.containers.languages'),
+const { data: langData } = await useQueryCollection('sections').stem('languages').first()
+const languages = computed<LanguageBarType[]>(
+  () =>
+    ((langData.value as unknown as Record<string, unknown>)
+      ?.items as LanguageBarType[]) || [],
 )
 </script>
 

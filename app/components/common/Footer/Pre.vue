@@ -1,6 +1,5 @@
 <script setup lang="ts">
-const { t } = useI18n()
-
+const { data: copyrightData } = await useQueryCollection('navigation').stem('footer-copyright').first()
 const currentYear = ref(new Date().getFullYear())
 </script>
 
@@ -8,9 +7,10 @@ const currentYear = ref(new Date().getFullYear())
   <section id="copyright">
     <p>
       {{
-        t("components.common.FooterCopyright.allRightsReserved", {
-          currentYear,
-        })
+        copyrightData?.allRightsReserved?.replace(
+          "{currentYear}",
+          String(currentYear),
+        )
       }}
     </p>
   </section>

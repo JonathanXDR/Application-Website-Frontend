@@ -31,7 +31,6 @@ definePageMeta({
 const route = useRoute()
 const router = useRouter()
 const viewport = useViewport()
-const { t, tm } = useI18n()
 const { currentRoute } = useNavbar()
 const { randomDevColor } = useColor()
 const config = useRuntimeConfig()
@@ -66,10 +65,17 @@ const { data: pinnedProjects } = await useFetch(
   },
 )
 
+const { data: swisscomProjects }
+  = await useQueryCollection<CardItemType>('projects').all()
+const { data: uiLabels } = await useQueryCollection('siteConfig')
+  .stem('ui-labels')
+  .first()
+const { data: segmentNavData } = await useQueryCollection('navigation')
+  .stem('segment-nav')
+  .first()
+
 const projects: Projects = reactive({
-  swisscom: computed<CardItemType[]>(() =>
-    tm('components.containers.projects'),
-  ),
+  swisscom: computed<CardItemType[]>(() => swisscomProjects.value || []),
   personal: [],
   school: [],
 })
@@ -102,8 +108,10 @@ const currentProjects = computed(() => {
   return projects[category] || []
 }) as Ref<CardItemType[]>
 
-const segmentNavItems = computed<ItemType[]>(() =>
-  tm('components.common.SegmentNav.projects'),
+const segmentNavItems = computed<ItemType[]>(
+  () =>
+    ((segmentNavData.value as unknown as Record<string, unknown>)
+      ?.projects as ItemType[]) || [],
 )
 
 const categorizeProject = (
@@ -283,7 +291,7 @@ onUnmounted(() => {
                 ...project?.info,
                 date: {
                   ...project?.info?.date,
-                  event: t('components.common.CardItem.updated'),
+                  event: uiLabels?.cardItem?.updated,
                 },
               },
             }"
@@ -307,7 +315,7 @@ onUnmounted(() => {
                 ...project.info,
                 date: {
                   ...project?.info?.date,
-                  event: t('components.common.CardItem.updated'),
+                  event: uiLabels?.cardItem?.updated,
                 },
               },
             }"

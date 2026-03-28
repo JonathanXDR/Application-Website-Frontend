@@ -3,11 +3,12 @@ import type { NavbarType } from '#shared/types/components/nav-bar'
 
 export const useNavbar = () => {
   const route = useRoute()
-  const { tm } = useI18n()
 
   const navProps = useState<NavbarType>('navbar-props')
-  const navItems = computed<SectionType[]>(() =>
-    tm('components.common.NavBar'),
+  const navData = useState<Record<string, unknown> | null>('navbar-data')
+
+  const navItems = computed<SectionType[]>(
+    () => (navData.value?.items as SectionType[]) || [],
   )
 
   const isCurrentRoute = (routePath?: string): boolean => {
@@ -24,6 +25,7 @@ export const useNavbar = () => {
   return {
     navProps,
     navItems,
+    navData,
     currentRoute,
     isCurrentRoute,
   }

@@ -1,0 +1,65 @@
+items:
+  - id: overview
+    label: "Übersicht"
+    route: "/"
+    children:
+      - id: about
+        label: "About"
+        route: "/#about"
+        class: section-separated
+      - id: languages
+        label: "Sprachen"
+        route: "/#languages"
+        class: section-separated
+      - id: fun-facts
+        label: "Fun Facts"
+        route: "/#funFacts"
+        class: section-separated
+      - id: references
+        label: "Referenzen"
+        route: "/#references"
+        class: section-separated
+  - id: technologies
+    label: "Technologien"
+    route: "/technologies"
+  - id: projects
+    label: "Projekte"
+    route: "/projects"
+  - id: music
+    label: "Musik"
+    route: "/music"
+
+i18n:
+  en:
+    items:
+      - label: "Overview"
+        children:
+          - label: "About"
+          - label: "Languages"
+          - label: "Fun Facts"
+          - label: "References"
+      - label: "Technologies"
+      - label: "Projects"
+      - label: "Music"
+  fr:
+    items:
+      - label: "Vue d'ensemble"
+        children:
+          - label: "About"
+          - label: "Langues"
+          - label: "Fun Facts"
+          - label: "Références"
+      - label: "Technologies"
+      - label: "Projets"
+      - label: "Musique"
+  it:
+    items:
+      - label: "Panoramica"
+        children:
+          - label: "About"
+          - label: "Lingue"
+          - label: "Fun Facts"
+          - label: "Riferimenti"
+      - label: "Tecnologie"
+      - label: "Progetti"
+      - label: "Musica"

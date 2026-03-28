@@ -1,0 +1,52 @@
+icon:
+  name: "simple-icons:mysql"
+  background: "#4479A1"
+  colors:
+    primary: "#4479A1"
+    secondary: "#4479A1"
+    tertiary: "#4479A1"
+eyebrow: "Sprache"
+title: "SQL"
+description: >-
+  SQL habe ich erstmals während der Entwicklung meiner CRUD-App im NexCC
+  verwendent, dabei habe ich die Basics gelernt. Später gab es auch noch die
+  beiden Berufsschulmodule 162 und 164 und den ÜK-106, der auch
+  fortgeschrittene Abfragen beinhaltete.
+badges:
+  - title: "Database"
+  - title: "Query"
+  - title: "Backend"
+links:
+  - title: "Mehr erfahren"
+    url: "https://developer.mozilla.org/en-US/docs/Glossary/SQL"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    eyebrow: "Language"
+    description: >-
+      I first used SQL during the development of my CRUD app at NexCC, where
+      I learned the basics. Later there were also the two vocational school
+      modules 162 and 164 and the ÜK-106, which also included advanced
+      queries.
+    links:
+      - title: "Learn more"
+  fr:
+    eyebrow: "Langue"
+    description: >-
+      J'ai utilisé SQL pour la première fois pendant le développement de mon
+      application CRUD dans le NexCC, j'y ai appris les bases. Plus tard, il
+      y avait aussi les deux modules d'école professionnelle 162 et 164 et le
+      CIE-106, qui comprenait aussi des requêtes avancées.
+    links:
+      - title: "En savoir plus"
+  it:
+    eyebrow: "Lingua"
+    description: >-
+      Ho usato per la prima volta SQL durante lo sviluppo della mia
+      applicazione CRUD al NexCC, dove ho imparato le basi. In seguito ho
+      seguito anche i due moduli 162 e 164 della scuola professionale e
+      l'ÜK-106, che comprendeva anche query avanzate.
+    links:
+      - title: "Per saperne di più"

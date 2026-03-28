@@ -1,0 +1,51 @@
+icon:
+  name: "simple-icons:javascript"
+  background: "#F7DF1E"
+  colors:
+    primary: "#F7DF1E"
+    secondary: "#F7DF1E"
+    tertiary: "#F7DF1E"
+eyebrow: "Sprache"
+title: "JavaScript"
+description: >-
+  Das ist wahrscheinlich meine meist verwendete Programmiersprache. Ich habe
+  damit schon bei vielen Projekten gearbeitet und auch schon mit Frameworks
+  und Libraries, wie Vue.js, React oder Express.js angewendet, die ja darauf
+  aufbauen.
+badges:
+  - title: "Scripting"
+  - title: "Web"
+  - title: "Frontend"
+  - title: "Backend"
+links:
+  - title: "Mehr erfahren"
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    eyebrow: "Language"
+    description: >-
+      This is probably my most frequently used programming language. I've
+      worked with it on many projects and have also used frameworks and
+      libraries such as Vue.js, React or Express.js, which are based on it.
+    links:
+      - title: "Learn more"
+  fr:
+    eyebrow: "Langue"
+    description: >-
+      C'est probablement le langage de programmation que j'utilise le plus.
+      J'ai travaillé avec lui sur de nombreux projets et je l'ai aussi
+      utilisé avec des frameworks et des bibliothèques comme Vue.js, React ou
+      Express.js, qui sont basés sur lui.
+    links:
+      - title: "En savoir plus"
+  it:
+    eyebrow: "Lingua"
+    description: >-
+      È probabilmente il linguaggio di programmazione che uso più spesso. Ho
+      lavorato con esso in molti progetti e ho anche utilizzato framework e
+      librerie come Vue.js, React o Express.js, che si basano su di esso.
+    links:
+      - title: "Per saperne di più"

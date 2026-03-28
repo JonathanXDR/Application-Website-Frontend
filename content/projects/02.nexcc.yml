@@ -1,0 +1,81 @@
+icon:
+  name: "sf-symbols:chevron.left.forwardslash.chevron.right"
+eyebrow: "Full-Stack"
+title: "Competence Center NexCC"
+description: >-
+  Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei
+  viele neue Programmiersprachen gelernt. Darunter HTML, CSS und JavaScript.
+  Danach durfte ich dann eine CRUD-App erstellen, welche ich mit einer
+  SQL-Datenbank verbunden habe. Später habe ich auch noch ein Frontend
+  hinzugefügt und so ein eigenes Login-System erstellt. Dabei habe ich vor
+  allem das Backend kennengelernt und Framework basierte
+  Programmiersprachen, wie Express.js oder Vue.js neu dazugelernt.
+badges:
+  - title: "Web Development"
+  - title: "Frontend"
+  - title: "Backend"
+  - title: "CRUD"
+  - title: "HTML"
+    icon:
+      name: "simple-icons:html5"
+  - title: "CSS"
+    icon:
+      name: "simple-icons:css"
+  - title: "JavaScript"
+    icon:
+      name: "simple-icons:javascript"
+  - title: "Express"
+    icon:
+      name: "simple-icons:express"
+  - title: "SQL"
+    icon:
+      name: "simple-icons:mysql"
+  - title: "Vue"
+    icon:
+      name: "simple-icons:vuedotjs"
+  - title: "SDX"
+    icon:
+      name: "simple-icons-extended:swisscom"
+info:
+  date:
+    duration:
+      from: "2021-08-01"
+      to: "2022-01-01"
+  supervisor: "Nick Zimmermann"
+  location: "Zür-Har3"
+  department: "SCS-INI-DOS-DVX"
+
+i18n:
+  en:
+    description: >-
+      At NexCC, I first had the opportunity to create this website and
+      learned many new programming languages, including HTML, CSS, and
+      JavaScript. Afterwards, I developed a CRUD app which I connected to a
+      SQL database. Later, I also added a frontend and created my own login
+      system. In the process, I particularly got to know backend development
+      and learned new framework-based programming languages such as
+      Express.js and Vue.js.
+    info:
+      department: "GHR-POD-NEX"
+  fr:
+    description: >-
+      Au NexCC, j'ai d'abord eu l'opportunité de créer ce site web et j'ai
+      appris de nombreux nouveaux langages de programmation, dont HTML, CSS
+      et JavaScript. Ensuite, j'ai développé une application CRUD que j'ai
+      connectée à une base de données SQL. Plus tard, j'ai également ajouté
+      un frontend et créé mon propre système de connexion. Dans ce processus,
+      j'ai surtout appris le développement backend et de nouveaux langages
+      basés sur des frameworks comme Express.js et Vue.js.
+    info:
+      department: "GHR-POD-NEX"
+  it:
+    description: >-
+      Al NexCC, ho avuto l'opportunità di creare questo sito web e ho
+      imparato molti nuovi linguaggi di programmazione, tra cui HTML, CSS e
+      JavaScript. Successivamente, ho sviluppato un'app CRUD che ho collegato
+      a un database SQL. In seguito, ho aggiunto anche un frontend e creato
+      il mio sistema di login. In questo modo, ho approfondito le mie
+      conoscenze nel backend e ho appreso nuovi linguaggi di programmazione
+      basati su framework come Express.js e Vue.js.
+    info:
+      department: "GHR-POD-NEX"

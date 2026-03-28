@@ -1,0 +1,47 @@
+icon:
+  name: "simple-icons:github"
+  background: "#4493F8"
+  colors:
+    primary: "#4493F8"
+    secondary: "#4493F8"
+    tertiary: "#4493F8"
+eyebrow: "Bibliothek"
+title: "GitHub Primer"
+description: >-
+  Ich habe GitHub Primer benutzt, um ein Frontend zusammen mit React für
+  meine CRUD-App im Apps Team zu erstellen.
+badges:
+  - title: "Frontend"
+  - title: "Design"
+  - title: "UI"
+  - title: "React"
+    icon:
+      name: "simple-icons:react"
+links:
+  - title: "Mehr erfahren"
+    url: "https://primer.style"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    eyebrow: "Library"
+    description: >-
+      I used GitHub Primer to create a frontend together with React for my
+      CRUD app in the Apps Team.
+    links:
+      - title: "Learn more"
+  fr:
+    eyebrow: "Bibliothèque"
+    description: >-
+      J'ai utilisé GitHub Primer pour créer un front-end avec React pour mon
+      application CRUD dans le Apps Team.
+    links:
+      - title: "En savoir plus"
+  it:
+    eyebrow: "Biblioteca"
+    description: >-
+      Ho usato GitHub Primer per creare un frontend insieme a React per la
+      mia applicazione CRUD nel Apps Team.
+    links:
+      - title: "Per saperne di più"

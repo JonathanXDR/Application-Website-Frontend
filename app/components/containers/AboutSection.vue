@@ -5,8 +5,9 @@ defineProps<{
 
 const viewport = useViewport()
 const nonce = useNonce()
+const { data: about } = await useQueryCollection('sections').stem('about').first()
 
-const calculateAge = (date: string) => {
+const calculateAge = (date = '') => {
   const currentDate = new Date(Date.now())
   const birthDate = new Date(date)
   const difference = new Date(currentDate.getTime() - birthDate.getTime())
@@ -52,6 +53,7 @@ const calculateAge = (date: string) => {
     </svg>
 
     <CardItem
+      v-if="about"
       v-bind="{
         variant: 'article',
         hover: false,
@@ -61,10 +63,11 @@ const calculateAge = (date: string) => {
             ? 'medium'
             : 'large',
         loading: false,
-        title: $t('components.containers.about.title'),
-        description: $t('components.containers.about.description', {
-          age: calculateAge($t('components.containers.about.birthDate')),
-        }),
+        title: about?.title,
+        description: about?.description?.replace(
+          '{age}',
+          String(calculateAge(about?.birthDate)),
+        ),
       }"
     />
   </div>

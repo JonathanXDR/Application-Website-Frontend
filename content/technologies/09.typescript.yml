@@ -1,0 +1,59 @@
+icon:
+  name: "simple-icons:typescript"
+  background: "#3178C6"
+  colors:
+    primary: "#3178C6"
+    secondary: "#3178C6"
+    tertiary: "#3178C6"
+eyebrow: "Sprache"
+title: "TypeScript"
+description: >-
+  Diese Technologie habe ich das erste mal bei meiner Memory-App im Apps Team
+  verwendet und benutze seither wenn möglich nur noch TypeScript anstelle von
+  JavaScript. Projekte, bei denen ich TypeScript gearbeitet habe, sind z.B.
+  die Apps Team Webseite, die CRUD-App im Apps Team oder auch das
+  Fleetmanagement Tool.
+badges:
+  - title: "Typed"
+  - title: "Full Stack"
+  - title: "Javascript"
+    icon:
+      name: "simple-icons:javascript"
+links:
+  - title: "Mehr erfahren"
+    url: "https://typescriptlang.org"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    eyebrow: "Language"
+    description: >-
+      I used this technology for the first time with my memory app in the
+      Apps Team and since then I only use TypeScript instead of JavaScript
+      whenever possible. Projects in which I've used TypeScript include the
+      Apps Team website, the CRUD app in the Apps Team and the fleet
+      management tool.
+    links:
+      - title: "Learn more"
+  fr:
+    eyebrow: "Langue"
+    description: >-
+      J'ai utilisé cette technologie pour la première fois avec mon
+      application de mémoire dans Apps Team et depuis, je n'utilise que
+      TypeScript au lieu de JavaScript lorsque c'est possible. Les projets
+      pour lesquels j'ai utilisé TypeScript sont par exemple le site web de
+      le Apps Team, l'application CRUD de le Apps Team ou encore l'outil de
+      gestion de flotte.
+    links:
+      - title: "En savoir plus"
+  it:
+    eyebrow: "Lingua"
+    description: >-
+      Ho usato questa tecnologia per la prima volta con la mia applicazione
+      di memoria nell'Apps Team e da allora ho usato TypeScript invece di
+      JavaScript solo quando possibile. Tra i progetti in cui ho utilizzato
+      TypeScript ci sono il sito web dell'Apps Team, l'applicazione CRUD
+      dell'Apps Team e lo strumento di gestione della flotta.
+    links:
+      - title: "Per saperne di più"

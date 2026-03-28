@@ -1,0 +1,17 @@
+links:
+  - title: "Mail"
+    url: "mailto:contact@jonathan-russ.com"
+    icon:
+      name: "fa7-solid:envelope"
+  - title: "LinkedIn"
+    url: "https://linkedin.com/in/jonathan-russ-b7442a228"
+    icon:
+      name: "fa7-brands:linkedin"
+  - title: "GitHub"
+    url: "https://github.com/JonathanXDR"
+    icon:
+      name: "fa7-brands:github"
+  - title: "X (Twitter)"
+    url: "https://x.com/JonathanXD12_"
+    icon:
+      name: "fa7-brands:x-twitter"

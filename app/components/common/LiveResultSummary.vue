@@ -4,8 +4,8 @@ defineProps<{
   pinnedResults?: number
 }>()
 
-const { t } = useI18n()
 const { randomDevColor } = useColor()
+const { data: uiLabels } = await useQueryCollection('siteConfig').stem('ui-labels').first()
 </script>
 
 <template>
@@ -15,9 +15,7 @@ const { randomDevColor } = useColor()
   >
     <div class="number-results">
       {{
-        t(`components.common.LiveResultSummary.title`, {
-          count: totalResults,
-        })
+        uiLabels?.liveResultSummary?.title?.replace("{count}", String(totalResults))
       }}
     </div>
     <div
@@ -33,7 +31,7 @@ const { randomDevColor } = useColor()
           }"
           class="icon icon-md"
         />
-        <span>{{ t("components.common.LiveResultSummary.description") }}</span>
+        <span>{{ uiLabels?.liveResultSummary?.description }}</span>
         <span class="total"> ({{ pinnedResults }})</span>
       </div>
       <!-- <div class="changed-total changed-total-modified">

@@ -1,0 +1,108 @@
+icon:
+  name: "sf-symbols:gear"
+eyebrow: "Backend"
+title: "Apps Team"
+description: >-
+  Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte
+  ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine
+  eigene CRUD-App erstellen. Ich konnte viel Neues über Nest.js und die
+  beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen
+  gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit
+  GitHub Primer erstellt. Danach habe ich dann beim Tool für Medienkurse
+  mitgeholfen und konnte dort einige Features hinzufügen und Fehler beheben.
+  Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen
+  Webfrontends mitwirken, was mir sehr gefallen hat :)
+badges:
+  - title: "Backend"
+  - title: "CRUD"
+  - title: "ORM"
+  - title: "TypeScript"
+    icon:
+      name: "simple-icons:typescript"
+  - title: "Nest"
+    icon:
+      name: "simple-icons:nestjs"
+  - title: "TypeORM"
+    icon:
+      name: "simple-icons:typeorm"
+  - title: "Prisma"
+    icon:
+      name: "simple-icons:prisma"
+  - title: "React"
+    icon:
+      name: "simple-icons:react"
+  - title: "Next.js"
+    icon:
+      name: "simple-icons:nextdotjs"
+  - title: "SDX"
+    icon:
+      name: "simple-icons-extended:swisscom"
+  - title: "GitHub Primer"
+    icon:
+      name: "simple-icons:github"
+links:
+  - title: "Apps Team"
+    url: "https://appsteam.swisscom.com"
+    icon:
+      name: "sf-symbols:chevron.right"
+  - title: "Indigo online"
+    url: "https://indigo.online"
+    icon:
+      name: "sf-symbols:chevron.right"
+info:
+  date:
+    duration:
+      from: "2023-02-01"
+      to: "2023-08-01"
+  supervisor: "Kim Eggler"
+  location: "Itt-Ey10"
+  department: "GHR-OPD-CLE-LES-APP (EXT)"
+
+i18n:
+  en:
+    description: >-
+      After having worked as a frontend developer in the Apps Team, I wanted
+      to gain a deeper understanding of the backend. First, I had the
+      opportunity to create my own CRUD app. I learned a lot about Nest.js
+      and the two ORMs, Prisma and TypeORM, and gained valuable experience.
+      Later, I also created a frontend for my CRUD app using GitHub Primer.
+      Afterwards, I contributed to the media courses tool, where I added
+      several features and fixed bugs. Finally, I also worked on the Fleet
+      Management Tool and the new web frontends, which I really enjoyed :)
+    links:
+      - title: "Learn more about the Apps Team"
+      - title: "Learn more about indigo online"
+    info:
+      department: "GHR-POD-LES-APP"
+  fr:
+    description: >-
+      Après avoir travaillé comme développeur frontend dans le Apps Team,
+      j'ai voulu approfondir mes connaissances du backend. D'abord, j'ai eu
+      l'opportunité de créer ma propre application CRUD. J'ai beaucoup appris
+      sur Nest.js et les deux ORM, Prisma et TypeORM, acquérant une
+      expérience précieuse. Plus tard, j'ai créé un frontend pour mon
+      application CRUD avec GitHub Primer. Ensuite, j'ai contribué à l'outil
+      de cours multimédia, ajoutant des fonctionnalités et corrigeant des
+      bugs. Enfin, j'ai aussi travaillé sur l'outil de gestion de flotte et
+      les nouveaux web frontends, ce que j'ai beaucoup apprécié :)
+    links:
+      - title: "Maggiori informazioni sull'Apps Team"
+      - title: "Maggiori informazioni su indigo online"
+    info:
+      department: "GHR-POD-LES-APP"
+  it:
+    description: >-
+      Dopo aver lavorato come sviluppatore frontend nel team Apps, ho voluto
+      approfondire anche il backend. Prima ho avuto l'opportunità di creare
+      la mia app CRUD. Ho imparato molto su Nest.js e sui due ORM, Prisma e
+      TypeORM, acquisendo esperienze preziose. Successivamente, ho anche
+      creato un frontend per la mia app CRUD usando GitHub Primer. In
+      seguito, ho contribuito allo strumento per i corsi multimediali,
+      aggiungendo diverse funzionalità e correggendo errori. Infine, ho
+      partecipato al Fleet Management Tool e ai nuovi web frontend, che mi
+      sono piaciuti molto :)
+    links:
+      - title: "Maggiori informazioni sull'Apps Team"
+      - title: "Maggiori informazioni su indigo online"
+    info:
+      department: "GHR-POD-LES-APP"

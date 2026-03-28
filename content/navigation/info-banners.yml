@@ -1,0 +1,54 @@
+items:
+  - description: "Was ist neu in {latestTag}?"
+    links:
+      - title: "Mehr erfahren"
+        url: "https://github.com/JonathanXDR/Application-Website-Frontend/compare/{previousTag}...{latestTag}"
+        icon:
+          name: "sf-symbols:chevron.right"
+  - description: "Erkunde meine neusten Projekte bei Swisscom!"
+    links:
+      - title: "Mehr erfahren"
+        url: "/projects"
+        icon:
+          name: "sf-symbols:chevron.right"
+  - description: "Entdecke alle Technologien, mit denen ich bisher gearbeitet habe!"
+    links:
+      - title: "Mehr erfahren"
+        url: "/technologies"
+        icon:
+          name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    items:
+      - description: "What's new in {latestTag}?"
+        links:
+          - title: "Learn more"
+      - description: "Explore my latest projects at Swisscom!"
+        links:
+          - title: "Learn more"
+      - description: "Discover all the technologies I've worked with so far!"
+        links:
+          - title: "Learn more"
+  fr:
+    items:
+      - description: "Quoi de neuf dans {latestTag}?"
+        links:
+          - title: "En savoir plus"
+      - description: "Découvre mes derniers projets chez Swisscom!"
+        links:
+          - title: "En savoir plus"
+      - description: "Découvre toutes les technologies avec lesquelles j'ai travaillé jusqu'à présent!"
+        links:
+          - title: "En savoir plus"
+  it:
+    items:
+      - description: "Cosa c'è di nuovo in {latestTag}?"
+        links:
+          - title: "Per saperne di più"
+      - description: "Scopri i miei ultimi progetti presso Swisscom!"
+        links:
+          - title: "Per saperne di più"
+      - description: "Scopri tutte le tecnologie con cui ho lavorato finora!"
+        links:
+          - title: "Per saperne di più"

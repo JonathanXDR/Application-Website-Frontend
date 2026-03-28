@@ -11,8 +11,12 @@ definePageMeta({
   footerCompact: false,
 })
 
-const { tm } = useI18n()
-const sections = computed<SectionType[]>(() => tm('components.common.NavBar'))
+const { data: navbarData } = await useQueryCollection('navigation').stem('navbar').first()
+const sections = computed<SectionType[]>(
+  () =>
+    ((navbarData.value as unknown as Record<string, unknown>)
+      ?.items as SectionType[]) || [],
+)
 </script>
 
 <template>

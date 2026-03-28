@@ -1,0 +1,49 @@
+icon:
+  name: "simple-icons:css"
+  background: "#663399"
+  colors:
+    primary: "#663399"
+    secondary: "#663399"
+    tertiary: "#663399"
+eyebrow: "Sprache"
+title: "CSS"
+description: >-
+  CSS habe ich ebenfalls während dem Aufbau dieser Webseite gelernt. Da CSS
+  genau wie HTML in fast jedem Projekt verwendet wird, habe ich auch hier
+  schon viel Erfahrung gesammelt.
+badges:
+  - title: "Styling"
+  - title: "Web"
+  - title: "Frontend"
+  - title: "Design"
+links:
+  - title: "Mehr erfahren"
+    url: "https://developer.mozilla.org/en-US/docs/Web/CSS"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    eyebrow: "Language"
+    description: >-
+      I also learned CSS while building this website. Since CSS, just like
+      HTML, is used in almost every project, I've also gained a lot of
+      experience in this area.
+    links:
+      - title: "Learn more"
+  fr:
+    eyebrow: "Langue"
+    description: >-
+      J'ai également appris le CSS pendant la construction de ce site web.
+      Comme le CSS, tout comme le HTML, est utilisé dans presque tous les
+      projets, j'ai également acquis beaucoup d'expérience dans ce domaine.
+    links:
+      - title: "En savoir plus"
+  it:
+    eyebrow: "Lingua"
+    description: >-
+      Durante la realizzazione di questo sito web ho imparato anche i CSS.
+      Poiché i CSS, proprio come l'HTML, vengono utilizzati in quasi tutti i
+      progetti, ho acquisito molta esperienza anche in questo campo.
+    links:
+      - title: "Per saperne di più"

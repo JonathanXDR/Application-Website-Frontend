@@ -6,12 +6,14 @@ withDefaults(defineProps<Pick<SegmentNavType, 'label'>>(), {
   label: 'text',
 })
 
-const { tm } = useI18n()
 const { getTheme, setTheme } = useTheme()
 const currentTheme = computed(() => getTheme())
 
-const themeItems = computed<ItemType[]>(() =>
-  tm('components.common.SegmentNav.theme'),
+const { data: segNavData } = await useQueryCollection('navigation').stem('segment-nav').first()
+const themeItems = computed<ItemType[]>(
+  () =>
+    ((segNavData.value as unknown as Record<string, unknown>)
+      ?.theme as ItemType[]) || [],
 )
 </script>
 

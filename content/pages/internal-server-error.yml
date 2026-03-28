@@ -1,0 +1,30 @@
+id: internalServerError
+label: "Interner Serverfehler"
+statusCode: 500
+icon:
+  name: "sf-symbols:exclamationmark.octagon.fill"
+  colors:
+    primary: "var(--color-fill)"
+    tertiary: "var(--color-system-red)"
+title: "{statusCode} Internal Server Error"
+description: >-
+  Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem
+  weiterhin besteht.
+
+i18n:
+  en:
+    label: "Internal Server Error"
+    description: >-
+      Something has gone wrong. Check back soon if the problem persists.
+  fr:
+    label: "Erreur de serveur interne"
+    title: "{statusCode} Erreur de serveur interne"
+    description: >-
+      Quelque chose s'est mal passé. Reviens bientôt si le problème
+      persiste.
+  it:
+    label: "Errore interno del server"
+    title: "{statusCode} Errore interno del server"
+    description: >-
+      Qualcosa è andato storto. Torna presto a controllare se il problema
+      persiste.

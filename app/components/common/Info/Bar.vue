@@ -3,6 +3,10 @@ import type { IconItemType } from '#shared/types/components/icon-item'
 import type { InfoBarType } from '#shared/types/components/info-bar'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import 'dayjs/locale/de'
+import 'dayjs/locale/en'
+import 'dayjs/locale/fr'
+import 'dayjs/locale/it'
 
 const props = withDefaults(defineProps<InfoBarType>(), {
   loading: false,

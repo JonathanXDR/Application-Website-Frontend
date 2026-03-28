@@ -13,9 +13,12 @@ withDefaults(
   },
 )
 
-const { t, tm } = useI18n()
-const links = computed<LinkItemType[]>(() =>
-  tm('components.common.FooterCopyright.links'),
+const { data: copyrightData } = await useQueryCollection('navigation').stem('footer-copyright').first()
+const links = computed<LinkItemType[]>(
+  () => (copyrightData.value?.links as LinkItemType[]) ?? [],
+)
+const allRightsReserved = computed(
+  () => copyrightData.value?.allRightsReserved ?? '',
 )
 const currentYear = ref(new Date().getFullYear())
 </script>
@@ -33,6 +36,6 @@ const currentYear = ref(new Date().getFullYear())
       v-bind="link"
     />
 
-    {{ t("components.common.FooterCopyright.allRightsReserved") }}
+    {{ allRightsReserved }}
   </div>
 </template>

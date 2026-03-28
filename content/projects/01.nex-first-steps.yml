@@ -1,0 +1,49 @@
+icon:
+  name: "sf-symbols:airplane.departure"
+eyebrow: "Einführung"
+title: "NEX First Steps"
+description: >-
+  In den First Steps hat meine Lehre begonnen. Dort habe ich alles rund um
+  Swisscom kennengelernt, also z.B. wie man die verschieden Tools verwendet,
+  wie man richtig zusammenarbeitet und auch andere Dinge, wie beispielsweise
+  die Arbeitssicherheit.
+badges:
+  - title: "Introduction"
+  - title: "Swisscom"
+  - title: "Teamwork"
+  - title: "Work Safety"
+  - title: "Next Generation"
+info:
+  date:
+    fixed: "2021-08-01"
+  supervisor: "Steve Hess"
+  location: "Zürich & Bern"
+  department: "GHR-SCS-NEX"
+
+i18n:
+  en:
+    eyebrow: "Introduction"
+    description: >-
+      My apprenticeship began with the First Steps program. There, I learned
+      everything about Swisscom -- for example, how to use the various tools,
+      how to collaborate effectively, and other aspects such as work safety.
+    info:
+      department: "GHR-POD-NEX"
+  fr:
+    eyebrow: "Introduction"
+    description: >-
+      Mon apprentissage a débuté avec le programme First Steps. Là-bas, j'ai
+      tout appris sur Swisscom -- par exemple, comment utiliser les différents
+      outils, comment travailler en équipe efficacement et d'autres aspects
+      comme la sécurité au travail.
+    info:
+      department: "GHR-POD-NEX"
+  it:
+    eyebrow: "Introduzione"
+    description: >-
+      Il mio apprendistato è iniziato con il programma First Steps. Lì ho
+      appreso tutto ciò che riguarda Swisscom -- ad esempio, come utilizzare
+      i vari strumenti, come lavorare in squadra e altri aspetti, come la
+      sicurezza sul lavoro.
+    info:
+      department: "GHR-POD-NEX"

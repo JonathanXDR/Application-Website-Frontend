@@ -1,0 +1,50 @@
+icon:
+  name: "simple-icons:vuedotjs"
+  background: "#4FC08D"
+  colors:
+    primary: "#4FC08D"
+    secondary: "#4FC08D"
+    tertiary: "#4FC08D"
+eyebrow: "Framework"
+title: "Vue.js"
+description: >-
+  Diese Webseite ist mit Vue.js erstellt worden und ich habe damit auch
+  anderweitig gearbeitet. Beispiele sind meine Memory App im Apps Team oder
+  das Zukunftstagstool und die Berufsschulapp, welche ich wiederrum im NexCC
+  erstellt habe.
+badges:
+  - title: "Frontend"
+  - title: "Web"
+  - title: "Javascript"
+    icon:
+      name: "simple-icons:javascript"
+links:
+  - title: "Mehr erfahren"
+    url: "https://vuejs.org"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    description: >-
+      This website was created with Vue.js and I've also worked with it in
+      other ways. Examples are my memory app in the Apps Team or the future
+      day tool and the vocational school app, which I created in NexCC.
+    links:
+      - title: "Learn more"
+  fr:
+    description: >-
+      Ce site web a été créé avec Vue.js et je l'ai également utilisé dans
+      d'autres domaines. Par exemple, mon application de mémoire dans le Apps
+      Team ou l'outil du jour de l'avenir et l'application de l'école
+      professionnelle, que j'ai à nouveau créée dans NexCC.
+    links:
+      - title: "En savoir plus"
+  it:
+    description: >-
+      Questo sito web è stato creato con Vue.js e ho lavorato con esso anche
+      in altri modi. Ne sono un esempio la mia applicazione per la memoria
+      nel team delle applicazioni, lo strumento per il giorno futuro e
+      l'applicazione per la scuola professionale, che ho creato in NexCC.
+    links:
+      - title: "Per saperne di più"

@@ -1,0 +1,91 @@
+eyebrow: "Hey ;)"
+title: "About Me"
+description: >-
+  Hey, ich bin Jonathan! Ich bin {age} Jahre alt und komme aus der Schweiz.
+
+  Schon früh war ich von Computern begeistert, und diese Leidenschaft begleitet
+  mich bis heute. Mein erster Einstieg ins Programmieren begann mit Minecraft
+  Commands und Command-Blöcken, was meine Faszination für die Welt der
+  Softwareentwicklung geweckt hat.
+
+  Kürzlich habe ich meine Ausbildung zum Informatiker EFZ
+  Applikationsentwicklung erfolgreich abgeschlossen. Ich arbeite in einem
+  Bereich, der sich ständig weiterentwickelt und immer neue Herausforderungen
+  bietet. Ich finde es faszinierend, was man mit Code alles erreichen kann.
+  Egal, ob komplexe Anwendungen oder innovative Ansätze. Die nahezu unbegrenzten
+  Möglichkeiten begeistern mich. Besonders liebe ich es, kreative Projekte zu
+  realisieren und Ideen in der digitalen Welt zum Leben zu erwecken.
+
+  Wenn ich nicht gerade programmiere, spiele ich gerne Computer- und
+  Konsolenspiele oder verbringe Zeit mit meinen Freunden. Musik begleitet mich
+  oft durch den Tag und ist ein wichtiger Teil meines Lebens.
+birthDate: "2005-12-12"
+i18n:
+  en:
+    eyebrow: "Hey ;)"
+    title: "I'm  Jonathan"
+    description: >-
+      I'm {age} years old and from Switzerland.
+
+      From an early age, I was fascinated by computers, and this passion has
+      stayed with me ever since. My first steps into programming were through
+      Minecraft Commands and Command Blocks, which sparked my fascination for
+      the world of software development.
+
+      I recently completed my apprenticeship as an "Informatiker EFZ
+      Applikationsentwicklung" (Swiss Federal Diploma in Application
+      Development). I now work in a field that is constantly evolving and full
+      of new challenges. I find it fascinating what can be achieved with code
+      -- from complex applications to innovative approaches. The nearly
+      unlimited possibilities excite me, and I especially love bringing
+      creative projects to life in the digital world.
+
+      When I'm not coding, I enjoy playing computer and console games or
+      spending time with my friends. Music often accompanies me throughout the
+      day and is an important part of my life too.
+  fr:
+    eyebrow: "Hey ;)"
+    title: "Je suis Jonathan"
+    description: >-
+      J'ai {age} ans et je viens de Suisse.
+
+      Depuis mon plus jeune âge, je suis passionné par les ordinateurs, et
+      cette passion ne m'a jamais quitté. Mes premiers pas dans la
+      programmation ont commencé avec les commandes et blocs de commandes de
+      Minecraft -- une expérience qui a éveillé ma fascination pour le
+      développement logiciel.
+
+      J'ai récemment terminé mon apprentissage en tant qu'«Informatiker EFZ
+      Applikationsentwicklung» (CFC suisse en développement d'applications).
+      Je travaille dans un domaine en constante évolution, riche en défis. Je
+      trouve fascinant tout ce que l'on peut accomplir avec du code -- des
+      applications complexes aux approches innovantes. Les possibilités quasi
+      infinies me passionnent, et j'aime particulièrement donner vie à des
+      projets créatifs dans le monde numérique.
+
+      Quand je ne programme pas, j'aime jouer à des jeux sur ordinateur et
+      console ou passer du temps avec mes amis. La musique m'accompagne
+      souvent tout au long de la journée et occupe une place importante dans
+      ma vie.
+  it:
+    eyebrow: "Hey ;)"
+    title: "Sono Jonathan"
+    description: >-
+      Ho {age} anni e vengo dalla Svizzera.
+
+      Sin da piccolo sono stato affascinato dai computer, e questa passione mi
+      accompagna ancora oggi. I miei primi passi nella programmazione sono
+      stati con i comandi e i blocchi comandi di Minecraft -- un'esperienza
+      che ha acceso la mia curiosità per il mondo dello sviluppo software.
+
+      Ho recentemente concluso il mio apprendistato come "Informatiker EFZ
+      Applikationsentwicklung" (diploma federale svizzero in sviluppo di
+      applicazioni). Lavoro in un settore in continua evoluzione, ricco di
+      sfide sempre nuove. Trovo affascinante ciò che si può ottenere con il
+      codice -- dalle applicazioni complesse agli approcci innovativi. Le
+      possibilità quasi illimitate mi entusiasmano, e amo in particolare
+      realizzare progetti creativi e dare vita alle idee nel mondo digitale.
+
+      Quando non programmo, mi piace giocare a videogiochi per computer e
+      console o passare del tempo con i miei amici. La musica mi accompagna
+      spesso durante la giornata ed è una parte importante della mia vita.

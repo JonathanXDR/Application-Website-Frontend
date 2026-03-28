@@ -1,0 +1,52 @@
+icon:
+  name: "simple-icons:gnubash"
+  background: "var(--color-card-logo-secondary)"
+  colors:
+    primary: "var(--color-card-logo-primary)"
+    secondary: "var(--color-card-logo-secondary)"
+    tertiary: "var(--color-card-logo-tertiary)"
+eyebrow: "Sprache"
+title: "Bash"
+description: >-
+  Ich habe schon oft mit Bash gearbeitet und bin damit mittlerweile auch
+  einigermassen vertraut. Ich habe damit z.B. schon ein paar kleine Skripte
+  geschrieben, um mir die Arbeit zu erleichtern. Zudem gab es auch das Modul
+  122 in der Berufsschule, bei dem wir ebenfalls mit Bash gearbeitet haben.
+badges:
+  - title: "Scripting"
+  - title: "Shell"
+  - title: "Linux"
+links:
+  - title: "Mehr erfahren"
+    url: "https://gnu.org/software/bash"
+    icon:
+      name: "sf-symbols:chevron.right"
+
+i18n:
+  en:
+    eyebrow: "Language"
+    description: >-
+      I've often worked with Bash and am now reasonably familiar with it. For
+      example, I've already written a few small scripts with it to make my
+      work easier. There was also module 122 at vocational school, where we
+      also worked with Bash.
+    links:
+      - title: "Learn more"
+  fr:
+    eyebrow: "Langue"
+    description: >-
+      J'ai souvent travaillé avec Bash et je m'y connais un peu maintenant.
+      Par exemple, j'ai déjà écrit quelques petits scripts pour me faciliter
+      la tâche. De plus, il y avait aussi le module 122 à l'école
+      professionnelle, dans lequel nous avons également travaillé avec Bash.
+    links:
+      - title: "En savoir plus"
+  it:
+    eyebrow: "Lingua"
+    description: >-
+      Ho lavorato spesso con Bash e ora ho una discreta familiarità con esso.
+      Ad esempio, ho già scritto alcuni piccoli script per facilitare il mio
+      lavoro. C'è stato anche il modulo 122 alla scuola professionale, dove
+      abbiamo lavorato anche con Bash.
+    links:
+      - title: "Per saperne di più"
