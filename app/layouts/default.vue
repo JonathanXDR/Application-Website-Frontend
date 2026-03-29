@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { InfoBannerType } from '#shared/types/components/info-banner'
-import FooterCompact from '~/components/common/Footer/Compact.vue'
-import FooterPre from '~/components/common/Footer/Pre.vue'
+import FooterCompact from '~/components/Footer/Compact.vue'
+import FooterPre from '~/components/Footer/Pre.vue'
 
 const { navProps, navData } = useNavbar()
 const { randomDevColor } = useColor()

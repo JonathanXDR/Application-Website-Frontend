@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ExtendedSizeType } from '../../../shared/types/common/extended-size'
+import type { ExtendedSizeType } from '#shared/types/common/extended-size'
 
 const props = withDefaults(
   defineProps<{

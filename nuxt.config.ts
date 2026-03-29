@@ -91,15 +91,6 @@ export default defineNuxtConfig({
     },
   },
   ssr: true,
-  components: {
-    dirs: [
-      {
-        path: '~/components/containers',
-        global: true,
-      },
-      '~/components/common',
-    ],
-  },
   // imports: {
   //   dirs: [
   //     '#/shared/types/common',

@@ -31,7 +31,7 @@ const sections = computed<SectionType[]>(
         :class="child.class"
       >
         <component
-          :is="`${child.id}Section`"
+          :is="`section-${child.id}`"
           :title="child.label"
         />
       </section>
