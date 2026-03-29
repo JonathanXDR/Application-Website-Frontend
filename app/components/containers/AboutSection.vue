@@ -5,7 +5,9 @@ defineProps<{
 
 const viewport = useViewport()
 const nonce = useNonce()
-const { data: about } = await useQueryCollection('sections').stem('about').first()
+const { data: about } = await useQueryCollection('sections')
+  .stem('about')
+  .first()
 
 const calculateAge = (date = '') => {
   const currentDate = new Date(Date.now())
@@ -34,13 +36,8 @@ const calculateAge = (date = '') => {
       <NuxtImg
         v-slot="{ src, isLoaded, imgAttrs }"
         src="/img/portrait.jpg"
-        alt="Portrait"
-        clip-path="url(#image)"
         height="411"
         width="411"
-        x="0"
-        y="10"
-        preserveAspectRatio="xMidYMin slice"
         :custom="true"
       >
         <image
@@ -48,6 +45,11 @@ const calculateAge = (date = '') => {
           v-bind="imgAttrs"
           :href="src"
           :nonce
+          alt="Portrait"
+          clip-path="url(#image)"
+          x="0"
+          y="10"
+          preserveAspectRatio="xMidYMin slice"
         />
       </NuxtImg>
     </svg>
