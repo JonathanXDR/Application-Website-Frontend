@@ -1,30 +1,35 @@
 <script setup lang="ts">
 import type { CardRepositoryType } from '#shared/types/common/card-repository'
 
-const props = withDefaults(defineProps<Partial<Omit<CardRepositoryType, 'id'>>>(), {
-  variant: 'card',
-  componentSize: 'medium',
-  colors: () => ({
-    primary: 'transparent',
-    secondary: 'transparent',
-    tertiary: 'var(--color-fill-gray-tertiary)',
-    quaternary: 'var(--color-figure-blue)',
-  }),
-  alignment: 'start',
-  hover: 'auto',
-  loading: false,
-  graphs: () => ({
-    donut: false,
-    bar: false,
-  }),
-  icon: () => ({
-    absolute: false,
-    position: 'left',
+const props = withDefaults(
+  defineProps<Partial<Omit<CardRepositoryType, 'id'>>>(),
+  {
+    variant: 'card',
+    componentSize: 'medium',
+    colors: () => ({
+      primary: 'transparent',
+      secondary: 'transparent',
+      tertiary: 'var(--color-fill-gray-tertiary)',
+      quaternary: 'var(--color-figure-blue)',
+    }),
     alignment: 'start',
-  }),
-})
+    hover: 'auto',
+    loading: false,
+    graphs: () => ({
+      donut: false,
+      bar: false,
+    }),
+    icon: () => ({
+      absolute: false,
+      position: 'left',
+      alignment: 'start',
+    }),
+  },
+)
 
-const { data: uiLabels } = await useQueryCollection('siteConfig').stem('ui-labels').first()
+const { data: uiLabels } = await useQueryCollection('siteConfig')
+  .stem('ui-labels')
+  .first()
 const { randomDevColor } = useColor()
 const colorMode = useColorMode()
 

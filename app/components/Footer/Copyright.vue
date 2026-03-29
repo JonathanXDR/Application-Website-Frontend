@@ -13,7 +13,9 @@ withDefaults(
   },
 )
 
-const { data: copyrightData } = await useQueryCollection('navigation').stem('footer-copyright').first()
+const { data: copyrightData } = await useQueryCollection('navigation')
+  .stem('footer-copyright')
+  .first()
 const links = computed<LinkItemType[]>(
   () => (copyrightData.value?.links as LinkItemType[]) ?? [],
 )

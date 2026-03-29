@@ -55,22 +55,30 @@ export default defineContentConfig({
       source: 'config/*.yml',
       schema: z.object({
         description: z.string().optional(),
-        filterInput: z.object({
-          addTag: z.string(),
-          tagSelectRemove: z.string(),
-        }).optional(),
-        liveResultSummary: z.object({
-          title: z.string(),
-          description: z.string(),
-        }).optional(),
-        cardItem: z.object({
-          created: z.string(),
-          updated: z.string(),
-          learnMore: z.string(),
-        }).optional(),
-        languagePickerBar: z.object({
-          chooseYourLanguage: z.string(),
-        }).optional(),
+        filterInput: z
+          .object({
+            addTag: z.string(),
+            tagSelectRemove: z.string(),
+          })
+          .optional(),
+        liveResultSummary: z
+          .object({
+            title: z.string(),
+            description: z.string(),
+          })
+          .optional(),
+        cardItem: z
+          .object({
+            created: z.string(),
+            updated: z.string(),
+            learnMore: z.string(),
+          })
+          .optional(),
+        languagePickerBar: z
+          .object({
+            chooseYourLanguage: z.string(),
+          })
+          .optional(),
       }),
       i18n: true,
     }),
@@ -145,7 +153,7 @@ export default defineContentConfig({
       schema: z.object({
         pageId: z.string(),
         label: z.string(),
-        statusCode: z.number(),
+        status: z.number(),
         icon: iconSchema,
         title: z.string(),
         description: z.string(),

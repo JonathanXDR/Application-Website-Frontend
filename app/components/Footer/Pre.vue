@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const { data: copyrightData } = await useQueryCollection('navigation').stem('footer-copyright').first()
+const { data: copyrightData } = await useQueryCollection('navigation')
+  .stem('footer-copyright')
+  .first()
 const currentYear = ref(new Date().getFullYear())
 </script>
 

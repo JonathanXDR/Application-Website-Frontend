@@ -5,7 +5,9 @@ defineProps<{
 }>()
 
 const { randomDevColor } = useColor()
-const { data: uiLabels } = await useQueryCollection('siteConfig').stem('ui-labels').first()
+const { data: uiLabels } = await useQueryCollection('siteConfig')
+  .stem('ui-labels')
+  .first()
 </script>
 
 <template>
@@ -15,7 +17,10 @@ const { data: uiLabels } = await useQueryCollection('siteConfig').stem('ui-label
   >
     <div class="number-results">
       {{
-        uiLabels?.liveResultSummary?.title?.replace("{count}", String(totalResults))
+        uiLabels?.liveResultSummary?.title?.replace(
+          "{count}",
+          String(totalResults),
+        )
       }}
     </div>
     <div

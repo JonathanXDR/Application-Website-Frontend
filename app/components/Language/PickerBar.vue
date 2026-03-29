@@ -14,7 +14,9 @@ const props = withDefaults(
 
 const { changeLanguage } = useLanguage()
 const { locale, locales } = useI18n()
-const { data: uiLabelsData } = await useQueryCollection('siteConfig').stem('ui-labels').first()
+const { data: uiLabelsData } = await useQueryCollection('siteConfig')
+  .stem('ui-labels')
+  .first()
 
 const computedLocales = computed<LocaleObject[]>(() =>
   locales.value.map((l: string | LocaleObject): LocaleObject => {

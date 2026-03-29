@@ -4,7 +4,7 @@ icon:
   name: "sf-symbols:exclamationmark.octagon.fill"
   colors:
     primary: "var(--color-system-red)"
-title: "Error {statusCode}"
+title: "Error {status}"
 description: >-
   Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem
   weiterhin besteht.
@@ -16,13 +16,13 @@ i18n:
       Something has gone wrong. Check back soon if the problem persists.
   fr:
     label: "Erreur"
-    title: "Erreur {statusCode}"
+    title: "Erreur {status}"
     description: >-
       Quelque chose s'est mal passé. Reviens bientôt si le problème
       persiste.
   it:
     label: "Errore"
-    title: "Errore {statusCode}"
+    title: "Errore {status}"
     description: >-
       Qualcosa è andato storto. Torna presto a controllare se il problema
       persiste.

@@ -2,8 +2,12 @@
 import type { SectionType } from '#shared/types/common/section'
 import type { LinkItemType } from '#shared/types/components/link-item'
 
-const { data: footerDirData } = await useQueryCollection('navigation').stem('footer-directory').first()
-const { data: footerMiniData } = await useQueryCollection('navigation').stem('footer-mini').first()
+const { data: footerDirData } = await useQueryCollection('navigation')
+  .stem('footer-directory')
+  .first()
+const { data: footerMiniData } = await useQueryCollection('navigation')
+  .stem('footer-mini')
+  .first()
 
 const footerDirectoryItems = computed<SectionType[]>(
   () =>

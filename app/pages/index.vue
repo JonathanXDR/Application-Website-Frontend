@@ -11,7 +11,9 @@ definePageMeta({
   footerCompact: false,
 })
 
-const { data: navbarData } = await useQueryCollection('navigation').stem('navbar').first()
+const { data: navbarData } = await useQueryCollection('navigation')
+  .stem('navbar')
+  .first()
 const sections = computed<SectionType[]>(
   () =>
     ((navbarData.value as unknown as Record<string, unknown>)

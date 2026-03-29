@@ -4,7 +4,9 @@ import type { ItemType } from '#shared/types/common/item'
 const { getTheme, setTheme } = useTheme()
 const viewport = useViewport()
 
-const { data: segNavData } = await useQueryCollection('navigation').stem('segment-nav').first()
+const { data: segNavData } = await useQueryCollection('navigation')
+  .stem('segment-nav')
+  .first()
 const items = computed<ItemType[]>(
   () =>
     ((segNavData.value as unknown as Record<string, unknown>)

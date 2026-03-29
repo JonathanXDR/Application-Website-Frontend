@@ -1,4 +1,4 @@
-allRightsReserved: "Alle Rechte vorbehalten."
+allRightsReserved: "Copyright © {currentYear} Jonathan Russ. Alle Rechte vorbehalten."
 links:
   - title: "Jonathan Russ"
     url: "https://jonathan-russ.com"

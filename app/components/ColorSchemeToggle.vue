@@ -9,7 +9,9 @@ withDefaults(defineProps<Pick<SegmentNavType, 'label'>>(), {
 const { getTheme, setTheme } = useTheme()
 const currentTheme = computed(() => getTheme())
 
-const { data: segNavData } = await useQueryCollection('navigation').stem('segment-nav').first()
+const { data: segNavData } = await useQueryCollection('navigation')
+  .stem('segment-nav')
+  .first()
 const themeItems = computed<ItemType[]>(
   () =>
     ((segNavData.value as unknown as Record<string, unknown>)

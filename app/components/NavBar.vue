@@ -331,7 +331,11 @@ watch(
               >
                 <component
                   :is="isCurrent(item) ? 'span' : 'RouterLink'"
-                  :to="isCurrent(item) ? undefined : localePath({ path: item.route! } as any)"
+                  :to="
+                    isCurrent(item)
+                      ? undefined
+                      : localePath({ path: item.route! } as any)
+                  "
                   :class="['ac-ln-menu-link', { current: isCurrent(item) }]"
                   :role="isCurrent(item) ? 'link' : undefined"
                   :aria-disabled="isCurrent(item) ? 'true' : undefined"

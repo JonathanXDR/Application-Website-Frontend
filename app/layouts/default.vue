@@ -14,8 +14,12 @@ const error = useError()
 const config = useRuntimeConfig()
 
 // Load navbar and info banner content
-const { data: navbarContent } = await useQueryCollection('navigation').stem('navbar').first()
-const { data: infoBannerContent } = await useQueryCollection('navigation').stem('info-banners').first()
+const { data: navbarContent } = await useQueryCollection('navigation')
+  .stem('navbar')
+  .first()
+const { data: infoBannerContent } = await useQueryCollection('navigation')
+  .stem('info-banners')
+  .first()
 
 // Populate navbar state for use-navbar composable
 watch(

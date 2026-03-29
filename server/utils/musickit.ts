@@ -1,22 +1,22 @@
-import type { QueryObject } from 'ufo'
 import jwt from 'jsonwebtoken'
+import type { QueryObject } from 'ufo'
 
 export const APPLE_MUSIC_BASE_URL = 'https://api.music.apple.com/v1'
 
 function generateAuthToken(): string {
   const config = useRuntimeConfig()
   const privateKey = Buffer.from(
-    config.appleDeveloperPrivateKey as string,
+    config.appleDeveloperPrivateKey,
     'base64',
   ).toString()
 
   return jwt.sign({}, privateKey, {
     algorithm: 'ES256',
     expiresIn: '1d',
-    issuer: config.appleDeveloperTeamId as string,
+    issuer: config.appleDeveloperTeamId,
     header: {
       alg: 'ES256',
-      kid: config.appleDeveloperKeyId as string,
+      kid: config.appleDeveloperKeyId,
     },
   })
 }
@@ -39,10 +39,10 @@ export function useMusicKit() {
     }
 
     if (options?.userToken) {
-      const musicUserToken = config.appleMusicUserToken as string
+      const musicUserToken = config.appleMusicUserToken
       if (!musicUserToken) {
         throw createError({
-          statusCode: 401,
+          status: 401,
           statusMessage: 'Music User Token is required for library access',
         })
       }
@@ -59,19 +59,19 @@ export function useMusicKit() {
 }
 
 export function handleMusicKitError(error: unknown): never {
-  if (error && typeof error === 'object' && 'statusCode' in error) {
+  if (error && typeof error === 'object' && 'status' in error) {
     const err = error as {
-      statusCode: number
+      status: number
       statusMessage?: string
       message?: string
     }
     throw createError({
-      statusCode: err.statusCode,
+      status: err.status,
       statusMessage: err.statusMessage ?? err.message ?? 'MusicKit API Error',
     })
   }
   throw createError({
-    statusCode: 500,
+    status: 500,
     statusMessage:
       error instanceof Error ? error.message : 'Internal Server Error',
   })

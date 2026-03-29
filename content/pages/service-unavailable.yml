@@ -1,6 +1,6 @@
-id: serviceUnavailable
+id: service-unavailable
 label: "Service nicht verfügbar"
-statusCode: 503
+status: 503
 icon:
   name: "sf-symbols:wrench.and.screwdriver.fill"
   colors:

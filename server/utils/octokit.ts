@@ -15,12 +15,12 @@ export function useOctokit() {
 export function handleGitHubError(error: unknown): never {
   if (error instanceof RequestError) {
     throw createError({
-      statusCode: error.status,
+      status: error.status,
       statusMessage: error.message,
     })
   }
   throw createError({
-    statusCode: 500,
+    status: 500,
     statusMessage:
       error instanceof Error ? error.message : 'Internal Server Error',
   })

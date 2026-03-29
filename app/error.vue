@@ -9,9 +9,7 @@ const { data: errorPages } = await useQueryCollection<
 
 const currentPage = computed<PageType>(() => {
   const pages = errorPages.value || []
-  const matchedPage = pages.find(
-    page => page.statusCode === error.value?.statusCode,
-  )
+  const matchedPage = pages.find(page => page.status === error.value?.status)
   return (
     matchedPage
     || pages.find(page => page.pageId === 'error') || {
@@ -85,8 +83,8 @@ const description = computed(() => currentPage.value.description?.split('. '))
             >
               <span>{{
                 currentPage.title?.replace(
-                  "{statusCode}",
-                  String(error?.statusCode || ""),
+                  "{status}",
+                  String(error?.status || ""),
                 )
               }}</span>
             </h1>

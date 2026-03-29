@@ -6,7 +6,9 @@ defineProps<{
 }>()
 
 const viewport = useViewport()
-const { data: langData } = await useQueryCollection('sections').stem('languages').first()
+const { data: langData } = await useQueryCollection('sections')
+  .stem('languages')
+  .first()
 const languages = computed<LanguageBarType[]>(
   () =>
     ((langData.value as unknown as Record<string, unknown>)

@@ -30,9 +30,9 @@ export function useBreadcrumbs(
   )
 
   const errorPage = computed<PageType | null>(() => {
-    if (!error.value?.statusCode) return null
+    if (!error.value?.status) return null
     const matched = errorPages.value.find(
-      p => p.statusCode === error.value?.statusCode,
+      p => p.status === error.value?.status,
     )
     return (
       matched || errorPages.value.find(p => p.pageId === 'error') || null

@@ -6,7 +6,9 @@ defineProps<{
 }>()
 
 const viewport = useViewport()
-const { data: refData } = await useQueryCollection('sections').stem('references').first()
+const { data: refData } = await useQueryCollection('sections')
+  .stem('references')
+  .first()
 const articles = computed<CardItemType[]>(
   () =>
     ((refData.value as unknown as Record<string, unknown>)
