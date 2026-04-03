@@ -27,6 +27,7 @@ const socialLinks = computed<LinkItemType[]>(
           :to="link.url"
           :title="link.title"
           target="_blank"
+          rel="noopener"
           external
         >
           <Icon

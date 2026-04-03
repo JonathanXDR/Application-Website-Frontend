@@ -33,6 +33,7 @@ const themeItems = computed<ItemType[]>(
     >
       <input
         :id="item.id"
+        :aria-label="item.label"
         type="radio"
         autocomplete="off"
         name="color-scheme"
@@ -46,7 +47,7 @@ const themeItems = computed<ItemType[]>(
           :name="item.icon.name"
           class="icon icon-lg"
         />
-        <div v-if="label !== 'icon'">{{ item.label }}</div>
+        <span :class="{ 'sr-only': label === 'icon' }">{{ item.label }}</span>
       </div>
     </label>
   </div>

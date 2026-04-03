@@ -108,7 +108,7 @@ watch([locale, () => props.date], () => {
           {{ props[item.id] }}
         </template>
         <template v-else>
-          <LoadingSkeleton
+          <LazyLoadingSkeleton
             width="100px"
             height="15px"
           />
@@ -134,7 +134,7 @@ watch([locale, () => props.date], () => {
         }}
       </template>
       <template v-else>
-        <LoadingSkeleton
+        <LazyLoadingSkeleton
           width="100px"
           height="15px"
         />

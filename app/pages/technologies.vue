@@ -40,6 +40,7 @@ const { data: cards }
     <AnimatingHeadline
       v-if="currentRoute?.label"
       :title="currentRoute?.label"
+      tag="h1"
       class="typography-magical-headline pb-12"
       :auto-animation="true"
     />
@@ -106,7 +107,7 @@ const { data: cards }
           },
         }"
       />
-      <ResultBlankState v-if="!cards?.length" />
+      <LazyResultBlankState v-if="!cards?.length" />
     </div>
   </div>
 </template>

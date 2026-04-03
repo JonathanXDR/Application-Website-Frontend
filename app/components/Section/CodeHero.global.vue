@@ -2,8 +2,9 @@
 const config = useRuntimeConfig()
 const show = ref(false)
 
-const { data: user } = await useFetch('/api/github/user', {
+const { data: user } = useFetch('/api/github/user', {
   key: 'user',
+  lazy: true,
   params: { username: config.public.githubRepoOwner },
   getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
 })

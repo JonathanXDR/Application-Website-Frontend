@@ -23,6 +23,9 @@ const sections = computed<SectionType[]>(
 
 <template>
   <div>
+    <h1 class="sr-only">
+      {{ sections[0]?.label || "Overview" }}
+    </h1>
     <template v-for="section in sections">
       <section
         v-for="(child, index) in section.children"

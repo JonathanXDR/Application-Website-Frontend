@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { LinkItemType } from '#shared/types/components/link-item'
+import { getLinkAttributes, getLinkComponentType } from '~/utils/links'
 
 const props = defineProps<LinkItemType>()
 </script>
@@ -13,7 +14,7 @@ const props = defineProps<LinkItemType>()
       {{ props.title }}
     </template>
     <template v-else>
-      <LoadingSkeleton
+      <LazyLoadingSkeleton
         width="200px"
         height="15px"
       />

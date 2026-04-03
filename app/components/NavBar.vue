@@ -102,7 +102,7 @@ const handleScroll = () => {
 
 const isCurrent = (item: SectionType) => {
   if (!item.route) return
-  const resolved = localePath({ path: item.route } as any)
+  const resolved = localePath({ path: item.route })
   return (
     item.id === currentSection.value?.id
     || (item.route === '/'
@@ -227,6 +227,7 @@ watch(
     v-model="navProps.open"
     type="checkbox"
     class="ac-ln-menustate"
+    aria-label="Menu"
     aria-controls="ac-ln-menustate-tray"
     aria-expanded="false"
     :disabled="shouldOpen"

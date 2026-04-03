@@ -17,7 +17,7 @@ const articles = computed<CardItemType[]>(
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
+  <h2>{{ title }}</h2>
   <div class="card-grid">
     <CardItem
       v-for="(article, index) in articles"

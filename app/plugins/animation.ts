@@ -54,6 +54,20 @@ export default defineNuxtPlugin((nuxtApp) => {
       const { value } = binding
       const elementRef = ref(element)
 
+      // For elements already in viewport on mount, apply animation immediately
+      // without adding the hidden state first (prevents LCP delay)
+      const bounds = element.getBoundingClientRect()
+      const isInitiallyVisible
+        = bounds.top < window.innerHeight && bounds.bottom > 0
+
+      if (!isInitiallyVisible) {
+        // Only hide elements that are below the fold
+        element.classList.add(...toArray(value.remove))
+      }
+      else {
+        updateClasses(element, value, true)
+      }
+
       const isInView = useInView(elementRef, {
         amount: 0.1,
         margin: '0px 0px -10% 0px',
@@ -64,22 +78,15 @@ export default defineNuxtPlugin((nuxtApp) => {
         (inView) => {
           updateClasses(element, value, inView)
         },
-        { immediate: true },
+        { immediate: !isInitiallyVisible },
       )
 
-      if (document.readyState === 'complete') {
-        const bounds = element.getBoundingClientRect()
-
-        if (bounds.top < window.innerHeight && bounds.bottom > 0) {
-          updateClasses(element, value, true)
-        }
-      }
-      else {
+      if (!isInitiallyVisible && document.readyState !== 'complete') {
         window.addEventListener(
           'load',
           () => {
-            const bounds = element.getBoundingClientRect()
-            if (bounds.top < window.innerHeight && bounds.bottom > 0) {
+            const loadBounds = element.getBoundingClientRect()
+            if (loadBounds.top < window.innerHeight && loadBounds.bottom > 0) {
               updateClasses(element, value, true)
             }
           },

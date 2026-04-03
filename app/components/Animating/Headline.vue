@@ -5,9 +5,11 @@ const props = withDefaults(
   defineProps<{
     title: string
     autoAnimation?: boolean
+    tag?: string
   }>(),
   {
     autoAnimation: false,
+    tag: 'h2',
   },
 )
 
@@ -116,7 +118,7 @@ const updateLetterCount = () => {
   }
 }
 
-const headlineRef = useTemplateRef('headlineRef')
+const headlineRef = useTemplateRef<HTMLElement>('headlineRef')
 
 const isInView = useInView(headlineRef, {
   amount: 0.1,
@@ -193,7 +195,8 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <h2
+  <component
+    :is="tag"
     ref="headlineRef"
     v-animation="{
       add: 'animated',
@@ -243,7 +246,7 @@ onBeforeUnmount(() => {
         &nbsp;<span class="cursor" />
       </span>
     </template>
-  </h2>
+  </component>
 </template>
 
 <style scoped>

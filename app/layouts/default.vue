@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { InfoBannerType } from '#shared/types/components/info-banner'
-import FooterCompact from '~/components/Footer/Compact.vue'
 import FooterPre from '~/components/Footer/Pre.vue'
 
 const { navProps, navData } = useNavbar()
@@ -152,7 +151,7 @@ const footerClass = computed(() => ({
 }))
 
 const footerComponent = computed(() =>
-  shouldShow('footerPre') ? FooterPre : FooterCompact,
+  shouldShow('footerPre') ? FooterPre : resolveComponent('LazyFooterCompact'),
 )
 </script>
 

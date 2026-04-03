@@ -3,7 +3,6 @@ import type {
   GalleryStateType,
   InfoBannerType,
 } from '#shared/types/components/info-banner'
-import type { LinkItemType } from '#shared/types/components/link-item'
 
 const props = withDefaults(defineProps<InfoBannerType>(), {
   loading: false,
@@ -282,9 +281,12 @@ watch(
   { immediate: true },
 )
 
-watch(() => props.items, () => {
-  updateBaseItems()
-})
+watch(
+  () => props.items,
+  () => {
+    updateBaseItems()
+  },
+)
 </script>
 
 <template>
@@ -349,7 +351,7 @@ watch(() => props.items, () => {
                             {{ gallery.item.description }}&ensp;
                           </template>
                           <template v-else>
-                            <LoadingSkeleton
+                            <LazyLoadingSkeleton
                               width="200px"
                               height="15px"
                             />

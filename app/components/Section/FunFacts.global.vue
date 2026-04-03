@@ -51,7 +51,7 @@ useEventListener(window, 'resize', updateChipClaimHeight)
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
+  <h2>{{ title }}</h2>
   <ul
     role="list"
     aria-label="Fun Facts"

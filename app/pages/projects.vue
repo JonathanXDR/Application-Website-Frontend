@@ -194,6 +194,7 @@ onUnmounted(() => {
     <AnimatingHeadline
       v-if="currentRoute?.label"
       :title="currentRoute?.label"
+      tag="h1"
       class="typography-magical-headline pb-12"
       :auto-animation="true"
     />
@@ -262,7 +263,7 @@ onUnmounted(() => {
       class="w-full"
     >
       <div v-if="projects.personal.length > 0 && projects.school.length > 0">
-        <LiveResultSummary
+        <LazyLiveResultSummary
           :total-results="currentProjects.length + pinned.length"
           :pinned-results="pinned.length"
         />
@@ -321,10 +322,10 @@ onUnmounted(() => {
             }"
           />
 
-          <ResultBlankState v-if="currentProjects.length === 0" />
+          <LazyResultBlankState v-if="currentProjects.length === 0" />
         </div>
       </div>
-      <LoadingSpinner
+      <LazyLoadingSpinner
         v-else
         class="center-horizontal center-vertical pt-24"
       />

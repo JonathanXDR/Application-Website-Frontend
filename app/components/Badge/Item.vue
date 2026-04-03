@@ -54,7 +54,7 @@ const computedStyle = computed(() => ({
       {{ title }}
     </template>
     <template v-else>
-      <LoadingSkeleton
+      <LazyLoadingSkeleton
         width="80px"
         height="15px"
       />

@@ -17,7 +17,7 @@ const languages = computed<LanguageBarType[]>(
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
+  <h2>{{ title }}</h2>
 
   <div class="graph">
     <template

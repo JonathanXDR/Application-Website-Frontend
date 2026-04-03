@@ -27,21 +27,33 @@ const props = withDefaults(
   },
 )
 
-const { data: uiLabels } = await useQueryCollection('siteConfig')
+const { data: uiLabels } = useQueryCollection('siteConfig')
   .stem('ui-labels')
   .first()
 const { randomDevColor } = useColor()
-const colorMode = useColorMode()
 
-const componentType = ref('div')
-
-const iconWrapperStyle = shallowRef<Record<string, string>>({
-  position: props.icon?.absolute ? 'absolute' : 'relative',
-  backgroundColor: props.icon?.background || 'transparent',
+const componentType = computed(() => {
+  const shouldSetLink
+    = props.hover === true
+      || (props.hover === 'auto' && (props.links?.length || props.html_url))
+  return shouldSetLink && props.variant !== 'article' ? 'a' : 'div'
 })
 
+const iconWrapperStyle = computed<Record<string, string>>(() => {
+  const position = props.icon?.absolute ? 'absolute' : 'relative'
+  let backgroundColor = props.icon?.background || ''
+
+  if (backgroundColor && !backgroundColor.startsWith('var(--')) {
+    backgroundColor = `color-mix(in srgb, ${backgroundColor} var(--icon-bg-opacity, 15%), transparent)`
+  }
+
+  return { position, backgroundColor: backgroundColor || 'transparent' }
+})
+
+const isLinkCard = computed(() => componentType.value === 'a')
+
 const cardClasses = computed(() => [
-  'scroll-animation scroll-animation--off',
+  'scroll-animation',
   props.variant,
   props.componentSize,
   { hover: applyHover.value },
@@ -82,9 +94,13 @@ const hasBadgesOrTopics = computed(
   () => props.badges?.length || props.topics?.length,
 )
 
-const badgesOrTopics = computed(
-  () => props.badges || props.topics?.map(topic => ({ title: topic })) || [],
-)
+const badgesOrTopics = computed(() => {
+  const items
+    = props.badges || props.topics?.map(topic => ({ title: topic })) || []
+  return isLinkCard.value
+    ? items.map(item => ({ ...item, variant: 'span' as const }))
+    : items
+})
 
 const hasLinksOrHtmlUrl = computed(() => props.links?.length || props.html_url)
 
@@ -195,36 +211,6 @@ const iconLogoSize = computed(() => {
       return 'lg'
   }
 })
-
-const updateIconWrapperStyle = () => {
-  const position = props.icon?.absolute ? 'absolute' : 'relative'
-  let backgroundColor = props.icon?.background || ''
-
-  if (backgroundColor && !backgroundColor.startsWith('var(--')) {
-    const opacity = colorMode.value === 'dark' ? '40' : '26'
-    backgroundColor = `${backgroundColor}${opacity}`
-  }
-
-  iconWrapperStyle.value = { position, backgroundColor }
-}
-
-onMounted(() => {
-  const shouldSetLink
-    = props.hover === true
-      || (props.hover === 'auto' && (props.links?.length || props.html_url))
-
-  if (shouldSetLink && props.variant !== 'article') {
-    componentType.value = 'a'
-  }
-})
-
-onMounted(() => {
-  updateIconWrapperStyle()
-})
-
-watch(colorMode, () => {
-  updateIconWrapperStyle()
-})
 </script>
 
 <template>
@@ -236,6 +222,7 @@ watch(colorMode, () => {
     :class="cardClasses"
     :style="styleObject"
     target="_blank"
+    rel="noopener"
   >
     <div
       v-if="hasCoverOrGraphs"
@@ -245,14 +232,15 @@ watch(colorMode, () => {
         v-if="cover"
         class="card-cover"
       >
-        <NuxtImg
+        <LazyNuxtImg
+          :alt="title || name || ''"
           decoding="async"
           loading="lazy"
           :src="cover"
         />
       </picture>
-      <BarGraph v-if="graphs?.bar" />
-      <DonutGraph v-if="graphs?.donut" />
+      <LazyBarGraph v-if="graphs?.bar" />
+      <LazyDonutGraph v-if="graphs?.donut" />
     </div>
 
     <div
@@ -293,7 +281,7 @@ watch(colorMode, () => {
             {{ eyebrow }}
           </template>
           <template v-else>
-            <LoadingSkeleton
+            <LazyLoadingSkeleton
               width="150px"
               height="15px"
             />
@@ -309,7 +297,7 @@ watch(colorMode, () => {
               {{ title || name }}
             </template>
             <template v-else>
-              <LoadingSkeleton
+              <LazyLoadingSkeleton
                 width="200px"
                 height="15px"
               />
@@ -332,6 +320,7 @@ watch(colorMode, () => {
           <BadgeItem
             v-if="badge"
             v-bind="badge"
+            :variant="isLinkCard ? 'span' : undefined"
             :loading
             :colors="{
               primary: `var(--color-figure-${randomDevColor?.name})`,
@@ -350,7 +339,7 @@ watch(colorMode, () => {
             {{ eyebrow }}
           </template>
           <template v-else>
-            <LoadingSkeleton
+            <LazyLoadingSkeleton
               width="150px"
               height="15px"
             />
@@ -363,15 +352,15 @@ watch(colorMode, () => {
               {{ description }}
             </template>
             <template v-else>
-              <LoadingSkeleton
+              <LazyLoadingSkeleton
                 width="300px"
                 height="15px"
               />
-              <LoadingSkeleton
+              <LazyLoadingSkeleton
                 width="300px"
                 height="15px"
               />
-              <LoadingSkeleton
+              <LazyLoadingSkeleton
                 width="250px"
                 height="15px"
               />
@@ -386,7 +375,7 @@ watch(colorMode, () => {
         />
 
         <div
-          v-if="hasLinksOrHtmlUrl"
+          v-if="hasLinksOrHtmlUrl && !isLinkCard"
           class="ctas-wrapper"
         >
           <!-- <ButtonItem variant="secondary" componentSize="small"> Test </ButtonItem> -->
@@ -419,6 +408,14 @@ watch(colorMode, () => {
 </template>
 
 <style scoped>
+:root {
+  --icon-bg-opacity: 15%;
+}
+
+:root.dark {
+  --icon-bg-opacity: 25%;
+}
+
 .ctas-wrapper {
   margin-top: 0.5em;
   display: flex;

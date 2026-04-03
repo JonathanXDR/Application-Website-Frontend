@@ -35,6 +35,7 @@ export default defineNuxtConfig({
       globals: {
         meticulousAi: {
           'src': 'https://snippet.meticulous.ai/v1/meticulous.js',
+          'crossorigin': 'anonymous',
           'data-project-id': '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
           'data-is-production-environment': false,
         },
@@ -65,6 +66,7 @@ export default defineNuxtConfig({
       globals: {
         meticulousAi: {
           'src': 'https://snippet.meticulous.ai/v1/meticulous.js',
+          'crossorigin': 'anonymous',
           'data-project-id': '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
           'data-is-production-environment': true,
         },
@@ -169,6 +171,13 @@ export default defineNuxtConfig({
         },
       },
     },
+    '/__nuxt_hints/**': {
+      csurf: false,
+      security: {
+        requestSizeLimiter: false,
+        rateLimiter: false,
+      },
+    },
   },
   future: {
     compatibilityVersion: 5,
@@ -246,6 +255,23 @@ export default defineNuxtConfig({
       },
     ],
   },
+
+  hints: {
+    features: {
+      hydration: false,
+      lazyLoad: {
+        logs: false,
+        devtools: true,
+      },
+      webVitals: true,
+      htmlValidate: true,
+      thirdPartyScripts: {
+        options: {
+          ignoredDomains: ['va.vercel-scripts.com'],
+        },
+      },
+    },
+  },
   i18n: {
     baseUrl: process.env.SITE_URL,
     trailingSlash: true,
@@ -289,7 +315,6 @@ export default defineNuxtConfig({
       },
     ],
   },
-
   icon: {
     componentName: 'NuxtIcon',
     serverBundle: {

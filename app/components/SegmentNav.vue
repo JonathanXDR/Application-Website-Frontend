@@ -166,7 +166,7 @@ useResizeObserver(navContainer, () => {
                 :name="item.icon.name"
                 class="icon icon-lg"
               />
-              <div v-if="label !== 'icon'">{{ item.label }}</div>
+              <span v-if="label !== 'icon'">{{ item.label }}</span>
             </span>
           </span>
         </label>
