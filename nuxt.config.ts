@@ -83,12 +83,12 @@ export default defineNuxtConfig({
     seo: {
       redirectToCanonicalSiteUrl: true,
       meta: {
-        description: process.env.SITE_DESCRIPTION,
+        description: process.env.NUXT_PUBLIC_APP_DESCRIPTION,
         twitterCreator: '@JonathanXD12_',
         twitterSite: '@JonathanXD12_',
         author: 'Jonathan Russ',
         colorScheme: 'dark light',
-        applicationName: process.env.NUXT_PUBLIC_APP_NAME,
+        applicationName: process.env.NUXT_SITE_NAME,
       },
     },
   },
@@ -110,22 +110,24 @@ export default defineNuxtConfig({
     head: {
       templateParams: {
         site: {
-          name: process.env.SITE_NAME,
-          url: process.env.SITE_URL,
+          name: process.env.NUXT_SITE_NAME,
+          url: process.env.NUXT_SITE_URL,
         },
       },
-      link: [{ rel: 'apple-touch-icon', href: process.env.SITE_LOGO }],
+      link: [
+        { rel: 'apple-touch-icon', href: process.env.NUXT_PUBLIC_APP_LOGO },
+      ],
       meta: [
-        { name: 'title', content: process.env.SITE_NAME },
-        // { property: 'og:image', content: process.env.SITE_LOGO },
-        { property: 'og:title', content: process.env.SITE_NAME },
-        { property: 'og:url', content: process.env.SITE_URL },
+        { name: 'title', content: process.env.NUXT_SITE_NAME },
+        // { property: 'og:image', content: process.env.NUXT_PUBLIC_APP_LOGO },
+        { property: 'og:title', content: process.env.NUXT_SITE_NAME },
+        { property: 'og:url', content: process.env.NUXT_SITE_URL },
         // {
         //   property: 'twitter:image',
-        //   content: process.env.SITE_LOGO,
+        //   content: process.env.NUXT_PUBLIC_APP_LOGO,
         // },
         { property: 'twitter:card', content: 'summary_large_image' },
-        { property: 'twitter:title', content: process.env.SITE_NAME },
+        { property: 'twitter:title', content: process.env.NUXT_SITE_NAME },
       ],
     },
   },
@@ -136,8 +138,8 @@ export default defineNuxtConfig({
     },
   },
   site: {
-    url: process.env.SITE_URL,
-    name: process.env.SITE_NAME,
+    url: process.env.NUXT_SITE_URL,
+    name: process.env.NUXT_SITE_NAME,
     trailingSlash: true,
   },
   colorMode: {
@@ -145,7 +147,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      // TODO: Currently unused — uncomment when needed
+      // TODO: Currently unused, uncomment when needed
       // appName: '',
       // appBuild: '',
       // appVersion: '',
@@ -273,7 +275,7 @@ export default defineNuxtConfig({
     },
   },
   i18n: {
-    baseUrl: process.env.SITE_URL,
+    baseUrl: process.env.NUXT_SITE_URL,
     trailingSlash: true,
     // lazy: true,
     strategy: 'prefix_except_default',
@@ -281,7 +283,7 @@ export default defineNuxtConfig({
     detectBrowserLanguage: {
       useCookie: true,
       cookieCrossOrigin: true,
-      cookieDomain: process.env.SITE_DOMAIN,
+      cookieDomain: process.env.NUXT_PUBLIC_APP_DOMAIN,
       cookieKey: 'i18n_redirected',
       cookieSecure: true,
       fallbackLocale: 'en',
@@ -366,13 +368,13 @@ export default defineNuxtConfig({
       familyName: 'Russ',
       additionalName: 'Elias',
 
-      image: `${process.env.SITE_URL}/img/portrait.jpg`,
-      description: 'Software Engineer, Musician, and Creator',
+      image: `${process.env.NUXT_SITE_URL}/img/portrait.jpg`,
+      description: process.env.NUXT_PUBLIC_APP_DESCRIPTION,
       jobTitle: 'Software Engineer',
 
       email: 'contact@jonathan-russ.com',
-      url: process.env.SITE_URL,
-      logo: process.env.SITE_LOGO,
+      url: process.env.NUXT_SITE_URL,
+      logo: process.env.NUXT_PUBLIC_APP_LOGO,
       sameAs: [
         'https://x.com/JonathanXD12_',
         'https://github.com/JonathanXDR',
@@ -397,9 +399,6 @@ export default defineNuxtConfig({
       googleAnalytics: {
         id: '',
       },
-      googleTagManager: {
-        id: '',
-      },
     },
   },
   security: {
@@ -407,8 +406,12 @@ export default defineNuxtConfig({
     csrf: true,
     headers: {
       contentSecurityPolicy: {
-        'default-src': ['\'self\'', process.env.SITE_URL || ''],
-        'style-src': ['\'self\'', '\'unsafe-inline\'', process.env.SITE_URL || ''],
+        'default-src': ['\'self\'', process.env.NUXT_SITE_URL || ''],
+        'style-src': [
+          '\'self\'',
+          '\'unsafe-inline\'',
+          process.env.NUXT_SITE_URL || '',
+        ],
         'script-src': [
           '\'self\'',
           '\'strict-dynamic\'',
@@ -418,7 +421,7 @@ export default defineNuxtConfig({
           'https://snippet.meticulous.ai',
           'https://browser.sentry-cdn.com',
           'https://*.apple.com',
-          process.env.SITE_URL || '',
+          process.env.NUXT_SITE_URL || '',
         ],
         'img-src': [
           '\'self\'',
@@ -429,7 +432,7 @@ export default defineNuxtConfig({
           'https://*.g.doubleclick.net',
           'https://*.google.com',
           'https://*.apple.com',
-          process.env.SITE_URL || '',
+          process.env.NUXT_SITE_URL || '',
         ],
         'frame-src': ['\'self\'', 'https://snippet.meticulous.ai'],
         'connect-src': [
@@ -444,7 +447,7 @@ export default defineNuxtConfig({
           'https://browser.sentry-cdn.com',
           '*.sentry.io',
           'https://*.apple.com',
-          process.env.SITE_URL || '',
+          process.env.NUXT_SITE_URL || '',
         ],
       },
     },
