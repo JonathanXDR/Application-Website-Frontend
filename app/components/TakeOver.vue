@@ -122,14 +122,6 @@ onUnmounted(() => {
   font-size: 32px;
   line-height: 1.125;
   font-weight: 700;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   margin-bottom: 24px;
 }
 @media only screen and (max-width: 1023px) {
@@ -137,14 +129,6 @@ onUnmounted(() => {
     font-size: 28px;
     line-height: 1.1428571429;
     font-weight: 700;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -152,14 +136,6 @@ onUnmounted(() => {
     font-size: 24px;
     line-height: 1.1666666667;
     font-weight: 700;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 @media only screen and (max-width: 1023px) {
@@ -214,14 +190,6 @@ onUnmounted(() => {
   font-size: 32px;
   line-height: 1.125;
   font-weight: 700;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   margin-bottom: 24px;
 }
 @media only screen and (max-width: 1023px) {
@@ -229,14 +197,6 @@ onUnmounted(() => {
     font-size: 28px;
     line-height: 1.1428571429;
     font-weight: 700;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -244,14 +204,6 @@ onUnmounted(() => {
     font-size: 24px;
     line-height: 1.1666666667;
     font-weight: 700;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 @media only screen and (max-width: 1023px) {
@@ -393,14 +345,6 @@ onUnmounted(() => {
   font-size: 14px;
   line-height: 1.4285914286;
   font-weight: 700;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   padding: 8px 16px;
   background: var(--color-fill-gray-quaternary);
   color: var(--color-figure-gray);
@@ -472,28 +416,12 @@ onUnmounted(() => {
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   padding: 10px 24px 9px;
   background: var(--color-fill-gray-quaternary);
   color: var(--color-figure-gray);
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   padding: 12px 24px 11px;
   transition:
     border-color 300ms cubic-bezier(0.4, 0, 0.25, 1) 0ms,

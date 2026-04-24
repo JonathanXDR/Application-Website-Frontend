@@ -152,14 +152,6 @@ watch([locale, () => props.date], () => {
   margin-top: 0.5em;
   font-size: 12px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   display: flex;
   justify-content: flex-start;
   align-items: center;

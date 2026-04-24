@@ -890,14 +890,6 @@ html.no-touch .with-paddlenav-onhover .paddlenav-arrow:disabled {
   --ribbon-content-padding-bottom: var(--ribbon-content-padding-top);
   --ribbon-content-width: 83.33333%;
   --ribbon-content-minimum-width: 320px;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: -0.016em;
@@ -960,14 +952,6 @@ html.no-touch .with-paddlenav-onhover .paddlenav-arrow:disabled {
 
 .ribbon-elevated {
   --ribbon-content-padding-top: 24px;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   font-size: 17px;
   font-weight: 400;
   letter-spacing: -0.022em;
@@ -1182,14 +1166,6 @@ html.no-touch .with-paddlenav-onhover .paddlenav-arrow:disabled {
 
 .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
   color: var(--color-fill-gray-secondary);
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   font-size: 24px;
   font-weight: 400;
   letter-spacing: 0.009em;
@@ -1198,14 +1174,6 @@ html.no-touch .with-paddlenav-onhover .paddlenav-arrow:disabled {
 
 @media (max-width: 1023px) and (max-device-width: 736px) {
   .rc-ribbon-content-autoscroll .paddlenav .paddlenav-arrow {
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
     font-size: 21px;
     font-weight: 400;
     letter-spacing: 0.011em;

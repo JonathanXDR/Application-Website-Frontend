@@ -42,14 +42,6 @@ defineProps<{
   line-height: 1.2105263158;
   font-weight: 600;
   letter-spacing: 0.012em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 @media only screen and (max-width: 1023px) {
   .typography-hardware-label {
@@ -57,14 +49,6 @@ defineProps<{
     line-height: 1.2105263158;
     font-weight: 600;
     letter-spacing: 0.012em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -73,14 +57,6 @@ defineProps<{
     line-height: 1.4285914286;
     font-weight: 400;
     letter-spacing: -0.016em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 .typography-hardware-label {

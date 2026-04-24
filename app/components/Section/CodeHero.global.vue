@@ -114,14 +114,6 @@ console.log('bio', bioSentences.value)
   line-height: 1.05;
   font-weight: 600;
   letter-spacing: -0.015em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   margin: 0;
   color: inherit;
   text-align: left;
@@ -132,14 +124,6 @@ console.log('bio', bioSentences.value)
     line-height: 1.0625;
     font-weight: 600;
     letter-spacing: -0.009em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -148,14 +132,6 @@ console.log('bio', bioSentences.value)
     line-height: 1.1818181818;
     font-weight: 600;
     letter-spacing: -0.00066em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -176,14 +152,6 @@ console.log('bio', bioSentences.value)
   line-height: 1.3334133333;
   font-weight: 400;
   letter-spacing: 0.009em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   text-align: left;
 }
 @media only screen and (max-width: 1023px) {
@@ -192,14 +160,6 @@ console.log('bio', bioSentences.value)
     line-height: 1.4211026316;
     font-weight: 400;
     letter-spacing: 0.012em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 @media only screen and (min-width: 768px) {

@@ -910,16 +910,7 @@ watch(
   font-size: 12px;
   line-height: 1;
   font-weight: 400;
-  letter-spacing: -0.01em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
-  /* margin-top: -3px; */
+  letter-spacing: -0.01em; /* margin-top: -3px; */
   float: var(--r-localnav-end);
 }
 @media (max-width: 767px) {
@@ -929,14 +920,6 @@ watch(
     line-height: 1;
     font-weight: 400;
     letter-spacing: -0.02em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 @media (max-width: 767px) {
@@ -945,14 +928,6 @@ watch(
     line-height: 1;
     font-weight: 400;
     letter-spacing: -0.02em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
     padding-top: 0;
     margin-top: 0;
     width: 100%;
@@ -1392,14 +1367,6 @@ watch(
   line-height: 1.1428571429;
   font-weight: 600;
   letter-spacing: 0.011em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   cursor: default;
   /* display: block; */
   /* margin: var(--r-localnav-title-vertical-offset) 0
@@ -1414,14 +1381,6 @@ watch(
     line-height: 1.2631578947;
     font-weight: 600;
     letter-spacing: 0.012em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 @media (max-width: 767px) {
@@ -1474,14 +1433,6 @@ watch(
   line-height: 1.2857742857;
   font-weight: 400;
   letter-spacing: -0.016em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   background: var(--sk-button-background);
   color: var(--sk-button-color);
   border-color: var(--sk-button-border-color);
@@ -1516,14 +1467,6 @@ watch(
   line-height: 1.3333733333;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 #ac-localnav .ac-ln-button:hover {
   background: var(--sk-button-background-hover, var(--sk-button-background));
@@ -1552,14 +1495,6 @@ watch(
     line-height: 1.3333733333;
     font-weight: 400;
     letter-spacing: -0.01em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
     padding: 3px 10px;
     margin-top: -1px;
     background: transparent;

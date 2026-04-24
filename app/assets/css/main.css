@@ -9,6 +9,10 @@
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
+
+  --font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
 }
 
 @layer base {
@@ -28,14 +32,7 @@ body {
   color: var(--color-fill-gray);
   font-size: 15px;
   font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: var(--font-sans);
   font-style: normal;
   background-color: var(--color-fill);
   overflow-wrap: break-word;
@@ -1906,79 +1903,31 @@ h1 + .typography-intro {
 h1 {
   font-size: 32px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 h2 {
   font-size: 24px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 h3 {
   font-size: 19px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 h4 {
   font-size: 17px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 h5 {
   font-size: 12px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 h6 {
   font-size: 8px;
   font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .intro,
@@ -1986,14 +1935,6 @@ h6 {
 .typography-intro a {
   font-size: 15px;
   font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 a {
@@ -2030,40 +1971,16 @@ fieldset {
 .typography-eyebrow {
   font-size: 20px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .typography-caption {
   font-size: 12px;
   font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .badge-value {
   font-size: 48px;
   font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   left: -2px;
   display: block;
   white-space: nowrap;
@@ -2074,14 +1991,6 @@ fieldset {
 .badge-caption {
   font-size: 14px;
   font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   left: 0;
   color: #333;
   display: block;
@@ -2092,57 +2001,13 @@ fieldset {
 }
 
 .badge .badge-value {
-  font-size: 48px;
-  font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
-}
-
-.badge .badge-caption {
-  font-size: 14px;
-  font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
-}
-
-.badge .badge-value {
   font-size: 56px;
-  font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   font-weight: 700;
   margin-bottom: 2px;
 }
 
 .badge .badge-caption {
   font-size: 17px;
-  font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   font-weight: 500;
   color: #888;
   display: block;
@@ -2151,14 +2016,6 @@ fieldset {
 .typography-magical-headline {
   font-size: 32px;
   font-weight: 700;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   text-align: center;
 }
 

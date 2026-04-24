@@ -70,14 +70,6 @@ h6 + * {
   line-height: 1.33337;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   background-color: var(--color-fill-tertiary);
   color: var(--color-fill-gray);
   min-width: 1024px;
@@ -165,14 +157,6 @@ h6 + * {
   line-height: 1.33337;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .footer-sosumi small {
@@ -253,14 +237,6 @@ h6 + * {
   line-height: 1.33337;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   position: relative;
   z-index: 1;
 }
@@ -321,14 +297,6 @@ html[dir="rtl"] .footer-breadcrumbs-item:before {
   line-height: 1.33337;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   display: flex;
   flex-wrap: nowrap;
   padding-top: 20px;
@@ -383,14 +351,6 @@ html[dir="rtl"] .footer-breadcrumbs-item:before {
   line-height: 1.33337;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   font-weight: 600;
   margin-right: 20px;
   margin-bottom: 0.8em;
@@ -834,14 +794,6 @@ body[data-supports-auto-color-scheme="false"]
   line-height: 1.33337;
   font-weight: 400;
   letter-spacing: -0.01em;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   border: 1px solid var(--toggle-color-fill);
   border-radius: var(--toggle-border-radius-outer, 2px);
   display: inline-flex;

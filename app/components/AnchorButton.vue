@@ -14,14 +14,6 @@
   pointer-events: all;
   font-size: 19px;
   font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   align-items: center;
   border-radius: 50%;
   cursor: pointer;
@@ -43,14 +35,6 @@
   .cta-circular-icon {
     font-size: 17px;
     font-weight: 400;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 .cta-circular-icon {

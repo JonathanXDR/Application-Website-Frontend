@@ -162,14 +162,6 @@ svg.chevron-icon path.chevron-icon {
 }
 .text {
   text-wrap: balance;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   font-size: 32px;
   font-weight: 600;
   letter-spacing: 0;
@@ -199,14 +191,6 @@ svg.chevron-icon path.chevron-icon {
 }
 @media (min-width: 1260px) {
   .text {
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
     font-size: 48px;
     font-weight: 600;
     grid-column: 4 / span 6;

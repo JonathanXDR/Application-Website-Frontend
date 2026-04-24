@@ -138,14 +138,6 @@ aside .label {
   font-size: 17px;
   line-height: 1.5294417647;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 aside .label + .description {

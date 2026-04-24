@@ -61,14 +61,6 @@
     line-height: 1.3333733333;
     font-weight: 400;
     letter-spacing: -0.01em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -132,14 +124,6 @@
     line-height: 1.2353641176;
     font-weight: 400;
     letter-spacing: -0.022em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -155,14 +139,6 @@
     line-height: 1.3333733333;
     font-weight: 400;
     letter-spacing: -0.01em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -178,14 +154,6 @@
     line-height: 1.2353641176;
     font-weight: 400;
     letter-spacing: -0.022em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -205,14 +173,6 @@
     line-height: 1.1666666667;
     font-weight: 600;
     letter-spacing: 0.009em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -222,14 +182,6 @@
     line-height: 1.1904761905;
     font-weight: 600;
     letter-spacing: 0.011em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -254,14 +206,6 @@
     line-height: 1.2353641176;
     font-weight: 400;
     letter-spacing: -0.022em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -351,14 +295,6 @@ html.as-keyboarduser .form-icons.focused {
     line-height: 1.4705882353;
     font-weight: 400;
     letter-spacing: -0.022em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -368,14 +304,6 @@ html.as-keyboarduser .form-icons.focused {
     line-height: 1.4705882353;
     font-weight: 400;
     letter-spacing: -0.022em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -385,14 +313,6 @@ html.as-keyboarduser .form-icons.focused {
     line-height: 1.4705882353;
     font-weight: 400;
     letter-spacing: -0.022em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -402,14 +322,6 @@ html.as-keyboarduser .form-icons.focused {
     line-height: 1.4705882353;
     font-weight: 400;
     letter-spacing: -0.022em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -419,14 +331,6 @@ html.as-keyboarduser .form-icons.focused {
     line-height: 1.4705882353;
     font-weight: 400;
     letter-spacing: -0.022em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -436,14 +340,6 @@ html.as-keyboarduser .form-icons.focused {
     line-height: 1.4705882353;
     font-weight: 400;
     letter-spacing: -0.022em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -646,14 +542,6 @@ html.as-keyboarduser .form-icons.focused {
     line-height: 1.4285914286;
     font-weight: 400;
     letter-spacing: -0.016em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -663,14 +551,6 @@ html.as-keyboarduser .form-icons.focused {
     line-height: 1.4285914286;
     font-weight: 400;
     letter-spacing: -0.016em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -680,14 +560,6 @@ html.as-keyboarduser .form-icons.focused {
     line-height: 1.4285914286;
     font-weight: 400;
     letter-spacing: -0.016em;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 

@@ -70,14 +70,6 @@ const computedStyle = computed(() => ({
 .badge {
   display: flex;
   align-items: center;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   white-space: nowrap;
   background: var(--color-figure-background);
   border-radius: 25px;

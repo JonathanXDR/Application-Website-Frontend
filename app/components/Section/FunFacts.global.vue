@@ -149,28 +149,12 @@ useEventListener(window, 'resize', updateChipClaimHeight)
   font-size: 21px;
   line-height: 1.381002381;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 @media only screen and (max-width: 1023px) {
   .typography-site-stat-caption {
     font-size: 17px;
     line-height: 1.4705882353;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -178,14 +162,6 @@ useEventListener(window, 'resize', updateChipClaimHeight)
     font-size: 15px;
     line-height: 1.5690140845;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -221,14 +197,6 @@ useEventListener(window, 'resize', updateChipClaimHeight)
   font-size: 40px;
   line-height: 1.1;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 @media only screen and (max-width: 1023px) {
@@ -236,14 +204,6 @@ useEventListener(window, 'resize', updateChipClaimHeight)
     font-size: 32px;
     line-height: 1.125;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -252,14 +212,6 @@ useEventListener(window, 'resize', updateChipClaimHeight)
     font-size: 24px;
     line-height: 1.15;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 * {

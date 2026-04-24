@@ -395,14 +395,6 @@ h3 + h4 {
   font-size: 80px;
   line-height: 1.1;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 @media only screen and (max-width: 1023px) {
@@ -410,14 +402,6 @@ h3 + h4 {
     font-size: 64px;
     line-height: 1.1125;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -426,14 +410,6 @@ h3 + h4 {
     font-size: 48px;
     line-height: 1.1334933333;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -441,14 +417,6 @@ h3 + h4 {
   font-size: 32px;
   line-height: 1.175;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 @media only screen and (max-width: 1023px) {
@@ -456,14 +424,6 @@ h3 + h4 {
     font-size: 28px;
     line-height: 1.1928571429;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -472,14 +432,6 @@ h3 + h4 {
     font-size: 24px;
     line-height: 1.2166666667;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 

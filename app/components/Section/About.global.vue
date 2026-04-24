@@ -38,6 +38,9 @@ const calculateAge = (date = '') => {
         src="/img/portrait.jpg"
         alt="Portrait"
         preset="portrait"
+        width="411"
+        height="411"
+        fit="cover"
         preload
         :custom="true"
       >

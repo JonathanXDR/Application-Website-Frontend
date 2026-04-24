@@ -358,14 +358,6 @@ const emitChange = (id: string) => {
 .tabnav-paddle {
   font-size: 17px;
   font-weight: 300;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   border: 0 solid var(--color-fill-gray-tertiary);
   border-radius: 0;
   color: var(--color-fill-gray);
@@ -502,14 +494,6 @@ const emitChange = (id: string) => {
   cursor: pointer;
   font-size: 17px;
   font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   padding: 9px 0 11px;
   margin-top: 2px;
   margin-bottom: 4px;
@@ -523,14 +507,6 @@ const emitChange = (id: string) => {
 .tabnav-link {
   font-size: 21px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   color: var(--color-figure-gray-secondary);
 }
 
@@ -557,14 +533,6 @@ const emitChange = (id: string) => {
   .tabnav-link {
     font-size: 19px;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 
@@ -572,14 +540,6 @@ const emitChange = (id: string) => {
   .tabnav-link {
     font-size: 17px;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 

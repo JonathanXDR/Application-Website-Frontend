@@ -1,4 +1,4 @@
-/// <reference path="seo-route-rules.d.ts" />
+import './seo-route-rules.d.ts'
 import tailwindcss from '@tailwindcss/vite'
 import { definePerson } from 'nuxt-schema-org/schema'
 
@@ -11,7 +11,6 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/image',
     '@nuxt/icon',
-    '@nuxt/fonts',
     '@nuxtjs/color-mode',
     '@vercel/analytics',
     '@vercel/speed-insights',
@@ -77,9 +76,6 @@ export default defineNuxtConfig({
     security: {
       headers: {
         crossOriginEmbedderPolicy: 'require-corp',
-        contentSecurityPolicy: {
-          'upgrade-insecure-requests': true,
-        },
       },
     },
     seo: {
@@ -140,6 +136,12 @@ export default defineNuxtConfig({
   routeRules: {
     '/api/**': {
       robots: false,
+      security: {
+        rateLimiter: {
+          tokensPerInterval: 50,
+          interval: 60000,
+        },
+      },
     },
     '/__nuxt_content/**': {
       csurf: false,
@@ -214,27 +216,6 @@ export default defineNuxtConfig({
         strict: true,
       },
     },
-  },
-  fonts: {
-    defaults: {
-      weights: [400, 500, 600, 700],
-      styles: ['normal'],
-      subsets: ['latin'],
-    },
-    families: [
-      {
-        name: 'system-ui',
-        provider: 'none',
-        fallbacks: [
-          '-apple-system',
-          'BlinkMacSystemFont',
-          '"Helvetica Neue"',
-          'Helvetica',
-          'Arial',
-          'sans-serif',
-        ],
-      },
-    ],
   },
   hints: {
     features: {
@@ -339,6 +320,11 @@ export default defineNuxtConfig({
           height: 411,
         },
       },
+      cover: {
+        modifiers: {
+          quality: 80,
+        },
+      },
     },
   },
   ogImage: {
@@ -389,10 +375,20 @@ export default defineNuxtConfig({
   security: {
     strict: true,
     csrf: true,
+    sri: true,
     ssg: {
       hashStyles: false,
     },
     headers: {
+      crossOriginResourcePolicy: 'same-origin',
+      crossOriginOpenerPolicy: 'same-origin',
+      crossOriginEmbedderPolicy: 'credentialless',
+      strictTransportSecurity: {
+        maxAge: 31536000,
+        includeSubdomains: true,
+        preload: true,
+      },
+      xFrameOptions: 'DENY',
       contentSecurityPolicy: {
         'base-uri': ['\'none\''],
         'default-src': ['\'none\''],
@@ -410,7 +406,7 @@ export default defineNuxtConfig({
           'https://vitals.vercel-insights.com',
           'https://va.vercel-scripts.com',
         ],
-        'font-src': ['\'self\'', 'https:', 'data:'],
+        'font-src': ['\'self\''],
         'form-action': ['\'self\''],
         'frame-ancestors': ['\'self\''],
         'frame-src': ['\'self\'', 'https://snippet.meticulous.ai'],
@@ -453,7 +449,7 @@ export default defineNuxtConfig({
         'picture-in-picture': [],
         'publickey-credentials-get': [],
         'screen-wake-lock': [],
-        'sync-xhr': ['self'],
+        'sync-xhr': [],
         'usb': [],
         'web-share': [],
         'xr-spatial-tracking': [],

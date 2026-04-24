@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { CardRepositoryType } from '#shared/types/common/card-repository'
 
+const nonce = useNonce()
+
 const props = withDefaults(
   defineProps<Partial<Omit<CardRepositoryType, 'id'>>>(),
   {
@@ -234,6 +236,10 @@ const iconLogoSize = computed(() => {
         :alt="title || name || ''"
         loading="lazy"
         :src="cover"
+        preset="cover"
+        fit="cover"
+        sizes="90vw md:45vw lg:30vw"
+        :nonce
         :img-attrs="{ decoding: 'async' }"
       />
       <LazyBarGraph v-if="graphs?.bar" />
@@ -561,28 +567,12 @@ const iconLogoSize = computed(() => {
 
   font-size: 14px;
   font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .small .details {
   padding: 22px;
   font-size: 15px;
   font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .medium .details {
@@ -590,41 +580,17 @@ const iconLogoSize = computed(() => {
   padding: 32px;
   font-size: 17px;
   font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .large .details {
   padding: 44px;
   font-size: 20px;
   font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .full .details {
   font-size: 17px;
   font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -642,14 +608,6 @@ const iconLogoSize = computed(() => {
 .full .details {
   font-size: 14px;
   font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .full .body {
@@ -674,66 +632,26 @@ const iconLogoSize = computed(() => {
 .xsmall .eyebrow {
   font-size: 14px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .small .eyebrow {
   font-size: 15px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .medium .eyebrow {
   font-size: 17px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .large .eyebrow {
   font-size: 20px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .full .eyebrow {
   font-size: 17px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   color: var(--color-welcome-featured-card-eyebrow-text);
 }
 
@@ -748,70 +666,28 @@ const iconLogoSize = computed(() => {
 .xsmall .title {
   font-size: 14px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .small .title {
   font-size: 17px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .medium .title {
   font-size: 21px;
   /* 20.2380952385px */
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .large .title {
   font-size: 28px;
-  font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
-
-  /* Styles without cover */
+  font-weight: 600; /* Styles without cover */
   color: var(--color-card-content-text);
 }
 
 .full .title {
   font-size: 21px;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .link {
@@ -896,14 +772,6 @@ const iconLogoSize = computed(() => {
 .tile-category {
   font-size: 12px;
   font-weight: 700;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 
 .tile-2up .tile-category {

@@ -80,14 +80,6 @@ const toggleOpen = useToggle(open)
 .icon:before,
 .more:after,
 .more:before {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
   color: inherit;
   display: inline-block;
   font-style: normal;
@@ -129,84 +121,36 @@ a.icon-wrapper:hover .icon-copy {
   font-size: 19px;
   line-height: 1.4211026316;
   font-weight: 400;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 @media only screen and (max-width: 767px) {
   .typography-icon-card-modal-body {
     font-size: 17px;
     line-height: 1.4705882353;
     font-weight: 400;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 .typography-icon-card-modal-inline-headline {
   font-size: 19px;
   line-height: 1.4211026316;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 @media only screen and (max-width: 767px) {
   .typography-icon-card-modal-inline-headline {
     font-size: 17px;
     line-height: 1.4705882353;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 .typography-modal-headline {
   font-size: 56px;
   line-height: 1.0714285714;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 @media only screen and (max-width: 1023px) {
   .typography-modal-headline {
     font-size: 48px;
     line-height: 1.0834933333;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -214,42 +158,18 @@ a.icon-wrapper:hover .icon-copy {
     font-size: 32px;
     line-height: 1.125;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 .typography-modal-topic-label {
   font-size: 19px;
   line-height: 1.4211026316;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 @media only screen and (max-width: 767px) {
   .typography-modal-topic-label {
     font-size: 17px;
     line-height: 1.4705882353;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 .modal-close-button {

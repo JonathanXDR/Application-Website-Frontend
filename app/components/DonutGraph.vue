@@ -68,28 +68,12 @@ br.medium {
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 @media only screen and (max-width: 1023px) {
   .typography-donut-label {
     font-size: 17px;
     line-height: 1.2353641176;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -97,14 +81,6 @@ br.medium {
     font-size: 14px;
     line-height: 1.2857742857;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 br.medium,
@@ -127,28 +103,12 @@ br.medium {
   font-size: 17px;
   line-height: 1.2353641176;
   font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
 }
 @media only screen and (max-width: 1023px) {
   .typography-donut-label {
     font-size: 17px;
     line-height: 1.2353641176;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -156,14 +116,6 @@ br.medium {
     font-size: 14px;
     line-height: 1.2857742857;
     font-weight: 600;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
-      sans-serif;
   }
 }
 .ac-graph-donut .donut-wedge {
