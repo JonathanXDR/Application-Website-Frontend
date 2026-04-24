@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import type { CardItemType } from '#shared/types/components/card-item'
 
+// TODO: Use dedicated og image config here
+defineOgImage('Overview')
+
 definePageMeta({
   header: true,
   nav: true,

@@ -3,6 +3,8 @@ import { definePerson } from 'nuxt-schema-org/schema'
 
 export default defineNuxtConfig({
   modules: [
+    '@nuxtjs/i18n',
+    '@nuxtjs/seo',
     '@nuxt/content',
     '@nuxt/scripts',
     '@nuxt/eslint',
@@ -10,8 +12,6 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/fonts',
     '@nuxtjs/color-mode',
-    '@nuxtjs/i18n',
-    '@nuxtjs/seo',
     '@vercel/analytics',
     '@vercel/speed-insights',
     '@vueuse/nuxt',
@@ -82,14 +82,6 @@ export default defineNuxtConfig({
     },
     seo: {
       redirectToCanonicalSiteUrl: true,
-      meta: {
-        description: process.env.NUXT_PUBLIC_APP_DESCRIPTION,
-        twitterCreator: '@JonathanXD12_',
-        twitterSite: '@JonathanXD12_',
-        author: 'Jonathan Russ',
-        colorScheme: 'dark light',
-        applicationName: process.env.NUXT_SITE_NAME,
-      },
     },
   },
   ssr: true,
@@ -108,26 +100,8 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      templateParams: {
-        site: {
-          name: process.env.NUXT_SITE_NAME,
-          url: process.env.NUXT_SITE_URL,
-        },
-      },
       link: [
         { rel: 'apple-touch-icon', href: process.env.NUXT_PUBLIC_APP_LOGO },
-      ],
-      meta: [
-        { name: 'title', content: process.env.NUXT_SITE_NAME },
-        // { property: 'og:image', content: process.env.NUXT_PUBLIC_APP_LOGO },
-        { property: 'og:title', content: process.env.NUXT_SITE_NAME },
-        { property: 'og:url', content: process.env.NUXT_SITE_URL },
-        // {
-        //   property: 'twitter:image',
-        //   content: process.env.NUXT_PUBLIC_APP_LOGO,
-        // },
-        { property: 'twitter:card', content: 'summary_large_image' },
-        { property: 'twitter:title', content: process.env.NUXT_SITE_NAME },
       ],
     },
   },
@@ -138,8 +112,6 @@ export default defineNuxtConfig({
     },
   },
   site: {
-    url: process.env.NUXT_SITE_URL,
-    name: process.env.NUXT_SITE_NAME,
     trailingSlash: true,
   },
   colorMode: {
@@ -358,9 +330,6 @@ export default defineNuxtConfig({
       secret: process.env.OG_IMAGE_SECRET,
     },
   },
-  robots: {
-    disallow: ['/de/**', '/en/**', '/fr/**', '/it/**'],
-  },
   schemaOrg: {
     identity: definePerson({
       name: 'Jonathan Elias Russ',
@@ -452,11 +421,13 @@ export default defineNuxtConfig({
       },
     },
   },
-  sitemap: {
-    defaults: {
-      lastmod: process.env.NUXT_PUBLIC_APP_DATE || new Date().toISOString(),
+  seo: {
+    meta: {
+      twitterCreator: '@JonathanXD12_',
+      twitterSite: '@JonathanXD12_',
+      author: 'Jonathan Russ',
+      colorScheme: 'dark light',
     },
-    exclude: ['/de/**', '/en/**', '/fr/**', '/it/**'],
   },
   viewport: {
     breakpoints: {

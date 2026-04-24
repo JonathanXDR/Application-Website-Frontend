@@ -3,19 +3,72 @@ description: >-
   meiner Leidenschaft für effiziente, benutzerorientierte Lösungen in der
   Webentwicklung und darüber hinaus.
 
+pages:
+  technologies:
+    description: >-
+      Entdecke die Technologien, Frameworks und Werkzeuge, mit denen ich
+      arbeite – von Frontend-Entwicklung bis Backend-Systeme.
+  projects:
+    description: >-
+      Durchstöbere meine beruflichen und persönlichen Projekte –
+      von Unternehmensanwendungen bei Swisscom bis hin zu Open-Source-Beiträgen.
+  music:
+    description: >-
+      Entdecke meine Musikwelt – aktuelle Favoriten, Playlists und
+      was mich musikalisch inspiriert.
+
 i18n:
   en:
     description: >-
       Explore my journey as a Software Engineer, showcasing my skills, projects,
       and dedication to building efficient, user-centered solutions in web
       development and beyond.
+    pages:
+      technologies:
+        description: >-
+          Explore the technologies, frameworks, and tools I work with –
+          from frontend development to backend systems.
+      projects:
+        description: >-
+          Browse my professional and personal projects –
+          from enterprise applications at Swisscom to open-source contributions.
+      music:
+        description: >-
+          Discover my music world – current favorites, playlists, and
+          what inspires me musically.
   fr:
     description: >-
       Découvrez mon parcours en tant qu'ingénieur logiciel, avec des projets,
       des compétences et mon engagement pour des solutions efficaces et centrées
       sur l'utilisateur dans le développement web et au-delà.
+    pages:
+      technologies:
+        description: >-
+          Découvrez les technologies, frameworks et outils avec lesquels je
+          travaille – du développement frontend aux systèmes backend.
+      projects:
+        description: >-
+          Parcourez mes projets professionnels et personnels –
+          des applications d'entreprise chez Swisscom aux contributions open-source.
+      music:
+        description: >-
+          Découvrez mon univers musical – mes favoris actuels, playlists et
+          ce qui m'inspire musicalement.
   it:
     description: >-
       Esplora il mio percorso come ingegnere software, con progetti, competenze
       e dedizione a soluzioni efficienti e centrate sugli utenti nello sviluppo
       web e oltre.
+    pages:
+      technologies:
+        description: >-
+          Scopri le tecnologie, i framework e gli strumenti con cui lavoro –
+          dallo sviluppo frontend ai sistemi backend.
+      projects:
+        description: >-
+          Sfoglia i miei progetti professionali e personali –
+          dalle applicazioni aziendali in Swisscom ai contributi open-source.
+      music:
+        description: >-
+          Scopri il mio mondo musicale – i preferiti attuali, playlist e
+          ciò che mi ispira musicalmente.

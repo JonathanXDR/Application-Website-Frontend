@@ -20,6 +20,9 @@ type Projects = {
   school: MinimalRepository[]
 }
 
+// TODO: Use dedicated og image config here
+defineOgImage('Overview')
+
 definePageMeta({
   header: true,
   nav: true,

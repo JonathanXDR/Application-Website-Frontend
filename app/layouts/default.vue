@@ -7,7 +7,6 @@ const { randomDevColor } = useColor()
 const route = useRoute()
 const { currentSection } = useSection()
 const { currentRoute } = useNavbar()
-const { locale } = useI18n()
 const { y, isScrolling } = useScroll(window)
 const error = useError()
 const config = useRuntimeConfig()
@@ -107,7 +106,6 @@ onBeforeUnmount(() => {
 
 watchEffect(() => {
   useHead({
-    htmlAttrs: { lang: locale.value },
     titleTemplate:
       currentSection.value?.name || currentRoute.value?.label
         ? 'JR %separator %s'

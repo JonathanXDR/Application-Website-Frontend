@@ -55,6 +55,13 @@ export default defineContentConfig({
       source: 'config/*.yml',
       schema: z.object({
         description: z.string().optional(),
+        pages: z
+          .record(
+            z.object({
+              description: z.string().optional(),
+            }),
+          )
+          .optional(),
         filterInput: z
           .object({
             addTag: z.string(),

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+// TODO: Use dedicated og image config here
+defineOgImage('Overview')
+
 definePageMeta({
   header: true,
   nav: true,
