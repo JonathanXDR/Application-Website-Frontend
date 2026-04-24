@@ -228,17 +228,14 @@ const iconLogoSize = computed(() => {
       v-if="hasCoverOrGraphs"
       class="card-cover-wrap"
     >
-      <picture
+      <LazyNuxtPicture
         v-if="cover"
         class="card-cover"
-      >
-        <LazyNuxtImg
-          :alt="title || name || ''"
-          decoding="async"
-          loading="lazy"
-          :src="cover"
-        />
-      </picture>
+        :alt="title || name || ''"
+        loading="lazy"
+        :src="cover"
+        :img-attrs="{ decoding: 'async' }"
+      />
       <LazyBarGraph v-if="graphs?.bar" />
       <LazyDonutGraph v-if="graphs?.donut" />
     </div>

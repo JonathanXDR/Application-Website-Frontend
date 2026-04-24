@@ -36,8 +36,9 @@ const calculateAge = (date = '') => {
       <NuxtImg
         v-slot="{ src, isLoaded, imgAttrs }"
         src="/img/portrait.jpg"
-        height="411"
-        width="411"
+        alt="Portrait"
+        preset="portrait"
+        preload
         :custom="true"
       >
         <image

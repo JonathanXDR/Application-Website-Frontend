@@ -1,4 +1,4 @@
-import './seo-route-rules.d.ts'
+/// <reference path="seo-route-rules.d.ts" />
 import tailwindcss from '@tailwindcss/vite'
 import { definePerson } from 'nuxt-schema-org/schema'
 
@@ -46,6 +46,7 @@ export default defineNuxtConfig({
       headers: {
         crossOriginEmbedderPolicy: 'unsafe-none',
         contentSecurityPolicy: {
+          'style-src': ['\'self\'', '\'unsafe-inline\''],
           'upgrade-insecure-requests': false,
         },
       },
@@ -317,6 +318,8 @@ export default defineNuxtConfig({
   },
   image: {
     provider: 'vercel',
+    quality: 80,
+    format: ['avif', 'webp'],
     screens: {
       '2xs': 320,
       'xs': 475,
@@ -329,6 +332,14 @@ export default defineNuxtConfig({
       'portrait2x': 822,
     },
     densities: [1, 2],
+    presets: {
+      portrait: {
+        modifiers: {
+          width: 411,
+          height: 411,
+        },
+      },
+    },
   },
   ogImage: {
     security: {
@@ -378,37 +389,13 @@ export default defineNuxtConfig({
   security: {
     strict: true,
     csrf: true,
+    ssg: {
+      hashStyles: false,
+    },
     headers: {
       contentSecurityPolicy: {
-        'default-src': ['\'self\'', process.env.NUXT_SITE_URL || ''],
-        'style-src': [
-          '\'self\'',
-          '\'unsafe-inline\'',
-          process.env.NUXT_SITE_URL || '',
-        ],
-        'script-src': [
-          '\'self\'',
-          '\'strict-dynamic\'',
-          '\'nonce-{{nonce}}\'',
-          '\'wasm-unsafe-eval\'',
-          'https://*.googletagmanager.com',
-          'https://snippet.meticulous.ai',
-          'https://browser.sentry-cdn.com',
-          'https://*.apple.com',
-          process.env.NUXT_SITE_URL || '',
-        ],
-        'img-src': [
-          '\'self\'',
-          'data:',
-          'https://*.google-analytics.com',
-          'https://*.analytics.google.com',
-          'https://*.googletagmanager.com',
-          'https://*.g.doubleclick.net',
-          'https://*.google.com',
-          'https://*.apple.com',
-          process.env.NUXT_SITE_URL || '',
-        ],
-        'frame-src': ['\'self\'', 'https://snippet.meticulous.ai'],
+        'base-uri': ['\'none\''],
+        'default-src': ['\'none\''],
         'connect-src': [
           '\'self\'',
           'https://*.google-analytics.com',
@@ -418,11 +405,58 @@ export default defineNuxtConfig({
           'https://*.google.com',
           'https://cognito-identity.us-west-2.amazonaws.com',
           'https://user-events-v3.s3-accelerate.amazonaws.com',
-          'https://browser.sentry-cdn.com',
-          '*.sentry.io',
+          'https://*.sentry.io',
           'https://*.apple.com',
-          process.env.NUXT_SITE_URL || '',
+          'https://vitals.vercel-insights.com',
+          'https://va.vercel-scripts.com',
         ],
+        'font-src': ['\'self\'', 'https:', 'data:'],
+        'form-action': ['\'self\''],
+        'frame-ancestors': ['\'self\''],
+        'frame-src': ['\'self\'', 'https://snippet.meticulous.ai'],
+        'img-src': [
+          '\'self\'',
+          'data:',
+          'https://*.google-analytics.com',
+          'https://*.analytics.google.com',
+          'https://*.googletagmanager.com',
+          'https://*.g.doubleclick.net',
+          'https://*.google.com',
+          'https://*.apple.com',
+        ],
+        'manifest-src': ['\'self\''],
+        'media-src': ['\'self\''],
+        'object-src': ['\'none\''],
+        'script-src': [
+          '\'strict-dynamic\'',
+          '\'nonce-{{nonce}}\'',
+          '\'wasm-unsafe-eval\'',
+        ],
+        'script-src-attr': ['\'none\''],
+        'style-src': ['\'self\'', '\'nonce-{{nonce}}\''],
+        'worker-src': ['\'self\''],
+        'upgrade-insecure-requests': true,
+      },
+      permissionsPolicy: {
+        'accelerometer': [],
+        'autoplay': [],
+        'camera': [],
+        'display-capture': [],
+        'encrypted-media': [],
+        'fullscreen': [],
+        'geolocation': [],
+        'gyroscope': [],
+        'magnetometer': [],
+        'microphone': [],
+        'midi': [],
+        'payment': [],
+        'picture-in-picture': [],
+        'publickey-credentials-get': [],
+        'screen-wake-lock': [],
+        'sync-xhr': ['self'],
+        'usb': [],
+        'web-share': [],
+        'xr-spatial-tracking': [],
       },
     },
   },
