@@ -8,6 +8,10 @@ definePageMeta({
   ribbon: true,
   footerPre: true,
   footerCompact: false,
+  sitemap: {
+    priority: 0.5,
+    changefreq: 'weekly',
+  },
 })
 
 // const {

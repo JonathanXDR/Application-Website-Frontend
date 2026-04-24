@@ -1,3 +1,4 @@
+import './seo-route-rules.d.ts'
 import tailwindcss from '@tailwindcss/vite'
 import { definePerson } from 'nuxt-schema-org/schema'
 
@@ -136,8 +137,12 @@ export default defineNuxtConfig({
   },
   ignore: ['~/assets/drafts/**'],
   routeRules: {
+    '/api/**': {
+      robots: false,
+    },
     '/__nuxt_content/**': {
       csurf: false,
+      robots: false,
       security: {
         rateLimiter: {
           tokensPerInterval: 500,
@@ -147,6 +152,7 @@ export default defineNuxtConfig({
     },
     '/__nuxt_hints/**': {
       csurf: false,
+      robots: false,
       security: {
         requestSizeLimiter: false,
         rateLimiter: false,
@@ -229,7 +235,6 @@ export default defineNuxtConfig({
       },
     ],
   },
-
   hints: {
     features: {
       hydration: false,

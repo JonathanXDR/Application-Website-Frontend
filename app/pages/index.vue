@@ -9,6 +9,10 @@ definePageMeta({
   ribbon: true,
   footerPre: true,
   footerCompact: false,
+  sitemap: {
+    priority: 1.0,
+    changefreq: 'monthly',
+  },
 })
 
 const { data: navbarData } = await useQueryCollection('navigation')

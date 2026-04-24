@@ -10,6 +10,10 @@ definePageMeta({
   ribbon: true,
   footerPre: true,
   footerCompact: false,
+  sitemap: {
+    priority: 0.7,
+    changefreq: 'monthly',
+  },
 })
 
 const { currentRoute } = useNavbar()

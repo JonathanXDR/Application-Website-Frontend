@@ -29,6 +29,10 @@ definePageMeta({
   ribbon: true,
   footerPre: true,
   footerCompact: false,
+  sitemap: {
+    priority: 0.8,
+    changefreq: 'weekly',
+  },
 })
 
 const route = useRoute()

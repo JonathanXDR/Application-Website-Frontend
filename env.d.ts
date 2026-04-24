@@ -71,13 +71,13 @@ export type CoercedEnvSchema = {
   NUXT_APPLE_DEVELOPER_PRIVATE_KEY: string;
 
   /**
-   * **NUXT_APPLE_DEVELOPER_KEY_ID**
+   * **NUXT_APPLE_DEVELOPER_KEY_ID** 🔐 _sensitive_
    * ![icon](data:image/svg+xml;utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23808080%22%20d%3D%22M29%2022h-5a2.003%202.003%200%200%201-2-2v-6a2%202%200%200%201%202-2h5v2h-5v6h5ZM18%2012h-4V8h-2v14h6a2.003%202.003%200%200%200%202-2v-6a2%202%200%200%200-2-2m-4%208v-6h4v6Zm-6-8H3v2h5v2H4a2%202%200%200%200-2%202v2a2%202%200%200%200%202%202h6v-8a2%202%200%200%200-2-2m0%208H4v-2h4Z%22%2F%3E%3C%2Fsvg%3E)
    */
   NUXT_APPLE_DEVELOPER_KEY_ID: string;
 
   /**
-   * **NUXT_APPLE_DEVELOPER_TEAM_ID**
+   * **NUXT_APPLE_DEVELOPER_TEAM_ID** 🔐 _sensitive_
    * ![icon](data:image/svg+xml;utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23808080%22%20d%3D%22M29%2022h-5a2.003%202.003%200%200%201-2-2v-6a2%202%200%200%201%202-2h5v2h-5v6h5ZM18%2012h-4V8h-2v14h6a2.003%202.003%200%200%200%202-2v-6a2%202%200%200%200-2-2m-4%208v-6h4v6Zm-6-8H3v2h5v2H4a2%202%200%200%200-2%202v2a2%202%200%200%200%202%202h6v-8a2%202%200%200%200-2-2m0%208H4v-2h4Z%22%2F%3E%3C%2Fsvg%3E)
    */
   NUXT_APPLE_DEVELOPER_TEAM_ID: string;
@@ -89,13 +89,13 @@ export type CoercedEnvSchema = {
   NUXT_APPLE_MUSIC_USER_TOKEN: string;
 
   /**
-   * **NUXT_SITE_NAME**
+   * **NUXT_SITE_NAME** 🔐 _sensitive_
    * ![icon](data:image/svg+xml;utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23808080%22%20d%3D%22M29%2022h-5a2.003%202.003%200%200%201-2-2v-6a2%202%200%200%201%202-2h5v2h-5v6h5ZM18%2012h-4V8h-2v14h6a2.003%202.003%200%200%200%202-2v-6a2%202%200%200%200-2-2m-4%208v-6h4v6Zm-6-8H3v2h5v2H4a2%202%200%200%200-2%202v2a2%202%200%200%200%202%202h6v-8a2%202%200%200%200-2-2m0%208H4v-2h4Z%22%2F%3E%3C%2Fsvg%3E)
    */
   NUXT_SITE_NAME: string;
 
   /**
-   * **NUXT_SITE_URL**
+   * **NUXT_SITE_URL** 🔐 _sensitive_
    * ![icon](data:image/svg+xml;utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23808080%22%20d%3D%22M24%2021V9h-2v14h8v-2zm-4-6v-4c0-1.103-.897-2-2-2h-6v14h2v-6h1.48l2.335%206h2.145l-2.333-6H18c1.103%200%202-.897%202-2m-6-4h4v4h-4zM8%2023H4c-1.103%200-2-.897-2-2V9h2v12h4V9h2v12c0%201.103-.897%202-2%202%22%2F%3E%3C%2Fsvg%3E)
    */
   NUXT_SITE_URL: string;
@@ -124,15 +124,6 @@ export type CoercedEnvSchema = {
   NUXT_PUBLIC_APP_LOGO: string;
 
   /**
-   * **NUXT_PUBLIC_APP_DATE**
-   * Build/content timestamp used by the sitemap lastmod field
-   * (nuxt.config.ts:457). Optional — when unset the config falls
-   * back to new Date().toISOString() at parse time.
-   * ![icon](data:image/svg+xml;utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20fill%3D%22%23808080%22%20d%3D%22M9.5%2014h-8C.67%2014%200%2013.33%200%2012.5V2.38C0%201.55.67.88%201.5.88h11c.83%200%201.5.67%201.5%201.5v7.25c0%20.28-.22.5-.5.5s-.5-.22-.5-.5V2.38c0-.28-.22-.5-.5-.5h-11c-.28%200-.5.22-.5.5V12.5c0%20.28.22.5.5.5h8c.28%200%20.5.22.5.5s-.22.5-.5.5%22%2F%3E%3Cpath%20fill%3D%22%23808080%22%20d%3D%22M4%203.62c-.28%200-.5-.22-.5-.5V.5c0-.28.22-.5.5-.5s.5.22.5.5v2.62c0%20.28-.22.5-.5.5m6.12%200c-.28%200-.5-.22-.5-.5V.5c0-.28.22-.5.5-.5s.5.22.5.5v2.62c0%20.28-.22.5-.5.5M13.5%206H.5C.22%206%200%205.78%200%205.5S.22%205%20.5%205h13c.28%200%20.5.22.5.5s-.22.5-.5.5m-1%2010C10.57%2016%209%2014.43%209%2012.5S10.57%209%2012.5%209s3.5%201.57%203.5%203.5s-1.57%203.5-3.5%203.5m0-6a2.5%202.5%200%200%200%200%205a2.5%202.5%200%200%200%200-5%22%2F%3E%3Cpath%20fill%3D%22%23808080%22%20d%3D%22M13.5%2014a.47.47%200%200%201-.35-.15l-1-1a.5.5%200%200%201-.15-.35V11c0-.28.22-.5.5-.5s.5.22.5.5v1.29l.85.85c.2.2.2.51%200%20.71c-.1.1-.23.15-.35.15%22%2F%3E%3C%2Fsvg%3E)
-   */
-  NUXT_PUBLIC_APP_DATE?: string;
-
-  /**
    * **OG_IMAGE_SECRET** 🔐 _sensitive_
    * Secret used to sign generated og:image URLs. Must be at least
    * 32 characters for adequate HMAC strength.
@@ -141,26 +132,6 @@ export type CoercedEnvSchema = {
    * 📚 {@link https://nuxtseo.com/docs/og-image/guides/security | Nuxt OG Image Security}
    */
   OG_IMAGE_SECRET: string;
-
-  /**
-   * **VERCEL_ENV**
-   * Vercel deployment target. Referenced by @initInfisical in the
-   * header to pick the matching Infisical environment. Locally unset,
-   * in which case the ${VERCEL_ENV:-development} fallback applies.
-   * ![icon](data:image/svg+xml;utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23808080%22%20d%3D%22M7.885%2010.23L12%203.463l4.116%206.769zm9.606%2011q-1.558%200-2.64-1.081t-1.082-2.64t1.082-2.649t2.64-1.09t2.649%201.09t1.09%202.649t-1.09%202.64t-2.649%201.082m-13.722-.5v-6.462h6.462v6.462z%22%2F%3E%3C%2Fsvg%3E)
-   *
-   * 📚 {@link https://vercel.com/docs/projects/environment-variables/system-environment-variables | Vercel System Env Vars}
-   */
-  VERCEL_ENV?: "development" | "preview" | "production";
-
-  /**
-   * **VERCEL_FORCE_NO_BUILD_CACHE**
-   * Disables Vercel's build cache when set to true. Useful for
-   * forcing a clean build when schema or lockfile changes would
-   * otherwise reuse stale cached artifacts.
-   * ![icon](data:image/svg+xml;utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23808080%22%20d%3D%22M23%2023a7%207%200%201%201%207-7a7.01%207.01%200%200%201-7%207m0-12a5%205%200%201%200%205%205a5.006%205.006%200%200%200-5-5%22%2F%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2216%22%20r%3D%227%22%20fill%3D%22%23808080%22%2F%3E%3C%2Fsvg%3E)
-   */
-  VERCEL_FORCE_NO_BUILD_CACHE?: boolean;
 };
 
 declare module "varlock/env" {
@@ -173,16 +144,9 @@ declare module "varlock/env" {
       | "NUXT_PUBLIC_GITHUB_REPO_OWNER"
       | "NUXT_PUBLIC_GITHUB_REPO_BRANCH"
       | "NUXT_PUBLIC_SCRIPTS_GOOGLE_ANALYTICS_ID"
-      | "NUXT_APPLE_DEVELOPER_KEY_ID"
-      | "NUXT_APPLE_DEVELOPER_TEAM_ID"
-      | "NUXT_SITE_NAME"
-      | "NUXT_SITE_URL"
       | "NUXT_PUBLIC_APP_DOMAIN"
       | "NUXT_PUBLIC_APP_DESCRIPTION"
       | "NUXT_PUBLIC_APP_LOGO"
-      | "NUXT_PUBLIC_APP_DATE"
-      | "VERCEL_ENV"
-      | "VERCEL_FORCE_NO_BUILD_CACHE"
     >
   > {}
 }
