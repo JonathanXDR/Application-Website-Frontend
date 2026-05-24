@@ -7,7 +7,11 @@ const config: Linter.Config[] = [
     noStyle: true,
     ts: true,
     globals: ['NodeJS', 'MusicKit'],
-    ignores: ['app/assets/drafts/**/*', ...resolveIgnoresFromGitignore()],
+    ignores: [
+      'app/assets/drafts/**/*',
+      'env.d.ts',
+      ...resolveIgnoresFromGitignore(),
+    ],
   }),
 ]
 

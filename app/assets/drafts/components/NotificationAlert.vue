@@ -1,16 +1,10 @@
 <template>
-  <div
-    class="notification site-wide shown"
-    role="status"
-  >
+  <div class="notification site-wide shown" role="status">
     <div class="site-wide-container">
       <div class="form-alert">
         <div class="form-alert-notification-content">
           <div class="notification-content">
-            <div
-              class="welcome-toast-icon"
-              aria-hidden="true"
-            />
+            <div class="welcome-toast-icon" aria-hidden="true" />
             <div class="welcome-notification">
               <div class="welcome-notification-header">
                 <div class="welcome-notification-title form-alert-title">
