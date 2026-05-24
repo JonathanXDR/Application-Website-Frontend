@@ -45,7 +45,6 @@ export default defineNuxtConfig({
       headers: {
         crossOriginEmbedderPolicy: 'unsafe-none',
         contentSecurityPolicy: {
-          'style-src': ['\'self\'', '\'unsafe-inline\''],
           'upgrade-insecure-requests': false,
         },
       },
@@ -168,7 +167,6 @@ export default defineNuxtConfig({
   experimental: {
     typedPages: true,
     sharedPrerenderData: true,
-    checkOutdatedBuildInterval: 1000 * 10,
   },
   compatibilityDate: '2026-03-21',
   nitro: {
@@ -329,7 +327,7 @@ export default defineNuxtConfig({
   },
   ogImage: {
     security: {
-      secret: process.env.OG_IMAGE_SECRET,
+      secret: process.env.NUXT_OG_IMAGE_SECRET,
     },
   },
   schemaOrg: {
@@ -429,7 +427,11 @@ export default defineNuxtConfig({
           '\'wasm-unsafe-eval\'',
         ],
         'script-src-attr': ['\'none\''],
-        'style-src': ['\'self\'', '\'nonce-{{nonce}}\''],
+        // Per nuxt-security maintainers: 'strict-dynamic' does not apply to
+        // style-src and runtime-injected styles (motion-v, lazy hydration)
+        // cannot carry per-request nonces.
+        // https://nuxt-security.vercel.app/advanced/strict-csp#important-details
+        'style-src': ['\'self\'', '\'unsafe-inline\''],
         'worker-src': ['\'self\''],
         'upgrade-insecure-requests': true,
       },
