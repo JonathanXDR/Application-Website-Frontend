@@ -1,11 +1,16 @@
 /**
  * Bridges the @nuxtjs/robots route rule type augmentation for nuxt.config.ts.
  *
- * The robots module augments `NitroRouteRules` on `'nitropack'` only,
- * but the Nuxt config type system resolves through `'nitropack/types'`.
- * This shim mirrors the augmentation so `robots` is accepted in routeRules.
+ * @nuxtjs/robots only augments both `nitropack` and `nitropack/types` when
+ * `future.compatibilityVersion === 4`. We run with `compatibilityVersion: 5`
+ * for forward compat with Nuxt 5, so the `nitropack/types` augmentation is
+ * skipped and the Nuxt config type system can't see the `robots` route rule.
+ * This shim mirrors the augmentation so the type is accepted in routeRules.
  *
- * @see https://github.com/nuxt-modules/robots — upstream fix pending
+ * Remove once @nuxtjs/robots widens its compat check (`>= 4`) or once we
+ * downgrade `future.compatibilityVersion`.
+ *
+ * @see node_modules/@nuxtjs/robots/dist/module.mjs — `isNuxt4 = ... === 4`
  */
 import type { RobotsValue } from '@nuxtjs/robots'
 

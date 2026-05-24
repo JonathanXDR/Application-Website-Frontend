@@ -108,6 +108,11 @@ export default defineNuxtConfig({
       scrollBehaviorType: 'smooth',
     },
   },
+  // `site.name` and `site.url` are intentionally NOT set here — they're
+  // auto-populated from NUXT_SITE_NAME / NUXT_SITE_URL at runtime by
+  // nuxt-site-config, which keeps them live to env changes on redeploy
+  // without baking build-time values into the SSR config.
+  // https://nuxtseo.com/docs/site-config/guides/how-it-works
   site: {
     trailingSlash: true,
   },
@@ -234,9 +239,19 @@ export default defineNuxtConfig({
   i18n: {
     baseUrl: process.env.NUXT_SITE_URL,
     trailingSlash: true,
-    // lazy: true,
     strategy: 'prefix_except_default',
     defaultLocale: 'de',
+    // v10 experimental features that pair well with our setup:
+    // - strictSeo: lets @nuxtjs/i18n manage hreflang/canonical/og:locale internally
+    //   and aligns them with @nuxtjs/seo. We don't use useLocaleHead() anywhere,
+    //   so this is safe.
+    // - compactRoutes: collapses per-locale routes into a single :locale(en|fr|it)
+    //   regex route. Compatible with prefix_except_default; reduces the route table.
+    // https://nuxt.com/modules/i18n#new-features
+    experimental: {
+      strictSeo: true,
+      compactRoutes: true,
+    },
     detectBrowserLanguage: {
       useCookie: true,
       cookieCrossOrigin: true,
@@ -327,7 +342,13 @@ export default defineNuxtConfig({
   },
   ogImage: {
     security: {
+      // Strict mode requires a signing secret, disables the runtime `html`
+      // template (SSRF guard), caps query string size, and restricts runtime
+      // image generation to our own host. Prerendered images are unaffected.
+      // Gated on the secret so `bun run typecheck` (which doesn't load
+      // secrets through Varlock) doesn't crash at module init.
       secret: process.env.NUXT_OG_IMAGE_SECRET,
+      strict: Boolean(process.env.NUXT_OG_IMAGE_SECRET),
     },
   },
   schemaOrg: {
@@ -421,7 +442,12 @@ export default defineNuxtConfig({
         'manifest-src': ['\'self\''],
         'media-src': ['\'self\''],
         'object-src': ['\'none\''],
+        // 'self' is retained as a Level 1/2 fallback: 'strict-dynamic'
+        // supersedes it in CSP Level 3 browsers, but older browsers ignore
+        // 'strict-dynamic' and would otherwise refuse to load lazy chunks.
+        // https://nuxt-security.vercel.app/advanced/strict-csp#strict-dynamic-csp-level-3
         'script-src': [
+          '\'self\'',
           '\'strict-dynamic\'',
           '\'nonce-{{nonce}}\'',
           '\'wasm-unsafe-eval\'',

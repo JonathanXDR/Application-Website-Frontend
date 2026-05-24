@@ -104,31 +104,32 @@ onBeforeUnmount(() => {
   }
 })
 
-watchEffect(() => {
-  useHead({
-    titleTemplate:
-      currentSection.value?.name || currentRoute.value?.label
-        ? 'JR %separator %s'
-        : '%siteName',
-    title: currentSection.value?.name || currentRoute.value?.label,
-  })
+// Reactive head: call useHead once with getter values so unhead can update
+// existing tags instead of stacking duplicates on each watchEffect tick.
+const pageTitle = computed(
+  () => currentSection.value?.name || currentRoute.value?.label,
+)
 
-  if (config.public.appEnvironment !== 'development') return
+useHead({
+  titleTemplate: () => (pageTitle.value ? 'JR %separator %s' : '%siteName'),
+  title: () => pageTitle.value,
+})
 
+if (config.public.appEnvironment === 'development') {
   useHead({
     link: [
       {
         rel: 'icon',
         type: 'image/svg+xml',
-        href: faviconGraphicData.value,
+        href: () => faviconGraphicData.value,
       },
       {
         rel: 'apple-touch-icon',
-        href: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
+        href: () => `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
       },
     ],
   })
-})
+}
 
 const errorConfig = {
   header: false,
