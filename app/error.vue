@@ -22,6 +22,21 @@ const currentPage = computed<PageType>(() => {
 })
 
 const description = computed(() => currentPage.value.description?.split('. '))
+
+// Error pages must (a) set a meaningful title/description so social
+// previews and the browser tab reflect the localized error and (b) emit
+// `robots: noindex, follow` so 4xx/5xx pages never get indexed even if a
+// crawler hits them with a 200 SSR response. Nuxt also returns the right
+// HTTP status, but the meta tag is belt-and-suspenders.
+useSeoMeta({
+  title: () =>
+    currentPage.value.title?.replace(
+      '{status}',
+      String(error.value?.status ?? ''),
+    ) ?? '',
+  description: () => currentPage.value.description ?? '',
+  robots: 'noindex, follow',
+})
 </script>
 
 <template>

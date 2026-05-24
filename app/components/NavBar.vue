@@ -267,8 +267,6 @@ watch(
       '--border-transform-origin': borderTransformOrigin,
       '--border-scaleX': borderScaleX,
     }"
-    lang="en-US"
-    dir="ltr"
     role="navigation"
     aria-label="Local"
     @transitionstart="handleTransitionStart"

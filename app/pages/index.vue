@@ -1,28 +1,50 @@
 <script setup lang="ts">
 import type { SectionType } from '#shared/types/common/section'
 
-defineOgImage('Overview')
-
 definePageMeta({
   header: true,
   nav: true,
   ribbon: true,
   footerPre: true,
   footerCompact: false,
-  sitemap: {
-    priority: 1.0,
-    changefreq: 'monthly',
-  },
 })
+
+const route = useRoute()
+const { currentRoute } = useNavbar()
 
 const { data: navbarData } = await useQueryCollection('navigation')
   .stem('navbar')
   .first()
+const { data: siteContent } = await useQueryCollection('siteConfig')
+  .stem('site')
+  .first()
+
 const sections = computed<SectionType[]>(
   () =>
     ((navbarData.value as unknown as Record<string, unknown>)
       ?.items as SectionType[]) || [],
 )
+
+const pageKey = computed(
+  () => (route.name as string | undefined)?.replace(/___\w+$/, '') ?? '',
+)
+const pageTitle = computed(() => currentRoute.value?.label ?? '')
+const pageDescription = computed(
+  () =>
+    (pageKey.value && siteContent.value?.pages?.[pageKey.value]?.description)
+    || siteContent.value?.description
+    || '',
+)
+
+useSeoMeta({
+  title: () => pageTitle.value,
+  description: () => pageDescription.value,
+})
+
+defineOgImage('Overview', {
+  title: pageTitle.value,
+  description: pageDescription.value,
+})
 </script>
 
 <template>

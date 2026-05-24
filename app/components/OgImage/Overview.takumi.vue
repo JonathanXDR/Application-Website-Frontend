@@ -1,12 +1,22 @@
 <script setup lang="ts">
 /**
  * @credits Nuxt SEO <https://nuxtseo.com/>
+ *
+ * The upstream Nuxt SEO template imports `useOgImageRuntimeConfig` from
+ * `#og-image/app/utils` to read module-level defaults (color preference,
+ * `hasNuxtIcon` flag). The `#og-image` alias in nuxt-og-image v6.5.1 is
+ * mis-mapped to `dist/shared/runtime/` (a path that does not exist in the
+ * published package, since the actual sources live at `dist/runtime/`), so
+ * the Vite build fails on the import. We inline the only two values the
+ * template uses: `colorMode` already has a `'light'` fallback via the prop,
+ * and `@nuxt/icon` is a hard dependency of this project so `hasNuxtIcon` is
+ * always true.
+ *
+ * TODO: restore the upstream `useOgImageRuntimeConfig` import once
+ *       nuxt-og-image patches its `#og-image` alias config.
  */
+import { computed, resolveComponent } from 'vue'
 
-import { useOgImageRuntimeConfig } from '#og-image/app/utils'
-import { computed, defineComponent, h, resolveComponent } from 'vue'
-
-// convert to typescript props
 const props = withDefaults(
   defineProps<{
     colorMode?: 'dark' | 'light'
@@ -20,32 +30,35 @@ const props = withDefaults(
   }>(),
   {
     theme: '#00dc82',
-    headline: 'headline',
-    title: 'title',
-    description: 'description',
   },
 )
 
 const HexRegex = /^#(?:[0-9a-f]{3}){1,2}$/i
 
-const runtimeConfig = useOgImageRuntimeConfig()
+// Fall back to live site config so the card never renders literal "title" /
+// "description" placeholders when a page calls `defineOgImage('Overview')`
+// without explicit props.
+const siteConfig = useSiteConfig()
 
-const colorMode = computed(() => {
-  return props.colorMode || runtimeConfig.colorPreference || 'light'
-})
+const colorMode = computed(() => props.colorMode || 'light')
+
+const resolvedTitle = computed(() => props.title || siteConfig.name || '')
+const resolvedDescription = computed(
+  () => props.description || siteConfig.description || '',
+)
+const resolvedSiteName = computed(
+  () => props.siteName || siteConfig.name || '',
+)
 
 const themeHex = computed(() => {
-  // regex test if valid hex
   if (HexRegex.test(props.theme)) {
     return props.theme
   }
 
-  // if it's hex without the hash, just add the hash
   if (HexRegex.test(`#${props.theme}`)) {
     return `#${props.theme}`
   }
 
-  // if it's rgb or rgba, we convert it to hex
   if (props.theme.startsWith('rgb')) {
     const rgb = props.theme
       .replace('rgb(', '')
@@ -64,42 +77,9 @@ const themeHex = computed(() => {
   return '#FFFFFF'
 })
 
-// const themeRgb = computed(() => {
-//   // we want to convert it so it's just `<red>, <green>, <blue>` (255, 255, 255)
-//   return themeHex.value
-//     .replace('#', '')
-//     .match(/.{1,2}/g)
-//     ?.map((v) => Number.parseInt(v, 16))
-//     .join(', ')
-// })
-
-// const siteConfig = useSiteConfig()
-// const siteName = computed(() => {
-//   return props.siteName || siteConfig.name
-// })
-// const siteLogo = computed(() => {
-//   return props.siteLogo || siteConfig.logo
-// })
-
-const IconComponent = runtimeConfig.hasNuxtIcon
-  ? resolveComponent('Icon')
-  : defineComponent({
-      render() {
-        return h('div', 'missing @nuxt/icon')
-      },
-    })
-if (
-  typeof props.icon === 'string'
-  && !runtimeConfig.hasNuxtIcon
-  && import.meta.dev
-) {
-  console.warn(
-    'Please install `@nuxt/icon` to use icons with the fallback OG Image component.',
-  )
-
-  console.log('\nnpx nuxi module add icon\n')
-  // create simple div renderer component
-}
+// `@nuxt/icon` is a project dependency so the Icon component is always
+// resolvable here. (Upstream template guards this with `hasNuxtIcon`.)
+const IconComponent = resolveComponent('Icon')
 </script>
 
 <template>
@@ -183,13 +163,20 @@ if (
         class="w-[600px] m-0 text-[75px] font-semibold mb-4 flex items-center"
         :class="[colorMode === 'light' ? 'text-gray-900' : 'text-white']"
       >
-        <span>{{ title }}</span>
+        <span>{{ resolvedTitle }}</span>
       </h1>
       <p
         class="text-[32px] leading-tight"
         :class="[colorMode === 'light' ? 'text-gray-700' : 'text-[#E4E4E7]']"
       >
-        {{ description.slice(0, 200) }}
+        {{ resolvedDescription.slice(0, 200) }}
+      </p>
+      <p
+        v-if="resolvedSiteName && resolvedSiteName !== resolvedTitle"
+        class="text-[20px] mt-6 opacity-70"
+        :class="[colorMode === 'light' ? 'text-gray-700' : 'text-[#E4E4E7]']"
+      >
+        {{ resolvedSiteName }}
       </p>
     </div>
 

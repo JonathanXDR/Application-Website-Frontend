@@ -238,8 +238,6 @@ const iconLogoSize = computed(() => {
         :src="cover"
         preset="cover"
         fit="cover"
-        width="1200"
-        height="630"
         sizes="90vw md:45vw lg:30vw"
         :nonce
         :img-attrs="{ decoding: 'async' }"

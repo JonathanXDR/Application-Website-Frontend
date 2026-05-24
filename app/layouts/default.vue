@@ -99,16 +99,16 @@ watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
 
 watch(() => route.path, resetHideNavbarTimer)
 
-// Reactive head: call useHead once with getter values so unhead can update
-// existing tags instead of stacking duplicates on each watchEffect tick.
+// Sub-section titles update reactively as the user scrolls between
+// in-page anchors (#about, #languages, etc.) on the home page; the per-page
+// title (currentRoute.label) is set by the page itself via useSeoMeta.
+// The `JR %separator %s` template lives in nuxt.config.ts:seo.meta so it's
+// SSR-baked instead of injected client-side from this layout.
 const pageTitle = computed(
   () => currentSection.value?.name || currentRoute.value?.label,
 )
 
-useHead({
-  titleTemplate: () => (pageTitle.value ? 'JR %separator %s' : '%siteName'),
-  title: () => pageTitle.value,
-})
+useSeoMeta({ title: () => pageTitle.value })
 
 if (config.public.appEnvironment === 'development') {
   useHead({

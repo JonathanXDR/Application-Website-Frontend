@@ -44,13 +44,18 @@ const calculateAge = (date = '') => {
         height="411"
         clip-path="url(#image)"
       >
+        <!-- `fit="cover"` is a no-op on Vercel (the `/_vercel/image`
+             URL only carries `url`, `w`, `q`) but expresses intent and
+             is honored by non-Vercel providers (IPX, Cloudinary) if we
+             ever swap. Mirrors the note on the `cover` preset in
+             nuxt.config.ts. -->
         <NuxtImg
           src="/img/portrait.webp"
-          alt="Portrait"
+          :alt="about?.imageAlt ?? 'Portrait of Jonathan Russ'"
           preset="portrait"
           fit="cover"
-          sizes="320px"
-          preload
+          sizes="275px md:300px xl:350px"
+          :preload="{ fetchPriority: 'high' }"
           :nonce
           class="portrait-img"
         />

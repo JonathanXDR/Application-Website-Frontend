@@ -20,10 +20,12 @@ description: >-
   Konsolenspiele oder verbringe Zeit mit meinen Freunden. Musik begleitet mich
   oft durch den Tag und ist ein wichtiger Teil meines Lebens.
 birthDate: "2005-12-12"
+imageAlt: "Porträt von Jonathan Russ"
 i18n:
   en:
     eyebrow: "Hey ;)"
     title: "I'm  Jonathan"
+    imageAlt: "Portrait of Jonathan Russ"
     description: >-
       I'm {age} years old and from Switzerland.
 
@@ -46,6 +48,7 @@ i18n:
   fr:
     eyebrow: "Hey ;)"
     title: "Je suis Jonathan"
+    imageAlt: "Portrait de Jonathan Russ"
     description: >-
       J'ai {age} ans et je viens de Suisse.
 
@@ -70,6 +73,7 @@ i18n:
   it:
     eyebrow: "Hey ;)"
     title: "Sono Jonathan"
+    imageAlt: "Ritratto di Jonathan Russ"
     description: >-
       Ho {age} anni e vengo dalla Svizzera.
 

@@ -119,6 +119,7 @@ export default defineContentConfig({
         title: z.string().optional(),
         description: z.string().optional(),
         birthDate: z.string().optional(),
+        imageAlt: z.string().optional(),
         items: z.array(z.record(z.unknown())).optional(),
       }),
       i18n: true,

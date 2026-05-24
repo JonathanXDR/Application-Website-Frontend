@@ -20,25 +20,18 @@ type Projects = {
   school: MinimalRepository[]
 }
 
-// TODO: Use dedicated og image config here
-defineOgImage('Overview')
-
 definePageMeta({
   header: true,
   nav: true,
   ribbon: true,
   footerPre: true,
   footerCompact: false,
-  sitemap: {
-    priority: 0.8,
-    changefreq: 'weekly',
-  },
 })
 
 const route = useRoute()
 const router = useRouter()
 const viewport = useViewport()
-const { currentRoute } = useNavbar()
+const { currentRoute, homeLabel, homePath } = useNavbar()
 const { randomDevColor } = useColor()
 const config = useRuntimeConfig()
 
@@ -77,9 +70,42 @@ const { data: swisscomProjects }
 const { data: uiLabels } = await useQueryCollection('siteConfig')
   .stem('ui-labels')
   .first()
+const { data: siteContent } = await useQueryCollection('siteConfig')
+  .stem('site')
+  .first()
 const { data: segmentNavData } = await useQueryCollection('navigation')
   .stem('segment-nav')
   .first()
+
+const pageKey = computed(
+  () => (route.name as string | undefined)?.replace(/___\w+$/, '') ?? '',
+)
+const pageTitle = computed(() => currentRoute.value?.label ?? '')
+const pageDescription = computed(
+  () =>
+    (pageKey.value && siteContent.value?.pages?.[pageKey.value]?.description)
+    || siteContent.value?.description
+    || '',
+)
+
+useSeoMeta({
+  title: () => pageTitle.value,
+  description: () => pageDescription.value,
+})
+
+defineOgImage('Overview', {
+  title: pageTitle.value,
+  description: pageDescription.value,
+})
+
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: () => [
+      { name: homeLabel.value, item: homePath.value },
+      { name: pageTitle.value, item: route.path },
+    ],
+  }),
+])
 
 const projects: Projects = reactive({
   swisscom: computed<CardItemType[]>(() => swisscomProjects.value || []),

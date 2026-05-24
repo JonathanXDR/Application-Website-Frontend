@@ -1,27 +1,54 @@
 <script setup lang="ts">
 import type { CardItemType } from '#shared/types/components/card-item'
 
-// TODO: Use dedicated og image config here
-defineOgImage('Overview')
-
 definePageMeta({
   header: true,
   nav: true,
   ribbon: true,
   footerPre: true,
   footerCompact: false,
-  sitemap: {
-    priority: 0.7,
-    changefreq: 'monthly',
-  },
 })
 
-const { currentRoute } = useNavbar()
+const route = useRoute()
+const { currentRoute, homeLabel, homePath } = useNavbar()
 
 const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
 
 const { data: cards }
   = await useQueryCollection<CardItemType>('technologies').all()
+const { data: siteContent } = await useQueryCollection('siteConfig')
+  .stem('site')
+  .first()
+
+const pageKey = computed(
+  () => (route.name as string | undefined)?.replace(/___\w+$/, '') ?? '',
+)
+const pageTitle = computed(() => currentRoute.value?.label ?? '')
+const pageDescription = computed(
+  () =>
+    (pageKey.value && siteContent.value?.pages?.[pageKey.value]?.description)
+    || siteContent.value?.description
+    || '',
+)
+
+useSeoMeta({
+  title: () => pageTitle.value,
+  description: () => pageDescription.value,
+})
+
+defineOgImage('Overview', {
+  title: pageTitle.value,
+  description: pageDescription.value,
+})
+
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: () => [
+      { name: homeLabel.value, item: homePath.value },
+      { name: pageTitle.value, item: route.path },
+    ],
+  }),
+])
 
 // const tags = [
 //   ...new Set(
