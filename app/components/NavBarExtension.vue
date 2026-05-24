@@ -52,11 +52,22 @@ const updateStickiness = (): void => {
   }
 }
 
+useEventListener(() => window, 'scroll', updateStickiness, { passive: true })
+useEventListener(
+  () => window,
+  'resize',
+  () => {
+    isInitialized.value = false
+    calculateOriginalOffset()
+    updateStickiness()
+  },
+  { passive: true },
+)
+
 onMounted(() => {
   nextTick(() => {
     calculateOriginalOffset()
     updateStickiness()
-    useEventListener(window, 'scroll', updateStickiness, { passive: true })
   })
 })
 
@@ -68,17 +79,6 @@ watch(
     }
     updateStickiness()
   },
-)
-
-useEventListener(
-  window,
-  'resize',
-  () => {
-    isInitialized.value = false
-    calculateOriginalOffset()
-    updateStickiness()
-  },
-  { passive: true },
 )
 </script>
 

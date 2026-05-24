@@ -1,22 +1,29 @@
 export const useTheme = () => {
   const colorMode = useColorMode()
-  const themeCookie = useCookie('theme')
+  const themeCookie = useCookie<string>('theme', { default: () => 'auto' })
 
-  const setTheme = (theme: string) => {
-    colorMode.preference = theme === 'auto' ? 'system' : theme
-    themeCookie.value = theme
+  // `useState` is shared across components and survives SSR hydration, so the
+  // one-time client sync below only runs the first time `useTheme()` mounts.
+  const initialized = useState('theme-initialized', () => false)
+
+  const theme = computed(() => themeCookie.value || 'auto')
+
+  const setTheme = (newTheme: string) => {
+    colorMode.preference = newTheme === 'auto' ? 'system' : newTheme
+    themeCookie.value = newTheme
   }
 
-  const getTheme = () => themeCookie.value || 'auto'
-
-  const initializeTheme = () => {
-    const theme = getTheme()
-    return setTheme(theme)
+  if (import.meta.client) {
+    onMounted(() => {
+      if (initialized.value) return
+      setTheme(themeCookie.value)
+      initialized.value = true
+    })
   }
 
-  onMounted(() => {
-    initializeTheme()
-  })
-
-  return { getTheme, setTheme }
+  return {
+    theme,
+    setTheme,
+    getTheme: () => theme.value,
+  }
 }

@@ -7,7 +7,9 @@ const { randomDevColor } = useColor()
 const route = useRoute()
 const { currentSection } = useSection()
 const { currentRoute } = useNavbar()
-const { y, isScrolling } = useScroll(window)
+const { y, isScrolling } = useScroll(() =>
+  import.meta.client ? window : null,
+)
 const error = useError()
 const config = useRuntimeConfig()
 
@@ -30,12 +32,25 @@ watch(
 
 const rotatingBanner = useTemplateRef('rotatingBanner')
 const { height: rotatingBannerHeight } = useElementSize(rotatingBanner)
-const hideNavbarTimeout = ref<NodeJS.Timeout | null>(null)
 
 const items = computed<InfoBannerType['items']>(
   () =>
     ((infoBannerContent.value as unknown as Record<string, unknown>)
       ?.items as InfoBannerType['items']) || [],
+)
+
+const { start: scheduleHideNavbar, stop: cancelHideNavbar } = useTimeoutFn(
+  () => {
+    if (
+      !isScrolling.value
+      && y.value > rotatingBannerHeight.value
+      && navProps.value
+    ) {
+      navProps.value.hidden = true
+    }
+  },
+  () => navProps.value?.autoHideDelay || 2000,
+  { immediate: false },
 )
 
 const faviconColor = randomDevColor.value?.hex
@@ -54,21 +69,9 @@ onMounted(async () => {
 })
 
 const resetHideNavbarTimer = () => {
-  if (hideNavbarTimeout.value) {
-    clearTimeout(hideNavbarTimeout.value)
-  }
-
+  cancelHideNavbar()
   if (!navProps.value?.autoHide) return
-
-  hideNavbarTimeout.value = setTimeout(() => {
-    if (
-      !isScrolling.value
-      && y.value > rotatingBannerHeight.value
-      && navProps.value
-    ) {
-      navProps.value.hidden = true
-    }
-  }, navProps.value?.autoHideDelay || 2000)
+  scheduleHideNavbar()
 }
 
 watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
@@ -82,9 +85,7 @@ watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
   if (isScrollingNew && yNew > rotatingBannerHeight.value && navProps.value) {
     if (isScrollingDown) {
       navProps.value.hidden = true
-      if (hideNavbarTimeout.value) {
-        clearTimeout(hideNavbarTimeout.value)
-      }
+      cancelHideNavbar()
     }
     else {
       navProps.value.hidden = false
@@ -97,12 +98,6 @@ watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
 })
 
 watch(() => route.path, resetHideNavbarTimer)
-
-onBeforeUnmount(() => {
-  if (hideNavbarTimeout.value) {
-    clearTimeout(hideNavbarTimeout.value)
-  }
-})
 
 // Reactive head: call useHead once with getter values so unhead can update
 // existing tags instead of stacking duplicates on each watchEffect tick.

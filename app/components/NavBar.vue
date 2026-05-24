@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<NavbarType>(), {
 const { navProps, navItems } = useNavbar()
 const { randomDevColor } = useColor()
 const { currentSection } = useSection()
-const { getTheme } = useTheme()
+const { theme } = useTheme()
 const { y: scrollY } = useWindowScroll()
 const { animations: headerAnimations, setAnimation } = useAnimation()
 const viewport = useViewport()
@@ -85,11 +85,15 @@ const animateChevron = (isOpen: boolean) => {
   }
 }
 
+const { start: resetCheckbox } = useTimeoutFn(
+  () => (shouldOpen.value = false),
+  1000,
+  { immediate: false },
+)
+
 const checkboxTimeout = () => {
   shouldOpen.value = true
-  setTimeout(() => {
-    shouldOpen.value = false
-  }, 1000)
+  resetCheckbox()
 }
 
 const handleScroll = () => {
@@ -168,11 +172,16 @@ const handleTransitionEnd = (event: TransitionEvent) => {
   }
 }
 
-useEventListener(window, 'scroll', handleScroll)
-useEventListener(window, 'resize', () => {
-  updateBorderPosition()
-  updateTrayHeight()
-})
+useEventListener(() => window, 'scroll', handleScroll, { passive: true })
+useEventListener(
+  () => window,
+  'resize',
+  () => {
+    updateBorderPosition()
+    updateTrayHeight()
+  },
+  { passive: true },
+)
 
 onMounted(() => {
   initHeaderAnimations()
@@ -188,7 +197,7 @@ watch(
   { deep: true, immediate: true },
 )
 
-watch(getTheme, (themeNew, themeOld) => {
+watch(theme, (themeNew, themeOld) => {
   if (themeNew === themeOld) return
   updateAnimations()
 })

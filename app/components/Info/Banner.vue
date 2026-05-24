@@ -37,9 +37,6 @@ const tags = ref<{
 
 const baseItems = ref<InfoBannerType['items']>([])
 
-let autoScrollInterval: ReturnType<typeof setInterval> | null = null
-let restartTimeout: ReturnType<typeof setTimeout> | null = null
-
 const { data: repositoryTags } = await useFetch('/api/github/repository-tags', {
   key: 'repository-tags',
   lazy: true,
@@ -172,34 +169,27 @@ const handleTransitionEnd = () => {
   })
 }
 
+const { pause: stopAutoScroll, resume: resumeAutoScroll } = useIntervalFn(
+  next,
+  () => props.autoScrollDelay,
+  { immediate: false },
+)
+
+const { start: scheduleRestart, stop: clearRestartTimeout } = useTimeoutFn(
+  () => startAutoScroll(),
+  () => props.autoScrollRestartDelay,
+  { immediate: false },
+)
+
 const startAutoScroll = () => {
   if (baseItems.value.length < 2 || !props.autoScroll || props.loading) return
-  stopAutoScroll()
-  autoScrollInterval = setInterval(() => {
-    next()
-  }, props.autoScrollDelay)
-}
-
-const stopAutoScroll = () => {
-  if (autoScrollInterval) {
-    clearInterval(autoScrollInterval)
-    autoScrollInterval = null
-  }
-}
-
-const clearRestartTimeout = () => {
-  if (restartTimeout) {
-    clearTimeout(restartTimeout)
-    restartTimeout = null
-  }
+  resumeAutoScroll()
 }
 
 const scheduleAutoScrollRestart = () => {
   clearRestartTimeout()
   if (!props.autoScrollRestartDelay) return
-  restartTimeout = setTimeout(() => {
-    startAutoScroll()
-  }, props.autoScrollRestartDelay)
+  scheduleRestart()
 }
 
 const onMouseEnterOrFocus = () => {
@@ -231,11 +221,21 @@ const updateBaseItems = () => {
   }))
 }
 
+const { start: revealBanner } = useTimeoutFn(
+  () => (isVisible.value = true),
+  () => props.visibilityDelay,
+  { immediate: false },
+)
+
+const { start: markInitialAnimationPlayed } = useTimeoutFn(
+  () => (initialAnimationPlayed.value = true),
+  () => 2800 + props.visibilityDelay,
+  { immediate: false },
+)
+
 onMounted(() => {
   if (props.dropAnimation) {
-    setTimeout(() => {
-      isVisible.value = true
-    }, props.visibilityDelay)
+    revealBanner()
   }
   else {
     isVisible.value = true
@@ -244,11 +244,6 @@ onMounted(() => {
   if (props.autoScroll && !props.loading) {
     startAutoScroll()
   }
-})
-
-onUnmounted(() => {
-  stopAutoScroll()
-  clearRestartTimeout()
 })
 
 watch(
@@ -272,10 +267,7 @@ watch(
         previous: tagsNew[1]?.name,
       }
       updateBaseItems()
-
-      setTimeout(() => {
-        initialAnimationPlayed.value = true
-      }, 2800 + props.visibilityDelay)
+      markInitialAnimationPlayed()
     }
   },
   { immediate: true },

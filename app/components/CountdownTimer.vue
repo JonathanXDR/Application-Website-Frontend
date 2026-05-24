@@ -26,6 +26,17 @@ const countdown = ref<Record<CountdownUnits, CountdownValue>>({
   seconds: { prev: '00', current: '00', transition: false },
 })
 
+const { start: clearTransitions } = useTimeoutFn(
+  () => {
+    for (const key of Object.keys(countdown.value)) {
+      const unit = key as CountdownUnits
+      countdown.value[unit].transition = false
+    }
+  },
+  400,
+  { immediate: false },
+)
+
 const updateCountdown = () => {
   const now = dayjs()
   const end = dayjs(props.endDate)
@@ -67,26 +78,10 @@ const updateCountdown = () => {
   }
 
   countdown.value = countdownNew
-
-  setTimeout(() => {
-    for (const key of Object.keys(countdown.value)) {
-      const unit = key as CountdownUnits
-      countdown.value[unit].transition = false
-    }
-  }, 400)
+  clearTransitions()
 }
 
-let timer: NodeJS.Timeout | undefined
-
-onMounted(() => {
-  updateCountdown()
-  timer = setInterval(updateCountdown, 1000)
-})
-
-onUnmounted(() => {
-  if (timer === undefined) return
-  clearInterval(timer)
-})
+useIntervalFn(updateCountdown, 1000, { immediateCallback: true })
 </script>
 
 <template>

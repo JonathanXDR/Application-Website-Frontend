@@ -14,6 +14,7 @@ const strokeWidth = ref<number>(5)
 
 const svg = useTemplateRef('svg')
 const path = useTemplateRef('path')
+const isVisible = useElementVisibility(svg)
 const initialAnimationDone = ref<boolean>(false)
 
 const initializePath = () => {
@@ -41,33 +42,32 @@ const animatePath = () => {
   props.onUpdateHeight(strokeDashOffset.value)
 }
 
-const initialAnimatePath = () => {
+whenever(isVisible, () => {
   if (initialAnimationDone.value) return
-
   animatePath()
   initialAnimationDone.value = true
-}
+})
 
-const setupIntersectionObserver = () => {
-  if (!svg.value) return
-
-  useIntersectionObserver(svg, ([entry]) => {
-    if (entry?.isIntersecting) {
-      initialAnimatePath()
-      useEventListener(window, 'scroll', animatePath)
-      useEventListener(window, 'resize', initializePath)
-    }
-    else {
-      removeEventListener('scroll', animatePath)
-      removeEventListener('resize', initializePath)
-    }
-  })
-}
+useEventListener(
+  () => window,
+  'scroll',
+  () => {
+    if (isVisible.value) animatePath()
+  },
+  { passive: true },
+)
+useEventListener(
+  () => window,
+  'resize',
+  () => {
+    if (isVisible.value) initializePath()
+  },
+  { passive: true },
+)
 
 onMounted(async () => {
   await nextTick()
   initializePath()
-  setupIntersectionObserver()
 })
 
 watch(

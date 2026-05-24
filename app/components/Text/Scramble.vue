@@ -27,20 +27,14 @@ const emit = defineEmits<{
 
 const displayText = ref(props.text)
 const isAnimating = ref(false)
-let interval: ReturnType<typeof setInterval> | null = null
+const steps = computed(() => props.duration / props.speed)
+const intervalMs = computed(() => props.speed * 1000)
+let step = 0
 
-const scramble = () => {
-  if (isAnimating.value) return
-  isAnimating.value = true
-
-  const steps = props.duration / props.speed
-  let step = 0
-
-  if (interval) clearInterval(interval)
-
-  interval = setInterval(() => {
+const { pause, resume, isActive } = useIntervalFn(
+  () => {
     let scrambled = ''
-    const progress = step / steps
+    const progress = step / steps.value
 
     for (let i = 0; i < props.text.length; i++) {
       if (props.text[i] === ' ') {
@@ -62,14 +56,22 @@ const scramble = () => {
     displayText.value = scrambled
     step++
 
-    if (step > steps) {
-      if (interval) clearInterval(interval)
-      interval = null
+    if (step > steps.value) {
+      pause()
       displayText.value = props.text
       isAnimating.value = false
       emit('scramble-complete')
     }
-  }, props.speed * 1000)
+  },
+  intervalMs,
+  { immediate: false },
+)
+
+const scramble = () => {
+  if (isActive.value) return
+  isAnimating.value = true
+  step = 0
+  resume()
 }
 
 watch(
@@ -90,10 +92,6 @@ watch(
     }
   },
 )
-
-onBeforeUnmount(() => {
-  if (interval) clearInterval(interval)
-})
 </script>
 
 <template>

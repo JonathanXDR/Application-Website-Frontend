@@ -141,7 +141,9 @@ const updateUlHeightAndInitializePath = async () => {
   updateHeight()
 }
 
-useEventListener(window, 'resize', updateUlHeightAndInitializePath)
+useEventListener(() => window, 'resize', updateUlHeightAndInitializePath, {
+  passive: true,
+})
 
 onMounted(() => {
   updateUlHeightAndInitializePath()
@@ -189,10 +191,6 @@ watchEffect(() => {
     const category = project.category as keyof Projects
     projects[category].push(project)
   }
-})
-
-onUnmounted(() => {
-  removeEventListener('resize', updateUlHeightAndInitializePath)
 })
 </script>
 

@@ -131,9 +131,10 @@ watch(
     if (props.autoAnimation) return
     if (inView) {
       stopScrollListener.value = useEventListener(
-        window,
+        () => window,
         'scroll',
         updateLetterCount,
+        { passive: true },
       )
     }
     else {
@@ -145,29 +146,20 @@ watch(
   { immediate: true },
 )
 
+watch(
+  () => props.autoAnimation,
+  (valueNew) => {
+    if (valueNew) {
+      startAutoAnimation()
+    }
+    else {
+      stopAutoAnimation()
+    }
+  },
+)
+
 onMounted(() => {
-  if (!props.autoAnimation) return
-  startAutoAnimation()
-
-  watch(
-    () => props.autoAnimation,
-    (valueNew) => {
-      if (valueNew) {
-        startAutoAnimation()
-      }
-      else {
-        stopAutoAnimation()
-      }
-    },
-    { immediate: false },
-  )
-
-  if (props.autoAnimation) return
-  stopScrollListener.value = useEventListener(
-    window,
-    'scroll',
-    updateLetterCount,
-  )
+  if (props.autoAnimation) startAutoAnimation()
 })
 
 watch(currentLetterCount, (countNew, countOld) => {
@@ -185,12 +177,6 @@ watch(currentLetterCount, (countNew, countOld) => {
       break
     }
   }
-})
-
-onBeforeUnmount(() => {
-  stopAutoAnimation()
-  stopScrollListener.value?.()
-  stopCursorBlinkTimeout()
 })
 </script>
 

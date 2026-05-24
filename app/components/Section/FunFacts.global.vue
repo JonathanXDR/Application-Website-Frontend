@@ -47,7 +47,9 @@ onMounted(() => {
   updateChipClaimHeight()
 })
 
-useEventListener(window, 'resize', updateChipClaimHeight)
+useEventListener(() => window, 'resize', updateChipClaimHeight, {
+  passive: true,
+})
 </script>
 
 <template>

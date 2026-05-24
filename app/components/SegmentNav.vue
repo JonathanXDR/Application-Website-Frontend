@@ -28,6 +28,12 @@ const setItemReference = (element: HTMLElement | undefined) => {
   itemElements.value.push(element)
 }
 
+const { start: endTransition } = useTimeoutFn(
+  () => (isTransitioning.value = false),
+  400,
+  { immediate: false },
+)
+
 const updateBubblePosition = () => {
   isTransitioning.value = true
   const selectedItemIndex = props.items.findIndex(
@@ -42,7 +48,7 @@ const updateBubblePosition = () => {
     'opacity': '1',
   }
 
-  setTimeout(() => (isTransitioning.value = false), 400)
+  endTransition()
 }
 
 const bubbleStyle = ref<Record<string, string>>({})
