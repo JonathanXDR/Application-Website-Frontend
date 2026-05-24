@@ -2,8 +2,9 @@ export const useTheme = () => {
   const colorMode = useColorMode()
   const themeCookie = useCookie<string>('theme', { default: () => 'auto' })
 
-  // `useState` is shared across components and survives SSR hydration, so the
-  // one-time client sync below only runs the first time `useTheme()` mounts.
+  // `useState` is shared across components and survives SSR hydration,
+  // so the one-time client sync below only runs the first time
+  // `useTheme()` mounts.
   const initialized = useState('theme-initialized', () => false)
 
   const theme = computed(() => themeCookie.value || 'auto')

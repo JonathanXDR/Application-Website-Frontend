@@ -3,17 +3,17 @@
  * @credits Nuxt SEO <https://nuxtseo.com/>
  *
  * The upstream Nuxt SEO template imports `useOgImageRuntimeConfig` from
- * `#og-image/app/utils` to read module-level defaults (color preference,
- * `hasNuxtIcon` flag). The `#og-image` alias in nuxt-og-image v6.5.1 is
- * mis-mapped to `dist/shared/runtime/` (a path that does not exist in the
- * published package, since the actual sources live at `dist/runtime/`), so
- * the Vite build fails on the import. We inline the only two values the
- * template uses: `colorMode` already has a `'light'` fallback via the prop,
- * and `@nuxt/icon` is a hard dependency of this project so `hasNuxtIcon` is
- * always true.
+ * `#og-image/app/utils` to read module-level defaults (color preference
+ * and the `hasNuxtIcon` flag). The `#og-image` alias in `nuxt-og-image`
+ * 6.5.1 is mis-mapped to `dist/shared/runtime/`, a path that does not
+ * exist in the published package because the actual sources live at
+ * `dist/runtime/`, so the Vite build fails on the import. The two
+ * values the template uses are inlined here instead. `colorMode`
+ * already has a `'light'` fallback via the prop, and `@nuxt/icon` is a
+ * hard dependency of this project so `hasNuxtIcon` is always true.
  *
  * TODO: restore the upstream `useOgImageRuntimeConfig` import once
- *       nuxt-og-image patches its `#og-image` alias config.
+ * `nuxt-og-image` patches its `#og-image` alias config.
  */
 import { computed, resolveComponent } from 'vue'
 
@@ -35,9 +35,9 @@ const props = withDefaults(
 
 const HexRegex = /^#(?:[0-9a-f]{3}){1,2}$/i
 
-// Fall back to live site config so the card never renders literal "title" /
-// "description" placeholders when a page calls `defineOgImage('Overview')`
-// without explicit props.
+// Fall back to live site config so the card never renders the literal
+// `"title"` or `"description"` placeholders when a page calls
+// `defineOgImage('Overview')` without explicit props.
 const siteConfig = useSiteConfig()
 
 const colorMode = computed(() => props.colorMode || 'light')
@@ -77,8 +77,9 @@ const themeHex = computed(() => {
   return '#FFFFFF'
 })
 
-// `@nuxt/icon` is a project dependency so the Icon component is always
-// resolvable here. (Upstream template guards this with `hasNuxtIcon`.)
+// `@nuxt/icon` is a project dependency, so the `Icon` component is
+// always resolvable here. The upstream template guards this with
+// `hasNuxtIcon`.
 const IconComponent = resolveComponent('Icon')
 </script>
 

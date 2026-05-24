@@ -9,14 +9,10 @@ definePageMeta({
   footerCompact: false,
 })
 
-const route = useRoute()
-const { currentRoute } = useNavbar()
+await usePageSeo({ breadcrumb: false })
 
 const { data: navbarData } = await useQueryCollection('navigation')
   .stem('navbar')
-  .first()
-const { data: siteContent } = await useQueryCollection('siteConfig')
-  .stem('site')
   .first()
 
 const sections = computed<SectionType[]>(
@@ -24,27 +20,6 @@ const sections = computed<SectionType[]>(
     ((navbarData.value as unknown as Record<string, unknown>)
       ?.items as SectionType[]) || [],
 )
-
-const pageKey = computed(
-  () => (route.name as string | undefined)?.replace(/___\w+$/, '') ?? '',
-)
-const pageTitle = computed(() => currentRoute.value?.label ?? '')
-const pageDescription = computed(
-  () =>
-    (pageKey.value && siteContent.value?.pages?.[pageKey.value]?.description)
-    || siteContent.value?.description
-    || '',
-)
-
-useSeoMeta({
-  title: () => pageTitle.value,
-  description: () => pageDescription.value,
-})
-
-defineOgImage('Overview', {
-  title: pageTitle.value,
-  description: pageDescription.value,
-})
 </script>
 
 <template>

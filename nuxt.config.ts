@@ -47,6 +47,12 @@ export default defineNuxtConfig({
             type: 'image/svg+xml',
             href: 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256%22%20height%3D%22256%22%20viewBox%3D%220%200%20100%20100%22%3E%0A%20%20%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2220%22%20fill%3D%22%23f56300%22%3E%3C%2Frect%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23ffffff%22%0A%20%20%20%20%20%20%20%20d%3D%22M26.30%2069.58Q21.90%2069.58%2018.71%2068.09Q15.52%2066.61%2013.76%2063.80L13.76%2063.80L19.64%2058.20Q22.17%2062.27%2026.41%2062.27L26.41%2062.27Q31.58%2062.27%2032.79%2056.27L32.79%2056.27L36.47%2037.57L23.00%2037.57L24.43%2030.42L46.76%2030.42L41.64%2055.83Q40.21%2063.20%2036.47%2066.39Q32.73%2069.58%2026.30%2069.58L26.30%2069.58ZM86.25%2042.36Q86.25%2047.75%2083.33%2051.59Q80.41%2055.45%2075.25%2057.04L75.25%2057.04L81.95%2068.92L72.55%2068.92L66.50%2058.14L58.91%2058.14L56.77%2068.92L47.80%2068.92L55.50%2030.42L71.17%2030.42Q78.32%2030.42%2082.28%2033.55Q86.25%2036.69%2086.25%2042.36L86.25%2042.36ZM67.88%2051.05Q72.33%2051.05%2074.78%2049.01Q77.22%2046.98%2077.22%2043.18L77.22%2043.18Q77.22%2040.43%2075.35%2039.06Q73.48%2037.68%2070.02%2037.68L70.02%2037.68L62.98%2037.68L60.28%2051.05L67.88%2051.05Z%22%3E%0A%20%20%20%20%3C%2Fpath%3E%0A%3C%2Fsvg%3E',
           },
+          // Same-origin so it loads against `img-src 'self'` when the dev
+          // server runs on localhost. The top-level `apple-touch-icon` is
+          // env-driven (NUXT_PUBLIC_APP_LOGO points at the deployed dev
+          // host), which makes it cross-origin during local development and
+          // gets blocked by CSP.
+          { rel: 'apple-touch-icon', href: '/img/dev/favicon-dev-orange.png' },
         ],
       },
     },
@@ -77,6 +83,12 @@ export default defineNuxtConfig({
             type: 'image/svg+xml',
             href: '/img/favicon.svg',
           },
+          // Same-origin PNG used as the iOS home-screen icon. A relative
+          // path is sufficient because Safari resolves apple-touch-icon
+          // against the current document origin, which avoids the extra
+          // `img-src` allowlist entries the previous absolute-URL setup
+          // (driven by `NUXT_PUBLIC_APP_LOGO`) required.
+          { rel: 'apple-touch-icon', href: '/img/favicon.png' },
         ],
       },
     },
@@ -113,10 +125,11 @@ export default defineNuxtConfig({
       // `titleTemplate`. Setting it on `app.head` is the canonical Nuxt
       // location and overrides the seo-utils default `'%s %separator %siteName'`.
       titleTemplate: 'JR %separator %s',
-      link: [
-        { rel: 'apple-touch-icon', href: process.env.NUXT_PUBLIC_APP_LOGO },
-        { rel: 'manifest', href: '/site.webmanifest' },
-      ],
+      // `apple-touch-icon` lives in the `$development` and `$production`
+      // blocks above, not here. Both point at same-origin paths so CSP
+      // `img-src 'self'` is enough, and per-host allowlisting of the
+      // deployed `NUXT_PUBLIC_APP_LOGO` origin is unnecessary.
+      link: [{ rel: 'manifest', href: '/site.webmanifest' }],
     },
   },
   css: ['~/assets/css/main.css'],
@@ -141,7 +154,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      // TODO: Currently unused, uncomment when needed
+      // TODO: enable these once the app surfaces build metadata.
       // appName: '',
       // appBuild: '',
       // appVersion: '',
@@ -181,6 +194,12 @@ export default defineNuxtConfig({
         },
       },
     },
+    // `csurf: false` and `robots: false` are re-applied via the
+    // `nitro:config` hook below: nuxt-security 2.6.0 unconditionally
+    // overwrites this entry with assignment (not defu) in its module setup
+    // when @nuxt/hints is installed, clobbering both fields. The hook runs
+    // after that assignment and re-merges them.
+    // https://github.com/Baroshem/nuxt-security/blob/main/src/module.ts
     '/__nuxt_hints/**': {
       csurf: false,
       robots: false,
@@ -188,6 +207,20 @@ export default defineNuxtConfig({
         requestSizeLimiter: false,
         rateLimiter: false,
       },
+    },
+    // @nuxt/scripts proxies third-party telemetry (GA4 collect beacons) under
+    // `/_scripts/p/<host>/<path>`. nuxt-security's `csrf` middleware rejects
+    // every POST without an `x-csrf-token` header with a 403 CSRF mismatch,
+    // which silently drops every analytics event. Disabling CSRF on this
+    // prefix is safe: the proxied endpoints accept only beacon payloads that
+    // the GA4 client already authenticates with its own `cid`/`sid` tokens.
+    // The asset sub-route (`/_scripts/assets/**`) is GET-only and benefits
+    // from the same exemption.
+    // https://nuxt-security.vercel.app/middleware/csrf
+    // https://scripts.nuxt.com/docs/guides/first-party
+    '/_scripts/**': {
+      csurf: false,
+      robots: false,
     },
   },
   future: {
@@ -199,14 +232,23 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2026-03-21',
   nitro: {
-    // Prerender all 4 locale roots so that:
-    //   * link-checker's build-time scan actually exercises every page.
+    // Prerender all four locale roots so that:
+    //   * link-checker's build-time scan exercises every page.
     //   * nuxt-og-image and nuxt-sitemap `zeroRuntime` modes have static
     //     assets to serve from the Vercel CDN instead of cold-starting
     //     Fluid Compute.
+    //
+    // Routes use the canonical trailing-slash form to match
+    // `site.trailingSlash: true` and `i18n.trailingSlash: true`. Without
+    // the slash, the prerenderer follows an internal 301 to the canonical
+    // URL and double-writes the output. `/` is listed explicitly so the
+    // `detectBrowserLanguage.redirectOn: 'root'` meta-refresh page is
+    // emitted as `dist/index.html`, because `crawlLinks` cannot discover
+    // it (no in-page link points back to the unprefixed root under
+    // `strategy: 'prefix'`).
     prerender: {
       crawlLinks: true,
-      routes: ['/de', '/en', '/fr', '/it'],
+      routes: ['/', '/de/', '/en/', '/fr/', '/it/'],
       // `crawlLinks: true` follows every `<img src>` it finds, including
       // the Vercel image-optimizer URLs emitted by `@nuxt/image`'s vercel
       // provider (`/_vercel/image?url=…&w=…&q=…`). That endpoint only
@@ -254,18 +296,45 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
     strict: true,
-    // Customize app/server TypeScript config
     tsConfig: {
       compilerOptions: {
         strict: true,
         types: ['@types/musickit-js'],
       },
     },
-    // Customize build-time TypeScript config
     nodeTsConfig: {
       compilerOptions: {
         strict: true,
       },
+    },
+  },
+  // nuxt-security 2.6.0 sets `nuxt.options.routeRules['/__nuxt_hints/**']`
+  // by direct assignment in its module setup when @nuxt/hints is present
+  // (node_modules/nuxt-security/dist/module.mjs:20-28), which deletes the
+  // `csurf: false` and `robots: false` declared in `routeRules` above.
+  // `nitro:config` fires after every module's setup, so re-merging here
+  // restores both:
+  //   - `csurf: false` lets @nuxt/hints' POSTs to `/__nuxt_hints/lazy-load`
+  //     and `/__nuxt_hints/hydration` reach the dev handler. Without it,
+  //     nuxt-csurf 403s every report with "CSRF Token Mismatch".
+  //   - `robots: false` keeps the internal devtool route out of robots.txt.
+  // The POST body is received and stored by the dev handler (visible via
+  // `GET /__nuxt_hints/lazy-load`), but @nuxt/hints 1.1.2's `postHandler`
+  // ends with `setResponseStatus(event, 201)` and returns `undefined`,
+  // so h3 lets the request fall through to Nuxt's page renderer and the
+  // browser sees a `404 Page not found`. That is an upstream bug. The
+  // payload is intact, only the response status is wrong.
+  // TODO: drop this hook once nuxt-security uses `defuReplaceArray` for
+  //       its auto-hints route rule, and drop the dev-only 404 noise once
+  //       @nuxt/hints' postHandler returns a body (track both upstream).
+  hooks: {
+    'nitro:config'(nitroConfig) {
+      nitroConfig.routeRules ??= {}
+      nitroConfig.routeRules['/__nuxt_hints/**'] = {
+        ...nitroConfig.routeRules['/__nuxt_hints/**'],
+        csurf: false,
+        robots: false,
+      }
     },
   },
   eslint: {
@@ -406,10 +475,23 @@ export default defineNuxtConfig({
     vercel: {
       formats: ['image/avif', 'image/webp'],
     },
+    // The Vercel provider only resizes to widths listed here. Unlisted
+    // widths silently round up to the next bigger entry. With
+    // `densities: [1, 2]` below, each rendered width also needs its 2x
+    // variant declared. The `portrait-*` entries cover the 275, 300, and
+    // 350 CSS sizes from `app/components/Section/About.global.vue`
+    // (`sizes="275px md:300px xl:350px"`) and their retina pairs.
+    // https://image.nuxt.com/providers/vercel#sizes
     screens: {
+      'portrait-1x-base': 275,
+      'portrait-1x-md': 300,
       '2xs': 320,
+      'portrait-1x-xl': 350,
       'xs': 475,
+      'portrait-2x-base': 550,
+      'portrait-2x-md': 600,
       'sm': 640,
+      'portrait-2x-xl': 700,
       'md': 768,
       'lg': 1024,
       'xl': 1280,
@@ -652,11 +734,21 @@ export default defineNuxtConfig({
         'manifest-src': ['\'self\''],
         'media-src': ['\'self\''],
         'object-src': ['\'none\''],
-        // 'self' is retained as a Level 1/2 fallback: 'strict-dynamic'
+        // 'self' is retained as a Level 1/2 fallback. 'strict-dynamic'
         // supersedes it in CSP Level 3 browsers, but older browsers ignore
         // 'strict-dynamic' and would otherwise refuse to load lazy chunks.
+        // 'wasm-unsafe-eval' is required by @nuxt/content's client-side
+        // sqlite-wasm adapter (loaded via `queryContentSqlClientWasm` on
+        // pages that hydrate content queries). It scopes the permission to
+        // WebAssembly only, so full `unsafe-eval` for JavaScript stays off.
         // https://nuxt-security.vercel.app/advanced/strict-csp#strict-dynamic-csp-level-3
-        'script-src': ['\'self\'', '\'strict-dynamic\'', '\'nonce-{{nonce}}\''],
+        // https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_webassembly_execution
+        'script-src': [
+          '\'self\'',
+          '\'strict-dynamic\'',
+          '\'wasm-unsafe-eval\'',
+          '\'nonce-{{nonce}}\'',
+        ],
         'script-src-attr': ['\'none\''],
         // Per nuxt-security maintainers: 'strict-dynamic' does not apply to
         // style-src and runtime-injected styles (motion-v, lazy hydration)

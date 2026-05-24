@@ -54,14 +54,15 @@ export default defineNuxtPlugin((nuxtApp) => {
       const { value } = binding
       const elementRef = ref(element)
 
-      // For elements already in viewport on mount, apply animation immediately
-      // without adding the hidden state first (prevents LCP delay)
+      // Apply the animation immediately for elements already in the
+      // viewport on mount, without adding the hidden state first. This
+      // prevents a needless LCP delay.
       const bounds = element.getBoundingClientRect()
       const isInitiallyVisible
         = bounds.top < window.innerHeight && bounds.bottom > 0
 
       if (!isInitiallyVisible) {
-        // Only hide elements that are below the fold
+        // Only hide elements that are below the fold.
         element.classList.add(...toArray(value.remove))
       }
       else {

@@ -1,10 +1,17 @@
-import { NuxtLink } from '#components'
+import { NuxtLink, NuxtLinkLocale } from '#components'
 import type { LinkItemType } from '#shared/types/components/link-item'
 
+// `NuxtLinkLocale` runs `useLocalePath()` on `to`, so unprefixed
+// internal paths from the content YAML (such as `/projects` and
+// `/technologies`) resolve to the active locale's prefixed route
+// (`/de/projects`, `/en/projects`, and so on). In-page anchors stay on
+// the plain `NuxtLink`, because `localePath` would turn `#about` into
+// `/de#about` and lose the same-page scroll behaviour.
 export const getLinkComponentType = (link: LinkItemType) => {
-  return link.url?.startsWith('#') || link.url?.startsWith('/')
-    ? NuxtLink
-    : 'a'
+  if (!link.url) return 'a'
+  if (link.url.startsWith('/')) return NuxtLinkLocale
+  if (link.url.startsWith('#')) return NuxtLink
+  return 'a'
 }
 
 export const getLinkAttributes = (link: LinkItemType) => {

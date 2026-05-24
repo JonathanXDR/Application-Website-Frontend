@@ -13,7 +13,6 @@ const { y, isScrolling } = useScroll(() =>
 const error = useError()
 const config = useRuntimeConfig()
 
-// Load navbar and info banner content
 const { data: navbarContent } = await useQueryCollection('navigation')
   .stem('navbar')
   .first()
@@ -21,7 +20,8 @@ const { data: infoBannerContent } = await useQueryCollection('navigation')
   .stem('info-banners')
   .first()
 
-// Populate navbar state for use-navbar composable
+// Mirror the navbar content into the shared `useNavbar` state so every
+// component using the composable sees the same data without re-querying.
 watch(
   navbarContent,
   (val) => {
@@ -100,10 +100,11 @@ watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
 watch(() => route.path, resetHideNavbarTimer)
 
 // Sub-section titles update reactively as the user scrolls between
-// in-page anchors (#about, #languages, etc.) on the home page; the per-page
-// title (currentRoute.label) is set by the page itself via useSeoMeta.
-// The `JR %separator %s` template lives in nuxt.config.ts:seo.meta so it's
-// SSR-baked instead of injected client-side from this layout.
+// in-page anchors (`#about`, `#languages`, and so on) on the home page.
+// The per-page title (`currentRoute.label`) is the fallback when no
+// section is active. The `JR %separator %s` template lives in
+// `nuxt.config.ts` under `app.head.titleTemplate`, so it is SSR-baked
+// instead of being injected client-side from this layout.
 const pageTitle = computed(
   () => currentSection.value?.name || currentRoute.value?.label,
 )

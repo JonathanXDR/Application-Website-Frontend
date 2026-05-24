@@ -7,41 +7,7 @@ definePageMeta({
   footerCompact: false,
 })
 
-const route = useRoute()
-const { currentRoute, homeLabel, homePath } = useNavbar()
-const { data: siteContent } = await useQueryCollection('siteConfig')
-  .stem('site')
-  .first()
-
-const pageKey = computed(
-  () => (route.name as string | undefined)?.replace(/___\w+$/, '') ?? '',
-)
-const pageTitle = computed(() => currentRoute.value?.label ?? '')
-const pageDescription = computed(
-  () =>
-    (pageKey.value && siteContent.value?.pages?.[pageKey.value]?.description)
-    || siteContent.value?.description
-    || '',
-)
-
-useSeoMeta({
-  title: () => pageTitle.value,
-  description: () => pageDescription.value,
-})
-
-defineOgImage('Overview', {
-  title: pageTitle.value,
-  description: pageDescription.value,
-})
-
-useSchemaOrg([
-  defineBreadcrumb({
-    itemListElement: () => [
-      { name: homeLabel.value, item: homePath.value },
-      { name: pageTitle.value, item: route.path },
-    ],
-  }),
-])
+await usePageSeo()
 
 // const {
 //   data: view,

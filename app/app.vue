@@ -8,40 +8,43 @@ const color
     ? `var(--color-figure-${randomDevColor.value?.name})`
     : 'var(--color-fill-blue)'
 
-// `knowsAbout` is sourced from the technologies collection so the Person
-// node's skill list stays in sync with the rendered cards on /technologies.
+// `knowsAbout` is sourced from the `technologies` collection so the
+// `Person` node's skill list stays in sync with the cards rendered on
+// `/technologies`.
 const { data: technologies } = await useQueryCollection<{ title: string }>(
   'technologies',
 ).all()
 
-// Person identity lives here, not in nuxt.config.ts, because:
-//   * `image` resolves through siteConfig.url at runtime (no build-time
-//     env), and relative URLs are auto-resolved against `canonicalHost`.
+// The `Person` identity is registered here rather than in
+// `nuxt.config.ts` for several reasons:
+//   * `image` resolves through `siteConfig.url` at runtime (no
+//     build-time env), and relative URLs are auto-resolved against
+//     `canonicalHost`.
 //   * `description` tracks the per-locale value that the site-config
-//     middleware writes from content/config/site.yml (DE, EN, FR, IT).
-//   * `knowsAbout` is derived from the technologies collection.
+//     middleware writes from `content/config/site.yml` (DE, EN, FR, IT).
+//   * `knowsAbout` is derived from the `technologies` collection.
 //   * Omitting `@id` and `url` lets schema-org auto-derive
-//     `@id = {host}#identity`, so this Person becomes the site's
+//     `@id = {host}#identity`, so this `Person` becomes the site's
 //     identity, WebSite publisher, and page author. That is the
 //     recommended pattern for single-identity portfolios.
 //
-// `defineWebSite()` is intentionally NOT called here. schema-org's
-// automatic i18n integration creates per-locale WebSite nodes with the
-// correct prefixed `@id` (`/de/#website`, `/en/#website`, and so on),
-// linked via `workTranslation` and `translationOfWork`.
+// `defineWebSite()` is intentionally NOT called here. The schema-org
+// automatic i18n integration creates per-locale `WebSite` nodes with
+// the correct prefixed `@id` (`/de/#website`, `/en/#website`, and so
+// on), linked via `workTranslation` and `translationOfWork`.
 //
-// TODO: under i18n `strategy: 'prefix'`, nuxt-schema-org 6.0.4 emits a
-// dangling `translationOfWork.@id` for every non-default locale (it
+// TODO: under i18n `strategy: 'prefix'`, `nuxt-schema-org` 6.0.4 emits
+// a dangling `translationOfWork.@id` for every non-default locale (it
 // resolves to `https://host/#website` instead of
 // `https://host/de/#website`). The cause is in
 // `nuxt-schema-org/dist/runtime/app/plugins/i18n/defaults.js`
 // `resolveIdForLocale`, which assumes the default locale is unprefixed.
 // The attempted workaround `defineWebSite({ inLanguage: ... })` made
-// things worse by collapsing every locale's WebSite `@id` to the
+// things worse by collapsing every locale's `WebSite` `@id` to the
 // unprefixed form, which broke `@id` uniqueness and turned
-// `workTranslation`'s 4 valid references into 4 dangling references.
+// `workTranslation`'s four valid references into four dangling ones.
 // Leaving the auto-integration alone is the less bad state. Revisit
-// once upstream honors `strategy: 'prefix'` for the default locale's
+// once upstream honours `strategy: 'prefix'` for the default locale's
 // URL (track upstream).
 //
 // https://nuxtseo.com/docs/schema-org/guides/setup-identity
