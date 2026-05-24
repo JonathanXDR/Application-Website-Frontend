@@ -225,7 +225,14 @@ export default defineNuxtConfig({
         devtools: true,
       },
       webVitals: true,
-      htmlValidate: true,
+      // @nuxt/hints pipes every SSR HTML response through `prettier.format`
+      // before handing it to html-validate. Prettier's HTML parser cannot
+      // handle the SVG → HTML namespace switch inside `<foreignObject>`
+      // (used by the About-section portrait to get real `srcset` density
+      // picking), and throws `Unexpected closing tag ":svg:foreignObject"`
+      // on every render. Re-enable once @nuxt/hints wraps that call in
+      // try/catch or stops formatting before validation.
+      htmlValidate: false,
       thirdPartyScripts: {
         options: {
           ignoredDomains: ['va.vercel-scripts.com'],
@@ -319,8 +326,6 @@ export default defineNuxtConfig({
       'lg': 1024,
       'xl': 1280,
       '2xl': 1536,
-      'portrait': 411,
-      'portrait2x': 822,
     },
     densities: [1, 2],
     presets: {
@@ -422,6 +427,7 @@ export default defineNuxtConfig({
           'https://*.google.com',
           'https://cognito-identity.us-west-2.amazonaws.com',
           'https://user-events-v3.s3-accelerate.amazonaws.com',
+          'https://browser.sentry-cdn.com',
           'https://*.sentry.io',
           'https://*.apple.com',
           'https://vitals.vercel-insights.com',

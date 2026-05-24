@@ -49,7 +49,7 @@ const calculateAge = (date = '') => {
           alt="Portrait"
           preset="portrait"
           fit="cover"
-          sizes="275px md:300px xl:350px"
+          sizes="320px"
           preload
           :nonce
           class="portrait-img"
