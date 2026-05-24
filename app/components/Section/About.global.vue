@@ -33,29 +33,28 @@ const calculateAge = (date = '') => {
           />
         </clipPath>
       </defs>
-      <NuxtImg
-        v-slot="{ src, isLoaded, imgAttrs }"
-        src="/img/portrait.jpg"
-        alt="Portrait"
-        preset="portrait"
+      <!-- foreignObject lets the browser do real <img srcset> density picking
+           on Retina displays — SVG <image> ignores srcset and would always
+           serve 1x. The SVG <clipPath> still applies because foreignObject is
+           a paintable, clippable SVG element. -->
+      <foreignObject
+        x="0"
+        y="10"
         width="411"
         height="411"
-        fit="cover"
-        preload
-        :custom="true"
+        clip-path="url(#image)"
       >
-        <image
-          v-if="isLoaded"
-          v-bind="imgAttrs"
-          :href="src"
-          :nonce
+        <NuxtImg
+          src="/img/portrait.webp"
           alt="Portrait"
-          clip-path="url(#image)"
-          x="0"
-          y="10"
-          preserveAspectRatio="xMidYMin slice"
+          preset="portrait"
+          fit="cover"
+          sizes="275px md:300px xl:350px"
+          preload
+          :nonce
+          class="portrait-img"
         />
-      </NuxtImg>
+      </foreignObject>
     </svg>
 
     <CardItem
@@ -97,6 +96,13 @@ const calculateAge = (date = '') => {
 .info-container > svg {
   filter: saturate(0.9);
   margin: 0 -32px;
+}
+
+.portrait-img {
+  width: 411px;
+  height: 411px;
+  object-fit: cover;
+  display: block;
 }
 
 .info-container div {

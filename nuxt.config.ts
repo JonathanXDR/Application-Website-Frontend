@@ -174,9 +174,6 @@ export default defineNuxtConfig({
     sharedPrerenderData: true,
   },
   compatibilityDate: '2026-03-21',
-  nitro: {
-    preset: 'bun',
-  },
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
@@ -333,9 +330,14 @@ export default defineNuxtConfig({
           height: 411,
         },
       },
+      // Open-Graph default aspect (1200×630, 1.91:1). The preset locks the
+      // intrinsic ratio so the browser reserves space before the image loads
+      // (no CLS). `fit` lives on the component because the Vercel provider's
+      // type omits it from preset modifiers.
       cover: {
         modifiers: {
-          quality: 80,
+          width: 1200,
+          height: 630,
         },
       },
     },
@@ -358,7 +360,7 @@ export default defineNuxtConfig({
       familyName: 'Russ',
       additionalName: 'Elias',
 
-      image: `${process.env.NUXT_SITE_URL}/img/portrait.jpg`,
+      image: `${process.env.NUXT_SITE_URL}/img/portrait.webp`,
       description: process.env.NUXT_PUBLIC_APP_DESCRIPTION,
       jobTitle: 'Software Engineer',
 
@@ -432,12 +434,15 @@ export default defineNuxtConfig({
         'img-src': [
           '\'self\'',
           'data:',
+          'blob:',
           'https://*.google-analytics.com',
           'https://*.analytics.google.com',
           'https://*.googletagmanager.com',
           'https://*.g.doubleclick.net',
           'https://*.google.com',
           'https://*.apple.com',
+          // Apple Music artwork (MusicKit catalog responses)
+          'https://*.mzstatic.com',
         ],
         'manifest-src': ['\'self\''],
         'media-src': ['\'self\''],
