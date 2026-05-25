@@ -37,6 +37,8 @@ export default defineNuxtConfig({
     'nuxt-security',
     'nuxt-viewport',
     '@nuxt/hints',
+    'nuxt-skew-protection',
+    'nuxt-ai-ready',
   ],
   $development: {
     app: {
@@ -222,6 +224,21 @@ export default defineNuxtConfig({
       csurf: false,
       robots: false,
     },
+
+    // Defensive: with `updateStrategy: 'polling'` no SSE/WS handler is
+    // registered, but pre-declaring the exemption keeps a future strategy
+    // switch (`'sse'` or `'ws'`) one-line on the nuxt-security side.
+    '/_nuxt-skew/**': {
+      csurf: false,
+      robots: false,
+    },
+    '/__ai-ready/**': {
+      csurf: false,
+      robots: false,
+      security: {
+        rateLimiter: false,
+      },
+    },
   },
   future: {
     compatibilityVersion: 5,
@@ -336,6 +353,27 @@ export default defineNuxtConfig({
         robots: false,
       }
     },
+  },
+  // Single source of truth for AI signal directives (writes into
+  // `@nuxtjs/robots.groups`; see the trade-off comment above `robots:`).
+  // Prerender-driven: `runtimeSync` and `cron` stay off because every one of
+  // the 16 routes is statically prerendered, so the on-disk SQLite is built
+  // once at prerender time and never touched at runtime. `database` and
+  // `indexNow` stay at their defaults; revisit once we want IndexNow
+  // submissions or a runtime-indexed >100-route site.
+  // https://nuxtseo.com/ai-ready
+  aiReady: {
+    autoI18n: true,
+    contentSignal: {
+      aiTrain: false,
+      search: true,
+      aiInput: true,
+    },
+    markdownCacheHeaders: {
+      maxAge: 3600,
+      swr: true,
+    },
+    llmsTxtCacheSeconds: 600,
   },
   eslint: {
     config: {
@@ -573,39 +611,22 @@ export default defineNuxtConfig({
     },
   },
   robots: {
-    // AI directives let Perplexity, ChatGPT, and ClaudeBot *cite* the
-    // portfolio without ingesting it as training data. Without these, AI
-    // bots train freely by default.
-    //
-    // Emits BOTH standards (both current, neither deprecated, complementary):
-    //   * `contentSignal` (Cloudflare): `Content-Signal: search=yes, ai-input=yes, ai-train=no`
-    //   * `contentUsage`  (IETF):       `Content-Usage: search=y, train-ai=n, ai-output=y`
-    // `ai-output: y` permits AI tools to surface citation-style snippets of
-    // this content (matches the "cite without train" intent).
-    //
-    // These keys live inside `groups[]` because @nuxtjs/robots v6's
-    // `ModuleOptions` type only exposes `contentSignal` and `contentUsage`
-    // per group, despite the docs claiming both placements are valid. A
-    // single `*` group with `allow: ['/']` is functionally identical to a
-    // top-level `allow`, so flatten only when distinct AI policies per
-    // agent are needed.
-    // TODO: lift `contentSignal` and `contentUsage` to top-level once
-    //       @nuxtjs/robots widens `ModuleOptions` to match the docs.
+    // AI directives now live in `aiReady.contentSignal` below. That
+    // module pushes its own `Content-Signal` (Cloudflare) and
+    // `Content-Usage` (IETF) into the robots config at module setup
+    // time, which would create a duplicate `*` group if we kept the
+    // keys here. Note the trade-off: AI Ready's `contentSignal` only
+    // maps `aiTrain` onto `Content-Usage`, so the previous granular
+    // `search=y, ai-output=y` IETF keys do NOT survive the migration
+    // (Cloudflare's `Content-Signal` keeps all three: `ai-train`,
+    // `search`, `ai-input`). Adoption of `Content-Usage` is currently
+    // minimal so the loss is small.
     // https://nuxtseo.com/docs/robots/guides/ai-directives
+    // https://nuxtseo.com/ai-ready
     groups: [
       {
         userAgent: ['*'],
         allow: ['/'],
-        contentSignal: {
-          'ai-train': 'no',
-          'ai-input': 'yes',
-          'search': 'yes',
-        },
-        contentUsage: {
-          'train-ai': 'n',
-          'search': 'y',
-          'ai-output': 'y',
-        },
       },
     ],
   },
@@ -787,6 +808,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   seo: {
     // Production-only canonical redirect. Without this gate, Vercel preview
     // deploys at `*.vercel.app` 301 to the canonical `NUXT_SITE_URL`, which
@@ -842,6 +864,25 @@ export default defineNuxtConfig({
     // via @nuxt/content frontmatter), prefer per-page lastmod via
     // `definePageMeta({ sitemap: { lastmod } })` (a v8 feature).
     // https://nuxtseo.com/docs/sitemap/guides/best-practices
+  },
+  // Vercel already pins framework-managed asset requests to the deployment
+  // ID via its native Skew Protection (default-on since Nov 2024), so we
+  // intentionally avoid `bundleAssets` and additional storage here. The
+  // module's role on top is purely a proactive update prompt: poll
+  // `_nuxt/builds/latest.json` and surface the headless `<SkewNotification>`
+  // toast (mounted in `app/layouts/default.vue`).
+  // https://vercel.com/docs/skew-protection
+  // https://nuxtseo.com/skew-protection
+  skewProtection: {
+    updateStrategy: 'polling',
+    reloadStrategy: 'prompt',
+    bundleAssets: false,
+    multiTab: true,
+    cookie: {
+      sameSite: 'lax',
+      secure: true,
+      httpOnly: false,
+    },
   },
   viewport: {
     breakpoints: {

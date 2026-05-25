@@ -14,6 +14,11 @@ cardItem:
 languagePickerBar:
   chooseYourLanguage: "Wähle deine Sprache"
 
+skewNotification:
+  message: "Eine neue Version ist verfügbar."
+  reload: "Neu laden"
+  dismiss: "Schliessen"
+
 i18n:
   en:
     filterInput:
@@ -28,6 +33,10 @@ i18n:
       learnMore: "Learn more"
     languagePickerBar:
       chooseYourLanguage: "Choose your language"
+    skewNotification:
+      message: "A new version is available."
+      reload: "Reload"
+      dismiss: "Dismiss"
   fr:
     filterInput:
       addTag: "Ajouter un tag"
@@ -41,6 +50,10 @@ i18n:
       learnMore: "En savoir plus"
     languagePickerBar:
       chooseYourLanguage: "Choisis ta langue"
+    skewNotification:
+      message: "Une nouvelle version est disponible."
+      reload: "Recharger"
+      dismiss: "Ignorer"
   it:
     filterInput:
       addTag: "Aggiungi tag"
@@ -54,3 +67,7 @@ i18n:
       learnMore: "Per saperne di più"
     languagePickerBar:
       chooseYourLanguage: "Scegli la tua lingua"
+    skewNotification:
+      message: "È disponibile una nuova versione."
+      reload: "Ricarica"
+      dismiss: "Ignora"

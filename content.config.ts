@@ -86,6 +86,13 @@ export default defineContentConfig({
             chooseYourLanguage: z.string(),
           })
           .optional(),
+        skewNotification: z
+          .object({
+            message: z.string(),
+            reload: z.string(),
+            dismiss: z.string(),
+          })
+          .optional(),
       }),
       i18n: true,
     }),

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { InfoBannerType } from '#shared/types/components/info-banner'
 import FooterPre from '~/components/Footer/Pre.vue'
+import { AnimatePresence, Motion } from 'motion-v'
 
 const { navProps, navData } = useNavbar()
 const { randomDevColor } = useColor()
@@ -18,6 +19,9 @@ const { data: navbarContent } = await useQueryCollection('navigation')
   .first()
 const { data: infoBannerContent } = await useQueryCollection('navigation')
   .stem('info-banners')
+  .first()
+const { data: uiLabels } = await useQueryCollection('siteConfig')
+  .stem('ui-labels')
   .first()
 
 // Mirror the navbar content into the shared `useNavbar` state so every
@@ -174,6 +178,39 @@ const footerComponent = computed(() =>
     </footer>
     <!-- <FooterItem /> -->
     <EasterEggAscii />
+    <SkewNotification v-slot="{ reload, dismiss, isOpen }">
+      <AnimatePresence>
+        <Motion
+          v-if="isOpen"
+          as="div"
+          role="status"
+          aria-live="polite"
+          :initial="{ y: 100, opacity: 0 }"
+          :animate="{ y: 0, opacity: 1 }"
+          :exit="{ y: 100, opacity: 0 }"
+          :transition="{ type: 'spring', stiffness: 300, damping: 30 }"
+          class="fixed inset-x-0 bottom-4 z-50 mx-auto flex w-fit max-w-md items-center gap-3 rounded-2xl bg-[var(--color-fill-tertiary)] px-4 py-3 ring-1 ring-[var(--color-fill-quaternary)] backdrop-blur-md"
+        >
+          <span class="text-sm font-medium text-[var(--color-fill-gray)]">
+            {{ uiLabels?.skewNotification?.message }}
+          </span>
+          <button
+            type="button"
+            class="text-sm font-semibold text-[var(--color-figure-blue)]"
+            @click="reload"
+          >
+            {{ uiLabels?.skewNotification?.reload }}
+          </button>
+          <button
+            type="button"
+            class="text-sm text-[var(--color-figure-gray-secondary)]"
+            @click="dismiss"
+          >
+            {{ uiLabels?.skewNotification?.dismiss }}
+          </button>
+        </Motion>
+      </AnimatePresence>
+    </SkewNotification>
   </div>
 </template>
 

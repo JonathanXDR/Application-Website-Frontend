@@ -60,7 +60,9 @@
     "motion-v": "2.2.1",
     "neostandard": "0.13.0",
     "nuxt": "4.4.6",
+    "nuxt-ai-ready": "1.3.7",
     "nuxt-security": "2.6.0",
+    "nuxt-skew-protection": "1.1.1",
     "nuxt-viewport": "2.4.0",
     "octokit": "5.0.5",
     "sass-embedded": "1.100.0",
@@ -71,6 +73,7 @@
     "vue": "3.5.34",
     "vue-router": "5.0.7",
     "vue-tsc": "3.3.1",
+    "yaml": "2.9.0",
     "zod": "4.4.3"
   },
   "dependencies": {
