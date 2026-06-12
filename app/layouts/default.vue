@@ -14,15 +14,18 @@ const { y, isScrolling } = useScroll(() =>
 const error = useError()
 const config = useRuntimeConfig()
 
-const { data: navbarContent } = await useQueryCollection('navigation')
-  .stem('navbar')
-  .first()
-const { data: infoBannerContent } = await useQueryCollection('navigation')
-  .stem('info-banners')
-  .first()
-const { data: uiLabels } = await useQueryCollection('siteConfig')
-  .stem('ui-labels')
-  .first()
+// The three queries are independent, so they run in parallel. This
+// layout wraps every page, which makes it the hottest SSR path in the
+// app, and serializing the queries added avoidable latency per render.
+const [
+  { data: navbarContent },
+  { data: infoBannerContent },
+  { data: uiLabels },
+] = await Promise.all([
+  useQueryCollection('navigation').stem('navbar').first(),
+  useQueryCollection('navigation').stem('info-banners').first(),
+  useQueryCollection('siteConfig').stem('ui-labels').first(),
+])
 
 // Mirror the navbar content into the shared `useNavbar` state so every
 // component using the composable sees the same data without re-querying.
@@ -103,6 +106,17 @@ watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
 
 watch(() => route.path, resetHideNavbarTimer)
 
+// Reset the active section on navigation. This lives here rather than in
+// useSection() because the composable is also called from the v-section
+// IntersectionObserver callback outside component scope, where a watcher
+// would leak. The layout is instantiated exactly once.
+watch(
+  () => route.path,
+  () => {
+    currentSection.value = undefined
+  },
+)
+
 // Sub-section titles update reactively as the user scrolls between
 // in-page anchors (`#about`, `#languages`, and so on) on the home page.
 // The per-page title (`currentRoute.label`) is the fallback when no
@@ -113,19 +127,33 @@ const pageTitle = computed(
   () => currentSection.value?.name || currentRoute.value?.label,
 )
 
-useSeoMeta({ title: () => pageTitle.value })
+// Yield the title to error.vue while an error is active. Without the
+// guard, 404s under an existing route prefix rendered the layout title
+// instead of the localized error title.
+useSeoMeta({ title: () => (error.value ? undefined : pageTitle.value) })
 
 if (config.public.appEnvironment === 'development') {
+  // The `key` values match the static dev icons declared in
+  // nuxt.config.ts `$development.app.head.link`, so these entries
+  // replace those instead of rendering duplicate tags. The svg icon is
+  // emitted only once its recolored data URL has been fetched, otherwise
+  // SSR would render a `rel="icon"` tag with an empty href.
   useHead({
-    link: [
+    link: () => [
+      ...(faviconGraphicData.value
+        ? [
+            {
+              key: 'favicon',
+              rel: 'icon',
+              type: 'image/svg+xml',
+              href: faviconGraphicData.value,
+            },
+          ]
+        : []),
       {
-        rel: 'icon',
-        type: 'image/svg+xml',
-        href: () => faviconGraphicData.value,
-      },
-      {
+        key: 'touch-icon',
         rel: 'apple-touch-icon',
-        href: () => `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
+        href: `/img/dev/favicon-dev-${randomDevColor.value?.name}.png`,
       },
     ],
   })

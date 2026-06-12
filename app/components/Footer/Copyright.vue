@@ -22,7 +22,7 @@ const links = computed<LinkItemType[]>(
 const allRightsReserved = computed(
   () => copyrightData.value?.allRightsReserved ?? '',
 )
-const currentYear = ref(new Date().getFullYear())
+const currentYear = useCurrentYear()
 </script>
 
 <template>

@@ -2,7 +2,7 @@
 const { data: copyrightData } = await useQueryCollection('navigation')
   .stem('footer-copyright')
   .first()
-const currentYear = ref(new Date().getFullYear())
+const currentYear = useCurrentYear()
 </script>
 
 <template>
