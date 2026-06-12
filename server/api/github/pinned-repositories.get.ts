@@ -86,23 +86,31 @@ const remapProperties = (item: Repository) => {
   }
 }
 
-export default defineEventHandler(async (event) => {
-  const octokit = useOctokit()
-  const { username, perPage = 30 } = getQuery<{
-    username: string
-    perPage?: number
-  }>(event)
+// The username is pinned server side to the configured repository owner
+// and pagination is clamped, see the note in server/utils/octokit.ts.
+export default defineCachedEventHandler(
+  async (event) => {
+    const octokit = useOctokit()
+    const { owner } = useGitHubRepoCoordinates()
+    const perPage = clampPerPage(getQuery(event).perPage, 30)
 
-  try {
-    const response = await octokit.graphql<GraphQlQueryResponseData>(query, {
-      username,
-      perPage: Number(perPage),
-    })
-    return response.user.pinnedItems.edges.map((edge: { node: Repository }) =>
-      remapProperties(edge.node),
-    )
-  }
-  catch (error) {
-    handleGitHubError(error)
-  }
-})
+    try {
+      const response = await octokit.graphql<GraphQlQueryResponseData>(query, {
+        username: owner,
+        perPage,
+      })
+      return response.user.pinnedItems.edges.map((edge: { node: Repository }) =>
+        remapProperties(edge.node),
+      )
+    }
+    catch (error) {
+      handleGitHubError(error)
+    }
+  },
+  {
+    name: 'github-pinned-repositories',
+    maxAge: GITHUB_CACHE_MAX_AGE,
+    swr: true,
+    getKey: event => `pinned:${clampPerPage(getQuery(event).perPage, 30)}`,
+  },
+)

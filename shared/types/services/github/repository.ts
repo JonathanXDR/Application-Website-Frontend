@@ -6,6 +6,22 @@ export type MinimalRepository = components['schemas']['minimal-repository']
 export type FullRepository = components['schemas']['full-repository']
 export type Repository = components['schemas']['repository']
 
+// Projection returned by /api/github/user-repositories. The handler
+// narrows the upstream minimal-repository object to the fields the UI
+// consumes, which keeps the prerendered payloads small.
+export type MinimalRepositoryCard = Pick<
+  MinimalRepository,
+  | 'name'
+  | 'description'
+  | 'html_url'
+  | 'created_at'
+  | 'updated_at'
+  | 'language'
+  | 'topics'
+  | 'license'
+  | 'archived'
+>
+
 export type GetPublicRepositories
   = Endpoints['GET /repositories']['response']['data']
 export type GetPublicRepositoriesParameters

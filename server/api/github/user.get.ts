@@ -1,14 +1,25 @@
-import type { GetUserParameters } from '#shared/types/services/github/user'
+// The username is pinned server side to the configured repository owner.
+// Client-supplied query params are ignored on purpose, see the note in
+// server/utils/octokit.ts.
+export default defineCachedEventHandler(
+  async () => {
+    const octokit = useOctokit()
+    const { owner } = useGitHubRepoCoordinates()
 
-export default defineEventHandler(async (event) => {
-  const octokit = useOctokit()
-  const parameters: GetUserParameters = getQuery(event)
-
-  try {
-    const { data } = await octokit.request('GET /users/{username}', parameters)
-    return data
-  }
-  catch (error) {
-    handleGitHubError(error)
-  }
-})
+    try {
+      const { data } = await octokit.request('GET /users/{username}', {
+        username: owner,
+      })
+      return data
+    }
+    catch (error) {
+      handleGitHubError(error)
+    }
+  },
+  {
+    name: 'github-user',
+    maxAge: GITHUB_CACHE_MAX_AGE,
+    swr: true,
+    getKey: () => 'owner',
+  },
+)

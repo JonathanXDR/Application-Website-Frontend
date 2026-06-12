@@ -1,17 +1,28 @@
-import type { GetRepositoryTagsParameters } from '#shared/types/services/github/tag'
+// Owner and repo are pinned server side to the configured repository
+// coordinates and pagination is clamped, see the note in
+// server/utils/octokit.ts.
+export default defineCachedEventHandler(
+  async (event) => {
+    const octokit = useOctokit()
+    const { owner, repo } = useGitHubRepoCoordinates()
+    const perPage = clampPerPage(getQuery(event).per_page)
 
-export default defineEventHandler(async (event) => {
-  const octokit = useOctokit()
-  const parameters: GetRepositoryTagsParameters = getQuery(event)
-
-  try {
-    const { data } = await octokit.request(
-      'GET /repos/{owner}/{repo}/tags',
-      parameters,
-    )
-    return data
-  }
-  catch (error) {
-    handleGitHubError(error)
-  }
-})
+    try {
+      const { data } = await octokit.request('GET /repos/{owner}/{repo}/tags', {
+        owner,
+        repo,
+        per_page: perPage,
+      })
+      return data
+    }
+    catch (error) {
+      handleGitHubError(error)
+    }
+  },
+  {
+    name: 'github-repository-tags',
+    maxAge: GITHUB_CACHE_MAX_AGE,
+    swr: true,
+    getKey: event => `tags:${clampPerPage(getQuery(event).per_page)}`,
+  },
+)

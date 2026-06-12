@@ -3,14 +3,24 @@ import type { QueryObject } from 'ufo'
 
 export const APPLE_MUSIC_BASE_URL = 'https://api.music.apple.com/v1'
 
+// Module-scope cache for the signed developer token. ES256 signing on
+// every request wastes CPU for a token that stays valid for a day. The
+// token is re-signed an hour before expiry.
+let cachedAuthToken: { token: string, expiresAt: number } | undefined
+
 function generateAuthToken(): string {
+  const now = Date.now()
+  if (cachedAuthToken && now < cachedAuthToken.expiresAt - 60 * 60 * 1000) {
+    return cachedAuthToken.token
+  }
+
   const config = useRuntimeConfig()
   const privateKey = Buffer.from(
     config.appleDeveloperPrivateKey,
     'base64',
   ).toString()
 
-  return jwt.sign({}, privateKey, {
+  const token = jwt.sign({}, privateKey, {
     algorithm: 'ES256',
     expiresIn: '1d',
     issuer: config.appleDeveloperTeamId,
@@ -19,6 +29,9 @@ function generateAuthToken(): string {
       kid: config.appleDeveloperKeyId,
     },
   })
+
+  cachedAuthToken = { token, expiresAt: now + 24 * 60 * 60 * 1000 }
+  return token
 }
 
 interface MusicKitRequestOptions {
@@ -63,16 +76,17 @@ export function handleMusicKitError(error: unknown): never {
     const err = error as {
       status: number
       statusMessage?: string
-      message?: string
     }
     throw createError({
       status: err.status,
-      statusMessage: err.statusMessage ?? err.message ?? 'MusicKit API Error',
+      statusMessage: err.statusMessage ?? 'MusicKit API Error',
     })
   }
+  // Log the original error server side but never copy raw internal
+  // messages into the public response.
+  console.error('[musickit]', error)
   throw createError({
     status: 500,
-    statusMessage:
-      error instanceof Error ? error.message : 'Internal Server Error',
+    statusMessage: 'Internal Server Error',
   })
 }
