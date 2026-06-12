@@ -8,19 +8,28 @@ const LOCALE_PREFIX = /^\/(de|en|fr|it)(?=\/|$)/
 
 export default defineEventHandler(async (event) => {
   const path = event.path?.split('?')[0]
-  const localeMatch = path?.match(LOCALE_PREFIX)
-  if (!path || !localeMatch) return
+  const locale = path?.match(LOCALE_PREFIX)?.[1]
+  if (!path || !locale) return
+
+  // Skip non-page requests that carry a locale prefix, such as
+  // /de/_payload.json from client-side navigations. They never render
+  // head tags, so the site-config description query would be wasted.
+  if (path.includes('.')) return
 
   // Force the `@nuxt/content` fork to load the right locale variant of
-  // the i18n-enabled `siteConfig` collection. `event.context.nuxtI18n`
-  // is not populated yet at this point in the request lifecycle, so it
-  // is seeded from the URL here.
+  // the i18n-enabled `siteConfig` collection. The explicit `.locale()`
+  // call is required: the fork's automatic locale detection does not see
+  // the request locale at this point in the middleware lifecycle, which
+  // previously baked the German description into every locale's site
+  // config. `event.context.nuxtI18n` is still seeded for any downstream
+  // consumer that relies on it.
   event.context.nuxtI18n = {
     ...event.context.nuxtI18n,
-    locale: localeMatch[1],
+    locale,
   }
 
   const siteContent = await queryCollection(event, 'siteConfig')
+    .locale(locale, { fallback: 'de' })
     .stem('site')
     .first()
 
