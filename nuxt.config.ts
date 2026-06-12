@@ -369,16 +369,17 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
     optimizeDeps: {
       include: [
-        'motion-v',
+        '@unhead/schema-org/vue',
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
+        'dayjs', // CJS
         'dayjs/locale/de', // CJS
         'dayjs/locale/en', // CJS
         'dayjs/locale/fr', // CJS
         'dayjs/locale/it', // CJS
-        'dayjs', // CJS
         'dayjs/plugin/relativeTime', // CJS
-        '@vue/devtools-core',
-        '@vue/devtools-kit',
         'minimark/hast',
+        'motion-v',
       ],
     },
   },
