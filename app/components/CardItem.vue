@@ -29,8 +29,8 @@ const props = withDefaults(
   },
 )
 
-const { data: uiLabels } = useQueryCollection('siteConfig')
-  .stem('ui-labels')
+const { data: cardLabels } = useQueryCollection('components')
+  .stem('card-item')
   .first()
 const { randomDevColor } = useColor()
 
@@ -110,7 +110,7 @@ const linkCollectionLinks = computed(
   () =>
     props.links || [
       {
-        title: uiLabels.value?.cardItem?.learnMore,
+        title: cardLabels.value?.learnMore,
         url: props.html_url,
         icon: { name: 'sf-symbols:chevron.right' },
       },

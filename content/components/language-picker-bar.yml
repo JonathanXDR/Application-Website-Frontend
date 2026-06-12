@@ -1,0 +1,9 @@
+chooseYourLanguage: "Wähle deine Sprache"
+
+i18n:
+  en:
+    chooseYourLanguage: "Choose your language"
+  fr:
+    chooseYourLanguage: "Choisis ta langue"
+  it:
+    chooseYourLanguage: "Scegli la tua lingua"

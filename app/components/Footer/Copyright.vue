@@ -13,7 +13,7 @@ withDefaults(
   },
 )
 
-const { data: copyrightData } = await useQueryCollection('navigation')
+const { data: copyrightData } = await useQueryCollection('components')
   .stem('footer-copyright')
   .first()
 const links = computed<LinkItemType[]>(

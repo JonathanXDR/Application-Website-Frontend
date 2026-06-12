@@ -1,0 +1,17 @@
+created: "Erstellt"
+updated: "Aktualisiert"
+learnMore: "Mehr erfahren"
+
+i18n:
+  en:
+    created: "Created"
+    updated: "Updated"
+    learnMore: "Learn more"
+  fr:
+    created: "Créé"
+    updated: "Mis à jour"
+    learnMore: "En savoir plus"
+  it:
+    created: "Creato"
+    updated: "Aggiornato"
+    learnMore: "Per saperne di più"

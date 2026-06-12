@@ -54,7 +54,7 @@ export default defineContentConfig({
       type: 'data',
       source: 'config/*.yml',
       schema: z.object({
-        description: z.string().optional(),
+        description: z.string(),
         pages: z
           .record(
             z.object({
@@ -62,45 +62,15 @@ export default defineContentConfig({
             }),
           )
           .optional(),
-        filterInput: z
-          .object({
-            addTag: z.string(),
-            tagSelectRemove: z.string(),
-          })
-          .optional(),
-        liveResultSummary: z
-          .object({
-            title: z.string(),
-            description: z.string(),
-          })
-          .optional(),
-        cardItem: z
-          .object({
-            created: z.string(),
-            updated: z.string(),
-            learnMore: z.string(),
-          })
-          .optional(),
-        languagePickerBar: z
-          .object({
-            chooseYourLanguage: z.string(),
-          })
-          .optional(),
-        skewNotification: z
-          .object({
-            message: z.string(),
-            reload: z.string(),
-            dismiss: z.string(),
-          })
-          .optional(),
       }),
       i18n: true,
     }),
 
-    navigation: defineCollection({
+    components: defineCollection({
       type: 'data',
-      source: 'navigation/*.yml',
+      source: 'components/*.yml',
       schema: z.object({
+        // Structural content for navigation and footer chrome.
         items: z.array(z.record(z.unknown())).optional(),
         sections: z.array(z.record(z.unknown())).optional(),
         links: z.array(linkSchema).optional(),
@@ -115,6 +85,18 @@ export default defineContentConfig({
         theme: z.array(z.record(z.unknown())).optional(),
         projects: z.array(z.record(z.unknown())).optional(),
         technologies: z.array(z.record(z.unknown())).optional(),
+        // Micro-copy labels, one file per component (formerly ui-labels.yml).
+        addTag: z.string().optional(),
+        tagSelectRemove: z.string().optional(),
+        title: z.string().optional(),
+        description: z.string().optional(),
+        created: z.string().optional(),
+        updated: z.string().optional(),
+        learnMore: z.string().optional(),
+        chooseYourLanguage: z.string().optional(),
+        message: z.string().optional(),
+        reload: z.string().optional(),
+        dismiss: z.string().optional(),
       }),
       i18n: true,
     }),

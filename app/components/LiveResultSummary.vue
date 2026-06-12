@@ -5,8 +5,8 @@ defineProps<{
 }>()
 
 const { randomDevColor } = useColor()
-const { data: uiLabels } = await useQueryCollection('siteConfig')
-  .stem('ui-labels')
+const { data: summaryLabels } = await useQueryCollection('components')
+  .stem('live-result-summary')
   .first()
 </script>
 
@@ -16,12 +16,7 @@ const { data: uiLabels } = await useQueryCollection('siteConfig')
     class="results"
   >
     <div class="number-results">
-      {{
-        uiLabels?.liveResultSummary?.title?.replace(
-          "{count}",
-          String(totalResults),
-        )
-      }}
+      {{ summaryLabels?.title?.replace("{count}", String(totalResults)) }}
     </div>
     <div
       v-if="pinnedResults"
@@ -36,7 +31,7 @@ const { data: uiLabels } = await useQueryCollection('siteConfig')
           }"
           class="icon icon-md"
         />
-        <span>{{ uiLabels?.liveResultSummary?.description }}</span>
+        <span>{{ summaryLabels?.description }}</span>
         <span class="total"> ({{ pinnedResults }})</span>
       </div>
       <!-- <div class="changed-total changed-total-modified">

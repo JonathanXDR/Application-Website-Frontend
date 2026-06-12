@@ -20,11 +20,11 @@ const config = useRuntimeConfig()
 const [
   { data: navbarContent },
   { data: infoBannerContent },
-  { data: uiLabels },
+  { data: skewLabels },
 ] = await Promise.all([
-  useQueryCollection('navigation').stem('navbar').first(),
-  useQueryCollection('navigation').stem('info-banners').first(),
-  useQueryCollection('siteConfig').stem('ui-labels').first(),
+  useQueryCollection('components').stem('navbar').first(),
+  useQueryCollection('components').stem('info-banners').first(),
+  useQueryCollection('components').stem('skew-notification').first(),
 ])
 
 // Mirror the navbar content into the shared `useNavbar` state so every
@@ -220,21 +220,21 @@ const footerComponent = computed(() =>
           class="fixed inset-x-0 bottom-4 z-50 mx-auto flex w-fit max-w-md items-center gap-3 rounded-2xl bg-[var(--color-fill-tertiary)] px-4 py-3 ring-1 ring-[var(--color-fill-quaternary)] backdrop-blur-md"
         >
           <span class="text-sm font-medium text-[var(--color-fill-gray)]">
-            {{ uiLabels?.skewNotification?.message }}
+            {{ skewLabels?.message }}
           </span>
           <button
             type="button"
             class="text-sm font-semibold text-[var(--color-figure-blue)]"
             @click="reload"
           >
-            {{ uiLabels?.skewNotification?.reload }}
+            {{ skewLabels?.reload }}
           </button>
           <button
             type="button"
             class="text-sm text-[var(--color-figure-gray-secondary)]"
             @click="dismiss"
           >
-            {{ uiLabels?.skewNotification?.dismiss }}
+            {{ skewLabels?.dismiss }}
           </button>
         </Motion>
       </AnimatePresence>

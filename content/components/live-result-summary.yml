@@ -1,0 +1,13 @@
+title: "Zeige {count} Ergebnisse"
+description: "Angepinnt"
+
+i18n:
+  en:
+    title: "Showing {count} results"
+    description: "Pinned"
+  fr:
+    title: "Afficher {count} résultats"
+    description: "Épinglé"
+  it:
+    title: "Mostra i risultati di {count}"
+    description: "Appuntato"

@@ -1,0 +1,17 @@
+message: "Eine neue Version ist verfügbar."
+reload: "Neu laden"
+dismiss: "Schliessen"
+
+i18n:
+  en:
+    message: "A new version is available."
+    reload: "Reload"
+    dismiss: "Dismiss"
+  fr:
+    message: "Une nouvelle version est disponible."
+    reload: "Recharger"
+    dismiss: "Ignorer"
+  it:
+    message: "È disponibile una nuova versione."
+    reload: "Ricarica"
+    dismiss: "Ignora"

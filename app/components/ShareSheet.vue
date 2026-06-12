@@ -3,7 +3,7 @@ import type { LinkItemType } from '#shared/types/components/link-item'
 
 defineProps<{ links?: LinkItemType[] }>()
 
-const { data: shareData } = await useQueryCollection('navigation')
+const { data: shareData } = await useQueryCollection('components')
   .stem('share-sheet')
   .first()
 const socialLinks = computed<LinkItemType[]>(

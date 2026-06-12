@@ -11,7 +11,7 @@ definePageMeta({
 
 await usePageSeo({ breadcrumb: false })
 
-const { data: navbarData } = await useQueryCollection('navigation')
+const { data: navbarData } = await useQueryCollection('components')
   .stem('navbar')
   .first()
 

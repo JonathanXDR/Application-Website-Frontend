@@ -69,12 +69,12 @@ const { data: pinnedProjects } = await useFetch(
 // serializing three round-trips per render.
 const [
   { data: swisscomProjects },
-  { data: uiLabels },
+  { data: cardLabels },
   { data: segmentNavData },
 ] = await Promise.all([
   useQueryCollection<CardItemType>('projects').all(),
-  useQueryCollection('siteConfig').stem('ui-labels').first(),
-  useQueryCollection('navigation').stem('segment-nav').first(),
+  useQueryCollection('components').stem('card-item').first(),
+  useQueryCollection('components').stem('segment-nav').first(),
 ])
 
 const projects: Projects = reactive({
@@ -293,7 +293,7 @@ watchEffect(() => {
                 ...project?.info,
                 date: {
                   ...project?.info?.date,
-                  event: uiLabels?.cardItem?.updated,
+                  event: cardLabels?.updated,
                 },
               },
             }"
@@ -317,7 +317,7 @@ watchEffect(() => {
                 ...project.info,
                 date: {
                   ...project?.info?.date,
-                  event: uiLabels?.cardItem?.updated,
+                  event: cardLabels?.updated,
                 },
               },
             }"

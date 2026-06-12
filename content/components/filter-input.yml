@@ -1,0 +1,13 @@
+addTag: "Tag hinzufügen"
+tagSelectRemove: "Tag entfernen"
+
+i18n:
+  en:
+    addTag: "Add tag"
+    tagSelectRemove: "Remove tag"
+  fr:
+    addTag: "Ajouter un tag"
+    tagSelectRemove: "Supprimer le tag"
+  it:
+    addTag: "Aggiungi tag"
+    tagSelectRemove: "Rimuovi tag"
