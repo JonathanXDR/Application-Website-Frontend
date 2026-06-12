@@ -168,7 +168,9 @@ export default defineContentConfig({
       schema: z.object({
         pageId: z.string(),
         label: z.string(),
-        status: z.number(),
+        // Optional because the generic fallback page (error.yml) matches
+        // any status and intentionally declares none.
+        status: z.number().optional(),
         icon: iconSchema,
         title: z.string(),
         description: z.string(),

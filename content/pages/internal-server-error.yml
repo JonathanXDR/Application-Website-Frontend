@@ -1,4 +1,4 @@
-id: internal-server-error
+pageId: internal-server-error
 label: "Interner Serverfehler"
 status: 500
 icon:

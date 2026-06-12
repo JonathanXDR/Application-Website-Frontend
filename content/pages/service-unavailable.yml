@@ -1,4 +1,4 @@
-id: service-unavailable
+pageId: service-unavailable
 label: "Service nicht verfügbar"
 status: 503
 icon:
