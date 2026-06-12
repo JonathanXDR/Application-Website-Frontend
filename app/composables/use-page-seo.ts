@@ -35,6 +35,13 @@ interface UsePageSeoOptions {
  * keep the description in sync during SPA navigation.
  */
 export const usePageSeo = async (options: UsePageSeoOptions = {}) => {
+  // Plain .ts composables get no compiler-inserted async context
+  // restoration, unlike top-level awaits in <script setup>. After the
+  // awaited query below, the Nuxt instance is gone on the server and
+  // useSeoMeta, defineOgImage, and useSchemaOrg would throw during SSR.
+  // Capture the instance here and re-enter it via runWithContext.
+  // https://nuxt.com/docs/4.x/guide/concepts/auto-imports#vue-and-nuxt-composables
+  const nuxtApp = useNuxtApp()
   const route = useRoute()
   const { currentRoute, homeLabel, homePath } = useNavbar()
   const { data: siteContent } = await useQueryCollection('siteConfig')
@@ -55,23 +62,33 @@ export const usePageSeo = async (options: UsePageSeoOptions = {}) => {
       || '',
   )
 
-  useSeoMeta({ description: () => pageDescription.value })
+  nuxtApp.runWithContext(() => {
+    useSeoMeta({ description: () => pageDescription.value })
 
-  defineOgImage('Overview', {
-    title: pageTitle.value,
-    description: pageDescription.value,
+    // The third argument carries image options. `alt` there emits
+    // og:image:alt and twitter:image:alt, which were previously missing.
+    defineOgImage(
+      'Overview',
+      {
+        title: pageTitle.value,
+        description: pageDescription.value,
+      },
+      {
+        alt: `${pageTitle.value} | ${pageDescription.value}`,
+      },
+    )
+
+    if (options.breadcrumb ?? true) {
+      useSchemaOrg([
+        defineBreadcrumb({
+          itemListElement: () => [
+            { name: homeLabel.value, item: homePath.value },
+            { name: pageTitle.value, item: route.path },
+          ],
+        }),
+      ])
+    }
   })
-
-  if (options.breadcrumb ?? true) {
-    useSchemaOrg([
-      defineBreadcrumb({
-        itemListElement: () => [
-          { name: homeLabel.value, item: homePath.value },
-          { name: pageTitle.value, item: route.path },
-        ],
-      }),
-    ])
-  }
 
   return { pageTitle, pageDescription }
 }
