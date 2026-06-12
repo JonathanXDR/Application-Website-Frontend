@@ -1,4 +1,13 @@
+import { createRequire } from 'node:module'
+import type { IconifyJSON } from '@iconify/types'
 import tailwindcss from '@tailwindcss/vite'
+
+// Loaded with require instead of an import statement so the TypeScript
+// checker never synthesizes a literal type for the 7 MB icon JSON,
+// which would slow nuxi typecheck to a crawl.
+const sfSymbols = createRequire(import.meta.url)(
+  '@jonathanxdr/iconify-json-sf-symbols',
+) as IconifyJSON
 
 // Fail fast when the Infisical to Vercel sync did not deliver the site
 // URL. Without it, i18n strictSeo has no baseUrl, site config has no
@@ -574,11 +583,11 @@ export default defineNuxtConfig({
       scan: true,
     },
     customCollections: [
-      {
-        prefix: 'sf-symbols',
-        dir: './app/assets/icons/sf-symbols',
-        normalizeIconName: false,
-      },
+      // Prebuilt Iconify JSON from the private package. Passing the
+      // parsed collection keeps 6984 SVG files out of this repository
+      // and avoids the per-build directory scan that previously pushed
+      // the prerender bundle past Node's default heap limit.
+      sfSymbols,
       {
         prefix: 'simple-icons-extended',
         dir: './app/assets/icons/simple-icons-extended',
