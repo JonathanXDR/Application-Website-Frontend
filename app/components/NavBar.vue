@@ -283,7 +283,7 @@ watch(
       <div class="ac-ln-content">
         <div class="ac-ln-title">
           <NuxtLink
-            :to="localePath({ path: '/' } as any)"
+            :to="localePath({ path: '/' })"
             aria-label="JR"
           >
             <SiteLogo
@@ -342,7 +342,7 @@ watch(
                   :to="
                     isCurrent(item)
                       ? undefined
-                      : localePath({ path: item.route! } as any)
+                      : localePath({ path: item.route! })
                   "
                   :class="['ac-ln-menu-link', { current: isCurrent(item) }]"
                   :role="isCurrent(item) ? 'link' : undefined"

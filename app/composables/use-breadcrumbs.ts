@@ -1,4 +1,3 @@
-import type { PageType } from '#shared/types/common/page'
 import type { IconItemType } from '#shared/types/components/icon-item'
 import type { LinkItemType } from '#shared/types/components/link-item'
 
@@ -22,22 +21,10 @@ export function useBreadcrumbs(
   const route = useRoute()
   const requestURL = useRequestURL()
   const { currentRoute } = useNavbar()
-  const error = useError()
 
-  const errorPages = useState<(PageType & { pageId: string })[]>(
-    'error-pages',
-    () => [],
-  )
-
-  const errorPage = computed<PageType | null>(() => {
-    if (!error.value?.status) return null
-    const matched = errorPages.value.find(
-      p => p.status === error.value?.status,
-    )
-    return (
-      matched || errorPages.value.find(p => p.pageId === 'error') || null
-    )
-  })
+  // The previous useState('error-pages') lookup was dead code. Nothing
+  // ever populated that state, so the error-page branch of the last
+  // crumb title could never resolve.
 
   const shouldShowBreadcrumbs = computed(() => route.path !== '/')
   const computedLinks = computed<LinkItemType[]>(() => {
@@ -60,9 +47,7 @@ export function useBreadcrumbs(
       result.push({ title: capitalized, url: `${subDomain}.${mainDomain}` })
     }
 
-    const lastCrumbTitle = errorPage.value?.label
-      ? errorPage.value.label
-      : (currentRoute.value?.label ?? route.path)
+    const lastCrumbTitle = currentRoute.value?.label ?? route.path
 
     result.push({ title: lastCrumbTitle, url: route.path })
 

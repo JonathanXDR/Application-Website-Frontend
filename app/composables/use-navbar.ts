@@ -17,10 +17,10 @@ export const useNavbar = () => {
     // Resolve the locale-independent route to the current locale's URL
     // (for example, '/' becomes '/de/' under `strategy: 'prefix'`) before
     // comparing against `route.path`. Mirrors the pattern used in
-    // `NavBar.vue` `isCurrent`. The `{ path } as any` cast bypasses the
-    // i18n `typedPages` strict route-name typing for runtime path strings.
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const resolved = localePath({ path: routePath } as any)
+    // `NavBar.vue` `isCurrent`. The `{ path }` object form is typed for
+    // runtime path strings via `RouteLocationI18nGenericPath`, so no cast
+    // is needed.
+    const resolved = localePath({ path: routePath })
     return routePath === '/'
       ? route.path === resolved
       : route.path.startsWith(resolved)
@@ -42,12 +42,7 @@ export const useNavbar = () => {
 
   // Locale-resolved root path (for example, `/de/` under
   // `strategy: 'prefix'`) for use as the BreadcrumbList root `item`.
-  // Exposed here so per-page breadcrumb call sites stay clean, since
-  // only this composable needs the `typedPages` `as any` workaround.
-  const homePath = computed<string>(() =>
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    localePath({ path: '/' } as any),
-  )
+  const homePath = computed<string>(() => localePath({ path: '/' }))
 
   return {
     navProps,
