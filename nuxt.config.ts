@@ -214,7 +214,11 @@ export default defineNuxtConfig({
     appleDeveloperTeamId: '',
     appleMusicUserToken: '',
   },
-  ignore: ['~/assets/drafts/**'],
+  // `~/assets/img/**` holds source images such as the original portrait
+  // jpg. They stay in the repository for future editing but are never
+  // imported, and the ignore entry keeps them out of Nuxt's scanning so
+  // nothing from that directory can ship by accident.
+  ignore: ['~/assets/drafts/**', '~/assets/img/**'],
   // No `'/': { robots: false }` route rule here, even though the
   // unprefixed root is a meta-refresh interstitial. @nuxtjs/robots strips
   // the locale prefix before matching route rules, so a rule on `/` would
