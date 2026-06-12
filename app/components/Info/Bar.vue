@@ -82,8 +82,10 @@ const getDate = () => {
 
 const dateTitle = ref(getDate())
 
+// No global dayjs.locale() call here. The formatting in getDate already
+// chains .locale() per instance, and mutating the global default on the
+// server leaks one request's locale into concurrent renders.
 watch([locale, () => props.date], () => {
-  dayjs.locale(locale.value)
   dateTitle.value = getDate()
 })
 </script>
