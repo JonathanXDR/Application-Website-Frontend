@@ -35,7 +35,7 @@
     "@nuxt/scripts": "1.2.1",
     "@nuxtjs/color-mode": "4.0.1",
     "@nuxtjs/i18n": "10.4.0",
-    "@nuxtjs/seo": "5.2.6",
+    "@nuxtjs/seo": "5.3.0",
     "@octokit/graphql": "9.0.3",
     "@octokit/graphql-schema": "15.26.1",
     "@octokit/openapi-types": "27.0.0",
@@ -77,8 +77,8 @@
     "zod": "4.4.3"
   },
   "dependencies": {
-    "@takumi-rs/core": "1.8.1",
-    "@takumi-rs/wasm": "1.8.1",
+    "@takumi-rs/core": "1.8.3",
+    "@takumi-rs/wasm": "1.8.3",
     "better-sqlite3": "12.10.0"
   }
 }
