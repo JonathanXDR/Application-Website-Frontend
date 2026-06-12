@@ -6,7 +6,6 @@ const { data: user } = useFetch('/api/github/user', {
   key: 'user',
   lazy: true,
   params: { username: config.public.githubRepoOwner },
-  getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
 })
 
 const bioSentences = computed(() => {
@@ -16,8 +15,6 @@ const bioSentences = computed(() => {
     .map(sentence => sentence.trim())
     .filter(sentence => sentence.length > 0)
 })
-
-console.log('bio', bioSentences.value)
 </script>
 
 <template>
@@ -42,7 +39,10 @@ console.log('bio', bioSentences.value)
         style="opacity: 1; transform: none"
       >
         <em class="">Hey there, I'm Jonathan :)</em>
-        <p>{{ bioSentences }}</p>
+        <!-- A span keeps the h1 content model valid, a p would not. -->
+        <span v-if="bioSentences.length">{{
+          bioSentences.join(". ") + "."
+        }}</span>
         <!-- <TextScramble
           as="h2"
           class="mt-2"

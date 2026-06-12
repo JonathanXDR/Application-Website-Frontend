@@ -3,7 +3,7 @@ import type { CardRepositoryType } from '#shared/types/common/card-repository'
 import type { ItemType } from '#shared/types/common/item'
 import type { CardItemType } from '#shared/types/components/card-item'
 import type { IconItemType } from '#shared/types/components/icon-item'
-import type { MinimalRepository } from '#shared/types/services/github/repository'
+import type { MinimalRepositoryCard } from '#shared/types/services/github/repository'
 import type { Repository } from '@octokit/graphql-schema'
 
 type PinnedRepository = Repository & {
@@ -16,8 +16,8 @@ type CategorizedRepository = CardRepositoryType & {
 
 type Projects = {
   swisscom: CardItemType[]
-  personal: MinimalRepository[]
-  school: MinimalRepository[]
+  personal: MinimalRepositoryCard[]
+  school: MinimalRepositoryCard[]
 }
 
 definePageMeta({
@@ -53,7 +53,6 @@ const { data: userRepositories } = await useFetch(
     key: 'user-repositories',
     lazy: true,
     params: { username: config.public.githubRepoOwner, per_page: 100 },
-    getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
   },
 )
 
@@ -63,18 +62,20 @@ const { data: pinnedProjects } = await useFetch(
     key: 'pinned-repositories',
     lazy: true,
     params: { username: config.public.githubRepoOwner, per_page: 100 },
-    getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
   },
 )
 
-const { data: swisscomProjects }
-  = await useQueryCollection<CardItemType>('projects').all()
-const { data: uiLabels } = await useQueryCollection('siteConfig')
-  .stem('ui-labels')
-  .first()
-const { data: segmentNavData } = await useQueryCollection('navigation')
-  .stem('segment-nav')
-  .first()
+// The three queries are independent, so they run in parallel instead of
+// serializing three round-trips per render.
+const [
+  { data: swisscomProjects },
+  { data: uiLabels },
+  { data: segmentNavData },
+] = await Promise.all([
+  useQueryCollection<CardItemType>('projects').all(),
+  useQueryCollection('siteConfig').stem('ui-labels').first(),
+  useQueryCollection('navigation').stem('segment-nav').first(),
+])
 
 const projects: Projects = reactive({
   swisscom: computed<CardItemType[]>(() => swisscomProjects.value || []),
@@ -117,7 +118,7 @@ const segmentNavItems = computed<ItemType[]>(
 )
 
 const categorizeProject = (
-  project: MinimalRepository,
+  project: MinimalRepositoryCard,
 ): CategorizedRepository => {
   const schoolProjectPattern = /M\d{3}|UEK-\d{3}(?:-\w+)?|(?:UEK|TBZ)-Modules/
   const category = schoolProjectPattern.test(project.name)

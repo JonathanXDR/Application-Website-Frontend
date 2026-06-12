@@ -2,12 +2,12 @@
 import type { SectionType } from '#shared/types/common/section'
 import type { LinkItemType } from '#shared/types/components/link-item'
 
-const { data: footerDirData } = await useQueryCollection('navigation')
-  .stem('footer-directory')
-  .first()
-const { data: footerMiniData } = await useQueryCollection('navigation')
-  .stem('footer-mini')
-  .first()
+// The two queries are independent, so they run in parallel instead of
+// serializing two round-trips per render.
+const [{ data: footerDirData }, { data: footerMiniData }] = await Promise.all([
+  useQueryCollection('navigation').stem('footer-directory').first(),
+  useQueryCollection('navigation').stem('footer-mini').first(),
+])
 
 const footerDirectoryItems = computed<SectionType[]>(
   () =>

@@ -45,7 +45,6 @@ const { data: repositoryTags } = await useFetch('/api/github/repository-tags', {
     repo: config.public.githubRepoName,
     per_page: 2,
   },
-  getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
 })
 
 const transformValue = computed(() => {
