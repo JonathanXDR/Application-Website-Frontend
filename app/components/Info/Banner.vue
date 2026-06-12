@@ -203,21 +203,36 @@ const onMouseLeaveOrBlur = () => {
 const interpolate = (str: string, vars: Record<string, string>) =>
   str.replace(/\{(\w+)\}/g, (_, key) => vars[key] || `{${key}}`)
 
+const hasUnresolvedPlaceholder = (value?: string) =>
+  typeof value === 'string' && /\{\w+\}/.test(value)
+
 const updateBaseItems = () => {
   const { latest: latestTag, previous: previousTag } = tags.value
-  if (!latestTag || !previousTag) return
+  // Interpolate with whatever tags are currently available. The banner must
+  // not blank out when the GitHub repository has no tags yet, so instead of
+  // waiting for both tags we drop only the items that still reference an
+  // unresolved placeholder (the release-compare banner) and keep the
+  // tag-independent banners visible.
+  const vars: Record<string, string> = {}
+  if (latestTag) vars.latestTag = latestTag
+  if (previousTag) vars.previousTag = previousTag
 
-  const vars = { latestTag, previousTag }
-  baseItems.value = props.items.map(item => ({
-    ...item,
-    description: item.description
-      ? interpolate(item.description, vars)
-      : undefined,
-    links: item.links?.map(link => ({
-      ...link,
-      url: link.url ? interpolate(link.url, vars) : undefined,
-    })),
-  }))
+  baseItems.value = props.items
+    .map(item => ({
+      ...item,
+      description: item.description
+        ? interpolate(item.description, vars)
+        : undefined,
+      links: item.links?.map(link => ({
+        ...link,
+        url: link.url ? interpolate(link.url, vars) : undefined,
+      })),
+    }))
+    .filter(
+      item =>
+        !hasUnresolvedPlaceholder(item.description)
+        && !(item.links ?? []).some(link => hasUnresolvedPlaceholder(link.url)),
+    )
 }
 
 const { start: revealBanner } = useTimeoutFn(
@@ -277,6 +292,7 @@ watch(
   () => {
     updateBaseItems()
   },
+  { immediate: true },
 )
 </script>
 

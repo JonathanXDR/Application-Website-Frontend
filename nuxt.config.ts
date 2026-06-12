@@ -55,7 +55,14 @@ export default defineNuxtConfig({
     // https://app.meticulous.ai/docs/how-to/recorder-script?tab=Nuxt
     [
       '@alwaysmeticulous/recorder-plugin/nuxt',
-      { recordingToken: '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w' },
+      {
+        recordingToken: '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
+        // @nuxt/hints flags third-party scripts without crossorigin. The
+        // recorder is served with CORS by the Meticulous CDN, so anonymous
+        // mode gives full cross-origin error reporting without sending
+        // credentials. The plugin merges these onto the injected script tag.
+        attributes: { crossorigin: 'anonymous' },
+      },
     ],
     '@nuxt/eslint',
     '@nuxt/image',
@@ -395,19 +402,21 @@ export default defineNuxtConfig({
   // `csurf: false` and `robots: false` declared in `routeRules` above.
   // `nitro:config` fires after every module's setup, so re-merging here
   // restores both:
-  //   - `csurf: false` lets @nuxt/hints' POSTs to `/__nuxt_hints/lazy-load`
-  //     and `/__nuxt_hints/hydration` reach the dev handler. Without it,
-  //     nuxt-csurf 403s every report with "CSRF Token Mismatch".
+  //   - `csurf: false` lets @nuxt/hints' POSTs to `/__nuxt_hints/hydration`
+  //     reach the dev handler. Without it, nuxt-csurf 403s every report
+  //     with "CSRF Token Mismatch". The lazy-load feature also POSTed here
+  //     before it was disabled via `hints.features.lazyLoad` below.
   //   - `robots: false` keeps the internal devtool route out of robots.txt.
-  // The POST body is received and stored by the dev handler (visible via
-  // `GET /__nuxt_hints/lazy-load`), but @nuxt/hints 1.1.2's `postHandler`
-  // ends with `setResponseStatus(event, 201)` and returns `undefined`,
-  // so h3 lets the request fall through to Nuxt's page renderer and the
-  // browser sees a `404 Page not found`. That is an upstream bug. The
-  // payload is intact, only the response status is wrong.
-  // TODO: drop this hook once nuxt-security uses `defuReplaceArray` for
-  //       its auto-hints route rule, and drop the dev-only 404 noise once
-  //       @nuxt/hints' postHandler returns a body (track both upstream).
+  // @nuxt/hints 1.1.2's `postHandler` ends with `setResponseStatus(event,
+  // 201)` yet returns `undefined`, so h3 lets the POST fall through to
+  // Nuxt's page renderer and the browser logs a `404 Page not found` even
+  // though the payload was received and stored. That upstream bug is why
+  // the lazy-load hint is off above: it POSTed on every render and produced
+  // recurring 404s. Hydration POSTs only on a real mismatch, so its rare
+  // 404 is left as-is.
+  // TODO: drop this hook once nuxt-security uses `defuReplaceArray` for its
+  //       auto-hints route rule, and re-enable lazyLoad once @nuxt/hints'
+  //       postHandler returns a body (track both upstream).
   hooks: {
     'nitro:config'(nitroConfig) {
       nitroConfig.routeRules ??= {}
@@ -468,10 +477,11 @@ export default defineNuxtConfig({
   hints: {
     features: {
       hydration: false,
-      lazyLoad: {
-        logs: false,
-        devtools: true,
-      },
+      // Disabled. Its client plugin POSTed lazy-load telemetry to
+      // /__nuxt_hints/lazy-load on every render, and an upstream postHandler
+      // bug (detailed at the nitro:config hook above) turned each POST into a
+      // dev-console 404. The hint data is cosmetic, so the feature is off.
+      lazyLoad: false,
       webVitals: true,
       // @nuxt/hints pipes every SSR HTML response through `prettier.format`
       // before handing it to html-validate. Prettier's HTML parser cannot
@@ -815,6 +825,12 @@ export default defineNuxtConfig({
           'https://cognito-identity.us-west-2.amazonaws.com',
           'https://user-events-v3.s3-accelerate.amazonaws.com',
           'https://*.sentry.io',
+          // The Sentry SDK that Meticulous loads fetches its own source map
+          // from the Sentry CDN, which is a connect-src request. The script
+          // itself needs no script-src host entry because 'strict-dynamic'
+          // extends trust to it through the nonce'd Meticulous snippet that
+          // injects it.
+          'https://browser.sentry-cdn.com',
           'https://*.apple.com',
           'https://vitals.vercel-insights.com',
           'https://va.vercel-scripts.com',
@@ -853,14 +869,6 @@ export default defineNuxtConfig({
           '\'strict-dynamic\'',
           '\'wasm-unsafe-eval\'',
           '\'nonce-{{nonce}}\'',
-          // Meticulous loads its session recorder from the Sentry browser
-          // CDN. The nonce'd Meticulous snippet injects that script without
-          // a nonce, so 'strict-dynamic' extends trust to it on CSP Level 3
-          // browsers, while this host entry is the fallback for older
-          // browsers that ignore 'strict-dynamic'. Full list of required
-          // origins:
-          // https://app.meticulous.ai/docs/session-recording/csp-exceptions
-          'https://browser.sentry-cdn.com',
         ],
         'script-src-attr': ['\'none\''],
         // Per nuxt-security maintainers: 'strict-dynamic' does not apply to
