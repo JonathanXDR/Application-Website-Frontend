@@ -46,6 +46,17 @@ export default defineNuxtConfig({
     // translations will silently stop resolving.
     '@nuxt/content',
     '@nuxt/scripts',
+    // Meticulous session recorder, native Nuxt plugin. It injects the
+    // recorder as the first <head> script with no async or defer so it can
+    // capture every network request. By default the recorder loads in dev
+    // builds only and is absent from production. The token is a public
+    // client side recording token, the same value the previous
+    // @nuxt/scripts global used.
+    // https://app.meticulous.ai/docs/how-to/recorder-script?tab=Nuxt
+    [
+      '@alwaysmeticulous/recorder-plugin/nuxt',
+      { recordingToken: '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w' },
+    ],
     '@nuxt/eslint',
     '@nuxt/image',
     '@nuxt/icon',
@@ -107,16 +118,6 @@ export default defineNuxtConfig({
         cookieSecure: false,
       },
     },
-    scripts: {
-      globals: {
-        meticulousAi: {
-          'src': 'https://snippet.meticulous.ai/v1/meticulous.js',
-          'crossorigin': 'anonymous',
-          'data-project-id': '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
-          'data-is-production-environment': false,
-        },
-      },
-    },
     security: {
       headers: {
         contentSecurityPolicy: {
@@ -145,16 +146,6 @@ export default defineNuxtConfig({
             href: '/img/favicon.png',
           },
         ],
-      },
-    },
-    scripts: {
-      globals: {
-        meticulousAi: {
-          'src': 'https://snippet.meticulous.ai/v1/meticulous.js',
-          'crossorigin': 'anonymous',
-          'data-project-id': '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
-          'data-is-production-environment': true,
-        },
       },
     },
   },
@@ -813,18 +804,17 @@ export default defineNuxtConfig({
           'https://*.googletagmanager.com',
           'https://*.g.doubleclick.net',
           'https://*.google.com',
-          // Meticulous's recording SDK calls these AWS endpoints internally:
-          // Cognito identity pools for unauthenticated session credentials,
-          // and S3 transfer-acceleration for uploading user-event payloads.
-          // Removing either breaks Meticulous before its snippet finishes
-          // bootstrapping, so they must stay even though no app code references
-          // them directly.
+          // Meticulous's session recorder calls these origins internally,
+          // none are referenced by app code directly. Cognito identity
+          // pools issue unauthenticated session credentials, S3 transfer
+          // acceleration uploads user-event payloads, and Sentry receives
+          // the recorder telemetry, because Meticulous runs on Sentry under
+          // the hood. Removing any one breaks the recorder before its
+          // snippet finishes bootstrapping. Full list of required origins:
+          // https://app.meticulous.ai/docs/session-recording/csp-exceptions
           'https://cognito-identity.us-west-2.amazonaws.com',
           'https://user-events-v3.s3-accelerate.amazonaws.com',
-          // Sentry entries were removed here. No Sentry SDK is integrated
-          // anywhere in the app, and allowlisting unused third-party
-          // origins in connect-src needlessly widens the exfiltration
-          // surface. Re-add them together with the actual integration.
+          'https://*.sentry.io',
           'https://*.apple.com',
           'https://vitals.vercel-insights.com',
           'https://va.vercel-scripts.com',
@@ -863,6 +853,14 @@ export default defineNuxtConfig({
           '\'strict-dynamic\'',
           '\'wasm-unsafe-eval\'',
           '\'nonce-{{nonce}}\'',
+          // Meticulous loads its session recorder from the Sentry browser
+          // CDN. The nonce'd Meticulous snippet injects that script without
+          // a nonce, so 'strict-dynamic' extends trust to it on CSP Level 3
+          // browsers, while this host entry is the fallback for older
+          // browsers that ignore 'strict-dynamic'. Full list of required
+          // origins:
+          // https://app.meticulous.ai/docs/session-recording/csp-exceptions
+          'https://browser.sentry-cdn.com',
         ],
         'script-src-attr': ['\'none\''],
         // Per nuxt-security maintainers: 'strict-dynamic' does not apply to
