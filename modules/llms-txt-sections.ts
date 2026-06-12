@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { defineNuxtModule } from '@nuxt/kit'
+import { useSiteConfig } from 'nuxt-site-config/kit'
 import { parse as parseYaml } from 'yaml'
 
 interface PageBlock {
@@ -28,8 +29,6 @@ const LOCALES = ['de', 'en', 'fr', 'it'] as const
 export default defineNuxtModule({
   meta: { name: 'llms-txt-sections' },
   async setup(_options, nuxt) {
-    const siteUrl = (process.env.NUXT_SITE_URL ?? '').replace(/\/$/, '')
-
     const site = parseYaml(
       await readFile(
         resolve(nuxt.options.rootDir, 'content/config/site.yml'),
@@ -52,11 +51,28 @@ export default defineNuxtModule({
       }))
     }
 
+    // Mirrors the fork's merge semantics for the site config shape:
+    // locale overrides fall back to the German base per field, and the
+    // nested `pages` record merges per page key instead of replacing the
+    // whole record when a locale translates only some pages.
+    const resolveSite = (locale: (typeof LOCALES)[number]): PageBlock => {
+      if (locale === 'de') return site
+      const override = site.i18n?.[locale] ?? {}
+      return {
+        description: override.description ?? site.description,
+        pages: { ...site.pages, ...override.pages },
+      }
+    }
+
     nuxt.hook('ai-ready:llms-txt', (payload) => {
+      // Resolved inside the hook, where nuxt-ai-ready has already awaited
+      // site-config installation. This is the same origin source the
+      // module uses for its own llms.txt scaffold, so the two can never
+      // diverge the way a raw NUXT_SITE_URL read could.
+      const siteUrl = (useSiteConfig().url ?? '').replace(/\/$/, '')
       const sections = (payload.sections ??= [])
       for (const locale of LOCALES) {
-        const localeSite
-          = locale === 'de' ? site : (site.i18n?.[locale] ?? site)
+        const localeSite = resolveSite(locale)
         const items = resolveItems(locale).filter(
           item => item.route && !item.route.includes('#'),
         )
