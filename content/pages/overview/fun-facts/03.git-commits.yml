@@ -1,0 +1,9 @@
+progress: 15000
+description: "Git commits"
+i18n:
+  en:
+    description: "Git commits"
+  fr:
+    description: "Commits Git"
+  it:
+    description: "Commit Git"

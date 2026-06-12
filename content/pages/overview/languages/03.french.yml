@@ -1,0 +1,15 @@
+title: "Französisch"
+eyebrow: "Gut"
+progress: 30
+divider:
+  direction: "left"
+i18n:
+  en:
+    title: "French"
+    eyebrow: "Good"
+  fr:
+    title: "Français"
+    eyebrow: "Bien"
+  it:
+    title: "Francese"
+    eyebrow: "Buono"

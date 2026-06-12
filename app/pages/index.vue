@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { SectionType } from '#shared/types/common/section'
+import type { NavigationCollectionItem } from '@nuxt/content'
+import type { SectionType } from '#shared/types/schemas'
 
 definePageMeta({
   header: true,
@@ -11,15 +12,13 @@ definePageMeta({
 
 await usePageSeo({ breadcrumb: false })
 
-const { data: navbarData } = await useQueryCollection('components')
+const { data: navbarData } = await useQueryCollection<NavigationCollectionItem>(
+  'navigation',
+)
   .stem('navbar')
   .first()
 
-const sections = computed<SectionType[]>(
-  () =>
-    ((navbarData.value as unknown as Record<string, unknown>)
-      ?.items as SectionType[]) || [],
-)
+const sections = computed<SectionType[]>(() => navbarData.value?.items ?? [])
 </script>
 
 <template>

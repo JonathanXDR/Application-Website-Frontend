@@ -1,0 +1,9 @@
+progress: 1000000
+description: "Geschriebene Codezeilen"
+i18n:
+  en:
+    description: "Lines of code written"
+  fr:
+    description: "Lignes de code écrites"
+  it:
+    description: "Righe di codice scritte"

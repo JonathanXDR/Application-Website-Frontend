@@ -1,0 +1,15 @@
+title: "Deutsch"
+eyebrow: "Muttersprache"
+progress: 100
+divider:
+  direction: "left"
+i18n:
+  en:
+    title: "German"
+    eyebrow: "Mother tongue"
+  fr:
+    title: "Allemand"
+    eyebrow: "Langue maternelle"
+  it:
+    title: "Tedesco"
+    eyebrow: "Lingua madre"

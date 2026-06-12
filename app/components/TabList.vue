@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ItemType } from '#shared/types/common/item'
+import type { ItemType } from '#shared/types/schemas'
 
 const props = defineProps<{
   items: ItemType[]

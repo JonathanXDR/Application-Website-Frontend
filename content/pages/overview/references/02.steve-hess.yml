@@ -1,0 +1,24 @@
+icon:
+  name: "sf-symbols:person.fill"
+eyebrow: "Ehemaliger Vorgesetzter"
+title: "Steve Hess"
+description: "Lernbegleiter (Coach) Next Generation"
+info:
+  location: "Wor-Ati6"
+  department: "GHR-SCS-NEX"
+i18n:
+  en:
+    eyebrow: "Former Supervisor"
+    description: "Coach Next Generation"
+    info:
+      department: "GHR-POD-NEX"
+  fr:
+    eyebrow: "Ancien supérieur hiérarchique"
+    description: "Coach Next Generation"
+    info:
+      department: "GHR-POD-NEX"
+  it:
+    eyebrow: "Ex supervisore"
+    description: "Coach della nuova generazione"
+    info:
+      department: "GHR-POD-NEX"

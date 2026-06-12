@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { NavigationCollectionItem, UiCollectionItem } from '@nuxt/content'
 import type { InfoBannerType } from '#shared/types/components/info-banner'
 import FooterPre from '~/components/Footer/Pre.vue'
 import { AnimatePresence, Motion } from 'motion-v'
@@ -22,9 +23,11 @@ const [
   { data: infoBannerContent },
   { data: skewLabels },
 ] = await Promise.all([
-  useQueryCollection('components').stem('navbar').first(),
-  useQueryCollection('components').stem('info-banners').first(),
-  useQueryCollection('components').stem('skew-notification').first(),
+  useQueryCollection<NavigationCollectionItem>('navigation')
+    .stem('navbar')
+    .first(),
+  useQueryCollection<UiCollectionItem>('ui').stem('info-banners').first(),
+  useQueryCollection<UiCollectionItem>('ui').stem('skew-notification').first(),
 ])
 
 // Mirror the navbar content into the shared `useNavbar` state so every
@@ -32,7 +35,7 @@ const [
 watch(
   navbarContent,
   (val) => {
-    navData.value = val as unknown as Record<string, unknown>
+    navData.value = val ?? null
   },
   { immediate: true },
 )
@@ -41,9 +44,7 @@ const rotatingBanner = useTemplateRef('rotatingBanner')
 const { height: rotatingBannerHeight } = useElementSize(rotatingBanner)
 
 const items = computed<InfoBannerType['items']>(
-  () =>
-    ((infoBannerContent.value as unknown as Record<string, unknown>)
-      ?.items as InfoBannerType['items']) || [],
+  () => infoBannerContent.value?.items ?? [],
 )
 
 const { start: scheduleHideNavbar, stop: cancelHideNavbar } = useTimeoutFn(

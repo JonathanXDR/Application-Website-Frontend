@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import type { UiCollectionItem } from '@nuxt/content'
+
 defineProps<{
   totalResults: number
   pinnedResults?: number
 }>()
 
 const { randomDevColor } = useColor()
-const { data: summaryLabels } = await useQueryCollection('components')
+const { data: summaryLabels } = await useQueryCollection<UiCollectionItem>('ui')
   .stem('live-result-summary')
   .first()
 </script>

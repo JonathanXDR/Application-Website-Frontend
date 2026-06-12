@@ -1,0 +1,9 @@
+progress: 100000
+description: "Zurückgelegte Kilometer"
+i18n:
+  en:
+    description: "Kilometers traveled"
+  fr:
+    description: "Kilomètres parcourus"
+  it:
+    description: "Chilometri percorsi"

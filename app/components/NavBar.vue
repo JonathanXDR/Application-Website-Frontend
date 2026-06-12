@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SectionType } from '#shared/types/common/section'
+import type { SectionType } from '#shared/types/schemas'
 import type { NavbarType } from '#shared/types/components/nav-bar'
 
 const props = withDefaults(defineProps<NavbarType>(), {

@@ -1,0 +1,39 @@
+icon:
+  name: "sf-symbols:graduationcap.fill"
+eyebrow: "Schule"
+title: "Berufsmaturitätsschule Zürich"
+description: "Freitags besuche ich die Berufsmaturitätsschule in Zürich."
+links:
+  - title: "Mehr erfahren"
+    url: "https://bms-zuerich.ch"
+    icon:
+      name: "sf-symbols:chevron.right"
+info:
+  date:
+    fixed: "2021-08-27"
+  location: "Zürich"
+i18n:
+  en:
+    eyebrow: "School"
+    title: "Vocational Baccalaureate School Zürich"
+    description: "I attend the vocational baccalaureate school in Zürich on Fridays."
+    links:
+      - title: "Learn more"
+    info:
+      location: "Zurich"
+  fr:
+    eyebrow: "École"
+    title: "École de maturité professionnelle de Zürich"
+    description: "Le vendredi, je vais à l'école de maturité professionnelle à Zürich."
+    links:
+      - title: "En savoir plus"
+    info:
+      location: "Zurich"
+  it:
+    eyebrow: "Scuola"
+    title: "Scuola di maturità professionale di Zurigo"
+    description: "Il venerdì frequento la scuola di maturità professionale di Zurigo."
+    links:
+      - title: "Per saperne di più"
+    info:
+      location: "Zurigo"

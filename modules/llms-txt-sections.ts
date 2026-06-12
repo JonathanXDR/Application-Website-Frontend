@@ -37,7 +37,10 @@ export default defineNuxtModule({
     ) as SiteYaml
     const navbar = parseYaml(
       await readFile(
-        resolve(nuxt.options.rootDir, 'content/components/navbar.yml'),
+        resolve(
+          nuxt.options.rootDir,
+          'content/components/navigation/navbar.yml',
+        ),
         'utf8',
       ),
     ) as NavbarYaml

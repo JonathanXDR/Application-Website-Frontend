@@ -1,5 +1,4 @@
-import type { ExtendedSizeType } from '#shared/types/common/extended-size'
-import type { ItemType } from '#shared/types/common/item'
+import type { ExtendedSizeType, ItemType } from '#shared/types/schemas'
 
 export interface SegmentNavType {
   items: ItemType[]

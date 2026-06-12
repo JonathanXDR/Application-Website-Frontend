@@ -1,3 +1,4 @@
+import type { SiteConfigCollectionItem } from '@nuxt/content'
 // Mirror of the locale prefix regex used in `server/middleware/site-config.ts`.
 // Kept literal here rather than imported, because the middleware lives in
 // a different layer and importing across the app and server boundary
@@ -44,9 +45,10 @@ export const usePageSeo = async (options: UsePageSeoOptions = {}) => {
   const nuxtApp = useNuxtApp()
   const route = useRoute()
   const { currentRoute, homeLabel, homePath } = useNavbar()
-  const { data: siteContent } = await useQueryCollection('siteConfig')
-    .stem('site')
-    .first()
+  const { data: siteContent }
+    = await useQueryCollection<SiteConfigCollectionItem>('siteConfig')
+      .stem('site')
+      .first()
 
   const pageKey = computed(() =>
     route.path.replace(LOCALE_PREFIX, '').replace(/^\/|\/$/g, ''),

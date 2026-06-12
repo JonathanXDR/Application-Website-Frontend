@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { ItemType } from '#shared/types/common/item'
+import type { UiCollectionItem } from '@nuxt/content'
+import type { ItemType } from '#shared/types/schemas'
 import type { SegmentNavType } from '#shared/types/components/segment-nav'
 
 withDefaults(defineProps<Pick<SegmentNavType, 'label'>>(), {
@@ -9,14 +10,10 @@ withDefaults(defineProps<Pick<SegmentNavType, 'label'>>(), {
 const { getTheme, setTheme } = useTheme()
 const currentTheme = computed(() => getTheme())
 
-const { data: segNavData } = await useQueryCollection('components')
+const { data: segNavData } = await useQueryCollection<UiCollectionItem>('ui')
   .stem('segment-nav')
   .first()
-const themeItems = computed<ItemType[]>(
-  () =>
-    ((segNavData.value as unknown as Record<string, unknown>)
-      ?.theme as ItemType[]) || [],
-)
+const themeItems = computed<ItemType[]>(() => segNavData.value?.theme ?? [])
 </script>
 
 <template>

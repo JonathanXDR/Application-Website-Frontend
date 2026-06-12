@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { CardRepositoryType } from '#shared/types/common/card-repository'
-import type { ItemType } from '#shared/types/common/item'
+import type { UiCollectionItem } from '@nuxt/content'
+import type { CardRepositoryType } from '#shared/types/components/card-repository'
+import type { ItemType } from '#shared/types/schemas'
 import type { CardItemType } from '#shared/types/components/card-item'
 import type { IconItemType } from '#shared/types/components/icon-item'
 import type { MinimalRepositoryCard } from '#shared/types/services/github/repository'
@@ -73,8 +74,8 @@ const [
   { data: segmentNavData },
 ] = await Promise.all([
   useQueryCollection<CardItemType>('projects').all(),
-  useQueryCollection('components').stem('card-item').first(),
-  useQueryCollection('components').stem('segment-nav').first(),
+  useQueryCollection<UiCollectionItem>('ui').stem('card-item').first(),
+  useQueryCollection<UiCollectionItem>('ui').stem('segment-nav').first(),
 ])
 
 const projects: Projects = reactive({
@@ -112,9 +113,7 @@ const currentProjects = computed(() => {
 }) as Ref<CardItemType[]>
 
 const segmentNavItems = computed<ItemType[]>(
-  () =>
-    ((segmentNavData.value as unknown as Record<string, unknown>)
-      ?.projects as ItemType[]) || [],
+  () => segmentNavData.value?.projects ?? [],
 )
 
 const categorizeProject = (

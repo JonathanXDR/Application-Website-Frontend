@@ -1,30 +1,24 @@
 <script setup lang="ts">
-import type { SectionType } from '#shared/types/common/section'
-import type { LinkItemType } from '#shared/types/components/link-item'
+import type { NavigationCollectionItem, UiCollectionItem } from '@nuxt/content'
+import type { SectionType, LinkItemType } from '#shared/types/schemas'
 
 // The two queries are independent, so they run in parallel instead of
 // serializing two round-trips per render.
 const [{ data: footerDirData }, { data: footerMiniData }] = await Promise.all([
-  useQueryCollection('components').stem('footer-directory').first(),
-  useQueryCollection('components').stem('footer-mini').first(),
+  useQueryCollection<NavigationCollectionItem>('navigation')
+    .stem('footer-directory')
+    .first(),
+  useQueryCollection<UiCollectionItem>('ui').stem('footer-mini').first(),
 ])
 
 const footerDirectoryItems = computed<SectionType[]>(
-  () =>
-    ((footerDirData.value as unknown as Record<string, unknown>)
-      ?.sections as SectionType[]) || [],
+  () => footerDirData.value?.sections ?? [],
 )
 const footerMiniLegalLinks = computed<LinkItemType[]>(
-  () =>
-    ((footerMiniData.value as unknown as Record<string, unknown>)
-      ?.legalLinks as LinkItemType[]) || [],
+  () => footerMiniData.value?.legalLinks ?? [],
 )
 const footerMiniNews = computed<{ title: string, link: LinkItemType }>(
-  () =>
-    ((footerMiniData.value as unknown as Record<string, unknown>)?.news as {
-      title: string
-      link: LinkItemType
-    }) || { title: '', link: { title: '' } },
+  () => footerMiniData.value?.news ?? { title: '', link: { title: '' } },
 )
 </script>
 

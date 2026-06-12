@@ -1,0 +1,35 @@
+icon:
+  name: "sf-symbols:person.fill"
+eyebrow: "Aktueller Projektanbieter"
+title: "Kim Eggler"
+description: "Full-Stack Developer"
+links:
+  - title: "Mehr erfahren"
+    url: "https://retrostories.ch"
+    icon:
+      name: "sf-symbols:chevron.right"
+info:
+  location: "Itt-Ey10"
+  department: "GHR-OPD-CLE-LES-APP (EXT)"
+i18n:
+  en:
+    eyebrow: "Current Project Provider"
+    description: "Full-Stack Developer"
+    links:
+      - title: "Learn more"
+    info:
+      department: "GHR-POD-LES-APP (EXT)"
+  fr:
+    eyebrow: "Fournisseur de projet actuel"
+    description: "Développeur Full-Stack"
+    links:
+      - title: "En savoir plus"
+    info:
+      department: "GHR-POD-LES-APP (EXT)"
+  it:
+    eyebrow: "Attuale fornitore di progetto"
+    description: "Sviluppatore Full-Stack"
+    links:
+      - title: "Per saperne di più"
+    info:
+      department: "GHR-POD-LES-APP (EXT)"

@@ -1,4 +1,4 @@
-import type { ColorType } from '#shared/types/common/color'
+import type { ColorType } from '#shared/types/schemas'
 
 type IconifyIconCustomiseCallback = (
   content: string,

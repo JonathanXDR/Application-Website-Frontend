@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { CardRepositoryType } from '#shared/types/common/card-repository'
+import type { UiCollectionItem } from '@nuxt/content'
+import type { CardRepositoryType } from '#shared/types/components/card-repository'
 
 const nonce = useNonce()
 
@@ -29,7 +30,7 @@ const props = withDefaults(
   },
 )
 
-const { data: cardLabels } = useQueryCollection('components')
+const { data: cardLabels } = useQueryCollection<UiCollectionItem>('ui')
   .stem('card-item')
   .first()
 const { randomDevColor } = useColor()

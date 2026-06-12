@@ -1,0 +1,9 @@
+progress: 7200
+description: "Gehörte Stunden Musik"
+i18n:
+  en:
+    description: "Hours of music listened"
+  fr:
+    description: "Heures de musique écoutées"
+  it:
+    description: "Ore di musica ascoltate"

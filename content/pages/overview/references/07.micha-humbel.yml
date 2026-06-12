@@ -1,0 +1,24 @@
+icon:
+  name: "sf-symbols:person.fill"
+eyebrow: "Vorgesetzte Fachkraft IPA"
+title: "Micha Humbel"
+description: "Full-Stack Developer"
+info:
+  location: "Itt-Ey10"
+  department: "GHR-OPD-CLE-LES-APP (EXT)"
+i18n:
+  en:
+    eyebrow: "IPA Supervisor"
+    description: "Full-Stack Developer"
+    info:
+      department: "GHR-POD-LES-APP (EXT)"
+  fr:
+    eyebrow: "Superviseur IPA"
+    description: "Développeur Full-Stack"
+    info:
+      department: "GHR-POD-LES-APP (EXT)"
+  it:
+    eyebrow: "Supervisore IPA"
+    description: "Sviluppatore Full-Stack"
+    info:
+      department: "GHR-POD-LES-APP (EXT)"

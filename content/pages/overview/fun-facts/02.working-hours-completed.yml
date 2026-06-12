@@ -1,0 +1,9 @@
+progress: 10000
+description: "Geleistete Arbeitsstunden"
+i18n:
+  en:
+    description: "Working hours completed"
+  fr:
+    description: "Heures de travail effectuées"
+  it:
+    description: "Ore di lavoro completate"

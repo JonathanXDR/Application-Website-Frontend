@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SectionType } from '#shared/types/common/section'
+import type { SectionType } from '#shared/types/schemas'
 
 withDefaults(
   defineProps<{

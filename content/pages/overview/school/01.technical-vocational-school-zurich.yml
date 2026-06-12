@@ -1,0 +1,39 @@
+icon:
+  name: "sf-symbols:graduationcap.fill"
+eyebrow: "Ehemalige Schule"
+title: "Technische Berufsschule Zürich"
+description: "Ich besuchte die Berufsschule in Zürich jeweils am Donnerstagnachmittag."
+links:
+  - title: "Mehr erfahren"
+    url: "https://tbz.ch"
+    icon:
+      name: "sf-symbols:chevron.right"
+info:
+  date:
+    fixed: "2021-08-26"
+  location: "Zürich"
+i18n:
+  en:
+    eyebrow: "Former School"
+    title: "Technical Vocational School Zürich"
+    description: "I always attended vocational school in Zürich on Thursday afternoons."
+    links:
+      - title: "Learn more"
+    info:
+      location: "Zurich"
+  fr:
+    eyebrow: "Ancienne école"
+    title: "École professionnelle technique de Zürich"
+    description: "J'allais toujours à l'école professionnelle à Zürich les jeudis après-midi."
+    links:
+      - title: "En savoir plus"
+    info:
+      location: "Zurich"
+  it:
+    eyebrow: "Ex scuola"
+    title: "Scuola professionale tecnica di Zurigo"
+    description: "Andavo sempre alla scuola professionale di Zurigo il giovedì pomeriggio."
+    links:
+      - title: "Per saperne di più"
+    info:
+      location: "Zurigo"

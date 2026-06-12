@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ColorType } from '#shared/types/common/color'
+import type { ColorType } from '#shared/types/schemas'
 
 withDefaults(
   defineProps<{

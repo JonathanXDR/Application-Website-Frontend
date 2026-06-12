@@ -1,0 +1,24 @@
+icon:
+  name: "sf-symbols:person.fill"
+eyebrow: "Aktueller Vorgesetzter"
+title: "Patrice Stampfli"
+description: "Lernbegleiter (Coach) Next Generation"
+info:
+  location: "Itt-Ey10"
+  department: "GHR-SCS-NEX"
+i18n:
+  en:
+    eyebrow: "Current Supervisor"
+    description: "Coach Next Generation"
+    info:
+      department: "GHR-POD-NEX"
+  fr:
+    eyebrow: "Supérieur hiérarchique actuel"
+    description: "Coach de la nouvelle génération"
+    info:
+      department: "GHR-POD-NEX"
+  it:
+    eyebrow: "Supervisore attuale"
+    description: "Coach della nuova generazione"
+    info:
+      department: "GHR-POD-NEX"

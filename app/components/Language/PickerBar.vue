@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { UiCollectionItem } from '@nuxt/content'
 import type { LocaleObject } from '@nuxtjs/i18n'
 
 const props = withDefaults(
@@ -14,7 +15,9 @@ const props = withDefaults(
 
 const { changeLanguage } = useLanguage()
 const { locale, locales } = useI18n()
-const { data: languageLabels } = await useQueryCollection('components')
+const { data: languageLabels } = await useQueryCollection<UiCollectionItem>(
+  'ui',
+)
   .stem('language-picker-bar')
   .first()
 

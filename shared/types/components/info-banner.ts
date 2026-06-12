@@ -1,7 +1,9 @@
-import type { BasicPropsType } from '#shared/types/common/basic-props'
+import type { BasicPropsType } from '#shared/types/schemas'
 
 export interface InfoBannerType {
-  items: BasicPropsType[]
+  // Banner entries carry a description and links but no title, so every
+  // field is optional unlike the base content props.
+  items: Partial<BasicPropsType>[]
   loading?: boolean
   step?: number
   paddleNav?: boolean

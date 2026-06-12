@@ -1,4 +1,4 @@
-pageId: error
+pageId: generic-error
 label: "Fehler"
 icon:
   name: "sf-symbols:exclamationmark.octagon.fill"

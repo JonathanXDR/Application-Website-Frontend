@@ -1,4 +1,5 @@
-import type { SectionType } from '#shared/types/common/section'
+import type { NavigationCollectionItem } from '@nuxt/content'
+import type { SectionType } from '#shared/types/schemas'
 import type { NavbarType } from '#shared/types/components/nav-bar'
 
 export const useNavbar = () => {
@@ -6,11 +7,9 @@ export const useNavbar = () => {
   const localePath = useLocalePath()
 
   const navProps = useState<NavbarType>('navbar-props')
-  const navData = useState<Record<string, unknown> | null>('navbar-data')
+  const navData = useState<NavigationCollectionItem | null>('navbar-data')
 
-  const navItems = computed<SectionType[]>(
-    () => (navData.value?.items as SectionType[]) || [],
-  )
+  const navItems = computed<SectionType[]>(() => navData.value?.items ?? [])
 
   const isCurrentRoute = (routePath?: string): boolean => {
     if (!routePath) return false

@@ -1,5 +1,5 @@
 import { NuxtLink, NuxtLinkLocale } from '#components'
-import type { LinkItemType } from '#shared/types/components/link-item'
+import type { LinkItemType } from '#shared/types/schemas'
 
 // `NuxtLinkLocale` runs `useLocalePath()` on `to`, so unprefixed
 // internal paths from the content YAML (such as `/projects` and

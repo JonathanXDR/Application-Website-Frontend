@@ -1,0 +1,9 @@
+progress: 2400
+description: "Getrunkene Tassen Kaffee"
+i18n:
+  en:
+    description: "Cups of coffee consumed"
+  fr:
+    description: "Tasses de café bues"
+  it:
+    description: "Tazze di caffè bevute"

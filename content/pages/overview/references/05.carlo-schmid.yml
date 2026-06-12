@@ -1,0 +1,24 @@
+icon:
+  name: "sf-symbols:person.fill"
+eyebrow: "Ehemaliger Projektanbieter"
+title: "Carlo Schmid"
+description: "Full-Stack Developer"
+info:
+  location: "Itt-Ey10"
+  department: "GHR-OPD-CLE-LES-APP (EXT)"
+i18n:
+  en:
+    eyebrow: "Former Project Provider"
+    description: "Full-Stack Developer"
+    info:
+      department: "GHR-POD-LES-APP"
+  fr:
+    eyebrow: "Ancien fournisseur de projet"
+    description: "Développeur Full-Stack"
+    info:
+      department: "GHR-POD-LES-APP"
+  it:
+    eyebrow: "Ex fornitore di progetto"
+    description: "Sviluppatore Full-Stack"
+    info:
+      department: "GHR-POD-LES-APP"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BasicPropsType } from '#shared/types/common/basic-props'
+import type { BasicPropsType } from '#shared/types/schemas'
 
 const props = withDefaults(defineProps<BasicPropsType>(), {
   title: 'Music Discovery',

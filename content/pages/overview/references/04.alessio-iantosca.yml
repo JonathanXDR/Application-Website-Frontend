@@ -1,0 +1,24 @@
+icon:
+  name: "sf-symbols:person.fill"
+eyebrow: "Ehemaliger Projektanbieter"
+title: "Alessio Iantosca"
+description: "RPA & Test-Automation Engineer"
+info:
+  location: "Zür-Pfi51"
+  department: "SCS-B2B-TBS-BPS-BPM-AU1"
+i18n:
+  en:
+    eyebrow: "Former Project Provider"
+    description: "Test Automation Engineer"
+    info:
+      department: "B2B-BAN-BPS-BPM-AU1"
+  fr:
+    eyebrow: "Ancien fournisseur de projet"
+    description: "Ingénieur en automatisation des tests"
+    info:
+      department: "B2B-BAN-BPS-BPM-AU1"
+  it:
+    eyebrow: "Ex fornitore di progetto"
+    description: "Ingegnere di automazione dei test"
+    info:
+      department: "B2B-BAN-BPS-BPM-AU1"

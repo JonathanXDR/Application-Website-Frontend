@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import type { FunFactsCollectionItem } from '@nuxt/content'
 import { animate } from 'motion-v'
-import type { LanguageBarType } from '#shared/types/components/language-bar'
 
 defineProps<{
   title: string
@@ -12,14 +12,9 @@ const { locale } = useI18n()
 const chipClaimHeight = ref(0)
 const titles = useTemplateRef<HTMLElement[]>('titles')
 const progressSpan = ref<HTMLElement[]>([])
-const { data: factsData } = await useQueryCollection('sections')
-  .stem('fun-facts')
-  .first()
-const funFacts = computed<LanguageBarType[]>(
-  () =>
-    ((factsData.value as unknown as Record<string, unknown>)
-      ?.items as LanguageBarType[]) || [],
-)
+const { data: factsData }
+  = await useQueryCollection<FunFactsCollectionItem>('funFacts').all()
+const funFacts = computed(() => factsData.value ?? [])
 
 const updateChipClaimHeight = () => {
   nextTick(() => {

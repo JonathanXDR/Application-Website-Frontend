@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import type { PageType } from '#shared/types/common/page'
+import type { ErrorPagesCollectionItem } from '@nuxt/content'
+import type { ErrorPageType } from '#shared/types/schemas'
 
 const error = useError()
 
-const { data: errorPages } = await useQueryCollection<
-  PageType & { pageId: string }
->('errorPages').all()
+const { data: errorPages }
+  = await useQueryCollection<ErrorPagesCollectionItem>('errorPages').all()
 
-const currentPage = computed<PageType>(() => {
-  const pages = errorPages.value || []
+const currentPage = computed<ErrorPageType>(() => {
+  const pages = errorPages.value ?? []
   const matchedPage = pages.find(page => page.status === error.value?.status)
   return (
     matchedPage
-    || pages.find(page => page.pageId === 'error') || {
-      id: 'error',
+    ?? pages.find(page => page.pageId === 'error') ?? {
+      pageId: 'error',
       label: 'Error',
       title: 'Error',
-      pageId: 'error',
+      description: '',
     }
   )
 })

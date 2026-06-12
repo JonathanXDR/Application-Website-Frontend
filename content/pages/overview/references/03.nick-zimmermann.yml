@@ -1,0 +1,35 @@
+icon:
+  name: "sf-symbols:person.fill"
+eyebrow: "Ehemaliger Projektanbieter"
+title: "Nick Zimmermann"
+description: "DevOps Engineer"
+links:
+  - title: "Mehr erfahren"
+    url: "https://nickzimmermann.com"
+    icon:
+      name: "sf-symbols:chevron.right"
+info:
+  location: "Zür-För181"
+  department: "SCS-INI-DOS-DVX"
+i18n:
+  en:
+    eyebrow: "Former Project Provider"
+    description: "DevOps Engineer I"
+    links:
+      - title: "Learn more"
+    info:
+      department: "INI-DOS-DVX"
+  fr:
+    eyebrow: "Ancien fournisseur de projet"
+    description: "Ingénieur DevOps I"
+    links:
+      - title: "En savoir plus"
+    info:
+      department: "INI-DOS-DVX"
+  it:
+    eyebrow: "Ex fornitore di progetto"
+    description: "Ingegnere DevOps I"
+    links:
+      - title: "Per saperne di più"
+    info:
+      department: "INI-DOS-DVX"

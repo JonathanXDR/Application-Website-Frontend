@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { LinkItemType } from '#shared/types/components/link-item'
+import type { LinkItemType } from '#shared/types/schemas'
 import { getLinkAttributes, getLinkComponentType } from '~/utils/links'
 
 const props = defineProps<LinkItemType>()

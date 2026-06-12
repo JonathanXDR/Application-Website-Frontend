@@ -1,19 +1,14 @@
 <script setup lang="ts">
-import type { CardItemType } from '#shared/types/components/card-item'
+import type { ReferencesCollectionItem } from '@nuxt/content'
 
 defineProps<{
   title: string
 }>()
 
 const viewport = useViewport()
-const { data: refData } = await useQueryCollection('sections')
-  .stem('references')
-  .first()
-const articles = computed<CardItemType[]>(
-  () =>
-    ((refData.value as unknown as Record<string, unknown>)
-      ?.items as CardItemType[]) || [],
-)
+const { data: refData }
+  = await useQueryCollection<ReferencesCollectionItem>('references').all()
+const articles = computed(() => refData.value ?? [])
 </script>
 
 <template>
