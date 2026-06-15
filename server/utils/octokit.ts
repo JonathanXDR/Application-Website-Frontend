@@ -48,11 +48,44 @@ export function clampPerPage(value: unknown, fallback = 30) {
   return Math.min(Math.max(Math.trunc(parsed), 1), 100)
 }
 
+// Clamps a client-provided page number. GitHub paginates from 1, and the
+// upper bound keeps deep pagination from walking far into the owner's
+// history on the token's quota.
+export function clampPage(value: unknown, fallback = 1, max = 50) {
+  const parsed = Number(value)
+  if (!Number.isFinite(parsed) || parsed < 1) return fallback
+  return Math.min(Math.trunc(parsed), max)
+}
+
 export function handleGitHubError(error: unknown): never {
   if (error instanceof RequestError) {
+    // Forward only the upstream status code. The RequestError message can
+    // carry rate-limit and validation details, so log it server side and
+    // return a fixed client-safe message rather than leaking it to the
+    // anonymous caller.
+    console.error('[github]', error.status, error.message)
     throw createError({
       status: error.status,
-      statusMessage: error.message,
+      statusText: 'GitHub API Error',
+    })
+  }
+  // octokit.graphql throws a GraphqlResponseError (not a RequestError) when
+  // GitHub answers a query with HTTP 200 but a top-level errors array, for
+  // example a GraphQL rate limit or a field resolution error. Without this
+  // branch it would collapse into the generic 500 below. The HTTP status is
+  // 200 in this case, so forwarding it would be misleading. Return a fixed
+  // 502 instead (a valid upstream returned an error payload) and log the
+  // structured errors server side. The name check avoids a dual-package-copy
+  // instanceof pitfall.
+  if (error instanceof Error && error.name === 'GraphqlResponseError') {
+    console.error(
+      '[github]',
+      'graphql',
+      (error as { errors?: unknown }).errors,
+    )
+    throw createError({
+      status: 502,
+      statusText: 'GitHub API Error',
     })
   }
   // Log the original error server side but never copy raw internal
@@ -60,6 +93,6 @@ export function handleGitHubError(error: unknown): never {
   console.error('[github]', error)
   throw createError({
     status: 500,
-    statusMessage: 'Internal Server Error',
+    statusText: 'Internal Server Error',
   })
 }

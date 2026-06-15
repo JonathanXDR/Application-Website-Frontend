@@ -1,5 +1,18 @@
-import type { GraphQlQueryResponseData } from '@octokit/graphql'
 import type { Repository } from '@octokit/graphql-schema'
+
+// Typed shape of the GraphQL selection below. Without it the edges array
+// is `any`, and edges.map collapses the handler return type to `any`,
+// which previously propagated an implicit any into the projects page.
+interface PinnedRepositoriesResponse {
+  // `user(login:)` is nullable in the GraphQL schema. A renamed or deleted
+  // owner resolves to null with no GraphQL error, so the handler guards it
+  // before walking the selection.
+  user: {
+    pinnedItems: {
+      edges: Array<{ node: Repository }>
+    }
+  } | null
+}
 
 const query = `
   query ($username: String!, $perPage: Int!) {
@@ -34,17 +47,11 @@ const query = `
               stargazers {
                 totalCount
               }
-              issues(first: $perPage) {
-                nodes {
-                  closed
-                  url
-                }
+              issues(states: [OPEN]) {
+                totalCount
               }
-              pullRequests(first: $perPage) {
-                nodes {
-                  closed
-                  url
-                }
+              pullRequests(states: [OPEN]) {
+                totalCount
               }
               updatedAt
             }
@@ -79,9 +86,8 @@ const remapProperties = (item: Repository) => {
     license: licenseInfo,
     forks: forks?.totalCount,
     stars: stargazers?.totalCount,
-    issues: issues?.nodes?.filter(node => node && !node.closed).length,
-    pullRequests: pullRequests?.nodes?.filter(node => node && !node.closed)
-      .length,
+    issues: issues?.totalCount,
+    pullRequests: pullRequests?.totalCount,
     updated_at: updatedAt,
   }
 }
@@ -94,18 +100,27 @@ export default defineCachedEventHandler(
     const { owner } = useGitHubRepoCoordinates()
     const perPage = clampPerPage(getQuery(event).perPage, 30)
 
+    let response: PinnedRepositoriesResponse
     try {
-      const response = await octokit.graphql<GraphQlQueryResponseData>(query, {
+      response = await octokit.graphql<PinnedRepositoriesResponse>(query, {
         username: owner,
         perPage,
       })
-      return response.user.pinnedItems.edges.map((edge: { node: Repository }) =>
-        remapProperties(edge.node),
-      )
     }
     catch (error) {
       handleGitHubError(error)
     }
+
+    // Guard after the upstream call (not inside the try) so this 404 reaches
+    // the client instead of being recaught and downgraded to a 500 by
+    // handleGitHubError.
+    if (!response.user) {
+      throw createError({ status: 404, statusText: 'GitHub API Error' })
+    }
+
+    return response.user.pinnedItems.edges.map(edge =>
+      remapProperties(edge.node),
+    )
   },
   {
     name: 'github-pinned-repositories',

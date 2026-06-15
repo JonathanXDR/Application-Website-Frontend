@@ -13,7 +13,10 @@ export default defineCachedEventHandler(
         repo,
         per_page: perPage,
       })
-      return data
+      // Narrow to the only field the release banner reads. The full tag
+      // object also carries commit, archive URLs, and node_id, which would
+      // otherwise be embedded verbatim into every prerendered locale payload.
+      return data.map(tag => ({ name: tag.name }))
     }
     catch (error) {
       handleGitHubError(error)

@@ -7,7 +7,7 @@ export default defineCachedEventHandler(
     const { owner } = useGitHubRepoCoordinates()
     const query = getQuery(event)
     const perPage = clampPerPage(query.per_page, 100)
-    const page = Math.min(Math.max(Number(query.page) || 1, 1), 50)
+    const page = clampPage(query.page)
 
     try {
       const { data } = await octokit.request('GET /users/{username}/repos', {
@@ -41,7 +41,7 @@ export default defineCachedEventHandler(
     getKey: (event) => {
       const query = getQuery(event)
       const perPage = clampPerPage(query.per_page, 100)
-      const page = Math.min(Math.max(Number(query.page) || 1, 1), 50)
+      const page = clampPage(query.page)
       return `repos:${perPage}:${page}`
     },
   },
