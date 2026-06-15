@@ -221,11 +221,15 @@ export default defineNuxtConfig({
     appleDeveloperTeamId: '',
     appleMusicUserToken: '',
   },
-  // `~/assets/img/**` holds source images such as the original portrait
+  // `app/assets/img/**` holds source images such as the original portrait
   // jpg. They stay in the repository for future editing but are never
   // imported, and the ignore entry keeps them out of Nuxt's scanning so
-  // nothing from that directory can ship by accident.
-  ignore: ['~/assets/drafts/**', '~/assets/img/**'],
+  // nothing from that directory can ship by accident. The patterns are
+  // matched against the rootDir-relative path, so they must use the real
+  // `app/...` path, not the `~` srcDir alias, which @nuxt/kit's ignore
+  // matcher does not resolve (a `~`-prefixed pattern silently matches
+  // nothing).
+  ignore: ['app/assets/drafts/**', 'app/assets/img/**'],
   // No `'/': { robots: false }` route rule here, even though the
   // unprefixed root is a meta-refresh interstitial. @nuxtjs/robots strips
   // the locale prefix before matching route rules, so a rule on `/` would
@@ -234,7 +238,7 @@ export default defineNuxtConfig({
   // `sitemap.exclude` below instead.
   routeRules: {
     '/api/**': {
-      // No `robots: false`. @nuxtjs/robots v5.7.1+ warns on `/api` disallows
+      // No `robots: false`. @nuxtjs/robots (v6+) warns on `/api` disallows
       // because APIs are not crawled anyway, and listing them in robots.txt
       // advertises their existence. Neither nuxt-security nor the robots
       // module sets X-Robots-Tag on /api paths (the robots middleware skips
@@ -407,13 +411,13 @@ export default defineNuxtConfig({
   //     with "CSRF Token Mismatch". The lazy-load feature also POSTed here
   //     before it was disabled via `hints.features.lazyLoad` below.
   //   - `robots: false` keeps the internal devtool route out of robots.txt.
-  // @nuxt/hints 1.1.2's `postHandler` ends with `setResponseStatus(event,
-  // 201)` yet returns `undefined`, so h3 lets the POST fall through to
-  // Nuxt's page renderer and the browser logs a `404 Page not found` even
-  // though the payload was received and stored. That upstream bug is why
-  // the lazy-load hint is off above: it POSTed on every render and produced
-  // recurring 404s. Hydration POSTs only on a real mismatch, so its rare
-  // 404 is left as-is.
+  // @nuxt/hints 1.1.2's lazy-load `postHandler` ends with
+  // `setResponseStatus(event, 201)` yet returns `undefined`, so h3 lets the
+  // POST fall through to Nuxt's page renderer and the browser logs a `404
+  // Page not found` even though the payload was received and stored. That
+  // upstream bug is why the lazy-load hint is off above: it POSTed on every
+  // render and produced recurring 404s. The hydration postHandler returns a
+  // body in 1.1.2, so hydration reports do not 404.
   // TODO: drop this hook once nuxt-security uses `defuReplaceArray` for its
   //       auto-hints route rule, and re-enable lazyLoad once @nuxt/hints'
   //       postHandler returns a body (track both upstream).
@@ -526,6 +530,16 @@ export default defineNuxtConfig({
     //   * compactRoutes: collapses per-locale routes into a single
     //     `:locale(de|en|fr|it)` regex route.
     // https://nuxt.com/modules/i18n#new-features
+    // KNOWN UPSTREAM BUG (no app-side fix): under strictSeo, i18n derives
+    // og:locale:alternate from the hreflang link list, which legitimately
+    // carries bare-language catchall codes. Every page therefore emits
+    // invalid bare og:locale:alternate values (de, en, fr, it) next to the
+    // correct region tags, and also lists its own locale as an alternate,
+    // for example /de/ emits og:locale:alternate=de. Verified live in 10.4.0
+    // and on upstream main.
+    // TODO: drop this note once @nuxtjs/i18n sources og:locale:alternate
+    //       from options.locales (language tags) rather than the hreflang
+    //       list. Repro: repro-nuxt-i18n-strictseo-og-locale-alternate.
     experimental: {
       strictSeo: true,
       compactRoutes: true,
@@ -949,7 +963,7 @@ export default defineNuxtConfig({
     // statically prerendered and there are no dynamic sitemap sources.
     // https://nuxtseo.com/docs/sitemap/guides/zero-runtime
     zeroRuntime: true,
-    // @nuxtjs/sitemap v8.0.15 auto-extracts `<img>` URLs from prerendered
+    // @nuxtjs/sitemap (current 8.2.1) auto-extracts `<img>` URLs from prerendered
     // HTML and pipes them through `xmlEscape()`. Vercel's image-optimizer
     // URLs leave `<NuxtImg>` and `<NuxtPicture>` already HTML-encoded
     // (`&amp;w=768&amp;q=80`), and `xmlEscape` then double-encodes them
