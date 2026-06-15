@@ -13,7 +13,7 @@ items:
         class: section-separated
       - id: fun-facts
         label: "Fun Facts"
-        route: "/#funFacts"
+        route: "/#fun-facts"
         class: section-separated
       - id: references
         label: "Referenzen"

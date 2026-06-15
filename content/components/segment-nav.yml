@@ -124,7 +124,7 @@ i18n:
   it:
     theme:
       - id: light
-        label: "Luce"
+        label: "Chiaro"
       - id: dark
         label: "Scuro"
       - id: auto

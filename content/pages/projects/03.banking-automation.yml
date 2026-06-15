@@ -39,14 +39,15 @@ i18n:
     info:
       department: "B2B-BAN-BPS-BPM-AU1"
   fr:
-    eyebrow: "Automazione"
-    title: "Progetti di automazione nel settore bancario"
+    eyebrow: "Automatisation"
+    title: "Projets d'automatisation dans le secteur bancaire"
     description: >-
-      Qui ho ottenuto una panoramica generale sull'automazione e il suo
-      contesto. Ho partecipato attivamente, imparando a testare e
-      automatizzare le singole banche utilizzando Ranorex e UiPath. Inoltre,
-      ho imparato un po' di C# e approfondito le mie conoscenze sul
-      framework .NET. Il mio obiettivo è migliorare ulteriormente in futuro!
+      Ici, j'ai pu obtenir un aperçu général de l'automatisation et de son
+      environnement. J'ai participé activement et appris à tester et à
+      automatiser les différentes banques avec Ranorex et UiPath. J'ai
+      également appris un peu de C# et approfondi mes connaissances du
+      framework .NET. Mon objectif est de continuer à m'améliorer dans ce
+      domaine à l'avenir !
     info:
       department: "B2B-BAN-BPS-BPM-AU1"
   it:

@@ -5,7 +5,7 @@ icon:
     primary: "#4285F4"
     secondary: "#4285F4"
     tertiary: "#4285F4"
-eyebrow: "Sprache"
+eyebrow: "Framework"
 title: "Jetpack Compose"
 description: >-
   Ich habe Jetpack Compose das erste mal zusammen mit Kotlin im ÜK 335
@@ -24,21 +24,21 @@ links:
 
 i18n:
   en:
-    eyebrow: "Language"
+    eyebrow: "Framework"
     description: >-
       I used Jetpack Compose for the first time together with Kotlin in ÜK
       335, where we created an Android app.
     links:
       - title: "Learn more"
   fr:
-    eyebrow: "Langue"
+    eyebrow: "Framework"
     description: >-
       J'ai utilisé Jetpack Compose pour la première fois avec Kotlin dans le
       CI 335, où nous avons créé une application Android.
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Lingua"
+    eyebrow: "Framework"
     description: >-
       Ho usato Jetpack Compose per la prima volta insieme a Kotlin in ÜK
       335, dove abbiamo creato un'applicazione Android.

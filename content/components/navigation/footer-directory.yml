@@ -12,7 +12,7 @@ sections:
             route: "/#languages"
           - id: fun-facts
             label: "Fun Facts"
-            route: "/#funFacts"
+            route: "/#fun-facts"
           - id: references
             label: "Referenzen"
             route: "/#references"
@@ -61,6 +61,8 @@ i18n:
                 label: "About"
               - id: languages
                 label: "Languages"
+              - id: fun-facts
+                label: "Fun Facts"
               - id: references
                 label: "References"
       - id: advanced
@@ -83,6 +85,8 @@ i18n:
                 label: "About"
               - id: languages
                 label: "Langues"
+              - id: fun-facts
+                label: "Fun Facts"
               - id: references
                 label: "Références"
       - id: advanced
@@ -105,6 +109,8 @@ i18n:
                 label: "About"
               - id: languages
                 label: "Lingue"
+              - id: fun-facts
+                label: "Fun Facts"
               - id: references
                 label: "Riferimenti"
       - id: advanced

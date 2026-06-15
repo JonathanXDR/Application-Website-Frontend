@@ -6,7 +6,7 @@ icon:
   colors:
     primary: "var(--color-fill)"
     tertiary: "var(--color-system-yellow)"
-title: "{status} Not Found"
+title: "{status} Nicht gefunden"
 description: >-
   Die Seite, die du suchst, kann nicht gefunden werden. Bitte überprüfe sie
   und versuche es erneut.
@@ -14,11 +14,13 @@ description: >-
 i18n:
   en:
     label: "Page not found"
+    title: "{status} Not Found"
     description: >-
       The page you are looking for cannot be found. Please check it and try
       again.
   fr:
     label: "Page non trouvée"
+    title: "{status} Introuvable"
     description: >-
       La page que tu cherches est introuvable. Vérifie-la s'il te plaît et
       essaie à nouveau.
