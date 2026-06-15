@@ -56,7 +56,7 @@ const getLabel = (locale: { code: string, name?: string }) => {
           type="radio"
           name="language"
           :checked="locale === computedLocale.code"
-          @click="changeLanguage(computedLocale.code)"
+          @change="changeLanguage(computedLocale.code)"
         >
         <label
           :for="computedLocale.code"

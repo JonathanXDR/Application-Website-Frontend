@@ -238,7 +238,7 @@ watch(
     class="ac-ln-menustate"
     aria-label="Menu"
     aria-controls="ac-ln-menustate-tray"
-    aria-expanded="false"
+    :aria-expanded="navProps.open ? 'true' : 'false'"
     :disabled="shouldOpen"
     @input="handleNav()"
   >

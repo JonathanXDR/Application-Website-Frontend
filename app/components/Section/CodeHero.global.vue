@@ -1,11 +1,10 @@
 <script setup lang="ts">
-const config = useRuntimeConfig()
 const show = ref(false)
 
+// Owner is pinned server side, so no params are forwarded here.
 const { data: user } = useFetch('/api/github/user', {
   key: 'user',
   lazy: true,
-  params: { username: config.public.githubRepoOwner },
 })
 
 const bioSentences = computed(() => {

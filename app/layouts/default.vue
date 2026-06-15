@@ -65,15 +65,27 @@ const faviconColor = randomDevColor.value?.hex
 const faviconGraphicData = ref<string | undefined>(undefined)
 
 const fetchSvgContent = async () => {
-  const response = await fetch('/img/dev/favicon-dev.svg')
-  const svgContent = await response.text()
-  faviconGraphicData.value = `data:image/svg+xml,${encodeURIComponent(
-    svgContent.replace('#color', `#${faviconColor}`),
-  )}`
+  try {
+    const response = await fetch('/img/dev/favicon-dev.svg')
+    if (!response.ok) return
+    const svgContent = await response.text()
+    faviconGraphicData.value = `data:image/svg+xml,${encodeURIComponent(
+      svgContent.replace('#color', `#${faviconColor}`),
+    )}`
+  }
+  catch {
+    // Dev-only favicon. If the asset is missing or the fetch fails, leave
+    // faviconGraphicData undefined so the head guard simply omits the icon.
+  }
 }
 
 onMounted(async () => {
-  await fetchSvgContent()
+  // The recolored dev favicon is only consumed under the
+  // `appEnvironment === 'development'` head block below, so skip the fetch
+  // entirely in production instead of fetching and discarding the result.
+  if (config.public.appEnvironment === 'development') {
+    await fetchSvgContent()
+  }
 })
 
 const resetHideNavbarTimer = () => {

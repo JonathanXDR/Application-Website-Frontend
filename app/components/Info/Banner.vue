@@ -18,8 +18,6 @@ const props = withDefaults(defineProps<InfoBannerType>(), {
   autoScrollRestartDelay: 5000,
 })
 
-const config = useRuntimeConfig()
-
 const state = ref<GalleryStateType>({
   sequence: 0,
   activeItem: 0,
@@ -37,12 +35,11 @@ const tags = ref<{
 
 const baseItems = ref<InfoBannerType['items']>([])
 
+// Owner and repo are pinned server side, so only per_page is forwarded.
 const { data: repositoryTags } = await useFetch('/api/github/repository-tags', {
   key: 'repository-tags',
   lazy: true,
   params: {
-    owner: config.public.githubRepoOwner,
-    repo: config.public.githubRepoName,
     per_page: 2,
   },
 })

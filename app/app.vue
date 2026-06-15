@@ -99,6 +99,7 @@ useSchemaOrg([
 </script>
 
 <template>
+  <NuxtRouteAnnouncer />
   <NuxtLoadingIndicator
     :color
     :error-color="`var(--color-figure-red)`"

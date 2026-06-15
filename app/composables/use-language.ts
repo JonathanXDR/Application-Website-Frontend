@@ -1,11 +1,7 @@
 import type { LocaleObject } from '@nuxtjs/i18n'
 
 export const useLanguage = () => {
-  const { locale, locales, setLocale } = useI18n()
-
-  const availableLocales = computed(() => {
-    return locales.value.filter(index => index.code !== locale.value)
-  })
+  const { locales, setLocale } = useI18n()
 
   const isLocaleAvailable = (localeCode: string) =>
     locales.value.some(index => index.code === localeCode)
@@ -17,7 +13,6 @@ export const useLanguage = () => {
   }
 
   return {
-    availableLocales,
     changeLanguage,
   }
 }

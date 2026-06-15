@@ -12,7 +12,7 @@ const currentPage = computed<ErrorPageType>(() => {
   const matchedPage = pages.find(page => page.status === error.value?.status)
   return (
     matchedPage
-    ?? pages.find(page => page.pageId === 'error') ?? {
+    ?? pages.find(page => page.pageId === 'generic-error') ?? {
       pageId: 'error',
       label: 'Error',
       title: 'Error',
@@ -21,7 +21,17 @@ const currentPage = computed<ErrorPageType>(() => {
   )
 })
 
-const description = computed(() => currentPage.value.description?.split('. '))
+// Split the localised description into sentences, one per line, without
+// assuming a fixed count, so a single sentence or three or more sentences
+// all render without a dangling separator or an empty trailing line.
+const descriptionLines = computed(() => {
+  const desc = currentPage.value.description
+  if (!desc) return []
+  const parts = desc.split('. ')
+  return parts.map((part, index) =>
+    index < parts.length - 1 ? `${part}.` : part,
+  )
+})
 
 // Error pages must (a) set a meaningful title/description so social
 // previews and the browser tab reflect the localized error and (b) emit
@@ -89,7 +99,7 @@ useSeoMeta({
             </button>
           </div>
           <div
-            v-if="currentPage.title || description"
+            v-if="currentPage.title || descriptionLines.length"
             class="rs-covers-content-container"
           >
             <h1
@@ -104,10 +114,15 @@ useSeoMeta({
               }}</span>
             </h1>
             <div
-              v-if="description"
+              v-if="descriptionLines.length"
               class="rs-covers-desc"
             >
-              {{ description[0] }}. <br>{{ description[1] }}
+              <template
+                v-for="(line, index) in descriptionLines"
+                :key="index"
+              >
+                {{ line }}<br v-if="index < descriptionLines.length - 1">
+              </template>
             </div>
           </div>
         </div>

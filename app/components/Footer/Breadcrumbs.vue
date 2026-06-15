@@ -27,7 +27,7 @@ const { shouldShowBreadcrumbs, computedLinks, requestURL, route }
   >
     <NuxtLink
       v-if="icon || label"
-      :to="requestURL.host?.split('.').slice(-2).join('.')"
+      :to="`https://${requestURL.host?.split('.').slice(-2).join('.')}`"
       class="home footer-breadcrumbs-home"
     >
       <Icon

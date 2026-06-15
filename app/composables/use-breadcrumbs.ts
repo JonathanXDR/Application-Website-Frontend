@@ -44,7 +44,10 @@ export function useBreadcrumbs(
 
     if (subDomain) {
       const capitalized = subDomain[0]?.toUpperCase() + subDomain.slice(1)
-      result.push({ title: capitalized, url: `${subDomain}.${mainDomain}` })
+      result.push({
+        title: capitalized,
+        url: `https://${subDomain}.${mainDomain}`,
+      })
     }
 
     const lastCrumbTitle = currentRoute.value?.label ?? route.path

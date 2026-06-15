@@ -1,5 +1,5 @@
 import { useInView, type UseInViewOptions } from 'motion-v'
-import type { DirectiveBinding } from 'vue'
+import type { DirectiveBinding, EffectScope } from 'vue'
 
 interface AnimationOperations {
   add?: string | string[]
@@ -15,6 +15,7 @@ interface AnimationState {
 }
 
 const animationState = new WeakMap<HTMLElement, AnimationState>()
+const animationScopes = new WeakMap<HTMLElement, EffectScope>()
 
 const toArray = (input?: string | string[]): string[] =>
   Array.isArray(input) ? input : input ? [input] : []
@@ -69,18 +70,27 @@ export default defineNuxtPlugin((nuxtApp) => {
         updateClasses(element, value, true)
       }
 
-      const isInView = useInView(elementRef, {
-        amount: 0.1,
-        margin: '0px 0px -10% 0px',
-      } as UseInViewOptions)
+      // Directive hooks run outside any component effect scope, so the
+      // observer and watcher created below would never be disposed on
+      // unmount. An explicit scope lets unmounted stop them.
+      const scope = effectScope(true)
 
-      watch(
-        isInView,
-        (inView) => {
-          updateClasses(element, value, inView)
-        },
-        { immediate: !isInitiallyVisible },
-      )
+      scope.run(() => {
+        const isInView = useInView(elementRef, {
+          amount: 0.1,
+          margin: '0px 0px -10% 0px',
+        } as UseInViewOptions)
+
+        watch(
+          isInView,
+          (inView) => {
+            updateClasses(element, value, inView)
+          },
+          { immediate: !isInitiallyVisible },
+        )
+      })
+
+      animationScopes.set(element, scope)
 
       if (!isInitiallyVisible && document.readyState !== 'complete') {
         window.addEventListener(
@@ -109,6 +119,8 @@ export default defineNuxtPlugin((nuxtApp) => {
       toArray(toggle).forEach(cls => element.classList.toggle(cls))
     },
     unmounted(element: HTMLElement) {
+      animationScopes.get(element)?.stop()
+      animationScopes.delete(element)
       animationState.delete(element)
     },
   })

@@ -5,11 +5,6 @@ import type { ItemType } from '#shared/types/schemas'
 import type { CardItemType } from '#shared/types/components/card-item'
 import type { IconItemType } from '#shared/types/components/icon-item'
 import type { MinimalRepositoryCard } from '#shared/types/services/github/repository'
-import type { Repository } from '@octokit/graphql-schema'
-
-type PinnedRepository = Repository & {
-  icon?: IconItemType
-}
 
 type CategorizedRepository = CardRepositoryType & {
   category: string
@@ -36,11 +31,9 @@ const router = useRouter()
 const viewport = useViewport()
 const { currentRoute } = useNavbar()
 const { randomDevColor } = useColor()
-const config = useRuntimeConfig()
 
 const ul = useTemplateRef('ul')
 const ulHeight = ref<number>(0)
-const pinned = ref<PinnedRepository[]>([])
 const currentIndex = ref(0)
 
 const updateHeight = () => {
@@ -48,23 +41,31 @@ const updateHeight = () => {
   ulHeight.value = ul.value.getBoundingClientRect().height
 }
 
-const { data: userRepositories } = await useFetch(
-  '/api/github/user-repositories',
-  {
+const { data: userRepositories, status: userRepositoriesStatus }
+  = await useFetch('/api/github/user-repositories', {
     key: 'user-repositories',
     lazy: true,
-    params: { username: config.public.githubRepoOwner, per_page: 100 },
-  },
-)
+    params: { per_page: 100 },
+  })
 
+// The pinned endpoint pins the owner and reads `perPage` server side, so
+// no params are forwarded here.
 const { data: pinnedProjects } = await useFetch(
   '/api/github/pinned-repositories',
   {
     key: 'pinned-repositories',
     lazy: true,
-    params: { username: config.public.githubRepoOwner, per_page: 100 },
   },
 )
+
+// Element type of the (Nitro serialized) pinned fetch result, plus the
+// pin icon the watch attaches. Derived from the fetch so it tracks the
+// server projection instead of an `any` hand-off.
+type PinnedRepository = NonNullable<typeof pinnedProjects.value>[number] & {
+  icon?: IconItemType
+}
+
+const pinned = ref<PinnedRepository[]>([])
 
 // The three queries are independent, so they run in parallel instead of
 // serializing three round-trips per render.
@@ -162,16 +163,15 @@ watch(
 watch(
   pinnedProjects,
   (pinnedProjectsNew) => {
-    if (!pinnedProjectsNew) return
-    for (const project of pinnedProjectsNew) {
-      project.icon = {
+    pinned.value = (pinnedProjectsNew ?? []).map(project => ({
+      ...project,
+      icon: {
         name: 'sf-symbols:pin.fill',
         colors: {
           primary: `var(--color-figure-${randomDevColor.value?.name})`,
         },
-      }
-    }
-    pinned.value = pinnedProjectsNew || []
+      },
+    }))
   },
   { immediate: true },
 )
@@ -262,7 +262,7 @@ watchEffect(() => {
       v-else
       class="w-full"
     >
-      <div v-if="projects.personal.length > 0 && projects.school.length > 0">
+      <div v-if="userRepositoriesStatus !== 'pending'">
         <LazyLiveResultSummary
           :total-results="currentProjects.length + pinned.length"
           :pinned-results="pinned.length"
