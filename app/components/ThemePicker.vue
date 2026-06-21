@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import type { UiCollectionItem } from '@nuxt/content'
+import type { SegmentNavCollectionItem } from '@nuxt/content'
 import type { ItemType } from '#shared/types/schemas'
 
 const { getTheme, setTheme } = useTheme()
 const viewport = useViewport()
 
-const { data: segNavData } = await useQueryCollection<UiCollectionItem>('ui')
-  .stem('segment-nav')
-  .first()
+const { data: segNavData }
+  = await useQueryCollection<SegmentNavCollectionItem>('segmentNav').first()
 const items = computed<ItemType[]>(() => segNavData.value?.theme ?? [])
 </script>
 

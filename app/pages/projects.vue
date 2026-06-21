@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import type { UiCollectionItem } from '@nuxt/content'
+import type {
+  CardItemCollectionItem,
+  SegmentNavCollectionItem,
+} from '@nuxt/content'
 import type { CardRepositoryType } from '#shared/types/components/card-repository'
 import type { ItemType } from '#shared/types/schemas'
 import type { CardItemType } from '#shared/types/components/card-item'
@@ -75,8 +78,8 @@ const [
   { data: segmentNavData },
 ] = await Promise.all([
   useQueryCollection<CardItemType>('projects').all(),
-  useQueryCollection<UiCollectionItem>('ui').stem('card-item').first(),
-  useQueryCollection<UiCollectionItem>('ui').stem('segment-nav').first(),
+  useQueryCollection<CardItemCollectionItem>('cardItem').first(),
+  useQueryCollection<SegmentNavCollectionItem>('segmentNav').first(),
 ])
 
 const projects: Projects = reactive({

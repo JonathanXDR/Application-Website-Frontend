@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import type { NavigationCollectionItem, UiCollectionItem } from '@nuxt/content'
+import type {
+  FooterMiniCollectionItem,
+  NavigationCollectionItem,
+} from '@nuxt/content'
 import type { SectionType, LinkItemType } from '#shared/types/schemas'
 
 // The two queries are independent, so they run in parallel instead of
@@ -8,7 +11,7 @@ const [{ data: footerDirData }, { data: footerMiniData }] = await Promise.all([
   useQueryCollection<NavigationCollectionItem>('navigation')
     .stem('footer-directory')
     .first(),
-  useQueryCollection<UiCollectionItem>('ui').stem('footer-mini').first(),
+  useQueryCollection<FooterMiniCollectionItem>('footerMini').first(),
 ])
 
 const footerDirectoryItems = computed<SectionType[]>(

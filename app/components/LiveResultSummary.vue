@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { UiCollectionItem } from '@nuxt/content'
+import type { LiveResultSummaryCollectionItem } from '@nuxt/content'
 
 defineProps<{
   totalResults: number
@@ -7,9 +7,10 @@ defineProps<{
 }>()
 
 const { randomDevColor } = useColor()
-const { data: summaryLabels } = await useQueryCollection<UiCollectionItem>('ui')
-  .stem('live-result-summary')
-  .first()
+const { data: summaryLabels }
+  = await useQueryCollection<LiveResultSummaryCollectionItem>(
+    'liveResultSummary',
+  ).first()
 </script>
 
 <template>

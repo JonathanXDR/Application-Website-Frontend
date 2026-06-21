@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { UiCollectionItem } from '@nuxt/content'
+import type { FooterCopyrightCollectionItem } from '@nuxt/content'
 import type { BasicSizeType, LinkItemType } from '#shared/types/schemas'
 
 withDefaults(
@@ -13,9 +13,10 @@ withDefaults(
   },
 )
 
-const { data: copyrightData } = await useQueryCollection<UiCollectionItem>('ui')
-  .stem('footer-copyright')
-  .first()
+const { data: copyrightData }
+  = await useQueryCollection<FooterCopyrightCollectionItem>(
+    'footerCopyright',
+  ).first()
 const links = computed<LinkItemType[]>(
   () => (copyrightData.value?.links as LinkItemType[]) ?? [],
 )

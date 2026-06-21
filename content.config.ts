@@ -183,44 +183,82 @@ export const NavigationSchema = z.object({
   sections: z.array(NavNodeSchema).optional(),
 })
 
-// Chrome micro-content that is not a distinct content domain: the segment
-// tabs, rotating info banners, footer link lists, and translated UI labels.
-// One typed superset keeps these together without the previous
-// z.record(z.unknown()) grab-bag. Each file populates only its own fields.
-export const UiSchema = z.object({
-  // info-banners
-  items: z
-    .array(
-      z.object({
-        title: z.string().optional(),
-        description: z.string().optional(),
-        links: z.array(LinkSchema).optional(),
-      }),
-    )
-    .optional(),
-  // segment-nav
-  theme: z.array(ItemSchema).optional(),
-  projects: z.array(ItemSchema).optional(),
-  technologies: z.array(ItemSchema).optional(),
-  // footer-copyright, share-sheet
-  links: z.array(LinkSchema).optional(),
-  allRightsReserved: z.string().optional(),
-  // footer-mini
-  legalLinks: z.array(LinkSchema).optional(),
-  news: z.object({ title: z.string(), link: LinkSchema }).optional(),
-  // translated labels (card-item, filter-input, live-result-summary,
-  // language-picker-bar, skew-notification)
-  title: z.string().optional(),
-  description: z.string().optional(),
-  created: z.string().optional(),
-  updated: z.string().optional(),
-  learnMore: z.string().optional(),
-  chooseYourLanguage: z.string().optional(),
-  message: z.string().optional(),
-  reload: z.string().optional(),
-  dismiss: z.string().optional(),
-  addTag: z.string().optional(),
-  tagSelectRemove: z.string().optional(),
+// Chrome micro-content. Each component/file is its own collection with a
+// schema that models only that file's fields, replacing the former single
+// `ui` superset where every field was optional (so no required field could
+// be enforced and `UiCollectionItem` leaked every field onto every
+// component's query type). These are single-file type:'data' collections
+// queried with `.first()` and no stem, mirroring the `about` collection.
+
+// share-sheet: social links in the footer / hero share row.
+export const ShareSheetSchema = z.object({
+  links: z.array(LinkSchema),
+})
+
+// segment-nav: the three tab groups (theme switch, projects filter,
+// technologies filter); each consumer reads one group.
+export const SegmentNavSchema = z.object({
+  theme: z.array(ItemSchema),
+  projects: z.array(ItemSchema),
+  technologies: z.array(ItemSchema),
+})
+
+// info-banner: rotating promo banners. No field is guaranteed per entry,
+// so the entry shape mirrors the title-optional InfoBannerType prop.
+export const InfoBannerSchema = z.object({
+  items: z.array(
+    z.object({
+      title: z.string().optional(),
+      description: z.string().optional(),
+      links: z.array(LinkSchema).optional(),
+    }),
+  ),
+})
+
+// footer-mini: legal link row plus the "Get the … app" news line.
+export const FooterMiniSchema = z.object({
+  legalLinks: z.array(LinkSchema),
+  news: z.object({ title: z.string(), link: LinkSchema }),
+})
+
+// footer-copyright: copyright line (carries {currentYear}) and author link.
+export const FooterCopyrightSchema = z.object({
+  allRightsReserved: z.string(),
+  links: z.array(LinkSchema),
+})
+
+// card-item: result-card labels.
+export const CardItemSchema = z.object({
+  created: z.string(),
+  updated: z.string(),
+  learnMore: z.string(),
+})
+
+// live-result-summary: result-count line (title carries {count}) and the
+// pinned-results label.
+export const LiveResultSummarySchema = z.object({
+  title: z.string(),
+  description: z.string(),
+})
+
+// language-picker-bar: language chooser heading.
+export const LanguagePickerBarSchema = z.object({
+  chooseYourLanguage: z.string(),
+})
+
+// skew-notification: new-version toast strings.
+export const SkewNotificationSchema = z.object({
+  message: z.string(),
+  reload: z.string(),
+  dismiss: z.string(),
+})
+
+// filter-input: tag add/remove labels. Currently unconsumed (no component
+// queries it yet); kept so the translations are ready when the technologies
+// filter wires them up.
+export const FilterInputSchema = z.object({
+  addTag: z.string(),
+  tagSelectRemove: z.string(),
 })
 
 export default defineContentConfig({
@@ -239,10 +277,73 @@ export default defineContentConfig({
       i18n: true,
     }),
 
-    ui: defineCollection({
+    cardItem: defineCollection({
       type: 'data',
-      source: 'components/*.yml',
-      schema: UiSchema,
+      source: 'components/card-item.yml',
+      schema: CardItemSchema,
+      i18n: true,
+    }),
+
+    filterInput: defineCollection({
+      type: 'data',
+      source: 'components/filter-input.yml',
+      schema: FilterInputSchema,
+      i18n: true,
+    }),
+
+    footerCopyright: defineCollection({
+      type: 'data',
+      source: 'components/footer-copyright.yml',
+      schema: FooterCopyrightSchema,
+      i18n: true,
+    }),
+
+    footerMini: defineCollection({
+      type: 'data',
+      source: 'components/footer-mini.yml',
+      schema: FooterMiniSchema,
+      i18n: true,
+    }),
+
+    infoBanner: defineCollection({
+      type: 'data',
+      source: 'components/info-banner.yml',
+      schema: InfoBannerSchema,
+      i18n: true,
+    }),
+
+    languagePickerBar: defineCollection({
+      type: 'data',
+      source: 'components/language-picker-bar.yml',
+      schema: LanguagePickerBarSchema,
+      i18n: true,
+    }),
+
+    liveResultSummary: defineCollection({
+      type: 'data',
+      source: 'components/live-result-summary.yml',
+      schema: LiveResultSummarySchema,
+      i18n: true,
+    }),
+
+    segmentNav: defineCollection({
+      type: 'data',
+      source: 'components/segment-nav.yml',
+      schema: SegmentNavSchema,
+      i18n: true,
+    }),
+
+    shareSheet: defineCollection({
+      type: 'data',
+      source: 'components/share-sheet.yml',
+      schema: ShareSheetSchema,
+      i18n: true,
+    }),
+
+    skewNotification: defineCollection({
+      type: 'data',
+      source: 'components/skew-notification.yml',
+      schema: SkewNotificationSchema,
       i18n: true,
     }),
 

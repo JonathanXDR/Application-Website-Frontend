@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { UiCollectionItem } from '@nuxt/content'
+import type { SegmentNavCollectionItem } from '@nuxt/content'
 import type { ItemType } from '#shared/types/schemas'
 import type { SegmentNavType } from '#shared/types/components/segment-nav'
 
@@ -10,9 +10,8 @@ withDefaults(defineProps<Pick<SegmentNavType, 'label'>>(), {
 const { getTheme, setTheme } = useTheme()
 const currentTheme = computed(() => getTheme())
 
-const { data: segNavData } = await useQueryCollection<UiCollectionItem>('ui')
-  .stem('segment-nav')
-  .first()
+const { data: segNavData }
+  = await useQueryCollection<SegmentNavCollectionItem>('segmentNav').first()
 const themeItems = computed<ItemType[]>(() => segNavData.value?.theme ?? [])
 </script>
 

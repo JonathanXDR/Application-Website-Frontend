@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { UiCollectionItem } from '@nuxt/content'
+import type { CardItemCollectionItem } from '@nuxt/content'
 import type { CardRepositoryType } from '#shared/types/components/card-repository'
 
 const nonce = useNonce()
@@ -30,9 +30,8 @@ const props = withDefaults(
   },
 )
 
-const { data: cardLabels } = useQueryCollection<UiCollectionItem>('ui')
-  .stem('card-item')
-  .first()
+const { data: cardLabels }
+  = useQueryCollection<CardItemCollectionItem>('cardItem').first()
 const { randomDevColor } = useColor()
 
 const componentType = computed(() => {
@@ -111,7 +110,7 @@ const linkCollectionLinks = computed(
   () =>
     props.links || [
       {
-        title: cardLabels.value?.learnMore,
+        title: cardLabels.value?.learnMore ?? '',
         url: props.html_url,
         icon: { name: 'sf-symbols:chevron.right' },
       },

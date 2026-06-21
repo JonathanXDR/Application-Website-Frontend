@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import type { NavigationCollectionItem, UiCollectionItem } from '@nuxt/content'
+import type {
+  InfoBannerCollectionItem,
+  NavigationCollectionItem,
+  SkewNotificationCollectionItem,
+} from '@nuxt/content'
 import type { InfoBannerType } from '#shared/types/components/info-banner'
 import FooterPre from '~/components/Footer/Pre.vue'
 import { AnimatePresence, Motion } from 'motion-v'
@@ -26,8 +30,10 @@ const [
   useQueryCollection<NavigationCollectionItem>('navigation')
     .stem('navbar')
     .first(),
-  useQueryCollection<UiCollectionItem>('ui').stem('info-banners').first(),
-  useQueryCollection<UiCollectionItem>('ui').stem('skew-notification').first(),
+  useQueryCollection<InfoBannerCollectionItem>('infoBanner').first(),
+  useQueryCollection<SkewNotificationCollectionItem>(
+    'skewNotification',
+  ).first(),
 ])
 
 // Mirror the navbar content into the shared `useNavbar` state so every

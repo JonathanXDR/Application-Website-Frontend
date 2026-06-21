@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import type { UiCollectionItem } from '@nuxt/content'
+import type { ShareSheetCollectionItem } from '@nuxt/content'
 import type { LinkItemType } from '#shared/types/schemas'
 
 defineProps<{ links?: LinkItemType[] }>()
 
-const { data: shareData } = await useQueryCollection<UiCollectionItem>('ui')
-  .stem('share-sheet')
-  .first()
+const { data: shareData }
+  = await useQueryCollection<ShareSheetCollectionItem>('shareSheet').first()
 const socialLinks = computed<LinkItemType[]>(
   () => shareData.value?.links ?? [],
 )
