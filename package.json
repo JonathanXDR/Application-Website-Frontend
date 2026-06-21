@@ -26,7 +26,7 @@
     "@iconify-json/logos": "1.2.11",
     "@iconify-json/simple-icons": "1.2.86",
     "@iconify/types": "2.0.0",
-    "@jonathanxdr/iconify-json-sf-symbols": "1.0.0",
+    "@jonathanxdr/iconify-json-sf-symbols": "0.1.0",
     "@nuxt/content": "github:JonathanXDR/content#release/better-i18n",
     "@nuxt/devtools": "3.2.4",
     "@nuxt/eslint": "1.16.0",

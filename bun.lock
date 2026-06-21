@@ -19,7 +19,7 @@
         "@iconify-json/logos": "1.2.11",
         "@iconify-json/simple-icons": "1.2.86",
         "@iconify/types": "2.0.0",
-        "@jonathanxdr/iconify-json-sf-symbols": "1.0.0",
+        "@jonathanxdr/iconify-json-sf-symbols": "0.1.0",
         "@nuxt/content": "github:JonathanXDR/content#release/better-i18n",
         "@nuxt/devtools": "3.2.4",
         "@nuxt/eslint": "1.16.0",
@@ -465,7 +465,7 @@
 
     "@isaacs/fs-minipass": ["@isaacs/fs-minipass@4.0.1", "", { "dependencies": { "minipass": "^7.0.4" } }, "sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w=="],
 
-    "@jonathanxdr/iconify-json-sf-symbols": ["@jonathanxdr/iconify-json-sf-symbols@1.0.0", "https://npm.pkg.github.com/download/@jonathanxdr/iconify-json-sf-symbols/1.0.0/0cfc95eee905467fd2ec0731ab4fb9a5e6734f08", {}, "sha512-2nOyZPOiq7jLpQCndBj6WG8WtjJnlu95brm1azGyZ6UqexFGpTfpqRT1cnc7trnT63v2at8B+ERW7eU8cbMxHA=="],
+    "@jonathanxdr/iconify-json-sf-symbols": ["@jonathanxdr/iconify-json-sf-symbols@0.1.0", "https://npm.pkg.github.com/download/@jonathanxdr/iconify-json-sf-symbols/0.1.0/bc087831e5ce703efcf9d1bc83b9e7598ea9c023", { "dependencies": { "@iconify/types": "^2.0.0" } }, "sha512-LbtSlKZoCMzzZeM5AdP6YJaTJ00gQKGAVv7GwHWNgbkBc9Iw4Kxqprwj4jyF7mAbx/TQ40NT5gkZC/PKL2zEaw=="],
 
     "@jridgewell/gen-mapping": ["@jridgewell/gen-mapping@0.3.13", "", { "dependencies": { "@jridgewell/sourcemap-codec": "^1.5.0", "@jridgewell/trace-mapping": "^0.3.24" } }, "sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA=="],
 

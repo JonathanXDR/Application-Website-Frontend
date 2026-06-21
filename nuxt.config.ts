@@ -1,13 +1,5 @@
-import { createRequire } from 'node:module'
-import type { IconifyJSON } from '@iconify/types'
+import { icons as sfSymbols } from '@jonathanxdr/iconify-json-sf-symbols'
 import tailwindcss from '@tailwindcss/vite'
-
-// Loaded with require instead of an import statement so the TypeScript
-// checker never synthesizes a literal type for the 7 MB icon JSON,
-// which would slow nuxi typecheck to a crawl.
-const sfSymbols = createRequire(import.meta.url)(
-  '@jonathanxdr/iconify-json-sf-symbols',
-) as IconifyJSON
 
 // Fail fast when the Infisical to Vercel sync did not deliver the site
 // URL. Without it, i18n strictSeo has no baseUrl, site config has no
