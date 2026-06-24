@@ -33,7 +33,7 @@ defineProps<{
   transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
 }
 /* Engines without text-box-trim (e.g. Firefox/Gecko) fall back to line-box
-   centering; nudge the glyphs up by the leading offset to match. */
+   centering. Nudge the glyphs up by the leading offset to match. */
 @supports not (text-box-trim: trim-both) {
   .dev-badge {
     transform: translateY(-0.26px);

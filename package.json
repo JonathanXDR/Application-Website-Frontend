@@ -6,6 +6,8 @@
     "build": "nuxt build",
     "check:build": "sh ./scripts/check-build.sh",
     "dev": "varlock run -- nuxt dev",
+    "env:typegen": "varlock typegen && prettier --write env.d.ts",
+    "env:typegen:check": "varlock typegen && prettier --write env.d.ts && git diff --exit-code -- env.d.ts",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "generate": "nuxt generate",

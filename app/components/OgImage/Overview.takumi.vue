@@ -6,7 +6,6 @@
 import { useOgImageRuntimeConfig } from '#og-image/app/utils'
 import { computed, defineComponent, h, resolveComponent } from 'vue'
 
-// convert to typescript props
 const props = withDefaults(
   defineProps<{
     colorMode?: 'dark' | 'light'
@@ -101,7 +100,6 @@ if (
   )
 
   console.log('\nnpx nuxi module add icon\n')
-  // create simple div renderer component
 }
 </script>
 

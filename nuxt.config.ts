@@ -1,7 +1,7 @@
 import { icons as sfSymbols } from '@jonathanxdr/iconify-json-sf-symbols'
 import tailwindcss from '@tailwindcss/vite'
 
-// Fail fast when the Infisical to Vercel sync did not deliver a
+// Fail fast when the Infisical Vercel Secret Sync did not deliver a
 // build-critical variable. On Vercel the build runs plain `nuxt build`
 // without the varlock wrapper, so the .env.schema is never enforced
 // there. The variables below have no graceful fallback. A missing value
@@ -19,6 +19,13 @@ import tailwindcss from '@tailwindcss/vite'
 // excluded. Their endpoints degrade to an inert 404 via requireCredential
 // in server/utils/credentials.ts, so failing the build for them would be
 // worse than the graceful runtime behavior they already have.
+// The process.env.VERCEL gate fires only when Vercel exposes its System
+// Environment Variables, since VERCEL itself is one of them. Confirm that
+// setting in the Vercel project rather than inferring it from skew
+// protection, because this project runs nuxt-skew-protection in polling
+// mode, which reads _nuxt/builds/latest.json and does not depend on it.
+// Local dev and local builds have no VERCEL set, so the guard correctly
+// stays silent there.
 if (process.env.VERCEL) {
   const missing = [
     'NUXT_SITE_URL',
@@ -30,7 +37,7 @@ if (process.env.VERCEL) {
   if (missing.length > 0) {
     throw new Error(
       `Missing build-critical environment variable(s) on this Vercel build: ${missing.join(', ')}. `
-      + 'These are normally delivered by the Infisical to Vercel sync. '
+      + 'These are normally delivered by the Infisical Vercel Secret Sync. '
       + 'Check the sync configuration for this environment.',
     )
   }
@@ -473,7 +480,7 @@ export default defineNuxtConfig({
   // Prerender-driven: `runtimeSync` and `cron` stay off because every one of
   // the 16 routes is statically prerendered, so the on-disk SQLite is built
   // once at prerender time and never touched at runtime. `database` and
-  // `indexNow` stay at their defaults; revisit once we want IndexNow
+  // `indexNow` stay at their defaults. Revisit once we want IndexNow
   // submissions or a runtime-indexed >100-route site.
   // https://nuxtseo.com/ai-ready
   aiReady: {
@@ -532,8 +539,9 @@ export default defineNuxtConfig({
     // on here.
     // Because every route is prerendered, hreflang URLs are baked at build
     // time, so NUXT_SITE_URL must hold the final origin during the build.
-    // At runtime the value can still be overridden per environment via
-    // NUXT_PUBLIC_I18N_BASE_URL, which i18n reads from runtime config.
+    // Per-environment origins come from the value of NUXT_SITE_URL in each
+    // Infisical environment, not from a separate runtime override, because a
+    // runtime change cannot alter tags that are already static.
     // https://nuxtseo.com/docs/site-config/guides/i18n
     baseUrl: process.env.NUXT_SITE_URL,
     trailingSlash: true,
