@@ -1,15 +1,39 @@
 import { icons as sfSymbols } from '@jonathanxdr/iconify-json-sf-symbols'
 import tailwindcss from '@tailwindcss/vite'
 
-// Fail fast when the Infisical to Vercel sync did not deliver the site
-// URL. Without it, i18n strictSeo has no baseUrl, site config has no
-// canonical origin, and llms.txt links lose their host. A loud build
-// failure beats prerendering 16 pages with broken absolute URLs.
-if (process.env.VERCEL && !process.env.NUXT_SITE_URL) {
-  throw new Error(
-    'NUXT_SITE_URL is required on Vercel builds (i18n strictSeo baseUrl, '
-    + 'site config, llms.txt). Check the Infisical to Vercel sync.',
-  )
+// Fail fast when the Infisical to Vercel sync did not deliver a
+// build-critical variable. On Vercel the build runs plain `nuxt build`
+// without the varlock wrapper, so the .env.schema is never enforced
+// there. The variables below have no graceful fallback. A missing value
+// silently prerenders broken output instead of degrading, so a loud build
+// failure is the lesser evil.
+//   NUXT_SITE_URL drives the i18n strictSeo baseUrl, the site config
+//   canonical origin, and the llms.txt host. Absent, every absolute URL
+//   across the prerendered pages is wrong.
+//   NUXT_SITE_NAME feeds SSR titles, og:site_name, and the schema.org
+//   publisher. Absent, they render empty.
+//   NUXT_PUBLIC_GITHUB_REPO_NAME and NUXT_PUBLIC_GITHUB_REPO_OWNER pin the
+//   repository the GitHub API layer is allowed to read. Absent, every
+//   GitHub endpoint builds malformed requests.
+// Credential secrets (NUXT_GITHUB_TOKEN, the Apple keys) are intentionally
+// excluded. Their endpoints degrade to an inert 404 via requireCredential
+// in server/utils/credentials.ts, so failing the build for them would be
+// worse than the graceful runtime behavior they already have.
+if (process.env.VERCEL) {
+  const missing = [
+    'NUXT_SITE_URL',
+    'NUXT_SITE_NAME',
+    'NUXT_PUBLIC_GITHUB_REPO_NAME',
+    'NUXT_PUBLIC_GITHUB_REPO_OWNER',
+  ].filter(key => !process.env[key])
+
+  if (missing.length > 0) {
+    throw new Error(
+      `Missing build-critical environment variable(s) on this Vercel build: ${missing.join(', ')}. `
+      + 'These are normally delivered by the Infisical to Vercel sync. '
+      + 'Check the sync configuration for this environment.',
+    )
+  }
 }
 
 export default defineNuxtConfig({
@@ -203,7 +227,11 @@ export default defineNuxtConfig({
       // appBuild: '',
       // appVersion: '',
       // appIcon: '',
-      appEnvironment: '',
+      // Fail-safe default. Every consumer checks `=== 'development'`, so a
+      // deploy that never received NUXT_PUBLIC_APP_ENVIRONMENT renders as
+      // production (no dev badge) rather than an ambiguous empty string.
+      // Local dev overrides this via the `$development` block above.
+      appEnvironment: 'production',
       githubRepoName: '',
       githubRepoOwner: '',
     },
