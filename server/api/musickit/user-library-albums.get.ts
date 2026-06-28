@@ -11,7 +11,10 @@ export default defineEventHandler(async () => {
   const { request } = useMusicKit()
 
   try {
-    return await request('/me/library/albums', { userToken: true })
+    return await request<MusicKit.Relationship<MusicKit.LibraryAlbums>>(
+      '/me/library/albums',
+      { userToken: true },
+    )
   }
   catch (error) {
     handleMusicKitError(error)

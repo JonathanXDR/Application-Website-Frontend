@@ -1,4 +1,6 @@
 import { Octokit, RequestError } from 'octokit'
+import { GraphqlResponseError } from '@octokit/graphql'
+import type { H3Event } from 'h3'
 
 export const GITHUB_API_VERSION = '2026-03-10'
 
@@ -6,6 +8,13 @@ export const GITHUB_API_VERSION = '2026-03-10'
 // rarely, and caching keeps the PAT's request quota away from visitor
 // traffic while letting prerender and warm instances respond instantly.
 export const GITHUB_CACHE_MAX_AGE = 60 * 15
+
+// Upper bound on a single GitHub request. Octokit's fetch has no default
+// timeout, so without this a stalled connection would park an SSR render or a
+// prerender pass until the platform build timeout. With the retry plugin
+// disabled below, the abort fails the request on its first attempt and falls
+// through handleGitHubError into the page's loading and empty states.
+const GITHUB_REQUEST_TIMEOUT_MS = 10_000
 
 let octokit: Octokit | undefined
 
@@ -16,14 +25,35 @@ export function useOctokit() {
     const { githubToken } = useRuntimeConfig()
     octokit = new Octokit({
       auth: githubToken,
+      // Prepended to Octokit's own `octokit.js/x Node.js/y` agent string.
+      // GitHub recommends a descriptive User-Agent and uses it for
+      // abuse-detection heuristics and support, so the app stays identifiable.
+      userAgent: 'jonathan-russ-website',
       headers: {
         'X-GitHub-Api-Version': GITHUB_API_VERSION,
       },
-      // Fail fast instead of sleeping until the quota resets. The default
-      // throttling behavior retries after the reset window, which can park
-      // an SSR render or a prerender pass for minutes when the token is
-      // rate limited. Returning false makes the request throw immediately,
-      // and the calling page falls back to its loading and empty states.
+      request: {
+        // Bound every REST and GraphQL request with a deterministic timeout.
+        // Honor an Octokit-supplied signal if one is ever passed, otherwise
+        // abort on our own timeout.
+        fetch: (
+          url: Parameters<typeof globalThis.fetch>[0],
+          init?: Parameters<typeof globalThis.fetch>[1],
+        ) =>
+          globalThis.fetch(url, {
+            ...init,
+            signal: init?.signal ?? AbortSignal.timeout(GITHUB_REQUEST_TIMEOUT_MS),
+          }),
+      },
+      // Fail fast on every error. Octokit auto-loads both the retry and the
+      // throttling plugins. The retry plugin otherwise re-issues 5xx and
+      // timeout responses three times with backoff, and the throttle plugins
+      // sleep until the rate-limit reset, either of which can park an SSR
+      // render or a prerender pass for tens of seconds. Disabling retry and
+      // returning false from both throttle hooks makes a failed request throw
+      // at once so the calling page falls back to its loading and empty states.
+      // The SWR cache keeps serving the last good payload meanwhile.
+      retry: { enabled: false },
       throttle: {
         onRateLimit: () => false,
         onSecondaryRateLimit: () => false,
@@ -57,42 +87,49 @@ export function clampPage(value: unknown, fallback = 1, max = 50) {
   return Math.min(Math.trunc(parsed), max)
 }
 
+// Normalizes the `per_page` query param. A cached route calls this from both
+// its handler and its `getKey`, so the clamp and fallback live in one place
+// and the cache key can never drift from the value actually sent upstream.
+export function getPerPage(event: H3Event, fallback = 30) {
+  return clampPerPage(getQuery(event).per_page, fallback)
+}
+
+// Normalizes `per_page` and `page` together for the paginated list routes,
+// for the same single-source reason as getPerPage.
+export function getListQuery(event: H3Event, perPageFallback = 30) {
+  const query = getQuery(event)
+  return {
+    perPage: clampPerPage(query.per_page, perPageFallback),
+    page: clampPage(query.page),
+  }
+}
+
 export function handleGitHubError(error: unknown): never {
+  // An H3Error we threw ourselves (such as a route's own 404 guard) must pass
+  // through unchanged rather than being reclassified by the branches below.
+  if (isError(error)) throw error
+
   if (error instanceof RequestError) {
-    // Forward only the upstream status code. The RequestError message can
-    // carry rate-limit and validation details, so log it server side and
-    // return a fixed client-safe message rather than leaking it to the
-    // anonymous caller.
+    // Log the upstream status and message server side, then map the status for
+    // the client: a rate-limit or auth failure reflects our token state, not
+    // the caller's request, so it is not forwarded verbatim. The message can
+    // carry rate-limit and validation detail, so the client only sees the
+    // fixed text.
     console.error('[github]', error.status, error.message)
-    throw createError({
-      status: error.status,
-      statusText: 'GitHub API Error',
-    })
+    throw createError(mapUpstreamStatus(error.status, 'GitHub API Error'))
   }
   // octokit.graphql throws a GraphqlResponseError (not a RequestError) when
   // GitHub answers a query with HTTP 200 but a top-level errors array, for
-  // example a GraphQL rate limit or a field resolution error. Without this
-  // branch it would collapse into the generic 500 below. The HTTP status is
-  // 200 in this case, so forwarding it would be misleading. Return a fixed
-  // 502 instead (a valid upstream returned an error payload) and log the
-  // structured errors server side. The name check avoids a dual-package-copy
-  // instanceof pitfall.
-  if (error instanceof Error && error.name === 'GraphqlResponseError') {
-    console.error(
-      '[github]',
-      'graphql',
-      (error as { errors?: unknown }).errors,
-    )
-    throw createError({
-      status: 502,
-      statusText: 'GitHub API Error',
-    })
+  // example a GraphQL rate limit or a field resolution error. The HTTP status
+  // is 200, so forwarding it would be misleading. Return a fixed 502 instead
+  // (a valid upstream returned an error payload) and log the structured errors
+  // server side.
+  if (error instanceof GraphqlResponseError) {
+    console.error('[github]', 'graphql', error.errors)
+    throw createError({ status: 502, statusText: 'GitHub API Error' })
   }
   // Log the original error server side but never copy raw internal
   // messages into the public response.
   console.error('[github]', error)
-  throw createError({
-    status: 500,
-    statusText: 'Internal Server Error',
-  })
+  throw createError({ status: 500, statusText: 'Internal Server Error' })
 }

@@ -4,9 +4,12 @@ import type { Repository } from '@octokit/graphql-schema'
 // is `any`, and edges.map collapses the handler return type to `any`,
 // which previously propagated an implicit any into the projects page.
 interface PinnedRepositoriesResponse {
-  // `user(login:)` is nullable in the GraphQL schema. A renamed or deleted
-  // owner resolves to null with no GraphQL error, so the handler guards it
-  // before walking the selection.
+  // `user(login:)` is nullable in the schema, so the type admits null. A
+  // deleted or renamed owner actually comes back as a top-level NOT_FOUND
+  // error with user null, which octokit.graphql throws and handleGitHubError
+  // maps to 502, so the post-call null guard only covers an error-free null
+  // that GitHub does not return here. The owner is pinned to a valid login,
+  // so neither path fires in production.
   user: {
     pinnedItems: {
       edges: Array<{ node: Repository }>
@@ -24,7 +27,8 @@ const query = `
               name
               description
               url
-              repositoryTopics(first: $perPage) {
+              # GitHub caps a repo at 20 topics, so 20 returns the full set.
+              repositoryTopics(first: 20) {
                 nodes {
                   topic {
                     name
@@ -93,12 +97,16 @@ const remapProperties = (item: Repository) => {
 }
 
 // The username is pinned server side to the configured repository owner
-// and pagination is clamped, see the note in server/utils/octokit.ts.
+// and pagination is clamped, see the note in server/utils/octokit.ts. The
+// `perPage` query param is camelCase here (unlike the snake_case REST routes)
+// to mirror the GraphQL `$perPage` variable below.
+const PER_PAGE = 30
+
 export default defineCachedEventHandler(
   async (event) => {
     const octokit = useOctokit()
     const { owner } = useGitHubRepoCoordinates()
-    const perPage = clampPerPage(getQuery(event).perPage, 30)
+    const perPage = clampPerPage(getQuery(event).perPage, PER_PAGE)
 
     let response: PinnedRepositoriesResponse
     try {
@@ -111,9 +119,10 @@ export default defineCachedEventHandler(
       handleGitHubError(error)
     }
 
-    // Guard after the upstream call (not inside the try) so this 404 reaches
-    // the client instead of being recaught and downgraded to a 500 by
-    // handleGitHubError.
+    // Defensive fallback for an error-free null user. A deleted or renamed
+    // owner returns a NOT_FOUND error mapped to 502 above, so this rarely
+    // fires. It stays outside the try so the catch only maps upstream
+    // failures and `response` is narrowed by handleGitHubError's never return.
     if (!response.user) {
       throw createError({ status: 404, statusText: 'GitHub API Error' })
     }
@@ -126,6 +135,6 @@ export default defineCachedEventHandler(
     name: 'github-pinned-repositories',
     maxAge: GITHUB_CACHE_MAX_AGE,
     swr: true,
-    getKey: event => `pinned:${clampPerPage(getQuery(event).perPage, 30)}`,
+    getKey: event => cacheKey(clampPerPage(getQuery(event).perPage, PER_PAGE)),
   },
 )

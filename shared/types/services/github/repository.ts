@@ -1,12 +1,12 @@
 import type { components } from '@octokit/openapi-types'
-import type { Endpoints } from '@octokit/types'
 
 export type MinimalRepository = components['schemas']['minimal-repository']
-export type Repository = components['schemas']['repository']
 
-// Projection returned by /api/github/user-repositories. The handler
-// narrows the upstream minimal-repository object to the fields the UI
-// consumes, which keeps the prerendered payloads small.
+// Projection returned by /api/github/user-repositories. The handler narrows
+// the upstream minimal-repository object to the fields the UI consumes, which
+// keeps the prerendered payloads small. license is narrowed to its name
+// because that is the only field the card reads, so the type mirrors that
+// rather than the full license object.
 export type MinimalRepositoryCard = Pick<
   MinimalRepository,
   | 'name'
@@ -16,12 +16,7 @@ export type MinimalRepositoryCard = Pick<
   | 'updated_at'
   | 'language'
   | 'topics'
-  | 'license'
   | 'archived'
->
-
-export type GetPublicRepositoriesParameters
-  = Endpoints['GET /repositories']['parameters']
-
-export type GetOwnerRepositoryParameters
-  = Endpoints['GET /repos/{owner}/{repo}']['parameters']
+> & {
+  license: { name?: string } | null
+}

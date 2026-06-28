@@ -6,7 +6,9 @@ export default defineEventHandler(async () => {
   const { request } = useMusicKit()
 
   try {
-    return await request('/storefronts/us')
+    return await request<MusicKit.Relationship<MusicKit.Storefronts>>(
+      '/storefronts/us',
+    )
   }
   catch (error) {
     handleMusicKitError(error)

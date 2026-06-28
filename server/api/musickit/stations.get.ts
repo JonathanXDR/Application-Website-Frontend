@@ -3,11 +3,18 @@
 // token's quota.
 export default defineCachedEventHandler(
   async (event) => {
-    const { request } = useMusicKit()
     const ids = parseCatalogIds(getQuery(event).ids)
+    // Reject an empty or all-invalid id list locally. Apple requires `ids` and
+    // would answer 400, and a thrown error is never cached, so forwarding it
+    // would spend a developer-token request on every such hit.
+    if (!ids) throw createError({ status: 400, statusText: 'Bad Request' })
 
+    const { request } = useMusicKit()
     try {
-      return await request('/catalog/us/stations', { params: { ids } })
+      return await request<MusicKit.Relationship<MusicKit.Stations>>(
+        '/catalog/us/stations',
+        { params: { ids } },
+      )
     }
     catch (error) {
       handleMusicKitError(error)
@@ -17,6 +24,6 @@ export default defineCachedEventHandler(
     name: 'musickit-stations',
     maxAge: MUSICKIT_CACHE_MAX_AGE,
     swr: true,
-    getKey: event => `stations:${parseCatalogIds(getQuery(event).ids) ?? ''}`,
+    getKey: event => cacheKey(parseCatalogIds(getQuery(event).ids) ?? ''),
   },
 )

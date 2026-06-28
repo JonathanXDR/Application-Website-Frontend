@@ -1,9 +1,6 @@
 // The username is pinned server side to the configured repository owner.
 // Client-supplied query params are ignored on purpose, see the note in
 // server/utils/octokit.ts.
-// TODO: this returns the full GitHub user object, but the only consumer
-// (CodeHero.global.vue) reads user.bio. Narrow to the consumed fields (bio,
-// plus name and avatar) to shrink the prerendered payload.
 export default defineCachedEventHandler(
   async () => {
     const octokit = useOctokit()
@@ -13,7 +10,11 @@ export default defineCachedEventHandler(
       const { data } = await octokit.request('GET /users/{username}', {
         username: owner,
       })
-      return data
+      // Narrow to the only field the hero reads. The full user object also
+      // carries avatar and url fields, counts, timestamps, and plan, which
+      // would otherwise be embedded verbatim into every prerendered locale
+      // payload.
+      return { bio: data.bio }
     }
     catch (error) {
       handleGitHubError(error)

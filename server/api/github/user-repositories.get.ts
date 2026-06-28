@@ -1,13 +1,15 @@
+import type { MinimalRepositoryCard } from '#shared/types/services/github/repository'
+
 // The username is pinned server side to the configured repository owner
 // and pagination is clamped, see the note in server/utils/octokit.ts.
 // Other client-supplied query params are ignored on purpose.
+const PER_PAGE = 100
+
 export default defineCachedEventHandler(
   async (event) => {
     const octokit = useOctokit()
     const { owner } = useGitHubRepoCoordinates()
-    const query = getQuery(event)
-    const perPage = clampPerPage(query.per_page, 100)
-    const page = clampPage(query.page)
+    const { perPage, page } = getListQuery(event, PER_PAGE)
 
     try {
       const { data } = await octokit.request('GET /users/{username}/repos', {
@@ -17,8 +19,10 @@ export default defineCachedEventHandler(
       })
       // Narrow to the fields the UI consumes. The full REST repo object
       // is large, and with up to 100 repos it was embedded verbatim into
-      // every prerendered projects payload across all four locales.
-      return data.map(repo => ({
+      // every prerendered projects payload across all four locales. The
+      // return type ties this projection to the type the page consumes so
+      // the two cannot drift.
+      return data.map((repo): MinimalRepositoryCard => ({
         name: repo.name,
         description: repo.description,
         html_url: repo.html_url,
@@ -39,10 +43,8 @@ export default defineCachedEventHandler(
     maxAge: GITHUB_CACHE_MAX_AGE,
     swr: true,
     getKey: (event) => {
-      const query = getQuery(event)
-      const perPage = clampPerPage(query.per_page, 100)
-      const page = clampPage(query.page)
-      return `repos:${perPage}:${page}`
+      const { perPage, page } = getListQuery(event, PER_PAGE)
+      return cacheKey(perPage, page)
     },
   },
 )

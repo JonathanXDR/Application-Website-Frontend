@@ -5,7 +5,7 @@ export default defineCachedEventHandler(
   async (event) => {
     const octokit = useOctokit()
     const { owner, repo } = useGitHubRepoCoordinates()
-    const perPage = clampPerPage(getQuery(event).per_page)
+    const perPage = getPerPage(event)
 
     try {
       const { data } = await octokit.request('GET /repos/{owner}/{repo}/tags', {
@@ -26,6 +26,6 @@ export default defineCachedEventHandler(
     name: 'github-repository-tags',
     maxAge: GITHUB_CACHE_MAX_AGE,
     swr: true,
-    getKey: event => `tags:${clampPerPage(getQuery(event).per_page)}`,
+    getKey: event => cacheKey(getPerPage(event)),
   },
 )
