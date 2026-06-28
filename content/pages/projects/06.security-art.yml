@@ -38,7 +38,7 @@ info:
       to: "2024-03-01"
   supervisor: "Radu Margineanu"
   location: "Zür-Mas10"
-  department: "SCS-INI-EOG-EA-EAF"
+  department: "SCS-INI-EA-EAF"
 
 i18n:
   en:
@@ -52,8 +52,6 @@ i18n:
       Python, Docker, and Kubernetes, with Python being new to me. Towards
       the end of the project, I also started implementing Elasticsearch to
       visualize and analyse the data.
-    info:
-      department: "INI-EOG-EA-EAF"
   fr:
     description: >-
       Dans ce projet, j'ai commencé avec plusieurs formations sur le Cloud,
@@ -65,8 +63,6 @@ i18n:
       Kubernetes, Python étant nouveau pour moi. Vers la fin du projet, j'ai
       aussi commencé à implémenter Elasticsearch pour visualiser et analyser
       les données.
-    info:
-      department: "INI-EOG-EA-EAF"
   it:
     description: >-
       In questo progetto ho iniziato con alcuni corsi di formazione su Cloud,
@@ -79,5 +75,3 @@ i18n:
       utilizzato Python, Docker e Kubernetes, con Python che era nuovo per
       me. Verso la fine del progetto, ho anche iniziato a implementare
       Elasticsearch per visualizzare e analizzare i dati.
-    info:
-      department: "INI-EOG-EA-EAF"

@@ -3,6 +3,7 @@ eyebrow: "Muttersprache"
 progress: 100
 divider:
   direction: "left"
+
 i18n:
   en:
     title: "German"

@@ -72,8 +72,6 @@ i18n:
     links:
       - title: "Learn more about the Apps Team"
       - title: "Learn more about indigo online"
-    info:
-      department: "GHR-POD-LES-APP"
   fr:
     description: >-
       Après avoir travaillé comme développeur frontend dans le Apps Team,
@@ -88,8 +86,6 @@ i18n:
     links:
       - title: "En savoir plus sur l'Apps Team"
       - title: "En savoir plus sur indigo online"
-    info:
-      department: "GHR-POD-LES-APP"
   it:
     description: >-
       Dopo aver lavorato come sviluppatore frontend nel team Apps, ho voluto
@@ -104,5 +100,3 @@ i18n:
     links:
       - title: "Maggiori informazioni sull'Apps Team"
       - title: "Maggiori informazioni su indigo online"
-    info:
-      department: "GHR-POD-LES-APP"

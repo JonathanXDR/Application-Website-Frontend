@@ -62,7 +62,6 @@ i18n:
       date:
         duration:
           to: "2025-08-01"
-      department: "GHR-POD-LES-APP"
   fr:
     description: >-
       Pour mon IPA (Travail Pratique Individuel), j'ai de nouveau choisi le
@@ -81,7 +80,6 @@ i18n:
       date:
         duration:
           to: "2025-08-01"
-      department: "GHR-POD-LES-APP"
   it:
     description: >-
       Per il mio IPA (Lavoro Pratico Individuale) ho nuovamente scelto il
@@ -101,4 +99,3 @@ i18n:
       date:
         duration:
           to: "2025-08-01"
-      department: "GHR-POD-LES-APP"

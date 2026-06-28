@@ -1,5 +1,6 @@
 progress: 1000000
 description: "Geschriebene Codezeilen"
+
 i18n:
   en:
     description: "Lines of code written"

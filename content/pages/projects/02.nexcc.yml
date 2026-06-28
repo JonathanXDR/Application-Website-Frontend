@@ -55,8 +55,6 @@ i18n:
       system. In the process, I particularly got to know backend development
       and learned new framework-based programming languages such as
       Express.js and Vue.js.
-    info:
-      department: "GHR-POD-NEX"
   fr:
     description: >-
       Au NexCC, j'ai d'abord eu l'opportunité de créer ce site web et j'ai
@@ -66,8 +64,6 @@ i18n:
       un frontend et créé mon propre système de connexion. Dans ce processus,
       j'ai surtout appris le développement backend et de nouveaux langages
       basés sur des frameworks comme Express.js et Vue.js.
-    info:
-      department: "GHR-POD-NEX"
   it:
     description: >-
       Al NexCC, ho avuto l'opportunità di creare questo sito web e ho
@@ -77,5 +73,3 @@ i18n:
       il mio sistema di login. In questo modo, ho approfondito le mie
       conoscenze nel backend e ho appreso nuovi linguaggi di programmazione
       basati su framework come Express.js e Vue.js.
-    info:
-      department: "GHR-POD-NEX"

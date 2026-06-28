@@ -18,7 +18,7 @@ info:
     fixed: "2021-08-01"
   supervisor: "Steve Hess"
   location: "Zürich & Bern"
-  department: "GHR-SCS-NEX"
+  department: "GHR-SCS-NEX-PER"
 
 i18n:
   en:
@@ -27,8 +27,6 @@ i18n:
       My apprenticeship began with the First Steps program. There, I learned
       everything about Swisscom -- for example, how to use the various tools,
       how to collaborate effectively, and other aspects such as work safety.
-    info:
-      department: "GHR-POD-NEX"
   fr:
     eyebrow: "Introduction"
     description: >-
@@ -36,8 +34,6 @@ i18n:
       tout appris sur Swisscom -- par exemple, comment utiliser les différents
       outils, comment travailler en équipe efficacement et d'autres aspects
       comme la sécurité au travail.
-    info:
-      department: "GHR-POD-NEX"
   it:
     eyebrow: "Introduzione"
     description: >-
@@ -45,5 +41,3 @@ i18n:
       appreso tutto ciò che riguarda Swisscom -- ad esempio, come utilizzare
       i vari strumenti, come lavorare in squadra e altri aspetti, come la
       sicurezza sul lavoro.
-    info:
-      department: "GHR-POD-NEX"

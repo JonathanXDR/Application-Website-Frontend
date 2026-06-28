@@ -52,8 +52,6 @@ i18n:
     links:
       - title: "Learn more about the Apps Team"
       - title: "Indigo online"
-    info:
-      department: "GHR-POD-LES-APP"
   fr:
     description: >-
       Dans le Apps Team, j'ai d'abord eu l'opportunité de créer ma propre
@@ -64,8 +62,6 @@ i18n:
     links:
       - title: "En savoir plus sur l'Apps Team"
       - title: "Indigo online"
-    info:
-      department: "GHR-POD-LES-APP"
   it:
     description: >-
       Nel team Apps, ho avuto inizialmente l'opportunità di creare una mia
@@ -76,5 +72,3 @@ i18n:
     links:
       - title: "Maggiori informazioni sull'Apps Team"
       - title: "Indigo online"
-    info:
-      department: "GHR-POD-LES-APP"

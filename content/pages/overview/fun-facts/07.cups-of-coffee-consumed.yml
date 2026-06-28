@@ -1,5 +1,6 @@
 progress: 2400
 description: "Getrunkene Tassen Kaffee"
+
 i18n:
   en:
     description: "Cups of coffee consumed"

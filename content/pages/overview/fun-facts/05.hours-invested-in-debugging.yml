@@ -1,5 +1,6 @@
 progress: 1000
 description: "Investierte Stunden ins Debugging"
+
 i18n:
   en:
     description: "Hours invested in debugging"

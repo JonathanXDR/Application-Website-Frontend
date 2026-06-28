@@ -25,7 +25,7 @@ info:
       to: "2022-07-01"
   supervisor: "Alessio Iantosca"
   location: "Zür-Pfi51"
-  department: "SCS-B2B-TBS-BPS-BPM-AU1"
+  department: "SCS-B2B-TBS-TCS-ART-AAC"
 
 i18n:
   en:
@@ -36,8 +36,6 @@ i18n:
       using Ranorex & UiPath. Additionally, I learned a bit of C# and gained
       more knowledge about the .NET Framework. My goal is to continue
       improving in this area in the future!
-    info:
-      department: "B2B-BAN-BPS-BPM-AU1"
   fr:
     eyebrow: "Automatisation"
     title: "Projets d'automatisation dans le secteur bancaire"
@@ -48,8 +46,6 @@ i18n:
       également appris un peu de C# et approfondi mes connaissances du
       framework .NET. Mon objectif est de continuer à m'améliorer dans ce
       domaine à l'avenir !
-    info:
-      department: "B2B-BAN-BPS-BPM-AU1"
   it:
     eyebrow: "Automazione"
     title: "Progetti di automazione nel settore bancario"
@@ -59,5 +55,3 @@ i18n:
       automatizzare le singole banche utilizzando Ranorex e UiPath. Inoltre,
       ho imparato un po' di C# e approfondito le mie conoscenze sul
       framework .NET. Il mio obiettivo è migliorare ulteriormente in futuro!
-    info:
-      department: "B2B-BAN-BPS-BPM-AU1"

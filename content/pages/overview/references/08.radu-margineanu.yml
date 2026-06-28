@@ -5,20 +5,15 @@ title: "Radu Margineanu"
 description: "Enterprise & System Architect"
 info:
   location: "Zür-För181"
-  department: "SCS-INI-EOG-EA-EAF"
+  department: "SCS-INI-EA-EAF"
+
 i18n:
   en:
     eyebrow: "Former Project Provider"
     description: "Enterprise & System Architect EAS"
-    info:
-      department: "INI-EOG-EA-EAF"
   fr:
     eyebrow: "Ancien fournisseur de projet"
     description: "Architecte d'entreprise et systèmes EAS"
-    info:
-      department: "INI-EOG-EA-EAF"
   it:
     eyebrow: "Ex fornitore di progetto"
     description: "Architetto aziendale e di sistemi EAS"
-    info:
-      department: "INI-EOG-EA-EAF"
