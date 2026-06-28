@@ -457,6 +457,56 @@ export default defineNuxtConfig({
         robots: false,
       }
     },
+    // TODO(nitro-vercel-trailing-slash-override): remove this whole `nitro:init`
+    //   hook and bump nitropack/nuxt once the upstream fix ships. Track:
+    //   https://github.com/nitrojs/nitro/issues/<FILE-ME> (file using the repro:
+    //   https://github.com/JonathanXDR/repro-nuxt-vercel-trailing-slash-override).
+    //
+    // Nitro's Vercel preset (src/presets/vercel/utils.ts) writes Build Output
+    // `overrides` whose `path` keeps the route's trailing slash, e.g.
+    // `de/index.html` -> { path: 'de/' }, for our trailing-slash routes
+    // (site/i18n `trailingSlash: true`). Vercel does NOT serve the prerendered
+    // static file from a trailing-slash override path, so `/de/` falls through to
+    // the SSR function (and there 500s, because that function also can't load
+    // @nuxt/content's better-sqlite3 native addon in the Lambda). Empirically
+    // confirmed on a minimal repro deployed to Vercel: a `{ path: 'x/' }`
+    // override is served by the function (cache MISS, body re-renders per
+    // request) while `{ path: 'x' }` is served statically (cache HIT, frozen).
+    //
+    // Workaround: after `.vercel/output` is written, drop every override whose
+    // `path` ends with `/`. Vercel's default directory-index then serves the
+    // `<dir>/index.html` file at both `/<dir>/` and `/<dir>` statically — which
+    // is exactly the last-known-good behavior. Non-trailing-slash overrides
+    // (incl. the root `{ path: '' }`) are left untouched. No-op off Vercel
+    // (the file does not exist), so local `nuxt dev`/`build` are unaffected.
+    'nitro:init'(nitro) {
+      nitro.hooks.hook('close', async () => {
+        const { existsSync, readFileSync, writeFileSync } = await import('node:fs')
+        const cfgPath = `${process.cwd()}/.vercel/output/config.json`
+        if (!existsSync(cfgPath)) {
+          return
+        }
+        const cfg = JSON.parse(readFileSync(cfgPath, 'utf8')) as {
+          overrides?: Record<string, { path?: string }>
+        }
+        if (!cfg.overrides) {
+          return
+        }
+        let stripped = 0
+        for (const [key, value] of Object.entries(cfg.overrides)) {
+          if (value?.path?.endsWith('/')) {
+            delete cfg.overrides[key]
+            stripped += 1
+          }
+        }
+        if (stripped > 0) {
+          writeFileSync(cfgPath, JSON.stringify(cfg))
+          console.log(
+            `[nitro-vercel-trailing-slash-override] stripped ${stripped} trailing-slash override(s) so Vercel serves prerendered HTML statically`,
+          )
+        }
+      })
+    },
     // @nuxtjs/robots registers its `NitroRouteConfig.robots` augmentation
     // via `addTypeTemplate(..., { nitro: true, nuxt: true })` but not
     // `node: true`, so `.nuxt/nuxt.node.d.ts` (the context that typechecks
