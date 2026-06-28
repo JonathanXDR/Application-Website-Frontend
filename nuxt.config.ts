@@ -848,7 +848,17 @@ export default defineNuxtConfig({
       referrerPolicy: 'strict-origin-when-cross-origin',
       contentSecurityPolicy: {
         'base-uri': ['\'none\''],
-        'default-src': ['\'none\''],
+        // 'self' rather than the OWASP-gold 'none': browsers govern speculative
+        // <link rel="prefetch"> / preload hints under default-src (the spec
+        // removed the prefetch-src directive), and Nuxt emits those hints in the
+        // document head for lazy route chunks and their CSS. With 'none' they
+        // are reported/blocked, costing the prefetch perf win even though actual
+        // execution succeeds via script-src/style-src. 'self' lets same-origin
+        // prefetch resolve while every meaningful sink stays locked by its own
+        // explicit directive below (script-src, style-src, img-src, connect-src,
+        // object-src 'none', frame-ancestors, form-action, base-uri 'none').
+        // https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/prefetch-src
+        'default-src': ['\'self\''],
         'connect-src': [
           '\'self\'',
           'https://*.google-analytics.com',
