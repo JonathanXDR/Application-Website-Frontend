@@ -16,7 +16,7 @@ const socialLinks = computed<LinkItemType[]>(
       <li
         v-for="(link, index) in socialLinks"
         :key="index"
-        v-animation="{ add: 'visible' }"
+        v-animation="{ add: 'visible', margin: '0px' }"
         class="social-option"
       >
         <NuxtLink

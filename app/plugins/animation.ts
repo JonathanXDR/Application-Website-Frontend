@@ -7,6 +7,12 @@ interface AnimationOperations {
   toggle?: string | string[]
   key?: string
   onEnter?: () => void
+  // Per-element overrides for the in-view detection. The default `margin`
+  // shrinks the detection area up from the viewport bottom, a dead zone that
+  // elements pinned to the end of the page (the footer ShareSheet) can never
+  // scroll past. They pass `margin: '0px'` to opt out.
+  amount?: 'some' | 'all' | number
+  margin?: string
 }
 
 interface AnimationState {
@@ -77,8 +83,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 
       scope.run(() => {
         const isInView = useInView(elementRef, {
-          amount: 0.1,
-          margin: '0px 0px -10% 0px',
+          amount: value.amount ?? 0.1,
+          margin: value.margin ?? '0px 0px -10% 0px',
         } as UseInViewOptions)
 
         watch(
