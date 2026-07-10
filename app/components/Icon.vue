@@ -12,18 +12,13 @@ const props = withDefaults(defineProps<IconItemType>(), {
   }),
 })
 
-const customize = (content: string) => {
-  return content
-    .replace(/var\(--color-primary\)/g, props.colors.primary || 'currentColor')
-    .replace(
-      /var\(--color-secondary\)/g,
-      props.colors.secondary || 'currentColor',
-    )
-    .replace(
-      /var\(--color-tertiary\)/g,
-      props.colors.tertiary || 'currentColor',
-    )
-}
+// sf-symbols fills carry a `, currentColor` fallback, so the pattern reaches
+// past it to the closing paren before swapping in the content color.
+const customize = (content: string) =>
+  content.replace(
+    /var\(--color-(primary|secondary|tertiary)[^)]*\)/g,
+    (_, slot: keyof ColorType) => props.colors[slot] || 'currentColor',
+  )
 </script>
 
 <template>
