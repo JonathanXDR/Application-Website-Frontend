@@ -661,6 +661,22 @@ export default defineNuxtConfig({
       },
     ],
   },
+  // The error page cannot be prerendered (404s hit arbitrary URLs), so it is
+  // the only route whose @nuxt/content queries run at runtime inside the
+  // Vercel Lambda, where the default better-sqlite3 addon fails to load and
+  // the default ./contents.sqlite path is read-only. The 'native' connector
+  // uses Node 24's built-in node:sqlite instead, and /tmp is the Lambda's only
+  // writeable directory.
+  // https://content.nuxt.com/docs/deploy/serverless
+  content: {
+    experimental: {
+      sqliteConnector: 'native',
+    },
+    database: {
+      type: 'sqlite',
+      filename: '/tmp/contents.sqlite',
+    },
+  },
   icon: {
     componentName: 'NuxtIcon',
     serverBundle: {
