@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { SegmentNavCollectionItem } from '@nuxt/content'
-import type { ItemType } from '#shared/types/schemas'
 
 const { getTheme, setTheme } = useTheme()
 const viewport = useViewport()

@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import type {
-  GalleryStateType,
-  InfoBannerType,
-} from '#shared/types/components/info-banner'
-
 const props = withDefaults(defineProps<InfoBannerType>(), {
   loading: false,
   step: 1,

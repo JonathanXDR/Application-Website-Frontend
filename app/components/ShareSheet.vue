@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { ShareSheetCollectionItem } from '@nuxt/content'
-import type { LinkItemType } from '#shared/types/schemas'
 
 defineProps<{ links?: LinkItemType[] }>()
 

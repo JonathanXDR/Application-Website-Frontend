@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { FooterCopyrightCollectionItem } from '@nuxt/content'
-import type { BasicSizeType, LinkItemType } from '#shared/types/schemas'
 
 withDefaults(
   defineProps<{

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { ErrorPagesCollectionItem } from '@nuxt/content'
-import type { ErrorPageType } from '#shared/types/schemas'
 
 const error = useError()
 

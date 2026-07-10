@@ -4,7 +4,6 @@ import type {
   NavigationCollectionItem,
   SkewNotificationCollectionItem,
 } from '@nuxt/content'
-import type { InfoBannerType } from '#shared/types/components/info-banner'
 import FooterPre from '~/components/Footer/Pre.vue'
 import { AnimatePresence, Motion } from 'motion-v'
 

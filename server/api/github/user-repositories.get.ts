@@ -1,5 +1,3 @@
-import type { MinimalRepositoryCard } from '#shared/types/services/github/repository'
-
 // The username is pinned server side to the configured repository owner
 // and pagination is clamped, see the note in server/utils/octokit.ts.
 // Other client-supplied query params are ignored on purpose.

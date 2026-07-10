@@ -1,7 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 import { NuxtIcon } from '#components'
-import type { IconItemType } from '#shared/types/components/icon-item'
 
 const props = withDefaults(defineProps<IconItemType>(), {
   weight: 'medium',

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { BasicPropsType } from '#shared/types/schemas'
-
 withDefaults(defineProps<Partial<BasicPropsType>>(), {
   title: 'Explore more details',
   icon: () => ({ name: 'plus' }),

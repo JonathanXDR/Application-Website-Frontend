@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url'
 import { icons as sfSymbols } from '@jonathanxdr/iconify-json-sf-symbols'
 import tailwindcss from '@tailwindcss/vite'
 
@@ -180,13 +181,16 @@ export default defineNuxtConfig({
     },
   },
   ssr: true,
-  // imports: {
-  //   dirs: [
-  //     '#/shared/types/common',
-  //     '#/shared/types/components',
-  //     '#/shared/types/services/github',
-  //   ],
-  // },
+  // Nuxt auto-imports only the top level of `shared/types/`, so `schemas.ts`
+  // resolves without help, but the nested dirs below must be added here. `~~`
+  // is rootDir, where `shared/` lives, not the `app/` srcDir a bare entry assumes.
+  // https://nuxt.com/docs/4.x/directory-structure/shared#how-files-are-scanned
+  imports: {
+    dirs: [
+      '~~/shared/types/components',
+      '~~/shared/types/services/github',
+    ],
+  },
   devtools: {
     enabled: true,
     timeline: {
@@ -350,6 +354,15 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2026-03-21',
   nitro: {
+    // Nitro never scans `shared/types`, so the server route's
+    // MinimalRepositoryCard needs this entry even though the app side already
+    // covers it. An absolute path is required because Nitro's unimport, unlike
+    // the app's, does not resolve the `~~` alias.
+    imports: {
+      dirs: [
+        fileURLToPath(new URL('./shared/types/services/github', import.meta.url)),
+      ],
+    },
     // Prerender all four locale roots so that:
     //   * link-checker's build-time scan exercises every page.
     //   * nuxt-og-image and nuxt-sitemap `zeroRuntime` modes have static

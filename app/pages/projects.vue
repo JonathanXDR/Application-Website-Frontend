@@ -3,11 +3,6 @@ import type {
   CardItemCollectionItem,
   SegmentNavCollectionItem,
 } from '@nuxt/content'
-import type { CardRepositoryType } from '#shared/types/components/card-repository'
-import type { ItemType } from '#shared/types/schemas'
-import type { CardItemType } from '#shared/types/components/card-item'
-import type { IconItemType } from '#shared/types/components/icon-item'
-import type { MinimalRepositoryCard } from '#shared/types/services/github/repository'
 
 type CategorizedRepository = CardRepositoryType & {
   category: string

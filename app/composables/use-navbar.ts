@@ -1,6 +1,4 @@
 import type { NavigationCollectionItem } from '@nuxt/content'
-import type { SectionType } from '#shared/types/schemas'
-import type { NavbarType } from '#shared/types/components/nav-bar'
 
 export const useNavbar = () => {
   const route = useRoute()

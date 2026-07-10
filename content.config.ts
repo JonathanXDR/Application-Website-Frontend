@@ -1,20 +1,3 @@
-import type {
-  AboutType,
-  BadgeType,
-  BasicPropsType,
-  BasicSizeType,
-  ColorType,
-  ErrorPageType,
-  ExtendedPropsType,
-  ExtendedSizeType,
-  FunFactType,
-  IconType,
-  InfoDateType,
-  InfoType,
-  ItemType,
-  LanguageType,
-  LinkItemType,
-} from '#shared/types/schemas'
 import { defineCollection, defineContentConfig } from '@nuxt/content'
 import { z } from 'zod'
 

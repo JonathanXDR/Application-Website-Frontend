@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { BasicSizeType, LinkItemType } from '#shared/types/schemas'
-
 withDefaults(
   defineProps<{
     componentSize?: Exclude<BasicSizeType, 'medium'>

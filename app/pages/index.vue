@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { NavigationCollectionItem } from '@nuxt/content'
-import type { SectionType } from '#shared/types/schemas'
 
 definePageMeta({
   header: true,

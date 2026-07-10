@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { CardItemCollectionItem } from '@nuxt/content'
-import type { CardRepositoryType } from '#shared/types/components/card-repository'
 
 const nonce = useNonce()
 

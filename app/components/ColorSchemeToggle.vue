@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import type { SegmentNavCollectionItem } from '@nuxt/content'
-import type { ItemType } from '#shared/types/schemas'
-import type { SegmentNavType } from '#shared/types/components/segment-nav'
 
 withDefaults(defineProps<Pick<SegmentNavType, 'label'>>(), {
   label: 'text',

@@ -3,8 +3,6 @@ import type {
   FooterMiniCollectionItem,
   NavigationCollectionItem,
 } from '@nuxt/content'
-import type { SectionType, LinkItemType } from '#shared/types/schemas'
-
 // The two queries are independent, so they run in parallel instead of
 // serializing two round-trips per render.
 const [{ data: footerDirData }, { data: footerMiniData }] = await Promise.all([
