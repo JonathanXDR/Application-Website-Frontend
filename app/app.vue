@@ -37,28 +37,6 @@ const { data: technologies } = await useQueryCollection<{ title: string }>(
 // the correct prefixed `@id` (`/de/#website`, `/en/#website`, and so
 // on), linked via `workTranslation` and `translationOfWork`.
 //
-// TODO: `nuxt-schema-org` (verified in 6.2.1) emits two related defects
-// under @nuxtjs/i18n when locales declare distinct `code` and `language`
-// values. Root cause in
-// `nuxt-schema-org/dist/runtime/app/plugins/i18n/defaults.js`: the plugin
-// treats `siteConfig.defaultLocale` as an i18n locale CODE, but
-// nuxt-site-config's i18n integration populates it with the language TAG
-// (`de-DE`, see `resolveDefaultLocale` returning `locale.language`).
-// Consequences: (1) the `workTranslation` filter
-// `locale.code !== siteConfig.defaultLocale` never matches, so the
-// default locale lists itself as its own translation, and (2)
-// `resolveIdForLocale({ code: 'de-DE' })` calls
-// `localePath('index', 'de-DE')` with an unknown locale, falling back to
-// the unprefixed root and producing a dangling
-// `translationOfWork.@id = https://host/#website` on non-default locales.
-// No app-side workaround exists: the i18n integration pushes site config
-// at a higher priority than nuxt.config, and the attempted
-// `defineWebSite({ inLanguage: ... })` override collapsed every locale's
-// `WebSite` `@id` to the unprefixed form, which broke `@id` uniqueness.
-// Leaving the auto-integration alone is the less bad state. Upstream fix
-// would resolve the default locale code from `$i18n.defaultLocale`
-// instead of `siteConfig.defaultLocale` (track upstream).
-//
 // https://nuxtseo.com/docs/schema-org/guides/setup-identity
 // https://nuxtseo.com/docs/schema-org/guides/i18n
 useSchemaOrg([

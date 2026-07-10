@@ -475,7 +475,7 @@ export default defineNuxtConfig({
     //
     // Workaround: after `.vercel/output` is written, drop every override whose
     // `path` ends with `/`. Vercel's default directory-index then serves the
-    // `<dir>/index.html` file at both `/<dir>/` and `/<dir>` statically — which
+    // `<dir>/index.html` file at both `/<dir>/` and `/<dir>` statically, which
     // is exactly the last-known-good behavior. Non-trailing-slash overrides
     // (incl. the root `{ path: '' }`) are left untouched. No-op off Vercel
     // (the file does not exist), so local `nuxt dev`/`build` are unaffected.
@@ -506,16 +506,6 @@ export default defineNuxtConfig({
           )
         }
       })
-    },
-    // @nuxtjs/robots registers its `NitroRouteConfig.robots` augmentation
-    // via `addTypeTemplate(..., { nitro: true, nuxt: true })` but not
-    // `node: true`, so `.nuxt/nuxt.node.d.ts` (the context that typechecks
-    // this file) never sees it and every `robots:` route rule above fails
-    // `nuxi typecheck` with TS2353. Reference the generated template in the
-    // node context ourselves until upstream adds `node: true`
-    // (node_modules/@nuxtjs/robots/dist/module.mjs `registerTypeTemplates`).
-    'prepare:types'({ nodeReferences }) {
-      nodeReferences.push({ path: 'types/nuxt-robots-nitro.d.ts' })
     },
   },
   // Single source of truth for AI signal directives. The module pushes its
@@ -608,16 +598,6 @@ export default defineNuxtConfig({
     //   * compactRoutes: collapses per-locale routes into a single
     //     `:locale(de|en|fr|it)` regex route.
     // https://nuxt.com/modules/i18n#new-features
-    // KNOWN UPSTREAM BUG (no app-side fix): under strictSeo, i18n derives
-    // og:locale:alternate from the hreflang link list, which legitimately
-    // carries bare-language catchall codes. Every page therefore emits
-    // invalid bare og:locale:alternate values (de, en, fr, it) next to the
-    // correct region tags, and also lists its own locale as an alternate,
-    // for example /de/ emits og:locale:alternate=de. Verified live in 10.4.0
-    // and on upstream main.
-    // TODO: drop this note once @nuxtjs/i18n sources og:locale:alternate
-    //       from options.locales (language tags) rather than the hreflang
-    //       list. Repro: repro-nuxt-i18n-strictseo-og-locale-alternate.
     experimental: {
       strictSeo: true,
       compactRoutes: true,
@@ -796,16 +776,6 @@ export default defineNuxtConfig({
     // static `/_og/s/...` assets to runtime `/_og/d/...` URLs that 404 in
     // production. Re-add the block only if zeroRuntime is ever turned off.
   },
-  // nuxt-ai-ready writes its directives into `nuxt.options.robots.groups`
-  // but only guards against `robots: false`, not an absent key
-  // (node_modules/nuxt-ai-ready/dist/module.mjs, `nuxt.options.robots !==
-  // false ? nuxt.options.robots : {}` leaves `undefined` untouched and
-  // then crashes reading `.groups`). The empty object below keeps the
-  // module working without re-declaring the redundant allow-all `*` group
-  // that @nuxtjs/robots already emits by default.
-  // TODO: drop `robots: {}` once nuxt-ai-ready also handles an undefined
-  //       robots key (track upstream).
-  robots: {},
   // No `schemaOrg.reactive` override. The module default already enables
   // client-side reactivity in dev for in-browser debugging, while forcing
   // it in production would ship the schema-org resolver to every client
@@ -1051,17 +1021,6 @@ export default defineNuxtConfig({
     // statically prerendered and there are no dynamic sitemap sources.
     // https://nuxtseo.com/docs/sitemap/guides/zero-runtime
     zeroRuntime: true,
-    // @nuxtjs/sitemap (current 8.2.1) auto-extracts `<img>` URLs from prerendered
-    // HTML and pipes them through `xmlEscape()`. Vercel's image-optimizer
-    // URLs leave `<NuxtImg>` and `<NuxtPicture>` already HTML-encoded
-    // (`&amp;w=768&amp;q=80`), and `xmlEscape` then double-encodes them
-    // to `&amp;amp;...`, producing image entries that point to URLs search
-    // engines cannot fetch. Image search still finds the portrait via the
-    // rendered `<img>` tags, so turning auto-extraction off costs nothing
-    // for now.
-    // TODO: re-enable `discoverImages` once @nuxtjs/sitemap HTML-decodes
-    //       image attributes before XML-escaping (track upstream).
-    discoverImages: false,
     // `defaults.lastmod` is intentionally NOT set. Stamping
     // `new Date().toISOString()` at build time is functionally the same
     // anti-pattern as `autoLastmod: true`, because Google distrusts
