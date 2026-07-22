@@ -155,19 +155,21 @@ if (config.public.appEnvironment === 'development') {
   // nuxt.config.ts `$development.app.head.link`, so these entries
   // replace those instead of rendering duplicate tags. The svg icon is
   // emitted only once its recolored data URL has been fetched, otherwise
-  // SSR would render a `rel="icon"` tag with an empty href.
+  // SSR would render a `rel="icon"` tag with an empty href. Unhead drops
+  // link entries that resolve to a falsy value, so the ternary yields
+  // `false` until the fetch completes. A ternary element (rather than a
+  // conditional spread) also keeps unhead v3's literal `rel` types intact,
+  // because TypeScript does not propagate contextual types into a spread.
   useHead({
     link: () => [
-      ...(faviconGraphicData.value
-        ? [
-            {
-              key: 'favicon',
-              rel: 'icon',
-              type: 'image/svg+xml',
-              href: faviconGraphicData.value,
-            },
-          ]
-        : []),
+      faviconGraphicData.value
+        ? {
+            key: 'favicon',
+            rel: 'icon',
+            type: 'image/svg+xml',
+            href: faviconGraphicData.value,
+          }
+        : false,
       {
         key: 'touch-icon',
         rel: 'apple-touch-icon',

@@ -186,10 +186,7 @@ export default defineNuxtConfig({
   // is rootDir, where `shared/` lives, not the `app/` srcDir a bare entry assumes.
   // https://nuxt.com/docs/4.x/directory-structure/shared#how-files-are-scanned
   imports: {
-    dirs: [
-      '~~/shared/types/components',
-      '~~/shared/types/services/github',
-    ],
+    dirs: ['~~/shared/types/components', '~~/shared/types/services/github'],
   },
   devtools: {
     enabled: true,
@@ -204,6 +201,11 @@ export default defineNuxtConfig({
       // over `seo.meta`, which only handles `<meta>` tags and silently drops
       // `titleTemplate`. Setting it on `app.head` is the canonical Nuxt
       // location and overrides the seo-utils default `'%s %separator %siteName'`.
+      // `%separator` resolution depends on nuxt-seo-utils registering unhead's
+      // TemplateParamsPlugin at runtime. `compatibilityVersion: 5` forces
+      // `unhead.legacy: false`, so Nuxt itself no longer ships that plugin.
+      // Removing @nuxtjs/seo would render a literal '%separator' in every
+      // title unless the plugin is registered manually.
       titleTemplate: 'JR %separator %s',
       // `apple-touch-icon` lives in the `$development` and `$production`
       // blocks above, not here. Both point at same-origin paths so CSP
@@ -230,6 +232,22 @@ export default defineNuxtConfig({
   },
   colorMode: {
     classSuffix: '',
+  },
+  // The error page cannot be prerendered (404s hit arbitrary URLs), so it is
+  // the only route whose @nuxt/content queries run at runtime inside the
+  // Vercel Lambda, where the default better-sqlite3 addon fails to load and
+  // the default ./contents.sqlite path is read-only. The 'native' connector
+  // uses Node 24's built-in node:sqlite instead, and /tmp is the Lambda's only
+  // writeable directory.
+  // https://content.nuxt.com/docs/deploy/serverless
+  content: {
+    experimental: {
+      sqliteConnector: 'native',
+    },
+    database: {
+      type: 'sqlite',
+      filename: '/tmp/contents.sqlite',
+    },
   },
   runtimeConfig: {
     public: {
@@ -360,7 +378,9 @@ export default defineNuxtConfig({
     // the app's, does not resolve the `~~` alias.
     imports: {
       dirs: [
-        fileURLToPath(new URL('./shared/types/services/github', import.meta.url)),
+        fileURLToPath(
+          new URL('./shared/types/services/github', import.meta.url),
+        ),
       ],
     },
     // Prerender all four locale roots so that:
@@ -494,7 +514,8 @@ export default defineNuxtConfig({
     // (the file does not exist), so local `nuxt dev`/`build` are unaffected.
     'nitro:init'(nitro) {
       nitro.hooks.hook('close', async () => {
-        const { existsSync, readFileSync, writeFileSync } = await import('node:fs')
+        const { existsSync, readFileSync, writeFileSync }
+          = await import('node:fs')
         const cfgPath = `${process.cwd()}/.vercel/output/config.json`
         if (!existsSync(cfgPath)) {
           return
@@ -505,14 +526,12 @@ export default defineNuxtConfig({
         if (!cfg.overrides) {
           return
         }
-        let stripped = 0
-        for (const [key, value] of Object.entries(cfg.overrides)) {
-          if (value?.path?.endsWith('/')) {
-            delete cfg.overrides[key]
-            stripped += 1
-          }
-        }
+        const kept = Object.entries(cfg.overrides).filter(
+          ([, value]) => !value?.path?.endsWith('/'),
+        )
+        const stripped = Object.keys(cfg.overrides).length - kept.length
         if (stripped > 0) {
+          cfg.overrides = Object.fromEntries(kept)
           writeFileSync(cfgPath, JSON.stringify(cfg))
           console.log(
             `[nitro-vercel-trailing-slash-override] stripped ${stripped} trailing-slash override(s) so Vercel serves prerendered HTML statically`,
@@ -660,22 +679,6 @@ export default defineNuxtConfig({
         name: 'Italiano',
       },
     ],
-  },
-  // The error page cannot be prerendered (404s hit arbitrary URLs), so it is
-  // the only route whose @nuxt/content queries run at runtime inside the
-  // Vercel Lambda, where the default better-sqlite3 addon fails to load and
-  // the default ./contents.sqlite path is read-only. The 'native' connector
-  // uses Node 24's built-in node:sqlite instead, and /tmp is the Lambda's only
-  // writeable directory.
-  // https://content.nuxt.com/docs/deploy/serverless
-  content: {
-    experimental: {
-      sqliteConnector: 'native',
-    },
-    database: {
-      type: 'sqlite',
-      filename: '/tmp/contents.sqlite',
-    },
   },
   icon: {
     componentName: 'NuxtIcon',
