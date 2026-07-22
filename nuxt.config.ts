@@ -201,10 +201,10 @@ export default defineNuxtConfig({
       // over `seo.meta`, which only handles `<meta>` tags and silently drops
       // `titleTemplate`. Setting it on `app.head` is the canonical Nuxt
       // location and overrides the seo-utils default `'%s %separator %siteName'`.
-      // `%separator` resolution depends on nuxt-seo-utils registering unhead's
+      // `%separator` only resolves because nuxt-seo-utils registers unhead's
       // TemplateParamsPlugin at runtime. `compatibilityVersion: 5` forces
-      // `unhead.legacy: false`, so Nuxt itself no longer ships that plugin.
-      // Removing @nuxtjs/seo would render a literal '%separator' in every
+      // `unhead.legacy: false`, so Nuxt itself does not register it. Removing
+      // @nuxtjs/seo would therefore render a literal '%separator' in every
       // title unless the plugin is registered manually.
       titleTemplate: 'JR %separator %s',
       // `apple-touch-icon` lives in the `$development` and `$production`

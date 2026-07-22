@@ -156,10 +156,11 @@ if (config.public.appEnvironment === 'development') {
   // replace those instead of rendering duplicate tags. The svg icon is
   // emitted only once its recolored data URL has been fetched, otherwise
   // SSR would render a `rel="icon"` tag with an empty href. Unhead drops
-  // link entries that resolve to a falsy value, so the ternary yields
-  // `false` until the fetch completes. A ternary element (rather than a
-  // conditional spread) also keeps unhead v3's literal `rel` types intact,
-  // because TypeScript does not propagate contextual types into a spread.
+  // entries that resolve to a falsy value, which is what makes the
+  // `false` branch valid. Do not convert the ternary into a conditional
+  // spread: TypeScript does not extend contextual typing through spread
+  // operands, so `rel` would widen to string and fall out of unhead v3's
+  // per-rel link union.
   useHead({
     link: () => [
       faviconGraphicData.value
