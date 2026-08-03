@@ -1,6 +1,6 @@
 icon:
   name: "sf-symbols:person.fill"
-eyebrow: "Aktueller Vorgesetzter"
+eyebrow: "Ehemaliger Vorgesetzter"
 title: "Patrice Stampfli"
 description: "Lernbegleiter (Coach) Next Generation"
 info:
@@ -9,11 +9,11 @@ info:
 
 i18n:
   en:
-    eyebrow: "Current Supervisor"
+    eyebrow: "Former Supervisor"
     description: "Coach Next Generation"
   fr:
-    eyebrow: "Supérieur hiérarchique actuel"
+    eyebrow: "Ancien supérieur hiérarchique"
     description: "Coach de la nouvelle génération"
   it:
-    eyebrow: "Supervisore attuale"
+    eyebrow: "Ex supervisore"
     description: "Coach della nuova generazione"

@@ -1,11 +1,11 @@
 icon:
   name: "sf-symbols:person.fill"
-eyebrow: "Aktueller Projektanbieter"
+eyebrow: "Ehemaliger Projektanbieter"
 title: "Kim Eggler"
 description: "Full-Stack Developer"
 links:
   - title: "Mehr erfahren"
-    url: "https://retrostories.ch"
+    url: "https://eggler.kim"
     icon:
       name: "sf-symbols:chevron.right"
 info:
@@ -14,17 +14,17 @@ info:
 
 i18n:
   en:
-    eyebrow: "Current Project Provider"
+    eyebrow: "Former Project Provider"
     description: "Full-Stack Developer"
     links:
       - title: "Learn more"
   fr:
-    eyebrow: "Fournisseur de projet actuel"
+    eyebrow: "Ancien fournisseur de projet"
     description: "Développeur Full-Stack"
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Attuale fornitore di progetto"
+    eyebrow: "Ex fornitore di progetto"
     description: "Sviluppatore Full-Stack"
     links:
       - title: "Per saperne di più"
