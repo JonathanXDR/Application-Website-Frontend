@@ -83,9 +83,9 @@ export const usePageSeo = async (options: UsePageSeoOptions = {}) => {
     if (options.breadcrumb ?? true) {
       useSchemaOrg([
         defineBreadcrumb({
-          itemListElement: () => [
-            { name: homeLabel.value, item: homePath.value },
-            { name: pageTitle.value, item: route.path },
+          itemListElement: [
+            { name: () => homeLabel.value, item: () => homePath.value },
+            { name: () => pageTitle.value, item: () => route.path },
           ],
         }),
       ])
