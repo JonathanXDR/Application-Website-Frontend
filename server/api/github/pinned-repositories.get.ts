@@ -48,9 +48,7 @@ const query = `
               forks {
                 totalCount
               }
-              stargazers {
-                totalCount
-              }
+              stargazerCount
               issues(states: [OPEN]) {
                 totalCount
               }
@@ -75,7 +73,7 @@ const remapProperties = (item: Repository) => {
     primaryLanguage,
     licenseInfo,
     forks,
-    stargazers,
+    stargazerCount,
     issues,
     pullRequests,
     updatedAt,
@@ -89,7 +87,7 @@ const remapProperties = (item: Repository) => {
     language: primaryLanguage?.name,
     license: licenseInfo,
     forks: forks?.totalCount,
-    stars: stargazers?.totalCount,
+    stars: stargazerCount,
     issues: issues?.totalCount,
     pullRequests: pullRequests?.totalCount,
     updated_at: updatedAt,
@@ -135,6 +133,7 @@ export default defineCachedEventHandler(
     name: 'github-pinned-repositories',
     maxAge: GITHUB_CACHE_MAX_AGE,
     swr: true,
-    getKey: event => cacheKey(clampPerPage(getQuery(event).perPage, PER_PAGE)),
+    getKey: event =>
+      cacheKey(clampPerPage(getQuery(event).perPage, PER_PAGE)),
   },
 )
