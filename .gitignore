@@ -6,6 +6,9 @@
 .cache
 dist
 
+# Unlighthouse reports (Lighthouse embeds the Vercel bypass secret in them)
+.unlighthouse
+
 # Node dependencies
 node_modules
 

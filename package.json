@@ -72,6 +72,7 @@
     "skilld": "2.3.0",
     "tailwindcss": "4.3.3",
     "typescript": "6.0.3",
+    "unlighthouse": "0.18.0",
     "varlock": "1.16.1",
     "vue": "3.5.41",
     "vue-router": "5.2.0",

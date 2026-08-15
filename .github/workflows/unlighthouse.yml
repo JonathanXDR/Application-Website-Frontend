@@ -1,0 +1,200 @@
+# Full-site Lighthouse audit of a Vercel deployment, run once the deployment
+# finishes. Reports are uploaded as a workflow artifact. Scores never fail the
+# job, because no `ci.budget` is set in `unlighthouse.config.ts` yet. Add one
+# there once a few runs have established a baseline.
+#
+# Vercel notifies GitHub through both `deployment_status` and
+# `repository_dispatch`. This workflow uses `repository_dispatch`, the one
+# Vercel recommends, because it carries the deployment metadata directly.
+# https://vercel.com/docs/git/vercel-for-github#repository-dispatch-events
+#
+# Action references follow GitHub's own scoping: `actions/*` by major version
+# tag, matching every starter workflow GitHub ships, and the third-party action
+# by commit SHA, which is what GitHub's secure-use guide and its own
+# third-party examples recommend.
+# https://docs.github.com/en/actions/reference/security/secure-use
+name: Unlighthouse
+
+on:
+  repository_dispatch:
+    types:
+      # Built but not promoted, which is what preview deployments emit.
+      - vercel.deployment.ready
+      # Built and automatically promoted to production.
+      - vercel.deployment.success
+  workflow_dispatch:
+    inputs:
+      site:
+        description: Deployment URL to audit, for example https://dev.jonathan-russ.com
+        required: true
+        type: string
+
+# Default deny. The one job below opts back in to only what it needs.
+permissions: {}
+
+# The runner default is `bash -e`, which does not set `pipefail`, so a failure
+# in the middle of a pipeline is hidden by a succeeding last command. `shell:
+# bash` runs `bash --noprofile --norc -eo pipefail`, which matters for the
+# redaction step, where a failing `grep` must not look like a clean report.
+defaults:
+  run:
+    shell: bash
+
+# Keyed by environment and branch together. `environment` alone is too coarse,
+# because every preview deployment shares the value `preview`, so two branches
+# deploying at once would cancel each other's audit rather than superseding it.
+# `concurrency` is evaluated before the job-level `if`, so these payload values
+# are still unvalidated. That is safe because they only name a concurrency
+# group, never reaching a shell or changing which site is audited.
+concurrency:
+  group: >-
+    unlighthouse-${{ github.event.client_payload.environment || 'manual' }}-${{
+    github.event.client_payload.git.ref || inputs.site || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    # A production deployment emits `ready` when it finishes building and
+    # `success` when it is promoted, so pairing each event with its own
+    # environment stops it from being audited twice.
+    if: >-
+      github.event_name == 'workflow_dispatch'
+      || (github.event.action == 'vercel.deployment.ready' && github.event.client_payload.environment == 'preview')
+      || (github.event.action == 'vercel.deployment.success' && github.event.client_payload.environment == 'production')
+    runs-on: ubuntu-latest
+    # Without this the job would inherit the 6 hour default, so a hung audit
+    # would burn a full day of billed minutes before being cancelled.
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      # Lets vercel/repository-dispatch/actions/status attach a commit status.
+      # Without it, a repository_dispatch run stays invisible on the pull
+      # request.
+      statuses: write
+    steps:
+      - name: Report status on the deployed commit
+        if: github.event_name == 'repository_dispatch'
+        uses: vercel/repository-dispatch/actions/status@30f760c6640485cd92f8c785ef361382555fb712 # v1
+        with:
+          name: Unlighthouse
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Runs before anything is installed so a misconfigured job fails in
+      # seconds. `client_payload.url` already carries a scheme, but the
+      # `workflow_dispatch` input is free text, so a bare host is accepted and
+      # the scheme added here. `resolveRoutes` builds `new URL('/sitemap.xml',
+      # site)`, which throws without one.
+      - name: Check inputs and resolve the site
+        env:
+          # Read through an intermediate variable so the payload never reaches
+          # the shell as template text.
+          RAW_SITE: ${{ inputs.site || github.event.client_payload.url }}
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+        run: |
+          if [ -z "$RAW_SITE" ]; then
+            echo "::error::The dispatch payload has no deployment URL in client_payload.url. Check the Vercel Git integration for this project, or run this workflow manually and pass the site URL."
+            exit 1
+          fi
+          if [ -z "$VERCEL_AUTOMATION_BYPASS_SECRET" ]; then
+            echo "::error::VERCEL_AUTOMATION_BYPASS_SECRET is not set, so the audit cannot get past Deployment Protection. Copy the bypass secret from the Vercel project (Settings > Deployment Protection) and add it to this repository as an Actions secret with the same name."
+            exit 1
+          fi
+          case "$RAW_SITE" in
+            http://*|https://*) site="$RAW_SITE" ;;
+            *) site="https://$RAW_SITE" ;;
+          esac
+          # A dispatch payload is JSON, so the URL can carry newlines and other
+          # unexpected characters. `case` matches the whole value and rejects
+          # anything outside a plain origin's character set, which stops a
+          # payload from appending extra variables to `$GITHUB_ENV` or emitting
+          # workflow commands into the log. `grep` then checks the shape, and
+          # its per-line anchors are safe only because `case` has already ruled
+          # out newlines. The failure message does not repeat the value, since
+          # at that point it is still untrusted.
+          case "$site" in
+            *[!A-Za-z0-9.:/-]*) shape=bad ;;
+            *) shape=ok ;;
+          esac
+          if [ "$shape" != ok ] || ! printf '%s' "$site" | grep -Eq '^https?://[A-Za-z0-9.-]+(:[0-9]+)?/?$'; then
+            echo "::error::The deployment URL is not a plain origin such as https://example.com, so it was not audited."
+            exit 1
+          fi
+          printf 'UNLIGHTHOUSE_SITE=%s\n' "$site" >> "$GITHUB_ENV"
+          echo "Auditing $site"
+
+      # The audit runs against the deployed site, so the config file is the only
+      # thing needed from the repository. A sparse checkout also implies a
+      # `blob:none` partial clone, which skips the rest of a 187 MiB pack.
+      # `unlighthouse.config.ts` imports only a type, so it loads without any
+      # `node_modules` present. Credentials are not persisted because nothing
+      # here pushes back to the repository.
+      - name: Check out the Unlighthouse config
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: unlighthouse.config.ts
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+
+      # The version is quoted so a later two-part value such as '24.10' is not
+      # read as the number 24.1. Nothing is installed from the repository, so
+      # there is no lockfile to key a dependency cache on.
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+
+      # Pinned so Lighthouse scores stay comparable between runs. An unpinned
+      # install would silently pick up a new Lighthouse, whose scoring changes
+      # between versions, and a regression in the report would be
+      # indistinguishable from a regression in the site. Keep this in step with
+      # the `unlighthouse` devDependency, which is what local runs use.
+      # Dependabot does not read versions out of a `run` step, so this one is
+      # updated by hand.
+      #
+      # `puppeteer` is deliberately not installed. Unlighthouse imports
+      # `puppeteer-core` and locates Chrome through `chrome-launcher`, which
+      # finds the runner's preinstalled build. Without a system Chrome it
+      # downloads its own into `~/.unlighthouse`, so a `puppeteer` install would
+      # only fetch a second browser that nothing reads.
+      - name: Install Unlighthouse
+        run: npm install --global unlighthouse@0.18.0
+
+      - name: Audit ${{ env.UNLIGHTHOUSE_SITE }}
+        run: unlighthouse-ci --build-static
+        env:
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+
+      # Lighthouse copies its settings, including `extraHeaders`, verbatim into
+      # the per-route reports under `.unlighthouse/reports/`, so the bypass
+      # secret ends up inside them. Artifacts on a public repository are
+      # downloadable by any signed-in user, and `::add-mask::` only redacts
+      # logs, never artifacts. Strip the value and fail the job if any copy
+      # survives, so a partial redaction can never reach the upload.
+      - name: Redact the bypass secret from the report
+        if: always()
+        env:
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+        run: |
+          [ -d .unlighthouse ] || exit 0
+          grep -rl -- "$VERCEL_AUTOMATION_BYPASS_SECRET" .unlighthouse 2>/dev/null \
+            | tr '\n' '\0' \
+            | xargs -0 -r perl -pi -e 's/\Q$ENV{VERCEL_AUTOMATION_BYPASS_SECRET}\E/REDACTED/g'
+          if grep -rq -- "$VERCEL_AUTOMATION_BYPASS_SECRET" .unlighthouse 2>/dev/null; then
+            echo "::error::The bypass secret is still present in the report, so it was not uploaded. Rotate VERCEL_AUTOMATION_BYPASS_SECRET in the Vercel project."
+            exit 1
+          fi
+
+      # `--build-static` writes the viewable report to the root of
+      # `.unlighthouse`, as `index.html` plus `assets/`, with the per-route
+      # Lighthouse reports under `reports/`. A missing report only warns, so
+      # that a failed audit is reported by the audit step rather than by this
+      # one. Each report is superseded by the next deploy, so it does not need
+      # the 90 day default retention.
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: unlighthouse-${{ github.event.client_payload.environment || 'manual' }}-${{ github.run_number }}
+          path: .unlighthouse
+          if-no-files-found: warn
+          retention-days: 14
