@@ -1,7 +1,6 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    // eslint-disable-next-line no-undef
     as?: keyof HTMLElementTagNameMap
     variant?: 'primary' | 'secondary' | 'tertiary'
     componentSize?: BasicSizeType

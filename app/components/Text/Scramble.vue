@@ -7,7 +7,6 @@ const props = withDefaults(
     duration?: number
     speed?: number
     characterSet?: string
-    // eslint-disable-next-line no-undef
     as?: keyof HTMLElementTagNameMap
     trigger?: boolean
   }>(),

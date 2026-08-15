@@ -70,8 +70,7 @@ useRafFn(() => {
 })
 
 onMounted(() => {
-  // eslint-disable-next-line regexp/no-unused-capturing-group
-  isSafari.value = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+  isSafari.value = /^(?:(?!chrome|android).)*safari/i.test(navigator.userAgent)
 })
 </script>
 
