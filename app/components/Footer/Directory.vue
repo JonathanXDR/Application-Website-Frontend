@@ -12,7 +12,7 @@ withDefaults(
 <template>
   <nav
     class="footer-directory"
-    aria-label="Apple Developer Directory"
+    aria-label="Site directory"
     role="navigation"
   >
     <div

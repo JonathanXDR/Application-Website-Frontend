@@ -53,7 +53,7 @@ watch(locale, (localeNew) => {
         v-model="selectedLocale"
         class="dropdown-select"
         name="language"
-        aria-label="Language Dropdown"
+        aria-label="Select a language"
         @change="changeLanguage(selectedLocale)"
       >
         <option

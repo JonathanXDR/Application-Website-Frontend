@@ -265,7 +265,7 @@ watch(
       '--border-scaleX': borderScaleX,
     }"
     role="navigation"
-    aria-label="Local"
+    aria-label="Main"
     @transitionstart="handleTransitionStart"
     @transitionend="handleTransitionEnd"
   >
@@ -281,7 +281,7 @@ watch(
         <div class="ac-ln-title">
           <NuxtLink
             :to="localePath({ path: '/' })"
-            aria-label="JR"
+            aria-label="Jonathan Russ"
           >
             <SiteLogo
               :style="{

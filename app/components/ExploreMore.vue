@@ -11,7 +11,7 @@ withDefaults(defineProps<Partial<BasicPropsType>>(), {
       href="#"
       class="drawer-toggle"
       aria-expanded="false"
-      aria-label="Explore more details, Mac products"
+      aria-label="Explore more"
       aria-content="drawer-container-mac"
       role="button"
       style="position: relative; z-index: 1"

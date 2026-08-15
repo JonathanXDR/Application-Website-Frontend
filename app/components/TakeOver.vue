@@ -60,7 +60,7 @@ useIntervalFn(calculateEventState, 1000, { immediateCallback: true })
           >
             <a
               :href="calendarLink"
-              :aria-label="`add to calendar: ${eventTitle}`"
+              :aria-label="`Add to calendar: ${eventTitle}`"
               class="add-to-calendar__link icon-downloadcircle icon"
               download
               role="button"
@@ -87,7 +87,7 @@ useIntervalFn(calculateEventState, 1000, { immediateCallback: true })
               v-if="eventState === 'live'"
               :href="eventLink"
               class="watch-live"
-              :aria-label="`watch live event: ${eventTitle}`"
+              :aria-label="`Watch live event: ${eventTitle}`"
             >
               Watch live event
             </a>
@@ -95,7 +95,7 @@ useIntervalFn(calculateEventState, 1000, { immediateCallback: true })
               v-if="eventState === 'post-event'"
               :href="eventLink"
               class="watch-event"
-              :aria-label="`watch event: ${eventTitle}`"
+              :aria-label="`Watch event: ${eventTitle}`"
             >
               Watch event
             </a>
