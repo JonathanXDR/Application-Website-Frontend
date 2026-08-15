@@ -1,11 +1,4 @@
 <script setup lang="ts">
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import 'dayjs/locale/de'
-import 'dayjs/locale/en'
-import 'dayjs/locale/fr'
-import 'dayjs/locale/it'
-
 const props = withDefaults(defineProps<InfoBarType>(), {
   loading: false,
   date: () => ({
@@ -16,8 +9,6 @@ const props = withDefaults(defineProps<InfoBarType>(), {
     }),
   }),
 })
-
-dayjs.extend(relativeTime)
 
 const { locale } = useI18n()
 const infoItems: { id: keyof InfoBarType, icon: IconItemType }[] = [
@@ -39,11 +30,27 @@ const infoItems: { id: keyof InfoBarType, icon: IconItemType }[] = [
   // { id: "contributors", icon: { name: "person.2.fill" } },
 ]
 
+const DAY_MS = 24 * 60 * 60 * 1000
+
+// Every route is prerendered, so a clock read during render is baked at build
+// time and the icon below would stay on `clock.fill` long after the update
+// stopped being recent. `useState` carries the render-time value through the
+// payload so the server and the first client render agree, then the first
+// mounted instance corrects it, the same trick as `useCurrentYear`. The
+// threshold makes only that first instance write. Every later one already
+// sees a fresh value, so a card grid does not trigger one update per card.
+const renderedAt = useState('rendered-at', () => Date.now())
+
+onMounted(() => {
+  if (Date.now() - renderedAt.value > 60_000) renderedAt.value = Date.now()
+})
+
+// Preserves the previous `dayjs().diff(date, 'day') <= 1` semantics: a
+// truncated day difference of 0 or 1, i.e. anything inside the last 48 hours.
 const updatedYesterday = computed(() => {
   if (!props.date.fixed) return false
-  const updatedDate = dayjs(props.date.fixed)
-  const currentDate = dayjs()
-  return currentDate.diff(updatedDate, 'day') <= 1
+  const elapsed = renderedAt.value - new Date(props.date.fixed).getTime()
+  return Math.floor(elapsed / DAY_MS) <= 1
 })
 
 const formatDate = (
@@ -53,38 +60,37 @@ const formatDate = (
   return new Date(dateString).toLocaleDateString(locale.value, formatOptions)
 }
 
-const getDate = () => {
+// Which of the three date shapes this instance renders. Only `relative` needs
+// a live component. The other two are absolute dates that Intl formats once.
+const dateMode = computed(() => {
   const { duration, formatOptions, fixed, event } = props.date
+  if (duration && formatOptions) return 'duration'
+  if (fixed && event) return 'relative'
+  if (fixed && formatOptions) return 'fixed'
+  return 'none'
+})
 
-  if (duration && formatOptions) {
-    const formattedDuration = `${formatDate(
-      duration.from,
+const dateTitle = computed(() => {
+  const { duration, formatOptions, fixed } = props.date
+
+  if (dateMode.value === 'duration' && duration && formatOptions) {
+    return `${formatDate(duration.from, formatOptions())} - ${formatDate(
+      duration.to,
       formatOptions(),
-    )} - ${formatDate(duration.to, formatOptions())}`
-
-    return formattedDuration
+    )}`
   }
-  else if (fixed && event) {
-    const formattedevent = `${event?.charAt(0).toUpperCase()}${event?.slice(
-      1,
-    )} ${dayjs(fixed).locale(locale.value).fromNow()}`
-
-    return formattedevent
+  if (dateMode.value === 'fixed' && fixed && formatOptions) {
+    return formatDate(fixed.toString(), formatOptions())
   }
-  else if (fixed && formatOptions) {
-    const formattedFixedDate = formatDate(fixed.toString(), formatOptions())
+  return ''
+})
 
-    return formattedFixedDate
-  }
-}
-
-const dateTitle = ref(getDate())
-
-// No global dayjs.locale() call here. The formatting in getDate already
-// chains .locale() per instance, and mutating the global default on the
-// server leaks one request's locale into concurrent renders.
-watch([locale, () => props.date], () => {
-  dateTitle.value = getDate()
+// "updated" -> "Updated". The label is authored lowercase in the content
+// collections so it can also be used mid-sentence.
+const eventLabel = computed(() => {
+  const { event } = props.date
+  if (!event) return ''
+  return `${event.charAt(0).toUpperCase()}${event.slice(1)}`
 })
 </script>
 
@@ -128,10 +134,24 @@ watch([locale, () => props.date], () => {
         class="info-icon"
       />
       <template v-if="!loading">
-        {{
-          dateTitle
-            || `${props.date.duration?.from} - ${props.date.duration?.to}`
-        }}
+        <!-- `<NuxtTime relative>` replaces dayjs' `fromNow()`. It formats with
+             `Intl.RelativeTimeFormat`, and its `onPrehydrate` script recomputes
+             the text before hydration, so the value is correct on a
+             prerendered page instead of frozen at build time. -->
+        <template v-if="dateMode === 'relative' && props.date.fixed">
+          {{ eventLabel }}&nbsp;<NuxtTime
+            :datetime="props.date.fixed"
+            :locale="locale"
+            relative
+            numeric="auto"
+          />
+        </template>
+        <template v-else>
+          {{
+            dateTitle
+              || `${props.date.duration?.from} - ${props.date.duration?.to}`
+          }}
+        </template>
       </template>
       <template v-else>
         <LazyLoadingSkeleton
