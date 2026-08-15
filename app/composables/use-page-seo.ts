@@ -15,8 +15,8 @@ interface UsePageSeoOptions {
 }
 
 /**
- * Centralises the per-page SEO wiring that all four routes share:
- *   - computes `pageTitle` from the navbar's localised label
+ * Centralizes the per-page SEO wiring that all four routes share:
+ *   - computes `pageTitle` from the navbar's localized label
  *   - computes `pageDescription` from `content/config/site.yml` (top-level
  *     description, or the per-page `pages.<key>.description` override)
  *   - sets `<meta name="description">` via `useSeoMeta`
@@ -24,10 +24,10 @@ interface UsePageSeoOptions {
  *   - emits a `BreadcrumbList` JSON-LD for non-home pages
  *
  * Title is intentionally NOT set here. `app/layouts/default.vue` owns it
- * so that scrolling between in-page sections on the home page can rotate
- * the title reactively. The page title (`currentRoute.value?.label`) is
+ * so scrolling between in-page sections on the home page can rotate the
+ * title reactively. The page title (`currentRoute.value?.label`) is
  * still passed to `defineOgImage`, because OG images are a per-page
- * artefact rather than a per-section one.
+ * artifact rather than a per-section one.
  *
  * The server middleware (`server/middleware/site-config.ts`) writes the
  * same `pageDescription` into `useSiteConfig()` for SSR and prerender,
@@ -36,11 +36,11 @@ interface UsePageSeoOptions {
  * keep the description in sync during SPA navigation.
  */
 export const usePageSeo = async (options: UsePageSeoOptions = {}) => {
-  // Plain .ts composables get no compiler-inserted async context
-  // restoration, unlike top-level awaits in <script setup>. After the
+  // Plain `.ts` composables get no compiler-inserted async context
+  // restoration, unlike top-level awaits in `<script setup>`. After the
   // awaited query below, the Nuxt instance is gone on the server and
-  // useSeoMeta, defineOgImage, and useSchemaOrg would throw during SSR.
-  // Capture the instance here and re-enter it via runWithContext.
+  // `useSeoMeta`, `defineOgImage`, and `useSchemaOrg` would throw during
+  // SSR. Capture the instance here and re-enter it via `runWithContext`.
   // https://nuxt.com/docs/4.x/guide/concepts/auto-imports#vue-and-nuxt-composables
   const nuxtApp = useNuxtApp()
   const route = useRoute()
@@ -68,7 +68,8 @@ export const usePageSeo = async (options: UsePageSeoOptions = {}) => {
     useSeoMeta({ description: () => pageDescription.value })
 
     // The third argument carries image options. `alt` there emits
-    // og:image:alt and twitter:image:alt, which were previously missing.
+    // `og:image:alt` and `twitter:image:alt`, which were previously
+    // missing.
     defineOgImage(
       'Overview',
       {

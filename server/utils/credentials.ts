@@ -10,7 +10,7 @@ export function requireCredential(
   if (!value) {
     console.error(
       '[config]',
-      `endpoint disabled, missing credential: ${label}`,
+      `endpoint disabled: credential ${label} is not set. Set it in the environment to enable this route.`,
     )
     throw createError({
       status: 404,

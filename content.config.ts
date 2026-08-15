@@ -2,18 +2,19 @@ import { defineCollection, defineContentConfig } from '@nuxt/content'
 import { z } from 'zod'
 
 // Single source of truth for content shapes. Each atom schema below is
-// pinned to its interface in shared/types/schemas.ts with
+// pinned to its interface in `shared/types/schemas.ts` with
 // `satisfies z.ZodType<...>`, so the schema and the interface can never
 // drift: changing one without the other is a compile error. The interfaces
-// type component props (Vue's defineProps cannot resolve z.infer), and
-// these schemas drive content validation and the generated @nuxt/content
+// type component props (Vue's `defineProps` cannot resolve `z.infer`), and
+// these schemas drive content validation and the generated `@nuxt/content`
 // query result types.
 //
-// All collections are type:'data' + i18n:true. The custom @nuxt/content
-// fork (release/better-i18n) merges each file's nested i18n.<locale> block
-// onto the base document by index before validation, so schemas model the
-// merged per-locale shape and never declare an i18n field. Base fields stay
-// required, fields a locale override may omit stay optional.
+// All collections are `type: 'data'` with `i18n: true`. The custom
+// `@nuxt/content` fork (`release/better-i18n`) merges each file's nested
+// `i18n.<locale>` block onto the base document by index before validation,
+// so schemas model the merged per-locale shape and never declare an `i18n`
+// field. Base fields stay required. Fields a locale override may omit stay
+// optional.
 
 // ─── Atoms ────────────────────────────────────────────────
 
@@ -24,7 +25,7 @@ export const ColorSchema = z.object({
   quaternary: z.string().optional(),
 }) satisfies z.ZodType<ColorType>
 
-// Content icon. `name` is an iconify id (sf-symbols, simple-icons, fa7).
+// Content icon. `name` is an Iconify id (sf-symbols, simple-icons, fa7).
 // `background` and color values accept hex, CSS vars, or the literal
 // 'none', so they stay plain strings.
 export const IconSchema = z.object({
@@ -86,12 +87,12 @@ export const ExtendedPropsSchema = BasicPropsSchema.extend({
   info: InfoSchema.optional(),
 }) satisfies z.ZodType<ExtendedPropsType>
 
-// Navigation node, shared by the navbar (items) and the footer directory
-// (sections). The tree is modelled to its real depth without recursion,
-// because @nuxt/content cannot generate types for a self-referential
-// content schema (z.lazy produces an unresolvable $ref). The footer is
-// the deepest at three levels, the navbar uses two. Components render the
-// tree with the recursive SectionType in shared/types/schemas.ts.
+// Navigation node, shared by the navbar (`items`) and the footer directory
+// (`sections`). The tree is modeled to its real depth without recursion,
+// because `@nuxt/content` cannot generate types for a self-referential
+// content schema (`z.lazy` produces an unresolvable `$ref`). The footer is
+// the deepest at three levels and the navbar uses two. Components render
+// the tree with the recursive `SectionType` in `shared/types/schemas.ts`.
 export const NavLeafSchema = z.object({
   id: z.string(),
   label: z.string().optional(),
@@ -166,12 +167,13 @@ export const NavigationSchema = z.object({
   sections: z.array(NavNodeSchema).optional(),
 })
 
-// Chrome micro-content. Each component/file is its own collection with a
+// Chrome micro-content. Each component file is its own collection with a
 // schema that models only that file's fields, replacing the former single
 // `ui` superset where every field was optional (so no required field could
 // be enforced and `UiCollectionItem` leaked every field onto every
-// component's query type). These are single-file type:'data' collections
-// queried with `.first()` and no stem, mirroring the `about` collection.
+// component's query type). These are single-file `type: 'data'`
+// collections queried with `.first()` and no stem, mirroring the `about`
+// collection.
 
 // share-sheet: social links in the footer / hero share row.
 export const ShareSheetSchema = z.object({
@@ -179,7 +181,7 @@ export const ShareSheetSchema = z.object({
 })
 
 // segment-nav: the three tab groups (theme switch, projects filter,
-// technologies filter); each consumer reads one group.
+// technologies filter). Each consumer reads one group.
 export const SegmentNavSchema = z.object({
   theme: z.array(ItemSchema),
   projects: z.array(ItemSchema),
@@ -187,7 +189,7 @@ export const SegmentNavSchema = z.object({
 })
 
 // info-banner: rotating promo banners. No field is guaranteed per entry,
-// so the entry shape mirrors the title-optional InfoBannerType prop.
+// so the entry shape mirrors the title-optional `InfoBannerType` prop.
 export const InfoBannerSchema = z.object({
   items: z.array(
     z.object({
@@ -204,7 +206,8 @@ export const FooterMiniSchema = z.object({
   news: z.object({ title: z.string(), link: LinkSchema }),
 })
 
-// footer-copyright: copyright line (carries {currentYear}) and author link.
+// footer-copyright: copyright line (carries `{currentYear}`) and author
+// link.
 export const FooterCopyrightSchema = z.object({
   allRightsReserved: z.string(),
   links: z.array(LinkSchema),
@@ -217,7 +220,7 @@ export const CardItemSchema = z.object({
   learnMore: z.string(),
 })
 
-// live-result-summary: result-count line (title carries {count}) and the
+// live-result-summary: result-count line (title carries `{count}`) and the
 // pinned-results label.
 export const LiveResultSummarySchema = z.object({
   title: z.string(),
@@ -237,8 +240,8 @@ export const SkewNotificationSchema = z.object({
 })
 
 // filter-input: tag add/remove labels. Currently unconsumed (no component
-// queries it yet); kept so the translations are ready when the technologies
-// filter wires them up.
+// queries it yet), but kept so the translations are ready when the
+// technologies filter wires them up.
 export const FilterInputSchema = z.object({
   addTag: z.string(),
   tagSelectRemove: z.string(),
@@ -337,10 +340,10 @@ export default defineContentConfig({
       i18n: true,
     }),
 
-    // The overview list domains are one file per entry, like projects and
-    // technologies, so each entry's translations live with it instead of in
-    // a fragile positional i18n array. Queried with .all(), ordered by the
-    // NN. filename prefix.
+    // The overview list domains are one file per entry, like `projects` and
+    // `technologies`, so each entry's translations live with it instead of
+    // in a fragile positional `i18n` array. Queried with `.all()`, ordered
+    // by the `NN.` filename prefix.
     funFacts: defineCollection({
       type: 'data',
       source: 'pages/overview/fun-facts/*.yml',

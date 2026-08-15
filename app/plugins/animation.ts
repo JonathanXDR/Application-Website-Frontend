@@ -9,8 +9,8 @@ interface AnimationOperations {
   onEnter?: () => void
   // Per-element overrides for the in-view detection. The default `margin`
   // shrinks the detection area up from the viewport bottom, a dead zone that
-  // elements pinned to the end of the page (the footer ShareSheet) can never
-  // scroll past. They pass `margin: '0px'` to opt out.
+  // elements pinned to the end of the page (the footer `ShareSheet`) can
+  // never scroll past. They pass `margin: '0px'` to opt out.
   amount?: 'some' | 'all' | number
   margin?: string
 }
@@ -78,7 +78,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
       // Directive hooks run outside any component effect scope, so the
       // observer and watcher created below would never be disposed on
-      // unmount. An explicit scope lets unmounted stop them.
+      // unmount. An explicit scope lets `unmounted` stop them.
       const scope = effectScope(true)
 
       scope.run(() => {

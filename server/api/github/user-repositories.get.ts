@@ -1,5 +1,5 @@
 // The username is pinned server side to the configured repository owner
-// and pagination is clamped, see the note in server/utils/octokit.ts.
+// and pagination is clamped. See the note in `server/utils/octokit.ts`.
 // Other client-supplied query params are ignored on purpose.
 const PER_PAGE = 100
 
@@ -15,10 +15,10 @@ export default defineCachedEventHandler(
         per_page: perPage,
         page,
       })
-      // Narrow to the fields the UI consumes. The full REST repo object
+      // Narrow to the fields the UI reads. The full REST repo object
       // is large, and with up to 100 repos it was embedded verbatim into
       // every prerendered projects payload across all four locales. The
-      // return type ties this projection to the type the page consumes so
+      // return type ties this projection to the type the page reads so
       // the two cannot drift.
       return data.map((repo): MinimalRepositoryCard => ({
         name: repo.name,

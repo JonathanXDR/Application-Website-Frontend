@@ -48,9 +48,9 @@ function generateAuthToken(): string {
 
   const config = useRuntimeConfig()
   // Guard the signing key the same way the library routes guard the user
-  // token. Without this an unset key reaches jwt.sign as an empty string and
-  // throws before the handler try block, surfacing a raw 500. Routing it
-  // through requireCredential keeps an unconfigured catalog endpoint inert
+  // token. Without this an unset key reaches `jwt.sign` as an empty string
+  // and throws before the handler try block, surfacing a raw 500. Routing it
+  // through `requireCredential` keeps an unconfigured catalog endpoint inert
   // (404) instead of live but broken.
   const privateKey = Buffer.from(
     requireCredential(
@@ -101,7 +101,7 @@ export function useMusicKit() {
       headers['Music-User-Token'] = musicUserToken
     }
 
-    // External call to the Apple Music API, so the caller supplied T is the
+    // External call to the Apple Music API, so the caller-supplied T is the
     // authoritative response type. Importing ofetch's $fetch directly keeps
     // this off the Nitro internal-route typing that the global $fetch carries.
     return $fetch<T>(`${APPLE_MUSIC_BASE_URL}${path}`, {
@@ -109,9 +109,9 @@ export function useMusicKit() {
       params: options?.params,
       timeout: MUSICKIT_REQUEST_TIMEOUT_MS,
       // Fail fast. ofetch retries a GET once by default and its default
-      // retryStatusCodes include 429 with a zero delay, so a rate-limited
-      // response would be re-issued at once with no backoff. retry 0 surfaces
-      // the error immediately, matching the GitHub client.
+      // `retryStatusCodes` include 429 with a zero delay, so a rate-limited
+      // response would be re-issued at once with no backoff. `retry: 0`
+      // surfaces the error immediately, matching the GitHub client.
       retry: 0,
     })
   }
@@ -120,7 +120,7 @@ export function useMusicKit() {
 }
 
 export function handleMusicKitError(error: unknown): never {
-  // An H3Error we threw ourselves (such as the Music-User-Token guard below)
+  // An H3Error we threw ourselves (such as the Music-User-Token guard above)
   // must pass through unchanged. ofetch's FetchError is not an H3Error, so it
   // continues to the upstream branch. Only our own createError calls match.
   if (isError(error)) throw error

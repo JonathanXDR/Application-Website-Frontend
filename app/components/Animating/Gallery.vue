@@ -38,9 +38,9 @@ type ParallaxItem = EmptyItem | ImageItem
 
 const togglePlayPause = useToggle(playing)
 
-// Seeded once via useState so the SSR-serialised random order is reused on
-// the client instead of being reshuffled at hydration, which swapped every
-// decorative tile's artwork on load. The shuffle has no reactive
+// Seeded once via `useState` so the SSR-serialized random order is reused
+// on the client instead of being reshuffled at hydration, which swapped
+// every decorative tile's artwork on load. The shuffle has no reactive
 // dependency, so the single payload value stays stable across server and
 // client.
 const parallaxItems = useState<ParallaxItem[]>('music-parallax-order', () => {

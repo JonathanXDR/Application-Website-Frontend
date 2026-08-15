@@ -48,7 +48,7 @@ const calculateAge = (date = '') => {
       >
         <!-- `fit="cover"` is a no-op on Vercel because the
              `/_vercel/image` URL only carries `url`, `w`, and `q`.
-             The prop still expresses intent and is honoured by
+             The prop still expresses intent and is honored by
              non-Vercel providers (IPX, Cloudinary) if the provider is
              ever swapped. Mirrors the note on the `cover` preset in
              `nuxt.config.ts`. -->

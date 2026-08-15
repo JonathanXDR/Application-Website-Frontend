@@ -1,6 +1,6 @@
 <script setup lang="ts">
-// Client-only console easter egg. The previous implementation loaded
-// every ASCII art file through useAsyncData, which shipped all of them
+// Client-only console Easter egg. The previous implementation loaded
+// every ASCII art file through `useAsyncData`, which shipped all of them
 // three times on every page: server-rendered into hidden divs, embedded
 // in the payload, and bundled as raw chunks, only to print one random
 // file to the console. Now exactly one lazily imported file loads in
@@ -23,16 +23,19 @@ onMounted(async () => {
       = folder === 'monospace'
         ? 'monospace'
         : '"Helvetica Neue", Arial, sans-serif'
-    // window.console keeps the call out of reach of nuxt-security's
-    // removeLoggers console stripping in production builds. A console
-    // easter egg that gets stripped from production would be pointless.
+    // `window.console` keeps the call out of reach of nuxt-security's
+    // `removeLoggers` console stripping in production builds. An Easter egg
+    // that gets stripped from production would be pointless.
     window.console.log(
       `%cHey! You've found an Easter egg! 🥚 \n\n${content}`,
       `font-family: ${fontFamily}`,
     )
   }
   catch (error) {
-    console.error('Error loading ASCII file:', error)
+    console.error(
+      '[easter-egg] could not load the ASCII art asset, skipping:',
+      error,
+    )
   }
 })
 </script>

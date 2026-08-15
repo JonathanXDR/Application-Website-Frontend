@@ -95,9 +95,9 @@ const remapProperties = (item: Repository) => {
 }
 
 // The username is pinned server side to the configured repository owner
-// and pagination is clamped, see the note in server/utils/octokit.ts. The
+// and pagination is clamped. See the note in `server/utils/octokit.ts`. The
 // `perPage` query param is camelCase here (unlike the snake_case REST routes)
-// to mirror the GraphQL `$perPage` variable below.
+// to mirror the GraphQL `$perPage` variable above.
 const PER_PAGE = 30
 
 export default defineCachedEventHandler(

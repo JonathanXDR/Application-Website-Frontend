@@ -19,7 +19,7 @@ export function useBreadcrumbs(
   const requestURL = useRequestURL()
   const { currentRoute } = useNavbar()
 
-  // The previous useState('error-pages') lookup was dead code. Nothing
+  // The previous `useState('error-pages')` lookup was dead code. Nothing
   // ever populated that state, so the error-page branch of the last
   // crumb title could never resolve.
 

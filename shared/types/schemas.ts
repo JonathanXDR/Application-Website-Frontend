@@ -1,13 +1,13 @@
-// App-wide content types. These plain interfaces mirror the Zod
-// collection schemas in content.config.ts and must stay in sync with them.
+// App-wide content types. These plain interfaces mirror the Zod collection
+// schemas in `content.config.ts` and must stay in sync with them.
 //
-// They are written as interfaces rather than z.infer aliases on purpose:
-// Vue's defineProps compiler resolves types statically and cannot follow
-// z.infer<typeof Schema>, so any component prop typed from a derived alias
-// fails to compile. The Zod schemas remain the validation source and drive
-// the @nuxt/content query result types (the *CollectionItem types used in
-// useQueryCollection), while these interfaces type component props and
-// local annotations. The two describe the same shapes.
+// They are written as interfaces rather than `z.infer` aliases on purpose:
+// Vue's `defineProps` compiler resolves types statically and cannot follow
+// `z.infer<typeof Schema>`, so any component prop typed from a derived
+// alias fails to compile. The Zod schemas remain the validation source and
+// drive the `@nuxt/content` query result types (the `*CollectionItem`
+// types used in `useQueryCollection`), while these interfaces type
+// component props and local annotations. The two describe the same shapes.
 
 export interface ColorType {
   primary?: string
@@ -49,11 +49,7 @@ export interface InfoType {
 
 export type BasicSizeType = 'small' | 'medium' | 'large'
 export type ExtendedSizeType
-  = | 'xsmall'
-    | 'small'
-    | 'medium'
-    | 'large'
-    | 'xlarge'
+  = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
 
 export interface BasicPropsType {
   icon?: IconType

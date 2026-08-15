@@ -1,4 +1,4 @@
-// `ids` is whitelisted and validated server side so this endpoint cannot
+// `ids` is allowlisted and validated server side so this endpoint cannot
 // be turned into a generic Apple Music proxy that burns the developer
 // token's quota.
 export default defineCachedEventHandler(

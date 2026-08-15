@@ -30,7 +30,7 @@ const tags = ref<{
 
 const baseItems = ref<InfoBannerType['items']>([])
 
-// Owner and repo are pinned server side, so only per_page is forwarded.
+// Owner and repo are pinned server side, so only `per_page` is forwarded.
 const { data: repositoryTags } = await useFetch('/api/github/repository-tags', {
   key: 'repository-tags',
   lazy: true,

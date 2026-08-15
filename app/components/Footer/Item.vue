@@ -4,7 +4,7 @@ import type {
   NavigationCollectionItem,
 } from '@nuxt/content'
 // The two queries are independent, so they run in parallel instead of
-// serializing two round-trips per render.
+// serializing two round trips per render.
 const [{ data: footerDirData }, { data: footerMiniData }] = await Promise.all([
   useQueryCollection<NavigationCollectionItem>('navigation')
     .stem('footer-directory')

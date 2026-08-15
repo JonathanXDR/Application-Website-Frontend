@@ -30,7 +30,7 @@ defineProps<{
   -moz-transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
   transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
 }
-/* Engines without text-box-trim (e.g. Firefox/Gecko) fall back to line-box
+/* Engines without text-box-trim (for example Firefox/Gecko) fall back to line-box
    centering. Nudge the glyphs up by the leading offset to match. */
 @supports not (text-box-trim: trim-both) {
   .dev-badge {

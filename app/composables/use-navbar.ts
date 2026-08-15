@@ -12,7 +12,7 @@ export const useNavbar = () => {
   const isCurrentRoute = (routePath?: string): boolean => {
     if (!routePath) return false
     // Resolve the locale-independent route to the current locale's URL
-    // (for example, '/' becomes '/de/' under `strategy: 'prefix'`) before
+    // (for example, `/` becomes `/de/` under `strategy: 'prefix'`) before
     // comparing against `route.path`. Mirrors the pattern used in
     // `NavBar.vue` `isCurrent`. The `{ path }` object form is typed for
     // runtime path strings via `RouteLocationI18nGenericPath`, so no cast
@@ -27,9 +27,9 @@ export const useNavbar = () => {
     navItems.value.find(item => isCurrentRoute(item.route)),
   )
 
-  // Localised label for the root/home breadcrumb. Sourced from the navbar's
+  // Localized label for the root/home breadcrumb. Sourced from the navbar's
   // `overview` item (DE: "Übersicht", EN: "Overview", FR: "Vue d'ensemble",
-  // IT: "Panoramica") so the BreadcrumbList JSON-LD never emits a
+  // IT: "Panoramica") so the `BreadcrumbList` JSON-LD never emits a
   // hardcoded English "Home" on non-English locales, because schema-org
   // does not auto-translate breadcrumb labels.
   // https://nuxtseo.com/docs/schema-org/api/define-breadcrumb
@@ -38,7 +38,7 @@ export const useNavbar = () => {
   )
 
   // Locale-resolved root path (for example, `/de/` under
-  // `strategy: 'prefix'`) for use as the BreadcrumbList root `item`.
+  // `strategy: 'prefix'`) for use as the `BreadcrumbList` root `item`.
   const homePath = computed<string>(() => localePath({ path: '/' }))
 
   return {

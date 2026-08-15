@@ -89,10 +89,11 @@ watch(
   },
 )
 
-// Not immediate. Firing onSelect during setup made the projects page
-// issue a router.push on every initial render, appending ?category= and
-// an extra history entry before the user interacted at all. Initial
-// bubble placement is covered by onMounted and the resize observer.
+// Deliberately not `immediate`. Firing `onSelect` during setup made the
+// projects page call `router.push` on every initial render, appending
+// `?category=` and an extra history entry before the user had interacted
+// at all. `onMounted` and the resize observer cover the initial bubble
+// placement.
 watch(selectedItem, (itemNew) => {
   props.onSelect(itemNew)
   updateBubblePosition()

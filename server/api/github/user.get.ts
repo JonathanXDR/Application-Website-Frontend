@@ -1,5 +1,5 @@
 // The username is pinned server side to the configured repository owner.
-// Client-supplied query params are ignored on purpose, see the note in
+// Client-supplied query params are ignored on purpose. See the note in
 // server/utils/octokit.ts.
 export default defineCachedEventHandler(
   async () => {

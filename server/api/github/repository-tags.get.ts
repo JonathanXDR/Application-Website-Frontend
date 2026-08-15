@@ -1,5 +1,5 @@
 // Owner and repo are pinned server side to the configured repository
-// coordinates and pagination is clamped, see the note in
+// coordinates and pagination is clamped. See the note in
 // server/utils/octokit.ts.
 export default defineCachedEventHandler(
   async (event) => {

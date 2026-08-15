@@ -4,7 +4,7 @@ import { NuxtLink, NuxtLinkLocale } from '#components'
 // `/technologies`) resolve to the active locale's prefixed route
 // (`/de/projects`, `/en/projects`, and so on). In-page anchors stay on
 // the plain `NuxtLink`, because `localePath` would turn `#about` into
-// `/de#about` and lose the same-page scroll behaviour.
+// `/de#about` and lose the same-page scroll behavior.
 export const getLinkComponentType = (link: LinkItemType) => {
   if (!link.url) return 'a'
   if (link.url.startsWith('/')) return NuxtLinkLocale

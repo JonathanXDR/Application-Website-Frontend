@@ -13,7 +13,7 @@ export const GITHUB_CACHE_MAX_AGE = 60 * 15
 // timeout, so without this a stalled connection would park an SSR render or a
 // prerender pass until the platform build timeout. With the retry plugin
 // disabled below, the abort fails the request on its first attempt and falls
-// through handleGitHubError into the page's loading and empty states.
+// through `handleGitHubError` into the page's loading and empty states.
 const GITHUB_REQUEST_TIMEOUT_MS = 10_000
 
 let octokit: Octokit | undefined
@@ -42,15 +42,16 @@ export function useOctokit() {
         ) =>
           globalThis.fetch(url, {
             ...init,
-            signal: init?.signal ?? AbortSignal.timeout(GITHUB_REQUEST_TIMEOUT_MS),
+            signal:
+              init?.signal ?? AbortSignal.timeout(GITHUB_REQUEST_TIMEOUT_MS),
           }),
       },
       // Fail fast on every error. Octokit auto-loads both the retry and the
       // throttling plugins. The retry plugin otherwise re-issues 5xx and
-      // timeout responses three times with backoff, and the throttle plugins
-      // sleep until the rate-limit reset, either of which can park an SSR
+      // timeout responses three times with backoff, and the throttling plugin
+      // sleeps until the rate-limit reset, either of which can park an SSR
       // render or a prerender pass for tens of seconds. Disabling retry and
-      // returning false from both throttle hooks makes a failed request throw
+      // returning false from both throttling hooks makes a failed request throw
       // at once so the calling page falls back to its loading and empty states.
       // The SWR cache keeps serving the last good payload meanwhile.
       retry: { enabled: false },
@@ -95,7 +96,7 @@ export function getPerPage(event: H3Event, fallback = 30) {
 }
 
 // Normalizes `per_page` and `page` together for the paginated list routes,
-// for the same single-source reason as getPerPage.
+// for the same single-source reason as `getPerPage`.
 export function getListQuery(event: H3Event, perPageFallback = 30) {
   const query = getQuery(event)
   return {
@@ -118,7 +119,7 @@ export function handleGitHubError(error: unknown): never {
     console.error('[github]', error.status, error.message)
     throw createError(mapUpstreamStatus(error.status, 'GitHub API Error'))
   }
-  // octokit.graphql throws a GraphqlResponseError (not a RequestError) when
+  // `octokit.graphql` throws a GraphqlResponseError (not a RequestError) when
   // GitHub answers a query with HTTP 200 but a top-level errors array, for
   // example a GraphQL rate limit or a field resolution error. The HTTP status
   // is 200, so forwarding it would be misleading. Return a fixed 502 instead

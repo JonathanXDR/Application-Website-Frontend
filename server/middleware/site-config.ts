@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
   if (!path || !locale) return
 
   // Skip non-page requests that carry a locale prefix, such as
-  // /de/_payload.json from client-side navigations. They never render
+  // `/de/_payload.json` from client-side navigations. They never render
   // head tags, so the site-config description query would be wasted.
   if (path.includes('.')) return
 

@@ -11,7 +11,7 @@ const color
 // `knowsAbout` is sourced from the `technologies` collection so the
 // `Person` node's skill list stays in sync with the cards rendered on
 // `/technologies`. Only `title` is selected, since this query runs in
-// app.vue and would otherwise embed the full collection into every
+// `app.vue` and would otherwise embed the full collection into every
 // page's payload just for the skill name list.
 const { data: technologies } = await useQueryCollection<{ title: string }>(
   'technologies',
