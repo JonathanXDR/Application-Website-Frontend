@@ -7,6 +7,29 @@ import type {
 import FooterPre from '~/components/Footer/Pre.vue'
 import { AnimatePresence, Motion } from 'motion-v'
 
+// Page chrome is passed in as real layout props rather than read back out of
+// `route.meta`. Pages get these defaults for free and say nothing. A page that
+// wants different chrome overrides them with
+// `definePageMeta({ layout: { props: { … } } })`, and `app/error.vue` passes
+// them as attributes on its own `<NuxtLayout>` (which merges `attrs` and
+// `route.meta.layoutProps` into the layout component).
+const props = withDefaults(
+  defineProps<{
+    header?: boolean
+    nav?: boolean
+    ribbon?: boolean
+    footerPre?: boolean
+    footerCompact?: boolean
+  }>(),
+  {
+    header: true,
+    nav: true,
+    ribbon: true,
+    footerPre: true,
+    footerCompact: false,
+  },
+)
+
 const { navProps, navData } = useNavbar()
 const { randomDevColor } = useColor()
 const route = useRoute()
@@ -80,7 +103,7 @@ const fetchSvgContent = async () => {
   }
   catch {
     // Dev-only favicon. If the asset is missing or the fetch fails, leave
-    // faviconGraphicData undefined so the head guard simply omits the icon.
+    // `faviconGraphicData` undefined so the head guard omits the icon.
   }
 }
 
@@ -125,7 +148,7 @@ watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
 watch(() => route.path, resetHideNavbarTimer)
 
 // Reset the active section on navigation. This lives here rather than in
-// useSection() because the composable is also called from the v-section
+// `useSection()` because the composable is also called from the `v-section`
 // IntersectionObserver callback outside component scope, where a watcher
 // would leak. The layout is instantiated exactly once.
 watch(
@@ -145,22 +168,22 @@ const pageTitle = computed(
   () => currentSection.value?.name || currentRoute.value?.label,
 )
 
-// Yield the title to error.vue while an error is active. Without the
+// Yield the title to `error.vue` while an error is active. Without the
 // guard, 404s under an existing route prefix rendered the layout title
 // instead of the localized error title.
 useSeoMeta({ title: () => (error.value ? undefined : pageTitle.value) })
 
 if (config.public.appEnvironment === 'development') {
   // The `key` values match the static dev icons declared in
-  // nuxt.config.ts `$development.app.head.link`, so these entries
-  // replace those instead of rendering duplicate tags. The svg icon is
-  // emitted only once its recolored data URL has been fetched, otherwise
-  // SSR would render a `rel="icon"` tag with an empty href. Unhead drops
-  // entries that resolve to a falsy value, which is what makes the
-  // `false` branch valid. Do not convert the ternary into a conditional
-  // spread: TypeScript does not extend contextual typing through spread
-  // operands, so `rel` would widen to string and fall out of unhead v3's
-  // per-rel link union.
+  // `nuxt.config.ts` under `$development.app.head.link`, so these
+  // entries replace those instead of rendering duplicate tags. The SVG
+  // icon is emitted only once its recolored data URL has been fetched.
+  // Otherwise SSR would render a `rel="icon"` tag with an empty `href`.
+  // Unhead drops entries that resolve to a falsy value, which is why the
+  // `false` branch is valid. Do not convert the ternary into a
+  // conditional spread: TypeScript does not extend contextual typing
+  // through spread operands, so `rel` would widen to string and fall out
+  // of unhead v3's per-rel link union.
   useHead({
     link: () => [
       faviconGraphicData.value
@@ -180,38 +203,25 @@ if (config.public.appEnvironment === 'development') {
   })
 }
 
-const errorConfig = {
-  header: false,
-  nav: false,
-  ribbon: false,
-  footerPre: false,
-  footerCompact: true,
-}
-
-const shouldShow = (component: string) =>
-  error.value
-    ? errorConfig[component as keyof typeof errorConfig]
-    : route.meta[component]
-
 const footerClass = computed(() => ({
-  'footer-full': shouldShow('footerPre'),
-  'footer-compact': shouldShow('footerCompact'),
+  'footer-full': props.footerPre,
+  'footer-compact': props.footerCompact,
 }))
 
 const footerComponent = computed(() =>
-  shouldShow('footerPre') ? FooterPre : resolveComponent('LazyFooterCompact'),
+  props.footerPre ? FooterPre : resolveComponent('LazyFooterCompact'),
 )
 </script>
 
 <template>
   <div :id="currentRoute?.id">
     <header
-      v-if="shouldShow('header')"
+      v-if="header"
       :class="{ 'hide-localnav': navProps?.hidden }"
     >
-      <NavBar v-if="shouldShow('nav')" />
+      <NavBar v-if="nav" />
       <div
-        v-if="shouldShow('ribbon')"
+        v-if="ribbon"
         ref="rotatingBanner"
       >
         <InfoBanner :items="items" />

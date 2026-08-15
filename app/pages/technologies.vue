@@ -1,12 +1,4 @@
 <script setup lang="ts">
-definePageMeta({
-  header: true,
-  nav: true,
-  ribbon: true,
-  footerPre: true,
-  footerCompact: false,
-})
-
 await usePageSeo()
 
 const { currentRoute } = useNavbar()
