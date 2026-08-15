@@ -436,6 +436,19 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ['/', '/de/', '/en/', '/fr/', '/it/'],
+      // Turn a partial prerender into a failed build. Nitro's default is
+      // `false`, so a route that answers non-200 is logged, skipped, and the
+      // deploy ships without it. On this site every page is prerendered, so a
+      // skipped route falls through to the SSR function, which cannot load
+      // @nuxt/content's native SQLite binding in the Lambda and 500s. Failing
+      // the build is the louder and cheaper outcome.
+      // Scope note: this only covers routes the prerenderer actually visits,
+      // which is the 16 pages plus the OG images, sitemap, i18n messages and
+      // `__nuxt_content` dumps. Internal `$fetch` calls made while rendering
+      // a page (the GitHub endpoints) are handled in process and never become
+      // prerender routes, so a GitHub outage still degrades silently through
+      // `useFetch`'s error state rather than failing the build.
+      failOnError: true,
       // `crawlLinks: true` follows every `<img src>` it finds, including
       // the Vercel image-optimizer URLs emitted by `@nuxt/image`'s vercel
       // provider (`/_vercel/image?url=…&w=…&q=…`). That endpoint only
