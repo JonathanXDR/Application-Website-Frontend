@@ -319,7 +319,7 @@ watchEffect(() => {
           :pinned-results="pinned.length"
         />
         <div
-          v-if="pinned"
+          v-if="pinned.length"
           class="card-container pinned-items"
         >
           <LazyCardItem
