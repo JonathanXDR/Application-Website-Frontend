@@ -8,9 +8,9 @@ icon:
 eyebrow: "Sprache"
 title: "SQL"
 description: >-
-  SQL habe ich erstmals während der Entwicklung meiner CRUD-App im NexCC
-  verwendent, dabei habe ich die Basics gelernt. Später gab es auch noch die
-  beiden Berufsschulmodule 162 und 164 und den ÜK-106, der auch
+  SQL habe ich erstmals bei der Entwicklung meiner CRUD-App im NexCC
+  verwendet und dabei die Basics gelernt. Später kamen noch die beiden
+  Berufsschulmodule 162 und 164 sowie der ÜK-106 dazu, der auch
   fortgeschrittene Abfragen beinhaltete.
 badges:
   - title: "Database"
@@ -26,27 +26,26 @@ i18n:
   en:
     eyebrow: "Language"
     description: >-
-      I first used SQL during the development of my CRUD app at NexCC, where
-      I learned the basics. Later there were also the two vocational school
-      modules 162 and 164 and the ÜK-106, which also included advanced
-      queries.
+      I first used SQL while developing my CRUD app at NexCC, where I learned
+      the basics. Later came the two vocational school modules 162 and 164 as
+      well as the ÜK-106, which also covered advanced queries.
     links:
       - title: "Learn more"
   fr:
-    eyebrow: "Langue"
+    eyebrow: "Langage"
     description: >-
-      J'ai utilisé SQL pour la première fois pendant le développement de mon
-      application CRUD dans le NexCC, j'y ai appris les bases. Plus tard, il
-      y avait aussi les deux modules d'école professionnelle 162 et 164 et le
-      CIE-106, qui comprenait aussi des requêtes avancées.
+      J'ai utilisé SQL pour la première fois lors du développement de mon
+      application CRUD au NexCC, et j'y ai appris les bases. Plus tard, il y
+      a eu les deux modules 162 et 164 de l'école professionnelle ainsi que le
+      ÜK-106, qui comprenait aussi des requêtes avancées.
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Lingua"
+    eyebrow: "Linguaggio"
     description: >-
-      Ho usato per la prima volta SQL durante lo sviluppo della mia
-      applicazione CRUD al NexCC, dove ho imparato le basi. In seguito ho
-      seguito anche i due moduli 162 e 164 della scuola professionale e
-      l'ÜK-106, che comprendeva anche query avanzate.
+      Ho usato SQL per la prima volta durante lo sviluppo della mia
+      applicazione CRUD al NexCC, dove ho imparato le basi. In seguito sono
+      arrivati i due moduli 162 e 164 della scuola professionale e l'ÜK-106,
+      che comprendeva anche query avanzate.
     links:
       - title: "Per saperne di più"

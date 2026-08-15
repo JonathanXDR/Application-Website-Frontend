@@ -8,7 +8,7 @@ icon:
 eyebrow: "Bibliothek"
 title: "GitHub Primer"
 description: >-
-  Ich habe GitHub Primer benutzt, um ein Frontend zusammen mit React für
+  Ich habe GitHub Primer zusammen mit React verwendet, um das Frontend für
   meine CRUD-App im Apps Team zu erstellen.
 badges:
   - title: "Frontend"
@@ -27,21 +27,21 @@ i18n:
   en:
     eyebrow: "Library"
     description: >-
-      I used GitHub Primer to create a frontend together with React for my
+      I used GitHub Primer together with React to build the frontend for my
       CRUD app in the Apps Team.
     links:
       - title: "Learn more"
   fr:
     eyebrow: "Bibliothèque"
     description: >-
-      J'ai utilisé GitHub Primer pour créer un front-end avec React pour mon
-      application CRUD dans le Apps Team.
+      J'ai utilisé GitHub Primer avec React pour créer le frontend de mon
+      application CRUD dans l'Apps Team.
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Biblioteca"
+    eyebrow: "Libreria"
     description: >-
-      Ho usato GitHub Primer per creare un frontend insieme a React per la
-      mia applicazione CRUD nel Apps Team.
+      Ho usato GitHub Primer insieme a React per creare il frontend della mia
+      applicazione CRUD nell'Apps Team.
     links:
       - title: "Per saperne di più"

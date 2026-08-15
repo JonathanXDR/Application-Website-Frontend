@@ -9,11 +9,11 @@ eyebrow: "Sprache"
 title: "Java"
 description: >-
   Java kenne ich hauptsächlich vom Berufsschulmodul 319, wo wir damit
-  gearbeitet haben und kleinere Aufgaben programmieren mussten. Im Modul 320
-  kam dann auch noch OOP dazu, was ich sehr interessant fand. Ausserdem habe
-  ich auch noch den ÜK-223 besucht, bei dem es darum ging Multi-User-
-  Applikationen objektorientiert zu realisieren. Das haben wir mit einem
-  Java-Backend und einem ORM gemacht.
+  gearbeitet und kleinere Aufgaben programmiert haben. Im Modul 320 kam dann
+  noch OOP dazu, was ich sehr interessant fand. Ausserdem habe ich den
+  ÜK-223 besucht, bei dem es darum ging, Multi-User-Applikationen
+  objektorientiert zu realisieren. Das haben wir mit einem Java-Backend und
+  einem ORM gemacht.
 badges:
   - title: "Backend"
   - title: "Object-Oriented"
@@ -29,31 +29,31 @@ i18n:
     eyebrow: "Language"
     description: >-
       I mainly know Java from the vocational school module 319, where we
-      worked with it and had to program smaller tasks. Module 320 also
-      included OOP, which I found very interesting. I also attended ÜK-223,
-      which was about implementing multi-user applications in an
-      object-oriented way. We did this with a Java backend and an ORM.
+      worked with it and programmed smaller tasks. Module 320 then added OOP,
+      which I found very interesting. I also attended the ÜK-223, which was
+      about building multi-user applications in an object-oriented way. We
+      did this with a Java backend and an ORM.
     links:
       - title: "Learn more"
   fr:
-    eyebrow: "Langue"
+    eyebrow: "Langage"
     description: >-
-      Je connais Java principalement par le module 319 de l'école
-      professionnelle, où nous avons travaillé avec et avons dû programmer de
-      petites tâches. Dans le module 320, il y avait aussi la POO, que j'ai
-      trouvée très intéressante. J'ai également suivi le CIE-223, qui
-      portait sur la réalisation d'applications multi-utilisateurs orientées
-      objet. Nous l'avons fait avec un backend Java et un ORM.
+      Je connais Java principalement grâce au module 319 de l'école
+      professionnelle, où nous avons travaillé avec et programmé de petits
+      exercices. Le module 320 y a ensuite ajouté la POO, que j'ai trouvée
+      très intéressante. J'ai également suivi le ÜK-223, qui portait sur la
+      réalisation d'applications multi-utilisateurs orientées objet. Nous
+      l'avons fait avec un backend Java et un ORM.
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Lingua"
+    eyebrow: "Linguaggio"
     description: >-
-      Conosco Java principalmente dal modulo 319 della scuola professionale,
-      dove abbiamo lavorato con esso e abbiamo dovuto programmare piccoli
-      compiti. Il modulo 320 comprendeva anche l'OOP, che ho trovato molto
-      interessante. Ho frequentato anche il modulo ÜK-223, che riguardava la
-      realizzazione di applicazioni multi-utente in modo orientato agli
-      oggetti. Lo abbiamo fatto con un backend Java e un ORM.
+      Conosco Java soprattutto dal modulo 319 della scuola professionale,
+      dove abbiamo lavorato con esso e programmato piccoli esercizi. Il
+      modulo 320 ha poi aggiunto l'OOP, che ho trovato molto interessante. Ho
+      frequentato anche l'ÜK-223, che riguardava la realizzazione di
+      applicazioni multiutente in modo orientato agli oggetti. Lo abbiamo
+      fatto con un backend Java e un ORM.
     links:
       - title: "Per saperne di più"

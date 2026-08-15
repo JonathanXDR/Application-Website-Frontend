@@ -4,9 +4,9 @@ eyebrow: "Einführung"
 title: "NEX First Steps"
 description: >-
   In den First Steps hat meine Lehre begonnen. Dort habe ich alles rund um
-  Swisscom kennengelernt, also z.B. wie man die verschieden Tools verwendet,
-  wie man richtig zusammenarbeitet und auch andere Dinge, wie beispielsweise
-  die Arbeitssicherheit.
+  Swisscom kennengelernt, zum Beispiel wie man die verschiedenen Tools
+  verwendet, wie man richtig zusammenarbeitet und was sonst noch wichtig ist,
+  etwa die Arbeitssicherheit.
 badges:
   - title: "Introduction"
   - title: "Swisscom"
@@ -24,20 +24,20 @@ i18n:
   en:
     eyebrow: "Introduction"
     description: >-
-      My apprenticeship began with the First Steps program. There, I learned
-      everything about Swisscom -- for example, how to use the various tools,
-      how to collaborate effectively, and other aspects such as work safety.
+      My apprenticeship began with the First Steps program. There I learned
+      everything about Swisscom, for example how to use the various tools, how
+      to work well together and what else matters, such as work safety.
   fr:
     eyebrow: "Introduction"
     description: >-
-      Mon apprentissage a débuté avec le programme First Steps. Là-bas, j'ai
-      tout appris sur Swisscom -- par exemple, comment utiliser les différents
-      outils, comment travailler en équipe efficacement et d'autres aspects
-      comme la sécurité au travail.
+      Mon apprentissage a débuté avec le programme First Steps. J'y ai tout
+      appris sur Swisscom, par exemple comment utiliser les différents outils,
+      comment bien travailler en équipe et ce qui compte aussi, comme la
+      sécurité au travail.
   it:
     eyebrow: "Introduzione"
     description: >-
       Il mio apprendistato è iniziato con il programma First Steps. Lì ho
-      appreso tutto ciò che riguarda Swisscom -- ad esempio, come utilizzare
-      i vari strumenti, come lavorare in squadra e altri aspetti, come la
+      imparato tutto su Swisscom, ad esempio come utilizzare i vari strumenti,
+      come collaborare bene e che cos'altro è importante, ad esempio la
       sicurezza sul lavoro.

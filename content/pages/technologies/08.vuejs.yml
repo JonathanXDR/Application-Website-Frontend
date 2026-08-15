@@ -10,7 +10,7 @@ title: "Vue.js"
 description: >-
   Diese Webseite ist mit Vue.js erstellt worden und ich habe damit auch
   anderweitig gearbeitet. Beispiele sind meine Memory App im Apps Team oder
-  das Zukunftstagstool und die Berufsschulapp, welche ich wiederrum im NexCC
+  das Zukunftstagstool und die Berufsschulapp, welche ich wiederum im NexCC
   erstellt habe.
 badges:
   - title: "Frontend"
@@ -27,24 +27,25 @@ links:
 i18n:
   en:
     description: >-
-      This website was created with Vue.js and I've also worked with it in
-      other ways. Examples are my memory app in the Apps Team or the future
-      day tool and the vocational school app, which I created in NexCC.
+      This website was created with Vue.js and I've also worked with it
+      elsewhere. Examples are my Memory App in the Apps Team, or the tool for
+      Zukunftstag (the Swiss career exploration day) and the Berufsschulapp,
+      which I in turn created at NexCC.
     links:
       - title: "Learn more"
   fr:
     description: >-
-      Ce site web a été créé avec Vue.js et je l'ai également utilisé dans
-      d'autres domaines. Par exemple, mon application de mémoire dans le Apps
-      Team ou l'outil du jour de l'avenir et l'application de l'école
-      professionnelle, que j'ai à nouveau créée dans NexCC.
+      Ce site web a été créé avec Vue.js et je l'ai également utilisé
+      ailleurs. Par exemple mon application Memory dans l'Apps Team, ou
+      l'outil pour le Zukunftstag (la journée suisse de découverte des
+      métiers) et la Berufsschulapp, que j'ai créés au NexCC.
     links:
       - title: "En savoir plus"
   it:
     description: >-
-      Questo sito web è stato creato con Vue.js e ho lavorato con esso anche
-      in altri modi. Ne sono un esempio la mia applicazione per la memoria
-      nel team delle applicazioni, lo strumento per il giorno futuro e
-      l'applicazione per la scuola professionale, che ho creato in NexCC.
+      Questo sito web è stato creato con Vue.js e l'ho usato anche altrove.
+      Ne sono un esempio la mia applicazione Memory nell'Apps Team, oppure lo
+      strumento per lo Zukunftstag (la giornata svizzera di scoperta delle
+      professioni) e la Berufsschulapp, che ho creato al NexCC.
     links:
       - title: "Per saperne di più"

@@ -6,8 +6,8 @@ i18n:
     title: "Showing {count} results"
     description: "Pinned"
   fr:
-    title: "Afficher {count} résultats"
+    title: "Affichage de {count} résultats"
     description: "Épinglé"
   it:
-    title: "Mostra i risultati di {count}"
-    description: "Appuntato"
+    title: "Visualizzati {count} risultati"
+    description: "Fissato"

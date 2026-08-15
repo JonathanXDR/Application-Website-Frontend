@@ -98,7 +98,7 @@ i18n:
       - id: light
         label: "Clair"
       - id: dark
-        label: "Foncé"
+        label: "Sombre"
       - id: auto
         label: "Auto"
     projects:
@@ -110,7 +110,7 @@ i18n:
         label: "École"
     technologies:
       - id: language
-        label: "Langue"
+        label: "Langage"
       - id: library
         label: "Bibliothèque"
       - id: runtime
@@ -138,14 +138,14 @@ i18n:
         label: "Scuola"
     technologies:
       - id: language
-        label: "Lingua"
+        label: "Linguaggio"
       - id: library
-        label: "Biblioteca"
+        label: "Libreria"
       - id: runtime
         label: "Runtime"
       - id: framework
         label: "Framework"
       - id: container-management
-        label: "Gestione dei contenitori"
+        label: "Gestione dei container"
       - id: orm
         label: "ORM"

@@ -9,9 +9,9 @@ eyebrow: "Framework"
 title: "React"
 description: >-
   React selbst habe ich erst gelernt, nachdem ich bereits mit Next.js
-  gearbeitet habe, daher war die Lernkurve nicht mehr so steil. Beispiele für
-  Projekte, bei denen ich React verwendet habe, sind z.B. die Medienkurse,
-  das Fleetmanagement Tool oder auch die neuen Webfrontends.
+  gearbeitet hatte, daher war die Lernkurve nicht mehr so steil. Projekte,
+  bei denen ich React verwendet habe, sind z.B. die Medienkurse, das
+  Fleetmanagement Tool oder auch die neuen Webfrontends.
 badges:
   - title: "Frontend"
   - title: "Web"
@@ -28,26 +28,25 @@ links:
 i18n:
   en:
     description: >-
-      I only learned React myself after I had already worked with Next.js, so
-      the learning curve wasn't as steep. Examples of projects where I've
-      used React include the media courses, the fleet management tool and the
-      new web frontends.
+      I only learned React itself after I had already worked with Next.js, so
+      the learning curve wasn't as steep. Projects where I've used React
+      include the media courses, the Fleetmanagement Tool and the new web
+      frontends.
     links:
       - title: "Learn more"
   fr:
     description: >-
-      J'ai appris React lui-même après avoir déjà travaillé avec Next.js,
-      donc la courbe d'apprentissage n'était plus aussi raide. Des exemples
-      de projets pour lesquels j'ai utilisé React sont par exemple les cours
-      de médias, l'outil de gestion de flotte ou encore les nouveaux
-      frontaux web.
+      Je n'ai appris React lui-même qu'après avoir déjà travaillé avec
+      Next.js, la courbe d'apprentissage n'était donc plus aussi raide. Parmi
+      les projets pour lesquels j'ai utilisé React, il y a les cours médias,
+      le Fleetmanagement Tool ou encore les nouveaux frontends web.
     links:
       - title: "En savoir plus"
   it:
     description: >-
       Ho imparato React solo dopo aver già lavorato con Next.js, quindi la
-      curva di apprendimento non è stata così ripida. Tra gli esempi di
-      progetti in cui ho utilizzato React ci sono i corsi multimediali, lo
-      strumento di gestione della flotta e i nuovi frontend web.
+      curva di apprendimento non è stata così ripida. Tra i progetti in cui
+      ho utilizzato React ci sono i corsi sui media, il Fleetmanagement Tool
+      e i nuovi frontend web.
     links:
       - title: "Per saperne di più"

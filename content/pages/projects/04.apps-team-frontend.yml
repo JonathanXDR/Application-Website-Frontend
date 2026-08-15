@@ -6,8 +6,8 @@ eyebrow: "Frontend"
 title: "Apps Team"
 description: >-
   Im Apps Team durfte ich zuerst eine eigene Memory App mit Vue.js,
-  TypeScript und SDX erstellen. Anschliessend habe ich beim programmieren der
-  neuen Apps Team Webseite mitgeholfen. Dort haben wir ebenfalls mit
+  TypeScript und SDX erstellen. Anschliessend habe ich beim Programmieren der
+  neuen Webseite des Apps Team mitgeholfen. Dort haben wir ebenfalls mit
   TypeScript und SDX gearbeitet, aber Next.js als Framework verwendet.
 badges:
   - title: "Frontend"
@@ -45,30 +45,28 @@ info:
 i18n:
   en:
     description: >-
-      In the Apps Team, I first had the opportunity to create my own memory
-      app using Vue.js, TypeScript, and SDX. Afterwards, I assisted in
-      developing the new Apps Team website, where we also worked with
-      TypeScript and SDX, but used Next.js as the framework.
+      In the Apps Team, I first got to build my own Memory App with Vue.js,
+      TypeScript, and SDX. Afterwards, I helped build the new Apps Team
+      website, where we also worked with TypeScript and SDX, but used Next.js
+      as the framework.
     links:
       - title: "Learn more about the Apps Team"
-      - title: "Indigo online"
+      - title: "Learn more about Indigo online"
   fr:
     description: >-
-      Dans le Apps Team, j'ai d'abord eu l'opportunité de créer ma propre
-      application de mémoire avec Vue.js, TypeScript et SDX. Ensuite, j'ai
-      aidé au développement du nouveau site web de le Apps Team, où nous
-      avons également travaillé avec TypeScript et SDX, mais en utilisant
-      Next.js comme framework.
+      Dans l'Apps Team, j'ai d'abord pu créer ma propre app Memory avec
+      Vue.js, TypeScript et SDX. Ensuite, j'ai aidé à programmer le nouveau
+      site web de l'Apps Team, où nous avons également travaillé avec
+      TypeScript et SDX, mais en utilisant Next.js comme framework.
     links:
       - title: "En savoir plus sur l'Apps Team"
-      - title: "Indigo online"
+      - title: "En savoir plus sur Indigo online"
   it:
     description: >-
-      Nel team Apps, ho avuto inizialmente l'opportunità di creare una mia
-      app di memoria con Vue.js, TypeScript e SDX. Successivamente, ho
-      collaborato allo sviluppo del nuovo sito web del team Apps, dove
-      abbiamo lavorato anch'essi con TypeScript e SDX, utilizzando Next.js
-      come framework.
+      Nell'Apps Team ho potuto creare per prima cosa una mia app Memory con
+      Vue.js, TypeScript e SDX. Successivamente ho collaborato allo sviluppo
+      del nuovo sito web dell'Apps Team, dove abbiamo lavorato anche qui con
+      TypeScript e SDX, ma utilizzando Next.js come framework.
     links:
       - title: "Maggiori informazioni sull'Apps Team"
-      - title: "Indigo online"
+      - title: "Maggiori informazioni su Indigo online"

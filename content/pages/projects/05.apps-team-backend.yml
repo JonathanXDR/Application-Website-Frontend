@@ -3,15 +3,15 @@ icon:
 eyebrow: "Backend"
 title: "Apps Team"
 description: >-
-  Nachdem ich bereits im Apps Team als Frontend Entwickler tätig war, wollte
-  ich nun auch noch das Backend besser kennenlernen. Zuerst durfte ich meine
-  eigene CRUD-App erstellen. Ich konnte viel Neues über Nest.js und die
-  beiden ORMs Prisma und TypeORM lernen und habe dabei wertvolle Erfahrungen
-  gesammelt. Später habe ich auch noch ein Frontend für meine CRUD-App mit
-  GitHub Primer erstellt. Danach habe ich dann beim Tool für Medienkurse
-  mitgeholfen und konnte dort einige Features hinzufügen und Fehler beheben.
-  Schliesslich durfte ich auch beim Fleet Management Tool und den Neuen
-  Webfrontends mitwirken, was mir sehr gefallen hat :)
+  Nachdem ich bereits im Apps Team als Frontend-Entwickler tätig war, wollte
+  ich nun auch das Backend besser kennenlernen. Zuerst durfte ich meine
+  eigene CRUD-App erstellen. Dabei habe ich viel Neues über Nest.js und die
+  beiden ORMs Prisma und TypeORM gelernt und wertvolle Erfahrungen gesammelt.
+  Später habe ich für meine CRUD-App auch ein Frontend mit GitHub Primer
+  erstellt. Danach habe ich beim Tool für Medienkurse mitgeholfen und konnte
+  dort einige Features hinzufügen und Fehler beheben. Schliesslich durfte ich
+  auch beim Fleetmanagement Tool und den neuen Webfrontends mitwirken, was
+  mir sehr gefallen hat :)
 badges:
   - title: "Backend"
   - title: "CRUD"
@@ -61,42 +61,41 @@ info:
 i18n:
   en:
     description: >-
-      After having worked as a frontend developer in the Apps Team, I wanted
-      to gain a deeper understanding of the backend. First, I had the
-      opportunity to create my own CRUD app. I learned a lot about Nest.js
-      and the two ORMs, Prisma and TypeORM, and gained valuable experience.
-      Later, I also created a frontend for my CRUD app using GitHub Primer.
-      Afterwards, I contributed to the media courses tool, where I added
-      several features and fixed bugs. Finally, I also worked on the Fleet
-      Management Tool and the new web frontends, which I really enjoyed :)
+      After working as a frontend developer in the Apps Team, I wanted to get
+      to know the backend better too. First, I got to build my own CRUD app. I
+      learned a lot about Nest.js and the two ORMs, Prisma and TypeORM, and
+      gained valuable experience. Later, I also built a frontend for my CRUD
+      app with GitHub Primer. After that, I helped out with the media courses
+      tool, where I added a few features and fixed bugs. Finally, I got to
+      contribute to the Fleetmanagement Tool and the new web frontends, which
+      I really enjoyed :)
     links:
       - title: "Learn more about the Apps Team"
-      - title: "Learn more about indigo online"
+      - title: "Learn more about Indigo online"
   fr:
     description: >-
-      Après avoir travaillé comme développeur frontend dans le Apps Team,
-      j'ai voulu approfondir mes connaissances du backend. D'abord, j'ai eu
-      l'opportunité de créer ma propre application CRUD. J'ai beaucoup appris
-      sur Nest.js et les deux ORM, Prisma et TypeORM, acquérant une
-      expérience précieuse. Plus tard, j'ai créé un frontend pour mon
-      application CRUD avec GitHub Primer. Ensuite, j'ai contribué à l'outil
-      de cours multimédia, ajoutant des fonctionnalités et corrigeant des
-      bugs. Enfin, j'ai aussi travaillé sur l'outil de gestion de flotte et
-      les nouveaux web frontends, ce que j'ai beaucoup apprécié :)
+      Après avoir travaillé comme développeur frontend dans l'Apps Team, je
+      voulais aussi mieux connaître le backend. J'ai d'abord pu créer ma propre
+      application CRUD. J'ai beaucoup appris sur Nest.js et sur les deux ORM,
+      Prisma et TypeORM, et j'ai acquis une expérience précieuse. Plus tard,
+      j'ai aussi créé un frontend pour mon application CRUD avec GitHub Primer.
+      Ensuite, j'ai contribué à l'outil pour les cours médias, où j'ai ajouté
+      quelques fonctionnalités et corrigé des bugs. Enfin, j'ai aussi pu
+      participer au Fleetmanagement Tool et aux nouveaux frontends web, ce que
+      j'ai beaucoup apprécié :)
     links:
       - title: "En savoir plus sur l'Apps Team"
-      - title: "En savoir plus sur indigo online"
+      - title: "En savoir plus sur Indigo online"
   it:
     description: >-
-      Dopo aver lavorato come sviluppatore frontend nel team Apps, ho voluto
-      approfondire anche il backend. Prima ho avuto l'opportunità di creare
-      la mia app CRUD. Ho imparato molto su Nest.js e sui due ORM, Prisma e
-      TypeORM, acquisendo esperienze preziose. Successivamente, ho anche
-      creato un frontend per la mia app CRUD usando GitHub Primer. In
-      seguito, ho contribuito allo strumento per i corsi multimediali,
-      aggiungendo diverse funzionalità e correggendo errori. Infine, ho
-      partecipato al Fleet Management Tool e ai nuovi web frontend, che mi
-      sono piaciuti molto :)
+      Dopo aver lavorato come sviluppatore frontend nell'Apps Team, volevo
+      conoscere meglio anche il backend. Prima ho potuto creare la mia app
+      CRUD. Ho imparato molto su Nest.js e sui due ORM, Prisma e TypeORM, e ho
+      acquisito esperienze preziose. Più tardi ho creato anche un frontend per
+      la mia app CRUD con GitHub Primer. Poi ho collaborato allo strumento
+      per i corsi sui media, dove ho potuto aggiungere alcune funzionalità e
+      correggere errori. Infine ho potuto collaborare al Fleetmanagement Tool
+      e ai nuovi frontend web, cosa che mi è piaciuta molto :)
     links:
       - title: "Maggiori informazioni sull'Apps Team"
-      - title: "Maggiori informazioni su indigo online"
+      - title: "Maggiori informazioni su Indigo online"

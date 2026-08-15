@@ -1,13 +1,13 @@
 icon:
   name: "sf-symbols:clock.arrow.trianglehead.2.counterclockwise.rotate.90"
 eyebrow: "Automation"
-title: "Automatisierungsprojekte im Banking Bereich"
+title: "Automatisierungsprojekte im Banking-Bereich"
 description: >-
-  Hier durfte ich einen generellen Einblick in die Automation und ihr Umfeld
-  erhalten. Ich war aktiv dabei und habe die einzelnen Banken mittls Ranorex
-  & UiPath gelernt zu testen bzw. zu automatisieren. Ausserdem habe ich
-  dabei auch ein wenig C# gelernt und mehr über das .NET Framework erfahren.
-  Mein Ziel ist es aber in Zukunft das noch zu verbessern!
+  Hier durfte ich einen allgemeinen Einblick in die Automation und ihr Umfeld
+  erhalten. Ich war aktiv dabei und habe gelernt, die einzelnen Banken mit
+  Ranorex und UiPath zu testen und zu automatisieren. Ausserdem habe ich dabei
+  ein wenig C# gelernt und mehr über das .NET Framework erfahren. Darin möchte
+  ich mich in Zukunft noch verbessern!
 badges:
   - title: "Automation"
   - title: "Banking"
@@ -32,10 +32,10 @@ i18n:
     title: "Automation Projects in the Banking Sector"
     description: >-
       Here I gained a general insight into automation and its environment. I
-      was actively involved and learned to test and automate individual banks
-      using Ranorex & UiPath. Additionally, I learned a bit of C# and gained
-      more knowledge about the .NET Framework. My goal is to continue
-      improving in this area in the future!
+      was actively involved and learned to test and automate the individual
+      banks with Ranorex and UiPath. I also picked up a bit of C# and learned
+      more about the .NET Framework. That is something I want to get better at
+      in the future!
   fr:
     eyebrow: "Automatisation"
     title: "Projets d'automatisation dans le secteur bancaire"
@@ -43,15 +43,14 @@ i18n:
       Ici, j'ai pu obtenir un aperçu général de l'automatisation et de son
       environnement. J'ai participé activement et appris à tester et à
       automatiser les différentes banques avec Ranorex et UiPath. J'ai
-      également appris un peu de C# et approfondi mes connaissances du
-      framework .NET. Mon objectif est de continuer à m'améliorer dans ce
-      domaine à l'avenir !
+      également appris un peu de C# et découvert le framework .NET. C'est un
+      domaine dans lequel je veux encore progresser à l'avenir !
   it:
     eyebrow: "Automazione"
     title: "Progetti di automazione nel settore bancario"
     description: >-
-      Qui ho ottenuto una panoramica generale sull'automazione e il suo
-      contesto. Ho partecipato attivamente, imparando a testare e
-      automatizzare le singole banche utilizzando Ranorex e UiPath. Inoltre,
-      ho imparato un po' di C# e approfondito le mie conoscenze sul
-      framework .NET. Il mio obiettivo è migliorare ulteriormente in futuro!
+      Qui ho ottenuto una panoramica generale sull'automazione e sul suo
+      contesto. Ho partecipato attivamente e ho imparato a testare e
+      automatizzare le singole banche con Ranorex e UiPath. Ho anche imparato
+      un po' di C# e scoperto il framework .NET. È un ambito in cui voglio
+      migliorare ancora in futuro!

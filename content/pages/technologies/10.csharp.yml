@@ -10,7 +10,7 @@ title: "C#"
 description: >-
   Ich habe C# bereits in der 3. Oberstufe kennengelernt, als ich ein eigenes
   Spiel mit Unity als Abschlussarbeit erstellt habe. Bei den
-  Automatisierungsprojekten im Banking Bereich habe ich dann noch ein wenig
+  Automatisierungsprojekten im Banking-Bereich habe ich dann noch ein wenig
   mehr darüber gelernt.
 badges:
   - title: "Microsoft"
@@ -26,13 +26,13 @@ i18n:
   en:
     eyebrow: "Language"
     description: >-
-      I got to know C# back in 3rd grade when I created my own game with
-      Unity as my final project. I then learned a bit more about it during
-      the automation projects in the banking sector.
+      I got to know C# back in my third year of secondary school, when I
+      created my own game with Unity as my final project. I then learned a
+      bit more about it during the automation projects in the banking sector.
     links:
       - title: "Learn more"
   fr:
-    eyebrow: "Langue"
+    eyebrow: "Langage"
     description: >-
       J'ai découvert C# dès la 3e année secondaire, lorsque j'ai créé mon
       propre jeu avec Unity comme projet de fin d'études. J'en ai ensuite
@@ -41,10 +41,10 @@ i18n:
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Lingua"
+    eyebrow: "Linguaggio"
     description: >-
-      Ho conosciuto il C# durante il terzo anno di scuola secondaria quando
-      ho creato il mio gioco con Unity come progetto finale. Poi ho imparato
+      Ho conosciuto il C# durante il terzo anno di scuola secondaria, quando
+      ho creato un mio gioco con Unity come progetto finale. Poi ho imparato
       a conoscerlo meglio durante i progetti di automazione nel settore
       bancario.
     links:

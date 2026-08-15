@@ -8,9 +8,9 @@ icon:
 eyebrow: "Runtime"
 title: "Node.js"
 description: >-
-  Diese Technologie habe ich im NexCC das allererste mal gelernt und
-  angewendet. Dabei habe ich zuerst kennengelernt was Node.js überhaupt ist
-  und auch wie man dependencies mit NPM installiert und verwaltet.
+  Diese Technologie habe ich im NexCC das allererste Mal gelernt und
+  angewendet. Dabei habe ich zuerst herausgefunden, was Node.js überhaupt
+  ist, und danach, wie man Dependencies mit NPM installiert und verwaltet.
 badges:
   - title: "Server"
   - title: "Backend"
@@ -27,21 +27,21 @@ i18n:
   en:
     description: >-
       I learned and used this technology for the very first time at NexCC. I
-      first learned what Node.js actually is and also how to install and
+      first found out what Node.js actually is, and then how to install and
       manage dependencies with NPM.
     links:
       - title: "Learn more"
   fr:
     description: >-
-      J'ai appris et utilisé cette technologie pour la toute première fois à
-      NexCC. J'ai d'abord appris ce qu'était Node.js et comment installer et
-      gérer les dépendances avec NPM.
+      J'ai appris et utilisé cette technologie pour la toute première fois au
+      NexCC. J'ai d'abord découvert ce qu'est vraiment Node.js, puis comment
+      installer et gérer les dépendances avec NPM.
     links:
       - title: "En savoir plus"
   it:
     description: >-
       Ho imparato e utilizzato questa tecnologia per la prima volta al NexCC.
-      Ho imparato per la prima volta cos'è Node.js e come installare e
+      Prima ho scoperto che cos'è davvero Node.js e poi come installare e
       gestire le dipendenze con NPM.
     links:
       - title: "Per saperne di più"

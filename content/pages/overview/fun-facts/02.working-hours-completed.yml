@@ -3,8 +3,8 @@ description: "Geleistete Arbeitsstunden"
 
 i18n:
   en:
-    description: "Working hours completed"
+    description: "Hours worked"
   fr:
     description: "Heures de travail effectuées"
   it:
-    description: "Ore di lavoro completate"
+    description: "Ore di lavoro svolte"

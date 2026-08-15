@@ -8,9 +8,9 @@ icon:
 eyebrow: "Framework"
 title: "Nuxt"
 description: >-
-  Nuxt habe ich mir selbst beigebracht, da ich es interessant fand und auch
+  Nuxt habe ich mir selbst beigebracht, weil ich es interessant fand und
   gerne mit Vue programmiere, worauf Nuxt aufbaut. Bisher habe ich es
-  allerdings bei keinen Projeken ausser dieser Webseite verwendet.
+  allerdings in keinem anderen Projekt als dieser Webseite verwendet.
 badges:
   - title: "Frontend"
   - title: "Web"
@@ -27,22 +27,23 @@ links:
 i18n:
   en:
     description: >-
-      I taught myself Nuxt because I found it interesting and I also like
-      programming with Vue, which Nuxt is based on. So far, however, I
-      haven't used it for any projects other than this website.
+      I taught myself Nuxt because I found it interesting and because I like
+      programming with Vue, which Nuxt is built on. So far, though, I haven't
+      used it for any project other than this website.
     links:
       - title: "Learn more"
   fr:
     description: >-
-      J'ai appris Nuxt par moi-même, car je trouvais cela intéressant et
-      j'aime aussi programmer avec Vue, sur lequel Nuxt est basé. Jusqu'à
-      présent, je ne l'ai pas utilisé pour d'autres projets que ce site web.
+      J'ai appris Nuxt par moi-même, parce que je le trouvais intéressant et
+      que j'aime programmer avec Vue, sur lequel Nuxt est basé. Jusqu'à
+      présent, je ne l'ai toutefois utilisé pour aucun projet à part ce site
+      web.
     links:
       - title: "En savoir plus"
   it:
     description: >-
-      Ho imparato Nuxt da solo perché l'ho trovato interessante e mi piace
-      anche programmare con Vue, su cui Nuxt si basa. Finora, però, non l'ho
-      usato per nessun progetto, a parte questo sito web.
+      Ho imparato Nuxt da solo, perché lo trovavo interessante e perché mi
+      piace programmare con Vue, su cui Nuxt si basa. Finora, però, non l'ho
+      usato in nessun altro progetto a parte questo sito web.
     links:
       - title: "Per saperne di più"

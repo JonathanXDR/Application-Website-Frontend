@@ -10,10 +10,10 @@ info:
 i18n:
   en:
     eyebrow: "Former Project Provider"
-    description: "Test Automation Engineer"
+    description: "RPA & Test Automation Engineer"
   fr:
-    eyebrow: "Ancien fournisseur de projet"
-    description: "Ingénieur en automatisation des tests"
+    eyebrow: "Ancien commanditaire de projet"
+    description: "Ingénieur RPA et automatisation des tests"
   it:
-    eyebrow: "Ex fornitore di progetto"
-    description: "Ingegnere di automazione dei test"
+    eyebrow: "Ex committente di progetto"
+    description: "Ingegnere RPA e automazione dei test"

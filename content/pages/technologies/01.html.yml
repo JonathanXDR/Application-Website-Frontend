@@ -29,14 +29,14 @@ i18n:
     links:
       - title: "Learn more"
   fr:
-    eyebrow: "Langue"
+    eyebrow: "Langage"
     description: >-
       J'ai appris le HTML en créant ce site web et je me sens très à l'aise
       avec, car je l'ai utilisé dans presque tous mes projets précédents.
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Lingua"
+    eyebrow: "Linguaggio"
     description: >-
       Ho imparato l'HTML durante la creazione di questo sito web e mi sento
       molto sicuro, dato che l'ho usato in quasi tutti i miei progetti

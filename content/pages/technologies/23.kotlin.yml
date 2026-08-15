@@ -10,8 +10,8 @@ title: "Kotlin"
 description: >-
   Kotlin habe ich im ÜK 335 gelernt, wo wir als Projektarbeit eine Android
   App erstellt haben. Dabei konnten wir selbst entscheiden, ob wir Java oder
-  Kotlin verwenden. Ich habe mich für Kotlin entschieden, da ich es
-  interessant fand und es auch eine moderne Programmiersprache ist.
+  Kotlin verwenden. Ich habe mich für Kotlin entschieden, weil ich es
+  interessant fand und weil es eine moderne Programmiersprache ist.
 badges:
   - title: "Mobile"
   - title: "Object-Oriented"
@@ -28,28 +28,27 @@ i18n:
   en:
     eyebrow: "Language"
     description: >-
-      I learned Kotlin in ÜK 335, where we created an Android app as project
-      work. We could decide for ourselves whether we wanted to use Java or
-      Kotlin. I opted for Kotlin because I found it interesting and it is
-      also a modern programming language.
+      I learned Kotlin in ÜK 335, where we built an Android app as our
+      project work. We could decide for ourselves whether to use Java or
+      Kotlin. I chose Kotlin because I found it interesting and because it is
+      a modern programming language.
     links:
       - title: "Learn more"
   fr:
-    eyebrow: "Langue"
+    eyebrow: "Langage"
     description: >-
-      J'ai appris Kotlin lors du CI 335, où nous avons créé une application
-      Android dans le cadre d'un projet. Nous avons pu décider nous-mêmes si
-      nous voulions utiliser Java ou Kotlin. J'ai choisi Kotlin parce que je
-      le trouvais intéressant et que c'est aussi un langage de programmation
-      moderne.
+      J'ai appris Kotlin dans le ÜK 335, où nous avons créé une application
+      Android comme travail de projet. Nous pouvions choisir nous-mêmes entre
+      Java et Kotlin. J'ai choisi Kotlin parce que je le trouvais intéressant
+      et parce que c'est un langage de programmation moderne.
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Lingua"
+    eyebrow: "Linguaggio"
     description: >-
-      Ho imparato Kotlin nel corso di ÜK 335, dove abbiamo creato
-      un'applicazione Android come progetto di lavoro. Potevamo decidere da
-      soli se utilizzare Java o Kotlin. Ho scelto Kotlin perché l'ho trovato
-      interessante ed è anche un linguaggio di programmazione moderno.
+      Ho imparato Kotlin nell'ÜK 335, dove abbiamo creato un'applicazione
+      Android come lavoro di progetto. Potevamo scegliere noi stessi se usare
+      Java o Kotlin. Ho scelto Kotlin perché lo trovavo interessante e perché
+      è un linguaggio di programmazione moderno.
     links:
       - title: "Per saperne di più"

@@ -8,9 +8,9 @@ icon:
 eyebrow: "Sprache"
 title: "JavaScript"
 description: >-
-  Das ist wahrscheinlich meine meist verwendete Programmiersprache. Ich habe
-  damit schon bei vielen Projekten gearbeitet und auch schon mit Frameworks
-  und Libraries, wie Vue.js, React oder Express.js angewendet, die ja darauf
+  Das ist wahrscheinlich meine meistverwendete Programmiersprache. Ich habe
+  damit schon bei vielen Projekten gearbeitet und auch Frameworks und
+  Libraries wie Vue.js, React oder Express.js verwendet, die darauf
   aufbauen.
 badges:
   - title: "Scripting"
@@ -29,23 +29,23 @@ i18n:
     description: >-
       This is probably my most frequently used programming language. I've
       worked with it on many projects and have also used frameworks and
-      libraries such as Vue.js, React or Express.js, which are based on it.
+      libraries that build on it, such as Vue.js, React or Express.js.
     links:
       - title: "Learn more"
   fr:
-    eyebrow: "Langue"
+    eyebrow: "Langage"
     description: >-
       C'est probablement le langage de programmation que j'utilise le plus.
-      J'ai travaillé avec lui sur de nombreux projets et je l'ai aussi
-      utilisé avec des frameworks et des bibliothèques comme Vue.js, React ou
-      Express.js, qui sont basés sur lui.
+      Je l'ai utilisé dans de nombreux projets, ainsi que des frameworks et
+      des bibliothèques qui reposent dessus, comme Vue.js, React ou
+      Express.js.
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Lingua"
+    eyebrow: "Linguaggio"
     description: >-
-      È probabilmente il linguaggio di programmazione che uso più spesso. Ho
-      lavorato con esso in molti progetti e ho anche utilizzato framework e
-      librerie come Vue.js, React o Express.js, che si basano su di esso.
+      È probabilmente il linguaggio di programmazione che uso più spesso.
+      L'ho usato in molti progetti e ho utilizzato anche framework e librerie
+      che si basano su di esso, come Vue.js, React o Express.js.
     links:
       - title: "Per saperne di più"

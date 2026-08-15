@@ -8,25 +8,25 @@ icon:
     tertiary: "var(--color-system-yellow)"
 title: "{status} Nicht gefunden"
 description: >-
-  Die Seite, die du suchst, kann nicht gefunden werden. Bitte überprüfe sie
-  und versuche es erneut.
+  Die Seite, die du suchst, gibt es nicht. Überprüfe die Adresse auf
+  Tippfehler oder kehre zur Startseite zurück.
 
 i18n:
   en:
-    label: "Page not found"
+    label: "Page Not Found"
     title: "{status} Not Found"
     description: >-
-      The page you are looking for cannot be found. Please check it and try
-      again.
+      The page you are looking for doesn't exist. Check the address for typos
+      or go back to the home page.
   fr:
     label: "Page non trouvée"
     title: "{status} Introuvable"
     description: >-
-      La page que tu cherches est introuvable. Vérifie-la s'il te plaît et
-      essaie à nouveau.
+      La page que tu cherches n'existe pas. Vérifie que l'adresse ne contient
+      pas de faute de frappe ou retourne à la page d'accueil.
   it:
     label: "Pagina non trovata"
     title: "{status} Non trovato"
     description: >-
-      La pagina che stai cercando non può essere trovata. Controlla e
-      riprova.
+      La pagina che cerchi non esiste. Controlla se l'indirizzo contiene
+      errori di battitura oppure torna alla pagina iniziale.

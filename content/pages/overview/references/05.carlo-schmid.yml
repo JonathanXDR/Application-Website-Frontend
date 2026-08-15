@@ -12,8 +12,8 @@ i18n:
     eyebrow: "Former Project Provider"
     description: "Full-Stack Developer"
   fr:
-    eyebrow: "Ancien fournisseur de projet"
+    eyebrow: "Ancien commanditaire de projet"
     description: "Développeur Full-Stack"
   it:
-    eyebrow: "Ex fornitore di progetto"
+    eyebrow: "Ex committente di progetto"
     description: "Sviluppatore Full-Stack"

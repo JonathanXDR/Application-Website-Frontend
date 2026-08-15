@@ -3,7 +3,7 @@ description: "Gehörte Stunden Musik"
 
 i18n:
   en:
-    description: "Hours of music listened"
+    description: "Hours listening to music"
   fr:
     description: "Heures de musique écoutées"
   it:

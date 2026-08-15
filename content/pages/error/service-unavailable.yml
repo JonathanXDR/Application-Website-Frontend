@@ -8,21 +8,20 @@ icon:
     secondary: "var(--color-system-blue)"
 title: "Be right back."
 description: >-
-  Ich führe Aktualisierungen auf der Seite durch. Schau bald wieder vorbei.
+  Ich aktualisiere gerade die Seite. Schau bald wieder vorbei.
 
 i18n:
   en:
     label: "Service Unavailable"
     description: >-
-      I'm making updates to the site. Check back soon.
+      I'm updating the site right now. Check back soon.
   fr:
     label: "Service indisponible"
     title: "Je reviens tout de suite."
     description: >-
-      Je suis en train de faire des mises à jour sur le site. Reviens
-      bientôt.
+      Je suis en train de mettre à jour le site. Reviens bientôt.
   it:
     label: "Servizio non disponibile"
     title: "Torno subito."
     description: >-
-      Sto apportando degli aggiornamenti al sito. Torna a trovarmi presto.
+      Sto aggiornando il sito. Torna a trovarmi presto.

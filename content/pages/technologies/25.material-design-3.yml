@@ -35,14 +35,14 @@ i18n:
   fr:
     eyebrow: "Bibliothèque"
     description: >-
-      Pendant mon travail de projet au ÜK-335, j'ai utilisé Material Design
-      3 pour concevoir l'application Android.
+      Pendant mon travail de projet dans le ÜK 335, j'ai utilisé Material
+      Design 3 pour concevoir l'application Android.
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Biblioteca"
+    eyebrow: "Libreria"
     description: >-
-      Durante il mio progetto in ÜK 335, ho utilizzato il Material Design 3
-      per progettare l'applicazione Android.
+      Durante il mio lavoro di progetto nell'ÜK 335 ho usato Material Design
+      3 per progettare l'applicazione Android.
     links:
       - title: "Per saperne di più"

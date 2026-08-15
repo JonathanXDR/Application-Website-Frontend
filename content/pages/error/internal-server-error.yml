@@ -8,23 +8,24 @@ icon:
     tertiary: "var(--color-system-red)"
 title: "{status} Internal Server Error"
 description: >-
-  Etwas ist schief gelaufen. Schau bald wieder vorbei, falls das Problem
-  weiterhin besteht.
+  Auf dem Server ist etwas schiefgelaufen. Lade die Seite neu oder komm
+  später wieder, falls das Problem bestehen bleibt.
 
 i18n:
   en:
     label: "Internal Server Error"
     description: >-
-      Something has gone wrong. Check back soon if the problem persists.
+      Something went wrong on the server. Reload the page or come back later
+      if the problem persists.
   fr:
-    label: "Erreur de serveur interne"
-    title: "{status} Erreur de serveur interne"
+    label: "Erreur interne du serveur"
+    title: "{status} Erreur interne du serveur"
     description: >-
-      Quelque chose s'est mal passé. Reviens bientôt si le problème
-      persiste.
+      Quelque chose s'est mal passé sur le serveur. Recharge la page ou
+      reviens plus tard si le problème persiste.
   it:
     label: "Errore interno del server"
     title: "{status} Errore interno del server"
     description: >-
-      Qualcosa è andato storto. Torna presto a controllare se il problema
-      persiste.
+      Qualcosa è andato storto sul server. Ricarica la pagina oppure torna
+      più tardi se il problema persiste.

@@ -112,7 +112,7 @@ i18n:
               - id: fun-facts
                 label: "Fun Facts"
               - id: references
-                label: "Riferimenti"
+                label: "Referenze"
       - id: advanced
         label: "Avanzato"
         children:

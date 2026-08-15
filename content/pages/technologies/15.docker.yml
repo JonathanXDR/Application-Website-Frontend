@@ -8,10 +8,10 @@ icon:
 eyebrow: "Container Management"
 title: "Docker"
 description: >-
-  Richtig verstanden und mich damit beschäftigt habe ich Docker im
-  Berufsschulmodul 347, wo wir eine Applikation mittels CI/CD deployen
-  mussten. Dazu gab es den ÜK 210, bei dem es um das Thema Cloud ging und
-  wir auch dort nochmal mit Docker gearbeitet haben.
+  Richtig verstanden und angewendet habe ich Docker im Berufsschulmodul 347,
+  wo wir eine Applikation mittels CI/CD deployen mussten. Dazu gab es den
+  ÜK 210, bei dem es um das Thema Cloud ging und wir ebenfalls mit Docker
+  gearbeitet haben.
 badges:
   - title: "Container"
   - title: "DevOps"
@@ -25,28 +25,27 @@ links:
 i18n:
   en:
     description: >-
-      I really understood and got to grips with Docker in vocational school
-      module 347, where we had to deploy an application using CI/CD. In
-      addition, there was the ÜK 210, which was about the cloud and we also
-      worked with Docker there again.
+      I really understood and used Docker in vocational school module 347,
+      where we had to deploy an application using CI/CD. There was also the
+      ÜK 210, which was about the cloud and where we worked with Docker
+      again.
     links:
       - title: "Learn more"
   fr:
     eyebrow: "Gestion des conteneurs"
     description: >-
-      J'ai vraiment compris et étudié Docker dans le module 347 de l'école
+      J'ai vraiment compris et utilisé Docker dans le module 347 de l'école
       professionnelle, où nous devions déployer une application à l'aide de
-      CI/CD. Il y avait aussi le ÜK-210, qui traitait du cloud et où nous
-      avons également travaillé avec Docker.
+      CI/CD. Il y a eu aussi le ÜK 210, qui portait sur le cloud et où nous
+      avons de nouveau travaillé avec Docker.
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Gestione dei contenitori"
+    eyebrow: "Gestione dei container"
     description: >-
-      Ho capito e imparato a conoscere Docker durante il modulo 347 della
-      scuola professionale, in cui abbiamo dovuto distribuire un'applicazione
-      utilizzando il CI/CD. Inoltre, c'è stato anche il corso di formazione
-      210, che riguardava il cloud e anche in questo caso abbiamo lavorato
-      con Docker.
+      Ho capito e usato davvero Docker durante il modulo 347 della scuola
+      professionale, in cui abbiamo dovuto distribuire un'applicazione
+      tramite CI/CD. C'è stato poi l'ÜK 210, dedicato al cloud, dove abbiamo
+      lavorato di nuovo con Docker.
     links:
       - title: "Per saperne di più"

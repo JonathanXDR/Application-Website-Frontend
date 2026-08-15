@@ -9,8 +9,8 @@ eyebrow: "Sprache"
 title: "Scala"
 description: >-
   Scala habe ich im Berufsschulmodul 323 kennengelernt und fand es sehr
-  interessant, da es viele Parallelen zu Java hat, aber auch viele neue
-  Konzepte, wie z.B. Traits oder Pattern Matching, mitbringt.
+  interessant, weil es viele Parallelen zu Java hat, aber auch viele neue
+  Konzepte mitbringt, zum Beispiel Traits oder Pattern Matching.
 badges:
   - title: "Backend"
   - title: "Object-Oriented"
@@ -28,25 +28,26 @@ i18n:
   en:
     eyebrow: "Language"
     description: >-
-      I got to know Scala in the vocational school module 323 and found it
-      very interesting, as it has many parallels to Java, but also brings
-      many new concepts, such as traits or pattern matching.
+      I got to know Scala in vocational school module 323 and found it very
+      interesting, because it has a lot in common with Java but also brings
+      many new concepts, for example traits or pattern matching.
     links:
       - title: "Learn more"
   fr:
-    eyebrow: "Langue"
+    eyebrow: "Langage"
     description: >-
       J'ai découvert Scala dans le module 323 de l'école professionnelle et
-      je l'ai trouvé très intéressant, car il présente de nombreux
-      parallèles avec Java, tout en apportant de nombreux nouveaux concepts,
-      comme les traits ou le pattern matching.
+      je l'ai trouvé très intéressant, car il a beaucoup de points communs
+      avec Java tout en apportant de nombreux nouveaux concepts, par exemple les
+      traits ou le pattern matching.
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Lingua"
+    eyebrow: "Linguaggio"
     description: >-
       Ho conosciuto Scala nel modulo 323 della scuola professionale e l'ho
-      trovata molto interessante, perché ha molti parallelismi con Java, ma
-      porta anche molti concetti nuovi, come i tratti o il pattern matching.
+      trovato molto interessante, perché ha molti punti in comune con Java,
+      ma introduce anche molti concetti nuovi, per esempio i trait o il pattern
+      matching.
     links:
       - title: "Per saperne di più"

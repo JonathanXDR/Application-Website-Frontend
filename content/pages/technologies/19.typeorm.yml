@@ -9,8 +9,8 @@ eyebrow: "ORM"
 title: "TypeORM"
 description: >-
   Als Alternative zu Prisma habe ich meine CRUD-App, nachdem ich sie
-  fertiggestellt habe, auch noch mit TypeORM umgesetzt, da auch dieses ORM in
-  diversen Projekten im Apps Team verwendet wird.
+  fertiggestellt hatte, auch noch mit TypeORM umgesetzt, weil auch dieses ORM
+  in diversen Projekten im Apps Team verwendet wird.
 badges:
   - title: "Database"
   - title: "ORM"
@@ -26,22 +26,22 @@ links:
 i18n:
   en:
     description: >-
-      As an alternative to Prisma, I also implemented my CRUD app with
-      TypeORM after I had finished it, as this ORM is also used in various
-      projects in the Apps Team.
+      As an alternative to Prisma, I rebuilt my CRUD app with TypeORM once I
+      had finished it, because this ORM is used in various projects in the
+      Apps Team too.
     links:
       - title: "Learn more"
   fr:
     description: >-
-      Comme alternative à Prisma, j'ai également mis en oeuvre mon
-      application CRUD, après l'avoir terminée, avec TypeORM, car cet ORM
-      est également utilisé dans divers projets de le Apps Team.
+      Comme alternative à Prisma, j'ai réimplémenté mon application CRUD avec
+      TypeORM une fois celle-ci terminée, car cet ORM est lui aussi utilisé
+      dans divers projets de l'Apps Team.
     links:
       - title: "En savoir plus"
   it:
     description: >-
-      In alternativa a Prisma, ho anche implementato la mia applicazione CRUD
-      con TypeORM dopo averla terminata, dato che questo ORM è utilizzato
-      anche in diversi progetti del Apps Team.
+      Come alternativa a Prisma, dopo aver terminato la mia applicazione CRUD
+      l'ho realizzata anche con TypeORM, perché pure questo ORM è usato in
+      diversi progetti dell'Apps Team.
     links:
       - title: "Per saperne di più"

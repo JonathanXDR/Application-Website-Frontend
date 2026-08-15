@@ -8,10 +8,10 @@ icon:
 eyebrow: "Sprache"
 title: "TypeScript"
 description: >-
-  Diese Technologie habe ich das erste mal bei meiner Memory-App im Apps Team
+  Diese Technologie habe ich das erste Mal bei meiner Memory App im Apps Team
   verwendet und benutze seither wenn möglich nur noch TypeScript anstelle von
-  JavaScript. Projekte, bei denen ich TypeScript gearbeitet habe, sind z.B.
-  die Apps Team Webseite, die CRUD-App im Apps Team oder auch das
+  JavaScript. Projekte, bei denen ich mit TypeScript gearbeitet habe, sind
+  z.B. die Apps Team Webseite, die CRUD-App im Apps Team oder auch das
   Fleetmanagement Tool.
 badges:
   - title: "Typed"
@@ -29,31 +29,31 @@ i18n:
   en:
     eyebrow: "Language"
     description: >-
-      I used this technology for the first time with my memory app in the
+      I used this technology for the first time with my Memory App in the
       Apps Team and since then I only use TypeScript instead of JavaScript
-      whenever possible. Projects in which I've used TypeScript include the
-      Apps Team website, the CRUD app in the Apps Team and the fleet
-      management tool.
+      whenever possible. Projects in which I've worked with TypeScript
+      include the Apps Team website, the CRUD app in the Apps Team and the
+      Fleetmanagement Tool.
     links:
       - title: "Learn more"
   fr:
-    eyebrow: "Langue"
+    eyebrow: "Langage"
     description: >-
       J'ai utilisé cette technologie pour la première fois avec mon
-      application de mémoire dans Apps Team et depuis, je n'utilise que
-      TypeScript au lieu de JavaScript lorsque c'est possible. Les projets
-      pour lesquels j'ai utilisé TypeScript sont par exemple le site web de
-      le Apps Team, l'application CRUD de le Apps Team ou encore l'outil de
-      gestion de flotte.
+      application Memory dans l'Apps Team et, depuis, je n'utilise plus que
+      TypeScript à la place de JavaScript dès que c'est possible. Parmi les
+      projets pour lesquels j'ai travaillé avec TypeScript, il y a le site
+      web de l'Apps Team, l'application CRUD de l'Apps Team ou encore le
+      Fleetmanagement Tool.
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Lingua"
+    eyebrow: "Linguaggio"
     description: >-
       Ho usato questa tecnologia per la prima volta con la mia applicazione
-      di memoria nell'Apps Team e da allora ho usato TypeScript invece di
-      JavaScript solo quando possibile. Tra i progetti in cui ho utilizzato
+      Memory nell'Apps Team e da allora uso TypeScript al posto di JavaScript
+      ogni volta che è possibile. Tra i progetti in cui ho lavorato con
       TypeScript ci sono il sito web dell'Apps Team, l'applicazione CRUD
-      dell'Apps Team e lo strumento di gestione della flotta.
+      dell'Apps Team e il Fleetmanagement Tool.
     links:
       - title: "Per saperne di più"

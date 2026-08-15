@@ -8,9 +8,9 @@ icon:
 eyebrow: "Sprache"
 title: "CSS"
 description: >-
-  CSS habe ich ebenfalls während dem Aufbau dieser Webseite gelernt. Da CSS
-  genau wie HTML in fast jedem Projekt verwendet wird, habe ich auch hier
-  schon viel Erfahrung gesammelt.
+  CSS habe ich ebenfalls beim Aufbau dieser Webseite gelernt. Da CSS genau
+  wie HTML in fast jedem Projekt verwendet wird, habe ich auch hier schon
+  viel Erfahrung gesammelt.
 badges:
   - title: "Styling"
   - title: "Web"
@@ -27,20 +27,20 @@ i18n:
     eyebrow: "Language"
     description: >-
       I also learned CSS while building this website. Since CSS, just like
-      HTML, is used in almost every project, I've also gained a lot of
-      experience in this area.
+      HTML, is used in almost every project, I've gained a lot of experience
+      with it too.
     links:
       - title: "Learn more"
   fr:
-    eyebrow: "Langue"
+    eyebrow: "Langage"
     description: >-
-      J'ai également appris le CSS pendant la construction de ce site web.
-      Comme le CSS, tout comme le HTML, est utilisé dans presque tous les
-      projets, j'ai également acquis beaucoup d'expérience dans ce domaine.
+      J'ai également appris le CSS en construisant ce site web. Le CSS, tout
+      comme le HTML, est utilisé dans presque tous les projets, j'ai donc
+      acquis beaucoup d'expérience dans ce domaine également.
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Lingua"
+    eyebrow: "Linguaggio"
     description: >-
       Durante la realizzazione di questo sito web ho imparato anche i CSS.
       Poiché i CSS, proprio come l'HTML, vengono utilizzati in quasi tutti i

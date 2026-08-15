@@ -8,9 +8,9 @@ icon:
 eyebrow: "Bibliothek"
 title: "SDX"
 description: >-
-  Mit der Swisscom Digital Experience (SDX) Library bin ich schon mehrmals
-  während meiner Ausbildung in Kontakt gekommen. Ich habe damit z.B. beim
-  Entwickeln der Apps Team Webseite, der Medienkurse und noch vielen weiteren
+  Mit der Swisscom Digital Experience (SDX) Library bin ich während meiner
+  Ausbildung schon mehrmals in Kontakt gekommen. Ich habe damit z.B. bei der
+  Apps Team Webseite, den Medienkursen und vielen weiteren
   Swisscom-Applikationen gearbeitet.
 badges:
   - title: "Swisscom"
@@ -26,26 +26,26 @@ i18n:
   en:
     eyebrow: "Library"
     description: >-
-      I came into contact with this library several times during my training.
-      For example, I used it to develop the Apps Team website, the media
-      courses and many other Swisscom applications.
+      I came into contact with the Swisscom Digital Experience (SDX) library
+      several times during my training. I used it, for example, on the Apps
+      Team website, the media courses and many other Swisscom applications.
     links:
       - title: "Learn more"
   fr:
     eyebrow: "Bibliothèque"
     description: >-
-      J'ai déjà été en contact avec cette bibliothèque plusieurs fois pendant
-      ma formation. Je l'ai utilisée par exemple pour développer les
-      applications du site web de l'équipe, les cours médias et bien d'autres
-      applications Swisscom.
+      J'ai déjà été en contact plusieurs fois avec la bibliothèque Swisscom
+      Digital Experience (SDX) pendant ma formation. Je l'ai utilisée par
+      exemple pour le site web de l'Apps Team, les cours médias et bien
+      d'autres applications Swisscom.
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Biblioteca"
+    eyebrow: "Libreria"
     description: >-
-      Sono già entrato in contatto con questa libreria diverse volte durante
-      la mia formazione. Ad esempio, l'ho utilizzata per sviluppare le
-      applicazioni del sito web del Team, i corsi sui media e molte altre
-      applicazioni di Swisscom.
+      Sono già entrato in contatto diverse volte con la libreria Swisscom
+      Digital Experience (SDX) durante la mia formazione. L'ho utilizzata ad
+      esempio per il sito web dell'Apps Team, i corsi sui media e molte altre
+      applicazioni Swisscom.
     links:
       - title: "Per saperne di più"

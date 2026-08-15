@@ -8,9 +8,9 @@ icon:
 eyebrow: "ORM"
 title: "Prisma"
 description: >-
-  Das habe ich verwendet um meine CRUD-App zu erstellen und ich bin dabei das
-  erste mal mit einem ORM in Berührung gekommen. Später habe ich auch beim
-  Fleetmanagement Tool mit Prisma gearbeiet.
+  Prisma habe ich verwendet, um meine CRUD-App zu erstellen, und bin dabei
+  zum ersten Mal mit einem ORM in Berührung gekommen. Später habe ich auch
+  beim Fleetmanagement Tool mit Prisma gearbeitet.
 badges:
   - title: "Database"
   - title: "ORM"
@@ -26,22 +26,21 @@ links:
 i18n:
   en:
     description: >-
-      I used this to create my CRUD app and it was the first time I came into
-      contact with an ORM. Later I also worked with Prisma for the fleet
-      management tool.
+      I used Prisma to build my CRUD app, and it was my first contact with an
+      ORM. Later I also worked with Prisma on the Fleetmanagement Tool.
     links:
       - title: "Learn more"
   fr:
     description: >-
-      Je l'ai utilisé pour créer mon application CRUD et c'est la première
-      fois que j'ai été en contact avec un ORM. Plus tard, j'ai aussi
-      travaillé avec Prisma pour l'outil de gestion de flotte.
+      J'ai utilisé Prisma pour créer mon application CRUD et c'était mon
+      premier contact avec un ORM. Plus tard, j'ai aussi travaillé avec
+      Prisma sur le Fleetmanagement Tool.
     links:
       - title: "En savoir plus"
   it:
     description: >-
-      L'ho utilizzato per creare la mia applicazione CRUD ed è stata la
-      prima volta che sono entrato in contatto con un ORM. In seguito ho
-      lavorato anche con Prisma per lo strumento di gestione della flotta.
+      Ho usato Prisma per creare la mia applicazione CRUD ed è stato il mio
+      primo contatto con un ORM. In seguito ho lavorato con Prisma anche al
+      Fleetmanagement Tool.
     links:
       - title: "Per saperne di più"

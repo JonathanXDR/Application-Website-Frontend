@@ -16,24 +16,24 @@ info:
 i18n:
   en:
     eyebrow: "Former School"
-    title: "Technical Vocational School Zürich"
-    description: "I always attended vocational school in Zürich on Thursday afternoons."
+    title: "Technische Berufsschule Zürich"
+    description: "I attended vocational school in Zurich on Thursday afternoons."
     links:
       - title: "Learn more"
     info:
       location: "Zurich"
   fr:
     eyebrow: "Ancienne école"
-    title: "École professionnelle technique de Zürich"
-    description: "J'allais toujours à l'école professionnelle à Zürich les jeudis après-midi."
+    title: "Technische Berufsschule Zürich"
+    description: "J'allais à l'école professionnelle de Zurich le jeudi après-midi."
     links:
       - title: "En savoir plus"
     info:
       location: "Zurich"
   it:
     eyebrow: "Ex scuola"
-    title: "Scuola professionale tecnica di Zurigo"
-    description: "Andavo sempre alla scuola professionale di Zurigo il giovedì pomeriggio."
+    title: "Technische Berufsschule Zürich"
+    description: "Andavo alla scuola professionale di Zurigo il giovedì pomeriggio."
     links:
       - title: "Per saperne di più"
     info:

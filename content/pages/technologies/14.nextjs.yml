@@ -8,10 +8,10 @@ icon:
 eyebrow: "Framework"
 title: "Next.js"
 description: >-
-  Das erste mal kennenlernen durte ich Next.js im Apps Team, wo ich damit die
-  neue Apps Team Webseite erstellt habe. Dort habe ich gleichzeitig auch sehr
-  viel über React gelernt und konnte so meine Kenntnisse gleich in beiden
-  Frameworks verbessern.
+  Next.js durfte ich das erste Mal im Apps Team kennenlernen, wo ich damit
+  die neue Apps Team Webseite erstellt habe. Dort habe ich gleichzeitig auch
+  sehr viel über React gelernt und konnte so meine Kenntnisse gleich in
+  beiden Frameworks verbessern.
 badges:
   - title: "Frontend"
   - title: "Web"
@@ -29,24 +29,24 @@ i18n:
   en:
     description: >-
       The first time I got to know Next.js was in the Apps Team, where I used
-      it to create the new Apps Team website. I also learned a lot about
-      React there and was able to improve my knowledge of both frameworks at
-      the same time.
+      it to build the new Apps Team website. I also learned a lot about React
+      there and was able to improve my knowledge of both frameworks at the
+      same time.
     links:
       - title: "Learn more"
   fr:
     description: >-
-      J'ai découvert Next.js pour la première fois dans le Apps Team, où j'ai
-      créé le nouveau site web de le Apps Team. J'ai également appris beaucoup
-      de choses sur React, ce qui m'a permis d'améliorer mes connaissances
-      dans les deux frameworks.
+      J'ai découvert Next.js pour la première fois dans l'Apps Team, où je
+      l'ai utilisé pour créer le nouveau site web de l'Apps Team. J'y ai en
+      même temps beaucoup appris sur React, ce qui m'a permis d'améliorer mes
+      connaissances dans les deux frameworks.
     links:
       - title: "En savoir plus"
   it:
     description: >-
       La prima volta che ho conosciuto Next.js è stato nell'Apps Team, dove
-      l'ho utilizzato per creare il nuovo sito web dell'Apps Team. Ho
-      imparato molto anche su React e ho potuto migliorare la mia conoscenza
-      di entrambi i framework allo stesso tempo.
+      l'ho utilizzato per creare il nuovo sito web dell'Apps Team. Allo
+      stesso tempo ho imparato molto anche su React e ho potuto migliorare la
+      mia conoscenza di entrambi i framework.
     links:
       - title: "Per saperne di più"

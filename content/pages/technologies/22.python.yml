@@ -9,7 +9,7 @@ eyebrow: "Sprache"
 title: "Python"
 description: >-
   Diese Programmiersprache habe ich im Security Journey gelernt und sie für
-  die Entwicklung des DAM Log Scanners verwendet, ein Tool, welches
+  die Entwicklung des DAM Log Scanners verwendet, eines Tools, das
   Datenbankaktivitäten aufzeichnet.
 badges:
   - title: "Scripting"
@@ -26,23 +26,22 @@ i18n:
     eyebrow: "Language"
     description: >-
       I learned this programming language in the Security Journey and used it
-      to develop the DAM Log Scanner, a tool that records database
-      activities.
+      to develop the DAM Log Scanner, a tool that records database activities.
     links:
       - title: "Learn more"
   fr:
-    eyebrow: "Langue"
+    eyebrow: "Langage"
     description: >-
       J'ai appris ce langage de programmation dans le Security Journey et je
       l'ai utilisé pour développer le DAM Log Scanner, un outil qui
-      enregistre l'activité de la base de données.
+      enregistre l'activité des bases de données.
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Lingua"
+    eyebrow: "Linguaggio"
     description: >-
-      Ho imparato questo linguaggio di programmazione durante il Security
-      Journey e l'ho utilizzato per sviluppare il DAM Log Scanner, uno
-      strumento che registra le attività del database.
+      Ho imparato questo linguaggio di programmazione nel Security Journey e
+      l'ho usato per sviluppare il DAM Log Scanner, uno strumento che registra
+      le attività dei database.
     links:
       - title: "Per saperne di più"

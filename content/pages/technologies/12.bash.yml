@@ -33,16 +33,16 @@ i18n:
     links:
       - title: "Learn more"
   fr:
-    eyebrow: "Langue"
+    eyebrow: "Langage"
     description: >-
-      J'ai souvent travaillé avec Bash et je m'y connais un peu maintenant.
-      Par exemple, j'ai déjà écrit quelques petits scripts pour me faciliter
-      la tâche. De plus, il y avait aussi le module 122 à l'école
+      J'ai souvent travaillé avec Bash et je le connais désormais assez
+      bien. Par exemple, j'ai déjà écrit quelques petits scripts pour me
+      faciliter le travail. Il y a eu aussi le module 122 à l'école
       professionnelle, dans lequel nous avons également travaillé avec Bash.
     links:
       - title: "En savoir plus"
   it:
-    eyebrow: "Lingua"
+    eyebrow: "Linguaggio"
     description: >-
       Ho lavorato spesso con Bash e ora ho una discreta familiarità con esso.
       Ad esempio, ho già scritto alcuni piccoli script per facilitare il mio

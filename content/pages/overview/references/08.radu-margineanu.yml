@@ -12,8 +12,8 @@ i18n:
     eyebrow: "Former Project Provider"
     description: "Enterprise & System Architect EAS"
   fr:
-    eyebrow: "Ancien fournisseur de projet"
-    description: "Architecte d'entreprise et systèmes EAS"
+    eyebrow: "Ancien commanditaire de projet"
+    description: "Architecte d'entreprise et de systèmes EAS"
   it:
-    eyebrow: "Ex fornitore di progetto"
+    eyebrow: "Ex committente di progetto"
     description: "Architetto aziendale e di sistemi EAS"
