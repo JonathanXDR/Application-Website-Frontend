@@ -95,7 +95,7 @@ export function useMusicKit() {
       if (!musicUserToken) {
         throw createError({
           status: 401,
-          statusText: 'Music User Token is required for library access',
+          statusText: 'Music User Token Required',
         })
       }
       headers['Music-User-Token'] = musicUserToken
