@@ -99,12 +99,6 @@ export default defineNuxtConfig({
     'nuxt-viewport',
     '@nuxt/hints',
     'nuxt-skew-protection',
-    // Listed explicitly BEFORE nuxt-ai-ready. Scanned modules from the
-    // `modules/` directory install after every module in this array, but
-    // nuxt-ai-ready fires its `ai-ready:llms-txt` hook during its own
-    // setup, so the hook listener must be registered before that. Without
-    // this entry the per-locale page sections never reach llms.txt.
-    './modules/llms-txt-sections',
     'nuxt-ai-ready',
   ],
   $development: {
@@ -587,24 +581,51 @@ export default defineNuxtConfig({
   // `search`, `ai-input`). Adoption of `Content-Usage` is currently minimal,
   // so the loss is small.
   // https://nuxtseo.com/docs/robots/guides/ai-directives
-  // Prerender-driven: `runtimeSync` and `cron` stay off because every one of
-  // the 16 routes is statically prerendered, so the on-disk SQLite is built
-  // once at prerender time and never touched at runtime. `database` and
-  // `indexNow` stay at their defaults. Revisit once we want IndexNow
-  // submissions or a runtime-indexed >100-route site.
+  //
+  // Everything else below is prerender-driven. All 16 routes are statically
+  // prerendered, so:
+  //   * `runtimeSync` and `cron` stay off. Pages are indexed once during
+  //     prerender and never re-indexed at runtime.
+  //   * `database` stays unset. Since v2 the module leaves page storage off
+  //     until a runtime feature asks for it (runtime sync, cron, or the MCP /
+  //     WebMCP page tools), none of which are enabled here, so no SQLite
+  //     driver and no database lifecycle plugin enter the Nitro bundle.
+  //     Prerender indexing is unaffected: it uses its own build-time database
+  //     under the Nuxt build directory, and that is what writes llms.txt,
+  //     llms-full.txt and the `.md` twins.
+  //   * `markdownCacheHeaders` and `autoI18n` are left at their defaults. The
+  //     first only shapes runtime `.md` responses this deployment never
+  //     serves, because every `.md` file is a static asset on the CDN, and
+  //     `autoI18n` is already on.
   // https://nuxtseo.com/ai-ready
   aiReady: {
-    autoI18n: true,
     contentSignal: {
       aiTrain: false,
       search: true,
       aiInput: true,
     },
-    markdownCacheHeaders: {
-      maxAge: 3600,
-      swr: true,
+    // Every collection in `content.config.ts` is `type: 'data'`, so the v2
+    // content lookup (on by default) can never match a route. Leaving it on
+    // would pull `minimark/stringify` into the Nitro bundle for a code path
+    // that always returns null. Restore the default if a `type: 'page'`
+    // collection is ever added, so those routes serve their source markdown
+    // instead of a conversion of the rendered HTML.
+    contentSource: false,
+    llmsTxt: {
+      // Point the generated page and locale links at the prerendered `.md`
+      // twins instead of the HTML pages, which is what the option documents
+      // for statically generated markdown.
+      markdownLinks: true,
     },
-    llmsTxtCacheSeconds: 600,
+    // Not a runtime concern despite the name. The `/llms.txt` handler wraps
+    // its generator in `defineCachedFunction`, and the prerenderer renders
+    // that same handler, so the 600 second default persists a copy under
+    // `node_modules/.cache/nuxt/.nuxt/cache/ai-ready/`. Two builds inside
+    // that window then ship the earlier build's llms.txt, reproduced locally
+    // and reachable on Vercel whenever the build cache is restored. `0` is
+    // the documented off switch and costs nothing here, because the route
+    // renders once per build and is a static file from then on.
+    llmsTxtCacheSeconds: 0,
   },
   eslint: {
     config: {
