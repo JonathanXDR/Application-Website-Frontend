@@ -20,7 +20,7 @@ withDefaults(
     v-animation="{ add: 'visible' }"
     class="loader-progress"
     role="img"
-    aria-label="Loading, please wait"
+    aria-label="Loading"
     :style="{
       'width': `${background ? 100 : progress}%`,
       '--color-secondary': colors.secondary,

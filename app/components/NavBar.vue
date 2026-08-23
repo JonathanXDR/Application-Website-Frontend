@@ -307,7 +307,7 @@ watch(
             aria-controls="ac-ln-menustate-tray"
             aria-expanded="false"
           >
-            <span class="ac-ln-menucta-anchor-label">Local Nav Open Menu</span>
+            <span class="ac-ln-menucta-anchor-label">Open menu</span>
           </a>
           <a
             id="ac-ln-menustate-close"
@@ -317,7 +317,7 @@ watch(
             aria-controls="ac-ln-menustate-tray"
             aria-expanded="true"
           >
-            <span class="ac-ln-menucta-anchor-label">Local Nav Close Menu</span>
+            <span class="ac-ln-menucta-anchor-label">Close menu</span>
           </a>
           <div
             id="ac-ln-menustate-tray"

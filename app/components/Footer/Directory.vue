@@ -41,7 +41,7 @@ withDefaults(
             class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"
           >
             <span class="footer-directory-column-section-anchor-label">
-              Open Menu
+              Open menu
             </span>
           </a>
           <a
@@ -49,7 +49,7 @@ withDefaults(
             class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"
           >
             <span class="footer-directory-column-section-anchor-label">
-              Close Menu
+              Close menu
             </span>
           </a>
 
@@ -95,7 +95,7 @@ withDefaults(
               class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"
             >
               <span class="footer-directory-column-section-anchor-label">
-                Open Menu
+                Open menu
               </span>
             </a>
             <a
@@ -103,7 +103,7 @@ withDefaults(
               class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"
             >
               <span class="footer-directory-column-section-anchor-label">
-                Close Menu
+                Close menu
               </span>
             </a>
 

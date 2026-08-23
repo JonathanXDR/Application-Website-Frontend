@@ -35,7 +35,7 @@ const footerMiniNews = computed<{ title: string, link: LinkItemType }>(
         id="footer-label"
         class="footer-label"
       >
-        Developer Footer
+        Site footer
       </h2>
       <FooterBreadcrumbs label="Jonathan Russ" />
       <FooterDirectory :items="footerDirectoryItems" />

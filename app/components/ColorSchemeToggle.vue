@@ -18,7 +18,7 @@ const themeItems = computed<ItemType[]>(() => segNavData.value?.theme ?? [])
     class="color-scheme-toggle"
     role="radiogroup"
     tabindex="0"
-    aria-label="Select a color scheme preference"
+    aria-label="Color scheme"
   >
     <label
       v-for="(item, index) in themeItems"

@@ -1,6 +1,6 @@
 <template>
   <div class="no-results">
-    No results found. Try changing or removing your search text and tags.
+    No results found.
   </div>
 </template>
 
