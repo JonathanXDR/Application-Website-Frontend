@@ -68,8 +68,7 @@ export const usePageSeo = async (options: UsePageSeoOptions = {}) => {
     useSeoMeta({ description: () => pageDescription.value })
 
     // The third argument carries image options. `alt` there emits
-    // `og:image:alt` and `twitter:image:alt`, which were previously
-    // missing.
+    // `og:image:alt` and `twitter:image:alt`.
     defineOgImage(
       'Overview',
       {

@@ -79,7 +79,7 @@ bun run env:typegen
 Commits run through `lint-staged`, so only staged files are formatted and linted. Messages are checked by `commitlint` against the [Conventional Commits](https://www.conventionalcommits.org) rules.
 
 > [!IMPORTANT]
-> [`@nuxt/content`](https://content.nuxt.com) is pinned to a fork that adds per-locale keys inside a single content file. Repointing that dependency at upstream, or at a branch without a built `dist/`, makes every translation resolve to the base language with no error. See the comment above the module list in [`nuxt.config.ts`](./nuxt.config.ts) before changing it.
+> [`@nuxt/content`](https://content.nuxt.com) is pinned to a fork that adds per-locale keys inside a single content file. Repointing that dependency at upstream, or at a branch without a built `dist/`, makes every translation resolve to the base language with no error. See the comment above the `@nuxt/content` entry in [`nuxt.config.ts`](./nuxt.config.ts) before changing it.
 
 ### How the content is organized
 

@@ -200,7 +200,7 @@ export const InfoBannerSchema = z.object({
   ),
 })
 
-// footer-mini: legal link row plus the "Get the … app" news line.
+// footer-mini: legal link row plus the news line and its app link.
 export const FooterMiniSchema = z.object({
   legalLinks: z.array(LinkSchema),
   news: z.object({ title: z.string(), link: LinkSchema }),

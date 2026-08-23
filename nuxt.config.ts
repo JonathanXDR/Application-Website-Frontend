@@ -60,9 +60,9 @@ export default defineNuxtConfig({
     // commits the built `dist/` so `bun install` can use it directly
     // without running `nuxt-module-build` during install.
     //
-    // Dev override (opt-in): a local symlink from
-    // /Users/taarujo6/Developer/Git/GitHub/content into node_modules
-    // for fast iteration on the fork itself. Reinstall workflow lives in
+    // Dev override (opt-in): a local symlink from a checkout of the fork
+    // into node_modules for fast iteration on the fork itself. Reinstall
+    // workflow lives in
     // ~/.claude/projects/<this-project>/memory/project_local_content_setup.md
     //
     // Do not change the GitHub URL or branch in package.json without first
@@ -721,7 +721,7 @@ export default defineNuxtConfig({
       // (which fires without an Accept-Language header) meta-refreshes to
       // `/de/` instead of `/en/`. The sitemap and `hreflang="x-default"`
       // already point to `/de/`, so this aligns the actual landing page
-      // with both, ensuring crawlers and language-agnostic visitors agree.
+      // with both.
       fallbackLocale: 'de',
       redirectOn: 'root',
     },

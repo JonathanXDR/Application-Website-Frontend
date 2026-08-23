@@ -10,7 +10,7 @@ import { AnimatePresence, Motion } from 'motion-v'
 // Page chrome is passed in as real layout props rather than read back out of
 // `route.meta`. Pages get these defaults for free and say nothing. A page that
 // wants different chrome overrides them with
-// `definePageMeta({ layout: { props: { … } } })`, and `app/error.vue` passes
+// `definePageMeta({ layout: { props: { ... } } })`, and `app/error.vue` passes
 // them as attributes on its own `<NuxtLayout>` (which merges `attrs` and
 // `route.meta.layoutProps` into the layout component).
 const props = withDefaults(

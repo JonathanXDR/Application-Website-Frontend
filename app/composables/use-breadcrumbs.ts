@@ -19,9 +19,9 @@ export function useBreadcrumbs(
   const requestURL = useRequestURL()
   const { currentRoute } = useNavbar()
 
-  // The previous `useState('error-pages')` lookup was dead code. Nothing
-  // ever populated that state, so the error-page branch of the last
-  // crumb title could never resolve.
+  // The last crumb title comes from the navbar entry for the current
+  // route. Nothing else supplies it, so a route without a navbar entry
+  // (an error page, for example) falls back to the raw path.
 
   const shouldShowBreadcrumbs = computed(() => route.path !== '/')
   const computedLinks = computed<LinkItemType[]>(() => {
