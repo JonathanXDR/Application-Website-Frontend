@@ -116,7 +116,7 @@ jobs:
             *) shape=ok ;;
           esac
           if [ "$shape" != ok ] || ! printf '%s' "$site" | grep -Eq '^https?://[A-Za-z0-9.-]+(:[0-9]+)?/?$'; then
-            echo "::error::The deployment URL is not a plain origin such as https://example.com, so it was not audited."
+            echo "::error::The deployment URL is not a plain origin such as https://example.com, so it was not audited. Re-run this workflow manually and pass a plain origin as the site input."
             exit 1
           fi
           printf 'UNLIGHTHOUSE_SITE=%s\n' "$site" >> "$GITHUB_ENV"
