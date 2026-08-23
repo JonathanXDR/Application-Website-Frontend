@@ -6,13 +6,14 @@ icon:
   colors:
     primary: "var(--color-system-blue)"
     secondary: "var(--color-system-blue)"
-title: "Be right back."
+title: "Bin gleich zurück."
 description: >-
-  Ich aktualisiere gerade die Seite. Schau bald wieder vorbei.
+  Ich aktualisiere gerade die Webseite. Schau bald wieder vorbei.
 
 i18n:
   en:
     label: "Service Unavailable"
+    title: "Be right back."
     description: >-
       I'm updating the site right now. Check back soon.
   fr:

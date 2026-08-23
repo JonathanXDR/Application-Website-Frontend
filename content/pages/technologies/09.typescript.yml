@@ -16,7 +16,7 @@ description: >-
 badges:
   - title: "Typed"
   - title: "Full Stack"
-  - title: "Javascript"
+  - title: "JavaScript"
     icon:
       name: "simple-icons:javascript"
 links:

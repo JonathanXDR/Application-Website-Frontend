@@ -27,8 +27,8 @@ i18n:
   en:
     description: >-
       I used it to build my CRUD app at NexCC, which taught me a lot. Later I
-      also had a matching ÜK, which was about building a backend with
-      Express.js.
+      also attended a corresponding ÜK, which was about building a backend
+      with Express.js.
     links:
       - title: "Learn more"
   fr:

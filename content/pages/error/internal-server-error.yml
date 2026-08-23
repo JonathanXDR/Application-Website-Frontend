@@ -6,7 +6,7 @@ icon:
   colors:
     primary: "var(--color-fill)"
     tertiary: "var(--color-system-red)"
-title: "{status} Internal Server Error"
+title: "{status} Interner Serverfehler"
 description: >-
   Auf dem Server ist etwas schiefgelaufen. Lade die Seite neu oder komm
   später wieder, falls das Problem bestehen bleibt.
@@ -14,6 +14,7 @@ description: >-
 i18n:
   en:
     label: "Internal Server Error"
+    title: "{status} Internal Server Error"
     description: >-
       Something went wrong on the server. Reload the page or come back later
       if the problem persists.

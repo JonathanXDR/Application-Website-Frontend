@@ -4,7 +4,7 @@ icon:
   name: "sf-symbols:exclamationmark.octagon.fill"
   colors:
     primary: "var(--color-system-red)"
-title: "Error {status}"
+title: "Fehler {status}"
 description: >-
   Etwas ist schiefgelaufen. Lade die Seite neu oder komm später wieder, falls
   das Problem bestehen bleibt.
@@ -12,6 +12,7 @@ description: >-
 i18n:
   en:
     label: "Error"
+    title: "Error {status}"
     description: >-
       Something went wrong. Reload the page or come back later if the problem
       persists.

@@ -4,7 +4,7 @@ items:
     route: "/"
     children:
       - id: about
-        label: "About"
+        label: "Über mich"
         route: "/#about"
         class: section-separated
       - id: languages
@@ -45,7 +45,7 @@ i18n:
     items:
       - label: "Vue d'ensemble"
         children:
-          - label: "About"
+          - label: "À propos"
           - label: "Langues"
           - label: "Fun Facts"
           - label: "Références"
@@ -56,7 +56,7 @@ i18n:
     items:
       - label: "Panoramica"
         children:
-          - label: "About"
+          - label: "Chi sono"
           - label: "Lingue"
           - label: "Fun Facts"
           - label: "Referenze"

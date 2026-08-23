@@ -14,7 +14,7 @@ description: >-
 badges:
   - title: "Server"
   - title: "Backend"
-  - title: "Javascript"
+  - title: "JavaScript"
     icon:
       name: "simple-icons:javascript"
 links:

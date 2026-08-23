@@ -10,8 +10,8 @@ title: "Bash"
 description: >-
   Ich habe schon oft mit Bash gearbeitet und bin damit mittlerweile auch
   einigermassen vertraut. Ich habe damit z.B. schon ein paar kleine Skripte
-  geschrieben, um mir die Arbeit zu erleichtern. Zudem gab es auch das Modul
-  122 in der Berufsschule, bei dem wir ebenfalls mit Bash gearbeitet haben.
+  geschrieben, um mir die Arbeit zu erleichtern. Zudem gab es das Modul 122
+  in der Berufsschule, bei dem wir ebenfalls mit Bash gearbeitet haben.
 badges:
   - title: "Scripting"
   - title: "Shell"
@@ -29,7 +29,7 @@ i18n:
       I've often worked with Bash and am now reasonably familiar with it. For
       example, I've already written a few small scripts with it to make my
       work easier. There was also module 122 at vocational school, where we
-      also worked with Bash.
+      worked with Bash.
     links:
       - title: "Learn more"
   fr:
@@ -38,7 +38,7 @@ i18n:
       J'ai souvent travaillé avec Bash et je le connais désormais assez
       bien. Par exemple, j'ai déjà écrit quelques petits scripts pour me
       faciliter le travail. Il y a eu aussi le module 122 à l'école
-      professionnelle, dans lequel nous avons également travaillé avec Bash.
+      professionnelle, dans lequel nous avons travaillé avec Bash.
     links:
       - title: "En savoir plus"
   it:
@@ -47,6 +47,6 @@ i18n:
       Ho lavorato spesso con Bash e ora ho una discreta familiarità con esso.
       Ad esempio, ho già scritto alcuni piccoli script per facilitare il mio
       lavoro. C'è stato anche il modulo 122 alla scuola professionale, dove
-      abbiamo lavorato anche con Bash.
+      abbiamo lavorato con Bash.
     links:
       - title: "Per saperne di più"

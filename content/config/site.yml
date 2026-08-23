@@ -1,7 +1,7 @@
 description: >-
   Entdecke meinen Weg als Softwareentwickler, mit Projekten, Fähigkeiten und
   meiner Leidenschaft für effiziente, benutzerorientierte Lösungen in der
-  Webentwicklung und darüber hinaus.
+  Webentwicklung.
 
 pages:
   technologies:
@@ -21,8 +21,7 @@ i18n:
   en:
     description: >-
       Explore my journey as a Software Engineer, with my projects, my skills,
-      and my passion for efficient, user-centered solutions in web development
-      and beyond.
+      and my passion for efficient, user-centered solutions in web development.
     pages:
       technologies:
         description: >-
@@ -40,7 +39,7 @@ i18n:
     description: >-
       Découvre mon parcours d'ingénieur logiciel, avec mes projets, mes
       compétences et ma passion pour des solutions efficaces et centrées
-      sur l'utilisateur dans le développement web et au-delà.
+      sur l'utilisateur dans le développement web.
     pages:
       technologies:
         description: >-
@@ -58,7 +57,7 @@ i18n:
     description: >-
       Esplora il mio percorso come ingegnere software, tra progetti, competenze
       e la passione per soluzioni efficienti e centrate sull'utente nello
-      sviluppo web e oltre.
+      sviluppo web.
     pages:
       technologies:
         description: >-

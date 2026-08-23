@@ -42,13 +42,13 @@ info:
 i18n:
   en:
     description: >-
-      In this project, I started with a few trainings on Cloud, Security, and
-      DevOps, which taught me a lot. After that, I got to work on the DAM Log
-      Scanner project, a tool that records database activities (Database
-      Activity Monitoring) and acts according to certain guidelines. These
-      were mainly implemented with OPA (Open Policy Agent), which I did not
-      work with much. I mainly used Python, Docker, and Kubernetes, and Python
-      was new to me. Towards the end of the project, I also started
+      In this project, I started with a few training courses on Cloud,
+      Security, and DevOps, which taught me a lot. After that, I got to work
+      on the DAM Log Scanner project, a tool that records database activities
+      (Database Activity Monitoring) and acts according to certain guidelines.
+      These were mainly implemented with OPA (Open Policy Agent), which I did
+      not work with much. I mainly used Python, Docker, and Kubernetes, and
+      Python was new to me. Towards the end of the project, I also started
       implementing Elasticsearch to visualize and analyze the data.
   fr:
     description: >-

@@ -10,7 +10,7 @@ title: "SQL"
 description: >-
   SQL habe ich erstmals bei der Entwicklung meiner CRUD-App im NexCC
   verwendet und dabei die Basics gelernt. Später kamen noch die beiden
-  Berufsschulmodule 162 und 164 sowie der ÜK-106 dazu, der auch
+  Berufsschulmodule 162 und 164 sowie der ÜK 106 dazu, der auch
   fortgeschrittene Abfragen beinhaltete.
 badges:
   - title: "Database"
@@ -28,7 +28,7 @@ i18n:
     description: >-
       I first used SQL while developing my CRUD app at NexCC, where I learned
       the basics. Later came the two vocational school modules 162 and 164 as
-      well as the ÜK-106, which also covered advanced queries.
+      well as the ÜK 106, which also covered advanced queries.
     links:
       - title: "Learn more"
   fr:
@@ -37,7 +37,7 @@ i18n:
       J'ai utilisé SQL pour la première fois lors du développement de mon
       application CRUD au NexCC, et j'y ai appris les bases. Plus tard, il y
       a eu les deux modules 162 et 164 de l'école professionnelle ainsi que le
-      ÜK-106, qui comprenait aussi des requêtes avancées.
+      ÜK 106, qui comprenait aussi des requêtes avancées.
     links:
       - title: "En savoir plus"
   it:
@@ -45,7 +45,7 @@ i18n:
     description: >-
       Ho usato SQL per la prima volta durante lo sviluppo della mia
       applicazione CRUD al NexCC, dove ho imparato le basi. In seguito sono
-      arrivati i due moduli 162 e 164 della scuola professionale e l'ÜK-106,
+      arrivati i due moduli 162 e 164 della scuola professionale e l'ÜK 106,
       che comprendeva anche query avanzate.
     links:
       - title: "Per saperne di più"

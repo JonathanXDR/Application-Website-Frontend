@@ -82,7 +82,7 @@ i18n:
             label: "Vue d'ensemble"
             children:
               - id: about
-                label: "About"
+                label: "À propos"
               - id: languages
                 label: "Langues"
               - id: fun-facts
@@ -106,7 +106,7 @@ i18n:
             label: "Panoramica"
             children:
               - id: about
-                label: "About"
+                label: "Chi sono"
               - id: languages
                 label: "Lingue"
               - id: fun-facts

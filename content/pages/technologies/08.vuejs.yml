@@ -15,7 +15,7 @@ description: >-
 badges:
   - title: "Frontend"
   - title: "Web"
-  - title: "Javascript"
+  - title: "JavaScript"
     icon:
       name: "simple-icons:javascript"
 links:
@@ -30,7 +30,7 @@ i18n:
       This website was created with Vue.js and I've also worked with it
       elsewhere. Examples are my Memory App in the Apps Team, or the tool for
       Zukunftstag (the Swiss career exploration day) and the Berufsschulapp,
-      which I in turn created at NexCC.
+      which I created at NexCC.
     links:
       - title: "Learn more"
   fr:
