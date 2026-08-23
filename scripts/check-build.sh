@@ -7,7 +7,7 @@ latest_commit_timestamp=$(git log -1 --format=%cI)
 previous_commit_timestamp=$(git log -2 --format=%cI | tail -n1)
 
 if [[ -z "$latest_commit_timestamp" || -z "$previous_commit_timestamp" ]]; then
-    echo "🛑 - Not enough commit history to decide whether to build."
+    echo "🛑 - Not enough commit history to compare the last two commits, skipping build."
     exit 0
 fi
 
