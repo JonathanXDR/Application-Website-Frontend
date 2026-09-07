@@ -1,7 +1,7 @@
 import type { SiteConfigCollectionItem } from '@nuxt/content'
 
 // Duplicated from `server/middleware/site-config.ts`: importing it would
-// pull Nitro types into the client bundle.
+// pull that file's server-only imports into the client bundle.
 const LOCALE_PREFIX = /^\/(de|en|fr|it)(?=\/|$)/
 
 interface UsePageSeoOptions {

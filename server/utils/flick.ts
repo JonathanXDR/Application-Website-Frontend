@@ -6,12 +6,8 @@ import type { QueryObject } from 'ufo'
 // origin only exists in Flick's prose documentation.
 export const FLICK_BASE_URL = 'https://flickmovies.com/api/beta'
 
-// Every route reads the same single account, so caching keeps the key's
-// 60/minute and 5,000/day budget away from visitor traffic.
 export const FLICK_CACHE_MAX_AGE = 60 * 15
 
-// The API is a beta with no published availability target, so a stalled
-// connection must not park an SSR render or a prerender pass.
 const FLICK_REQUEST_TIMEOUT_MS = 5_000
 
 // Flick validates `limit` upstream (1-100, default 50). `page` has no
@@ -117,10 +113,6 @@ function clampFlickInteger(
   return Math.min(Math.max(Math.trunc(parsed), min), max)
 }
 
-/**
- * Exported so a route can raise the same 400 for a cross-field rule the
- * normalizers cannot see, such as `tmdb_id` needing `media_type`.
- */
 export function invalidFlickParam(): never {
   throw createError({
     status: 400,

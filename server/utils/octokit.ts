@@ -4,8 +4,6 @@ import type { H3Event } from 'h3'
 
 export const GITHUB_API_VERSION = '2026-03-10'
 
-// Repository metadata changes rarely, and caching keeps the PAT's request
-// quota away from visitor traffic.
 export const GITHUB_CACHE_MAX_AGE = 60 * 15
 
 // Octokit's fetch has no default timeout, so a stalled connection would park
@@ -15,14 +13,11 @@ const GITHUB_REQUEST_TIMEOUT_MS = 10_000
 let octokit: Octokit | undefined
 
 export function useOctokit() {
-  // The token never changes at runtime, and one client keeps connection
-  // pooling across requests.
+  // The token never changes at runtime, so the client is built once
   if (!octokit) {
     const { githubToken } = useRuntimeConfig()
     octokit = new Octokit({
       auth: githubToken,
-      // GitHub feeds the User-Agent into its abuse-detection heuristics and
-      // asks that the app stay identifiable.
       userAgent: 'jonathan-russ-website',
       headers: {
         'X-GitHub-Api-Version': GITHUB_API_VERSION,

@@ -87,14 +87,13 @@ const remapProperties = (item: Repository) => {
   }
 }
 
-// The `perPage` query param is camelCase here, unlike the snake_case REST
-// routes, to mirror the GraphQL `$perPage` above.
 const PER_PAGE = 30
 
 export default defineCachedEventHandler(
   async (event) => {
     const octokit = useOctokit()
     const { owner } = useGitHubRepoCoordinates()
+    // The query param here is `perPage`, not the `per_page` REST routes take
     const perPage = clampPerPage(getQuery(event).perPage, PER_PAGE)
 
     let response: PinnedRepositoriesResponse

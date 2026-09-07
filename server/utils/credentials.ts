@@ -1,6 +1,6 @@
 /**
- * A 404 rather than a proxied upstream auth error keeps an absent secret from
- * flipping an endpoint from inert to live but broken.
+ * Answers 404 so an unset secret leaves the endpoint inert rather than live
+ * but broken.
  */
 export function requireCredential(
   value: string | undefined,

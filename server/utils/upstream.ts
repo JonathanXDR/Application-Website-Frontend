@@ -1,11 +1,9 @@
 /**
- * A 404 is a genuine not-found and a 400/422 is a request the caller can
- * correct, so both pass through. Auth, rate-limit, and 5xx statuses reflect
- * our own credential or quota state with the upstream rather than the
- * caller's request, so forwarding them would wrongly tell a valid caller they
- * were unauthorized. They collapse to gateway errors instead. `statusText`
- * reaches the client, so callers pass a fixed string and log the upstream
- * detail themselves.
+ * Auth, rate-limit, and 5xx statuses reflect our own credential or quota state
+ * with the upstream rather than the caller's request, so forwarding them would
+ * wrongly tell a valid caller they were unauthorized. They collapse to gateway
+ * errors instead. `statusText` reaches the client, so callers pass a fixed
+ * string and log the upstream detail themselves.
  */
 export function mapUpstreamStatus(status: number, statusText: string) {
   if (status === 404) return { status: 404, statusText }

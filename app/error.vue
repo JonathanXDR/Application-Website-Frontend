@@ -29,7 +29,6 @@ const descriptionLines = computed(() => {
   )
 })
 
-// A crawler can still receive an error page with a 200 SSR response
 useSeoMeta({
   title: () =>
     currentPage.value.title?.replace(

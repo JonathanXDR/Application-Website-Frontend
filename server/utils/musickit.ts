@@ -4,11 +4,11 @@ import type { QueryObject } from 'ufo'
 
 export const APPLE_MUSIC_BASE_URL = 'https://api.music.apple.com/v1'
 
-// Caching keeps the developer token's request quota away from visitor
-// traffic. Library endpoints are per user and stay uncached.
+// Library endpoints are per user and stay uncached
 export const MUSICKIT_CACHE_MAX_AGE = 60 * 15
 
-// A stalled upstream must not hang an SSR render or a prerender pass
+// Bounds the response headers only. ofetch clears its timer once `fetch()`
+// resolves, so a slow body read runs uncovered.
 const MUSICKIT_REQUEST_TIMEOUT_MS = 5_000
 
 // Apple caps the ids per multi-resource catalog endpoint: albums and stations
@@ -17,6 +17,8 @@ const MAX_CATALOG_IDS = 100
 
 // The charset allowlist and the id cap keep the catalog endpoints from
 // becoming a generic Apple Music proxy on the developer token's quota.
+// Offending ids are dropped rather than rejected, so `undefined` means none
+// survived.
 export function parseCatalogIds(
   value: unknown,
   maxIds = MAX_CATALOG_IDS,

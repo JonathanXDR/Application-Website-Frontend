@@ -1,4 +1,4 @@
-// Always the key owner: Flick has no OAuth and no cross-account reads
+// The key owner's own profile, from `/me`
 export interface FlickProfile {
   id: string
   username: string
@@ -9,7 +9,6 @@ export interface FlickProfile {
 }
 
 export interface FlickFollowedUser {
-  /** Exactly the value the write endpoints accept for `watched_with`. */
   user_id: string
   username: string
   display_name: string | null

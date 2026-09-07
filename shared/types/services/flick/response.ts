@@ -1,8 +1,7 @@
 // Which envelope an endpoint uses is fixed. `/me/following`, `/me/reviews`,
 // `/me/watchlist`, and `/me/lists/{list_id}/items` accept `page` and `limit`
 // and answer with the counters below. `/me/tags`, `/me/lists`, and
-// `/me/watching` accept neither and answer with `data` alone, despite the
-// documentation's blanket claim that list endpoints paginate.
+// `/me/watching` accept neither and answer with `data` alone.
 export interface FlickCollection<T> {
   data: T[]
 }
@@ -24,7 +23,7 @@ export type FlickPageQuery = {
   limit: number
 }
 
-// Match on `code`, never on `message`, per Flick's own guidance
+// Match on `code`, never on `message`
 export type FlickErrorCode
   = | 'invalid_request'
     | 'invalid_api_key'
@@ -45,14 +44,6 @@ export interface FlickErrorBody {
   }
 }
 
-// FastAPI's own error shape, returned when a request never reaches Flick's
-// beta router (observed on `GET /api/beta` with no trailing slash). Every
-// path this client builds begins with a slash, so it exists only for graceful
-// degradation if a future path escapes the router.
-//
-// Deliberately not the validation shape: Flick wraps validation failures in
-// the envelope above and answers 400 `invalid_request`, never a FastAPI 422
-// with a `detail` array, despite the spec declaring one.
 export interface FlickAppErrorBody {
   detail: string
 }

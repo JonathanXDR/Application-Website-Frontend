@@ -22,8 +22,6 @@ export const useNavbar = () => {
     navItems.value.find(item => isCurrentRoute(item.route)),
   )
 
-  // schema-org does not translate breadcrumb labels, so `BreadcrumbList`
-  // would otherwise emit a hardcoded English "Home" on every locale.
   const homeLabel = computed<string>(
     () => navItems.value.find(item => item.id === 'overview')?.label ?? '',
   )

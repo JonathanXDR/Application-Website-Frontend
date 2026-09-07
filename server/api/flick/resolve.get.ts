@@ -1,8 +1,5 @@
 import type { H3Event } from 'h3'
 
-// The only Flick endpoint with free-form input, so the only one that can
-// spend the owner's quota on arbitrary lookups. The `/api/**` rate limiter in
-// `nuxt.config.ts`, the title length cap below, and the SWR cache bound that.
 const RESOLVABLE_MEDIA_TYPES = [
   'movie',
   'tv',
@@ -13,6 +10,9 @@ const MAX_TITLE_LENGTH = 200
 const MIN_YEAR = 1870
 const MAX_YEAR = 2100
 
+// `title` is free-form text, so the title length cap, the `/api/**` rate
+// limiter in `nuxt.config.ts` and the SWR cache are what bound the owner's
+// quota.
 function getResolveQuery(event: H3Event) {
   const query = getQuery(event)
   return {

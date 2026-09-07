@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Motion } from 'motion-v'
 
+// `duration` and `speed` are seconds, `speed` being the tick interval
 const props = withDefaults(
   defineProps<{
     text: string

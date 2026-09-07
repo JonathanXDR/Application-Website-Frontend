@@ -16,10 +16,7 @@ export interface FlickList {
 // meaning at all.
 export interface FlickListItem {
   media: FlickMedia
-  /**
-   * Sparse ordering key, never a position: appends leave gaps of 10000 and a
-   * move to the front sets 0. Render the array index for a position.
-   */
+  /** Sparse ordering key, not a position. */
   rank: number
   notes: string
   added_at: string

@@ -5,9 +5,7 @@ import { createHash } from 'node:crypto'
  * return through `escapeKey`, which is `String(key).replace(/\W/g, '')`, so
  * 'the beatles' and 'thebeatles' would otherwise collapse to one key and
  * serve each other's cached response. The key also becomes a filename under
- * Nitro's filesystem cache driver, which caps a name at 255 bytes and then
- * silently stops caching: a 130-character `/api/flick/resolve` title produced
- * a ~277-character key that was never served from cache.
+ * Nitro's filesystem cache driver, so an overlong key fails every write.
  */
 export function cacheKey(...parts: Array<string | number>): string {
   return parts

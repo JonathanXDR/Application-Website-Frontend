@@ -104,6 +104,7 @@ export const ItemSchema = z.object({
   icon: IconSchema.optional(),
 }) satisfies z.ZodType<ItemType>
 
+// `progress` is the total counted up to, not a percentage
 export const FunFactSchema = z.object({
   progress: z.number(),
   description: z.string(),
@@ -112,6 +113,7 @@ export const FunFactSchema = z.object({
 export const LanguageSchema = z.object({
   title: z.string(),
   eyebrow: z.string().optional(),
+  // `progress` is a percentage, 0 to 100
   progress: z.number(),
   divider: z
     .object({ direction: z.enum(['left', 'right', 'center']) })
@@ -119,6 +121,7 @@ export const LanguageSchema = z.object({
   links: z.array(LinkSchema).optional(),
 }) satisfies z.ZodType<LanguageType>
 
+// `description` may carry an `{age}` placeholder, computed from `birthDate`
 export const AboutSchema = z.object({
   eyebrow: z.string().optional(),
   title: z.string(),
@@ -133,10 +136,13 @@ export const ErrorPageSchema = z.object({
   // The generic fallback page matches any status and declares none
   status: z.number().optional(),
   icon: IconSchema.optional(),
+  // `title` may carry a `{status}` placeholder
   title: z.string(),
   description: z.string(),
 }) satisfies z.ZodType<ErrorPageType>
 
+// `pages` is keyed by the route path with the locale prefix and surrounding
+// slashes stripped, so `/de/projects/` becomes `projects`.
 export const SiteConfigSchema = z.object({
   description: z.string(),
   pages: z
@@ -163,6 +169,8 @@ export const SegmentNavSchema = z.object({
   technologies: z.array(ItemSchema),
 })
 
+// `description` and `links[].url` may carry `{latestTag}` and
+// `{previousTag}`. An item with an unresolved placeholder is dropped.
 export const InfoBannerSchema = z.object({
   items: z.array(
     z.object({

@@ -8,7 +8,7 @@ export type FlickResolveConfidence = 'high' | 'medium' | 'low'
 export interface FlickResolveCandidate
   extends Pick<FlickMedia, 'tmdb_id' | 'title' | 'year' | 'poster_url'> {
   media_type: FlickResolvableMediaType
-  /** 0-1. Pair with `confidence` rather than thresholding it directly. */
+  /** 0-1. */
   score: number
   confidence: FlickResolveConfidence
 }
@@ -23,6 +23,5 @@ export interface FlickResolveQuery {
 export interface FlickResolveResult {
   query: FlickResolveQuery
   match: FlickResolveCandidate | null
-  /** Up to five ranked alternatives, including `match`. */
   candidates: FlickResolveCandidate[]
 }

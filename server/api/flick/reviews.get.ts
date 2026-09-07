@@ -1,7 +1,5 @@
 import type { H3Event } from 'h3'
 
-// Filters combine with AND upstream
-
 // `satisfies` does not check coverage, so a media type or sort added to
 // `shared/types/services/flick` still compiles here and silently stops being
 // an accepted filter.
@@ -26,8 +24,9 @@ const MAX_TMDB_ID_LENGTH = 32
 const MIN_RATING = 0
 const MAX_RATING = 10
 
-// An absent param stays `undefined`: ofetch drops an `undefined` param but
-// serializes `null` and `''` as a bare key, which Flick rejects.
+// Filters combine with AND upstream. An absent param stays `undefined`:
+// ofetch drops an `undefined` param but serializes `null` and `''` as a bare
+// key, which Flick rejects.
 function getReviewsQuery(event: H3Event) {
   const query = getQuery(event)
   const mediaType = flickEnum(query.media_type, MEDIA_TYPES)

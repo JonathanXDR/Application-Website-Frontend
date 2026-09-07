@@ -35,12 +35,9 @@ const updateHeight = () => {
 // Tab 0 is the Swisscom timeline, served from `@nuxt/content`
 const needsRepositories = computed(() => currentIndex.value !== 0)
 
-// `enabled` (Nuxt 4.5) keeps these out of the prerendered payload, saving
-// ~30 KB per locale document and keeping `updated_at` live rather than frozen
-// at build time. `lazy` keeps Suspense from holding a soft navigation on the
-// GitHub round trip. `immediate` is deliberately unset: the initial fetch runs
-// at `onBeforeMount`, after the watcher below sets `currentIndex`, so forcing
-// it would start a request that the `onBeforeMount` pass aborts and reissues.
+// `enabled` keeps these out of the prerendered payload, so `updated_at` stays
+// live rather than frozen at build time. `lazy` keeps Suspense from holding a
+// soft navigation on the GitHub round trip.
 const {
   data: userRepositories,
   status: userRepositoriesStatus,

@@ -5,19 +5,14 @@ export type FlickWatchingShow = Pick<
   'tmdb_id' | 'type' | 'title' | 'poster_url'
 >
 
-// The abbreviated keys are Flick's own. The live API emits `{ "e": null,
-// "s": null, "kind": null, "created_at": null }` for a show with no activity
-// since its last reset, rather than omitting the object, so an
-// `if (most_recent_review)` guard passes and then reads four nulls.
+// A show with no activity since its last reset comes back as
+// `{ "e": null, "s": null, "kind": null, "created_at": null }` rather than
+// omitted, so an `if (most_recent_review)` guard passes and reads four nulls.
 export interface FlickWatchingRecentReview {
   /** Season number. */
   s: number | null
   /** Episode number. */
   e: number | null
-  /**
-   * Neither value is enumerated in the spec, so the open arm accepts a third
-   * one this beta API may add.
-   */
   kind: 'episode' | 'season' | (string & {}) | null
   created_at: string | null
 }

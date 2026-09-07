@@ -29,7 +29,7 @@ export type FlickWatchContextDevice
 // A sparse facet bag: `source` is the top-level context and the rest are
 // sub-facets beneath one of them, but Flick does not enforce the
 // combinations, so a discriminated union would reject payloads the API itself
-// accepts. The free-text facets are capped at 200 characters upstream.
+// accepts.
 export interface FlickWatchContext {
   source?: FlickWatchContextSource | null
   cinema_type?: FlickWatchContextCinemaType | null
@@ -50,9 +50,6 @@ export interface FlickWatchContext {
 // meaningful on `tv` and `tv_season` reviews. `seasons` maps a season number,
 // as a string key where `'0'` is Specials, to the covered episode numbers.
 // An absent season is not covered, and an empty map covers nothing.
-//
-// Undocumented in Flick's reference, but present on every review row the live
-// API returns and defined in the spec's write schemas.
 export interface FlickCoverageScope {
   v: number
   seasons: Record<string, number[]>
@@ -63,7 +60,7 @@ export interface FlickCoverageScope {
 export interface FlickReview {
   id: string
   media: FlickMedia
-  /** 0-10 with decimals (`9.2`), not a five-star integer. Null when unrated. */
+  /** 0-10 with decimals (`9.2`), not a five-star integer. */
   rating: number | null
   review: string | null
   watched_date: string

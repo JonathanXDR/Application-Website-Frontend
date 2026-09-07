@@ -12,8 +12,8 @@ export default defineCachedEventHandler(
         per_page: perPage,
         page,
       })
-      // The full REST repo object is large, and at up to 100 repos it landed
-      // verbatim in every prerendered projects payload, once per locale.
+      // The full REST repo object would otherwise land in every prerendered
+      // projects payload, once per locale.
       return data.map((repo): MinimalRepositoryCard => ({
         name: repo.name,
         description: repo.description,

@@ -2,8 +2,7 @@ import type { H3Event } from 'h3'
 
 // The list id is a query param rather than a route segment to keep every
 // route a flat file with a uniform `cacheKey` composition. Leaving it
-// client-supplied is safe: every list it reaches belongs to the key owner and
-// is already enumerated by `/api/flick/lists`.
+// client-supplied is safe: every list it reaches belongs to the key owner.
 function getListItemsQuery(event: H3Event) {
   return {
     listId: requireFlickParam(flickPathId(getQuery(event).list_id)),
