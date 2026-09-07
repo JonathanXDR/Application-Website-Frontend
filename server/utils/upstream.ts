@@ -1,6 +1,7 @@
-// Translates an upstream HTTP status into a client-facing one for the GitHub
-// and Apple Music proxy routes. A 404 is a genuine not-found and a 400/422 is a
-// request the caller can correct, so both pass through unchanged. Auth,
+// Translates an upstream HTTP status into a client-facing one for the
+// upstream proxy routes (GitHub, Apple Music and Flick). A 404 is a genuine
+// not-found and a 400/422 is a request the caller can correct, so both pass
+// through unchanged. Auth,
 // rate-limit, and 5xx statuses instead reflect *our* credential or quota state
 // with the upstream, not the anonymous caller's request, so forwarding them
 // verbatim would wrongly tell a valid caller they were unauthorized, forbidden,

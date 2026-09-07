@@ -180,7 +180,11 @@ export default defineNuxtConfig({
   // is rootDir, where `shared/` lives, not the `app/` srcDir a bare entry assumes.
   // https://nuxt.com/docs/4.x/directory-structure/shared#how-files-are-scanned
   imports: {
-    dirs: ['~~/shared/types/components', '~~/shared/types/services/github'],
+    dirs: [
+      '~~/shared/types/components',
+      '~~/shared/types/services/github',
+      '~~/shared/types/services/flick',
+    ],
   },
   devtools: {
     enabled: true,
@@ -271,6 +275,7 @@ export default defineNuxtConfig({
     appleDeveloperKeyId: '',
     appleDeveloperTeamId: '',
     appleMusicUserToken: '',
+    flickApiKey: '',
   },
   // `app/assets/img/**` holds source images such as the original portrait
   // jpg. They stay in the repository for future editing but are never
@@ -410,6 +415,9 @@ export default defineNuxtConfig({
       dirs: [
         fileURLToPath(
           new URL('./shared/types/services/github', import.meta.url),
+        ),
+        fileURLToPath(
+          new URL('./shared/types/services/flick', import.meta.url),
         ),
       ],
     },
