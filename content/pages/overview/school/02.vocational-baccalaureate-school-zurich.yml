@@ -1,8 +1,8 @@
 icon:
   name: "sf-symbols:graduationcap.fill"
-eyebrow: "Schule"
+eyebrow: "Ehemalige Schule"
 title: "Berufsmaturitätsschule Zürich"
-description: "Freitags besuche ich die Berufsmaturitätsschule in Zürich."
+description: "Freitags besuchte ich die Berufsmaturitätsschule in Zürich."
 links:
   - title: "Mehr erfahren"
     url: "https://bms-zuerich.ch"
@@ -15,25 +15,25 @@ info:
 
 i18n:
   en:
-    eyebrow: "School"
+    eyebrow: "Former School"
     title: "Berufsmaturitätsschule Zürich"
-    description: "I attend the vocational baccalaureate school in Zurich on Fridays."
+    description: "I attended the vocational baccalaureate school in Zurich on Fridays."
     links:
       - title: "Learn more"
     info:
       location: "Zurich"
   fr:
-    eyebrow: "École"
+    eyebrow: "Ancienne école"
     title: "Berufsmaturitätsschule Zürich"
-    description: "Le vendredi, je vais à l'école de maturité professionnelle de Zurich."
+    description: "Le vendredi, j'allais à l'école de maturité professionnelle de Zurich."
     links:
       - title: "En savoir plus"
     info:
       location: "Zurich"
   it:
-    eyebrow: "Scuola"
+    eyebrow: "Ex scuola"
     title: "Berufsmaturitätsschule Zürich"
-    description: "Il venerdì frequento la scuola di maturità professionale di Zurigo."
+    description: "Il venerdì frequentavo la scuola di maturità professionale di Zurigo."
     links:
       - title: "Per saperne di più"
     info:

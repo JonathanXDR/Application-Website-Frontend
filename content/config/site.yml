@@ -1,7 +1,6 @@
 description: >-
-  Entdecke meinen Weg als Softwareentwickler, mit Projekten, Fähigkeiten und
-  meiner Leidenschaft für effiziente, benutzerorientierte Lösungen in der
-  Webentwicklung.
+  Entdecke meinen Weg in der Webentwicklung, von der Lehre bei Swisscom bis zu
+  den Projekten und Technologien, mit denen ich heute arbeite.
 
 pages:
   technologies:
@@ -20,8 +19,8 @@ pages:
 i18n:
   en:
     description: >-
-      Explore my journey as a Software Engineer, with my projects, my skills,
-      and my passion for efficient, user-centered solutions in web development.
+      Explore my journey in web development, from my apprenticeship at
+      Swisscom to the projects and technologies I work with today.
     pages:
       technologies:
         description: >-
@@ -37,9 +36,9 @@ i18n:
           whatever inspires me musically.
   fr:
     description: >-
-      Découvre mon parcours d'ingénieur logiciel, avec mes projets, mes
-      compétences et ma passion pour des solutions efficaces et centrées
-      sur l'utilisateur dans le développement web.
+      Découvre mon parcours dans le développement web, de mon apprentissage
+      chez Swisscom aux projets et technologies avec lesquels je travaille
+      aujourd'hui.
     pages:
       technologies:
         description: >-
@@ -55,9 +54,8 @@ i18n:
           playlists et ce qui m'inspire musicalement.
   it:
     description: >-
-      Esplora il mio percorso come ingegnere software, tra progetti, competenze
-      e la passione per soluzioni efficienti e centrate sull'utente nello
-      sviluppo web.
+      Esplora il mio percorso nello sviluppo web, dall'apprendistato presso
+      Swisscom ai progetti e alle tecnologie con cui lavoro oggi.
     pages:
       technologies:
         description: >-

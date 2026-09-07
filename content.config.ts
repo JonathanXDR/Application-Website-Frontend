@@ -27,7 +27,7 @@ export const ColorSchema = z.object({
 
 // Content icon. `name` is an Iconify id (sf-symbols, simple-icons, fa7).
 // `background` and color values accept hex, CSS vars, or the literal
-// 'none', so they stay plain strings.
+// `'none'`, so they stay plain strings.
 export const IconSchema = z.object({
   name: z.string(),
   background: z.string().optional(),

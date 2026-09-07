@@ -26,7 +26,7 @@ i18n:
     description: >-
       My apprenticeship began with the First Steps program. There I learned
       everything about Swisscom, for example how to use the various tools, how
-      to work well together and what else matters, such as work safety.
+      to work well together, and what else matters, such as work safety.
   fr:
     eyebrow: "Introduction"
     description: >-
@@ -39,5 +39,5 @@ i18n:
     description: >-
       Il mio apprendistato è iniziato con il programma First Steps. Lì ho
       imparato tutto su Swisscom, ad esempio come utilizzare i vari strumenti,
-      come collaborare bene e che cos'altro è importante, ad esempio la
-      sicurezza sul lavoro.
+      come collaborare bene e che cos'altro è importante, come la sicurezza
+      sul lavoro.

@@ -1,13 +1,13 @@
-title: "{count} Ergebnisse angezeigt"
+title: "Angezeigte Ergebnisse: {count}"
 description: "Angepinnt"
 
 i18n:
   en:
-    title: "Showing {count} results"
+    title: "Results shown: {count}"
     description: "Pinned"
   fr:
-    title: "Affichage de {count} résultats"
+    title: "Résultats affichés : {count}"
     description: "Épinglé"
   it:
-    title: "Visualizzati {count} risultati"
+    title: "Risultati visualizzati: {count}"
     description: "Fissato"

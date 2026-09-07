@@ -1,9 +1,9 @@
 // Flick returns list data in one of two envelopes, and which one an endpoint
 // uses is not negotiable per request. `/me/following`, `/me/reviews`,
-// `/me/watchlist` and `/me/lists/{list_id}/items` accept `page` and `limit`
-// and answer with the counters below. `/me/tags`, `/me/lists` and
+// `/me/watchlist`, and `/me/lists/{list_id}/items` accept `page` and `limit`
+// and answer with the counters below. `/me/tags`, `/me/lists`, and
 // `/me/watching` accept neither and answer with `data` alone, despite the
-// documentation's blanket claim that list endpoints paginate. Modelling them
+// documentation's blanket claim that list endpoints paginate. Modeling them
 // as two types stops a caller from reading `has_more` off a response that
 // never carries it and silently treating `undefined` as "no more pages".
 export interface FlickCollection<T> {

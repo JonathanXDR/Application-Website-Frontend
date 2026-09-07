@@ -42,7 +42,7 @@ const sections = computed<SectionType[]>(() => navbarData.value?.items ?? [])
         v-for="(child, index) in section.children"
         :key="child.id"
       >
-        <!-- `label` is optional on `SectionType` but every section component
+        <!-- `label` is optional on `SectionType`, but every section component
              requires a `title`, so an entry without a label is skipped
              rather than mounted with an empty heading. -->
         <section

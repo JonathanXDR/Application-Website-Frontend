@@ -77,9 +77,9 @@ const {
 })
 
 // Nuxt's own `enabled` watcher only handles the true -> false direction, where
-// it aborts an in-flight request and resets the status to 'idle'. Re-enabling
+// it aborts an in-flight request and resets the status to `'idle'`. Re-enabling
 // never refetches on its own, so the switch back has to execute explicitly.
-// 'error' is included so that returning to a failed tab retries instead of
+// `'error'` is included so that returning to a failed tab retries instead of
 // leaving it permanently broken.
 watch(needsRepositories, (needed) => {
   if (!needed) return
@@ -309,8 +309,8 @@ watchEffect(() => {
       class="w-full"
     >
       <!-- Three states rather than two. With `enabled` the fetch starts at
-           'idle', so a bare `!== 'pending'` check would flash an empty grid
-           before the request begins. 'error' gets its own branch: routing
+           `'idle'`, so a bare `!== 'pending'` check would flash an empty grid
+           before the request begins. `'error'` gets its own branch: routing
            it to `ResultBlankState` would report an outage as "no results",
            which is indistinguishable from a genuinely empty category. -->
       <div v-if="userRepositoriesStatus === 'success'">

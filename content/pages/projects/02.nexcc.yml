@@ -4,7 +4,7 @@ eyebrow: "Full-Stack"
 title: "Competence Center NexCC"
 description: >-
   Im NexCC durfte ich zuerst diese Webseite hier erstellen und habe dabei
-  viele neue Programmiersprachen gelernt, darunter HTML, CSS und JavaScript.
+  viele neue Webtechnologien gelernt, darunter HTML, CSS und JavaScript.
   Danach habe ich eine CRUD-App gebaut und sie mit einer SQL-Datenbank
   verbunden. Später kam noch ein Frontend dazu, womit ich ein eigenes
   Login-System erstellt habe. Dabei habe ich vor allem das Backend
@@ -49,25 +49,24 @@ i18n:
   en:
     description: >-
       At NexCC, I first got to build this very website and learned many new
-      programming languages, including HTML, CSS, and JavaScript. Then I built
+      web technologies, including HTML, CSS, and JavaScript. Then I built
       a CRUD app and connected it to a SQL database. Later I added a frontend
       and created my own login system. Along the way I mainly got to know the
       backend and worked with frameworks like Express.js and Vue.js for the
       first time.
   fr:
     description: >-
-      Au NexCC, j'ai d'abord pu créer ce site web et j'ai appris de nombreux
-      nouveaux langages de programmation, dont HTML, CSS et JavaScript.
-      Ensuite, j'ai créé une application CRUD que j'ai reliée à une base de
-      données SQL. Plus tard, j'y ai ajouté un frontend et créé mon propre
-      système de connexion. J'ai ainsi surtout découvert le backend et
-      travaillé pour la première fois avec des frameworks comme Express.js et
-      Vue.js.
+      Au NexCC, j'ai d'abord pu créer ce site web et j'ai appris de nombreuses
+      nouvelles technologies web, dont HTML, CSS et JavaScript. Ensuite, j'ai
+      créé une application CRUD que j'ai reliée à une base de données SQL. Plus
+      tard, j'y ai ajouté un frontend et créé mon propre système de connexion.
+      J'ai ainsi surtout découvert le backend et travaillé pour la première
+      fois avec des frameworks comme Express.js et Vue.js.
   it:
     description: >-
       Al NexCC ho potuto creare per prima cosa questo sito web e ho imparato
-      molti nuovi linguaggi di programmazione, tra cui HTML, CSS e JavaScript.
-      Poi ho creato un'app CRUD e l'ho collegata a un database SQL. In seguito
-      ho aggiunto anche un frontend e realizzato un mio sistema di login. Così
-      ho conosciuto soprattutto il backend e ho lavorato per la prima volta con
+      molte nuove tecnologie web, tra cui HTML, CSS e JavaScript. Poi ho creato
+      un'applicazione CRUD e l'ho collegata a un database SQL. In seguito ho
+      aggiunto anche un frontend e realizzato un mio sistema di login. Così ho
+      conosciuto soprattutto il backend e ho lavorato per la prima volta con
       framework come Express.js e Vue.js.

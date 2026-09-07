@@ -65,8 +65,8 @@ export default {
   //     not count that hop as a new navigation, so Lighthouse folds its time
   //     into FCP and LCP and flags it under "Avoid multiple page redirects".
   //     The header exists for tools like Playwright and Cypress, which lose
-  //     custom headers on in-browser link clicks. Puppeteer keeps them, so it
-  //     is unnecessary here.
+  //     custom headers on in-browser link clicks. Puppeteer keeps them, so
+  //     `x-vercel-set-bypass-cookie` is unnecessary here.
   //   * `defaultQueryParams` appends the secret to every audited URL, changing
   //     both the URLs shown in the report and the canonical and SEO audits.
   //

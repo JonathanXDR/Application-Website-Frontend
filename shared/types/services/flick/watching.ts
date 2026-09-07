@@ -9,7 +9,7 @@ export type FlickWatchingShow = Pick<
 >
 
 // Pointer at the most recent episode or season row logged for the show. The
-// abbreviated keys are Flick's own; `s` is the season number and `e` the
+// abbreviated keys are Flick's own: `s` is the season number and `e` the
 // episode number.
 //
 // Every field is nullable, and the object itself is not. The live API emits
@@ -18,7 +18,7 @@ export type FlickWatchingShow = Pick<
 // sending `null` in its place, so an `if (most_recent_review)` guard passes
 // and then reads four nulls. `kind` is `'episode'` in the one documented
 // populated example and `season_count` on the parent row implies `'season'`
-// exists; neither is enumerated in the spec, so the open arm accepts a third
+// exists. Neither is enumerated in the spec, so the open arm accepts a third
 // value this beta API may add.
 export interface FlickWatchingRecentReview {
   s: number | null

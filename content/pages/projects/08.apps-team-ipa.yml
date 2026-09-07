@@ -8,9 +8,9 @@ description: >-
   sammeln konnte und mich das Team sowie dessen Zusammenhalt wirklich
   begeistert haben. Von Anfang an durfte ich an produktiven Projekten
   mitarbeiten, zum Beispiel am Trade Compliance Tool oder den Enterprise
-  Connect Demos. Bei beiden Tools arbeiten wir hauptsächlich mit Next.js und
-  Nest.js, inklusive Prisma als ORM. Im Rahmen meiner IPA habe ich ebenfalls
-  an der Trade Compliance Applikation gearbeitet und ein FAQ-Feature
+  Connect Demos. Bei beiden Tools haben wir hauptsächlich mit Next.js und
+  Nest.js gearbeitet, inklusive Prisma als ORM. Im Rahmen meiner IPA habe ich
+  ebenfalls an der Trade-Compliance-Applikation gearbeitet und ein FAQ-Feature
   umgesetzt, mit einem eigenen FAQ-Bereich und einer Admin-Oberfläche zum
   Verwalten der Einträge.
 badges:
@@ -28,11 +28,11 @@ badges:
     icon:
       name: "simple-icons:prisma"
 links:
-  - title: "Apps Team"
+  - title: "Mehr über das Apps Team erfahren"
     url: "https://appsteam.swisscom.com"
     icon:
       name: "sf-symbols:chevron.right"
-  - title: "Indigo online"
+  - title: "Mehr über Indigo online erfahren"
     url: "https://indigo.online"
     icon:
       name: "sf-symbols:chevron.right"
@@ -48,12 +48,12 @@ info:
 i18n:
   en:
     description: >-
-      For my IPA (Individual Practical Project), I chose to go back to the
-      Apps Team, because I had already gained a lot of experience there and
-      the team and how well everyone sticks together really inspired me. From the
-      very beginning, I got to work on productive projects such as the Trade
-      Compliance Tool and the Enterprise Connect Demos. For both tools we
-      mainly work with Next.js and Nest.js, including Prisma as the ORM. As
+      For my IPA (Individual Practical Project), I chose to go back to the Apps
+      Team, because I had already gained a lot of experience there and because
+      the team and the way everyone sticks together really inspired me. From
+      the very beginning, I got to work on productive projects such as the
+      Trade Compliance Tool and the Enterprise Connect Demos. For both tools we
+      mainly worked with Next.js and Nest.js, including Prisma as the ORM. As
       part of my IPA, I also worked on the Trade Compliance application and
       implemented an FAQ feature, with a dedicated FAQ section and an admin
       interface for managing the entries.
@@ -66,11 +66,11 @@ i18n:
           to: "2025-08-01"
   fr:
     description: >-
-      Pour mon IPA (Travail Pratique Individuel), j'ai de nouveau choisi
-      l'Apps Team, car j'y avais déjà accumulé beaucoup d'expérience et que
-      l'équipe ainsi que sa cohésion m'ont vraiment enthousiasmé. Dès le début, j'ai pu
-      participer à des projets productifs, dont le Trade Compliance Tool et
-      les Enterprise Connect Demos. Pour ces deux outils, nous travaillons
+      Pour mon IPA (travail pratique individuel), j'ai de nouveau choisi l'Apps
+      Team, car j'y avais déjà accumulé beaucoup d'expérience et que l'équipe
+      ainsi que sa cohésion m'ont vraiment enthousiasmé. Dès le début, j'ai pu
+      participer à des projets productifs, dont le Trade Compliance Tool et les
+      Enterprise Connect Demos. Pour ces deux outils, nous travaillions
       principalement avec Next.js et Nest.js, avec Prisma comme ORM. Dans le
       cadre de mon IPA, j'ai également travaillé sur l'application Trade
       Compliance et implémenté une fonctionnalité FAQ, avec une section FAQ
@@ -84,15 +84,15 @@ i18n:
           to: "2025-08-01"
   it:
     description: >-
-      Per il mio IPA (Lavoro Pratico Individuale) ho scelto di tornare
-      nell'Apps Team, perché lì avevo già raccolto molta esperienza e perché
-      il team e la sua coesione mi hanno davvero entusiasmato. Fin
-      dall'inizio ho potuto partecipare a progetti produttivi, tra cui il
-      Trade Compliance Tool e le Enterprise Connect Demos. Per entrambi gli
-      strumenti lavoriamo soprattutto con Next.js e Nest.js, con Prisma come
-      ORM. Nell'ambito del mio IPA ho anche lavorato sull'applicazione Trade
-      Compliance e implementato una funzionalità FAQ, con una sezione FAQ
-      dedicata e un'interfaccia di amministrazione per gestire le voci.
+      Per il mio IPA (lavoro pratico individuale) ho scelto di tornare
+      nell'Apps Team, perché lì avevo già raccolto molta esperienza e perché il
+      team e la sua coesione mi hanno davvero entusiasmato. Fin dall'inizio ho
+      potuto partecipare a progetti produttivi, tra cui il Trade Compliance
+      Tool e le Enterprise Connect Demos. Per entrambi gli strumenti lavoravamo
+      soprattutto con Next.js e Nest.js, con Prisma come ORM. Nell'ambito del
+      mio IPA ho anche lavorato sull'applicazione Trade Compliance e
+      implementato una funzionalità FAQ, con una sezione FAQ dedicata e
+      un'interfaccia di amministrazione per gestire le voci.
     links:
       - title: "Maggiori informazioni sull'Apps Team"
       - title: "Maggiori informazioni su Indigo online"

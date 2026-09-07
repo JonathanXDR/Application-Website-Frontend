@@ -8,7 +8,7 @@ icon:
 eyebrow: "Framework"
 title: "Angular"
 description: >-
-  Angular habe ich im Piz Tofana Team kennengelernt und dort auch damit
+  Angular habe ich im Team Piz Tofana kennengelernt und dort auch damit
   gearbeitet. Wir haben damit nämlich das Frontend von Daedalus entwickelt.
 badges:
   - title: "Frontend"
@@ -26,20 +26,20 @@ links:
 i18n:
   en:
     description: >-
-      I got to know Angular in the Piz Tofana Team and worked with it there.
+      I got to know Angular in the Piz Tofana team and worked with it there.
       We used it to build the Daedalus frontend.
     links:
       - title: "Learn more"
   fr:
     description: >-
-      J'ai découvert Angular dans le Piz Tofana Team, où je l'ai aussi
+      J'ai découvert Angular dans l'équipe Piz Tofana, où je l'ai aussi
       utilisé. Nous nous en sommes servis pour développer le frontend de
       Daedalus.
     links:
       - title: "En savoir plus"
   it:
     description: >-
-      Ho conosciuto Angular nel Piz Tofana Team, dove ci ho anche lavorato.
+      Ho conosciuto Angular nel team Piz Tofana, dove ci ho anche lavorato.
       Con Angular abbiamo sviluppato il frontend di Daedalus.
     links:
       - title: "Per saperne di più"

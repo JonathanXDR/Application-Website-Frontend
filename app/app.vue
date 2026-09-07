@@ -29,7 +29,7 @@ const { data: technologies } = await useQueryCollection<{ title: string }>(
 //   * `knowsAbout` is derived from the `technologies` collection.
 //   * Omitting `@id` and `url` lets schema-org auto-derive
 //     `@id = {host}#identity`, so this `Person` becomes the site's
-//     identity, WebSite publisher, and page author. That is the
+//     identity, `WebSite` publisher, and page author. That is the
 //     recommended pattern for single-identity portfolios.
 //
 // `defineWebSite()` is intentionally NOT called here. The schema-org

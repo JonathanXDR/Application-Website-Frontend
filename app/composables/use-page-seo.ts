@@ -76,7 +76,7 @@ export const usePageSeo = async (options: UsePageSeoOptions = {}) => {
         description: pageDescription.value,
       },
       {
-        alt: `${pageTitle.value} | ${pageDescription.value}`,
+        alt: `${pageTitle.value}. ${pageDescription.value}`,
       },
     )
 

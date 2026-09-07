@@ -20,7 +20,7 @@ const MUSICKIT_REQUEST_TIMEOUT_MS = 5_000
 const MAX_CATALOG_IDS = 100
 
 // Normalizes a client-supplied id list into a clean comma-separated string
-// of Apple catalog ids. Returns undefined when nothing valid was passed,
+// of Apple catalog ids. Returns `undefined` when nothing valid was passed,
 // so handlers never forward arbitrary query params to the upstream API.
 export function parseCatalogIds(
   value: unknown,
@@ -101,9 +101,10 @@ export function useMusicKit() {
       headers['Music-User-Token'] = musicUserToken
     }
 
-    // External call to the Apple Music API, so the caller-supplied T is the
-    // authoritative response type. Importing ofetch's $fetch directly keeps
-    // this off the Nitro internal-route typing that the global $fetch carries.
+    // External call to the Apple Music API, so the caller-supplied `T` is the
+    // authoritative response type. Importing ofetch's `$fetch` directly keeps
+    // this off the Nitro internal-route typing that the global `$fetch`
+    // carries.
     return $fetch<T>(`${APPLE_MUSIC_BASE_URL}${path}`, {
       headers,
       params: options?.params,
@@ -133,13 +134,13 @@ export function handleMusicKitError(error: unknown): never {
     const err = error as {
       status: number
       statusText?: string
-      // Apple returns structured errors at `data.errors[]` with code/title/
-      // detail. ofetch parses the body onto `err.data`.
+      // Apple returns structured errors at `data.errors[]` with
+      // code/title/detail. ofetch parses the body onto `err.data`.
       data?: { errors?: Array<{ detail?: string }> }
     }
     // Log the upstream status plus Apple's specific detail server side for
     // diagnosability, then map the status for the client the same way as
-    // handleGitHubError. The detail is never copied into the public response.
+    // `handleGitHubError`. The detail is never copied into the public response.
     console.error(
       '[musickit]',
       err.status,

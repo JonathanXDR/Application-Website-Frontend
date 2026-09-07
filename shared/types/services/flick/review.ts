@@ -66,7 +66,7 @@ export interface FlickCoverageScope {
 }
 
 // A Flick review is a unified watch-event record, not necessarily an opinion:
-// the same row type covers a rated review, a text-only review and a bare
+// the same row type covers a rated review, a text-only review, and a bare
 // watch log.
 export interface FlickReview {
   id: string
@@ -84,7 +84,8 @@ export interface FlickReview {
   coverage_scope: FlickCoverageScope | null
   source: FlickReviewSource
   // True only for a bare watch log: no rating, no text, no photos. A
-  // rating-only row is `false`, so this is not the inverse of `rating === null`.
+  // rating-only row is `false`, so this is not the inverse of
+  // `rating === null`.
   is_log: boolean
 }
 

@@ -2,7 +2,7 @@ import type { H3Event } from 'h3'
 
 // The owner's reviews. Every filter is optional and they combine with AND
 // upstream. A Flick review is a unified watch-event record rather than an
-// opinion: the same row covers a rated review, a text-only review and a bare
+// opinion: the same row covers a rated review, a text-only review, and a bare
 // watch log, which is what `rated` and `is_log` distinguish.
 
 // `as const` preserves the literals `flickEnum` infers from, and `satisfies`

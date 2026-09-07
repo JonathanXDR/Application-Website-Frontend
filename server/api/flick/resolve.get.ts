@@ -13,7 +13,7 @@ const RESOLVABLE_MEDIA_TYPES = [
   'tv',
 ] as const satisfies readonly FlickResolvableMediaType[]
 
-// Flick's documented bounds. Only movies and shows resolve here; a specific
+// Flick's documented bounds. Only movies and shows resolve here. A specific
 // season or episode is reached by resolving the show first.
 const MAX_TITLE_LENGTH = 200
 const MIN_YEAR = 1870

@@ -5,7 +5,7 @@ title: "Security & Compliance Services ART"
 description: >-
   In diesem Projekt habe ich mit ein paar Trainings zu Cloud, Security und
   DevOps begonnen, die ziemlich lehrreich für mich waren. Danach durfte ich
-  am DAM Log Scanner Projekt mitarbeiten, einem Tool, das
+  am DAM-Log-Scanner-Projekt mitarbeiten, einem Tool, das
   Datenbankaktivitäten aufzeichnet (Database Activity Monitoring) und nach
   bestimmten Richtlinien handelt. Diese wurden vor allem mit OPA (Open Policy
   Agent) umgesetzt, womit ich allerdings wenig zu tun hatte. Ich habe
@@ -42,8 +42,8 @@ info:
 i18n:
   en:
     description: >-
-      In this project, I started with a few training courses on Cloud,
-      Security, and DevOps, which taught me a lot. After that, I got to work
+      In this project, I started with a few training courses on cloud,
+      security, and DevOps, which taught me a lot. After that, I got to work
       on the DAM Log Scanner project, a tool that records database activities
       (Database Activity Monitoring) and acts according to certain guidelines.
       These were mainly implemented with OPA (Open Policy Agent), which I did
@@ -52,7 +52,7 @@ i18n:
       implementing Elasticsearch to visualize and analyze the data.
   fr:
     description: >-
-      Dans ce projet, j'ai commencé par quelques formations sur le Cloud, la
+      Dans ce projet, j'ai commencé par quelques formations sur le cloud, la
       sécurité et le DevOps, qui ont été très instructives. Ensuite, j'ai pu
       travailler sur le projet DAM Log Scanner, un outil qui enregistre les
       activités des bases de données (Database Activity Monitoring) et agit
@@ -63,8 +63,8 @@ i18n:
       à implémenter Elasticsearch pour visualiser et analyser les données.
   it:
     description: >-
-      In questo progetto ho iniziato con alcuni corsi di formazione su Cloud,
-      Sicurezza e DevOps, che sono stati molto istruttivi per me. Poi ho
+      In questo progetto ho iniziato con alcuni corsi di formazione su cloud,
+      sicurezza e DevOps, che sono stati molto istruttivi per me. Poi ho
       potuto lavorare al progetto DAM Log Scanner, uno strumento che registra
       le attività dei database (Database Activity Monitoring) e agisce secondo
       determinate linee guida. Queste sono state implementate soprattutto con

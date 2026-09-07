@@ -2,7 +2,7 @@ import type { Repository } from '@octokit/graphql-schema'
 
 // Typed shape of the GraphQL selection below. Without it the edges array
 // is `any`, and edges.map collapses the handler return type to `any`,
-// which previously propagated an implicit any into the projects page.
+// which previously propagated an implicit `any` into the projects page.
 interface PinnedRepositoriesResponse {
   // `user(login:)` is nullable in the schema, so the type admits null. A
   // deleted or renamed owner actually comes back as a top-level NOT_FOUND

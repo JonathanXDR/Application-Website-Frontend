@@ -3,15 +3,15 @@ icon:
 eyebrow: "Backend"
 title: "Apps Team"
 description: >-
-  Nachdem ich bereits im Apps Team als Frontend-Entwickler tätig war, wollte
-  ich nun auch das Backend besser kennenlernen. Zuerst durfte ich meine
+  Nachdem ich bereits im Apps Team als Frontend-Entwickler tätig gewesen war,
+  wollte ich nun auch das Backend besser kennenlernen. Zuerst durfte ich meine
   eigene CRUD-App erstellen. Dabei habe ich viel Neues über Nest.js und die
   beiden ORMs Prisma und TypeORM gelernt und wertvolle Erfahrungen gesammelt.
   Später habe ich für meine CRUD-App auch ein Frontend mit GitHub Primer
   erstellt. Danach habe ich beim Tool für Medienkurse mitgeholfen und konnte
   dort einige Features hinzufügen und Fehler beheben. Schliesslich durfte ich
-  auch beim Fleetmanagement Tool und den neuen Webfrontends mitwirken, was
-  mir sehr gefallen hat :)
+  auch beim Fleetmanagement Tool und den neuen Webfrontends mitwirken, was mir
+  sehr gefallen hat :)
 badges:
   - title: "Backend"
   - title: "CRUD"
@@ -41,11 +41,11 @@ badges:
     icon:
       name: "simple-icons:github"
 links:
-  - title: "Apps Team"
+  - title: "Mehr über das Apps Team erfahren"
     url: "https://appsteam.swisscom.com"
     icon:
       name: "sf-symbols:chevron.right"
-  - title: "Indigo online"
+  - title: "Mehr über Indigo online erfahren"
     url: "https://indigo.online"
     icon:
       name: "sf-symbols:chevron.right"
@@ -75,27 +75,28 @@ i18n:
   fr:
     description: >-
       Après avoir travaillé comme développeur frontend dans l'Apps Team, je
-      voulais aussi mieux connaître le backend. J'ai d'abord pu créer ma propre
-      application CRUD. J'ai beaucoup appris sur Nest.js et sur les deux ORM,
-      Prisma et TypeORM, et j'ai acquis une expérience précieuse. Plus tard,
-      j'ai aussi créé un frontend pour mon application CRUD avec GitHub Primer.
-      Ensuite, j'ai contribué à l'outil pour les cours médias, où j'ai ajouté
-      quelques fonctionnalités et corrigé des bugs. Enfin, j'ai aussi pu
-      participer au Fleetmanagement Tool et aux nouveaux frontends web, ce que
-      j'ai beaucoup apprécié :)
+      voulais aussi mieux connaître le backend. J'ai d'abord pu créer ma
+      propre application CRUD. J'ai beaucoup appris sur Nest.js et sur les
+      deux ORM, Prisma et TypeORM, et j'ai acquis une expérience précieuse.
+      Plus tard, j'ai aussi créé un frontend pour mon application CRUD avec
+      GitHub Primer. Ensuite, j'ai contribué à l'outil pour les cours sur les
+      médias, où j'ai ajouté quelques fonctionnalités et corrigé des bugs.
+      Enfin, j'ai aussi pu participer au Fleetmanagement Tool et aux nouveaux
+      frontends web, ce que j'ai beaucoup apprécié :)
     links:
       - title: "En savoir plus sur l'Apps Team"
       - title: "En savoir plus sur Indigo online"
   it:
     description: >-
       Dopo aver lavorato come sviluppatore frontend nell'Apps Team, volevo
-      conoscere meglio anche il backend. Prima ho potuto creare la mia app
-      CRUD. Ho imparato molto su Nest.js e sui due ORM, Prisma e TypeORM, e ho
-      acquisito esperienze preziose. Più tardi ho creato anche un frontend per
-      la mia app CRUD con GitHub Primer. Poi ho collaborato allo strumento
-      per i corsi sui media, dove ho potuto aggiungere alcune funzionalità e
-      correggere errori. Infine ho potuto collaborare al Fleetmanagement Tool
-      e ai nuovi frontend web, cosa che mi è piaciuta molto :)
+      conoscere meglio anche il backend. Prima ho potuto creare la mia
+      applicazione CRUD. Ho imparato molto su Nest.js e sui due ORM, Prisma e
+      TypeORM, e ho acquisito esperienze preziose. Più tardi ho creato anche un
+      frontend per la mia applicazione CRUD con GitHub Primer. Poi ho
+      collaborato allo strumento per i corsi sui media, dove ho potuto
+      aggiungere alcune funzionalità e correggere errori. Infine ho potuto
+      collaborare al Fleetmanagement Tool e ai nuovi frontend web, cosa che mi
+      è piaciuta molto :)
     links:
       - title: "Maggiori informazioni sull'Apps Team"
       - title: "Maggiori informazioni su Indigo online"

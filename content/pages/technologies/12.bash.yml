@@ -9,9 +9,9 @@ eyebrow: "Sprache"
 title: "Bash"
 description: >-
   Ich habe schon oft mit Bash gearbeitet und bin damit mittlerweile auch
-  einigermassen vertraut. Ich habe damit z.B. schon ein paar kleine Skripte
-  geschrieben, um mir die Arbeit zu erleichtern. Zudem gab es das Modul 122
-  in der Berufsschule, bei dem wir ebenfalls mit Bash gearbeitet haben.
+  einigermassen vertraut. Damit habe ich zum Beispiel schon ein paar kleine
+  Skripte geschrieben, um mir die Arbeit zu erleichtern. Zudem gab es das Modul
+  122 in der Berufsschule, bei dem wir ebenfalls mit Bash gearbeitet haben.
 badges:
   - title: "Scripting"
   - title: "Shell"

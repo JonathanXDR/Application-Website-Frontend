@@ -1,10 +1,7 @@
-// The users the owner follows, most recently followed first. `page` and
-// `limit` are clamped to Flick's documented bounds by `getFlickPageQuery`,
-// which both the handler and `getKey` call so the cache key can never drift
-// from the values actually sent upstream.
+// The users the owner follows, most recently followed first.
 //
 // This is the one Flick route that returns other people's data: usernames,
-// display names and avatar URLs of accounts the owner follows. It is
+// display names, and avatar URLs of accounts the owner follows. It is
 // implemented because the API layer covers every documented GET endpoint, but
 // a page that renders it publishes a third party's identity, not the owner's,
 // so treat it as a deliberate choice rather than a default.

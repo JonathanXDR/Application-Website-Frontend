@@ -32,13 +32,13 @@ i18n:
           - title: "Learn more"
   fr:
     items:
-      - description: "Quoi de neuf dans {latestTag}?"
+      - description: "Quoi de neuf dans {latestTag} ?"
         links:
           - title: "En savoir plus"
-      - description: "Découvre mes derniers projets chez Swisscom!"
+      - description: "Découvre mes derniers projets chez Swisscom !"
         links:
           - title: "En savoir plus"
-      - description: "Découvre toutes les technologies avec lesquelles j'ai travaillé jusqu'à présent!"
+      - description: "Découvre toutes les technologies avec lesquelles j'ai travaillé jusqu'à présent !"
         links:
           - title: "En savoir plus"
   it:

@@ -1,6 +1,6 @@
 message: "Eine neue Version ist verfügbar."
 reload: "Neu laden"
-dismiss: "Schliessen"
+dismiss: "Ignorieren"
 
 i18n:
   en:

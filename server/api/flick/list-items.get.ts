@@ -1,7 +1,7 @@
 import type { H3Event } from 'h3'
 
 // Items in one of the owner's custom lists, ranked lists already in rank
-// order. Upstream this is `GET /me/lists/{list_id}/items`; the id arrives as
+// order. Upstream this is `GET /me/lists/{list_id}/items`. The id arrives as
 // a query param instead of a route segment because every existing route in
 // this project is a flat file and reads its input through `getQuery`, which
 // keeps the `cacheKey` composition uniform across all of them.

@@ -13,7 +13,7 @@ export type FlickResolvableMediaType = Extract<FlickMediaType, 'movie' | 'tv'>
 // discriminator `type` while request query params spell the same value
 // `media_type`, so the two names are deliberately not unified.
 //
-// `year` and `poster_url` are modelled as nullable even though the
+// `year` and `poster_url` are modeled as nullable even though the
 // documented examples always show them populated. Flick derives both from
 // TMDB, where an unreleased or obscure title legitimately carries neither,
 // and `GET /me/watching` already proves the shape varies by dropping `year`

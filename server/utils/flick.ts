@@ -8,10 +8,9 @@ export const FLICK_BASE_URL = 'https://flickmovies.com/api/beta'
 
 // Cache time for the Flick-backed endpoints. Every route reads the same
 // single account, so there is no per-visitor variance to defeat the cache,
-// and the key is capped at 60 requests/minute and 5,000/day. Without this,
-// visitor traffic would spend the owner's quota directly. Fifteen minutes
-// matches the GitHub routes and is well inside the daily budget even with a
-// cold cache on every deploy.
+// and caching keeps the key's 60/minute and 5,000/day budget away from
+// visitor traffic. Fifteen minutes matches the GitHub routes and is well
+// inside the daily budget even with a cold cache on every deploy.
 export const FLICK_CACHE_MAX_AGE = 60 * 15
 
 // Upper bound on a single Flick request, matching the Apple Music client. The
@@ -20,7 +19,7 @@ export const FLICK_CACHE_MAX_AGE = 60 * 15
 const FLICK_REQUEST_TIMEOUT_MS = 5_000
 
 // Flick's documented pagination bounds. `limit` is validated upstream
-// (1-100, default 50); `page` has a documented minimum of 1 and no maximum,
+// (1-100, default 50). `page` has a documented minimum of 1 and no maximum,
 // so the ceiling below is ours. It bounds both the owner's request quota and
 // the cache-key cardinality the way the GitHub page clamp does.
 const FLICK_DEFAULT_LIMIT = 50
@@ -34,13 +33,12 @@ const FLICK_MAX_PAGE = 50
 // sixty seconds, so a transient dip is noise rather than a signal.
 const FLICK_QUOTA_WARN_THRESHOLD = 500
 
-// Extracts the machine-readable part of a Flick error body for the server
-// log. Flick wraps every error it produces, validation included, as
-// `{ error: { code, message } }` and answers a bad param with 400
-// `invalid_request`. Only the code is logged, never the free-text message,
-// which quotes the caller's input back (`query.tag: String should have at
-// least 1 character`). The `detail` fallback covers FastAPI's own 404 for a
-// path outside the beta router, which this client never builds.
+// Extracts the machine-readable part of a Flick error body for the server log.
+// Flick wraps every error, validation included, as
+// `{ error: { code, message } }`, and answers a bad param with 400
+// `invalid_request`. Only the `code` is logged, never the free-text `message`,
+// which quotes the caller's input back. The `detail` fallback covers FastAPI's
+// own 404 for a path outside the beta router, which this client never builds.
 function describeFlickError(data: unknown): string | undefined {
   if (!data || typeof data !== 'object') return undefined
 
@@ -79,11 +77,11 @@ export function useFlick() {
   // place: an unset key answers 404 instead of proxying an upstream 401, so an
   // absent secret can never flip a route from inert to live-but-broken.
   //
-  // Nitro runs a cached route's `getKey` before its handler, so the three
-  // routes that validate a required param there answer a *malformed* request
-  // with 400 before the credential is ever read. No Flick data is served
-  // either way; only the 404 that would otherwise hide the route's existence
-  // is lost, which is not what the credential guard is protecting.
+  // Nitro runs a cached route's `getKey` before its handler, so a route that
+  // *rejects* a param there answers a malformed request with 400 before the
+  // credential is ever read. No Flick data is served either way. Only the 404
+  // that would otherwise hide the route's existence is lost, which is not what
+  // the credential guard protects.
   const apiKey = requireCredential(
     useRuntimeConfig().flickApiKey,
     'flickApiKey',
@@ -111,10 +109,10 @@ export function useFlick() {
       // Octokit client in `server/utils/octokit.ts`.
       signal: AbortSignal.timeout(FLICK_REQUEST_TIMEOUT_MS),
       onResponse: ({ response }) => warnOnLowFlickQuota(response.headers),
-      // Fail fast. ofetch retries a GET once by default and its default
-      // `retryStatusCodes` include 429 with a zero delay, which would spend
-      // two of the minute's 60 requests to answer one rate-limited call.
-      // Flick sends `Retry-After` on a 429, but honoring it would mean
+      // Fail fast, as in `server/utils/musickit.ts`. ofetch retries a GET once
+      // by default and its default `retryStatusCodes` include 429 with a zero
+      // delay, spending two of the minute's 60 requests on one rate-limited
+      // call. Flick sends `Retry-After` on a 429, but honoring it would mean
       // sleeping inside a render, so the request throws instead and the SWR
       // cache keeps serving the last good payload.
       retry: 0,
@@ -156,18 +154,17 @@ function clampFlickInteger(
 // returns `undefined`, so the filter simply disappears from the upstream
 // request, while a param that is present but invalid throws a 400.
 //
-// Silently dropping an invalid filter would be worse than it sounds. It
-// answers with a *broader* result set than the caller asked for and gives no
-// signal that anything was ignored: `min_rating=50` would return every review
-// rather than none. Flick rejects each of these itself with
-// `400 {"error":{"code":"invalid_request"}}`, so failing here keeps this
-// proxy faithful to the API it fronts instead of inventing softer semantics.
+// Silently dropping an invalid filter would answer with a *broader* result
+// set than the caller asked for and give no signal that anything was
+// ignored: `min_rating=50` would return every review rather than none. Flick
+// rejects each of these itself with 400 `invalid_request`, so failing here
+// keeps this proxy faithful to the API it fronts.
 //
-// `page` and `limit` are the deliberate exception, and are clamped rather
-// than rejected by `getFlickPageQuery` above: they bound the owner's quota
-// and the cache-key cardinality rather than selecting rows, so narrowing an
-// out-of-range value cannot return anything the caller did not ask for. The
-// GitHub routes clamp the same way.
+// `page` and `limit` are the deliberate exception, clamped rather than
+// rejected by `getFlickPageQuery` above: they bound the owner's quota rather
+// than selecting rows, so narrowing an out-of-range value cannot return
+// anything the caller did not ask for.
+//
 // Exported so a route can raise the same 400 for a cross-field rule the
 // per-param normalizers cannot see, such as `tmdb_id` needing `media_type`.
 export function invalidFlickParam(): never {
@@ -180,7 +177,7 @@ export function invalidFlickParam(): never {
 // Accepts a value only when it is one of `allowed`, returning it as the
 // literal union rather than a widened `string`, so a handler gets
 // `'movie' | 'tv'` back. Every caller passes a pre-declared constant, and it
-// is the `as const` on that declaration that preserves the literals; the
+// is the `as const` on that declaration that preserves the literals. The
 // `const` type parameter only earns its keep for an array written inline at
 // the call site.
 export function flickEnum<const T extends string>(
@@ -292,11 +289,10 @@ export function handleFlickError(error: unknown): never {
       data?: unknown
     }
     // Log the upstream status and error code server side, then map the status
-    // for the client. A 401 (missing, malformed, unknown or revoked key), a
-    // 403 (`pro_required`) and a 429 (`rate_limited`) all describe *our*
+    // for the client. A 401 (missing, malformed, unknown, or revoked key), a
+    // 403 `pro_required`, and a 429 `rate_limited` all describe *our*
     // credential or quota state with Flick rather than anything the anonymous
-    // caller did, so `mapUpstreamStatus` collapses them to gateway errors
-    // instead of telling a valid visitor they are unauthorized or throttled.
+    // caller did, so `mapUpstreamStatus` collapses them to gateway errors.
     console.error(
       '[flick]',
       err.status,

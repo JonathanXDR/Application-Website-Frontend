@@ -8,9 +8,9 @@ interface AnimationOperations {
   key?: string
   onEnter?: () => void
   // Per-element overrides for the in-view detection. The default `margin`
-  // shrinks the detection area up from the viewport bottom, a dead zone that
-  // elements pinned to the end of the page (the footer `ShareSheet`) can
-  // never scroll past. They pass `margin: '0px'` to opt out.
+  // pulls the detection area 10% up from the viewport bottom, a dead zone
+  // that elements pinned to the end of the page (the footer `ShareSheet`)
+  // can never scroll past. Those elements pass `margin: '0px'` to opt out.
   amount?: 'some' | 'all' | number
   margin?: string
 }

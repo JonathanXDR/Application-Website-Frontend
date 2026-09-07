@@ -10,8 +10,8 @@ title: "React"
 description: >-
   React selbst habe ich erst gelernt, nachdem ich bereits mit Next.js
   gearbeitet hatte, daher war die Lernkurve nicht mehr so steil. Projekte,
-  bei denen ich React verwendet habe, sind z.B. die Medienkurse, das
-  Fleetmanagement Tool oder auch die neuen Webfrontends.
+  bei denen ich React verwendet habe, sind zum Beispiel die Medienkurse,
+  das Fleetmanagement Tool oder auch die neuen Webfrontends.
 badges:
   - title: "Frontend"
   - title: "Web"
@@ -30,7 +30,7 @@ i18n:
     description: >-
       I only learned React itself after I had already worked with Next.js, so
       the learning curve wasn't as steep. Projects where I've used React
-      include the media courses, the Fleetmanagement Tool and the new web
+      include the media courses, the Fleetmanagement Tool, and the new web
       frontends.
     links:
       - title: "Learn more"
@@ -38,8 +38,8 @@ i18n:
     description: >-
       Je n'ai appris React lui-même qu'après avoir déjà travaillé avec
       Next.js, la courbe d'apprentissage n'était donc plus aussi raide. Parmi
-      les projets pour lesquels j'ai utilisé React, il y a les cours médias,
-      le Fleetmanagement Tool ou encore les nouveaux frontends web.
+      les projets pour lesquels j'ai utilisé React, il y a les cours sur les
+      médias, le Fleetmanagement Tool ou encore les nouveaux frontends web.
     links:
       - title: "En savoir plus"
   it:

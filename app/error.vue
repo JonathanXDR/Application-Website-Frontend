@@ -60,7 +60,6 @@ useSeoMeta({
     :footer-compact="true"
   >
     <div class="rs-covers rs-covers-preorder">
-      <!-- NavBar -->
       <div
         data-core-fade-transition-wrapper
         class="rs-covers-transtion r-fade-transition-enter-done"
@@ -135,7 +134,6 @@ useSeoMeta({
           </div>
         </div>
       </div>
-      <!-- CompactFooter -->
     </div>
   </NuxtLayout>
 </template>

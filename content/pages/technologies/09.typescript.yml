@@ -9,13 +9,13 @@ eyebrow: "Sprache"
 title: "TypeScript"
 description: >-
   Diese Technologie habe ich das erste Mal bei meiner Memory App im Apps Team
-  verwendet und benutze seither wenn möglich nur noch TypeScript anstelle von
-  JavaScript. Projekte, bei denen ich mit TypeScript gearbeitet habe, sind
-  z.B. die Apps Team Webseite, die CRUD-App im Apps Team oder auch das
-  Fleetmanagement Tool.
+  verwendet. Seither benutze ich, wenn möglich, nur noch TypeScript anstelle
+  von JavaScript. Projekte, bei denen ich mit TypeScript gearbeitet habe,
+  sind zum Beispiel die Apps-Team-Webseite, die CRUD-App im Apps Team oder
+  auch das Fleetmanagement Tool.
 badges:
   - title: "Typed"
-  - title: "Full Stack"
+  - title: "Full-Stack"
   - title: "JavaScript"
     icon:
       name: "simple-icons:javascript"

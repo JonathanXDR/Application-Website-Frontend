@@ -9,8 +9,8 @@ eyebrow: "Bibliothek"
 title: "SDX"
 description: >-
   Mit der Bibliothek Swisscom Digital Experience (SDX) bin ich während meiner
-  Ausbildung schon mehrmals in Kontakt gekommen. Ich habe damit z.B. bei der
-  Apps Team Webseite, den Medienkursen und vielen weiteren
+  Ausbildung schon mehrmals in Kontakt gekommen. Ich habe damit zum Beispiel
+  bei der Apps-Team-Webseite, den Medienkursen und vielen weiteren
   Swisscom-Applikationen gearbeitet.
 badges:
   - title: "Swisscom"
@@ -28,7 +28,7 @@ i18n:
     description: >-
       I came into contact with the Swisscom Digital Experience (SDX) library
       several times during my apprenticeship. I used it, for example, on the
-      Apps Team website, the media courses and many other Swisscom
+      Apps Team website, the media courses, and many other Swisscom
       applications.
     links:
       - title: "Learn more"
@@ -37,8 +37,8 @@ i18n:
     description: >-
       J'ai déjà été en contact plusieurs fois avec la bibliothèque Swisscom
       Digital Experience (SDX) pendant ma formation. Je l'ai utilisée par
-      exemple pour le site web de l'Apps Team, les cours médias et bien
-      d'autres applications Swisscom.
+      exemple pour le site web de l'Apps Team, les cours sur les médias et
+      bien d'autres applications Swisscom.
     links:
       - title: "En savoir plus"
   it:

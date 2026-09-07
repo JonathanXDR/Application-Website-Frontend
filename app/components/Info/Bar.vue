@@ -85,8 +85,9 @@ const dateTitle = computed(() => {
   return ''
 })
 
-// "updated" -> "Updated". The label is authored lowercase in the content
-// collections so it can also be used mid-sentence.
+// Defensive capitalization, for example "updated" -> "Updated". Every locale
+// in `content/components/card-item.yml` already capitalizes the label, so
+// this is a no-op today.
 const eventLabel = computed(() => {
   const { event } = props.date
   if (!event) return ''

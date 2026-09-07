@@ -163,12 +163,12 @@ watch(
 // The per-page title (`currentRoute.label`) is the fallback when no
 // section is active. The `JR %separator %s` template lives in
 // `nuxt.config.ts` under `app.head.titleTemplate`, so it is SSR-baked
-// instead of being injected client-side from this layout.
+// instead of being injected client side from this layout.
 const pageTitle = computed(
   () => currentSection.value?.name || currentRoute.value?.label,
 )
 
-// Yield the title to `error.vue` while an error is active. Without the
+// Yield the title to `app/error.vue` while an error is active. Without the
 // guard, 404s under an existing route prefix rendered the layout title
 // instead of the localized error title.
 useSeoMeta({ title: () => (error.value ? undefined : pageTitle.value) })

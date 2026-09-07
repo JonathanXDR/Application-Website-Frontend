@@ -1,11 +1,31 @@
 legalLinks:
-  - title: "Imprint"
+  - title: "Impressum"
     url: "/imprint"
-  - title: "Privacy Policy"
+  - title: "Datenschutzerklärung"
     url: "/privacy"
 
 news:
-  title: "Get the"
+  title: "Hol dir die"
   link:
     title: "Apple Developer app"
     url: "https://apps.apple.com/us/app/apple-developer/id640199958"
+
+i18n:
+  en:
+    legalLinks:
+      - title: "Imprint"
+      - title: "Privacy Policy"
+    news:
+      title: "Get the"
+  fr:
+    legalLinks:
+      - title: "Mentions légales"
+      - title: "Politique de confidentialité"
+    news:
+      title: "Télécharge"
+  it:
+    legalLinks:
+      - title: "Note legali"
+      - title: "Informativa sulla privacy"
+    news:
+      title: "Scarica"

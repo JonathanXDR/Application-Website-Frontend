@@ -466,7 +466,10 @@ body main ::-webkit-scrollbar-track {
   --color-fill: #000;
   --color-fill-secondary: #161617;
   --color-fill-tertiary: #1d1d1f;
-  --color-fill-quaternary: #252525; /* only present in light mode */
+  /* Repeats the `.light` value so the token also resolves under `.dark`.
+     Upstream declares it only in its light mixin
+     (`app/assets/drafts/scss/core/colors/_light.scss`). */
+  --color-fill-quaternary: #252525;
   --color-fill-blue: #0071e3;
   --color-fill-blue-secondary: #001931;
   --color-fill-gray: #f5f5f7;

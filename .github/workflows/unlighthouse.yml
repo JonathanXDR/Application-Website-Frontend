@@ -63,12 +63,12 @@ jobs:
       || (github.event.action == 'vercel.deployment.success' && github.event.client_payload.environment == 'production')
     runs-on: ubuntu-latest
     # Without this the job would inherit the 6 hour default, so a hung audit
-    # would burn a full day of billed minutes before being cancelled.
+    # would burn a full day of billed minutes before being canceled.
     timeout-minutes: 20
     permissions:
       contents: read
       # Lets vercel/repository-dispatch/actions/status attach a commit status.
-      # Without it, a repository_dispatch run stays invisible on the pull
+      # Without it, a `repository_dispatch` run stays invisible on the pull
       # request.
       statuses: write
     steps:

@@ -37,17 +37,14 @@ const colorMode = computed(() => {
 })
 
 const themeHex = computed(() => {
-  // regex test if valid hex
   if (HexRegex.test(props.theme)) {
     return props.theme
   }
 
-  // if it's hex without the hash, just add the hash
   if (HexRegex.test(`#${props.theme}`)) {
     return `#${props.theme}`
   }
 
-  // if it's rgb or rgba, we convert it to hex
   if (props.theme.startsWith('rgb')) {
     const rgb = props.theme
       .replace('rgb(', '')
