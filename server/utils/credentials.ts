@@ -1,9 +1,6 @@
 /**
- * Returns the credential, or throws a 404 when it is unset. Hiding an
- * endpoint whose credential is optional at deploy time, rather than proxying
- * an upstream auth error, keeps an absent secret from flipping it from inert
- * to live but broken. `label` names the credential in the server log, never
- * its value.
+ * A 404 rather than a proxied upstream auth error keeps an absent secret from
+ * flipping an endpoint from inert to live but broken.
  */
 export function requireCredential(
   value: string | undefined,

@@ -12,8 +12,8 @@ const props = withDefaults(defineProps<IconItemType>(), {
   }),
 })
 
-// sf-symbols fills carry a `, currentColor` fallback, so the pattern reaches
-// past it to the closing paren before swapping in the matching `colors` entry.
+// sf-symbols fills carry a `, currentColor` fallback that the pattern must
+// reach past.
 const customize = (content: string) =>
   content.replace(
     /var\(--color-(primary|secondary|tertiary)[^)]*\)/g,

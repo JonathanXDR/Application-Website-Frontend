@@ -38,8 +38,8 @@ type ParallaxItem = EmptyItem | ImageItem
 
 const togglePlayPause = useToggle(playing)
 
-// Seeded through `useState` so the client reuses the SSR-serialized order.
-// Reshuffling at hydration swapped every decorative tile's artwork on load.
+// Seeded through `useState` so hydration reuses the SSR order instead of
+// reshuffling.
 const parallaxItems = useState<ParallaxItem[]>('music-parallax-order', () => {
   const emptyItems: EmptyItem[] = [
     { type: 'empty', class: 'leave-empty' },

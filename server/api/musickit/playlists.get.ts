@@ -1,12 +1,8 @@
-// `ids` is charset-allowlisted server side so this endpoint cannot become a
-// generic Apple Music proxy on the developer token's quota. Apple caps
-// catalog playlists below the shared default.
 const MAX_PLAYLIST_IDS = 25
 
 export default defineCachedEventHandler(
   async (event) => {
     const ids = parseCatalogIds(getQuery(event).ids, MAX_PLAYLIST_IDS)
-    // Apple's 400 is never cached, so forwarding one costs a request per hit.
     if (!ids) throw createError({ status: 400, statusText: 'Bad Request' })
 
     const { request } = useMusicKit()

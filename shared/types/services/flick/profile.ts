@@ -1,5 +1,4 @@
-// The account that owns the API key. Flick has no OAuth and no cross-account
-// reads.
+// Always the key owner: Flick has no OAuth and no cross-account reads
 export interface FlickProfile {
   id: string
   username: string

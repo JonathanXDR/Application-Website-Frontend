@@ -1,6 +1,5 @@
-# Full-site Lighthouse audit of a Vercel deployment. Scores never fail the job,
-# because no `ci.budget` is set in `unlighthouse.config.ts` yet. Add one there
-# once a few runs have established a baseline.
+# Scores never fail the job, because no `ci.budget` is set in
+# `unlighthouse.config.ts` yet.
 #
 # Vercel also emits `deployment_status`, but `repository_dispatch` carries the
 # deployment metadata directly.
@@ -25,18 +24,17 @@ on:
 
 permissions: {}
 
-# `shell: bash` sets `pipefail`, which the runner default of `bash -e` does
-# not. The redaction step pipes `grep`, and a failure there must not look like
-# a clean report.
+# `shell: bash` adds `pipefail`, which the runner default does not set. The
+# redaction step pipes `grep`, and a failure there must not look clean.
 defaults:
   run:
     shell: bash
 
 # `environment` alone is too coarse, because every preview deployment shares
 # the value `preview`, so two branches deploying at once would cancel each
-# other's audit. `concurrency` is evaluated before the job-level `if`, so these
-# payload values are unvalidated, but they only name a group and never reach a
-# shell.
+# other's audit. These payload values are unvalidated, since `concurrency` is
+# evaluated before the job-level `if`, but they only name a group and never
+# reach a shell.
 concurrency:
   group: >-
     unlighthouse-${{ github.event.client_payload.environment || 'manual' }}-${{
@@ -46,19 +44,19 @@ concurrency:
 jobs:
   audit:
     # A production deployment emits `ready` when it finishes building and
-    # `success` when it is promoted, so pairing each event with its own
-    # environment stops it from being audited twice.
+    # `success` when it is promoted, so pairing each event with one environment
+    # stops a double audit.
     if: >-
       github.event_name == 'workflow_dispatch'
       || (github.event.action == 'vercel.deployment.ready' && github.event.client_payload.environment == 'preview')
       || (github.event.action == 'vercel.deployment.success' && github.event.client_payload.environment == 'production')
     runs-on: ubuntu-latest
-    # Without this a hung audit would run to the 6 hour default.
+    # Without this a hung audit would run to the 6 hour default
     timeout-minutes: 20
     permissions:
       contents: read
-      # A `repository_dispatch` run stays invisible on the pull request
-      # without a commit status.
+      # A `repository_dispatch` run stays invisible on the pull request without
+      # a commit status.
       statuses: write
     steps:
       - name: Report status on the deployed commit
@@ -68,14 +66,13 @@ jobs:
           name: Unlighthouse
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      # Ordered before the installs so a misconfigured job fails in seconds.
-      # The `workflow_dispatch` input is free text, so a bare host gains its
-      # scheme here: `resolveRoutes` builds `new URL('/sitemap.xml', site)`,
-      # which throws without one.
+      # Ordered before the installs so a misconfigured job fails in seconds. A
+      # bare host gains its scheme here, because `resolveRoutes` builds
+      # `new URL('/sitemap.xml', site)`, which throws without one.
       - name: Check inputs and resolve the site
         env:
-          # Read through an intermediate variable so the payload never reaches
-          # the shell as template text.
+          # Read through a variable so the payload never reaches the shell as
+          # template text.
           RAW_SITE: ${{ inputs.site || github.event.client_payload.url }}
           VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
         run: |
@@ -91,12 +88,11 @@ jobs:
             http://*|https://*) site="$RAW_SITE" ;;
             *) site="https://$RAW_SITE" ;;
           esac
-          # A dispatch payload is JSON, so the URL can carry newlines. `case`
-          # matches the whole value and rejects anything outside a plain
-          # origin's character set, stopping a payload from appending
-          # variables to `$GITHUB_ENV` or emitting workflow commands into the
-          # log. The `grep` anchors are per line, so they hold only because
-          # `case` ruled out newlines, and the error never echoes the value.
+          # A dispatch payload is JSON, so the URL can carry newlines, which
+          # would let it append variables to `$GITHUB_ENV` or emit workflow
+          # commands into the log. The `grep` anchors are per line, so they
+          # hold only because `case` matches the whole value, and the error
+          # never echoes it.
           case "$site" in
             *[!A-Za-z0-9.:/-]*) shape=bad ;;
             *) shape=ok ;;
@@ -108,9 +104,8 @@ jobs:
           printf 'UNLIGHTHOUSE_SITE=%s\n' "$site" >> "$GITHUB_ENV"
           echo "Auditing $site"
 
-      # Only the config file is needed, since the audit runs against the
-      # deployed site. A sparse checkout also implies a `blob:none` partial
-      # clone, which skips the rest of a 187 MiB pack.
+      # A sparse checkout implies a `blob:none` partial clone, which skips the
+      # rest of a 187 MiB pack.
       - name: Check out the Unlighthouse config
         uses: actions/checkout@v7
         with:
@@ -118,22 +113,17 @@ jobs:
           sparse-checkout-cone-mode: false
           persist-credentials: false
 
-      # Quoted so a later two-part value such as '24.10' is not read as the
-      # number 24.1. Nothing is installed from the repository, so there is no
-      # lockfile to key a dependency cache on.
+      # Quoted so a later value such as '24.10' is not read as the number 24.1
       - name: Set up Node.js
         uses: actions/setup-node@v7
         with:
           node-version: "24"
 
-      # Pinned so Lighthouse scores stay comparable between runs, since its
-      # scoring changes between versions. Keep this in step with the
-      # `unlighthouse` devDependency by hand: Dependabot does not read versions
-      # out of a `run` step.
-      #
-      # `puppeteer` is deliberately not installed. Unlighthouse imports
-      # `puppeteer-core` and locates Chrome through `chrome-launcher`, which
-      # finds the runner's preinstalled build.
+      # Pinned so scores stay comparable across runs, and kept in step with the
+      # `unlighthouse` devDependency by hand, because Dependabot does not read a
+      # version out of a `run` step. `puppeteer` is deliberately absent, since
+      # Unlighthouse imports `puppeteer-core` and finds Chrome through
+      # `chrome-launcher`, which uses the runner's preinstalled build.
       - name: Install Unlighthouse
         run: npm install --global unlighthouse@0.18.0
 
@@ -142,10 +132,10 @@ jobs:
         env:
           VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
 
-      # Lighthouse copies its settings, including `extraHeaders`, verbatim into
-      # the per-route reports, so the bypass secret ends up inside them.
-      # Artifacts on a public repository are downloadable by any signed-in
-      # user, and `::add-mask::` redacts logs, never artifacts.
+      # Lighthouse copies `extraHeaders` verbatim into the per-route reports,
+      # so the bypass secret lands in them. Artifacts on a public repository are
+      # downloadable by any signed-in user, and `::add-mask::` redacts logs,
+      # never artifacts.
       - name: Redact the bypass secret from the report
         if: always()
         env:
@@ -161,8 +151,7 @@ jobs:
           fi
 
       # A missing report only warns, so a failed audit is reported by the audit
-      # step rather than by this one. Each report is superseded by the next
-      # deploy, so it does not need the 90 day default retention.
+      # step rather than by this one.
       - name: Upload report
         if: always()
         uses: actions/upload-artifact@v7

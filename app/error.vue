@@ -20,9 +20,6 @@ const currentPage = computed<ErrorPageType>(() => {
   )
 })
 
-// One line per sentence: re-add the `.` that `split('. ')` consumed on
-// every part but the last, so a one-sentence description renders without
-// a dangling separator.
 const descriptionLines = computed(() => {
   const desc = currentPage.value.description
   if (!desc) return []
@@ -32,9 +29,7 @@ const descriptionLines = computed(() => {
   )
 })
 
-// `robots: noindex, follow` keeps 4xx and 5xx pages out of the index even
-// when a crawler receives one with a 200 SSR response. Nuxt returns the
-// right HTTP status too, but the meta tag is a second safeguard.
+// A crawler can still receive an error page with a 200 SSR response
 useSeoMeta({
   title: () =>
     currentPage.value.title?.replace(
@@ -47,8 +42,6 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- `<NuxtLayout>` merges these attributes into the layout component, so
-       they land on the layout's own props rather than on a DOM element. -->
   <NuxtLayout
     :header="false"
     :nav="false"

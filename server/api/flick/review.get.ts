@@ -1,9 +1,7 @@
 import type { H3Event } from 'h3'
 
-// One of the owner's reviews by id. Upstream this is
-// `GET /me/reviews/{review_id}`. The id arrives as a query param for the same
-// reason as in `list-items.get.ts`. Flick answers 404 for a review that does
-// not exist or is not the key owner's.
+// The id is a query param for the same reason as in `list-items.get.ts`.
+// Flick answers 404 for a review that is not the key owner's.
 function getReviewId(event: H3Event) {
   return requireFlickParam(flickPathId(getQuery(event).review_id))
 }

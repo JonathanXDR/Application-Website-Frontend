@@ -1,5 +1,4 @@
-// The owner's watchlist, most recently added first. A built-in list that
-// `GET /me/lists` deliberately excludes, so it has its own endpoint.
+// Most recently added first
 export default defineCachedEventHandler(
   async (event) => {
     const { request } = useFlick()

@@ -34,10 +34,8 @@ const calculateAge = (date = '') => {
           />
         </clipPath>
       </defs>
-      <!-- `foreignObject` lets the browser do real `<img srcset>` density
-           picking. SVG `<image>` ignores `srcset` and would always serve
-           1x. The `clipPath` still applies because `foreignObject` is a
-           paintable, clippable SVG element. -->
+      <!-- SVG `<image>` ignores `srcset` and would always serve 1x, so a
+           `foreignObject` (still clippable) carries the `<img>` instead. -->
       <foreignObject
         x="0"
         y="10"

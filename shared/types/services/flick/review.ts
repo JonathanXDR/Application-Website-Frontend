@@ -1,6 +1,5 @@
 import type { FlickMedia } from '#shared/types/services/flick/media'
 
-// Where the row came from. `api` would mark anything this integration wrote.
 export type FlickReviewSource = 'app' | 'import' | 'api'
 
 export type FlickWatchContextSource = 'theater' | 'home' | 'onTheGo'
@@ -27,11 +26,10 @@ export type FlickWatchContextDevice
     | 'phone'
     | 'seatback'
 
-// "How you watched": a sparse facet bag where only what was set is stored.
-// `source` is the top-level context and the rest are sub-facets beneath one
-// of them, but Flick does not enforce the combinations, so a discriminated
-// union would reject payloads the API itself accepts. The free-text facets
-// are capped at 200 characters upstream.
+// A sparse facet bag: `source` is the top-level context and the rest are
+// sub-facets beneath one of them, but Flick does not enforce the
+// combinations, so a discriminated union would reject payloads the API itself
+// accepts. The free-text facets are capped at 200 characters upstream.
 export interface FlickWatchContext {
   source?: FlickWatchContextSource | null
   cinema_type?: FlickWatchContextCinemaType | null
@@ -48,22 +46,20 @@ export interface FlickWatchContext {
   device?: FlickWatchContextDevice | null
 }
 
-// The frozen, explicit set of episodes a TV review counts as watched. Only
+// The frozen, explicit set of episodes a TV review counts as watched, only
 // meaningful on `tv` and `tv_season` reviews. `seasons` maps a season number,
 // as a string key where `'0'` is Specials, to the covered episode numbers.
 // An absent season is not covered, and an empty map covers nothing.
 //
-// Undocumented in Flick's prose reference and absent from its response
-// example, but present on every review row the live API returns (280/280 in
-// this account, all null) and defined in the spec's write schemas.
+// Undocumented in Flick's reference, but present on every review row the live
+// API returns and defined in the spec's write schemas.
 export interface FlickCoverageScope {
   v: number
   seasons: Record<string, number[]>
 }
 
-// A Flick review is a unified watch-event record, not necessarily an opinion:
-// the same row type covers a rated review, a text-only review, and a bare
-// watch log.
+// Not necessarily an opinion: the same row covers a rated review, a text-only
+// review, and a bare watch log.
 export interface FlickReview {
   id: string
   media: FlickMedia

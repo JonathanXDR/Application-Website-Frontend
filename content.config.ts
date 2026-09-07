@@ -1,18 +1,13 @@
 import { defineCollection, defineContentConfig } from '@nuxt/content'
 import { z } from 'zod'
 
-// Each schema with an interface in `shared/types/schemas.ts` is pinned to it
-// with `satisfies z.ZodType<...>`, so the two can never drift: changing one
-// without the other is a compile error. The interfaces exist because Vue's
-// `defineProps` cannot resolve `z.infer`.
+// The interfaces in `shared/types/schemas.ts` that each schema is pinned to
+// with `satisfies` exist because Vue's `defineProps` cannot resolve `z.infer`.
 //
-// The custom `@nuxt/content` fork (`release/better-i18n`) merges each file's
-// nested `i18n.<locale>` block onto the base document by index before
-// validation, so schemas model the merged per-locale shape and never declare
-// an `i18n` field. Base fields stay required. Fields a locale override may
-// omit stay optional.
-
-// ─── Atoms ────────────────────────────────────────────────
+// The `@nuxt/content` fork (`release/better-i18n`) merges each file's nested
+// `i18n.<locale>` block onto the base document by index before validation, so
+// schemas model the merged per-locale shape, never declare an `i18n` field, and
+// mark any field a locale override may omit as optional.
 
 export const ColorSchema = z.object({
   primary: z.string().optional(),
@@ -22,8 +17,8 @@ export const ColorSchema = z.object({
 }) satisfies z.ZodType<ColorType>
 
 // `name` is an Iconify id (sf-symbols, simple-icons, fa7). `background` and
-// the colors accept a hex value, a CSS variable, or `'none'`, so they stay
-// plain strings.
+// the colors stay plain strings: they accept a hex value, a CSS variable or
+// `'none'`.
 export const IconSchema = z.object({
   name: z.string(),
   background: z.string().optional(),
@@ -68,8 +63,6 @@ export const ExtendedSizeSchema = z.enum([
   'xlarge',
 ]) satisfies z.ZodType<ExtendedSizeType>
 
-// ─── Composites ───────────────────────────────────────────
-
 export const BasicPropsSchema = z.object({
   icon: IconSchema.optional(),
   eyebrow: z.string().optional(),
@@ -83,11 +76,10 @@ export const ExtendedPropsSchema = BasicPropsSchema.extend({
   info: InfoSchema.optional(),
 }) satisfies z.ZodType<ExtendedPropsType>
 
-// Navigation node for the navbar (`items`) and the footer directory
-// (`sections`). Unrolled to three levels (the footer's depth, the navbar
-// uses two) instead of recursing: `@nuxt/content` cannot generate types for
-// a self-referential schema (`z.lazy` produces an unresolvable `$ref`).
-// Components use the recursive `SectionType` in `shared/types/schemas.ts`.
+// Unrolled to three levels (the footer's depth) instead of recursing:
+// `@nuxt/content` cannot generate types for a self-referential schema (`z.lazy`
+// produces an unresolvable `$ref`). Components use the recursive `SectionType`
+// in `shared/types/schemas.ts`.
 export const NavLeafSchema = z.object({
   id: z.string(),
   label: z.string().optional(),
@@ -138,14 +130,12 @@ export const AboutSchema = z.object({
 export const ErrorPageSchema = z.object({
   pageId: z.string(),
   label: z.string(),
-  // The generic fallback page matches any status and declares none.
+  // The generic fallback page matches any status and declares none
   status: z.number().optional(),
   icon: IconSchema.optional(),
   title: z.string(),
   description: z.string(),
 }) satisfies z.ZodType<ErrorPageType>
-
-// ─── Collection wrappers ──────────────────────────────────
 
 export const SiteConfigSchema = z.object({
   description: z.string(),
@@ -159,10 +149,9 @@ export const NavigationSchema = z.object({
   sections: z.array(NavNodeSchema).optional(),
 })
 
-// Chrome micro-content. One collection per component file rather than a
-// single `ui` superset of optional fields, which enforced no required field
-// and leaked every field onto every component's query type through
-// `UiCollectionItem`. Each is queried with `.first()`.
+// One collection per component file rather than a single `ui` superset of
+// optional fields, which enforced no required field and leaked every field onto
+// every component's query type through `UiCollectionItem`.
 
 export const ShareSheetSchema = z.object({
   links: z.array(LinkSchema),
@@ -174,8 +163,6 @@ export const SegmentNavSchema = z.object({
   technologies: z.array(ItemSchema),
 })
 
-// No banner entry is guaranteed to carry any field, so the shape mirrors the
-// title-optional `InfoBannerType` prop.
 export const InfoBannerSchema = z.object({
   items: z.array(
     z.object({
@@ -191,7 +178,7 @@ export const FooterMiniSchema = z.object({
   news: z.object({ title: z.string(), link: LinkSchema }),
 })
 
-// `allRightsReserved` carries a `{currentYear}` placeholder.
+// `allRightsReserved` carries a `{currentYear}` placeholder
 export const FooterCopyrightSchema = z.object({
   allRightsReserved: z.string(),
   links: z.array(LinkSchema),
@@ -203,7 +190,7 @@ export const CardItemSchema = z.object({
   learnMore: z.string(),
 })
 
-// `title` carries a `{count}` placeholder.
+// `title` carries a `{count}` placeholder
 export const LiveResultSummarySchema = z.object({
   title: z.string(),
   description: z.string(),
@@ -219,8 +206,7 @@ export const SkewNotificationSchema = z.object({
   dismiss: z.string(),
 })
 
-// Unconsumed for now, kept so the translations are ready when the
-// technologies filter wires them up.
+// Unconsumed until the technologies filter wires it up
 export const FilterInputSchema = z.object({
   addTag: z.string(),
   tagSelectRemove: z.string(),
@@ -319,9 +305,8 @@ export default defineContentConfig({
       i18n: true,
     }),
 
-    // The overview list domains are one file per entry, so each entry's
-    // translations live with it instead of in a fragile positional `i18n`
-    // array. Queried with `.all()`, ordered by the `NN.` filename prefix.
+    // One file per entry keeps the entry's translations with it instead of
+    // in a positional `i18n` array. Ordered by the `NN.` filename prefix.
     funFacts: defineCollection({
       type: 'data',
       source: 'pages/overview/fun-facts/*.yml',

@@ -1,5 +1,3 @@
-// The owner's distinct review tags with usage counts, most-used first.
-// Unpaginated: the endpoint takes no `page` or `limit`.
 export default defineCachedEventHandler(
   async () => {
     const { request } = useFlick()

@@ -1,7 +1,6 @@
 import type { BasicPropsType } from '#shared/types/schemas'
 
 export interface InfoBannerType {
-  // A banner entry need not carry the `title` that `BasicPropsType` requires.
   items: Partial<BasicPropsType>[]
   loading?: boolean
   step?: number

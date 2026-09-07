@@ -7,8 +7,7 @@ import type {
 import FooterPre from '~/components/Footer/Pre.vue'
 import { AnimatePresence, Motion } from 'motion-v'
 
-// Page chrome is passed in as layout props rather than read back out of
-// `route.meta`. A page overrides these defaults with
+// A page overrides these defaults with
 // `definePageMeta({ layout: { props: { ... } } })`, or with attributes on
 // its own `<NuxtLayout>` as `app/error.vue` does.
 const props = withDefaults(
@@ -39,8 +38,6 @@ const { y, isScrolling } = useScroll(() =>
 const error = useError()
 const config = useRuntimeConfig()
 
-// This layout wraps every page, so serializing these independent queries
-// adds avoidable latency on the hottest SSR path in the app.
 const [
   { data: navbarContent },
   { data: infoBannerContent },
@@ -55,8 +52,6 @@ const [
   ).first(),
 ])
 
-// Mirror the navbar content into the shared `useNavbar` state so every
-// component using the composable sees the same data without re-querying.
 watch(
   navbarContent,
   (val) => {
@@ -99,14 +94,11 @@ const fetchSvgContent = async () => {
     )}`
   }
   catch {
-    // Dev-only favicon: leave `faviconGraphicData` undefined so the head
-    // guard omits the icon.
+    // Dev-only favicon: undefined makes the head guard omit the icon
   }
 }
 
 onMounted(async () => {
-  // Only the dev-only head block below consumes this, so skip the fetch
-  // in production.
   if (config.public.appEnvironment === 'development') {
     await fetchSvgContent()
   }
@@ -143,7 +135,7 @@ watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
 
 watch(() => route.path, resetHideNavbarTimer)
 
-// See `app/composables/use-section.ts` for why this watcher lives here.
+// See `app/composables/use-section.ts` for why this watcher lives here
 watch(
   () => route.path,
   () => {
@@ -151,28 +143,22 @@ watch(
   },
 )
 
-// The title rotates as the user scrolls between in-page sections on the
-// home page, with the per-page label as the fallback. The
-// `JR %separator %s` template lives in `nuxt.config.ts` under
-// `app.head.titleTemplate`, so it is SSR-baked instead of injected here.
 const pageTitle = computed(
   () => currentSection.value?.name || currentRoute.value?.label,
 )
 
-// Yield the title to `app/error.vue` while an error is active. Without the
-// guard, 404s under an existing route prefix rendered the layout title
-// instead of the localized error title.
+// Yield the title to `app/error.vue`: without the guard, a 404 under an
+// existing route prefix renders the layout title, not the error title.
 useSeoMeta({ title: () => (error.value ? undefined : pageTitle.value) })
 
 if (config.public.appEnvironment === 'development') {
-  // The `key` values match the dev icons declared in `nuxt.config.ts`
-  // under `$development.app.head.link`, so these entries replace those
-  // instead of duplicating them. Unhead drops falsy entries, so the
-  // `false` branch keeps SSR from emitting `rel="icon"` with an empty
-  // `href`. Do not rewrite the ternary as a conditional spread:
-  // TypeScript does not extend contextual typing through spread
-  // operands, so `rel` would widen to string and fall out of unhead v3's
-  // per-rel link union.
+  // The `key` values match the dev icons in `nuxt.config.ts` under
+  // `$development.app.head.link`, so these entries replace them instead
+  // of duplicating them. Unhead drops falsy entries, so the `false`
+  // branch keeps SSR from emitting `rel="icon"` with an empty `href`. Do
+  // not rewrite the ternary as a conditional spread: TypeScript drops
+  // contextual typing through spread operands, so `rel` would widen to
+  // string and fall out of unhead v3's per-rel link union.
   useHead({
     link: () => [
       faviconGraphicData.value

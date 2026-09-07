@@ -199,9 +199,7 @@ const hasUnresolvedPlaceholder = (value?: string) =>
 
 const updateBaseItems = () => {
   const { latest: latestTag, previous: previousTag } = tags.value
-  // Interpolate with whatever tags exist so the banner does not blank out
-  // while the repository has none. Only the items left holding an unresolved
-  // placeholder are dropped.
+  // Interpolate with whatever tags exist so a tagless repository still renders
   const vars: Record<string, string> = {}
   if (latestTag) vars.latestTag = latestTag
   if (previousTag) vars.previousTag = previousTag

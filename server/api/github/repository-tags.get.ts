@@ -1,5 +1,3 @@
-// Owner and repo are pinned server side and pagination is clamped. See the
-// note in `server/utils/octokit.ts`.
 export default defineCachedEventHandler(
   async (event) => {
     const octokit = useOctokit()
@@ -12,8 +10,7 @@ export default defineCachedEventHandler(
         repo,
         per_page: perPage,
       })
-      // Narrow to the only field the release banner reads. The full tag
-      // object would otherwise land verbatim in every prerendered payload.
+      // The full tag object would otherwise land in every prerendered payload
       return data.map(tag => ({ name: tag.name }))
     }
     catch (error) {

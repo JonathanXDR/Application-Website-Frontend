@@ -7,11 +7,8 @@ import SectionReferences from '~/components/Section/References.global.vue'
 
 await usePageSeo({ breadcrumb: false })
 
-// The ids map to explicit imports instead of resolving `section-${child.id}`
-// against the global components, so moving or renaming one of these files
-// fails at build time as an unresolved import. An id in
-// `content/components/navigation/navbar.yml` with no entry here is skipped
-// rather than mounting a blank section.
+// Explicit imports rather than resolving `section-${child.id}` globally, so a
+// renamed or moved section file fails at build time.
 const sectionComponents = {
   'about': SectionAbout,
   'languages': SectionLanguages,
@@ -34,14 +31,11 @@ const sections = computed<SectionType[]>(() => navbarData.value?.items ?? [])
       {{ sections[0]?.label || "Overview" }}
     </h1>
     <template v-for="section in sections">
-      <!-- `v-if` lives on an inner element rather than beside `v-for`, because
-           Vue 3 evaluates `v-if` first and `child` would not be in scope. -->
+      <!-- Vue evaluates `v-if` before `v-for`, so `child` is not in scope -->
       <template
         v-for="(child, index) in section.children"
         :key="child.id"
       >
-        <!-- `label` is optional on `SectionType`, but every section component
-             requires a `title`, so an entry without a label is skipped. -->
         <section
           v-if="child.label && child.id in sectionComponents"
           :id="child.id"

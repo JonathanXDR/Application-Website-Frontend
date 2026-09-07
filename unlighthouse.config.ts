@@ -1,14 +1,11 @@
-// Type-only, so TypeScript erases it before the file runs. `unlighthouse-ci`
-// is installed globally in CI where the checkout has no `node_modules`, so a
-// value import (such as `defineUnlighthouseConfig`, an identity function that
-// costs nothing to drop) cannot resolve there and the run fails at startup.
+// Type-only: `unlighthouse-ci` is installed globally in CI where the checkout
+// has no `node_modules`, so a value import (`defineUnlighthouseConfig`) could
+// not resolve there.
 import type { UserConfig } from '@unlighthouse/core'
 
-// The Vercel Protection Bypass for Automation secret in
-// `VERCEL_AUTOMATION_BYPASS_SECRET` gets past Deployment Protection. It is
-// created under Settings > Deployment Protection and arrives as a plain
-// GitHub Actions secret rather than through Varlock or Infisical, because
-// this config runs in CI and not in the Nuxt build.
+// `VERCEL_AUTOMATION_BYPASS_SECRET` gets past Vercel Deployment Protection. It
+// is a plain GitHub Actions secret rather than a Varlock or Infisical value
+// because this config runs in CI, not in the Nuxt build.
 // https://vercel.com/docs/deployment-protection/methods-to-bypass-deployment-protection/protection-bypass-automation
 const site = process.env.UNLIGHTHOUSE_SITE
 const bypassSecret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET
@@ -16,19 +13,14 @@ const bypassHeaders = bypassSecret
   ? { 'x-vercel-protection-bypass': bypassSecret }
   : undefined
 
-/**
- * Reads the deployment's own sitemap and returns the routes as paths.
- *
- * Unlighthouse cannot do this itself behind Deployment Protection: its
- * discovery step loads `/sitemap.xml` through `sitemapper`, which gets none of
- * `extraHeaders`, `cookies`, `auth`, or `defaultQueryParams`, so the request is
- * rejected and Unlighthouse quietly falls back to crawler mode.
- *
- * Paths, not the absolute `<loc>` values: those are baked from
- * `NUXT_SITE_URL` at build time, and Unlighthouse drops sitemap entries whose
- * origin differs from the audited site, so a per-commit deployment URL would
- * otherwise audit nothing.
- */
+// Unlighthouse cannot discover the routes itself behind Deployment Protection:
+// its discovery step loads `/sitemap.xml` through `sitemapper`, which gets none
+// of `extraHeaders`, `cookies`, `auth` or `defaultQueryParams`, so the request
+// is rejected and Unlighthouse quietly falls back to crawler mode.
+//
+// Paths, not the absolute `<loc>` values: those are baked from `NUXT_SITE_URL`
+// at build time, and Unlighthouse drops sitemap entries whose origin differs
+// from the audited site, so a per-commit deployment URL would audit nothing.
 async function resolveRoutes(site: string): Promise<string[]> {
   const sitemapUrl = new URL('/sitemap.xml', site)
   const response = await fetch(sitemapUrl, { headers: bypassHeaders ?? {} })
@@ -50,29 +42,23 @@ async function resolveRoutes(site: string): Promise<string[]> {
 
 export default {
   site,
-  // Undefined when `UNLIGHTHOUSE_SITE` is not set, which leaves the built-in
-  // sitemap and crawler discovery in place for ad-hoc local runs against an
-  // unprotected site.
+  // Undefined leaves Unlighthouse's own sitemap and crawler discovery in place
+  // for ad-hoc local runs against an unprotected site.
   urls: site ? await resolveRoutes(site) : undefined,
   // A request header is the only bypass form that leaves the scores untouched.
-  // `x-vercel-set-bypass-cookie` is answered with a redirect, and Lighthouse
-  // folds that extra hop into FCP and LCP and flags "Avoid multiple page
-  // redirects". It exists for tools that lose custom headers on in-browser
-  // link clicks, such as Playwright and Cypress. Puppeteer keeps them.
-  // `defaultQueryParams` appends the secret to every audited URL, changing both
-  // the URLs shown in the report and the canonical and SEO audits.
+  // `x-vercel-set-bypass-cookie` is answered with a redirect that Lighthouse
+  // folds into FCP and LCP. `defaultQueryParams` appends the secret to every
+  // audited URL, changing the report URLs and the canonical and SEO audits.
   //
-  // Unlighthouse copies this into `lighthouseOptions`, and Lighthouse embeds
-  // its settings verbatim in every `lighthouse.json` and `lighthouse.html` it
-  // writes. The workflow redacts the secret from those files before uploading
-  // the report, so do not publish `.unlighthouse/` without that step.
+  // Lighthouse embeds its settings verbatim in every `lighthouse.json` and
+  // `lighthouse.html` it writes, so the workflow redacts the secret before
+  // uploading the report. Do not publish `.unlighthouse/` without that step.
   extraHeaders: bypassHeaders ?? false,
   scanner: {
-    // Every page carries `<link rel="alternate" hreflang="x-default">` pointing
-    // at the `/de/` original, so at the `true` default Unlighthouse treats the
-    // other locales as translated copies and skips them. That audits 4 of the
-    // 16 prerendered routes on the canonical site, and none at all on a
-    // per-commit deployment URL, where no page matches the x-default target.
+    // Every page carries an `hreflang="x-default"` link to the `/de/`
+    // original, so at the `true` default Unlighthouse skips the other locales
+    // as translated copies. That audits 4 of 16 routes on the canonical site
+    // and none at all on a per-commit deployment URL.
     ignoreI18nPages: false,
   },
 } satisfies UserConfig

@@ -32,19 +32,15 @@ const infoItems: { id: keyof InfoBarType, icon: IconItemType }[] = [
 
 const DAY_MS = 24 * 60 * 60 * 1000
 
-// Routes are prerendered, so a clock read during render is baked at build
-// time and the icon below would stay on `clock.fill` long after the update
-// stopped being recent. `useState` keeps the server and the first client
-// render in agreement until `onMounted` corrects it, the same trick as
-// `useCurrentYear`. The staleness threshold means only the first mounted
-// instance writes, so a card grid does not update once per card.
+// Prerendering bakes the clock read into the page. The 60s threshold leaves
+// the correction to the first instance that mounts.
 const renderedAt = useState('rendered-at', () => Date.now())
 
 onMounted(() => {
   if (Date.now() - renderedAt.value > 60_000) renderedAt.value = Date.now()
 })
 
-// True for anything inside the last 48 hours, not just calendar yesterday.
+// Up to 48 hours, not just calendar yesterday
 const updatedYesterday = computed(() => {
   if (!props.date.fixed) return false
   const elapsed = renderedAt.value - new Date(props.date.fixed).getTime()
@@ -58,8 +54,6 @@ const formatDate = (
   return new Date(dateString).toLocaleDateString(locale.value, formatOptions)
 }
 
-// Only `relative` needs a live component. `duration` and `fixed` are
-// absolute dates that Intl formats once.
 const dateMode = computed(() => {
   const { duration, formatOptions, fixed, event } = props.date
   if (duration && formatOptions) return 'duration'
@@ -83,8 +77,6 @@ const dateTitle = computed(() => {
   return ''
 })
 
-// Defensive: every locale in `content/components/card-item.yml` already
-// capitalizes the label, so this is a no-op today.
 const eventLabel = computed(() => {
   const { event } = props.date
   if (!event) return ''
@@ -132,8 +124,7 @@ const eventLabel = computed(() => {
         class="info-icon"
       />
       <template v-if="!loading">
-        <!-- `relative` recomputes via `onPrehydrate` before hydration, so
-             the text is not frozen at build time on a prerendered page. -->
+        <!-- `NuxtTime` recomputes on prehydration, not at build time -->
         <template v-if="dateMode === 'relative' && props.date.fixed">
           {{ eventLabel }}&nbsp;<NuxtTime
             :datetime="props.date.fixed"

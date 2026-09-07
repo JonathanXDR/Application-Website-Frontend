@@ -86,7 +86,6 @@ const containerClass = computed(() => [
 </template>
 
 <style scoped>
-/* ----------------------------- Static chevron ----------------------------- */
 svg,
 path {
   --color-transition-settings: 0.3s ease;
@@ -131,7 +130,6 @@ svg.chevron-icon path.chevron-icon {
   height: 0.5em;
 }
 
-/* ---------------------------- Animated chevron ---------------------------- */
 .text-module {
   color: var(--color-fill-gray);
   display: flex;

@@ -1,7 +1,5 @@
-// The users the owner follows, most recently followed first.
-//
-// The one Flick route that returns other people's data, so a page rendering
-// it publishes a third party's identity rather than the owner's.
+// Most recently followed first. The only Flick route that returns other
+// people's data, so a page rendering it publishes a third party's identity.
 export default defineCachedEventHandler(
   async (event) => {
     const { request } = useFlick()

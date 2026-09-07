@@ -1,19 +1,14 @@
 import type { H3Event } from 'h3'
 
-// Resolves loose metadata (a title, optionally a year and type) to the TMDB
-// id and media type the rest of the Flick API expects. Only movies and shows
-// resolve. A season or episode is reached by resolving the show first.
-//
-// The only Flick endpoint with free-form input, so the only one a visitor
-// could use to spend the owner's quota on arbitrary lookups. The shared
-// `/api/**` rate limiter in `nuxt.config.ts`, the length-capped title below,
-// and the SWR cache bound that.
+// The only Flick endpoint with free-form input, so the only one that can
+// spend the owner's quota on arbitrary lookups. The `/api/**` rate limiter in
+// `nuxt.config.ts`, the title length cap below, and the SWR cache bound that.
 const RESOLVABLE_MEDIA_TYPES = [
   'movie',
   'tv',
 ] as const satisfies readonly FlickResolvableMediaType[]
 
-// Flick's documented bounds.
+// Flick's documented bounds
 const MAX_TITLE_LENGTH = 200
 const MIN_YEAR = 1870
 const MAX_YEAR = 2100

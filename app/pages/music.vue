@@ -1,10 +1,9 @@
 <script setup lang="ts">
 await usePageSeo()
 
-// The gallery tiles hotlink artwork from `www.apple.com`, so warming the
-// connection saves the DNS, TCP, and TLS round trips for the page's largest
-// visual content. `crossorigin` is left off on purpose: CSS background images
-// are no-CORS fetches, and a CORS-warmed connection would not be reused.
+// `crossorigin` is omitted on purpose: the tiles hotlink artwork as CSS
+// background images, and those no-CORS fetches would not reuse a CORS-warmed
+// connection.
 useHead({
   link: [{ rel: 'preconnect', href: 'https://www.apple.com' }],
 })

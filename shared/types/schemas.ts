@@ -1,10 +1,7 @@
-// App-wide content types. These plain interfaces mirror the Zod collection
-// schemas in `content.config.ts` and must stay in sync with them.
-//
-// They are written as interfaces rather than `z.infer` aliases on purpose:
+// These interfaces mirror the Zod collection schemas in `content.config.ts`
+// and must stay in sync with them. They are not `z.infer` aliases because
 // Vue's `defineProps` compiler resolves types statically and cannot follow
-// `z.infer<typeof Schema>`, so any component prop typed from a derived
-// alias fails to compile.
+// `z.infer<typeof Schema>`.
 
 export interface ColorType {
   primary?: string
@@ -99,7 +96,7 @@ export interface ErrorPageType {
 }
 
 // Recursive counterpart to the bounded-depth navigation schema in
-// `content.config.ts`. Components walk the tree to any depth.
+// `content.config.ts`, because components walk the tree to any depth.
 export interface SectionType {
   id: string
   label?: string

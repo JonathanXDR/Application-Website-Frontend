@@ -9,10 +9,9 @@ interface AnimationOperations {
   onEnter?: () => void
   amount?: 'some' | 'all' | number
   /**
-   * Overrides the default `0px 0px -10% 0px`. That default leaves a dead
-   * zone at the viewport bottom that elements pinned to the end of the
-   * page (the footer `ShareSheet`) never scroll past, so they pass
-   * `'0px'`.
+   * Defaults to `0px 0px -10% 0px`. That leaves a dead zone at the
+   * viewport bottom which elements pinned to the end of the page (the
+   * footer `ShareSheet`) never scroll past, so they pass `'0px'`.
    */
   margin?: string
 }
@@ -63,8 +62,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       const { value } = binding
       const elementRef = ref(element)
 
-      // Elements already in the viewport animate immediately, skipping
-      // the hidden state, to avoid a needless LCP delay.
+      // Already-visible elements skip the hidden state to avoid an LCP delay
       const bounds = element.getBoundingClientRect()
       const isInitiallyVisible
         = bounds.top < window.innerHeight && bounds.bottom > 0
@@ -77,8 +75,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       }
 
       // Directive hooks run outside any component effect scope, so the
-      // observer and watcher created below would never be disposed on
-      // unmount. An explicit scope lets `unmounted` stop them.
+      // observer and watcher below would never be disposed on unmount.
       const scope = effectScope(true)
 
       scope.run(() => {

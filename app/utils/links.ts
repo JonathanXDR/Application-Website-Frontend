@@ -1,10 +1,8 @@
 import { NuxtLink, NuxtLinkLocale } from '#components'
 
 /**
- * Internal paths get `NuxtLinkLocale`, so unprefixed content YAML paths
- * resolve to the active locale's prefixed route. In-page anchors stay on
- * the plain `NuxtLink`, because `localePath` would turn `#about` into
- * `/de#about` and lose the same-page scroll behavior.
+ * In-page anchors stay on the plain `NuxtLink`, because `NuxtLinkLocale`
+ * would turn `#about` into `/de#about` and lose the same-page scroll.
  */
 export const getLinkComponentType = (link: LinkItemType) => {
   if (!link.url) return 'a'

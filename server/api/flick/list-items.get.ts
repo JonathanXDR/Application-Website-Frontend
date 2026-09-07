@@ -1,13 +1,9 @@
 import type { H3Event } from 'h3'
 
-// Items in one of the owner's custom lists. Upstream this is
-// `GET /me/lists/{list_id}/items`. The id arrives as a query param rather
-// than a route segment to keep every route a flat file with a uniform
-// `cacheKey` composition.
-//
-// Unlike the GitHub routes, which pin the repository owner, the id is not
-// pinned: every list it can reach belongs to the key owner and is already
-// enumerated by `/api/flick/lists`.
+// The list id is a query param rather than a route segment to keep every
+// route a flat file with a uniform `cacheKey` composition. Leaving it
+// client-supplied is safe: every list it reaches belongs to the key owner and
+// is already enumerated by `/api/flick/lists`.
 function getListItemsQuery(event: H3Event) {
   return {
     listId: requireFlickParam(flickPathId(getQuery(event).list_id)),

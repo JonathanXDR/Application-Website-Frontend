@@ -1,11 +1,8 @@
 import type { Repository } from '@octokit/graphql-schema'
 
-// Typed shape of the GraphQL selection below. Without it `edges` is `any` and
-// `edges.map` collapses the handler's return type to `any`.
+// Without this shape `edges` is `any` and `edges.map` collapses the handler's
+// return type to `any`.
 interface PinnedRepositoriesResponse {
-  // Nullable in the schema, but a deleted or renamed owner comes back as a
-  // top-level NOT_FOUND error that `handleGitHubError` maps to 502, so an
-  // error-free null is unreachable in practice.
   user: {
     pinnedItems: {
       edges: Array<{ node: Repository }>
@@ -90,9 +87,8 @@ const remapProperties = (item: Repository) => {
   }
 }
 
-// The username is pinned server side and pagination is clamped. See the note
-// in `server/utils/octokit.ts`. The `perPage` query param is camelCase here,
-// unlike the snake_case REST routes, to mirror the GraphQL `$perPage` above.
+// The `perPage` query param is camelCase here, unlike the snake_case REST
+// routes, to mirror the GraphQL `$perPage` above.
 const PER_PAGE = 30
 
 export default defineCachedEventHandler(
@@ -112,9 +108,9 @@ export default defineCachedEventHandler(
       handleGitHubError(error)
     }
 
-    // Defensive only, see `PinnedRepositoriesResponse`. It stays outside the
-    // try so the catch maps upstream failures alone and `response` is narrowed
-    // by `handleGitHubError`'s `never` return.
+    // Nullable in the schema, but a missing owner arrives as a top-level
+    // NOT_FOUND that `handleGitHubError` maps to 502, so this is unreachable.
+    // Outside the try so the catch maps upstream failures alone.
     if (!response.user) {
       throw createError({ status: 404, statusText: 'GitHub API Error' })
     }

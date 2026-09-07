@@ -2,8 +2,7 @@ export const useTheme = () => {
   const colorMode = useColorMode()
   const themeCookie = useCookie<string>('theme', { default: () => 'auto' })
 
-  // `useState` is shared across components, so the client sync below runs
-  // once per app rather than once per mount.
+  // Shared state, so the sync below runs once per app, not once per mount
   const initialized = useState('theme-initialized', () => false)
 
   const theme = computed(() => themeCookie.value || 'auto')

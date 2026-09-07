@@ -56,7 +56,6 @@ body main ::-webkit-scrollbar-track {
 }
 
 .light {
-  /* System Colors */
   --color-system-red: rgb(255, 59, 48);
   --color-system-red-accessible: rgb(215, 0, 21);
   --color-system-orange: rgb(255, 149, 0);
@@ -94,7 +93,6 @@ body main ::-webkit-scrollbar-track {
   --color-system-gray-6: rgb(242, 242, 247);
   --color-system-gray-6-accessible: rgb(235, 235, 240);
 
-  /* Dev Colors */
   --color-fill: #fff;
   --color-fill-secondary: #fbfbfd;
   --color-fill-tertiary: #f5f5f7;
@@ -131,7 +129,6 @@ body main ::-webkit-scrollbar-track {
   --color-highlight-red: #f8dddd;
   --color-tutorials-teal: #38a39c;
 
-  /* Dialog Modal */
   --modal-overlay-background: rgb(255, 255, 255);
 
   --modal-overlay-padding-top: 76px;
@@ -152,20 +149,16 @@ body main ::-webkit-scrollbar-track {
   --modal-close-icon-size: 36px;
   --modal-close-icon-svg-size: 20px;
 
-  /* Skeleton */
   --base-color: #ebebeb;
   --highlight-color: #f5f5f5;
 
-  /* Loading Bar */
   --color-loading-background: rgba(0, 0, 0, 0.2);
 
-  /* Menu */
   --color-menu: rgba(255, 255, 255, 0.72);
   --color-menu-border: rgba(0, 0, 0, 0.16);
   --color-mobile-border: rgba(0, 0, 0, 0.181818);
   --color-mobile-border-opacity: rgba(0, 0, 0, 0.285714);
 
-  /* Cards */
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-card-accent: var(--color-figure-blue);
   --color-card-shadow: rgba(0, 0, 0, 0.04);
@@ -175,17 +168,14 @@ body main ::-webkit-scrollbar-track {
   --color-card-logo-secondary: rgba(var(--color-card-logo-rgb), 0.15);
   --color-card-logo-tertiary: rgba(var(--color-card-logo-rgb), 0.25);
 
-  /* Scrim */
   --scrim-background-color: rgba(210, 210, 215, 0.64);
   --scrim-hover-background-color: rgba(223, 223, 227, 0.6976);
   --scrim-active-background-color: rgba(193, 193, 198, 0.6544);
 
-  /* Icon */
   --icon-color: rgba(0, 0, 0, 0.56);
   --icon-interaction-color: rgba(0, 0, 0, 0.64);
   --icon-opacity: 26;
 
-  /* Tile */
   --sk-tile-background: rgb(255, 255, 255);
   --sk-tile-button-icon-color: rgba(0, 0, 0, 0.56);
   --sk-tile-button-background: rgba(210, 210, 215, 0.64);
@@ -193,7 +183,6 @@ body main ::-webkit-scrollbar-track {
   --sk-tile-button-background-hover: rgba(223, 223, 227, 0.6976);
   --sk-tile-button-background-active: rgba(193, 193, 198, 0.6544);
 
-  /* Ribbon */
   --ribbon-text-color: #1d1d1f;
   --ribbon-background-color: #f5f5f7;
   --ribbon-link-color: #06c;
@@ -208,12 +197,10 @@ body main ::-webkit-scrollbar-track {
   --ribbon-blue-to-default-text-color: #1d1d1f;
   --ribbon-blue-to-default-link-color: #06c;
 
-  /* Dot Nav */
   --sk-dotnav-background: #ffffff5c;
   --sk-dotnav-background-hover: #ffffff7a;
   --sk-dotnav-background-current: #fffc;
 
-  /* Paddle Nav */
   --sk-paddlenav-arrow-color: #0000008f;
   --sk-paddlenav-arrow-color-hover: #000000a3;
   --sk-paddlenav-arrow-color-active: #000000a3;
@@ -233,7 +220,6 @@ body main ::-webkit-scrollbar-track {
   --sk-paddlenav-solid-background-hover: #ececf0;
   --sk-paddlenav-solid-background-active: #dfdfe4;
 
-  /* All Access Pass */
   --aap-background-color: rgb(232 232 237/70%);
   --aap-inner-glow-color: rgb(0 0 0/11%);
   --aap-text-color: rgb(29, 29, 31);
@@ -250,7 +236,6 @@ body main ::-webkit-scrollbar-track {
   --aap-paddlenav-arrow-color-hover: rgb(0 0 0/64%);
   --aap-paddlenav-background-hover: rgb(0 0 0/4.48%);
 
-  /* Aside */
   --color-aside-deprecated: var(--color-figure-orange);
   --color-aside-deprecated-background: var(--color-fill-orange-secondary);
   --color-aside-deprecated-border: var(--color-figure-orange);
@@ -270,21 +255,17 @@ body main ::-webkit-scrollbar-track {
   --color-aside-warning-background: var(--color-fill-red-secondary);
   --color-aside-warning-border: var(--color-figure-red);
 
-  /* Badge */
   --color-badge-beta: var(--color-figure-teal);
   --color-badge-spi: var(--color-figure-pink);
   --color-badge-default: var(--color-figure-light-gray);
   --color-badge-info: var(--color-figure-gray-tertiary);
   --color-badge-deprecated: var(--color-figure-orange);
 
-  /* Button */
   --color-button-background-active: var(--color-fill-blue);
   --color-button-background-hover: #0077ed;
 
-  /* Breadcrumbs */
   --color-breadcrumbs: #515154;
 
-  /* Changes */
   --color-changes-added: var(--color-figure-green);
   --color-changes-added-hover: var(--color-fill-green-secondary);
   --color-changes-deprecated: var(--color-figure-orange);
@@ -293,7 +274,6 @@ body main ::-webkit-scrollbar-track {
   --color-changes-modified-hover: var(--color-fill-purple-secondary);
   --color-changes-modified-previous-background: var(--color-fill);
 
-  /* Code */
   --color-code-background: var(--color-fill-tertiary);
   --color-code-collapsible-background: var(--color-fill-gray-quaternary);
   --color-code-line-highlight: var(--color-fill-light-blue-secondary);
@@ -305,7 +285,6 @@ body main ::-webkit-scrollbar-track {
   --color-grid: var(--color-fill-gray-tertiary);
   --color-hero-eyebrow: inherit;
 
-  /* Nav */
   --color-nav-background: transparent;
   --color-nav-background-checked: rgb(250, 250, 252);
   --color-nav-background-stuck: rgba(250, 250, 252, 0.92);
@@ -330,18 +309,15 @@ body main ::-webkit-scrollbar-track {
   --color-nav-uiblur-stuck: hsla(0, 0%, 100%, 0.7);
   --color-nav-root-subhead: var(--color-tutorials-teal);
 
-  /* Dropdown */
   --color-dropdown-background: rgba(255, 255, 255, 0.8);
   --color-dropdown-background-disabled: rgba(0, 0, 0, 0.01);
   --color-dropdown-border: #1d1d1f;
   --color-dropdown-option-text: #6e6e73;
   --color-dropdown-text: #1d1d1f;
 
-  /* Not Found */
   --color-not-found-input-background: var(--color-fill-secondary);
   --color-not-found-input-border: var(--color-fill-gray-tertiary);
 
-  /* Step */
   --color-step-caption: var(--color-fill-gray-tertiary);
   --color-step-focused: var(--color-figure-light-blue);
   --color-step-text: var(--color-figure-gray);
@@ -350,7 +326,6 @@ body main ::-webkit-scrollbar-track {
   --color-tabnav-item-border-color: var(--color-fill-gray-tertiary);
   --color-tutorial-navbar-dropdown-border: var(--color-dropdown-border);
 
-  /* Tutorials */
   --color-tutorials-overview-background: radial-gradient(
     circle at center 70%,
     #242424 0%,
@@ -363,10 +338,8 @@ body main ::-webkit-scrollbar-track {
   --color-tutorials-overview-navigation-link-active: #f5f5f7;
   --color-tutorials-overview-navigation-link-hover: #a1a1a6;
 
-  /* Navigator */
   --color-navigator-item-hover: rgba(0, 113, 227, 0.2);
 
-  /* Type */
   --color-type-icon-orange: #947100;
   --color-type-icon-green: #090;
   --color-type-icon-blue: #272ad8;
@@ -375,7 +348,6 @@ body main ::-webkit-scrollbar-track {
   --color-type-icon-teal: #509ca3;
   --color-type-icon-purple: #bf6af7;
 
-  /* Standard */
   --color-standard-red: var(--color-type-icon-pink);
   --color-standard-red-secondary: #8b0000;
   --color-standard-orange: #ff5a00;
@@ -391,7 +363,6 @@ body main ::-webkit-scrollbar-track {
   --color-standard-gray: #afafaf;
   --color-standard-gray-secondary: #1d1d1f;
 
-  /* Syntax */
   --color-syntax-addition: var(--color-figure-green);
   --color-syntax-attributes: #947100;
   --color-syntax-characters: #272ad8;
@@ -424,7 +395,6 @@ body main ::-webkit-scrollbar-track {
 }
 
 .dark {
-  /* System Colors */
   --color-system-red: rgb(255, 69, 58);
   --color-system-red-accessible: rgb(255, 105, 97);
   --color-system-orange: rgb(255, 159, 10);
@@ -462,13 +432,12 @@ body main ::-webkit-scrollbar-track {
   --color-system-gray-6: rgb(28, 28, 30);
   --color-system-gray-6-accessible: rgb(36, 36, 38);
 
-  /* Dev Colors */
   --color-fill: #000;
   --color-fill-secondary: #161617;
   --color-fill-tertiary: #1d1d1f;
-  /* Repeats the `.light` value so the token also resolves under `.dark`.
-     Upstream declares it only in its light mixin
-     (`app/assets/drafts/scss/core/colors/_light.scss`). */
+  /* Repeats the `.light` value so the token resolves under `.dark` too.
+     Upstream declares it only in
+     `app/assets/drafts/scss/core/colors/_light.scss`. */
   --color-fill-quaternary: #252525;
   --color-fill-blue: #0071e3;
   --color-fill-blue-secondary: #001931;
@@ -502,7 +471,6 @@ body main ::-webkit-scrollbar-track {
   --color-highlight-red: #410606;
   --color-tutorials-teal: #54c4bc;
 
-  /* Dialog Modal */
   --modal-overlay-background: rgb(29, 29, 31);
 
   --modal-overlay-padding-top: 76px;
@@ -523,20 +491,16 @@ body main ::-webkit-scrollbar-track {
   --modal-close-icon-size: 36px;
   --modal-close-icon-svg-size: 20px;
 
-  /* Skeleton */
   --base-color: #1d1d1f;
   --highlight-color: #262628;
 
-  /* Loading Bar */
   --color-loading-background: rgba(255, 255, 255, 0.2);
 
-  /* Menu */
   --color-menu: rgba(0, 0, 0, 0.72);
   --color-menu-border: rgba(255, 255, 255, 0.24);
   --color-mobile-border: rgba(255, 255, 255, 0.26087);
   --color-mobile-border-opacity: rgba(255, 255, 255, 0.428571);
 
-  /* Cards */
   --color-welcome-technologies-card-accent: var(--color-figure-blue);
   --color-card-accent: var(--color-figure-blue);
   --color-card-shadow: hsla(0, 0%, 100%, 0.04);
@@ -546,17 +510,14 @@ body main ::-webkit-scrollbar-track {
   --color-card-logo-secondary: rgba(var(--color-card-logo-rgb), 0.15);
   --color-card-logo-tertiary: rgba(var(--color-card-logo-rgb), 0.25);
 
-  /* Scrim */
   --scrim-background-color: rgba(66, 66, 69, 0.71);
   --scrim-hover-background-color: rgba(29, 29, 31, 0.8);
   --scrim-active-background-color: #2f2f32;
 
-  /* Icon */
   --icon-color: rgba(255, 255, 255, 0.79);
   --icon-interaction-color: rgba(255, 255, 255, 0.9);
   --icon-opacity: 40;
 
-  /* Tile */
   --sk-tile-background: rgb(0, 0, 0);
   --sk-tile-button-icon-color: rgba(255, 255, 255, 0.8);
   --sk-tile-button-background: rgba(66, 66, 69, 0.72);
@@ -564,7 +525,6 @@ body main ::-webkit-scrollbar-track {
   --sk-tile-button-background-hover: rgba(73, 73, 76, 0.7256);
   --sk-tile-button-background-active: rgba(57, 57, 60, 0.7424);
 
-  /* Ribbon */
   --ribbon-text-color: #f5f5f7;
   --ribbon-background-color: #1d1d1f;
   --ribbon-link-color: #2997ff;
@@ -579,12 +539,10 @@ body main ::-webkit-scrollbar-track {
   --ribbon-blue-to-default-text-color: #f5f5f7;
   --ribbon-blue-to-default-link-color: #2997ff;
 
-  /* Dot Nav */
   --sk-dotnav-background: #0000006b;
   --sk-dotnav-background-hover: #0000008a;
   --sk-dotnav-background-current: #000c;
 
-  /* Paddle Nav */
   --sk-paddlenav-arrow-color: #0000008f;
   --sk-paddlenav-arrow-color-hover: #000000a3;
   --sk-paddlenav-arrow-color-active: #000000a3;
@@ -604,7 +562,6 @@ body main ::-webkit-scrollbar-track {
   --sk-paddlenav-solid-background-hover: #37373a;
   --sk-paddlenav-solid-background-active: #2f2f32;
 
-  /* All Access Pass */
   --aap-background-color: rgb(23 23 28/70%);
   --aap-inner-glow-color: rgb(255 255 255/11%);
   --aap-text-color: rgb(226, 226, 234);
@@ -621,7 +578,6 @@ body main ::-webkit-scrollbar-track {
   --aap-paddlenav-arrow-color-hover: rgb(255 255 255/64%);
   --aap-paddlenav-background-hover: rgb(255 255 255/4.48%);
 
-  /* Aside */
   --color-aside-deprecated: var(--color-figure-orange);
   --color-aside-deprecated-background: var(--color-fill-orange-secondary);
   --color-aside-deprecated-border: var(--color-figure-orange);
@@ -641,21 +597,17 @@ body main ::-webkit-scrollbar-track {
   --color-aside-warning-background: var(--color-fill-red-secondary);
   --color-aside-warning-border: var(--color-figure-red);
 
-  /* Badge */
   --color-badge-beta: #00c2bb;
   --color-badge-spi: #f14bf1;
   --color-badge-default: #f5f5f7;
   --color-badge-info: #6e6e73;
   --color-badge-deprecated: #f56300;
 
-  /* Button */
   --color-button-background-active: var(--color-fill-blue);
   --color-button-background-hover: #0077ed;
 
-  /* Breadcrumbs */
   --color-breadcrumbs: #6e6e73;
 
-  /* Changes */
   --color-changes-added: var(--color-figure-green);
   --color-changes-added-hover: var(--color-fill-green-secondary);
   --color-changes-deprecated: var(--color-figure-orange);
@@ -664,7 +616,6 @@ body main ::-webkit-scrollbar-track {
   --color-changes-modified-hover: var(--color-fill-purple-secondary);
   --color-changes-modified-previous-background: var(--color-fill);
 
-  /* Code */
   --color-code-background: var(--color-fill-tertiary);
   --color-code-collapsible-background: var(--color-fill-gray-quaternary);
   --color-code-line-highlight: var(--color-fill-light-blue-secondary);
@@ -676,7 +627,6 @@ body main ::-webkit-scrollbar-track {
   --color-grid: var(--color-fill-gray-tertiary);
   --color-hero-eyebrow: inherit;
 
-  /* Nav */
   --color-nav-background: rgba(0, 0, 0, 0.72);
   --color-nav-background-checked: rgb(22, 22, 23);
   --color-nav-background-stuck: rgba(22, 22, 23, 0.88);
@@ -700,18 +650,15 @@ body main ::-webkit-scrollbar-track {
   --color-nav-uiblur-stuck: rgba(29, 29, 31, 0.7);
   --color-nav-root-subhead: #54c4bc;
 
-  /* Dropdown */
   --color-dropdown-background: rgba(0, 0, 0, 0.8);
   --color-dropdown-background-disabled: rgba(255, 255, 255, 0.01);
   --color-dropdown-border: hsla(240, 6%, 83%, 0.2);
   --color-dropdown-option-text: #86868b;
   --color-dropdown-text: #f5f5f7;
 
-  /* Not Found */
   --color-not-found-input-background: var(--color-fill-secondary);
   --color-not-found-input-border: var(--color-fill-gray-tertiary);
 
-  /* Step */
   --color-step-caption: var(--color-fill-gray-tertiary);
   --color-step-focused: var(--color-figure-light-blue);
   --color-step-text: var(--color-figure-gray);
@@ -720,7 +667,6 @@ body main ::-webkit-scrollbar-track {
   --color-tabnav-item-border-color: var(--color-fill-gray-tertiary);
   --color-tutorial-navbar-dropdown-border: var(--color-dropdown-border);
 
-  /* Tutorials */
   --color-tutorials-overview-background: radial-gradient(
     circle at center 70%,
     #242424 0%,
@@ -733,10 +679,8 @@ body main ::-webkit-scrollbar-track {
   --color-tutorials-overview-navigation-link-active: #f5f5f7;
   --color-tutorials-overview-navigation-link-hover: #a1a1a6;
 
-  /* Navigator */
   --color-navigator-item-hover: rgba(0, 113, 227, 0.2);
 
-  /* Type */
   --color-type-icon-orange: #947100;
   --color-type-icon-green: #090;
   --color-type-icon-blue: #272ad8;
@@ -745,7 +689,6 @@ body main ::-webkit-scrollbar-track {
   --color-type-icon-teal: #509ca3;
   --color-type-icon-purple: #bf6af7;
 
-  /* Standard */
   --color-standard-red: var(--color-type-icon-pink);
   --color-standard-red-secondary: #8b0000;
   --color-standard-orange: #ff5a00;
@@ -761,7 +704,6 @@ body main ::-webkit-scrollbar-track {
   --color-standard-gray: #afafaf;
   --color-standard-gray-secondary: #1d1d1f;
 
-  /* Syntax */
   --color-syntax-addition: var(--color-figure-green);
   --color-syntax-attributes: #cc9768;
   --color-syntax-characters: #d9c97c;

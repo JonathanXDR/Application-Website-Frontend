@@ -32,24 +32,15 @@ const updateHeight = () => {
   ulHeight.value = ul.value.getBoundingClientRect().height
 }
 
-// Tab 0 is the Swisscom timeline, served from `@nuxt/content`. Only the other
-// two tabs render GitHub data, so both endpoints stay gated until one of
-// those tabs is selected.
+// Tab 0 is the Swisscom timeline, served from `@nuxt/content`
 const needsRepositories = computed(() => currentIndex.value !== 0)
 
-// `enabled` (Nuxt 4.5) keeps these two out of the prerendered payload:
-// nothing reaches `payload.data` at render time, which removes ~30 KB (~8 KB
-// gzipped) from every locale's `/projects/` document and keeps `updated_at`
-// live rather than frozen at build time.
-//
-// `lazy: true` stays: without it a soft navigation into
-// `/projects/?category=personal` makes Suspense hold the route transition on
-// the GitHub round trip.
-//
-// `immediate` is deliberately NOT set. Nuxt's initial fetch runs at
-// `onBeforeMount`, after the `route.query.category` watcher below has set
-// `currentIndex`, so a deep link fetches on its own. Forcing it here makes
-// setup start a request that the `onBeforeMount` pass aborts and reissues.
+// `enabled` (Nuxt 4.5) keeps these out of the prerendered payload, saving
+// ~30 KB per locale document and keeping `updated_at` live rather than frozen
+// at build time. `lazy` keeps Suspense from holding a soft navigation on the
+// GitHub round trip. `immediate` is deliberately unset: the initial fetch runs
+// at `onBeforeMount`, after the watcher below sets `currentIndex`, so forcing
+// it would start a request that the `onBeforeMount` pass aborts and reissues.
 const {
   data: userRepositories,
   status: userRepositoriesStatus,
@@ -61,8 +52,6 @@ const {
   params: { per_page: 100 },
 })
 
-// No params here: the pinned endpoint fixes the owner and defaults `perPage`
-// server side.
 const {
   data: pinnedProjects,
   status: pinnedStatus,
@@ -73,10 +62,9 @@ const {
   enabled: needsRepositories,
 })
 
-// Nuxt's own `enabled` watcher only handles the true -> false direction,
-// aborting an in-flight request and resetting the status to `'idle'`.
-// Re-enabling never refetches, so the switch back executes explicitly.
-// `'error'` is included so a failed tab retries instead of staying broken.
+// Nuxt's `enabled` watcher only aborts on true -> false and never refetches
+// when re-enabled, so the switch back executes explicitly. `'error'` is
+// included so a failed tab retries.
 watch(needsRepositories, (needed) => {
   if (!needed) return
   if (
@@ -90,18 +78,15 @@ watch(needsRepositories, (needed) => {
   }
 })
 
-// Derived from the fetch so the type tracks the server projection through
-// Nitro serialization, plus the pin icon the watcher below attaches.
 type PinnedRepository = NonNullable<typeof pinnedProjects.value>[number] & {
   icon?: IconItemType
 }
 
 const pinned = ref<PinnedRepository[]>([])
 
-// `service-unavailable` is reused for the GitHub outage state below because
-// it is already translated into all four locales. Its copy frames the outage
-// as site maintenance rather than an upstream fault, so it needs a dedicated
-// entry if that distinction ever matters.
+// The GitHub outage state reuses `service-unavailable` because it is already
+// translated into all four locales, though its copy frames the outage as site
+// maintenance rather than an upstream fault.
 const [
   { data: swisscomProjects },
   { data: cardLabels },
@@ -299,10 +284,8 @@ watchEffect(() => {
       v-else
       class="w-full"
     >
-      <!-- With `enabled` the fetch starts at `'idle'`, so a bare
-           `!== 'pending'` check would flash an empty grid before the request
-           begins. `'error'` gets its own branch because routing it to
-           `ResultBlankState` would report an outage as "no results". -->
+      <!-- With `enabled` the fetch starts at `'idle'`, so anything looser than
+           `'success'` would flash an empty grid before the request begins. -->
       <div v-if="userRepositoriesStatus === 'success'">
         <LazyLiveResultSummary
           :total-results="currentProjects.length + pinned.length"

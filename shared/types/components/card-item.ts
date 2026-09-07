@@ -12,9 +12,6 @@ interface GraphType {
   bar: boolean
 }
 
-// Section components need fields the content schema does not carry, such as
-// `icon.position`, the date formatter on `info`, and badge click handlers,
-// so the rich component variants replace the plain content atoms.
 export interface CardItemType extends Omit<
   ExtendedPropsType,
   'icon' | 'info' | 'badges'

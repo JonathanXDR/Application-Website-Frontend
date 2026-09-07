@@ -60,12 +60,9 @@
 </template>
 
 <style scoped>
-/* The exported glyph paths sit flush against their viewBox edges, so the
-   default `overflow: hidden` shaves the leading slashes and the right side
-   of the "R" in some engines (Firefox/Gecko, for example). The geometry
-   never exceeds the viewBox, so nothing actually spills. CSS is required
-   because the UA rule `svg:not(:root) { overflow: hidden }` outranks an
-   `overflow` attribute. */
+/* The glyph paths sit flush against the viewBox edges, so the UA rule
+   `svg:not(:root) { overflow: hidden }` shaves them in some engines. It
+   outranks an `overflow` attribute, so the override has to be CSS. */
 svg {
   overflow: visible;
 }

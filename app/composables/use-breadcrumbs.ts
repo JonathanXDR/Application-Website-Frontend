@@ -43,8 +43,7 @@ export function useBreadcrumbs(
       })
     }
 
-    // A route without a navbar entry (an error page, for example) has no
-    // label, so fall back to the raw path.
+    // A route with no navbar entry (an error page, for example) has no label
     const lastCrumbTitle = currentRoute.value?.label ?? route.path
 
     result.push({ title: lastCrumbTitle, url: route.path })

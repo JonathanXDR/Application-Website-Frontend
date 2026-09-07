@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 
-# Vercel Ignored Build Step gate. Vercel inverts the usual convention: exit 1
-# runs the build, exit 0 aborts it. This gate skips a deploy whose last two
-# commits are less than `BUILD_INTERVAL_MINUTES` apart (default 30), so a burst
-# of quick commits keeps skipping deploys until one commit lands at least that
-# long after its parent.
+# Vercel Ignored Build Step gate: exit 1 runs the build, exit 0 aborts it.
 #
-# `date -d` is a GNU extension that the Vercel runner has and macOS does not,
-# so a local run measures 0 minutes and always reports a skip.
+# `date -d` is a GNU extension the Vercel runner has and macOS does not, so a
+# local run measures 0 minutes and always reports a skip.
 # https://vercel.com/docs/project-configuration/project-settings#ignored-build-step
 
 BUILD_INTERVAL_MINUTES="${BUILD_INTERVAL_MINUTES:-30}"
@@ -31,7 +27,7 @@ minutes_diff=$(((latest_commit_unix - previous_commit_unix) / 60))
 
 echo -e "Time between the last two commits: $minutes_diff minutes"
 
-# Inert. The exports die with this shell, so the build never sees them.
+# Inert: the exports die with this shell, so the build never sees them.
 # `nuxt.config.ts` records what wiring them up would take.
 export APP_DATE="$latest_commit_timestamp"
 export APP_VERSION="$latest_tag"

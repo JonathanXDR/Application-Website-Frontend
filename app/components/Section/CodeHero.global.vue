@@ -37,7 +37,7 @@ const bioSentences = computed(() => {
         style="opacity: 1; transform: none"
       >
         <em class="">Hey there, I'm Jonathan :)</em>
-        <!-- A `span` keeps the `h1` content model valid. A `p` would not. -->
+        <!-- `h1` accepts phrasing content only, so a `span` not a `p` -->
         <span v-if="bioSentences.length">{{
           bioSentences.join(". ") + "."
         }}</span>

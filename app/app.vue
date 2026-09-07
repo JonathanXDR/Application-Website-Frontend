@@ -8,10 +8,8 @@ const color
     ? `var(--color-figure-${randomDevColor.value?.name})`
     : 'var(--color-fill-blue)'
 
-// Keeps the `Person` skill list in sync with the cards on
-// `/technologies`. Only `title` is selected, because this query runs on
-// every page and would otherwise embed the whole collection into each
-// payload.
+// Only `title` is selected: this query runs on every page and would
+// otherwise embed the whole collection into each payload.
 const { data: technologies } = await useQueryCollection<{ title: string }>(
   'technologies',
 )
@@ -19,16 +17,13 @@ const { data: technologies } = await useQueryCollection<{ title: string }>(
   .all()
 
 // The `Person` identity lives here rather than in `nuxt.config.ts`
-// because its fields resolve at runtime: `image` against
-// `siteConfig.url` (relative URLs resolve against `canonicalHost`),
-// `description` against the per-locale value the site-config middleware
-// writes, and `knowsAbout` against the `technologies` collection.
+// because its fields resolve at runtime, against `siteConfig` and the
+// `technologies` collection.
 //
 // Omitting `@id` and `url` lets schema-org derive `@id = {host}#identity`,
-// so this `Person` becomes the site identity, `WebSite` publisher, and
+// so this `Person` becomes the site identity, `WebSite` publisher and
 // page author. `defineWebSite()` is intentionally not called: the
-// schema-org i18n integration already creates per-locale `WebSite` nodes
-// linked via `workTranslation` and `translationOfWork`.
+// schema-org i18n integration already creates per-locale `WebSite` nodes.
 //
 // https://nuxtseo.com/docs/schema-org/guides/setup-identity
 // https://nuxtseo.com/docs/schema-org/guides/i18n
