@@ -7,13 +7,11 @@ import SectionReferences from '~/components/Section/References.global.vue'
 
 await usePageSeo({ breadcrumb: false })
 
-// Sections used to be resolved as `section-${child.id}` against the globally
-// registered components, so a renamed id in
-// `content/components/navigation/navbar.yml` rendered a blank section at
-// runtime and nothing failed. Mapping the ids explicitly moves the failure
-// to build time: moving or renaming any of these files is now an unresolved
-// import, and an id with no entry is skipped rather than silently mounting
-// nothing.
+// The ids map to explicit imports instead of resolving `section-${child.id}`
+// against the global components, so moving or renaming one of these files
+// fails at build time as an unresolved import. An id in
+// `content/components/navigation/navbar.yml` with no entry here is skipped
+// rather than mounting a blank section.
 const sectionComponents = {
   'about': SectionAbout,
   'languages': SectionLanguages,
@@ -43,8 +41,7 @@ const sections = computed<SectionType[]>(() => navbarData.value?.items ?? [])
         :key="child.id"
       >
         <!-- `label` is optional on `SectionType`, but every section component
-             requires a `title`, so an entry without a label is skipped
-             rather than mounted with an empty heading. -->
+             requires a `title`, so an entry without a label is skipped. -->
         <section
           v-if="child.label && child.id in sectionComponents"
           :id="child.id"

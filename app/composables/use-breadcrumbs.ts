@@ -43,9 +43,8 @@ export function useBreadcrumbs(
       })
     }
 
-    // The last crumb title comes from the navbar entry for the current
-    // route. Nothing else supplies it, so a route without a navbar entry
-    // (an error page, for example) falls back to the raw path.
+    // A route without a navbar entry (an error page, for example) has no
+    // label, so fall back to the raw path.
     const lastCrumbTitle = currentRoute.value?.label ?? route.path
 
     result.push({ title: lastCrumbTitle, url: route.path })

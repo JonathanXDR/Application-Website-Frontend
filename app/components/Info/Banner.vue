@@ -30,7 +30,6 @@ const tags = ref<{
 
 const baseItems = ref<InfoBannerType['items']>([])
 
-// Owner and repo are pinned server side, so only `per_page` is forwarded.
 const { data: repositoryTags } = await useFetch('/api/github/repository-tags', {
   key: 'repository-tags',
   lazy: true,
@@ -200,11 +199,9 @@ const hasUnresolvedPlaceholder = (value?: string) =>
 
 const updateBaseItems = () => {
   const { latest: latestTag, previous: previousTag } = tags.value
-  // Interpolate with whatever tags are currently available. The banner must
-  // not blank out when the GitHub repository has no tags yet, so instead of
-  // waiting for both tags we drop only the items that still reference an
-  // unresolved placeholder (the release-compare banner) and keep the
-  // tag-independent banners visible.
+  // Interpolate with whatever tags exist so the banner does not blank out
+  // while the repository has none. Only the items left holding an unresolved
+  // placeholder are dropped.
   const vars: Record<string, string> = {}
   if (latestTag) vars.latestTag = latestTag
   if (previousTag) vars.previousTag = previousTag

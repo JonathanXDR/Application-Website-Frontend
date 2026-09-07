@@ -12,12 +12,9 @@ interface GraphType {
   bar: boolean
 }
 
-// Component card prop. It layers the render-rich versions of `icon`,
-// `info`, and `badges` over the derived content shape: section components
-// add fields the content schema does not carry, such as `icon.position`,
-// the date formatter on `info`, and badge click handlers. Those fields
-// force the component variants (`IconItemType`, `InfoBarType`,
-// `BadgeItemType`) in place of the plain content atoms.
+// Section components need fields the content schema does not carry, such as
+// `icon.position`, the date formatter on `info`, and badge click handlers,
+// so the rich component variants replace the plain content atoms.
 export interface CardItemType extends Omit<
   ExtendedPropsType,
   'icon' | 'info' | 'badges'

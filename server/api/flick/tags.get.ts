@@ -1,6 +1,5 @@
 // The owner's distinct review tags with usage counts, most-used first.
-// Unpaginated upstream: the endpoint takes no `page` or `limit`, so the
-// response carries `data` alone with none of the paginated counters.
+// Unpaginated: the endpoint takes no `page` or `limit`.
 export default defineCachedEventHandler(
   async () => {
     const { request } = useFlick()

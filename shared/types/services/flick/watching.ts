@@ -1,28 +1,28 @@
 import type { FlickMedia } from '#shared/types/services/flick/media'
 
-// The show object on a watching row is narrower than the standard media
-// object: it drops `year`. Composing it with `Pick` keeps the field types tied
-// to `FlickMedia` so the two cannot drift apart.
+// A watching row's show object drops `year`. Composed with `Pick` so the
+// field types stay tied to `FlickMedia`.
 export type FlickWatchingShow = Pick<
   FlickMedia,
   'tmdb_id' | 'type' | 'title' | 'poster_url'
 >
 
 // Pointer at the most recent episode or season row logged for the show. The
-// abbreviated keys are Flick's own: `s` is the season number and `e` the
-// episode number.
+// abbreviated keys are Flick's own.
 //
-// Every field is nullable, and the object itself is not. The live API emits
-// `{ "e": null, "s": null, "kind": null, "created_at": null }` for a show
-// with no activity since its last reset, rather than omitting the object or
-// sending `null` in its place, so an `if (most_recent_review)` guard passes
-// and then reads four nulls. `kind` is `'episode'` in the one documented
-// populated example and `season_count` on the parent row implies `'season'`
-// exists. Neither is enumerated in the spec, so the open arm accepts a third
-// value this beta API may add.
+// The live API emits `{ "e": null, "s": null, "kind": null, "created_at":
+// null }` for a show with no activity since its last reset, rather than
+// omitting the object or sending `null` in its place, so an
+// `if (most_recent_review)` guard passes and then reads four nulls.
 export interface FlickWatchingRecentReview {
+  /** Season number. */
   s: number | null
+  /** Episode number. */
   e: number | null
+  /**
+   * Neither named value is enumerated in the spec, so the open arm accepts
+   * a third one this beta API may add.
+   */
   kind: 'episode' | 'season' | (string & {}) | null
   created_at: string | null
 }

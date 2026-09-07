@@ -1,6 +1,5 @@
-// Only `term` is forwarded, coerced to a trimmed and length-capped string, so
-// the endpoint stays a fixed catalog search rather than a generic proxy and the
-// cache key stays bounded.
+// Only `term` is forwarded, trimmed and length-capped, so this stays a fixed
+// catalog search and the cache key stays bounded.
 const MAX_TERM_LENGTH = 100
 const parseTerm = (value: unknown): string => {
   const raw = Array.isArray(value) ? value[0] : value
@@ -8,8 +7,7 @@ const parseTerm = (value: unknown): string => {
 }
 
 // Raw catalog search shape. @types/musickit-js only ships an SDK-wrapped
-// envelope, so the per-type results the upstream returns directly are composed
-// here from the library's SearchResult.
+// envelope, so the per-type results are composed here from its `SearchResult`.
 interface CatalogSearchResponse {
   results: {
     albums?: MusicKit.SearchResult<MusicKit.Albums>

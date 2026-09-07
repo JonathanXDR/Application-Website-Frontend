@@ -11,12 +11,11 @@ export const useNavbar = () => {
 
   const isCurrentRoute = (routePath?: string): boolean => {
     if (!routePath) return false
-    // Resolve the locale-independent route to the current locale's URL
-    // (for example, `/` becomes `/de/` under `strategy: 'prefix'`) before
-    // comparing against `route.path`. Mirrors the pattern used in
-    // `NavBar.vue` `isCurrent`. The `{ path }` object form is typed for
-    // runtime path strings via `RouteLocationI18nGenericPath`, so no cast
-    // is needed.
+    // Resolve to the current locale's URL (`/` becomes `/de/` under
+    // `strategy: 'prefix'`) before comparing against `route.path`. The
+    // `{ path }` object form is typed for runtime path strings via
+    // `RouteLocationI18nGenericPath`, so no cast is needed. The same
+    // comparison runs in `NavBar.vue` `isCurrent`.
     const resolved = localePath({ path: routePath })
     return routePath === '/'
       ? route.path === resolved
@@ -27,18 +26,15 @@ export const useNavbar = () => {
     navItems.value.find(item => isCurrentRoute(item.route)),
   )
 
-  // Localized label for the root/home breadcrumb. Sourced from the navbar's
-  // `overview` item (DE: "Übersicht", EN: "Overview", FR: "Vue d'ensemble",
-  // IT: "Panoramica") so the `BreadcrumbList` JSON-LD never emits a
-  // hardcoded English "Home" on non-English locales, because schema-org
-  // does not auto-translate breadcrumb labels.
+  // Localized root breadcrumb label, taken from the navbar's `overview`
+  // item. schema-org does not translate breadcrumb labels, so the
+  // `BreadcrumbList` JSON-LD would otherwise emit a hardcoded English
+  // "Home" on every non-English locale.
   // https://nuxtseo.com/docs/schema-org/api/define-breadcrumb
   const homeLabel = computed<string>(
     () => navItems.value.find(item => item.id === 'overview')?.label ?? '',
   )
 
-  // Locale-resolved root path (for example, `/de/` under
-  // `strategy: 'prefix'`) for use as the `BreadcrumbList` root `item`.
   const homePath = computed<string>(() => localePath({ path: '/' }))
 
   return {

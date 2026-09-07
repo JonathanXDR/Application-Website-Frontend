@@ -32,27 +32,24 @@ const updateHeight = () => {
   ulHeight.value = ul.value.getBoundingClientRect().height
 }
 
-// Tab 0 is the Swisscom timeline, served entirely from `@nuxt/content`.
-// Only the other two tabs render GitHub data, so both endpoints stay gated
-// until one of them is selected.
+// Tab 0 is the Swisscom timeline, served from `@nuxt/content`. Only the other
+// two tabs render GitHub data, so both endpoints stay gated until one of
+// those tabs is selected.
 const needsRepositories = computed(() => currentIndex.value !== 0)
 
-// `enabled` (Nuxt 4.5) keeps these two out of the prerendered payload: with
-// the gate closed at render time nothing is written to `payload.data`, which
-// removes ~30 KB (~8 KB gzipped) from every locale's `/projects/` document.
-// The data is then fetched from the deployed endpoint when the user opens the
-// tab, so repository names and `updated_at` are live rather than frozen at
-// build time.
+// `enabled` (Nuxt 4.5) keeps these two out of the prerendered payload:
+// nothing reaches `payload.data` at render time, which removes ~30 KB (~8 KB
+// gzipped) from every locale's `/projects/` document and keeps `updated_at`
+// live rather than frozen at build time.
 //
-// `lazy: true` stays: it is read on the client (not the server), and without
-// it a soft navigation into `/projects/?category=personal` makes Suspense hold
-// the route transition on the GitHub round trip.
+// `lazy: true` stays: without it a soft navigation into
+// `/projects/?category=personal` makes Suspense hold the route transition on
+// the GitHub round trip.
 //
-// `immediate` is deliberately NOT set. Nuxt's own initial fetch already runs
-// at `onBeforeMount`, by which point the `route.query.category` watcher below
-// has set `currentIndex`, so a deep link fetches on its own. Forcing it here
-// would start a request during setup that the `onBeforeMount` pass then
-// aborts and reissues, two invocations for one render.
+// `immediate` is deliberately NOT set. Nuxt's initial fetch runs at
+// `onBeforeMount`, after the `route.query.category` watcher below has set
+// `currentIndex`, so a deep link fetches on its own. Forcing it here makes
+// setup start a request that the `onBeforeMount` pass aborts and reissues.
 const {
   data: userRepositories,
   status: userRepositoriesStatus,
@@ -64,8 +61,8 @@ const {
   params: { per_page: 100 },
 })
 
-// The pinned endpoint fixes the owner and reads `perPage` server side, so
-// no params are forwarded here.
+// No params here: the pinned endpoint fixes the owner and defaults `perPage`
+// server side.
 const {
   data: pinnedProjects,
   status: pinnedStatus,
@@ -76,11 +73,10 @@ const {
   enabled: needsRepositories,
 })
 
-// Nuxt's own `enabled` watcher only handles the true -> false direction, where
-// it aborts an in-flight request and resets the status to `'idle'`. Re-enabling
-// never refetches on its own, so the switch back has to execute explicitly.
-// `'error'` is included so that returning to a failed tab retries instead of
-// leaving it permanently broken.
+// Nuxt's own `enabled` watcher only handles the true -> false direction,
+// aborting an in-flight request and resetting the status to `'idle'`.
+// Re-enabling never refetches, so the switch back executes explicitly.
+// `'error'` is included so a failed tab retries instead of staying broken.
 watch(needsRepositories, (needed) => {
   if (!needed) return
   if (
@@ -94,22 +90,17 @@ watch(needsRepositories, (needed) => {
   }
 })
 
-// Element type of the (Nitro serialized) pinned fetch result, plus the
-// pin icon the watch attaches. Derived from the fetch so it tracks the
-// server projection instead of an `any` hand-off.
+// Derived from the fetch so the type tracks the server projection through
+// Nitro serialization, plus the pin icon the watcher below attaches.
 type PinnedRepository = NonNullable<typeof pinnedProjects.value>[number] & {
   icon?: IconItemType
 }
 
 const pinned = ref<PinnedRepository[]>([])
 
-// The queries are independent, so they run in parallel instead of
-// serializing four round trips per render.
-//
 // `service-unavailable` is reused for the GitHub outage state below because
-// it is already translated into all four locales, which keeps the failure
-// path from needing new content. Its copy frames the outage as site
-// maintenance rather than an upstream fault, so replace it with a dedicated
+// it is already translated into all four locales. Its copy frames the outage
+// as site maintenance rather than an upstream fault, so it needs a dedicated
 // entry if that distinction ever matters.
 const [
   { data: swisscomProjects },
@@ -308,11 +299,10 @@ watchEffect(() => {
       v-else
       class="w-full"
     >
-      <!-- Three states rather than two. With `enabled` the fetch starts at
-           `'idle'`, so a bare `!== 'pending'` check would flash an empty grid
-           before the request begins. `'error'` gets its own branch: routing
-           it to `ResultBlankState` would report an outage as "no results",
-           which is indistinguishable from a genuinely empty category. -->
+      <!-- With `enabled` the fetch starts at `'idle'`, so a bare
+           `!== 'pending'` check would flash an empty grid before the request
+           begins. `'error'` gets its own branch because routing it to
+           `ResultBlankState` would report an outage as "no results". -->
       <div v-if="userRepositoriesStatus === 'success'">
         <LazyLiveResultSummary
           :total-results="currentProjects.length + pinned.length"

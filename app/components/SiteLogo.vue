@@ -61,12 +61,11 @@
 
 <style scoped>
 /* The exported glyph paths sit flush against their viewBox edges, so the
-   default `overflow: hidden` on SVG viewports shaves the leading slashes
-   and the right side of the "R" in some engines (for example Firefox/Gecko).
-   Letting the viewports overflow keeps the marks intact. The geometry
+   default `overflow: hidden` shaves the leading slashes and the right side
+   of the "R" in some engines (Firefox/Gecko, for example). The geometry
    never exceeds the viewBox, so nothing actually spills. CSS is required
-   here because the UA `svg:not(:root) { overflow: hidden }` rule outranks
-   an `overflow` attribute. */
+   because the UA rule `svg:not(:root) { overflow: hidden }` outranks an
+   `overflow` attribute. */
 svg {
   overflow: visible;
 }

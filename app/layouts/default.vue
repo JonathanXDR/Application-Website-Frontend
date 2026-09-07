@@ -7,12 +7,10 @@ import type {
 import FooterPre from '~/components/Footer/Pre.vue'
 import { AnimatePresence, Motion } from 'motion-v'
 
-// Page chrome is passed in as real layout props rather than read back out of
-// `route.meta`. Pages get these defaults for free and say nothing. A page that
-// wants different chrome overrides them with
-// `definePageMeta({ layout: { props: { ... } } })`, and `app/error.vue` passes
-// them as attributes on its own `<NuxtLayout>` (which merges `attrs` and
-// `route.meta.layoutProps` into the layout component).
+// Page chrome is passed in as layout props rather than read back out of
+// `route.meta`. A page overrides these defaults with
+// `definePageMeta({ layout: { props: { ... } } })`, or with attributes on
+// its own `<NuxtLayout>` as `app/error.vue` does.
 const props = withDefaults(
   defineProps<{
     header?: boolean
@@ -41,9 +39,8 @@ const { y, isScrolling } = useScroll(() =>
 const error = useError()
 const config = useRuntimeConfig()
 
-// The three queries are independent, so they run in parallel. This
-// layout wraps every page, which makes it the hottest SSR path in the
-// app, and serializing the queries added avoidable latency per render.
+// This layout wraps every page, so serializing these independent queries
+// adds avoidable latency on the hottest SSR path in the app.
 const [
   { data: navbarContent },
   { data: infoBannerContent },
@@ -102,15 +99,14 @@ const fetchSvgContent = async () => {
     )}`
   }
   catch {
-    // Dev-only favicon. If the asset is missing or the fetch fails, leave
-    // `faviconGraphicData` undefined so the head guard omits the icon.
+    // Dev-only favicon: leave `faviconGraphicData` undefined so the head
+    // guard omits the icon.
   }
 }
 
 onMounted(async () => {
-  // The recolored dev favicon is only consumed under the
-  // `appEnvironment === 'development'` head block below, so skip the fetch
-  // entirely in production instead of fetching and discarding the result.
+  // Only the dev-only head block below consumes this, so skip the fetch
+  // in production.
   if (config.public.appEnvironment === 'development') {
     await fetchSvgContent()
   }
@@ -147,10 +143,7 @@ watch([y, isScrolling], ([yNew, isScrollingNew], [yOld]) => {
 
 watch(() => route.path, resetHideNavbarTimer)
 
-// Reset the active section on navigation. This lives here rather than in
-// `useSection()` because the composable is also called from the `v-section`
-// IntersectionObserver callback outside component scope, where a watcher
-// would leak. The layout is instantiated exactly once.
+// See `app/composables/use-section.ts` for why this watcher lives here.
 watch(
   () => route.path,
   () => {
@@ -158,12 +151,10 @@ watch(
   },
 )
 
-// Sub-section titles update reactively as the user scrolls between
-// in-page anchors (`#about`, `#languages`, and so on) on the home page.
-// The per-page title (`currentRoute.label`) is the fallback when no
-// section is active. The `JR %separator %s` template lives in
-// `nuxt.config.ts` under `app.head.titleTemplate`, so it is SSR-baked
-// instead of being injected client side from this layout.
+// The title rotates as the user scrolls between in-page sections on the
+// home page, with the per-page label as the fallback. The
+// `JR %separator %s` template lives in `nuxt.config.ts` under
+// `app.head.titleTemplate`, so it is SSR-baked instead of injected here.
 const pageTitle = computed(
   () => currentSection.value?.name || currentRoute.value?.label,
 )
@@ -174,16 +165,14 @@ const pageTitle = computed(
 useSeoMeta({ title: () => (error.value ? undefined : pageTitle.value) })
 
 if (config.public.appEnvironment === 'development') {
-  // The `key` values match the static dev icons declared in
-  // `nuxt.config.ts` under `$development.app.head.link`, so these
-  // entries replace those instead of rendering duplicate tags. The SVG
-  // icon is emitted only once its recolored data URL has been fetched.
-  // Otherwise SSR would render a `rel="icon"` tag with an empty `href`.
-  // Unhead drops entries that resolve to a falsy value, which is why the
-  // `false` branch is valid. Do not convert the ternary into a
-  // conditional spread: TypeScript does not extend contextual typing
-  // through spread operands, so `rel` would widen to string and fall out
-  // of unhead v3's per-rel link union.
+  // The `key` values match the dev icons declared in `nuxt.config.ts`
+  // under `$development.app.head.link`, so these entries replace those
+  // instead of duplicating them. Unhead drops falsy entries, so the
+  // `false` branch keeps SSR from emitting `rel="icon"` with an empty
+  // `href`. Do not rewrite the ternary as a conditional spread:
+  // TypeScript does not extend contextual typing through spread
+  // operands, so `rel` would widen to string and fall out of unhead v3's
+  // per-rel link union.
   useHead({
     link: () => [
       faviconGraphicData.value

@@ -34,11 +34,10 @@ const calculateAge = (date = '') => {
           />
         </clipPath>
       </defs>
-      <!-- `foreignObject` lets the browser do real `<img srcset>`
-           density picking on Retina displays. SVG `<image>` ignores
-           `srcset` and would always serve 1x. The SVG `<clipPath>`
-           still applies because `foreignObject` is a paintable,
-           clippable SVG element. -->
+      <!-- `foreignObject` lets the browser do real `<img srcset>` density
+           picking. SVG `<image>` ignores `srcset` and would always serve
+           1x. The `clipPath` still applies because `foreignObject` is a
+           paintable, clippable SVG element. -->
       <foreignObject
         x="0"
         y="10"
@@ -46,12 +45,6 @@ const calculateAge = (date = '') => {
         height="411"
         clip-path="url(#image)"
       >
-        <!-- `fit="cover"` is a no-op on Vercel because the
-             `/_vercel/image` URL only carries `url`, `w`, and `q`.
-             The prop still expresses intent and is honored by
-             non-Vercel providers (IPX, Cloudinary) if the provider is
-             ever swapped. Mirrors the note on the `cover` preset in
-             `nuxt.config.ts`. -->
         <NuxtImg
           src="/img/portrait.webp"
           :alt="about?.imageAlt ?? 'Portrait of Jonathan Russ'"

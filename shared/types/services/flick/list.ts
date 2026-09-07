@@ -1,7 +1,6 @@
 import type { FlickMedia } from '#shared/types/services/flick/media'
 
-// A custom list the key owner made. The built-in watchlist never appears
-// here.
+// A custom list the key owner made, never the built-in watchlist.
 export interface FlickList {
   id: string
   title: string
@@ -14,15 +13,15 @@ export interface FlickList {
 
 // An entry in a custom list. A list with `is_ranked` comes back in ascending
 // `rank` order, verified against the live API across an insert and two
-// reorders, so a client must not re-sort it.
-//
-// `rank` is a sparse ordering key, never a position. Appends leave gaps of
-// 10000 (10000, 20000, 30000...) so later inserts have room, and moving an
-// item to the front sets its rank to 0. Render the array index if a position
-// is wanted. `is_ranked` on the parent list is what says whether the order
-// carries meaning at all.
+// reorders, so a client must not re-sort it. `is_ranked` on the parent list
+// is what says whether the order carries meaning at all.
 export interface FlickListItem {
   media: FlickMedia
+  /**
+   * Sparse ordering key, never a position: appends leave gaps of 10000 so
+   * later inserts have room, and a move to the front sets 0. Render the
+   * array index if a position is wanted.
+   */
   rank: number
   notes: string
   added_at: string

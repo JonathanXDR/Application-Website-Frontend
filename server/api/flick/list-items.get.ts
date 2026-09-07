@@ -1,16 +1,13 @@
 import type { H3Event } from 'h3'
 
-// Items in one of the owner's custom lists, ranked lists already in rank
-// order. Upstream this is `GET /me/lists/{list_id}/items`. The id arrives as
-// a query param instead of a route segment because every existing route in
-// this project is a flat file and reads its input through `getQuery`, which
-// keeps the `cacheKey` composition uniform across all of them.
+// Items in one of the owner's custom lists. Upstream this is
+// `GET /me/lists/{list_id}/items`. The id arrives as a query param rather
+// than a route segment to keep every route a flat file with a uniform
+// `cacheKey` composition.
 //
-// The id is charset-validated rather than merely escaped, so a caller cannot
-// steer the request at another upstream path. It is not pinned to a single
-// list the way the GitHub routes pin the repository owner: every list this
-// can reach belongs to the key owner and is already enumerated by
-// `/api/flick/lists`, so accepting the id exposes nothing that route does not.
+// Unlike the GitHub routes, which pin the repository owner, the id is not
+// pinned: every list it can reach belongs to the key owner and is already
+// enumerated by `/api/flick/lists`.
 function getListItemsQuery(event: H3Event) {
   return {
     listId: requireFlickParam(flickPathId(getQuery(event).list_id)),

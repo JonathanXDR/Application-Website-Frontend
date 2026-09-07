@@ -29,5 +29,5 @@ logs
 .vercel
 .vscode
 
-# Skilld references (recreated by `skilld install`)
+# Skilld references (recreated by `skilld prepare`)
 .skilld

@@ -1,10 +1,7 @@
 <script setup lang="ts">
-// Client-only console Easter egg. The previous implementation loaded
-// every ASCII art file through `useAsyncData`, which shipped all of them
-// three times on every page: server-rendered into hidden divs, embedded
-// in the payload, and bundled as raw chunks, only to print one random
-// file to the console. Now exactly one lazily imported file loads in
-// the browser after hydration and nothing renders into the page.
+// Loading the art through `useAsyncData` shipped every ASCII file three
+// times per page (hidden divs, payload, raw chunks) just to print one to
+// the console, so exactly one file is imported lazily after hydration.
 onMounted(async () => {
   const txtFiles = import.meta.glob<string>('~~/public/ascii/**/*.txt', {
     query: '?raw',
@@ -23,9 +20,8 @@ onMounted(async () => {
       = folder === 'monospace'
         ? 'monospace'
         : '"Helvetica Neue", Arial, sans-serif'
-    // `window.console` keeps the call out of reach of nuxt-security's
-    // `removeLoggers` console stripping in production builds. An Easter egg
-    // that gets stripped from production would be pointless.
+    // `window.console` escapes nuxt-security's `removeLoggers` stripping,
+    // which would otherwise delete the Easter egg from production builds.
     window.console.log(
       `%cHey! You've found an Easter egg! 🥚 \n\n${content}`,
       `font-family: ${fontFamily}`,

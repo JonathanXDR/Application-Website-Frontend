@@ -19,9 +19,9 @@ const props = withDefaults(
   }>(),
   {
     theme: '#00dc82',
-    // Empty defaults instead of the stock template's placeholder
-    // strings. The placeholders rendered a literal uppercase "HEADLINE"
-    // on every card because the page composable never passes one.
+    // Empty instead of the stock template's placeholder strings, which
+    // rendered a literal "HEADLINE" on every card because the page
+    // composable never passes one.
     headline: '',
     title: '',
     description: '',
@@ -211,9 +211,8 @@ if (
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <!-- No filter reference here. The stock template referenced an
-           empty filter definition, which made the logo invisible in the
-           rendered card. -->
+      <!-- No filter reference: the stock template pointed at an empty
+           filter definition, which made the logo invisible. -->
       <g>
         <path
           d="M204.852 126.822C204.852 127.098 204.677 128.114 202.583 129.748C200.551 131.335 197.276 133.034 192.613 134.687C183.325 137.979 169.872 140.62 153.875 142.19C137.92 143.755 120.334 144.166 103.363 143.367C86.3776 142.566 70.8801 140.594 58.8213 137.738C52.7901 136.31 47.8449 134.713 44.0617 133.037C40.1988 131.325 37.891 129.679 36.7621 128.335C36.2309 127.702 36.0703 127.267 36.0227 127.035C35.9829 126.842 35.9842 126.629 36.1192 126.305C36.459 125.488 37.6413 124.038 40.7165 122.28C46.7614 118.823 57.5073 115.641 71.9244 113.359C86.2251 111.096 103.109 109.879 120.426 109.879"

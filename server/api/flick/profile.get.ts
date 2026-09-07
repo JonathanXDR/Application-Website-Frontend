@@ -1,12 +1,9 @@
-// The profile of the account that owns the Flick API key. Flick has no OAuth
-// and no cross-account reads, so there is nothing to pin server side the way
-// the GitHub routes pin the repository owner: the key itself is the scope.
+// The profile of the account that owns the Flick API key. There is nothing to
+// pin server side the way the GitHub routes pin the repository owner: the key
+// itself is the scope.
 //
-// The upstream payload is returned whole rather than narrowed to the fields a
-// page reads. Unlike the GitHub routes, which trim a large REST object down
-// before it is baked into every prerendered locale payload, this response is
-// six small fields and no UI consumes it yet, so a projection now would be a
-// guess about what a future page needs.
+// The payload is returned whole rather than projected like the GitHub routes:
+// it is six small fields and no UI reads it yet.
 export default defineCachedEventHandler(
   async () => {
     const { request } = useFlick()

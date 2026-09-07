@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const show = ref(false)
 
-// Owner is pinned server side, so no params are forwarded here.
 const { data: user } = useFetch('/api/github/user', {
   key: 'user',
   lazy: true,

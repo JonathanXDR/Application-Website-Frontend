@@ -3,30 +3,16 @@ import { icons as sfSymbols } from '@jonathanxdr/iconify-json-sf-symbols'
 import tailwindcss from '@tailwindcss/vite'
 
 // Fail fast when the Infisical Vercel Secret Sync did not deliver a
-// build-critical variable. On Vercel the build runs plain `nuxt build`
-// without the Varlock wrapper, so the `.env.schema` is never enforced
-// there. The variables below have no graceful fallback. A missing value
-// silently prerenders broken output instead of degrading, so a loud build
-// failure is the lesser evil.
-//   NUXT_SITE_URL drives the i18n strictSeo baseUrl, the site config
-//   canonical origin, and the llms.txt host. Without it, every absolute
-//   URL across the prerendered pages is wrong.
-//   NUXT_SITE_NAME feeds SSR titles, og:site_name, and the schema.org
-//   publisher. Without it, they render empty.
-//   NUXT_PUBLIC_GITHUB_REPO_NAME and NUXT_PUBLIC_GITHUB_REPO_OWNER pin the
-//   repository the GitHub API layer is allowed to read. Without them,
-//   every GitHub endpoint builds malformed requests.
-// Credential secrets (NUXT_GITHUB_TOKEN, the Apple keys) are intentionally
-// excluded. Their endpoints degrade to an inert 404 via requireCredential
-// in `server/utils/credentials.ts`, so failing the build for them would be
-// worse than the graceful runtime behavior they already have.
-// The process.env.VERCEL gate fires only when Vercel exposes its System
-// Environment Variables, since VERCEL itself is one of them. Confirm that
-// setting in the Vercel project rather than inferring it from skew
-// protection, because this project runs nuxt-skew-protection in polling
-// mode, which reads _nuxt/builds/latest.json and does not depend on it.
-// Local dev and local builds have no VERCEL set, so the guard correctly
-// stays silent there.
+// build-critical variable. Vercel builds run plain `nuxt build` without the
+// Varlock wrapper, so the dotenv schema is never enforced there. The four
+// variables below have no graceful fallback: a missing value silently
+// prerenders wrong absolute URLs, empty SSR titles, or malformed GitHub
+// requests instead of degrading. Credential secrets (NUXT_GITHUB_TOKEN, the
+// Apple keys) are excluded because their endpoints degrade to an inert 404
+// via `requireCredential` in `server/utils/credentials.ts`.
+// The gate fires only when Vercel exposes its System Environment Variables,
+// since VERCEL is itself one of them. Local dev and local builds have none,
+// so the guard stays silent there.
 if (process.env.VERCEL) {
   const missing = [
     'NUXT_SITE_URL',
@@ -48,43 +34,26 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/i18n',
     '@nuxtjs/seo',
-    // `@nuxt/content` is pinned to a local fork that extends upstream 3.x
-    // with i18n-key support: collections marked `i18n: true` (see
-    // content.config.ts) accept nested `i18n.<locale>:` YAML keys instead
-    // of requiring per-locale files.
-    //
-    // Install source (production and CI, including Vercel): the
-    // `release/better-i18n` branch of github.com/JonathanXDR/content,
-    // pinned in package.json as
-    // `github:JonathanXDR/content#release/better-i18n`. That branch
-    // commits the built `dist/` so `bun install` can use it directly
-    // without running `nuxt-module-build` during install.
-    //
-    // Dev override (opt-in): a local symlink from a checkout of the fork
-    // into node_modules for fast iteration on the fork itself. Reinstall
-    // workflow lives in
-    // ~/.claude/projects/<this-project>/memory/project_local_content_setup.md
-    //
-    // Do not change the GitHub URL or branch in package.json without first
-    // building and pushing matching `dist/` to that branch on the fork, or
-    // translations will silently stop resolving.
+    // `@nuxt/content` is pinned to a fork of upstream 3.x that adds i18n-key
+    // support: collections marked `i18n: true` (see `content.config.ts`)
+    // accept nested `i18n.<locale>:` YAML keys instead of per-locale files.
+    // The package.json pin points at a fork branch that commits its built
+    // `dist/`. Do not repoint that URL or branch without first building and
+    // pushing a matching `dist/`, or translations silently stop resolving.
+    // A symlinked `node_modules/@nuxt/content` is an opt-in dev override for
+    // iterating on the fork, not the install source.
     '@nuxt/content',
     '@nuxt/scripts',
-    // Meticulous session recorder, native Nuxt plugin. It injects the
-    // recorder as the first <head> script with no async or defer so it can
-    // capture every network request. By default the recorder loads in dev
-    // builds only and is absent from production. The token is a public
-    // client-side recording token, the same value the previous
-    // `@nuxt/scripts` global used.
+    // Session recorder. Loads in dev builds only by default and is absent
+    // from production. `recordingToken` is a public client-side token.
     // https://app.meticulous.ai/docs/how-to/recorder-script?tab=Nuxt
     [
       '@alwaysmeticulous/recorder-plugin/nuxt',
       {
         recordingToken: '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
         // `@nuxt/hints` flags third-party scripts without `crossorigin`. The
-        // recorder is served with CORS by the Meticulous CDN, so anonymous
-        // mode gives full cross-origin error reporting without sending
-        // credentials. The plugin merges these onto the injected script tag.
+        // CDN serves the recorder with CORS, so anonymous mode gives full
+        // cross-origin error reporting without sending credentials.
         attributes: { crossorigin: 'anonymous' },
       },
     ],
@@ -114,10 +83,8 @@ export default defineNuxtConfig({
             type: 'image/svg+xml',
             href: 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256%22%20height%3D%22256%22%20viewBox%3D%220%200%20100%20100%22%3E%0A%20%20%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2220%22%20fill%3D%22%23f56300%22%3E%3C%2Frect%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23ffffff%22%0A%20%20%20%20%20%20%20%20d%3D%22M26.30%2069.58Q21.90%2069.58%2018.71%2068.09Q15.52%2066.61%2013.76%2063.80L13.76%2063.80L19.64%2058.20Q22.17%2062.27%2026.41%2062.27L26.41%2062.27Q31.58%2062.27%2032.79%2056.27L32.79%2056.27L36.47%2037.57L23.00%2037.57L24.43%2030.42L46.76%2030.42L41.64%2055.83Q40.21%2063.20%2036.47%2066.39Q32.73%2069.58%2026.30%2069.58L26.30%2069.58ZM86.25%2042.36Q86.25%2047.75%2083.33%2051.59Q80.41%2055.45%2075.25%2057.04L75.25%2057.04L81.95%2068.92L72.55%2068.92L66.50%2058.14L58.91%2058.14L56.77%2068.92L47.80%2068.92L55.50%2030.42L71.17%2030.42Q78.32%2030.42%2082.28%2033.55Q86.25%2036.69%2086.25%2042.36L86.25%2042.36ZM67.88%2051.05Q72.33%2051.05%2074.78%2049.01Q77.22%2046.98%2077.22%2043.18L77.22%2043.18Q77.22%2040.43%2075.35%2039.06Q73.48%2037.68%2070.02%2037.68L70.02%2037.68L62.98%2037.68L60.28%2051.05L67.88%2051.05Z%22%3E%0A%20%20%20%20%3C%2Fpath%3E%0A%3C%2Fsvg%3E',
           },
-          // Same-origin so it loads against `img-src 'self'` when the dev
-          // server runs on localhost. Shares its `key` with the layout's
-          // randomly colored variant for the same replace-not-stack reason
-          // as the icon above.
+          // Same-origin so it loads against `img-src 'self'`. Shares its
+          // `key` with the layout variant for the reason above.
           {
             key: 'touch-icon',
             rel: 'apple-touch-icon',
@@ -126,18 +93,15 @@ export default defineNuxtConfig({
         ],
       },
     },
-    // Sensible default for `nuxt dev` runs that bypass Varlock, so the
-    // dev badge and dev favicon logic do not silently disable themselves.
-    // NUXT_PUBLIC_APP_ENVIRONMENT still overrides this at runtime.
+    // Default for `nuxt dev` runs that bypass Varlock, so the dev badge and
+    // dev favicon logic do not silently disable themselves.
     runtimeConfig: {
       public: {
         appEnvironment: 'development',
       },
     },
-    // The locale cookie is marked Secure in production. Chrome treats
-    // localhost as a secure context, but Safari on localhost and LAN-IP
-    // phone testing over plain http would silently drop it, breaking
-    // locale persistence across visits in those dev setups.
+    // Safari on localhost and LAN-IP phone testing over plain http silently
+    // drop a Secure cookie, breaking locale persistence in those dev setups.
     i18n: {
       detectBrowserLanguage: {
         cookieSecure: false,
@@ -161,10 +125,6 @@ export default defineNuxtConfig({
             type: 'image/svg+xml',
             href: '/img/favicon.svg',
           },
-          // Same-origin PNG used as the iOS home-screen icon. A relative
-          // path is sufficient because Safari resolves apple-touch-icon
-          // against the current document origin, so no extra `img-src`
-          // allowlist entries are needed.
           {
             key: 'touch-icon',
             rel: 'apple-touch-icon',
@@ -175,9 +135,9 @@ export default defineNuxtConfig({
     },
   },
   ssr: true,
-  // Nuxt auto-imports only the top level of `shared/types/`, so `schemas.ts`
-  // resolves without help, but the nested dirs below must be added here. `~~`
-  // is rootDir, where `shared/` lives, not the `app/` srcDir a bare entry assumes.
+  // Nuxt auto-imports only the top level of `shared/types/`, so the nested
+  // dirs below must be listed. `~~` is rootDir, where `shared/` lives, not
+  // the `app/` srcDir a bare entry assumes.
   // https://nuxt.com/docs/4.x/directory-structure/shared#how-files-are-scanned
   imports: {
     dirs: [
@@ -194,20 +154,14 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      // `titleTemplate` lives here rather than under `seo.meta` because
-      // nuxt-seo-utils' `extendNuxtConfigAppHeadSeoMeta` runs `unpackMeta()`
-      // over `seo.meta`, which only handles `<meta>` tags and silently drops
-      // `titleTemplate`. Setting it on `app.head` is the canonical Nuxt
-      // location and overrides the seo-utils default `'%s %separator %siteName'`.
-      // `%separator` resolves without @nuxtjs/seo: Nuxt itself registers
-      // unhead's TemplateParamsPlugin in both head modes (nuxt/dist/index.mjs
-      // emits `plugins: [TemplateParamsPlugin]` under
-      // `compatibilityVersion: 5` and `legacyPlugins`, which also contains it,
-      // below that).
+      // Not under `seo.meta`: nuxt-seo-utils runs `unpackMeta()` over that,
+      // which only handles `<meta>` tags and silently drops `titleTemplate`.
+      // `app.head` is the canonical location and overrides the seo-utils
+      // default `'%s %separator %siteName'`. `%separator` resolves without
+      // `@nuxtjs/seo` because Nuxt itself registers unhead's
+      // TemplateParamsPlugin.
       titleTemplate: 'JR %separator %s',
-      // `apple-touch-icon` lives in the `$development` and `$production`
-      // blocks above, not here. Both point at same-origin paths so CSP
-      // `img-src 'self'` is enough.
+      // `apple-touch-icon` is per-environment, set in the blocks above.
       link: [{ rel: 'manifest', href: '/site.webmanifest' }],
     },
   },
@@ -217,12 +171,11 @@ export default defineNuxtConfig({
       scrollBehaviorType: 'smooth',
     },
   },
-  // `site.name` and `site.url` are intentionally NOT set here. They are
-  // auto-populated from NUXT_SITE_NAME and NUXT_SITE_URL at runtime by
-  // nuxt-site-config, which keeps them live to env changes on redeploy
-  // without baking build-time values into the SSR config.
-  // `defaultLocale` is a belt-and-braces fallback so that, if i18n init
-  // order ever changes, og:locale and inLanguage do not silently empty out.
+  // `site.name` and `site.url` are deliberately unset. nuxt-site-config
+  // auto-populates them from NUXT_SITE_NAME and NUXT_SITE_URL at runtime, so
+  // env changes take effect on redeploy without baked-in build values.
+  // `defaultLocale` is a fallback so og:locale and inLanguage cannot empty
+  // out if i18n init order ever changes.
   // https://nuxtseo.com/docs/site-config/guides/how-it-works
   site: {
     trailingSlash: true,
@@ -234,7 +187,7 @@ export default defineNuxtConfig({
   // The error page cannot be prerendered (404s hit arbitrary URLs), so it is
   // the only route whose `@nuxt/content` queries run at runtime inside the
   // Vercel Lambda, where the default better-sqlite3 addon fails to load and
-  // the default ./contents.sqlite path is read-only. The 'native' connector
+  // the default `./contents.sqlite` path is read-only. The 'native' connector
   // uses Node 24's built-in node:sqlite instead, and /tmp is the Lambda's only
   // writable directory.
   // https://content.nuxt.com/docs/deploy/serverless
@@ -249,23 +202,18 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      // Half of this feature already exists: `scripts/check-build.sh` derives
-      // APP_DATE from the latest commit timestamp and APP_VERSION from
-      // `git describe --tags`, but exports both into its own subshell where
-      // nothing can read them. Wiring it up means having that script (or the
-      // Vercel build command) emit NUXT_PUBLIC_APP_VERSION /
-      // NUXT_PUBLIC_APP_BUILD into the build environment, then uncommenting the
-      // keys below so runtimeConfig picks them up. Nothing reads these today.
-      // TODO: enable these once the app surfaces build metadata
-      //       (see `scripts/check-build.sh`).
+      // TODO: enable these once the app surfaces build metadata.
+      //       `scripts/check-build.sh` already derives the version and date
+      //       but exports them into its own subshell, so that script or the
+      //       Vercel build command has to emit NUXT_PUBLIC_APP_VERSION and
+      //       NUXT_PUBLIC_APP_BUILD into the build environment first.
       // appName: '',
       // appBuild: '',
       // appVersion: '',
       // appIcon: '',
-      // Fail-safe default. Every consumer checks `=== 'development'`, so a
-      // deploy that never received NUXT_PUBLIC_APP_ENVIRONMENT renders as
-      // production (no dev badge) rather than an ambiguous empty string.
-      // Local dev overrides this via the `$development` block above.
+      // Every consumer checks `=== 'development'`, so a deploy that never
+      // received NUXT_PUBLIC_APP_ENVIRONMENT renders as production rather
+      // than an ambiguous empty string.
       appEnvironment: 'production',
       githubRepoName: '',
       githubRepoOwner: '',
@@ -277,36 +225,27 @@ export default defineNuxtConfig({
     appleMusicUserToken: '',
     flickApiKey: '',
   },
-  // `app/assets/img/**` holds source images such as the original portrait
-  // jpg. They stay in the repository for future editing but are never
-  // imported, and the ignore entry keeps them out of Nuxt's scanning so
-  // nothing from that directory can ship by accident. The patterns are
-  // matched against the rootDir-relative path, so they must use the real
-  // `app/...` path, not the `~` srcDir alias, which `@nuxt/kit`'s ignore
-  // matcher does not resolve (a `~`-prefixed pattern silently matches
-  // nothing).
+  // `app/assets/img/**` holds source images kept for future editing but never
+  // imported, so ignoring them keeps them out of Nuxt's scan. Patterns match
+  // the rootDir-relative path, so they must spell out `app/...`: a
+  // `~`-prefixed pattern silently matches nothing.
   ignore: ['app/assets/drafts/**', 'app/assets/img/**'],
-  // No `'/': { robots: false }` route rule here, even though the
-  // unprefixed root is a meta-refresh interstitial. @nuxtjs/robots strips
-  // the locale prefix before matching route rules, so a rule on `/` would
-  // bake `noindex, nofollow` into every locale home page and drop all four
-  // from the sitemap. The root is excluded from the sitemap via
-  // `sitemap.exclude` below instead.
+  // No `'/': { robots: false }` here, even though the unprefixed root is only
+  // a meta-refresh interstitial. `@nuxtjs/robots` strips the locale prefix
+  // before matching route rules, so the rule would bake `noindex, nofollow`
+  // into every locale home page. `sitemap.exclude` handles the root instead.
   routeRules: {
     '/api/**': {
-      // No `robots: false`. @nuxtjs/robots (v6+) warns on `/api` disallows
-      // because APIs are not crawled anyway, and listing them in robots.txt
-      // advertises their existence. Neither nuxt-security nor the robots
-      // module sets X-Robots-Tag on /api paths (the robots middleware skips
-      // them entirely), so the plain Nitro header below provides the
-      // noindex signal in a module-independent way.
+      // No `robots: false`: `@nuxtjs/robots` warns on `/api` disallows, and
+      // listing them in robots.txt only advertises them. Neither module sets
+      // `X-Robots-Tag` on `/api` paths, so the plain Nitro header below
+      // carries the noindex signal.
       headers: {
         'X-Robots-Tag': 'noindex',
       },
-      // The rate limiter uses the in-memory lruCache driver, so on Vercel
-      // the limit is per warm instance and resets on cold starts. That is
-      // acceptable best-effort protection for this site. Platform-level
-      // controls (Vercel WAF) are the real production backstop.
+      // The in-memory lruCache driver makes this per warm instance on Vercel,
+      // resetting on cold starts. Best-effort only. Vercel WAF is the real
+      // production backstop.
       security: {
         rateLimiter: {
           tokensPerInterval: 50,
@@ -324,12 +263,8 @@ export default defineNuxtConfig({
         },
       },
     },
-    // `csurf: false` and `robots: false` are re-applied via the
-    // `nitro:config` hook below: nuxt-security 2.6.0 unconditionally
-    // overwrites this entry with assignment (not defu) in its module setup
-    // when `@nuxt/hints` is installed, clobbering both fields. The hook runs
-    // after that assignment and re-merges them.
-    // https://github.com/Baroshem/nuxt-security/blob/main/src/module.ts
+    // nuxt-security clobbers `csurf` and `robots` on this entry. The
+    // `nitro:config` hook below re-applies them.
     '/__nuxt_hints/**': {
       csurf: false,
       robots: false,
@@ -338,14 +273,12 @@ export default defineNuxtConfig({
         rateLimiter: false,
       },
     },
-    // `@nuxt/scripts` proxies third-party telemetry (GA4 collect beacons) under
-    // `/_scripts/p/<host>/<path>`. nuxt-security's `csrf` middleware rejects
-    // every POST without an `x-csrf-token` header with a 403 CSRF mismatch,
-    // which silently drops every analytics event. Disabling CSRF on this
-    // prefix is safe: the proxied endpoints accept only beacon payloads that
-    // the GA4 client already authenticates with its own `cid`/`sid` tokens.
-    // The asset sub-route (`/_scripts/assets/**`) is GET-only and benefits
-    // from the same exemption.
+    // `@nuxt/scripts` proxies GA4 collect beacons under `/_scripts/p/**`.
+    // nuxt-security's CSRF middleware 403s every POST without an
+    // `x-csrf-token`, silently dropping every analytics event. Exempting the
+    // prefix is safe: these endpoints take only beacon payloads that the GA4
+    // client already authenticates with its own `cid`/`sid` tokens, and the
+    // asset sub-route (`/_scripts/assets/**`) is GET-only.
     // https://nuxt-security.vercel.app/middleware/csrf
     // https://scripts.nuxt.com/docs/guides/first-party
     '/_scripts/**': {
@@ -353,13 +286,10 @@ export default defineNuxtConfig({
       robots: false,
     },
 
-    // Not purely defensive: with `updateStrategy: 'polling'` no SSE/WS
-    // handler is registered, but `/__skew/health` is registered on every
-    // non-static build regardless of strategy. Pre-declaring the exemption
-    // also keeps a future strategy switch (`'sse'` or `'ws'`) one-line on the
-    // nuxt-security side. The module mounts its server routes under
-    // `/__skew/` (health, sse, ws, subscribe-stats, route, admin/stats), not
-    // `/_nuxt-skew/`.
+    // `/__skew/health` is registered on every non-static build regardless of
+    // `updateStrategy`, and pre-declaring the exemption keeps a switch to
+    // `'sse'` or `'ws'` one-line here. The module mounts under `/__skew/`,
+    // not `/_nuxt-skew/`.
     '/__skew/**': {
       csurf: false,
       robots: false,
@@ -375,42 +305,28 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 5,
   },
-  // `sharedPrerenderData` is intentionally absent: it already defaults to
-  // `true`, as do `payloadExtraction: 'client'`, `watcher: 'builder'`,
-  // `normalizePageNames`, `defaults.useState.resetOnClear`,
-  // `viteEnvironmentApi`, and `clientNodePlaceholder` under
-  // `future.compatibilityVersion: 5`. Restating a default only invites drift
-  // when the default moves.
   experimental: {
     typedPages: true,
-    // Promote an incompatible module from a logged warning to a build error.
-    // By default `@nuxt/kit` logs NUXT_B8013 and returns, so the module never
-    // runs its setup and the build still succeeds. The modules that would
-    // fail silently here are the SEO stack (sitemap, og-image, robots,
-    // schema-org, link-checker, ai-ready): none contribute auto-imports the
-    // app depends on, so losing one produces a green build that is simply
-    // missing its output. Modules whose auto-imports the app does consume
+    // By default `@nuxt/kit` logs NUXT_B8013 and skips an incompatible
+    // module's setup, so the build stays green while quietly losing that
+    // module's output. That is the failure mode for the SEO stack, whose
+    // auto-imports the app does not consume. Modules it does consume
     // (notably `@nuxt/content`) already fail loudly through
-    // `typescript.typeCheck`. All 27 declared compatibility ranges are
-    // satisfied by 4.5.2 today, so this is inert until a dependency bump
-    // breaks one. At that point it fails the build instead of the site.
+    // `typescript.typeCheck`. All 27 declared ranges are satisfied by nuxt
+    // 4.5.2 today, so this is inert until a bump breaks one.
     enforceModuleCompatibility: true,
-    // Loads @dxup/nuxt, which already ships as a direct dependency of nuxt
-    // itself, so this installs nothing. It adds go-to-definition from
-    // `useFetch('/api/…')` into the Nitro handler, plus runtimeConfig and
-    // page-meta navigation. Build cost is negligible: no build plugin is
-    // registered unless `namedLayoutSlots` is enabled, and `vue-tsc` ignores
-    // `compilerOptions.plugins`, so `typescript.typeCheck` is unaffected.
-    // Editor-side setup lives in .vscode/settings.json. Component-rename
-    // propagation also requires a running `nuxt dev`.
+    // Editor-only: go-to-definition into Nitro handlers, plus runtimeConfig and
+    // page-meta navigation. Installs nothing (`@dxup/nuxt` ships with nuxt) and
+    // registers no build plugin unless `namedLayoutSlots` is enabled. `vue-tsc`
+    // ignores `compilerOptions.plugins`, so `typescript.typeCheck` is
+    // unaffected. Editor setup lives in `.vscode/settings.json`.
     typescriptPlugin: true,
   },
   compatibilityDate: '2026-03-21',
   nitro: {
-    // Nitro never scans `shared/types`, so the server route's
-    // MinimalRepositoryCard needs this entry even though the app side already
-    // covers it. An absolute path is required because Nitro's unimport, unlike
-    // the app's, does not resolve the `~~` alias.
+    // Nitro never scans `shared/types`, so these need listing even though the
+    // app side already covers them. Nitro's unimport does not resolve the
+    // `~~` alias, hence the absolute paths.
     imports: {
       dirs: [
         fileURLToPath(
@@ -421,42 +337,31 @@ export default defineNuxtConfig({
         ),
       ],
     },
-    // Prerender all four locale roots so that:
-    //   * link-checker's build-time scan exercises every page.
-    //   * nuxt-og-image and nuxt-sitemap `zeroRuntime` modes have static
-    //     assets to serve from the Vercel CDN instead of cold-starting
-    //     Fluid Compute.
-    //
+    // Prerendering all four locale roots lets link-checker's build-time scan
+    // exercise every page and gives nuxt-og-image and nuxt-sitemap
+    // `zeroRuntime` modes static assets to serve.
     // Routes use the canonical trailing-slash form to match
-    // `site.trailingSlash: true` and `i18n.trailingSlash: true`. Without
-    // the slash, the prerenderer follows an internal 301 to the canonical
-    // URL and double-writes the output. `/` is listed explicitly so the
-    // `detectBrowserLanguage.redirectOn: 'root'` meta-refresh page is
-    // emitted as `dist/index.html`, because `crawlLinks` cannot discover
-    // it (no in-page link points back to the unprefixed root under
-    // `strategy: 'prefix'`).
+    // `site.trailingSlash`. Without the slash the prerenderer follows an
+    // internal 301 and double-writes the output. `/` is listed explicitly
+    // because `crawlLinks` cannot discover it: under `strategy: 'prefix'` no
+    // in-page link points back to the unprefixed root.
     prerender: {
       crawlLinks: true,
       routes: ['/', '/de/', '/en/', '/fr/', '/it/'],
-      // Turn a partial prerender into a failed build. Nitro's default is
-      // `false`, so a route that answers non-200 is logged, skipped, and the
-      // deploy ships without it. On this site every page is prerendered, so a
-      // skipped route falls through to the SSR function, which cannot load
-      // `@nuxt/content`'s native SQLite binding in the Lambda and 500s. Failing
-      // the build is the louder and cheaper outcome.
-      // Scope note: this only covers routes the prerenderer actually visits,
-      // which is the 16 pages plus the OG images, sitemap, i18n messages, and
-      // `__nuxt_content` dumps. Internal `$fetch` calls made while rendering
-      // a page (the GitHub endpoints) are handled in process and never become
-      // prerender routes, so a GitHub outage still degrades silently through
-      // `useFetch`'s error state rather than failing the build.
+      // Nitro's default `false` logs and skips a route that answers non-200,
+      // shipping a deploy without it. Every page here is prerendered, so a
+      // skipped route falls through to the SSR function, which 500s because
+      // it cannot load `@nuxt/content`'s native SQLite binding in the Lambda.
+      // Scope: only routes the prerenderer visits, which is the 16 pages
+      // plus the OG images, sitemap, i18n messages, and `__nuxt_content`
+      // dumps. Internal `$fetch` calls made while rendering a page (the
+      // GitHub endpoints) never become prerender routes, so a GitHub outage
+      // still degrades through `useFetch`'s error state.
       failOnError: true,
-      // `crawlLinks: true` follows every `<img src>` it finds, including
-      // the Vercel image-optimizer URLs emitted by `@nuxt/image`'s vercel
-      // provider (`/_vercel/image?url=…&w=…&q=…`). That endpoint only
-      // exists at runtime on Vercel's edge, so the build-time crawl 404s
-      // and aborts the prerender step. Skip the entire `/_vercel/` prefix
-      // to keep the crawl focused on real, ours-to-render routes.
+      // `crawlLinks` follows the `/_vercel/image?...` URLs `@nuxt/image`'s
+      // vercel provider emits. That endpoint exists only at runtime on
+      // Vercel's edge, so the build-time crawl 404s and, with `failOnError`,
+      // aborts the prerender.
       ignore: [/^\/_vercel\b/],
     },
   },
@@ -467,11 +372,6 @@ export default defineNuxtConfig({
         '@unhead/schema-org/vue',
         '@vue/devtools-core',
         '@vue/devtools-kit',
-        // Of the dayjs entries only `dayjs` itself still needs listing here,
-        // reached from `CountdownTimer.vue` and `TakeOver.vue`. The per-locale
-        // bundles and `relativeTime` were needed by `Info/Bar.vue`, which now
-        // uses `<NuxtTime relative>` instead. `dayjs/plugin/duration` is also
-        // still imported by `CountdownTimer.vue` but was never listed here.
         'dayjs', // CJS
         'minimark/hast',
         'motion-v',
@@ -493,28 +393,17 @@ export default defineNuxtConfig({
       },
     },
   },
-  // nuxt-security 2.6.0 sets `nuxt.options.routeRules['/__nuxt_hints/**']`
-  // by direct assignment in its module setup when `@nuxt/hints` is present
-  // (node_modules/nuxt-security/dist/module.mjs:20-28), which deletes the
-  // `csurf: false` and `robots: false` declared in `routeRules` above.
-  // `nitro:config` fires after every module's setup, so re-merging here
-  // restores both:
-  //   - `csurf: false` lets `@nuxt/hints` POSTs to `/__nuxt_hints/*` reach the
-  //     dev handler. Without it, nuxt-csurf 403s every report with "CSRF
-  //     Token Mismatch". Of the three POST endpoints only `lazyLoad` is live
-  //     here. `hydration` and `htmlValidate` are disabled below.
-  //   - `robots: false` keeps the internal devtool route out of robots.txt.
-  // Historical note: `@nuxt/hints` 1.1.2's lazy-load `postHandler` set a 201
-  // but returned `undefined`, so the POST fell through to Nuxt's page renderer
-  // and logged a dev-console 404 on every render. Fixed in 1.1.4 by
-  // https://github.com/nuxt/hints/pull/367, which switched the hints router to
-  // `createRouter({ preemptive: true })`. h3 then coerces the `undefined`
-  // return to `null` and terminates the request with its 201.
-  // See https://github.com/nuxt/hints/issues/359. `lazyLoad` is on again below.
-  // TODO: drop this hook once nuxt-security merges (rather than assigns) its
-  //       auto-hints route rule. Upstream issue:
-  //       https://github.com/Baroshem/nuxt-security/issues/732 (open, `main`
-  //       still has the bare assignment).
+  // nuxt-security 2.6.0 sets `routeRules['/__nuxt_hints/**']` by direct
+  // assignment (not defu) in its module setup when `@nuxt/hints` is present,
+  // deleting the `csurf: false` and `robots: false` declared in `routeRules`
+  // above. `nitro:config` fires after every module's setup, so re-merging
+  // here restores both: `csurf: false` lets `@nuxt/hints` POSTs reach the dev
+  // handler, which nuxt-csurf otherwise 403s with "CSRF Token Mismatch" (of
+  // its three POST endpoints only `lazyLoad` is enabled below), and
+  // `robots: false` keeps the internal devtool route out of robots.txt.
+  // TODO: drop this hook once nuxt-security merges rather than assigns its
+  //       auto-hints route rule.
+  //       https://github.com/Baroshem/nuxt-security/issues/732
   hooks: {
     'nitro:config'(nitroConfig) {
       nitroConfig.routeRules ??= {}
@@ -524,34 +413,28 @@ export default defineNuxtConfig({
         robots: false,
       }
     },
-    // TODO(nitro-vercel-trailing-slash-override): remove this whole `nitro:init`
-    //   hook and bump nitropack/nuxt once the upstream fix ships. Track:
-    //   https://github.com/nitrojs/nitro/issues/4392 (open, filed from the repro
-    //   at https://github.com/JonathanXDR/repro-nuxt-vercel-trailing-slash-override)
-    //   and https://github.com/nitrojs/nitro/pull/4412 (open, unmerged).
-    //   #4412 takes a DIFFERENT approach than this hook: it rewrites
-    //   `{ path: 'de/' }` to `{ path: 'de' }` rather than dropping the override,
-    //   so re-verify the deployed behavior before removing this hook.
-    //   Still reproducible on the installed nitropack 2.13.4: the override path
-    //   is built as `{ path: route.replace(/^\//, '') }`, which keeps the slash.
+    // TODO(nitro-vercel-trailing-slash-override): remove this hook and bump
+    //   nitropack once the upstream fix ships.
+    //   https://github.com/nitrojs/nitro/issues/4392
+    //   https://github.com/nitrojs/nitro/pull/4412
+    //   Both are open, and #4412 takes a different approach: it rewrites
+    //   `{ path: 'de/' }` to `{ path: 'de' }` rather than dropping the
+    //   override, so re-verify the deployed behavior before removing this.
+    //   Still reproducible on the installed nitropack 2.13.4.
     //
-    // Nitro's Vercel preset (src/presets/vercel/utils.ts) writes Build Output
-    // `overrides` whose `path` keeps the route's trailing slash, for example
-    // `de/index.html` -> { path: 'de/' }, for our trailing-slash routes
-    // (site/i18n `trailingSlash: true`). Vercel does NOT serve the prerendered
-    // static file from a trailing-slash override path, so `/de/` falls through to
-    // the SSR function (and there 500s, because that function also can't load
-    // `@nuxt/content`'s better-sqlite3 native addon in the Lambda). Empirically
-    // confirmed on a minimal repro deployed to Vercel: a `{ path: 'x/' }`
-    // override is served by the function (cache MISS, body re-renders per
-    // request) while `{ path: 'x' }` is served statically (cache HIT, frozen).
+    // Nitro's Vercel preset writes Build Output `overrides` whose `path`
+    // keeps the route's trailing slash (`de/index.html` -> `{ path: 'de/' }`)
+    // for our trailing-slash routes. Vercel does not serve the prerendered
+    // file from such a path, so `/de/` falls through to the SSR function,
+    // which then 500s because it cannot load `@nuxt/content`'s better-sqlite3
+    // native addon in the Lambda. Confirmed on a minimal Vercel repro:
+    // `{ path: 'x/' }` is served by the function, `{ path: 'x' }` statically.
     //
-    // Workaround: after `.vercel/output` is written, drop every override whose
-    // `path` ends with `/`. Vercel's default directory-index then serves the
-    // `<dir>/index.html` file at both `/<dir>/` and `/<dir>` statically, which
-    // is exactly the last-known-good behavior. Non-trailing-slash overrides
-    // (incl. the root `{ path: '' }`) are left untouched. No-op off Vercel
-    // (the file does not exist), so local `nuxt dev`/`build` are unaffected.
+    // Workaround: once `.vercel/output` is written, drop every override whose
+    // `path` ends with `/`. Vercel's directory index then serves
+    // `<dir>/index.html` at both `/<dir>/` and `/<dir>` statically. Other
+    // overrides (including the root `{ path: '' }`) are untouched, and this
+    // is a no-op off Vercel.
     'nitro:init'(nitro) {
       nitro.hooks.hook('close', async () => {
         const { existsSync, readFileSync, writeFileSync }
@@ -580,31 +463,19 @@ export default defineNuxtConfig({
       })
     },
   },
-  // Single source of truth for AI signal directives. The module pushes its
-  // own `Content-Signal` (Cloudflare) and `Content-Usage` (IETF) lines into
-  // the @nuxtjs/robots `*` group at module setup time.
-  // Trade-off note: AI Ready's `contentSignal` only maps `aiTrain` onto
-  // `Content-Usage`, so granular IETF keys like `search=y, ai-output=y` do
-  // not survive (Cloudflare's `Content-Signal` keeps all three: `ai-train`,
-  // `search`, `ai-input`). Adoption of `Content-Usage` is currently minimal,
-  // so the loss is small.
+  // Single source of truth for AI signal directives: the module pushes its
+  // `Content-Signal` (Cloudflare) and `Content-Usage` (IETF) lines into the
+  // `@nuxtjs/robots` `*` group at setup time. Tradeoff: `contentSignal` maps
+  // only `aiTrain` onto `Content-Usage`, so granular IETF keys like
+  // `search=y, ai-output=y` are lost. `Content-Usage` adoption is minimal
+  // today, so the loss is small.
   // https://nuxtseo.com/docs/robots/guides/ai-directives
   //
-  // Everything else below is prerender-driven. All 16 routes are statically
-  // prerendered, so:
-  //   * `runtimeSync` and `cron` stay off. Pages are indexed once during
-  //     prerender and never re-indexed at runtime.
-  //   * `database` stays unset. Since v2 the module leaves page storage off
-  //     until a runtime feature asks for it (runtime sync, cron, or the MCP /
-  //     WebMCP page tools), none of which are enabled here, so no SQLite
-  //     driver and no database lifecycle plugin enter the Nitro bundle.
-  //     Prerender indexing is unaffected: it uses its own build-time database
-  //     under the Nuxt build directory, and that is what writes llms.txt,
-  //     llms-full.txt, and the `.md` twins.
-  //   * `markdownCacheHeaders` and `autoI18n` are left at their defaults. The
-  //     first only shapes runtime `.md` responses this deployment never
-  //     serves, because every `.md` file is a static asset on the CDN, and
-  //     `autoI18n` is already on.
+  // Every route is prerendered, so `runtimeSync`, `cron`, and `database` stay
+  // unset: pages are indexed once at prerender time, and with no runtime
+  // feature asking for page storage the module keeps its SQLite driver out of
+  // the Nitro bundle. Prerender indexing uses its own build-time database and
+  // still writes llms.txt, llms-full.txt, and the `.md` twins.
   // https://nuxtseo.com/ai-ready
   aiReady: {
     contentSignal: {
@@ -612,27 +483,20 @@ export default defineNuxtConfig({
       search: true,
       aiInput: true,
     },
-    // Every collection in `content.config.ts` is `type: 'data'`, so the v2
-    // content lookup (on by default) can never match a route. Leaving it on
-    // would pull `minimark/stringify` into the Nitro bundle for a code path
-    // that always returns null. Restore the default if a `type: 'page'`
-    // collection is ever added, so those routes serve their source markdown
-    // instead of a conversion of the rendered HTML.
+    // Every collection in `content.config.ts` is `type: 'data'`, so the
+    // content lookup can never match a route and only pulls
+    // `minimark/stringify` into the Nitro bundle. Restore the default if a
+    // `type: 'page'` collection is ever added.
     contentSource: false,
     llmsTxt: {
-      // Point the generated page and locale links at the prerendered `.md`
-      // twins instead of the HTML pages, which is what the option documents
-      // for statically generated markdown.
       markdownLinks: true,
     },
-    // Not a runtime concern despite the name. The `/llms.txt` handler wraps
-    // its generator in `defineCachedFunction`, and the prerenderer renders
-    // that same handler, so the 600 second default persists a copy under
-    // `node_modules/.cache/nuxt/.nuxt/cache/ai-ready/`. Two builds inside
-    // that window then ship the earlier build's llms.txt, reproduced locally
-    // and reachable on Vercel whenever the build cache is restored. `0` is
-    // the documented off switch and costs nothing here, because the route
-    // renders once per build and is a static file from then on.
+    // Despite the name this bites at build time: the prerenderer renders the
+    // same `defineCachedFunction`-wrapped handler, so the 600 second default
+    // persists a copy under `node_modules/.cache/nuxt/.nuxt/cache/ai-ready/`
+    // and two builds inside that window ship the earlier build's llms.txt.
+    // `0` is the documented off switch and costs nothing here, because the
+    // route renders once per build and is static from then on.
     llmsTxtCacheSeconds: 0,
   },
   eslint: {
@@ -646,30 +510,26 @@ export default defineNuxtConfig({
   },
   hints: {
     features: {
-      // Off by choice, not by bug. Enabling it re-adds `@nuxt/hints`'
-      // `InjectHydrationPlugin`, an oxc-parser source transform applied to
-      // every component in dev, in exchange for a pre/post-hydration diff
-      // viewer this project does not reach for.
+      // Off by choice: it adds a source transform over every component in dev
+      // in exchange for a hydration diff viewer this project does not use.
       hydration: false,
-      // Re-enabled: the dev-console 404 that once justified turning this off
-      // was fixed upstream in 1.1.4 (see the nitro:config hook above).
+      // Needs `@nuxt/hints` >= 1.1.4, which fixed the dev-console 404 this
+      // was once disabled for.
+      // https://github.com/nuxt/hints/issues/359
+      // https://github.com/nuxt/hints/pull/367
       lazyLoad: true,
       webVitals: true,
-      // `@nuxt/hints` pipes every SSR HTML response through `prettier.format`
-      // before handing it to html-validate, with no try/catch. Prettier's
-      // HTML parser cannot handle the SVG -> HTML namespace switch inside
-      // `<foreignObject>` (used by the About-section portrait to get real
-      // `srcset` density picking) and throws `Unexpected closing tag
-      // ":svg:foreignObject"`. Nitro awaits `render:response` unguarded, so
-      // the throw surfaces as an HTTP 500 on that page, not console noise.
-      // Still reproducible on the installed 1.1.4.
+      // `@nuxt/hints` pipes every SSR response through `prettier.format`
+      // before html-validate with no try/catch, and Prettier's HTML parser
+      // throws on the SVG -> HTML namespace switch inside `<foreignObject>`
+      // (the About-section portrait). Nitro awaits `render:response`
+      // unguarded, so the throw surfaces as an HTTP 500 on that page. Still
+      // reproducible on the installed 1.1.4.
       // https://github.com/nuxt/hints/issues/360
-      // TODO: re-enable once a release ABOVE 1.1.4 ships
-      //       https://github.com/nuxt/hints/pull/377 (merged 2026-08-01, still
-      //       unreleased: 1.1.4 is npm `latest`). Note that #377 only wraps
-      //       the call in try/catch and warns, so the About page will log once
-      //       per render and get no html-validate coverage. Every other route
-      //       validates normally.
+      // TODO: re-enable once a release above 1.1.4 ships
+      //       https://github.com/nuxt/hints/pull/377, which only wraps the
+      //       call in try/catch, so the About page still gets no
+      //       html-validate coverage.
       htmlValidate: false,
       thirdPartyScripts: {
         options: {
@@ -679,57 +539,41 @@ export default defineNuxtConfig({
     },
   },
   i18n: {
-    // `baseUrl` must be set explicitly under `experimental.strictSeo: true`.
-    // The strict path throws on absence and the throw propagates out of the
-    // `app:rendered` hook, so a missing value fails renders rather than
-    // silently dropping tags. nuxt-site-config's runtime
-    // `site-config:resolve` propagation is best-effort and cannot be relied
-    // on here.
-    // Because every route is prerendered, hreflang URLs are baked at build
-    // time, so NUXT_SITE_URL must hold the final origin during the build.
-    // Per-environment origins come from the value of NUXT_SITE_URL in each
-    // Infisical environment, not from a separate runtime override, because a
-    // runtime change cannot alter tags that are already static.
+    // `strictSeo` throws when `baseUrl` is absent, and nuxt-site-config's
+    // runtime propagation is best-effort, so it is set explicitly here.
+    // Every route is prerendered, so hreflang URLs are baked at build time:
+    // NUXT_SITE_URL must hold the final origin during the build, per
+    // environment, because no runtime override can change a static tag.
     // https://nuxtseo.com/docs/site-config/guides/i18n
     baseUrl: process.env.NUXT_SITE_URL,
     trailingSlash: true,
-    // `prefix` (not `prefix_except_default`) so the German page lives at a
-    // stable `/de/` and `/` becomes a redirect. Avoids the foot-gun where
-    // detectBrowserLanguage permanently 302s non-German visitors away from `/`
-    // and Googlebot can never index `/` as German.
+    // `prefix`, not `prefix_except_default`: German lives at a stable `/de/`
+    // and `/` redirects. Otherwise detectBrowserLanguage 302s non-German
+    // visitors away from `/` and Googlebot can never index it as German.
     strategy: 'prefix',
     defaultLocale: 'de',
-    // v10 experimental features:
-    //   * strictSeo: i18n owns hreflang, canonical, og:locale, and og:url
-    //     (seo-utils becomes a low-priority fallback). Requires `baseUrl`
-    //     above.
-    //   * compactRoutes: collapses per-locale routes into a single
-    //     `:locale(de|en|fr|it)` regex route.
+    // `strictSeo` hands hreflang, canonical, og:locale, and og:url to i18n
+    // instead of seo-utils, and requires the `baseUrl` above.
+    // `compactRoutes` collapses the per-locale routes into one regex route.
     // https://nuxt.com/modules/i18n#new-features
     experimental: {
       strictSeo: true,
       compactRoutes: true,
     },
-    // `redirectOn: 'root'` follows the SEO best-practices doc
-    // (https://i18n.nuxtjs.org/docs/guide/browser-language-detection).
-    // Browser-language detection runs only on `/`, so crawlers index
-    // localized routes (`/de/projects/`, `/en/projects/`, and so on)
-    // directly without 302 redirects. The v10 migration guide
-    // (https://i18n.nuxtjs.org/docs/guide/migrating) suggests
-    // `redirectOn: 'all'` for `strategy: 'prefix'` to preserve v9 behavior
-    // where unprefixed sub-paths also got auto-redirected, but that
-    // creates 302 chains for crawlers and dilutes crawl budget. We
-    // deliberately keep `'root'`. Unprefixed sub-paths like `/projects/`
+    // `redirectOn: 'root'` keeps browser-language detection on `/` only, so
+    // crawlers reach localized routes without 302 chains. The v10 migration
+    // guide suggests `'all'` for `strategy: 'prefix'` to preserve v9 behavior,
+    // which we deliberately reject. Unprefixed sub-paths like `/projects/`
     // 404 by design so they cannot compete with `/<locale>/projects/`.
+    // https://i18n.nuxtjs.org/docs/guide/browser-language-detection
+    // https://i18n.nuxtjs.org/docs/guide/migrating
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
       cookieSecure: true,
-      // Must equal `defaultLocale` so the prerendered static `/index.html`
-      // (which fires without an Accept-Language header) meta-refreshes to
-      // `/de/` instead of `/en/`. The sitemap and `hreflang="x-default"`
-      // already point to `/de/`, so this aligns the actual landing page
-      // with both.
+      // Must equal `defaultLocale`: the prerendered `/index.html` fires
+      // without an Accept-Language header, and the sitemap and
+      // `hreflang="x-default"` already point at `/de/`.
       fallbackLocale: 'de',
       redirectOn: 'root',
     },
@@ -780,31 +624,24 @@ export default defineNuxtConfig({
   image: {
     provider: 'vercel',
     quality: 80,
-    // `format` configures `<NuxtPicture>` `<source>` ordering only.
-    // `<NuxtImg>` and the Vercel resizer ignore it, because the served
-    // format is negotiated from the request's `Accept` header. We mirror
-    // this ordering in `vercel.formats` so the platform-level negotiation
-    // also prefers AVIF over WebP.
+    // Only orders `<NuxtPicture>` `<source>` elements. The Vercel resizer
+    // ignores it and negotiates from the request's `Accept` header, so
+    // `vercel.formats` below repeats the AVIF-over-WebP preference.
     format: ['avif', 'webp'],
     vercel: {
       formats: ['image/avif', 'image/webp'],
-      // How long Vercel's optimizer caches a REMOTE source before re-fetching
-      // and re-optimizing it. The provider default is 300 (5 minutes), which
-      // would bill a fresh transformation every 5 minutes per remote image.
-      // Local images are cached up to 31 days regardless, so this only starts
-      // to matter once remote sources (such as repo covers) are added to
-      // `image.domains`. Both keys here are forwarded verbatim into
-      // `nitro.vercel.config.images` by the provider, alongside the
-      // module-generated `domains` and `sizes`.
+      // Only applies to REMOTE sources. The provider default of 300 would
+      // bill a fresh transformation every 5 minutes per remote image. Local
+      // images are cached up to 31 days regardless, so this starts to matter
+      // once `image.domains` gains remote sources.
       // https://vercel.com/docs/image-optimization#remote-image-cache-expiration
       minimumCacheTTL: 60 * 60 * 24 * 28,
     },
-    // The Vercel provider only resizes to widths listed here. Unlisted
-    // widths silently round up to the next bigger entry. With
-    // `densities: [1, 2]` below, each rendered width also needs its 2x
-    // variant declared. The `portrait-*` entries cover the 275, 300, and
-    // 350 CSS sizes from `app/components/Section/About.global.vue`
-    // (`sizes="275px md:300px xl:350px"`) and their retina pairs.
+    // The Vercel provider only resizes to widths listed here, rounding an
+    // unlisted width up to the next entry, and `densities: [1, 2]` means
+    // every rendered width also needs its 2x variant. The `portrait-*`
+    // entries cover `sizes="275px md:300px xl:350px"` in
+    // `app/components/Section/About.global.vue`, plus their retina pairs.
     // https://image.nuxt.com/providers/vercel#sizes
     screens: {
       'portrait-1x-base': 275,
@@ -829,15 +666,13 @@ export default defineNuxtConfig({
           height: 411,
         },
       },
-      // Open Graph default aspect (1200×630, 1.91:1). `width` and `height`
-      // here only seed the responsive srcset aspect ratio and the
-      // upper-bound width the Vercel resizer rounds up to (1280 in
-      // `screens`). CLS is prevented by `.card-cover` having an
-      // explicit `height` in CSS, not by these modifiers.
-      // `fit: 'cover'` lives on the component because Vercel's resizer
-      // URL only carries `url`, `w`, and `q`, so the prop is a no-op on
-      // Vercel today but still surfaces intent and is honored by
-      // non-Vercel providers (IPX, Cloudinary) if we ever swap.
+      // Open Graph aspect (1200×630, 1.91:1). These modifiers only seed the
+      // srcset aspect ratio and the upper-bound width the Vercel resizer
+      // rounds up to. CLS is prevented by the explicit `height` on
+      // `.card-cover` in CSS, not here. `fit: 'cover'` lives on the
+      // component: the Vercel resizer URL carries only `url`, `w`, and `q`,
+      // so it is a no-op here but is honored by IPX or Cloudinary if the
+      // provider is ever swapped.
       cover: {
         modifiers: {
           width: 1200,
@@ -847,16 +682,10 @@ export default defineNuxtConfig({
     },
   },
   linkChecker: {
-    // Surface broken links as red/yellow squiggles directly in the dev view.
     showLiveInspections: true,
-    // `strictNuxtContentPaths` was removed. It is a dead option in the
-    // installed nuxt-link-checker v5, defined as a default but never read
-    // or forwarded to runtime config.
-    // Markdown / JSON / HTML reports. `failOnError` is deliberately unset:
-    // nuxt-link-checker v5 already defaults it to `false`, so a broken link is
-    // reported but never fails the build. Nothing consumes these reports yet.
-    // With `report.publish` unset they are written into `.output/`, which
-    // Vercel discards, and no CI job collects them.
+    // Nothing consumes these reports yet: with `report.publish` unset they
+    // land in `.output/`, which Vercel discards. A broken link is reported
+    // but never fails the build (`failOnError` defaults to `false`).
     report: {
       markdown: true,
       json: true,
@@ -864,26 +693,24 @@ export default defineNuxtConfig({
     },
     excludeLinks: [
       // Remote URLs are never fetched (`fetchRemoteUrls` defaults to
-      // `false`), so these entries only suppress local inspections such as
-      // link-text checks on outbound social links in dev.
+      // `false`), so these only suppress local checks such as link text.
       /^https?:\/\/(www\.)?(x|twitter)\.com\//,
       /^https?:\/\/(www\.)?linkedin\.com\//,
       /^https?:\/\/(www\.)?instagram\.com\//,
       /^https?:\/\/(www\.)?threads\.net\//,
       /^https?:\/\/(www\.)?reddit\.com\//,
-      // Internal devtool routes that shouldn't be crawled.
       '/__nuxt_hints/**',
       '/__link-checker__/**',
     ],
+    // `strictNuxtContentPaths` is deliberately absent: nuxt-link-checker v5
+    // defines it as a default but never reads or forwards it to runtime
+    // config.
   },
   ogImage: {
-    // Zero-runtime mode: every OG image is prerendered to a static asset
-    // and served from the Vercel CDN. Cuts the Nitro bundle ~81% (1.6 MB ->
-    // 306 KB) and removes cold-start latency for the social card endpoint.
-    // Safe because all 4 routes × 4 locales = 16 OG images are fully static.
+    // Cuts the Nitro bundle ~81% (1.6 MB -> 306 KB) by prerendering every OG
+    // image to a static asset. Safe because all 4 routes × 4 locales = 16 OG
+    // images are fully static.
     zeroRuntime: true,
-    // Caches rendered OG images by component+props hash so CI re-runs skip
-    // regeneration when content hasn't changed. Auto-pruned after 7 days.
     buildCache: true,
     defaults: {
       // Matches the `@nuxt/image` `cover` preset (1200×630, Facebook/LinkedIn
@@ -891,31 +718,27 @@ export default defineNuxtConfig({
       width: 1200,
       height: 630,
     },
-    // No `security` block. With `zeroRuntime: true` there is no production
-    // runtime generation endpoint to protect, and enabling `strict` plus a
-    // signing secret flips the emitted og:image URLs from the prerendered
-    // static `/_og/s/...` assets to runtime `/_og/d/...` URLs that 404 in
-    // production. Re-add the block only if zeroRuntime is ever turned off.
+    // No `security` block. With `zeroRuntime: true` there is no runtime
+    // endpoint to protect, and `strict` plus a signing secret would flip the
+    // emitted og:image URLs from the prerendered `/_og/s/...` assets to
+    // runtime `/_og/d/...` URLs that 404 in production.
   },
-  // No `schemaOrg.reactive` override. The module default already enables
-  // client-side reactivity in dev for in-browser debugging, while forcing
-  // it in production would ship the schema-org resolver to every client
-  // and defeat tree-shaking. Crawlers only read the SSR JSON-LD anyway,
-  // and locale switches are full route navigations under strategy
-  // 'prefix', which re-render the graph server side per locale.
-  // Person identity is registered in `app/app.vue` via `useSchemaOrg`. Defining
-  // it here would bake `process.env.NUXT_SITE_URL` at build time (failing
-  // silently when the env is missing on Vercel preview deploys) and would not
-  // pick up the per-locale description from nuxt-site-config.
+  // No `schemaOrg` block. Forcing `reactive` in production would ship the
+  // resolver to every client and defeat tree-shaking, and crawlers only read
+  // the SSR JSON-LD. Locale switches are full route navigations under
+  // `strategy: 'prefix'`, so the graph re-renders server side per locale.
+  // Person identity is registered in `app/app.vue` via
+  // `useSchemaOrg`: defining it here would bake `process.env.NUXT_SITE_URL`
+  // at build time (silently empty on Vercel preview deploys) and would miss
+  // the per-locale description from nuxt-site-config.
   // https://nuxtseo.com/docs/schema-org/guides/setup-identity
   scripts: {
     defaultScriptOptions: {
       bundle: true,
     },
-    // Only register Google Analytics when a measurement ID is configured.
-    // Without this gate, `@nuxt/scripts` still emits a preload for
-    // `gtag/js?id` with an empty ID and loads a broken script in
-    // environments where NUXT_PUBLIC_SCRIPTS_GOOGLE_ANALYTICS_ID is unset
+    // Without this gate, `@nuxt/scripts` emits a preload for `gtag/js?id`
+    // with an empty ID and loads a broken script wherever
+    // NUXT_PUBLIC_SCRIPTS_GOOGLE_ANALYTICS_ID is unset
     // (it is marked optional in `.env.schema`).
     ...(process.env.NUXT_PUBLIC_SCRIPTS_GOOGLE_ANALYTICS_ID
       ? {
@@ -928,76 +751,45 @@ export default defineNuxtConfig({
       : {}),
   },
   security: {
-    // Verified against node_modules/nuxt-security/dist/defaultConfig.mjs (v2.6.0).
-    //
-    // Base defaults (active regardless of `strict`):
-    //   * crossOriginResourcePolicy: 'same-origin'
-    //   * crossOriginOpenerPolicy: 'same-origin'
-    //   * crossOriginEmbedderPolicy: 'credentialless' in prod, 'unsafe-none' in dev
-    //   * referrerPolicy: 'no-referrer' (overridden below for analytics)
-    //   * nonce: true, sri: true
-    //   * removeLoggers: true (overridden below to be prod-only)
-    //   * ssg.hashStyles: false (docs-recommended for inline-style apps)
-    //
-    // `strict: true` upgrades:
-    //   * crossOriginEmbedderPolicy: 'require-corp' in prod, 'unsafe-none' in dev
-    //     (overridden below to 'credentialless' for cross-origin compatibility)
-    //   * strictTransportSecurity: { maxAge: 31536000, includeSubdomains, preload }
-    //   * xFrameOptions: 'DENY' (base default is 'SAMEORIGIN')
-    //   * permissionsPolicy: 19 directives `'[]'` EXCEPT `sync-xhr: ['self']`
-    //     (overridden below to `[]`)
-    //   * ssg.hashStyles: true (overridden below to `false` for motion-v)
-    //   * locked-down CSP (overridden below).
-    //
-    // Top-level options only declare deviations from the defaults above.
-    // The CSP and permissions-policy blocks, however, re-declare every
-    // directive, because nuxt-security merges arrays via `defuReplaceArray`
-    // (node_modules/nuxt-security/dist/utils/merge.mjs), so a user value
-    // for a directive REPLACES the default array entirely. Making each
-    // directive explicit prevents silent drift if an upstream strict-mode
-    // default changes a value our app implicitly relied on.
+    // `strict: true` pulls in the module's hardened defaults, and the
+    // top-level options below only declare deviations from them. The CSP and
+    // permissions-policy blocks, however, re-declare every directive:
+    // nuxt-security merges arrays with `defuReplaceArray`, so a user value
+    // REPLACES the default array for that directive entirely. Being explicit
+    // prevents silent drift when an upstream default changes.
     // https://nuxt-security.vercel.app/getting-started/configuration
     strict: true,
     csrf: true,
     // Strip `console.*` only in production so debug logs survive HMR.
     // Base default is `true` in every environment.
     removeLoggers: process.env.NODE_ENV === 'production',
-    // Log CSP violations without enforcing them on Vercel preview deploys so
-    // we can verify new third-party scripts before promoting to production.
-    // Dev and prod enforce normally. `VERCEL_ENV` is only set on Vercel.
+    // Log CSP violations without enforcing them on preview deploys, so new
+    // third-party scripts can be verified before promoting to production.
     // https://nuxt-security.vercel.app/headers/csp#report-only
     contentSecurityPolicyReportOnly: process.env.VERCEL_ENV === 'preview',
     ssg: {
-      // motion-v and lazy-hydrated styles can't carry per-request nonces,
-      // so we keep style-src 'unsafe-inline' below and skip the SSG hash
-      // generation that strict mode would otherwise turn on.
+      // Strict mode would turn this on, but hashing is pointless while
+      // motion-v and lazy-hydrated styles keep `style-src` below on
+      // 'unsafe-inline'.
       hashStyles: false,
     },
     headers: {
-      // `require-corp` (from strict mode) breaks Apple MusicKit, the Meticulous
-      // iframe, and Google Analytics beacons that don't carry CORP headers.
-      // `credentialless` is the non-strict default and is recommended by the
-      // nuxt-security docs for "maximum compatibility" with third-party assets.
+      // `require-corp` (from strict mode) breaks Apple MusicKit, the
+      // Meticulous iframe, and Google Analytics beacons that carry no CORP
+      // headers.
       // https://nuxt-security.vercel.app/headers/crossOriginEmbedderPolicy
       crossOriginEmbedderPolicy: 'credentialless',
-      // Base default is `'no-referrer'` (strictest). Loosening to
-      // `'strict-origin-when-cross-origin'` so Vercel Analytics and GA4 can
-      // attribute referers on cross-origin navigations. Same-origin
-      // navigations still send the full URL, cross-origin navigations send
-      // origin-only, and downgrades (https -> http) send nothing.
+      // Loosened from the `'no-referrer'` default so Vercel Analytics and
+      // GA4 can attribute referers on cross-origin navigations.
       // https://developer.mozilla.org/docs/Web/HTTP/Headers/Referrer-Policy
       referrerPolicy: 'strict-origin-when-cross-origin',
       contentSecurityPolicy: {
         'base-uri': ['\'none\''],
-        // 'self' rather than the OWASP-gold 'none': browsers govern speculative
-        // <link rel="prefetch"> / preload hints under default-src (the spec
-        // removed the prefetch-src directive), and Nuxt emits those hints in the
-        // document head for lazy route chunks and their CSS. With 'none' they
-        // are reported/blocked, costing the prefetch perf win even though actual
-        // execution succeeds via script-src/style-src. 'self' lets same-origin
-        // prefetch resolve while every meaningful sink stays locked by its own
-        // explicit directive below (script-src, style-src, img-src, connect-src,
-        // object-src 'none', frame-ancestors, form-action, base-uri 'none').
+        // 'self' rather than the OWASP-gold 'none': speculative
+        // `<link rel="prefetch">` and preload hints fall under `default-src`
+        // (the spec removed `prefetch-src`), so 'none' blocks the hints Nuxt
+        // emits for lazy route chunks and costs the prefetch win. Every
+        // meaningful sink stays locked by its own explicit directive below.
         // https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/prefetch-src
         'default-src': ['\'self\''],
         'connect-src': [
@@ -1007,22 +799,19 @@ export default defineNuxtConfig({
           'https://*.googletagmanager.com',
           'https://*.g.doubleclick.net',
           'https://*.google.com',
-          // Meticulous's session recorder calls these origins internally.
-          // None are referenced by app code directly. Cognito identity
-          // pools issue unauthenticated session credentials, S3 transfer
-          // acceleration uploads user-event payloads, and Sentry receives
-          // the recorder telemetry, because Meticulous runs on Sentry under
-          // the hood. Removing any one breaks the recorder before its
-          // snippet finishes bootstrapping. Full list of required origins:
+          // Meticulous's session recorder calls these internally, none from
+          // app code: Cognito issues session credentials, S3 acceleration
+          // takes the user-event uploads, and Sentry receives the telemetry
+          // (Meticulous runs on Sentry). Removing any one breaks the
+          // recorder before its snippet finishes bootstrapping.
           // https://app.meticulous.ai/docs/session-recording/csp-exceptions
           'https://cognito-identity.us-west-2.amazonaws.com',
           'https://user-events-v3.s3-accelerate.amazonaws.com',
           'https://*.sentry.io',
-          // The Sentry SDK that Meticulous loads fetches its own source map
-          // from the Sentry CDN, which is a connect-src request. The script
-          // itself needs no script-src host entry because 'strict-dynamic'
-          // extends trust to it through the nonce'd Meticulous snippet that
-          // injects it.
+          // The Sentry SDK Meticulous loads fetches its own source map from
+          // this CDN, which is a connect-src request. It needs no
+          // `script-src` entry because 'strict-dynamic' extends trust through
+          // the nonce'd snippet that injects it.
           'https://browser.sentry-cdn.com',
           'https://*.apple.com',
           'https://vitals.vercel-insights.com',
@@ -1048,13 +837,11 @@ export default defineNuxtConfig({
         'manifest-src': ['\'self\''],
         'media-src': ['\'self\''],
         'object-src': ['\'none\''],
-        // 'self' is retained as a Level 1/2 fallback. 'strict-dynamic'
-        // supersedes it in CSP Level 3 browsers, but older browsers ignore
+        // 'self' is a Level 1/2 fallback: older browsers ignore
         // 'strict-dynamic' and would otherwise refuse to load lazy chunks.
         // 'wasm-unsafe-eval' is required by `@nuxt/content`'s client-side
-        // sqlite-wasm adapter (loaded via `queryContentSqlClientWasm` on
-        // pages that hydrate content queries). It scopes the permission to
-        // WebAssembly only, so full `unsafe-eval` for JavaScript stays off.
+        // sqlite-wasm adapter and scopes the permission to WebAssembly, so
+        // full `unsafe-eval` for JavaScript stays off.
         // https://nuxt-security.vercel.app/advanced/strict-csp#strict-dynamic-csp-level-3
         // https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_webassembly_execution
         'script-src': [
@@ -1075,11 +862,8 @@ export default defineNuxtConfig({
       permissionsPolicy: {
         'accelerometer': [],
         'autoplay': [],
-        // Disables Google's Topics API for this origin. Not in the
-        // strict-mode default (the directive postdates that list), so it
-        // is added here to stop analytics-adjacent third parties from
-        // reading browsing-topics signals in the page contexts they are
-        // loaded into.
+        // Not in the strict-mode default (the directive postdates it).
+        // Added to keep analytics third parties out of the Topics API.
         'browsing-topics': [],
         'camera': [],
         'display-capture': [],
@@ -1094,6 +878,8 @@ export default defineNuxtConfig({
         'picture-in-picture': [],
         'publickey-credentials-get': [],
         'screen-wake-lock': [],
+        // The one directive strict mode does not zero out: it defaults this
+        // to `['self']`.
         'sync-xhr': [],
         'usb': [],
         'web-share': [],
@@ -1103,18 +889,14 @@ export default defineNuxtConfig({
   },
 
   seo: {
-    // Production-only canonical redirect. Without this gate, Vercel preview
-    // deploys at `*.vercel.app` 301 to the canonical `NUXT_SITE_URL`, which
-    // breaks preview testing (every navigation bounces off the preview host).
-    // The Lighthouse/preview-traffic duplicate-URL concern is moot because
-    // Vercel's robots.txt blocks indexing of preview hostnames anyway.
+    // Without this gate, preview deploys at `*.vercel.app` 301 to the
+    // canonical `NUXT_SITE_URL` and every navigation bounces off the preview
+    // host. Preview hostnames are not indexed anyway.
     // https://nuxtseo.com/docs/seo-utils/api/config
     redirectToCanonicalSiteUrl: process.env.VERCEL_ENV === 'production',
     meta: {
-      // `titleTemplate` is intentionally NOT set here. nuxt-seo-utils
-      // unpacks `seo.meta` through `unpackMeta()`, which only handles
-      // `<meta>` tags and silently drops `titleTemplate`. The template
-      // lives in `app.head` above instead.
+      // `titleTemplate` is deliberately absent here. See the note on
+      // `app.head.titleTemplate` above.
       twitterCreator: '@JonathanXD12_',
       twitterSite: '@JonathanXD12_',
       author: 'Jonathan Russ',
@@ -1127,97 +909,77 @@ export default defineNuxtConfig({
     },
   },
   sitemap: {
-    // Collapses the per-locale sitemap_index.xml into a single sitemap.xml.
-    // Multi-sitemaps are intended for sites with 10k+ URLs. This site has
-    // 4 routes × 4 locales = 16 URLs.
+    // A single sitemap.xml instead of a per-locale index. Multi-sitemaps
+    // target sites with 10k+ URLs and this one has 16.
     sitemaps: false,
     // The prerendered unprefixed root is a meta-refresh redirect page and
     // must not be listed. This must be a RegExp: under i18n strategy
     // 'prefix' a string '/' would be expanded per locale and remove every
     // locale home page from the sitemap as well.
     exclude: [/^\/$/],
-    // Static `sitemap.xml` prerendered at build time and served by the
-    // Vercel CDN. Mirrors `ogImage.zeroRuntime` and shaves around 50 KB
-    // (5 KB gzip) off the Nitro bundle. Safe because every URL is
-    // statically prerendered and there are no dynamic sitemap sources.
+    // Mirrors `ogImage.zeroRuntime` and shaves around 50 KB (5 KB gzip) off
+    // the Nitro bundle. Safe because every URL is statically prerendered and
+    // there are no dynamic sitemap sources.
     // https://nuxtseo.com/docs/sitemap/guides/zero-runtime
     zeroRuntime: true,
-    // `defaults.lastmod` is intentionally NOT set. Stamping
-    // `new Date().toISOString()` at build time is functionally the same
-    // anti-pattern as `autoLastmod: true`, because Google distrusts
-    // lastmod values that always equal build time. Omitting lastmod is
-    // the documented recommendation in the absence of a real per-URL edit
-    // timestamp. When per-page edit dates become available (for example,
-    // via `@nuxt/content` frontmatter), prefer per-page lastmod via
-    // `definePageMeta({ sitemap: { lastmod } })` (a v8 feature).
+    // `defaults.lastmod` is deliberately unset, as is `autoLastmod: true`:
+    // both stamp build time, and Google distrusts lastmod values that always
+    // equal it. Once per-page edit dates exist (for example in
+    // `@nuxt/content` frontmatter), set it per page via
+    // `definePageMeta({ sitemap: { lastmod } })`.
     // https://nuxtseo.com/docs/sitemap/guides/best-practices
   },
-  // Vercel native Skew Protection is plan-gated (Pro and Enterprise) and only
-  // default-on for projects created after 19 November 2024, so it must be
-  // verified in the Vercel project settings rather than assumed. The module's
-  // intended role here is a proactive update prompt: poll
-  // `_nuxt/builds/latest.json` and surface the headless `<SkewNotification>`
-  // toast (mounted in `app/layouts/default.vue`).
+  // Polls `_nuxt/builds/latest.json` and surfaces the headless
+  // `<SkewNotification>` toast mounted in `app/layouts/default.vue`. Vercel's
+  // native Skew Protection is plan-gated (Pro and Enterprise) and only
+  // default-on for projects created after 19 November 2024, so it has to be
+  // verified in the project settings rather than assumed.
   //
-  // All three options below are load-bearing. v1.5.0 added provider-aware
-  // defaults, but they cover less than the name suggests:
-  //   * `bundleAssets`: `resolveBundleAssets()` auto-defaults to `false` only
-  //     when the build can PROVE native protection is live, i.e. both
-  //     `VERCEL_SKEW_PROTECTION_ENABLED === '1'` and `VERCEL_DEPLOYMENT_ID`
-  //     are set. With either missing the fallback default is `true`, which
-  //     mirrors previous builds' `_nuxt/` output through `node_modules/.cache`
-  //     back into the deployment. Pinning `false` is what makes the
-  //     plan-gated case above safe.
-  //   * `updateStrategy`: left unset on a non-static preset the module
-  //     resolves to `'sse'` and registers `/__skew/sse` plus a client plugin
-  //     holding a connection open against a Fluid Compute function.
-  //     `'polling'` registers neither and rides Nuxt's own
-  //     `check-outdated-build.client`.
-  //   * `reloadStrategy`: `'prompt'` is the current module default, pinned
-  //     explicitly because this option gates FORCED reloads: `'immediate'`
-  //     and `'idle'` both call `reloadNuxtApp({ force: true })` out from under
-  //     the user. Inheriting that from a future default change would be
-  //     silent and state-destroying.
+  // v1.5.0 added provider-aware defaults, but they cover less than the name
+  // suggests, so all three options are pinned deliberately:
+  //   * `bundleAssets` auto-defaults to `false` only when the build can PROVE
+  //     native protection is live (both `VERCEL_SKEW_PROTECTION_ENABLED ===
+  //     '1'` and `VERCEL_DEPLOYMENT_ID` set). Otherwise it falls back to
+  //     `true` and mirrors previous builds' `_nuxt/` output back into the
+  //     deployment through `node_modules/.cache`. Pinning `false` is what
+  //     keeps the plan-gated case above safe.
+  //   * `updateStrategy` unset resolves to `'sse'`, which registers
+  //     `/__skew/sse` plus a client plugin holding a connection open against
+  //     a Fluid Compute function. `'polling'` rides Nuxt's own
+  //     `check-outdated-build.client` instead.
+  //   * `reloadStrategy` is already the module default, pinned because
+  //     `'immediate'` and `'idle'` call `reloadNuxtApp({ force: true })` out
+  //     from under the user.
   //
-  // KNOWN LIMITATION: on this fully prerendered site the prompt still never
-  // fires in production. Both triggers are dead, for two different reasons:
-  //   * app-outdated: `<SkewNotification>` early-returns on
-  //     `payload.prerenderedAt`, and every route here is prerendered.
-  //   * chunks-outdated: no longer requires `bundleAssets` since v1.5.0
-  //     ("track chunk metadata without asset bundling"), but it compares
-  //     deleted chunks against a module list held in a plain in-memory `Set`
-  //     inside the service worker (`/_nuxt-skew-sw.js`), with no persistence.
-  //     Browsers evict an idle service worker after ~30s and restart it with
-  //     that Set empty, and the plugin returns early when the list is empty.
-  //     Meanwhile under `'polling'` the only producer of `app:manifest:update`
-  //     is Nuxt's `check-outdated-build.client`, which fires at most once per
-  //     page load and no earlier than `checkOutdatedBuildInterval` (1h
-  //     default). So the one read happens an hour after the Set was cleared.
-  // It additionally needs the build-time version manifest to survive between
-  // deploys. The default `fs` driver writes under `node_modules/.cache`, which
-  // Vercel restores only on a build-cache hit (keyed partly on git branch,
-  // capped at 1 GB, dropped after a month or on any no-cache redeploy). With
-  // `bundleAssets: false` the module's "No previous versions found in storage"
-  // warning is gated out, so a cache miss is completely silent.
-  // Restoring the prompt therefore needs a durable storage driver (Upstash
-  // Redis on Vercel per the module docs), a shorter
-  // `experimental.checkOutdatedBuildInterval`, and upstream persistence of the
-  // service-worker module list. `bundleAssets: true` is NOT the fix. The
-  // alternative is removing the module and relying on Nuxt's built-in
-  // chunk-reload recovery (`experimental.emitRouteChunkError: 'automatic'`).
+  // KNOWN LIMITATION: the prompt never fires on this fully prerendered site.
+  // `<SkewNotification>` early-returns on `payload.prerenderedAt`, and the
+  // chunks-outdated trigger (which no longer requires `bundleAssets` since
+  // v1.5.0) compares deleted chunks against a module list held in a plain
+  // in-memory `Set` in the service worker (`/_nuxt-skew-sw.js`), which is
+  // empty again once the browser evicts the worker (~30s), while under
+  // `'polling'` `app:manifest:update` fires at most once per page load and no
+  // sooner than `checkOutdatedBuildInterval` (1h default). The build-time
+  // version manifest is no more durable: the default `fs` driver writes under
+  // `node_modules/.cache`, which Vercel restores only on a build-cache hit
+  // (keyed partly on git branch, capped at 1 GB, dropped after a month or on
+  // any no-cache redeploy), and `bundleAssets: false` gates out the "No
+  // previous versions found in storage" warning when it misses. Restoring
+  // the prompt would need a durable storage driver (Upstash Redis per the
+  // module docs), a shorter `experimental.checkOutdatedBuildInterval`, and
+  // upstream persistence of the service-worker module list.
+  // `bundleAssets: true` is NOT the fix. The alternative is dropping the
+  // module for Nuxt's built-in chunk-reload recovery
+  // (`experimental.emitRouteChunkError: 'automatic'`).
   //
-  // Caveat: on the `vercel` preset the module also registers a middleware that
-  // stamps Vercel's `__vdpl` cookie on document responses, which Vercel reads
-  // as a request to pin all later navigations to that deployment. That works
-  // against this very prompt, and 404s once the deployment ages past the
-  // Maximum Age (1 day default). It is inert for prerendered HTML, which is
-  // served from the CDN and never reaches Nitro middleware. That covers
-  // every route here except the error page.
+  // On the `vercel` preset the module also stamps Vercel's `__vdpl` cookie on
+  // document responses, which pins later navigations to that deployment
+  // (working against this very prompt) and 404s once the deployment ages past
+  // the Maximum Age (1 day default). It is inert for prerendered HTML, served
+  // from the CDN without reaching Nitro, which is every route here except the
+  // error page.
+  // No `cookie` block: it is read only on paths this config never reaches.
   // https://vercel.com/docs/skew-protection
   // https://nuxtseo.com/skew-protection
-  // `multiTab: true` is the module default and is left implicit. The `cookie`
-  // block was removed: it is read on paths this config never reaches, because
-  // prerendered HTML is served from the CDN without hitting Nitro.
   skewProtection: {
     updateStrategy: 'polling',
     reloadStrategy: 'prompt',
@@ -1234,11 +996,11 @@ export default defineNuxtConfig({
       desktopWide: 1536,
     },
 
-    // Must name one of the custom breakpoints above, because `breakpoints`
-    // replaces the module's built-in set rather than extending it. This
-    // happens to equal the module default in nuxt-viewport 2.6.0, but it is
-    // pinned explicitly so a future default change cannot leave SSR pointing
-    // at a breakpoint name this config does not define.
+    // `breakpoints` replaces the module's built-in set rather than extending
+    // it, so this must name one of the custom names above. It equals the
+    // module default in nuxt-viewport 2.6.1, but is pinned explicitly so a
+    // future default change cannot point SSR at a name this config does not
+    // define.
     fallbackBreakpoint: 'desktop',
   },
 })

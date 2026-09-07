@@ -1,10 +1,7 @@
 // The users the owner follows, most recently followed first.
 //
-// This is the one Flick route that returns other people's data: usernames,
-// display names, and avatar URLs of accounts the owner follows. It is
-// implemented because the API layer covers every documented GET endpoint, but
-// a page that renders it publishes a third party's identity, not the owner's,
-// so treat it as a deliberate choice rather than a default.
+// The one Flick route that returns other people's data, so a page rendering
+// it publishes a third party's identity rather than the owner's.
 export default defineCachedEventHandler(
   async (event) => {
     const { request } = useFlick()

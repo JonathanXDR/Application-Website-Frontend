@@ -1,12 +1,9 @@
-// `ids` is allowlisted and validated server side so this endpoint cannot
-// be turned into a generic Apple Music proxy that burns the developer
-// token's quota.
+// `ids` is charset-allowlisted server side so this endpoint cannot become a
+// generic Apple Music proxy on the developer token's quota.
 export default defineCachedEventHandler(
   async (event) => {
     const ids = parseCatalogIds(getQuery(event).ids)
-    // Reject an empty or all-invalid id list locally. Apple requires `ids` and
-    // would answer 400, and a thrown error is never cached, so forwarding it
-    // would spend a developer-token request on every such hit.
+    // Apple's 400 is never cached, so forwarding one costs a request per hit.
     if (!ids) throw createError({ status: 400, statusText: 'Bad Request' })
 
     const { request } = useMusicKit()

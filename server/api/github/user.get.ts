@@ -1,6 +1,5 @@
-// The username is pinned server side to the configured repository owner.
-// Client-supplied query params are ignored on purpose. See the note in
-// `server/utils/octokit.ts`.
+// The username is pinned server side and client-supplied query params are
+// ignored. See the note in `server/utils/octokit.ts`.
 export default defineCachedEventHandler(
   async () => {
     const octokit = useOctokit()
@@ -10,10 +9,8 @@ export default defineCachedEventHandler(
       const { data } = await octokit.request('GET /users/{username}', {
         username: owner,
       })
-      // Narrow to the only field the hero reads. The full user object also
-      // carries avatar and url fields, counts, timestamps, and plan, which
-      // would otherwise be embedded verbatim into every prerendered locale
-      // payload.
+      // Narrow to the only field the hero reads. The full user object would
+      // otherwise land verbatim in every prerendered locale payload.
       return { bio: data.bio }
     }
     catch (error) {

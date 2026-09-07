@@ -1,5 +1,5 @@
 // The account that owns the API key. Flick has no OAuth and no cross-account
-// reads, so this is always the key owner and never an arbitrary user.
+// reads.
 export interface FlickProfile {
   id: string
   username: string
@@ -9,10 +9,8 @@ export interface FlickProfile {
   is_pro: boolean
 }
 
-// A user the key owner follows. `user_id` is exactly the value the write
-// endpoints accept for `watched_with`, which is why the documentation calls
-// this the discovery endpoint for co-watcher tagging.
 export interface FlickFollowedUser {
+  /** Exactly the value the write endpoints accept for `watched_with`. */
   user_id: string
   username: string
   display_name: string | null

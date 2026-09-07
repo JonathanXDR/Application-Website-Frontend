@@ -1,7 +1,6 @@
 import type { FlickMedia } from '#shared/types/services/flick/media'
 
-// Where the row came from. `api` would mark anything this integration wrote,
-// and the app renders those like an import.
+// Where the row came from. `api` would mark anything this integration wrote.
 export type FlickReviewSource = 'app' | 'import' | 'api'
 
 export type FlickWatchContextSource = 'theater' | 'home' | 'onTheGo'
@@ -28,12 +27,11 @@ export type FlickWatchContextDevice
     | 'phone'
     | 'seatback'
 
-// "How you watched": a sparse facet bag where every field is optional and
-// only what was set is stored. `source` is the top-level context and the rest
-// are sub-facets that only make sense beneath one of them, but Flick does not
-// enforce the cross-field combinations, so this cannot be a discriminated
-// union without rejecting payloads the API itself accepts. The free-text
-// facets are capped at 200 characters upstream.
+// "How you watched": a sparse facet bag where only what was set is stored.
+// `source` is the top-level context and the rest are sub-facets beneath one
+// of them, but Flick does not enforce the combinations, so a discriminated
+// union would reject payloads the API itself accepts. The free-text facets
+// are capped at 200 characters upstream.
 export interface FlickWatchContext {
   source?: FlickWatchContextSource | null
   cinema_type?: FlickWatchContextCinemaType | null
@@ -51,11 +49,9 @@ export interface FlickWatchContext {
 }
 
 // The frozen, explicit set of episodes a TV review counts as watched. Only
-// meaningful on `tv` and `tv_season` reviews: every reader ignores a scope on
-// a movie or a single-episode review. `seasons` maps a season number, as a
-// string key where `'0'` is Specials, to the covered episode numbers. An
-// absent season is not covered, and an empty map means the review covers
-// nothing at all.
+// meaningful on `tv` and `tv_season` reviews. `seasons` maps a season number,
+// as a string key where `'0'` is Specials, to the covered episode numbers.
+// An absent season is not covered, and an empty map covers nothing.
 //
 // Undocumented in Flick's prose reference and absent from its response
 // example, but present on every review row the live API returns (280/280 in
@@ -71,21 +67,22 @@ export interface FlickCoverageScope {
 export interface FlickReview {
   id: string
   media: FlickMedia
-  // Null on an unrated row. The scale is 0-10 with decimals (`9.2`), not a
-  // five-star integer.
+  /** 0-10 with decimals (`9.2`), not a five-star integer. Null when unrated. */
   rating: number | null
   review: string | null
   watched_date: string
   created_at: string
   tags: string[]
   watch_context: FlickWatchContext | null
-  // User ids only. Rendering names means joining against `/me/following`.
+  /** User ids only. Rendering names means joining against `/me/following`. */
   watched_with: string[]
   coverage_scope: FlickCoverageScope | null
   source: FlickReviewSource
-  // True only for a bare watch log: no rating, no text, no photos. A
-  // rating-only row is `false`, so this is not the inverse of
-  // `rating === null`.
+  /**
+   * True only for a bare watch log: no rating, no text, no photos. A
+   * rating-only row is `false`, so this is not the inverse of
+   * `rating === null`.
+   */
   is_log: boolean
 }
 

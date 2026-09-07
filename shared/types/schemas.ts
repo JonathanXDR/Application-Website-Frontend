@@ -4,10 +4,7 @@
 // They are written as interfaces rather than `z.infer` aliases on purpose:
 // Vue's `defineProps` compiler resolves types statically and cannot follow
 // `z.infer<typeof Schema>`, so any component prop typed from a derived
-// alias fails to compile. The Zod schemas remain the validation source and
-// drive the `@nuxt/content` query result types (the `*CollectionItem`
-// types used in `useQueryCollection`), while these interfaces type
-// component props and local annotations. The two describe the same shapes.
+// alias fails to compile.
 
 export interface ColorType {
   primary?: string
@@ -101,9 +98,8 @@ export interface ErrorPageType {
   description: string
 }
 
-// Recursive navigation node for component props. The navigation collection
-// validates a bounded-depth shape because a self-referential content schema
-// cannot be generated, but components walk the tree to any depth.
+// Recursive counterpart to the bounded-depth navigation schema in
+// `content.config.ts`. Components walk the tree to any depth.
 export interface SectionType {
   id: string
   label?: string

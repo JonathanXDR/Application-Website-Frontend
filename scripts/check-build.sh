@@ -2,12 +2,12 @@
 
 # Vercel Ignored Build Step gate. Vercel inverts the usual convention: exit 1
 # runs the build, exit 0 aborts it. This gate skips a deploy whose last two
-# commits are less than `BUILD_INTERVAL_MINUTES` apart (default 30), so a
-# burst of quick commits keeps skipping deploys until one commit lands at
-# least that long after its parent.
+# commits are less than `BUILD_INTERVAL_MINUTES` apart (default 30), so a burst
+# of quick commits keeps skipping deploys until one commit lands at least that
+# long after its parent.
 #
-# `date -d` is a GNU extension. The Vercel runner has it, macOS does not, so
-# `bun run check:build` measures 0 minutes locally and always reports a skip.
+# `date -d` is a GNU extension that the Vercel runner has and macOS does not,
+# so a local run measures 0 minutes and always reports a skip.
 # https://vercel.com/docs/project-configuration/project-settings#ignored-build-step
 
 BUILD_INTERVAL_MINUTES="${BUILD_INTERVAL_MINUTES:-30}"

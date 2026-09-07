@@ -32,21 +32,19 @@ const infoItems: { id: keyof InfoBarType, icon: IconItemType }[] = [
 
 const DAY_MS = 24 * 60 * 60 * 1000
 
-// Every route is prerendered, so a clock read during render is baked at build
+// Routes are prerendered, so a clock read during render is baked at build
 // time and the icon below would stay on `clock.fill` long after the update
-// stopped being recent. `useState` carries the render-time value through the
-// payload so the server and the first client render agree, then the first
-// mounted instance corrects it, the same trick as `useCurrentYear`. The
-// threshold makes only that first instance write. Every later one already
-// sees a fresh value, so a card grid does not trigger one update per card.
+// stopped being recent. `useState` keeps the server and the first client
+// render in agreement until `onMounted` corrects it, the same trick as
+// `useCurrentYear`. The staleness threshold means only the first mounted
+// instance writes, so a card grid does not update once per card.
 const renderedAt = useState('rendered-at', () => Date.now())
 
 onMounted(() => {
   if (Date.now() - renderedAt.value > 60_000) renderedAt.value = Date.now()
 })
 
-// Preserves the previous `dayjs().diff(date, 'day') <= 1` semantics: a
-// truncated day difference of 0 or 1, i.e. anything inside the last 48 hours.
+// True for anything inside the last 48 hours, not just calendar yesterday.
 const updatedYesterday = computed(() => {
   if (!props.date.fixed) return false
   const elapsed = renderedAt.value - new Date(props.date.fixed).getTime()
@@ -60,8 +58,8 @@ const formatDate = (
   return new Date(dateString).toLocaleDateString(locale.value, formatOptions)
 }
 
-// Which of the three date shapes this instance renders. Only `relative` needs
-// a live component. The other two are absolute dates that Intl formats once.
+// Only `relative` needs a live component. `duration` and `fixed` are
+// absolute dates that Intl formats once.
 const dateMode = computed(() => {
   const { duration, formatOptions, fixed, event } = props.date
   if (duration && formatOptions) return 'duration'
@@ -85,9 +83,8 @@ const dateTitle = computed(() => {
   return ''
 })
 
-// Defensive capitalization, for example "updated" -> "Updated". Every locale
-// in `content/components/card-item.yml` already capitalizes the label, so
-// this is a no-op today.
+// Defensive: every locale in `content/components/card-item.yml` already
+// capitalizes the label, so this is a no-op today.
 const eventLabel = computed(() => {
   const { event } = props.date
   if (!event) return ''
@@ -135,10 +132,8 @@ const eventLabel = computed(() => {
         class="info-icon"
       />
       <template v-if="!loading">
-        <!-- `<NuxtTime relative>` replaces dayjs' `fromNow()`. It formats with
-             `Intl.RelativeTimeFormat`, and its `onPrehydrate` script recomputes
-             the text before hydration, so the value is correct on a
-             prerendered page instead of frozen at build time. -->
+        <!-- `relative` recomputes via `onPrehydrate` before hydration, so
+             the text is not frozen at build time on a prerendered page. -->
         <template v-if="dateMode === 'relative' && props.date.fixed">
           {{ eventLabel }}&nbsp;<NuxtTime
             :datetime="props.date.fixed"

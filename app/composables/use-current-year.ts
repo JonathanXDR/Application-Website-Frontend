@@ -1,8 +1,8 @@
-// All pages are prerendered, so a year computed at render time is baked
-// at build time and goes stale after New Year until the next deploy. The
-// `useState` value keeps server and client markup identical during
-// hydration, and the `onMounted` refresh corrects the year client side
-// without a hydration mismatch.
+/**
+ * Current year, corrected on mount. Pages are prerendered, so a year
+ * computed at render time stays at the build year until the next deploy.
+ * `useState` keeps the server and client markup identical for hydration.
+ */
 export const useCurrentYear = () => {
   const year = useState('current-year', () => new Date().getFullYear())
 

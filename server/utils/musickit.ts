@@ -14,14 +14,15 @@ export const MUSICKIT_CACHE_MAX_AGE = 60 * 15
 const MUSICKIT_REQUEST_TIMEOUT_MS = 5_000
 
 // Apple caps the ids per multi-resource catalog endpoint: albums and stations
-// take 100, playlists take 25. The caller passes the matching limit so trimming
-// respects the upstream cap and bounds the cache-key cardinality the way the
-// GitHub pagination clamps do.
+// take 100, playlists take 25. The caller passes the matching limit, so
+// trimming respects the cap and bounds the cache-key cardinality.
 const MAX_CATALOG_IDS = 100
 
-// Normalizes a client-supplied id list into a clean comma-separated string
-// of Apple catalog ids. Returns `undefined` when nothing valid was passed,
-// so handlers never forward arbitrary query params to the upstream API.
+/**
+ * Normalizes a client-supplied id list into a comma-separated string of Apple
+ * catalog ids, returning `undefined` when nothing valid survives, so handlers
+ * never forward an arbitrary query param to the upstream API.
+ */
 export function parseCatalogIds(
   value: unknown,
   maxIds = MAX_CATALOG_IDS,
@@ -47,11 +48,9 @@ function generateAuthToken(): string {
   }
 
   const config = useRuntimeConfig()
-  // Guard the signing key the same way the library routes guard the user
-  // token. Without this an unset key reaches `jwt.sign` as an empty string
-  // and throws before the handler try block, surfacing a raw 500. Routing it
-  // through `requireCredential` keeps an unconfigured catalog endpoint inert
-  // (404) instead of live but broken.
+  // Without this guard an unset key reaches `jwt.sign` as an empty string and
+  // throws before the handler try block, surfacing a raw 500 rather than the
+  // 404 that keeps an unconfigured catalog endpoint inert.
   const privateKey = Buffer.from(
     requireCredential(
       config.appleDeveloperPrivateKey,
@@ -101,18 +100,16 @@ export function useMusicKit() {
       headers['Music-User-Token'] = musicUserToken
     }
 
-    // External call to the Apple Music API, so the caller-supplied `T` is the
-    // authoritative response type. Importing ofetch's `$fetch` directly keeps
-    // this off the Nitro internal-route typing that the global `$fetch`
-    // carries.
+    // External call, so the caller-supplied `T` is the authoritative response
+    // type. Importing ofetch's `$fetch` directly keeps this off the Nitro
+    // internal-route typing that the global `$fetch` carries.
     return $fetch<T>(`${APPLE_MUSIC_BASE_URL}${path}`, {
       headers,
       params: options?.params,
       timeout: MUSICKIT_REQUEST_TIMEOUT_MS,
-      // Fail fast. ofetch retries a GET once by default and its default
-      // `retryStatusCodes` include 429 with a zero delay, so a rate-limited
-      // response would be re-issued at once with no backoff. `retry: 0`
-      // surfaces the error immediately, matching the GitHub client.
+      // Fail fast, matching the GitHub client. ofetch retries a GET once by
+      // default and its default `retryStatusCodes` include 429 with a zero
+      // delay, re-issuing a rate-limited response with no backoff.
       retry: 0,
     })
   }
@@ -121,9 +118,8 @@ export function useMusicKit() {
 }
 
 export function handleMusicKitError(error: unknown): never {
-  // An H3Error we threw ourselves (such as the Music-User-Token guard above)
-  // must pass through unchanged. ofetch's FetchError is not an H3Error, so it
-  // continues to the upstream branch. Only our own createError calls match.
+  // An `H3Error` we threw ourselves passes through unchanged, as in
+  // `server/utils/octokit.ts`. ofetch's `FetchError` is not one.
   if (isError(error)) throw error
 
   if (
@@ -138,9 +134,8 @@ export function handleMusicKitError(error: unknown): never {
       // code/title/detail. ofetch parses the body onto `err.data`.
       data?: { errors?: Array<{ detail?: string }> }
     }
-    // Log the upstream status plus Apple's specific detail server side for
-    // diagnosability, then map the status for the client the same way as
-    // `handleGitHubError`. The detail is never copied into the public response.
+    // Log Apple's specific detail server side, then map the status for the
+    // client. The detail is never copied into the public response.
     console.error(
       '[musickit]',
       err.status,
@@ -149,10 +144,9 @@ export function handleMusicKitError(error: unknown): never {
     )
     throw createError(mapUpstreamStatus(err.status, 'MusicKit API Error'))
   }
-  // No HTTP status means a transport failure reaching Apple Music (DNS,
-  // connection, or our own timeout). The only code wrapped in the calling
-  // try blocks is the upstream request, so report it as a gateway error
-  // rather than implying our own server broke. Log it but never leak detail.
+  // No HTTP status means the request never completed: DNS, connection, or our
+  // own timeout. Report it as a gateway error rather than implying our server
+  // broke, and never copy the raw message into the public response.
   console.error('[musickit]', error)
   throw createError({ status: 502, statusText: 'MusicKit API Error' })
 }

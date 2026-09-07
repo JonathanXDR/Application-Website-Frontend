@@ -7,11 +7,13 @@ interface AnimationOperations {
   toggle?: string | string[]
   key?: string
   onEnter?: () => void
-  // Per-element overrides for the in-view detection. The default `margin`
-  // pulls the detection area 10% up from the viewport bottom, a dead zone
-  // that elements pinned to the end of the page (the footer `ShareSheet`)
-  // can never scroll past. Those elements pass `margin: '0px'` to opt out.
   amount?: 'some' | 'all' | number
+  /**
+   * Overrides the default `0px 0px -10% 0px`. That default leaves a dead
+   * zone at the viewport bottom that elements pinned to the end of the
+   * page (the footer `ShareSheet`) never scroll past, so they pass
+   * `'0px'`.
+   */
   margin?: string
 }
 
@@ -61,15 +63,13 @@ export default defineNuxtPlugin((nuxtApp) => {
       const { value } = binding
       const elementRef = ref(element)
 
-      // Apply the animation immediately for elements already in the
-      // viewport on mount, without adding the hidden state first. This
-      // prevents a needless LCP delay.
+      // Elements already in the viewport animate immediately, skipping
+      // the hidden state, to avoid a needless LCP delay.
       const bounds = element.getBoundingClientRect()
       const isInitiallyVisible
         = bounds.top < window.innerHeight && bounds.bottom > 0
 
       if (!isInitiallyVisible) {
-        // Only hide elements that are below the fold.
         element.classList.add(...toArray(value.remove))
       }
       else {

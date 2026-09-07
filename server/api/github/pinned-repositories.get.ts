@@ -1,15 +1,11 @@
 import type { Repository } from '@octokit/graphql-schema'
 
-// Typed shape of the GraphQL selection below. Without it the edges array
-// is `any`, and edges.map collapses the handler return type to `any`,
-// which previously propagated an implicit `any` into the projects page.
+// Typed shape of the GraphQL selection below. Without it `edges` is `any` and
+// `edges.map` collapses the handler's return type to `any`.
 interface PinnedRepositoriesResponse {
-  // `user(login:)` is nullable in the schema, so the type admits null. A
-  // deleted or renamed owner actually comes back as a top-level NOT_FOUND
-  // error with user null, which octokit.graphql throws and handleGitHubError
-  // maps to 502, so the post-call null guard only covers an error-free null
-  // that GitHub does not return here. The owner is pinned to a valid login,
-  // so neither path fires in production.
+  // Nullable in the schema, but a deleted or renamed owner comes back as a
+  // top-level NOT_FOUND error that `handleGitHubError` maps to 502, so an
+  // error-free null is unreachable in practice.
   user: {
     pinnedItems: {
       edges: Array<{ node: Repository }>
@@ -94,10 +90,9 @@ const remapProperties = (item: Repository) => {
   }
 }
 
-// The username is pinned server side to the configured repository owner
-// and pagination is clamped. See the note in `server/utils/octokit.ts`. The
-// `perPage` query param is camelCase here (unlike the snake_case REST routes)
-// to mirror the GraphQL `$perPage` variable above.
+// The username is pinned server side and pagination is clamped. See the note
+// in `server/utils/octokit.ts`. The `perPage` query param is camelCase here,
+// unlike the snake_case REST routes, to mirror the GraphQL `$perPage` above.
 const PER_PAGE = 30
 
 export default defineCachedEventHandler(
@@ -117,10 +112,9 @@ export default defineCachedEventHandler(
       handleGitHubError(error)
     }
 
-    // Defensive fallback for an error-free null user. A deleted or renamed
-    // owner returns a NOT_FOUND error mapped to 502 above, so this rarely
-    // fires. It stays outside the try so the catch only maps upstream
-    // failures and `response` is narrowed by handleGitHubError's never return.
+    // Defensive only, see `PinnedRepositoriesResponse`. It stays outside the
+    // try so the catch maps upstream failures alone and `response` is narrowed
+    // by `handleGitHubError`'s `never` return.
     if (!response.user) {
       throw createError({ status: 404, statusText: 'GitHub API Error' })
     }

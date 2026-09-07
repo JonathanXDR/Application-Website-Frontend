@@ -1,7 +1,5 @@
-// The owner's watchlist, most recently added first. The watchlist is a
-// built-in list that `GET /me/lists` deliberately excludes, so it has its own
-// endpoint and its own item shape, without the `rank` and `notes` a custom
-// list item carries.
+// The owner's watchlist, most recently added first. A built-in list that
+// `GET /me/lists` deliberately excludes, so it has its own endpoint.
 export default defineCachedEventHandler(
   async (event) => {
     const { request } = useFlick()

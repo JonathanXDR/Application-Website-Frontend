@@ -1,26 +1,20 @@
-# Full-site Lighthouse audit of a Vercel deployment, run once the deployment
-# finishes. Reports are uploaded as a workflow artifact. Scores never fail the
-# job, because no `ci.budget` is set in `unlighthouse.config.ts` yet. Add one
-# there once a few runs have established a baseline.
+# Full-site Lighthouse audit of a Vercel deployment. Scores never fail the job,
+# because no `ci.budget` is set in `unlighthouse.config.ts` yet. Add one there
+# once a few runs have established a baseline.
 #
-# Vercel notifies GitHub through both `deployment_status` and
-# `repository_dispatch`. This workflow uses `repository_dispatch`, the one
-# Vercel recommends, because it carries the deployment metadata directly.
+# Vercel also emits `deployment_status`, but `repository_dispatch` carries the
+# deployment metadata directly.
 # https://vercel.com/docs/git/vercel-for-github#repository-dispatch-events
 #
-# Action references follow GitHub's own scoping: `actions/*` by major version
-# tag, matching every starter workflow GitHub ships, and the third-party action
-# by commit SHA, which is what GitHub's secure-use guide and its own
-# third-party examples recommend.
+# `actions/*` are pinned by major version tag and the third-party action by
+# commit SHA, following GitHub's secure-use guide.
 # https://docs.github.com/en/actions/reference/security/secure-use
 name: Unlighthouse
 
 on:
   repository_dispatch:
     types:
-      # Built but not promoted, which is what preview deployments emit.
       - vercel.deployment.ready
-      # Built and automatically promoted to production.
       - vercel.deployment.success
   workflow_dispatch:
     inputs:
@@ -29,23 +23,20 @@ on:
         required: true
         type: string
 
-# Default deny. The one job below opts back in to only what it needs.
 permissions: {}
 
-# The runner default is `bash -e`, which does not set `pipefail`, so a failure
-# in the middle of a pipeline is hidden by a succeeding last command. `shell:
-# bash` runs `bash --noprofile --norc -eo pipefail`, which matters for the
-# redaction step, where a failing `grep` must not look like a clean report.
+# `shell: bash` sets `pipefail`, which the runner default of `bash -e` does
+# not. The redaction step pipes `grep`, and a failure there must not look like
+# a clean report.
 defaults:
   run:
     shell: bash
 
-# Keyed by environment and branch together. `environment` alone is too coarse,
-# because every preview deployment shares the value `preview`, so two branches
-# deploying at once would cancel each other's audit rather than superseding it.
-# `concurrency` is evaluated before the job-level `if`, so these payload values
-# are still unvalidated. That is safe because they only name a concurrency
-# group, never reaching a shell or changing which site is audited.
+# `environment` alone is too coarse, because every preview deployment shares
+# the value `preview`, so two branches deploying at once would cancel each
+# other's audit. `concurrency` is evaluated before the job-level `if`, so these
+# payload values are unvalidated, but they only name a group and never reach a
+# shell.
 concurrency:
   group: >-
     unlighthouse-${{ github.event.client_payload.environment || 'manual' }}-${{
@@ -62,14 +53,12 @@ jobs:
       || (github.event.action == 'vercel.deployment.ready' && github.event.client_payload.environment == 'preview')
       || (github.event.action == 'vercel.deployment.success' && github.event.client_payload.environment == 'production')
     runs-on: ubuntu-latest
-    # Without this the job would inherit the 6 hour default, so a hung audit
-    # would burn a full day of billed minutes before being canceled.
+    # Without this a hung audit would run to the 6 hour default.
     timeout-minutes: 20
     permissions:
       contents: read
-      # Lets vercel/repository-dispatch/actions/status attach a commit status.
-      # Without it, a `repository_dispatch` run stays invisible on the pull
-      # request.
+      # A `repository_dispatch` run stays invisible on the pull request
+      # without a commit status.
       statuses: write
     steps:
       - name: Report status on the deployed commit
@@ -79,11 +68,10 @@ jobs:
           name: Unlighthouse
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      # Runs before anything is installed so a misconfigured job fails in
-      # seconds. `client_payload.url` already carries a scheme, but the
-      # `workflow_dispatch` input is free text, so a bare host is accepted and
-      # the scheme added here. `resolveRoutes` builds `new URL('/sitemap.xml',
-      # site)`, which throws without one.
+      # Ordered before the installs so a misconfigured job fails in seconds.
+      # The `workflow_dispatch` input is free text, so a bare host gains its
+      # scheme here: `resolveRoutes` builds `new URL('/sitemap.xml', site)`,
+      # which throws without one.
       - name: Check inputs and resolve the site
         env:
           # Read through an intermediate variable so the payload never reaches
@@ -103,14 +91,12 @@ jobs:
             http://*|https://*) site="$RAW_SITE" ;;
             *) site="https://$RAW_SITE" ;;
           esac
-          # A dispatch payload is JSON, so the URL can carry newlines and other
-          # unexpected characters. `case` matches the whole value and rejects
-          # anything outside a plain origin's character set, which stops a
-          # payload from appending extra variables to `$GITHUB_ENV` or emitting
-          # workflow commands into the log. `grep` then checks the shape, and
-          # its per-line anchors are safe only because `case` has already ruled
-          # out newlines. The failure message does not repeat the value, since
-          # at that point it is still untrusted.
+          # A dispatch payload is JSON, so the URL can carry newlines. `case`
+          # matches the whole value and rejects anything outside a plain
+          # origin's character set, stopping a payload from appending
+          # variables to `$GITHUB_ENV` or emitting workflow commands into the
+          # log. The `grep` anchors are per line, so they hold only because
+          # `case` ruled out newlines, and the error never echoes the value.
           case "$site" in
             *[!A-Za-z0-9.:/-]*) shape=bad ;;
             *) shape=ok ;;
@@ -122,12 +108,9 @@ jobs:
           printf 'UNLIGHTHOUSE_SITE=%s\n' "$site" >> "$GITHUB_ENV"
           echo "Auditing $site"
 
-      # The audit runs against the deployed site, so the config file is the only
-      # thing needed from the repository. A sparse checkout also implies a
-      # `blob:none` partial clone, which skips the rest of a 187 MiB pack.
-      # `unlighthouse.config.ts` imports only a type, so it loads without any
-      # `node_modules` present. Credentials are not persisted because nothing
-      # here pushes back to the repository.
+      # Only the config file is needed, since the audit runs against the
+      # deployed site. A sparse checkout also implies a `blob:none` partial
+      # clone, which skips the rest of a 187 MiB pack.
       - name: Check out the Unlighthouse config
         uses: actions/checkout@v7
         with:
@@ -135,27 +118,22 @@ jobs:
           sparse-checkout-cone-mode: false
           persist-credentials: false
 
-      # The version is quoted so a later two-part value such as '24.10' is not
-      # read as the number 24.1. Nothing is installed from the repository, so
-      # there is no lockfile to key a dependency cache on.
+      # Quoted so a later two-part value such as '24.10' is not read as the
+      # number 24.1. Nothing is installed from the repository, so there is no
+      # lockfile to key a dependency cache on.
       - name: Set up Node.js
         uses: actions/setup-node@v7
         with:
           node-version: "24"
 
-      # Pinned so Lighthouse scores stay comparable between runs. An unpinned
-      # install would silently pick up a new Lighthouse, whose scoring changes
-      # between versions, and a regression in the report would be
-      # indistinguishable from a regression in the site. Keep this in step with
-      # the `unlighthouse` devDependency, which is what local runs use.
-      # Dependabot does not read versions out of a `run` step, so this one is
-      # updated by hand.
+      # Pinned so Lighthouse scores stay comparable between runs, since its
+      # scoring changes between versions. Keep this in step with the
+      # `unlighthouse` devDependency by hand: Dependabot does not read versions
+      # out of a `run` step.
       #
       # `puppeteer` is deliberately not installed. Unlighthouse imports
       # `puppeteer-core` and locates Chrome through `chrome-launcher`, which
-      # finds the runner's preinstalled build. Without a system Chrome it
-      # downloads its own into `~/.unlighthouse`, so a `puppeteer` install would
-      # only fetch a second browser that nothing reads.
+      # finds the runner's preinstalled build.
       - name: Install Unlighthouse
         run: npm install --global unlighthouse@0.18.0
 
@@ -165,11 +143,9 @@ jobs:
           VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
 
       # Lighthouse copies its settings, including `extraHeaders`, verbatim into
-      # the per-route reports under `.unlighthouse/reports/`, so the bypass
-      # secret ends up inside them. Artifacts on a public repository are
-      # downloadable by any signed-in user, and `::add-mask::` only redacts
-      # logs, never artifacts. Strip the value and fail the job if any copy
-      # survives, so a partial redaction can never reach the upload.
+      # the per-route reports, so the bypass secret ends up inside them.
+      # Artifacts on a public repository are downloadable by any signed-in
+      # user, and `::add-mask::` redacts logs, never artifacts.
       - name: Redact the bypass secret from the report
         if: always()
         env:
@@ -184,12 +160,9 @@ jobs:
             exit 1
           fi
 
-      # `--build-static` writes the viewable report to the root of
-      # `.unlighthouse`, as `index.html` plus `assets/`, with the per-route
-      # Lighthouse reports under `reports/`. A missing report only warns, so
-      # that a failed audit is reported by the audit step rather than by this
-      # one. Each report is superseded by the next deploy, so it does not need
-      # the 90 day default retention.
+      # A missing report only warns, so a failed audit is reported by the audit
+      # step rather than by this one. Each report is superseded by the next
+      # deploy, so it does not need the 90 day default retention.
       - name: Upload report
         if: always()
         uses: actions/upload-artifact@v7

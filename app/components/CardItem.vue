@@ -474,8 +474,6 @@ const iconLogoSize = computed(() => {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 16px;
-
-  /* Styles without cover */
   transition:
     transform 0.16s ease-out,
     background-color 0.16s ease-out,
@@ -485,8 +483,6 @@ const iconLogoSize = computed(() => {
 
 .card.hover:hover {
   text-decoration: none;
-
-  /* Styles without cover */
   border-color: var(--color-border-hover);
 }
 
@@ -674,13 +670,12 @@ const iconLogoSize = computed(() => {
 
 .medium .title {
   font-size: 21px;
-  /* 20.2380952385px */
   font-weight: 600;
 }
 
 .large .title {
   font-size: 28px;
-  font-weight: 600; /* Styles without cover */
+  font-weight: 600;
   color: var(--color-card-content-text);
 }
 
