@@ -23,7 +23,7 @@ The source of my personal website, a prerendered [Nuxt](https://nuxt.com) 4 appl
 
 ## 🚀 Quick Start
 
-Install dependencies. This also runs `nuxt prepare`, installs the Git hooks, and regenerates the local `skilld` agent skills.
+Install dependencies. This also runs `nuxt prepare` and installs the Git hooks.
 
 ```bash
 bun install

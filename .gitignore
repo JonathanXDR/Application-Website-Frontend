@@ -28,6 +28,3 @@ logs
 !.env.schema
 .vercel
 .vscode
-
-# Skilld references (recreated by `skilld prepare`)
-.skilld
