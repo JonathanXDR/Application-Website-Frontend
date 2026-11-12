@@ -4,10 +4,10 @@ import { z } from 'zod'
 // The interfaces in `shared/types/schemas.ts` that each schema is pinned to
 // with `satisfies` exist because Vue's `defineProps` cannot resolve `z.infer`.
 //
-// The `@nuxt/content` fork (`release/better-i18n`) merges each file's nested
-// `i18n.<locale>` block onto the base document by index before validation, so
-// schemas model the merged per-locale shape, never declare an `i18n` field, and
-// mark any field a locale override may omit as optional.
+// The `@nuxt/content` fork (`release/better-i18n`) stores each file's nested
+// `i18n.<locale>` block as a row for that locale, merged onto the top-level
+// values (objects field by field, arrays of objects by index). Schemas model
+// that merged shape and never declare an `i18n` field.
 
 export const ColorSchema = z.object({
   primary: z.string().optional(),
