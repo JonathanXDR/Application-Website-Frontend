@@ -208,12 +208,6 @@ export const LanguagePickerBarSchema = z.object({
   chooseYourLanguage: z.string(),
 })
 
-export const SkewNotificationSchema = z.object({
-  message: z.string(),
-  reload: z.string(),
-  dismiss: z.string(),
-})
-
 // Unconsumed until the technologies filter wires it up
 export const FilterInputSchema = z.object({
   addTag: z.string(),
@@ -296,13 +290,6 @@ export default defineContentConfig({
       type: 'data',
       source: 'components/share-sheet.yml',
       schema: ShareSheetSchema,
-      i18n: true,
-    }),
-
-    skewNotification: defineCollection({
-      type: 'data',
-      source: 'components/skew-notification.yml',
-      schema: SkewNotificationSchema,
       i18n: true,
     }),
 

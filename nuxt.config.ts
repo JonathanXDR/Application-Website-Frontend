@@ -54,7 +54,6 @@ export default defineNuxtConfig({
     'nuxt-security',
     'nuxt-viewport',
     '@nuxt/hints',
-    'nuxt-skew-protection',
     'nuxt-ai-ready',
   ],
   $development: {
@@ -250,14 +249,6 @@ export default defineNuxtConfig({
     // safe: those payloads carry only `cid`/`sid` tokens the GA4 client
     // authenticates itself, and `/_scripts/assets/**` is GET-only.
     '/_scripts/**': {
-      csurf: false,
-      robots: false,
-    },
-
-    // `/__skew/health` is registered on every non-static build regardless of
-    // `updateStrategy`, so pre-declaring the exemption covers a later switch
-    // to `'sse'` or `'ws'`.
-    '/__skew/**': {
       csurf: false,
       robots: false,
     },
@@ -800,32 +791,6 @@ export default defineNuxtConfig({
     // `defaults.lastmod` and `autoLastmod` stay unset: both stamp build time,
     // and Google distrusts lastmod values that always equal it. Once per-page
     // edit dates exist, set it via `definePageMeta({ sitemap: { lastmod } })`.
-  },
-  // Vercel's native Skew Protection is plan-gated, so this module polls
-  // `_nuxt/builds/latest.json` and drives the `<SkewNotification>` toast in
-  // `app/layouts/default.vue`. All three options are pinned because the
-  // provider-aware defaults added in v1.5.0 cover less than they suggest:
-  // `bundleAssets` only defaults to `false` when the build can prove native
-  // protection is live, otherwise it mirrors previous builds' `_nuxt/` output
-  // into the deployment through `node_modules/.cache`. `updateStrategy`
-  // resolves to `'sse'`, holding a connection open against a Fluid Compute
-  // function. The `'immediate'` and `'idle'` reload strategies call
-  // `reloadNuxtApp({ force: true })` out from under the user.
-  //
-  // Known limitation: the prompt never fires on this fully prerendered site.
-  // `<SkewNotification>` early-returns on `payload.prerenderedAt`, and the
-  // chunks-outdated trigger compares against a module list held in an
-  // in-memory `Set` in the service worker, gone once the browser evicts it
-  // (~30s), while the version manifest lives under `node_modules/.cache`,
-  // which Vercel restores only on a build-cache hit. Restoring the prompt
-  // needs a durable storage driver and upstream fixes, not
-  // `bundleAssets: true`. The alternative is dropping the module for
-  // `experimental.emitRouteChunkError: 'automatic'`.
-  // https://nuxtseo.com/skew-protection
-  skewProtection: {
-    updateStrategy: 'polling',
-    reloadStrategy: 'prompt',
-    bundleAssets: false,
   },
   viewport: {
     breakpoints: {

@@ -2,10 +2,8 @@
 import type {
   InfoBannerCollectionItem,
   NavigationCollectionItem,
-  SkewNotificationCollectionItem,
 } from '@nuxt/content'
 import FooterPre from '~/components/Footer/Pre.vue'
-import { AnimatePresence, Motion } from 'motion-v'
 
 // A page overrides these defaults with
 // `definePageMeta({ layout: { props: { ... } } })`, or with attributes on
@@ -38,19 +36,13 @@ const { y, isScrolling } = useScroll(() =>
 const error = useError()
 const config = useRuntimeConfig()
 
-const [
-  { data: navbarContent },
-  { data: infoBannerContent },
-  { data: skewLabels },
-] = await Promise.all([
-  useQueryCollection<NavigationCollectionItem>('navigation')
-    .stem('navbar')
-    .first(),
-  useQueryCollection<InfoBannerCollectionItem>('infoBanner').first(),
-  useQueryCollection<SkewNotificationCollectionItem>(
-    'skewNotification',
-  ).first(),
-])
+const [{ data: navbarContent }, { data: infoBannerContent }]
+  = await Promise.all([
+    useQueryCollection<NavigationCollectionItem>('navigation')
+      .stem('navbar')
+      .first(),
+    useQueryCollection<InfoBannerCollectionItem>('infoBanner').first(),
+  ])
 
 watch(
   navbarContent,
@@ -212,39 +204,6 @@ const footerComponent = computed(() =>
     </footer>
     <!-- <FooterItem /> -->
     <EasterEggAscii />
-    <SkewNotification v-slot="{ reload, dismiss, isOpen }">
-      <AnimatePresence>
-        <Motion
-          v-if="isOpen"
-          as="div"
-          role="status"
-          aria-live="polite"
-          :initial="{ y: 100, opacity: 0 }"
-          :animate="{ y: 0, opacity: 1 }"
-          :exit="{ y: 100, opacity: 0 }"
-          :transition="{ type: 'spring', stiffness: 300, damping: 30 }"
-          class="fixed inset-x-0 bottom-4 z-50 mx-auto flex w-fit max-w-md items-center gap-3 rounded-2xl bg-[var(--color-fill-tertiary)] px-4 py-3 ring-1 ring-[var(--color-fill-quaternary)] backdrop-blur-md"
-        >
-          <span class="text-sm font-medium text-[var(--color-fill-gray)]">
-            {{ skewLabels?.message }}
-          </span>
-          <button
-            type="button"
-            class="text-sm font-semibold text-[var(--color-figure-blue)]"
-            @click="reload"
-          >
-            {{ skewLabels?.reload }}
-          </button>
-          <button
-            type="button"
-            class="text-sm text-[var(--color-figure-gray-secondary)]"
-            @click="dismiss"
-          >
-            {{ skewLabels?.dismiss }}
-          </button>
-        </Motion>
-      </AnimatePresence>
-    </SkewNotification>
   </div>
 </template>
 
