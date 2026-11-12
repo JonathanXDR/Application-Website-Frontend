@@ -1,5 +1,3 @@
-import type { SiteConfigCollectionItem } from '@nuxt/content'
-
 // Duplicated from `server/middleware/site-config.ts`: importing it would
 // pull that file's server-only imports into the client bundle.
 const LOCALE_PREFIX = /^\/(de|en|fr|it)(?=\/|$)/
@@ -34,10 +32,9 @@ export const usePageSeo = async (options: UsePageSeoOptions = {}) => {
   const nuxtApp = useNuxtApp()
   const route = useRoute()
   const { currentRoute, homeLabel, homePath } = useNavbar()
-  const { data: siteContent }
-    = await useQueryCollection<SiteConfigCollectionItem>('siteConfig')
-      .stem('site')
-      .first()
+  const { data: siteContent } = await useContentQuery('siteConfig', () =>
+    queryCollection('siteConfig').stem('config/site').first(),
+  )
 
   const pageKey = computed(() =>
     route.path.replace(LOCALE_PREFIX, '').replace(/^\/|\/$/g, ''),

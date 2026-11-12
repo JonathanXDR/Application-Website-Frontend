@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { CardItemCollectionItem } from '@nuxt/content'
-
 const nonce = useNonce()
 
 const props = withDefaults(
@@ -29,8 +27,7 @@ const props = withDefaults(
   },
 )
 
-const { data: cardLabels }
-  = useQueryCollection<CardItemCollectionItem>('cardItem').first()
+const { data: cardLabels } = useCardItemContent()
 const { randomDevColor } = useColor()
 
 const componentType = computed(() => {

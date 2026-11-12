@@ -26,7 +26,7 @@ export default defineEventHandler(async (event) => {
 
   const siteContent = await queryCollection(event, 'siteConfig')
     .locale(locale, { fallback: 'de' })
-    .stem('site')
+    .stem('config/site')
     .first()
 
   if (!siteContent) return

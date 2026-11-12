@@ -1,16 +1,13 @@
 <script setup lang="ts">
-import type { LiveResultSummaryCollectionItem } from '@nuxt/content'
-
 defineProps<{
   totalResults: number
   pinnedResults?: number
 }>()
 
 const { randomDevColor } = useColor()
-const { data: summaryLabels }
-  = await useQueryCollection<LiveResultSummaryCollectionItem>(
-    'liveResultSummary',
-  ).first()
+const { data: summaryLabels } = await useContentQuery('liveResultSummary', () =>
+  queryCollection('liveResultSummary').first(),
+)
 </script>
 
 <template>

@@ -1,14 +1,11 @@
 <script setup lang="ts">
-import type {
-  FooterMiniCollectionItem,
-  NavigationCollectionItem,
-} from '@nuxt/content'
-
 const [{ data: footerDirData }, { data: footerMiniData }] = await Promise.all([
-  useQueryCollection<NavigationCollectionItem>('navigation')
-    .stem('footer-directory')
-    .first(),
-  useQueryCollection<FooterMiniCollectionItem>('footerMini').first(),
+  useContentQuery('navigation:footer-directory', () =>
+    queryCollection('navigation')
+      .stem('components/navigation/footer-directory')
+      .first(),
+  ),
+  useContentQuery('footerMini', () => queryCollection('footerMini').first()),
 ])
 
 const footerDirectoryItems = computed<SectionType[]>(

@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import type { LanguagesCollectionItem } from '@nuxt/content'
-
 defineProps<{
   title: string
 }>()
 
 const viewport = useViewport()
-const { data: langData }
-  = await useQueryCollection<LanguagesCollectionItem>('languages').all()
+const { data: langData } = await useContentQuery('languages', () =>
+  queryCollection('languages').all(),
+)
 const languages = computed(() => langData.value ?? [])
 </script>
 

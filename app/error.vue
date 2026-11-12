@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import type { ErrorPagesCollectionItem } from '@nuxt/content'
-
 const error = useError()
 
-const { data: errorPages }
-  = await useQueryCollection<ErrorPagesCollectionItem>('errorPages').all()
+const { data: errorPages } = await useContentQuery('errorPages', () =>
+  queryCollection('errorPages').all(),
+)
 
 const currentPage = computed<ErrorPageType>(() => {
   const pages = errorPages.value ?? []

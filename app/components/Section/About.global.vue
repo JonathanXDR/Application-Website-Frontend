@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import type { AboutCollectionItem } from '@nuxt/content'
-
 defineProps<{
   title: string
 }>()
 
 const viewport = useViewport()
 const nonce = useNonce()
-const { data: about }
-  = await useQueryCollection<AboutCollectionItem>('about').first()
+const { data: about } = await useContentQuery('about', () =>
+  queryCollection('about').first(),
+)
 
 const calculateAge = (date = '') => {
   const currentDate = new Date(Date.now())

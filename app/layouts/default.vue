@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import type {
-  InfoBannerCollectionItem,
-  NavigationCollectionItem,
-} from '@nuxt/content'
 import FooterPre from '~/components/Footer/Pre.vue'
 
 // A page overrides these defaults with
@@ -38,10 +34,8 @@ const config = useRuntimeConfig()
 
 const [{ data: navbarContent }, { data: infoBannerContent }]
   = await Promise.all([
-    useQueryCollection<NavigationCollectionItem>('navigation')
-      .stem('navbar')
-      .first(),
-    useQueryCollection<InfoBannerCollectionItem>('infoBanner').first(),
+    useNavbarContent(),
+    useContentQuery('infoBanner', () => queryCollection('infoBanner').first()),
   ])
 
 watch(

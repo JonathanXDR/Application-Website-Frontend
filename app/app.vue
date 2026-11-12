@@ -10,11 +10,10 @@ const color
 
 // Only `title` is selected: this query runs on every page and would
 // otherwise embed the whole collection into each payload.
-const { data: technologies } = await useQueryCollection<{ title: string }>(
-  'technologies',
+const { data: technologies } = await useContentQuery(
+  'technologies:titles',
+  () => queryCollection('technologies').select('title').all(),
 )
-  .select('title')
-  .all()
 
 // The `Person` identity lives here rather than in `nuxt.config.ts`
 // because its fields resolve at runtime, against `siteConfig` and the

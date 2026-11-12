@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { SegmentNavCollectionItem } from '@nuxt/content'
-
 withDefaults(defineProps<Pick<SegmentNavType, 'label'>>(), {
   label: 'text',
 })
@@ -8,8 +6,7 @@ withDefaults(defineProps<Pick<SegmentNavType, 'label'>>(), {
 const { getTheme, setTheme } = useTheme()
 const currentTheme = computed(() => getTheme())
 
-const { data: segNavData }
-  = await useQueryCollection<SegmentNavCollectionItem>('segmentNav').first()
+const { data: segNavData } = await useSegmentNavContent()
 const themeItems = computed<ItemType[]>(() => segNavData.value?.theme ?? [])
 </script>
 

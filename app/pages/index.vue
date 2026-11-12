@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { NavigationCollectionItem } from '@nuxt/content'
 import SectionAbout from '~/components/Section/About.global.vue'
 import SectionFunFacts from '~/components/Section/FunFacts.global.vue'
 import SectionLanguages from '~/components/Section/Languages.global.vue'
@@ -16,11 +15,7 @@ const sectionComponents = {
   'references': SectionReferences,
 } satisfies Record<string, Component>
 
-const { data: navbarData } = await useQueryCollection<NavigationCollectionItem>(
-  'navigation',
-)
-  .stem('navbar')
-  .first()
+const { data: navbarData } = await useNavbarContent()
 
 const sections = computed<SectionType[]>(() => navbarData.value?.items ?? [])
 </script>

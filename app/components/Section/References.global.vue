@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import type { ReferencesCollectionItem } from '@nuxt/content'
-
 defineProps<{
   title: string
 }>()
 
 const viewport = useViewport()
-const { data: refData }
-  = await useQueryCollection<ReferencesCollectionItem>('references').all()
+const { data: refData } = await useContentQuery('references', () =>
+  queryCollection('references').all(),
+)
 const articles = computed(() => refData.value ?? [])
 </script>
 

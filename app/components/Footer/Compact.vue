@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import type { FooterCopyrightCollectionItem } from '@nuxt/content'
-
-const { data: copyrightData }
-  = await useQueryCollection<FooterCopyrightCollectionItem>(
-    'footerCopyright',
-  ).first()
+const { data: copyrightData } = await useFooterCopyrightContent()
 const currentYear = useCurrentYear()
 </script>
 

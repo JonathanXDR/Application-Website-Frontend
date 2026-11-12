@@ -1,10 +1,4 @@
 <script setup lang="ts">
-import type {
-  CardItemCollectionItem,
-  ErrorPagesCollectionItem,
-  SegmentNavCollectionItem,
-} from '@nuxt/content'
-
 type CategorizedRepository = CardRepositoryType & {
   category: string
 }
@@ -90,12 +84,14 @@ const [
   { data: segmentNavData },
   { data: unavailableLabels },
 ] = await Promise.all([
-  useQueryCollection<CardItemType>('projects').all(),
-  useQueryCollection<CardItemCollectionItem>('cardItem').first(),
-  useQueryCollection<SegmentNavCollectionItem>('segmentNav').first(),
-  useQueryCollection<ErrorPagesCollectionItem>('errorPages')
-    .stem('service-unavailable')
-    .first(),
+  useContentQuery('projects', () => queryCollection('projects').all()),
+  useCardItemContent(),
+  useSegmentNavContent(),
+  useContentQuery('errorPages:service-unavailable', () =>
+    queryCollection('errorPages')
+      .stem('pages/error/service-unavailable')
+      .first(),
+  ),
 ])
 
 const projects: Projects = reactive({
@@ -351,7 +347,7 @@ watchEffect(() => {
       <LazyFlashAlert
         v-else-if="userRepositoriesStatus === 'error'"
         variant="warning"
-        :title="unavailableLabels?.label"
+        :title="unavailableLabels?.label ?? ''"
         :description="unavailableLabels?.description"
       />
       <LazyLoadingSpinner

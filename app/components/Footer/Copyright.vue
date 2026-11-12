@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { FooterCopyrightCollectionItem } from '@nuxt/content'
-
 withDefaults(
   defineProps<{
     componentSize?: Exclude<BasicSizeType, 'medium'>
@@ -12,10 +10,7 @@ withDefaults(
   },
 )
 
-const { data: copyrightData }
-  = await useQueryCollection<FooterCopyrightCollectionItem>(
-    'footerCopyright',
-  ).first()
+const { data: copyrightData } = await useFooterCopyrightContent()
 const links = computed<LinkItemType[]>(
   () => (copyrightData.value?.links as LinkItemType[]) ?? [],
 )

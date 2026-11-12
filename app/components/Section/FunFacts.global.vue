@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { FunFactsCollectionItem } from '@nuxt/content'
 import { animate } from 'motion-v'
 
 defineProps<{
@@ -12,8 +11,9 @@ const { locale } = useI18n()
 const chipClaimHeight = ref(0)
 const titles = useTemplateRef<HTMLElement[]>('titles')
 const progressSpan = ref<HTMLElement[]>([])
-const { data: factsData }
-  = await useQueryCollection<FunFactsCollectionItem>('funFacts').all()
+const { data: factsData } = await useContentQuery('funFacts', () =>
+  queryCollection('funFacts').all(),
+)
 const funFacts = computed(() => factsData.value ?? [])
 
 const updateChipClaimHeight = () => {

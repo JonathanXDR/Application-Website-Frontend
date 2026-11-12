@@ -5,8 +5,9 @@ const { currentRoute } = useNavbar()
 
 const sfSymbolRegex = /^[a-z0-9]+(?:\.[a-z0-9]+)*$/
 
-const { data: cards }
-  = await useQueryCollection<CardItemType>('technologies').all()
+const { data: cards } = await useContentQuery('technologies', () =>
+  queryCollection('technologies').all(),
+)
 
 // const tags = [
 //   ...new Set(
