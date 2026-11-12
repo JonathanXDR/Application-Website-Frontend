@@ -46,7 +46,7 @@ const {
   key: 'user-repositories',
   lazy: true,
   enabled: needsRepositories,
-  params: { per_page: 100 },
+  query: { per_page: 100 },
 })
 
 const {

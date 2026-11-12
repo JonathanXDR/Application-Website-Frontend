@@ -33,7 +33,7 @@ const baseItems = ref<InfoBannerType['items']>([])
 const { data: repositoryTags } = await useFetch('/api/github/repository-tags', {
   key: 'repository-tags',
   lazy: true,
-  params: {
+  query: {
     per_page: 2,
   },
 })
