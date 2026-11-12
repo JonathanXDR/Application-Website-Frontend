@@ -14,16 +14,8 @@ export default defineEventHandler(async (event) => {
   // head tags, so the query below would be wasted.
   if (path.includes('.')) return
 
-  // `event.context.nuxtI18n` is seeded only for downstream consumers. The
-  // explicit `.locale()` below picks the `siteConfig` variant: the
-  // `@nuxt/content` fork's automatic detection does not see the request
-  // locale this early in the middleware lifecycle, which previously baked the
-  // German description into every locale.
-  event.context.nuxtI18n = {
-    ...event.context.nuxtI18n,
-    locale,
-  }
-
+  // Server queries apply no locale on their own: they return every locale
+  // until `.locale()` selects one.
   const siteContent = await queryCollection(event, 'siteConfig')
     .locale(locale, { fallback: 'de' })
     .stem('config/site')
