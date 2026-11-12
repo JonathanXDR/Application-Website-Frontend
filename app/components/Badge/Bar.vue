@@ -2,6 +2,12 @@
 defineProps<{
   badges?: BadgeItemType[]
 }>()
+
+// Built here because vue-tsc 3.3.12+ rewrites a `//` inside inline component
+// props as a comment, which drops the `v-for` scope from the typecheck.
+// TODO: inline the URL again once a vue-tsc release fixes this.
+//       https://github.com/vuejs/language-tools/issues/6240
+const getTopicUrl = (topic: string) => `https://github.com/topics/${topic}`
 </script>
 
 <template>
@@ -14,7 +20,7 @@ defineProps<{
           :key="index"
           class="badge"
           component-size="small"
-          :url="`https://github.com/topics/${badge.title}`"
+          :url="getTopicUrl(badge.title)"
         />
       </div>
     </div>
