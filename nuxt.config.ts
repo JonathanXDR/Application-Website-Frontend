@@ -274,6 +274,10 @@ export default defineNuxtConfig({
     // enabled, and `vue-tsc` ignores `compilerOptions.plugins`, so
     // `typescript.typeCheck` is unaffected.
     typescriptPlugin: true,
+    // Compatibility version 5 turns Nitro's server auto-imports off, but the
+    // server runtimes of nuxt-csurf (`getRouteRules`) and @nuxtjs/i18n
+    // (`useRuntimeConfig`) still import them from `#imports`.
+    nitroAutoImports: true,
   },
   compatibilityDate: '2026-03-21',
   nitro: {
