@@ -291,6 +291,9 @@ export default defineNuxtConfig({
     // Types only: a `$fetch` or `useFetch` path that matches no server route
     // fails the typecheck instead of 404ing at runtime.
     strictRouteTypes: true,
+    // Unknown paths are the only pages the Lambda renders. This renders the
+    // error page directly instead of first attempting the unmatched route.
+    early404: true,
     // Compatibility version 5 turns Nitro's server auto-imports off, but the
     // server runtimes of nuxt-csurf (`getRouteRules`) and @nuxtjs/i18n
     // (`useRuntimeConfig`) still import them from `#imports`.
