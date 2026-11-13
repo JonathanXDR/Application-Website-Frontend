@@ -38,9 +38,15 @@ export default defineNuxtConfig({
       '@alwaysmeticulous/recorder-plugin/nuxt',
       {
         recordingToken: '3xUUe4R1NNzA6BJE6HKzrGCjCRddpahZJeJh8N0w',
-        // `@nuxt/hints` flags third-party scripts without `crossorigin`.
-        // Anonymous mode reports cross-origin errors without credentials.
-        attributes: { crossorigin: 'anonymous' },
+        attributes: {
+          // `@nuxt/hints` flags third-party scripts without `crossorigin`.
+          // Anonymous mode reports cross-origin errors without credentials.
+          crossorigin: 'anonymous',
+          // Unhead matches a server-rendered script without `id` or `key` on
+          // hydration by comparing every attribute. Browsers hide `nonce`
+          // values, so the client would insert and run a second copy.
+          id: 'meticulous-recorder',
+        },
       },
     ],
     '@nuxt/eslint',
