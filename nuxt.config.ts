@@ -330,7 +330,7 @@ export default defineNuxtConfig({
   },
   typescript: {
     typeCheck: true,
-    tsConfig: {
+    appTsConfig: {
       compilerOptions: {
         types: ['@types/musickit-js'],
       },
