@@ -1,6 +1,6 @@
 import { queryCollection } from '@nuxt/content/server'
 import { defineEventHandler } from 'h3'
-import { updateSiteConfig } from '#site-config/server/composables'
+import { updateSiteConfig } from '#site-config/server'
 
 // Matches the `strategy: 'prefix'` locale prefix. Assets, `/api`, and
 // `/__nuxt_*` never match it, so they need no explicit skip.

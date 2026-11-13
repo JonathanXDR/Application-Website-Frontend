@@ -49,23 +49,23 @@ Only the two Infisical bootstrap credentials live on your machine. Everything el
 
 Locally, `bun run dev` wraps Nuxt in `varlock run` to fetch the values. On Vercel the Infisical Vercel Secret Sync writes them into the build environment instead, which is why the deployed build runs plain `nuxt build` with no Varlock wrapper.
 
-| Variable                                  | Purpose                                                    |
-| ----------------------------------------- | ---------------------------------------------------------- |
-| `INFISICAL_CLIENT_ID`                     | Universal Auth identity used to reach Infisical            |
-| `INFISICAL_CLIENT_SECRET`                 | Secret for that identity                                   |
-| `NUXT_SITE_URL`                           | Canonical origin behind every absolute URL                 |
-| `NUXT_SITE_NAME`                          | Site name used in titles and structured data               |
-| `NUXT_PUBLIC_GITHUB_REPO_OWNER`           | Repository owner the GitHub endpoints are pinned to        |
-| `NUXT_PUBLIC_GITHUB_REPO_NAME`            | Repository name the GitHub endpoints are pinned to         |
-| `NUXT_GITHUB_TOKEN`                       | Token for the server-side GitHub API calls                 |
-| `NUXT_PUBLIC_APP_ENVIRONMENT`             | `development` switches the accent color and favicon        |
-| `NUXT_FLICK_API_KEY`                      | Key for the Flick endpoints                                |
-| `NUXT_APPLE_DEVELOPER_TEAM_ID`            | Apple team behind the MusicKit token                       |
-| `NUXT_APPLE_DEVELOPER_KEY_ID`             | MusicKit key ID                                            |
-| `NUXT_APPLE_DEVELOPER_PRIVATE_KEY`        | Base64-encoded MusicKit signing key                        |
-| `NUXT_APPLE_MUSIC_USER_TOKEN`             | `Music-User-Token` for the library endpoints               |
-| `NUXT_PUBLIC_SCRIPTS_GOOGLE_ANALYTICS_ID` | Google Analytics measurement ID, optional                  |
-| `NUXT_OG_IMAGE_SECRET`                    | Signs `og:image` URLs, optional while they are prerendered |
+| Variable                                  | Purpose                                                 |
+| ----------------------------------------- | ------------------------------------------------------- |
+| `INFISICAL_CLIENT_ID`                     | Universal Auth identity used to reach Infisical         |
+| `INFISICAL_CLIENT_SECRET`                 | Secret for that identity                                |
+| `NUXT_SITE_URL`                           | Canonical origin behind every absolute URL              |
+| `NUXT_SITE_NAME`                          | Site name used in titles and structured data            |
+| `NUXT_PUBLIC_GITHUB_REPO_OWNER`           | Repository owner the GitHub endpoints are pinned to     |
+| `NUXT_PUBLIC_GITHUB_REPO_NAME`            | Repository name the GitHub endpoints are pinned to      |
+| `NUXT_GITHUB_TOKEN`                       | Token for the server-side GitHub API calls              |
+| `NUXT_PUBLIC_APP_ENVIRONMENT`             | `development` switches the accent color and favicon     |
+| `NUXT_FLICK_API_KEY`                      | Key for the Flick endpoints                             |
+| `NUXT_APPLE_DEVELOPER_TEAM_ID`            | Apple team behind the MusicKit token                    |
+| `NUXT_APPLE_DEVELOPER_KEY_ID`             | MusicKit key ID                                         |
+| `NUXT_APPLE_DEVELOPER_PRIVATE_KEY`        | Base64-encoded MusicKit signing key                     |
+| `NUXT_APPLE_MUSIC_USER_TOKEN`             | `Music-User-Token` for the library endpoints            |
+| `NUXT_PUBLIC_SCRIPTS_GOOGLE_ANALYTICS_ID` | Google Analytics measurement ID, optional               |
+| `NUXT_OG_IMAGE_SECRET`                    | Unused: OG images are prerendered, so nothing is signed |
 
 Endpoints whose credential is optional stay disabled rather than failing. The Apple [MusicKit](https://developer.apple.com/musickit/) and Flick endpoints return 404 until their keys are configured.
 

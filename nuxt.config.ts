@@ -53,7 +53,6 @@ export default defineNuxtConfig({
     'nuxt-security',
     'nuxt-viewport',
     '@nuxt/hints',
-    'nuxt-ai-ready',
   ],
   $development: {
     app: {
@@ -415,12 +414,9 @@ export default defineNuxtConfig({
     // content lookup can never match a route. Restore the default if a
     // `type: 'page'` collection is added.
     contentSource: false,
-    llmsTxt: {
-      markdownLinks: true,
-    },
-    // Despite the name this bites at build time: the prerenderer renders the
-    // same `defineCachedFunction`-wrapped handler, so the 600 second default
-    // makes two builds inside that window ship the earlier build's llms.txt.
+    // The `/sitemap.md` handler reads this too and, unlike llms.txt, keeps its
+    // SWR cache while prerendering. That cache lives in the build dir, which
+    // survives rebuilds, so any positive value ships the previous build's file.
     llmsTxtCacheSeconds: 0,
   },
   eslint: {
@@ -608,7 +604,7 @@ export default defineNuxtConfig({
       '/__nuxt_hints/**',
       '/__link-checker__/**',
     ],
-    // `strictNuxtContentPaths` is absent: nuxt-link-checker v5 defines it as a
+    // `strictNuxtContentPaths` is absent: nuxt-link-checker v6 defines it as a
     // default but never reads it.
   },
   ogImage: {
@@ -622,10 +618,8 @@ export default defineNuxtConfig({
       width: 1200,
       height: 630,
     },
-    // No `security` block: with `zeroRuntime` there is no runtime endpoint to
-    // protect, and enabling it flips the emitted og:image URLs from the
-    // prerendered `/_og/s/...` assets to runtime `/_og/d/...` URLs that 404 in
-    // production.
+    // No `security` block: with `zeroRuntime` no image renders at runtime, so
+    // no URL is signed and NUXT_APP_SECRET stays unset.
   },
   // No `schemaOrg` block: crawlers only read the SSR JSON-LD, and forcing
   // `reactive` in production would ship the resolver to every client. Person
@@ -804,6 +798,15 @@ export default defineNuxtConfig({
     // and Google distrusts lastmod values that always equal it. Once per-page
     // edit dates exist, set it via `definePageMeta({ sitemap: { lastmod } })`.
   },
+  // Every page is prerendered, so the module could never show its prompt:
+  // `<SkewNotification>` treats prerendered pages as current, and the
+  // chunks-outdated check needs earlier builds' manifests, which Vercel keeps
+  // in `node_modules/.cache` only on a build-cache hit. Nuxt's default
+  // `emitRouteChunkError: 'automatic'` already reloads after a failed chunk
+  // load, and on the next navigation once the hourly `builds/latest.json`
+  // check sees a new build.
+  // https://nuxtseo.com/docs/skew-protection
+  skewProtection: false,
   viewport: {
     breakpoints: {
       mobile: 320,
