@@ -1,3 +1,5 @@
+import { createError } from 'h3'
+
 /**
  * Answers 404 so an unset secret leaves the endpoint inert rather than live
  * but broken.

@@ -1,4 +1,15 @@
 import type { H3Event } from 'h3'
+import { getQuery } from 'h3'
+import { defineCachedEventHandler } from 'nitropack/runtime'
+import { cacheKey } from '#server/utils/cache'
+import {
+  FLICK_CACHE_MAX_AGE,
+  flickPathId,
+  handleFlickError,
+  requireFlickParam,
+  useFlick,
+} from '#server/utils/flick'
+import type { FlickReview } from '#shared/types/services/flick/review'
 
 // The id is a query param for the same reason as in `list-items.get.ts`.
 // Flick answers 404 for a review that is not the key owner's.

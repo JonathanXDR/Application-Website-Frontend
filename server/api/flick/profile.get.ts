@@ -1,3 +1,11 @@
+import { defineCachedEventHandler } from 'nitropack/runtime'
+import {
+  FLICK_CACHE_MAX_AGE,
+  handleFlickError,
+  useFlick,
+} from '#server/utils/flick'
+import type { FlickProfile } from '#shared/types/services/flick/profile'
+
 export default defineCachedEventHandler(
   async () => {
     const { request } = useFlick()

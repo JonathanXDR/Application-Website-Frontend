@@ -1,3 +1,14 @@
+import { defineCachedEventHandler } from 'nitropack/runtime'
+import { cacheKey } from '#server/utils/cache'
+import {
+  getListQuery,
+  GITHUB_CACHE_MAX_AGE,
+  handleGitHubError,
+  useGitHubRepoCoordinates,
+  useOctokit,
+} from '#server/utils/octokit'
+import type { MinimalRepositoryCard } from '#shared/types/services/github/repository'
+
 const PER_PAGE = 100
 
 export default defineCachedEventHandler(

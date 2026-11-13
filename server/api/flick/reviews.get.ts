@@ -1,4 +1,25 @@
 import type { H3Event } from 'h3'
+import { getQuery } from 'h3'
+import { defineCachedEventHandler } from 'nitropack/runtime'
+import { cacheKey } from '#server/utils/cache'
+import {
+  FLICK_CACHE_MAX_AGE,
+  flickBoolean,
+  flickEnum,
+  flickNumber,
+  flickString,
+  getFlickPageQuery,
+  handleFlickError,
+  invalidFlickParam,
+  useFlick,
+} from '#server/utils/flick'
+import type { FlickMediaType } from '#shared/types/services/flick/media'
+import type { FlickPaginated } from '#shared/types/services/flick/response'
+import type {
+  FlickReview,
+  FlickReviewOrder,
+  FlickReviewSort,
+} from '#shared/types/services/flick/review'
 
 // `satisfies` does not check coverage, so a media type or sort added to
 // `shared/types/services/flick` still compiles here and silently stops being

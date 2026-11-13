@@ -1,6 +1,15 @@
 import { $fetch } from 'ofetch'
 import type { H3Event } from 'h3'
+import { createError, getQuery, isError } from 'h3'
 import type { QueryObject } from 'ufo'
+import { useRuntimeConfig } from 'nitropack/runtime'
+import { mapUpstreamStatus } from '#server/utils/upstream'
+import { requireCredential } from '#server/utils/credentials'
+import type {
+  FlickAppErrorBody,
+  FlickErrorBody,
+  FlickPageQuery,
+} from '#shared/types/services/flick/response'
 
 // The OpenAPI document declares a relative `servers` URL with no host, so the
 // origin only exists in Flick's prose documentation.

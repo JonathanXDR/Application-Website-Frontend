@@ -1,3 +1,13 @@
+import { createError, getQuery } from 'h3'
+import { defineCachedEventHandler } from 'nitropack/runtime'
+import { cacheKey } from '#server/utils/cache'
+import {
+  handleMusicKitError,
+  MUSICKIT_CACHE_MAX_AGE,
+  parseCatalogIds,
+  useMusicKit,
+} from '#server/utils/musickit'
+
 export default defineCachedEventHandler(
   async (event) => {
     const ids = parseCatalogIds(getQuery(event).ids)

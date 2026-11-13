@@ -1,3 +1,14 @@
+import { defineCachedEventHandler } from 'nitropack/runtime'
+import { cacheKey } from '#server/utils/cache'
+import {
+  FLICK_CACHE_MAX_AGE,
+  getFlickPageQuery,
+  handleFlickError,
+  useFlick,
+} from '#server/utils/flick'
+import type { FlickFollowedUser } from '#shared/types/services/flick/profile'
+import type { FlickPaginated } from '#shared/types/services/flick/response'
+
 // Most recently followed first. Serves other people's profiles to anonymous
 // visitors.
 export default defineCachedEventHandler(

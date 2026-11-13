@@ -1,3 +1,12 @@
+import { createError, getQuery } from 'h3'
+import { defineCachedEventHandler } from 'nitropack/runtime'
+import { cacheKey } from '#server/utils/cache'
+import {
+  handleMusicKitError,
+  MUSICKIT_CACHE_MAX_AGE,
+  useMusicKit,
+} from '#server/utils/musickit'
+
 const MAX_TERM_LENGTH = 100
 const parseTerm = (value: unknown): string => {
   const raw = Array.isArray(value) ? value[0] : value

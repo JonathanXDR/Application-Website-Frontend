@@ -1,3 +1,12 @@
+import { defineCachedEventHandler } from 'nitropack/runtime'
+import {
+  FLICK_CACHE_MAX_AGE,
+  handleFlickError,
+  useFlick,
+} from '#server/utils/flick'
+import type { FlickCollection } from '#shared/types/services/flick/response'
+import type { FlickList } from '#shared/types/services/flick/list'
+
 // The built-in watchlist is excluded upstream and has its own route at
 // `/api/flick/watchlist`.
 export default defineCachedEventHandler(

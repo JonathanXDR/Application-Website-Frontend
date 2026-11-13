@@ -1,3 +1,13 @@
+import { defineCachedEventHandler } from 'nitropack/runtime'
+import { cacheKey } from '#server/utils/cache'
+import {
+  getPerPage,
+  GITHUB_CACHE_MAX_AGE,
+  handleGitHubError,
+  useGitHubRepoCoordinates,
+  useOctokit,
+} from '#server/utils/octokit'
+
 export default defineCachedEventHandler(
   async (event) => {
     const octokit = useOctokit()

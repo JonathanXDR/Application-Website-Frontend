@@ -1,4 +1,18 @@
 import type { H3Event } from 'h3'
+import { getQuery } from 'h3'
+import { defineCachedEventHandler } from 'nitropack/runtime'
+import { cacheKey } from '#server/utils/cache'
+import {
+  FLICK_CACHE_MAX_AGE,
+  flickEnum,
+  flickInteger,
+  flickString,
+  handleFlickError,
+  requireFlickParam,
+  useFlick,
+} from '#server/utils/flick'
+import type { FlickResolvableMediaType } from '#shared/types/services/flick/media'
+import type { FlickResolveResult } from '#shared/types/services/flick/resolve'
 
 const RESOLVABLE_MEDIA_TYPES = [
   'movie',

@@ -1,4 +1,5 @@
 import { queryCollection } from '@nuxt/content/server'
+import { defineEventHandler } from 'h3'
 import { updateSiteConfig } from '#site-config/server/composables'
 
 // Matches the `strategy: 'prefix'` locale prefix. Assets, `/api`, and

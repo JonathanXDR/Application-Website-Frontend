@@ -1,6 +1,10 @@
 import jwt from 'jsonwebtoken'
 import { $fetch } from 'ofetch'
 import type { QueryObject } from 'ufo'
+import { createError, isError } from 'h3'
+import { useRuntimeConfig } from 'nitropack/runtime'
+import { mapUpstreamStatus } from '#server/utils/upstream'
+import { requireCredential } from '#server/utils/credentials'
 
 export const APPLE_MUSIC_BASE_URL = 'https://api.music.apple.com/v1'
 

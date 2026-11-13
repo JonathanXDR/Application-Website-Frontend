@@ -1,3 +1,6 @@
+import { defineEventHandler } from 'h3'
+import { handleMusicKitError, useMusicKit } from '#server/utils/musickit'
+
 // Nitro only bundles an env-suffixed handler in the matching environment, so
 // `.dev` keeps this credential check out of production. The storefronts
 // endpoint needs only the developer token, so a 200 confirms the signing key,

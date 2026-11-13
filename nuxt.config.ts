@@ -1,4 +1,3 @@
-import { fileURLToPath } from 'node:url'
 import { icons as sfSymbols } from '@jonathanxdr/iconify-json-sf-symbols'
 import tailwindcss from '@tailwindcss/vite'
 
@@ -281,18 +280,6 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2026-03-21',
   nitro: {
-    // Nitro never scans `shared/types`, and its unimport does not resolve
-    // the `~~` alias, hence the absolute paths.
-    imports: {
-      dirs: [
-        fileURLToPath(
-          new URL('./shared/types/services/github', import.meta.url),
-        ),
-        fileURLToPath(
-          new URL('./shared/types/services/flick', import.meta.url),
-        ),
-      ],
-    },
     // The four locale roots feed link-checker's build-time scan and the
     // `zeroRuntime` og-image and sitemap assets. Trailing slashes match
     // `site.trailingSlash`. Without them the prerenderer follows an internal

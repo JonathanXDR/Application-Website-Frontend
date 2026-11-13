@@ -1,3 +1,8 @@
+import { defineEventHandler } from 'h3'
+import { useRuntimeConfig } from 'nitropack/runtime'
+import { handleMusicKitError, useMusicKit } from '#server/utils/musickit'
+import { requireCredential } from '#server/utils/credentials'
+
 // Served to anonymous visitors once `appleMusicUserToken` is set.
 // TODO: put behind first-party auth before the music feature is enabled.
 export default defineEventHandler(async () => {

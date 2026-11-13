@@ -1,4 +1,17 @@
 import type { H3Event } from 'h3'
+import { getQuery } from 'h3'
+import { defineCachedEventHandler } from 'nitropack/runtime'
+import { cacheKey } from '#server/utils/cache'
+import {
+  FLICK_CACHE_MAX_AGE,
+  flickPathId,
+  getFlickPageQuery,
+  handleFlickError,
+  requireFlickParam,
+  useFlick,
+} from '#server/utils/flick'
+import type { FlickListItem } from '#shared/types/services/flick/list'
+import type { FlickPaginated } from '#shared/types/services/flick/response'
 
 // The list id is a query param rather than a route segment to keep every
 // route a flat file with a uniform `cacheKey` composition. Leaving it

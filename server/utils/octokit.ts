@@ -1,6 +1,9 @@
 import { Octokit, RequestError } from 'octokit'
 import { GraphqlResponseError } from '@octokit/graphql'
 import type { H3Event } from 'h3'
+import { createError, getQuery, isError } from 'h3'
+import { useRuntimeConfig } from 'nitropack/runtime'
+import { mapUpstreamStatus } from '#server/utils/upstream'
 
 export const GITHUB_API_VERSION = '2026-03-10'
 
