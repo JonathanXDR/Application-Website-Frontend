@@ -733,7 +733,13 @@ export default defineNuxtConfig({
           '\'wasm-unsafe-eval\'',
           '\'nonce-{{nonce}}\'',
         ],
-        'script-src-attr': ['\'none\''],
+        // `NuxtImg` renders `onerror="this.setAttribute('data-error', 1)"` on
+        // the server to replay early image errors after hydration. The hash
+        // allows exactly that handler and keeps every other one blocked.
+        'script-src-attr': [
+          '\'unsafe-hashes\'',
+          '\'sha256-bwK6T5wZVTANitXbrTsel7kl/PyCjCd/Dq5Qoz3imjM=\'',
+        ],
         // 'strict-dynamic' does not apply to style-src, and runtime-injected
         // styles (motion-v, lazy hydration) cannot carry per-request nonces.
         // https://nuxt-security.vercel.app/advanced/strict-csp#important-details
