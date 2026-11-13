@@ -66,6 +66,7 @@
     "nuxt": "4.6.4",
     "nuxt-security": "2.7.0",
     "nuxt-viewport": "2.6.1",
+    "nuxtseo-devtools-host": "1.0.2",
     "octokit": "5.0.5",
     "tailwindcss": "4.3.5",
     "typescript": "6.0.3",
