@@ -18,7 +18,7 @@ The source of my personal website, a prerendered [Nuxt](https://nuxt.com) 4 appl
 ## 📋 Prerequisites
 
 - [Bun](https://bun.com). The repository is locked with `bun.lock`, so use Bun for every command below.
-- [Node.js](https://nodejs.org) 24 or newer. `@nuxt/content` reads its database through the `native` SQLite connector, which needs the built-in `node:sqlite` module in dev, during prerender, and on the deployed error page.
+- [Node.js](https://nodejs.org) `^24.15.0` or `>=26.0.0`. Nuxt 4.6 does not support earlier 24.x releases or Node.js 25. `@nuxt/content` reads its database through the `native` SQLite connector, which needs the built-in `node:sqlite` module in dev, during prerender, and on the deployed error page.
 - An [Infisical](https://infisical.com) machine identity with read access to the project. Without it the dev server cannot resolve its environment variables.
 
 ## 🚀 Quick Start
