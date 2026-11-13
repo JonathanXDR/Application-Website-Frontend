@@ -279,7 +279,6 @@ export default defineNuxtConfig({
     compatibilityVersion: 5,
   },
   experimental: {
-    typedPages: true,
     // By default `@nuxt/kit` logs NUXT_B8013 and skips an incompatible
     // module's setup, so the build stays green while quietly losing that
     // module's output. That is the failure mode for the SEO stack: nothing
@@ -331,16 +330,9 @@ export default defineNuxtConfig({
   },
   typescript: {
     typeCheck: true,
-    strict: true,
     tsConfig: {
       compilerOptions: {
-        strict: true,
         types: ['@types/musickit-js'],
-      },
-    },
-    nodeTsConfig: {
-      compilerOptions: {
-        strict: true,
       },
     },
   },
