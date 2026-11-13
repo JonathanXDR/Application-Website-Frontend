@@ -30,7 +30,7 @@
     "@iconify/types": "2.0.0",
     "@jonathanxdr/iconify-json-sf-symbols": "1.0.0",
     "@nuxt/content": "github:JonathanXDR/content#release/better-i18n",
-    "@nuxt/devtools": "3.4.2",
+    "@nuxt/devtools": "4.1.0",
     "@nuxt/eslint": "1.17.0",
     "@nuxt/hints": "1.1.5",
     "@nuxt/icon": "2.6.2",
@@ -82,6 +82,9 @@
     "@takumi-rs/core": "2.14.0",
     "@takumi-rs/wasm": "2.14.0",
     "better-sqlite3": "13.1.1"
+  },
+  "overrides": {
+    "@nuxt/devtools": "4.1.0"
   },
   "trustedDependencies": [
     "better-sqlite3",

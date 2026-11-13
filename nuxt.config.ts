@@ -307,8 +307,6 @@ export default defineNuxtConfig({
     optimizeDeps: {
       include: [
         '@unhead/schema-org/vue',
-        '@vue/devtools-core',
-        '@vue/devtools-kit',
         'dayjs', // CJS
         'minimark/hast',
         'motion-v',
