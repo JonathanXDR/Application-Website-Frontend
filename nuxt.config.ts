@@ -83,6 +83,11 @@ export default defineNuxtConfig({
         appEnvironment: 'development',
       },
     },
+    // Vite DevTools resolves dock client modules to `/@id/<specifier>` and
+    // ignores Vite's `base`, which Nuxt sets to its `/_nuxt/` build assets dir
+    routeRules: {
+      '/@id/**': { redirect: '/_nuxt/@id/**' },
+    },
     // Safari on localhost and LAN-IP phone testing over plain http silently
     // drop a Secure cookie, breaking locale persistence.
     i18n: {
