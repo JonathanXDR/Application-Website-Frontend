@@ -92,8 +92,20 @@ export default defineNuxtConfig({
     },
     security: {
       headers: {
+        // Under COEP the browser refuses iframes whose documents send no COEP
+        // header: the DevTools panels that Vite serves and the dev-only
+        // Meticulous recorder iframe.
+        crossOriginEmbedderPolicy: false,
         contentSecurityPolicy: {
           'upgrade-insecure-requests': false,
+          // Appended to the base lists. Nuxt DevTools 4 connects to the Vite
+          // DevTools hub on its own port (9777 to 9877), fetches its dock
+          // icons from the Iconify API, and loads its branding images from
+          // nuxt.com and jsDelivr. Vite pings a restarted dev server from a
+          // `blob:` SharedWorker.
+          'connect-src': ['ws://localhost:*', 'https://api.iconify.design'],
+          'img-src': ['https://nuxt.com', 'https://cdn.jsdelivr.net'],
+          'worker-src': ['blob:'],
         },
       },
     },
