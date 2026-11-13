@@ -295,15 +295,7 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2026-03-21',
   nitro: {
-    // The four locale roots feed link-checker's build-time scan and the
-    // `zeroRuntime` og-image and sitemap assets. Trailing slashes match
-    // `site.trailingSlash`. Without them the prerenderer follows an internal
-    // 301 and double-writes the output. `/` is listed explicitly because
-    // under `strategy: 'prefix'` no in-page link points back to the
-    // unprefixed root for `crawlLinks` to find.
     prerender: {
-      crawlLinks: true,
-      routes: ['/', '/de/', '/en/', '/fr/', '/it/'],
       // Nitro's default `false` skips a route that answers non-200, and a
       // skipped route falls through to the SSR function, which 500s because
       // it cannot load `@nuxt/content`'s native SQLite binding in the Lambda.
@@ -311,10 +303,6 @@ export default defineNuxtConfig({
       // never become prerender routes, so an outage there still degrades
       // through `useFetch`'s error state.
       failOnError: true,
-      // `@nuxt/image`'s vercel provider emits `/_vercel/image?...` URLs that
-      // `crawlLinks` follows. The endpoint exists only at runtime, so the
-      // build-time crawl 404s and, with `failOnError`, aborts the prerender.
-      ignore: [/^\/_vercel\b/],
     },
   },
   vite: {
@@ -612,6 +600,20 @@ export default defineNuxtConfig({
     },
     // No `security` block: with `zeroRuntime` no image renders at runtime, so
     // no URL is signed and NUXT_APP_SECRET stays unset.
+  },
+  // The four locale roots feed link-checker's build-time scan and the
+  // `zeroRuntime` og-image and sitemap assets. Trailing slashes match
+  // `site.trailingSlash`. Without them the prerenderer follows an internal
+  // 301 and double-writes the output. `/` is listed explicitly because
+  // under `strategy: 'prefix'` no in-page link points back to the
+  // unprefixed root for `crawlLinks` to find.
+  prerender: {
+    crawlLinks: true,
+    routes: ['/', '/de/', '/en/', '/fr/', '/it/'],
+    // `@nuxt/image`'s vercel provider emits `/_vercel/image?...` URLs that
+    // `crawlLinks` follows. The endpoint exists only at runtime, so the
+    // build-time crawl 404s and, with `failOnError`, aborts the prerender.
+    ignore: [/^\/_vercel\b/],
   },
   // No `schemaOrg` block: crawlers only read the SSR JSON-LD, and forcing
   // `reactive` in production would ship the resolver to every client. Person
